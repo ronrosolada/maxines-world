@@ -1,31 +1,26 @@
 package com.maxinesworld.featurerewards
 
-import androidx.compose.animation.*
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.*
+import androidx.compose.ui.draw.*
+import androidx.compose.ui.geometry.*
+import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.drawscope.*
+import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.*
 import com.maxinesworld.coremodel.BadgeBiome
 import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coredesignsystem.theme.*
 
 /**
- * Displays a single collectible badge card — either collected (full color) or locked (silhouette).
+ * Pokémon-style badge card — silhouette until earned, full color when collected.
  */
 @Composable
 fun BadgeCard(
@@ -37,200 +32,106 @@ fun BadgeCard(
     val accentColor = Color(biome.colorHex)
 
     Card(
-        modifier = modifier.clickable { onClick() },
+        modifier.clickable { onClick() },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (badge.isCollected) accentColor.copy(alpha = 0.1f) else Color.White.copy(alpha = 0.5f)
+            containerColor = if (badge.isCollected) accentColor.copy(alpha = 0.1f)
+                else Color.Black.copy(alpha = 0.04f)
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (badge.isCollected) 4.dp else 0.dp)
     ) {
-        Column(
-            Modifier.padding(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Badge icon area
-            Box(
-                modifier = Modifier
-                    .size(72.dp)
-                    .clip(CircleShape)
-                    .background(
-                        if (badge.isCollected) accentColor.copy(alpha = 0.2f)
-                        else Color.Black.copy(alpha = 0.05f)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
+        Column(Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            // Badge token
+            Box(Modifier.size(72.dp), contentAlignment = Alignment.Center) {
                 if (badge.isCollected) {
+                    // Earned: colorful + scalloped glow
+                    Canvas(Modifier.fillMaxSize()) {
+                        drawCircle(accentColor.copy(alpha = 0.2f), radius = size.minDimension / 2)
+                        drawCircle(accentColor.copy(alpha = 0.08f), radius = size.minDimension / 2.3f)
+                    }
                     Text(badge.emoji, fontSize = 32.sp)
                 } else {
-                    Icon(
-                        Icons.Default.Lock,
-                        contentDescription = "Locked",
-                        tint = Color.Black.copy(alpha = 0.2f),
-                        modifier = Modifier.size(28.dp)
-                    )
+                    // Locked: dark silhouette token — no emoji
+                    Canvas(Modifier.fillMaxSize()) {
+                        val r = size.minDimension / 2
+                        drawCircle(Color.Black.copy(alpha = 0.2f), radius = r * 0.9f)
+                        drawCircle(Color.Black.copy(alpha = 0.35f), radius = r, style = Stroke(width = 2.5f))
+                        // Mystery paw shape
+                        val paw = Path().apply {
+                            moveTo(r, r * 0.4f)
+                            // Main pad
+                            addOval(Rect(r * 0.55f, r * 0.5f, r * 1.45f, r * 1.3f))
+                        }
+                        drawPath(paw, Color.Black.copy(alpha = 0.12f))
+                    }
+                    Icon(Icons.Default.Lock, "Undiscovered", tint = Color.Black.copy(alpha = 0.18f),
+                        modifier = Modifier.size(20.dp).align(Alignment.Center))
                 }
             }
             Spacer(Modifier.height(8.dp))
-            Text(
-                badge.title,
-                fontWeight = FontWeight.Bold,
-                fontSize = 13.sp,
-                color = if (badge.isCollected) accentColor else Ink.copy(alpha = 0.4f),
-                textAlign = TextAlign.Center,
-                lineHeight = 16.sp,
-                maxLines = 2
-            )
-            Text(
-                badge.name,
-                fontSize = 11.sp,
-                color = if (badge.isCollected) Ink.copy(alpha = 0.6f) else Ink.copy(alpha = 0.3f),
-                textAlign = TextAlign.Center,
-                maxLines = 1
-            )
+
+            if (badge.isCollected) {
+                // Earned: show title and name
+                Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = accentColor,
+                    textAlign = TextAlign.Center, lineHeight = 16.sp, maxLines = 2)
+                Text(badge.name, fontSize = 11.sp, color = Ink.copy(alpha = 0.6f),
+                    textAlign = TextAlign.Center, maxLines = 1)
+            } else {
+                // Locked: "Undiscovered"
+                Text("???", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Color.Black.copy(alpha = 0.25f),
+                    textAlign = TextAlign.Center)
+                Text("Undiscovered", fontSize = 10.sp, color = Color.Black.copy(alpha = 0.15f),
+                    textAlign = TextAlign.Center)
+            }
         }
     }
 }
 
 /**
- * Expanded badge detail — shows the fun fact and collection status.
+ * Expanded badge detail — only accessible for earned badges.
  */
 @Composable
-fun BadgeDetailSheet(
-    badge: CollectibleBadge,
-    onDismiss: () -> Unit
-) {
+fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accentColor = Color(biome.colorHex)
 
-    Card(
-        Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
-    ) {
+    Card(Modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = White), elevation = CardDefaults.cardElevation(8.dp)) {
         Column(Modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            // Close button
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                IconButton(onClick = onDismiss) {
-                    Icon(Icons.Default.Close, "Close", tint = Ink.copy(alpha = 0.5f))
-                }
+                IconButton(onClick = onDismiss) { Icon(Icons.Default.Close, "Close", tint = Ink.copy(alpha = 0.5f)) }
             }
-
-            // Badge icon
-            Box(
-                Modifier
-                    .size(100.dp)
-                    .clip(CircleShape)
-                    .background(accentColor.copy(alpha = 0.15f)),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(badge.emoji, fontSize = 48.sp)
+            Box(Modifier.size(100.dp).clip(CircleShape).background(accentColor.copy(alpha = 0.15f)), contentAlignment = Alignment.Center) {
+                if (badge.isCollected) Text(badge.emoji, fontSize = 48.sp)
+                else Icon(Icons.Default.Lock, "Locked", tint = Color.Black.copy(alpha = 0.2f), modifier = Modifier.size(36.dp))
             }
-
             Spacer(Modifier.height(16.dp))
-
-            // Title and name
-            Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 24.sp, color = accentColor, textAlign = TextAlign.Center)
-            Text(badge.name, fontSize = 16.sp, color = Ink.copy(alpha = 0.6f))
-
-            Spacer(Modifier.height(12.dp))
-
-            // Fun fact
-            Card(
-                Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))
-            ) {
-                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
-                    Icon(Icons.Default.Lightbulb, "Fun Fact", tint = SunshineGold, modifier = Modifier.size(20.dp))
-                    Spacer(Modifier.width(12.dp))
-                    Text(badge.funFact, fontSize = 15.sp, color = Ink.copy(alpha = 0.85f), lineHeight = 22.sp)
-                }
-            }
-
-            Spacer(Modifier.height(16.dp))
-
-            // Biome info
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.Park, "Biome", tint = accentColor, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text("${biome.displayName} • ${biome.description}", fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            // Collect button or status
             if (badge.isCollected) {
-                AssistChip(
-                    onClick = {},
-                    label = { Text("Collected!", fontSize = 14.sp) },
-                    leadingIcon = { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size(18.dp)) },
-                    colors = AssistChipDefaults.assistChipColors(containerColor = SunshineGold.copy(alpha = 0.15f))
-                )
+                Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 24.sp, color = accentColor, textAlign = TextAlign.Center)
+                Text(badge.name, fontSize = 16.sp, color = Ink.copy(alpha = 0.6f))
             } else {
-                Card(
-                    Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.Black.copy(alpha = 0.04f))
-                ) {
-                    Text(
-                        "Complete more lessons to unlock this badge!",
-                        Modifier.padding(12.dp),
-                        fontSize = 14.sp,
-                        color = Ink.copy(alpha = 0.5f),
-                        textAlign = TextAlign.Center
-                    )
-                }
+                Text("Undiscovered Animal", fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.Black.copy(alpha = 0.3f))
+                Text("Complete the Daily Challenge to reveal!", fontSize = 14.sp, color = Ink.copy(alpha = 0.4f))
             }
-        }
-    }
-}
-
-/**
- * Badge biome section — shows a horizontal row of badge cards with a biome header.
- */
-@Composable
-fun BadgeBiomeSection(
-    biome: BadgeBiome,
-    badges: List<CollectibleBadge>,
-    collectedCount: Int,
-    totalCount: Int,
-    onBadgeClick: (CollectibleBadge) -> Unit
-) {
-    val accentColor = Color(biome.colorHex)
-
-    Column(Modifier.padding(vertical = 12.dp)) {
-        // Biome header
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(Icons.Default.Park, biome.displayName, tint = accentColor, modifier = Modifier.size(24.dp))
-            Spacer(Modifier.width(8.dp))
-            Text(biome.displayName, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = accentColor, modifier = Modifier.weight(1f))
-            Text("$collectedCount/$totalCount", fontSize = 14.sp, color = if (collectedCount == totalCount) SunshineGold else Ink.copy(alpha = 0.4f))
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        // Badge grid
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            badges.forEach { badge ->
-                BadgeCard(
-                    badge = badge,
-                    modifier = Modifier.width(110.dp),
-                    onClick = { onBadgeClick(badge) }
-                )
+            Spacer(Modifier.height(12.dp))
+            if (badge.isCollected) {
+                Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
+                    Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
+                        Icon(Icons.Default.Lightbulb, "Fun Fact", tint = SunshineGold, modifier = Modifier.size(20.dp))
+                        Spacer(Modifier.width(12.dp))
+                        Text(badge.funFact, fontSize = 15.sp, color = Ink.copy(alpha = 0.85f), lineHeight = 22.sp)
+                    }
+                }
+                Spacer(Modifier.height(8.dp))
+                Text("${biome.displayName} • ${biome.description}", fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
+                Spacer(Modifier.height(12.dp))
+                AssistChip(onClick = {}, label = { Text("Collected!", fontSize = 14.sp) },
+                    leadingIcon = { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size(18.dp)) },
+                    colors = AssistChipDefaults.assistChipColors(containerColor = SunshineGold.copy(alpha = 0.15f)))
+            } else {
+                Text("Complete one module in each subject today to earn this badge.", fontSize = 14.sp,
+                    color = Ink.copy(alpha = 0.5f), textAlign = TextAlign.Center)
             }
         }
     }
