@@ -399,44 +399,70 @@ private fun CharacterGuide(character: String) {
 
 @Composable
 private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
-    // Explanation steps auto-advance — they're unscored intros
-    // The parent LessonContent handles showing the FeedbackBanner with Next
-    // This composable just shows the narration content
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = SurfaceContainer),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        colors = CardDefaults.cardColors(containerColor = Cream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(Modifier.padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Icon(
-                Icons.Default.VolumeUp,
-                "Listen",
-                modifier = Modifier.size(48.dp),
-                tint = Teal40
-            )
-            Spacer(Modifier.height(12.dp))
-            Text(
-                "Listen to the story! 🎧",
-                fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
-                color = Teal40
-            )
-            Spacer(Modifier.height(8.dp))
-            Text(
-                step.narrationText.take(100) + if (step.narrationText.length > 100) "..." else "",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center
-            )
+        Column(Modifier.padding(24.dp)) {
+            // Story header
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    Icons.Default.MenuBook,
+                    "Story",
+                    modifier = Modifier.size(32.dp),
+                    tint = Teal40
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(
+                    "Read Along 📖",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 22.sp,
+                    color = Teal40
+                )
+            }
             Spacer(Modifier.height(16.dp))
-            Button(
-                onClick = onContinue,
+
+            // Full narration text — readable size for Grade 3
+            Text(
+                step.narrationText,
+                style = MaterialTheme.typography.bodyLarge,
+                fontSize = 20.sp,
+                lineHeight = 32.sp,
+                color = Ink.copy(alpha = 0.85f)
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+            // Narration hint + Continue
+            Row(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Teal40)
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Continue →", fontSize = 18.sp)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Default.VolumeUp,
+                        "Audio",
+                        modifier = Modifier.size(20.dp),
+                        tint = Teal40.copy(alpha = 0.5f)
+                    )
+                    Spacer(Modifier.width(6.dp))
+                    Text(
+                        "Audio narration coming soon",
+                        fontSize = 14.sp,
+                        color = Teal40.copy(alpha = 0.5f)
+                    )
+                }
+                Button(
+                    onClick = onContinue,
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Teal40),
+                    modifier = Modifier.height(56.dp)
+                ) {
+                    Text("Continue →", fontSize = 18.sp)
+                }
             }
         }
     }
