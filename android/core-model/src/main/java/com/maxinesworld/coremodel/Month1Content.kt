@@ -34,7 +34,7 @@ data class Month1Activity(
     val sequence: Int,
     val type: String,
     val instruction: String,
-    val content: kotlinx.serialization.json.JsonObject? = null,
+    val content: kotlinx.serialization.json.JsonElement? = null,
     val required: Boolean = true,
     val completionRule: CompletionRule? = null,
     val feedback: Month1ActivityFeedback? = null,
