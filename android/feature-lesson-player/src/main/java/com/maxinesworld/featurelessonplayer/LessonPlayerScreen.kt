@@ -189,15 +189,23 @@ class LessonPlayerViewModel @Inject constructor(
         val step = lesson?.steps?.getOrNull(_state.value.currentStep)
 
         _state.update {
-            it.copy(
-                results = it.results + result,
-                showFeedback = true,
-                feedbackText = if (isCorrect)
-                    step?.feedback?.correct ?: "Great job! 🎉"
-                else
-                    step?.feedback?.incorrect ?: "Let's try again! 💪",
-                feedbackCorrect = isCorrect
-            )
+            it.copy(results = it.results + result)
+        }
+
+        // Unscored steps (explanations) auto-advance without feedback banner
+        if (!result.scored) {
+            onNextStep()
+        } else {
+            _state.update {
+                it.copy(
+                    showFeedback = true,
+                    feedbackText = if (isCorrect)
+                        step?.feedback?.correct ?: "Great job! 🎉"
+                    else
+                        step?.feedback?.incorrect ?: "Let's try again! 💪",
+                    feedbackCorrect = isCorrect
+                )
+            }
         }
     }
 }
