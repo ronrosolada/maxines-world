@@ -1,6 +1,8 @@
 package com.maxinesworld.featurelessonplayer
 
 import androidx.compose.animation.*
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,6 +18,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -309,20 +312,44 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
-        // Progress bar
-        LinearProgressIndicator(
-            progress = { (state.currentStep + 1).toFloat() / state.totalSteps },
-            modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
-            color = Teal40,
-            trackColor = Teal40.copy(alpha = 0.2f)
-        )
-        Spacer(Modifier.height(4.dp))
-        Text(
-            "Step ${state.currentStep + 1} of ${state.totalSteps}",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(Modifier.height(16.dp))
+        // ─── Step Progress Dots (per design v2 §24.3) ───
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            repeat(state.totalSteps) { index ->
+                val dotColor = when {
+                    index < state.currentStep -> SuccessGreen
+                    index == state.currentStep -> VillageTeal
+                    else -> VillageTeal.copy(alpha = 0.2f)
+                }
+                val icon = when {
+                    index < state.currentStep -> Icons.Default.Check
+                    else -> null
+                }
+                Box(
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(CircleShape)
+                        .background(dotColor),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (icon != null) {
+                        Icon(icon, "Done", tint = Color.White, modifier = Modifier.size(16.dp))
+                    }
+                }
+                if (index < state.totalSteps - 1) {
+                    Box(
+                        Modifier
+                            .width(16.dp)
+                            .height(2.dp)
+                            .align(Alignment.CenterVertically)
+                            .background(dotColor.copy(alpha = 0.4f))
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(8.dp))
 
         // Character guide
         CharacterGuide(lesson.guideCharacter)
@@ -426,6 +453,14 @@ private fun CharacterGuide(character: String) {
 
 @Composable
 private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val ttsPlayer = remember { LessonTtsPlayer(context) }
+    var ttsSpeaking by remember { mutableStateOf(false) }
+    var ttsSupported by remember { mutableStateOf(true) }
+
+    // Cleanup on dispose
+    DisposableEffect(Unit) { onDispose { ttsPlayer.shutdown() } }
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
@@ -433,7 +468,6 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(Modifier.padding(24.dp)) {
-            // Story header
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     Icons.Default.MenuBook,
@@ -443,15 +477,37 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    "Read Along 📖",
+                    "Read Along",
                     fontWeight = FontWeight.Bold,
                     fontSize = 22.sp,
-                    color = Teal40
+                    color = Teal40,
+                    modifier = Modifier.weight(1f)
                 )
+                // TTS Speak/Stop button
+                if (ttsSupported) {
+                    IconButton(
+                        onClick = {
+                            if (ttsSpeaking) {
+                                ttsPlayer.stop()
+                                ttsSpeaking = false
+                            } else {
+                                ttsSpeaking = true
+                                ttsPlayer.speak(step.narrationText) { ttsSpeaking = false }
+                            }
+                        },
+                        modifier = Modifier.size(48.dp)
+                    ) {
+                        Icon(
+                            if (ttsSpeaking) Icons.Default.Stop else Icons.Default.VolumeUp,
+                            if (ttsSpeaking) "Stop" else "Read aloud",
+                            tint = if (ttsSpeaking) Coral else Teal40,
+                            modifier = Modifier.size(28.dp)
+                        )
+                    }
+                }
             }
             Spacer(Modifier.height(16.dp))
 
-            // Full narration text — readable size for Grade 3
             Text(
                 step.narrationText,
                 style = MaterialTheme.typography.bodyLarge,
@@ -462,25 +518,19 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
 
             Spacer(Modifier.height(24.dp))
 
-            // Narration hint + Continue
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.VolumeUp,
-                        "Audio",
-                        modifier = Modifier.size(20.dp),
-                        tint = Teal40.copy(alpha = 0.5f)
-                    )
-                    Spacer(Modifier.width(6.dp))
+                if (ttsSupported) {
                     Text(
-                        "Audio narration coming soon",
+                        if (ttsSpeaking) "Reading aloud..." else "Tap 🔊 to listen",
                         fontSize = 14.sp,
                         color = Teal40.copy(alpha = 0.5f)
                     )
+                } else {
+                    Spacer(Modifier)
                 }
                 Button(
                     onClick = onContinue,
@@ -488,7 +538,7 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
                     colors = ButtonDefaults.buttonColors(containerColor = Teal40),
                     modifier = Modifier.height(56.dp)
                 ) {
-                    Text("Continue →", fontSize = 18.sp)
+                    Text("Continue", fontSize = 18.sp)
                 }
             }
         }
@@ -762,6 +812,32 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
     val total = state.results.size
     val accuracy = if (total > 0) correct.toFloat() / total else 0f
 
+    // ─── Confetti celebration ───
+    val confettiColors = listOf(Coral, SunshineGold, SkyBlue, StoryPurple, LeafGreen, VillageTeal)
+    val particles = remember { List(40) { androidx.compose.ui.geometry.Offset(
+        (Math.random() * 1000).toFloat(),
+        (-Math.random() * 800).toFloat()
+    ) } }
+    val confettiAnim by rememberInfiniteTransition(label = "confetti").animateFloat(
+        initialValue = 0f, targetValue = 800f,
+        animationSpec = infiniteRepeatable(tween(3000, easing = LinearEasing), RepeatMode.Restart),
+        label = "fall"
+    )
+
+    Box(Modifier.fillMaxSize()) {
+        // Confetti layer
+        Canvas(Modifier.fillMaxSize()) {
+            particles.forEachIndexed { i, pos ->
+                val y = (pos.y + confettiAnim + (i * 37)) % size.height
+                val x = (pos.x + kotlin.math.sin(confettiAnim / 200 + i) * 50) % size.width
+                drawCircle(
+                    confettiColors[i % confettiColors.size].copy(alpha = 0.6f),
+                    radius = (4 + (i % 5)).toFloat(),
+                    center = Offset(x.toFloat(), y)
+                )
+            }
+        }
+
     Column(
         modifier = Modifier.fillMaxSize().padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -837,10 +913,11 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
             ) {
                 Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("Play Games! 🎮", fontSize = 18.sp)
+                Text("Play Games!", fontSize = 18.sp)
             }
         }
     }
+    } // Close Box
 }
 
 @Composable
