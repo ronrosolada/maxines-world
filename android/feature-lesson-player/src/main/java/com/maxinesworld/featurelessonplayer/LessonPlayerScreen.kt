@@ -537,7 +537,9 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
 @Composable
 private fun SortStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
     val options = step.options
-    var selectedOrder by remember { mutableStateOf<List<Int>>(emptyList()) }
+    // Shuffle display order so options aren't pre-solved
+    val shuffledIndices = remember(step.id) { options.indices.shuffled() }
+    var selectedOrder by remember(step.id) { mutableStateOf<List<Int>>(emptyList()) }
 
     Text(
         step.question,
@@ -563,21 +565,21 @@ private fun SortStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
         Spacer(Modifier.height(12.dp))
     }
 
-    // Show remaining options to pick
+    // Show remaining options to pick (shuffled)
     Text("Tap items in the correct order:", style = MaterialTheme.typography.labelMedium)
     Spacer(Modifier.height(8.dp))
 
-    options.indices.forEach { index ->
-        if (index !in selectedOrder) {
+    shuffledIndices.forEach { shuffledIdx ->
+        if (shuffledIdx !in selectedOrder) {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 3.dp)
-                    .clickable { selectedOrder = selectedOrder + index },
+                    .clickable { selectedOrder = selectedOrder + shuffledIdx },
                 shape = RoundedCornerShape(12.dp),
                 colors = CardDefaults.cardColors(containerColor = Amber90)
             ) {
-                Text(options[index], modifier = Modifier.padding(14.dp), style = MaterialTheme.typography.bodyLarge)
+                Text(options[shuffledIdx], modifier = Modifier.padding(14.dp), style = MaterialTheme.typography.bodyLarge)
             }
         }
     }
