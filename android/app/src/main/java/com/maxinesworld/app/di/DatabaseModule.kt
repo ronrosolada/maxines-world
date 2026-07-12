@@ -34,6 +34,7 @@ object DatabaseModule {
             "maxines_world.db"
         )
             .addMigrations(MIGRATION_1_2)
+            .fallbackToDestructiveMigration()
             .build()
     }
 
