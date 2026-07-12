@@ -18,8 +18,6 @@ import androidx.lifecycle.viewModelScope
 import java.util.UUID
 import javax.inject.Inject
 
-// ─── State ───
-
 data class LessonUiState(
     val isLoading: Boolean = true,
     val lesson: LessonManifest? = null,
@@ -34,100 +32,13 @@ data class LessonUiState(
     val rewardBreakId: String? = null
 )
 
-// ─── Repository ───
-
-@javax.inject.Singleton
-class LessonCompletionRepository @Inject constructor(
-    private val db: MaxinesDatabase
-) {
-    @androidx.room.Transaction
-    suspend fun saveCompletion(
-        childId: String,
-        lesson: LessonManifest,
-        results: List<ActivityResult>,
-        eventDao: ProgressEventDao,
-        masteryDao: MasteryRecordDao,
-        rewardDao: RewardDao,
-        breakDao: RewardBreakDao,
-        masteryEngine: MasteryEngine
-    ): String? {
-        val scoredResults = results.filter { it.scored }
-        if (scoredResults.isEmpty()) return null
-
-        // Record progress events
-        for (result in scoredResults) {
-            eventDao.insert(ProgressEventEntity(
-                id = UUID.randomUUID().toString(),
-                childId = childId,
-                skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
-                lessonId = lesson.id,
-                activityId = result.activityId,
-                eventType = "activity_result",
-                accuracy = if (result.correct) 1.0 else 0.0,
-                attempts = result.attempts,
-                hintsUsed = result.hintsUsed,
-                responseTimeMs = result.responseTimeMs
-            ))
-        }
-
-        // Update mastery
-        for (skillId in lesson.skillIds) {
-            val events = eventDao.getByChildAndSkill(childId, skillId)
-            val state = masteryEngine.computeMastery(events.map { e ->
-                com.maxinesworld.coremodel.ProgressEvent(
-                    e.id, e.childId, e.skillId, e.lessonId,
-                    e.activityId, e.eventType, e.accuracy,
-                    e.attempts, e.hintsUsed, e.responseTimeMs, e.timestamp
-                )
-            })
-            masteryDao.upsert(MasteryRecordEntity(
-                id = "${childId}_$skillId",
-                childId = childId,
-                skillId = skillId,
-                state = state.name,
-                accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average() else 0.0,
-                totalAttempts = events.size,
-                lastActivityAt = System.currentTimeMillis()
-            ))
-        }
-
-        // Grant rewards
-        val scoredCorrect = scoredResults.count { it.correct }
-        val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
-        val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-        rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "STAR", subject = lesson.subject, amount = starsEarned))
-        if (accuracy >= 0.8) {
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "COIN", subject = lesson.subject, amount = 10))
-        }
-
-        // Reward break entitlement (once per day)
-        val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(java.util.Date())
-        val dqId = "${childId}_$today"
-        val existing = breakDao.getByQuestCompletion(dqId)
-        if (existing == null) {
-            val breakId = UUID.randomUUID().toString()
-            breakDao.upsert(RewardBreakEntitlementEntity(
-                id = breakId, childId = childId, dailyQuestCompletionId = dqId,
-                durationMillis = 300_000L, remainingMillis = 300_000L,
-                createdAtEpochMillis = System.currentTimeMillis(), state = "ACTIVE"
-            ))
-            return breakId
-        }
-        return null
-    }
-}
-
-// ─── ViewModel ───
-
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
     private val lessonLoader: LessonLoader,
     private val progressEventDao: ProgressEventDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
-    private val masteryEngine: MasteryEngine,
-    private val rewardBreakDao: RewardBreakDao,
-    private val repository: LessonCompletionRepository
+    private val masteryEngine: MasteryEngine
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(LessonUiState())
@@ -161,15 +72,39 @@ class LessonPlayerViewModel @Inject constructor(
         if (progressSaved) return
         progressSaved = true
         val lesson = _state.value.lesson ?: return
+        val scoredResults = _state.value.results.filter { it.scored }
+        if (childId.isBlank() || scoredResults.isEmpty()) return
 
         viewModelScope.launch {
-            val breakId = repository.saveCompletion(
-                childId, lesson, _state.value.results,
-                progressEventDao, masteryRecordDao, rewardDao,
-                rewardBreakDao, masteryEngine
-            )
-            if (breakId != null) {
-                _state.update { it.copy(rewardBreakId = breakId) }
+            for (result in scoredResults) {
+                progressEventDao.insert(ProgressEventEntity(
+                    id = UUID.randomUUID().toString(), childId = childId,
+                    skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
+                    lessonId = lesson.id, activityId = result.activityId,
+                    eventType = "activity_result",
+                    accuracy = if (result.correct) 1.0 else 0.0,
+                    attempts = result.attempts, hintsUsed = result.hintsUsed,
+                    responseTimeMs = result.responseTimeMs
+                ))
+            }
+            for (skillId in lesson.skillIds) {
+                val events = progressEventDao.getByChildAndSkill(childId, skillId)
+                val state = masteryEngine.computeMastery(events.map { e ->
+                    com.maxinesworld.coremodel.ProgressEvent(e.id, e.childId, e.skillId, e.lessonId, e.activityId, e.eventType, e.accuracy, e.attempts, e.hintsUsed, e.responseTimeMs, e.timestamp)
+                })
+                masteryRecordDao.upsert(MasteryRecordEntity(
+                    id = "${childId}_$skillId", childId = childId, skillId = skillId,
+                    state = state.name,
+                    accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average() else 0.0,
+                    totalAttempts = events.size, lastActivityAt = System.currentTimeMillis()
+                ))
+            }
+            val scoredCorrect = scoredResults.count { it.correct }
+            val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
+            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "STAR", subject = lesson.subject, amount = starsEarned))
+            if (accuracy >= 0.8) {
+                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "COIN", subject = lesson.subject, amount = 10))
             }
         }
     }
@@ -177,19 +112,13 @@ class LessonPlayerViewModel @Inject constructor(
     fun onActivityResult(result: ActivityResult) {
         val lesson = _state.value.lesson
         val step = lesson?.steps?.getOrNull(_state.value.currentStep)
-
         _state.update { it.copy(results = it.results + result) }
-
-        if (!result.scored) {
-            onNextStep()
-        } else {
-            _state.update {
-                it.copy(showFeedback = true,
-                    feedbackText = if (result.correct)
-                        step?.feedback?.correct ?: "Great job!"
+        if (!result.scored) onNextStep()
+        else _state.update {
+            it.copy(showFeedback = true,
+                feedbackText = if (result.correct) step?.feedback?.correct ?: "Great job!"
                     else step?.feedback?.incorrect ?: "Let's try again!",
-                    feedbackCorrect = result.correct)
-            }
+                feedbackCorrect = result.correct)
         }
     }
 }
