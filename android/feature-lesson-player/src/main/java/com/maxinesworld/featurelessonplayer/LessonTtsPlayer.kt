@@ -18,7 +18,12 @@ class LessonTtsPlayer(context: Context) {
         }
     }
 
-    fun speak(text: String, language: String = "english", onComplete: (() -> Unit)? = null) {
+    fun speak(
+        text: String,
+        language: String = "english",
+        onComplete: (() -> Unit)? = null,
+        onUnavailable: (() -> Unit)? = null
+    ) {
         tts?.let { engine ->
             if (isSpeaking) return
             onDone = onComplete
@@ -34,7 +39,9 @@ class LessonTtsPlayer(context: Context) {
                     val result = engine.setLanguage(filLocale)
                     if (result == TextToSpeech.LANG_MISSING_DATA ||
                         result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        engine.language = Locale.US
+                        isSpeaking = false
+                        onUnavailable?.invoke()
+                        return
                     }
                 }
                 else -> engine.language = Locale.US
