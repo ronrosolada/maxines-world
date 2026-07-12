@@ -1,0 +1,252 @@
+{
+  "id": "nikos-plant-investigation-sunlight-water",
+  "schemaVersion": 1,
+  "country": "PH",
+  "curriculum": "MATATAG_INTENT_ALIGNED",
+  "grade": 3,
+  "subject": "SCIENCE",
+  "title": "Niko’s Plant Investigation",
+  "objective": "Explain plant needs and use fair-test observations as evidence.",
+  "prerequisites": [
+    "plant-parts",
+    "simple-measurement"
+  ],
+  "estimatedMinutes": 15,
+  "guideCharacter": "Niko",
+  "educatorValidated": false,
+  "certificationClaim": null,
+  "story": "Niko compares a green pechay plant near a bright window with a pale, drooping plant in a dark corner and asks whether sunlight or water explains the difference.",
+  "steps": [
+    {
+      "id": "sc-s1",
+      "type": "story",
+      "scored": false,
+      "prompt": "Niko notices two different-looking pechay plants.",
+      "content": "Niko compares a green pechay plant near a bright window with a pale, drooping plant in a dark corner and asks whether sunlight or water explains the difference.",
+      "accessibilityNarration": "Niko compares a green pechay plant near a bright window with a pale, drooping plant in a dark corner and asks whether sunlight or water explains the difference."
+    },
+    {
+      "id": "sc-s2",
+      "type": "explanation",
+      "scored": false,
+      "prompt": "Plants need suitable light and water. In a fair test, change one condition and keep the others the same.",
+      "accessibilityNarration": "A fair investigation changes one condition."
+    },
+    {
+      "id": "sc-s3",
+      "type": "prediction",
+      "scored": true,
+      "prompt": "Two seedlings get equal water. One gets daylight and one stays dark. Predict.",
+      "choices": [
+        "The lighted plant will likely be greener",
+        "The dark plant will be greener",
+        "Both stop needing water"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Leaves use light.",
+      "correctFeedback": "Reasonable prediction.",
+      "retryFeedback": "Compare which plant receives light.",
+      "accessibilityNarration": "Two seedlings get equal water. One gets daylight and one stays dark. Predict."
+    },
+    {
+      "id": "sc-s4",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Which are observations?",
+      "choices": [
+        "Plant A has green leaves",
+        "Plant B is 13 cm tall",
+        "Plant B feels lonely",
+        "Plant A is shorter"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        3
+      ],
+      "hint": "Observations can be seen or measured.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Feelings were not measured.",
+      "accessibilityNarration": "Which are observations?"
+    },
+    {
+      "id": "sc-s5",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Water spills during a sunlight test. What should Niko do?",
+      "choices": [
+        "Restore the planned water and record the spill",
+        "Add fertilizer",
+        "Change both plants’ locations"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Only sunlight should differ.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Do not change extra conditions.",
+      "accessibilityNarration": "Water spills during a sunlight test. What should Niko do?"
+    },
+    {
+      "id": "sc-s6",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Order a fair water investigation.",
+      "choices": [
+        "Label similar plants",
+        "Apply different measured water amounts",
+        "Observe and record",
+        "Compare and conclude"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hint": "Setup, treatment, evidence, conclusion.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "The conclusion is last.",
+      "accessibilityNarration": "Order a fair water investigation."
+    },
+    {
+      "id": "sc-s7",
+      "type": "drag_group",
+      "scored": true,
+      "prompt": "Which condition changes when testing water?",
+      "choices": [
+        "Amount of water",
+        "Amount of sunlight",
+        "Type of soil",
+        "Starting plant size"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Change only water.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Keep light, soil, and starting size the same.",
+      "accessibilityNarration": "Which condition changes when testing water?"
+    },
+    {
+      "id": "sc-s8",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Complete: Plants need suitable ___ and ___. Evidence: ___.",
+      "choices": [],
+      "correctAnswers": [
+        "sunlight, water, observation"
+      ],
+      "hint": "Name both conditions and evidence.",
+      "correctFeedback": "Evidence-based conclusion.",
+      "retryFeedback": "Include sunlight, water, and an observation.",
+      "accessibilityNarration": "Complete: Plants need suitable ___ and ___. Evidence: ___."
+    }
+  ],
+  "assessment": [
+    {
+      "id": "sc-a1",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Why do most green plants need sunlight?",
+      "choices": [
+        "Leaves use light to help make food",
+        "Sunlight replaces soil",
+        "Sunlight waters roots"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Think about leaves.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Light does not replace soil or water.",
+      "accessibilityNarration": "Why do most green plants need sunlight?"
+    },
+    {
+      "id": "sc-a2",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Which may show a plant needs water?",
+      "choices": [
+        "Drooping leaves",
+        "Dry soil",
+        "A cat nearby",
+        "A blue label"
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "hint": "Choose plant and soil evidence.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "The cat and label are unrelated.",
+      "accessibilityNarration": "Which may show a plant needs water?"
+    },
+    {
+      "id": "sc-a3",
+      "type": "prediction",
+      "scored": true,
+      "prompt": "Two similar seedlings get equal light; one gets no water. Predict.",
+      "choices": [
+        "The watered seedling likely grows better",
+        "The unwatered seedling grows faster",
+        "Both become cats"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Roots need water.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Equal light does not remove the need for water.",
+      "accessibilityNarration": "Two similar seedlings get equal light; one gets no water. Predict."
+    },
+    {
+      "id": "sc-a4",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Order evidence-based reasoning.",
+      "choices": [
+        "Observe",
+        "Record",
+        "Compare",
+        "Conclude"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hint": "Evidence comes before conclusion.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Observe first.",
+      "accessibilityNarration": "Order evidence-based reasoning."
+    },
+    {
+      "id": "sc-a5",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Explain why more water is not always better and describe a fair test.",
+      "choices": [],
+      "correctAnswers": [
+        "Too much can harm roots; vary only measured water"
+      ],
+      "hint": "Mention harm and one changed variable.",
+      "correctFeedback": "Good scientific reasoning.",
+      "retryFeedback": "Keep all conditions except water the same.",
+      "accessibilityNarration": "Explain why more water is not always better and describe a fair test."
+    }
+  ],
+  "masteryCriteria": {
+    "minimumAssessmentCorrect": 4,
+    "assessmentTotal": 5,
+    "maximumAttemptsPerItem": 2,
+    "delayedReviewDays": [
+      2,
+      7
+    ],
+    "delayedReviewMinimumCorrect": 4
+  }
+}

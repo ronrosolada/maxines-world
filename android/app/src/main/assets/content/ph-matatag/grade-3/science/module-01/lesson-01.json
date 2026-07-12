@@ -1,0 +1,88 @@
+{
+  "id": "sci-g3-m01-l01",
+  "schemaVersion": 1,
+  "subject": "science",
+  "moduleId": "sci-g3-m07",
+  "skillIds": ["sci-g3-plant-needs", "sci-g3-observation", "sci-g3-prediction"],
+  "title": "Niko's Plant Investigation",
+  "objective": "Identify what plants need to grow and practice making predictions and observations.",
+  "prerequisiteSkillIds": [],
+  "estimatedMinutes": 10,
+  "guideCharacter": "niko",
+  "steps": [
+    {
+      "id": "step-01",
+      "type": "animated_explanation",
+      "narrationText": "Niko the gray scientist cat is in the Discovery Lab! Today he's investigating plants. What do plants need to grow? Let's find out together!",
+      "imageAssets": []
+    },
+    {
+      "id": "step-02",
+      "type": "prediction_observation_explanation",
+      "narrationText": "Niko has two bean seeds. He plants one in a sunny spot with water. He plants the other in a dark closet with no water. What do you PREDICT will happen?",
+      "question": "Make a prediction: Which seed will grow?",
+      "options": [
+        "Both seeds will grow the same",
+        "The seed with sun and water will grow",
+        "The seed in the dark closet will grow",
+        "Neither seed will grow"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Good prediction! Plants need sunlight and water to grow. Let's observe and see if you're right! 🌱",
+        "incorrect": "Think about what a plant needs. Have you ever seen a plant grow in a dark closet?"
+      }
+    },
+    {
+      "id": "step-03",
+      "type": "multiple_choice",
+      "narrationText": "Now let's learn the four things plants need. Niko shows us a diagram.",
+      "question": "Which of these is NOT something a plant needs to grow?",
+      "options": ["Sunlight", "Water", "Air", "Chocolate milk"],
+      "correctIndex": 3,
+      "feedback": {
+        "correct": "Ha! Plants don't drink chocolate milk! They need sunlight ☀️, water 💧, air 💨, and nutrients from soil. 🌿",
+        "incorrect": "Think about what plants really need. Is chocolate milk something a plant would use?"
+      }
+    },
+    {
+      "id": "step-04",
+      "type": "sort_and_classify",
+      "narrationText": "Let's sort what helps plants grow vs. what doesn't!",
+      "question": "Sort these into 'Helps plants grow' and 'Does NOT help':",
+      "options": [
+        "Sunlight", "Water", "Rich soil", "Video games",
+        "Fresh air", "Soda pop", "Nutrients", "TV remote"
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Great sorting! Plants need sunlight, water, air, soil, and nutrients. Not video games! 🎮❌🌱✅",
+        "incorrect": "Remember: plants are living things. They need nature's help, not electronics!"
+      }
+    },
+    {
+      "id": "step-05",
+      "type": "prediction_observation_explanation",
+      "narrationText": "Final challenge! Niko has a plant that's turning yellow. What might be wrong?",
+      "question": "A plant's leaves are turning yellow. What is the MOST likely reason?",
+      "options": [
+        "It's getting too much water",
+        "It's not getting enough sunlight",
+        "A cat is sitting on it",
+        "It's hungry for pizza"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Excellent observation! Yellow leaves often mean a plant isn't getting enough sunlight. Move it to a brighter spot! ☀️",
+        "incorrect": "Yellow leaves are a clue. When plants don't get enough sunlight, they can't make their own food and turn yellow."
+      }
+    }
+  ],
+  "assessment": {
+    "passThreshold": 0.8,
+    "minQuestions": 4
+  },
+  "version": 1,
+  "status": "DRAFT",
+  "educatorValidated": false
+}

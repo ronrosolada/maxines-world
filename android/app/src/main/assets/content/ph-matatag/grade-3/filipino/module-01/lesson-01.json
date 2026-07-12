@@ -1,0 +1,91 @@
+{
+  "id": "fil-g3-m01-l01",
+  "schemaVersion": 1,
+  "subject": "filipino",
+  "moduleId": "fil-g3-m01",
+  "skillIds": ["fil-g3-comp-main-idea", "fil-g3-narrative"],
+  "title": "Ang Mga Kuting na Tumulong sa Barangay",
+  "objective": "Matukoy ang pangunahing kaisipan, maiayos ang mga pangyayari, at makapagsalaysay gamit ang sariling salita.",
+  "prerequisiteSkillIds": [],
+  "estimatedMinutes": 10,
+  "guideCharacter": "mira",
+  "steps": [
+    {
+      "id": "step-01",
+      "type": "animated_explanation",
+      "narrationText": "Si Mira ang pusang mahilig magbasa. Ngayon, may kuwento siya tungkol sa mga kuting na tumulong sa kanilang barangay. Pakinggan nating mabuti!",
+      "imageAssets": []
+    },
+    {
+      "id": "step-02",
+      "type": "story_comprehension",
+      "narrationText": "Noong isang araw, nagkaroon ng maliit na sunog sa barangay. Nasunog ang isang puno malapit sa paaralan. Ang tatlong kuting na sina Milo, Mira, at Niko ay nag-usap. 'Kailangan nating tumulong!' sabi ni Milo. Si Mira ay tumawag sa bumbero gamit ang telepono. Si Niko ay tumulong sa paglikas ng mga bata mula sa paaralan. Si Milo naman ay nagdala ng tubig para sa mga bumbero. Dahil sa kanilang pagtutulungan, naapula ang apoy at ligtas ang lahat. Pinuri ng kapitan ng barangay ang tatlong kuting at binigyan sila ng medalya ng katapangan.",
+      "question": "Ano ang pangunahing kaisipan ng kuwento?",
+      "options": [
+        "May sunog sa barangay",
+        "Ang mga kuting ay nagtulungan upang makatulong sa barangay",
+        "Si Milo ay nagdala ng tubig",
+        "Ang barangay ay may paaralan"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Magaling! Ang mga kuting ay nagtulungan para makatulong sa barangay. Iyan ang pangunahing kaisipan! 🐱",
+        "incorrect": "Subukan ulit. Ano ang pinakamahalagang mensahe ng kuwento?"
+      }
+    },
+    {
+      "id": "step-03",
+      "type": "multiple_choice",
+      "narrationText": "Ngayon, alamin natin ang detalye. Ano ang ginawa ni Mira?",
+      "question": "Ano ang ginawa ni Mira upang makatulong?",
+      "options": [
+        "Tumawag siya sa bumbero",
+        "Nagdala siya ng tubig",
+        "Tumulong siya sa paglikas ng mga bata",
+        "Natulog siya sa bahay"
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Tama! Tinawagan ni Mira ang bumbero. Mahusay! 🌟",
+        "incorrect": "Balikan natin ang kuwento. Ano ang espesyal na ginawa ni Mira?"
+      }
+    },
+    {
+      "id": "step-04",
+      "type": "sort_and_classify",
+      "narrationText": "Ayusin natin ang mga pangyayari.",
+      "question": "Ayusin ang mga pangyayari mula una hanggang huli.",
+      "options": [
+        "Nagkaroon ng sunog malapit sa paaralan",
+        "Tumawag si Mira sa bumbero",
+        "Tumulong si Niko sa paglikas ng mga bata",
+        "Nagdala si Milo ng tubig",
+        "Pinuri ng kapitan ang tatlong kuting"
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Magaling! Naayos mo nang tama ang mga pangyayari! 📚",
+        "incorrect": "Isipin mabuti — ano ang unang nangyari? Ano ang sumunod?"
+      }
+    },
+    {
+      "id": "step-05",
+      "type": "sentence_builder",
+      "narrationText": "Gamit ang sarili mong salita, bumuo ng pangungusap tungkol sa kuwento.",
+      "question": "Bumuo ng pangungusap gamit ang mga salitang ito: [mga kuting] [tumulong] [barangay] [dahil] [sunog]",
+      "options": ["mga kuting", "tumulong", "sa barangay", "dahil sa", "sunog"],
+      "correctIndex": -1,
+      "feedback": {
+        "correct": "Ang galing ng iyong pangungusap! 🎉",
+        "incorrect": "Subukan mong pagsamahin ang mga salita para makabuo ng pangungusap."
+      }
+    }
+  ],
+  "assessment": {
+    "passThreshold": 0.8,
+    "minQuestions": 4
+  },
+  "version": 1,
+  "status": "DRAFT",
+  "educatorValidated": false
+}

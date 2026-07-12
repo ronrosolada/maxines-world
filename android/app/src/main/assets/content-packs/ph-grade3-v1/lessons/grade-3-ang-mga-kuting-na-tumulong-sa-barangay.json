@@ -1,0 +1,247 @@
+{
+  "id": "grade-3-ang-mga-kuting-na-tumulong-sa-barangay",
+  "schemaVersion": 1,
+  "country": "PH",
+  "curriculum": "MATATAG_INTENT_ALIGNED",
+  "grade": 3,
+  "subject": "FILIPINO",
+  "title": "Ang Mga Kuting na Tumulong sa Barangay",
+  "objective": "Matukoy ang pangunahing kaisipan at maisalaysay ang mga pangyayari sa tamang ayos.",
+  "prerequisites": [
+    "pagbasa-ng-maikling-teksto"
+  ],
+  "estimatedMinutes": 15,
+  "guideCharacter": "Mira",
+  "educatorValidated": false,
+  "certificationClaim": null,
+  "story": "Sa Barangay Masigla, nakita nina Maxine at ng mga kuting na sina Puti, Kahel, at Muning ang kalat sa covered court bago ang programa. Una, naglagay si Maxine ng magkahiwalay na lalagyan. Sumunod, tinulak ng mga kuting ang papel sa tamang lalagyan. Pagkatapos, tinipon ni Bantay ang mga dahon at dinala ni Kiko ang mga ito sa compost pit. Sa huli, luminis ang paligid at natuloy ang programa.",
+  "steps": [
+    {
+      "id": "fi-s1",
+      "type": "story",
+      "scored": false,
+      "prompt": "Basahin o pakinggan ang Ang Mga Kuting na Tumulong sa Barangay.",
+      "content": "Sa Barangay Masigla, nakita nina Maxine at ng mga kuting na sina Puti, Kahel, at Muning ang kalat sa covered court bago ang programa. Una, naglagay si Maxine ng magkahiwalay na lalagyan. Sumunod, tinulak ng mga kuting ang papel sa tamang lalagyan. Pagkatapos, tinipon ni Bantay ang mga dahon at dinala ni Kiko ang mga ito sa compost pit. Sa huli, luminis ang paligid at natuloy ang programa.",
+      "accessibilityNarration": "Sa Barangay Masigla, nakita nina Maxine at ng mga kuting na sina Puti, Kahel, at Muning ang kalat sa covered court bago ang programa. Una, naglagay si Maxine ng magkahiwalay na lalagyan. Sumunod, tinulak ng mga kuting ang papel sa tamang lalagyan. Pagkatapos, tinipon ni Bantay ang mga dahon at dinala ni Kiko ang mga ito sa compost pit. Sa huli, luminis ang paligid at natuloy ang programa."
+    },
+    {
+      "id": "fi-s2",
+      "type": "explanation",
+      "scored": false,
+      "prompt": "Ang pangunahing kaisipan ang pinakamahalagang mensahe. Gamitin ang una, sumunod, pagkatapos, at sa huli upang magsalaysay.",
+      "accessibilityNarration": "Ang pangunahing kaisipan ay malaking ideya ng buong kuwento."
+    },
+    {
+      "id": "fi-s3",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Ano ang pangunahing kaisipan?",
+      "choices": [
+        "Nagtulungan ang mga hayop upang luminis ang barangay",
+        "Natulog ang mga kuting",
+        "Naglaro si Bantay"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Isipin kung ano ang ginawa ng lahat.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Piliin ang ideyang sumasaklaw sa buong kuwento.",
+      "accessibilityNarration": "Ano ang pangunahing kaisipan?"
+    },
+    {
+      "id": "fi-s4",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Piliin ang mga detalyeng sumusuporta sa pangunahing kaisipan.",
+      "choices": [
+        "Naghanda ng mga lalagyan si Maxine",
+        "Tinulak ng mga kuting ang papel",
+        "Dinala ni Kiko ang mga dahon",
+        "Lumipad sa palengke ang mga kuting"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ],
+      "hint": "Piliin ang mga gawaing nangyari sa paglilinis.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Alisin ang pangyayaring hindi naganap.",
+      "accessibilityNarration": "Piliin ang mga detalyeng sumusuporta sa pangunahing kaisipan."
+    },
+    {
+      "id": "fi-s5",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Ayusin ang mga pangyayari.",
+      "choices": [
+        "Naghanda ng lalagyan",
+        "Tinulak ang papel",
+        "Dinala ang mga dahon",
+        "Naging malinis ang paligid"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hint": "Magsimula sa paghahanda.",
+      "correctFeedback": "Tama ang ayos.",
+      "retryFeedback": "Gamitin ang una hanggang sa huli.",
+      "accessibilityNarration": "Ayusin ang mga pangyayari."
+    },
+    {
+      "id": "fi-s6",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Ano ang nangyari sa huli?",
+      "choices": [
+        "Naging malinis ang paligid",
+        "Nadagdagan ang kalat",
+        "Umalis ang lahat"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Hanapin ang kinalabasan.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Balikan ang wakas ng kuwento.",
+      "accessibilityNarration": "Ano ang nangyari sa huli?"
+    },
+    {
+      "id": "fi-s7",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Aling salita ang nagpapakita ng ikalawang pangyayari?",
+      "choices": [
+        "Sumunod",
+        "Una",
+        "Sa huli"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Ito ay kasunod ng una.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Piliin ang salitang nangangahulugang next.",
+      "accessibilityNarration": "Aling salita ang nagpapakita ng ikalawang pangyayari?"
+    },
+    {
+      "id": "fi-s8",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Isalaysay ang kuwento sa 3–5 pangungusap.",
+      "choices": [],
+      "correctAnswers": [
+        "Suliranin, dalawang kilos, at kinalabasan"
+      ],
+      "hint": "Gamitin ang Una, Sumunod, at Sa huli.",
+      "correctFeedback": "Mahusay na pagsasalaysay.",
+      "retryFeedback": "Idagdag ang suliranin, ginawa, at kinalabasan.",
+      "accessibilityNarration": "Isalaysay ang kuwento sa 3–5 pangungusap."
+    }
+  ],
+  "assessment": [
+    {
+      "id": "fi-a1",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Alin ang pinakamahusay na pamagat?",
+      "choices": [
+        "Sama-samang Paglilinis sa Barangay",
+        "Ang Nawawalang Laruan",
+        "Mahabang Tulog ni Muning"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Piliin ang pamagat tungkol sa buong kuwento.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Ang kuwento ay tungkol sa pagtutulungan.",
+      "accessibilityNarration": "Alin ang pinakamahusay na pamagat?"
+    },
+    {
+      "id": "fi-a2",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Ano ang unang ginawa ni Maxine?",
+      "choices": [
+        "Naglagay ng magkahiwalay na lalagyan",
+        "Sinimulan ang programa",
+        "Nagtago ng papel"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Hanapin ang paghahanda.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Ginawa ito bago naglinis ang mga hayop.",
+      "accessibilityNarration": "Ano ang unang ginawa ni Maxine?"
+    },
+    {
+      "id": "fi-a3",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Ayusin: suliranin, pagkilos, kinalabasan.",
+      "choices": [
+        "Nakita ang kalat",
+        "Nagtulungan sa paglilinis",
+        "Nagpasalamat ang kapitana"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ],
+      "hint": "Magsimula sa suliranin.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Ang pasasalamat ay huli.",
+      "accessibilityNarration": "Ayusin: suliranin, pagkilos, kinalabasan."
+    },
+    {
+      "id": "fi-a4",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Aling mga aral ang tama?",
+      "choices": [
+        "Gumagaan ang gawain kapag nagtutulungan",
+        "Mahalagang magtapon nang wasto",
+        "Dapat iwan ang kalat"
+      ],
+      "correctAnswers": [
+        0,
+        1
+      ],
+      "hint": "Dalawang positibong aral.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Alisin ang maling gawain.",
+      "accessibilityNarration": "Aling mga aral ang tama?"
+    },
+    {
+      "id": "fi-a5",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Sabihin ang pangunahing kaisipan at isang detalyeng sumusuporta rito.",
+      "choices": [],
+      "correctAnswers": [
+        "Pagtutulungan at isang gawaing paglilinis"
+      ],
+      "hint": "Sabihin ang malaking ideya at isang ginawa.",
+      "correctFeedback": "Tama!",
+      "retryFeedback": "Kailangan ang ideya at detalye.",
+      "accessibilityNarration": "Sabihin ang pangunahing kaisipan at isang detalyeng sumusuporta rito."
+    }
+  ],
+  "masteryCriteria": {
+    "minimumAssessmentCorrect": 4,
+    "assessmentTotal": 5,
+    "maximumAttemptsPerItem": 2,
+    "delayedReviewDays": [
+      2,
+      7
+    ],
+    "delayedReviewMinimumCorrect": 4
+  }
+}

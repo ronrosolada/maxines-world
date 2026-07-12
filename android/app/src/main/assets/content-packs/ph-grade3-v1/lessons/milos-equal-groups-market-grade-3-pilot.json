@@ -1,0 +1,253 @@
+{
+  "id": "milos-equal-groups-market-grade-3-pilot",
+  "schemaVersion": 1,
+  "country": "PH",
+  "curriculum": "MATATAG_INTENT_ALIGNED",
+  "grade": 3,
+  "subject": "MATHEMATICS",
+  "title": "Milo’s Equal-Groups Market",
+  "objective": "Represent multiplication using equal groups, repeated addition, and equations.",
+  "prerequisites": [
+    "counting",
+    "repeated-addition"
+  ],
+  "estimatedMinutes": 15,
+  "guideCharacter": "Milo",
+  "educatorValidated": false,
+  "certificationClaim": null,
+  "story": "Milo arranges equal groups of market goods.",
+  "steps": [
+    {
+      "id": "ma-s1",
+      "type": "story",
+      "scored": false,
+      "prompt": "Milo sees 3 baskets with 4 mangoes in each. These are equal groups.",
+      "content": "Three equal groups of four mangoes.",
+      "accessibilityNarration": "Three baskets each contain four mangoes."
+    },
+    {
+      "id": "ma-s2",
+      "type": "explanation",
+      "scored": false,
+      "prompt": "3 equal groups of 4 can be written 4 + 4 + 4 = 12 and 3 × 4 = 12.",
+      "accessibilityNarration": "Three groups of four make twelve."
+    },
+    {
+      "id": "ma-s3",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Four trays have two fish each. Which describes the display?",
+      "choices": [
+        "2 groups of 4",
+        "4 groups of 2",
+        "4 groups of 4"
+      ],
+      "correctAnswers": [
+        1
+      ],
+      "hint": "Count trays, then fish on one tray.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "There are four trays.",
+      "accessibilityNarration": "Four trays have two fish each. Which describes the display?"
+    },
+    {
+      "id": "ma-s4",
+      "type": "drag_group",
+      "scored": true,
+      "prompt": "Share 12 pandesal equally among 3 baskets.",
+      "choices": [
+        "4 in each basket",
+        "3 in each basket",
+        "6 in each basket"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Deal one to each basket repeatedly.",
+      "correctFeedback": "Correct: 3 × 4 = 12.",
+      "retryFeedback": "Each basket must have the same amount.",
+      "accessibilityNarration": "Share 12 pandesal equally among 3 baskets."
+    },
+    {
+      "id": "ma-s5",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Five plates have three banana slices each. Which equation matches?",
+      "choices": [
+        "5 × 3 = 15",
+        "3 × 3 = 9",
+        "5 + 3 = 8"
+      ],
+      "correctAnswers": [
+        0
+      ],
+      "hint": "Groups × amount in each group.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "There are five groups.",
+      "accessibilityNarration": "Five plates have three banana slices each. Which equation matches?"
+    },
+    {
+      "id": "ma-s6",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Which represent 4 groups of 5?",
+      "choices": [
+        "5 + 5 + 5 + 5",
+        "4 × 5",
+        "4 + 4 + 4 + 4 + 4",
+        "Four baskets with five calamansi each"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        3
+      ],
+      "hint": "Find four groups with five each.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "More than one answer is correct.",
+      "accessibilityNarration": "Which represent 4 groups of 5?"
+    },
+    {
+      "id": "ma-s7",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Order the solution for 6 cages with 2 kittens each.",
+      "choices": [
+        "Identify 6 groups",
+        "Identify 2 in each",
+        "Write 6 × 2",
+        "Find 12"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hint": "Groups, amount, equation, product.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Start with the cages as groups.",
+      "accessibilityNarration": "Order the solution for 6 cages with 2 kittens each."
+    },
+    {
+      "id": "ma-s8",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Three baskets hold six eggs each. Write and explain the equation.",
+      "choices": [],
+      "correctAnswers": [
+        "3 × 6 = 18"
+      ],
+      "hint": "Use baskets × eggs per basket.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Include 3 groups, 6 in each, and total 18.",
+      "accessibilityNarration": "Three baskets hold six eggs each. Write and explain the equation."
+    }
+  ],
+  "assessment": [
+    {
+      "id": "ma-a1",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Two baskets hold seven lanzones each. Total?",
+      "choices": [
+        "9",
+        "12",
+        "14",
+        "27"
+      ],
+      "correctAnswers": [
+        2
+      ],
+      "hint": "Add 7 twice.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "7 + 7 = 14.",
+      "accessibilityNarration": "Two baskets hold seven lanzones each. Total?"
+    },
+    {
+      "id": "ma-a2",
+      "type": "multi_select",
+      "scored": true,
+      "prompt": "Which represent 3 groups of 4?",
+      "choices": [
+        "4 + 4 + 4",
+        "3 × 4",
+        "Three plates with four suman",
+        "Four plates with four suman"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ],
+      "hint": "Three groups, four each.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Check both group count and group size.",
+      "accessibilityNarration": "Which represent 3 groups of 4?"
+    },
+    {
+      "id": "ma-a3",
+      "type": "multiple_choice",
+      "scored": true,
+      "prompt": "Share 15 coconuts equally into 5 sacks. Each sack gets:",
+      "choices": [
+        "2",
+        "3",
+        "5"
+      ],
+      "correctAnswers": [
+        1
+      ],
+      "hint": "15 ÷ 5.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Five groups of three make fifteen.",
+      "accessibilityNarration": "Share 15 coconuts equally into 5 sacks. Each sack gets:"
+    },
+    {
+      "id": "ma-a4",
+      "type": "sequence",
+      "scored": true,
+      "prompt": "Order a solution for 4 pens with 5 ducks each.",
+      "choices": [
+        "4 groups",
+        "5 in each",
+        "4 × 5 = 20",
+        "20 ducks"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hint": "Groups, amount, equation, total.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Start with four pens.",
+      "accessibilityNarration": "Order a solution for 4 pens with 5 ducks each."
+    },
+    {
+      "id": "ma-a5",
+      "type": "short_response",
+      "scored": true,
+      "prompt": "Three boxes hold eight toy mice each. Write the equation and total.",
+      "choices": [],
+      "correctAnswers": [
+        "3 × 8 = 24"
+      ],
+      "hint": "Boxes × mice per box.",
+      "correctFeedback": "Correct.",
+      "retryFeedback": "Three groups of eight make twenty-four.",
+      "accessibilityNarration": "Three boxes hold eight toy mice each. Write the equation and total."
+    }
+  ],
+  "masteryCriteria": {
+    "minimumAssessmentCorrect": 4,
+    "assessmentTotal": 5,
+    "maximumAttemptsPerItem": 2,
+    "delayedReviewDays": [
+      2,
+      7
+    ],
+    "delayedReviewMinimumCorrect": 4
+  }
+}

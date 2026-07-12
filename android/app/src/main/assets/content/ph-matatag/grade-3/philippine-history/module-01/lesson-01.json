@@ -1,0 +1,111 @@
+{
+  "id": "hist-g3-m01-l01",
+  "schemaVersion": 1,
+  "subject": "philippine-history",
+  "moduleId": "hist-g3-m04",
+  "skillIds": ["hist-g3-timeline", "hist-g3-past-present", "hist-g3-community-stories"],
+  "title": "Lakan and the Lost Barangay Album",
+  "objective": "Explain how a community changes over time while preserving important parts of its identity.",
+  "prerequisiteSkillIds": [],
+  "estimatedMinutes": 10,
+  "guideCharacter": "lakan",
+  "steps": [
+    {
+      "id": "step-01",
+      "type": "animated_explanation",
+      "narrationText": "Lakan, the Philippine forest cat, has found an old photo album! It shows pictures of a barangay from long ago and today. Let's explore how places change over time!",
+      "imageAssets": []
+    },
+    {
+      "id": "step-02",
+      "type": "timeline_builder",
+      "narrationText": "Look at these pictures. Some are from the PAST (long ago) and some are from the PRESENT (today). Let's sort them!",
+      "question": "Sort these into 'Past' (noong unang panahon) and 'Present' (ngayon):",
+      "options": [
+        "Horse-drawn carts (kalesa)", "Cars and jeepneys",
+        "Nipa huts", "Concrete houses",
+        "Letters on paper", "Messages on cellphones",
+        "Farming with carabao", "Farming with machines"
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Great sorting! You can see how transportation, houses, communication, and farming have changed! 🕰️",
+        "incorrect": "Think about what your grandparents used vs. what you use today."
+      }
+    },
+    {
+      "id": "step-03",
+      "type": "multiple_choice",
+      "narrationText": "Some things in the barangay stay the same even as time passes.",
+      "question": "Which of these probably stayed the SAME in a barangay over time?",
+      "options": [
+        "The kind of cellphones people use",
+        "The respect for elders (paggalang sa nakatatanda)",
+        "The style of houses",
+        "The type of transportation"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Yes! Values like respect for elders often stay the same even as technology changes. That's part of our heritage! 🇵🇭",
+        "incorrect": "Some things change (like phones and cars), but values and traditions often continue."
+      }
+    },
+    {
+      "id": "step-04",
+      "type": "story_comprehension",
+      "narrationText": "Listen to this story from Lakan's grandmother cat: 'When I was a kitten, our barangay had only one road made of dirt. Everyone knew everyone. We celebrated fiesta together with homemade food and dancing. Today, we have many paved roads and new buildings. But we STILL celebrate fiesta together with homemade food and dancing!'",
+      "question": "What CHANGED in Lakan's grandmother's barangay?",
+      "options": [
+        "The tradition of celebrating fiesta together",
+        "The roads and buildings",
+        "The love for homemade food",
+        "The dancing at fiesta"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Right! The roads and buildings changed, but the traditions of fiesta, food, and dancing stayed the same! 🎉",
+        "incorrect": "Listen again — what did Lola say is DIFFERENT today vs. when she was young?"
+      }
+    },
+    {
+      "id": "step-05",
+      "type": "multiple_choice",
+      "narrationText": "Why is it important to keep some traditions alive even as things change?",
+      "question": "Why should we remember old traditions and stories?",
+      "options": [
+        "Because old things are always better",
+        "Because they help us remember who we are and where we came from",
+        "Because we don't like new things",
+        "Because the government says so"
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Exactly! Traditions and stories help us remember our identity. They connect us to our family and community! 🏠",
+        "incorrect": "Traditions aren't about 'better' or 'worse' — they're about identity and remembering our roots."
+      }
+    },
+    {
+      "id": "step-06",
+      "type": "timeline_builder",
+      "narrationText": "Create a simple timeline of YOUR day. What happens first, next, and last?",
+      "question": "Place these events in order: Morning, Afternoon, Evening",
+      "options": [
+        "Eat breakfast and go to school",
+        "Eat lunch and play with friends",
+        "Eat dinner and go to sleep"
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Nice timeline! Morning → Afternoon → Evening. Understanding order helps us understand history! ⏰",
+        "incorrect": "What do you do first in your day? Wake up and eat breakfast comes first!"
+      }
+    }
+  ],
+  "assessment": {
+    "passThreshold": 0.8,
+    "minQuestions": 5
+  },
+  "version": 1,
+  "status": "DRAFT",
+  "educatorValidated": false
+}
