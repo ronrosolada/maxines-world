@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
+import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
@@ -287,7 +288,7 @@ private fun BuildingShape(type: RoofType, accent: Color, modifier: Modifier) {
 
 @Composable
 private fun DailyQuestPanel(completed: Int, total: Int, onClick: () -> Unit, modifier: Modifier) {
-    Card(modifier.padding(8.dp), shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(containerColor = White), elevation = CardDefaults.cardElevation(4.dp)) {
+    Card(modifier.padding(8.dp), shape = RoundedCornerShape(18.dp), colors = CardDefaults.cardColors(containerColor = Cream), elevation = CardDefaults.cardElevation(2.dp)) {
         Column(Modifier.padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.AutoAwesome, null, tint = SunshineGold, modifier = Modifier.size(24.dp))
@@ -308,7 +309,8 @@ private fun DailyQuestPanel(completed: Int, total: Int, onClick: () -> Unit, mod
                 Row(verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.Toll, null, tint = SunshineGold, modifier = Modifier.size(18.dp)); Spacer(Modifier.width(4.dp)); Text("10", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = SunshineGold) }
             }
             Spacer(Modifier.height(16.dp))
-            Button(onClick = onClick, shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = Teal40), modifier = Modifier.height(48.dp).fillMaxWidth()) { Text("Start", fontSize = 16.sp) }
+            MaxinesPrimaryButton(onClick = onClick, text = "Start", containerColor = Teal40,
+                modifier = Modifier.fillMaxWidth(), height = 52.dp)
             Spacer(Modifier.height(8.dp))
             Text("Explore Every Day!", fontSize = 12.sp, color = VillageTeal, fontWeight = FontWeight.Medium)
         }
