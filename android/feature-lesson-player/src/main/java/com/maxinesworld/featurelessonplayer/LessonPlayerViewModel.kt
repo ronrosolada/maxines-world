@@ -76,7 +76,12 @@ class LessonPlayerViewModel @Inject constructor(
     fun onNextStep() {
         _state.update {
             val next = it.currentStep + 1
-            if (next >= it.totalSteps) it.copy(currentStep = next, isComplete = true)
+            // Only mark complete if all required steps have results
+            val lesson = it.lesson
+            val requiredIds = lesson?.steps?.map { s -> s.id }?.toSet() ?: emptySet()
+            val completedIds = it.results.map { r -> r.activityId }.toSet()
+            val allDone = completedIds.containsAll(requiredIds) && next >= it.totalSteps
+            if (allDone) it.copy(currentStep = next, isComplete = true)
             else it.copy(currentStep = next, showFeedback = false)
         }
         if (_state.value.isComplete) saveProgress()
@@ -118,6 +123,8 @@ class LessonPlayerViewModel @Inject constructor(
     }
 
     fun onActivityResult(result: ActivityResult) {
+        // Prevent duplicate results for the same activity
+        if (_state.value.results.any { it.activityId == result.activityId }) return
         val lesson = _state.value.lesson
         val step = lesson?.steps?.getOrNull(_state.value.currentStep)
         _state.update { it.copy(results = it.results + result) }
