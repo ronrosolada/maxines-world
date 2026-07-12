@@ -72,7 +72,9 @@ fun VillageHomeScreen(
     onParentGate: () -> Unit = {},
     onAchievements: () -> Unit = {},
     onBackpack: () -> Unit = {},
-    onDailyQuest: () -> Unit = {}
+    onDailyQuest: () -> Unit = {},
+    onDayTap: (Int) -> Unit = {},
+    onDailySubjectTap: (Int, String) -> Unit = { _, _ -> }
 ) {
     // ─── Load daily challenge progress ───
     val challengeProgress by produceState(ChallengeProgress()) {
@@ -123,10 +125,17 @@ fun VillageHomeScreen(
                     Row(Modifier.fillMaxSize().weight(1f)) {
                         DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.width(220.dp).fillMaxHeight())
                         VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
+                    // Daily trail: Day 1-20 subject slots
+                    DailyTrailPanel(currentDay = 1, subjectStatuses = emptyMap(), completedCount = 0,
+                        onSubjectTap = onDailySubjectTap, onDaySelect = onDayTap,
+                        modifier = Modifier.width(280.dp).fillMaxHeight())
                     }
                 } else {
                     Column(Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())) {
                         VillageLandscape(onSubjectTap, Modifier.fillMaxWidth().height(500.dp))
+                        DailyTrailPanel(currentDay = 1, subjectStatuses = emptyMap(), completedCount = 0,
+                            onSubjectTap = onDailySubjectTap, onDaySelect = onDayTap,
+                            modifier = Modifier.fillMaxWidth())
                         DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.fillMaxWidth())
                     }
                 }
