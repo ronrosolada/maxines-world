@@ -72,6 +72,35 @@ interface MasteryRecordDao {
     suspend fun getByChild(childId: String): List<MasteryRecordEntity>
 }
 
+// ─── Badge Collection System ───
+
+@Dao
+interface DailyChallengeDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(challenge: DailyChallengeEntity)
+
+    @Query("SELECT * FROM daily_challenges WHERE childId = :childId AND challengeDate = :date")
+    suspend fun getByChildAndDate(childId: String, date: String): DailyChallengeEntity?
+
+    @Query("SELECT * FROM daily_challenges WHERE childId = :childId ORDER BY challengeDate DESC LIMIT 1")
+    suspend fun getLatest(childId: String): DailyChallengeEntity?
+}
+
+@Dao
+interface CollectedBadgeDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(badge: CollectedBadgeEntity)
+
+    @Query("SELECT * FROM collected_badges WHERE childId = :childId ORDER BY earnedAtEpochMillis ASC")
+    suspend fun getAllByChild(childId: String): List<CollectedBadgeEntity>
+
+    @Query("SELECT COUNT(*) FROM collected_badges WHERE childId = :childId")
+    suspend fun countByChild(childId: String): Int
+
+    @Query("SELECT COUNT(*) FROM collected_badges WHERE childId = :childId AND biome = :biome")
+    suspend fun countByBiome(childId: String, biome: String): Int
+}
+
 @Dao
 interface RewardDao {
     @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")

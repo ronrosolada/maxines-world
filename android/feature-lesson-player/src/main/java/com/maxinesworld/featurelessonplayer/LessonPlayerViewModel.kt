@@ -1,10 +1,12 @@
 package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
+import com.maxinesworld.featurerewards.BadgeAwarder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,7 +31,7 @@ data class LessonUiState(
     val isComplete: Boolean = false,
     val error: String? = null,
     val results: List<ActivityResult> = emptyList(),
-    val rewardBreakId: String? = null
+    val badgeAwarded: CollectibleBadge? = null
 )
 
 @HiltViewModel
@@ -38,7 +40,8 @@ class LessonPlayerViewModel @Inject constructor(
     private val progressEventDao: ProgressEventDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
-    private val masteryEngine: MasteryEngine
+    private val masteryEngine: MasteryEngine,
+    private val badgeAwarder: BadgeAwarder
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(LessonUiState())
@@ -54,7 +57,7 @@ class LessonPlayerViewModel @Inject constructor(
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
                     totalSteps = lesson?.steps?.size ?: 0,
-                    error = if (lesson == null) "Could not load lesson. Please go back and try again." else null)
+                    error = if (lesson == null) "Could not load lesson." else null)
             }
         }
     }
@@ -89,12 +92,12 @@ class LessonPlayerViewModel @Inject constructor(
             }
             for (skillId in lesson.skillIds) {
                 val events = progressEventDao.getByChildAndSkill(childId, skillId)
-                val state = masteryEngine.computeMastery(events.map { e ->
+                val ms = masteryEngine.computeMastery(events.map { e ->
                     com.maxinesworld.coremodel.ProgressEvent(e.id, e.childId, e.skillId, e.lessonId, e.activityId, e.eventType, e.accuracy, e.attempts, e.hintsUsed, e.responseTimeMs, e.timestamp)
                 })
                 masteryRecordDao.upsert(MasteryRecordEntity(
                     id = "${childId}_$skillId", childId = childId, skillId = skillId,
-                    state = state.name,
+                    state = ms.name,
                     accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average() else 0.0,
                     totalAttempts = events.size, lastActivityAt = System.currentTimeMillis()
                 ))
@@ -105,6 +108,12 @@ class LessonPlayerViewModel @Inject constructor(
             rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "STAR", subject = lesson.subject, amount = starsEarned))
             if (accuracy >= 0.8) {
                 rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "COIN", subject = lesson.subject, amount = 10))
+            }
+
+            // Badge: record subject completion, check for daily challenge
+            val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
+            if (progress.newlyAwardedBadge != null) {
+                _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
             }
         }
     }

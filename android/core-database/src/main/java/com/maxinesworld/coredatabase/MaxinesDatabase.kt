@@ -13,9 +13,11 @@ import androidx.room.RoomDatabase
         ScreenTimeLimitEntity::class,
         DailyQuestEntity::class,
         RewardBreakEntitlementEntity::class,
-        MiniGameResultEntity::class
+        MiniGameResultEntity::class,
+        DailyChallengeEntity::class,
+        CollectedBadgeEntity::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {
@@ -28,4 +30,6 @@ abstract class MaxinesDatabase : RoomDatabase() {
     abstract fun dailyQuestDao(): DailyQuestDao
     abstract fun rewardBreakDao(): RewardBreakDao
     abstract fun miniGameResultDao(): MiniGameResultDao
+    abstract fun dailyChallengeDao(): DailyChallengeDao
+    abstract fun collectedBadgeDao(): CollectedBadgeDao
 }

@@ -19,6 +19,8 @@ import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
+import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
+import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
@@ -35,19 +37,20 @@ object Routes {
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
+    fun wildlifeFieldGuide(childId: String) = "wildlife_field_guide/$childId"
 }
 
 @Composable
 fun MaxinesNavGraph(navController: NavHostController) {
-    // Resolve whether setup is complete to decide start destination
     var startDest by remember { mutableStateOf<String?>(null) }
-
-    LaunchedEffect(Unit) {
-        val appContext = navController.context.applicationContext
-        val entryPoint = EntryPointAccessors.fromApplication(
-            appContext,
+    val entryPoint = remember {
+        EntryPointAccessors.fromApplication(
+            navController.context.applicationContext,
             com.maxinesworld.app.di.StartupCheckEntryPoint::class.java
         )
+    }
+
+    LaunchedEffect(Unit) {
         val parentDao = entryPoint.parentAccountDao()
         val childDao = entryPoint.childProfileDao()
         val authManager = entryPoint.authManager()
@@ -104,7 +107,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.parentGate(childId))
                 },
                 onAchievements = {
-                    navController.navigate(Routes.childHome(childId)) // stays for now
+                    navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onBackpack = {
                     navController.navigate(Routes.childHome(childId)) // stays for now
@@ -227,6 +230,20 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         popUpTo(MiniGameRoutes.PARKOUR) { inclusive = true }
                     }
                 }
+            )
+        }
+
+        // Wildlife Field Guide (badge collection)
+        composable(
+            route = "wildlife_field_guide/{childId}",
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
+            WildlifeFieldGuideScreen(
+                childId = childId,
+                badgeAwarder = badgeAwarder,
+                onBack = { navController.popBackStack() }
             )
         }
     }

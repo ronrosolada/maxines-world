@@ -24,6 +24,7 @@ dependencies {
     implementation(project(":engine-activity"))
     implementation(project(":engine-assessment"))
     implementation(project(":engine-mastery"))
+    implementation(project(":feature-rewards"))
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)
