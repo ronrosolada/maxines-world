@@ -14,6 +14,16 @@ android {
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
+
+    // Allow MockK to instrument java.time.LocalDate in unit tests (JDK 17+ module system)
+    testOptions {
+        unitTests.all {
+            it.jvmArgs(
+                "--add-opens", "java.base/java.time=ALL-UNNAMED",
+                "--add-opens", "java.base/java.time.zone=ALL-UNNAMED",
+            )
+        }
+    }
 }
 
 dependencies {

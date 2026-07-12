@@ -90,7 +90,10 @@ fun MaxinesNavGraph(navController: NavHostController) {
             arguments = listOf(navArgument("childId") { type = NavType.StringType })
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             VillageHomeScreen(
+                childId = childId,
+                badgeAwarder = badgeAwarder,
                 onSubjectTap = { subject ->
                     val lessonId = when (subject) {
                         "english" -> "eng-g3-m01-l01"

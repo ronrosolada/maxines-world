@@ -20,6 +20,9 @@ import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
 import com.maxinesworld.coredesignsystem.theme.*
+import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.DailyChallengeProgressRow
 
 // ─── Village landscape colors ───
 private val SkyTop = Color(0xFF87CEEB)
@@ -55,6 +58,8 @@ private val subjectBuildings = listOf(
 
 @Composable
 fun VillageHomeScreen(
+    childId: String = "unknown",
+    badgeAwarder: BadgeAwarder? = null,
     childName: String = "Maxine",
     level: Int = 1,
     dayStreak: Int = 7,
@@ -69,22 +74,61 @@ fun VillageHomeScreen(
     onBackpack: () -> Unit = {},
     onDailyQuest: () -> Unit = {}
 ) {
+    // ─── Load daily challenge progress ───
+    val challengeProgress by produceState(ChallengeProgress()) {
+        badgeAwarder?.let { value = it.getTodayProgress(childId) }
+    }
+    val badgeCount by produceState(0) {
+        badgeAwarder?.let { value = it.getCollectedCount(childId) }
+    }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val isWide = maxWidth > 600.dp
         Scaffold(
             containerColor = Cream,
             topBar = { VillageTopBar(childName, level, xp, xpMax, dayStreak) },
-            bottomBar = { VillageBottomBar(onAchievements, onBackpack, onParentGate) }
+            bottomBar = { VillageBottomBar(onAchievements, onBackpack, onParentGate, badgeCount) }
         ) { innerPadding ->
-            if (isWide) {
-                Row(Modifier.fillMaxSize().padding(innerPadding)) {
-                    DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.width(220.dp).fillMaxHeight())
-                    VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
+            Column(Modifier.padding(innerPadding)) {
+                // ─── Daily Challenge Progress ───
+                if (badgeAwarder != null) {
+                    Card(
+                        Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(containerColor = White),
+                        elevation = CardDefaults.cardElevation(2.dp)
+                    ) {
+                        Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text(
+                                "Daily Challenge",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.sp,
+                                color = VillageTeal
+                            )
+                            Spacer(Modifier.height(12.dp))
+                            DailyChallengeProgressRow(challengeProgress)
+                            if (challengeProgress.completedCount == 5) {
+                                Spacer(Modifier.height(12.dp))
+                                Text(
+                                    "🎉 Badge earned!",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp,
+                                    color = SuccessGreen
+                                )
+                            }
+                        }
+                    }
+                    Spacer(Modifier.height(4.dp))
                 }
-            } else {
-                Column(Modifier.fillMaxSize().padding(innerPadding).verticalScroll(rememberScrollState())) {
-                    VillageLandscape(onSubjectTap, Modifier.fillMaxWidth().height(500.dp))
-                    DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.fillMaxWidth())
+                if (isWide) {
+                    Row(Modifier.fillMaxSize().weight(1f)) {
+                        DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.width(220.dp).fillMaxHeight())
+                        VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
+                    }
+                } else {
+                    Column(Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())) {
+                        VillageLandscape(onSubjectTap, Modifier.fillMaxWidth().height(500.dp))
+                        DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.fillMaxWidth())
+                    }
                 }
             }
         }
@@ -294,10 +338,34 @@ private fun VillageTopBar(name: String, level: Int, xp: Int, xpMax: Int, dayStre
 
 @Composable
 private fun VillageBottomBar(
-    onAchievements: () -> Unit = {}, onBackpack: () -> Unit = {}, onParentGate: () -> Unit = {}
+    onAchievements: () -> Unit = {}, onBackpack: () -> Unit = {}, onParentGate: () -> Unit = {},
+    badgeCount: Int = 0
 ) {
     NavigationBar(containerColor = White) {
-        NavigationBarItem(selected = false, onClick = onAchievements, icon = { Icon(Icons.Default.EmojiEvents, "Achievements", tint = VillageTeal) }, label = { Text("Achievements", fontSize = 12.sp) })
+        NavigationBarItem(
+            selected = false,
+            onClick = onAchievements,
+            icon = {
+                Box {
+                    Icon(Icons.Default.EmojiEvents, "Achievements", tint = VillageTeal)
+                    if (badgeCount > 0) {
+                        Badge(
+                            containerColor = Coral,
+                            contentColor = White,
+                            modifier = Modifier.align(Alignment.TopEnd).offset(x = 6.dp, y = (-4).dp)
+                        ) {
+                            Text(
+                                "$badgeCount/50",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                            )
+                        }
+                    }
+                }
+            },
+            label = { Text("Achievements", fontSize = 12.sp) }
+        )
         NavigationBarItem(selected = false, onClick = onBackpack, icon = { Icon(Icons.Default.ShoppingBag, "Backpack", tint = VillageTeal) }, label = { Text("Backpack", fontSize = 12.sp) })
         NavigationBarItem(selected = false, onClick = onParentGate, icon = { Icon(Icons.Default.People, "Parents", tint = VillageTeal) }, label = { Text("Parents", fontSize = 12.sp) })
     }
