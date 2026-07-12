@@ -2,6 +2,7 @@ package com.maxinesworld.featurechildhome
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,10 +23,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maxinesworld.coredesignsystem.R
 import com.maxinesworld.coredesignsystem.WindowProfile
 import com.maxinesworld.coredesignsystem.windowProfileForWidth
 import com.maxinesworld.coredesignsystem.isWide
@@ -98,7 +102,7 @@ fun VillageHomeScreen(
         val isWide = profile.isWide
 
         Scaffold(
-            containerColor = Cream,
+            containerColor = White,
             topBar = { VillageTopBar(childName, level, dayStreak, stars) },
             bottomBar = { VillageBottomBar(onProfile, onAchievements, onBackpack, onParentGate) }
         ) { innerPadding ->
@@ -111,11 +115,11 @@ fun VillageHomeScreen(
                     .widthIn(max = 1440.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // ─── Hero Section ───
+                // ─── Hero Banner ───
                 if (isWide) {
-                    HeroSectionWide(childName, dailyQuest, onDailyQuest, profile, stars)
+                    HeroSectionWide(childName, dailyQuest, onDailyQuest, stars)
                 } else {
-                    HeroSectionCompact(childName, dailyQuest, onDailyQuest, profile)
+                    HeroSectionCompact(childName, dailyQuest, onDailyQuest)
                 }
 
                 Spacer(Modifier.height(32.dp))
@@ -124,7 +128,7 @@ fun VillageHomeScreen(
                 Text(
                     "Where do you want to go today?",
                     fontWeight = FontWeight.Bold,
-                    fontSize = if (isWide) 30.sp else 24.sp,
+                    fontSize = if (isWide) 32.sp else 26.sp,
                     color = Ink,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -136,7 +140,6 @@ fun VillageHomeScreen(
                     else -> 1
                 }
 
-                // Build subject grid manually for mixed-sized cards
                 Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                     villageSubjects.chunked(columns).forEach { row ->
                         Row(
@@ -151,7 +154,6 @@ fun VillageHomeScreen(
                                     onTap = onSubjectTap
                                 )
                             }
-                            // Fill remaining slots
                             repeat(columns - row.size) {
                                 Spacer(Modifier.weight(1f))
                             }
@@ -159,7 +161,6 @@ fun VillageHomeScreen(
                     }
                 }
 
-                // ─── Bottom decoration ───
                 Spacer(Modifier.height(32.dp))
                 PawPrintDivider()
                 Spacer(Modifier.height(12.dp))
@@ -182,25 +183,43 @@ private fun HeroSectionWide(
     childName: String,
     quest: DailyQuestInfo,
     onDailyQuest: () -> Unit,
-    profile: WindowProfile,
     stars: Int
 ) {
-    Row(
+    Card(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(24.dp)
+        shape = RoundedCornerShape(28.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        // Welcome & Quest card — 68% width per spec
-        Card(
-            modifier = Modifier.weight(0.68f),
-            shape = RoundedCornerShape(28.dp),
-            colors = CardDefaults.cardColors(containerColor = VillageTeal.copy(alpha = 0.08f)),
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-        ) {
+        Box {
+            // Background gradient
+            Canvas(Modifier.fillMaxWidth().height(280.dp)) {
+                drawRect(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            SkyBlue.copy(alpha = 0.15f),
+                            VillageTeal.copy(alpha = 0.06f),
+                            Cream
+                        )
+                    )
+                )
+                // Decorative clouds
+                drawCircle(SkyBlue.copy(alpha = 0.07f), radius = 60f, center = Offset(100f, 80f))
+                drawCircle(SkyBlue.copy(alpha = 0.05f), radius = 90f, center = Offset(300f, 50f))
+                drawCircle(White.copy(alpha = 0.4f), radius = 50f, center = Offset(250f, 110f))
+                // Ground
+                drawRect(
+                    LeafGreen.copy(alpha = 0.08f),
+                    topLeft = Offset(0f, 240f),
+                    size = androidx.compose.ui.geometry.Size(size.width, 40f)
+                )
+            }
+            // Content
             Row(Modifier.padding(32.dp)) {
                 Column(Modifier.weight(1f)) {
                     Text(
                         "Magandang araw, $childName!",
-                        fontSize = 32.sp,
+                        fontSize = 36.sp,
                         fontWeight = FontWeight.Bold,
                         color = Ink
                     )
@@ -211,30 +230,18 @@ private fun HeroSectionWide(
                         color = Ink.copy(alpha = 0.7f)
                     )
                     Spacer(Modifier.height(24.dp))
-                    // Daily Quest mini-card inside hero
                     DailyQuestMiniCard(quest, onDailyQuest)
                 }
-                // Character mascot
-                Box(
-                    Modifier
-                        .size(120.dp)
-                        .clip(CircleShape)
-                        .background(VillageTeal.copy(alpha = 0.1f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(Icons.Default.Pets, "Milo", tint = VillageTeal, modifier = Modifier.size(56.dp))
+                // Milo mascot
+                Box(contentAlignment = Alignment.BottomCenter) {
+                    Image(
+                        painter = painterResource(R.drawable.milo_hero),
+                        contentDescription = "Milo",
+                        modifier = Modifier.size(150.dp).offset(y = 10.dp),
+                        contentScale = ContentScale.Fit
+                    )
                 }
             }
-        }
-
-        // Side info panel — 32% width per spec
-        Column(
-            modifier = Modifier.weight(0.32f),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            StatCard(Icons.Default.LocalFireDepartment, "${quest.completed}/${quest.total}", "Daily Quest Progress", VillageTeal)
-            StatCard(Icons.Default.Star, "$stars", "Stars Earned", SunshineGold)
-            StatCard(Icons.Default.Home, "6", "Village Places", LeafGreen)
         }
     }
 }
@@ -245,35 +252,32 @@ private fun HeroSectionWide(
 private fun HeroSectionCompact(
     childName: String,
     quest: DailyQuestInfo,
-    onDailyQuest: () -> Unit,
-    profile: WindowProfile
+    onDailyQuest: () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = VillageTeal.copy(alpha = 0.08f)),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Column(Modifier.padding(24.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.Pets, "Milo", tint = VillageTeal, modifier = Modifier.size(40.dp))
-                Spacer(Modifier.width(12.dp))
-                Column {
-                    Text(
-                        "Hi, $childName!",
-                        fontSize = 26.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Ink
-                    )
-                    Text(
-                        "Ready to learn today?",
-                        fontSize = 18.sp,
-                        color = Ink.copy(alpha = 0.7f)
-                    )
-                }
+        Box {
+            Canvas(Modifier.fillMaxWidth().height(240.dp)) {
+                drawRect(brush = Brush.verticalGradient(colors = listOf(SkyBlue.copy(alpha = 0.12f),VillageTeal.copy(alpha = 0.04f),Cream)))
+                drawCircle(SkyBlue.copy(alpha = 0.06f), radius = 50f, center = Offset(80f, 60f))
+                drawCircle(White.copy(alpha = 0.3f), radius = 35f, center = Offset(200f, 80f))
             }
-            Spacer(Modifier.height(16.dp))
-            DailyQuestMiniCard(quest, onDailyQuest)
+            Column(Modifier.padding(24.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Image(painter = painterResource(R.drawable.milo_hero), "Milo", modifier = Modifier.size(64.dp).clip(CircleShape), contentScale = ContentScale.Fit)
+                    Spacer(Modifier.width(12.dp))
+                    Column {
+                        Text("Hi, $childName!", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Ink)
+                        Text("Ready to learn today?", fontSize = 18.sp, color = Ink.copy(alpha = 0.7f))
+                    }
+                }
+                Spacer(Modifier.height(16.dp))
+                DailyQuestMiniCard(quest, onDailyQuest)
+            }
         }
     }
 }
@@ -283,22 +287,14 @@ private fun HeroSectionCompact(
 @Composable
 private fun DailyQuestMiniCard(quest: DailyQuestInfo, onClick: () -> Unit) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onClick() },
+        modifier = Modifier.fillMaxWidth().clickable { onClick() },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
-            Modifier.padding(20.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Row(Modifier.padding(20.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(
-                Modifier
-                    .size(56.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(SunshineGold.copy(alpha = 0.15f)),
+                Modifier.size(56.dp).clip(RoundedCornerShape(16.dp)).background(SunshineGold.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(quest.subjectIcon, "Quest", tint = SunshineGold, modifier = Modifier.size(28.dp))
@@ -342,102 +338,38 @@ private fun SubjectBuildingCard(
     isWide: Boolean = true,
     onTap: (String) -> Unit
 ) {
-    // Gentle bobbing animation for the character
     val infiniteTransition = rememberInfiniteTransition(label = "bob")
     val bobOffset by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 4f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1200, easing = EaseInOutCubic),
-            repeatMode = RepeatMode.Reverse
-        ),
+        initialValue = 0f, targetValue = 4f,
+        animationSpec = infiniteRepeatable(animation = tween(1200, easing = EaseInOutCubic), repeatMode = RepeatMode.Reverse),
         label = "bob"
     )
 
     Card(
-        modifier = modifier
-            .clickable { onTap(subject.id) },
+        modifier = modifier.clickable { onTap(subject.id) },
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = subject.surfaceColor),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(
-            Modifier.padding(if (isWide) 24.dp else 20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Building-like icon area
+        Column(Modifier.padding(if (isWide) 24.dp else 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            // Character / building icon with bob animation
             Box(
-                modifier = Modifier
-                    .offset(y = bobOffset.dp)
-                    .size(if (isWide) 72.dp else 64.dp)
+                modifier = Modifier.offset(y = bobOffset.dp)
+                    .size(if (isWide) 80.dp else 72.dp)
                     .clip(RoundedCornerShape(20.dp))
                     .background(subject.color.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    subject.characterIcon,
-                    contentDescription = subject.guideName,
-                    tint = subject.color,
-                    modifier = Modifier.size(if (isWide) 36.dp else 30.dp)
-                )
+                Icon(subject.characterIcon, subject.guideName, tint = subject.color, modifier = Modifier.size(if (isWide) 36.dp else 30.dp))
             }
-            Spacer(Modifier.height(12.dp))
-
-            // Subject name
-            Text(
-                subject.name,
-                fontWeight = FontWeight.Bold,
-                fontSize = if (isWide) 20.sp else 18.sp,
-                color = subject.color,
-                textAlign = TextAlign.Center
-            )
+            Spacer(Modifier.height(16.dp))
+            Text(subject.name, fontWeight = FontWeight.Bold, fontSize = if (isWide) 22.sp else 20.sp, color = subject.color, textAlign = TextAlign.Center)
             Spacer(Modifier.height(4.dp))
-
-            // Guide name
-            Text(
-                "Guide: ${subject.guideName}",
-                fontSize = if (isWide) 14.sp else 13.sp,
-                color = Ink.copy(alpha = 0.5f),
-                textAlign = TextAlign.Center
-            )
-            Spacer(Modifier.height(8.dp))
-
-            // Decorative path indicator
+            Text("Guide: ${subject.guideName}", fontSize = if (isWide) 15.sp else 14.sp, color = Ink.copy(alpha = 0.5f), textAlign = TextAlign.Center)
+            Spacer(Modifier.height(12.dp))
             PathDots(color = subject.color)
-            Spacer(Modifier.height(8.dp))
-
-            // Description
-            Text(
-                subject.description,
-                fontSize = if (isWide) 15.sp else 14.sp,
-                color = Ink.copy(alpha = 0.6f),
-                textAlign = TextAlign.Center,
-                lineHeight = 20.sp
-            )
-        }
-    }
-}
-
-// ─── Stat Card ───
-
-@Composable
-private fun StatCard(icon: ImageVector, value: String, label: String, color: Color) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = color.copy(alpha = 0.08f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-    ) {
-        Row(
-            Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(icon, label, tint = color, modifier = Modifier.size(28.dp))
-            Spacer(Modifier.width(12.dp))
-            Column {
-                Text(value, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = color)
-                Text(label, fontSize = 13.sp, color = color.copy(alpha = 0.7f))
-            }
+            Spacer(Modifier.height(12.dp))
+            Text(subject.description, fontSize = if (isWide) 15.sp else 14.sp, color = Ink.copy(alpha = 0.6f), textAlign = TextAlign.Center, lineHeight = 22.sp)
         }
     }
 }
@@ -450,48 +382,26 @@ private fun VillageTopBar(name: String, level: Int, dayStreak: Int, stars: Int) 
     TopAppBar(
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                // Logo
-                Icon(Icons.Default.Pets, "Paw", tint = VillageTeal, modifier = Modifier.size(24.dp))
+                Image(painter = painterResource(R.drawable.milo_hero), "Logo", modifier = Modifier.size(32.dp).clip(CircleShape), contentScale = ContentScale.Fit)
                 Spacer(Modifier.width(8.dp))
-                Text(
-                    "Maxine's World",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 22.sp,
-                    color = VillageTeal
-                )
+                Text("Maxine's World", fontWeight = FontWeight.Bold, fontSize = 22.sp, color = VillageTeal)
             }
         },
         actions = {
-            // Day streak
             if (dayStreak > 0) {
                 AssistChip(
                     onClick = {},
-                    label = {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(16.dp))
-                            Spacer(Modifier.width(4.dp))
-                            Text("$dayStreak", fontSize = 13.sp)
-                        }
-                    },
-                    colors = AssistChipDefaults.assistChipColors(
-                        containerColor = SunshineGold.copy(alpha = 0.15f)
-                    )
+                    label = { Row(verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("$dayStreak", fontSize = 13.sp) } },
+                    colors = AssistChipDefaults.assistChipColors(containerColor = SunshineGold.copy(alpha = 0.15f))
                 )
                 Spacer(Modifier.width(8.dp))
             }
-            // Child avatar + name
-            Box(
-                Modifier
-                    .size(36.dp)
-                    .clip(CircleShape)
-                    .background(Coral),
-                contentAlignment = Alignment.Center
-            ) {
+            Box(Modifier.size(36.dp).clip(CircleShape).background(Coral), contentAlignment = Alignment.Center) {
                 Icon(Icons.Default.Person, name, tint = White, modifier = Modifier.size(20.dp))
             }
             Spacer(Modifier.width(12.dp))
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = Cream)
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = White)
     )
 }
 
@@ -504,71 +414,40 @@ private fun VillageBottomBar(
     onBackpack: () -> Unit,
     onParentGate: () -> Unit
 ) {
-    NavigationBar(
-        containerColor = Color.White,
-        tonalElevation = 8.dp
-    ) {
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Explore, "Village") },
-            label = { Text("Village", fontSize = 12.sp) },
-            selected = true,
-            onClick = {}
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.EmojiEvents, "Achievements") },
-            label = { Text("Achievements", fontSize = 12.sp) },
-            selected = false,
-            onClick = onAchievements
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Backpack, "Backpack") },
-            label = { Text("Backpack", fontSize = 12.sp) },
-            selected = false,
-            onClick = onBackpack
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Lock, "Parents") },
-            label = { Text("Parents", fontSize = 12.sp) },
-            selected = false,
-            onClick = onParentGate
-        )
+    NavigationBar(containerColor = SurfaceContainer) {
+        NavigationBarItem(selected = true, onClick = {}, icon = { Icon(Icons.Default.Home, "Village") }, label = { Text("Village") }, colors = NavigationBarItemDefaults.colors(selectedIconColor = VillageTeal))
+        NavigationBarItem(selected = false, onClick = onAchievements, icon = { Icon(Icons.Default.EmojiEvents, "Achievements") }, label = { Text("Achievements") })
+        NavigationBarItem(selected = false, onClick = onBackpack, icon = { Icon(Icons.Default.Backpack, "Backpack") }, label = { Text("Backpack") })
+        NavigationBarItem(selected = false, onClick = onParentGate, icon = { Icon(Icons.Default.Shield, "Parents") }, label = { Text("Parents") })
     }
 }
 
-// ─── Decorative Elements ───
+// ─── Path Dots ───
+
+@Composable
+private fun PathDots(color: Color) {
+    Canvas(Modifier.fillMaxWidth().height(8.dp)) {
+        val dotSpacing = 12f; val dotRadius = 3f
+        val totalDots = ((size.width / dotSpacing).toInt()).coerceAtMost(8)
+        for (i in 0 until totalDots) {
+            drawCircle(color = color.copy(alpha = 0.3f - i * 0.02f), radius = dotRadius, center = Offset(size.width / 2 - (totalDots - 1) * dotSpacing / 2 + i * dotSpacing, 4f))
+        }
+    }
+}
+
+// ─── Paw Print Divider ───
 
 @Composable
 private fun PawPrintDivider() {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Canvas(Modifier.width(60.dp).height(1.dp)) {
-            drawLine(VillageTeal.copy(alpha = 0.2f), Offset.Zero, Offset(size.width, 0f), 1f)
-        }
-        Spacer(Modifier.width(8.dp))
-        Icon(Icons.Default.Pets, "Paw", tint = VillageTeal.copy(alpha = 0.3f), modifier = Modifier.size(14.dp))
-        Spacer(Modifier.width(8.dp))
-        Canvas(Modifier.width(60.dp).height(1.dp)) {
-            drawLine(VillageTeal.copy(alpha = 0.2f), Offset.Zero, Offset(size.width, 0f), 1f)
-        }
-    }
-}
-
-@Composable
-private fun PathDots(color: Color, count: Int = 5) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        repeat(count) { i ->
-            Box(
-                Modifier
-                    .size(if (i % 2 == 0) 6.dp else 4.dp)
-                    .clip(CircleShape)
-                    .background(color.copy(alpha = if (i < count / 2) 0.3f else 0.1f))
-            )
+    Canvas(Modifier.fillMaxWidth().height(20.dp)) {
+        val pawSpacing = 40f
+        val pawCount = (size.width / pawSpacing).toInt()
+        val startX = (size.width - pawCount * pawSpacing) / 2 + pawSpacing / 2
+        for (i in 0 until pawCount) {
+            val x = startX + i * pawSpacing
+            drawCircle(VillageTeal.copy(alpha = 0.2f), radius = 5f, center = Offset(x, 8f))
+            drawCircle(VillageTeal.copy(alpha = 0.2f), radius = 3f, center = Offset(x - 6f, 4f))
+            drawCircle(VillageTeal.copy(alpha = 0.2f), radius = 3f, center = Offset(x + 6f, 4f))
         }
     }
 }
