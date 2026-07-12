@@ -115,9 +115,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onAchievements = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
-                onDailySubjectTap = { day, lessonId ->
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                },
                 onBackpack = {
                     navController.navigate(Routes.childHome(childId)) // stays for now
                 }

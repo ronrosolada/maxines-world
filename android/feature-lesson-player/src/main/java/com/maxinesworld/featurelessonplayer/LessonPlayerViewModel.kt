@@ -55,9 +55,15 @@ class LessonPlayerViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             val lesson = withContext(Dispatchers.IO) {
-                val m1 = contentLessonLoader.loadLesson(lessonId)
-                m1?.let { convertToLessonManifest(it) }
-                    ?: lessonLoader.loadLesson(lessonId)
+                // Try Month 1 content pack first, fall back to old loader
+                try {
+                    val m1 = contentLessonLoader.loadLesson(lessonId)
+                    if (m1 != null) convertToLessonManifest(m1)
+                    else lessonLoader.loadLesson(lessonId)
+                } catch (e: Exception) {
+                    // If Month 1 loading throws, try old loader
+                    lessonLoader.loadLesson(lessonId)
+                }
             }
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
