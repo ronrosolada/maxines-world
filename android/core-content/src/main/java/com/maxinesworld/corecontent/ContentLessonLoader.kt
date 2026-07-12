@@ -3,17 +3,13 @@ package com.maxinesworld.corecontent
 import android.content.Context
 import com.maxinesworld.coremodel.DayManifest
 import com.maxinesworld.coremodel.Month1Lesson
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import java.util.concurrent.ConcurrentHashMap
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class ContentLessonLoader @Inject constructor(
-    @ApplicationContext private val context: Context
+class ContentLessonLoader(
+    private val context: Context
 ) {
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
     private val lessonCache = ConcurrentHashMap<String, Month1Lesson>()
