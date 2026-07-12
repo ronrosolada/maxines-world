@@ -26,11 +26,22 @@ import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.coredatabase.ProgressEventDao
+import com.maxinesworld.coredatabase.ProgressEventEntity
+import com.maxinesworld.coredatabase.MasteryRecordDao
+import com.maxinesworld.coredatabase.MasteryRecordEntity
+import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.RewardEntity
+import com.maxinesworld.enginemastery.MasteryEngine
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import java.util.UUID
 import javax.inject.Inject
 
 // ─── Lesson Player ViewModel ───
@@ -50,13 +61,19 @@ data class LessonUiState(
 
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
-    private val lessonLoader: LessonLoader
+    private val lessonLoader: LessonLoader,
+    private val progressEventDao: ProgressEventDao,
+    private val masteryRecordDao: MasteryRecordDao,
+    private val rewardDao: RewardDao,
+    private val masteryEngine: MasteryEngine
 ) : androidx.lifecycle.ViewModel() {
 
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
+    private var childId: String = ""
 
-    fun loadLesson(lessonId: String) {
+    fun loadLesson(lessonId: String, childId: String = "") {
+        this.childId = childId
         val lesson = lessonLoader.loadLesson(lessonId)
         _state.update {
             it.copy(
@@ -75,6 +92,79 @@ class LessonPlayerViewModel @Inject constructor(
                 it.copy(currentStep = next, isComplete = true)
             } else {
                 it.copy(currentStep = next, showFeedback = false)
+            }
+        }
+        // Save progress when lesson completes
+        if (_state.value.isComplete) {
+            saveProgress()
+        }
+    }
+
+    private fun saveProgress() {
+        val lesson = _state.value.lesson ?: return
+        val results = _state.value.results
+        if (childId.isBlank() || results.isEmpty()) return
+
+        viewModelScope.launch {
+            // Record progress events for each activity
+            results.forEach { result ->
+                progressEventDao.insert(
+                    ProgressEventEntity(
+                        id = UUID.randomUUID().toString(),
+                        childId = childId,
+                        skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
+                        lessonId = lesson.id,
+                        activityId = result.activityId,
+                        eventType = "lesson_complete",
+                        accuracy = if (result.correct) 1.0 else 0.0,
+                        attempts = result.attempts,
+                        hintsUsed = result.hintsUsed,
+                        responseTimeMs = result.responseTimeMs
+                    )
+                )
+            }
+
+            // Update mastery for each skill
+            for (skillId in lesson.skillIds) {
+                val events = progressEventDao.getByChildAndSkill(childId, skillId)
+                val masteryState = masteryEngine.computeMastery(events.map { e ->
+                    com.maxinesworld.coremodel.ProgressEvent(e.id, e.childId, e.skillId, e.lessonId, e.activityId, e.eventType, e.accuracy, e.attempts, e.hintsUsed, e.responseTimeMs, e.timestamp)
+                })
+                masteryRecordDao.upsert(
+                    MasteryRecordEntity(
+                        id = "${childId}_$skillId",
+                        childId = childId,
+                        skillId = skillId,
+                        state = masteryState.name,
+                        accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average() else 0.0,
+                        totalAttempts = events.size,
+                        lastActivityAt = System.currentTimeMillis()
+                    )
+                )
+            }
+
+            // Grant rewards
+            val correctCount = results.count { it.correct }
+            val starsEarned = (correctCount * 3 / results.size).coerceIn(1, 5)
+            rewardDao.insert(
+                RewardEntity(
+                    id = UUID.randomUUID().toString(),
+                    childId = childId,
+                    type = "STAR",
+                    subject = lesson.subject,
+                    amount = starsEarned
+                )
+            )
+            if (correctCount.toDouble() / results.size >= 0.8) {
+                rewardDao.insert(
+                    RewardEntity(
+                        id = UUID.randomUUID().toString(),
+                        childId = childId,
+                        type = "COIN",
+                        subject = lesson.subject,
+                        amount = 10
+                    )
+                )
             }
         }
     }
@@ -104,14 +194,15 @@ class LessonPlayerViewModel @Inject constructor(
 @Composable
 fun LessonPlayerScreen(
     lessonId: String,
+    childId: String = "",
     onBack: () -> Unit,
     onComplete: () -> Unit,
     viewModel: LessonPlayerViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
 
-    LaunchedEffect(lessonId) {
-        viewModel.loadLesson(lessonId)
+    LaunchedEffect(lessonId, childId) {
+        viewModel.loadLesson(lessonId, childId)
     }
 
     Scaffold(

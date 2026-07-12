@@ -35,11 +35,12 @@ data class SubjectDestination(
 )
 
 val subjects = listOf(
-    SubjectDestination("english", "Story Tree", Icons.Default.MenuBook, StoryTreeGreen, 12, "🐱"),
-    SubjectDestination("filipino", "Bahay ng Kuwento", Icons.Default.AutoStories, BahayNgKuwentoBlue, 12, "🐱"),
-    SubjectDestination("mathematics", "Number Market", Icons.Default.Calculate, NumberMarketRed, 12, "🐱"),
-    SubjectDestination("science", "Discovery Lab", Icons.Default.Science, DiscoveryLabPurple, 12, "🐱"),
-    SubjectDestination("philippine-history", "Heritage Harbor", Icons.Default.Flag, HeritageHarborBrown, 8, "🐱")
+    SubjectDestination("english", "Story Tree", Icons.Default.MenuBook, StoryTreeGreen, 12, "🐱💜"),
+    SubjectDestination("filipino", "Bahay ng Kuwento", Icons.Default.AutoStories, BahayNgKuwentoBlue, 12, "🐱💜"),
+    SubjectDestination("mathematics", "Number Market", Icons.Default.Calculate, NumberMarketRed, 12, "🐱🧡"),
+    SubjectDestination("science", "Discovery Lab", Icons.Default.Science, DiscoveryLabPurple, 12, "🐱🩶"),
+    SubjectDestination("makabansa", "Heritage Harbor", Icons.Default.Flag, HeritageHarborBrown, 8, "🐱🇵🇭"),
+    SubjectDestination("gmrc", "Duke's Kindness Corner", Icons.Default.Favorite, Coral, 6, "🐕💙")
 )
 
 @Composable

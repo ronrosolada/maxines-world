@@ -2,13 +2,16 @@
   "id": "math-g3-m01-l01",
   "schemaVersion": 1,
   "subject": "mathematics",
-  "moduleId": "math-g3-m05",
+  "moduleId": "math-g3-m01",
   "skillIds": ["math-g3-mult-equal-groups", "math-g3-mult-arrays"],
   "title": "Milo's Equal-Groups Market",
   "objective": "Understand multiplication as equal groups and represent them with arrays.",
   "prerequisiteSkillIds": ["math-g3-add-subtract"],
   "estimatedMinutes": 10,
   "guideCharacter": "milo",
+  "curriculumStandard": null,
+  "term": 1,
+  "languageOfInstruction": "english",
   "steps": [
     {
       "id": "step-01",
@@ -18,8 +21,8 @@
     },
     {
       "id": "step-02",
-      "type": "array_builder",
-      "narrationText": "Milo has 3 baskets. He wants to put 4 apples in each basket. How many apples does he need in total?",
+      "type": "multiple_choice",
+      "narrationText": "Milo has 3 baskets. He wants to put 4 apples in each basket. How many apples does he need in total? Count by groups: 4, 8, 12!",
       "question": "3 baskets × 4 apples each = ?",
       "options": ["6", "7", "12", "16"],
       "correctIndex": 2,
@@ -31,7 +34,7 @@
     {
       "id": "step-03",
       "type": "multiple_choice",
-      "narrationText": "Now Milo has 5 trays of mangoes. Each tray has 3 mangoes.",
+      "narrationText": "Now Milo has 5 trays of mangoes. Each tray has 3 mangoes. Let's count by 3!",
       "question": "5 trays × 3 mangoes each = ?",
       "options": ["8", "15", "10", "18"],
       "correctIndex": 1,
@@ -42,26 +45,26 @@
     },
     {
       "id": "step-04",
-      "type": "array_builder",
-      "narrationText": "Let's build an array! Draw 4 rows with 5 bananas in each row.",
+      "type": "multiple_choice",
+      "narrationText": "Let's think about an array! Imagine 4 rows with 5 bananas in each row. An array helps us see multiplication: 4 rows of 5.",
       "question": "4 rows × 5 bananas = ? bananas total?",
       "options": ["9", "16", "20", "25"],
       "correctIndex": 2,
       "feedback": {
         "correct": "Great job! 4 rows of 5 bananas = 20 bananas. An array helps us see multiplication! 🍌",
-        "incorrect": "Draw 4 rows. Put 5 bananas in each row. Count all the bananas: 5, 10, 15, 20!"
+        "incorrect": "Picture 4 rows with 5 bananas each. Count all the bananas: 5, 10, 15, 20!"
       }
     },
     {
       "id": "step-05",
       "type": "multiple_choice",
-      "narrationText": "Last challenge! Milo wants to share 24 fish equally among 6 cats.",
-      "question": "24 fish ÷ 6 cats = ? fish per cat?",
-      "options": ["3", "4", "5", "6"],
-      "correctIndex": 1,
+      "narrationText": "Last one! Milo puts 2 bags of oranges on display. Each bag has 6 oranges. Use multiplication to find the total.",
+      "question": "2 bags × 6 oranges each = ?",
+      "options": ["8", "10", "12", "14"],
+      "correctIndex": 2,
       "feedback": {
-        "correct": "Perfect! When you share 24 fish among 6 cats, each cat gets 4 fish. Division is sharing equally! 🐟",
-        "incorrect": "Try grouping: put fish into 6 equal piles. 24 ÷ 6 — how many in each pile?"
+        "correct": "Perfect! 2 groups of 6 = 12. You understand multiplication as equal groups! 🍊🌟",
+        "incorrect": "Count: bag 1 has 6, bag 2 has 6. 6 + 6 = 12. Try again!"
       }
     }
   ],

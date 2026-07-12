@@ -2,13 +2,16 @@
   "id": "sci-g3-m01-l01",
   "schemaVersion": 1,
   "subject": "science",
-  "moduleId": "sci-g3-m07",
+  "moduleId": "sci-g3-m01",
   "skillIds": ["sci-g3-plant-needs", "sci-g3-observation", "sci-g3-prediction"],
   "title": "Niko's Plant Investigation",
   "objective": "Identify what plants need to grow and practice making predictions and observations.",
   "prerequisiteSkillIds": [],
   "estimatedMinutes": 10,
   "guideCharacter": "niko",
+  "curriculumStandard": null,
+  "term": 1,
+  "languageOfInstruction": "english",
   "steps": [
     {
       "id": "step-01",
@@ -63,18 +66,18 @@
     {
       "id": "step-05",
       "type": "prediction_observation_explanation",
-      "narrationText": "Final challenge! Niko has a plant that's turning yellow. What might be wrong?",
-      "question": "A plant's leaves are turning yellow. What is the MOST likely reason?",
+      "narrationText": "Final challenge! Niko has a plant that's turning yellow. Let's think like scientists — what do we need to investigate?",
+      "question": "A plant's leaves are turning yellow. What should a scientist check FIRST?",
       "options": [
-        "It's getting too much water",
-        "It's not getting enough sunlight",
-        "A cat is sitting on it",
-        "It's hungry for pizza"
+        "Is the plant getting the right amount of water?",
+        "Is the plant getting enough sunlight?",
+        "Does the soil have nutrients?",
+        "All of the above — a scientist checks everything!"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "feedback": {
-        "correct": "Excellent observation! Yellow leaves often mean a plant isn't getting enough sunlight. Move it to a brighter spot! ☀️",
-        "incorrect": "Yellow leaves are a clue. When plants don't get enough sunlight, they can't make their own food and turn yellow."
+        "correct": "Excellent thinking! Scientists check many possible causes. Yellow leaves could mean too much water, not enough water, not enough sunlight, or missing nutrients. Investigating all possibilities is good science! 🔬",
+        "incorrect": "A scientist doesn't guess — they check different possibilities. Water, sunlight, and nutrients all matter for plant health."
       }
     }
   ],

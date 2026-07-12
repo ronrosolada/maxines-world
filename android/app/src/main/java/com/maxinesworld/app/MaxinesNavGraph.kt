@@ -51,7 +51,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         "filipino" -> "fil-g3-m01-l01"
                         "mathematics" -> "math-g3-m01-l01"
                         "science" -> "sci-g3-m01-l01"
-                        "philippine-history" -> "hist-g3-m01-l01"
+                        "makabansa" -> "mkb-g3-m01-l01"
+                        "gmrc" -> "gmrc-g3-m01-l01"
                         else -> "eng-g3-m01-l01"
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
@@ -73,6 +74,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val lessonId = backStackEntry.arguments?.getString("lessonId") ?: return@composable
             LessonPlayerScreen(
                 lessonId = lessonId,
+                childId = childId,
                 onBack = { navController.popBackStack() },
                 onComplete = {
                     navController.navigate(Routes.childHome(childId)) {

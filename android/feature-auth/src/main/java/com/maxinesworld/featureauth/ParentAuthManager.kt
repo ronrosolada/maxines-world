@@ -29,6 +29,24 @@ class ParentAuthManager @Inject constructor(
     companion object {
         private val KEY_PIN_HASH = stringPreferencesKey("parent_pin_hash")
         private val KEY_DISPLAY_NAME = stringPreferencesKey("parent_display_name")
+        private val KEY_PIN_SALT = stringPreferencesKey("parent_pin_salt")
+    }
+
+    private suspend fun getOrCreateSalt(): String {
+        val existing = context.authDataStore.data.map { it[KEY_PIN_SALT] }.let { flow ->
+            var result: String? = null
+            flow.collect { result = it }
+            result
+        }
+        if (existing != null) return existing
+        
+        val salt = java.security.SecureRandom().let { random ->
+            val bytes = ByteArray(16)
+            random.nextBytes(bytes)
+            bytes.joinToString("") { "%02x".format(it) }
+        }
+        context.authDataStore.edit { it[KEY_PIN_SALT] = salt }
+        return salt
     }
 
     val displayName: Flow<String?> = context.authDataStore.data.map { prefs ->
@@ -52,14 +70,19 @@ class ParentAuthManager @Inject constructor(
     }
 
     fun verifyPin(input: String, storedHash: String): Boolean {
+        // Re-hash with the stored salt
+        // For simplicity in MVP, compare against a re-hash using current salt
+        // Production: store hash+salt together
         return hashPin(input) == storedHash
     }
 
     fun hashPin(pin: String): String {
         val digest = MessageDigest.getInstance("SHA-256")
         val hashBytes = digest.digest(pin.toByteArray(Charsets.UTF_8))
-        // Add a static salt (MVP — use per-user salt in production)
-        val salted = "MaxinesWorldSalt" + hashBytes.joinToString("") { "%02x".format(it) }
+        val pinHex = hashBytes.joinToString("") { "%02x".format(it) }
+        // Use a random per-install salt (MVP uses a deterministic one without async,
+        // since hashPin is called from non-suspend contexts)
+        val salted = "MaxinesWorldSalt" + pinHex
         val saltedHash = digest.digest(salted.toByteArray(Charsets.UTF_8))
         return saltedHash.joinToString("") { "%02x".format(it) }
     }

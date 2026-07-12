@@ -30,6 +30,7 @@ data class LessonManifest(
     val schemaVersion: Int,
     val subject: String,
     val moduleId: String,
+    val skillIds: List<String> = emptyList(),
     val title: String,
     val objective: String,
     val guideCharacter: String,
@@ -37,6 +38,9 @@ data class LessonManifest(
     val prerequisiteSkillIds: List<String> = emptyList(),
     val steps: List<ActivityStep> = emptyList(),
     val assessment: AssessmentBlock? = null,
+    val curriculumStandard: String? = null,
+    val term: Int? = null,
+    val languageOfInstruction: String? = null,
     val version: Int = 1
 )
 

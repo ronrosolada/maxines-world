@@ -9,6 +9,9 @@
   "prerequisiteSkillIds": [],
   "estimatedMinutes": 10,
   "guideCharacter": "mira",
+  "curriculumStandard": null,
+  "term": 1,
+  "languageOfInstruction": "filipino",
   "steps": [
     {
       "id": "step-01",
@@ -52,8 +55,8 @@
     },
     {
       "id": "step-04",
-      "type": "sort_and_classify",
-      "narrationText": "Ayusin natin ang mga pangyayari.",
+      "type": "timeline_builder",
+      "narrationText": "Ayusin natin ang mga pangyayari mula una hanggang huli.",
       "question": "Ayusin ang mga pangyayari mula una hanggang huli.",
       "options": [
         "Nagkaroon ng sunog malapit sa paaralan",
@@ -72,7 +75,7 @@
       "id": "step-05",
       "type": "sentence_builder",
       "narrationText": "Gamit ang sarili mong salita, bumuo ng pangungusap tungkol sa kuwento.",
-      "question": "Bumuo ng pangungusap gamit ang mga salitang ito: [mga kuting] [tumulong] [barangay] [dahil] [sunog]",
+      "question": "Bumuo ng pangungusap gamit ang mga salitang ito: [mga kuting] [tumulong] [sa barangay] [dahil sa] [sunog]",
       "options": ["mga kuting", "tumulong", "sa barangay", "dahil sa", "sunog"],
       "correctIndex": -1,
       "feedback": {
@@ -83,7 +86,7 @@
   ],
   "assessment": {
     "passThreshold": 0.8,
-    "minQuestions": 4
+    "minQuestions": 3
   },
   "version": 1,
   "status": "DRAFT",
