@@ -72,7 +72,8 @@ class ParentAuthViewModel @Inject constructor(
             val newInput = (it.pinInput + digit).take(6)
             it.copy(pinInput = newInput, pinError = null)
         }
-        if (_state.value.pinInput.length == 6) {
+        // Auto-verify only during PIN login, not during setup
+        if (_state.value.pinInput.length == 6 && _state.value.currentScreen == AuthScreen.PIN_LOGIN) {
             verifyPin()
         }
     }
