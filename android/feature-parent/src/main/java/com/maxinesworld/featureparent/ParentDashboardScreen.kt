@@ -125,7 +125,7 @@ class ParentDashboardViewModel @Inject constructor(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: ParentDashboardViewModel = androidx.hilt.navigation.compose.hiltViewModel()) {
+fun ParentDashboardScreen(childId: String, onBack: () -> Unit, onContentManagement: () -> Unit = {}, viewModel: ParentDashboardViewModel = androidx.hilt.navigation.compose.hiltViewModel()) {
     val state by viewModel.state.collectAsState()
 
     LaunchedEffect(childId) { viewModel.load(childId) }
@@ -172,6 +172,41 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         MasteryChip("Mastered", state.masterySummary.mastered, SuccessGreen)
                         MasteryChip("Developing", state.masterySummary.developing, SkyBlue)
                         MasteryChip("Needs Review", state.masterySummary.needsReview, Coral)
+                    }
+                }
+
+                // Content Management
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = SkyBlue.copy(alpha = 0.08f)),
+                    onClick = onContentManagement
+                ) {
+                    Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            Icons.Default.CloudSync,
+                            contentDescription = null,
+                            tint = SkyBlue,
+                            modifier = Modifier.size(28.dp)
+                        )
+                        Spacer(Modifier.width(12.dp))
+                        Column(Modifier.weight(1f)) {
+                            Text(
+                                "Content Management",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 17.sp,
+                                color = SkyBlue
+                            )
+                            Text(
+                                "Manage synced packages, test connections, and review content",
+                                fontSize = 14.sp,
+                                color = Ink.copy(alpha = 0.6f)
+                            )
+                        }
+                        Icon(
+                            Icons.Default.ChevronRight,
+                            contentDescription = null,
+                            tint = Ink.copy(alpha = 0.3f),
+                            modifier = Modifier.size(24.dp)
+                        )
                     }
                 }
 

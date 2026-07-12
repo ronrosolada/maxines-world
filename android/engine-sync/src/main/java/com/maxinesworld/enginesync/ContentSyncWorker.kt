@@ -22,7 +22,7 @@ class ContentSyncWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, params) {
 
     companion object {
-        const val DEFAULT_CATALOG_URL = "http://10.10.10.33/catalog.json"
+        const val DEFAULT_CATALOG_URL = "http://10.10.10.33/catalogs/preview.json"
         const val UNIQUE_WORK_NAME = "maxines_content_sync"
         private const val CONNECT_TIMEOUT = 15_000L
         private const val READ_TIMEOUT = 60_000L
