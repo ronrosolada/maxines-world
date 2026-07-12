@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.sp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.featurerewards.BadgeRevealScreen
+import com.maxinesworld.featurerewards.ChallengeProgress
 
 // ─── Main Screen ───
 
@@ -56,7 +58,19 @@ fun LessonPlayerScreen(
             when {
                 state.isLoading -> CircularProgressIndicator(Modifier.align(Alignment.Center), color = Teal40)
                 state.error != null -> ErrorDisplay(state.error!!, Modifier.align(Alignment.Center))
-                state.isComplete -> LessonCompleteScreen(state, onComplete)
+                state.isComplete -> {
+                    // Show badge reveal if a badge was just earned
+                    if (state.badgeAwarded != null) {
+                        BadgeRevealScreen(
+                            badge = state.badgeAwarded!!,
+                            challengeProgress = ChallengeProgress(completedCount = 5),
+                            onViewFieldGuide = { /* TODO: navigate */ },
+                            onReturnToVillage = onComplete
+                        )
+                    } else {
+                        LessonCompleteScreen(state, onComplete)
+                    }
+                }
                 else -> LessonContent(state, viewModel)
             }
         }
