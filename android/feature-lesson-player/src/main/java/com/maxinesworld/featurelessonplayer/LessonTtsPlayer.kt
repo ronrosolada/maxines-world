@@ -18,34 +18,53 @@ class LessonTtsPlayer(context: Context) {
         }
     }
 
-    fun speak(text: String, language: String = "english", onComplete: (() -> Unit)? = null) {
-        tts?.let { engine ->
-            if (isSpeaking) return
-            onDone = onComplete
-            isSpeaking = true
+    fun speak(
+        text: String,
+        language: String = "english",
+        onComplete: (() -> Unit)? = null,
+        onUnavailable: (() -> Unit)? = null
+    ) {
+        val engine = tts ?: return
+        if (isSpeaking) return
+        onDone = onComplete
+        isSpeaking = true
 
-            // Set locale based on language
-            when (language) {
-                "filipino" -> engine.language = Locale("fil")
-                else -> engine.language = Locale.US
+        // Set locale based on language
+        when (language) {
+            "filipino" -> {
+                val filLocale = Locale.Builder()
+                    .setLanguage("fil")
+                    .setRegion("PH")
+                    .build()
+                val result = engine.setLanguage(filLocale)
+                if (result == TextToSpeech.LANG_MISSING_DATA ||
+                    result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    // Filipino voice unavailable — don't misread in English
+                    isSpeaking = false
+                    onUnavailable?.invoke()
+                    return
+                }
             }
-
-            engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
-                override fun onStart(utteranceId: String?) {}
-                override fun onDone(utteranceId: String?) {
-                    isSpeaking = false
-                    onDone?.invoke()
-                }
-                @Deprecated("")
-                @Suppress("DEPRECATION")
-                override fun onError(utteranceId: String?) {
-                    isSpeaking = false
-                    onDone?.invoke()
-                }
-            })
-
-            engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "lesson_narration")
+            else -> {
+                engine.language = Locale.US
+            }
         }
+
+        engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+            override fun onStart(utteranceId: String?) {}
+            override fun onDone(utteranceId: String?) {
+                isSpeaking = false
+                onDone?.invoke()
+            }
+            @Deprecated("")
+            @Suppress("DEPRECATION")
+            override fun onError(utteranceId: String?) {
+                isSpeaking = false
+                onDone?.invoke()
+            }
+        })
+
+        engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "lesson_narration")
     }
 
     fun stop() {

@@ -102,7 +102,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         }
 
         when (step.type) {
-            "animated_explanation" -> ExplanationStep(step) {
+            "animated_explanation" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
             "multiple_choice", "story_comprehension", "prediction_observation_explanation" -> MultipleChoiceStep(step, viewModel)
@@ -122,10 +122,11 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
 // ─── Explanation Step (with TTS) ───
 
 @Composable
-private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
+private fun ExplanationStep(step: ActivityStep, language: String = "english", onContinue: () -> Unit) {
     val context = LocalContext.current
     val ttsPlayer = remember { LessonTtsPlayer(context) }
     var ttsSpeaking by remember { mutableStateOf(false) }
+    var ttsUnavailable by remember { mutableStateOf(false) }
     DisposableEffect(Unit) { onDispose { ttsPlayer.shutdown() } }
 
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(containerColor = Cream), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
@@ -135,17 +136,53 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
                 Spacer(Modifier.width(12.dp))
                 Text("Read Along", fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
                 IconButton(onClick = {
-                    if (ttsSpeaking) { ttsPlayer.stop(); ttsSpeaking = false }
-                    else { ttsSpeaking = true; ttsPlayer.speak(step.narrationText) { ttsSpeaking = false } }
+                    if (ttsSpeaking) {
+                        ttsPlayer.stop(); ttsSpeaking = false
+                    } else {
+                        ttsUnavailable = false
+                        ttsSpeaking = true
+                        ttsPlayer.speak(
+                            text = step.narrationText,
+                            language = language,
+                            onComplete = { ttsSpeaking = false },
+                            onUnavailable = {
+                                ttsSpeaking = false
+                                ttsUnavailable = true
+                            }
+                        )
+                    }
                 }, modifier = Modifier.size(48.dp)) {
-                    Icon(if (ttsSpeaking) Icons.Default.Stop else Icons.Default.VolumeUp, if (ttsSpeaking) "Stop" else "Read aloud", tint = if (ttsSpeaking) Coral else Teal40, modifier = Modifier.size(28.dp))
+                    Icon(
+                        if (ttsSpeaking) Icons.Default.Stop else Icons.Default.VolumeUp,
+                        if (ttsSpeaking) "Stop" else "Read aloud",
+                        tint = if (ttsSpeaking) Coral else Teal40,
+                        modifier = Modifier.size(28.dp)
+                    )
                 }
             }
             Spacer(Modifier.height(16.dp))
+
+            // TTS unavailable message for Filipino
+            if (ttsUnavailable) {
+                Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.15f))) {
+                    Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.Info, "Info", tint = SunshineGold, modifier = Modifier.size(20.dp))
+                        Spacer(Modifier.width(8.dp))
+                        Text("Filipino voice not available on this device — please read along instead.",
+                            fontSize = 14.sp, color = Ink.copy(alpha = 0.7f))
+                    }
+                }
+                Spacer(Modifier.height(12.dp))
+            }
+
             Text(step.narrationText, style = MaterialTheme.typography.bodyLarge, fontSize = 20.sp, lineHeight = 32.sp, color = Ink.copy(alpha = 0.85f))
             Spacer(Modifier.height(24.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Text(if (ttsSpeaking) "Reading aloud..." else "Tap speaker to listen", fontSize = 14.sp, color = Teal40.copy(alpha = 0.5f))
+                Text(
+                    if (ttsSpeaking) "Reading aloud..."
+                    else if (ttsUnavailable) "Filipino voice not available"
+                    else "Tap speaker to listen",
+                    fontSize = 14.sp, color = Teal40.copy(alpha = 0.5f))
                 Button(onClick = onContinue, shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = Teal40), modifier = Modifier.height(56.dp)) { Text("Continue", fontSize = 18.sp) }
             }
         }
