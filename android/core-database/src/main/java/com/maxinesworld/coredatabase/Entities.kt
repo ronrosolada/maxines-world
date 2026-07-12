@@ -118,3 +118,32 @@ data class MiniGameResultEntity(
     val pawTokensEarned: Int,
     val collectibleId: String? = null
 )
+
+// ─── Badge Collection System ───
+
+@Entity(tableName = "daily_challenges", indices = [Index(value = ["childId", "challengeDate"], unique = true)])
+data class DailyChallengeEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val challengeDate: String,       // ISO date YYYY-MM-DD in child's timezone
+    val englishCompleted: Boolean = false,
+    val filipinoCompleted: Boolean = false,
+    val mathematicsCompleted: Boolean = false,
+    val scienceCompleted: Boolean = false,
+    val makabansaCompleted: Boolean = false,
+    val allCompleted: Boolean = false,
+    val badgeAwarded: Boolean = false,
+    val awardedBadgeId: String? = null,
+    val createdAtEpochMillis: Long = System.currentTimeMillis(),
+    val updatedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+@Entity(tableName = "collected_badges", indices = [Index(value = ["childId"], unique = false), Index(value = ["badgeId"], unique = true)])
+data class CollectedBadgeEntity(
+    @PrimaryKey val id: String,      // compound: childId_badgeId
+    val childId: String,
+    val badgeId: String,
+    val biome: String,
+    val earnedDate: String,          // ISO date YYYY-MM-DD
+    val earnedAtEpochMillis: Long = System.currentTimeMillis()
+)

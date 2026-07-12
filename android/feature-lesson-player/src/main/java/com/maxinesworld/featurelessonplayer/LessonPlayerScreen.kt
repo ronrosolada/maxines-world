@@ -56,9 +56,7 @@ fun LessonPlayerScreen(
             when {
                 state.isLoading -> CircularProgressIndicator(Modifier.align(Alignment.Center), color = Teal40)
                 state.error != null -> ErrorDisplay(state.error!!, Modifier.align(Alignment.Center))
-                state.isComplete -> LessonCompleteScreen(state, onComplete) {
-                    state.rewardBreakId?.let { onRewardBreak(childId, it) }
-                }
+                state.isComplete -> LessonCompleteScreen(state, onComplete)
                 else -> LessonContent(state, viewModel)
             }
         }
@@ -373,13 +371,6 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
 
             Spacer(Modifier.height(24.dp))
             Button(onClick = onComplete, modifier = Modifier.fillMaxWidth().height(56.dp), shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = Teal40)) { Text("Continue", fontSize = 18.sp) }
-
-            if (state.rewardBreakId != null) {
-                Spacer(Modifier.height(12.dp))
-                Button(onClick = onPlayGames, modifier = Modifier.fillMaxWidth().height(56.dp), shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = SunshineGold)) {
-                    Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp)); Spacer(Modifier.width(8.dp)); Text("Play Games!", fontSize = 18.sp)
-                }
-            }
         }
     }
 }
