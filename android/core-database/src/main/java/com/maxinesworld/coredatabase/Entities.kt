@@ -1,6 +1,7 @@
 package com.maxinesworld.coredatabase
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "parent_accounts")
@@ -80,4 +81,40 @@ data class DailyQuestEntity(
     val subjectRotations: String = "[]", // JSON array
     val completedLessons: String = "[]",
     val energyEarned: Int = 0
+)
+
+// ─── Mini-Game Reward Break Entities ───
+
+@Entity(
+    tableName = "reward_break_entitlements",
+    indices = [Index(value = ["dailyQuestCompletionId"], unique = true)]
+)
+data class RewardBreakEntitlementEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val dailyQuestCompletionId: String,
+    val durationMillis: Long,
+    val remainingMillis: Long,
+    val createdAtEpochMillis: Long,
+    val startedAtEpochMillis: Long? = null,
+    val consumedAtEpochMillis: Long? = null,
+    val state: String = "CREATED" // CREATED, ACTIVE, CONSUMED
+)
+
+@Entity(
+    tableName = "mini_game_results",
+    indices = [Index(value = ["idempotencyKey"], unique = true)]
+)
+data class MiniGameResultEntity(
+    @PrimaryKey val sessionId: String,
+    val idempotencyKey: String,
+    val rewardBreakId: String,
+    val childId: String,
+    val gameId: String,
+    val startedAtEpochMillis: Long,
+    val endedAtEpochMillis: Long,
+    val roundsCompleted: Int,
+    val successfulActions: Int,
+    val pawTokensEarned: Int,
+    val collectibleId: String? = null
 )

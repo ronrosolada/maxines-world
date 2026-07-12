@@ -19,6 +19,9 @@ import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
+import com.maxinesworld.gamecatcafe.CatCafeDashScreen
+import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
+import com.maxinesworld.gamepawprintparkour.ParkourResult
 import dagger.hilt.android.EntryPointAccessors
 
 object Routes {
@@ -147,6 +150,74 @@ fun MaxinesNavGraph(navController: NavHostController) {
             ParentDashboardScreen(
                 childId = childId,
                 onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ─── Mini-Game Routes ───
+
+        composable(
+            route = MiniGameRoutes.REWARD_HUB,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            RewardHubScreen(
+                childId = childId,
+                rewardBreakId = breakId,
+                onPlayCatCafe = {
+                    navController.navigate(MiniGameRoutes.catCafe(childId, breakId))
+                },
+                onPlayParkour = {
+                    navController.navigate(MiniGameRoutes.parkour(childId, breakId))
+                },
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(
+            route = MiniGameRoutes.CAT_CAFE,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            CatCafeDashScreen(
+                childId = childId,
+                rewardBreakId = breakId,
+                onExit = {
+                    navController.navigate(MiniGameRoutes.hub(childId, breakId)) {
+                        popUpTo(MiniGameRoutes.CAT_CAFE) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(
+            route = MiniGameRoutes.PARKOUR,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            PawprintParkourScreen(
+                childId = childId,
+                rewardBreakId = breakId,
+                onExit = { _: ParkourResult ->
+                    navController.navigate(MiniGameRoutes.hub(childId, breakId)) {
+                        popUpTo(MiniGameRoutes.PARKOUR) { inclusive = true }
+                    }
+                }
             )
         }
     }
