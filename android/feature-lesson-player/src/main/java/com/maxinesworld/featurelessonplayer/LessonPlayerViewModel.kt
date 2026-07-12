@@ -1,5 +1,8 @@
 package com.maxinesworld.featurelessonplayer
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.coremodel.*
 import com.maxinesworld.coredatabase.*
@@ -15,8 +18,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import java.util.UUID
 import javax.inject.Inject
 
@@ -36,15 +37,16 @@ data class LessonUiState(
 
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
+    application: Application,
     private val lessonLoader: LessonLoader,
     private val progressEventDao: ProgressEventDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
     private val masteryEngine: MasteryEngine,
-    private val badgeAwarder: BadgeAwarder,
-    private val contentLessonLoader: ContentLessonLoader
-) : ViewModel() {
+    private val badgeAwarder: BadgeAwarder
+) : AndroidViewModel(application) {
 
+    private val contentLessonLoader = ContentLessonLoader(application)
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
     private var childId: String = ""
@@ -55,13 +57,11 @@ class LessonPlayerViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             val lesson = withContext(Dispatchers.IO) {
-                // Try Month 1 content pack first, fall back to old loader
                 try {
                     val m1 = contentLessonLoader.loadLesson(lessonId)
                     if (m1 != null) convertToLessonManifest(m1)
                     else lessonLoader.loadLesson(lessonId)
                 } catch (e: Exception) {
-                    // If Month 1 loading throws, try old loader
                     lessonLoader.loadLesson(lessonId)
                 }
             }
@@ -101,24 +101,14 @@ class LessonPlayerViewModel @Inject constructor(
                     responseTimeMs = result.responseTimeMs
                 ))
             }
-            for (skillId in lesson.skillIds) {
-                val events = progressEventDao.getByChildAndSkill(childId, skillId)
-                val ms = masteryEngine.computeMastery(events.map { e ->
-                    com.maxinesworld.coremodel.ProgressEvent(e.id, e.childId, e.skillId, e.lessonId, e.activityId, e.eventType, e.accuracy, e.attempts, e.hintsUsed, e.responseTimeMs, e.timestamp)
-                })
-                masteryRecordDao.upsert(MasteryRecordEntity(
-                    id = "${childId}_$skillId", childId = childId, skillId = skillId,
-                    state = ms.name,
-                    accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average() else 0.0,
-                    totalAttempts = events.size, lastActivityAt = System.currentTimeMillis()
-                ))
-            }
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
             val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "STAR", subject = lesson.subject, amount = starsEarned))
+            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
+                type = "STAR", subject = lesson.subject, amount = starsEarned))
             if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "COIN", subject = lesson.subject, amount = 10))
+                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
+                    type = "COIN", subject = lesson.subject, amount = 10))
             }
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
@@ -140,7 +130,6 @@ class LessonPlayerViewModel @Inject constructor(
         }
     }
 
-    // Convert Month1Lesson to the existing LessonManifest format for the lesson player
     private fun convertToLessonManifest(m1: Month1Lesson): LessonManifest {
         val subj = contentLessonLoader.toAppSubject(m1.subject)
         return LessonManifest(
