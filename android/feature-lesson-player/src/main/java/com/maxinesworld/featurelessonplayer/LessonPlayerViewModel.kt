@@ -1,9 +1,9 @@
 package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.engineactivity.ActivityResult
-import com.maxinesworld.coremodel.CollectibleBadge
-import com.maxinesworld.coremodel.LessonManifest
+import com.maxinesworld.coremodel.*
 import com.maxinesworld.coredatabase.*
+import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -41,7 +41,8 @@ class LessonPlayerViewModel @Inject constructor(
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
     private val masteryEngine: MasteryEngine,
-    private val badgeAwarder: BadgeAwarder
+    private val badgeAwarder: BadgeAwarder,
+    private val contentLessonLoader: ContentLessonLoader
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(LessonUiState())
@@ -53,7 +54,11 @@ class LessonPlayerViewModel @Inject constructor(
         this.childId = childId
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
-            val lesson = withContext(Dispatchers.IO) { lessonLoader.loadLesson(lessonId) }
+            val lesson = withContext(Dispatchers.IO) {
+                val m1 = contentLessonLoader.loadLesson(lessonId)
+                m1?.let { convertToLessonManifest(it) }
+                    ?: lessonLoader.loadLesson(lessonId)
+            }
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
                     totalSteps = lesson?.steps?.size ?: 0,
@@ -109,8 +114,6 @@ class LessonPlayerViewModel @Inject constructor(
             if (accuracy >= 0.8) {
                 rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId, type = "COIN", subject = lesson.subject, amount = 10))
             }
-
-            // Badge: record subject completion, check for daily challenge
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
                 _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
@@ -129,5 +132,35 @@ class LessonPlayerViewModel @Inject constructor(
                     else step?.feedback?.incorrect ?: "Let's try again!",
                 feedbackCorrect = result.correct)
         }
+    }
+
+    // Convert Month1Lesson to the existing LessonManifest format for the lesson player
+    private fun convertToLessonManifest(m1: Month1Lesson): LessonManifest {
+        val subj = contentLessonLoader.toAppSubject(m1.subject)
+        return LessonManifest(
+            id = m1.lessonId, schemaVersion = m1.schemaVersion,
+            moduleId = "g3-m01",
+            title = m1.title, subject = subj, objective = m1.objective,
+            skillIds = listOf(m1.lessonId),
+            guideCharacter = "Milo",
+            estimatedMinutes = m1.estimatedMinutes,
+            languageOfInstruction = m1.language,
+            steps = m1.activities.map { act ->
+                ActivityStep(
+                    id = act.activityId, type = when (act.type) {
+                        "ANIMATED_EXPLANATION" -> "animated_explanation"
+                        "MULTIPLE_CHOICE" -> "multiple_choice"
+                        "SORT_AND_CLASSIFY" -> "sort_and_classify"
+                        else -> "animated_explanation"
+                    },
+                    narrationText = act.instruction,
+                    options = emptyList(), correctIndex = -1,
+                    feedback = ActivityFeedback(
+                        correct = act.feedback?.correct ?: "Great job!",
+                        incorrect = act.feedback?.retry ?: "Let's try again!"
+                    )
+                )
+            }
+        )
     }
 }

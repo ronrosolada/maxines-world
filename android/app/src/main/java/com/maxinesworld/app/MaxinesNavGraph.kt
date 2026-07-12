@@ -96,13 +96,13 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 badgeAwarder = badgeAwarder,
                 onSubjectTap = { subject ->
                     val lessonId = when (subject) {
-                        "english" -> "eng-g3-m01-l01"
-                        "filipino" -> "fil-g3-m01-l01"
-                        "mathematics" -> "math-g3-m01-l01"
-                        "science" -> "sci-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
-                        else -> "eng-g3-m01-l01"
+                        "english" -> "english-g3-m01-d01"
+                        "filipino" -> "filipino-g3-m01-d01"
+                        "mathematics" -> "mathematics-g3-m01-d01"
+                        "science" -> "science-g3-m01-d01"
+                        "makabansa" -> "araling-panlipunan-g3-m01-d01"
+                        "gmrc" -> "english-g3-m01-d01" // GMRC has no Month 1 lessons yet
+                        else -> "english-g3-m01-d01"
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
