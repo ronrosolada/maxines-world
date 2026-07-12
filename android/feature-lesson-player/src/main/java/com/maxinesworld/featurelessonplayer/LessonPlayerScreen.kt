@@ -297,7 +297,11 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
 
         // Activity
         when (step.type) {
-            "animated_explanation" -> ExplanationStep(step)
+            "animated_explanation" -> ExplanationStep(step) {
+                viewModel.onActivityResult(
+                    ActivityResult(step.id, true, 1, 0, 0)
+                )
+            }
             "multiple_choice", "story_comprehension", "prediction_observation_explanation" ->
                 MultipleChoiceStep(step, viewModel)
             "sort_and_classify", "timeline_builder" ->
@@ -307,23 +311,28 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             "sentence_builder" ->
                 SentenceBuilderStep(step, viewModel)
             else -> {
-                Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Amber90)) {
-                    Text(
-                        "Activity type: ${step.type}",
-                        modifier = Modifier.padding(16.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Spacer(Modifier.height(8.dp))
-                    Button(
-                        onClick = {
-                            viewModel.onActivityResult(
-                                ActivityResult(step.id, true, 1, 0, 0)
-                            )
-                        },
-                        modifier = Modifier.padding(16.dp)
-                    ) {
-                        Text("Continue")
+                // Unsupported activity type — show error, do NOT auto-pass
+                Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Warning.copy(alpha = 0.15f))) {
+                    Column(Modifier.padding(16.dp)) {
+                        Text(
+                            "⚠️ Activity type \"${step.type}\" is not yet supported.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Warning
+                        )
+                        Text(
+                            "This lesson step needs an engine update. Your progress is saved.",
+                            style = MaterialTheme.typography.labelSmall
+                        )
                     }
+                }
+                // Still allow advancing past unsupported steps without awarding credit
+                Button(
+                    onClick = {
+                        viewModel.onActivityResult(ActivityResult(step.id, false, 0, 0, 0))
+                    },
+                    modifier = Modifier.padding(top = 8.dp)
+                ) {
+                    Text("Skip (not scored)")
                 }
             }
         }
@@ -367,7 +376,10 @@ private fun CharacterGuide(character: String) {
 }
 
 @Composable
-private fun ExplanationStep(step: ActivityStep) {
+private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
+    // Explanation steps auto-advance — they're unscored intros
+    // The parent LessonContent handles showing the FeedbackBanner with Next
+    // This composable just shows the narration content
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
@@ -388,12 +400,31 @@ private fun ExplanationStep(step: ActivityStep) {
                 fontSize = 18.sp,
                 color = Teal40
             )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                step.narrationText.take(100) + if (step.narrationText.length > 100) "..." else "",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.height(16.dp))
+            Button(
+                onClick = onContinue,
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Teal40)
+            ) {
+                Text("Continue →", fontSize = 18.sp)
+            }
         }
     }
 }
 
 @Composable
 private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
+    var selectedIndex by remember { mutableStateOf<Int?>(null) }
+    var submitted by remember { mutableStateOf(false) }
+
     Text(
         step.question,
         fontWeight = FontWeight.SemiBold,
@@ -402,11 +433,21 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
     Spacer(Modifier.height(16.dp))
 
     step.options.forEachIndexed { index, option ->
+        val isSelected = selectedIndex == index
+        val bgColor = when {
+            submitted && isSelected && index == step.correctIndex -> SuccessGreen.copy(alpha = 0.2f)
+            submitted && isSelected && index != step.correctIndex -> ErrorRed.copy(alpha = 0.15f)
+            isSelected -> Teal90
+            else -> SurfaceContainer
+        }
+
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 4.dp)
-                .clickable {
+                .clickable(enabled = !submitted) {
+                    selectedIndex = index
+                    submitted = true
                     viewModel.onActivityResult(
                         ActivityResult(
                             step.id,
@@ -418,8 +459,8 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
                     )
                 },
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = SurfaceContainer),
-            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            colors = CardDefaults.cardColors(containerColor = bgColor),
+            elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 4.dp else 2.dp)
         ) {
             Row(
                 Modifier.padding(16.dp),
@@ -429,14 +470,28 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
                     Modifier
                         .size(40.dp)
                         .clip(CircleShape)
-                        .background(Teal90),
+                        .background(
+                            when {
+                                submitted && isSelected && index == step.correctIndex -> SuccessGreen
+                                submitted && isSelected -> ErrorRed
+                                else -> Teal90
+                            }
+                        ),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        ('A' + index).toString(),
-                        fontWeight = FontWeight.Bold,
-                        color = Teal40
-                    )
+                    if (submitted && isSelected) {
+                        Text(
+                            if (index == step.correctIndex) "✓" else "✗",
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    } else {
+                        Text(
+                            ('A' + index).toString(),
+                            fontWeight = FontWeight.Bold,
+                            color = Teal40
+                        )
+                    }
                 }
                 Spacer(Modifier.width(12.dp))
                 Text(option, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
@@ -447,40 +502,80 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
 
 @Composable
 private fun SortStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
+    val options = step.options
+    var selectedOrder by remember { mutableStateOf<List<Int>>(emptyList()) }
+
     Text(
         step.question,
         fontWeight = FontWeight.SemiBold,
         fontSize = 18.sp
     )
-    Spacer(Modifier.height(16.dp))
+    Spacer(Modifier.height(12.dp))
 
-    step.options.forEach { option ->
+    // Show selected items in order
+    if (selectedOrder.isNotEmpty()) {
         Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 3.dp),
+            Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = Amber90)
+            colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.1f))
         ) {
-            Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.DragIndicator, "Drag", tint = Amber40)
-                Spacer(Modifier.width(8.dp))
-                Text(option, modifier = Modifier.weight(1f))
+            Column(Modifier.padding(12.dp)) {
+                Text("Your order:", fontWeight = FontWeight.Bold, color = Teal40)
+                selectedOrder.forEachIndexed { idx, optionIdx ->
+                    Text("${idx + 1}. ${options[optionIdx]}", style = MaterialTheme.typography.bodyMedium)
+                }
             }
+        }
+        Spacer(Modifier.height(12.dp))
+    }
+
+    // Show remaining options to pick
+    Text("Tap items in the correct order:", style = MaterialTheme.typography.labelMedium)
+    Spacer(Modifier.height(8.dp))
+
+    options.indices.forEach { index ->
+        if (index !in selectedOrder) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 3.dp)
+                    .clickable { selectedOrder = selectedOrder + index },
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = Amber90)
+            ) {
+                Text(options[index], modifier = Modifier.padding(14.dp), style = MaterialTheme.typography.bodyLarge)
+            }
+        }
+    }
+
+    // Reset button
+    if (selectedOrder.isNotEmpty()) {
+        Spacer(Modifier.height(8.dp))
+        TextButton(onClick = { selectedOrder = emptyList() }) {
+            Text("↺ Start over")
         }
     }
 
     Spacer(Modifier.height(12.dp))
     Button(
         onClick = {
-            // Simplified: auto-pass sorting activities
-            viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0))
+            // Check if the order matches the expected sequence
+            // For timeline/sort, the options are listed in correct order in the JSON
+            val isCorrect = selectedOrder == options.indices.toList() && selectedOrder.size == options.size
+            viewModel.onActivityResult(
+                ActivityResult(step.id, isCorrect, 1, 0, 0)
+            )
         },
+        enabled = selectedOrder.size == options.size,
         modifier = Modifier.fillMaxWidth().height(56.dp),
         shape = RoundedCornerShape(16.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Teal40)
     ) {
-        Text("I'm done sorting! ✅", fontSize = 16.sp)
+        Text(
+            if (selectedOrder.size < options.size) "Select all items first (${selectedOrder.size}/${options.size})"
+            else "Check my order ✓",
+            fontSize = 16.sp
+        )
     }
 }
 

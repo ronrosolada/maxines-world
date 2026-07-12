@@ -10,16 +10,19 @@ import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
+import com.maxinesworld.featureparent.ParentGateScreen
 
 object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
+    const val PARENT_GATE = "parent_gate/{childId}"
 
     fun childHome(childId: String) = "child_home/$childId"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
+    fun parentGate(childId: String) = "parent_gate/$childId"
 }
 
 @Composable
@@ -58,7 +61,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
                 onParentGate = {
-                    navController.navigate(Routes.parentDashboard(childId))
+                    navController.navigate(Routes.parentGate(childId))
                 }
             )
         }
@@ -81,6 +84,21 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         popUpTo(Routes.CHILD_HOME) { inclusive = true }
                     }
                 }
+            )
+        }
+
+        composable(
+            route = Routes.PARENT_GATE,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            ParentGateScreen(
+                onAuthenticated = {
+                    navController.navigate(Routes.parentDashboard(childId)) {
+                        popUpTo(Routes.PARENT_GATE) { inclusive = true }
+                    }
+                },
+                onBack = { navController.popBackStack() }
             )
         }
 

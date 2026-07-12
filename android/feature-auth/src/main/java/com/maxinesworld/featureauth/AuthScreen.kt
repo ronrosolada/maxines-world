@@ -99,7 +99,7 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
 
         Button(
             onClick = viewModel::onSetupPin,
-            enabled = state.pinInput.length >= 4,
+            enabled = state.pinInput.length == 6,
             modifier = Modifier.fillMaxWidth().height(56.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Teal40)

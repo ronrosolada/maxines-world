@@ -97,8 +97,8 @@ class ParentAuthViewModel @Inject constructor(
     fun onSetupPin() {
         viewModelScope.launch {
             val pin = _state.value.pinInput
-            if (pin.length < 4) {
-                _state.update { it.copy(pinError = "PIN must be at least 4 digits") }
+            if (pin.length != 6) {
+                _state.update { it.copy(pinError = "PIN must be exactly 6 digits") }
                 return@launch
             }
             val name = _state.value.displayName.ifBlank { "Parent" }

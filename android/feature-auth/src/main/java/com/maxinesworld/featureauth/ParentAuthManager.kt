@@ -10,6 +10,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.security.KeyStore
 import java.security.MessageDigest
@@ -53,13 +54,8 @@ class ParentAuthManager @Inject constructor(
         prefs[KEY_DISPLAY_NAME]
     }
 
-    suspend fun getPinHash(): String? {
-        return context.authDataStore.data.map { it[KEY_PIN_HASH] }.let { flow ->
-            var result: String? = null
-            flow.collect { result = it }
-            result
-        }
-    }
+    suspend fun getPinHash(): String? =
+        context.authDataStore.data.first()[KEY_PIN_HASH]
 
     suspend fun setPin(pin: String, displayName: String) {
         val hash = hashPin(pin)

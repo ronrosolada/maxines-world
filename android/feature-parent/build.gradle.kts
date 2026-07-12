@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":core-model"))
     implementation(project(":core-design-system"))
     implementation(project(":core-database"))
+    implementation(project(":feature-auth"))
     implementation(project(":engine-mastery"))
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)
