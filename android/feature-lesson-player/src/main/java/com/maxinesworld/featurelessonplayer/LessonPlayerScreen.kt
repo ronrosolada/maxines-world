@@ -41,6 +41,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.UUID
 import javax.inject.Inject
 
@@ -71,17 +73,23 @@ class LessonPlayerViewModel @Inject constructor(
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
     private var childId: String = ""
+    private var progressSaved = false
 
     fun loadLesson(lessonId: String, childId: String = "") {
         this.childId = childId
-        val lesson = lessonLoader.loadLesson(lessonId)
-        _state.update {
-            it.copy(
-                isLoading = false,
-                lesson = lesson,
-                totalSteps = lesson?.steps?.size ?: 0,
-                error = if (lesson == null) "Could not load lesson: $lessonId" else null
-            )
+        viewModelScope.launch {
+            _state.update { it.copy(isLoading = true) }
+            val lesson = withContext(Dispatchers.IO) {
+                lessonLoader.loadLesson(lessonId)
+            }
+            _state.update {
+                it.copy(
+                    isLoading = false,
+                    lesson = lesson,
+                    totalSteps = lesson?.steps?.size ?: 0,
+                    error = if (lesson == null) "Could not load lesson. Please go back and try again." else null
+                )
+            }
         }
     }
 
@@ -101,13 +109,16 @@ class LessonPlayerViewModel @Inject constructor(
     }
 
     private fun saveProgress() {
+        if (progressSaved) return
+        progressSaved = true
         val lesson = _state.value.lesson ?: return
-        val results = _state.value.results
-        if (childId.isBlank() || results.isEmpty()) return
+        // Only scored results count (exclude explanations)
+        val scoredResults = _state.value.results.filter { it.scored }
+        if (childId.isBlank() || scoredResults.isEmpty()) return
 
         viewModelScope.launch {
             // Record progress events for each activity
-            results.forEach { result ->
+            scoredResults.forEach { result ->
                 progressEventDao.insert(
                     ProgressEventEntity(
                         id = UUID.randomUUID().toString(),
@@ -115,7 +126,7 @@ class LessonPlayerViewModel @Inject constructor(
                         skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
                         lessonId = lesson.id,
                         activityId = result.activityId,
-                        eventType = "lesson_complete",
+                        eventType = "activity_result",
                         accuracy = if (result.correct) 1.0 else 0.0,
                         attempts = result.attempts,
                         hintsUsed = result.hintsUsed,
@@ -143,9 +154,12 @@ class LessonPlayerViewModel @Inject constructor(
                 )
             }
 
-            // Grant rewards
-            val correctCount = results.count { it.correct }
-            val starsEarned = (correctCount * 3 / results.size).coerceIn(1, 5)
+            // Grant rewards based on scored results only
+            val scoredCorrect = scoredResults.count { it.correct }
+            val scoredTotal = scoredResults.size
+            val accuracy = if (scoredTotal > 0) scoredCorrect.toDouble() / scoredTotal else 0.0
+            // Stars: 1-5 scaled by accuracy over scored steps
+            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
             rewardDao.insert(
                 RewardEntity(
                     id = UUID.randomUUID().toString(),
@@ -155,7 +169,7 @@ class LessonPlayerViewModel @Inject constructor(
                     amount = starsEarned
                 )
             )
-            if (correctCount.toDouble() / results.size >= 0.8) {
+            if (accuracy >= 0.8) {
                 rewardDao.insert(
                     RewardEntity(
                         id = UUID.randomUUID().toString(),
@@ -299,7 +313,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         when (step.type) {
             "animated_explanation" -> ExplanationStep(step) {
                 viewModel.onActivityResult(
-                    ActivityResult(step.id, true, 1, 0, 0)
+                    ActivityResult(step.id, true, 1, 0, 0, scored = false)
                 )
             }
             "multiple_choice", "story_comprehension", "prediction_observation_explanation" ->
@@ -424,6 +438,33 @@ private fun ExplanationStep(step: ActivityStep, onContinue: () -> Unit) {
 private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
     var selectedIndex by remember { mutableStateOf<Int?>(null) }
     var submitted by remember { mutableStateOf(false) }
+    var attemptCount by remember { mutableIntStateOf(1) }
+    var showRetry by remember { mutableStateOf(false) }
+
+    // Reset if step changes
+    LaunchedEffect(step.id) {
+        selectedIndex = null
+        submitted = false
+        attemptCount = 1
+        showRetry = false
+    }
+
+    fun submit(index: Int) {
+        val isCorrect = index == step.correctIndex
+        if (isCorrect || attemptCount >= 2) {
+            // Correct on first try, or second attempt — lock and submit
+            submitted = true
+            selectedIndex = index
+            viewModel.onActivityResult(
+                ActivityResult(step.id, isCorrect, attemptCount, 0, 0)
+            )
+        } else {
+            // Wrong on first try — show retry without submitting
+            attemptCount++
+            selectedIndex = index
+            showRetry = true
+        }
+    }
 
     Text(
         step.question,
@@ -433,68 +474,61 @@ private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewMo
     Spacer(Modifier.height(16.dp))
 
     step.options.forEachIndexed { index, option ->
-        val isSelected = selectedIndex == index
         val bgColor = when {
-            submitted && isSelected && index == step.correctIndex -> SuccessGreen.copy(alpha = 0.2f)
-            submitted && isSelected && index != step.correctIndex -> ErrorRed.copy(alpha = 0.15f)
-            isSelected -> Teal90
+            submitted && index == step.correctIndex -> SuccessGreen.copy(alpha = 0.2f)
+            showRetry && index == selectedIndex -> ErrorRed.copy(alpha = 0.15f)
+            index == selectedIndex -> Teal90
             else -> SurfaceContainer
         }
+        val isDisabled = submitted || (showRetry && index != selectedIndex)
 
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 4.dp)
-                .clickable(enabled = !submitted) {
-                    selectedIndex = index
-                    submitted = true
-                    viewModel.onActivityResult(
-                        ActivityResult(
-                            step.id,
-                            index == step.correctIndex,
-                            1,
-                            0,
-                            0
-                        )
-                    )
+                .clickable(enabled = !submitted && !(showRetry && index != selectedIndex)) {
+                    submit(index)
                 },
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(containerColor = bgColor),
-            elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 4.dp else 2.dp)
+            elevation = CardDefaults.cardElevation(defaultElevation = if (index == selectedIndex) 4.dp else 2.dp)
         ) {
-            Row(
-                Modifier.padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+            Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                val circleColor = when {
+                    submitted && index == step.correctIndex -> SuccessGreen
+                    showRetry && index == selectedIndex -> ErrorRed
+                    else -> Teal90
+                }
                 Box(
-                    Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(
-                            when {
-                                submitted && isSelected && index == step.correctIndex -> SuccessGreen
-                                submitted && isSelected -> ErrorRed
-                                else -> Teal90
-                            }
-                        ),
+                    Modifier.size(40.dp).clip(CircleShape).background(circleColor),
                     contentAlignment = Alignment.Center
                 ) {
-                    if (submitted && isSelected) {
-                        Text(
-                            if (index == step.correctIndex) "✓" else "✗",
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    } else {
-                        Text(
-                            ('A' + index).toString(),
-                            fontWeight = FontWeight.Bold,
-                            color = Teal40
-                        )
-                    }
+                    if (submitted && index == step.correctIndex) Text("✓", fontWeight = FontWeight.Bold, color = Color.White)
+                    else if (showRetry && index == selectedIndex) Text("✗", fontWeight = FontWeight.Bold, color = Color.White)
+                    else Text(('A' + index).toString(), fontWeight = FontWeight.Bold, color = Teal40)
                 }
                 Spacer(Modifier.width(12.dp))
-                Text(option, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
+                Text(option, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
+            }
+        }
+    }
+
+    // Retry prompt
+    if (showRetry) {
+        Spacer(Modifier.height(12.dp))
+        Card(colors = CardDefaults.cardColors(containerColor = Warning.copy(alpha = 0.1f))) {
+            Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text("💡", fontSize = 20.sp)
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    step.feedback?.incorrect ?: "Not quite — try once more!",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f)
+                )
+                TextButton(onClick = {
+                    selectedIndex = null
+                    showRetry = false
+                }) { Text("Retry") }
             }
         }
     }

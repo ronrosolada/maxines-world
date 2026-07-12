@@ -9,7 +9,8 @@ data class ActivityResult(
     val correct: Boolean,
     val attempts: Int,
     val hintsUsed: Int,
-    val responseTimeMs: Long
+    val responseTimeMs: Long,
+    val scored: Boolean = true  // false for unscored intro/explanation steps
 )
 
 typealias ActivityEngine = @Composable (

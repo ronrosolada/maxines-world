@@ -1,16 +1,25 @@
 package com.maxinesworld.app
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.ParentAccountDao
+import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
+import dagger.hilt.android.EntryPointAccessors
 
 object Routes {
     const val PARENT_AUTH = "parent_auth"
@@ -27,9 +36,38 @@ object Routes {
 
 @Composable
 fun MaxinesNavGraph(navController: NavHostController) {
+    // Resolve whether setup is complete to decide start destination
+    var startDest by remember { mutableStateOf<String?>(null) }
+
+    LaunchedEffect(Unit) {
+        val appContext = navController.context.applicationContext
+        val entryPoint = EntryPointAccessors.fromApplication(
+            appContext,
+            com.maxinesworld.app.di.StartupCheckEntryPoint::class.java
+        )
+        val parentDao = entryPoint.parentAccountDao()
+        val childDao = entryPoint.childProfileDao()
+        val authManager = entryPoint.authManager()
+
+        val hasPin = authManager.getPinHash() != null
+        if (!hasPin) {
+            startDest = Routes.PARENT_AUTH
+        } else {
+            val parent = parentDao.getParent()
+            val children = parent?.let { childDao.getByParent(it.id) } ?: emptyList()
+            startDest = if (children.isNotEmpty()) {
+                Routes.childHome(children.first().id)
+            } else {
+                Routes.PARENT_AUTH
+            }
+        }
+    }
+
+    if (startDest == null) return // Still loading
+
     NavHost(
         navController = navController,
-        startDestination = Routes.PARENT_AUTH
+        startDestination = startDest!!
     ) {
         composable(Routes.PARENT_AUTH) {
             ParentAuthScreen(
@@ -48,7 +86,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             VillageHomeScreen(
                 onSubjectTap = { subject ->
-                    // Map subject to its pilot lesson
                     val lessonId = when (subject) {
                         "english" -> "eng-g3-m01-l01"
                         "filipino" -> "fil-g3-m01-l01"
