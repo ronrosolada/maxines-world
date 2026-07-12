@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.featurerewards.BadgeRevealScreen
@@ -85,32 +86,50 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
     val step = lesson.steps.getOrNull(state.currentStep) ?: return
 
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
-        // Step progress dots
-        Row(Modifier.fillMaxWidth().padding(bottom = 12.dp), horizontalArrangement = Arrangement.Center) {
+        // Step progress dots — design v2 §24.3: clear, countable, 48dp touch
+        Row(
+            Modifier.fillMaxWidth().padding(vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             repeat(state.totalSteps) { index ->
+                val isDone = index < state.currentStep
+                val isCurrent = index == state.currentStep
                 val dotColor = when {
-                    index < state.currentStep -> SuccessGreen
-                    index == state.currentStep -> VillageTeal
-                    else -> VillageTeal.copy(alpha = 0.2f)
+                    isDone -> SuccessGreen
+                    isCurrent -> VillageTeal
+                    else -> VillageTeal.copy(alpha = 0.15f)
                 }
-                Box(Modifier.size(28.dp).clip(CircleShape).background(dotColor), contentAlignment = Alignment.Center) {
-                    if (index < state.currentStep) Icon(Icons.Default.Check, "Done", tint = Color.White, modifier = Modifier.size(16.dp))
-                }
-                if (index < state.totalSteps - 1) {
-                    Box(Modifier.width(16.dp).height(2.dp).align(Alignment.CenterVertically).background(dotColor.copy(alpha = 0.4f)))
+                // Full tap-target area with centered content
+                Box(Modifier.size(48.dp), contentAlignment = Alignment.Center) {
+                    Box(
+                        Modifier
+                            .size(if (isCurrent) 36.dp else 32.dp)
+                            .clip(CircleShape)
+                            .background(dotColor),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (isDone) Icon(Icons.Default.Check, "Done",
+                            tint = White, modifier = Modifier.size(18.dp))
+                        else if (isCurrent) Box(Modifier.size(14.dp).clip(CircleShape).background(White))
+                    }
                 }
             }
         }
-        Spacer(Modifier.height(8.dp))
+
+        Spacer(Modifier.height(4.dp))
 
         CharacterGuide(lesson.guideCharacter)
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(10.dp))
 
         if (step.narrationText.isNotEmpty()) {
-            Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = Teal90)) {
-                Text(step.narrationText, modifier = Modifier.padding(16.dp), style = MaterialTheme.typography.bodyLarge)
+            Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Cream),
+                elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)) {
+                Text(step.narrationText, modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyLarge, color = Ink)
             }
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(14.dp))
         }
 
         when (step.type) {
@@ -194,7 +213,8 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
                     else if (ttsUnavailable) "Filipino voice not available"
                     else "Tap speaker to listen",
                     fontSize = 14.sp, color = Teal40.copy(alpha = 0.5f))
-                Button(onClick = onContinue, shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = Teal40), modifier = Modifier.height(56.dp)) { Text("Continue", fontSize = 18.sp) }
+                MaxinesPrimaryButton(onClick = onContinue, text = "Continue",
+                    containerColor = Teal40, modifier = Modifier)
             }
         }
     }
@@ -300,9 +320,9 @@ private fun SortStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
         Spacer(Modifier.height(12.dp))
         val isCorrect = selectedOrder == options.indices.toList()
         Text(if (isCorrect) "Correct order!" else "Not quite right.", fontWeight = FontWeight.Bold, color = if (isCorrect) SuccessGreen else ErrorRed)
-        Button(onClick = { viewModel.onActivityResult(ActivityResult(step.id, isCorrect, 1, 0, 0)) },
-            modifier = Modifier.fillMaxWidth().height(56.dp), shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Teal40)) { Text("Submit", fontSize = 18.sp) }
+        MaxinesPrimaryButton(
+            onClick = { viewModel.onActivityResult(ActivityResult(step.id, isCorrect, 1, 0, 0)) },
+            text = "Submit", modifier = Modifier.fillMaxWidth())
     }
 }
 
@@ -384,7 +404,7 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
             }
 
             Spacer(Modifier.height(24.dp))
-            Button(onClick = onComplete, modifier = Modifier.fillMaxWidth().height(56.dp), shape = RoundedCornerShape(16.dp), colors = ButtonDefaults.buttonColors(containerColor = Teal40)) { Text("Continue", fontSize = 18.sp) }
+            MaxinesPrimaryButton(onClick = onComplete, text = "Continue", modifier = Modifier.fillMaxWidth())
         }
     }
 }
