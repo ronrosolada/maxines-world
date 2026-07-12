@@ -1,0 +1,338 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d07",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 7,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Reading Hazard-Sensitive Locations",
+  "objective": "Basahin ang child-safe hazard overlay at sundin ang opisyal na gabay.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Reading",
+      "definition": "A key word used in the lesson “Reading Hazard-Sensitive Locations”."
+    },
+    {
+      "term": "Hazard-Sensitive",
+      "definition": "A key word used in the lesson “Reading Hazard-Sensitive Locations”."
+    },
+    {
+      "term": "Locations",
+      "definition": "A key word used in the lesson “Reading Hazard-Sensitive Locations”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "accessibilityAlternative": "Text alternative: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "bahang overlay",
+          "evacuation point ayon sa opisyal na mapa",
+          "makinig sa adult at awtoridad"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "bahang overlay",
+          "evacuation point ayon sa opisyal na mapa",
+          "makinig sa adult at awtoridad"
+        ],
+        "doesNotFit": [
+          "Tawaging tiyak na ligtas ang lugar",
+          "Gamitin ang app bilang emergency authority",
+          "Ibahagi ang bahay ng bata"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Sino ang dapat sundin sa aktuwal na emergency?",
+      "content": {
+        "options": [
+          "responsableng adult at opisyal na awtoridad",
+          "random na laro",
+          "hula lamang"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: responsableng adult at opisyal na awtoridad",
+        "retry": "Read the lesson rule again. random na laro and hula lamang do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "bahang overlay",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "evacuation point ayon sa opisyal na mapa",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "makinig sa adult at awtoridad",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d07-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d07-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Reading Hazard-Sensitive Locations”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+          },
+          {
+            "id": "b",
+            "text": "Tawaging tiyak na ligtas ang lugar"
+          },
+          {
+            "id": "c",
+            "text": "Gamitin ang app bilang emergency authority"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability.” because it follows the lesson explanation: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d07-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bahang overlay"
+          },
+          {
+            "id": "b",
+            "text": "Tawaging tiyak na ligtas ang lugar"
+          },
+          {
+            "id": "c",
+            "text": "Gamitin ang app bilang emergency authority"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “bahang overlay” because it follows the lesson explanation: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d07-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tawaging tiyak na ligtas ang lugar"
+          },
+          {
+            "id": "b",
+            "text": "bahang overlay"
+          },
+          {
+            "id": "c",
+            "text": "evacuation point ayon sa opisyal na mapa"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Tawaging tiyak na ligtas ang lugar” because it follows the lesson explanation: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d07-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sino ang dapat sundin sa aktuwal na emergency?",
+        "options": [
+          {
+            "id": "a",
+            "text": "responsableng adult at opisyal na awtoridad"
+          },
+          {
+            "id": "b",
+            "text": "random na laro"
+          },
+          {
+            "id": "c",
+            "text": "hula lamang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “responsableng adult at opisyal na awtoridad” because it follows the lesson explanation: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d07-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "makinig sa adult at awtoridad"
+          },
+          {
+            "id": "b",
+            "text": "Ibahagi ang bahay ng bata"
+          },
+          {
+            "id": "c",
+            "text": "Tawaging tiyak na ligtas ang lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “makinig sa adult at awtoridad” because it follows the lesson explanation: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d07-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d07-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Reading Hazard-Sensitive Locations; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Reading Hazard-Sensitive Locations.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "ffd841870b53aeff0a6fc24e5e9a752c86f4ea6a32995e7b17a301eeb7ea8a07"
+}

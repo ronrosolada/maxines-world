@@ -1,0 +1,332 @@
+{
+  "lessonId": "english-g3-m01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "ENGLISH",
+  "title": "Maxine’s Little Diary",
+  "objective": "Recognize useful features of a simple diary entry.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "A model diary entry may include a date, an event, and the writer’s thoughts or feelings. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Maxine",
+      "definition": "A key word used in the lesson “Maxine’s Little Diary”."
+    },
+    {
+      "term": "s",
+      "definition": "A key word used in the lesson “Maxine’s Little Diary”."
+    },
+    {
+      "term": "Little",
+      "definition": "A key word used in the lesson “Maxine’s Little Diary”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "A model diary entry may include a date, an event, and the writer’s thoughts or feelings.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "english-g3-m01-d04-visual",
+      "accessibilityAlternative": "Text alternative: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+    },
+    {
+      "activityId": "english-g3-m01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "July 13 — I planted mongo seeds. I felt excited.",
+          "Today we read a funny story.",
+          "I noticed the first tiny leaf."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "english-g3-m01-d04-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "July 13 — I planted mongo seeds. I felt excited.",
+          "Today we read a funny story.",
+          "I noticed the first tiny leaf."
+        ],
+        "doesNotFit": [
+          "A shopping list only",
+          "A random word with no event",
+          "Someone else’s private information"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d04-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which line tells a feeling?",
+      "content": {
+        "options": [
+          "I felt proud of my plant.",
+          "The pot is blue.",
+          "July 13"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: I felt proud of my plant.",
+        "retry": "Read the lesson rule again. The pot is blue. and July 13 do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "July 13 — I planted mongo seeds. I felt excited.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Today we read a funny story.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "I noticed the first tiny leaf.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "english-g3-m01-d04-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "english-g3-m01-d04-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Maxine’s Little Diary”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+          },
+          {
+            "id": "b",
+            "text": "A shopping list only"
+          },
+          {
+            "id": "c",
+            "text": "A random word with no event"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “A model diary entry may include a date, an event, and the writer’s thoughts or feelings.” because it follows the lesson explanation: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+      },
+      {
+        "itemId": "english-g3-m01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "July 13 — I planted mongo seeds. I felt excited."
+          },
+          {
+            "id": "b",
+            "text": "A shopping list only"
+          },
+          {
+            "id": "c",
+            "text": "A random word with no event"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “July 13 — I planted mongo seeds. I felt excited.” because it follows the lesson explanation: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+      },
+      {
+        "itemId": "english-g3-m01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A shopping list only"
+          },
+          {
+            "id": "b",
+            "text": "July 13 — I planted mongo seeds. I felt excited."
+          },
+          {
+            "id": "c",
+            "text": "Today we read a funny story."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “A shopping list only” because it follows the lesson explanation: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+      },
+      {
+        "itemId": "english-g3-m01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which line tells a feeling?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I felt proud of my plant."
+          },
+          {
+            "id": "b",
+            "text": "The pot is blue."
+          },
+          {
+            "id": "c",
+            "text": "July 13"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “I felt proud of my plant.” because it follows the lesson explanation: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+      },
+      {
+        "itemId": "english-g3-m01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I noticed the first tiny leaf."
+          },
+          {
+            "id": "b",
+            "text": "Someone else’s private information"
+          },
+          {
+            "id": "c",
+            "text": "A shopping list only"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “I noticed the first tiny leaf.” because it follows the lesson explanation: A model diary entry may include a date, an event, and the writer’s thoughts or feelings."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d04-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d04-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Maxine’s Little Diary; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Maxine’s Little Diary.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "99997d8ebceaf213ef021365a9d87f48d0931a539267cd3be03cf2952c3eaa0f"
+}

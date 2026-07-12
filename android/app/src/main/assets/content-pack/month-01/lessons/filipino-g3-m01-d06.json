@@ -1,0 +1,332 @@
+{
+  "lessonId": "filipino-g3-m01-d06",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 6,
+  "subject": "FILIPINO",
+  "title": "Sundin ang Panuto",
+  "objective": "Sundin ang malinaw na panutong may dalawa hanggang apat na hakbang.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Sundin",
+      "definition": "A key word used in the lesson “Sundin ang Panuto”."
+    },
+    {
+      "term": "ang",
+      "definition": "A key word used in the lesson “Sundin ang Panuto”."
+    },
+    {
+      "term": "Panuto",
+      "definition": "A key word used in the lesson “Sundin ang Panuto”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d06-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "filipino-g3-m01-d06-visual",
+      "accessibilityAlternative": "Text alternative: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+    },
+    {
+      "activityId": "filipino-g3-m01-d06-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "Una: kunin ang papel.",
+          "Ikalawa: gumuhit ng bilog.",
+          "Huli: kulayan ang bilog."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "filipino-g3-m01-d06-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "filipino-g3-m01-d06-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Una: kunin ang papel.",
+          "Ikalawa: gumuhit ng bilog.",
+          "Huli: kulayan ang bilog."
+        ],
+        "doesNotFit": [
+          "Unahin ang huling hakbang",
+          "Laktawan ang hakbang nang walang dahilan",
+          "Hulaan ang panuto"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "filipino-g3-m01-d06-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "filipino-g3-m01-d06-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Ano ang dapat gawin muna?",
+      "content": {
+        "options": [
+          "Basahin o pakinggan ang buong panuto.",
+          "Gawin agad ang huling hakbang.",
+          "Isara ang gawain."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Basahin o pakinggan ang buong panuto.",
+        "retry": "Read the lesson rule again. Gawin agad ang huling hakbang. and Isara ang gawain. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d06-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Una: kunin ang papel.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Ikalawa: gumuhit ng bilog.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Huli: kulayan ang bilog.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "filipino-g3-m01-d06-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "filipino-g3-m01-d06-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "filipino-g3-m01-d06-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d06-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Sundin ang Panuto”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+          },
+          {
+            "id": "b",
+            "text": "Unahin ang huling hakbang"
+          },
+          {
+            "id": "c",
+            "text": "Laktawan ang hakbang nang walang dahilan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa.” because it follows the lesson explanation: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d06-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una: kunin ang papel."
+          },
+          {
+            "id": "b",
+            "text": "Unahin ang huling hakbang"
+          },
+          {
+            "id": "c",
+            "text": "Laktawan ang hakbang nang walang dahilan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Una: kunin ang papel.” because it follows the lesson explanation: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d06-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unahin ang huling hakbang"
+          },
+          {
+            "id": "b",
+            "text": "Una: kunin ang papel."
+          },
+          {
+            "id": "c",
+            "text": "Ikalawa: gumuhit ng bilog."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Unahin ang huling hakbang” because it follows the lesson explanation: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d06-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang dapat gawin muna?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Basahin o pakinggan ang buong panuto."
+          },
+          {
+            "id": "b",
+            "text": "Gawin agad ang huling hakbang."
+          },
+          {
+            "id": "c",
+            "text": "Isara ang gawain."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Basahin o pakinggan ang buong panuto.” because it follows the lesson explanation: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d06-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Huli: kulayan ang bilog."
+          },
+          {
+            "id": "b",
+            "text": "Hulaan ang panuto"
+          },
+          {
+            "id": "c",
+            "text": "Unahin ang huling hakbang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Huli: kulayan ang bilog.” because it follows the lesson explanation: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d06-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d06-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Sundin ang Panuto; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Sundin ang Panuto.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f8ebd850c7721e7f7b1ba40f75c6041c4fee0f93d6ce2a097917f07a56a5a9e8"
+}

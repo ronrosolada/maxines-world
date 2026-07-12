@@ -1,0 +1,338 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Where Is the Province?",
+  "objective": "Gamitin ang hilaga, timog, silangan, kanluran, katabi, at pagitan sa kathang-isip na mapa.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Ang direksiyon ay nakabatay sa orientation cue ng mapa. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Where",
+      "definition": "A key word used in the lesson “Where Is the Province?”."
+    },
+    {
+      "term": "Is",
+      "definition": "A key word used in the lesson “Where Is the Province?”."
+    },
+    {
+      "term": "the",
+      "definition": "A key word used in the lesson “Where Is the Province?”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ang direksiyon ay nakabatay sa orientation cue ng mapa.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Text alternative: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "Bayan A ay hilaga ng Bayan B",
+          "Ilog ay nasa pagitan ng dalawang bayan",
+          "Baybayin ay silangan ayon sa compass"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Bayan A ay hilaga ng Bayan B",
+          "Ilog ay nasa pagitan ng dalawang bayan",
+          "Baybayin ay silangan ayon sa compass"
+        ],
+        "doesNotFit": [
+          "Walang compass ngunit tiyak ang hilaga",
+          "Gamitin ang sariling address",
+          "Baligtarin ang mapa nang di pansin"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Kung ang A ay nasa itaas ng B at ang N ay pataas, nasaan ang A?",
+      "content": {
+        "options": [
+          "hilaga ng B",
+          "timog ng B",
+          "kanluran ng B"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: hilaga ng B",
+        "retry": "Read the lesson rule again. timog ng B and kanluran ng B do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Bayan A ay hilaga ng Bayan B",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Ilog ay nasa pagitan ng dalawang bayan",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Baybayin ay silangan ayon sa compass",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Where Is the Province?”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+          },
+          {
+            "id": "b",
+            "text": "Walang compass ngunit tiyak ang hilaga"
+          },
+          {
+            "id": "c",
+            "text": "Gamitin ang sariling address"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Ang direksiyon ay nakabatay sa orientation cue ng mapa.” because it follows the lesson explanation: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bayan A ay hilaga ng Bayan B"
+          },
+          {
+            "id": "b",
+            "text": "Walang compass ngunit tiyak ang hilaga"
+          },
+          {
+            "id": "c",
+            "text": "Gamitin ang sariling address"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Bayan A ay hilaga ng Bayan B” because it follows the lesson explanation: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Walang compass ngunit tiyak ang hilaga"
+          },
+          {
+            "id": "b",
+            "text": "Bayan A ay hilaga ng Bayan B"
+          },
+          {
+            "id": "c",
+            "text": "Ilog ay nasa pagitan ng dalawang bayan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Walang compass ngunit tiyak ang hilaga” because it follows the lesson explanation: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Kung ang A ay nasa itaas ng B at ang N ay pataas, nasaan ang A?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hilaga ng B"
+          },
+          {
+            "id": "b",
+            "text": "timog ng B"
+          },
+          {
+            "id": "c",
+            "text": "kanluran ng B"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “hilaga ng B” because it follows the lesson explanation: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Baybayin ay silangan ayon sa compass"
+          },
+          {
+            "id": "b",
+            "text": "Baligtarin ang mapa nang di pansin"
+          },
+          {
+            "id": "c",
+            "text": "Walang compass ngunit tiyak ang hilaga"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Baybayin ay silangan ayon sa compass” because it follows the lesson explanation: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d02-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Where Is the Province?; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Where Is the Province?.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "5a488fee25c6f5bf45b83ff4f56c5f5a1ba09b06be3c9116b83a7f851b3f978f"
+}

@@ -1,0 +1,340 @@
+{
+  "lessonId": "science-g3-m01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "SCIENCE",
+  "title": "Materials Can Change",
+  "objective": "Observe safe examples of changes from heating or cooling.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Materials",
+      "definition": "A key word used in the lesson “Materials Can Change”."
+    },
+    {
+      "term": "Can",
+      "definition": "A key word used in the lesson “Materials Can Change”."
+    },
+    {
+      "term": "Change",
+      "definition": "A key word used in the lesson “Materials Can Change”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "science-g3-m01-d02-visual",
+      "accessibilityAlternative": "Text alternative: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    },
+    {
+      "activityId": "science-g3-m01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "ice melts",
+          "water freezes",
+          "wax softens when warmed"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "science-g3-m01-d02-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "ice melts",
+          "water freezes",
+          "wax softens when warmed"
+        ],
+        "doesNotFit": [
+          "Every material melts",
+          "Every change reverses",
+          "Touch hot materials"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d02-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What happens to ice in a warm room?",
+      "content": {
+        "options": [
+          "It can melt.",
+          "It becomes metal.",
+          "It disappears from matter."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: It can melt.",
+        "retry": "Read the lesson rule again. It becomes metal. and It disappears from matter. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "ice melts",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "water freezes",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "wax softens when warmed",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "science-g3-m01-d02-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "science-g3-m01-d02-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Materials Can Change”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+          },
+          {
+            "id": "b",
+            "text": "Every material melts"
+          },
+          {
+            "id": "c",
+            "text": "Every change reverses"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.” because it follows the lesson explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+      },
+      {
+        "itemId": "science-g3-m01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ice melts"
+          },
+          {
+            "id": "b",
+            "text": "Every material melts"
+          },
+          {
+            "id": "c",
+            "text": "Every change reverses"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “ice melts” because it follows the lesson explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+      },
+      {
+        "itemId": "science-g3-m01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Every material melts"
+          },
+          {
+            "id": "b",
+            "text": "ice melts"
+          },
+          {
+            "id": "c",
+            "text": "water freezes"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Every material melts” because it follows the lesson explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+      },
+      {
+        "itemId": "science-g3-m01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What happens to ice in a warm room?",
+        "options": [
+          {
+            "id": "a",
+            "text": "It can melt."
+          },
+          {
+            "id": "b",
+            "text": "It becomes metal."
+          },
+          {
+            "id": "c",
+            "text": "It disappears from matter."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “It can melt.” because it follows the lesson explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+      },
+      {
+        "itemId": "science-g3-m01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "wax softens when warmed"
+          },
+          {
+            "id": "b",
+            "text": "Touch hot materials"
+          },
+          {
+            "id": "c",
+            "text": "Every material melts"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “wax softens when warmed” because it follows the lesson explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d02-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d02-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Materials Can Change; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Materials Can Change.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "0f4a062a88126826847d5adbc9e4fd301d3e487903f8eae72fc9c65fbbe1553b"
+}

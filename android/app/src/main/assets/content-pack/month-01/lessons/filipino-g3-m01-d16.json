@@ -1,0 +1,332 @@
+{
+  "lessonId": "filipino-g3-m01-d16",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 16,
+  "subject": "FILIPINO",
+  "title": "Ang Angkop na Wakas",
+  "objective": "Pumili ng wakas na suportado ng mga pahiwatig sa kuwento.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Ang",
+      "definition": "A key word used in the lesson “Ang Angkop na Wakas”."
+    },
+    {
+      "term": "Angkop",
+      "definition": "A key word used in the lesson “Ang Angkop na Wakas”."
+    },
+    {
+      "term": "na",
+      "definition": "A key word used in the lesson “Ang Angkop na Wakas”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d16-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Text alternative: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "Nahanap ang susi matapos hanapin sa mesa.",
+          "Nabuhay ang halaman matapos diligan.",
+          "Naibalik ang aklat matapos makita."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Nahanap ang susi matapos hanapin sa mesa.",
+          "Nabuhay ang halaman matapos diligan.",
+          "Naibalik ang aklat matapos makita."
+        ],
+        "doesNotFit": [
+          "Biglang naging planeta ang silid",
+          "Lumabas ang tauhang di ipinakilala",
+          "Hindi nalutas ngunit sinabing nalutas"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Natuyo ang halaman at diniligan ni Bea. Alin ang angkop na wakas?",
+      "content": {
+        "options": [
+          "Unti-unting sumigla ang halaman.",
+          "Naging eroplano ang paso.",
+          "Nawala ang buong paaralan."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Unti-unting sumigla ang halaman.",
+        "retry": "Read the lesson rule again. Naging eroplano ang paso. and Nawala ang buong paaralan. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Nahanap ang susi matapos hanapin sa mesa.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Nabuhay ang halaman matapos diligan.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Naibalik ang aklat matapos makita.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d16-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Ang Angkop na Wakas”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+          },
+          {
+            "id": "b",
+            "text": "Biglang naging planeta ang silid"
+          },
+          {
+            "id": "c",
+            "text": "Lumabas ang tauhang di ipinakilala"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari.” because it follows the lesson explanation: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nahanap ang susi matapos hanapin sa mesa."
+          },
+          {
+            "id": "b",
+            "text": "Biglang naging planeta ang silid"
+          },
+          {
+            "id": "c",
+            "text": "Lumabas ang tauhang di ipinakilala"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Nahanap ang susi matapos hanapin sa mesa.” because it follows the lesson explanation: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Biglang naging planeta ang silid"
+          },
+          {
+            "id": "b",
+            "text": "Nahanap ang susi matapos hanapin sa mesa."
+          },
+          {
+            "id": "c",
+            "text": "Nabuhay ang halaman matapos diligan."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Biglang naging planeta ang silid” because it follows the lesson explanation: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Natuyo ang halaman at diniligan ni Bea. Alin ang angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unti-unting sumigla ang halaman."
+          },
+          {
+            "id": "b",
+            "text": "Naging eroplano ang paso."
+          },
+          {
+            "id": "c",
+            "text": "Nawala ang buong paaralan."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Unti-unting sumigla ang halaman.” because it follows the lesson explanation: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Naibalik ang aklat matapos makita."
+          },
+          {
+            "id": "b",
+            "text": "Hindi nalutas ngunit sinabing nalutas"
+          },
+          {
+            "id": "c",
+            "text": "Biglang naging planeta ang silid"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Naibalik ang aklat matapos makita.” because it follows the lesson explanation: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d16-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d16-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Ang Angkop na Wakas; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Ang Angkop na Wakas.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "6304ba4ea8aa23aa2b7e419fb596c248230578498bb748ee1aabb36d69156dab"
+}

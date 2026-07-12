@@ -1,0 +1,332 @@
+{
+  "lessonId": "filipino-g3-m01-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "FILIPINO",
+  "title": "Pangngalan sa Ating Mundo",
+  "objective": "Uriin ang pangngalan bilang tao, hayop, bagay, lugar, o pangyayari.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Pangngalan",
+      "definition": "A key word used in the lesson “Pangngalan sa Ating Mundo”."
+    },
+    {
+      "term": "sa",
+      "definition": "A key word used in the lesson “Pangngalan sa Ating Mundo”."
+    },
+    {
+      "term": "Ating",
+      "definition": "A key word used in the lesson “Pangngalan sa Ating Mundo”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "filipino-g3-m01-d01-visual",
+      "accessibilityAlternative": "Text alternative: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-m01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "guro—tao",
+          "kalabaw—hayop",
+          "paaralan—lugar"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "filipino-g3-m01-d01-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "filipino-g3-m01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "guro—tao",
+          "kalabaw—hayop",
+          "paaralan—lugar"
+        ],
+        "doesNotFit": [
+          "mabilis",
+          "tumakbo",
+          "masaya"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "filipino-g3-m01-d01-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "filipino-g3-m01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang pangngalan na tumutukoy sa lugar?",
+      "content": {
+        "options": [
+          "paaralan",
+          "mabilis",
+          "tumakbo"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: paaralan",
+        "retry": "Read the lesson rule again. mabilis and tumakbo do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "guro—tao",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "kalabaw—hayop",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "paaralan—lugar",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "filipino-g3-m01-d01-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "filipino-g3-m01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "filipino-g3-m01-d01-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Pangngalan sa Ating Mundo”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+          },
+          {
+            "id": "b",
+            "text": "mabilis"
+          },
+          {
+            "id": "c",
+            "text": "tumakbo"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari.” because it follows the lesson explanation: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "guro—tao"
+          },
+          {
+            "id": "b",
+            "text": "mabilis"
+          },
+          {
+            "id": "c",
+            "text": "tumakbo"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “guro—tao” because it follows the lesson explanation: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mabilis"
+          },
+          {
+            "id": "b",
+            "text": "guro—tao"
+          },
+          {
+            "id": "c",
+            "text": "kalabaw—hayop"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “mabilis” because it follows the lesson explanation: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pangngalan na tumutukoy sa lugar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paaralan"
+          },
+          {
+            "id": "b",
+            "text": "mabilis"
+          },
+          {
+            "id": "c",
+            "text": "tumakbo"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “paaralan” because it follows the lesson explanation: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      },
+      {
+        "itemId": "filipino-g3-m01-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paaralan—lugar"
+          },
+          {
+            "id": "b",
+            "text": "masaya"
+          },
+          {
+            "id": "c",
+            "text": "mabilis"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “paaralan—lugar” because it follows the lesson explanation: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d01-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d01-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Pangngalan sa Ating Mundo; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Pangngalan sa Ating Mundo.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "3b76c428fa6016d7c0dfa4d9b43f5aa8ce7934150645ae700a877f4b04a9a282"
+}

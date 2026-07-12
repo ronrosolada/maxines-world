@@ -1,0 +1,338 @@
+{
+  "lessonId": "mathematics-g3-m01-d14",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 14,
+  "subject": "MATHEMATICS",
+  "title": "Equal Groups and Facts",
+  "objective": "Model multiplication with equal groups and arrays.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "Multiplication represents equal groups; 3 groups of 4 has 12 objects. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Equal",
+      "definition": "A key word used in the lesson “Equal Groups and Facts”."
+    },
+    {
+      "term": "Groups",
+      "definition": "A key word used in the lesson “Equal Groups and Facts”."
+    },
+    {
+      "term": "and",
+      "definition": "A key word used in the lesson “Equal Groups and Facts”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d14-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "Multiplication represents equal groups; 3 groups of 4 has 12 objects.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "accessibilityAlternative": "Text alternative: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d14-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "3×4=12",
+          "4 rows of 2=8",
+          "5 groups of 3=15"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d14-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "3×4=12",
+          "4 rows of 2=8",
+          "5 groups of 3=15"
+        ],
+        "doesNotFit": [
+          "Unequal groups without adjustment",
+          "3+4=12",
+          "Count rows only"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d14-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Three groups of four contain",
+      "content": {
+        "options": [
+          "12",
+          "7",
+          "16"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 12",
+        "retry": "Read the lesson rule again. 7 and 16 do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d14-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "3×4=12",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "4 rows of 2=8",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "5 groups of 3=15",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d14-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d14-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Equal Groups and Facts”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+          },
+          {
+            "id": "b",
+            "text": "Unequal groups without adjustment"
+          },
+          {
+            "id": "c",
+            "text": "3+4=12"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Multiplication represents equal groups; 3 groups of 4 has 12 objects.” because it follows the lesson explanation: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d14-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "3×4=12"
+          },
+          {
+            "id": "b",
+            "text": "Unequal groups without adjustment"
+          },
+          {
+            "id": "c",
+            "text": "3+4=12"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “3×4=12” because it follows the lesson explanation: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d14-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unequal groups without adjustment"
+          },
+          {
+            "id": "b",
+            "text": "3×4=12"
+          },
+          {
+            "id": "c",
+            "text": "4 rows of 2=8"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Unequal groups without adjustment” because it follows the lesson explanation: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d14-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Three groups of four contain",
+        "options": [
+          {
+            "id": "a",
+            "text": "12"
+          },
+          {
+            "id": "b",
+            "text": "7"
+          },
+          {
+            "id": "c",
+            "text": "16"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “12” because it follows the lesson explanation: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d14-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5 groups of 3=15"
+          },
+          {
+            "id": "b",
+            "text": "Count rows only"
+          },
+          {
+            "id": "c",
+            "text": "Unequal groups without adjustment"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “5 groups of 3=15” because it follows the lesson explanation: Multiplication represents equal groups; 3 groups of 4 has 12 objects."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d14-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d14-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Equal Groups and Facts; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Equal Groups and Facts.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "a64b6acce6003a48aa5a17ded150d2bf76d1c7da561df65c29f779a4959ba568"
+}

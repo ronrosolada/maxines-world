@@ -1,0 +1,332 @@
+{
+  "lessonId": "english-g3-m01-d07",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 7,
+  "subject": "ENGLISH",
+  "title": "More Than One",
+  "objective": "Form regular plurals with -s or -es in taught examples.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "More",
+      "definition": "A key word used in the lesson “More Than One”."
+    },
+    {
+      "term": "Than",
+      "definition": "A key word used in the lesson “More Than One”."
+    },
+    {
+      "term": "One",
+      "definition": "A key word used in the lesson “More Than One”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d07-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "english-g3-m01-d07-visual",
+      "accessibilityAlternative": "Text alternative: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    },
+    {
+      "activityId": "english-g3-m01-d07-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "cat → cats",
+          "box → boxes",
+          "dish → dishes"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "english-g3-m01-d07-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d07-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "cat → cats",
+          "box → boxes",
+          "dish → dishes"
+        ],
+        "doesNotFit": [
+          "child → childs",
+          "mouse → mouses",
+          "foot → foots"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d07-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d07-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What is the plural of box?",
+      "content": {
+        "options": [
+          "boxes",
+          "boxs",
+          "boxen"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: boxes",
+        "retry": "Read the lesson rule again. boxs and boxen do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d07-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "cat → cats",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "box → boxes",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "dish → dishes",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "english-g3-m01-d07-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d07-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "english-g3-m01-d07-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d07-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “More Than One”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+          },
+          {
+            "id": "b",
+            "text": "child → childs"
+          },
+          {
+            "id": "c",
+            "text": "mouse → mouses"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns.” because it follows the lesson explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      },
+      {
+        "itemId": "english-g3-m01-d07-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "cat → cats"
+          },
+          {
+            "id": "b",
+            "text": "child → childs"
+          },
+          {
+            "id": "c",
+            "text": "mouse → mouses"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “cat → cats” because it follows the lesson explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      },
+      {
+        "itemId": "english-g3-m01-d07-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "child → childs"
+          },
+          {
+            "id": "b",
+            "text": "cat → cats"
+          },
+          {
+            "id": "c",
+            "text": "box → boxes"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “child → childs” because it follows the lesson explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      },
+      {
+        "itemId": "english-g3-m01-d07-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the plural of box?",
+        "options": [
+          {
+            "id": "a",
+            "text": "boxes"
+          },
+          {
+            "id": "b",
+            "text": "boxs"
+          },
+          {
+            "id": "c",
+            "text": "boxen"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “boxes” because it follows the lesson explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      },
+      {
+        "itemId": "english-g3-m01-d07-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "dish → dishes"
+          },
+          {
+            "id": "b",
+            "text": "foot → foots"
+          },
+          {
+            "id": "c",
+            "text": "child → childs"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “dish → dishes” because it follows the lesson explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d07-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d07-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for More Than One; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in More Than One.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "07e9b0ed4a16b422ee8aeb2a2feaf5045c9397ce88500f5f88e993ee10e92dce"
+}
