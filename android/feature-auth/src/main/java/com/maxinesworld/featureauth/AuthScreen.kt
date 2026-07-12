@@ -152,16 +152,11 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
 
         Spacer(Modifier.height(16.dp))
 
-        // Biometric option
-        IconButton(onClick = { /* Triggers BiometricPrompt via Activity */ }) {
-            Icon(
-                Icons.Default.Fingerprint,
-                "Use fingerprint",
-                tint = Teal40,
-                modifier = Modifier.size(48.dp)
-            )
-        }
-        Text("Or use fingerprint", style = MaterialTheme.typography.labelSmall, color = Teal40)
+        // ─── Biometric option removed — not yet functional ───
+        // Per audit recommendation: never show a control that suggests protection
+        // that does not exist. BiometricPrompt will be re-added when implemented.
+
+        Spacer(Modifier.height(16.dp))
     }
 }
 
