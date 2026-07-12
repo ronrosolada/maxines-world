@@ -154,10 +154,14 @@ class LessonPlayerViewModel @Inject constructor(
             steps = m1.activities.map { act ->
                 ActivityStep(
                     id = act.activityId, type = when (act.type) {
-                        "ANIMATED_EXPLANATION" -> "animated_explanation"
-                        "MULTIPLE_CHOICE" -> "multiple_choice"
-                        "SORT_AND_CLASSIFY" -> "sort_and_classify"
-                        else -> "animated_explanation"
+                        "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
+                        "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
+                        "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
+                        "HOTSPOT_IMAGE" -> "HOTSPOT_IMAGE_V1"
+                        "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
+                        "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
+                        "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
+                        else -> "ANIMATED_EXPLANATION_V1"
                     },
                     narrationText = act.instruction,
                     options = emptyList(), correctIndex = -1,
