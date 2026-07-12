@@ -5,8 +5,9 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 
 // KEPT from v0.6.5 working baseline — mutable vars
@@ -16,11 +17,13 @@ var AppBodyFont: FontFamily = FontFamily.Default
 private val LightColorScheme = lightColorScheme(
     primary = VillageTeal, onPrimary = White,
     primaryContainer = VillageTeal.copy(alpha = 0.12f),
-    secondary = SunshineGold, onSecondary = White,
+    secondary = SunshineGold, onSecondary = Color(0xFF2B2100),
     secondaryContainer = SunshineGold.copy(alpha = 0.12f),
-    tertiary = Coral, surface = SurfaceLight,
+    tertiary = Coral, onTertiary = White,
+    surface = SurfaceLight, onSurface = Ink,
     surfaceContainer = SurfaceContainer,
-    background = SurfaceLight, error = ErrorRed
+    background = SurfaceLight, onBackground = Ink,
+    error = ErrorRed, onError = White
 )
 
 val MaxinesTypography = Typography(
