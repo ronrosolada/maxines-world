@@ -9,14 +9,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
+// ─── Font families — default to system rounded fonts, overridden via MaxinesWorldTheme ───
+var AppDisplayFont: FontFamily = FontFamily.Default
+var AppBodyFont: FontFamily = FontFamily.Default
+
 private val LightColorScheme = lightColorScheme(
-    primary = Teal40,
+    primary = VillageTeal,
     onPrimary = White,
     primaryContainer = VillageTeal.copy(alpha = 0.12f),
     secondary = SunshineGold,
     onSecondary = White,
     secondaryContainer = SunshineGold.copy(alpha = 0.12f),
-    tertiary = Orange40,
+    tertiary = Coral,
     surface = SurfaceLight,
     surfaceContainer = SurfaceContainer,
     background = SurfaceLight,
@@ -24,58 +28,27 @@ private val LightColorScheme = lightColorScheme(
 )
 
 val MaxinesTypography = Typography(
-    displayLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
-        lineHeight = 40.sp
-    ),
-    headlineMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 24.sp,
-        lineHeight = 32.sp
-    ),
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp,
-        lineHeight = 28.sp
-    ),
-    titleMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
-    ),
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
-    ),
-    bodyMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        lineHeight = 20.sp
-    ),
-    labelLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
-        lineHeight = 20.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp
-    )
+    displayLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 36.sp, lineHeight = 44.sp),
+    displayMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 30.sp, lineHeight = 38.sp),
+    headlineLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 28.sp, lineHeight = 36.sp),
+    headlineMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 24.sp, lineHeight = 32.sp),
+    titleLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 28.sp),
+    titleMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, lineHeight = 24.sp),
+    bodyLarge = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Normal, fontSize = 18.sp, lineHeight = 26.sp),
+    bodyMedium = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Normal, fontSize = 16.sp, lineHeight = 24.sp),
+    labelLarge = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Bold, fontSize = 16.sp, lineHeight = 22.sp),
+    labelMedium = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Medium, fontSize = 14.sp, lineHeight = 20.sp),
+    labelSmall = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Medium, fontSize = 13.sp, lineHeight = 18.sp)
 )
 
 @Composable
-fun MaxinesWorldTheme(content: @Composable () -> Unit) {
+fun MaxinesWorldTheme(
+    displayFont: FontFamily = AppDisplayFont,
+    bodyFont: FontFamily = AppBodyFont,
+    content: @Composable () -> Unit
+) {
+    AppDisplayFont = displayFont
+    AppBodyFont = bodyFont
     MaterialTheme(
         colorScheme = LightColorScheme,
         typography = MaxinesTypography,

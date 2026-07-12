@@ -41,29 +41,29 @@ data class SubjectDestination(
     val icon: ImageVector,
     val color: Color,
     val surfaceColor: Color,
-    val character: String,
+    val characterIcon: ImageVector,
     val description: String
 )
 
 val villageSubjects = listOf(
     SubjectDestination("english", "Story Tree", "Mira",
         Icons.Default.MenuBook, StoryPurple, StoryPurple.copy(alpha = 0.08f),
-        "🐱💜", "Read stories and discover new words"),
+        Icons.Default.MenuBook, "Read stories and discover new words"),
     SubjectDestination("mathematics", "Number Market", "Milo",
         Icons.Default.Calculate, SkyBlue, SkyBlue.copy(alpha = 0.08f),
-        "🐱🧡", "Play with numbers and solve puzzles"),
+        Icons.Default.Calculate, "Play with numbers and solve puzzles"),
     SubjectDestination("science", "Discovery Lab", "Niko",
         Icons.Default.Science, LeafGreen, LeafGreen.copy(alpha = 0.08f),
-        "🐱🩶", "Explore, predict, and experiment"),
+        Icons.Default.Science, "Explore, predict, and experiment"),
     SubjectDestination("filipino", "Bahay ng Kuwento", "Mira",
         Icons.Default.AutoStories, Coral, Coral.copy(alpha = 0.08f),
-        "🐱💜", "Magbasa at magkuwento sa Filipino"),
+        Icons.Default.AutoStories, "Magbasa at magkuwento sa Filipino"),
     SubjectDestination("makabansa", "Heritage Harbor", "Lakan",
         Icons.Default.Flag, SunshineGold, SunshineGold.copy(alpha = 0.1f),
-        "🐱🇵🇭", "Discover our culture and history"),
+        Icons.Default.Flag, "Discover our culture and history"),
     SubjectDestination("gmrc", "Kindness Corner", "Duke",
         Icons.Default.Favorite, Coral, Coral.copy(alpha = 0.06f),
-        "🐕💙", "Learn good manners and right conduct")
+        Icons.Default.Favorite, "Learn good manners and right conduct")
 )
 
 data class DailyQuestInfo(
@@ -199,7 +199,7 @@ private fun HeroSectionWide(
             Row(Modifier.padding(32.dp)) {
                 Column(Modifier.weight(1f)) {
                     Text(
-                        "Magandang araw, $childName! ☀️",
+                        "Magandang araw, $childName!",
                         fontSize = 32.sp,
                         fontWeight = FontWeight.Bold,
                         color = Ink
@@ -222,7 +222,7 @@ private fun HeroSectionWide(
                         .background(VillageTeal.copy(alpha = 0.1f)),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text("🐱🧡", fontSize = 56.sp)
+                    Icon(Icons.Default.Pets, "Milo", tint = VillageTeal, modifier = Modifier.size(56.dp))
                 }
             }
         }
@@ -232,9 +232,9 @@ private fun HeroSectionWide(
             modifier = Modifier.weight(0.32f),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            StatCard("🔥", "${quest.completed}/${quest.total}", "Daily Quest Progress", VillageTeal)
-            StatCard("⭐", "$stars", "Stars Earned", SunshineGold)
-            StatCard("🏠", "6", "Village Places", LeafGreen)
+            StatCard(Icons.Default.LocalFireDepartment, "${quest.completed}/${quest.total}", "Daily Quest Progress", VillageTeal)
+            StatCard(Icons.Default.Star, "$stars", "Stars Earned", SunshineGold)
+            StatCard(Icons.Default.Home, "6", "Village Places", LeafGreen)
         }
     }
 }
@@ -256,11 +256,11 @@ private fun HeroSectionCompact(
     ) {
         Column(Modifier.padding(24.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("🐱🧡", fontSize = 40.sp)
+                Icon(Icons.Default.Pets, "Milo", tint = VillageTeal, modifier = Modifier.size(40.dp))
                 Spacer(Modifier.width(12.dp))
                 Column {
                     Text(
-                        "Hi, $childName! ☀️",
+                        "Hi, $childName!",
                         fontSize = 26.sp,
                         fontWeight = FontWeight.Bold,
                         color = Ink
@@ -316,9 +316,16 @@ private fun DailyQuestMiniCard(quest: DailyQuestInfo, onClick: () -> Unit) {
                 )
                 Spacer(Modifier.height(4.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    Text("⭐ ${quest.starReward}", fontSize = 13.sp, color = SunshineGold, fontWeight = FontWeight.Medium)
-                    Text("🪙 ${quest.coinReward}", fontSize = 13.sp, color = SunshineGold, fontWeight = FontWeight.Medium)
-                    Text("⏱ ${quest.estimatedMinutes} min", fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
+                    Icon(Icons.Default.Star, "Stars", tint = SunshineGold, modifier = Modifier.size(16.dp))
+                    Text(" ${quest.starReward}", fontSize = 13.sp, color = SunshineGold, fontWeight = FontWeight.Medium)
+                    Icon(Icons.Default.Toll, "Coins", tint = SunshineGold, modifier = Modifier.size(16.dp))
+                    Text(" ${quest.coinReward}", fontSize = 13.sp, color = SunshineGold, fontWeight = FontWeight.Medium)
+                    Spacer(Modifier.width(8.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.Timer, "Time", tint = Ink.copy(alpha = 0.5f), modifier = Modifier.size(14.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text("${quest.estimatedMinutes} min", fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
+                    }
                 }
             }
             Icon(Icons.Default.ChevronRight, "Start", tint = VillageTeal)
@@ -367,7 +374,12 @@ private fun SubjectBuildingCard(
                     .background(subject.color.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
-                Text(subject.character, fontSize = if (isWide) 36.sp else 30.sp)
+                Icon(
+                    subject.characterIcon,
+                    contentDescription = subject.guideName,
+                    tint = subject.color,
+                    modifier = Modifier.size(if (isWide) 36.dp else 30.dp)
+                )
             }
             Spacer(Modifier.height(12.dp))
 
@@ -409,7 +421,7 @@ private fun SubjectBuildingCard(
 // ─── Stat Card ───
 
 @Composable
-private fun StatCard(emoji: String, value: String, label: String, color: Color) {
+private fun StatCard(icon: ImageVector, value: String, label: String, color: Color) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -420,7 +432,7 @@ private fun StatCard(emoji: String, value: String, label: String, color: Color) 
             Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(emoji, fontSize = 28.sp)
+            Icon(icon, label, tint = color, modifier = Modifier.size(28.dp))
             Spacer(Modifier.width(12.dp))
             Column {
                 Text(value, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = color)
@@ -439,7 +451,7 @@ private fun VillageTopBar(name: String, level: Int, dayStreak: Int, stars: Int) 
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 // Logo
-                Text("🐾", fontSize = 24.sp)
+                Icon(Icons.Default.Pets, "Paw", tint = VillageTeal, modifier = Modifier.size(24.dp))
                 Spacer(Modifier.width(8.dp))
                 Text(
                     "Maxine's World",
@@ -454,7 +466,13 @@ private fun VillageTopBar(name: String, level: Int, dayStreak: Int, stars: Int) 
             if (dayStreak > 0) {
                 AssistChip(
                     onClick = {},
-                    label = { Text("🔥 $dayStreak", fontSize = 13.sp) },
+                    label = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(16.dp))
+                            Spacer(Modifier.width(4.dp))
+                            Text("$dayStreak", fontSize = 13.sp)
+                        }
+                    },
                     colors = AssistChipDefaults.assistChipColors(
                         containerColor = SunshineGold.copy(alpha = 0.15f)
                     )
@@ -469,7 +487,7 @@ private fun VillageTopBar(name: String, level: Int, dayStreak: Int, stars: Int) 
                     .background(Coral),
                 contentAlignment = Alignment.Center
             ) {
-                Text("😺", fontSize = 18.sp)
+                Icon(Icons.Default.Person, name, tint = White, modifier = Modifier.size(20.dp))
             }
             Spacer(Modifier.width(12.dp))
         },
@@ -530,7 +548,7 @@ private fun PawPrintDivider() {
             drawLine(VillageTeal.copy(alpha = 0.2f), Offset.Zero, Offset(size.width, 0f), 1f)
         }
         Spacer(Modifier.width(8.dp))
-        Text("🐾", fontSize = 14.sp, color = VillageTeal.copy(alpha = 0.3f))
+        Icon(Icons.Default.Pets, "Paw", tint = VillageTeal.copy(alpha = 0.3f), modifier = Modifier.size(14.dp))
         Spacer(Modifier.width(8.dp))
         Canvas(Modifier.width(60.dp).height(1.dp)) {
             drawLine(VillageTeal.copy(alpha = 0.2f), Offset.Zero, Offset(size.width, 0f), 1f)
