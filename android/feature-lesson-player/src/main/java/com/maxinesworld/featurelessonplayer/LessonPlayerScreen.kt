@@ -32,6 +32,8 @@ import com.maxinesworld.coredatabase.MasteryRecordDao
 import com.maxinesworld.coredatabase.MasteryRecordEntity
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.RewardEntity
+import com.maxinesworld.coredatabase.RewardBreakDao
+import com.maxinesworld.coredatabase.RewardBreakEntitlementEntity
 import com.maxinesworld.enginemastery.MasteryEngine
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,12 +55,13 @@ data class LessonUiState(
     val lesson: LessonManifest? = null,
     val currentStep: Int = 0,
     val totalSteps: Int = 0,
-    val results: List<ActivityResult> = emptyList(),
     val showFeedback: Boolean = false,
     val feedbackText: String = "",
     val feedbackCorrect: Boolean = false,
     val isComplete: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
+    val results: List<ActivityResult> = emptyList(),
+    val rewardBreakId: String? = null
 )
 
 @HiltViewModel
@@ -67,7 +70,8 @@ class LessonPlayerViewModel @Inject constructor(
     private val progressEventDao: ProgressEventDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
-    private val masteryEngine: MasteryEngine
+    private val masteryEngine: MasteryEngine,
+    private val rewardBreakDao: RewardBreakDao
 ) : androidx.lifecycle.ViewModel() {
 
     private val _state = MutableStateFlow(LessonUiState())
@@ -180,6 +184,24 @@ class LessonPlayerViewModel @Inject constructor(
                     )
                 )
             }
+
+            // ─── Create reward break entitlement (once per day) ───
+            val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+            val dqId = "${childId}_$today"
+            val existing = rewardBreakDao.getByQuestCompletion(dqId)
+            if (existing == null) {
+                val breakId = UUID.randomUUID().toString()
+                rewardBreakDao.upsert(RewardBreakEntitlementEntity(
+                    id = breakId,
+                    childId = childId,
+                    dailyQuestCompletionId = dqId,
+                    durationMillis = 300_000L,
+                    remainingMillis = 300_000L,
+                    createdAtEpochMillis = System.currentTimeMillis(),
+                    state = "ACTIVE"
+                ))
+                _state.update { it.copy(rewardBreakId = breakId) }
+            }
         }
     }
 
@@ -219,6 +241,7 @@ fun LessonPlayerScreen(
     childId: String = "",
     onBack: () -> Unit,
     onComplete: () -> Unit,
+    onRewardBreak: (String, String) -> Unit = { _, _ -> },
     viewModel: LessonPlayerViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -261,7 +284,11 @@ fun LessonPlayerScreen(
                     ErrorDisplay(state.error!!, Modifier.align(Alignment.Center))
                 }
                 state.isComplete -> {
-                    LessonCompleteScreen(state, onComplete)
+                    LessonCompleteScreen(state, onComplete) {
+                        state.rewardBreakId?.let { breakId ->
+                            onRewardBreak(childId, breakId)
+                        }
+                    }
                 }
                 else -> {
                     LessonContent(state, viewModel)
@@ -730,7 +757,7 @@ private fun FeedbackBanner(text: String, correct: Boolean, onNext: () -> Unit) {
 }
 
 @Composable
-private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit) {
+private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGames: () -> Unit = {}) {
     val correct = state.results.count { it.correct }
     val total = state.results.size
     val accuracy = if (total > 0) correct.toFloat() / total else 0f
@@ -796,7 +823,22 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit) {
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Teal40)
         ) {
-            Text("Back to Village 🏠", fontSize = 18.sp)
+            Text("Continue", fontSize = 18.sp)
+        }
+
+        // Play Games button when reward unlocked
+        if (state.rewardBreakId != null) {
+            Spacer(Modifier.height(12.dp))
+            Button(
+                onClick = onPlayGames,
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = SunshineGold)
+            ) {
+                Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("Play Games! 🎮", fontSize = 18.sp)
+            }
         }
     }
 }

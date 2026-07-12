@@ -123,6 +123,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.childHome(childId)) {
                         popUpTo(Routes.CHILD_HOME) { inclusive = true }
                     }
+                },
+                onRewardBreak = { cId, breakId ->
+                    navController.navigate(MiniGameRoutes.hub(cId, breakId))
                 }
             )
         }

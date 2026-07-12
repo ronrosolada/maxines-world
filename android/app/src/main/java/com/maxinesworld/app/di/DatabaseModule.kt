@@ -10,6 +10,8 @@ import com.maxinesworld.coredatabase.MasteryRecordDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.ScreenTimeLimitDao
 import com.maxinesworld.coredatabase.DailyQuestDao
+import com.maxinesworld.coredatabase.RewardBreakDao
+import com.maxinesworld.coredatabase.MiniGameResultDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,4 +53,10 @@ object DatabaseModule {
 
     @Provides
     fun provideDailyQuestDao(db: MaxinesDatabase): DailyQuestDao = db.dailyQuestDao()
+
+    @Provides
+    fun provideRewardBreakDao(db: MaxinesDatabase): RewardBreakDao = db.rewardBreakDao()
+
+    @Provides
+    fun provideMiniGameResultDao(db: MaxinesDatabase): MiniGameResultDao = db.miniGameResultDao()
 }
