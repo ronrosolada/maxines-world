@@ -15,7 +15,7 @@ android {
     kotlinOptions { jvmTarget = "17" }
 
     room {
-        schemaDirectory("C:/mw-room-schemas")
+        schemaDirectory("$projectDir/schemas")
     }
 }
 

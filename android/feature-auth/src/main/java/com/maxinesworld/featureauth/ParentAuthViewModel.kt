@@ -87,7 +87,7 @@ class ParentAuthViewModel @Inject constructor(
             val pinHash = authManager.getPinHash()
             val input = _state.value.pinInput
 
-            if (pinHash != null && authManager.verifyPin(input, pinHash)) {
+            if (pinHash != null && authManager.verifyPin(input)) {
                 onAuthenticated()
             } else {
                 _state.update { it.copy(pinInput = "", pinError = "Incorrect PIN. Try again.") }
@@ -108,7 +108,7 @@ class ParentAuthViewModel @Inject constructor(
             val parent = ParentAccountEntity(
                 id = UUID.randomUUID().toString(),
                 displayName = name,
-                pinHash = authManager.hashPin(pin)
+                pinHash = "" // no longer stored in Room — DataStore is the single source
             )
             parentAccountDao.upsert(parent)
             _state.update {

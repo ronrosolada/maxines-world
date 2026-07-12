@@ -16,7 +16,7 @@ import androidx.room.RoomDatabase
         MiniGameResultEntity::class
     ],
     version = 2,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {
     abstract fun parentAccountDao(): ParentAccountDao

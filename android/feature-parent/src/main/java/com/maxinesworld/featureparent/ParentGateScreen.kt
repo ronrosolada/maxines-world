@@ -62,7 +62,7 @@ class ParentGateViewModel @Inject constructor(
             val input = _state.value.pinInput
             val newAttempts = _state.value.attempts + 1
 
-            if (pinHash != null && authManager.verifyPin(input, pinHash)) {
+            if (pinHash != null && authManager.verifyPin(input)) {
                 _state.update { it.copy(isAuthenticated = true, pinInput = "", pinError = null) }
             } else {
                 if (newAttempts >= 5) {
