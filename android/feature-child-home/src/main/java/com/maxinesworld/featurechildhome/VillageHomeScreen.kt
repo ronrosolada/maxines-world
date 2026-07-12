@@ -73,7 +73,8 @@ fun VillageHomeScreen(
     onParentGate: () -> Unit = {},
     onAchievements: () -> Unit = {},
     onBackpack: () -> Unit = {},
-    onDailyQuest: () -> Unit = {}
+    onDailyQuest: () -> Unit = {},
+    appVersion: String = ""
 ) {
     // ─── Load daily challenge progress ───
     val challengeProgress by produceState(ChallengeProgress()) {
@@ -125,10 +126,22 @@ fun VillageHomeScreen(
                         DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.width(220.dp).fillMaxHeight())
                         VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
                     }
+                    // Version badge — subtle, bottom-right
+                    if (appVersion.isNotEmpty()) {
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
+                            Text("v$appVersion", fontSize = 11.sp, color = Ink.copy(alpha = 0.25f),
+                                modifier = Modifier.padding(end = 12.dp, bottom = 4.dp))
+                        }
+                    }
                 } else {
                     Column(Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())) {
                         VillageLandscape(onSubjectTap, Modifier.fillMaxWidth().height(500.dp))
                         DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.fillMaxWidth())
+                        // Version
+                        if (appVersion.isNotEmpty()) {
+                            Text("v$appVersion", fontSize = 10.sp, color = Ink.copy(alpha = 0.2f),
+                                modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 8.dp))
+                        }
                     }
                 }
             }

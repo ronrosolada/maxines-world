@@ -15,6 +15,7 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
+import com.maxinesworld.app.BuildConfig
 import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
@@ -97,6 +98,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
             VillageHomeScreen(
                 childId = childId,
                 badgeAwarder = badgeAwarder,
+                appVersion = BuildConfig.VERSION_NAME,
                 onSubjectTap = { subject ->
                     val lessonId = when (subject) {
                         "english" -> "english-g3-m01-d01"
