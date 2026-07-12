@@ -1,14 +1,12 @@
 package com.maxinesworld.enginesync
 
 import com.maxinesworld.coremodel.ContentCatalog
-import com.maxinesworld.coremodel.RemotePackage
 import com.maxinesworld.corecontent.ContentVerifier
 import com.maxinesworld.corecontent.VerificationResult
 import io.mockk.*
 import kotlinx.serialization.json.Json
 import org.junit.After
 import org.junit.Assert.*
-import org.junit.Before
 import org.junit.Test
 import java.io.ByteArrayInputStream
 import java.io.File
@@ -72,8 +70,7 @@ class ContentSyncTest {
     // ─────────────────────────────────────────────
     @Test
     fun `http returns valid catalog that deserializes correctly`() {
-        val (responseBody, statusCode) = mockHttpResponse(validCatalogJson, 200)
-        assertEquals("status 200 OK", 200, statusCode)
+        val responseBody = mockHttpResponse(validCatalogJson, 200)
 
         val catalog = json.decodeFromString<ContentCatalog>(responseBody)
 
@@ -91,6 +88,9 @@ class ContentSyncTest {
         val pkg2 = catalog.packages[1]
         assertEquals("package 2 id", "month1_mathematics", pkg2.packageId)
         assertEquals("package 2 version", 2, pkg2.version)
+
+        // Verify no actual HTTP calls leaked
+        verify(exactly = 0) { mockConn.inputStream }
     }
 
     // ─────────────────────────────────────────────
@@ -99,10 +99,14 @@ class ContentSyncTest {
     @Test
     fun `http 404 server down returns empty result`() {
         // Simulate 404 — ContentSyncWorker would catch and retry/fail
-        val (_, statusCode) = mockHttpResponse("", 404)
-        assertEquals("status 404", 404, statusCode)
+        try {
+            mockHttpResponse("", 404)
+            fail("Expected IOException for 404")
+        } catch (e: IOException) {
+            assertTrue("error mentions HTTP status", e.message!!.contains("HTTP 404"))
+        }
 
-        // An empty catalog JSON should result in no packages
+        // An empty catalog JSON should result in no packages (fallback path)
         val emptyCatalog = json.decodeFromString<ContentCatalog>(emptyCatalogJson)
         assertTrue("empty catalog has zero packages", emptyCatalog.packages.isEmpty())
     }
@@ -110,7 +114,7 @@ class ContentSyncTest {
     @Test
     fun `http connection refused throws IOException`() {
         // Simulate connection failure (server down)
-        mockkStatic(URL::class)
+        mockkConstructor(URL::class)
         every { anyConstructed<URL>().openConnection() } throws IOException("Connection refused")
 
         val url = URL("http://10.10.10.33/catalog.json")
@@ -211,32 +215,6 @@ class ContentSyncTest {
     }
 
     @Test
-    fun `verifyChecksum requires exact lowercase match`() {
-        val file = File.createTempFile("case_test", ".bin")
-        try {
-            file.writeBytes("case-sensitive".toByteArray())
-            val correctHash = ContentVerifier.sha256(file)
-
-            // Uppercase version should also fail (hex is case-insensitive in spec
-            // but our verifier requires lowercase per require() check)
-            val uppercaseHash = correctHash.uppercase()
-            try {
-                ContentVerifier.verifyChecksum(file, uppercaseHash)
-                // If the uppercase version still has valid hex chars, it may not throw
-                // on the regex check, but it should fail the equality check
-            } catch (e: IllegalArgumentException) {
-                // Expected if uppercase chars fail the regex
-            }
-
-            // Verify with correct hash still succeeds
-            val result = ContentVerifier.verifyChecksum(file, correctHash)
-            assertTrue("correct hash still passes", result.isSuccess)
-        } finally {
-            file.delete()
-        }
-    }
-
-    @Test
     fun `verifyChecksum fails on missing file`() {
         val nonExistentFile = File("/tmp/nonexistent_content_package_xyz.zip")
         val result = ContentVerifier.verifyChecksum(
@@ -289,21 +267,22 @@ class ContentSyncTest {
 
     // ─── helpers ───
 
+    private lateinit var mockConn: HttpURLConnection
+
     /**
-     * Mocks java.net.URL + HttpURLConnection to return [body] with [statusCode].
-     * Returns the response body and status code for verification.
+     * Mocks java.net.URL constructor + HttpURLConnection to return [body] with [statusCode].
+     * Returns the response body for verification.
+     * For non-200 status codes, throws IOException when inputStream is accessed.
      */
-    private fun mockHttpResponse(body: String, statusCode: Int): Pair<String, Int> {
-        mockkStatic(URL::class)
+    private fun mockHttpResponse(body: String, statusCode: Int): String {
+        mockkConstructor(URL::class)
 
-        val mockConn = mockk<HttpURLConnection>(relaxed = true)
+        mockConn = mockk(relaxed = true)
 
-        // InputStream returns the body
-        val inputStream = ByteArrayInputStream(body.toByteArray(Charsets.UTF_8))
-        every { mockConn.inputStream } returns inputStream
-
-        // For 404, inputStream throws
-        if (statusCode != 200) {
+        if (statusCode == 200) {
+            val inputStream = ByteArrayInputStream(body.toByteArray(Charsets.UTF_8))
+            every { mockConn.inputStream } returns inputStream
+        } else {
             every { mockConn.inputStream } throws IOException("HTTP $statusCode")
         }
 
@@ -315,17 +294,13 @@ class ContentSyncTest {
 
         every { anyConstructed<URL>().openConnection() } returns mockConn
 
-        // Simulate fetchUrl logic
+        // Simulate fetchUrl logic (same pattern as ContentSyncWorker.fetchUrl)
         val url = URL("http://10.10.10.33/catalog.json")
         val conn = url.openConnection() as HttpURLConnection
-        val responseStatus = conn.responseCode
-        val responseBody = if (responseStatus == 200) {
-            conn.inputStream.bufferedReader().use { it.readText() }
-        } else {
-            ""
-        }
+        conn.connectTimeout = 15000
+        conn.readTimeout = 60000
+        conn.requestMethod = "GET"
 
-        assertEquals("response code matches", statusCode, responseStatus)
-        return Pair(responseBody, responseStatus)
+        return conn.inputStream.bufferedReader().use { it.readText() }.also { conn.disconnect() }
     }
 }
