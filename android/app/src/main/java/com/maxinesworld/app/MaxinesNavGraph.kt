@@ -102,6 +102,12 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onParentGate = {
                     navController.navigate(Routes.parentGate(childId))
+                },
+                onAchievements = {
+                    navController.navigate(Routes.childHome(childId)) // stays for now
+                },
+                onBackpack = {
+                    navController.navigate(Routes.childHome(childId)) // stays for now
                 }
             )
         }

@@ -873,21 +873,24 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
         )
         Spacer(Modifier.height(24.dp))
 
-        // Rewards preview
-        if (accuracy >= 0.8f) {
-            Card(
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = EnergyGold.copy(alpha = 0.15f))
-            ) {
-                Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(24.dp)) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("⭐", fontSize = 28.sp)
-                        Text("+5 Stars", fontWeight = FontWeight.Bold)
-                    }
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("🪙", fontSize = 28.sp)
-                        Text("+10 Coins", fontWeight = FontWeight.Bold)
-                    }
+        // Rewards earned
+        val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
+        val coinsEarned = if (accuracy >= 0.8f) 10 else 0
+
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))
+        ) {
+            Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(24.dp)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(Icons.Default.Star, "Stars", tint = SunshineGold, modifier = Modifier.size(28.dp))
+                    Spacer(Modifier.height(4.dp))
+                    Text("+$starsEarned Stars", fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(Icons.Default.Toll, "Coins", tint = SunshineGold, modifier = Modifier.size(28.dp))
+                    Spacer(Modifier.height(4.dp))
+                    Text(if (coinsEarned > 0) "+$coinsEarned Coins" else "0 Coins", fontWeight = FontWeight.Bold, fontSize = 15.sp)
                 }
             }
             Spacer(Modifier.height(24.dp))
