@@ -58,15 +58,14 @@ data class Month1Assessment(
 
 @Serializable
 data class AssessmentItem(
-    val questionIndex: Int,
-    val stem: String,
+    val itemId: String = "",
+    val sequence: Int = 0,
+    val type: String = "",
+    val prompt: String = "",
     val options: List<String> = emptyList(),
-    val correctOptionIndex: Int,
-    val feedback: AssessmentFeedback? = null
+    val correctOptionIds: List<Int> = emptyList(),
+    val explanation: String = ""
 )
-
-@Serializable
-data class AssessmentFeedback(val correct: String = "", val incorrect: String = "")
 
 /** Daily manifest linking 5 qualifying lessons to a badge position. */
 @Serializable
