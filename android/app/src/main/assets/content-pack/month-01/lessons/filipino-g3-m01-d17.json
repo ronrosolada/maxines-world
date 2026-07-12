@@ -1,0 +1,324 @@
+{
+  "lessonId": "filipino-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "FILIPINO",
+  "title": "Paghahambing",
+  "objective": "Gumamit ng salitang naghahambing nang malinaw at patas.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Paghahambing",
+      "definition": "A key word used in the lesson “Paghahambing”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Text alternative: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "Parehong bilog ang dalawang plato.",
+          "Mas mahaba ang pulang laso kaysa asul.",
+          "Kapwa may dahon ang halaman."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Parehong bilog ang dalawang plato.",
+          "Mas mahaba ang pulang laso kaysa asul.",
+          "Kapwa may dahon ang halaman."
+        ],
+        "doesNotFit": [
+          "Ihambing ang taong may mapanlait na salita",
+          "Sabihing mas magaling nang walang batayan",
+          "Paghaluin ang yunit ng sukat"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang wastong paghahambing?",
+      "content": {
+        "options": [
+          "Mas mahaba ang 10 cm kaysa 7 cm.",
+          "Mas mahaba ang 7 cm kaysa 10 cm.",
+          "Pareho ang 7 cm at 10 cm."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Mas mahaba ang 10 cm kaysa 7 cm.",
+        "retry": "Read the lesson rule again. Mas mahaba ang 7 cm kaysa 10 cm. and Pareho ang 7 cm at 10 cm. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Parehong bilog ang dalawang plato.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Mas mahaba ang pulang laso kaysa asul.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Kapwa may dahon ang halaman.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Paghahambing”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+          },
+          {
+            "id": "b",
+            "text": "Ihambing ang taong may mapanlait na salita"
+          },
+          {
+            "id": "c",
+            "text": "Sabihing mas magaling nang walang batayan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian.” because it follows the lesson explanation: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Parehong bilog ang dalawang plato."
+          },
+          {
+            "id": "b",
+            "text": "Ihambing ang taong may mapanlait na salita"
+          },
+          {
+            "id": "c",
+            "text": "Sabihing mas magaling nang walang batayan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Parehong bilog ang dalawang plato.” because it follows the lesson explanation: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ihambing ang taong may mapanlait na salita"
+          },
+          {
+            "id": "b",
+            "text": "Parehong bilog ang dalawang plato."
+          },
+          {
+            "id": "c",
+            "text": "Mas mahaba ang pulang laso kaysa asul."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Ihambing ang taong may mapanlait na salita” because it follows the lesson explanation: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong paghahambing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mas mahaba ang 10 cm kaysa 7 cm."
+          },
+          {
+            "id": "b",
+            "text": "Mas mahaba ang 7 cm kaysa 10 cm."
+          },
+          {
+            "id": "c",
+            "text": "Pareho ang 7 cm at 10 cm."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Mas mahaba ang 10 cm kaysa 7 cm.” because it follows the lesson explanation: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Kapwa may dahon ang halaman."
+          },
+          {
+            "id": "b",
+            "text": "Paghaluin ang yunit ng sukat"
+          },
+          {
+            "id": "c",
+            "text": "Ihambing ang taong may mapanlait na salita"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Kapwa may dahon ang halaman.” because it follows the lesson explanation: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Paghahambing; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Paghahambing.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "9d5c487d66810a748accc2f5293da849b5e04232e890f7ab0a72d67f170679d1"
+}

@@ -1,0 +1,338 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d20",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 20,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Local Art Cultural Map Finale",
+  "objective": "Bumuo ng evidence-based cultural map gamit ang original at non-sacred designs.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Local",
+      "definition": "A key word used in the lesson “Local Art Cultural Map Finale”."
+    },
+    {
+      "term": "Art",
+      "definition": "A key word used in the lesson “Local Art Cultural Map Finale”."
+    },
+    {
+      "term": "Cultural",
+      "definition": "A key word used in the lesson “Local Art Cultural Map Finale”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Text alternative: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "original motif",
+          "source note",
+          "fictional place label"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "original motif",
+          "source note",
+          "fictional place label"
+        ],
+        "doesNotFit": [
+          "Kopyahin sacred pattern",
+          "Tanggalin attribution",
+          "Sabihing authentic ang AI invention"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang tamang hakbang?",
+      "content": {
+        "options": [
+          "Gumamit ng original motif at malinaw na source note.",
+          "Kopyahin ang sagradong disenyo.",
+          "Sabihing opisyal ang prototype."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Gumamit ng original motif at malinaw na source note.",
+        "retry": "Read the lesson rule again. Kopyahin ang sagradong disenyo. and Sabihing opisyal ang prototype. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "original motif",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "source note",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "fictional place label",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Local Art Cultural Map Finale”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+          },
+          {
+            "id": "b",
+            "text": "Kopyahin sacred pattern"
+          },
+          {
+            "id": "c",
+            "text": "Tanggalin attribution"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon.” because it follows the lesson explanation: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "original motif"
+          },
+          {
+            "id": "b",
+            "text": "Kopyahin sacred pattern"
+          },
+          {
+            "id": "c",
+            "text": "Tanggalin attribution"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “original motif” because it follows the lesson explanation: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Kopyahin sacred pattern"
+          },
+          {
+            "id": "b",
+            "text": "original motif"
+          },
+          {
+            "id": "c",
+            "text": "source note"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Kopyahin sacred pattern” because it follows the lesson explanation: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang hakbang?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Gumamit ng original motif at malinaw na source note."
+          },
+          {
+            "id": "b",
+            "text": "Kopyahin ang sagradong disenyo."
+          },
+          {
+            "id": "c",
+            "text": "Sabihing opisyal ang prototype."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Gumamit ng original motif at malinaw na source note.” because it follows the lesson explanation: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "fictional place label"
+          },
+          {
+            "id": "b",
+            "text": "Sabihing authentic ang AI invention"
+          },
+          {
+            "id": "c",
+            "text": "Kopyahin sacred pattern"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “fictional place label” because it follows the lesson explanation: Huwag kopyahin ang sagrado, Indigenous, official, o gawa ng living artist nang walang pahintulot at konsultasyon."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d20-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Local Art Cultural Map Finale; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Local Art Cultural Map Finale.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "53f46183cfc4eddbb6ac35bfd6787391e916909eb2b8426bba033971e87794da"
+}

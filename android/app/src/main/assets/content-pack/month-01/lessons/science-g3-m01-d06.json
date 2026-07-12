@@ -1,0 +1,340 @@
+{
+  "lessonId": "science-g3-m01-d06",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 6,
+  "subject": "SCIENCE",
+  "title": "Classify the Animals",
+  "objective": "Classify animals by observable traits and explain the chosen rule.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "A learner-made group is an observation tool, not formal biological taxonomy. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Classify",
+      "definition": "A key word used in the lesson “Classify the Animals”."
+    },
+    {
+      "term": "the",
+      "definition": "A key word used in the lesson “Classify the Animals”."
+    },
+    {
+      "term": "Animals",
+      "definition": "A key word used in the lesson “Classify the Animals”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d06-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "A learner-made group is an observation tool, not formal biological taxonomy.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Text alternative: A learner-made group is an observation tool, not formal biological taxonomy."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "feathers/no feathers",
+          "moves by swimming/walking",
+          "has scales/no scales"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "feathers/no feathers",
+          "moves by swimming/walking",
+          "has scales/no scales"
+        ],
+        "doesNotFit": [
+          "Group by favorite color",
+          "Call the groups scientific species",
+          "Use an invisible trait"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which rule uses an observable trait?",
+      "content": {
+        "options": [
+          "has feathers or no feathers",
+          "is nice or not nice",
+          "is lucky or unlucky"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: has feathers or no feathers",
+        "retry": "Read the lesson rule again. is nice or not nice and is lucky or unlucky do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "feathers/no feathers",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "moves by swimming/walking",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "has scales/no scales",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d06-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Classify the Animals”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A learner-made group is an observation tool, not formal biological taxonomy."
+          },
+          {
+            "id": "b",
+            "text": "Group by favorite color"
+          },
+          {
+            "id": "c",
+            "text": "Call the groups scientific species"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “A learner-made group is an observation tool, not formal biological taxonomy.” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "feathers/no feathers"
+          },
+          {
+            "id": "b",
+            "text": "Group by favorite color"
+          },
+          {
+            "id": "c",
+            "text": "Call the groups scientific species"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “feathers/no feathers” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Group by favorite color"
+          },
+          {
+            "id": "b",
+            "text": "feathers/no feathers"
+          },
+          {
+            "id": "c",
+            "text": "moves by swimming/walking"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Group by favorite color” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which rule uses an observable trait?",
+        "options": [
+          {
+            "id": "a",
+            "text": "has feathers or no feathers"
+          },
+          {
+            "id": "b",
+            "text": "is nice or not nice"
+          },
+          {
+            "id": "c",
+            "text": "is lucky or unlucky"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “has feathers or no feathers” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "has scales/no scales"
+          },
+          {
+            "id": "b",
+            "text": "Use an invisible trait"
+          },
+          {
+            "id": "c",
+            "text": "Group by favorite color"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “has scales/no scales” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d06-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d06-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Classify the Animals; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Classify the Animals.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "8121ca04924555df6af758bc805e71b47619aa53bd5bfc87f847532c8dd07755"
+}
