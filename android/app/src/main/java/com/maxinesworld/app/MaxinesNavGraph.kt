@@ -19,6 +19,7 @@ import com.maxinesworld.featurechildhome.VillageHomeScreen
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
+import com.maxinesworld.featureparent.ParentContentScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
@@ -32,11 +33,13 @@ object Routes {
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
+    const val PARENT_CONTENT = "parent_content/{childId}"
 
     fun childHome(childId: String) = "child_home/$childId"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
+    fun parentContent(childId: String) = "parent_content/$childId"
     fun wildlifeFieldGuide(childId: String) = "wildlife_field_guide/$childId"
 }
 
@@ -166,6 +169,20 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             ParentDashboardScreen(
+                childId = childId,
+                onBack = { navController.popBackStack() },
+                onContentManagement = {
+                    navController.navigate(Routes.parentContent(childId))
+                }
+            )
+        }
+
+        composable(
+            route = Routes.PARENT_CONTENT,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            ParentContentScreen(
                 childId = childId,
                 onBack = { navController.popBackStack() }
             )

@@ -30,6 +30,17 @@ verify SHA-256 → extract safely → validate schema →
 atomic activate → retain rollback → clean staging
 ```
 
+## Release Channels
+
+| Channel | URL | Packages | Purpose |
+|---|---|---|---|
+| Development | `/catalogs/development.json` | 62 | In-progress, unverified |
+| Preview | `/catalogs/preview.json` | 62 | Parent-supervised testing |
+| Production | `/catalogs/production.json` | 0 | Educator-approved only |
+
+Each package is per-week, per-subject (e.g., `g3-english-q2-w01-v1.zip`).
+App default: preview channel. Content-only fixes never require APK rebuild.
+
 ## Content Updates
 
 | Change type | What's needed |
