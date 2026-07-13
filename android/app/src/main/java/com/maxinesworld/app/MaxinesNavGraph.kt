@@ -105,8 +105,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         "filipino" -> "filipino-g3-m01-d01"
                         "mathematics" -> "mathematics-g3-m01-d01"
                         "science" -> "science-g3-m01-d01"
-                        "makabansa" -> "araling-panlipunan-g3-m01-d01"
-                        "gmrc" -> "english-g3-m01-d01"
+                        "makabansa" -> "mkb-g3-m01-l01"
+                        "gmrc" -> "gmrc-g3-m01-l01"
                         else -> "english-g3-m01-d01"
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
