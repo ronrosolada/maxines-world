@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#EAF0F0;}
+  *{box-sizing:border-box;}
+  a{color:#087F83;text-decoration:none;}
+  a:hover{color:#F47C6B;}
+  @keyframes mwBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+</style>
+</helmet>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="100%" height="100%">
+    <rect width="108" height="108" rx="20" fill="#8FD0E8"/>
+    <path d="M0 84 Q40 72 70 82 Q92 88 108 80 L108 108 L0 108 Z" fill="#66A83E"/>
+    <path d="M40 46 L44 30 L55 45 Z M72 46 L68 30 L57 45 Z" fill="#E8722C"/>
+    <ellipse cx="54" cy="60" rx="24" ry="22" fill="#F2892F"/>
+    <ellipse cx="54" cy="68" rx="16" ry="11" fill="#FFF3E0"/>
+    <circle cx="45" cy="57" r="4.5" fill="#183B4A"/><circle cx="63" cy="57" r="4.5" fill="#183B4A"/>
+    <path d="M50.5 64 L57.5 64 L54 68 Z" fill="#F08A9B"/>
+  </svg>
+</template>
+<div style="font-family:'Nunito',sans-serif;padding:56px 64px 96px;min-height:100vh;">
+
+  <div style="display:flex;align-items:flex-end;gap:24px;margin-bottom:8px;">
+    <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:46px;color:#183B4A;line-height:1;">Maxine's World <span style="color:#F47C6B;">— Screen Designs</span></div>
+  </div>
+  <div style="font-family:'Nunito';font-weight:700;font-size:18px;color:#4B6572;max-width:900px;margin-bottom:6px;">Native, implementation-ready tablet screens (landscape, 1280×800). Illustrations are the ambient art layer; every control shown is native and maps to the Compose component library. Turn <a href="#1a">1a</a>.</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;font-family:'Nunito';font-weight:800;font-size:13px;">
+    <span style="background:#087F83;color:#fff;padding:6px 14px;border-radius:999px;">village_teal</span>
+    <span style="background:#F47C6B;color:#fff;padding:6px 14px;border-radius:999px;">coral</span>
+    <span style="background:#F5B82E;color:#183B4A;padding:6px 14px;border-radius:999px;">sunshine_gold</span>
+    <span style="background:#66A83E;color:#fff;padding:6px 14px;border-radius:999px;">leaf_green</span>
+    <span style="background:#7653B5;color:#fff;padding:6px 14px;border-radius:999px;">story_purple</span>
+    <span style="background:#3C9DDB;color:#fff;padding:6px 14px;border-radius:999px;">sky_blue</span>
+  </div>
+
+  <!-- ============ TURN 2 : IMPROVED VILLAGE HOME + DRIFT FIXES ============ -->
+  <section id="2a" style="margin-bottom:64px;">
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:15px;padding:4px 14px;border-radius:999px;">2a</span>
+      <span style="font-family:'Baloo 2';font-weight:800;font-size:26px;color:#183B4A;">Village Home — corrected target (read the build fixes at right)</span>
+    </div>
+
+    <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+      <!-- the corrected screen -->
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#8FD0E8;">
+          <!-- LAYER 1: the ILLUSTRATED backdrop. This is a produced art asset, NOT shapes. -->
+          <img src="assets/graphics/child-village-home.png" alt="Illustrated village scene" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;">
+          <!-- top + bottom scrims so overlay chrome stays legible -->
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,42,54,.30) 0%,rgba(11,42,54,0) 18%,rgba(11,42,54,0) 62%,rgba(11,42,54,.52) 100%);"></div>
+
+          <!-- LAYER 2: native TOP BAR (restored profile + XP) -->
+          <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:flex-start;">
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,247,232,.96);border-radius:22px;padding:10px 18px 10px 10px;box-shadow:0 5px 0 rgba(24,59,74,.14);">
+              <div style="width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 2px 6px rgba(24,59,74,.25);background:#F79A4B;"><img src="assets/characters/milo.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 18%;"></div>
+              <div>
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:21px;color:#183B4A;line-height:1;">Maxine</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
+                  <span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7653B5;">Lv 12</span>
+                  <div style="width:132px;height:13px;background:#E6D9C2;border-radius:999px;overflow:hidden;"><div style="width:73%;height:100%;background:linear-gradient(90deg,#F5B82E,#F0A21E);border-radius:999px;"></div></div>
+                  <span style="font-family:'Nunito';font-weight:800;font-size:11px;color:#8a7a5e;">660/900</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="display:flex;align-items:center;gap:9px;background:rgba(255,247,232,.96);border-radius:22px;padding:9px 18px;box-shadow:0 5px 0 rgba(24,59,74,.14);">
+                <span style="font-size:24px;">🔥</span>
+                <div><div style="font-family:'Baloo 2';font-weight:800;font-size:19px;color:#183B4A;line-height:1;">7-day streak</div><div style="font-family:'Nunito';font-weight:700;font-size:11px;color:#66A83E;">Keep it going!</div></div>
+              </div>
+              <button style="width:56px;height:56px;border:none;border-radius:18px;background:#3C9DDB;box-shadow:0 5px 0 #2b7bb0;cursor:pointer;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;">
+                <span style="width:24px;height:3px;background:#fff;border-radius:2px;"></span><span style="width:24px;height:3px;background:#fff;border-radius:2px;"></span><span style="width:24px;height:3px;background:#fff;border-radius:2px;"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- LAYER 2: native DAILY QUEST -->
+          <div style="position:absolute;top:104px;left:18px;width:250px;background:rgba(255,247,232,.97);border-radius:22px;padding:16px;box-shadow:0 6px 0 rgba(24,59,74,.14),0 14px 30px rgba(24,59,74,.22);">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="width:32px;height:32px;border-radius:10px;background:#7653B5;display:flex;align-items:center;justify-content:center;font-size:16px;">📋</span><span style="font-family:'Baloo 2';font-weight:800;font-size:19px;color:#183B4A;">Daily Quest</span></div>
+            <div style="font-family:'Nunito';font-weight:700;font-size:15px;color:#3d5560;line-height:1.35;margin-bottom:10px;">Read a story with Mira and learn 5 new words.</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;"><div style="flex:1;height:14px;background:#E6D9C2;border-radius:999px;overflow:hidden;"><div style="width:60%;height:100%;background:linear-gradient(90deg,#66A83E,#4d8a2c);border-radius:999px;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#4d8a2c;">3/5</span></div>
+            <button style="width:100%;height:52px;border:none;border-radius:16px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:19px;cursor:pointer;">Start ▸</button>
+          </div>
+
+          <!-- LAYER 2: DESTINATION MARKER TAGS — docked at building bases, polished, with progress + lock -->
+          <div style="position:absolute;bottom:104px;left:18px;right:18px;display:flex;gap:14px;justify-content:center;align-items:flex-end;">
+            <!-- English -->
+            <div style="flex:1;max-width:224px;background:rgba(255,247,232,.97);border-radius:22px;padding:13px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 28px rgba(24,59,74,.28);border-top:6px solid #7653B5;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><span style="width:42px;height:42px;border-radius:12px;background:#7653B5;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 0 #5e3f97;">📖</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#183B4A;line-height:1;">Story Tree</div><div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7653B5;">English</div></div></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:9px;background:#e7ddf3;border-radius:999px;overflow:hidden;"><div style="width:58%;height:100%;background:#7653B5;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:11px;color:#7653B5;">7/12</span></div>
+            </div>
+            <!-- Filipino -->
+            <div style="flex:1;max-width:224px;background:rgba(255,247,232,.97);border-radius:22px;padding:13px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 28px rgba(24,59,74,.28);border-top:6px solid #F47C6B;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><span style="width:42px;height:42px;border-radius:12px;background:#F47C6B;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 0 #d85c4b;">📚</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#183B4A;line-height:1;">Bahay Kuwento</div><div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#c65546;">Filipino</div></div></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:9px;background:#fadfd9;border-radius:999px;overflow:hidden;"><div style="width:40%;height:100%;background:#F47C6B;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:11px;color:#c65546;">4/10</span></div>
+            </div>
+            <!-- Math (today) -->
+            <div style="flex:1;max-width:224px;background:rgba(255,247,232,.97);border-radius:22px;padding:13px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 28px rgba(24,59,74,.28);border-top:6px solid #3C9DDB;transform:translateY(-16px);position:relative;">
+              <span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#F5B82E;color:#183B4A;font-family:'Nunito';font-weight:900;font-size:11px;padding:4px 12px;border-radius:999px;box-shadow:0 3px 0 rgba(24,59,74,.18);white-space:nowrap;">★ TODAY</span>
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><span style="width:42px;height:42px;border-radius:12px;background:#3C9DDB;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2';font-weight:800;font-size:17px;color:#fff;box-shadow:0 3px 0 #2b7bb0;">123</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#183B4A;line-height:1;">Number Market</div><div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#2b7bb0;">Math</div></div></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:9px;background:#d9ecf8;border-radius:999px;overflow:hidden;"><div style="width:64%;height:100%;background:#3C9DDB;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:11px;color:#2b7bb0;">8/12</span></div>
+            </div>
+            <!-- Science -->
+            <div style="flex:1;max-width:224px;background:rgba(255,247,232,.97);border-radius:22px;padding:13px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 28px rgba(24,59,74,.28);border-top:6px solid #66A83E;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><span style="width:42px;height:42px;border-radius:12px;background:#66A83E;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 0 #4d8a2c;">🧪</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#183B4A;line-height:1;">Discovery Lab</div><div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#4d8a2c;">Science</div></div></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:9px;background:#e0efd6;border-radius:999px;overflow:hidden;"><div style="width:42%;height:100%;background:#66A83E;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:11px;color:#4d8a2c;">5/12</span></div>
+            </div>
+            <!-- Makabansa (locked) -->
+            <div style="flex:1;max-width:224px;background:rgba(236,240,241,.95);border-radius:22px;padding:13px;box-shadow:0 6px 0 rgba(24,59,74,.12);border-top:6px solid #9aa7ac;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><span style="width:42px;height:42px;border-radius:12px;background:#7c898e;display:flex;align-items:center;justify-content:center;font-size:19px;">🔒</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#5b6b71;line-height:1;">Heritage Harbor</div><div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7c898e;">Makabansa</div></div></div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:11px;color:#7c898e;">Reach Level 15 to open</div>
+            </div>
+          </div>
+
+          <!-- LAYER 2: colorful BOTTOM NAV -->
+          <div style="position:absolute;bottom:18px;left:18px;right:18px;height:70px;background:rgba(255,247,232,.98);border-radius:22px;box-shadow:0 6px 0 rgba(24,59,74,.14);display:flex;align-items:center;justify-content:space-around;padding:0 20px;">
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:17px;color:#087F83;"><span style="font-size:24px;">🐱</span>My Profile</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:17px;color:#B87916;"><span style="font-size:24px;">🏆</span>Achievements</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:17px;color:#3d5560;"><span style="font-size:24px;">🎒</span>Backpack</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:17px;color:#3d5560;"><span style="font-size:24px;">🔒</span>Parents</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUILD FIXES panel -->
+      <div style="width:520px;background:#fff;border-radius:24px;padding:26px 28px;box-shadow:0 14px 34px rgba(24,59,74,.14);">
+        <div style="font-family:'Baloo 2';font-weight:800;font-size:24px;color:#183B4A;margin-bottom:4px;">Why the build drifted — and the fix</div>
+        <div style="font-family:'Nunito';font-weight:700;font-size:14px;color:#6b7d84;margin-bottom:20px;">The left screen is the target. Compare it to the current build. Five root causes:</div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:14px;">
+            <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;">1</span>
+            <div><div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;">Use the illustrated background image — do not rebuild the scene from shapes</div><div style="font-family:'Nunito';font-weight:600;font-size:14px;color:#4b6572;line-height:1.45;">The build drew flat mountain bands + box "buildings". Instead, render <b>one produced art asset</b> (<code>location_village_day.webp</code>) full-bleed as the bottom layer. All the village warmth lives in that image.</div></div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;">2</span>
+            <div><div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;">Characters must be grounded, never floating</div><div style="font-family:'Nunito';font-weight:600;font-size:14px;color:#4b6572;line-height:1.45;">Guides currently hover in the sky with leftover translucent "ghost" circles behind them. Either bake guides into the scene art, or anchor each sprite so its <b>feet sit on the ground</b> with a small contact shadow — and delete the placeholder background circle.</div></div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;">3</span>
+            <div><div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;">Subject launchers are cream cards, not gray disabled circles</div><div style="font-family:'Nunito';font-weight:600;font-size:14px;color:#4b6572;line-height:1.45;">The "Daily Challenge" strip renders as dead gray circles that look disabled. Each destination is a <b>cream <code>#FFF7E8</code> card</b> with a colored icon badge, name, subject label, and a progress bar in the subject color.</div></div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;">4</span>
+            <div><div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;">Legible tags: cream fill + ink text + progress + lock state</div><div style="font-family:'Nunito';font-weight:600;font-size:14px;color:#4b6572;line-height:1.45;">Current tags are dark-brown boxes with tiny low-contrast text. Use the cream card above; locked stops get a gray card + 🔒 + "Reach Level 15" — <b>never signal locked by color alone.</b></div></div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F47C6B;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;">5</span>
+            <div><div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;">Restore the top-bar profile card + XP bar & tactile buttons</div><div style="font-family:'Nunito';font-weight:600;font-size:14px;color:#4b6572;line-height:1.45;">The build lost the avatar/level/XP card and shipped a bare version string. Restore the cream profile card with the gold XP bar, and give every button the chunky bottom shadow (<code>0 5px 0 darker</code>) so it reads as pressable.</div></div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;padding:16px 18px;background:#EAF3F3;border-radius:16px;">
+          <div style="font-family:'Baloo 2';font-weight:800;font-size:15px;color:#0C5E61;margin-bottom:6px;">Layer order (bottom → top)</div>
+          <div style="font-family:'Nunito';font-weight:700;font-size:13px;color:#3d5560;line-height:1.7;">1 · illustrated backdrop image<br>2 · optional grounded building + guide sprites (if not baked into the image)<br>3 · dark→transparent scrim top &amp; bottom for legibility<br>4 · native chrome: top bar, Daily Quest, destination tags, bottom nav</div>
+        </div>
+        <div style="margin-top:14px;font-family:'Nunito';font-weight:700;font-size:13px;color:#8a949a;">Full step-by-step in <code>handoff/docs/village-home-build-spec.md</code>.</div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section id="1a">
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;">
+
+    <!-- ============ SCREEN 1 : VILLAGE HOME ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">01 · Village Home</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#087F83;background:#D6EBEB;padding:4px 12px;border-radius:999px;">child · home</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#8FD0E8;">
+          <img src="assets/graphics/child-village-home.png" alt="Cat village scene" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,42,54,.32) 0%,rgba(11,42,54,0) 22%,rgba(11,42,54,0) 55%,rgba(11,42,54,.55) 100%);"></div>
+
+          <!-- TOP BAR -->
+          <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:flex-start;">
+            <!-- profile + level -->
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,247,232,.96);border-radius:22px;padding:10px 18px 10px 10px;box-shadow:0 5px 0 rgba(24,59,74,.14);">
+              <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#F79A4B,#E8722C);display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 2px 6px rgba(24,59,74,.25);font-size:30px;">🐾</div>
+              <div>
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:22px;color:#183B4A;line-height:1;">Maxine</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
+                  <span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7653B5;">Lv 12</span>
+                  <div style="width:150px;height:14px;background:#E6D9C2;border-radius:999px;overflow:hidden;"><div style="width:73%;height:100%;background:linear-gradient(90deg,#F5B82E,#F0A21E);border-radius:999px;"></div></div>
+                  <span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#8a7a5e;">660/900</span>
+                </div>
+              </div>
+            </div>
+            <!-- streak + menu -->
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,247,232,.96);border-radius:22px;padding:10px 18px;box-shadow:0 5px 0 rgba(24,59,74,.14);">
+                <span style="font-size:26px;">🔥</span>
+                <div>
+                  <div style="font-family:'Baloo 2';font-weight:800;font-size:20px;color:#183B4A;line-height:1;">7-day streak</div>
+                  <div style="font-family:'Nunito';font-weight:700;font-size:12px;color:#66A83E;">Keep it going!</div>
+                </div>
+              </div>
+              <button style="width:60px;height:60px;border:none;border-radius:20px;background:#3C9DDB;box-shadow:0 5px 0 #2b7bb0;cursor:pointer;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;">
+                <span style="width:26px;height:3px;background:#fff;border-radius:2px;"></span>
+                <span style="width:26px;height:3px;background:#fff;border-radius:2px;"></span>
+                <span style="width:26px;height:3px;background:#fff;border-radius:2px;"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- DAILY QUEST CARD -->
+          <div style="position:absolute;top:110px;left:18px;width:268px;background:rgba(255,247,232,.97);border-radius:24px;padding:18px;box-shadow:0 6px 0 rgba(24,59,74,.14),0 14px 30px rgba(24,59,74,.22);">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px;">
+              <span style="width:34px;height:34px;border-radius:11px;background:#7653B5;display:flex;align-items:center;justify-content:center;font-size:18px;">📋</span>
+              <span style="font-family:'Baloo 2';font-weight:800;font-size:20px;color:#183B4A;">Daily Quest</span>
+            </div>
+            <div style="font-family:'Nunito';font-weight:700;font-size:16px;color:#3d5560;line-height:1.35;margin-bottom:12px;">Read a story with Mira and learn 5 new words.</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+              <div style="flex:1;height:16px;background:#E6D9C2;border-radius:999px;overflow:hidden;"><div style="width:60%;height:100%;background:linear-gradient(90deg,#66A83E,#4d8a2c);border-radius:999px;"></div></div>
+              <span style="font-family:'Nunito';font-weight:800;font-size:13px;color:#4d8a2c;">3/5</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;font-family:'Nunito';font-weight:800;font-size:15px;">
+              <span style="display:flex;align-items:center;gap:5px;color:#F0A21E;">⭐ 25</span>
+              <span style="display:flex;align-items:center;gap:5px;color:#B87916;">🐾 10</span>
+            </div>
+            <button style="width:100%;height:56px;border:none;border-radius:18px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:20px;cursor:pointer;">Continue ▸</button>
+          </div>
+
+          <!-- SUBJECT DESTINATIONS -->
+          <div style="position:absolute;bottom:118px;left:310px;right:22px;display:flex;gap:20px;justify-content:center;">
+            <!-- English -->
+            <div style="flex:1;max-width:300px;background:rgba(255,247,232,.97);border-radius:26px;padding:16px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 30px rgba(24,59,74,.28);border-top:6px solid #7653B5;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="width:48px;height:48px;border-radius:14px;background:#7653B5;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 3px 0 #5e3f97;">📖</span>
+                <div><div style="font-family:'Baloo 2';font-weight:800;font-size:22px;color:#183B4A;line-height:1;">Story Tree</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#7653B5;">English</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:10px;background:#e7ddf3;border-radius:999px;overflow:hidden;"><div style="width:70%;height:100%;background:#7653B5;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7653B5;">7/12</span></div>
+            </div>
+            <!-- Math -->
+            <div style="flex:1;max-width:300px;background:rgba(255,247,232,.97);border-radius:26px;padding:16px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 30px rgba(24,59,74,.28);border-top:6px solid #3C9DDB;transform:translateY(-14px);position:relative;">
+              <span style="position:absolute;top:-13px;right:14px;background:#F5B82E;color:#183B4A;font-family:'Nunito';font-weight:900;font-size:11px;padding:4px 11px;border-radius:999px;box-shadow:0 3px 0 rgba(24,59,74,.18);">★ TODAY</span>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="width:48px;height:48px;border-radius:14px;background:#3C9DDB;display:flex;align-items:center;justify-content:center;font-size:20px;font-family:'Baloo 2';font-weight:800;color:#fff;box-shadow:0 3px 0 #2b7bb0;">123</span>
+                <div><div style="font-family:'Baloo 2';font-weight:800;font-size:22px;color:#183B4A;line-height:1;">Number Market</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#2b7bb0;">Math</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:10px;background:#d9ecf8;border-radius:999px;overflow:hidden;"><div style="width:64%;height:100%;background:#3C9DDB;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#2b7bb0;">8/12</span></div>
+            </div>
+            <!-- Science -->
+            <div style="flex:1;max-width:300px;background:rgba(255,247,232,.97);border-radius:26px;padding:16px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 14px 30px rgba(24,59,74,.28);border-top:6px solid #66A83E;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="width:48px;height:48px;border-radius:14px;background:#66A83E;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 3px 0 #4d8a2c;">🧪</span>
+                <div><div style="font-family:'Baloo 2';font-weight:800;font-size:22px;color:#183B4A;line-height:1;">Discovery Lab</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#4d8a2c;">Science</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:10px;background:#e0efd6;border-radius:999px;overflow:hidden;"><div style="width:45%;height:100%;background:#66A83E;"></div></div><span style="font-family:'Nunito';font-weight:800;font-size:12px;color:#4d8a2c;">5/12</span></div>
+            </div>
+          </div>
+
+          <!-- BOTTOM NAV -->
+          <div style="position:absolute;bottom:18px;left:18px;right:18px;height:78px;background:rgba(255,247,232,.98);border-radius:24px;box-shadow:0 6px 0 rgba(24,59,74,.14);display:flex;align-items:center;justify-content:space-around;padding:0 20px;">
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:18px;color:#087F83;"><span style="font-size:26px;">🐱</span>My Profile</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:18px;color:#B87916;"><span style="font-size:26px;">🏆</span>Achievements</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:18px;color:#3d5560;"><span style="font-size:26px;">🎒</span>Backpack</div>
+            <div style="display:flex;align-items:center;gap:9px;font-family:'Baloo 2';font-weight:700;font-size:18px;color:#3d5560;"><span style="font-size:26px;">🔒</span>Parents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 2 : PROGRESSION MAP ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">02 · World Map</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#087F83;background:#D6EBEB;padding:4px 12px;border-radius:999px;">child · progression</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#2E7C9A;">
+          <img src="assets/graphics/learning-progression-map.png" alt="World map" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,42,54,.30) 0%,rgba(11,42,54,0) 20%,rgba(11,42,54,0) 60%,rgba(11,42,54,.5) 100%);"></div>
+
+          <!-- top bar -->
+          <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center;">
+            <button style="display:flex;align-items:center;gap:10px;background:rgba(255,247,232,.96);border:none;border-radius:20px;padding:12px 20px;box-shadow:0 5px 0 rgba(24,59,74,.14);font-family:'Baloo 2';font-weight:800;font-size:20px;color:#087F83;cursor:pointer;">◂ Village</button>
+            <div style="display:flex;gap:12px;">
+              <span style="display:flex;align-items:center;gap:8px;background:rgba(255,247,232,.96);border-radius:20px;padding:12px 20px;box-shadow:0 5px 0 rgba(24,59,74,.14);font-family:'Baloo 2';font-weight:800;font-size:20px;color:#F0A21E;">⭐ 1,250</span>
+              <span style="display:flex;align-items:center;gap:8px;background:rgba(255,247,232,.96);border-radius:20px;padding:12px 20px;box-shadow:0 5px 0 rgba(24,59,74,.14);font-family:'Baloo 2';font-weight:800;font-size:20px;color:#B87916;">🐾 340</span>
+            </div>
+          </div>
+
+          <!-- location pin: unlocked (Number Market) -->
+          <div style="position:absolute;top:300px;left:120px;">
+            <div style="background:rgba(255,247,232,.98);border-radius:20px;padding:12px 16px;box-shadow:0 6px 0 rgba(24,59,74,.16),0 12px 24px rgba(24,59,74,.28);border-left:6px solid #3C9DDB;min-width:190px;">
+              <div style="display:flex;align-items:center;gap:8px;"><span style="width:26px;height:26px;border-radius:50%;background:#2F9E62;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;">✓</span><span style="font-family:'Baloo 2';font-weight:800;font-size:19px;color:#183B4A;">Number Market</span></div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#2b7bb0;margin-top:2px;margin-left:34px;">Math · Complete</div>
+            </div>
+          </div>
+
+          <!-- current location pulse (Fraction Bakery) -->
+          <div style="position:absolute;top:470px;left:250px;">
+            <div style="background:#fff;border-radius:22px;padding:14px 18px;box-shadow:0 6px 0 rgba(24,59,74,.2),0 16px 30px rgba(24,59,74,.32);border:3px solid #F5B82E;min-width:210px;animation:mwBob 2.4s ease-in-out infinite;">
+              <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:22px;">📍</span><span style="font-family:'Baloo 2';font-weight:800;font-size:20px;color:#183B4A;">Fraction Bakery</span></div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#2b7bb0;margin:4px 0 10px 30px;">Math · You are here</div>
+              <button style="width:100%;height:48px;border:none;border-radius:15px;background:#F5B82E;box-shadow:0 4px 0 #d99414;color:#183B4A;font-family:'Baloo 2';font-weight:800;font-size:17px;cursor:pointer;">Play ▸</button>
+            </div>
+          </div>
+
+          <!-- locked location (Discovery Lab) -->
+          <div style="position:absolute;top:250px;right:120px;">
+            <div style="background:rgba(232,236,238,.94);border-radius:20px;padding:12px 16px;box-shadow:0 6px 0 rgba(24,59,74,.12);border-left:6px solid #9aa7ac;min-width:190px;">
+              <div style="display:flex;align-items:center;gap:8px;"><span style="width:26px;height:26px;border-radius:50%;background:#7c898e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;">🔒</span><span style="font-family:'Baloo 2';font-weight:800;font-size:19px;color:#5b6b71;">Discovery Lab</span></div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:12px;color:#7c898e;margin-top:2px;margin-left:34px;">Reach Level 15 to open</div>
+            </div>
+          </div>
+
+          <!-- legend -->
+          <div style="position:absolute;bottom:20px;left:18px;background:rgba(255,247,232,.97);border-radius:20px;padding:14px 18px;box-shadow:0 5px 0 rgba(24,59,74,.14);display:flex;gap:22px;font-family:'Nunito';font-weight:800;font-size:14px;color:#3d5560;">
+            <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:22px;border-radius:50%;background:#2F9E62;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;">✓</span>Unlocked</span>
+            <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:22px;border-radius:50%;background:#7c898e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;">🔒</span>Locked</span>
+            <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:999px;background:repeating-linear-gradient(90deg,#F47C6B 0 8px,transparent 8px 14px);"></span>Quest path</span>
+          </div>
+
+          <!-- parent gate -->
+          <div style="position:absolute;bottom:20px;right:18px;background:rgba(8,127,131,.96);border-radius:20px;padding:12px 20px;box-shadow:0 5px 0 rgba(6,90,93,.9);display:flex;align-items:center;gap:10px;font-family:'Baloo 2';font-weight:800;font-size:18px;color:#fff;">🔒 Parent Gate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 3 : MATH LESSON ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">03 · Math · Equal Groups</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#2b7bb0;background:#DCEEF9;padding:4px 12px;border-radius:999px;">lesson · Number Market</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#EAF6FC;">
+          <img src="assets/graphics/math-lesson-equal-groups.png" alt="Number market scene" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:rgba(230,244,252,.82);backdrop-filter:blur(2px);"></div>
+
+          <!-- header -->
+          <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <button style="width:60px;height:60px;border:none;border-radius:20px;background:#3C9DDB;box-shadow:0 5px 0 #2b7bb0;color:#fff;font-size:26px;cursor:pointer;">⏸</button>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:19px;color:#2b7bb0;">Times-Table Tiger · Lesson 5</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="width:20px;height:20px;border-radius:50%;background:#2F9E62;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">✓</span>
+                <span style="width:34px;height:6px;border-radius:999px;background:#2F9E62;"></span>
+                <span style="width:20px;height:20px;border-radius:50%;background:#2F9E62;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">✓</span>
+                <span style="width:34px;height:6px;border-radius:999px;background:#3C9DDB;"></span>
+                <span style="width:26px;height:26px;border-radius:50%;background:#3C9DDB;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(60,157,219,.28);">3</span>
+                <span style="width:34px;height:6px;border-radius:999px;background:#c9d7de;"></span>
+                <span style="width:20px;height:20px;border-radius:50%;background:#c9d7de;color:#7c898e;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">4</span>
+              </div>
+            </div>
+            <button style="width:60px;height:60px;border:none;border-radius:20px;background:#F5B82E;box-shadow:0 5px 0 #d99414;color:#183B4A;font-size:26px;cursor:pointer;">🔊</button>
+          </div>
+
+          <!-- objective banner -->
+          <div style="position:absolute;top:104px;left:50%;transform:translateX(-50%);background:#3C9DDB;border-radius:18px;padding:10px 28px;box-shadow:0 5px 0 #2b7bb0;">
+            <div style="font-family:'Nunito';font-weight:800;font-size:15px;color:#cbe6f7;text-align:center;">Today we learn</div>
+            <div style="font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;text-align:center;line-height:1;">Multiplication as equal groups</div>
+          </div>
+
+          <!-- question -->
+          <div style="position:absolute;top:210px;left:50%;transform:translateX(-50%);font-family:'Baloo 2';font-weight:800;font-size:56px;color:#183B4A;text-align:center;">4 groups of <span style="color:#7653B5;">3</span> = <span style="color:#F47C6B;">?</span></div>
+
+          <!-- baskets workspace -->
+          <div style="position:absolute;top:300px;left:60px;right:60px;background:rgba(255,247,232,.97);border-radius:28px;padding:26px;box-shadow:0 6px 0 rgba(24,59,74,.14),0 14px 30px rgba(24,59,74,.2);">
+            <div style="display:flex;gap:22px;justify-content:center;">
+              <div style="flex:1;max-width:220px;height:150px;border-radius:22px;border:3px dashed #c99a5a;background:#f6e6c9;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;"><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span></div>
+              <div style="flex:1;max-width:220px;height:150px;border-radius:22px;border:3px dashed #c99a5a;background:#f6e6c9;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;"><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span></div>
+              <div style="flex:1;max-width:220px;height:150px;border-radius:22px;border:3px dashed #c99a5a;background:#f6e6c9;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;"><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span></div>
+              <div style="flex:1;max-width:220px;height:150px;border-radius:22px;border:3px dashed #3C9DDB;background:#dcecf8;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;box-shadow:0 0 0 4px rgba(60,157,219,.25);"><span style="font-size:40px;">🐟</span><span style="font-size:40px;">🐟</span><span style="font-size:40px;opacity:.35;">🐟</span></div>
+            </div>
+            <div style="text-align:center;margin-top:16px;font-family:'Nunito';font-weight:800;font-size:18px;color:#3d5560;">Drag a fish into each basket to make <span style="color:#3C9DDB;">equal groups</span>.</div>
+          </div>
+
+          <!-- answer tiles -->
+          <div style="position:absolute;bottom:112px;left:60px;right:230px;display:flex;gap:20px;">
+            <button style="flex:1;height:88px;border:none;border-radius:22px;background:#fff;box-shadow:0 6px 0 #7653B5;font-family:'Baloo 2';font-weight:800;font-size:44px;color:#7653B5;cursor:pointer;">7</button>
+            <button style="flex:1;height:88px;border:none;border-radius:22px;background:#fff;box-shadow:0 6px 0 #2b7bb0;font-family:'Baloo 2';font-weight:800;font-size:44px;color:#3C9DDB;cursor:pointer;">10</button>
+            <button style="flex:1;height:88px;border:none;border-radius:22px;background:#66A83E;box-shadow:0 6px 0 #4d8a2c;font-family:'Baloo 2';font-weight:800;font-size:44px;color:#fff;cursor:pointer;position:relative;">12<span style="position:absolute;top:-10px;right:-8px;width:32px;height:32px;border-radius:50%;background:#2F9E62;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;border:3px solid #fff;">✓</span></button>
+            <button style="flex:1;height:88px;border:none;border-radius:22px;background:#fff;box-shadow:0 6px 0 #d99414;font-family:'Baloo 2';font-weight:800;font-size:44px;color:#F0A21E;cursor:pointer;">16</button>
+          </div>
+
+          <!-- hint -->
+          <div style="position:absolute;bottom:112px;right:60px;width:130px;">
+            <button style="width:130px;height:88px;border:none;border-radius:22px;background:#F5B82E;box-shadow:0 6px 0 #d99414;color:#183B4A;font-family:'Baloo 2';font-weight:800;font-size:17px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><span style="font-size:26px;">💡</span>Hint</button>
+          </div>
+
+          <!-- guide bubble -->
+          <div style="position:absolute;bottom:20px;left:60px;background:#3C9DDB;border-radius:20px;padding:12px 22px;box-shadow:0 5px 0 #2b7bb0;display:flex;align-items:center;gap:12px;">
+            <span style="width:40px;height:40px;border-radius:50%;background:#eaf6fc;display:flex;align-items:center;justify-content:center;font-size:22px;">🐱</span>
+            <span style="font-family:'Nunito';font-weight:800;font-size:17px;color:#fff;">Niko says: count the fish in every basket, then add!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 4 : ENGLISH LESSON ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">04 · English · Main Idea</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#7653B5;background:#EAE1F6;padding:4px 12px;border-radius:999px;">lesson · Story Tree</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#F3EEFA;display:flex;flex-direction:column;">
+          <!-- header -->
+          <div style="height:78px;background:#7653B5;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0;">
+            <div style="display:flex;align-items:center;gap:12px;font-family:'Baloo 2';font-weight:800;color:#fff;font-size:20px;"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;">📖</span>Story Tree · Main Idea &amp; Details</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="width:22px;height:22px;border-radius:50%;background:#F5B82E;color:#183B4A;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;">✓</span>
+              <span style="width:22px;height:22px;border-radius:50%;background:#F5B82E;color:#183B4A;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;">✓</span>
+              <span style="width:28px;height:28px;border-radius:50%;background:#fff;color:#7653B5;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;">3</span>
+              <span style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.35);color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;">4</span>
+              <span style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.35);color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;">5</span>
+              <button style="margin-left:14px;width:52px;height:52px;border:none;border-radius:16px;background:#F5B82E;box-shadow:0 4px 0 #d99414;font-size:22px;color:#183B4A;cursor:pointer;">⏸</button>
+            </div>
+          </div>
+
+          <!-- body -->
+          <div style="flex:1;display:flex;gap:22px;padding:22px;">
+            <!-- left: story -->
+            <div style="flex:1.15;display:flex;flex-direction:column;gap:16px;">
+              <div style="position:relative;flex:1;border-radius:22px;overflow:hidden;box-shadow:0 6px 0 rgba(24,59,74,.14);">
+                <img src="assets/graphics/english-lesson-main-idea.png" alt="Story illustration" style="width:100%;height:100%;object-fit:cover;object-position:left center;">
+                <div style="position:absolute;top:14px;left:14px;background:rgba(255,247,232,.96);border-radius:14px;padding:8px 16px;font-family:'Baloo 2';font-weight:800;font-size:20px;color:#7653B5;box-shadow:0 3px 0 rgba(24,59,74,.14);">The Cats Who Saved the Garden</div>
+              </div>
+              <div style="background:#FFF7E8;border-radius:20px;padding:18px 20px;box-shadow:0 5px 0 rgba(24,59,74,.12);display:flex;gap:16px;align-items:flex-start;">
+                <button style="width:64px;height:64px;flex-shrink:0;border:none;border-radius:50%;background:#7653B5;box-shadow:0 4px 0 #5e3f97;color:#fff;font-size:26px;cursor:pointer;">🔊</button>
+                <div style="font-family:'Nunito';font-weight:700;font-size:19px;line-height:1.5;color:#2f3d44;"><span style="background:#F5E27A;border-radius:5px;padding:1px 3px;">After a big rainstorm, the garden was in trouble.</span> The river overflowed and the vegetables were in danger. The cats and their friends worked together to save the garden.</div>
+              </div>
+            </div>
+
+            <!-- right: workspace -->
+            <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+              <div style="background:#7653B5;border-radius:18px;padding:14px 22px;box-shadow:0 5px 0 #5e3f97;font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;text-align:center;">Choose the main idea</div>
+              <div style="background:#FFF7E8;border:3px dashed #b79edb;border-radius:20px;flex:0 0 132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+                <span style="font-size:40px;opacity:.5;">🐾</span>
+                <span style="font-family:'Nunito';font-weight:800;font-size:17px;color:#8b76b3;">Drag the main-idea card here</span>
+              </div>
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#7653B5;text-align:center;">Supporting details</div>
+              <div style="display:flex;gap:12px;">
+                <div style="flex:1;background:#EAF6FC;border-radius:16px;padding:12px;box-shadow:0 4px 0 rgba(24,59,74,.1);text-align:center;font-family:'Nunito';font-weight:700;font-size:14px;color:#2f3d44;"><div style="font-size:30px;margin-bottom:6px;">🔧</div>Niko fixed the leaky pump.</div>
+                <div style="flex:1;background:#EDF7E8;border-radius:16px;padding:12px;box-shadow:0 4px 0 rgba(24,59,74,.1);text-align:center;font-family:'Nunito';font-weight:700;font-size:14px;color:#2f3d44;"><div style="font-size:30px;margin-bottom:6px;">🧱</div>Milo built barriers with sandbags.</div>
+                <div style="flex:1;background:#FCEBE7;border-radius:16px;padding:12px;box-shadow:0 4px 0 rgba(24,59,74,.1);text-align:center;font-family:'Nunito';font-weight:700;font-size:14px;color:#2f3d44;"><div style="font-size:30px;margin-bottom:6px;">📗</div>Mira read the plan aloud.</div>
+              </div>
+              <div style="margin-top:auto;display:flex;gap:14px;align-items:center;">
+                <div style="flex:1;background:#FFF7E8;border-radius:16px;padding:12px 16px;box-shadow:0 4px 0 rgba(24,59,74,.1);display:flex;align-items:center;gap:10px;font-family:'Nunito';font-weight:700;font-size:15px;color:#3d5560;"><span style="font-size:24px;">🐱</span>Mira: find the <b style="color:#7653B5;">big idea</b> the story is mostly about.</div>
+                <button style="width:120px;height:64px;border:none;border-radius:18px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:20px;cursor:pointer;">✓ Check</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 5 : SCIENCE LESSON ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">05 · Science · Investigation</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#4d8a2c;background:#E1F0D8;padding:4px 12px;border-radius:999px;">lesson · Discovery Lab</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#EDF7E8;">
+          <img src="assets/graphics/science-lesson-plant-growth.png" alt="Discovery lab scene" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:rgba(237,247,232,.8);backdrop-filter:blur(2px);"></div>
+
+          <!-- header -->
+          <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <button style="width:58px;height:58px;border:none;border-radius:18px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-size:24px;cursor:pointer;">🏠</button>
+            <div style="flex:1;background:rgba(255,247,232,.97);border-radius:18px;padding:12px 22px;box-shadow:0 5px 0 rgba(24,59,74,.12);text-align:center;">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:23px;color:#183B4A;line-height:1.05;">Investigation: What do plants need to grow?</div>
+              <div style="font-family:'Nunito';font-weight:700;font-size:14px;color:#4d8a2c;"><b>Objective:</b> Discover what plants need to grow well.</div>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <button style="width:58px;height:58px;border:none;border-radius:18px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-size:22px;cursor:pointer;">🔊</button>
+              <button style="width:58px;height:58px;border:none;border-radius:18px;background:#F5B82E;box-shadow:0 5px 0 #d99414;color:#183B4A;font-size:22px;cursor:pointer;">📓</button>
+            </div>
+          </div>
+
+          <!-- left prediction panel -->
+          <div style="position:absolute;top:110px;left:18px;width:238px;background:rgba(255,247,232,.97);border-radius:20px;padding:16px;box-shadow:0 5px 0 rgba(24,59,74,.12);">
+            <div style="font-family:'Baloo 2';font-weight:800;font-size:20px;color:#66A83E;margin-bottom:4px;">Make a prediction</div>
+            <div style="font-family:'Nunito';font-weight:700;font-size:14px;color:#3d5560;margin-bottom:12px;">Drag a choice to each plant.</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#EDF7E8;border-left:5px solid #66A83E;border-radius:12px;padding:10px 12px;font-family:'Nunito';font-weight:800;font-size:15px;color:#3d6b28;display:flex;align-items:center;gap:8px;">🌱 Will grow well</div>
+              <div style="background:#FFF3D7;border-left:5px solid #F5B82E;border-radius:12px;padding:10px 12px;font-family:'Nunito';font-weight:800;font-size:15px;color:#8a6410;display:flex;align-items:center;gap:8px;">🌿 May grow a little</div>
+              <div style="background:#FCEBE7;border-left:5px solid #F47C6B;border-radius:12px;padding:10px 12px;font-family:'Nunito';font-weight:800;font-size:15px;color:#b3402f;display:flex;align-items:center;gap:8px;">🥀 Will not grow well</div>
+            </div>
+          </div>
+
+          <!-- center experiment -->
+          <div style="position:absolute;top:110px;left:270px;right:270px;bottom:110px;background:rgba(255,247,232,.97);border-radius:24px;padding:20px;box-shadow:0 6px 0 rgba(24,59,74,.14),0 14px 28px rgba(24,59,74,.18);display:flex;flex-direction:column;">
+            <div style="display:flex;gap:16px;flex:1;">
+              <div style="flex:1;border-radius:18px;background:#f7f0dd;border:2px solid #e4d6b6;padding:14px;display:flex;flex-direction:column;align-items:center;">
+                <div style="width:26px;height:26px;border-radius:50%;background:#3C9DDB;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:8px;">1</div>
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;text-align:center;line-height:1.1;">Sunlight &amp; Water</div>
+                <div style="display:flex;gap:10px;margin:10px 0;font-size:26px;">☀️ 💧</div>
+                <div style="font-size:56px;">🪴</div>
+                <div style="margin-top:auto;width:100%;height:38px;border:2px dashed #b7c9a3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Nunito';font-weight:700;font-size:12px;color:#8aa079;">Drop prediction</div>
+              </div>
+              <div style="flex:1;border-radius:18px;background:#f7f0dd;border:2px solid #e4d6b6;padding:14px;display:flex;flex-direction:column;align-items:center;">
+                <div style="width:26px;height:26px;border-radius:50%;background:#3C9DDB;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:8px;">2</div>
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;text-align:center;line-height:1.1;">Sunlight, no Water</div>
+                <div style="display:flex;gap:10px;margin:10px 0;font-size:26px;">☀️ 🚫</div>
+                <div style="font-size:56px;">🪴</div>
+                <div style="margin-top:auto;width:100%;height:38px;border:2px dashed #b7c9a3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Nunito';font-weight:700;font-size:12px;color:#8aa079;">Drop prediction</div>
+              </div>
+              <div style="flex:1;border-radius:18px;background:#f7f0dd;border:2px solid #e4d6b6;padding:14px;display:flex;flex-direction:column;align-items:center;">
+                <div style="width:26px;height:26px;border-radius:50%;background:#3C9DDB;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:8px;">3</div>
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;text-align:center;line-height:1.1;">Water, no Sunlight</div>
+                <div style="display:flex;gap:10px;margin:10px 0;font-size:26px;">🚫 💧</div>
+                <div style="font-size:56px;">🪴</div>
+                <div style="margin-top:auto;width:100%;height:38px;border:2px dashed #b7c9a3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Nunito';font-weight:700;font-size:12px;color:#8aa079;">Drop prediction</div>
+              </div>
+            </div>
+            <!-- day slider -->
+            <div style="margin-top:16px;display:flex;align-items:center;gap:14px;">
+              <span style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#66A83E;">Day</span>
+              <div style="flex:1;display:flex;align-items:center;">
+                <span style="width:30px;height:30px;border-radius:50%;background:#66A83E;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1;box-shadow:0 0 0 4px rgba(102,168,62,.28);">1</span>
+                <span style="flex:1;height:6px;background:linear-gradient(90deg,#66A83E 12%,#cdd8c4 12%);"></span>
+                <span style="font-family:'Nunito';font-weight:800;font-size:13px;color:#7c898e;">7</span>
+              </div>
+              <button style="width:52px;height:52px;border:none;border-radius:16px;background:#66A83E;box-shadow:0 4px 0 #4d8a2c;color:#fff;font-size:22px;cursor:pointer;">▸</button>
+            </div>
+          </div>
+
+          <!-- right controls + notebook -->
+          <div style="position:absolute;top:110px;right:18px;width:238px;display:flex;flex-direction:column;gap:14px;">
+            <div style="background:rgba(255,247,232,.97);border-radius:20px;padding:14px;box-shadow:0 5px 0 rgba(24,59,74,.12);">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#66A83E;margin-bottom:10px;">Controls · drag to apply</div>
+              <div style="display:flex;gap:10px;">
+                <div style="flex:1;background:#FFF3D7;border-radius:14px;padding:12px 6px;text-align:center;font-family:'Nunito';font-weight:800;font-size:13px;color:#8a6410;"><div style="font-size:30px;">☀️</div>Sunlight</div>
+                <div style="flex:1;background:#EAF6FC;border-radius:14px;padding:12px 6px;text-align:center;font-family:'Nunito';font-weight:800;font-size:13px;color:#2b7bb0;"><div style="font-size:30px;">💧</div>Water</div>
+              </div>
+            </div>
+            <div style="background:#EDF7E8;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-family:'Nunito';font-weight:700;font-size:13px;color:#3d6b28;"><span style="font-size:22px;">🛡️</span>We run safe experiments with virtual tools.</div>
+            <div style="background:rgba(255,247,232,.97);border-radius:20px;padding:14px;box-shadow:0 5px 0 rgba(24,59,74,.12);flex:1;">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#66A83E;margin-bottom:8px;">📓 Notebook</div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#3d5560;">Day 1 observations</div>
+              <div style="border-bottom:2px solid #e0e7d8;height:26px;"></div>
+              <div style="border-bottom:2px solid #e0e7d8;height:26px;"></div>
+              <div style="border-bottom:2px solid #e0e7d8;height:26px;"></div>
+            </div>
+          </div>
+
+          <!-- guide + reset -->
+          <div style="position:absolute;bottom:20px;left:18px;display:flex;align-items:center;gap:12px;">
+            <button style="height:54px;border:none;border-radius:16px;background:#7653B5;box-shadow:0 4px 0 #5e3f97;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:16px;padding:0 20px;cursor:pointer;">↺ Reset</button>
+            <div style="background:#66A83E;border-radius:16px;padding:10px 18px;box-shadow:0 4px 0 #4d8a2c;display:flex;align-items:center;gap:10px;font-family:'Nunito';font-weight:800;font-size:15px;color:#fff;"><span style="font-size:22px;">🐱</span>Milo: predict first, then run the experiment!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 6 : PARENT DASHBOARD ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">06 · Parent Dashboard</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#087F83;background:#D6EBEB;padding:4px 12px;border-radius:999px;">adult · restrained</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#F4F1EA;display:flex;font-family:'Nunito',sans-serif;">
+          <!-- rail -->
+          <div style="width:212px;flex-shrink:0;background:#0C5E61;display:flex;flex-direction:column;padding:26px 16px;">
+            <div style="font-family:'Baloo 2';font-weight:800;font-size:24px;color:#fff;line-height:1;">Maxine's<br><span style="color:#F5B82E;">World</span></div>
+            <div style="font-family:'Nunito';font-weight:700;font-size:12px;color:#7fc0c2;margin:6px 0 30px;letter-spacing:.08em;">PARENT DASHBOARD</div>
+            <div style="display:flex;align-items:center;gap:12px;background:#0F7377;border-radius:14px;padding:12px 14px;color:#fff;font-weight:800;font-size:15px;margin-bottom:4px;"><span>🏠</span>Overview</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#bfe0e1;font-weight:700;font-size:15px;"><span>📈</span>Progress</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#bfe0e1;font-weight:700;font-size:15px;"><span>📋</span>Assignments</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#bfe0e1;font-weight:700;font-size:15px;"><span>⭐</span>Skills</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#bfe0e1;font-weight:700;font-size:15px;"><span>🛡️</span>Screen Time</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#bfe0e1;font-weight:700;font-size:15px;"><span>⚙️</span>Settings</div>
+            <div style="margin-top:auto;font-family:'Nunito';font-weight:600;font-size:12px;color:#7fc0c2;line-height:1.4;">Encourage curiosity. Celebrate progress.</div>
+          </div>
+
+          <!-- content -->
+          <div style="flex:1;padding:24px 26px;overflow:hidden;">
+            <!-- topbar -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div style="display:flex;align-items:center;gap:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#F0D9C0;display:flex;align-items:center;justify-content:center;font-size:26px;">🧒</div>
+                <div>
+                  <div style="font-family:'Baloo 2';font-weight:800;font-size:24px;color:#183B4A;line-height:1;">Maxine ⌄</div>
+                  <div style="font-weight:700;font-size:13px;color:#6b7d84;">Age 8 · Grade 3</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="background:#fff;border:1px solid #e3ddd0;border-radius:12px;padding:9px 16px;font-weight:700;font-size:14px;color:#3d5560;display:flex;align-items:center;gap:8px;">📅 May 18 – 24, 2025 ⌄</div>
+                <div style="background:#FFF7E8;border:1px solid #f0e2c4;border-radius:12px;padding:8px 16px;text-align:center;"><div style="font-family:'Baloo 2';font-weight:800;font-size:18px;color:#B87916;line-height:1;">⭐ 1,250</div><div style="font-weight:700;font-size:11px;color:#a08a5e;">stars earned</div></div>
+              </div>
+            </div>
+
+            <!-- subject cards -->
+            <div style="display:flex;gap:14px;margin-bottom:16px;">
+              <div style="flex:1;background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="width:38px;height:38px;border-radius:10px;background:#7653B5;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">ABC</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#183B4A;">English</div><div style="font-weight:800;font-size:22px;color:#7653B5;line-height:1;">85%</div></div></div>
+                <div style="height:8px;background:#eee6f7;border-radius:999px;overflow:hidden;margin-bottom:8px;"><div style="width:85%;height:100%;background:#7653B5;"></div></div>
+                <div style="font-weight:700;font-size:13px;color:#6b7d84;">17 / 20 lessons · <span style="color:#2F9E62;">on track</span></div>
+              </div>
+              <div style="flex:1;background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="width:38px;height:38px;border-radius:10px;background:#3C9DDB;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;">123</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#183B4A;">Math</div><div style="font-weight:800;font-size:22px;color:#3C9DDB;line-height:1;">78%</div></div></div>
+                <div style="height:8px;background:#e0eef8;border-radius:999px;overflow:hidden;margin-bottom:8px;"><div style="width:78%;height:100%;background:#3C9DDB;"></div></div>
+                <div style="font-weight:700;font-size:13px;color:#6b7d84;">14 / 18 lessons · <span style="color:#D98716;">2 to review</span></div>
+              </div>
+              <div style="flex:1;background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="width:38px;height:38px;border-radius:10px;background:#66A83E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;">🧪</span><div><div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#183B4A;">Science</div><div style="font-weight:800;font-size:22px;color:#66A83E;line-height:1;">92%</div></div></div>
+                <div style="height:8px;background:#e3f0da;border-radius:999px;overflow:hidden;margin-bottom:8px;"><div style="width:92%;height:100%;background:#66A83E;"></div></div>
+                <div style="font-weight:700;font-size:13px;color:#6b7d84;">22 / 24 lessons · <span style="color:#2F9E62;">excellent</span></div>
+              </div>
+            </div>
+
+            <!-- lower row -->
+            <div style="display:flex;gap:14px;">
+              <!-- daily activity chart -->
+              <div style="flex:1.3;background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;"><span style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#183B4A;">Learning time this week</span><span style="font-weight:800;font-size:13px;color:#0C5E61;background:#E1EFEF;padding:4px 10px;border-radius:999px;">+12% vs last week</span></div>
+                <div style="display:flex;align-items:flex-end;gap:14px;height:150px;padding-bottom:24px;position:relative;">
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:46%;background:#7fbfc1;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Mon</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:72%;background:#0F7377;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Tue</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:54%;background:#7fbfc1;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Wed</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:80%;background:#0F7377;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Thu</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:44%;background:#7fbfc1;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Fri</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:96%;background:#F5B82E;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Sat</span></div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;"><div style="width:70%;height:64%;background:#7fbfc1;border-radius:8px 8px 0 0;"></div><span style="font-weight:800;font-size:12px;color:#6b7d84;">Sun</span></div>
+                </div>
+                <div style="border-top:1px solid #efe9dc;padding-top:12px;font-weight:700;font-size:13px;color:#6b7d84;"><b style="color:#183B4A;font-size:15px;">6h 45m</b> active learning · Sat was her best day (Fraction Bakery).</div>
+              </div>
+
+              <!-- right column: recommendation + screen time -->
+              <div style="flex:1;display:flex;flex-direction:column;gap:14px;">
+                <div style="background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                  <div style="display:flex;align-items:center;gap:8px;font-family:'Baloo 2';font-weight:800;font-size:15px;color:#B87916;margin-bottom:10px;">⭐ Recommended next</div>
+                  <div style="font-family:'Baloo 2';font-weight:800;font-size:17px;color:#183B4A;line-height:1.1;">Ocean Life &amp; Habitats</div>
+                  <div style="font-weight:700;font-size:12px;color:#6b7d84;margin:2px 0 12px;">Science · builds on her strong week</div>
+                  <button style="width:100%;height:44px;border:none;border-radius:12px;background:#0C5E61;color:#fff;font-weight:800;font-size:14px;cursor:pointer;">▸ Assign lesson</button>
+                </div>
+                <div style="background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                  <div style="display:flex;align-items:center;gap:8px;font-family:'Baloo 2';font-weight:800;font-size:15px;color:#0C5E61;margin-bottom:10px;">🛡️ Screen time</div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;"><span style="font-family:'Baloo 2';font-weight:800;font-size:22px;color:#183B4A;">2h 00m</span><span style="font-weight:700;font-size:12px;color:#6b7d84;">daily limit · 63% used</span></div>
+                  <div style="height:8px;background:#e6ded0;border-radius:999px;overflow:hidden;margin-bottom:12px;"><div style="width:63%;height:100%;background:#0F7377;"></div></div>
+                  <button style="width:100%;height:40px;border:1px solid #cfe0e0;border-radius:12px;background:#EAF3F3;color:#0C5E61;font-weight:800;font-size:13px;cursor:pointer;">🔒 Edit limits</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 7 : CELEBRATION ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">07 · Reward Moment</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#B87916;background:#FBEFCF;padding:4px 12px;border-radius:999px;">child · celebration</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#7653B5 0%,#5b3f96 55%,#3C9DDB 120%);display:flex;align-items:center;justify-content:center;">
+          <!-- confetti dots -->
+          <div style="position:absolute;top:60px;left:130px;width:16px;height:16px;border-radius:4px;background:#F5B82E;transform:rotate(20deg);"></div>
+          <div style="position:absolute;top:120px;right:180px;width:14px;height:14px;border-radius:50%;background:#F47C6B;"></div>
+          <div style="position:absolute;top:220px;left:220px;width:12px;height:12px;border-radius:3px;background:#66A83E;transform:rotate(45deg);"></div>
+          <div style="position:absolute;bottom:120px;right:240px;width:16px;height:16px;border-radius:50%;background:#F5B82E;"></div>
+          <div style="position:absolute;bottom:180px;left:180px;width:14px;height:14px;border-radius:4px;background:#3C9DDB;transform:rotate(30deg);"></div>
+          <div style="position:absolute;top:300px;right:120px;width:12px;height:12px;border-radius:50%;background:#fff;"></div>
+
+          <div style="background:#FFF7E8;border-radius:34px;padding:44px 56px;width:640px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.3);">
+            <div style="font-size:96px;line-height:1;animation:mwBob 2s ease-in-out infinite;">🐱</div>
+            <div style="font-family:'Baloo 2';font-weight:800;font-size:44px;color:#7653B5;margin-top:8px;line-height:1;">Lesson complete!</div>
+            <div style="font-family:'Nunito';font-weight:700;font-size:20px;color:#3d5560;margin-top:10px;">You found the main idea in every story. Milo is proud of you!</div>
+
+            <!-- stars -->
+            <div style="display:flex;justify-content:center;gap:14px;margin:26px 0;">
+              <span style="font-size:56px;">⭐</span>
+              <span style="font-size:72px;transform:translateY(-8px);">⭐</span>
+              <span style="font-size:56px;">⭐</span>
+            </div>
+
+            <!-- rewards row -->
+            <div style="display:flex;justify-content:center;gap:16px;margin-bottom:30px;">
+              <div style="background:#FBEFCF;border-radius:18px;padding:14px 24px;"><div style="font-family:'Baloo 2';font-weight:800;font-size:26px;color:#F0A21E;line-height:1;">+50</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#a08a5e;">⭐ stars</div></div>
+              <div style="background:#FBEEDF;border-radius:18px;padding:14px 24px;"><div style="font-family:'Baloo 2';font-weight:800;font-size:26px;color:#B87916;line-height:1;">+15</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#a08a5e;">🐾 paw coins</div></div>
+              <div style="background:#EAE1F6;border-radius:18px;padding:14px 24px;"><div style="font-size:30px;line-height:1;">🏅</div><div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#7653B5;margin-top:2px;">Story Star badge</div></div>
+            </div>
+
+            <div style="display:flex;gap:16px;">
+              <button style="flex:1;height:64px;border:none;border-radius:20px;background:#fff;box-shadow:0 5px 0 #d8cdb5;color:#7653B5;font-family:'Baloo 2';font-weight:800;font-size:20px;cursor:pointer;">Village</button>
+              <button style="flex:2;height:64px;border:none;border-radius:20px;background:#66A83E;box-shadow:0 5px 0 #4d8a2c;color:#fff;font-family:'Baloo 2';font-weight:800;font-size:22px;cursor:pointer;">Next lesson ▸</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SCREEN 8 : APP ICON ============ -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Baloo 2';font-weight:700;font-size:22px;color:#183B4A;">08 · App Icon (adaptive)</span>
+        <span style="font-family:'Nunito';font-weight:700;font-size:13px;color:#B87916;background:#FBEFCF;padding:4px 12px;border-radius:999px;">brand · launcher</span>
+      </div>
+      <div style="width:1308px;background:#12303B;border-radius:34px;padding:14px;box-shadow:0 30px 60px rgba(24,59,74,.28);">
+        <div style="position:relative;width:1280px;height:800px;border-radius:22px;overflow:hidden;background:#F4F1EA;font-family:'Nunito',sans-serif;padding:40px 48px;">
+
+          <!-- master symbol (hidden) -->
+          <svg width="0" height="0" style="position:absolute;" aria-hidden="true"><defs>
+            <radialGradient id="mwSky" cx="50%" cy="34%" r="78%">
+              <stop offset="0%" stop-color="#BEE7F2"/><stop offset="55%" stop-color="#8FD0E8"/><stop offset="100%" stop-color="#5FB6D6"/>
+            </radialGradient>
+            <linearGradient id="mwHead" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F79A4B"/><stop offset="100%" stop-color="#E8722C"/>
+            </linearGradient>
+            <symbol id="mwBg" viewBox="0 0 108 108">
+              <rect width="108" height="108" fill="url(#mwSky)"/>
+              <path d="M0 82 Q30 66 54 74 Q80 82 108 70 L108 108 L0 108 Z" fill="#66A83E"/>
+              <path d="M0 90 Q40 80 70 88 Q92 93 108 86 L108 108 L0 108 Z" fill="#57943B"/>
+              <g opacity=".9"><path d="M74 74 l10 -9 l10 9 z" fill="#F47C6B"/><rect x="77" y="74" width="14" height="11" fill="#FBEFCF"/><rect x="82" y="78" width="4" height="7" fill="#7653B5"/></g>
+              <circle cx="20" cy="24" r="3.4" fill="#ffffff" opacity=".85"/><circle cx="30" cy="18" r="2.4" fill="#ffffff" opacity=".7"/>
+            </symbol>
+            <symbol id="mwFg" viewBox="0 0 108 108">
+              <!-- ears -->
+              <path d="M36 41 L40 22 L53 40 Z" fill="url(#mwHead)"/>
+              <path d="M72 41 L68 22 L55 40 Z" fill="url(#mwHead)"/>
+              <path d="M39 37 L41 27 L48 37 Z" fill="#F7C39B"/>
+              <path d="M69 37 L67 27 L60 37 Z" fill="#F7C39B"/>
+              <!-- head -->
+              <ellipse cx="54" cy="58" rx="27" ry="25" fill="url(#mwHead)"/>
+              <!-- forehead tabby stripes -->
+              <g stroke="#CF5F1E" stroke-width="2.4" stroke-linecap="round"><line x1="54" y1="39" x2="54" y2="47"/><line x1="47" y1="41" x2="45" y2="48"/><line x1="61" y1="41" x2="63" y2="48"/></g>
+              <!-- cheeks/muzzle -->
+              <ellipse cx="54" cy="66" rx="19" ry="13" fill="#FFF3E0"/>
+              <!-- eyes -->
+              <ellipse cx="44" cy="55" rx="7.2" ry="8.2" fill="#ffffff"/>
+              <ellipse cx="64" cy="55" rx="7.2" ry="8.2" fill="#ffffff"/>
+              <circle cx="44.6" cy="55.5" r="5" fill="#66A83E"/><circle cx="63.4" cy="55.5" r="5" fill="#66A83E"/>
+              <circle cx="44.6" cy="55.8" r="2.6" fill="#183B4A"/><circle cx="63.4" cy="55.8" r="2.6" fill="#183B4A"/>
+              <circle cx="46.2" cy="53.8" r="1.5" fill="#ffffff"/><circle cx="65" cy="53.8" r="1.5" fill="#ffffff"/>
+              <!-- nose + mouth -->
+              <path d="M50.5 62 L57.5 62 L54 66 Z" fill="#F08A9B"/>
+              <path d="M54 66 Q54 70 49.5 70 M54 66 Q54 70 58.5 70" stroke="#B96A45" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <!-- whiskers -->
+              <g stroke="#B96A45" stroke-width="1.6" stroke-linecap="round"><line x1="36" y1="63" x2="22" y2="60"/><line x1="36" y1="67" x2="22" y2="68"/><line x1="72" y1="63" x2="86" y2="60"/><line x1="72" y1="67" x2="86" y2="68"/></g>
+            </symbol>
+            <symbol id="mwMono" viewBox="0 0 108 108">
+              <path d="M36 41 L40 22 L53 40 Z M72 41 L68 22 L55 40 Z" fill="#183B4A"/>
+              <ellipse cx="54" cy="58" rx="27" ry="25" fill="#183B4A"/>
+              <ellipse cx="44" cy="55" rx="4.5" ry="5.5" fill="#F4F1EA"/><ellipse cx="64" cy="55" rx="4.5" ry="5.5" fill="#F4F1EA"/>
+              <path d="M50.5 63 L57.5 63 L54 67 Z" fill="#F4F1EA"/>
+            </symbol>
+          </defs></svg>
+
+          <div style="font-family:'Baloo 2';font-weight:800;font-size:26px;color:#183B4A;">App icon — Milo, adaptive Android launcher</div>
+          <div style="font-family:'Nunito';font-weight:700;font-size:15px;color:#6b7d84;margin-bottom:24px;">Orange-tabby face + one village element (cottage on a hill). No text · strong silhouette · legible at 48px.</div>
+
+          <div style="display:flex;gap:40px;align-items:flex-start;">
+            <!-- hero squircle -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+              <div style="width:232px;height:232px;border-radius:52px;overflow:hidden;box-shadow:0 14px 30px rgba(24,59,74,.28);position:relative;">
+                <svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg>
+                <svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg>
+              </div>
+              <div style="font-family:'Nunito';font-weight:800;font-size:13px;color:#6b7d84;">ic_launcher · 512px master</div>
+            </div>
+
+            <!-- adaptive layers -->
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#087F83;">Adaptive layers</div>
+              <div style="display:flex;align-items:center;gap:16px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <svg viewBox="0 0 108 108" style="width:112px;height:112px;border-radius:22px;box-shadow:0 4px 10px rgba(24,59,74,.18);"><use href="#mwBg"/></svg>
+                  <span style="font-family:'Nunito';font-weight:700;font-size:12px;color:#6b7d84;">background</span>
+                </div>
+                <span style="font-family:'Baloo 2';font-weight:800;font-size:28px;color:#9aa7ac;">+</span>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <svg viewBox="0 0 108 108" style="width:112px;height:112px;border-radius:22px;background:conic-gradient(#e9e2d4 0 25%,#f4efe4 0 50%,#e9e2d4 0 75%,#f4efe4 0) 0 0/28px 28px;box-shadow:0 4px 10px rgba(24,59,74,.18);"><use href="#mwFg"/></svg>
+                  <span style="font-family:'Nunito';font-weight:700;font-size:12px;color:#6b7d84;">foreground</span>
+                </div>
+                <span style="font-family:'Baloo 2';font-weight:800;font-size:28px;color:#9aa7ac;">=</span>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <div style="width:112px;height:112px;border-radius:26px;overflow:hidden;position:relative;box-shadow:0 4px 10px rgba(24,59,74,.18);"><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg></div>
+                  <span style="font-family:'Nunito';font-weight:700;font-size:12px;color:#6b7d84;">composed</span>
+                </div>
+              </div>
+              <div style="font-family:'Nunito';font-weight:600;font-size:12px;color:#8a949a;max-width:430px;">Key features (eyes, ears, nose) sit inside the 66dp adaptive safe circle, so no mask crops them.</div>
+
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#087F83;margin-top:10px;">Mask shapes (launcher decides)</div>
+              <div style="display:flex;gap:18px;align-items:flex-end;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:88px;height:88px;border-radius:50%;overflow:hidden;position:relative;box-shadow:0 3px 8px rgba(24,59,74,.16);"><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">circle</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:88px;height:88px;border-radius:26px;overflow:hidden;position:relative;box-shadow:0 3px 8px rgba(24,59,74,.16);"><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">squircle</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:88px;height:88px;border-radius:14px;overflow:hidden;position:relative;box-shadow:0 3px 8px rgba(24,59,74,.16);"><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">rounded</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:48px;height:48px;border-radius:11px;overflow:hidden;position:relative;box-shadow:0 3px 8px rgba(24,59,74,.16);"><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwBg"/></svg><svg viewBox="0 0 108 108" style="position:absolute;inset:0;width:100%;height:100%;"><use href="#mwFg"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">48px</span></div>
+              </div>
+            </div>
+
+            <!-- variants -->
+            <div style="display:flex;flex-direction:column;gap:12px;margin-left:8px;">
+              <div style="font-family:'Baloo 2';font-weight:800;font-size:16px;color:#087F83;">Variants</div>
+              <div style="display:flex;gap:14px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:96px;height:96px;border-radius:24px;background:#183B4A;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 108 108" style="width:78px;height:78px;"><use href="#mwFg"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">dark bg</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:96px;height:96px;border-radius:24px;background:#F4F1EA;display:flex;align-items:center;justify-content:center;border:1px solid #e3ddd0;"><svg viewBox="0 0 108 108" style="width:78px;height:78px;"><use href="#mwMono"/></svg></div><span style="font-family:'Nunito';font-weight:700;font-size:11px;color:#6b7d84;">monochrome</span></div>
+              </div>
+              <div style="background:#fff;border:1px solid #ece6d8;border-radius:16px;padding:14px 16px;max-width:230px;box-shadow:0 2px 8px rgba(24,59,74,.05);">
+                <div style="font-family:'Baloo 2';font-weight:800;font-size:14px;color:#183B4A;margin-bottom:6px;">Exported files</div>
+                <div style="font-family:'Nunito';font-weight:700;font-size:12px;color:#6b7d84;line-height:1.7;">assets/icon/app-icon-512.png<br>ic_launcher_foreground.png<br>ic_launcher_background.png<br>app-icon-monochrome.png<br>app-icon-48.png</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MW_INSERT_POINT -->
+  </div>
+  </section>
+</div>
+</x-dc>
+</body>
+</html>
