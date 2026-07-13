@@ -1,732 +1,454 @@
 package com.maxinesworld.featurechildhome
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Backpack
-import androidx.compose.material.icons.rounded.EmojiEvents
-import androidx.compose.material.icons.rounded.LocalFireDepartment
-import androidx.compose.material.icons.rounded.Lock
-import androidx.compose.material.icons.rounded.LockOpen
-import androidx.compose.material.icons.rounded.Paid
-import androidx.compose.material.icons.rounded.Person
-import androidx.compose.material.icons.rounded.PlayArrow
-import androidx.compose.material.icons.rounded.Shield
-import androidx.compose.material.icons.rounded.Star
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.rounded.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
+import androidx.compose.ui.draw.*
+import androidx.compose.ui.geometry.*
+import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.semantics.*
+import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import com.maxinesworld.coredesignsystem.theme.Coral
-import com.maxinesworld.coredesignsystem.theme.Cream
-import com.maxinesworld.coredesignsystem.theme.Ink
-import com.maxinesworld.coredesignsystem.theme.LeafGreen
-import com.maxinesworld.coredesignsystem.theme.SkyBlue
-import com.maxinesworld.coredesignsystem.theme.StoryPurple
-import com.maxinesworld.coredesignsystem.theme.SuccessGreen
-import com.maxinesworld.coredesignsystem.theme.SunshineGold
-import com.maxinesworld.coredesignsystem.theme.VillageTeal
+import androidx.compose.ui.unit.*
+import com.maxinesworld.coredesignsystem.theme.*
+import kotlin.math.roundToInt
 
-private val GmrcTeal = Color(0xFF0B8585)
-private val HistoryGold = Color(0xFFB87916)
-private val ChildSurface = Color(0xFFFFFBF2)
+// ─── Types ───
 
-/** One authoritative destination model. Do not maintain a second subject list. */
-data class SubjectDestination(
-    val id: String,
-    val name: String,
-    val subject: String,
-    @DrawableRes val buildingRes: Int,
-    val color: Color,
-    val progress: Float,
-    val available: Boolean = true,
-    val recommended: Boolean = false,
+typealias SubjectId = String
+
+@Immutable
+data class NormalizedRect(val left: Float, val top: Float, val width: Float, val height: Float)
+
+sealed interface DestinationState {
+    data object Available : DestinationState
+    data object Recommended : DestinationState
+    data object Completed : DestinationState
+    data class Locked(val reason: String) : DestinationState
+}
+
+@Immutable
+data class SubjectDestinationUiState(
+    val id: SubjectId, val name: String, val subject: String,
+    val color: Color, val progress: Float,
+    val state: DestinationState, val zone: NormalizedRect,
 )
 
-private val villageDestinations = listOf(
-    SubjectDestination(
-        id = "english",
-        name = "Story Tree",
-        subject = "English",
-        buildingRes = R.drawable.location_story_tree,
-        color = StoryPurple,
-        progress = 0.42f,
-        recommended = true,
-    ),
-    SubjectDestination(
-        id = "filipino",
-        name = "Bahay ng Kuwento",
-        subject = "Filipino",
-        buildingRes = R.drawable.location_bahay_kuwento,
-        color = Coral,
-        progress = 0.25f,
-    ),
-    SubjectDestination(
-        id = "mathematics",
-        name = "Number Market",
-        subject = "Mathematics",
-        buildingRes = R.drawable.location_number_market,
-        color = SkyBlue,
-        progress = 0.58f,
-    ),
-    SubjectDestination(
-        id = "science",
-        name = "Discovery Lab",
-        subject = "Science",
-        buildingRes = R.drawable.location_discovery_lab,
-        color = LeafGreen,
-        progress = 0.33f,
-    ),
-    SubjectDestination(
-        id = "philippine-history",
-        name = "Heritage Harbor",
-        subject = "Makabansa",
-        buildingRes = R.drawable.location_heritage_harbor,
-        color = HistoryGold,
-        progress = 0.16f,
-    ),
-    SubjectDestination(
-        id = "gmrc",
-        name = "Kindness Corner",
-        subject = "GMRC",
-        buildingRes = R.drawable.location_kindness_corner,
-        color = GmrcTeal,
-        progress = 0f,
-        available = false,
-    ),
+// ─── Master scene viewport ───
+
+private const val REF_W = 1280f; private const val REF_H = 800f
+
+private data class SceneViewport(val displayW: Float, val displayH: Float, val cropScale: Float, val cropOffsetX: Float) {
+    fun toDpRect(r: NormalizedRect, density: Density): Rect {
+        // Computing in px then converting to dp
+        val xPx = (r.left * REF_W * cropScale - cropOffsetX)
+        val yPx = (r.top * REF_H * cropScale)
+        val wPx = (r.width * REF_W * cropScale)
+        val hPx = (r.height * REF_H * cropScale)
+        return Rect(xPx, yPx, xPx + wPx, yPx + hPx)
+    }
+}
+
+private fun computeViewport(displayW: Float, displayH: Float): SceneViewport {
+    val scale = maxOf(displayW / REF_W, displayH / REF_H)
+    val cropW = REF_W * scale
+    val offsetX = (cropW - displayW) / 2f
+    return SceneViewport(displayW, displayH, scale, offsetX)
+}
+
+// ─── Canonical 6 destinations ───
+
+private val landmarkZones = mapOf(
+    "english" to NormalizedRect(0.04f, 0.23f, 0.28f, 0.27f),
+    "filipino" to NormalizedRect(0.36f, 0.23f, 0.28f, 0.27f),
+    "mathematics" to NormalizedRect(0.68f, 0.23f, 0.28f, 0.27f),
+    "science" to NormalizedRect(0.04f, 0.55f, 0.28f, 0.27f),
+    "history" to NormalizedRect(0.36f, 0.55f, 0.28f, 0.27f),
+    "gmrc" to NormalizedRect(0.68f, 0.55f, 0.28f, 0.27f),
 )
 
-data class DailyQuestState(
-    val title: String = "Read a story and discover 5 new words",
-    val subjectId: String = "english",
-    val completed: Int = 3,
-    val total: Int = 5,
-    val starReward: Int = 25,
-    val coinReward: Int = 10,
-    val minutes: Int = 8,
+private val subjectMeta = mapOf(
+    "english" to Triple("Story Tree", "English", StoryPurple),
+    "filipino" to Triple("Bahay ng Kuwento", "Filipino", Coral),
+    "mathematics" to Triple("Number Market", "Mathematics", SkyBlue),
+    "science" to Triple("Discovery Lab", "Science", LeafGreen),
+    "history" to Triple("Heritage Harbor", "Philippine History", Color(0xFFB87916)),
+    "gmrc" to Triple("Kindness Corner", "GMRC", Color(0xFF087F83)),
 )
 
 @Composable
 fun VillageHomeScreen(
-    childName: String = "Maxine",
-    level: Int = 1,
-    xp: Int = 150,
-    xpMax: Int = 900,
-    dayStreak: Int = 7,
-    stars: Int = 0,
-    coins: Int = 0,
-    dailyQuest: DailyQuestState = DailyQuestState(),
-    onSubjectTap: (String) -> Unit,
-    onParentGate: () -> Unit,
-    onProfile: (() -> Unit)? = null,
-    onAchievements: (() -> Unit)? = null,
-    onBackpack: (() -> Unit)? = null,
+    childName: String = "Maxine", level: Int = 12, xp: Int = 660, xpMax: Int = 900,
+    dayStreak: Int = 7, stars: Int = 1234, pawCoins: Int = 567,
+    onSubjectTap: (String) -> Unit = {}, onParentGate: () -> Unit = {},
+    onAchievements: (() -> Unit)? = null, onBackpack: (() -> Unit)? = null,
+    onProfile: (() -> Unit)? = null, onMenu: (() -> Unit)? = null,
+    onQuestClick: () -> Unit = {},
 ) {
-    Scaffold(
-        containerColor = Cream,
-        topBar = {
-            PlayerHud(
-                name = childName,
-                level = level,
-                xp = xp,
-                xpMax = xpMax,
-                dayStreak = dayStreak,
-                stars = stars,
-                coins = coins,
-                onProfile = onProfile,
-            )
-        },
-        bottomBar = {
-            VillageNavigation(
-                onProfile = onProfile,
-                onAchievements = onAchievements,
-                onBackpack = onBackpack,
-                onParentGate = onParentGate,
-            )
-        },
-    ) { padding ->
-        BoxWithConstraints(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-                .background(Cream),
-        ) {
-            val wide = maxWidth >= 700.dp
-            if (wide) {
-                WideVillageHome(
-                    quest = dailyQuest,
-                    onSubjectTap = onSubjectTap,
-                )
-            } else {
-                CompactVillageHome(
-                    quest = dailyQuest,
-                    onSubjectTap = onSubjectTap,
-                )
-            }
+    val destinations = landmarkZones.map { (id, zone) ->
+        val (name, subject, color) = subjectMeta[id]!!
+        val progress = when (id) {
+            "english" -> 0.42f; "filipino" -> 0.25f; "mathematics" -> 0.67f
+            "science" -> 0.33f; "history" -> 0.16f; else -> 0f
+        }
+        val state: DestinationState = when {
+            id == "gmrc" -> DestinationState.Locked("Opening soon")
+            id == "mathematics" -> DestinationState.Recommended
+            progress >= 1f -> DestinationState.Completed
+            progress > 0f -> DestinationState.Available
+            else -> DestinationState.Available
+        }
+        SubjectDestinationUiState(id, name, subject, color, progress, state, zone)
+    }
+
+    BoxWithConstraints(Modifier.fillMaxSize()) {
+        val isExpanded = maxWidth >= 840.dp && maxHeight >= 600.dp
+        if (isExpanded) {
+            ExpandedVillageHome(destinations, childName, level, xp, xpMax, dayStreak, stars, pawCoins,
+                onSubjectTap, onQuestClick, onParentGate, onAchievements, onBackpack, onProfile, onMenu)
+        } else {
+            CompactVillageHome(destinations, childName, level, xp, xpMax, dayStreak, stars, pawCoins,
+                onSubjectTap, onQuestClick, onParentGate, onAchievements, onBackpack, onProfile)
         }
     }
 }
 
-@Composable
-private fun WideVillageHome(
-    quest: DailyQuestState,
-    onSubjectTap: (String) -> Unit,
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 16.dp, vertical = 12.dp),
-        contentAlignment = Alignment.TopCenter,
-    ) {
-        VillageScene(
-            modifier = Modifier
-                .fillMaxWidth()
-                .widthIn(max = 1440.dp)
-                .aspectRatio(16f / 9f)
-                .heightIn(min = 480.dp),
-            onSubjectTap = onSubjectTap,
-        )
-        DailyQuestCard(
-            quest = quest,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 16.dp)
-                .widthIn(max = 610.dp),
-            onStart = { onSubjectTap(quest.subjectId) },
-        )
-    }
-}
+// ─── Expanded (tablet) ───
 
 @Composable
-private fun CompactVillageHome(
-    quest: DailyQuestState,
-    onSubjectTap: (String) -> Unit,
+private fun ExpandedVillageHome(
+    destinations: List<SubjectDestinationUiState>,
+    name: String, level: Int, xp: Int, xpMax: Int,
+    streak: Int, stars: Int, coins: Int,
+    onTap: (String) -> Unit, onQuest: () -> Unit,
+    onParent: () -> Unit, onAchieve: (() -> Unit)?,
+    onBack: (() -> Unit)?, onProf: (() -> Unit)?, onMenu: (() -> Unit)?
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-        Text(
-            text = "Choose today’s adventure",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.ExtraBold,
-            color = Ink,
-        )
-        DailyQuestCard(
-            quest = quest,
-            modifier = Modifier.fillMaxWidth(),
-            onStart = { onSubjectTap(quest.subjectId) },
-        )
-        villageDestinations.chunked(2).forEach { row ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                row.forEach { destination ->
-                    CompactDestinationCard(
-                        destination = destination,
-                        modifier = Modifier.weight(1f),
-                        onTap = onSubjectTap,
+    var displayW by remember { mutableStateOf(0f) }
+    var displayH by remember { mutableStateOf(0f) }
+    val density = LocalDensity.current
+
+    Scaffold(containerColor = Color.Transparent,
+        bottomBar = { FloatingBottomNav(onParent, onAchieve, onBack, onProf) }
+    ) { pad ->
+        Box(Modifier.fillMaxSize().padding(pad).onSizeChanged { displayW = it.width.toFloat(); displayH = it.height.toFloat() }) {
+            val vp = remember(displayW, displayH) { computeViewport(displayW, displayH) }
+
+            // L1: Master scene
+            Image(painterResource(R.drawable.village_home_six_landmarks_master), null,
+                Modifier.fillMaxSize(), contentScale = ContentScale.Crop, alignment = Alignment.Center)
+
+            // L2: Scrims
+            Box(Modifier.fillMaxWidth().fillMaxHeight(0.18f).align(Alignment.TopCenter)
+                .background(Brush.verticalGradient(listOf(Color(0x4D0B2A36), Color.Transparent))))
+            Box(Modifier.fillMaxWidth().fillMaxHeight(0.28f).align(Alignment.BottomCenter)
+                .background(Brush.verticalGradient(listOf(Color.Transparent, Color(0x700B2A36)))))
+
+            // L3: Hit zones + labels
+            destinations.forEach { dest ->
+                val rect = remember(dest.id, displayW, displayH) { vp.toDpRect(dest.zone, density) }
+                val x = with(density) { rect.left.toDp() }; val y = with(density) { rect.top.toDp() }
+                val w = with(density) { rect.width.toDp() }; val h = with(density) { rect.height.toDp() }
+
+                // Invisible hit target
+                Box(Modifier.offset(x, y).sizeIn(minWidth = w, minHeight = h)
+                    .clickable(
+                        enabled = dest.state !is DestinationState.Locked,
+                        role = Role.Button,
+                        onClick = { onTap(dest.id) }
                     )
-                }
-                if (row.size == 1) Spacer(Modifier.weight(1f))
+                    .semantics {
+                        role = Role.Button
+                        contentDescription = "${dest.name}, ${dest.subject}"
+                        stateDescription = when (dest.state) {
+                            is DestinationState.Recommended -> "Recommended today, ${(dest.progress * 100).roundToInt()}% complete"
+                            is DestinationState.Locked -> "Locked, ${(dest.state as DestinationState.Locked).reason}"
+                            else -> "${(dest.progress * 100).roundToInt()}% complete"
+                        }
+                    }
+                )
+                // Native label — bottom-center of zone
+                DestinationLabel(dest, Modifier.offset(x = x, y = y + h).widthIn(max = w * 0.9f))
             }
-        }
-        Spacer(Modifier.height(12.dp))
-    }
-}
 
-@Composable
-private fun VillageScene(
-    modifier: Modifier = Modifier,
-    onSubjectTap: (String) -> Unit,
-) {
-    Box(
-        modifier = modifier
-            .clip(RoundedCornerShape(28.dp))
-            .background(Color(0xFF9EDB7B)),
-    ) {
-        Image(
-            painter = painterResource(R.drawable.village_background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize(),
-        )
-        Column(modifier = Modifier.fillMaxSize()) {
-            Spacer(Modifier.weight(0.24f))
-            villageDestinations.chunked(3).forEach { row ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(0.31f)
-                        .padding(horizontal = 30.dp),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                ) {
-                    row.forEach { destination ->
-                        DestinationMarker(
-                            destination = destination,
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxHeight(),
-                            onTap = onSubjectTap,
-                        )
+            // L4: Profile HUD
+            ProfileHud(name, level, xp, xpMax, Modifier.align(Alignment.TopStart).padding(start = 24.dp, top = 20.dp))
+
+            // L4: Streak + currencies
+            Row(Modifier.align(Alignment.TopEnd).padding(end = 20.dp, top = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                RewardPill(Icons.Rounded.LocalFireDepartment, "$streak", Coral)
+                RewardPill(Icons.Rounded.Star, formatCount(stars), SunshineGold)
+                RewardPill(painterResource(R.drawable.ic_paw_coin), formatCount(coins), Color(0xFFC8A04A))
+                if (onMenu != null) {
+                    IconButton(onClick = onMenu, modifier = Modifier.size(48.dp).background(SkyBlue, RoundedCornerShape(16.dp))) {
+                        Icon(Icons.Rounded.Menu, "Menu", tint = White, modifier = Modifier.size(24.dp))
                     }
                 }
             }
-            Spacer(Modifier.weight(0.14f))
+
+            // L4: Collapsed Daily Quest pill
+            QuestPill(onQuest, Modifier.align(Alignment.TopStart).padding(start = 24.dp, top = 110.dp))
+
+            // TODAY focus glow
+            val today = destinations.find { it.state is DestinationState.Recommended }
+            if (today != null) {
+                val rect = remember(today.id, displayW, displayH) { vp.toDpRect(today.zone, density) }
+                Box(Modifier.offset(with(density) { rect.left.toDp() }, with(density) { rect.top.toDp() })
+                    .size(with(density) { rect.width.toDp() }, with(density) { rect.height.toDp() })
+                    .drawBehind {
+                        drawRoundRect(SunshineGold.copy(alpha = 0.08f),
+                            cornerRadius = CornerRadius(24f, 24f))
+                    })
+            }
         }
     }
 }
 
-@Composable
-private fun DestinationMarker(
-    destination: SubjectDestination,
-    modifier: Modifier = Modifier,
-    onTap: (String) -> Unit,
-) {
-    val state = when {
-        !destination.available -> "Locked. Adventure opening soon"
-        destination.progress >= 1f -> "Completed"
-        destination.progress > 0f -> "${(destination.progress * 100).toInt()} percent complete"
-        else -> "Ready to begin"
-    }
-    Box(
-        modifier = modifier
-            .sizeIn(minWidth = 56.dp, minHeight = 56.dp)
-            .clip(RoundedCornerShape(22.dp))
-            .clickable(
-                enabled = destination.available,
-                role = Role.Button,
-                onClick = { onTap(destination.id) },
-            )
-            .semantics {
-                role = Role.Button
-                contentDescription = "${destination.name}, ${destination.subject}"
-                stateDescription = state
-            },
-        contentAlignment = Alignment.BottomCenter,
-    ) {
-        Image(
-            painter = painterResource(destination.buildingRes),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .fillMaxHeight(0.86f)
-                .fillMaxWidth(0.9f)
-                .align(Alignment.TopCenter),
-        )
-        DestinationLabel(destination = destination)
-    }
-}
+// ─── Compact layout ───
 
 @Composable
-private fun DestinationLabel(destination: SubjectDestination) {
-    Surface(
-        color = ChildSurface.copy(alpha = 0.97f),
-        shape = RoundedCornerShape(16.dp),
-        shadowElevation = 6.dp,
-        tonalElevation = 1.dp,
-        modifier = Modifier
-            .fillMaxWidth(0.94f)
-            .heightIn(min = 58.dp),
-    ) {
-        Column(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-            ) {
-                if (!destination.available) {
-                    Icon(
-                        imageVector = Icons.Rounded.Lock,
-                        contentDescription = null,
-                        tint = Ink,
-                        modifier = Modifier.size(16.dp),
-                    )
-                }
-                Text(
-                    text = destination.name,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Ink,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            Text(
-                text = if (destination.available) {
-                    "${destination.subject} · ${(destination.progress * 100).toInt()}%"
-                } else {
-                    "${destination.subject} · Opening soon"
-                },
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = FontWeight.Bold,
-                color = destination.color,
-                maxLines = 1,
-            )
-        }
-    }
-}
-
-@Composable
-private fun CompactDestinationCard(
-    destination: SubjectDestination,
-    modifier: Modifier,
-    onTap: (String) -> Unit,
+private fun CompactVillageHome(
+    destinations: List<SubjectDestinationUiState>,
+    name: String, level: Int, xp: Int, xpMax: Int,
+    streak: Int, stars: Int, coins: Int,
+    onTap: (String) -> Unit, onQuest: () -> Unit,
+    onParent: () -> Unit, onAchieve: (() -> Unit)?,
+    onBack: (() -> Unit)?, onProf: (() -> Unit)?
 ) {
-    Card(
-        modifier = modifier
-            .heightIn(min = 220.dp)
-            .clickable(
-                enabled = destination.available,
-                role = Role.Button,
-                onClick = { onTap(destination.id) },
-            )
-            .semantics {
-                role = Role.Button
-                contentDescription = "${destination.name}, ${destination.subject}"
-                stateDescription = if (destination.available) {
-                    "${(destination.progress * 100).toInt()} percent complete"
-                } else {
-                    "Locked. Adventure opening soon"
-                }
-            },
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = destination.color.copy(alpha = 0.12f),
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(10.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(126.dp),
-            ) {
-                Image(
-                    painter = painterResource(destination.buildingRes),
-                    contentDescription = null,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
-            Text(
-                text = destination.name,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.ExtraBold,
-                color = Ink,
-                textAlign = TextAlign.Center,
-                maxLines = 2,
-            )
-            Text(
-                text = if (destination.available) destination.subject else "${destination.subject} · Opening soon",
-                style = MaterialTheme.typography.labelSmall,
-                color = destination.color,
-                textAlign = TextAlign.Center,
-            )
-        }
-    }
-}
-
-@Composable
-private fun DailyQuestCard(
-    quest: DailyQuestState,
-    modifier: Modifier = Modifier,
-    onStart: () -> Unit,
-) {
-    val safeTotal = quest.total.coerceAtLeast(1)
-    val progress = (quest.completed.toFloat() / safeTotal).coerceIn(0f, 1f)
-    Surface(
-        modifier = modifier,
-        color = ChildSurface.copy(alpha = 0.98f),
-        shape = RoundedCornerShape(26.dp),
-        shadowElevation = 10.dp,
-    ) {
-        Row(
-            modifier = Modifier.padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-        ) {
-            Surface(
-                color = StoryPurple.copy(alpha = 0.12f),
-                shape = RoundedCornerShape(18.dp),
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.character_mira),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .padding(4.dp)
-                        .size(72.dp),
-                )
-            }
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(5.dp),
-            ) {
-                Text(
-                    text = "Daily Quest · ${quest.minutes} min",
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = VillageTeal,
-                )
-                Text(
-                    text = quest.title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Ink,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                LinearProgressIndicator(
-                    progress = { progress },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(8.dp)
-                        .clip(CircleShape),
-                    color = SuccessGreen,
-                    trackColor = SuccessGreen.copy(alpha = 0.18f),
-                )
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    RewardLabel(Icons.Rounded.Star, quest.starReward, SunshineGold)
-                    RewardLabel(Icons.Rounded.Paid, quest.coinReward, HistoryGold)
-                    Text(
-                        text = "${quest.completed}/${quest.total} steps",
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = Ink,
-                    )
+    Scaffold(containerColor = Cream,
+        bottomBar = { FloatingBottomNav(onParent, onAchieve, onBack, onProf) }
+    ) { pad ->
+        Column(Modifier.fillMaxSize().padding(pad).verticalScroll(rememberScrollState())) {
+            // Hero crop
+            Box(Modifier.fillMaxWidth().height(220.dp)) {
+                Image(painterResource(R.drawable.village_home_six_landmarks_master), null,
+                    Modifier.fillMaxSize(), contentScale = ContentScale.Crop, alignment = Alignment.Center)
+                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(0x4D0B2A36), Color.Transparent, Color(0x4D0B2A36)))))
+                ProfileHud(name, level, xp, xpMax, Modifier.align(Alignment.TopStart).padding(16.dp))
+                Row(Modifier.align(Alignment.TopEnd).padding(16.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    RewardPill(Icons.Rounded.LocalFireDepartment, "$streak", Coral)
+                    RewardPill(Icons.Rounded.Star, formatCount(stars), SunshineGold)
                 }
             }
-            Button(
-                onClick = onStart,
-                modifier = Modifier
-                    .height(60.dp)
-                    .widthIn(min = 116.dp),
-                shape = RoundedCornerShape(18.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = VillageTeal,
-                    contentColor = Color.White,
-                ),
-                contentPadding = PaddingValues(horizontal = 18.dp),
-            ) {
-                Icon(Icons.Rounded.PlayArrow, contentDescription = null)
-                Spacer(Modifier.width(6.dp))
-                Text(
-                    text = if (quest.completed > 0) "Continue" else "Start",
-                    fontWeight = FontWeight.ExtraBold,
-                )
+            QuestPill(onQuest, Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp))
+            // 2-column grid
+            Column(Modifier.padding(horizontal = 12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                for (row in destinations.chunked(2)) {
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        row.forEach { dest ->
+                            CompactCard(dest, Modifier.weight(1f), onTap)
+                        }
+                        if (row.size < 2) Spacer(Modifier.weight(1f))
+                    }
+                }
             }
+            Spacer(Modifier.height(16.dp))
         }
     }
 }
 
-@Composable
-private fun RewardLabel(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    value: Int,
-    color: Color,
-) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Icon(icon, contentDescription = null, tint = color, modifier = Modifier.size(16.dp))
-        Text(
-            text = value.toString(),
-            style = MaterialTheme.typography.labelSmall,
-            fontWeight = FontWeight.ExtraBold,
-            color = Ink,
-        )
-    }
-}
+// ─── Destination Label (expanded) ───
 
 @Composable
-private fun PlayerHud(
-    name: String,
-    level: Int,
-    xp: Int,
-    xpMax: Int,
-    dayStreak: Int,
-    stars: Int,
-    coins: Int,
-    onProfile: (() -> Unit)?,
-) {
-    Surface(color = ChildSurface, shadowElevation = 4.dp) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 76.dp)
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Surface(
-                modifier = Modifier
-                    .requiredSize(58.dp)
-                    .clickable(enabled = onProfile != null, role = Role.Button) { onProfile?.invoke() }
-                    .semantics {
-                        role = Role.Button
-                        contentDescription = "$name profile"
-                        stateDescription = if (onProfile == null) "Coming soon" else "Open profile"
-                    },
-                shape = CircleShape,
-                color = Coral.copy(alpha = 0.18f),
-                border = androidx.compose.foundation.BorderStroke(3.dp, SunshineGold),
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.character_milo),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.padding(2.dp),
-                )
-            }
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = "Hi, $name!",
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Ink,
-                )
+private fun DestinationLabel(dest: SubjectDestinationUiState, modifier: Modifier = Modifier) {
+    Surface(modifier, shape = RoundedCornerShape(18.dp), color = Cream.copy(alpha = 0.96f),
+        shadowElevation = 4.dp, tonalElevation = 1.dp) {
+        Row(Modifier.padding(start = 12.dp, end = 14.dp, top = 10.dp, bottom = 10.dp),
+            verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.width(4.dp).height(32.dp).clip(RoundedCornerShape(2.dp)).background(dest.color))
+            Spacer(Modifier.width(10.dp))
+            Column {
+                Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, maxLines = 1)
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = "Level $level",
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = VillageTeal,
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    LinearProgressIndicator(
-                        progress = { (xp.toFloat() / xpMax.coerceAtLeast(1)).coerceIn(0f, 1f) },
-                        modifier = Modifier
-                            .widthIn(max = 160.dp)
-                            .weight(1f, fill = false)
-                            .height(7.dp)
-                            .clip(CircleShape),
-                        color = StoryPurple,
-                        trackColor = StoryPurple.copy(alpha = 0.16f),
-                    )
+                    Text(dest.subject, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = dest.color)
+                    Text(" · ", color = Ink.copy(alpha = 0.4f))
+                    when (dest.state) {
+                        is DestinationState.Locked -> {
+                            Icon(Icons.Rounded.Lock, null, tint = Ink.copy(alpha = 0.4f), modifier = Modifier.size(14.dp))
+                            Text((dest.state as DestinationState.Locked).reason, fontSize = 12.sp, color = Ink.copy(alpha = 0.5f))
+                        }
+                        else -> {
+                            val pct = (dest.progress * 100).roundToInt()
+                            Text("$pct%", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = dest.color)
+                            LinearProgressIndicator(dest.progress, Modifier.width(48.dp).height(4.dp).padding(start = 6.dp).clip(RoundedCornerShape(2.dp)),
+                                color = dest.color, trackColor = dest.color.copy(alpha = 0.12f))
+                        }
+                    }
                 }
             }
-            HudChip(Icons.Rounded.LocalFireDepartment, dayStreak, Coral, "day streak")
-            HudChip(Icons.Rounded.Star, stars, SunshineGold, "stars")
-            HudChip(Icons.Rounded.Paid, coins, HistoryGold, "paw coins")
+            if (dest.state is DestinationState.Recommended) {
+                Spacer(Modifier.width(8.dp))
+                Surface(shape = RoundedCornerShape(50), color = SunshineGold.copy(alpha = 0.2f)) {
+                    Text("TODAY", fontWeight = FontWeight.Bold, fontSize = 10.sp, color = Color(0xFF2B2100),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp))
+                }
+            }
         }
     }
 }
 
+// ─── Compact Card ───
+
 @Composable
-private fun HudChip(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    value: Int,
-    color: Color,
-    description: String,
-) {
-    Surface(
-        color = color.copy(alpha = 0.14f),
-        shape = RoundedCornerShape(16.dp),
-        modifier = Modifier.semantics { contentDescription = "$value $description" },
+private fun CompactCard(dest: SubjectDestinationUiState, modifier: Modifier, onTap: (String) -> Unit) {
+    Card(
+        onClick = { if (dest.state !is DestinationState.Locked) onTap(dest.id) },
+        modifier = modifier,
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = dest.color.copy(alpha = 0.08f)),
+        elevation = CardDefaults.cardElevation(2.dp)
     ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Icon(icon, contentDescription = null, tint = color, modifier = Modifier.size(20.dp))
+        Column(Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Surface(shape = RoundedCornerShape(10.dp), color = dest.color.copy(alpha = 0.15f)) {
+                    Icon(painterResource(R.drawable.ic_book), null, tint = dest.color, modifier = Modifier.padding(8.dp).size(24.dp))
+                }
+                Spacer(Modifier.width(8.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Ink, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(dest.subject, fontSize = 11.sp, color = dest.color)
+                }
+                if (dest.state is DestinationState.Recommended) {
+                    Surface(shape = RoundedCornerShape(50), color = SunshineGold.copy(alpha = 0.2f)) {
+                        Text("TODAY", fontWeight = FontWeight.Bold, fontSize = 9.sp, color = Color(0xFF2B2100),
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
+                    }
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+            when (dest.state) {
+                is DestinationState.Locked -> {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Rounded.Lock, null, tint = Ink.copy(alpha = 0.4f), modifier = Modifier.size(14.dp))
+                        Text((dest.state as DestinationState.Locked).reason, fontSize = 11.sp, color = Ink.copy(alpha = 0.4f))
+                    }
+                }
+                else -> {
+                    LinearProgressIndicator(dest.progress, Modifier.fillMaxWidth().height(5.dp).clip(RoundedCornerShape(3.dp)),
+                        color = dest.color, trackColor = dest.color.copy(alpha = 0.1f))
+                    Spacer(Modifier.height(2.dp))
+                    Text("${(dest.progress * 100).roundToInt()}%", fontSize = 10.sp, color = dest.color)
+                }
+            }
+        }
+    }
+}
+
+// ─── Profile HUD ───
+
+@Composable
+private fun ProfileHud(name: String, level: Int, xp: Int, xpMax: Int, modifier: Modifier = Modifier) {
+    Surface(modifier.widthIn(180.dp, 260.dp), shape = RoundedCornerShape(22.dp),
+        color = Cream.copy(alpha = 0.96f), shadowElevation = 4.dp, tonalElevation = 1.dp) {
+        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.size(48.dp).clip(CircleShape).background(Coral))
+            Spacer(Modifier.width(10.dp))
+            Column {
+                Text("Hi, $name!", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Ink)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Surface(shape = RoundedCornerShape(4.dp), color = SunshineGold.copy(alpha = 0.15f)) {
+                        Text("Lv $level", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Color(0xFF2B2100),
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
+                    }
+                    Spacer(Modifier.width(6.dp))
+                    LinearProgressIndicator(xp.toFloat() / xpMax, Modifier.weight(1f).height(6.dp).clip(RoundedCornerShape(3.dp)),
+                        color = SunshineGold, trackColor = Color(0xFFE6D9C2))
+                }
+                Text("$xp / $xpMax XP", fontSize = 10.sp, color = Ink.copy(alpha = 0.4f))
+            }
+        }
+    }
+}
+
+// ─── Reward Pill ───
+
+@Composable
+private fun RewardPill(icon: Any, text: String, tint: Color) {
+    Surface(shape = RoundedCornerShape(50), color = Cream.copy(alpha = 0.94f), shadowElevation = 2.dp) {
+        Row(Modifier.padding(horizontal = 10.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+            when (icon) {
+                is ImageVector -> Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
+                is androidx.compose.ui.graphics.painter.Painter -> Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
+            }
             Spacer(Modifier.width(4.dp))
-            Text(value.toString(), fontWeight = FontWeight.ExtraBold, color = Ink)
+            Text(text, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
+        }
+    }
+}
+
+// ─── Quest Pill ───
+
+@Composable
+private fun QuestPill(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    Card(
+        onClick = onClick, modifier = modifier, shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Cream.copy(alpha = 0.96f)),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            Surface(shape = RoundedCornerShape(10.dp), color = StoryPurple.copy(alpha = 0.12f)) {
+                Icon(painterResource(R.drawable.ic_quest), null, tint = StoryPurple,
+                    modifier = Modifier.padding(8.dp).size(20.dp))
+            }
+            Spacer(Modifier.width(10.dp))
+            Column(Modifier.weight(1f)) {
+                Text("Daily Quest", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
+                Text("Read a story and discover 5 new words · 3/5", fontSize = 11.sp,
+                    color = Ink.copy(alpha = 0.55f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+            Surface(shape = RoundedCornerShape(50), color = LeafGreen.copy(alpha = 0.12f)) {
+                Text("Continue", fontWeight = FontWeight.Bold, fontSize = 12.sp, color = LeafGreen,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp))
+            }
+        }
+    }
+}
+
+// ─── Bottom Nav ───
+
+@Composable
+private fun FloatingBottomNav(
+    onParent: () -> Unit, onAchieve: (() -> Unit)?,
+    onBack: (() -> Unit)?, onProf: (() -> Unit)?
+) {
+    Surface(Modifier.fillMaxWidth().padding(horizontal = 48.dp, vertical = 12.dp),
+        shape = RoundedCornerShape(24.dp), color = Cream.copy(alpha = 0.97f),
+        shadowElevation = 8.dp, tonalElevation = 2.dp) {
+        Row(Modifier.fillMaxWidth().height(64.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically) {
+            NavItem(onProf ?: {}, Icons.Rounded.Person, "Profile", enabled = onProf != null)
+            NavItem(onAchieve ?: {}, Icons.Rounded.EmojiEvents, "Achievements", enabled = onAchieve != null)
+            NavItem(onBack ?: {}, Icons.Rounded.Backpack, "Backpack", enabled = onBack != null)
+            NavItem(onParent, Icons.Rounded.Lock, "Parents", enabled = true)
         }
     }
 }
 
 @Composable
-private fun VillageNavigation(
-    onProfile: (() -> Unit)?,
-    onAchievements: (() -> Unit)?,
-    onBackpack: (() -> Unit)?,
-    onParentGate: () -> Unit,
-) {
-    NavigationBar(containerColor = ChildSurface, tonalElevation = 4.dp) {
-        NavigationBarItem(
-            icon = { Icon(Icons.Rounded.Person, contentDescription = null) },
-            label = { Text("Profile") },
-            selected = false,
-            enabled = onProfile != null,
-            onClick = { onProfile?.invoke() },
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Rounded.EmojiEvents, contentDescription = null) },
-            label = { Text("Achievements") },
-            selected = false,
-            enabled = onAchievements != null,
-            onClick = { onAchievements?.invoke() },
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Rounded.Backpack, contentDescription = null) },
-            label = { Text("Backpack") },
-            selected = false,
-            enabled = onBackpack != null,
-            onClick = { onBackpack?.invoke() },
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Rounded.Shield, contentDescription = null) },
-            label = { Text("Parents") },
-            selected = false,
-            onClick = onParentGate,
-        )
+private fun NavItem(onClick: () -> Unit, icon: ImageVector, label: String, enabled: Boolean) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.clickable(enabled = enabled, role = Role.Button, onClick = onClick)
+            .semantics { this.role = Role.Button; contentDescription = label; if (!enabled) stateDescription = "Unavailable" }
+            .padding(8.dp).sizeIn(minWidth = 56.dp, minHeight = 56.dp),
+        verticalArrangement = Arrangement.Center) {
+        Icon(icon, null, tint = if (enabled) VillageTeal else Ink.copy(alpha = 0.25f), modifier = Modifier.size(26.dp))
+        Text(label, fontSize = 10.sp, color = if (enabled) Ink else Ink.copy(alpha = 0.25f))
     }
+}
+
+private fun formatCount(n: Int): String = when {
+    n >= 1000 -> "${n / 1000}.${(n % 1000) / 100}k"
+    else -> "$n"
 }
