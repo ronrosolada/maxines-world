@@ -12,24 +12,17 @@ import androidx.compose.ui.draw.*
 import androidx.compose.ui.geometry.*
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.layout.*
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.*
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.*
-import com.maxinesworld.coredesignsystem.components.BambooSurface
 import com.maxinesworld.coredesignsystem.theme.*
 import kotlin.math.roundToInt
 
 // ─── Types ───
-
 typealias SubjectId = String
-
-@Immutable
-data class NormalizedRect(val left: Float, val top: Float, val width: Float, val height: Float)
 
 sealed interface DestinationState {
     data object Available : DestinationState
@@ -41,46 +34,24 @@ sealed interface DestinationState {
 @Immutable
 data class SubjectDestinationUiState(
     val id: SubjectId, val name: String, val subject: String,
-    val color: Color, val progress: Float,
-    val state: DestinationState, val zone: NormalizedRect,
+    val color: Color, val progress: Float, val state: DestinationState,
 )
 
 @Immutable
-data class EndemicAnimal(
-    val id: String, val subject: String, val x: Float, val y: Float,
-    val targetW: Int, val animalRes: Int,
-)
+data class DestinationAnchor(val centerX: Float, val centerY: Float)
 
-// ─── Master scene viewport ───
+@Immutable
+data class AnimalPlacement(val x: Float, val y: Float, val targetW: Int, val animalRes: Int)
 
-private const val REF_W = 1280f; private const val REF_H = 800f
+// ─── Canonical data ───
 
-private data class SceneViewport(val displayW: Float, val displayH: Float, val cropScale: Float, val cropOffsetX: Float) {
-    fun toDpRect(r: NormalizedRect, density: Density): Rect {
-        val xPx = (r.left * REF_W * cropScale - cropOffsetX)
-        val yPx = (r.top * REF_H * cropScale)
-        val wPx = (r.width * REF_W * cropScale)
-        val hPx = (r.height * REF_H * cropScale)
-        return Rect(xPx, yPx, xPx + wPx, yPx + hPx)
-    }
-}
-
-private fun computeViewport(displayW: Float, displayH: Float): SceneViewport {
-    val scale = maxOf(displayW / REF_W, displayH / REF_H)
-    val cropW = REF_W * scale
-    val offsetX = (cropW - displayW) / 2f
-    return SceneViewport(displayW, displayH, scale, offsetX)
-}
-
-// ─── Canonical 6 destinations ───
-
-private val landmarkZones = mapOf(
-    "english" to NormalizedRect(0.04f, 0.23f, 0.28f, 0.27f),
-    "filipino" to NormalizedRect(0.36f, 0.23f, 0.28f, 0.27f),
-    "mathematics" to NormalizedRect(0.68f, 0.23f, 0.28f, 0.27f),
-    "science" to NormalizedRect(0.04f, 0.55f, 0.28f, 0.27f),
-    "history" to NormalizedRect(0.36f, 0.55f, 0.28f, 0.27f),
-    "gmrc" to NormalizedRect(0.68f, 0.55f, 0.28f, 0.27f),
+private val destinationAnchors = mapOf(
+    "english" to DestinationAnchor(0.14f, 0.44f),
+    "filipino" to DestinationAnchor(0.50f, 0.30f),
+    "mathematics" to DestinationAnchor(0.84f, 0.36f),
+    "science" to DestinationAnchor(0.14f, 0.72f),
+    "history" to DestinationAnchor(0.50f, 0.72f),
+    "gmrc" to DestinationAnchor(0.84f, 0.72f),
 )
 
 private val subjectMeta = mapOf(
@@ -92,16 +63,16 @@ private val subjectMeta = mapOf(
     "gmrc" to Triple("Kindness Corner", "GMRC", Color(0xFF087F83)),
 )
 
-// ─── Endemic animal placements ───
-
 private val endemicAnimals = listOf(
-    EndemicAnimal("philippine_eagle", "english", 0.265f, 0.075f, 44, R.drawable.animal_philippine_eagle),
-    EndemicAnimal("philippine_tarsier", "filipino", 0.10f, 0.425f, 34, R.drawable.animal_philippine_tarsier),
-    EndemicAnimal("tamaraw", "mathematics", 0.735f, 0.385f, 44, R.drawable.animal_tamaraw),
-    EndemicAnimal("philippine_colugo", "science", 0.08f, 0.625f, 34, R.drawable.animal_philippine_colugo),
-    EndemicAnimal("palawan_peacock_pheasant", "history", 0.285f, 0.835f, 42, R.drawable.animal_palawan_peacock_pheasant),
-    EndemicAnimal("visayan_warty_pig", "gmrc", 0.895f, 0.845f, 42, R.drawable.animal_visayan_warty_pig),
+    AnimalPlacement(0.27f, 0.08f, 44, R.drawable.animal_philippine_eagle),
+    AnimalPlacement(0.10f, 0.43f, 34, R.drawable.animal_philippine_tarsier),
+    AnimalPlacement(0.73f, 0.39f, 44, R.drawable.animal_tamaraw),
+    AnimalPlacement(0.08f, 0.63f, 34, R.drawable.animal_philippine_colugo),
+    AnimalPlacement(0.29f, 0.84f, 42, R.drawable.animal_palawan_peacock_pheasant),
+    AnimalPlacement(0.89f, 0.85f, 42, R.drawable.animal_visayan_warty_pig),
 )
+
+// ─── Root Screen ───
 
 @Composable
 fun VillageHomeScreen(
@@ -109,10 +80,10 @@ fun VillageHomeScreen(
     dayStreak: Int = 7, stars: Int = 1234, pawCoins: Int = 567,
     onSubjectTap: (String) -> Unit = {}, onParentGate: () -> Unit = {},
     onAchievements: (() -> Unit)? = null, onBackpack: (() -> Unit)? = null,
-    onProfile: (() -> Unit)? = null, onMenu: (() -> Unit)? = null,
+    onProfile: (() -> Unit)? = null,
     onQuestClick: () -> Unit = {},
 ) {
-    val destinations = landmarkZones.map { (id, zone) ->
+    val destinations = destinationAnchors.map { (id, _) ->
         val (name, subject, color) = subjectMeta[id]!!
         val progress = when (id) {
             "english" -> 0.42f; "filipino" -> 0.25f; "mathematics" -> 0.67f
@@ -122,335 +93,222 @@ fun VillageHomeScreen(
             id == "gmrc" -> DestinationState.Locked("Opening soon")
             id == "mathematics" -> DestinationState.Recommended
             progress >= 1f -> DestinationState.Completed
-            progress > 0f -> DestinationState.Available
             else -> DestinationState.Available
         }
-        SubjectDestinationUiState(id, name, subject, color, progress, state, zone)
+        SubjectDestinationUiState(id, name, subject, color, progress, state)
     }
 
-    BoxWithConstraints(Modifier.fillMaxSize()) {
-        val isExpanded = maxWidth >= 840.dp && maxHeight >= 600.dp
-        if (isExpanded) {
-            ExpandedVillageHome(destinations, childName, level, xp, xpMax, dayStreak, stars, pawCoins,
-                onSubjectTap, onQuestClick, onParentGate, onAchievements, onBackpack, onProfile, onMenu)
-        } else {
-            CompactVillageHome(destinations, childName, level, xp, xpMax, dayStreak, stars, pawCoins,
-                onSubjectTap, onQuestClick, onParentGate, onAchievements, onBackpack, onProfile)
-        }
-    }
-}
-
-// ─── Expanded (tablet) ───
-
-@Composable
-private fun ExpandedVillageHome(
-    destinations: List<SubjectDestinationUiState>,
-    name: String, level: Int, xp: Int, xpMax: Int,
-    streak: Int, stars: Int, coins: Int,
-    onTap: (String) -> Unit, onQuest: () -> Unit,
-    onParent: () -> Unit, onAchieve: (() -> Unit)?,
-    onBack: (() -> Unit)?, onProf: (() -> Unit)?, onMenu: (() -> Unit)?
-) {
-    var displayW by remember { mutableStateOf(0f) }
-    var displayH by remember { mutableStateOf(0f) }
-    val density = LocalDensity.current
-
-    Scaffold(containerColor = Color.Transparent,
-        bottomBar = { FloatingBottomNav(onParent, onAchieve, onBack, onProf) }
-    ) { pad ->
-        Box(Modifier.fillMaxSize().padding(pad).onSizeChanged { displayW = it.width.toFloat(); displayH = it.height.toFloat() }) {
-            val vp = remember(displayW, displayH) { computeViewport(displayW, displayH) }
-
-            // L1: Master scene
+    Scaffold(
+        containerColor = Color.Transparent,
+        bottomBar = { VillageBottomNav(onParentGate, onAchievements, onBackpack, onProfile) },
+    ) { scaffoldPad ->
+        Box(Modifier.fillMaxSize().padding(scaffoldPad).clipToBounds()) {
+            // L0: Village scene
             Image(painterResource(R.drawable.village_home_six_landmarks_master), null,
                 Modifier.fillMaxSize(), contentScale = ContentScale.Crop, alignment = Alignment.Center)
 
-            // L2: Scrims
-            Box(Modifier.fillMaxWidth().fillMaxHeight(0.18f).align(Alignment.TopCenter)
+            // L0: Scrims
+            Box(Modifier.fillMaxWidth().fillMaxHeight(0.15f).align(Alignment.TopCenter)
                 .background(Brush.verticalGradient(listOf(Color(0x4D0B2A36), Color.Transparent))))
-            Box(Modifier.fillMaxWidth().fillMaxHeight(0.28f).align(Alignment.BottomCenter)
-                .background(Brush.verticalGradient(listOf(Color.Transparent, Color(0x700B2A36)))))
 
-            // L3: Invisible hit targets (on top of scene, behind scrims)
+            var sceneW by remember { mutableStateOf(0) }; var sceneH by remember { mutableStateOf(0) }
+            val density = LocalDensity.current
+
+            // L0.5: Animals
+            Box(Modifier.fillMaxSize().onSizeChanged { sceneW = it.width; sceneH = it.height }) {
+                endemicAnimals.forEach { a ->
+                    Image(painterResource(a.animalRes), null,
+                        Modifier.offset(
+                            x = with(density) { (a.x * sceneW.toFloat()).toDp() },
+                            y = with(density) { (a.y * sceneH.toFloat()).toDp() },
+                        ).size(with(density) { a.targetW.dp }),
+                        contentScale = ContentScale.Fit, alpha = 0.8f)
+                }
+            }
+
+            // L1: Hanging bamboo sign for Daily Quest
+            val questAnchor = DestinationAnchor(0.14f, 0.16f)
+            BambooSign(
+                anchor = questAnchor, sceneW = sceneW, sceneH = sceneH, density = density,
+                onClick = onQuestClick, enabled = true,
+                accentColor = StoryPurple,
+                contentDescription = "Daily Quest, read a story, 3 of 5, button",
+            ) {
+                Text("Daily Quest", fontWeight = FontWeight.Bold, fontSize = 12.sp, color = Color(0xFF183B4A))
+                Text("Read & discover 5 words · 3/5", fontSize = 10.sp, color = Color(0xFF183B4A).copy(alpha = 0.55f), maxLines = 1)
+            }
+
+            // L1: Hanging bamboo signs for each destination
             destinations.forEach { dest ->
-                val rect = remember(dest.id, displayW, displayH) { vp.toDpRect(dest.zone, density) }
-                val x = with(density) { rect.left.toDp() }
-                val y = with(density) { rect.top.toDp() }
-                val w = with(density) { rect.width.toDp() }
-                val h = with(density) { rect.height.toDp() }
-
-                Box(Modifier.offset(x, y).sizeIn(minWidth = w, minHeight = h)
-                    .clickable(
-                        enabled = dest.state !is DestinationState.Locked,
-                        role = Role.Button,
-                        onClick = { onTap(dest.id) }
-                    )
-                    .semantics {
-                        role = Role.Button
-                        contentDescription = "${dest.name}, ${dest.subject}"
-                        stateDescription = when (dest.state) {
-                            is DestinationState.Recommended -> "Recommended today, ${(dest.progress * 100).roundToInt()}% complete"
-                            is DestinationState.Locked -> "Locked, ${(dest.state as DestinationState.Locked).reason}"
-                            else -> "${(dest.progress * 100).roundToInt()}% complete"
-                        }
-                    }
-                )
-            }
-
-            // L4: Profile HUD
-            ProfileHud(name, level, xp, xpMax, Modifier.align(Alignment.TopStart).padding(start = 24.dp, top = 20.dp))
-
-            // L4: Streak + currencies
-            Row(Modifier.align(Alignment.TopEnd).padding(end = 20.dp, top = 20.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                RewardPill(Icons.Rounded.LocalFireDepartment, "$streak", Coral)
-                RewardPill(Icons.Rounded.Star, formatCount(stars), SunshineGold)
-                RewardPill(painterResource(R.drawable.ic_paw_coin), formatCount(coins), Color(0xFFC8A04A))
-                if (onMenu != null) {
-                    IconButton(onClick = onMenu, modifier = Modifier.size(48.dp).background(SkyBlue, RoundedCornerShape(16.dp))) {
-                        Icon(Icons.Rounded.Menu, "Menu", tint = White, modifier = Modifier.size(24.dp))
-                    }
-                }
-            }
-
-            // L4: Collapsed Daily Quest pill
-            QuestPill(onQuest, Modifier.align(Alignment.TopStart).padding(start = 24.dp, top = 110.dp))
-
-            // L4.5: Native labels (must render ABOVE HUD)
-            destinations.forEach { dest ->
-                val rect = remember(dest.id, displayW, displayH) { vp.toDpRect(dest.zone, density) }
-                val x = with(density) { rect.left.toDp() }
-                val y = with(density) { rect.top.toDp() }
-                val w = with(density) { rect.width.toDp() }
-                val labelY = if (dest.zone.top < 0.50f) y + with(density) { rect.height.toDp() } + 40.dp else y + with(density) { rect.height.toDp() } + 4.dp
-                DestinationLabel(dest, Modifier.offset(x = x, y = labelY).widthIn(max = w * 0.9f))
-            }
-
-            // L4.6: Endemic animals (render above labels and HUD)
-            endemicAnimals.forEach { animal ->
-                val ax = with(density) { (animal.x * vp.displayW).toDp() }
-                val ay = with(density) { (animal.y * vp.displayH).toDp() }
-                val aw = with(density) { (animal.targetW).dp }
-                Image(painterResource(animal.animalRes), null,
-                    Modifier.offset(ax, ay).size(aw),
-                    contentScale = ContentScale.Fit,
-                    alpha = 0.85f)
-            }
-
-            // TODAY focus glow
-            val today = destinations.find { it.state is DestinationState.Recommended }
-            if (today != null) {
-                val rect = remember(today.id, displayW, displayH) { vp.toDpRect(today.zone, density) }
-                Box(Modifier.offset(with(density) { rect.left.toDp() }, with(density) { rect.top.toDp() })
-                    .size(with(density) { rect.width.toDp() }, with(density) { rect.height.toDp() })
-                    .drawBehind {
-                        drawRoundRect(SunshineGold.copy(alpha = 0.08f),
-                            cornerRadius = CornerRadius(24f, 24f))
-                    })
-            }
-        }
-    }
-}
-
-// ─── Compact layout ───
-
-@Composable
-private fun CompactVillageHome(
-    destinations: List<SubjectDestinationUiState>,
-    name: String, level: Int, xp: Int, xpMax: Int,
-    streak: Int, stars: Int, coins: Int,
-    onTap: (String) -> Unit, onQuest: () -> Unit,
-    onParent: () -> Unit, onAchieve: (() -> Unit)?,
-    onBack: (() -> Unit)?, onProf: (() -> Unit)?
-) {
-    Scaffold(containerColor = Cream,
-        bottomBar = { FloatingBottomNav(onParent, onAchieve, onBack, onProf) }
-    ) { pad ->
-        Column(Modifier.fillMaxSize().padding(pad).verticalScroll(rememberScrollState())) {
-            // Hero crop
-            Box(Modifier.fillMaxWidth().height(220.dp)) {
-                Image(painterResource(R.drawable.village_home_six_landmarks_master), null,
-                    Modifier.fillMaxSize(), contentScale = ContentScale.Crop, alignment = Alignment.Center)
-                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(0x4D0B2A36), Color.Transparent, Color(0x4D0B2A36)))))
-                ProfileHud(name, level, xp, xpMax, Modifier.align(Alignment.TopStart).padding(16.dp))
-                Row(Modifier.align(Alignment.TopEnd).padding(16.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    RewardPill(Icons.Rounded.LocalFireDepartment, "$streak", Coral)
-                    RewardPill(Icons.Rounded.Star, formatCount(stars), SunshineGold)
-                }
-            }
-            QuestPill(onQuest, Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp))
-            // 2-column grid
-            Column(Modifier.padding(horizontal = 12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                for (row in destinations.chunked(2)) {
-                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        row.forEach { dest ->
-                            CompactCard(dest, Modifier.weight(1f), onTap)
-                        }
-                        if (row.size < 2) Spacer(Modifier.weight(1f))
-                    }
-                }
-            }
-            Spacer(Modifier.height(16.dp))
-        }
-    }
-}
-
-// ─── Destination Label (expanded) ───
-
-@Composable
-private fun DestinationLabel(dest: SubjectDestinationUiState, modifier: Modifier = Modifier) {
-    BambooSurface(
-        modifier = modifier,
-        subjectAccent = dest.color,
-        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
-    ) {
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
-                Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, maxLines = 1)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(dest.subject, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = dest.color)
-                    Text(" · ", color = Ink.copy(alpha = 0.4f))
+                val anchor = destinationAnchors[dest.id]!!
+                val contentDesc = "${dest.name}, ${dest.subject}, ${(dest.progress * 100).roundToInt()}% complete" +
                     when (dest.state) {
-                        is DestinationState.Locked -> {
-                            Icon(Icons.Rounded.Lock, null, tint = Ink.copy(alpha = 0.4f), modifier = Modifier.size(14.dp))
-                            Text((dest.state as DestinationState.Locked).reason, fontSize = 12.sp, color = Ink.copy(alpha = 0.5f))
-                        }
-                        else -> {
-                            val pct = (dest.progress * 100).roundToInt()
-                            Text("$pct%", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = dest.color)
-                            LinearProgressIndicator(dest.progress, Modifier.width(48.dp).height(4.dp).padding(start = 6.dp).clip(RoundedCornerShape(2.dp)),
-                                color = dest.color, trackColor = dest.color.copy(alpha = 0.12f))
-                        }
-                    }
-                }
-            }
-            if (dest.state is DestinationState.Recommended) {
-                Spacer(Modifier.width(8.dp))
-                Surface(shape = RoundedCornerShape(50), color = SunshineGold.copy(alpha = 0.2f)) {
-                    Text("TODAY", fontWeight = FontWeight.Bold, fontSize = 10.sp, color = Color(0xFF2B2100),
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp))
-                }
-            }
-        }
-    }
-}
-
-// ─── Compact Card ───
-
-@Composable
-private fun CompactCard(dest: SubjectDestinationUiState, modifier: Modifier, onTap: (String) -> Unit) {
-    Card(
-        onClick = { if (dest.state !is DestinationState.Locked) onTap(dest.id) },
-        modifier = modifier,
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = dest.color.copy(alpha = 0.08f)),
-        elevation = CardDefaults.cardElevation(2.dp)
-    ) {
-        Column(Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(shape = RoundedCornerShape(10.dp), color = dest.color.copy(alpha = 0.15f)) {
-                    Icon(painterResource(R.drawable.ic_book), null, tint = dest.color, modifier = Modifier.padding(8.dp).size(24.dp))
-                }
-                Spacer(Modifier.width(8.dp))
-                Column(Modifier.weight(1f)) {
-                    Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Ink, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                    Text(dest.subject, fontSize = 11.sp, color = dest.color)
-                }
-                if (dest.state is DestinationState.Recommended) {
-                    Surface(shape = RoundedCornerShape(50), color = SunshineGold.copy(alpha = 0.2f)) {
-                        Text("TODAY", fontWeight = FontWeight.Bold, fontSize = 9.sp, color = Color(0xFF2B2100),
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
-                    }
-                }
-            }
-            Spacer(Modifier.height(8.dp))
-            when (dest.state) {
-                is DestinationState.Locked -> {
+                        is DestinationState.Recommended -> ", recommended today"
+                        is DestinationState.Locked -> ", locked, ${(dest.state as DestinationState.Locked).reason}"
+                        else -> ""
+                    } + ", button"
+                BambooSign(
+                    anchor = anchor, sceneW = sceneW, sceneH = sceneH, density = density,
+                    onClick = { onSubjectTap(dest.id) },
+                    enabled = dest.state !is DestinationState.Locked,
+                    accentColor = dest.color,
+                    contentDescription = contentDesc,
+                ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Rounded.Lock, null, tint = Ink.copy(alpha = 0.4f), modifier = Modifier.size(14.dp))
-                        Text((dest.state as DestinationState.Locked).reason, fontSize = 11.sp, color = Ink.copy(alpha = 0.4f))
+                        Column(Modifier.weight(1f)) {
+                            Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Color(0xFF183B4A), maxLines = 1)
+                            Text(dest.subject, fontSize = 10.sp, fontWeight = FontWeight.SemiBold, color = dest.color)
+                        }
+                        if (dest.state is DestinationState.Recommended) {
+                            Surface(shape = RoundedCornerShape(50), color = SunshineGold.copy(alpha = 0.2f)) {
+                                Text("TODAY", fontSize = 8.sp, fontWeight = FontWeight.Bold, color = Color(0xFF2B2100),
+                                    modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp))
+                            }
+                        }
+                        if (dest.state is DestinationState.Locked) {
+                            Icon(Icons.Rounded.Lock, null, Modifier.size(14.dp), tint = Color(0xFF183B4A).copy(alpha = 0.4f))
+                        }
                     }
                 }
-                else -> {
-                    LinearProgressIndicator(dest.progress, Modifier.fillMaxWidth().height(5.dp).clip(RoundedCornerShape(3.dp)),
-                        color = dest.color, trackColor = dest.color.copy(alpha = 0.1f))
-                    Spacer(Modifier.height(2.dp))
-                    Text("${(dest.progress * 100).roundToInt()}%", fontSize = 10.sp, color = dest.color)
+            }
+
+            // L2: Profile HUD (compact top-left)
+            Surface(
+                Modifier.align(Alignment.TopStart).padding(start = 12.dp, top = 8.dp).widthIn(max = 260.dp),
+                shape = RoundedCornerShape(16.dp), color = Color(0xFFFFF7E8).copy(alpha = 0.94f), shadowElevation = 4.dp,
+            ) {
+                Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.size(40.dp).clip(CircleShape).background(Coral))
+                    Spacer(Modifier.width(8.dp))
+                    Column {
+                        Text("Hi, $childName!", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Color(0xFF183B4A))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("Lv $level", fontSize = 10.sp, color = SunshineGold, fontWeight = FontWeight.Bold)
+                            Text(" · $xp / $xpMax XP", fontSize = 10.sp, color = Color(0xFF183B4A).copy(alpha = 0.4f))
+                        }
+                        LinearProgressIndicator((xp.toFloat() / xpMax).coerceIn(0f, 1f),
+                            Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)),
+                            color = SunshineGold, trackColor = Color(0xFFE6D9C2))
+                    }
+                }
+            }
+
+            // L2: Currency badges (tiny, top-right)
+            Row(Modifier.align(Alignment.TopEnd).padding(end = 12.dp, top = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                BadgeChip(painterResource(R.drawable.ic_quest), "$dayStreak", Coral)
+                BadgeChip(Icons.Rounded.Star, formatCount(stars), SunshineGold)
+                BadgeChip(Icons.Rounded.CardGiftcard, formatCount(pawCoins), Color(0xFFC8A04A))
+            }
+
+            // L1.5: TODAY glow
+            val todayDest = destinations.find { it.state is DestinationState.Recommended }
+            if (todayDest != null) {
+                val a = destinationAnchors[todayDest.id]!!
+                val dx = with(density) { (a.centerX * sceneW.toFloat() - 78.dp.toPx()).toDp() }
+                val dy = with(density) { (a.centerY * sceneH.toFloat() - 36.dp.toPx()).toDp() }
+                Box(Modifier.offset(dx, dy).size(156.dp, 72.dp)
+                    .drawBehind { drawRoundRect(SunshineGold.copy(alpha = 0.06f), cornerRadius = CornerRadius(16f)) })
+            }
+        }
+    }
+}
+
+// ─── Hanging Bamboo Sign ───
+
+@Composable
+private fun BambooSign(
+    anchor: DestinationAnchor, sceneW: Int, sceneH: Int, density: Density,
+    onClick: () -> Unit, enabled: Boolean,
+    accentColor: Color, contentDescription: String,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    BoxWithConstraints(Modifier.fillMaxSize()) {
+        val maxWPx = sceneW.toFloat(); val maxHPx = sceneH.toFloat()
+        val signW = 156.dp; val signH = 56.dp
+        val tabH = 12.dp; val railW = 10.dp; val cornerSz = 18.dp
+        val pl = LocalDensity.current
+
+        Box(
+            modifier = Modifier
+                .layout { measurable, constraints ->
+                    if (sceneW <= 0 || sceneH <= 0) {
+                        return@layout layout(0, 0) {}
+                    }
+                    val placeable = measurable.measure(constraints.copy(minWidth = 0, minHeight = 0))
+                    val cx = (maxWPx * anchor.centerX - placeable.width / 2f).roundToInt()
+                        .coerceIn(8.dp.toPx().roundToInt(), (maxWPx - placeable.width - 8.dp.toPx()).roundToInt())
+                    val cy = (maxHPx * anchor.centerY - placeable.height / 2f).roundToInt()
+                        .coerceIn(8.dp.toPx().roundToInt(), (maxHPx - placeable.height - 8.dp.toPx()).roundToInt())
+                    layout(constraints.maxWidth, constraints.maxHeight) { placeable.placeRelative(cx, cy) }
+                }
+                .clearAndSetSemantics {
+                    this.contentDescription = contentDescription
+                    role = Role.Button
+                    if (!enabled) disabled()
+                }
+                .clickable(enabled = enabled, role = Role.Button, onClick = onClick),
+        ) {
+            // Hanging tab
+            Box(Modifier.width(20.dp).height(tabH).align(Alignment.TopCenter).offset(y = -tabH + 2.dp)
+                .background(Color(0xFFD4A574), RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp)))
+
+            // Sign body
+            Box(
+                Modifier
+                    .size(signW, signH)
+                    .background(Color(0xFFFFF7E8), RoundedCornerShape(18.dp)),
+            ) {
+                // Sawali
+                Image(painterResource(R.drawable.fill_sawali), null,
+                    Modifier.matchParentSize().padding(4.dp), contentScale = ContentScale.Crop, alpha = 0.10f)
+
+                // Accent top rail
+                Box(Modifier.fillMaxWidth().height(5.dp).align(Alignment.TopCenter).background(accentColor.copy(alpha = 0.7f),
+                    RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp)))
+
+                // Bamboo rails
+                Image(painterResource(R.drawable.rail_bamboo_horizontal), null,
+                    Modifier.fillMaxWidth().height(railW).align(Alignment.TopCenter), contentScale = ContentScale.FillWidth)
+                Image(painterResource(R.drawable.rail_bamboo_horizontal), null,
+                    Modifier.fillMaxWidth().height(railW).align(Alignment.BottomCenter), contentScale = ContentScale.FillWidth)
+                Image(painterResource(R.drawable.rail_bamboo_vertical), null,
+                    Modifier.fillMaxHeight().width(railW).align(Alignment.CenterStart), contentScale = ContentScale.FillHeight)
+                Image(painterResource(R.drawable.rail_bamboo_vertical), null,
+                    Modifier.fillMaxHeight().width(railW).align(Alignment.CenterEnd), contentScale = ContentScale.FillHeight)
+
+                // Rattan corners
+                val c = cornerSz
+                listOf(
+                    R.drawable.corner_rattan_tl to Alignment.TopStart,
+                    R.drawable.corner_rattan_tr to Alignment.TopEnd,
+                    R.drawable.corner_rattan_bl to Alignment.BottomStart,
+                    R.drawable.corner_rattan_br to Alignment.BottomEnd,
+                ).forEach { (res, align) ->
+                    Image(painterResource(res), null, Modifier.size(c).align(align))
+                }
+
+                // Content
+                Box(Modifier.matchParentSize().padding(start = 14.dp, top = 8.dp, end = 12.dp, bottom = 6.dp)) {
+                    content()
                 }
             }
         }
     }
 }
 
-// ─── Profile HUD ───
+// ─── Badge Chip ───
 
 @Composable
-private fun ProfileHud(name: String, level: Int, xp: Int, xpMax: Int, modifier: Modifier = Modifier) {
-    BambooSurface(
-        modifier = modifier.widthIn(180.dp, 260.dp),
-        railThickness = 10.dp, cornerSize = 18.dp,
-        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
-    ) {
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(48.dp).clip(CircleShape).background(Coral))
-            Spacer(Modifier.width(10.dp))
-            Column {
-                Text("Hi, $name!", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Ink)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Surface(shape = RoundedCornerShape(4.dp), color = SunshineGold.copy(alpha = 0.15f)) {
-                        Text("Lv $level", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Color(0xFF2B2100),
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
-                    }
-                    Spacer(Modifier.width(6.dp))
-                    LinearProgressIndicator(xp.toFloat() / xpMax, Modifier.weight(1f).height(6.dp).clip(RoundedCornerShape(3.dp)),
-                        color = SunshineGold, trackColor = Color(0xFFE6D9C2))
-                }
-                Text("$xp / $xpMax XP", fontSize = 10.sp, color = Ink.copy(alpha = 0.4f))
-            }
-        }
-    }
-}
-
-// ─── Reward Pill ───
-
-@Composable
-private fun RewardPill(icon: Any, text: String, tint: Color) {
-    Surface(shape = RoundedCornerShape(50), color = Cream.copy(alpha = 0.94f), shadowElevation = 2.dp) {
-        Row(Modifier.padding(horizontal = 10.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+private fun BadgeChip(icon: Any, text: String, tint: Color) {
+    Surface(shape = RoundedCornerShape(50), color = Color(0xFFFFF7E8).copy(alpha = 0.94f), shadowElevation = 2.dp) {
+        Row(Modifier.padding(horizontal = 6.dp, vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
             when (icon) {
-                is ImageVector -> Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
-                is androidx.compose.ui.graphics.painter.Painter -> Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
+                is ImageVector -> Icon(icon, null, tint = tint, modifier = Modifier.size(14.dp))
+                is androidx.compose.ui.graphics.painter.Painter -> Icon(icon, null, tint = tint, modifier = Modifier.size(14.dp))
             }
-            Spacer(Modifier.width(4.dp))
-            Text(text, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
-        }
-    }
-}
-
-// ─── Quest Pill ───
-
-@Composable
-private fun QuestPill(onClick: () -> Unit, modifier: Modifier = Modifier) {
-    Card(
-        onClick = onClick, modifier = modifier, shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = Cream.copy(alpha = 0.96f)),
-        elevation = CardDefaults.cardElevation(4.dp)
-    ) {
-        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Surface(shape = RoundedCornerShape(10.dp), color = StoryPurple.copy(alpha = 0.12f)) {
-                Icon(painterResource(R.drawable.ic_quest), null, tint = StoryPurple,
-                    modifier = Modifier.padding(8.dp).size(20.dp))
-            }
-            Spacer(Modifier.width(10.dp))
-            Column(Modifier.weight(1f)) {
-                Text("Daily Quest", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
-                Text("Read a story and discover 5 new words · 3/5", fontSize = 11.sp,
-                    color = Ink.copy(alpha = 0.55f), maxLines = 1, overflow = TextOverflow.Ellipsis)
-            }
-            Surface(shape = RoundedCornerShape(50), color = LeafGreen.copy(alpha = 0.12f)) {
-                Text("Continue", fontWeight = FontWeight.Bold, fontSize = 12.sp, color = LeafGreen,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp))
-            }
+            Spacer(Modifier.width(2.dp))
+            Text(text, fontWeight = FontWeight.Bold, fontSize = 11.sp, color = Color(0xFF183B4A))
         }
     }
 }
@@ -458,35 +316,48 @@ private fun QuestPill(onClick: () -> Unit, modifier: Modifier = Modifier) {
 // ─── Bottom Nav ───
 
 @Composable
-private fun FloatingBottomNav(
+private fun VillageBottomNav(
     onParent: () -> Unit, onAchieve: (() -> Unit)?,
-    onBack: (() -> Unit)?, onProf: (() -> Unit)?
+    onBack: (() -> Unit)?, onProf: (() -> Unit)?,
 ) {
-    Surface(Modifier.fillMaxWidth().padding(horizontal = 48.dp, vertical = 12.dp),
-        shape = RoundedCornerShape(24.dp), color = Cream.copy(alpha = 0.97f),
-        shadowElevation = 8.dp, tonalElevation = 2.dp) {
-        Row(Modifier.fillMaxWidth().height(64.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically) {
-            NavItem(onProf ?: {}, Icons.Rounded.Person, "Profile", enabled = onProf != null)
-            NavItem(onAchieve ?: {}, Icons.Rounded.EmojiEvents, "Achievements", enabled = onAchieve != null)
-            NavItem(onBack ?: {}, Icons.Rounded.Backpack, "Backpack", enabled = onBack != null)
-            NavItem(onParent, Icons.Rounded.Lock, "Parents", enabled = true)
+    // Bamboo-framed nav
+    Box(Modifier.fillMaxWidth().padding(horizontal = 40.dp, vertical = 10.dp).height(56.dp)
+        .background(Color(0xFFFFF7E8), RoundedCornerShape(20.dp))) {
+        // Bamboo rails
+        Image(painterResource(R.drawable.rail_bamboo_horizontal), null, Modifier.fillMaxWidth().height(10.dp).align(Alignment.TopCenter), contentScale = ContentScale.FillWidth)
+        Image(painterResource(R.drawable.rail_bamboo_horizontal), null, Modifier.fillMaxWidth().height(10.dp).align(Alignment.BottomCenter), contentScale = ContentScale.FillWidth)
+        Image(painterResource(R.drawable.rail_bamboo_vertical), null, Modifier.fillMaxHeight().width(10.dp).align(Alignment.CenterStart), contentScale = ContentScale.FillHeight)
+        Image(painterResource(R.drawable.rail_bamboo_vertical), null, Modifier.fillMaxHeight().width(10.dp).align(Alignment.CenterEnd), contentScale = ContentScale.FillHeight)
+        // Corners
+        listOf(
+            R.drawable.corner_rattan_tl to Alignment.TopStart,
+            R.drawable.corner_rattan_tr to Alignment.TopEnd,
+            R.drawable.corner_rattan_bl to Alignment.BottomStart,
+            R.drawable.corner_rattan_br to Alignment.BottomEnd,
+        ).forEach { (r, a) -> Image(painterResource(r), null, Modifier.size(18.dp).align(a)) }
+
+        Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
+            NavBtn(onProf ?: {}, Icons.Rounded.Person, "Profile", onProf != null)
+            NavBtn(onAchieve ?: {}, Icons.Rounded.EmojiEvents, "Achieve", onAchieve != null)
+            NavBtn(onBack ?: {}, Icons.Rounded.Backpack, "Backpack", onBack != null)
+            NavBtn(onParent, Icons.Rounded.Lock, "Parents", true)
         }
     }
 }
 
 @Composable
-private fun NavItem(onClick: () -> Unit, icon: ImageVector, label: String, enabled: Boolean) {
+private fun NavBtn(onClick: () -> Unit, icon: ImageVector, label: String, enabled: Boolean) {
     Column(horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.clickable(enabled = enabled, role = Role.Button, onClick = onClick)
-            .semantics { this.role = Role.Button; contentDescription = label; if (!enabled) stateDescription = "Unavailable" }
-            .padding(8.dp).sizeIn(minWidth = 56.dp, minHeight = 56.dp),
+            .semantics { role = Role.Button; contentDescription = label; if (!enabled) stateDescription = "Unavailable" }
+            .width(56.dp).height(48.dp).wrapContentSize(Alignment.Center),
         verticalArrangement = Arrangement.Center) {
-        Icon(icon, null, tint = if (enabled) VillageTeal else Ink.copy(alpha = 0.25f), modifier = Modifier.size(26.dp))
-        Text(label, fontSize = 10.sp, color = if (enabled) Ink else Ink.copy(alpha = 0.25f))
+        Icon(icon, null, tint = if (enabled) VillageTeal else Color(0xFF183B4A).copy(alpha = 0.25f), modifier = Modifier.size(22.dp))
+        Text(label, fontSize = 9.sp, color = if (enabled) Color(0xFF183B4A) else Color(0xFF183B4A).copy(alpha = 0.25f))
     }
 }
+
+// ─── Utils ───
 
 private fun formatCount(n: Int): String = when {
     n >= 1000 -> "${n / 1000}.${(n % 1000) / 100}k"
