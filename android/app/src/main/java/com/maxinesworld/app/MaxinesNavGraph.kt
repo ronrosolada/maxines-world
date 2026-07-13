@@ -106,7 +106,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         "mathematics" -> "mathematics-g3-m01-d01"
                         "science" -> "science-g3-m01-d01"
                         "makabansa" -> "araling-panlipunan-g3-m01-d01"
-                        "gmrc" -> "english-g3-m01-d01" // GMRC has no Month 1 lessons yet
+                        "gmrc" -> "english-g3-m01-d01"
                         else -> "english-g3-m01-d01"
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
@@ -118,7 +118,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onBackpack = {
-                    navController.navigate(Routes.childHome(childId)) // stays for now
+                    navController.navigate(Routes.childHome(childId))
                 }
             )
         }
