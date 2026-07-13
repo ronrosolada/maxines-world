@@ -51,23 +51,27 @@ fun VillageHomeScreen(
     onMenu: () -> Unit = {},
     appVersion: String = ""
 ) {
-    BoxWithConstraints(Modifier.fillMaxSize()) {
-        val screenW = maxWidth
-        // Scale factor: 1.0 at 360dp phone, ~1.8 at 1524dp Xiaomi tablet
-        val scale = (screenW / 600.dp).coerceIn(1.0f, 2.0f)
-        val fontScale = scale.coerceIn(1.0f, 1.5f)
-        val sceneH = (280.dp * scale).coerceAtLeast(280.dp)
-        val buildW = (90.dp * scale).coerceIn(90.dp, 140.dp)
-        val buildH = (80.dp * scale).coerceIn(80.dp, 120.dp)
-        val questW = (180.dp * scale).coerceIn(180.dp, 260.dp)
-        val isTablet = screenW > 840.dp
+    // §7 Responsive Layout: centered container with max width constraint.
+    // Do NOT place fillMaxSize() before widthIn(max = 1440.dp) on the same content node.
+    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
+        Column(Modifier.widthIn(max = 1440.dp).fillMaxSize()) {
+            BoxWithConstraints(Modifier.fillMaxSize()) {
+                val screenW = maxWidth
+                // Scale factor: 1.0 at 360dp phone, ~1.8 at 1524dp Xiaomi tablet
+                val scale = (screenW / 600.dp).coerceIn(1.0f, 2.0f)
+                val fontScale = scale.coerceIn(1.0f, 1.5f)
+                val sceneH = (280.dp * scale).coerceAtLeast(280.dp)
+                val buildW = (90.dp * scale).coerceIn(90.dp, 140.dp)
+                val buildH = (80.dp * scale).coerceIn(80.dp, 120.dp)
+                val questW = (180.dp * scale).coerceIn(180.dp, 260.dp)
+                val isTablet = screenW > 840.dp
 
-        Scaffold(
-            containerColor = Cream,
-            bottomBar = {
-                VillageFooterNav(onProfile, onAchievements, onBackpack, onParentGate, scale)
-            }
-        ) { innerPadding ->
+                Scaffold(
+                    containerColor = Cream,
+                    bottomBar = {
+                        VillageFooterNav(onProfile, onAchievements, onBackpack, onParentGate, scale)
+                    }
+                ) { innerPadding ->
             Column(
                 Modifier
                     .fillMaxSize()
@@ -94,20 +98,31 @@ fun VillageHomeScreen(
                             .width(questW)
                     )
                     
-                    // Transparent tap zones over the 3 main buildings in the bg image
-                    // Story Tree (English) — left third
-                    Box(Modifier.fillMaxWidth(0.3f).fillMaxHeight().align(Alignment.CenterStart)
+                    // Transparent tap zones over buildings in the bg image
+                    // Story Tree (English) — left third, upper
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.65f).align(Alignment.CenterStart)
                         .clickable { onSubjectTap("english") })
-                    // Number Market (Math) — center third
-                    Box(Modifier.fillMaxWidth(0.35f).fillMaxHeight().align(Alignment.Center)
+                    // Bahay Kuwento (Filipino) — left third, lower
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.4f).align(Alignment.BottomStart)
+                        .clickable { onSubjectTap("filipino") })
+                    // Number Market (Math) — center
+                    Box(Modifier.fillMaxWidth(0.3f).fillMaxHeight(0.8f).align(Alignment.Center)
                         .clickable { onSubjectTap("mathematics") })
-                    // Discovery Lab (Science) — right third
-                    Box(Modifier.fillMaxWidth(0.35f).fillMaxHeight().align(Alignment.CenterEnd)
+                    // Discovery Lab (Science) — right upper
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.65f).align(Alignment.CenterEnd)
                         .clickable { onSubjectTap("science") })
+                    // Heritage Harbor (Makabansa) — right lower
+                    Box(Modifier.fillMaxWidth(0.2f).fillMaxHeight(0.35f).align(Alignment.BottomEnd)
+                        .clickable { onSubjectTap("makabansa") })
+                    // Kindness Corner (GMRC) — bottom center-right
+                    Box(Modifier.fillMaxWidth(0.15f).fillMaxHeight(0.3f).align(Alignment.BottomCenter)
+                        .clickable { onSubjectTap("gmrc") })
                 }
 
                 Spacer(Modifier.height((12.dp * scale).coerceAtLeast(12.dp)))
             }
+        }
+    }
         }
     }
 }
@@ -162,7 +177,7 @@ private fun BuildingNode(
                 if (isToday) {
                     Surface(shape = RoundedCornerShape(3.dp), color = SunshineGold.copy(alpha = 0.25f)) {
                         Text("TODAY", fontSize = todayTextSize, fontWeight = FontWeight.Bold,
-                            color = Color(0xFF2B2100),
+                            color = Molasses,
                             modifier = Modifier.padding(horizontal = (3.dp * scale).coerceIn(2.dp, 5.dp), vertical = 1.dp))
                     }
                 }
@@ -218,7 +233,7 @@ private fun VillageHeader(
                     Spacer(Modifier.width((6.dp * scale).coerceIn(4.dp, 8.dp)))
                     Surface(shape = RoundedCornerShape(4.dp), color = SunshineGold.copy(alpha = 0.2f)) {
                         Text("Lv $level", fontSize = 11.sp * fontScale, fontWeight = FontWeight.Bold,
-                            color = Color(0xFF2B2100), modifier = Modifier.padding(horizontal = (6.dp * scale).coerceIn(4.dp, 8.dp), vertical = 1.dp))
+                            color = Molasses, modifier = Modifier.padding(horizontal = (6.dp * scale).coerceIn(4.dp, 8.dp), vertical = 1.dp))
                     }
                 }
                 Spacer(Modifier.height(2.dp))
@@ -245,8 +260,8 @@ private fun VillageHeader(
                 Icon(Icons.Default.Star, null, tint = SunshineGold.copy(alpha = 0.2f), modifier = Modifier.size((12.dp * scale).coerceIn(10.dp, 16.dp))) }
         }
 
-        // Menu button
-        IconButton(onClick = onMenu, modifier = Modifier.size((36.dp * scale).coerceIn(32.dp, 48.dp))) {
+        // Menu button — §9 touch target: minimum 48dp
+        IconButton(onClick = onMenu, modifier = Modifier.size((48.dp * scale).coerceIn(48.dp, 56.dp))) {
             Icon(Icons.Default.Menu, "Menu", tint = VillageTeal, modifier = Modifier.size((22.dp * scale).coerceIn(20.dp, 28.dp)))
         }
     }
@@ -262,7 +277,7 @@ private fun DailyQuestPopup(completed: Int, total: Int, onClick: () -> Unit,
     val fontScale = scale.coerceIn(1.0f, 1.5f)
     val questPad = (16.dp * scale).coerceIn(12.dp, 24.dp)
     val questTextSize = 13.sp * fontScale
-    val questBtnHeight = (44.dp * scale).coerceIn(38.dp, 56.dp)
+    val questBtnHeight = (56.dp * scale).coerceIn(56.dp, 64.dp)  // §9: 56dp minimum for primary child actions
     
     Card(modifier, shape = RoundedCornerShape((16.dp * scale).coerceIn(12.dp, 20.dp)),
         colors = CardDefaults.cardColors(containerColor = White),
@@ -309,7 +324,7 @@ private val subjectCards = listOf(
     SubjectCardData("filipino", "Bahay Kuwento", "Filipino", Icons.Default.AutoStories, Coral, 4, 10),
     SubjectCardData("mathematics", "Number Market", "Mathematics", Icons.Default.Calculate, SkyBlue, 8, 12, isToday = true),
     SubjectCardData("science", "Discovery Lab", "Science", Icons.Default.Science, LeafGreen, 5, 12),
-    SubjectCardData("makabansa", "Heritage Harbor", "Makabansa", Icons.Default.Flag, Color(0xFFB87916), 0, 15, locked = true, lockLevel = 15)
+    SubjectCardData("makabansa", "Heritage Harbor", "Makabansa", Icons.Default.Flag, HeritageGold, 0, 15, locked = true, lockLevel = 15)
 )
 
 @Composable
@@ -345,7 +360,7 @@ private fun SubjectCard(card: SubjectCardData, onTap: (String) -> Unit) {
                 if (card.isToday) {
                     Surface(shape = RoundedCornerShape(4.dp), color = SunshineGold.copy(alpha = 0.2f)) {
                         Text("TODAY", fontSize = 9.sp, fontWeight = FontWeight.Bold,
-                            color = Color(0xFF2B2100), modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp))
+                            color = Molasses, modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp))
                     }
                 }
             }
