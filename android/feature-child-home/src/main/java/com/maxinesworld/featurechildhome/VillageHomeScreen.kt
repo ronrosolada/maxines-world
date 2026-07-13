@@ -69,20 +69,18 @@ fun VillageHomeScreen(
                 VillageHeader(childName, level, xp, xpMax, dayStreak, appVersion, onMenu)
 
                 // ─── Background Scene ───
-                Box(Modifier.fillMaxWidth().height(if (isWide) 380.dp else 300.dp)) {
-                    VillageScene(
-                        onSubjectTap = onSubjectTap,
-                        modifier = Modifier.fillMaxSize()
-                    )
-                    // Daily Quest popup — floating on left
+                Box(Modifier.fillMaxWidth().height(if (isWide) 380.dp else 260.dp).clipToBounds()) {
+                    // Reference background image
+                    Image(painterResource(R.drawable.village_background), "Village",
+                        Modifier.fillMaxSize(), contentScale = ContentScale.FillWidth)
+                    // Daily Quest popup — floating left, smaller
                     DailyQuestPopup(
-                        completed = questCompleted,
-                        total = questTotal,
+                        completed = questCompleted, total = questTotal,
                         onClick = onDailyQuest,
                         modifier = Modifier
                             .align(Alignment.CenterStart)
-                            .padding(start = 16.dp)
-                            .width(if (isWide) 240.dp else 200.dp)
+                            .padding(start = 16.dp, top = 8.dp)
+                            .width(if (isWide) 200.dp else 170.dp)
                     )
                 }
 
@@ -135,15 +133,14 @@ private fun VillageHeader(
             color = VillageTeal, modifier = Modifier.padding(horizontal = 8.dp))
 
         // Right: Streak + Menu
-        Column(horizontalAlignment = Alignment.End) {
+        Column(horizontalAlignment = Alignment.End, modifier = Modifier.width(100.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(18.dp))
-                Text("$dayStreak-day streak", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Coral)
+                Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(16.dp))
+                Text("$dayStreak-day", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Coral, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
-            Text("Day Streak!", fontSize = 11.sp, color = Ink.copy(alpha = 0.5f))
-            // Stars row
-            Row { repeat(4) { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size(14.dp)) }
-                Icon(Icons.Default.Star, null, tint = SunshineGold.copy(alpha = 0.2f), modifier = Modifier.size(14.dp)) }
+            Text("Day Streak!", fontSize = 10.sp, color = Ink.copy(alpha = 0.5f))
+            Row { repeat(4) { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size(12.dp)) }
+                Icon(Icons.Default.Star, null, tint = SunshineGold.copy(alpha = 0.2f), modifier = Modifier.size(12.dp)) }
         }
 
         // Menu button
@@ -154,87 +151,6 @@ private fun VillageHeader(
 }
 
 // ─── Village Scene (background + buildings + characters) ───
-
-@Composable
-private fun VillageScene(onSubjectTap: (String) -> Unit, modifier: Modifier) {
-    Box(modifier) {
-        // Background: sky + mountains + grass (Canvas)
-        Canvas(Modifier.fillMaxSize()) {
-            val w = size.width; val h = size.height
-            // Sky
-            drawRect(Brush.verticalGradient(listOf(Color(0xFFB5DDF2), Color(0xFFE8F4E8), Color(0xFFD4E8C2))),
-                topLeft = Offset.Zero, size = Size(w, h * 0.65f))
-            // Mountains
-            val mtnPath = Path().apply {
-                moveTo(0f, h * 0.55f); lineTo(w * 0.15f, h * 0.35f); lineTo(w * 0.30f, h * 0.42f)
-                lineTo(w * 0.50f, h * 0.28f); lineTo(w * 0.70f, h * 0.38f)
-                lineTo(w * 0.85f, h * 0.25f); lineTo(w, h * 0.40f)
-                lineTo(w, h * 0.65f); lineTo(0f, h * 0.65f); close()
-            }
-            drawPath(mtnPath, Color(0xFFB8A9C9).copy(alpha = 0.5f))
-            // Ground
-            drawRect(Brush.verticalGradient(listOf(Color(0xFF7BC67E), Color(0xFF5DAF61))),
-                topLeft = Offset(0f, h * 0.62f), size = Size(w, h * 0.38f))
-            // Path
-            drawPath(Path().apply {
-                moveTo(w * 0.15f, h * 0.85f); quadraticBezierTo(w * 0.5f, h * 0.7f, w * 0.75f, h * 0.8f)
-                lineTo(w * 0.90f, h); lineTo(w * 0.05f, h); close()
-            }, Color(0xFFE8D5A3))
-        }
-
-        // Building: Story Tree (left)
-        BuildingCard("English", "Story Tree", StoryPurple,
-            painterResource(R.drawable.mira),
-            Modifier.align(Alignment.CenterStart).padding(start = 80.dp, bottom = 60.dp),
-            onSubjectTap)
-
-        // Building: Number Market (center)
-        BuildingCard("mathematics", "Number Market", SkyBlue,
-            painterResource(R.drawable.milo),
-            Modifier.align(Alignment.Center).padding(bottom = 40.dp),
-            onSubjectTap)
-
-        // Building: Discovery Lab (right)
-        BuildingCard("science", "Discovery Lab", LeafGreen,
-            painterResource(R.drawable.niko),
-            Modifier.align(Alignment.CenterEnd).padding(end = 80.dp, bottom = 50.dp),
-            onSubjectTap)
-
-        // Floating characters
-        Image(painterResource(R.drawable.duke), "Duke",
-            Modifier.size(40.dp).align(Alignment.BottomStart).offset(x = 180.dp, y = (-8).dp),
-            contentScale = ContentScale.Fit)
-        Image(painterResource(R.drawable.lakan), "Lakan",
-            Modifier.size(36.dp).align(Alignment.BottomEnd).offset(x = (-160).dp, y = (-4).dp),
-            contentScale = ContentScale.Fit)
-    }
-}
-
-// ─── Building Card (in-scene location) ───
-
-@Composable
-private fun BuildingCard(
-    subjectId: String, label: String, color: Color,
-    character: androidx.compose.ui.graphics.painter.Painter,
-    modifier: Modifier, onTap: (String) -> Unit
-) {
-    Column(modifier.width(100.dp).clickable { onTap(subjectId) },
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        // Building dot/roof indicator
-        Box(Modifier.size(50.dp).clip(CircleShape).background(color.copy(alpha = 0.15f)),
-            contentAlignment = Alignment.Center) {
-            Image(character, label, Modifier.size(36.dp).clip(CircleShape), contentScale = ContentScale.Crop)
-        }
-        Surface(shape = RoundedCornerShape(8.dp), color = Cream,
-            shadowElevation = 2.dp, modifier = Modifier.padding(top = 4.dp)) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)) {
-                Text(label, fontWeight = FontWeight.Bold, fontSize = 12.sp, color = Ink)
-                Text(subjectId.replaceFirstChar { it.uppercase() }, fontSize = 10.sp, color = color)
-            }
-        }
-    }
-}
 
 // ─── Daily Quest Popup ───
 
@@ -291,8 +207,8 @@ private val subjectCards = listOf(
 private fun SubjectCardRow(onSubjectTap: (String) -> Unit) {
     LazyRow(
         Modifier.fillMaxWidth().padding(vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-        contentPadding = PaddingValues(horizontal = 12.dp)
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(subjectCards.size) { index ->
             val card = subjectCards[index]
@@ -306,7 +222,7 @@ private fun SubjectCard(card: SubjectCardData, onTap: (String) -> Unit) {
     Card(
         Modifier.width(150.dp).clickable(enabled = !card.locked) { onTap(card.id) },
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = if (card.locked) White.copy(alpha = 0.5f) else White),
+        colors = CardDefaults.cardColors(containerColor = if (card.locked) White.copy(alpha = 0.7f) else White),
         elevation = CardDefaults.cardElevation(2.dp)
     ) {
         Column(Modifier.padding(12.dp)) {
@@ -329,7 +245,7 @@ private fun SubjectCard(card: SubjectCardData, onTap: (String) -> Unit) {
             Text(card.subject, fontSize = 11.sp, color = card.color)
             Spacer(Modifier.height(6.dp))
             if (card.locked) {
-                Text("Reach Level ${card.lockLevel} to open", fontSize = 10.sp, color = Ink.copy(alpha = 0.35f))
+                Text("Reach Level ${card.lockLevel} to open", fontSize = 10.sp, color = Ink.copy(alpha = 0.45f))
             } else {
                 LinearProgressIndicator(progress = { card.progress.toFloat() / card.total.coerceAtLeast(1) },
                     modifier = Modifier.fillMaxWidth().height(5.dp).clip(RoundedCornerShape(3.dp)),
