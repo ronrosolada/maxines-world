@@ -59,9 +59,18 @@ class LessonPlayerViewModel @Inject constructor(
             val lesson = withContext(Dispatchers.IO) {
                 try {
                     val m1 = contentLessonLoader.loadLesson(lessonId)
-                    if (m1 != null) convertToLessonManifest(m1)
-                    else lessonLoader.loadLesson(lessonId)
+                    android.util.Log.d("LessonVM", "loadLesson result: $lessonId → m1=${m1 != null}")
+                    if (m1 != null) {
+                        val manifest = convertToLessonManifest(m1)
+                        android.util.Log.d("LessonVM", "Converted: ${manifest.steps.size} steps, subject=${manifest.subject}")
+                        manifest
+                    } else {
+                        val fallback = lessonLoader.loadLesson(lessonId)
+                        android.util.Log.d("LessonVM", "Fallback lesson: ${fallback != null}")
+                        fallback
+                    }
                 } catch (e: Exception) {
+                    android.util.Log.e("LessonVM", "Load error: ${e.message}", e)
                     lessonLoader.loadLesson(lessonId)
                 }
             }

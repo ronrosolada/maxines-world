@@ -16,23 +16,30 @@ class ContentLessonLoader(
     private val manifestCache = ConcurrentHashMap<Int, DayManifest>()
 
     suspend fun loadLesson(lessonId: String): Month1Lesson? = withContext(Dispatchers.IO) {
-        lessonCache.getOrPut(lessonId) {
-            runCatching {
-                // Try multiple path patterns for different lesson ID formats
-                val raw = tryPath(lessonId)
-                    ?: return@runCatching null
-                json.decodeFromString<Month1Lesson>(raw)
-            }.getOrNull()
-        }
+        lessonCache[lessonId]?.let { return@withContext it }
+        val raw = tryPath(lessonId) ?: return@withContext null
+        val result = runCatching {
+            json.decodeFromString<Month1Lesson>(raw)
+        }.onFailure {
+            android.util.Log.e("ContentLoader", "JSON parse failed: ${it.message}", it)
+        }.getOrNull()
+        if (result != null) lessonCache[lessonId] = result
+        result
     }
 
     /** Try to load a lesson JSON from assets, trying multiple path formats. */
     private fun tryPath(lessonId: String): String? {
         // Format 1: Month-based (month-01) — english-g3-m01-d01
         try {
-            return context.assets.open("content-pack/month-01/lessons/$lessonId.json")
+            val path = "content-pack/month-01/lessons/$lessonId.json"
+            android.util.Log.d("ContentLoader", "Trying: $path")
+            val text = context.assets.open(path)
                 .bufferedReader().use { it.readText() }
-        } catch (_: Exception) {}
+            android.util.Log.d("ContentLoader", "Found! ${text.length} chars")
+            return text
+        } catch (e: Exception) {
+            android.util.Log.d("ContentLoader", "Not found at month-01: ${e.message}")
+        }
 
         // Format 2: Quarter-week-based — e.g., english-g3-q2-w01-d01
         // Path: content-pack/grade-3/lessons/english-g3-q2-w01-d01.json

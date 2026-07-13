@@ -62,8 +62,8 @@ data class AssessmentItem(
     val sequence: Int = 0,
     val type: String = "",
     val prompt: String = "",
-    val options: List<String> = emptyList(),
-    val correctOptionIds: List<Int> = emptyList(),
+    val options: kotlinx.serialization.json.JsonElement? = null,
+    val correctOptionIds: List<String> = emptyList(),
     val explanation: String = ""
 )
 
