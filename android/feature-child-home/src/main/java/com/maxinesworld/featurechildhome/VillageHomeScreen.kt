@@ -89,7 +89,7 @@ fun VillageHomeScreen(
         val isWide = maxWidth > 600.dp
         Scaffold(
             containerColor = Cream,
-            topBar = { VillageTopBar(childName, level, xp, xpMax, dayStreak) },
+            topBar = { VillageTopBar(childName, level, xp, xpMax, dayStreak, appVersion) },
             bottomBar = { VillageBottomBar(onAchievements, onBackpack, onParentGate, badgeCount) }
         ) { innerPadding ->
             Column(Modifier.padding(innerPadding)) {
@@ -129,22 +129,10 @@ fun VillageHomeScreen(
                             Modifier.widthIn(min = 200.dp, max = 320.dp).fillMaxHeight())
                         VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
                     }
-                    // Version badge — subtle, bottom-right
-                    if (appVersion.isNotEmpty()) {
-                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
-                            Text("v$appVersion", fontSize = 11.sp, color = Ink.copy(alpha = 0.25f),
-                                modifier = Modifier.padding(end = 12.dp, bottom = 4.dp))
-                        }
-                    }
                 } else {
                     Column(Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())) {
                         VillageLandscape(onSubjectTap, Modifier.fillMaxWidth().height(500.dp))
                         DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.fillMaxWidth())
-                        // Version
-                        if (appVersion.isNotEmpty()) {
-                            Text("v$appVersion", fontSize = 10.sp, color = Ink.copy(alpha = 0.2f),
-                                modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 8.dp))
-                        }
                     }
                 }
             }
@@ -352,13 +340,17 @@ private fun DailyQuestPanel(completed: Int, total: Int, onClick: () -> Unit, mod
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun VillageTopBar(name: String, level: Int, xp: Int, xpMax: Int, dayStreak: Int) {
+private fun VillageTopBar(name: String, level: Int, xp: Int, xpMax: Int, dayStreak: Int, appVersion: String = "") {
     TopAppBar(
         title = { Text("Maxine's World", fontWeight = FontWeight.Bold, fontSize = 22.sp, color = VillageTeal) },
         actions = {
             if (dayStreak > 0) {
                 AssistChip(onClick = {}, label = { Row { Icon(Icons.Default.LocalFireDepartment, null, tint = Coral, modifier = Modifier.size(16.dp)); Spacer(Modifier.width(4.dp)); Text("$dayStreak") } }, colors = AssistChipDefaults.assistChipColors(containerColor = SunshineGold.copy(alpha = 0.15f)))
                 Spacer(Modifier.width(8.dp))
+            }
+            if (appVersion.isNotEmpty()) {
+                Text("v$appVersion", fontSize = 10.sp, color = Ink.copy(alpha = 0.3f),
+                    modifier = Modifier.padding(end = 4.dp))
             }
             Box(Modifier.size(36.dp).clip(CircleShape).background(Coral), contentAlignment = Alignment.Center) { Image(painterResource(R.drawable.character_milo), name, Modifier.size(32.dp).clip(CircleShape), contentScale = ContentScale.Crop) }
             Spacer(Modifier.width(8.dp))
