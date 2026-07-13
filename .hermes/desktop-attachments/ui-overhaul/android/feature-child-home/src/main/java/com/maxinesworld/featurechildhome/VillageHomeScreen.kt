@@ -86,6 +86,7 @@ data class SubjectDestination(
     val name: String,
     val subject: String,
     @DrawableRes val buildingRes: Int,
+    @DrawableRes val guideRes: Int,
     val color: Color,
     val progress: Float,
     val available: Boolean = true,
@@ -98,6 +99,7 @@ private val villageDestinations = listOf(
         name = "Story Tree",
         subject = "English",
         buildingRes = R.drawable.location_story_tree,
+        guideRes = R.drawable.character_mira,
         color = StoryPurple,
         progress = 0.42f,
         recommended = true,
@@ -107,6 +109,7 @@ private val villageDestinations = listOf(
         name = "Bahay ng Kuwento",
         subject = "Filipino",
         buildingRes = R.drawable.location_bahay_kuwento,
+        guideRes = R.drawable.character_mira,
         color = Coral,
         progress = 0.25f,
     ),
@@ -115,6 +118,7 @@ private val villageDestinations = listOf(
         name = "Number Market",
         subject = "Mathematics",
         buildingRes = R.drawable.location_number_market,
+        guideRes = R.drawable.character_milo,
         color = SkyBlue,
         progress = 0.58f,
     ),
@@ -123,6 +127,7 @@ private val villageDestinations = listOf(
         name = "Discovery Lab",
         subject = "Science",
         buildingRes = R.drawable.location_discovery_lab,
+        guideRes = R.drawable.character_niko,
         color = LeafGreen,
         progress = 0.33f,
     ),
@@ -131,6 +136,7 @@ private val villageDestinations = listOf(
         name = "Heritage Harbor",
         subject = "Makabansa",
         buildingRes = R.drawable.location_heritage_harbor,
+        guideRes = R.drawable.character_lakan,
         color = HistoryGold,
         progress = 0.16f,
     ),
@@ -139,6 +145,7 @@ private val villageDestinations = listOf(
         name = "Kindness Corner",
         subject = "GMRC",
         buildingRes = R.drawable.location_kindness_corner,
+        guideRes = R.drawable.character_duke,
         color = GmrcTeal,
         progress = 0f,
         available = false,
@@ -367,6 +374,15 @@ private fun DestinationMarker(
                 .fillMaxWidth(0.9f)
                 .align(Alignment.TopCenter),
         )
+        Image(
+            painter = painterResource(destination.guideRes),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(end = 10.dp, bottom = 38.dp)
+                .size(58.dp),
+        )
         DestinationLabel(destination = destination)
     }
 }
@@ -467,6 +483,13 @@ private fun CompactDestinationCard(
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxSize(),
+                )
+                Image(
+                    painter = painterResource(destination.guideRes),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .size(48.dp),
                 )
             }
             Text(
