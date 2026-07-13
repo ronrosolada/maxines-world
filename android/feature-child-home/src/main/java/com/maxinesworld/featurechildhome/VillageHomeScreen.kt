@@ -20,6 +20,7 @@ import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.*
+import com.maxinesworld.coredesignsystem.components.BambooSurface
 import com.maxinesworld.coredesignsystem.theme.*
 import kotlin.math.roundToInt
 
@@ -262,13 +263,14 @@ private fun CompactVillageHome(
 
 @Composable
 private fun DestinationLabel(dest: SubjectDestinationUiState, modifier: Modifier = Modifier) {
-    Surface(modifier, shape = RoundedCornerShape(18.dp), color = Cream.copy(alpha = 0.96f),
-        shadowElevation = 4.dp, tonalElevation = 1.dp) {
-        Row(Modifier.padding(start = 12.dp, end = 14.dp, top = 10.dp, bottom = 10.dp),
-            verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.width(4.dp).height(32.dp).clip(RoundedCornerShape(2.dp)).background(dest.color))
-            Spacer(Modifier.width(10.dp))
-            Column {
+    BambooSurface(
+        modifier = modifier,
+        subjectAccent = dest.color,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
+    ) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Spacer(Modifier.width(2.dp))
+            Column(Modifier.weight(1f)) {
                 Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, maxLines = 1)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(dest.subject, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = dest.color)
@@ -349,9 +351,12 @@ private fun CompactCard(dest: SubjectDestinationUiState, modifier: Modifier, onT
 
 @Composable
 private fun ProfileHud(name: String, level: Int, xp: Int, xpMax: Int, modifier: Modifier = Modifier) {
-    Surface(modifier.widthIn(180.dp, 260.dp), shape = RoundedCornerShape(22.dp),
-        color = Cream.copy(alpha = 0.96f), shadowElevation = 4.dp, tonalElevation = 1.dp) {
-        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+    BambooSurface(
+        modifier = modifier.widthIn(180.dp, 260.dp),
+        railThickness = 10.dp, cornerSize = 18.dp,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
+    ) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(48.dp).clip(CircleShape).background(Coral))
             Spacer(Modifier.width(10.dp))
             Column {
