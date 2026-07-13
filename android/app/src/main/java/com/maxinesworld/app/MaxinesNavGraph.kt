@@ -15,8 +15,8 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
-import com.maxinesworld.featurechildhome.VillageChromeV16
-import com.maxinesworld.featurechildhome.VillageDestinationV16
+import com.maxinesworld.featurechildhome.VillageHomeV17Screen
+import com.maxinesworld.featurechildhome.VillageHomeV17State
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -95,7 +95,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
-            VillageChromeV16(
+            VillageHomeV17Screen(
+                state = VillageHomeV17State(),
                 onDestinationClick = { subject ->
                     val lessonId = when (subject) {
                         "english" -> "english-g3-m01-d01"
@@ -109,7 +110,10 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onAchievementsClick = {
+                onQuestClick = { },
+                onHomeClick = { },
+                onProgressClick = { },
+                onAvatarsClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onParentsClick = {
