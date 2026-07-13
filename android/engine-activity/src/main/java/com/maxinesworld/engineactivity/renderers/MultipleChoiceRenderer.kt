@@ -9,6 +9,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coredesignsystem.components.AnswerCardState
 import com.maxinesworld.coredesignsystem.components.MaxinesAnswerCard
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
@@ -46,9 +47,14 @@ fun MultipleChoiceRenderer(
         )
 
         options.forEachIndexed { index, option ->
+            val cardState = when {
+                submitted && index == step.correctIndex -> AnswerCardState.CORRECT
+                submitted && index == selectedIndex && index != step.correctIndex -> AnswerCardState.INCORRECT
+                index == selectedIndex -> AnswerCardState.SELECTED
+                else -> AnswerCardState.IDLE
+            }
             MaxinesAnswerCard(
-                selected = index == selectedIndex,
-                correct = if (submitted) index == step.correctIndex else null,
+                state = cardState,
                 onClick = {
                     if (!submitted) selectedIndex = index
                 },

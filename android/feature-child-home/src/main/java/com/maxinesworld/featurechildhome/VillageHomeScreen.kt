@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import android.provider.Settings
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -15,6 +16,7 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
@@ -202,7 +204,22 @@ private fun VillageLandscape(onSubjectTap: (String) -> Unit, modifier: Modifier)
 
 @Composable
 private fun VillageBuilding(building: SubjectBuilding, onTap: (String) -> Unit) {
-    val bob by rememberInfiniteTransition(label = "bob").animateFloat(0f, 3f, animationSpec = infiniteRepeatable(tween(1500, easing = EaseInOutCubic), RepeatMode.Reverse), label = "bob")
+    val context = LocalContext.current
+    val reducedMotion = remember {
+        try {
+            val animatorScale = Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f)
+            val transitionScale = Settings.Global.getFloat(context.contentResolver, Settings.Global.TRANSITION_ANIMATION_SCALE, 1.0f)
+            animatorScale == 0.0f || transitionScale == 0.0f
+        } catch (_: Exception) {
+            false
+        }
+    }
+
+    val bob by if (reducedMotion) {
+        remember { mutableFloatStateOf(0f) }
+    } else {
+        rememberInfiniteTransition(label = "bob").animateFloat(0f, 3f, animationSpec = infiniteRepeatable(tween(1500, easing = EaseInOutCubic), RepeatMode.Reverse), label = "bob")
+    }
 
     Column(
         modifier = Modifier.width(180.dp).clickable { onTap(building.id) },
