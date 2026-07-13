@@ -15,12 +15,8 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
-import com.maxinesworld.featurechildhome.VillageHomeScreen
-import com.maxinesworld.featurechildhome.VillageHomeUiState
-import com.maxinesworld.featurechildhome.defaultVillageDestinations
-import com.maxinesworld.featurechildhome.VillageDestinationUi
-import com.maxinesworld.featurechildhome.DestinationAnchor
-import com.maxinesworld.featurechildhome.DestinationStatus
+import com.maxinesworld.featurechildhome.VillageChromeV16
+import com.maxinesworld.featurechildhome.VillageDestinationV16
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -99,8 +95,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
-            VillageHomeScreen(
-                state = VillageHomeUiState(destinations = defaultVillageDestinations()),
+            VillageChromeV16(
                 onDestinationClick = { subject ->
                     val lessonId = when (subject) {
                         "english" -> "english-g3-m01-d01"
@@ -114,15 +109,12 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onQuestClick = { /* Daily Quest continue */ },
-                onProfileClick = { /* Profile */ },
                 onAchievementsClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
-                onBackpackClick = { /* Backpack */ },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
-                }
+                },
             )
         }
 
