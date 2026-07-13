@@ -87,29 +87,30 @@ fun VillageHomeScreen(
                     Image(painterResource(R.drawable.village_background), "Village",
                         Modifier.fillMaxSize(), contentScale = ContentScale.FillWidth)
                     
-                    // Daily Quest popup — floating left
+                    // Daily Quest popup — floating top-left, above buildings
                     DailyQuestPopup(
                         completed = questCompleted, total = questTotal,
                         onClick = onDailyQuest,
                         scale = scale,
                         modifier = Modifier
-                            .align(Alignment.CenterStart)
+                            .align(Alignment.TopStart)
                             .padding(start = (12.dp * scale).coerceAtLeast(12.dp), top = (8.dp * scale))
                             .width(questW)
                     )
                     
                     // Transparent tap zones over buildings in the bg image
-                    // Story Tree (English) — left third, upper
-                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.65f).align(Alignment.CenterStart)
+                    // Story Tree (English) — left, mid-lower area (below popup)
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.35f).align(Alignment.CenterStart)
+                        .offset(y = 60.dp) // shift below popup
                         .clickable { onSubjectTap("english") })
-                    // Bahay Kuwento (Filipino) — left third, lower
-                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.4f).align(Alignment.BottomStart)
+                    // Bahay Kuwento (Filipino) — left, lower
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.35f).align(Alignment.BottomStart)
                         .clickable { onSubjectTap("filipino") })
                     // Number Market (Math) — center
-                    Box(Modifier.fillMaxWidth(0.3f).fillMaxHeight(0.8f).align(Alignment.Center)
+                    Box(Modifier.fillMaxWidth(0.3f).fillMaxHeight(0.7f).align(Alignment.Center)
                         .clickable { onSubjectTap("mathematics") })
                     // Discovery Lab (Science) — right upper
-                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.65f).align(Alignment.CenterEnd)
+                    Box(Modifier.fillMaxWidth(0.25f).fillMaxHeight(0.6f).align(Alignment.CenterEnd)
                         .clickable { onSubjectTap("science") })
                     // Heritage Harbor (Makabansa) — right lower
                     Box(Modifier.fillMaxWidth(0.2f).fillMaxHeight(0.35f).align(Alignment.BottomEnd)
@@ -117,6 +118,17 @@ fun VillageHomeScreen(
                     // Kindness Corner (GMRC) — bottom center-right
                     Box(Modifier.fillMaxWidth(0.15f).fillMaxHeight(0.3f).align(Alignment.BottomCenter)
                         .clickable { onSubjectTap("gmrc") })
+                    
+                    // Floating subject labels for buildings not prominent in bg art
+                    SubjectLabel("Bahay Kuwento", "Filipino", Coral,
+                        Modifier.align(Alignment.BottomStart).padding(start = 24.dp, bottom = 48.dp),
+                        onSubjectTap = onSubjectTap)
+                    SubjectLabel("Heritage Harbor", "Makabansa", HeritageGold,
+                        Modifier.align(Alignment.BottomEnd).padding(end = 24.dp, bottom = 40.dp),
+                        onSubjectTap = onSubjectTap)
+                    SubjectLabel("Kindness Corner", "GMRC", KindnessTeal,
+                        Modifier.align(Alignment.BottomCenter).padding(bottom = 24.dp),
+                        onSubjectTap = onSubjectTap)
                 }
 
                 Spacer(Modifier.height((12.dp * scale).coerceAtLeast(12.dp)))
@@ -195,6 +207,37 @@ private fun BuildingNode(
                         color = color, trackColor = color.copy(alpha = 0.1f)
                     )
                 }
+            }
+        }
+    }
+}
+
+// ─── Floating Subject Label ───
+
+@Composable
+private fun SubjectLabel(
+    label: String, subject: String, color: Color,
+    modifier: Modifier, onSubjectTap: (String) -> Unit
+) {
+    val subjectId = when (subject) {
+        "Filipino" -> "filipino"
+        "Makabansa" -> "makabansa"
+        "GMRC" -> "gmrc"
+        else -> subject.lowercase()
+    }
+    Surface(
+        modifier.clickable { onSubjectTap(subjectId) },
+        shape = RoundedCornerShape(8.dp),
+        color = Cream,
+        shadowElevation = 3.dp
+    ) {
+        Row(Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.size(8.dp).clip(CircleShape).background(color))
+            Spacer(Modifier.width(6.dp))
+            Column {
+                Text(label, fontWeight = FontWeight.Bold, fontSize = 11.sp, color = Ink)
+                Text(subject, fontSize = 9.sp, color = color)
             }
         }
     }
