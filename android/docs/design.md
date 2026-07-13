@@ -1,6 +1,62 @@
 
 # Maxine’s World Design System
 
+## 0. Normative Status and Precedence
+
+This file is the **normative design source of truth** for Maxine's World.
+
+**MUST** means required for acceptance.
+**MUST NOT** means prohibited.
+**SHOULD** means preferred unless a documented exception exists.
+**MAY** means optional.
+
+When sections conflict, the following precedence applies:
+1. Section 0 and the acceptance criteria.
+2. Explicit v2 design decisions (Baloo 2 + Nunito, tactile buttons, step dots, etc.).
+3. Screen contracts.
+4. Component contracts.
+5. Token tables.
+6. Concept images.
+
+**Concept images** communicate mood and hierarchy only. They are not pixel-perfect specifications and **MUST NOT** be embedded as complete application screens.
+
+**Baloo 2 and Nunito** are the final typography decision and replace earlier generic-font language throughout this document.
+
+## Subject Canonical Table
+
+| Stable ID | Curriculum Label | Village Location | Guide | Primary Token | Released |
+|---|---|---|---|---|---|
+| `english` | English | Story Tree | Mira | `subject_english` | Yes |
+| `filipino` | Filipino | Bahay ng Kuwento | Mira | `subject_filipino` | Yes |
+| `mathematics` | Mathematics | Number Market | Milo | `subject_mathematics` | Yes |
+| `science` | Science | Discovery Lab | Niko | `subject_science` | Yes |
+| `makabansa` | Makabansa | Heritage Harbor | Lakan | `subject_makabansa` | Yes |
+| `gmrc` | GMRC | Kindness Corner | Duke | `subject_gmrc` | Content pending |
+
+Rules:
+- `history`, `philippine-history`, and `araling-panlipunan` are legacy aliases. Map them to the canonical ID in ONE domain layer.
+- UI composables MUST NOT infer routes from displayed labels.
+- GMRC MUST receive its own palette, location art, and lesson-screen examples.
+- Unavailable subjects MUST produce an unavailable state with explanation, not a broken route.
+
+## Prohibited Shortcuts
+
+- Do NOT ship emoji as final character, subject, reward, or feedback artwork.
+- Do NOT flatten concept images into interactive screens.
+- Do NOT embed copy or controls in artwork.
+- Do NOT invent missing token values.
+- Do NOT add raw colors and dimensions in feature code.
+- Do NOT create component look-alikes outside the design-system module.
+- Do NOT use booleans to represent mutually exclusive multi-state components.
+- Do NOT silently convert loading or errors into empty or zero-progress states.
+- Do NOT auto-pass unfinished activity engines.
+- Do NOT run infinite animation under reduced motion.
+- Do NOT reduce font size to solve overflow.
+- Do NOT use hidden horizontal scrolling for essential navigation.
+- Do NOT expose parent content before the adult gate succeeds.
+- Do NOT punish mistakes with lost rewards, alarms, shaking, ridicule, or forced restart.
+- Do NOT claim completion when a required state is represented by a TODO or no-op callback.
+
 ## 1. Purpose
 
 This document defines the visual language, user-interface rules, character system, animation principles, accessibility requirements, and asset-production standards for Maxine’s World.
