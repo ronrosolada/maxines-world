@@ -34,6 +34,9 @@ val HeritageGold = Color(0xFFB87916)
 val KindnessTeal = Color(0xFF26A69A)
 val Molasses = Color(0xFF2B2100)     // onSecondary / dark text on gold
 
+// ─── Village v2 scrim tokens ───
+val DeepNight = Color(0xFF0B2A36)
+
 // ─── Legacy aliases (backward compat) ───
 val Teal40 = VillageTeal
 val Amber40 = SunshineGold
