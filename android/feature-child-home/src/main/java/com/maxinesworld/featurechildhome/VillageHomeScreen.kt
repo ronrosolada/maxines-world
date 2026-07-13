@@ -45,13 +45,18 @@ data class SubjectDestinationUiState(
     val state: DestinationState, val zone: NormalizedRect,
 )
 
+@Immutable
+data class EndemicAnimal(
+    val id: String, val subject: String, val x: Float, val y: Float,
+    val targetW: Int, val animalRes: Int,
+)
+
 // ─── Master scene viewport ───
 
 private const val REF_W = 1280f; private const val REF_H = 800f
 
 private data class SceneViewport(val displayW: Float, val displayH: Float, val cropScale: Float, val cropOffsetX: Float) {
     fun toDpRect(r: NormalizedRect, density: Density): Rect {
-        // Computing in px then converting to dp
         val xPx = (r.left * REF_W * cropScale - cropOffsetX)
         val yPx = (r.top * REF_H * cropScale)
         val wPx = (r.width * REF_W * cropScale)
@@ -85,6 +90,17 @@ private val subjectMeta = mapOf(
     "science" to Triple("Discovery Lab", "Science", LeafGreen),
     "history" to Triple("Heritage Harbor", "Philippine History", Color(0xFFB87916)),
     "gmrc" to Triple("Kindness Corner", "GMRC", Color(0xFF087F83)),
+)
+
+// ─── Endemic animal placements ───
+
+private val endemicAnimals = listOf(
+    EndemicAnimal("philippine_eagle", "english", 0.265f, 0.075f, 44, R.drawable.animal_philippine_eagle),
+    EndemicAnimal("philippine_tarsier", "filipino", 0.10f, 0.425f, 34, R.drawable.animal_philippine_tarsier),
+    EndemicAnimal("tamaraw", "mathematics", 0.735f, 0.385f, 44, R.drawable.animal_tamaraw),
+    EndemicAnimal("philippine_colugo", "science", 0.08f, 0.625f, 34, R.drawable.animal_philippine_colugo),
+    EndemicAnimal("palawan_peacock_pheasant", "history", 0.285f, 0.835f, 42, R.drawable.animal_palawan_peacock_pheasant),
+    EndemicAnimal("visayan_warty_pig", "gmrc", 0.895f, 0.845f, 42, R.drawable.animal_visayan_warty_pig),
 )
 
 @Composable
@@ -155,13 +171,14 @@ private fun ExpandedVillageHome(
             Box(Modifier.fillMaxWidth().fillMaxHeight(0.28f).align(Alignment.BottomCenter)
                 .background(Brush.verticalGradient(listOf(Color.Transparent, Color(0x700B2A36)))))
 
-            // L3: Hit zones + labels
+            // L3: Invisible hit targets (on top of scene, behind scrims)
             destinations.forEach { dest ->
                 val rect = remember(dest.id, displayW, displayH) { vp.toDpRect(dest.zone, density) }
-                val x = with(density) { rect.left.toDp() }; val y = with(density) { rect.top.toDp() }
-                val w = with(density) { rect.width.toDp() }; val h = with(density) { rect.height.toDp() }
+                val x = with(density) { rect.left.toDp() }
+                val y = with(density) { rect.top.toDp() }
+                val w = with(density) { rect.width.toDp() }
+                val h = with(density) { rect.height.toDp() }
 
-                // Invisible hit target
                 Box(Modifier.offset(x, y).sizeIn(minWidth = w, minHeight = h)
                     .clickable(
                         enabled = dest.state !is DestinationState.Locked,
@@ -178,8 +195,6 @@ private fun ExpandedVillageHome(
                         }
                     }
                 )
-                // Native label — bottom-center of zone
-                DestinationLabel(dest, Modifier.offset(x = x, y = y + h).widthIn(max = w * 0.9f))
             }
 
             // L4: Profile HUD
@@ -200,6 +215,27 @@ private fun ExpandedVillageHome(
 
             // L4: Collapsed Daily Quest pill
             QuestPill(onQuest, Modifier.align(Alignment.TopStart).padding(start = 24.dp, top = 110.dp))
+
+            // L4.5: Native labels (must render ABOVE HUD)
+            destinations.forEach { dest ->
+                val rect = remember(dest.id, displayW, displayH) { vp.toDpRect(dest.zone, density) }
+                val x = with(density) { rect.left.toDp() }
+                val y = with(density) { rect.top.toDp() }
+                val w = with(density) { rect.width.toDp() }
+                val labelY = if (dest.zone.top < 0.50f) y + with(density) { rect.height.toDp() } + 40.dp else y + with(density) { rect.height.toDp() } + 4.dp
+                DestinationLabel(dest, Modifier.offset(x = x, y = labelY).widthIn(max = w * 0.9f))
+            }
+
+            // L4.6: Endemic animals (render above labels and HUD)
+            endemicAnimals.forEach { animal ->
+                val ax = with(density) { (animal.x * vp.displayW).toDp() }
+                val ay = with(density) { (animal.y * vp.displayH).toDp() }
+                val aw = with(density) { (animal.targetW).dp }
+                Image(painterResource(animal.animalRes), null,
+                    Modifier.offset(ax, ay).size(aw),
+                    contentScale = ContentScale.Fit,
+                    alpha = 0.85f)
+            }
 
             // TODAY focus glow
             val today = destinations.find { it.state is DestinationState.Recommended }
@@ -269,7 +305,6 @@ private fun DestinationLabel(dest: SubjectDestinationUiState, modifier: Modifier
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
     ) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Spacer(Modifier.width(2.dp))
             Column(Modifier.weight(1f)) {
                 Text(dest.name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, maxLines = 1)
                 Row(verticalAlignment = Alignment.CenterVertically) {
