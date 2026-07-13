@@ -49,25 +49,40 @@ fun MaxinesPrimaryButton(
     }
 }
 
+/**
+ * Explicit card state for answer cards, replacing the old nullable Boolean pattern.
+ * Design v3 §12.4: use explicit enum states (IDLE, SELECTED, CORRECT, INCORRECT, DISABLED).
+ */
+enum class AnswerCardState {
+    IDLE,
+    SELECTED,
+    CORRECT,
+    INCORRECT,
+    DISABLED
+}
+
 @Composable
 fun MaxinesAnswerCard(
-    selected: Boolean,
-    correct: Boolean? = null,
+    state: AnswerCardState = AnswerCardState.IDLE,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    val bgColor = when {
-        correct == true -> SuccessGreen.copy(alpha = 0.15f)
-        correct == false -> ErrorRed.copy(alpha = 0.1f)
-        selected -> Teal40.copy(alpha = 0.08f)
-        else -> SurfaceContainer
+    val bgColor = when (state) {
+        AnswerCardState.CORRECT -> SuccessGreen.copy(alpha = 0.15f)
+        AnswerCardState.INCORRECT -> ErrorRed.copy(alpha = 0.1f)
+        AnswerCardState.SELECTED -> Teal40.copy(alpha = 0.08f)
+        AnswerCardState.DISABLED -> SurfaceContainer.copy(alpha = 0.5f)
+        AnswerCardState.IDLE -> SurfaceContainer
     }
     Card(
         onClick = onClick,
         modifier = modifier
             .shadow(
-                elevation = if (selected) 4.dp else 2.dp,
+                elevation = when (state) {
+                    AnswerCardState.SELECTED, AnswerCardState.CORRECT, AnswerCardState.INCORRECT -> 4.dp
+                    else -> 2.dp
+                },
                 shape = RoundedCornerShape(16.dp),
                 ambientColor = bgColor,
                 spotColor = bgColor
@@ -77,4 +92,26 @@ fun MaxinesAnswerCard(
     ) {
         content()
     }
+}
+
+/**
+ * Backward-compatible overload accepting the old Boolean-based params.
+ * Maps to [AnswerCardState] and delegates to the primary signature.
+ */
+@Composable
+@Deprecated("Use AnswerCardState overload instead", ReplaceWith("MaxinesAnswerCard(state = AnswerCardState.IDLE, onClick = onClick, modifier = modifier) { content() }"))
+fun MaxinesAnswerCard(
+    selected: Boolean,
+    correct: Boolean? = null,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    val state = when {
+        correct == true -> AnswerCardState.CORRECT
+        correct == false -> AnswerCardState.INCORRECT
+        selected -> AnswerCardState.SELECTED
+        else -> AnswerCardState.IDLE
+    }
+    MaxinesAnswerCard(state = state, onClick = onClick, modifier = modifier, content = content)
 }
