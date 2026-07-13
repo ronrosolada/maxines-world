@@ -94,26 +94,16 @@ fun VillageHomeScreen(
                             .width(questW)
                     )
                     
-                    // Buildings along the path — anchored to bottom edge
-                    Row(
-                        Modifier
-                            .align(Alignment.BottomCenter)
-                            .fillMaxWidth()
-                            .padding(horizontal = (8.dp * scale).coerceAtLeast(8.dp), vertical = (4.dp * scale)),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        verticalAlignment = Alignment.Bottom
-                    ) {
-                        BuildingNode("english", "Story Tree", R.drawable.building_story_tree, 7, 12,
-                            color = StoryPurple, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
-                        BuildingNode("filipino", "Bahay Kuwento", R.drawable.building_bahay, 4, 10,
-                            color = Coral, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
-                        BuildingNode("mathematics", "Number Market", R.drawable.building_number_market, 8, 12,
-                            color = SkyBlue, isToday = true, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
-                        BuildingNode("science", "Discovery Lab", R.drawable.building_discovery_lab, 5, 12,
-                            color = LeafGreen, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
-                        BuildingNode("makabansa", "Heritage Harbor", R.drawable.building_heritage_harbor, 0, 15,
-                            color = Color(0xFFB87916), locked = true, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
-                    }
+                    // Transparent tap zones over the 3 main buildings in the bg image
+                    // Story Tree (English) — left third
+                    Box(Modifier.fillMaxWidth(0.3f).fillMaxHeight().align(Alignment.CenterStart)
+                        .clickable { onSubjectTap("english") })
+                    // Number Market (Math) — center third
+                    Box(Modifier.fillMaxWidth(0.35f).fillMaxHeight().align(Alignment.Center)
+                        .clickable { onSubjectTap("mathematics") })
+                    // Discovery Lab (Science) — right third
+                    Box(Modifier.fillMaxWidth(0.35f).fillMaxHeight().align(Alignment.CenterEnd)
+                        .clickable { onSubjectTap("science") })
                 }
 
                 Spacer(Modifier.height((12.dp * scale).coerceAtLeast(12.dp)))
