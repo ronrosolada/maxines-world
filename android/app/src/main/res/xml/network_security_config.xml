@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow cleartext HTTP only to the local NAS (10.10.10.33) -->
+    <!-- Production builds should use HTTPS — this is for LAN private testing -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.10.10.33</domain>
+        <domain includeSubdomains="false">dreamnas</domain>
+        <domain includeSubdomains="false">dreamnas.local</domain>
+    </domain-config>
+    <!-- All other domains require HTTPS -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

@@ -47,7 +47,7 @@ interface ProgressEventDao {
     @Query("SELECT * FROM progress_events WHERE childId = :childId ORDER BY timestamp DESC")
     suspend fun getByChild(childId: String): List<ProgressEventEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(event: ProgressEventEntity)
 
     @Query("UPDATE progress_events SET syncStatus = :status WHERE id = :id")

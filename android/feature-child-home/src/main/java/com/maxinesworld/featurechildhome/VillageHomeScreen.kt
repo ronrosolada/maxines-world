@@ -123,7 +123,8 @@ fun VillageHomeScreen(
                 }
                 if (isWide) {
                     Row(Modifier.fillMaxSize().weight(1f)) {
-                        DailyQuestPanel(questCompleted, questTotal, onDailyQuest, Modifier.width(220.dp).fillMaxHeight())
+                        DailyQuestPanel(questCompleted, questTotal, onDailyQuest,
+                            Modifier.widthIn(min = 200.dp, max = 320.dp).fillMaxHeight())
                         VillageLandscape(onSubjectTap, Modifier.weight(1f).fillMaxHeight())
                     }
                     // Version badge — subtle, bottom-right
