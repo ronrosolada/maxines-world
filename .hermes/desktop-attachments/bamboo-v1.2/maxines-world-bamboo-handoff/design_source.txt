@@ -1,0 +1,734 @@
+# Maxine’s World UI Design Specification
+
+## Status and authority
+
+This document is the authoritative specification for the Bamboo Village Home redesign. It supersedes conflicting homepage guidance in earlier design documents, screenshots, generated concepts, and prototype code.
+
+The approved visual direction is `references/bamboo-concept-2-approved-reference.png`.
+
+DeepSeek must not reinterpret this specification into a generic Material dashboard. A compiling build is not sufficient. The implementation passes only when its screenshots satisfy the visual and behavioral checks in this document.
+
+## Product intent
+
+The Village Home should feel like a playable illustrated Filipino learning village. Native controls should appear to have been crafted inside that world from bamboo, rattan, sawali, carved wood, leaves, and woven cloth.
+
+The interface must be:
+
+* Graphical and inviting for children.
+* Cohesive with the illustrated environment.
+* Easy to understand without adult guidance.
+* Accessible, localizable, and responsive.
+* Gamified without becoming manipulative or distracting.
+* Equally respectful of all six subjects.
+
+The interface must not resemble white cards placed over a background image.
+
+## Approved direction
+
+Use Bamboo Concept 2 with these corrections:
+
+* All six destination labels use one uniform component.
+* Labels are positioned immediately beside or below their corresponding building entrance.
+* Labels are clickable lesson-launch controls, not decorative captions.
+* The profile, Daily Quest, reward counters, and bottom navigation use the same bamboo-and-sawali visual family.
+* All text remains native Compose text.
+* The village illustration remains visually dominant.
+* UI components use opaque warm surfaces for legibility; do not use runtime blur.
+* Do not copy the blue edit outline or numbered annotation from the reference.
+
+## Non-negotiable visual rules
+
+1. Do not use pure-white Material cards.
+2. Do not use default Material elevation as the dominant visual treatment.
+3. Do not bake labels, progress, rewards, or controls into artwork.
+4. Do not use emoji as icons.
+5. Do not duplicate destination names in a second floating badge.
+6. Do not place labels far from their buildings.
+7. Do not cover doors, characters, paths, or subject-defining props.
+8. Do not make English, Mathematics, or Science permanently larger than Filipino, History, or GMRC.
+9. Do not show an enabled control with an empty callback.
+10. Do not shrink text or touch targets to force the tablet composition onto phones.
+
+## Visual language
+
+### Materials
+
+Use four primary materials:
+
+* Sawali: warm woven field behind text.
+* Bamboo: structural top, bottom, and side rails.
+* Rattan: corner lashings and small decorative ties.
+* Dark abaca or carved wood: shadows, outlines, and pressed states.
+
+### Palette
+
+```text
+Ink                 #173946
+Sawali light        #F7E7BE
+Sawali base         #EBCF96
+Bamboo highlight    #E3B965
+Bamboo base         #C89542
+Bamboo dark         #795124
+Rattan              #5E3B1C
+Pressed overlay     #2E2215 at 12%
+Focus blue          #1268D4
+Success green       #2F9E62
+Locked neutral      #6F766F
+```
+
+Subject accents:
+
+```text
+English              #7653B5
+Filipino             #F47C6B
+Mathematics          #3C9DDB
+Science              #66A83E
+Philippine History   #B87916
+GMRC                 #087F83
+```
+
+Subject colors are accents only. Do not fill the complete label with saturated subject color.
+
+### Typography
+
+Use locally bundled fonts:
+
+* Baloo 2 SemiBold for destination names, major counts, and primary actions.
+* Nunito Regular/SemiBold for subjects, progress, quest details, and supporting copy.
+
+Fallback to a rounded system sans-serif only when the font cannot load. Treat a fallback in release screenshots as a defect.
+
+## Screen architecture
+
+Implement the tablet Village Home as explicit layers inside one constrained scene container:
+
+```text
+1. Full-bleed village illustration
+2. Environmental art and buildings
+3. Subtle top and bottom legibility scrims
+4. Six destination plaque hit targets
+5. Profile, Daily Quest, reward counters, and menu
+6. Bottom navigation
+7. Temporary celebration effects
+```
+
+Never rebuild the village with flat Canvas geometry.
+
+The background and buildings are decorative. Native Compose controls own all semantics and clicks.
+
+## Reference canvas and responsiveness
+
+Use a reference canvas of 1280 × 800dp for placement calculations.
+
+Convert reference coordinates to actual scene coordinates after `ContentScale.Crop` is applied. Do not position controls against the physical device bounds while the image is cropped independently.
+
+Recommended breakpoints:
+
+```text
+Compact: width < 480dp
+Medium: 480–839dp
+Expanded village: width >= 840dp and landscape
+```
+
+Expanded layouts use the integrated village composition. Medium and compact layouts use illustrated destination cards in a scrollable grid while preserving the same bamboo visual language.
+
+## Uniform destination plaque
+
+### Purpose
+
+Each plaque is the sole clickable destination control for one subject. It must visually read as a sign installed beside the destination—not as a floating application card.
+
+### Content
+
+Every plaque contains:
+
+1. Subject icon.
+2. Destination name.
+3. Subject name.
+4. Progress percentage or completed lesson count.
+5. A compact progress indicator, or lock state.
+6. Optional `TODAY` state.
+
+Do not add a second label above the building.
+
+### Exact expanded dimensions
+
+```text
+Width                 240dp
+Minimum height         80dp
+Maximum normal height  92dp
+Outer touch target     same as visual bounds, never below 48dp
+Horizontal padding     28dp
+Vertical padding       12dp
+Icon                   24dp
+Icon-to-text gap       10dp
+Title                  18sp / 22sp, Baloo 2 SemiBold
+Metadata               13sp / 18sp, Nunito SemiBold
+Progress track         58dp × 6dp
+Rail thickness         10–13dp visual
+Corner joint           28–32dp visual
+```
+
+All six expanded plaques must have the same width. Heights should be identical under normal English copy. Permit controlled vertical growth only for 200% font scaling or long localization.
+
+### Compact dimensions
+
+```text
+Width                 fill available card width
+Minimum height        68dp
+Horizontal padding    20dp
+Vertical padding      10dp
+Icon                  22dp
+Title                 16sp / 20sp
+Metadata              12sp / 17sp
+```
+
+### Construction
+
+Preferred Compose-safe construction:
+
+1. Draw `fill_sawali.png` as the interior field.
+2. Stretch `rail_bamboo_horizontal.png` only horizontally across top and bottom.
+3. Stretch `rail_bamboo_vertical.png` only vertically along left and right.
+4. Place the four rattan corner assets without scaling their aspect ratio.
+5. Add a dark inner keyline if scenery reduces edge clarity.
+6. Render icon and text above all decorative layers.
+7. Mark all frame imagery as decorative.
+
+The package also provides `.9.png` backgrounds as an alternate implementation. Use them only if the project’s Compose image pipeline renders Android NinePatchDrawable correctly. Do not introduce a heavyweight dependency only to support NinePatch.
+
+### Building connection rule
+
+A label is connected when a child can identify its building without scanning the entire screen.
+
+For every expanded plaque:
+
+* Place the nearest plaque edge 8–20dp from the building’s base, entrance path, or dedicated signpost.
+* Do not allow more than 32dp of empty visual distance between plaque and destination anchor.
+* Prefer placement directly below the doorway or immediately beside the entrance path.
+* A short bamboo post may connect the plaque to the ground.
+* The post must be shorter than 32dp and must not cross a path or character.
+* Never place a plaque at the bottom of the screen when its building is in the top row.
+* Never center a plaque between two buildings.
+* Never use a long leader line.
+
+### Initial placement anchors
+
+These are starting positions on the 1280 × 800 reference scene. Tune them visually after rendering the actual cropped background.
+
+```text
+Story Tree
+  plaque center: x 0.205, y 0.405
+  relationship: immediately right of or below the tree-house entrance platform
+  preferred attachment: short hanging or planted bamboo sign
+
+Bahay ng Kuwento
+  plaque center: x 0.500, y 0.435
+  relationship: directly below the front doorway and steps
+  preferred attachment: planted sign at the path edge
+
+Number Market
+  plaque center: x 0.795, y 0.425
+  relationship: below the market awning, clear of baskets and scale
+  preferred attachment: low sign at the stall entrance
+
+Discovery Lab
+  plaque center: x 0.205, y 0.705
+  relationship: immediately outside the greenhouse entrance
+  preferred attachment: planted sign beside the laboratory path
+
+Heritage Harbor
+  plaque center: x 0.500, y 0.775
+  relationship: directly below the stilt-house stairs, above the dock/water edge
+  preferred attachment: dock-mounted bamboo sign
+
+Kindness Corner
+  plaque center: x 0.795, y 0.720
+  relationship: below or beside the open community-room entrance
+  preferred attachment: planted sign near the seating area
+```
+
+Placement must be adjusted if the current art differs. The relationship rule is authoritative; the coordinates are not.
+
+### Destination states
+
+Resting:
+
+* Warm sawali field.
+* Full bamboo and rattan treatment.
+* Subject color appears as a 3dp inner accent, icon backing, or small woven tab.
+* 4.5:1 text contrast.
+
+Pressed:
+
+* Scale to 0.97–0.98 for 100ms.
+* Move downward 2dp.
+* Apply a 12% dark overlay.
+* Reduce the lower hard shadow.
+* Do not move surrounding layout.
+
+Focused:
+
+* Draw a 3dp high-contrast blue focus ring with 2dp separation.
+* Preserve the subject accent.
+
+Recommended today:
+
+* Add a native `TODAY` ribbon or woven leaf tab.
+* Add a restrained golden highlight.
+* Expose `recommended today` in semantics.
+* Do not permanently enlarge the destination.
+
+Completed:
+
+* Add check icon, `Completed` text, and success accent.
+* Do not rely on green alone.
+
+Locked:
+
+* Keep the plaque readable.
+* Show a native lock icon and explicit reason such as `Opening soon`.
+* Disable the click action.
+* Announce disabled state through TalkBack.
+* Do not route to unrelated content.
+
+## Subject parity and route mapping
+
+Exactly six destinations must exist:
+
+```text
+english              Story Tree            English
+filipino             Bahay ng Kuwento      Filipino
+mathematics          Number Market          Mathematics
+science              Discovery Lab          Science
+philippine-history   Heritage Harbor         Philippine History
+
+gmrc                 Kindness Corner        GMRC
+```
+
+Use stable IDs, not list position, to resolve routes.
+
+If a lesson route is not implemented, show the full destination as locked. Do not hide it and do not redirect it.
+
+## Profile panel: “Hi, Maxine!”
+
+### Purpose
+
+The profile panel identifies the learner and gives level/XP feedback. It must feel like a village noticeboard, not a white account card.
+
+### Expanded spec
+
+```text
+Width             320–360dp
+Normal height     104–120dp
+Top inset         24–32dp after system bars
+Start inset       24–32dp
+Avatar            56–64dp
+Greeting          20sp / 25sp, Baloo 2 SemiBold
+Level             14sp / 19sp, Nunito SemiBold
+XP label          12sp / 17sp
+XP track          remaining width × 10dp
+```
+
+Use `bg_bamboo_profile.9.png` or assemble the scalable primitives.
+
+Place the panel lower than the system status bar and do not crowd the top-left corner. The entire panel must be visible with at least 16dp clearance from the display edge after insets.
+
+The panel contains one real profile action. If profile navigation is unavailable, render it as non-clickable status—not an enabled no-op button.
+
+## Daily Quest panel
+
+### Purpose
+
+Daily Quest is the primary learning action. It should resemble a bamboo mission board connected to the profile panel.
+
+### Expanded spec
+
+```text
+Width             380–440dp
+Normal height     92–118dp
+Gap below profile 12dp
+Internal padding  18–22dp
+Quest icon        28dp
+Heading           16sp / 21sp, Baloo 2 SemiBold
+Objective         14sp / 19sp, Nunito
+Progress          13sp / 18sp
+Action height     48–52dp
+```
+
+Place it directly below the profile panel. Do not span most of the screen. Do not cover the central village path or any destination.
+
+Required content:
+
+* `Daily Quest`.
+* Short objective.
+* Estimated time.
+* Progress.
+* Reward preview.
+* Start or Continue action.
+
+At compact widths, stack the action below the objective. At 200% font scale, allow the panel to grow vertically and make the screen scroll if required.
+
+## Reward counters and streak
+
+Use `bg_bamboo_counter.9.png` or the scalable primitives.
+
+Expanded counter target:
+
+```text
+Height             44–48dp
+Minimum width      104dp
+Icon               22–24dp
+Value              15–16sp, Baloo 2 SemiBold
+Gap between items  8–12dp
+Top/end inset      24–32dp after system bars
+```
+
+Show streak, stars, and paw coins. Use vector icons, not emoji. Format large numbers with locale-aware compact notation.
+
+If a value is zero, keep the counter but do not add negative or shaming copy.
+
+## Bottom navigation
+
+Use a single bamboo-and-sawali navigation platform.
+
+Expanded layout:
+
+```text
+Maximum width      720–760dp
+Height             82–94dp plus navigation-bar inset
+Bottom inset       16–24dp
+Item width         equal
+Icon               26–28dp
+Label              12–13sp / 17sp
+Target              at least 56 × 56dp
+```
+
+Required destinations:
+
+```text
+Profile
+Achievements
+Backpack
+Parents
+```
+
+Use four equal-width items unless the product adds an explicitly approved fifth destination.
+
+Parent access must open a parent gate.
+
+The active item uses a woven leaf inset, stronger icon treatment, and selected semantics. Do not rely on color alone.
+
+## Icons
+
+The package contains Android VectorDrawable resources for:
+
+```text
+ic_subject_english.xml
+ic_subject_filipino.xml
+ic_subject_math.xml
+ic_subject_science.xml
+ic_subject_history.xml
+ic_subject_gmrc.xml
+ic_quest_scroll.xml
+ic_streak.xml
+ic_star.xml
+ic_paw_coin.xml
+ic_lock.xml
+ic_today.xml
+```
+
+Icons are supporting cues. The text label remains authoritative.
+
+Tint subject icons using the appropriate subject token. Do not tint bamboo or sawali imagery.
+
+## Asset installation
+
+Copy raster primitives to:
+
+```text
+android/feature-child-home/src/main/res/drawable-nodpi/
+```
+
+Copy VectorDrawable XML files to:
+
+```text
+android/feature-child-home/src/main/res/drawable/
+```
+
+Do not copy `previews/`, `references/`, or `source-docs/` into Android resources.
+
+### Production raster assets
+
+```text
+fill_sawali.png
+rail_bamboo_horizontal.png
+rail_bamboo_vertical.png
+corner_rattan_tl.png
+corner_rattan_tr.png
+corner_rattan_bl.png
+corner_rattan_br.png
+```
+
+### Optional NinePatch assets
+
+```text
+bg_bamboo_destination.9.png
+bg_bamboo_profile.9.png
+bg_bamboo_quest.9.png
+bg_bamboo_nav.9.png
+bg_bamboo_counter.9.png
+bg_bamboo_button.9.png
+```
+
+The package includes non-NinePatch previews. Do not ship preview files.
+
+## Compose component contract
+
+Create these components rather than one monolithic screen:
+
+```text
+VillageHomeRoute
+VillageHomeScreen
+VillageScene
+VillageHud
+BambooFrame
+BambooDestinationPlaque
+BambooProfilePanel
+BambooDailyQuestPanel
+BambooRewardCounter
+BambooBottomNavigation
+BambooTactileButton
+```
+
+Suggested destination state:
+
+```kotlin
+@Immutable
+data class DestinationUiState(
+    val id: String,
+    val destinationName: String,
+    val subjectName: String,
+    val iconRes: Int,
+    val accent: Color,
+    val completedLessons: Int,
+    val totalLessons: Int,
+    val state: DestinationState,
+    val placement: DestinationPlacement,
+)
+
+sealed interface DestinationState {
+    data object Available : DestinationState
+    data object Recommended : DestinationState
+    data object Completed : DestinationState
+    data class Locked(val reason: String) : DestinationState
+}
+```
+
+Each plaque exposes one merged semantic node. Decorative rail, weave, and corner images use `contentDescription = null`.
+
+## Accessibility
+
+Every destination announcement should follow this pattern:
+
+```text
+Story Tree, English, 5 of 12 lessons complete, recommended today, button
+```
+
+Locked example:
+
+```text
+Kindness Corner, GMRC, opening soon, disabled
+```
+
+Requirements:
+
+* Minimum 48 × 48dp targets; prefer 56dp for child controls.
+* Normal text contrast at least 4.5:1.
+* Essential graphics and focus indicators at least 3:1.
+* State is never communicated by color alone.
+* Font scaling works at 100%, 150%, and 200%.
+* Decorative village art is excluded from traversal.
+* Traversal follows top-left HUD, rewards, destinations in reading order, then bottom navigation.
+* Reduced motion preserves every state cue.
+* No essential timed, drag-only, or gesture-only action.
+
+## Localization
+
+All visible copy must be stored in string resources.
+
+Allow at least 30% text expansion. Test English and Filipino. Do not abbreviate `Bahay ng Kuwento` or `Philippine History` merely to fit a fixed box.
+
+At 200% font scale or long localization:
+
+* Allow plaque height to grow.
+* Keep width uniform within the same row/layout.
+* Permit a two-line destination name.
+* Move or reflow the plaque rather than overlapping the building.
+* Use a scrollable compact layout when needed.
+
+## Motion
+
+Use motion sparingly:
+
+* Press: 100–150ms.
+* Selection transition: 180–240ms.
+* TODAY glow: one gentle breathing cycle or a static highlight under reduced motion.
+* Completion celebration: 600–1000ms, then stop.
+
+Do not animate every destination continuously.
+
+## Gamification
+
+The homepage must show:
+
+* Current level and XP.
+* Daily streak.
+* Stars.
+* Paw coins.
+* Daily Quest.
+* Subject progress.
+* Recommended destination.
+* Completion and lock states.
+
+Rewards are deterministic and tied to completed learning activity. Do not use paid rewards, loot boxes, public leaderboards, punitive streak messages, or advertising.
+
+## Implementation order for DeepSeek
+
+### Phase 1: preserve a baseline
+
+1. Build the unmodified project.
+2. Capture the current Village Home at 1280 × 800 and 360 × 800.
+3. Record the current commit SHA and test results.
+4. Identify the existing homepage state model and route callbacks.
+
+### Phase 2: install assets and tokens
+
+1. Copy only production assets into Android resources.
+2. Add centralized bamboo, sawali, rattan, ink, and subject color tokens.
+3. Bundle Baloo 2 and Nunito locally if they are not already present.
+4. Add previews for each bamboo component.
+
+### Phase 3: build `BambooFrame`
+
+1. Implement the sawali fill.
+2. Add horizontal and vertical rails.
+3. Add fixed-size corner joints.
+4. Verify arbitrary width and height without distortion.
+5. Verify no decorative node appears in TalkBack.
+
+Do not proceed until a component screenshot proves that the bamboo thickness is constant at three different sizes.
+
+### Phase 4: replace destination labels
+
+1. Remove all white destination cards.
+2. Remove duplicate colored subject badges.
+3. Create one uniform plaque component.
+4. Bind all text and progress from state.
+5. Place every plaque beside its corresponding building.
+6. Add real click routes or locked behavior.
+7. Verify all six have equal dimensions and prominence.
+
+### Phase 5: replace HUD surfaces
+
+1. Replace the white `Hi, Maxine!` panel.
+2. Move it below system insets.
+3. Replace the oversized white Daily Quest strip.
+4. Place Daily Quest directly below the profile panel.
+5. Replace reward pills with compact bamboo counters.
+6. Replace the white bottom-navigation container.
+
+### Phase 6: responsive and accessible behavior
+
+1. Implement expanded, medium, and compact layouts.
+2. Test 200% font scale.
+3. Test English and Filipino strings.
+4. Add TalkBack semantics and focus order.
+5. Add reduced-motion behavior.
+6. Verify system-bar and navigation-bar insets.
+
+### Phase 7: visual QA
+
+Capture:
+
+```text
+360 × 800
+600 × 960
+1280 × 800
+1672 × 941
+1280 × 800 at 200% font scale
+360 × 800 at 200% font scale
+1280 × 800 with GMRC locked
+1280 × 800 with each possible TODAY destination
+```
+
+Compare the 1280 × 800 result with `bamboo-concept-2-approved-reference.png`.
+
+## Automated tests
+
+Add UI tests that verify:
+
+* Exactly six destination controls exist.
+* Every destination has one click action or explicit disabled state.
+* Each ID routes to the correct subject.
+* No destination has an empty enabled callback.
+* Locked GMRC does not route elsewhere.
+* Destination plaques have equal normal dimensions.
+* Targets meet 48dp minimums.
+* Text remains visible at 200% font scale.
+* Profile, Daily Quest, destination plaques, and navigation do not overlap.
+* All visible production strings come from resources.
+
+## Screenshot rejection criteria
+
+Reject the implementation if any condition is true:
+
+* A white Material destination card remains.
+* The profile or Daily Quest is still a white panel.
+* A destination name appears twice.
+* A label is visually closer to the wrong building.
+* More than 32dp of unexplained space separates a label from its anchor.
+* A label covers a doorway, guide character, or subject-defining prop.
+* Label widths differ under normal copy.
+* One of the six subjects is missing or permanently smaller.
+* GMRC silently opens another subject.
+* Bamboo rails visibly change thickness between labels.
+* The sawali texture is stretched into obvious distortion.
+* Text is baked into imagery.
+* Emoji or debug text appears.
+* A control is clipped by system bars.
+* A destination is unreachable at compact width.
+* The screen only compiles but does not visually match the approved direction.
+
+## Definition of done
+
+The redesign is complete only when:
+
+1. Six uniform bamboo destination plaques are installed.
+2. Every plaque is physically connected to its own building.
+3. Every plaque is a real lesson launcher or an explicit disabled control.
+4. Profile, Daily Quest, reward counters, and navigation use the same material system.
+5. No dominant white card remains on Village Home.
+6. The village art remains the dominant visual element.
+7. All six subjects have equal permanent prominence.
+8. Expanded and compact layouts pass screenshot review.
+9. Accessibility and localization checks pass.
+10. Build and test commands pass.
+11. DeepSeek supplies before/after screenshots, exact test output, and a pass/fail checklist with the pull request.
+
+## Required DeepSeek response
+
+DeepSeek must return:
+
+* Files changed.
+* Assets installed.
+* Before-and-after screenshot matrix.
+* Exact build commands and results.
+* Exact tests and results.
+* Accessibility verification.
+* Localization and 200% font-scale verification.
+* Route mapping for all six destinations.
+* Completed acceptance checklist.
+* Remaining visual differences from the approved concept.
+
+Do not claim completion without screenshots.
