@@ -52,12 +52,20 @@ fun VillageHomeScreen(
     appVersion: String = ""
 ) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val isWide = maxWidth > 600.dp
+        val screenW = maxWidth
+        // Scale factor: 1.0 at 360dp phone, ~1.8 at 1524dp Xiaomi tablet
+        val scale = (screenW / 600.dp).coerceIn(1.0f, 2.0f)
+        val fontScale = scale.coerceIn(1.0f, 1.5f)
+        val sceneH = (280.dp * scale).coerceAtLeast(280.dp)
+        val buildW = (90.dp * scale).coerceIn(90.dp, 140.dp)
+        val buildH = (80.dp * scale).coerceIn(80.dp, 120.dp)
+        val questW = (180.dp * scale).coerceIn(180.dp, 260.dp)
+        val isTablet = screenW > 840.dp
 
         Scaffold(
             containerColor = Cream,
             bottomBar = {
-                VillageFooterNav(onProfile, onAchievements, onBackpack, onParentGate)
+                VillageFooterNav(onProfile, onAchievements, onBackpack, onParentGate, scale)
             }
         ) { innerPadding ->
             Column(
@@ -67,10 +75,10 @@ fun VillageHomeScreen(
                     .verticalScroll(rememberScrollState())
             ) {
                 // ─── Header: Profile + Logo + Streak ───
-                VillageHeader(childName, level, xp, xpMax, dayStreak, appVersion, onMenu)
+                VillageHeader(childName, level, xp, xpMax, dayStreak, appVersion, onMenu, scale)
 
                 // ─── Background Scene with Building PNGs ───
-                Box(Modifier.fillMaxWidth().height(if (isWide) 420.dp else 320.dp).clipToBounds()) {
+                Box(Modifier.fillMaxWidth().height(sceneH).clipToBounds()) {
                     // Reference background image
                     Image(painterResource(R.drawable.village_background), "Village",
                         Modifier.fillMaxSize(), contentScale = ContentScale.FillWidth)
@@ -79,10 +87,11 @@ fun VillageHomeScreen(
                     DailyQuestPopup(
                         completed = questCompleted, total = questTotal,
                         onClick = onDailyQuest,
+                        scale = scale,
                         modifier = Modifier
                             .align(Alignment.CenterStart)
-                            .padding(start = 12.dp, top = 8.dp)
-                            .width(if (isWide) 180.dp else 150.dp)
+                            .padding(start = (12.dp * scale).coerceAtLeast(12.dp), top = (8.dp * scale))
+                            .width(questW)
                     )
                     
                     // Buildings along the path — anchored to bottom edge
@@ -90,24 +99,24 @@ fun VillageHomeScreen(
                         Modifier
                             .align(Alignment.BottomCenter)
                             .fillMaxWidth()
-                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                            .padding(horizontal = (8.dp * scale).coerceAtLeast(8.dp), vertical = (4.dp * scale)),
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.Bottom
                     ) {
                         BuildingNode("english", "Story Tree", R.drawable.building_story_tree, 7, 12,
-                            color = StoryPurple, onTap = onSubjectTap)
+                            color = StoryPurple, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
                         BuildingNode("filipino", "Bahay Kuwento", R.drawable.building_bahay, 4, 10,
-                            color = Coral, onTap = onSubjectTap)
+                            color = Coral, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
                         BuildingNode("mathematics", "Number Market", R.drawable.building_number_market, 8, 12,
-                            color = SkyBlue, isToday = true, onTap = onSubjectTap)
+                            color = SkyBlue, isToday = true, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
                         BuildingNode("science", "Discovery Lab", R.drawable.building_discovery_lab, 5, 12,
-                            color = LeafGreen, onTap = onSubjectTap)
+                            color = LeafGreen, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
                         BuildingNode("makabansa", "Heritage Harbor", R.drawable.building_heritage_harbor, 0, 15,
-                            color = Color(0xFFB87916), locked = true, onTap = onSubjectTap)
+                            color = Color(0xFFB87916), locked = true, scale = scale, buildW = buildW, buildH = buildH, onTap = onSubjectTap)
                     }
                 }
 
-                Spacer(Modifier.height(12.dp))
+                Spacer(Modifier.height((12.dp * scale).coerceAtLeast(12.dp)))
             }
         }
     }
@@ -124,50 +133,60 @@ private fun BuildingNode(
     color: Color = VillageTeal,
     isToday: Boolean = false,
     locked: Boolean = false,
+    scale: Float = 1.0f,
+    buildW: Dp = 90.dp,
+    buildH: Dp = 80.dp,
     onTap: (String) -> Unit
 ) {
+    val fontScale = scale.coerceIn(1.0f, 1.5f)
+    val nodeW = (if (locked) 90.dp else 110.dp) * scale
+    val lockW = (if (locked) 70.dp else buildW)
+    val lockH = (if (locked) 55.dp else buildH)
+    val tagTextSize = 10.sp * scale.coerceIn(1.0f, 1.4f)
+    val todayTextSize = 8.sp * scale.coerceIn(1.0f, 1.4f)
+    
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .width(if (locked) 90.dp else 110.dp)
+            .widthIn(min = nodeW, max = nodeW * 1.5f)
             .clickable(enabled = !locked) { onTap(subjectId) }
     ) {
         // Building PNG — scaled to fit, bottom grounded
         Image(
             painterResource(buildingRes),
             "$label building",
-            Modifier
-                .width(if (locked) 70.dp else 90.dp)
-                .height(if (locked) 55.dp else 80.dp),
-            contentScale = ContentScale.FillBounds
+            Modifier.size(lockW, lockH),
+            contentScale = ContentScale.Fit
         )
         
         // Mini tag card
         Surface(
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape((8.dp * scale).coerceIn(6.dp, 12.dp)),
             color = Cream,
             shadowElevation = 2.dp
         ) {
             Column(
-                Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
+                Modifier.padding(horizontal = (6.dp * scale).coerceIn(4.dp, 10.dp), vertical = (3.dp * scale).coerceIn(2.dp, 6.dp)),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 if (isToday) {
                     Surface(shape = RoundedCornerShape(3.dp), color = SunshineGold.copy(alpha = 0.25f)) {
-                        Text("TODAY", fontSize = 8.sp, fontWeight = FontWeight.Bold,
+                        Text("TODAY", fontSize = todayTextSize, fontWeight = FontWeight.Bold,
                             color = Color(0xFF2B2100),
-                            modifier = Modifier.padding(horizontal = 3.dp, vertical = 1.dp))
+                            modifier = Modifier.padding(horizontal = (3.dp * scale).coerceIn(2.dp, 5.dp), vertical = 1.dp))
                     }
                 }
-                Text(label, fontWeight = FontWeight.Bold, fontSize = 10.sp, color = if (locked) Ink.copy(alpha = 0.4f) else Ink,
+                Text(label, fontWeight = FontWeight.Bold, fontSize = tagTextSize,
+                    color = if (locked) Ink.copy(alpha = 0.4f) else Ink,
                     maxLines = 1, textAlign = TextAlign.Center)
                 
                 if (locked) {
-                    Icon(Icons.Default.Lock, "Locked", tint = Ink.copy(alpha = 0.3f), modifier = Modifier.size(12.dp))
+                    Icon(Icons.Default.Lock, "Locked", tint = Ink.copy(alpha = 0.3f),
+                        modifier = Modifier.size((12.dp * scale).coerceIn(10.dp, 18.dp)))
                 } else {
                     LinearProgressIndicator(
                         progress = { progress.toFloat() / total.coerceAtLeast(1) },
-                        modifier = Modifier.fillMaxWidth(0.8f).height(3.dp).clip(RoundedCornerShape(2.dp)),
+                        modifier = Modifier.fillMaxWidth(0.8f).height((3.dp * scale).coerceIn(2.dp, 5.dp)).clip(RoundedCornerShape(2.dp)),
                         color = color, trackColor = color.copy(alpha = 0.1f)
                     )
                 }
@@ -181,55 +200,64 @@ private fun BuildingNode(
 @Composable
 private fun VillageHeader(
     name: String, level: Int, xp: Int, xpMax: Int,
-    dayStreak: Int, appVersion: String, onMenu: () -> Unit
+    dayStreak: Int, appVersion: String, onMenu: () -> Unit,
+    scale: Float = 1.0f
 ) {
+    val fontScale = scale.coerceIn(1.0f, 1.5f)
+    val headerPad = (12.dp * scale).coerceIn(10.dp, 20.dp)
+    val avatarSize = (44.dp * scale).coerceIn(44.dp, 64.dp)
+    val nameSize = 16.sp * fontScale
+    val titleSize = 20.sp * fontScale
+    val streakSize = 11.sp * fontScale
+    
     Row(
-        Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp),
+        Modifier.fillMaxWidth().padding(horizontal = headerPad, vertical = (8.dp * scale).coerceIn(6.dp, 12.dp)),
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Left: Profile
         Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(44.dp).clip(CircleShape).background(Coral)) {
+            Box(Modifier.size(avatarSize).clip(CircleShape).background(Coral)) {
                 Image(painterResource(R.drawable.milo), "Avatar",
-                    Modifier.size(40.dp).clip(CircleShape).align(Alignment.Center),
+                    Modifier.fillMaxSize(0.9f).clip(CircleShape).align(Alignment.Center),
                     contentScale = ContentScale.Crop)
             }
-            Spacer(Modifier.width(8.dp))
+            Spacer(Modifier.width((8.dp * scale).coerceIn(6.dp, 12.dp)))
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink)
-                    Spacer(Modifier.width(6.dp))
+                    Text(name, fontWeight = FontWeight.Bold, fontSize = nameSize, color = Ink)
+                    Spacer(Modifier.width((6.dp * scale).coerceIn(4.dp, 8.dp)))
                     Surface(shape = RoundedCornerShape(4.dp), color = SunshineGold.copy(alpha = 0.2f)) {
-                        Text("Lv $level", fontSize = 11.sp, fontWeight = FontWeight.Bold,
-                            color = Color(0xFF2B2100), modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
+                        Text("Lv $level", fontSize = 11.sp * fontScale, fontWeight = FontWeight.Bold,
+                            color = Color(0xFF2B2100), modifier = Modifier.padding(horizontal = (6.dp * scale).coerceIn(4.dp, 8.dp), vertical = 1.dp))
                     }
                 }
                 Spacer(Modifier.height(2.dp))
                 LinearProgressIndicator(progress = { xp.toFloat() / xpMax.coerceAtLeast(1) },
-                    modifier = Modifier.fillMaxWidth(0.7f).height(6.dp).clip(RoundedCornerShape(3.dp)),
+                    modifier = Modifier.fillMaxWidth(0.7f).height((6.dp * scale).coerceIn(4.dp, 8.dp)).clip(RoundedCornerShape(3.dp)),
                     color = VillageTeal, trackColor = VillageTeal.copy(alpha = 0.12f))
-                Text("$xp/$xp", fontSize = 10.sp, color = Ink.copy(alpha = 0.4f))
+                Text("$xp/$xpMax", fontSize = 10.sp * fontScale, color = Ink.copy(alpha = 0.4f))
             }
         }
 
         // Center: Logo
-        Text("Maxine's World", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp,
-            color = VillageTeal, modifier = Modifier.padding(horizontal = 8.dp))
+        Text("Maxine's World", fontWeight = FontWeight.ExtraBold, fontSize = titleSize,
+            color = VillageTeal, modifier = Modifier.padding(horizontal = (8.dp * scale).coerceIn(6.dp, 12.dp)))
 
         // Right: Streak + Menu
-        Column(horizontalAlignment = Alignment.End, modifier = Modifier.width(100.dp)) {
+        Column(horizontalAlignment = Alignment.End, modifier = Modifier.widthIn(max = (100.dp * scale).coerceIn(80.dp, 140.dp))) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(16.dp))
-                Text("$dayStreak-day", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Coral, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size((16.dp * scale).coerceIn(14.dp, 22.dp)))
+                Text("$dayStreak-day", fontSize = streakSize, fontWeight = FontWeight.Bold, color = Coral,
+                    maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
-            Text("Day Streak!", fontSize = 10.sp, color = Ink.copy(alpha = 0.5f))
-            Row { repeat(4) { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size(12.dp)) }
-                Icon(Icons.Default.Star, null, tint = SunshineGold.copy(alpha = 0.2f), modifier = Modifier.size(12.dp)) }
+            Text("Day Streak!", fontSize = 10.sp * fontScale, color = Ink.copy(alpha = 0.5f))
+            Row { repeat(4) { Icon(Icons.Default.Star, null, tint = SunshineGold, modifier = Modifier.size((12.dp * scale).coerceIn(10.dp, 16.dp))) }
+                Icon(Icons.Default.Star, null, tint = SunshineGold.copy(alpha = 0.2f), modifier = Modifier.size((12.dp * scale).coerceIn(10.dp, 16.dp))) }
         }
 
         // Menu button
-        IconButton(onClick = onMenu, modifier = Modifier.size(36.dp)) {
-            Icon(Icons.Default.Menu, "Menu", tint = VillageTeal, modifier = Modifier.size(22.dp))
+        IconButton(onClick = onMenu, modifier = Modifier.size((36.dp * scale).coerceIn(32.dp, 48.dp))) {
+            Icon(Icons.Default.Menu, "Menu", tint = VillageTeal, modifier = Modifier.size((22.dp * scale).coerceIn(20.dp, 28.dp)))
         }
     }
 }
@@ -239,32 +267,39 @@ private fun VillageHeader(
 // ─── Daily Quest Popup ───
 
 @Composable
-private fun DailyQuestPopup(completed: Int, total: Int, onClick: () -> Unit, modifier: Modifier) {
-    Card(modifier, shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = White),
+private fun DailyQuestPopup(completed: Int, total: Int, onClick: () -> Unit,
+    scale: Float = 1.0f, modifier: Modifier) {
+    val fontScale = scale.coerceIn(1.0f, 1.5f)
+    val questPad = (16.dp * scale).coerceIn(12.dp, 24.dp)
+    val questTextSize = 13.sp * fontScale
+    val questBtnHeight = (44.dp * scale).coerceIn(38.dp, 56.dp)
+    
+    Card(modifier, shape = RoundedCornerShape((16.dp * scale).coerceIn(12.dp, 20.dp)),
+        colors = CardDefaults.cardColors(containerColor = White),
         elevation = CardDefaults.cardElevation(4.dp)) {
-        Column(Modifier.padding(16.dp)) {
+        Column(Modifier.padding(questPad)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(shape = RoundedCornerShape(8.dp), color = StoryPurple.copy(alpha = 0.15f)) {
+                Surface(shape = RoundedCornerShape((8.dp * scale).coerceIn(6.dp, 10.dp)), color = StoryPurple.copy(alpha = 0.15f)) {
                     Icon(Icons.Default.MenuBook, "Quest", tint = StoryPurple,
-                        modifier = Modifier.padding(8.dp).size(24.dp))
+                        modifier = Modifier.padding((8.dp * scale).coerceIn(6.dp, 10.dp)).size((24.dp * scale).coerceIn(20.dp, 32.dp)))
                 }
-                Spacer(Modifier.width(8.dp))
-                Text("Daily Quest", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Ink)
+                Spacer(Modifier.width((8.dp * scale).coerceIn(6.dp, 12.dp)))
+                Text("Daily Quest", fontWeight = FontWeight.Bold, fontSize = 14.sp * fontScale, color = Ink)
             }
-            Spacer(Modifier.height(8.dp))
-            Text("Read a story with Mira and learn 5 new words!", fontSize = 13.sp,
-                color = Ink.copy(alpha = 0.7f), lineHeight = 18.sp)
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height((8.dp * scale).coerceIn(6.dp, 12.dp)))
+            Text("Read a story with Mira and learn 5 new words!", fontSize = questTextSize,
+                color = Ink.copy(alpha = 0.7f), lineHeight = 18.sp * fontScale)
+            Spacer(Modifier.height((10.dp * scale).coerceIn(6.dp, 14.dp)))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 LinearProgressIndicator(progress = { completed.toFloat() / total },
-                    modifier = Modifier.weight(1f).height(8.dp).clip(RoundedCornerShape(4.dp)),
+                    modifier = Modifier.weight(1f).height((8.dp * scale).coerceIn(6.dp, 10.dp)).clip(RoundedCornerShape(4.dp)),
                     color = SuccessGreen, trackColor = SuccessGreen.copy(alpha = 0.15f))
-                Spacer(Modifier.width(8.dp))
-                Text("$completed/$total", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Ink)
+                Spacer(Modifier.width((8.dp * scale).coerceIn(6.dp, 12.dp)))
+                Text("$completed/$total", fontSize = 12.sp * fontScale, fontWeight = FontWeight.Bold, color = Ink)
             }
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height((12.dp * scale).coerceIn(8.dp, 16.dp)))
             MaxinesPrimaryButton(onClick = onClick, text = "Start", containerColor = SuccessGreen,
-                modifier = Modifier.fillMaxWidth(), height = 44.dp)
+                modifier = Modifier.fillMaxWidth(), height = questBtnHeight)
         }
     }
 }
@@ -346,20 +381,26 @@ private fun SubjectCard(card: SubjectCardData, onTap: (String) -> Unit) {
 @Composable
 private fun VillageFooterNav(
     onProfile: () -> Unit, onAchievements: () -> Unit,
-    onBackpack: () -> Unit, onParentGate: () -> Unit
+    onBackpack: () -> Unit, onParentGate: () -> Unit,
+    scale: Float = 1.0f
 ) {
+    val fontScale = scale.coerceIn(1.0f, 1.5f)
     NavigationBar(containerColor = White) {
         NavigationBarItem(selected = false, onClick = onProfile,
-            icon = { Icon(Icons.Default.Person, "Profile", tint = VillageTeal) },
-            label = { Text("My Profile", fontSize = 11.sp) })
+            icon = { Icon(Icons.Default.Person, "Profile", tint = VillageTeal,
+                modifier = Modifier.size((24.dp * scale).coerceIn(20.dp, 28.dp))) },
+            label = { Text("My Profile", fontSize = 11.sp * fontScale) })
         NavigationBarItem(selected = false, onClick = onAchievements,
-            icon = { Icon(Icons.Default.EmojiEvents, "Achievements", tint = VillageTeal) },
-            label = { Text("Achievements", fontSize = 11.sp) })
+            icon = { Icon(Icons.Default.EmojiEvents, "Achievements", tint = VillageTeal,
+                modifier = Modifier.size((24.dp * scale).coerceIn(20.dp, 28.dp))) },
+            label = { Text("Achievements", fontSize = 11.sp * fontScale) })
         NavigationBarItem(selected = false, onClick = onBackpack,
-            icon = { Icon(Icons.Default.ShoppingBag, "Backpack", tint = VillageTeal) },
-            label = { Text("Backpack", fontSize = 11.sp) })
+            icon = { Icon(Icons.Default.ShoppingBag, "Backpack", tint = VillageTeal,
+                modifier = Modifier.size((24.dp * scale).coerceIn(20.dp, 28.dp))) },
+            label = { Text("Backpack", fontSize = 11.sp * fontScale) })
         NavigationBarItem(selected = false, onClick = onParentGate,
-            icon = { Icon(Icons.Default.Lock, "Parents", tint = VillageTeal) },
-            label = { Text("Parents", fontSize = 11.sp) })
+            icon = { Icon(Icons.Default.Lock, "Parents", tint = VillageTeal,
+                modifier = Modifier.size((24.dp * scale).coerceIn(20.dp, 28.dp))) },
+            label = { Text("Parents", fontSize = 11.sp * fontScale) })
     }
 }
