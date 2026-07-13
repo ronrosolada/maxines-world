@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.annotation.DrawableRes
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -68,25 +69,108 @@ fun VillageHomeScreen(
                 // ─── Header: Profile + Logo + Streak ───
                 VillageHeader(childName, level, xp, xpMax, dayStreak, appVersion, onMenu)
 
-                // ─── Background Scene ───
-                Box(Modifier.fillMaxWidth().height(if (isWide) 380.dp else 260.dp).clipToBounds()) {
+                // ─── Background Scene with Building PNGs ───
+                Box(Modifier.fillMaxWidth().height(if (isWide) 420.dp else 320.dp).clipToBounds()) {
                     // Reference background image
                     Image(painterResource(R.drawable.village_background), "Village",
                         Modifier.fillMaxSize(), contentScale = ContentScale.FillWidth)
-                    // Daily Quest popup — floating left, smaller
+                    
+                    // Daily Quest popup — floating left
                     DailyQuestPopup(
                         completed = questCompleted, total = questTotal,
                         onClick = onDailyQuest,
                         modifier = Modifier
                             .align(Alignment.CenterStart)
-                            .padding(start = 16.dp, top = 8.dp)
-                            .width(if (isWide) 200.dp else 170.dp)
+                            .padding(start = 12.dp, top = 8.dp)
+                            .width(if (isWide) 180.dp else 150.dp)
                     )
+                    
+                    // Buildings along the path — anchored to bottom edge
+                    Row(
+                        Modifier
+                            .align(Alignment.BottomCenter)
+                            .fillMaxWidth()
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.Bottom
+                    ) {
+                        BuildingNode("english", "Story Tree", R.drawable.building_story_tree, 7, 12,
+                            color = StoryPurple, onTap = onSubjectTap)
+                        BuildingNode("filipino", "Bahay Kuwento", R.drawable.building_bahay, 4, 10,
+                            color = Coral, onTap = onSubjectTap)
+                        BuildingNode("mathematics", "Number Market", R.drawable.building_number_market, 8, 12,
+                            color = SkyBlue, isToday = true, onTap = onSubjectTap)
+                        BuildingNode("science", "Discovery Lab", R.drawable.building_discovery_lab, 5, 12,
+                            color = LeafGreen, onTap = onSubjectTap)
+                        BuildingNode("makabansa", "Heritage Harbor", R.drawable.building_heritage_harbor, 0, 15,
+                            color = Color(0xFFB87916), locked = true, onTap = onSubjectTap)
+                    }
                 }
 
-                // ─── Subject Destination Cards ───
-                SubjectCardRow(onSubjectTap = onSubjectTap)
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(12.dp))
+            }
+        }
+    }
+}
+
+// ─── Building Node (PNG anchored to ground + tag card) ───
+
+@Composable
+private fun BuildingNode(
+    subjectId: String,
+    label: String,
+    @DrawableRes buildingRes: Int,
+    progress: Int, total: Int,
+    color: Color = VillageTeal,
+    isToday: Boolean = false,
+    locked: Boolean = false,
+    onTap: (String) -> Unit
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .width(if (locked) 90.dp else 110.dp)
+            .clickable(enabled = !locked) { onTap(subjectId) }
+    ) {
+        // Building PNG — scaled to fit, bottom grounded
+        Image(
+            painterResource(buildingRes),
+            "$label building",
+            Modifier
+                .width(if (locked) 70.dp else 90.dp)
+                .height(if (locked) 55.dp else 80.dp),
+            contentScale = ContentScale.FillBounds
+        )
+        
+        // Mini tag card
+        Surface(
+            shape = RoundedCornerShape(8.dp),
+            color = Cream,
+            shadowElevation = 2.dp
+        ) {
+            Column(
+                Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                if (isToday) {
+                    Surface(shape = RoundedCornerShape(3.dp), color = SunshineGold.copy(alpha = 0.25f)) {
+                        Text("TODAY", fontSize = 8.sp, fontWeight = FontWeight.Bold,
+                            color = Color(0xFF2B2100),
+                            modifier = Modifier.padding(horizontal = 3.dp, vertical = 1.dp))
+                    }
+                }
+                Text(label, fontWeight = FontWeight.Bold, fontSize = 10.sp, color = if (locked) Ink.copy(alpha = 0.4f) else Ink,
+                    maxLines = 1, textAlign = TextAlign.Center)
+                
+                if (locked) {
+                    Icon(Icons.Default.Lock, "Locked", tint = Ink.copy(alpha = 0.3f), modifier = Modifier.size(12.dp))
+                } else {
+                    LinearProgressIndicator(
+                        progress = { progress.toFloat() / total.coerceAtLeast(1) },
+                        modifier = Modifier.fillMaxWidth(0.8f).height(3.dp).clip(RoundedCornerShape(2.dp)),
+                        color = color, trackColor = color.copy(alpha = 0.1f)
+                    )
+                }
             }
         }
     }
