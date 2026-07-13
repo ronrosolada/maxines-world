@@ -16,6 +16,11 @@ import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeScreen
+import com.maxinesworld.featurechildhome.VillageHomeUiState
+import com.maxinesworld.featurechildhome.defaultVillageDestinations
+import com.maxinesworld.featurechildhome.VillageDestinationUi
+import com.maxinesworld.featurechildhome.DestinationAnchor
+import com.maxinesworld.featurechildhome.DestinationStatus
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -95,7 +100,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             VillageHomeScreen(
-                onSubjectTap = { subject ->
+                state = VillageHomeUiState(destinations = defaultVillageDestinations()),
+                onDestinationClick = { subject ->
                     val lessonId = when (subject) {
                         "english" -> "english-g3-m01-d01"
                         "filipino" -> "filipino-g3-m01-d01"
@@ -108,14 +114,14 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onParentGate = {
-                    navController.navigate(Routes.parentGate(childId))
-                },
-                onAchievements = {
+                onQuestClick = { /* Daily Quest continue */ },
+                onProfileClick = { /* Profile */ },
+                onAchievementsClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
-                onBackpack = {
-                    navController.navigate(Routes.childHome(childId))
+                onBackpackClick = { /* Backpack */ },
+                onParentsClick = {
+                    navController.navigate(Routes.parentGate(childId))
                 }
             )
         }
