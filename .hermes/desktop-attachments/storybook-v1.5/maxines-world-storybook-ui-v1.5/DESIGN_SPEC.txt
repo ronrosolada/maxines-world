@@ -1,0 +1,143 @@
+MAXINE'S WORLD — VILLAGE HOME STORYBOOK WAYFINDING SPEC v1.5
+
+AUTHORITY
+This file overrides the v0.14.0 hanging-bamboo-sign implementation for Village Home. Preserve the illustrated village background and subject architecture. Replace only the ornate bamboo UI surfaces and their layout code.
+
+WHY v0.14.0 FAILS
+1. Seven-piece bamboo assemblies create visual noise at small sizes.
+2. Rattan corner ornaments resemble resize handles and compete with text.
+3. Thick rails and hanging tabs consume space without communicating state.
+4. The repeated frame motif turns the village into a labeled diagram rather than an explorable game world.
+5. The Daily Quest is too small internally but overly decorated externally.
+6. Tiny brown details have insufficient contrast against the rich background.
+7. The implementation depends on multiple raster pieces and exact layering, increasing failure risk for a weaker LLM.
+
+NEW DIRECTION
+Use quiet storybook wayfinding: a warm painted-paper surface, soft 16dp radius, 1dp blue-ink outline, one 6dp subject-color marker, one subject icon, native text, and a 4dp soft shadow. Filipino craft influence comes from the warm woven-paper tone and illustrated village itself—not literal bamboo around every control.
+
+NON-NEGOTIABLE RULES
+* Do not render bamboo rails, rattan corners, ropes, medallions, hanging tabs, wood posts, or NinePatch borders.
+* Do not use pure-white Material cards.
+* Do not bake text, progress, locks, or TODAY into images.
+* Do not restore a destination grid on expanded landscape.
+* Do not omit Filipino, Philippine History, or GMRC.
+* Do not enable a control with an empty callback.
+* Do not route a locked subject to unrelated lesson content.
+* Do not change the village background in this iteration.
+
+EXPANDED LANDSCAPE GEOMETRY
+Reference: 1280x800dp, content area excluding bottom navigation.
+Destination plaque: exactly 184x72dp for all six subjects.
+Profile: 270x90dp.
+Daily Quest: 380x84dp.
+Reward chip: 44dp high.
+Bottom navigation: 72dp high.
+Scene edge inset: 8dp minimum; HUD edge inset: 16dp.
+At least 75% of the illustrated village must remain unobscured.
+
+INITIAL NORMALIZED DESTINATION ANCHORS
+Story Tree: x .15, y .47
+Bahay ng Kuwento: x .50, y .42
+Number Market: x .84, y .40
+Discovery Lab: x .15, y .73
+Heritage Harbor: x .50, y .72
+Kindness Corner: x .84, y .72
+
+These coordinates are supplied in code. Tune only if a plaque blocks a door, guide, animal, or essential subject prop. Keep each label visually adjacent to the correct entrance or path.
+
+DESTINATION PLAQUE CONTENT
+Line 1: destination name, 16sp ExtraBold, Ink #183B4A.
+Line 2: subject and percentage, 11sp Bold, subject accent.
+Leading icon: 24dp, subject accent.
+Leading marker: 6x44dp, same accent.
+TODAY: small gold native pill in the upper-right.
+Locked: show lock state in native text and disable the complete plaque.
+One plaque equals one semantic button and one click target.
+
+SURFACE TOKENS
+Paper top: #FFF8E8
+Paper bottom: #F4E2BE
+Ink: #183B4A
+Outline: #365662 at roughly 65% opacity
+Teal action: #087F83
+Gold reward: #F0AF28
+Shadow: Ink at roughly 15–18% opacity, 4–5dp elevation
+
+SUBJECT ACCENTS
+English: #7653B5
+Filipino: #F47C6B
+Mathematics: #3C9DDB
+Science: #66A83E
+Philippine History: #B87916
+GMRC: #087F83
+
+PROFILE
+Keep Hi, Maxine, level, XP numbers, and one progress bar inside 270x90dp. Use the approved Maxine avatar when available. Never render a blank extension beneath the content. No app version or build text.
+
+DAILY QUEST
+Place directly below Profile with 10dp gap. Show one icon, Daily Quest heading, one-line objective, compact progress, and a 48dp-minimum Continue button. It must never span the screen.
+
+REWARDS
+Use three compact warm-paper chips at top-right for streak, stars, and coins. Do not add bamboo frames. Icons carry color; the surfaces remain quiet.
+
+BOTTOM NAVIGATION
+Use one low-profile warm-paper navigation bar. No bamboo border. Maintain four items: Profile, Achievements, Backpack, Parents. Parent opens a parent gate. Every enabled item must navigate.
+
+ACCESSIBILITY
+* Each destination is a single semantic node.
+* Announce destination, subject, percentage, recommendation/completion/lock state, and button role.
+* Minimum target 48x48dp; supplied destination target is 184x72dp.
+* Background and endemic animals are decorative and normally excluded from TalkBack.
+* State must not rely on color alone.
+* At 200% font scale, switch to a scrollable compact layout rather than shrinking text.
+
+COMPACT LAYOUT
+For width below 840dp, do not use absolute scene anchors. Use an illustrated header, compact profile and quest, then six storybook destination cards in two columns; use one column when available card width would fall below 160dp or at 200% font scale. Keep the same surface style and subject parity.
+
+ASSET CONTRACT
+Production assets in this package are Android VectorDrawables only. They have no external dependencies and no alpha/checkerboard risk. The current village_background.webp remains the scene asset. The target screenshot is reference-only and must not be used as a tappable bitmap.
+
+FILES TO DELETE OR STOP USING
+* BambooPlaqueSurface and equivalent assembled-frame composables.
+* Bamboo horizontal and vertical rail rendering.
+* Rattan corner rendering.
+* Hanging sign tabs and ropes.
+* Invalid or unused bamboo .9.png resources.
+* Any seven-piece border composition.
+
+IMPLEMENTATION ORDER
+1. Copy vector resources.
+2. Replace VillageHomeScreen.kt.
+3. Adjust the package declaration only if required.
+4. Keep the existing village_background resource name or change the single reference to the actual name.
+5. Wire all seven callbacks to existing navigation.
+6. Compile before making any visual changes.
+7. Compare the result to reference/target-storybook-wayfinding.png.
+8. Capture the required screenshots.
+9. Fix geometry only; do not reintroduce decorative frames.
+
+REQUIRED SCREENSHOTS
+1280x800 landscape.
+The release's current tablet/emulator size.
+600x960.
+360x800.
+1280x800 at 200% font scale.
+TalkBack focus on Number Market.
+GMRC locked.
+A subject other than Mathematics marked TODAY.
+
+AUTOMATIC REJECTION
+* Any ornate bamboo corner or border remains.
+* A destination is larger than another destination.
+* Quest is full-width.
+* Village coverage by opaque UI exceeds 25%.
+* Labels are detached from their buildings.
+* A label blocks a door or subject-defining prop.
+* White cards dominate the scene.
+* Text is baked into artwork.
+* Fewer than six subjects appear.
+* Enabled controls have no action.
+* Build output is provided without screenshots.
+
+DEEPSEEK RESPONSE FORMAT
+Return files changed, exact build commands and output, route mapping, screenshot matrix, accessibility result, and a pass/fail copy of every automatic-rejection item. Do not claim completion merely because compilation succeeds.

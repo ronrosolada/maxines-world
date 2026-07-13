@@ -1,0 +1,25 @@
+MAXINE'S WORLD STORYBOOK UI v1.5 — APPLY IN THIS ORDER
+
+1. Copy android/feature-child-home/src/main/res/drawable/*.xml into the same module.
+2. Copy VillageHomeScreen.kt into feature-child-home, replacing the old file after preserving route callback names.
+3. Ensure the module already contains drawable-nodpi/village_background.webp. Do not replace the village art.
+4. If the app package differs from com.maxinesworld.feature.childhome, change only the first package line.
+5. Wire the seven callbacks to existing navigation. Never pass empty lambdas.
+6. Pass VillageHomeUiState(destinations = defaultVillageDestinations()) until real state is connected.
+7. Delete BambooPlaqueSurface, bamboo rails, rattan corner rendering, and the seven-piece plaque composition.
+8. Delete invalid or unused .9.png bamboo files from this feature.
+9. Build with:
+   ./gradlew :feature-child-home:compileDebugKotlin
+   ./gradlew :feature-child-home:testDebugUnitTest
+   ./gradlew assembleDebug
+10. Capture 1280x800, 600x960, 360x800, and 200% font-scale screenshots.
+
+EXPECTED VISUAL RESULT
+- No ornate bamboo corners or thick gold rails.
+- Six equal 184x72dp storybook plaques.
+- Compact 270x90dp profile and 380x84dp Daily Quest.
+- Village remains at least 75% unobscured.
+- Native text and one semantic target per destination.
+
+KNOWN INTEGRATION POINT
+The only project-specific work is mapping the callback names and, if necessary, the R package. Do not redesign the supplied components.
