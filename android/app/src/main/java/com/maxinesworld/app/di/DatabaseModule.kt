@@ -20,7 +20,7 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
         return Room.databaseBuilder(context, MaxinesDatabase::class.java, "maxines_world.db")
-            .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+            .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
             .build()
     }
 
@@ -36,6 +36,8 @@ object DatabaseModule {
     @Provides fun provideDailyChallengeDao(db: MaxinesDatabase): DailyChallengeDao = db.dailyChallengeDao()
     @Provides fun provideCollectedBadgeDao(db: MaxinesDatabase): CollectedBadgeDao = db.collectedBadgeDao()
     @Provides fun provideLessonCompletionDao(db: MaxinesDatabase): LessonCompletionDao = db.lessonCompletionDao()
+    @Provides fun provideRewardLedgerDao(db: MaxinesDatabase): RewardLedgerDao = db.rewardLedgerDao()
+    @Provides fun provideInventoryDao(db: MaxinesDatabase): InventoryDao = db.inventoryDao()
 
     private val MIGRATION_1_2 = object : Migration(1, 2) {
         override fun migrate(db: SupportSQLiteDatabase) {
@@ -63,6 +65,15 @@ object DatabaseModule {
             // Fix badge uniqueness to scope by childId+badgeId
             db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_badgeId`")
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_collected_badges_childId_badgeId` ON `collected_badges` (`childId`, `badgeId`)")
+        }
+    }
+
+    private val MIGRATION_4_5 = object : Migration(4, 5) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("CREATE TABLE IF NOT EXISTS `reward_ledger` (`id` TEXT NOT NULL, `child_id` TEXT NOT NULL, `currency` TEXT NOT NULL, `amount` INTEGER NOT NULL, `source_key` TEXT NOT NULL, `created_at_epoch` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_reward_source` ON `reward_ledger` (`child_id`, `source_key`)")
+            db.execSQL("CREATE TABLE IF NOT EXISTS `inventory` (`id` TEXT NOT NULL, `child_id` TEXT NOT NULL, `item_id` TEXT NOT NULL, `acquired_at_epoch` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`child_id`, `item_id`)")
         }
     }
 }
