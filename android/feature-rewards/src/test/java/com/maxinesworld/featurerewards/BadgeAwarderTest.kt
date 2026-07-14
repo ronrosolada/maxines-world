@@ -48,7 +48,7 @@ class BadgeAwarderTest {
             currentChallenge = firstArg()
         }
         coEvery { collectedBadgeDao.getAllByChild(childId) } returns emptyList()
-        coEvery { collectedBadgeDao.insertIgnoring(any()) } just runs
+        coEvery { collectedBadgeDao.insertIgnoring(any()) } returns 1L
         coEvery { collectedBadgeDao.countByChild(any()) } returns 0
         coEvery { collectedBadgeDao.countByBiome(any(), any()) } returns 0
         coEvery { badgeLoader.loadAll() } returns allTestBadges
