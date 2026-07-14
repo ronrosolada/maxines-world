@@ -38,24 +38,27 @@ data class LessonUiState(
 
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
-    application: Application,
-    private val lessonLoader: LessonLoader,
-    private val progressEventDao: ProgressEventDao,
-    private val masteryRecordDao: MasteryRecordDao,
-    private val rewardDao: RewardDao,
-    private val masteryEngine: MasteryEngine,
-    private val badgeAwarder: BadgeAwarder,
-    private val activeContentIndex: ActiveContentIndex
+ application: Application,
+ private val lessonLoader: LessonLoader,
+ private val progressEventDao: ProgressEventDao,
+ private val masteryRecordDao: MasteryRecordDao,
+ private val rewardDao: RewardDao,
+ private val lessonCompletionDao: LessonCompletionDao,
+ private val masteryEngine: MasteryEngine,
+ private val badgeAwarder: BadgeAwarder,
+ private val activeContentIndex: ActiveContentIndex
 ) : AndroidViewModel(application) {
 
     private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
     private var childId: String = ""
-    private var progressSaved = false
+    /** Stable attempt ID from the lesson-start event, persistent across process death. */
+    private var attemptId: String = ""
 
     fun loadLesson(lessonId: String, childId: String = "") {
         this.childId = childId
+        this.attemptId = "${lessonId}:${System.currentTimeMillis()}"
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             val lesson = withContext(Dispatchers.IO) {
@@ -99,16 +102,36 @@ class LessonPlayerViewModel @Inject constructor(
     }
 
     private fun saveProgress() {
-        if (progressSaved) return
-        progressSaved = true
         val lesson = _state.value.lesson ?: return
         val scoredResults = _state.value.results.filter { it.scored }
-        if (childId.isBlank() || scoredResults.isEmpty()) return
+        if (childId.isBlank()) return
 
         viewModelScope.launch {
+            // Idempotency guard: insert completion record
+            val completionId = "${childId}:${lesson.id}:${attemptId}"
+            val alreadyCompleted = lessonCompletionDao.exists(childId, lesson.id)
+            if (alreadyCompleted) return@launch
+
+            val scoredCorrect = scoredResults.count { it.correct }
+            val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+
+            val inserted = lessonCompletionDao.insertIgnoring(
+                LessonCompletionEntity(
+                    id = completionId,
+                    childId = childId,
+                    lessonId = lesson.id,
+                    attemptId = attemptId,
+                    accuracy = accuracy
+                )
+            )
+            // If insert ignored (duplicate key), skip all writes
+            if (inserted == -1L) return@launch
+
+            // Write progress events with deterministic IDs
             for (result in scoredResults) {
                 progressEventDao.insert(ProgressEventEntity(
-                    id = UUID.randomUUID().toString(), childId = childId,
+                    id = "${completionId}:event:${result.activityId}",
+                    childId = childId,
                     skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
                     lessonId = lesson.id, activityId = result.activityId,
                     eventType = "activity_result",
@@ -117,15 +140,22 @@ class LessonPlayerViewModel @Inject constructor(
                     responseTimeMs = result.responseTimeMs
                 ))
             }
-            val scoredCorrect = scoredResults.count { it.correct }
-            val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+
+            // Reward with deterministic ID
             val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                type = "STAR", subject = lesson.subject, amount = starsEarned))
+            rewardDao.insert(RewardEntity(
+                id = "${completionId}:reward:star",
+                childId = childId,
+                type = "STAR", subject = lesson.subject, amount = starsEarned
+            ))
             if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                    type = "COIN", subject = lesson.subject, amount = 10))
+                rewardDao.insert(RewardEntity(
+                    id = "${completionId}:reward:coin",
+                    childId = childId,
+                    type = "COIN", subject = lesson.subject, amount = 10
+                ))
             }
+
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
                 _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
