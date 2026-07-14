@@ -16,7 +16,12 @@ import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeV17Screen
-import com.maxinesworld.featurechildhome.VillageHomeV17State
+import com.maxinesworld.coremodel.Subject
+import com.maxinesworld.featurechildhome.VillageHomeViewModel
+import com.maxinesworld.featurechildhome.VillageHomeState
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -95,27 +100,20 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
+            val viewModel: VillageHomeViewModel = hiltViewModel()
+            val state by viewModel.state.collectAsState()
             VillageHomeV17Screen(
-                state = VillageHomeV17State(),
+                state = state,
                 onDestinationClick = { subject ->
-                    val lessonId = when (subject) {
-                        "english" -> "english-g3-m01-d01"
-                        "filipino" -> "filipino-g3-m01-d01"
-                        "mathematics" -> "mathematics-g3-m01-d01"
-                        "science" -> "science-g3-m01-d01"
-                        "philippine-history" -> "mkb-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
-                        else -> "english-g3-m01-d01"
+                    Subject.fromId(subject)?.let { resolved ->
+                        navController.navigate(Routes.lessonPlayer(childId, resolved.lessonId))
                     }
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onQuestClick = { },
-                onHomeClick = { },
-                onProgressClick = { },
-                onAvatarsClick = {
-                    navController.navigate(Routes.wildlifeFieldGuide(childId))
+                onMiraClick = {
+                    navController.navigate(Routes.lessonPlayer(childId, "english-g3-m01-d01"))
                 },
+                onDiscoveriesClick = { },
+                onCafeClick = { },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
