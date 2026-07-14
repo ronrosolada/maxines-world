@@ -138,7 +138,7 @@ data class DailyChallengeEntity(
     val updatedAtEpochMillis: Long = System.currentTimeMillis()
 )
 
-@Entity(tableName = "collected_badges", indices = [Index(value = ["childId"], unique = false), Index(value = ["badgeId"], unique = true)])
+@Entity(tableName = "collected_badges", indices = [Index(value = ["childId", "badgeId"], unique = true)])
 data class CollectedBadgeEntity(
     @PrimaryKey val id: String,      // compound: childId_badgeId
     val childId: String,
@@ -146,4 +146,19 @@ data class CollectedBadgeEntity(
     val biome: String,
     val earnedDate: String,          // ISO date YYYY-MM-DD
     val earnedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Lesson Completion Idempotency ───
+
+@Entity(
+    tableName = "lesson_completions",
+    indices = [Index(value = ["childId", "lessonId", "attemptId"], unique = true)]
+)
+data class LessonCompletionEntity(
+    @PrimaryKey val id: String,       // "{childId}:{lessonId}:{attemptId}"
+    val childId: String,
+    val lessonId: String,
+    val attemptId: String,
+    val accuracy: Double,
+    val completedAtEpochMillis: Long = System.currentTimeMillis()
 )

@@ -130,3 +130,15 @@ interface DailyQuestDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(quest: DailyQuestEntity)
 }
+
+@Dao
+interface LessonCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(completion: LessonCompletionEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId)")
+    suspend fun exists(childId: String, lessonId: String): Boolean
+
+    @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
+    suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
+}
