@@ -6,6 +6,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.maxinesworld.coredatabase.MaxinesMigrations
 import com.maxinesworld.coredatabase.*
+import com.maxinesworld.playground.LocalDayProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -93,4 +94,9 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideZoneId(): ZoneId = ZoneId.of("Asia/Manila")
+
+    @Provides
+    @Singleton
+    fun provideLocalDayProvider(clock: Clock, zoneId: ZoneId): LocalDayProvider =
+        com.maxinesworld.playground.SystemLocalDayProvider(clock, zoneId)
 }
