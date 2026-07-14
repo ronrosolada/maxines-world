@@ -28,21 +28,33 @@ import com.maxinesworld.featureparent.ParentGateScreen
 import com.maxinesworld.featureparent.ParentContentScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.app.PlaygroundScreen
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
+import com.maxinesworld.gamekittenmatch.KittenMatchScreen
+import com.maxinesworld.gamefireflycatch.FireflyCatchScreen
+import com.maxinesworld.gamepawbeats.PawBeatsScreen
 import dagger.hilt.android.EntryPointAccessors
 
 object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
+    const val PLAYGROUND = "playground/{childId}"
+    const val PLAYGROUND_KITTEN_MATCH = "playground/{childId}/kitten-match"
+    const val PLAYGROUND_FIREFLY_GARDEN = "playground/{childId}/firefly-garden"
+    const val PLAYGROUND_PAW_BEATS = "playground/{childId}/paw-beats"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val PARENT_CONTENT = "parent_content/{childId}"
 
     fun childHome(childId: String) = "child_home/$childId"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
+    fun playground(childId: String) = "playground/$childId"
+    fun playgroundKittenMatch(childId: String) = "playground/$childId/kitten-match"
+    fun playgroundFireflyGarden(childId: String) = "playground/$childId/firefly-garden"
+    fun playgroundPawBeats(childId: String) = "playground/$childId/paw-beats"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
     fun parentContent(childId: String) = "parent_content/$childId"
@@ -114,6 +126,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onDiscoveriesClick = { },
                 onCafeClick = { },
+                onPlaygroundClick = {
+                    navController.navigate(Routes.playground(childId))
+                },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
@@ -263,6 +278,62 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 childId = childId,
                 badgeAwarder = badgeAwarder,
                 onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ─── Playground Routes ───
+
+        composable(
+            route = Routes.PLAYGROUND,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            PlaygroundScreen(
+                childId = childId,
+                onBack = { navController.popBackStack() },
+                onPlayGame = { gameId ->
+                    when (gameId) {
+                        "kitten-match" -> navController.navigate(Routes.playgroundKittenMatch(childId))
+                        "firefly-catch" -> navController.navigate(Routes.playgroundFireflyGarden(childId))
+                        "paw-beats" -> navController.navigate(Routes.playgroundPawBeats(childId))
+                    }
+                },
+            )
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_KITTEN_MATCH,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            KittenMatchScreen(
+                childId = childId,
+                rewardBreakId = "playground_${childId}_kitten_match",
+                onExit = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_FIREFLY_GARDEN,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            FireflyCatchScreen(
+                childId = childId,
+                rewardBreakId = "playground_${childId}_firefly_catch",
+                onExit = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_PAW_BEATS,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            PawBeatsScreen(
+                childId = childId,
+                rewardBreakId = "playground_${childId}_paw_beats",
+                onExit = { navController.popBackStack() }
             )
         }
     }

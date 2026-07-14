@@ -74,6 +74,7 @@ fun VillageHomeV17Screen(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -103,10 +104,11 @@ fun VillageHomeV17Screen(
                 onMiraClick = onMiraClick,
                 onDiscoveriesClick = onDiscoveriesClick,
                 onCafeClick = onCafeClick,
+                onPlaygroundClick = onPlaygroundClick,
                 onParentsClick = onParentsClick,
             )
         } else {
-            CompactVillage(state, onDestinationClick, onMiraClick, onDiscoveriesClick, onCafeClick, onParentsClick)
+            CompactVillage(state, onDestinationClick, onMiraClick, onDiscoveriesClick, onCafeClick, onPlaygroundClick, onParentsClick)
         }
     }
 }
@@ -119,6 +121,7 @@ private fun ExpandedVillage(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
 ) {
     Box(Modifier.size(sceneWidth, sceneHeight).clip(RoundedCornerShape(2.dp))) {
@@ -145,6 +148,12 @@ private fun ExpandedVillage(
             if (bounds != null) {
                 NBox(bounds, sceneWidth, sceneHeight) { DestinationHotspot(dest, onDestinationClick) }
             } else { Log.w("Village", "Unknown dest: ${dest.id}") }
+        }
+        // Playground banner
+        state.playground?.let { pg ->
+            NBox(NRect(.108f, .790f, .805f, .055f), sceneWidth, sceneHeight) {
+                PlaygroundBanner(pg, onPlaygroundClick)
+            }
         }
         // Bottom nav
         NBox(NRect(.108f, .858f, .805f, .085f), sceneWidth, sceneHeight) {
@@ -256,6 +265,7 @@ private fun CompactVillage(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
 ) {
     Column(Modifier.fillMaxSize().background(Color(0xFFFFF5DD))
@@ -302,4 +312,28 @@ private fun CompactVillage(
 @Composable
 private fun NBox(rect: NRect, width: Dp, height: Dp, content: @Composable BoxScope.() -> Unit) {
     Box(Modifier.offset(x = width * rect.x, y = height * rect.y).size(width = width * rect.w, height = height * rect.h), content = content)
+}
+
+@Composable
+private fun PlaygroundBanner(pg: com.maxinesworld.playground.PlaygroundGateState, onClick: () -> Unit) {
+    val (bg, label, enabled) = when (pg.status) {
+        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked -> Triple(
+            androidx.compose.ui.graphics.Color(0xFF65B0D0).copy(alpha = 0.85f), "🎠 Playground Open!", true
+        )
+        com.maxinesworld.playground.PlaygroundGateStatus.Locked -> Triple(
+            androidx.compose.ui.graphics.Color(0xFFAAAAAA).copy(alpha = 0.7f),
+            "🔒 ${pg.completed}/${pg.totalAssigned} quests — Finish today's quests!", false
+        )
+        com.maxinesworld.playground.PlaygroundGateStatus.NoQuests -> Triple(
+            androidx.compose.ui.graphics.Color(0xFFCCCCCC).copy(alpha = 0.6f),
+            "🎠 Today's quests aren't ready yet", false
+        )
+        else -> Triple(
+            androidx.compose.ui.graphics.Color(0xFFDDDDDD).copy(alpha = 0.5f), "...", false
+        )
+    }
+    Row(Modifier.fillMaxSize().background(bg, RoundedCornerShape(12.dp)).clickable(enabled = enabled, onClick = onClick).padding(horizontal = 12.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        Text(label, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp, maxLines = 1)
+    }
 }
