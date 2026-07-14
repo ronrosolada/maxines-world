@@ -28,20 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-@Immutable
-data class VillageHomeV17State(
-    val childName: String = "Maxine",
-    val level: Int = 12,
-    val currentXp: Int = 660,
-    val targetXp: Int = 900,
-    val streak: Int = 7,
-    val stars: Int = 13,
-    val coins: Int = 567,
-    val questText: String = "Complete 3 activities",
-    val questProgressText: String = "1 / 3",
-    val destinations: List<VillageDestinationV17> = defaultVillageDestinationsV17,
-)
+import com.maxinesworld.coremodel.gamification.FishTreatPolicy
+import android.util.Log
 
 @Immutable
 data class VillageDestinationV17(
@@ -133,6 +121,12 @@ private fun ExpandedVillageV17(
     onParentsClick: () -> Unit,
 ) {
     Box(Modifier.size(sceneWidth, sceneHeight).clip(RoundedCornerShape(2.dp))) {
+        if (state.isLoading) {
+            Box(Modifier.fillMaxSize().background(Color(0xAA000000)), contentAlignment = Alignment.Center) {
+                Text("Loading...", color = Color.White, fontSize = 18.sp)
+            }
+            return@Box
+        }
         Image(
             painter = painterResource(R.drawable.mw_village_scene_v17),
             contentDescription = null,
@@ -147,9 +141,13 @@ private fun ExpandedVillageV17(
         }
         RewardOverlayV17(state, sceneWidth, sceneHeight)
         state.destinations.forEach { destination ->
-            val bounds = destinationBounds.getValue(destination.id)
-            NBox(bounds, sceneWidth, sceneHeight) {
-                DestinationOverlayV17(destination, onDestinationClick)
+            val bounds = destinationBounds[destination.id]
+            if (bounds != null) {
+                NBox(bounds, sceneWidth, sceneHeight) {
+                    DestinationOverlayV17(destination, onDestinationClick)
+                }
+            } else {
+                Log.w("VillageV17", "Unknown destination id: ${destination.id}")
             }
         }
         NBox(NRect(.108f, .858f, .805f, .085f), sceneWidth, sceneHeight) {
@@ -175,10 +173,12 @@ private fun ProfileOverlayV17(state: VillageHomeV17State) {
         Spacer(Modifier.width(10.dp))
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.Center) {
             Text("Hi, ${state.childName}!", color = Color(0xFF075F63), fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
-            Text("Lv ${state.level}   ${state.currentXp} / ${state.targetXp} XP", color = Color(0xFF34545A), fontWeight = FontWeight.Bold, fontSize = 11.sp)
-            Spacer(Modifier.height(5.dp))
-            Box(Modifier.fillMaxWidth().height(5.dp).clip(RoundedCornerShape(9.dp)).background(Color(0x5536545A))) {
-                Box(Modifier.fillMaxWidth((state.currentXp.toFloat() / state.targetXp).coerceIn(0f,1f)).fillMaxHeight().background(Color(0xFFF5A623)))
+            if (state.targetXp > 0) {
+                Text("${state.currentXp} / ${state.targetXp} XP", color = Color(0xFF34545A), fontWeight = FontWeight.Bold, fontSize = 11.sp)
+                Spacer(Modifier.height(5.dp))
+                Box(Modifier.fillMaxWidth().height(5.dp).clip(RoundedCornerShape(9.dp)).background(Color(0x5536545A))) {
+                    Box(Modifier.fillMaxWidth((state.currentXp.toFloat() / state.targetXp).coerceIn(0f,1f)).fillMaxHeight().background(Color(0xFFF5A623)))
+                }
             }
         }
     }
@@ -203,10 +203,21 @@ private fun QuestOverlayV17(state: VillageHomeV17State, onClick: () -> Unit) {
 @Composable
 private fun RewardOverlayV17(state: VillageHomeV17State, w: Dp, h: Dp) {
     val items = listOf(
-        Triple(NRect(.764f,.030f,.060f,.050f), R.drawable.mw_ic_star, state.streak.toString()),
-        Triple(NRect(.833f,.030f,.070f,.050f), R.drawable.mw_ic_trophy, state.stars.toString()),
-        Triple(NRect(.912f,.030f,.070f,.050f), R.drawable.mw_ic_coin, state.coins.toString()),
+        Triple(NRect(.912f,.030f,.070f,.050f), R.drawable.mw_ic_coin, state.fishTreats.toString()),
     )
+    if (state.hasNewDiscovery) {
+        val discoveryItems = items + Triple(NRect(.830f,.030f,.070f,.050f), R.drawable.mw_ic_star, "NEW")
+        discoveryItems.forEach { (r, icon, value) ->
+            NBox(r,w,h) {
+                Row(Modifier.fillMaxSize(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+                    Icon(painterResource(icon), null, tint = Color(0xFFB87916), modifier = Modifier.size(17.dp))
+                    Spacer(Modifier.width(4.dp))
+                    Text(value, color = Color(0xFF075F63), fontWeight = FontWeight.ExtraBold, fontSize = 13.sp)
+                }
+            }
+        }
+        return
+    }
     items.forEach { (r, icon, value) ->
         NBox(r,w,h) {
             Row(Modifier.fillMaxSize(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
