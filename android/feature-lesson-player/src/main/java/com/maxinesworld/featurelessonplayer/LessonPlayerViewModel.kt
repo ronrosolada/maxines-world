@@ -5,13 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.coremodel.*
+import com.maxinesworld.coremodel.gamification.*
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
-import com.maxinesworld.coremodel.gamification.FishTreatPolicy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +20,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.UUID
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 
 data class LessonUiState(
@@ -39,15 +41,17 @@ data class LessonUiState(
 
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
- application: Application,
- private val lessonLoader: LessonLoader,
- private val progressEventDao: ProgressEventDao,
- private val masteryRecordDao: MasteryRecordDao,
- private val rewardDao: RewardDao,
- private val lessonCompletionDao: LessonCompletionDao,
- private val masteryEngine: MasteryEngine,
- private val badgeAwarder: BadgeAwarder,
- private val activeContentIndex: ActiveContentIndex
+    application: Application,
+    private val db: MaxinesDatabase,
+    private val lessonLoader: LessonLoader,
+    private val progressEventDao: ProgressEventDao,
+    private val masteryRecordDao: MasteryRecordDao,
+    private val rewardDao: RewardDao,
+    private val rewardLedgerDao: RewardLedgerDao,
+    private val lessonCompletionDao: LessonCompletionDao,
+    private val masteryEngine: MasteryEngine,
+    private val badgeAwarder: BadgeAwarder,
+    private val activeContentIndex: ActiveContentIndex
 ) : AndroidViewModel(application) {
 
     private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
@@ -180,6 +184,13 @@ class LessonPlayerViewModel @Inject constructor(
 
     private fun convertToLessonManifest(m1: Month1Lesson): LessonManifest {
         val subj = contentLessonLoader.toAppSubject(m1.subject)
+        val wildlifeMeta = m1.wildlifeDiscovery?.let { wd ->
+            com.maxinesworld.coremodel.gamification.WildlifeDiscoveryMetadata(
+                badgeId = wd.badgeId,
+                trigger = wd.trigger,
+                factActivityId = wd.factActivityId
+            )
+        }
         return LessonManifest(
             id = m1.lessonId, schemaVersion = m1.schemaVersion,
             moduleId = "g3-m01",
@@ -188,6 +199,7 @@ class LessonPlayerViewModel @Inject constructor(
             guideCharacter = if (subj == "english") "Mira" else "Milo",
             estimatedMinutes = m1.estimatedMinutes,
             languageOfInstruction = m1.language,
+            wildlifeDiscovery = wildlifeMeta,
             steps = m1.activities.map { act ->
                 ActivityStep(
                     id = act.activityId, type = when (act.type) {
