@@ -11,6 +11,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import java.time.Clock
+import java.time.ZoneId
 import javax.inject.Singleton
 
 @Module
@@ -83,4 +85,12 @@ object DatabaseModule {
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`childId`, `itemId`)")
         }
     }
+
+    @Provides
+    @Singleton
+    fun provideClock(): Clock = Clock.systemUTC()
+
+    @Provides
+    @Singleton
+    fun provideZoneId(): ZoneId = ZoneId.of("Asia/Manila")
 }
