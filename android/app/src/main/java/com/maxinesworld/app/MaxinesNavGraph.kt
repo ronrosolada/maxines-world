@@ -133,6 +133,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
+                onDismissPlaygroundUnlockCelebration = {
+                    viewModel.dismissPlaygroundUnlockCelebration()
+                },
             )
         }
 

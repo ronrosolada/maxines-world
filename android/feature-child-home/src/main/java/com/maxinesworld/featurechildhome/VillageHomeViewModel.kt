@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.gamification.FishTreatPolicy
-import com.maxinesworld.playground.PlaygroundGateEvaluator
+import com.maxinesworld.playground.PlaygroundGateRepository
+import com.maxinesworld.playground.LocalDayProvider
 import com.maxinesworld.playground.PlaygroundGateState
 import com.maxinesworld.playground.PlaygroundGateStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
 
@@ -62,9 +62,8 @@ class VillageHomeViewModel @Inject constructor(
     private val progressEventDao: ProgressEventDao,
     private val rewardDao: RewardDao,
     private val dailyQuestDao: DailyQuestDao,
-    private val dailyQuestSetDao: DailyQuestSetDao,
-    private val dailyQuestCompletionDao: DailyQuestCompletionDao,
-    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
+    private val gateRepository: PlaygroundGateRepository,
+    private val dayProvider: LocalDayProvider,
 ) : ViewModel() {
     private val childId: String = savedStateHandle["childId"] ?: error("childId missing")
 
@@ -74,7 +73,15 @@ class VillageHomeViewModel @Inject constructor(
     private var observedGateAtLeastOnce = false
     private var previousGateStatus: PlaygroundGateStatus? = null
 
-    init { load() }
+    init {
+        // Reactive gate subscription — updates playground state independently
+        viewModelScope.launch {
+            gateRepository.gate(childId).collect { gate ->
+                acceptGate(gate)
+            }
+        }
+        load()
+    }
 
     fun load() {
         viewModelScope.launch {
@@ -88,7 +95,7 @@ class VillageHomeViewModel @Inject constructor(
                 val fishTreatTotal = rewardDao.getTotalByType(childId, FishTreatPolicy.TYPE) ?: 0
                 val cafePurchased = rewardDao.getTotalByType(childId, "CAFE_UNLOCK_cafe-cushion-teal") ?: 0
 
-                val today = LocalDate.now().toString()
+                val today = dayProvider.currentDayKey()
                 val quest = dailyQuestDao.getByChildAndDate(childId, today)
                 val completedCount = quest?.let { p ->
                     try {
@@ -96,20 +103,6 @@ class VillageHomeViewModel @Inject constructor(
                         if (el is kotlinx.serialization.json.JsonArray) el.size else 0
                     } catch (_: Exception) { 0 }
                 } ?: 0
-
-                // ─── Playground gate evaluation ───
-                val questSet = dailyQuestSetDao.getByChildAndDay(childId, today)
-                val assignedIds: Set<String> = questSet?.let { parseJsonArray(it.assignedQuestIds) } ?: emptySet()
-                val completedIds = dailyQuestCompletionDao.getCompletedQuestIds(childId, today).toSet()
-                val hasUnlockReceipt = playgroundUnlockReceiptDao.existsByChildAndDay(childId, today)
-                val playgroundState = PlaygroundGateEvaluator.evaluate(
-                    childId = childId,
-                    dayKey = today,
-                    assignedQuestIds = if (questSet != null) assignedIds else null,
-                    completedQuestIds = if (questSet != null) completedIds else null,
-                    hasUnlockReceipt = hasUnlockReceipt
-                )
-                acceptGate(playgroundState)
 
                 val todayEnglish = progressEventDao.getByChildAndSkill(childId, "english").filter { isToday(it.timestamp) }
                 val showMira = todayEnglish.isEmpty()
@@ -168,9 +161,10 @@ class VillageHomeViewModel @Inject constructor(
     }
 
     private fun isToday(epochMs: Long): Boolean {
-        val today = java.time.Instant.ofEpochMilli(epochMs)
+        val now = java.time.LocalDate.parse(dayProvider.currentDayKey())
+        val eventDate = java.time.Instant.ofEpochMilli(epochMs)
             .atZone(ZoneId.systemDefault()).toLocalDate()
-        return today == LocalDate.now()
+        return eventDate == now
     }
 
     private fun parseJsonArray(json: String): Set<String> {

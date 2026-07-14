@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.util.Log
+import com.maxinesworld.coredesignsystem.LocalReducedMotion
 
 @Immutable
 data class VillageDestination(
@@ -80,6 +81,7 @@ fun VillageHomeV17Screen(
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
     onPlaygroundClick: () -> Unit = {},
+    onDismissPlaygroundUnlockCelebration: () -> Unit = {},
     onParentsClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -114,6 +116,16 @@ fun VillageHomeV17Screen(
             )
         } else {
             CompactVillage(state, onDestinationClick, onMiraClick, onDiscoveriesClick, onCafeClick, onPlaygroundClick, onParentsClick)
+        }
+
+        // Playground unlock celebration – shown once per live transition.
+        // ViewModel tracks consumption; dialog is never self-dismissed.
+        if (state.showPlaygroundUnlockCelebration && state.playground != null) {
+            PlaygroundUnlockCelebration(
+                status = state.playground.status,
+                onEnter = onDismissPlaygroundUnlockCelebration,
+                reducedMotion = LocalReducedMotion.current,
+            )
         }
     }
 }
