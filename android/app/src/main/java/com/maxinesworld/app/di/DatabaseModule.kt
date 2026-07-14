@@ -74,6 +74,8 @@ object DatabaseModule {
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_lesson_completions_childId_lessonId_attemptId` ON `lesson_completions` (`childId`, `lessonId`, `attemptId`)")
             // Fix badge uniqueness to scope by childId+badgeId
             db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_badgeId`")
+            // Drop stray non-unique index from MIGRATION_2_3 (not in any Room schema)
+            db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_childId`")
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_collected_badges_childId_badgeId` ON `collected_badges` (`childId`, `badgeId`)")
         }
     }

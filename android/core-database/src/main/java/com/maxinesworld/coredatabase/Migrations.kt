@@ -45,6 +45,8 @@ object MaxinesMigrations {
                 """CREATE UNIQUE INDEX IF NOT EXISTS `index_playground_unlock_receipts_childId_dayKey`
                   ON `playground_unlock_receipts` (`childId`, `dayKey`)"""
             )
+            // Clean up stray index from MIGRATION_2_3 that isn't in any Room schema
+            db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_childId`")
         }
     }
 }

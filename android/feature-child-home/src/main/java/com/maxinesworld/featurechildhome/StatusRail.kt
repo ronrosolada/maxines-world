@@ -65,7 +65,7 @@ private fun StatusPill(
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(min = 48.dp)
-            .background(Color(0xFFF5F0E8).copy(alpha = 0.9f), RoundedCornerShape(10.dp))
+            .background(Color(0xFFF5F0E8), RoundedCornerShape(10.dp))
             .padding(horizontal = 8.dp, vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -93,7 +93,7 @@ private fun PlaygroundPill(
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(min = 48.dp)
-            .background(Color(0xFFF5F0E8).copy(alpha = 0.9f), RoundedCornerShape(10.dp))
+            .background(Color(0xFFF5F0E8), RoundedCornerShape(10.dp))
             .semantics(mergeDescendants = true) { contentDescription = label; role = Role.Button }
             .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 8.dp, vertical = 4.dp),
