@@ -50,9 +50,11 @@ data class Month1ActivityFeedback(val correct: String = "", val retry: String = 
 
 @Serializable
 data class Month1Assessment(
-    val purpose: String,
-    val itemCount: Int,
-    val passingCorrectCount: Int,
+    val purpose: String = "",
+    val itemCount: Int = 0,
+    /** Some packs (GMRC bootstrap) use totalItems instead of itemCount. */
+    val totalItems: Int = 0,
+    val passingCorrectCount: Int = 4,
     val claimsMastery: Boolean = false,
     val items: List<AssessmentItem> = emptyList()
 )
@@ -63,9 +65,21 @@ data class AssessmentItem(
     val sequence: Int = 0,
     val type: String = "",
     val prompt: String = "",
+    /** GMRC / alternate schema uses `question` instead of `prompt`. */
+    val question: String = "",
     val options: kotlinx.serialization.json.JsonElement? = null,
+    /** GMRC bootstrap uses choices: [{text, correct}] */
+    val choices: List<AssessmentChoice> = emptyList(),
     val correctOptionIds: List<String> = emptyList(),
-    val explanation: String = ""
+    val explanation: String = "",
+    val narration: String = ""
+)
+
+@Serializable
+data class AssessmentChoice(
+    val text: String = "",
+    val correct: Boolean = false,
+    val id: String = ""
 )
 
 /** Daily manifest linking 5 qualifying lessons to a badge position. */

@@ -179,21 +179,29 @@ class LessonPlayerViewModel @Inject constructor(
         }
 
         // End-of-lesson assessment items → scored MCQ steps
-        m1.assessment?.items?.forEach { item ->
-            val optionTexts = parseAssessmentOptions(item.options)
-            val correctIdx = item.correctOptionIds.firstOrNull()?.let { cid ->
-                // options may be {id,text} objects; match by id when available
-                val ids = parseAssessmentOptionIds(item.options)
-                ids.indexOf(cid).takeIf { it >= 0 }
-                    ?: optionTexts.indexOfFirst { it.equals(cid, ignoreCase = true) }
-            } ?: 0
+        m1.assessment?.items?.forEachIndexed { idx, item ->
+            val prompt = item.prompt.ifBlank { item.question }.ifBlank { item.narration }
+            val optionTexts: List<String>
+            val correctIdx: Int
+            if (item.choices.isNotEmpty()) {
+                optionTexts = item.choices.map { it.text }
+                correctIdx = item.choices.indexOfFirst { it.correct }.coerceAtLeast(0)
+            } else {
+                optionTexts = parseAssessmentOptions(item.options)
+                correctIdx = item.correctOptionIds.firstOrNull()?.let { cid ->
+                    val ids = parseAssessmentOptionIds(item.options)
+                    ids.indexOf(cid).takeIf { it >= 0 }
+                        ?: optionTexts.indexOfFirst { it.equals(cid, ignoreCase = true) }
+                }?.coerceAtLeast(0) ?: 0
+            }
+            if (prompt.isBlank() && optionTexts.isEmpty()) return@forEachIndexed
             steps += ActivityStep(
-                id = item.itemId.ifBlank { "${m1.lessonId}-q${item.sequence}" },
+                id = item.itemId.ifBlank { "${m1.lessonId}-q${item.sequence.ifZero(idx + 1)}" },
                 type = "MULTIPLE_CHOICE_V1",
-                narrationText = item.prompt,
-                question = item.prompt,
+                narrationText = prompt,
+                question = prompt,
                 options = optionTexts,
-                correctIndex = correctIdx.coerceAtLeast(0),
+                correctIndex = correctIdx,
                 feedback = ActivityFeedback(
                     correct = item.explanation.ifBlank { "Great job!" },
                     incorrect = item.explanation.ifBlank { "Let's try again!" }
@@ -224,12 +232,13 @@ class LessonPlayerViewModel @Inject constructor(
         "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
         "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
         "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
-        "HOTSPOT_IMAGE" -> "HOTSPOT_IMAGE_V1"
-        "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
-        "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
-        "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
+        // Engines not yet implemented — fall back to playable types
+        "HOTSPOT_IMAGE", "MATCHING_PAIRS", "SEQUENCE_BUILDER", "INTERACTIVE_SPEC" ->
+            "ANIMATED_EXPLANATION_V1"
         else -> "ANIMATED_EXPLANATION_V1"
     }
+
+    private fun Int.ifZero(fallback: Int): Int = if (this == 0) fallback else this
 
     /**
      * Pull options / correctIndex / narration out of Month1Activity.content.
@@ -253,18 +262,26 @@ class LessonPlayerViewModel @Inject constructor(
                     val steps = content["steps"]?.let { parseStringList(it) } ?: emptyList()
                     val examples = content["examples"]?.let { parseStringList(it) } ?: emptyList()
 
+                    // Prefer MCQ options; for non-MCQ, fold content into narration text
                     val options = when {
                         opts.isNotEmpty() -> opts
-                        sortOptions.isNotEmpty() -> sortOptions
-                        steps.isNotEmpty() -> steps
-                        examples.isNotEmpty() -> examples
+                        act.type == "SORT_AND_CLASSIFY" && sortOptions.isNotEmpty() -> sortOptions
                         else -> emptyList()
+                    }
+
+                    val extraNarration = when {
+                        opts.isNotEmpty() -> act.instruction
+                        examples.isNotEmpty() -> (listOf(act.instruction) + examples).joinToString("\n\n")
+                        steps.isNotEmpty() -> (listOf(act.instruction) + steps.mapIndexed { i, s -> "${i + 1}. $s" }).joinToString("\n")
+                        sortOptions.isNotEmpty() && act.type != "SORT_AND_CLASSIFY" ->
+                            (listOf(act.instruction) + sortOptions).joinToString("\n• ", prefix = "\n• ")
+                        else -> act.instruction
                     }
 
                     ExtractedContent(
                         options = options,
                         correctIndex = correct,
-                        narration = act.instruction,
+                        narration = extraNarration,
                         question = act.instruction
                     )
                 }
