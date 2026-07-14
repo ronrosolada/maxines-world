@@ -1,0 +1,328 @@
+{
+  "lessonId": "filipino-g3-m01-d12",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 12,
+  "subject": "FILIPINO",
+  "title": "Muling Pagsasalaysay",
+  "objective": "Isalaysay muli ang mahahalagang pangyayari sa sariling salita at tamang ayos.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "fil-PH",
+  "introduction": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Muling",
+      "definition": "A key word used in the lesson “Muling Pagsasalaysay”."
+    },
+    {
+      "term": "Pagsasalaysay",
+      "definition": "A key word used in the lesson “Muling Pagsasalaysay”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d12-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "Text alternative: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+    },
+    {
+      "activityId": "filipino-g3-m01-d12-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "Una, tinupi ang dahon.",
+          "Sumunod, inilagay sa tubig.",
+          "Sa huli, lumutang ang bangka."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "filipino-g3-m01-d12-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Una, tinupi ang dahon.",
+          "Sumunod, inilagay sa tubig.",
+          "Sa huli, lumutang ang bangka."
+        ],
+        "doesNotFit": [
+          "Kopyahin bawat pangungusap",
+          "Magdagdag ng di-nangyari",
+          "Baligtarin ang ayos nang walang paliwanag"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "filipino-g3-m01-d12-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Aling salita ang hudyat ng huling pangyayari?",
+      "content": {
+        "options": [
+          "Sa huli",
+          "Una",
+          "Bago"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Sa huli",
+        "retry": "Read the lesson rule again. Una and Bago do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d12-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Una, tinupi ang dahon.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Sumunod, inilagay sa tubig.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Sa huli, lumutang ang bangka.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "filipino-g3-m01-d12-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d12-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakaangkop sa “Muling Pagsasalaysay”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+          },
+          {
+            "id": "b",
+            "text": "Kopyahin bawat pangungusap"
+          },
+          {
+            "id": "c",
+            "text": "Magdagdag ng di-nangyari"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      },
+      {
+        "itemId": "filipino-g3-m01-d12-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una, tinupi ang dahon."
+          },
+          {
+            "id": "b",
+            "text": "Kopyahin bawat pangungusap"
+          },
+          {
+            "id": "c",
+            "text": "Magdagdag ng di-nangyari"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Una, tinupi ang dahon.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      },
+      {
+        "itemId": "filipino-g3-m01-d12-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Kopyahin bawat pangungusap"
+          },
+          {
+            "id": "b",
+            "text": "Una, tinupi ang dahon."
+          },
+          {
+            "id": "c",
+            "text": "Sumunod, inilagay sa tubig."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Kopyahin bawat pangungusap” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      },
+      {
+        "itemId": "filipino-g3-m01-d12-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling salita ang hudyat ng huling pangyayari?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sa huli"
+          },
+          {
+            "id": "b",
+            "text": "Una"
+          },
+          {
+            "id": "c",
+            "text": "Bago"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Sa huli” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      },
+      {
+        "itemId": "filipino-g3-m01-d12-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sa huli, lumutang ang bangka."
+          },
+          {
+            "id": "b",
+            "text": "Baligtarin ang ayos nang walang paliwanag"
+          },
+          {
+            "id": "c",
+            "text": "Kopyahin bawat pangungusap"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Sa huli, lumutang ang bangka.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d12-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d12-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Muling Pagsasalaysay; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Muling Pagsasalaysay.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "259a60ff6b3b2c3b364e1f2bbe1fd7725fe1b67751d413584ec8e8fe6a529b8d"
+}

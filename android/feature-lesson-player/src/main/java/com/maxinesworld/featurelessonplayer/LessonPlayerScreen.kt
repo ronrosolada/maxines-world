@@ -136,11 +136,14 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             "ANIMATED_EXPLANATION_V1", "animated_explanation" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
-            "multiple_choice", "story_comprehension", "prediction_observation_explanation" -> MultipleChoiceStep(step, viewModel)
-            "sort_and_classify", "timeline_builder" -> SortStep(step, viewModel)
+            "MULTIPLE_CHOICE_V1", "multiple_choice", "story_comprehension", "prediction_observation_explanation" ->
+                MultipleChoiceStep(step, viewModel)
+            "SORT_AND_CLASSIFY_V1", "sort_and_classify", "timeline_builder" -> SortStep(step, viewModel)
             "array_builder" -> ArrayStep(step, viewModel)
             "sentence_builder" -> SentenceBuilderStep(step, viewModel)
-            else -> UnsupportedActivity(step)
+            else -> UnsupportedActivity(step) {
+                viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
+            }
         }
 
         if (state.showFeedback) {
@@ -223,11 +226,13 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
 // ─── Unsupported Activity Safe Fallback ───
 
 @Composable
-private fun UnsupportedActivity(step: ActivityStep) {
+private fun UnsupportedActivity(step: ActivityStep, onContinue: () -> Unit = {}) {
     Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Warning.copy(alpha = 0.15f))) {
         Column(Modifier.padding(16.dp)) {
             Text("Activity type \"${step.type}\" is not yet supported.", style = MaterialTheme.typography.bodyMedium, color = Warning)
             Text("This lesson step needs an engine update. Your progress is saved.", fontSize = 14.sp, color = Warning.copy(alpha = 0.7f))
+            Spacer(Modifier.height(12.dp))
+            MaxinesPrimaryButton(onClick = onContinue, text = "Continue", containerColor = Teal40)
         }
     }
 }

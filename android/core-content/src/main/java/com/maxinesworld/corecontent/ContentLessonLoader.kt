@@ -76,7 +76,68 @@ class ContentLessonLoader(
                 .bufferedReader().use { it.readText() }
         } catch (_: Exception) {}
 
+        // Format 4: Bootstrap pack path derived from lesson ID
+        // e.g. english-g3-m01-d01 → content/bootstrap/packs/g3-english-q1-w01/1/lessons/...
+        //      gmrc-g3-q1-w01-d01 → content/bootstrap/packs/g3-gmrc-q1-w01/1/lessons/...
+        bootstrapAssetPath(lessonId)?.let { path ->
+            try {
+                android.util.Log.d("ContentLoader", "Trying bootstrap: $path")
+                return context.assets.open(path).bufferedReader().use { it.readText() }
+            } catch (e: Exception) {
+                android.util.Log.d("ContentLoader", "Bootstrap miss: ${e.message}")
+            }
+        }
+
         return null
+    }
+
+    /**
+     * Map a lesson ID to its bundled bootstrap asset path, or null if unknown.
+     */
+    private fun bootstrapAssetPath(lessonId: String): String? {
+        // quarter-week form: subject-g3-qN-wNN-dNN
+        val qw = Regex(
+            """^([a-z-]+)-g3-(q\d)-(w\d+)-d\d+$""",
+            RegexOption.IGNORE_CASE
+        ).matchEntire(lessonId)
+        if (qw != null) {
+            val subject = normalizeSubject(qw.groupValues[1])
+            val packId = "g3-$subject-${qw.groupValues[2].lowercase()}-${qw.groupValues[3].lowercase()}"
+            return "content/bootstrap/packs/$packId/1/lessons/$lessonId.json"
+        }
+
+        // month-day form: subject-g3-mNN-dNN → approximate q1 week from day
+        val md = Regex(
+            """^([a-z-]+)-g3-m(\d+)-d(\d+)$""",
+            RegexOption.IGNORE_CASE
+        ).matchEntire(lessonId)
+        if (md != null) {
+            val subject = normalizeSubject(md.groupValues[1])
+            val month = md.groupValues[2].toInt()
+            val day = md.groupValues[3].toInt()
+            val quarter = when {
+                month <= 2 -> "q1"
+                month <= 4 -> "q2"
+                month <= 6 -> "q3"
+                else -> "q4"
+            }
+            // week within quarter: 5 school days per week
+            val weekBase = if (month % 2 == 1) 1 else 5
+            val week = weekBase + ((day - 1) / 5)
+            val packId = "g3-$subject-$quarter-w${week.toString().padStart(2, '0')}"
+            return "content/bootstrap/packs/$packId/1/lessons/$lessonId.json"
+        }
+        return null
+    }
+
+    private fun normalizeSubject(raw: String): String = when (raw.lowercase()) {
+        "english", "eng" -> "english"
+        "filipino", "fil" -> "filipino"
+        "mathematics", "math" -> "mathematics"
+        "science", "sci" -> "science"
+        "makabansa", "mkb", "araling-panlipunan", "history" -> "makabansa"
+        "gmrc", "values" -> "gmrc"
+        else -> raw.lowercase()
     }
 
     suspend fun loadDayManifest(day: Int): DayManifest? = withContext(Dispatchers.IO) {
@@ -99,7 +160,9 @@ class ContentLessonLoader(
         "FILIPINO" to "filipino",
         "MATHEMATICS" to "mathematics",
         "SCIENCE" to "science",
-        "ARALING_PANLIPUNAN" to "makabansa"
+        "ARALING_PANLIPUNAN" to "makabansa",
+        "MAKABANSA" to "makabansa",
+        "GMRC" to "gmrc"
     )
 
     fun toAppSubject(apiSubject: String): String = subjectMapping[apiSubject] ?: apiSubject.lowercase()

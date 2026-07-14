@@ -1,0 +1,340 @@
+{
+  "lessonId": "science-g3-m01-d18",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 18,
+  "subject": "SCIENCE",
+  "title": "Light Lets Us See",
+  "objective": "Distinguish sources and reflectors and explain safe seeing.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Light",
+      "definition": "A key word used in the lesson “Light Lets Us See”."
+    },
+    {
+      "term": "Lets",
+      "definition": "A key word used in the lesson “Light Lets Us See”."
+    },
+    {
+      "term": "Us",
+      "definition": "A key word used in the lesson “Light Lets Us See”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d18-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "science-g3-m01-d18-visual",
+      "accessibilityAlternative": "Text alternative: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+    },
+    {
+      "activityId": "science-g3-m01-d18-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "lamp—source",
+          "Moon—reflector",
+          "book—seen by reflected light"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "science-g3-m01-d18-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d18-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "lamp—source",
+          "Moon—reflector",
+          "book—seen by reflected light"
+        ],
+        "doesNotFit": [
+          "Moon makes its own visible light",
+          "Look at the Sun",
+          "Darkness is a material"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d18-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d18-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Why can we see a book in a lit room?",
+      "content": {
+        "options": [
+          "Light reflects from it into our eyes.",
+          "The book makes sunlight.",
+          "Eyes send a beam into it."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Light reflects from it into our eyes.",
+        "retry": "Read the lesson rule again. The book makes sunlight. and Eyes send a beam into it. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d18-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "lamp—source",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Moon—reflector",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "book—seen by reflected light",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "science-g3-m01-d18-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d18-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "science-g3-m01-d18-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d18-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Light Lets Us See”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+          },
+          {
+            "id": "b",
+            "text": "Moon makes its own visible light"
+          },
+          {
+            "id": "c",
+            "text": "Look at the Sun"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps.” because it follows the lesson explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+      },
+      {
+        "itemId": "science-g3-m01-d18-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "lamp—source"
+          },
+          {
+            "id": "b",
+            "text": "Moon makes its own visible light"
+          },
+          {
+            "id": "c",
+            "text": "Look at the Sun"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “lamp—source” because it follows the lesson explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+      },
+      {
+        "itemId": "science-g3-m01-d18-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Moon makes its own visible light"
+          },
+          {
+            "id": "b",
+            "text": "lamp—source"
+          },
+          {
+            "id": "c",
+            "text": "Moon—reflector"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Moon makes its own visible light” because it follows the lesson explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+      },
+      {
+        "itemId": "science-g3-m01-d18-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Why can we see a book in a lit room?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Light reflects from it into our eyes."
+          },
+          {
+            "id": "b",
+            "text": "The book makes sunlight."
+          },
+          {
+            "id": "c",
+            "text": "Eyes send a beam into it."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Light reflects from it into our eyes.” because it follows the lesson explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+      },
+      {
+        "itemId": "science-g3-m01-d18-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "book—seen by reflected light"
+          },
+          {
+            "id": "b",
+            "text": "Darkness is a material"
+          },
+          {
+            "id": "c",
+            "text": "Moon makes its own visible light"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “book—seen by reflected light” because it follows the lesson explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d18-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d18-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Light Lets Us See; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Light Lets Us See.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "7fe6d093e55a0aaf8195582ea5e4b787ac4494d88dea8a57954de28b451cee77"
+}

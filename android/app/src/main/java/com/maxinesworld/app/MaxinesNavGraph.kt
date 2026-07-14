@@ -98,14 +98,17 @@ fun MaxinesNavGraph(navController: NavHostController) {
             VillageHomeV17Screen(
                 state = VillageHomeV17State(),
                 onDestinationClick = { subject ->
+                    // Must match real bundled lesson IDs under assets/content-pack or bootstrap packs.
                     val lessonId = when (subject) {
                         "english" -> "english-g3-m01-d01"
                         "filipino" -> "filipino-g3-m01-d01"
                         "mathematics" -> "mathematics-g3-m01-d01"
                         "science" -> "science-g3-m01-d01"
-                        "philippine-history" -> "mkb-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
+                        // Month-01 Makabansa content uses araling-panlipunan-*, not mkb-*
+                        "philippine-history", "makabansa", "history" ->
+                            "araling-panlipunan-g3-m01-d01"
+                        // GMRC has no month-01 pack; first bundled week is q1-w01
+                        "gmrc" -> "gmrc-g3-q1-w01-d01"
                         else -> "english-g3-m01-d01"
                     }
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))

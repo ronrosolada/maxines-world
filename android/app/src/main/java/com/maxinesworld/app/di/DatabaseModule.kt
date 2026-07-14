@@ -20,7 +20,7 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
         return Room.databaseBuilder(context, MaxinesDatabase::class.java, "maxines_world.db")
-            .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+            .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
             .build()
     }
 
@@ -30,7 +30,17 @@ object DatabaseModule {
     @Provides fun provideMasteryRecordDao(db: MaxinesDatabase): MasteryRecordDao = db.masteryRecordDao()
     @Provides fun provideRewardDao(db: MaxinesDatabase): RewardDao = db.rewardDao()
     @Provides fun provideScreenTimeLimitDao(db: MaxinesDatabase): ScreenTimeLimitDao = db.screenTimeLimitDao()
-    @Provides fun provideDailyQuestDao(db: MaxinesDatabase): DailyQuestDao = db.dailyQuestDao()
+    @Provides @Singleton
+    fun provideDailyQuestDao(db: MaxinesDatabase) = db.dailyQuestDao()
+
+    @Provides @Singleton
+    fun provideContentPackageDao(db: MaxinesDatabase) = db.contentPackageDao()
+
+    @Provides @Singleton
+    fun provideActiveContentPackageDao(db: MaxinesDatabase) = db.activeContentPackageDao()
+
+    @Provides @Singleton
+    fun provideContentSyncRunDao(db: MaxinesDatabase) = db.contentSyncRunDao()
     @Provides fun provideRewardBreakDao(db: MaxinesDatabase): RewardBreakDao = db.rewardBreakDao()
     @Provides fun provideMiniGameResultDao(db: MaxinesDatabase): MiniGameResultDao = db.miniGameResultDao()
     @Provides fun provideDailyChallengeDao(db: MaxinesDatabase): DailyChallengeDao = db.dailyChallengeDao()
@@ -52,6 +62,27 @@ object DatabaseModule {
             db.execSQL("CREATE TABLE IF NOT EXISTS `collected_badges` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `badgeId` TEXT NOT NULL, `biome` TEXT NOT NULL, `earnedDate` TEXT NOT NULL, `earnedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
             db.execSQL("CREATE INDEX IF NOT EXISTS `index_collected_badges_childId` ON `collected_badges` (`childId`)")
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_collected_badges_badgeId` ON `collected_badges` (`badgeId`)")
+        }
+    }
+
+    private val MIGRATION_3_4 = object : Migration(3, 4) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("""CREATE TABLE IF NOT EXISTS `content_packages` (
+                `id` TEXT NOT NULL, `packageId` TEXT NOT NULL, `version` INTEGER NOT NULL,
+                `source` TEXT NOT NULL, `state` TEXT NOT NULL, `rootPath` TEXT NOT NULL,
+                `contentHash` TEXT NOT NULL, `installedAtEpochMillis` INTEGER NOT NULL,
+                PRIMARY KEY(`id`))""")
+            db.execSQL("""CREATE UNIQUE INDEX IF NOT EXISTS `index_content_packages_packageId_version`
+                ON `content_packages` (`packageId`, `version`)""")
+            db.execSQL("""CREATE TABLE IF NOT EXISTS `active_content_package` (
+                `packageId` TEXT NOT NULL, `version` INTEGER NOT NULL,
+                `source` TEXT NOT NULL, `activatedAtEpochMillis` INTEGER NOT NULL,
+                PRIMARY KEY(`packageId`))""")
+            db.execSQL("""CREATE TABLE IF NOT EXISTS `content_sync_runs` (
+                `id` TEXT NOT NULL, `channel` TEXT NOT NULL, `state` TEXT NOT NULL,
+                `catalogVersion` INTEGER, `packagesUpdated` INTEGER NOT NULL,
+                `startedAtEpochMillis` INTEGER NOT NULL, `completedAtEpochMillis` INTEGER,
+                `errorMessage` TEXT, PRIMARY KEY(`id`))""")
         }
     }
 }

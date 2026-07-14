@@ -1,0 +1,332 @@
+{
+  "lessonId": "english-g3-m01-d19",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 19,
+  "subject": "ENGLISH",
+  "title": "Retell It in Order",
+  "objective": "Retell a story in beginning-middle-ending order.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "A retelling uses key events in order and the learner’s own words, not every sentence. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Retell",
+      "definition": "A key word used in the lesson “Retell It in Order”."
+    },
+    {
+      "term": "It",
+      "definition": "A key word used in the lesson “Retell It in Order”."
+    },
+    {
+      "term": "in",
+      "definition": "A key word used in the lesson “Retell It in Order”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d19-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "A retelling uses key events in order and the learner’s own words, not every sentence.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "english-g3-m01-d19-visual",
+      "accessibilityAlternative": "Text alternative: A retelling uses key events in order and the learner’s own words, not every sentence."
+    },
+    {
+      "activityId": "english-g3-m01-d19-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "First the paper was folded.",
+          "Next the boat was tested.",
+          "Finally it floated."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "english-g3-m01-d19-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d19-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "First the paper was folded.",
+          "Next the boat was tested.",
+          "Finally it floated."
+        ],
+        "doesNotFit": [
+          "Starting with the ending without explanation",
+          "Adding unrelated events",
+          "Copying every line"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d19-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d19-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which word often signals the final event?",
+      "content": {
+        "options": [
+          "Finally",
+          "First",
+          "Before"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Finally",
+        "retry": "Read the lesson rule again. First and Before do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d19-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "First the paper was folded.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Next the boat was tested.",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "Finally it floated.",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "english-g3-m01-d19-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d19-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "english-g3-m01-d19-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d19-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Retell It in Order”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A retelling uses key events in order and the learner’s own words, not every sentence."
+          },
+          {
+            "id": "b",
+            "text": "Starting with the ending without explanation"
+          },
+          {
+            "id": "c",
+            "text": "Adding unrelated events"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “A retelling uses key events in order and the learner’s own words, not every sentence.” because it follows the lesson explanation: A retelling uses key events in order and the learner’s own words, not every sentence."
+      },
+      {
+        "itemId": "english-g3-m01-d19-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "First the paper was folded."
+          },
+          {
+            "id": "b",
+            "text": "Starting with the ending without explanation"
+          },
+          {
+            "id": "c",
+            "text": "Adding unrelated events"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “First the paper was folded.” because it follows the lesson explanation: A retelling uses key events in order and the learner’s own words, not every sentence."
+      },
+      {
+        "itemId": "english-g3-m01-d19-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Starting with the ending without explanation"
+          },
+          {
+            "id": "b",
+            "text": "First the paper was folded."
+          },
+          {
+            "id": "c",
+            "text": "Next the boat was tested."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Starting with the ending without explanation” because it follows the lesson explanation: A retelling uses key events in order and the learner’s own words, not every sentence."
+      },
+      {
+        "itemId": "english-g3-m01-d19-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word often signals the final event?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Finally"
+          },
+          {
+            "id": "b",
+            "text": "First"
+          },
+          {
+            "id": "c",
+            "text": "Before"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Finally” because it follows the lesson explanation: A retelling uses key events in order and the learner’s own words, not every sentence."
+      },
+      {
+        "itemId": "english-g3-m01-d19-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Finally it floated."
+          },
+          {
+            "id": "b",
+            "text": "Copying every line"
+          },
+          {
+            "id": "c",
+            "text": "Starting with the ending without explanation"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Finally it floated.” because it follows the lesson explanation: A retelling uses key events in order and the learner’s own words, not every sentence."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d19-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d19-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Retell It in Order; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Retell It in Order.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "216d8443d4675ee15de6197cafca2b5eb8dc570845a8e6cc45fa3c0b494c15d7"
+}
