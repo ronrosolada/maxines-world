@@ -76,10 +76,9 @@ class CafePurchaseHandler @Inject constructor(
                 RewardLedgerEntity(
                     id = ledgerId,
                     childId = childId,
-                    currency = "FISH_TREAT",
                     amount = -cafeItem.price,
                     sourceKey = sourceKey,
-                    createdAtEpoch = System.currentTimeMillis()
+                    occurredAtEpochMillis = System.currentTimeMillis()
                 )
             )
 
@@ -90,7 +89,7 @@ class CafePurchaseHandler @Inject constructor(
                     id = inventoryId,
                     childId = childId,
                     itemId = itemId,
-                    acquiredAtEpoch = System.currentTimeMillis()
+                    acquiredAtEpochMillis = System.currentTimeMillis()
                 )
             )
 

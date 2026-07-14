@@ -1,5 +1,6 @@
 package com.maxinesworld.coremodel
 
+import com.maxinesworld.coremodel.gamification.WildlifeDiscoveryMetadata
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -23,7 +24,8 @@ data class Month1Lesson(
     val introduction: String = "",
     val vocabulary: List<VocabTerm> = emptyList(),
     val activities: List<Month1Activity> = emptyList(),
-    val assessment: Month1Assessment? = null
+    val assessment: Month1Assessment? = null,
+    val wildlifeDiscovery: WildlifeDiscoveryMetadata? = null
 )
 
 @Serializable data class VocabTerm(val term: String, val definition: String)

@@ -162,3 +162,30 @@ data class LessonCompletionEntity(
     val accuracy: Double,
     val completedAtEpochMillis: Long = System.currentTimeMillis()
 )
+
+// ─── Fish Treat Ledger ───
+
+@Entity(
+    tableName = "reward_ledger",
+    indices = [Index(value = ["childId"]), Index(value = ["sourceKey"], unique = true)]
+)
+data class RewardLedgerEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val amount: Int,
+    val sourceKey: String,      // "lesson-first:{childId}:{lessonId}", "purchase:{childId}:{itemId}", etc.
+    val occurredAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Inventory ───
+
+@Entity(
+    tableName = "inventory",
+    indices = [Index(value = ["childId", "itemId"], unique = true)]
+)
+data class InventoryEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val itemId: String,
+    val acquiredAtEpochMillis: Long = System.currentTimeMillis()
+)

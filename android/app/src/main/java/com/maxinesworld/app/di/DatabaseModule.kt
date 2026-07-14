@@ -70,10 +70,10 @@ object DatabaseModule {
 
     private val MIGRATION_4_5 = object : Migration(4, 5) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            db.execSQL("CREATE TABLE IF NOT EXISTS `reward_ledger` (`id` TEXT NOT NULL, `child_id` TEXT NOT NULL, `currency` TEXT NOT NULL, `amount` INTEGER NOT NULL, `source_key` TEXT NOT NULL, `created_at_epoch` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_reward_source` ON `reward_ledger` (`child_id`, `source_key`)")
-            db.execSQL("CREATE TABLE IF NOT EXISTS `inventory` (`id` TEXT NOT NULL, `child_id` TEXT NOT NULL, `item_id` TEXT NOT NULL, `acquired_at_epoch` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`child_id`, `item_id`)")
+            db.execSQL("CREATE TABLE IF NOT EXISTS `reward_ledger` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `amount` INTEGER NOT NULL, `sourceKey` TEXT NOT NULL, `occurredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_reward_source` ON `reward_ledger` (`childId`, `sourceKey`)")
+            db.execSQL("CREATE TABLE IF NOT EXISTS `inventory` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `itemId` TEXT NOT NULL, `acquiredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`childId`, `itemId`)")
         }
     }
 }

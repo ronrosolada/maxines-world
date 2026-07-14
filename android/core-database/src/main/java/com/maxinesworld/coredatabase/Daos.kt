@@ -150,7 +150,7 @@ interface RewardLedgerDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
 
-    @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE child_id = :childId")
+    @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE childId = :childId")
     suspend fun fishTreatBalance(childId: String): Int
 }
 
@@ -159,6 +159,6 @@ interface InventoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(item: InventoryEntity): Long
 
-    @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE child_id = :childId AND item_id = :itemId)")
+    @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
     suspend fun owns(childId: String, itemId: String): Boolean
 }
