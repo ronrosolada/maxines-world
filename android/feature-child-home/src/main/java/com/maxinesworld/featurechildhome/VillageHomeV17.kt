@@ -140,6 +140,18 @@ private fun ExpandedVillageV17(
             QuestOverlayV17(state, onQuestClick)
         }
         RewardOverlayV17(state, sceneWidth, sceneHeight)
+        // Mira request card
+        if (state.showMiraRequest) {
+            NBox(NRect(.30f, .45f, .40f, .11f), sceneWidth, sceneHeight) {
+                MiraRequestOverlay { onDestinationClick("english") }
+            }
+        }
+        // Café unlock progress
+        if (!state.cafeUnlock.isPurchased && state.fishTreats > 0) {
+            NBox(NRect(.70f, .05f, .28f, .06f), sceneWidth, sceneHeight) {
+                CafeProgressOverlay(state.cafeUnlock)
+            }
+        }
         state.destinations.forEach { destination ->
             val bounds = destinationBounds[destination.id]
             if (bounds != null) {
@@ -307,6 +319,45 @@ private fun CompactVillageV17(state: VillageHomeV17State, onDestinationClick: (S
                     }
                     if(pair.size==1) Spacer(Modifier.weight(1f))
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MiraRequestOverlay(onClick: () -> Unit) {
+    val description = "Mira needs help finishing a story. Tap to start an English lesson."
+    Row(
+        Modifier.fillMaxSize()
+            .clip(RoundedCornerShape(12.dp))
+            .background(Color(0xFFFFF5DD))
+            .semantics(mergeDescendants = true) {
+                contentDescription = description; role = Role.Button
+            }
+            .clickable(role = Role.Button, onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(painterResource(R.drawable.mw_ic_profile), null, tint = Color(0xFFD15E7C), modifier = Modifier.size(28.dp))
+        Spacer(Modifier.width(8.dp))
+        Column(Modifier.weight(1f)) {
+            Text("Mira needs help!", color = Color(0xFF075F63), fontWeight = FontWeight.ExtraBold, fontSize = 14.sp)
+            Text("Can you help finish a story?", color = Color(0xFF34545A), fontSize = 10.sp, maxLines = 1)
+        }
+        Icon(painterResource(R.drawable.mw_ic_book), null, tint = Color(0xFFF5A623), modifier = Modifier.size(22.dp))
+    }
+}
+
+@Composable
+private fun CafeProgressOverlay(state: CafeUnlockState) {
+    val progressPct = (state.progress.toFloat() / state.requiredTreats).coerceIn(0f,1f)
+    val label = if (state.isUnlocked) "Café unlocked!" else "🍪 ${state.progress}/${state.requiredTreats}"
+    Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
+        Text(label, color = Color(0xFF075F63), fontWeight = FontWeight.Bold, fontSize = 10.sp, textAlign = TextAlign.Center)
+        if (!state.isUnlocked) {
+            Spacer(Modifier.height(2.dp))
+            Box(Modifier.fillMaxWidth().height(3.dp).clip(RoundedCornerShape(2.dp)).background(Color(0x5536545A))) {
+                Box(Modifier.fillMaxWidth(progressPct).fillMaxHeight().background(Color(0xFFF5A623)))
             }
         }
     }
