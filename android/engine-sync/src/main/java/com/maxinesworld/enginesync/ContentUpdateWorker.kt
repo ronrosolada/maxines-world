@@ -50,6 +50,7 @@ class ContentUpdateWorker @AssistedInject constructor(
         const val TAG = "ContentUpdate"
         const val UNIQUE_WORK_NAME = "content_sync"
         const val PRODUCTION_CATALOG_URL = "https://ronrosolada.github.io/maxines-world-content/production/catalog.json"
+        const val CATALOG_SIGNING_PUBKEY_B64 = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFZlI1SjdmNzJaNWs3SkU2QnJoSzluWnZLdlloUApJa2NVR2t2UUtVclJHcU00ZVNYSXVXSlEwM1A0UTFyUytrNHROT1RPOWtkbCtFSzNWNVlNMUIxZDJnPT0KLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg=="
         private const val MAX_ZIP_ENTRIES = 500
         private const val MAX_ZIP_SIZE = 50 * 1024 * 1024L
         private const val MAX_EXTRACTED_SIZE = 100 * 1024 * 1024L
