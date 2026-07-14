@@ -162,3 +162,35 @@ interface InventoryDao {
     @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
     suspend fun owns(childId: String, itemId: String): Boolean
 }
+
+// ─── Playground Gate Persistence ───
+
+@Dao
+interface DailyQuestSetDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestSetEntity): Long
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
+}
+
+@Dao
+interface DailyQuestCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestCompletionEntity): Long
+
+    @Query("SELECT * FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): List<DailyQuestCompletionEntity>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getCompletedQuestIds(childId: String, dayKey: String): List<String>
+}
+
+@Dao
+interface PlaygroundUnlockReceiptDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: PlaygroundUnlockReceiptEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey)")
+    suspend fun existsByChildAndDay(childId: String, dayKey: String): Boolean
+}
