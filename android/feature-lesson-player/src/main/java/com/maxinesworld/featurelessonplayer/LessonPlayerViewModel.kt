@@ -11,6 +11,8 @@ import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.coremodel.gamification.FishTreatPolicy
+import com.maxinesworld.coremodel.gamification.LessonRewardInput
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -103,9 +105,10 @@ class LessonPlayerViewModel @Inject constructor(
         progressSaved = true
         val lesson = _state.value.lesson ?: return
         val scoredResults = _state.value.results.filter { it.scored }
-        if (childId.isBlank() || scoredResults.isEmpty()) return
+        if (childId.isBlank()) return
 
         viewModelScope.launch {
+            // Save progress events
             for (result in scoredResults) {
                 progressEventDao.insert(ProgressEventEntity(
                     id = UUID.randomUUID().toString(), childId = childId,
@@ -117,15 +120,32 @@ class LessonPlayerViewModel @Inject constructor(
                     responseTimeMs = result.responseTimeMs
                 ))
             }
+            
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
-            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                type = "STAR", subject = lesson.subject, amount = starsEarned))
-            if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                    type = "COIN", subject = lesson.subject, amount = 10))
-            }
+            val improvedAfterRetry = scoredResults.any { it.attempts > 1 && it.correct }
+            val crossedMastery = accuracy >= 0.8 // simple heuristic; mastery engine call deferred
+            
+            // Fish-treat reward via idempotent key
+            val attemptId = "${lesson.id}:${System.currentTimeMillis()}"
+            val rewardKey = FishTreatPolicy.rewardKey(childId, lesson.id, attemptId)
+            val input = LessonRewardInput(
+                completed = true,
+                improvedAfterRetry = improvedAfterRetry,
+                crossedMasteryThreshold = crossedMastery,
+            )
+            val treats = FishTreatPolicy.amount(input)
+            
+            // Insert reward with idempotency key in metadata
+            rewardDao.insert(RewardEntity(
+                id = rewardKey,
+                childId = childId,
+                type = FishTreatPolicy.TYPE,
+                subject = lesson.subject,
+                amount = treats,
+                metadata = "attemptId=$attemptId,accuracy=$accuracy"
+            ))
+            
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
                 _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
