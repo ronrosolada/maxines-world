@@ -34,7 +34,13 @@ class MasteryEngineTest {
 
     @Test
     fun `10 perfect attempts returns MASTERED`() {
-        val events = (1..10).map { createEvent(accuracy = 1.0) }
+        val baseTime = System.currentTimeMillis()
+        val dayMs = 86_400_000L
+        // 5 events on day 1 with activity type A, 5 on day 2 with activity type B
+        val events = listOf(
+            *(1..5).map { createEvent(accuracy = 1.0, activityId = "lesson_mcq_v1", timestamp = baseTime) }.toTypedArray(),
+            *(1..5).map { createEvent(accuracy = 1.0, activityId = "lesson_sort_v2", timestamp = baseTime + dayMs) }.toTypedArray(),
+        )
         assertEquals(MasteryState.MASTERED, engine.computeMastery(events))
     }
 
@@ -60,13 +66,18 @@ class MasteryEngineTest {
         assertEquals(1, engine.nextReviewDays(MasteryState.NEEDS_REVIEW))
     }
 
-    private fun createEvent(accuracy: Double) = ProgressEvent(
+    private fun createEvent(
+        accuracy: Double,
+        activityId: String = "test_activity",
+        timestamp: Long = System.currentTimeMillis(),
+    ) = ProgressEvent(
         id = "ev_${System.nanoTime()}",
         childId = "test_child",
         skillId = "test_skill",
         lessonId = "test_lesson",
-        activityId = "test_activity",
+        activityId = activityId,
         eventType = "answer",
-        accuracy = accuracy
+        accuracy = accuracy,
+        timestamp = timestamp,
     )
 }
