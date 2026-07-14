@@ -12,6 +12,7 @@ import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.playground.DailyQuestSeedPolicy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,6 +54,9 @@ class LessonPlayerViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val rewardLedgerDao: RewardLedgerDao,
     private val lessonCompletionDao: LessonCompletionDao,
+    private val dailyQuestSetDao: DailyQuestSetDao,
+    private val dailyQuestCompletionDao: DailyQuestCompletionDao,
+    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
     private val masteryEngine: MasteryEngine,
     private val badgeAwarder: BadgeAwarder,
     private val activeContentIndex: ActiveContentIndex
@@ -168,6 +172,55 @@ class LessonPlayerViewModel @Inject constructor(
             if (progress.newlyAwardedBadge != null) {
                 _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
             }
+
+            // ─── Playground Gate: Quest Seeding, Completion, Unlock ───
+            val dayKey = LocalDate.now().toString()
+            val questId = subjectToQuestId(lesson.subject) ?: return@launch
+            val seededIds = DailyQuestSeedPolicy.assign(childId, dayKey)
+
+            dailyQuestSetDao.insertIgnoring(
+                DailyQuestSetEntity(
+                    id = deterministicUuid("dqs:${childId}:${dayKey}"),
+                    childId = childId,
+                    dayKey = dayKey,
+                    assignedQuestIds = toJsonArrayString(seededIds),
+                    assignedAtEpochMillis = System.currentTimeMillis()
+                )
+            )
+
+            val persistedSet = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
+                ?: return@launch
+            val assigned = fromJsonArrayString(persistedSet.assignedQuestIds).toSet()
+
+            if (assigned.isNotEmpty() && questId in assigned) {
+                dailyQuestCompletionDao.insertIgnoring(
+                    DailyQuestCompletionEntity(
+                        id = deterministicUuid("dqc:${childId}:${dayKey}:${questId}"),
+                        childId = childId,
+                        dayKey = dayKey,
+                        questId = questId,
+                        completionEventId = completionId,
+                        completedAtEpochMillis = System.currentTimeMillis()
+                    )
+                )
+
+                val completed = dailyQuestCompletionDao
+                    .getCompletedQuestIds(childId, dayKey)
+                    .toSet()
+                    .intersect(assigned)
+
+                if (completed.containsAll(assigned)) {
+                    playgroundUnlockReceiptDao.insertIgnoring(
+                        PlaygroundUnlockReceiptEntity(
+                            id = deterministicUuid("pur:${childId}:${dayKey}"),
+                            childId = childId,
+                            dayKey = dayKey,
+                            sourceQuestSetHash = DailyQuestSeedPolicy.questSetHash(assigned),
+                            unlockedAtEpochMillis = System.currentTimeMillis()
+                        )
+                    )
+                }
+            }
         }
     }
 
@@ -218,5 +271,38 @@ class LessonPlayerViewModel @Inject constructor(
                 )
             }
         )
+    }
+
+    companion object {
+        fun subjectToQuestId(subject: String): String? = when (subject) {
+            "english", "Reading", "Story Tree" -> "subject:english"
+            "filipino", "Filipino" -> "subject:filipino"
+            "mathematics", "Mathematics", "maths" -> "subject:mathematics"
+            "science", "Science" -> "subject:science"
+            "makabansa", "Araling Panlipunan", "history" -> "subject:makabansa"
+            "gmrc", "Values", "Kindness" -> "subject:gmrc"
+            else -> null
+        }
+
+        fun deterministicUuid(seed: String): String {
+            val digest = java.security.MessageDigest.getInstance("SHA-256")
+                .digest(seed.toByteArray(Charsets.UTF_8))
+            return digest.joinToString("") { "%02x".format(it.toInt() and 0xff) }.take(32)
+        }
+
+        fun toJsonArrayString(ids: List<String>): String =
+            ids.joinToString(",", "[", "]") { "\"$it\"" }
+
+        fun fromJsonArrayString(json: String): List<String> {
+            return try {
+                val trimmed = json.trim()
+                if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+                    trimmed.substring(1, trimmed.length - 1)
+                        .split(",")
+                        .map { it.trim().removeSurrounding("\"") }
+                        .filter { it.isNotBlank() }
+                } else emptyList()
+            } catch (_: Exception) { emptyList() }
+        }
     }
 }

@@ -172,6 +172,9 @@ interface DailyQuestSetDao {
 
     @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
     suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<DailyQuestSetEntity?>
 }
 
 @Dao
@@ -184,6 +187,9 @@ interface DailyQuestCompletionDao {
 
     @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
     suspend fun getCompletedQuestIds(childId: String, dayKey: String): List<String>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeCompletedQuestIds(childId: String, dayKey: String): Flow<List<String>>
 }
 
 @Dao
@@ -193,4 +199,10 @@ interface PlaygroundUnlockReceiptDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey)")
     suspend fun existsByChildAndDay(childId: String, dayKey: String): Boolean
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): PlaygroundUnlockReceiptEntity?
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<PlaygroundUnlockReceiptEntity?>
 }

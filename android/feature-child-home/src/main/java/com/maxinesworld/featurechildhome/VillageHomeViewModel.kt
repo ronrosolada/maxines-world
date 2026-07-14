@@ -8,10 +8,12 @@ import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.gamification.FishTreatPolicy
 import com.maxinesworld.playground.PlaygroundGateEvaluator
 import com.maxinesworld.playground.PlaygroundGateState
+import com.maxinesworld.playground.PlaygroundGateStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.ZoneId
@@ -31,6 +33,7 @@ data class VillageHomeState(
     val questProgressText: String = "0 / 3",
     val destinations: List<VillageDestination> = defaultDestinations,
     val playground: PlaygroundGateState? = null,
+    val showPlaygroundUnlockCelebration: Boolean = false,
 )
 
 @Immutable
@@ -68,6 +71,9 @@ class VillageHomeViewModel @Inject constructor(
     private val _state = MutableStateFlow(VillageHomeState())
     val state: StateFlow<VillageHomeState> = _state.asStateFlow()
 
+    private var observedGateAtLeastOnce = false
+    private var previousGateStatus: PlaygroundGateStatus? = null
+
     init { load() }
 
     fun load() {
@@ -103,6 +109,7 @@ class VillageHomeViewModel @Inject constructor(
                     completedQuestIds = if (questSet != null) completedIds else null,
                     hasUnlockReceipt = hasUnlockReceipt
                 )
+                acceptGate(playgroundState)
 
                 val todayEnglish = progressEventDao.getByChildAndSkill(childId, "english").filter { isToday(it.timestamp) }
                 val showMira = todayEnglish.isEmpty()
@@ -130,7 +137,6 @@ class VillageHomeViewModel @Inject constructor(
                     questText = "Complete 3 activities",
                     questProgressText = "$completedCount / 3",
                     destinations = defaultDestinations,
-                    playground = playgroundState,
                 )
             } catch (e: Exception) {
                 _state.value = _state.value.copy(isLoading = false, error = e.message ?: "Failed to load")
@@ -139,6 +145,25 @@ class VillageHomeViewModel @Inject constructor(
     }
 
     fun onRetry() { load() }
+
+    private fun acceptGate(next: PlaygroundGateState) {
+        val shouldCelebrate = observedGateAtLeastOnce &&
+            previousGateStatus == PlaygroundGateStatus.Locked &&
+            next.status == PlaygroundGateStatus.Unlocked
+        previousGateStatus = next.status
+        observedGateAtLeastOnce = true
+        _state.update {
+            it.copy(
+                playground = next,
+                showPlaygroundUnlockCelebration =
+                    it.showPlaygroundUnlockCelebration || shouldCelebrate,
+            )
+        }
+    }
+
+    fun dismissPlaygroundUnlockCelebration() {
+        _state.update { it.copy(showPlaygroundUnlockCelebration = false) }
+    }
 
     private fun isToday(epochMs: Long): Boolean {
         val today = java.time.Instant.ofEpochMilli(epochMs)
