@@ -147,3 +147,40 @@ data class CollectedBadgeEntity(
     val earnedDate: String,          // ISO date YYYY-MM-DD
     val earnedAtEpochMillis: Long = System.currentTimeMillis()
 )
+
+/** Content package registry — bundled or downloaded. */
+@Entity(tableName = "content_packages", indices = [
+    Index(value = ["packageId", "version"], unique = true)
+])
+data class ContentPackageEntity(
+    @PrimaryKey val id: String,                    // packageId_version
+    val packageId: String,
+    val version: Int,
+    val source: String,                             // BUNDLED or DOWNLOADED
+    val state: String,                              // VERIFIED, STAGED, ACTIVE, QUARANTINED
+    val rootPath: String,                           // absolute path or asset path
+    val contentHash: String,                        // SHA-256 of package contents
+    val installedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+/** Single active pointer per package ID. UNIQUE constraint = one active row per package. */
+@Entity(tableName = "active_content_package")
+data class ActiveContentPackageEntity(
+    @PrimaryKey val packageId: String,
+    val version: Int,
+    val source: String,                             // BUNDLED or DOWNLOADED
+    val activatedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+/** Sync run audit log. */
+@Entity(tableName = "content_sync_runs")
+data class ContentSyncRunEntity(
+    @PrimaryKey val id: String,
+    val channel: String,                            // PRODUCTION, PREVIEW
+    val state: String,                              // STARTED, SUCCEEDED, FAILED
+    val catalogVersion: Int? = null,
+    val packagesUpdated: Int = 0,
+    val startedAtEpochMillis: Long = System.currentTimeMillis(),
+    val completedAtEpochMillis: Long? = null,
+    val errorMessage: String? = null
+)

@@ -130,3 +130,42 @@ interface DailyQuestDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(quest: DailyQuestEntity)
 }
+
+@Dao
+interface ContentPackageDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(pkg: ContentPackageEntity)
+
+    @Query("SELECT * FROM content_packages WHERE packageId = :packageId ORDER BY version DESC")
+    suspend fun getVersions(packageId: String): List<ContentPackageEntity>
+
+    @Query("SELECT * FROM content_packages WHERE source = :source AND state = 'VERIFIED'")
+    suspend fun getVerifiedBySource(source: String): List<ContentPackageEntity>
+
+    @Query("SELECT COUNT(*) FROM content_packages")
+    suspend fun count(): Int
+}
+
+@Dao
+interface ActiveContentPackageDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun setActive(active: ActiveContentPackageEntity)
+
+    @Query("SELECT * FROM active_content_package WHERE packageId = :packageId")
+    suspend fun getActive(packageId: String): ActiveContentPackageEntity?
+
+    @Query("DELETE FROM active_content_package WHERE packageId = :packageId")
+    suspend fun removeActive(packageId: String)
+}
+
+@Dao
+interface ContentSyncRunDao {
+    @Insert
+    suspend fun insert(run: ContentSyncRunEntity)
+
+    @Query("SELECT * FROM content_sync_runs ORDER BY startedAtEpochMillis DESC LIMIT 10")
+    suspend fun getRecent(): List<ContentSyncRunEntity>
+
+    @Query("UPDATE content_sync_runs SET state = :state, completedAtEpochMillis = :completedAt, errorMessage = :error WHERE id = :id")
+    suspend fun complete(id: String, state: String, completedAt: Long, error: String?)
+}
