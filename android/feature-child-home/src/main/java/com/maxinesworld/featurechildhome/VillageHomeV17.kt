@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.util.Log
 import com.maxinesworld.coredesignsystem.LocalReducedMotion
+import com.maxinesworld.playground.PlaygroundGateStatus
+import com.maxinesworld.playground.PlaygroundGateState
 
 @Immutable
 data class VillageDestination(
@@ -151,13 +153,32 @@ private fun ExpandedVillage(
         Image(painterResource(R.drawable.mw_village_scene_v17), null,
             contentScale = ContentScale.FillBounds, modifier = Modifier.fillMaxSize())
 
-        // Compact header bar
-        NBox(NRect(.010f, .010f, .220f, .060f), sceneWidth, sceneHeight) { CompactHeader(state) }
-        // Mira request bubble
-        if (state.showMiraRequest) {
-            NBox(NRect(.240f, .350f, .280f, .075f), sceneWidth, sceneHeight) {
-                MiraBubble(onMiraClick)
+        // Left panels: greeting + Mira's request
+        NBox(NRect(.012f, .012f, .205f, .180f), sceneWidth, sceneHeight) {
+            Column(Modifier.fillMaxSize()) {
+                GreetingPanel(state.childName, "Let's explore the village today! 🏘️")
+                RequestPanel(
+                    questProgressText = state.questProgressText,
+                    completed = state.playground?.completed ?: 0,
+                    assigned = state.playground?.totalAssigned ?: 0,
+                    onContinueQuest = onMiraClick,
+                )
             }
+        }
+        // Upper-right status rail
+        NBox(NRect(.740f, .012f, .230f, .195f), sceneWidth, sceneHeight) {
+            StatusRail(
+                fishTreats = state.fishTreats,
+                completed = state.playground?.completed ?: 0,
+                assigned = state.playground?.totalAssigned ?: 0,
+                playgroundStatus = when (state.playground?.status) {
+                    PlaygroundGateStatus.Unlocked -> "Open"
+                    PlaygroundGateStatus.Locked -> "Closed"
+                    else -> "—"
+                },
+                playgroundLabel = "Playground",
+                onPlaygroundClick = onPlaygroundClick,
+            )
         }
         // Destination hotspots
         state.destinations.forEach { dest ->
@@ -165,12 +186,6 @@ private fun ExpandedVillage(
             if (bounds != null) {
                 NBox(bounds, sceneWidth, sceneHeight) { DestinationHotspot(dest, onDestinationClick) }
             } else { Log.w("Village", "Unknown dest: ${dest.id}") }
-        }
-        // Playground banner
-        state.playground?.let { pg ->
-            NBox(NRect(.108f, .790f, .805f, .055f), sceneWidth, sceneHeight) {
-                PlaygroundBanner(pg, onPlaygroundClick)
-            }
         }
         // Bottom nav
         NBox(NRect(.108f, .858f, .805f, .085f), sceneWidth, sceneHeight) {
@@ -230,20 +245,37 @@ private fun MiraBubble(onClick: () -> Unit) {
 @Composable
 private fun DestinationHotspot(dest: VillageDestination, onClick: (String) -> Unit) {
     val desc = "${dest.name}, ${dest.subject}, ${dest.progressText}" +
-            if (dest.recommended) ", recommended today" else ""
+            if (dest.recommended) ", today's quest" else ""
     Box(Modifier.fillMaxSize()
         .pressScale()
         .semantics(mergeDescendants = true) { contentDescription = desc; role = Role.Button; if (!dest.enabled) disabled() }
         .clickable(enabled = dest.enabled, role = Role.Button) { onClick(dest.id) }
-        .padding(horizontal = 6.dp, vertical = 5.dp),
+        .padding(horizontal = 4.dp, vertical = 3.dp),
         contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            if (dest.recommended) Text("TODAY", color = Color(0xFFB87916), fontWeight = FontWeight.Black, fontSize = 7.sp)
-            Text(dest.name, color = Color(0xFF075F63), fontWeight = FontWeight.ExtraBold, fontSize = 13.sp,
-                textAlign = TextAlign.Center, maxLines = 2)
-            Text(if (dest.enabled) "${dest.subject} · ${dest.progressText}" else "${dest.subject} · soon",
-                color = Color(0xFF34545A), fontWeight = FontWeight.Bold, fontSize = 9.sp,
-                textAlign = TextAlign.Center, maxLines = 2)
+            // Subject icon — 32dp, tinted with subject accent
+            Icon(
+                painterResource(dest.iconRes), dest.name,
+                tint = Color(0xFF075F63),
+                modifier = Modifier.size(32.dp),
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(dest.name, color = Color(0xFF075F63), fontWeight = FontWeight.SemiBold, fontSize = 14.sp,
+                textAlign = TextAlign.Center, maxLines = 1)
+            Text(dest.subject, color = Color(0xFF34545A), fontWeight = FontWeight.Medium, fontSize = 10.sp,
+                textAlign = TextAlign.Center, maxLines = 1)
+            // Small progress bar
+            val pct = dest.progressText.removeSuffix("%").toFloatOrNull() ?: 0f
+            Box(Modifier.fillMaxWidth(0.65f).height(4.dp)
+                .background(Color(0xFFD9D9D9), RoundedCornerShape(2.dp))
+                .padding(horizontal = 0.dp)) {
+                Box(Modifier.fillMaxWidth(pct / 100f).fillMaxHeight()
+                    .background(Color(0xFF3A6B63), RoundedCornerShape(2.dp)))
+            }
+            // Paw badge for recommended destination
+            if (dest.recommended) {
+                Text("🐾", fontSize = 14.sp)
+            }
         }
     }
 }
@@ -259,7 +291,8 @@ private fun BottomNav(onDiscoveries: () -> Unit, onCafe: () -> Unit, onParents: 
         NavItem("Cat Café", R.drawable.mw_ic_avatars, onCafe),
         NavItem("Parents", R.drawable.mw_ic_lock, onParents),
     )
-    Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceEvenly) {
+    Row(Modifier.fillMaxSize().heightIn(min = 72.dp, max = 80.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly) {
         items.forEach { item ->
             Column(Modifier.weight(1f).fillMaxHeight()
                 .pressScale()
@@ -267,6 +300,7 @@ private fun BottomNav(onDiscoveries: () -> Unit, onCafe: () -> Unit, onParents: 
                 .clickable(role = Role.Button, onClick = item.action),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                 Icon(painterResource(item.icon), item.label, tint = Color(0xFF075F63), modifier = Modifier.size(22.dp))
+                Spacer(Modifier.height(2.dp))
                 Text(item.label, color = Color(0xFF075F63), fontWeight = FontWeight.Bold, fontSize = 10.sp)
             }
         }
@@ -290,20 +324,14 @@ private fun CompactVillage(
         Image(painterResource(R.drawable.mw_village_scene_v17), null,
             contentScale = ContentScale.Crop, modifier = Modifier.fillMaxWidth().aspectRatio(1.8f))
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            CompactHeader(state)
-            if (state.showMiraRequest) {
-                Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(Color(0xFFF2DEB6))
-                    .clickable(onClick = onMiraClick).padding(12.dp),
-                    verticalAlignment = Alignment.CenterVertically) {
-                    Icon(painterResource(R.drawable.mw_ic_profile), null, tint = Color(0xFFD15E7C), modifier = Modifier.size(24.dp))
-                    Spacer(Modifier.width(8.dp))
-                    Column(Modifier.weight(1f)) {
-                        Text("Mira needs help!", fontWeight = FontWeight.ExtraBold, color = Color(0xFF075F63))
-                        Text("Can you help finish a story?", color = Color(0xFF34545A), fontSize = 12.sp)
-                    }
-                    Text("Help Mira →", color = Color(0xFFF5A623), fontWeight = FontWeight.Bold)
-                }
-            }
+            GreetingPanel(state.childName, "Let's explore the village today! 🏘️")
+            RequestPanel(
+                questProgressText = state.questProgressText,
+                completed = state.playground?.completed ?: 0,
+                assigned = state.playground?.totalAssigned ?: 0,
+                onContinueQuest = onMiraClick,
+            )
+            // 2-column destination grid
             state.destinations.chunked(2).forEach { pair ->
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     pair.forEach { d ->
@@ -311,16 +339,28 @@ private fun CompactVillage(
                             .clip(RoundedCornerShape(16.dp)).background(Color(0xFFF2DEB6))
                             .clickable(enabled = d.enabled) { onDestinationClick(d.id) }.padding(12.dp),
                             verticalArrangement = Arrangement.Center) {
-                            Icon(painterResource(d.iconRes), null, tint = Color(0xFF075F63), modifier = Modifier.size(22.dp))
-                            Spacer(Modifier.height(6.dp))
-                            Text(d.name, color = Color(0xFF075F63), fontWeight = FontWeight.ExtraBold, fontSize = 15.sp)
-                            Text(if (d.enabled) "${d.subject} · ${d.progressText}" else "${d.subject} · soon",
-                                color = Color(0xFF34545A), fontSize = 11.sp)
+                            Icon(painterResource(d.iconRes), null, tint = Color(0xFF075F63), modifier = Modifier.size(32.dp))
+                            Spacer(Modifier.height(4.dp))
+                            Text(d.name, color = Color(0xFF075F63), fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                            Text(d.subject, color = Color(0xFF34545A), fontSize = 11.sp)
                         }
                     }
                     if (pair.size == 1) Spacer(Modifier.weight(1f))
                 }
             }
+            // Compact status: single "Today" card
+            StatusRail(
+                fishTreats = state.fishTreats,
+                completed = state.playground?.completed ?: 0,
+                assigned = state.playground?.totalAssigned ?: 0,
+                playgroundStatus = when (state.playground?.status) {
+                    PlaygroundGateStatus.Unlocked -> "Open"
+                    PlaygroundGateStatus.Locked -> "Closed"
+                    else -> "—"
+                },
+                playgroundLabel = "Playground",
+                onPlaygroundClick = onPlaygroundClick,
+            )
             BottomNav(onDiscoveriesClick, onCafeClick, onParentsClick)
         }
     }
