@@ -83,7 +83,7 @@ class BadgeAwarder @Inject constructor(
         return when (val evaluation = WildlifeBadgeEvaluator.evaluate(catalog, lessonMetadata, attemptFacts, alreadyCollected)) {
             is BadgeEvaluation.Award -> {
                 val badge = catalog.first { it.id == evaluation.badgeId }
-                collectedBadgeDao.insert(CollectedBadgeEntity(
+                collectedBadgeDao.insertIgnoring(CollectedBadgeEntity(
                     id = deterministicUuid("badge-award:$childId:${evaluation.badgeId}").toString(),
                     childId = childId,
                     badgeId = evaluation.badgeId,

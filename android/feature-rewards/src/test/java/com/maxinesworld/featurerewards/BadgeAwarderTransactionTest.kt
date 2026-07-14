@@ -58,7 +58,7 @@ class BadgeAwarderTransactionTest {
         }
         coEvery { dailyChallengeDao.upsert(any()) } answers { currentChallenge = firstArg() }
         coEvery { collectedBadgeDao.getAllByChild(childId) } answers { collectedBadges.toList() }
-        coEvery { collectedBadgeDao.insert(any()) } answers { collectedBadges.add(firstArg()) }
+        coEvery { collectedBadgeDao.insertIgnoring(any()) } answers { collectedBadges.add(firstArg()) }
         coEvery { collectedBadgeDao.countByChild(childId) } answers { collectedBadges.size }
         coEvery { collectedBadgeDao.countByBiome(any(), any()) } returns 0
         coEvery { badgeLoader.loadAll() } returns allTestBadges

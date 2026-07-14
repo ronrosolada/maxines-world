@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.maxinesworld.coredatabase.MaxinesMigrations
 import com.maxinesworld.coredatabase.*
 import dagger.Module
 import dagger.Provides
@@ -20,7 +21,10 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
         return Room.databaseBuilder(context, MaxinesDatabase::class.java, "maxines_world.db")
-            .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6)
+            .addMigrations(
+                MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5,
+                MaxinesMigrations.MIGRATION_5_6
+            )
             .build()
     }
 
@@ -74,20 +78,9 @@ object DatabaseModule {
     private val MIGRATION_4_5 = object : Migration(4, 5) {
         override fun migrate(db: SupportSQLiteDatabase) {
             db.execSQL("CREATE TABLE IF NOT EXISTS `reward_ledger` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `amount` INTEGER NOT NULL, `sourceKey` TEXT NOT NULL, `occurredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_reward_source` ON `reward_ledger` (`childId`, `sourceKey`)")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_reward_ledger_sourceKey` ON `reward_ledger` (`sourceKey`)")
             db.execSQL("CREATE TABLE IF NOT EXISTS `inventory` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `itemId` TEXT NOT NULL, `acquiredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
             db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`childId`, `itemId`)")
-        }
-    }
-
-    private val MIGRATION_5_6 = object : Migration(5, 6) {
-        override fun migrate(db: SupportSQLiteDatabase) {
-            db.execSQL("CREATE TABLE IF NOT EXISTS `daily_quest_sets` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `dayKey` TEXT NOT NULL, `assignedQuestIds` TEXT NOT NULL, `assignedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_dqs_child_day` ON `daily_quest_sets` (`childId`, `dayKey`)")
-            db.execSQL("CREATE TABLE IF NOT EXISTS `daily_quest_completions` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `dayKey` TEXT NOT NULL, `questId` TEXT NOT NULL, `completionEventId` TEXT NOT NULL, `completedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_dqc_child_day_quest` ON `daily_quest_completions` (`childId`, `dayKey`, `questId`)")
-            db.execSQL("CREATE TABLE IF NOT EXISTS `playground_unlock_receipts` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `dayKey` TEXT NOT NULL, `sourceQuestSetHash` TEXT NOT NULL, `unlockedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_pur_child_day` ON `playground_unlock_receipts` (`childId`, `dayKey`)")
         }
     }
 }

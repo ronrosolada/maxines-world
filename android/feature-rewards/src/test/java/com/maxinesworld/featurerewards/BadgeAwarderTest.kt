@@ -48,7 +48,7 @@ class BadgeAwarderTest {
             currentChallenge = firstArg()
         }
         coEvery { collectedBadgeDao.getAllByChild(childId) } returns emptyList()
-        coEvery { collectedBadgeDao.insert(any()) } just runs
+        coEvery { collectedBadgeDao.insertIgnoring(any()) } just runs
         coEvery { collectedBadgeDao.countByChild(any()) } returns 0
         coEvery { collectedBadgeDao.countByBiome(any(), any()) } returns 0
         coEvery { badgeLoader.loadAll() } returns allTestBadges
@@ -77,7 +77,7 @@ class BadgeAwarderTest {
         assertNull("no badge awarded", result.newlyAwardedBadge)
 
         coVerify(exactly = 1) { dailyChallengeDao.upsert(any()) }
-        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test
@@ -96,7 +96,7 @@ class BadgeAwarderTest {
         assertNull("still no wildlife badge from daily challenge", last.newlyAwardedBadge)
 
         // No badge inserts from daily challenge
-        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test
@@ -112,7 +112,7 @@ class BadgeAwarderTest {
 
         assertEquals("completedCount stays 5", 5, repeatResult.completedCount)
         assertNull("no badge on repeat", repeatResult.newlyAwardedBadge)
-        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test
@@ -131,7 +131,7 @@ class BadgeAwarderTest {
 
         assertEquals("completedCount", 5, result.completedCount)
         assertNull("no badge re-awarded", result.newlyAwardedBadge)
-        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test
@@ -197,7 +197,7 @@ class BadgeAwarderTest {
         assertEquals("mammal_tarsier", result!!.id)
         assertTrue("isCollected", result.isCollected)
 
-        coVerify(exactly = 1) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 1) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test
@@ -217,7 +217,7 @@ class BadgeAwarderTest {
         val result = awarder.evaluateAndAwardWildlifeBadge(childId, meta, facts)
 
         assertNull("already collected — no award", result)
-        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insertIgnoring(any()) }
     }
 
     @Test

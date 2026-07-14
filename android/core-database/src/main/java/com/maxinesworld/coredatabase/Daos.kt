@@ -89,7 +89,7 @@ interface DailyChallengeDao {
 @Dao
 interface CollectedBadgeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(badge: CollectedBadgeEntity)
+    suspend fun insertIgnoring(badge: CollectedBadgeEntity): Long
 
     @Query("SELECT * FROM collected_badges WHERE childId = :childId ORDER BY earnedAtEpochMillis ASC")
     suspend fun getAllByChild(childId: String): List<CollectedBadgeEntity>
