@@ -16,6 +16,7 @@ import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeV17Screen
+import com.maxinesworld.coremodel.Subject
 import com.maxinesworld.featurechildhome.VillageHomeV17State
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
@@ -98,17 +99,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
             VillageHomeV17Screen(
                 state = VillageHomeV17State(),
                 onDestinationClick = { subject ->
-                    val lessonId = when (subject) {
-                        "english" -> "english-g3-m01-d01"
-                        "filipino" -> "filipino-g3-m01-d01"
-                        "mathematics" -> "mathematics-g3-m01-d01"
-                        "science" -> "science-g3-m01-d01"
-                        "philippine-history" -> "mkb-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
-                        else -> "english-g3-m01-d01"
+                    Subject.fromId(subject)?.let { resolved ->
+                        navController.navigate(Routes.lessonPlayer(childId, resolved.lessonId))
                     }
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
                 onQuestClick = { },
                 onHomeClick = { },
