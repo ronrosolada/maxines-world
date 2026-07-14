@@ -130,3 +130,35 @@ interface DailyQuestDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(quest: DailyQuestEntity)
 }
+
+@Dao
+interface LessonCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(completion: LessonCompletionEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId)")
+    suspend fun exists(childId: String, lessonId: String): Boolean
+
+    @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
+    suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
+}
+
+// ─── Cat Café Purchase System ───
+
+@Dao
+interface RewardLedgerDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
+
+    @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE child_id = :childId")
+    suspend fun fishTreatBalance(childId: String): Int
+}
+
+@Dao
+interface InventoryDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(item: InventoryEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE child_id = :childId AND item_id = :itemId)")
+    suspend fun owns(childId: String, itemId: String): Boolean
+}
