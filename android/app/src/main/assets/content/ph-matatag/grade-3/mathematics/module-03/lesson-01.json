@@ -1,5 +1,5 @@
 {
-  "lessonId": "math-g3-m03-l01",
+  "lessonId": "mathematics-g3-q2-w03-d01",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "math-g3-m03-l01-a01",
+      "activityId": "mathematics-g3-q2-w03-d01-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "math-g3-m03-l01-visual",
+      "assetId": "mathematics-g3-q2-w03-d01-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "measure capacity in liters (L) and/or milliliters (mL), using appropriate measuring tools.",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Watch and listen carefully.",
+      "narration": "Ready to explore? Let's go!",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l01-a02",
+      "activityId": "mathematics-g3-q2-w03-d01-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Which one is correct? Think about what we learned!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l01-a03",
+      "activityId": "mathematics-g3-q2-w03-d01-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Sort these into groups! What belongs together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l01-a04",
+      "activityId": "mathematics-g3-q2-w03-d01-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Find and tap the correct place.",
+      "narration": "Tap on the right part of the picture! Where is it?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l01-a05",
+      "activityId": "mathematics-g3-q2-w03-d01-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Draw a line between each pair.",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l01-a06",
+      "activityId": "mathematics-g3-q2-w03-d01-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Put the steps in order!",
+      "narration": "Arrange them step by step! Start from the beginning.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "math-g3-m03-l01-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"measure capacity in liters (L) and/or milliliters\"?",
+        "question": "What math topic did we learn?",
         "choices": [
           {
-            "id": "a",
-            "text": "The correct definition of measure capacity in liters"
+            "text": "Numbers, shapes, and problem solving",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Something completely different"
+            "text": "Art class",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "A type of food"
+            "text": "Music",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A kind of animal"
+            "text": "Reading stories",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. measure capacity in liters is an important concept to understand."
+        "narration": "Milo asks: What math topic did we learn?"
       },
       {
-        "itemId": "math-g3-m03-l01-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is an example of measure capacity in liters?",
+        "question": "How do you solve a math problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "A real example from the lesson"
+            "text": "Give up",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A made-up wrong example"
+            "text": "Ask someone else",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something from science class"
+            "text": "Guess randomly",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A story character"
+            "text": "Think step by step, then check your work",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. measure capacity in liters is an important concept to understand."
+        "narration": "Milo asks: How do you solve a math problem?"
       },
       {
-        "itemId": "math-g3-m03-l01-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do we use measure capacity in liters in real life?",
+        "question": "Where can you use math in real life?",
         "choices": [
           {
-            "id": "a",
-            "text": "We use it to solve everyday problems"
+            "text": "Only in school",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "We never use it"
+            "text": "Never",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only in school"
+            "text": "At the store, cooking, and counting things",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "Only on weekends"
+            "text": "It's useless",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. measure capacity in liters is an important concept to understand."
+        "narration": "Milo asks: Where can you use math in real life?"
       },
       {
-        "itemId": "math-g3-m03-l01-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Choose the correct statement about measure capacity in liters:",
+        "question": "What helps you get better at math?",
         "choices": [
           {
-            "id": "a",
-            "text": "The right answer about measure capacity in liters"
+            "text": "Wishing really hard",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A wrong but tempting answer"
+            "text": "Practice and asking questions!",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Something that sounds smart but is wrong"
+            "text": "A magic wand",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "None of the above"
+            "text": "Nothing helps",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. measure capacity in liters is an important concept to understand."
+        "narration": "Milo asks: What helps you get better at math?"
       },
       {
-        "itemId": "math-g3-m03-l01-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "If you have a problem about measure capacity in liters, what's the first step?",
+        "question": "What if you get stuck on a problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "Understand what the problem is asking"
+            "text": "Try a different way, then ask for help",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Guess the answer"
+            "text": "Throw your paper away",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Ask someone else to solve it"
+            "text": "Cry and give up",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Skip it"
+            "text": "Ignore it",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. measure capacity in liters is an important concept to understand."
+        "narration": "Milo asks: What if you get stuck on a problem?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo is counting his toys. \"Numbers are everywhere! Let's figure this out!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

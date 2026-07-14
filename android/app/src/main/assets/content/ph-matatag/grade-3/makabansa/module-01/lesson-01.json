@@ -1,114 +1,339 @@
 {
-  "id": "mkb-g3-m01-l01",
+  "lessonId": "makabansa-g3-q1-w01-d01",
   "schemaVersion": 1,
-  "subject": "makabansa",
-  "moduleId": "mkb-g3-m01",
-  "skillIds": ["mkb-g3-timeline", "mkb-g3-past-present", "mkb-g3-community-stories"],
-  "title": "Lakan and the Lost Barangay Album",
-  "objective": "Explain how a community changes over time while preserving important parts of its identity. (Makabansa: national and cultural identity, community, civic values)",
-  "prerequisiteSkillIds": [],
-  "estimatedMinutes": 10,
-  "guideCharacter": "lakan",
-  "curriculumStandard": null,
-  "term": 1,
-  "languageOfInstruction": "english",
-  "steps": [
+  "contentVersion": 1,
+  "grade": 3,
+  "quarter": 1,
+  "week": 1,
+  "day": 1,
+  "subject": "MAKABANSA",
+  "title": "Natatalakay ang mahahalagang tao, lugar, at pangyayari",
+  "objective": "Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan ng pook (hal. barangay, bayan, lungsod,",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "language": "fil-PH",
+  "introduction": "Kumusta, Kaibigan! 🤗 Ang aralin natin ngayon ay tungkol sa: Natatalakay ang mahahalagang tao, lugar, at. Makinig nang mabuti at sumali sa mga gawain. Simulan na natin!",
+  "vocabulary": [
     {
-      "id": "step-01",
-      "type": "animated_explanation",
-      "narrationText": "Lakan, the Philippine forest cat, has found an old photo album! It shows pictures of a barangay from long ago and today. In Makabansa, we learn about our community, our culture, and what makes us Filipino. Let's explore how places change over time!",
-      "imageAssets": []
+      "term": "Komunidad",
+      "definition": "Lugar kung saan sama-samang namumuhay ang mga tao."
     },
     {
-      "id": "step-02",
-      "type": "timeline_builder",
-      "narrationText": "Look at these pictures. Some are from the PAST (noong unang panahon) and some are from the PRESENT (ngayon). Let's sort them!",
-      "question": "Sort these into 'Past' (noong unang panahon) and 'Present' (ngayon):",
-      "options": [
-        "Horse-drawn carts (kalesa)", "Cars and jeepneys",
-        "Nipa huts", "Concrete houses",
-        "Letters on paper", "Messages on cellphones",
-        "Farming with carabao", "Farming with machines"
-      ],
-      "correctIndex": 0,
+      "term": "Kasaysayan",
+      "definition": "Ang nakaraan — mga mahahalagang tao, lugar, at pangyayari."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Animated Explanation activity.",
+      "content": "Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan ng pook (hal. barangay, bayan, lungsod,",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
       "feedback": {
-        "correct": "Great sorting! You can see how transportation, houses, communication, and farming have changed! 🕰️",
-        "incorrect": "Think about what your grandparents used vs. what you use today."
-      }
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Pay attention to the story!",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-03",
-      "type": "multiple_choice",
-      "narrationText": "Some things in the barangay stay the same even as time passes. In Makabansa, we call these our traditions and values.",
-      "question": "Which of these probably stayed the SAME in a barangay over time?",
-      "options": [
-        "The kind of cellphones people use",
-        "The respect for elders (paggalang sa nakatatanda)",
-        "The style of houses",
-        "The type of transportation"
-      ],
-      "correctIndex": 1,
+      "activityId": "makabansa-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Multiple Choice activity.",
+      "content": {
+        "options": [
+          "The correct choice about Natatalakay ang mahahalagang tao",
+          "A close-but-wrong answer",
+          "Something that sounds right but isn't",
+          "A clearly wrong answer"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
       "feedback": {
-        "correct": "Yes! Values like respect for elders often stay the same even as technology changes. That's part of our Filipino identity! 🇵🇭",
-        "incorrect": "Some things change (like phones and cars), but values and traditions often continue."
-      }
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Which one is correct? Think about what we learned!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-04",
-      "type": "story_comprehension",
-      "narrationText": "Listen to this story from Lakan's grandmother cat: 'When I was a kitten, our barangay had only one road made of dirt. Everyone knew everyone. We celebrated fiesta together with homemade food and dancing. Today, we have many paved roads and new buildings. But we STILL celebrate fiesta together with homemade food and dancing!'",
-      "question": "What CHANGED in Lakan's grandmother's barangay?",
-      "options": [
-        "The tradition of celebrating fiesta together",
-        "The roads and buildings",
-        "The love for homemade food",
-        "The dancing at fiesta"
-      ],
-      "correctIndex": 1,
+      "activityId": "makabansa-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Sort And Classify activity.",
+      "content": {
+        "fits": [
+          "Example of Natatalakay ang mahahalagang — correct",
+          "Another correct example about Natatalakay ang mahahalagang",
+          "Yes — this matches Natatalakay ang mahahalagang tao"
+        ],
+        "doesNotFit": [
+          "This does not fit the lesson idea",
+          "This is unrelated — try again",
+          "This belongs somewhere else"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
       "feedback": {
-        "correct": "Right! The roads and buildings changed, but the traditions of fiesta, food, and dancing stayed the same! 🎉",
-        "incorrect": "Listen again — what did Lola say is DIFFERENT today vs. when she was young?"
-      }
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Sort them into the right boxes.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-05",
-      "type": "multiple_choice",
-      "narrationText": "In Makabansa, we learn why traditions matter. Why is it important to keep some traditions alive even as things change?",
-      "question": "Why should we remember old traditions and stories?",
-      "options": [
-        "Because old things are always better",
-        "Because they help us remember who we are and where we came from",
-        "Because we don't like new things",
-        "Because the government says so"
-      ],
-      "correctIndex": 1,
+      "activityId": "makabansa-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Hotspot Image activity.",
+      "content": {
+        "examples": [
+          "Key idea: Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan n",
+          "Remember: Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan n",
+          "Think about: Natatalakay ang mahahalagang tao lugar...",
+          "Try this: Can you explain Natatalakay ang mahahalagang in your own words?"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
       "feedback": {
-        "correct": "Exactly! Traditions and stories help us remember our Filipino identity. They connect us to our family and community! 🏠",
-        "incorrect": "Traditions aren't about 'better' or 'worse' — they're about identity and remembering our roots."
-      }
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-06",
-      "type": "timeline_builder",
-      "narrationText": "Create a simple timeline of YOUR day. What happens first, next, and last?",
-      "question": "Place these events in order: Morning, Afternoon, Evening",
-      "options": [
-        "Eat breakfast and go to school",
-        "Eat lunch and play with friends",
-        "Eat dinner and go to sleep"
-      ],
-      "correctIndex": 0,
+      "activityId": "makabansa-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Matching Pairs activity.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Concept: Natatalakay ang mahahalagang",
+            "right": "Matches the lesson"
+          },
+          {
+            "left": "Example of Natatalakay ang",
+            "right": "Fits the idea"
+          },
+          {
+            "left": "Key term: Natatalakay",
+            "right": "Correct"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
       "feedback": {
-        "correct": "Nice timeline! Morning → Afternoon → Evening. Understanding order helps us understand history! ⏰",
-        "incorrect": "What do you do first in your day? Wake up and eat breakfast comes first!"
-      }
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Connect the matching pairs.",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Complete the Sequence Builder activity.",
+      "content": {
+        "steps": [
+          "First: Understand Natatalakay ang mahahalagang",
+          "Then: Practice with examples",
+          "Next: Check your understanding",
+          "Finally: Apply what you learned!"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! You're making great progress.",
+        "retry": "Not quite — take another look and try again."
+      },
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "What comes first? What comes next?",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "passThreshold": 0.8,
-    "minQuestions": 5
+    "passingCorrectCount": 4,
+    "totalItems": 5,
+    "items": [
+      {
+        "question": "Ano ang paksa ng aralin?",
+        "choices": [
+          {
+            "text": "Sayaw",
+            "correct": false
+          },
+          {
+            "text": "Laro",
+            "correct": false
+          },
+          {
+            "text": "Pagkain",
+            "correct": false
+          },
+          {
+            "text": "Ang ating komunidad at kasaysayan",
+            "correct": true
+          }
+        ],
+        "narration": "Milo asks: Ano ang paksa ng aralin?"
+      },
+      {
+        "question": "Bakit mahalaga ang kasaysayan?",
+        "choices": [
+          {
+            "text": "Para maunawaan ang ating pinagmulan",
+            "correct": true
+          },
+          {
+            "text": "Hindi kailangan",
+            "correct": false
+          },
+          {
+            "text": "Nakakatamad",
+            "correct": false
+          },
+          {
+            "text": "Walang saysay",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Bakit mahalaga ang kasaysayan?"
+      },
+      {
+        "question": "Ano ang tungkulin mo sa komunidad?",
+        "choices": [
+          {
+            "text": "Wala",
+            "correct": false
+          },
+          {
+            "text": "Manahimik lang",
+            "correct": false
+          },
+          {
+            "text": "Maging mabuting mamamayan",
+            "correct": true
+          },
+          {
+            "text": "Huwag tumulong",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Ano ang tungkulin mo sa komunidad?"
+      },
+      {
+        "question": "Sino ang dapat nating igalang?",
+        "choices": [
+          {
+            "text": "Walang sinuman",
+            "correct": false
+          },
+          {
+            "text": "Ang nakatatanda at kapwa tao",
+            "correct": true
+          },
+          {
+            "text": "Walang dapat igalang",
+            "correct": false
+          },
+          {
+            "text": "Sarili lang",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Sino ang dapat nating igalang?"
+      },
+      {
+        "question": "Paano maipapakita ang pagmamahal sa bayan?",
+        "choices": [
+          {
+            "text": "Maging tamad",
+            "correct": false
+          },
+          {
+            "text": "Huwag mag-aral",
+            "correct": false
+          },
+          {
+            "text": "Walang gawin",
+            "correct": false
+          },
+          {
+            "text": "Mag-aral nang mabuti at tumulong sa kapwa",
+            "correct": true
+          }
+        ],
+        "narration": "Milo asks: Paano maipapakita ang pagmamahal sa bayan?"
+      }
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
-  "version": 1,
-  "status": "DRAFT",
-  "educatorValidated": false
+  "accessibility": {
+    "narrationAvailable": false,
+    "captionsAvailable": false,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
+  },
+  "storyIntro": "Naglalakad si Milo sa komunidad. \"Ang dami nating dapat matutuhan tungkol sa ating bayan!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
+  }
 }

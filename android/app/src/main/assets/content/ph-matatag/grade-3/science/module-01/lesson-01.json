@@ -1,91 +1,345 @@
 {
-  "id": "sci-g3-m01-l01",
+  "lessonId": "science-g3-q1-w01-d01",
   "schemaVersion": 1,
-  "subject": "science",
-  "moduleId": "sci-g3-m01",
-  "skillIds": ["sci-g3-plant-needs", "sci-g3-observation", "sci-g3-prediction"],
-  "title": "Niko's Plant Investigation",
-  "objective": "Identify what plants need to grow and practice making predictions and observations.",
-  "prerequisiteSkillIds": [],
-  "estimatedMinutes": 10,
-  "guideCharacter": "niko",
-  "curriculumStandard": null,
-  "term": 1,
-  "languageOfInstruction": "english",
-  "steps": [
+  "contentVersion": 1,
+  "grade": 3,
+  "quarter": 1,
+  "week": 1,
+  "day": 1,
+  "subject": "SCIENCE",
+  "title": "Identify objects, activities, and natural events observed",
+  "objective": "Identify objects, activities, and natural events observed in the local environment that involve science.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "language": "en-PH",
+  "introduction": "Did you know you're a scientist? 🧪 Every time you ask 'why is the sky blue?' or 'how do plants grow?', you're doing science! Science is about observing the world, asking questions, and discovering answers. Today you'll explore how science is hiding in your kitchen, your garden, your playground — everywhere!",
+  "vocabulary": [
     {
-      "id": "step-01",
-      "type": "animated_explanation",
-      "narrationText": "Niko the gray scientist cat is in the Discovery Lab! Today he's investigating plants. What do plants need to grow? Let's find out together!",
-      "imageAssets": []
+      "term": "Observe",
+      "definition": "Panonood nang mabuti gamit ang iyong mga pandama."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Watch and discover — science is hiding all around you!",
+      "content": "When you cook rice, you're doing CHEMISTRY! When you water a plant and it grows, that's BIOLOGY! When you slide down a slide, that's PHYSICS — gravity pulls you down! When you see a rainbow after the rain, that's light science. Science isn't just in books — it's in your kitchen, your garden, and your playground!",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Now you see — science is everywhere!",
+        "retry": "Watch the explanation again."
+      },
+      "accessibilityAlternative": "Science is in cooking (chemistry), gardens (biology), playgrounds (physics), and the sky (light and weather).",
+      "prompt": "Pay attention to the story!",
+      "narration": "Ready to explore? Let's go!",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-02",
-      "type": "prediction_observation_explanation",
-      "narrationText": "Niko has two bean seeds. He plants one in a sunny spot with water. He plants the other in a dark closet with no water. What do you PREDICT will happen?",
-      "question": "Make a prediction: Which seed will grow?",
-      "options": [
-        "Both seeds will grow the same",
-        "The seed with sun and water will grow",
-        "The seed in the dark closet will grow",
-        "Neither seed will grow"
-      ],
-      "correctIndex": 1,
+      "activityId": "science-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Tap each scene to discover the science hiding there!",
+      "content": {
+        "examples": [
+          "Kitchen 🍳 — When water boils and turns into steam, that's science! Cooking food changes it — that's chemistry!",
+          "Garden 🌱 — Seeds grow into plants using sunlight. Butterflies change from caterpillars — that's a life cycle!",
+          "Playground 🛝 — You slide down because gravity pulls you. You swing back and forth because of motion!",
+          "Sky 🌈 — Rainbows appear when sunlight shines through raindrops. Clouds form from water vapor — that's weather science!"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
       "feedback": {
-        "correct": "Good prediction! Plants need sunlight and water to grow. Let's observe and see if you're right! 🌱",
-        "incorrect": "Think about what a plant needs. Have you ever seen a plant grow in a dark closet?"
-      }
+        "correct": "You found science in all four places!",
+        "retry": "Tap each scene — there's science in all of them!"
+      },
+      "accessibilityAlternative": "Four scenes: kitchen (chemistry), garden (biology), playground (physics), sky (light/weather).",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Find it in the picture! Tap where you think it is.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-03",
-      "type": "multiple_choice",
-      "narrationText": "Now let's learn the four things plants need. Niko shows us a diagram.",
-      "question": "Which of these is NOT something a plant needs to grow?",
-      "options": ["Sunlight", "Water", "Air", "Chocolate milk"],
-      "correctIndex": 3,
+      "activityId": "science-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Sort each activity: Is it SCIENCE or NOT SCIENCE?",
+      "content": {
+        "fits": [
+          "Watching a caterpillar become a butterfly",
+          "Mixing vinegar and baking soda to see bubbles",
+          "Growing monggo seeds in cotton",
+          "Observing clouds to predict rain",
+          "Testing which ball bounces highest"
+        ],
+        "doesNotFit": [
+          "Just guessing without looking",
+          "Watching TV without thinking about how it works",
+          "Following a recipe without measuring"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
       "feedback": {
-        "correct": "Ha! Plants don't drink chocolate milk! They need sunlight ☀️, water 💧, air 💨, and nutrients from soil. 🌿",
-        "incorrect": "Think about what plants really need. Is chocolate milk something a plant would use?"
-      }
+        "correct": "Yes! Science is about observing and testing, not just guessing.",
+        "retry": "Think: does it involve observing or testing something?"
+      },
+      "accessibilityAlternative": "Sort activities into 'uses scientific thinking' or 'does not use scientific thinking'.",
+      "prompt": "Sort them into the right boxes.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-04",
-      "type": "sort_and_classify",
-      "narrationText": "Let's sort what helps plants grow vs. what doesn't!",
-      "question": "Sort these into 'Helps plants grow' and 'Does NOT help':",
-      "options": [
-        "Sunlight", "Water", "Rich soil", "Video games",
-        "Fresh air", "Soda pop", "Nutrients", "TV remote"
-      ],
-      "correctIndex": 0,
+      "activityId": "science-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "You see water boiling in a pot. What kind of science is this?",
+      "content": {
+        "options": [
+          "Chemistry — the water is changing form!",
+          "It's not science at all",
+          "Only scientists can know",
+          "Magic"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
       "feedback": {
-        "correct": "Great sorting! Plants need sunlight, water, air, soil, and nutrients. Not video games! 🎮❌🌱✅",
-        "incorrect": "Remember: plants are living things. They need nature's help, not electronics!"
-      }
+        "correct": "Right! Water changing from liquid to gas is chemistry in action.",
+        "retry": "Think about what's happening to the water."
+      },
+      "accessibilityAlternative": "Choose the type of science involved in boiling water.",
+      "prompt": "Choose the right answer.",
+      "narration": "Which one is correct? Think about what we learned!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-05",
-      "type": "prediction_observation_explanation",
-      "narrationText": "Final challenge! Niko has a plant that's turning yellow. Let's think like scientists — what do we need to investigate?",
-      "question": "A plant's leaves are turning yellow. What should a scientist check FIRST?",
-      "options": [
-        "Is the plant getting the right amount of water?",
-        "Is the plant getting enough sunlight?",
-        "Does the soil have nutrients?",
-        "All of the above — a scientist checks everything!"
-      ],
-      "correctIndex": 3,
+      "activityId": "science-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Match each place to the science you can find there!",
+      "content": {
+        "pairs": [
+          {
+            "left": "Kitchen",
+            "right": "Mixing, heating, and changing food"
+          },
+          {
+            "left": "Garden",
+            "right": "How plants and animals grow"
+          },
+          {
+            "left": "Playground",
+            "right": "Pushing, pulling, and moving"
+          },
+          {
+            "left": "Sky",
+            "right": "Weather, clouds, and rainbows"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 4
+      },
       "feedback": {
-        "correct": "Excellent thinking! Scientists check many possible causes. Yellow leaves could mean too much water, not enough water, not enough sunlight, or missing nutrients. Investigating all possibilities is good science! 🔬",
-        "incorrect": "A scientist doesn't guess — they check different possibilities. Water, sunlight, and nutrients all matter for plant health."
-      }
+        "correct": "You matched them all! Science really is everywhere.",
+        "retry": "Match each place to the kind of science you do there."
+      },
+      "accessibilityAlternative": "Match locations to the type of science activity that happens there.",
+      "prompt": "Connect the matching pairs.",
+      "narration": "Every pair has a match! Can you find them all?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "A scientist follows steps. Put these in the right order!",
+      "content": {
+        "steps": [
+          "Observe something interesting",
+          "Ask a question about it",
+          "Make a guess (hypothesis)",
+          "Test your guess and see what happens!"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 4
+      },
+      "feedback": {
+        "correct": "That's the scientific method! Observe, Ask, Guess, Test!",
+        "retry": "What does a scientist do first?"
+      },
+      "accessibilityAlternative": "Order the steps of the scientific method: Observe, Question, Hypothesize, Test.",
+      "prompt": "Arrange from first to last.",
+      "narration": "Arrange them step by step! Start from the beginning.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "passThreshold": 0.8,
-    "minQuestions": 4
+    "passingCorrectCount": 4,
+    "totalItems": 5,
+    "items": [
+      {
+        "question": "What science topic did we explore?",
+        "choices": [
+          {
+            "text": "A story about cats",
+            "correct": false
+          },
+          {
+            "text": "How things work in our world",
+            "correct": true
+          },
+          {
+            "text": "A video game",
+            "correct": false
+          },
+          {
+            "text": "A cooking show",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What science topic did we explore?"
+      },
+      {
+        "question": "What does a scientist do?",
+        "choices": [
+          {
+            "text": "Just read books all day",
+            "correct": false
+          },
+          {
+            "text": "Only wear lab coats",
+            "correct": false
+          },
+          {
+            "text": "Observe, ask questions, and test ideas",
+            "correct": true
+          },
+          {
+            "text": "Make wild guesses",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What does a scientist do?"
+      },
+      {
+        "question": "Where can you find science?",
+        "choices": [
+          {
+            "text": "Only in a laboratory",
+            "correct": false
+          },
+          {
+            "text": "Nowhere interesting",
+            "correct": false
+          },
+          {
+            "text": "Everywhere — at home, in nature, in you!",
+            "correct": true
+          },
+          {
+            "text": "Only in textbooks",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Where can you find science?"
+      },
+      {
+        "question": "What is the first step in exploring?",
+        "choices": [
+          {
+            "text": "Close your eyes",
+            "correct": false
+          },
+          {
+            "text": "Jump to conclusions",
+            "correct": false
+          },
+          {
+            "text": "Ignore what you see",
+            "correct": false
+          },
+          {
+            "text": "Look closely and observe carefully!",
+            "correct": true
+          }
+        ],
+        "narration": "Milo asks: What is the first step in exploring?"
+      },
+      {
+        "question": "Why is science exciting?",
+        "choices": [
+          {
+            "text": "It's not exciting at all",
+            "correct": false
+          },
+          {
+            "text": "You discover amazing things about the world!",
+            "correct": true
+          },
+          {
+            "text": "Because you have to",
+            "correct": false
+          },
+          {
+            "text": "No reason",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Why is science exciting?"
+      }
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
-  "version": 1,
-  "status": "DRAFT",
-  "educatorValidated": false
+  "accessibility": {
+    "narrationAvailable": false,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
+  },
+  "storyIntro": "Milo looked outside and saw something amazing. \"Let's explore and discover!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
+  }
 }

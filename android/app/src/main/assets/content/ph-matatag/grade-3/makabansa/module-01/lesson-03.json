@@ -1,5 +1,5 @@
 {
-  "lessonId": "mkb-g3-m01-l03",
+  "lessonId": "makabansa-g3-q1-w01-d03",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "mkb-g3-m01-l03-a01",
+      "activityId": "makabansa-g3-q1-w01-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "mkb-g3-m01-l03-visual",
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Napahahalagahan ang kasaysayan at pagbabagong nagaganap sa kinabibilangang komunidad",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Look at what Milo shows you.",
+      "narration": "Watch carefully! Milo will show you something cool.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "mkb-g3-m01-l03-a02",
+      "activityId": "makabansa-g3-q1-w01-d03-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "mkb-g3-m01-l03-a03",
+      "activityId": "makabansa-g3-q1-w01-d03-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Sort them into the right boxes.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "mkb-g3-m01-l03-a04",
+      "activityId": "makabansa-g3-q1-w01-d03-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Tap the right spot in the picture!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "mkb-g3-m01-l03-a05",
+      "activityId": "makabansa-g3-q1-w01-d03-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Draw a line between each pair.",
+      "narration": "Match the pairs! Which ones go together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "mkb-g3-m01-l03-a06",
+      "activityId": "makabansa-g3-q1-w01-d03-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Put the steps in order!",
+      "narration": "Arrange them step by step! Start from the beginning.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "mkb-g3-m01-l03-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang pangunahing paksa ng aralin: \"Napahahalagahan ang kasaysayan at pagbabagong nagaganap sa\"?",
+        "question": "Ano ang paksa ng aralin?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang sagot tungkol sa aralin"
+            "text": "Pagkain",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Isang maling sagot"
+            "text": "Laro",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Hindi ito ang tamang sagot"
+            "text": "Sayaw",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Wala sa nabanggit"
+            "text": "Ang ating komunidad at kasaysayan",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Ano ang paksa ng aralin?"
       },
       {
-        "itemId": "mkb-g3-m01-l03-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Bakit mahalagang pag-aralan ang araling ito?",
+        "question": "Bakit mahalaga ang kasaysayan?",
         "choices": [
           {
-            "id": "a",
-            "text": "Dahil makatutulong ito sa pang-araw-araw na buhay"
+            "text": "Nakakatamad",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Hindi ito mahalaga"
+            "text": "Hindi kailangan",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Para lang sa pagsusulit"
+            "text": "Para maunawaan ang ating pinagmulan",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "Wala lang"
+            "text": "Walang saysay",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Bakit mahalaga ang kasaysayan?"
       },
       {
-        "itemId": "mkb-g3-m01-l03-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Alin sa mga sumusunod ang TAMA?",
+        "question": "Ano ang tungkulin mo sa komunidad?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang pahayag tungkol sa aralin"
+            "text": "Manahimik lang",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Isang maling pahayag"
+            "text": "Huwag tumulong",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Isa pang maling pahayag"
+            "text": "Wala",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Lahat ay mali"
+            "text": "Maging mabuting mamamayan",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Ano ang tungkulin mo sa komunidad?"
       },
       {
-        "itemId": "mkb-g3-m01-l03-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Paano mo magagamit ang natutuhan sa araling ito?",
+        "question": "Sino ang dapat nating igalang?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magagamit ko ito sa aking pang-araw-araw na buhay"
+            "text": "Ang nakatatanda at kapwa tao",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Hindi ko ito kailanman magagamit"
+            "text": "Walang dapat igalang",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Sa paaralan lang"
+            "text": "Sarili lang",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Hindi ko alam"
+            "text": "Walang sinuman",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Sino ang dapat nating igalang?"
       },
       {
-        "itemId": "mkb-g3-m01-l03-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang dapat mong gawin kung may hindi ka naintindihan?",
+        "question": "Paano maipapakita ang pagmamahal sa bayan?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magtanong sa guro o magulang"
+            "text": "Mag-aral nang mabuti at tumulong sa kapwa",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Huwag nang isipin"
+            "text": "Huwag mag-aral",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Hulaan na lang"
+            "text": "Maging tamad",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Laktawan ang aralin"
+            "text": "Walang gawin",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Paano maipapakita ang pagmamahal sa bayan?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Naglalakad si Milo sa komunidad. \"Ang dami nating dapat matutuhan tungkol sa ating bayan!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

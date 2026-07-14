@@ -1,5 +1,5 @@
 {
-  "lessonId": "gmrc-g3-m01-l03",
+  "lessonId": "gmrc-g3-q1-w01-d03",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "gmrc-g3-m01-l03-a01",
+      "activityId": "gmrc-g3-q1-w01-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "gmrc-g3-m01-l03-visual",
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Mga Sariling Natututuhan ng mag-aaral ang pag- 3. Naipakikita ang pagiging responsable sa pamamagitan ng",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Pay attention to the story!",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "gmrc-g3-m01-l03-a02",
+      "activityId": "gmrc-g3-q1-w01-d03-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "gmrc-g3-m01-l03-a03",
+      "activityId": "gmrc-g3-q1-w01-d03-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Help Milo sort these things! Drag them to the right spot.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "gmrc-g3-m01-l03-a04",
+      "activityId": "gmrc-g3-q1-w01-d03-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Tap on the right part of the picture! Where is it?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "gmrc-g3-m01-l03-a05",
+      "activityId": "gmrc-g3-q1-w01-d03-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Match the pairs! Which ones go together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "gmrc-g3-m01-l03-a06",
+      "activityId": "gmrc-g3-q1-w01-d03-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Arrange from first to last.",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "gmrc-g3-m01-l03-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang pangunahing paksa ng aralin: \"Mga Sariling Natututuhan ng mag-aaral ang pag-\"?",
+        "question": "Anong mabuting asal ang natutuhan?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang sagot tungkol sa aralin"
+            "text": "Kawalan ng respeto",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Isang maling sagot"
+            "text": "Pagsisinungaling",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Hindi ito ang tamang sagot"
+            "text": "Pang-aaway",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Wala sa nabanggit"
+            "text": "Paggalang at kabutihang-loob",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Anong mabuting asal ang natutuhan?"
       },
       {
-        "itemId": "gmrc-g3-m01-l03-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Bakit mahalagang pag-aralan ang araling ito?",
+        "question": "Bakit mahalaga ang pagiging mabuti?",
         "choices": [
           {
-            "id": "a",
-            "text": "Dahil makatutulong ito sa pang-araw-araw na buhay"
+            "text": "Walang dahilan",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Hindi ito mahalaga"
+            "text": "Hindi mahalaga",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Para lang sa pagsusulit"
+            "text": "Para magkaroon ng mabuting samahan",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "Wala lang"
+            "text": "Para lang may medalya",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Bakit mahalaga ang pagiging mabuti?"
       },
       {
-        "itemId": "gmrc-g3-m01-l03-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Alin sa mga sumusunod ang TAMA?",
+        "question": "Paano mo ipapakita ang paggalang?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang pahayag tungkol sa aralin"
+            "text": "Makinig at gumamit ng magagalang na salita",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Isang maling pahayag"
+            "text": "Sumigaw",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Isa pang maling pahayag"
+            "text": "Maging bastos",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Lahat ay mali"
+            "text": "Huwag makinig",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Paano mo ipapakita ang paggalang?"
       },
       {
-        "itemId": "gmrc-g3-m01-l03-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Paano mo magagamit ang natutuhan sa araling ito?",
+        "question": "Ano ang gagawin kung may nangangailangan?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magagamit ko ito sa aking pang-araw-araw na buhay"
+            "text": "Tumulong nang bukal sa kalooban",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Hindi ko ito kailanman magagamit"
+            "text": "Lumayo",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Sa paaralan lang"
+            "text": "Tawanan sila",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Hindi ko alam"
+            "text": "Magkunwari",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Ano ang gagawin kung may nangangailangan?"
       },
       {
-        "itemId": "gmrc-g3-m01-l03-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang dapat mong gawin kung may hindi ka naintindihan?",
+        "question": "Paano pinapalakas ang tiwala sa sarili?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magtanong sa guro o magulang"
+            "text": "Maghihintay ng himala",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Huwag nang isipin"
+            "text": "Maniniwala sa sarili at magsasanay",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Hulaan na lang"
+            "text": "Susuko agad",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Laktawan ang aralin"
+            "text": "Sasabihing hindi kaya",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Paano pinapalakas ang tiwala sa sarili?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "May itinuturo si Milo tungkol sa magandang asal. \"Ang bait ng batang ito! Gusto mo rin bang matuto?\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

@@ -1,78 +1,355 @@
 {
-  "id": "math-g3-m01-l01",
+  "lessonId": "mathematics-g3-q1-w01-d01",
   "schemaVersion": 1,
-  "subject": "mathematics",
-  "moduleId": "math-g3-m01",
-  "skillIds": ["math-g3-mult-equal-groups", "math-g3-mult-arrays"],
-  "title": "Milo's Equal-Groups Market",
-  "objective": "Understand multiplication as equal groups and represent them with arrays.",
-  "prerequisiteSkillIds": ["math-g3-add-subtract"],
-  "estimatedMinutes": 10,
-  "guideCharacter": "milo",
-  "curriculumStandard": null,
-  "term": 1,
-  "languageOfInstruction": "english",
-  "steps": [
+  "contentVersion": 1,
+  "grade": 3,
+  "quarter": 1,
+  "week": 1,
+  "day": 1,
+  "subject": "MATHEMATICS",
+  "title": "Recognize, draw, and describe points, lines, line",
+  "objective": "Recognize, draw, and describe points, lines, line segments, and rays using models.",
+  "estimatedMinutes": 15,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "language": "en-PH",
+  "introduction": "Look around you! The tip of your pencil is a point. The edge of your ruler is a line segment. The sun's rays shooting through the window — those are rays! Geometry is everywhere. Today you'll become a Geometry Explorer and learn to spot points, lines, line segments, and rays in the world around you.",
+  "vocabulary": [
     {
-      "id": "step-01",
-      "type": "animated_explanation",
-      "narrationText": "Milo the orange tabby runs the Number Market! Today, he needs help organizing fruits into equal groups. When we put things into equal groups, that's multiplication! Let's help Milo!",
-      "imageAssets": []
+      "term": "Point",
+      "definition": "Isang eksaktong lokasyon, tulad ng dulo ng lapis."
     },
     {
-      "id": "step-02",
-      "type": "multiple_choice",
-      "narrationText": "Milo has 3 baskets. He wants to put 4 apples in each basket. How many apples does he need in total? Count by groups: 4, 8, 12!",
-      "question": "3 baskets × 4 apples each = ?",
-      "options": ["6", "7", "12", "16"],
-      "correctIndex": 2,
-      "feedback": {
-        "correct": "Fantastic! 3 groups of 4 equals 12 apples. 3 × 4 = 12! 🍎",
-        "incorrect": "Let's count: basket 1 has 4, basket 2 has 4, basket 3 has 4. That's 4+4+4. What does that equal?"
-      }
+      "term": "Line",
+      "definition": "Isang tuwid na guhit na walang hangganan sa magkabilang dulo."
     },
     {
-      "id": "step-03",
-      "type": "multiple_choice",
-      "narrationText": "Now Milo has 5 trays of mangoes. Each tray has 3 mangoes. Let's count by 3!",
-      "question": "5 trays × 3 mangoes each = ?",
-      "options": ["8", "15", "10", "18"],
-      "correctIndex": 1,
+      "term": "Line segment",
+      "definition": "Bahagi ng linya na may dalawang dulo."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Watch and learn! See how points, lines, and rays are different.",
+      "content": "A POINT is a tiny dot showing an exact spot. A LINE SEGMENT connects two points — it stops! A RAY starts at one point and goes on forever. PARALLEL lines never cross, like train tracks. PERPENDICULAR lines cross at a perfect corner.",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
       "feedback": {
-        "correct": "Yes! 5 groups of 3 = 15. 5 × 3 = 15! 🥭",
-        "incorrect": "Count by 3s: 3, 6, 9, 12, 15. The answer is 15!"
-      }
+        "correct": "Now you know the basics! Let's practice.",
+        "retry": "Watch once more."
+      },
+      "accessibilityAlternative": "Text description of geometric shapes: point, line segment, ray, parallel, perpendicular.",
+      "prompt": "Pay attention to the story!",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-04",
-      "type": "multiple_choice",
-      "narrationText": "Let's think about an array! Imagine 4 rows with 5 bananas in each row. An array helps us see multiplication: 4 rows of 5.",
-      "question": "4 rows × 5 bananas = ? bananas total?",
-      "options": ["9", "16", "20", "25"],
-      "correctIndex": 2,
+      "activityId": "mathematics-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Tap each shape to learn its name and what makes it special!",
+      "content": {
+        "examples": [
+          "Point A — a tiny red dot showing an exact location",
+          "Line Segment CD — a blue line with two endpoints. It stops!",
+          "Ray EF — an orange line with one endpoint. It goes forever!",
+          "Parallel Lines — two purple lines that never meet",
+          "Perpendicular Lines — two green lines that cross at a square corner"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 5
+      },
       "feedback": {
-        "correct": "Great job! 4 rows of 5 bananas = 20 bananas. An array helps us see multiplication! 🍌",
-        "incorrect": "Picture 4 rows with 5 bananas each. Count all the bananas: 5, 10, 15, 20!"
-      }
+        "correct": "You explored every shape!",
+        "retry": "Tap the remaining shapes to learn about them."
+      },
+      "accessibilityAlternative": "Five geometric shapes are listed: point, line segment, ray, parallel lines, perpendicular lines.",
+      "prompt": "Find and tap the correct place.",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-05",
-      "type": "multiple_choice",
-      "narrationText": "Last one! Milo puts 2 bags of oranges on display. Each bag has 6 oranges. Use multiplication to find the total.",
-      "question": "2 bags × 6 oranges each = ?",
-      "options": ["8", "10", "12", "14"],
-      "correctIndex": 2,
+      "activityId": "mathematics-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Sort each item: is it a POINT, LINE SEGMENT, or RAY?",
+      "content": {
+        "fits": [
+          "Tip of a pencil — POINT",
+          "Edge of a book — LINE SEGMENT",
+          "Light from a flashlight — RAY",
+          "Corner of a room — POINT",
+          "Side of a door — LINE SEGMENT",
+          "Sunbeam through clouds — RAY"
+        ],
+        "doesNotFit": [
+          "A bouncing ball",
+          "A whole pizza",
+          "A cloud"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 9
+      },
       "feedback": {
-        "correct": "Perfect! 2 groups of 6 = 12. You understand multiplication as equal groups! 🍊🌟",
-        "incorrect": "Count: bag 1 has 6, bag 2 has 6. 6 + 6 = 12. Try again!"
-      }
+        "correct": "You sorted them all! You're thinking like a geometer.",
+        "retry": "Some items need a different group."
+      },
+      "accessibilityAlternative": "Sort real-world examples into point, line segment, or ray categories.",
+      "prompt": "Drag each item to its group.",
+      "narration": "Sort these into groups! What belongs together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Which describes a LINE SEGMENT?",
+      "content": {
+        "options": [
+          "A straight path with two endpoints",
+          "A shape that goes on forever in both directions",
+          "A round shape with no corners",
+          "A path that curves around"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct! A line segment has two endpoints — it stops!",
+        "retry": "Think: does it have endpoints or go forever?"
+      },
+      "accessibilityAlternative": "Choose which description matches a line segment.",
+      "prompt": "Tap the best answer!",
+      "narration": "Choose the best answer! You can do it!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Match each geometry word to its real-world example!",
+      "content": {
+        "pairs": [
+          {
+            "left": "Point",
+            "right": "The tip of your ballpen"
+          },
+          {
+            "left": "Line segment",
+            "right": "The edge of your ruler"
+          },
+          {
+            "left": "Ray",
+            "right": "A sunbeam coming through the window"
+          },
+          {
+            "left": "Parallel lines",
+            "right": "The two rails of a train track"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 4
+      },
+      "feedback": {
+        "correct": "Perfect matches! Geometry is all around you.",
+        "retry": "Try matching each word to the best example."
+      },
+      "accessibilityAlternative": "Match geometry terms to real-world examples.",
+      "prompt": "Match the ones that go together!",
+      "narration": "Match the pairs! Which ones go together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Put these in order: from simplest to most complex!",
+      "content": {
+        "steps": [
+          "A single point (just a dot!)",
+          "A line segment (two points connected)",
+          "A ray (one endpoint, goes forever)",
+          "Two parallel lines (never meet!)"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 4
+      },
+      "feedback": {
+        "correct": "That's the right order — from point to parallel lines!",
+        "retry": "Start with the simplest idea first."
+      },
+      "accessibilityAlternative": "Order geometric concepts from simplest to most complex.",
+      "prompt": "Arrange from first to last.",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "passThreshold": 0.8,
-    "minQuestions": 4
+    "passingCorrectCount": 4,
+    "totalItems": 5,
+    "items": [
+      {
+        "question": "What math topic did we learn?",
+        "choices": [
+          {
+            "text": "Numbers, shapes, and problem solving",
+            "correct": true
+          },
+          {
+            "text": "Art class",
+            "correct": false
+          },
+          {
+            "text": "Music",
+            "correct": false
+          },
+          {
+            "text": "Reading stories",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What math topic did we learn?"
+      },
+      {
+        "question": "How do you solve a math problem?",
+        "choices": [
+          {
+            "text": "Ask someone else",
+            "correct": false
+          },
+          {
+            "text": "Guess randomly",
+            "correct": false
+          },
+          {
+            "text": "Think step by step, then check your work",
+            "correct": true
+          },
+          {
+            "text": "Give up",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: How do you solve a math problem?"
+      },
+      {
+        "question": "Where can you use math in real life?",
+        "choices": [
+          {
+            "text": "It's useless",
+            "correct": false
+          },
+          {
+            "text": "Never",
+            "correct": false
+          },
+          {
+            "text": "At the store, cooking, and counting things",
+            "correct": true
+          },
+          {
+            "text": "Only in school",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Where can you use math in real life?"
+      },
+      {
+        "question": "What helps you get better at math?",
+        "choices": [
+          {
+            "text": "Nothing helps",
+            "correct": false
+          },
+          {
+            "text": "A magic wand",
+            "correct": false
+          },
+          {
+            "text": "Practice and asking questions!",
+            "correct": true
+          },
+          {
+            "text": "Wishing really hard",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What helps you get better at math?"
+      },
+      {
+        "question": "What if you get stuck on a problem?",
+        "choices": [
+          {
+            "text": "Cry and give up",
+            "correct": false
+          },
+          {
+            "text": "Throw your paper away",
+            "correct": false
+          },
+          {
+            "text": "Ignore it",
+            "correct": false
+          },
+          {
+            "text": "Try a different way, then ask for help",
+            "correct": true
+          }
+        ],
+        "narration": "Milo asks: What if you get stuck on a problem?"
+      }
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
-  "version": 1,
-  "status": "DRAFT",
-  "educatorValidated": false
+  "accessibility": {
+    "narrationAvailable": false,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
+  },
+  "storyIntro": "Milo is counting his toys. \"Numbers are everywhere! Let's figure this out!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
+  }
 }

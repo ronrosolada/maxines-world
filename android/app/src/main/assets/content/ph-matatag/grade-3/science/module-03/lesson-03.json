@@ -1,5 +1,5 @@
 {
-  "lessonId": "sci-g3-m03-l03",
+  "lessonId": "science-g3-q2-w03-d03",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -23,12 +23,12 @@
   ],
   "activities": [
     {
-      "activityId": "sci-g3-m03-l03-a01",
+      "activityId": "science-g3-q2-w03-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "sci-g3-m03-l03-visual",
+      "assetId": "science-g3-q2-w03-d03-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Characteristics of science. 4. observe and describe the outer body parts of animals, such as head, legs or wings, and",
       "completionRule": {
@@ -38,10 +38,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Watch and listen carefully.",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m03-l03-a02",
+      "activityId": "science-g3-q2-w03-d03-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -64,10 +68,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Tap the best answer!",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m03-l03-a03",
+      "activityId": "science-g3-q2-w03-d03-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -93,10 +101,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Sort these into groups! What belongs together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m03-l03-a04",
+      "activityId": "science-g3-q2-w03-d03-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -118,10 +130,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Find it in the picture! Tap where you think it is.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m03-l03-a05",
+      "activityId": "science-g3-q2-w03-d03-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -151,10 +167,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Connect the matching pairs.",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m03-l03-a06",
+      "activityId": "science-g3-q2-w03-d03-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -176,146 +196,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Arrange from first to last.",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "sci-g3-m03-l03-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"Characteristics of science\"?",
+        "question": "What science topic did we explore?",
         "choices": [
           {
-            "id": "a",
-            "text": "The scientific definition"
+            "text": "A video game",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A wrong definition"
+            "text": "A story about cats",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something unrelated"
+            "text": "How things work in our world",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "A made-up concept"
+            "text": "A cooking show",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Characteristics of science 4 is an important concept to understand."
+        "narration": "Milo asks: What science topic did we explore?"
       },
       {
-        "itemId": "sci-g3-m03-l03-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do scientists learn about characteristics of science 4?",
+        "question": "What does a scientist do?",
         "choices": [
           {
-            "id": "a",
-            "text": "By observing and testing"
+            "text": "Just read books all day",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "By guessing only"
+            "text": "Only wear lab coats",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "By reading stories"
+            "text": "Make wild guesses",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "By asking friends"
+            "text": "Observe, ask questions, and test ideas",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Characteristics of science 4 is an important concept to understand."
+        "narration": "Milo asks: What does a scientist do?"
       },
       {
-        "itemId": "sci-g3-m03-l03-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is a real-world example of characteristics of science 4?",
+        "question": "Where can you find science?",
         "choices": [
           {
-            "id": "a",
-            "text": "A correct example from daily life"
+            "text": "Only in textbooks",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A fictional example"
+            "text": "Nowhere interesting",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something impossible"
+            "text": "Only in a laboratory",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A video game reference"
+            "text": "Everywhere — at home, in nature, in you!",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Characteristics of science 4 is an important concept to understand."
+        "narration": "Milo asks: Where can you find science?"
       },
       {
-        "itemId": "sci-g3-m03-l03-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Why is characteristics of science 4 important?",
+        "question": "What is the first step in exploring?",
         "choices": [
           {
-            "id": "a",
-            "text": "It helps us understand the world around us"
+            "text": "Jump to conclusions",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "It isn't important at all"
+            "text": "Look closely and observe carefully!",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Only scientists need to know"
+            "text": "Close your eyes",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "It's just for school"
+            "text": "Ignore what you see",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Characteristics of science 4 is an important concept to understand."
+        "narration": "Milo asks: What is the first step in exploring?"
       },
       {
-        "itemId": "sci-g3-m03-l03-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What's the best way to learn more about characteristics of science 4?",
+        "question": "Why is science exciting?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ask questions and explore"
+            "text": "It's not exciting at all",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Never think about it again"
+            "text": "You discover amazing things about the world!",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Only read one book"
+            "text": "No reason",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Memorize without understanding"
+            "text": "Because you have to",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Characteristics of science 4 is an important concept to understand."
+        "narration": "Milo asks: Why is science exciting?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -323,5 +326,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo looked outside and saw something amazing. \"Let's explore and discover!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

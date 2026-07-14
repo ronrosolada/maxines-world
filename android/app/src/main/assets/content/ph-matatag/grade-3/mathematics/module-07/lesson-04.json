@@ -1,5 +1,5 @@
 {
-  "lessonId": "math-g3-m07-l04",
+  "lessonId": "mathematics-g3-q3-w07-d04",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -23,12 +23,12 @@
   ],
   "activities": [
     {
-      "activityId": "math-g3-m07-l04-a01",
+      "activityId": "mathematics-g3-q3-w07-d04-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "math-g3-m07-l04-visual",
+      "assetId": "mathematics-g3-q3-w07-d04-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "explain how to generate a given pattern with repeating and increasing components or",
       "completionRule": {
@@ -38,10 +38,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Watch and listen carefully.",
+      "narration": "Ready to explore? Let's go!",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m07-l04-a02",
+      "activityId": "mathematics-g3-q3-w07-d04-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -64,10 +68,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m07-l04-a03",
+      "activityId": "mathematics-g3-q3-w07-d04-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -93,10 +101,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Sort them into the right boxes.",
+      "narration": "Help Milo sort these things! Drag them to the right spot.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m07-l04-a04",
+      "activityId": "mathematics-g3-q3-w07-d04-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -118,10 +130,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m07-l04-a05",
+      "activityId": "mathematics-g3-q3-w07-d04-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -151,10 +167,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Match the pairs! Which ones go together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m07-l04-a06",
+      "activityId": "mathematics-g3-q3-w07-d04-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -176,146 +196,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "What comes first? What comes next?",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "math-g3-m07-l04-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"explain how to generate a given pattern\"?",
+        "question": "What math topic did we learn?",
         "choices": [
           {
-            "id": "a",
-            "text": "The correct definition of explain how to generate"
+            "text": "Art class",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Something completely different"
+            "text": "Numbers, shapes, and problem solving",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "A type of food"
+            "text": "Music",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A kind of animal"
+            "text": "Reading stories",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. explain how to generate is an important concept to understand."
+        "narration": "Milo asks: What math topic did we learn?"
       },
       {
-        "itemId": "math-g3-m07-l04-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is an example of explain how to generate?",
+        "question": "How do you solve a math problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "A real example from the lesson"
+            "text": "Give up",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A made-up wrong example"
+            "text": "Ask someone else",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something from science class"
+            "text": "Think step by step, then check your work",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "A story character"
+            "text": "Guess randomly",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. explain how to generate is an important concept to understand."
+        "narration": "Milo asks: How do you solve a math problem?"
       },
       {
-        "itemId": "math-g3-m07-l04-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do we use explain how to generate in real life?",
+        "question": "Where can you use math in real life?",
         "choices": [
           {
-            "id": "a",
-            "text": "We use it to solve everyday problems"
+            "text": "At the store, cooking, and counting things",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "We never use it"
+            "text": "It's useless",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only in school"
+            "text": "Never",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Only on weekends"
+            "text": "Only in school",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. explain how to generate is an important concept to understand."
+        "narration": "Milo asks: Where can you use math in real life?"
       },
       {
-        "itemId": "math-g3-m07-l04-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Choose the correct statement about explain how to generate:",
+        "question": "What helps you get better at math?",
         "choices": [
           {
-            "id": "a",
-            "text": "The right answer about explain how to generate"
+            "text": "Wishing really hard",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A wrong but tempting answer"
+            "text": "A magic wand",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something that sounds smart but is wrong"
+            "text": "Practice and asking questions!",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "None of the above"
+            "text": "Nothing helps",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. explain how to generate is an important concept to understand."
+        "narration": "Milo asks: What helps you get better at math?"
       },
       {
-        "itemId": "math-g3-m07-l04-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "If you have a problem about explain how to generate, what's the first step?",
+        "question": "What if you get stuck on a problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "Understand what the problem is asking"
+            "text": "Ignore it",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Guess the answer"
+            "text": "Throw your paper away",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Ask someone else to solve it"
+            "text": "Try a different way, then ask for help",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "Skip it"
+            "text": "Cry and give up",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. explain how to generate is an important concept to understand."
+        "narration": "Milo asks: What if you get stuck on a problem?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -323,5 +326,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo is counting his toys. \"Numbers are everywhere! Let's figure this out!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

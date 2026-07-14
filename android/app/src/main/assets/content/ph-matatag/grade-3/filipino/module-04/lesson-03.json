@@ -1,5 +1,5 @@
 {
-  "lessonId": "fil-g3-m04-l03",
+  "lessonId": "filipino-g3-q2-w04-d03",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "fil-g3-m04-l03-a01",
+      "activityId": "filipino-g3-q2-w04-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "fil-g3-m04-l03-visual",
+      "assetId": "filipino-g3-q2-w04-d03-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Natutukoy ang kahulugan ng mga salita ayon sa konteksto",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Look at what Milo shows you.",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "fil-g3-m04-l03-a02",
+      "activityId": "filipino-g3-q2-w04-d03-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Choose the best answer! You can do it!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "fil-g3-m04-l03-a03",
+      "activityId": "filipino-g3-q2-w04-d03-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Put things where they belong.",
+      "narration": "Help Milo sort these things! Drag them to the right spot.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "fil-g3-m04-l03-a04",
+      "activityId": "filipino-g3-q2-w04-d03-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "fil-g3-m04-l03-a05",
+      "activityId": "filipino-g3-q2-w04-d03-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "fil-g3-m04-l03-a06",
+      "activityId": "filipino-g3-q2-w04-d03-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Arrange from first to last.",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "fil-g3-m04-l03-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang pangunahing paksa ng aralin: \"Natutukoy ang kahulugan ng mga salita ayon\"?",
+        "question": "Ano ang aralin natin ngayon?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang sagot tungkol sa aralin"
+            "text": "Mga salita at pagbasa sa Filipino",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Isang maling sagot"
+            "text": "Laro",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Hindi ito ang tamang sagot"
+            "text": "Bahay",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Wala sa nabanggit"
+            "text": "Pagkain",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Ano ang aralin natin ngayon?"
       },
       {
-        "itemId": "fil-g3-m04-l03-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Bakit mahalagang pag-aralan ang araling ito?",
+        "question": "Aling salita ang natutuhan natin?",
         "choices": [
           {
-            "id": "a",
-            "text": "Dahil makatutulong ito sa pang-araw-araw na buhay"
+            "text": "Saging",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Hindi ito mahalaga"
+            "text": "Mga salitang may tamang gamit",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Para lang sa pagsusulit"
+            "text": "Takbo",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Wala lang"
+            "text": "Mesa",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Aling salita ang natutuhan natin?"
       },
       {
-        "itemId": "fil-g3-m04-l03-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Alin sa mga sumusunod ang TAMA?",
+        "question": "Bakit mahalaga ang araling ito?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ang tamang pahayag tungkol sa aralin"
+            "text": "Para lang may gawin",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Isang maling pahayag"
+            "text": "Hindi mahalaga",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Isa pang maling pahayag"
+            "text": "Walang dahilan",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Lahat ay mali"
+            "text": "Para matutong bumasa at umunawa",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Bakit mahalaga ang araling ito?"
       },
       {
-        "itemId": "fil-g3-m04-l03-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Paano mo magagamit ang natutuhan sa araling ito?",
+        "question": "Paano ka magsasanay sa bahay?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magagamit ko ito sa aking pang-araw-araw na buhay"
+            "text": "Magbasa ng mga aklat araw-araw",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Hindi ko ito kailanman magagamit"
+            "text": "Huwag magbasa",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Sa paaralan lang"
+            "text": "Matulog",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Hindi ko alam"
+            "text": "Manood lang ng TV",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Paano ka magsasanay sa bahay?"
       },
       {
-        "itemId": "fil-g3-m04-l03-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Ano ang dapat mong gawin kung may hindi ka naintindihan?",
+        "question": "Ano ang dapat tandaan?",
         "choices": [
           {
-            "id": "a",
-            "text": "Magtanong sa guro o magulang"
+            "text": "Wala",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Huwag nang isipin"
+            "text": "Kalimutan lahat",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Hulaan na lang"
+            "text": "Hindi kailangan",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Laktawan ang aralin"
+            "text": "Mahalaga ang pag-aaral ng wika",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "Basahing muli ang aralin para sa tamang sagot."
+        "narration": "Milo asks: Ano ang dapat tandaan?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "May bagong kuwento si Milo! \"Halika, basahin natin ito!\" masayang sabi niya.",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

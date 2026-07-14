@@ -1,5 +1,5 @@
 {
-  "lessonId": "math-g3-m03-l03",
+  "lessonId": "mathematics-g3-q2-w03-d03",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -23,12 +23,12 @@
   ],
   "activities": [
     {
-      "activityId": "math-g3-m03-l03-a01",
+      "activityId": "mathematics-g3-q2-w03-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "math-g3-m03-l03-visual",
+      "assetId": "mathematics-g3-q2-w03-d03-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "compare capacities of two containers.",
       "completionRule": {
@@ -38,10 +38,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Look at what Milo shows you.",
+      "narration": "Watch carefully! Milo will show you something cool.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l03-a02",
+      "activityId": "mathematics-g3-q2-w03-d03-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -64,10 +68,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Which one is correct? Tap it!",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l03-a03",
+      "activityId": "mathematics-g3-q2-w03-d03-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -93,10 +101,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Sort them into the right boxes.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l03-a04",
+      "activityId": "mathematics-g3-q2-w03-d03-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -118,10 +130,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Find and tap the correct place.",
+      "narration": "Find it in the picture! Tap where you think it is.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l03-a05",
+      "activityId": "mathematics-g3-q2-w03-d03-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -151,10 +167,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Connect the matching pairs.",
+      "narration": "Every pair has a match! Can you find them all?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m03-l03-a06",
+      "activityId": "mathematics-g3-q2-w03-d03-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -176,146 +196,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Put the steps in order!",
+      "narration": "Put these in the right order! What comes first?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "math-g3-m03-l03-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"compare capacities of two containers\"?",
+        "question": "What math topic did we learn?",
         "choices": [
           {
-            "id": "a",
-            "text": "The correct definition of compare capacities of two"
+            "text": "Reading stories",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Something completely different"
+            "text": "Art class",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "A type of food"
+            "text": "Numbers, shapes, and problem solving",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "A kind of animal"
+            "text": "Music",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. compare capacities of two is an important concept to understand."
+        "narration": "Milo asks: What math topic did we learn?"
       },
       {
-        "itemId": "math-g3-m03-l03-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is an example of compare capacities of two?",
+        "question": "How do you solve a math problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "A real example from the lesson"
+            "text": "Think step by step, then check your work",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "A made-up wrong example"
+            "text": "Guess randomly",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something from science class"
+            "text": "Ask someone else",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A story character"
+            "text": "Give up",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. compare capacities of two is an important concept to understand."
+        "narration": "Milo asks: How do you solve a math problem?"
       },
       {
-        "itemId": "math-g3-m03-l03-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do we use compare capacities of two in real life?",
+        "question": "Where can you use math in real life?",
         "choices": [
           {
-            "id": "a",
-            "text": "We use it to solve everyday problems"
+            "text": "It's useless",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "We never use it"
+            "text": "At the store, cooking, and counting things",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Only in school"
+            "text": "Only in school",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Only on weekends"
+            "text": "Never",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. compare capacities of two is an important concept to understand."
+        "narration": "Milo asks: Where can you use math in real life?"
       },
       {
-        "itemId": "math-g3-m03-l03-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Choose the correct statement about compare capacities of two:",
+        "question": "What helps you get better at math?",
         "choices": [
           {
-            "id": "a",
-            "text": "The right answer about compare capacities of two"
+            "text": "Nothing helps",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A wrong but tempting answer"
+            "text": "Wishing really hard",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something that sounds smart but is wrong"
+            "text": "Practice and asking questions!",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "None of the above"
+            "text": "A magic wand",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. compare capacities of two is an important concept to understand."
+        "narration": "Milo asks: What helps you get better at math?"
       },
       {
-        "itemId": "math-g3-m03-l03-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "If you have a problem about compare capacities of two, what's the first step?",
+        "question": "What if you get stuck on a problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "Understand what the problem is asking"
+            "text": "Throw your paper away",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Guess the answer"
+            "text": "Try a different way, then ask for help",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Ask someone else to solve it"
+            "text": "Ignore it",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Skip it"
+            "text": "Cry and give up",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. compare capacities of two is an important concept to understand."
+        "narration": "Milo asks: What if you get stuck on a problem?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -323,5 +326,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo is counting his toys. \"Numbers are everywhere! Let's figure this out!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

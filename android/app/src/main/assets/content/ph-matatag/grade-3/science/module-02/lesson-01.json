@@ -1,5 +1,5 @@
 {
-  "lessonId": "sci-g3-m02-l01",
+  "lessonId": "science-g3-q1-w02-d01",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "sci-g3-m02-l01-a01",
+      "activityId": "science-g3-q1-w02-d01-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "sci-g3-m02-l01-visual",
+      "assetId": "science-g3-q1-w02-d01-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "describe how changes in solid materials make them useful, such as when they are",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Pay attention to the story!",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m02-l01-a02",
+      "activityId": "science-g3-q1-w02-d01-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Tap the best answer!",
+      "narration": "Which one is correct? Think about what we learned!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m02-l01-a03",
+      "activityId": "science-g3-q1-w02-d01-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Put things where they belong.",
+      "narration": "Help Milo sort these things! Drag them to the right spot.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m02-l01-a04",
+      "activityId": "science-g3-q1-w02-d01-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Find and tap the correct place.",
+      "narration": "Find it in the picture! Tap where you think it is.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m02-l01-a05",
+      "activityId": "science-g3-q1-w02-d01-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "sci-g3-m02-l01-a06",
+      "activityId": "science-g3-q1-w02-d01-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "What comes first? What comes next?",
+      "narration": "Arrange them step by step! Start from the beginning.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "sci-g3-m02-l01-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"describe how changes in solid materials make\"?",
+        "question": "What science topic did we explore?",
         "choices": [
           {
-            "id": "a",
-            "text": "The scientific definition"
+            "text": "How things work in our world",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "A wrong definition"
+            "text": "A video game",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something unrelated"
+            "text": "A story about cats",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A made-up concept"
+            "text": "A cooking show",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. describe how changes in is an important concept to understand."
+        "narration": "Milo asks: What science topic did we explore?"
       },
       {
-        "itemId": "sci-g3-m02-l01-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do scientists learn about describe how changes in?",
+        "question": "What does a scientist do?",
         "choices": [
           {
-            "id": "a",
-            "text": "By observing and testing"
+            "text": "Only wear lab coats",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "By guessing only"
+            "text": "Just read books all day",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "By reading stories"
+            "text": "Observe, ask questions, and test ideas",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "By asking friends"
+            "text": "Make wild guesses",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. describe how changes in is an important concept to understand."
+        "narration": "Milo asks: What does a scientist do?"
       },
       {
-        "itemId": "sci-g3-m02-l01-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is a real-world example of describe how changes in?",
+        "question": "Where can you find science?",
         "choices": [
           {
-            "id": "a",
-            "text": "A correct example from daily life"
+            "text": "Nowhere interesting",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A fictional example"
+            "text": "Everywhere — at home, in nature, in you!",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Something impossible"
+            "text": "Only in a laboratory",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A video game reference"
+            "text": "Only in textbooks",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. describe how changes in is an important concept to understand."
+        "narration": "Milo asks: Where can you find science?"
       },
       {
-        "itemId": "sci-g3-m02-l01-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Why is describe how changes in important?",
+        "question": "What is the first step in exploring?",
         "choices": [
           {
-            "id": "a",
-            "text": "It helps us understand the world around us"
+            "text": "Look closely and observe carefully!",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "It isn't important at all"
+            "text": "Ignore what you see",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only scientists need to know"
+            "text": "Close your eyes",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "It's just for school"
+            "text": "Jump to conclusions",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. describe how changes in is an important concept to understand."
+        "narration": "Milo asks: What is the first step in exploring?"
       },
       {
-        "itemId": "sci-g3-m02-l01-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What's the best way to learn more about describe how changes in?",
+        "question": "Why is science exciting?",
         "choices": [
           {
-            "id": "a",
-            "text": "Ask questions and explore"
+            "text": "Because you have to",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Never think about it again"
+            "text": "No reason",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only read one book"
+            "text": "It's not exciting at all",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Memorize without understanding"
+            "text": "You discover amazing things about the world!",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. describe how changes in is an important concept to understand."
+        "narration": "Milo asks: Why is science exciting?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo looked outside and saw something amazing. \"Let's explore and discover!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }
