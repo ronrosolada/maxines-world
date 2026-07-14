@@ -122,22 +122,24 @@ class VillageHomeViewModel @Inject constructor(
                         "Science", "\uD83D\uDC12"))
                 } else emptyList()
 
-                _state.value = VillageHomeState(
-                    isLoading = false,
-                    childName = profile.name,
-                    fishTreats = fishTreatTotal,
-                    hasNewDiscovery = discoveries.isNotEmpty() && discoveryRewards == 0,
-                    discoveries = discoveries,
-                    showMiraRequest = showMira,
-                    cafeUnlock = CafeUnlockState(
-                        progress = fishTreatTotal.coerceAtMost(12),
-                        isUnlocked = fishTreatTotal >= 12,
-                        isPurchased = cafePurchased > 0,
-                    ),
-                    questText = "Complete 3 activities",
-                    questProgressText = "$completedCount / 3",
-                    destinations = defaultDestinations,
-                )
+                _state.update { current ->
+                    current.copy(
+                        isLoading = false,
+                        childName = profile.name,
+                        fishTreats = fishTreatTotal,
+                        hasNewDiscovery = discoveries.isNotEmpty() && discoveryRewards == 0,
+                        discoveries = discoveries,
+                        showMiraRequest = showMira,
+                        cafeUnlock = CafeUnlockState(
+                            progress = fishTreatTotal.coerceAtMost(12),
+                            isUnlocked = fishTreatTotal >= 12,
+                            isPurchased = cafePurchased > 0,
+                        ),
+                        questText = "Complete 3 activities",
+                        questProgressText = "$completedCount / 3",
+                        destinations = defaultDestinations,
+                    )
+                }
             } catch (e: Exception) {
                 _state.value = _state.value.copy(isLoading = false, error = e.message ?: "Failed to load")
             }

@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import androidx.room.withTransaction
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.gamification.AttemptQualification
 import com.maxinesworld.coremodel.gamification.FishTreatPolicy
@@ -71,12 +72,13 @@ class LessonCompletionStore @Inject constructor(
                     childId = input.childId,
                     lessonId = input.lessonId,
                     attemptId = input.attemptId,
+                    accuracy = input.scoredResults.map { it.accuracy.toDouble() }.average().takeIf { !it.isNaN() } ?: 0.0,
                     completedAtEpochMillis = input.completedAtEpochMillis,
                 )
             ) != -1L)
 
             // Progress events
-            input.scoredResults.forEach { result ->
+            for (result in input.scoredResults) {
                 progressEventDao.insert(
                     ProgressEventEntity(
                         id = stableId("progress", completionId, result.activityId),
@@ -85,7 +87,7 @@ class LessonCompletionStore @Inject constructor(
                         lessonId = input.lessonId,
                         activityId = result.activityId,
                         eventType = result.eventType,
-                        accuracy = result.accuracy,
+                        accuracy = result.accuracy.toDouble(),
                         attempts = result.attempts,
                         hintsUsed = result.hintsUsed,
                         responseTimeMs = result.responseTimeMs,
