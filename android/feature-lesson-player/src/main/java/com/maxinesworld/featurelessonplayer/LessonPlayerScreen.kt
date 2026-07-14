@@ -133,16 +133,15 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         }
 
         when (step.type) {
-            "ANIMATED_EXPLANATION_V1", "animated_explanation" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
+            "ANIMATED_EXPLANATION_V1" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
-            "MULTIPLE_CHOICE_V1", "multiple_choice", "story_comprehension", "prediction_observation_explanation" -> MultipleChoiceStep(step, viewModel)
-            "SORT_AND_CLASSIFY_V1", "sort_and_classify", "timeline_builder" -> SortStep(step, viewModel)
-            "SEQUENCE_BUILDER_V1", "sentence_builder", "array_builder" -> SentenceBuilderStep(step, viewModel)
-            "HOTSPOT_IMAGE_V1" -> HotspotImageStep(step, viewModel)
-            "MATCHING_PAIRS_V1" -> MatchingPairsStep(step, viewModel)
-            "INTERACTIVE_SPEC_V1" -> InteractiveSpecStep(step, viewModel)
-            else -> UnsupportedActivity(step)
+            else -> com.maxinesworld.engineactivity.renderers.ActivityRenderer(
+                step = step,
+                onResult = viewModel::onActivityResult,
+                onHint = { },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
 
         if (state.showFeedback) {
@@ -333,35 +332,6 @@ private fun ArrayStep(step: ActivityStep, viewModel: LessonPlayerViewModel) = Mu
 
 @Composable
 private fun SentenceBuilderStep(step: ActivityStep, viewModel: LessonPlayerViewModel) = UnsupportedActivity(step)
-
-// ─── V1 Engine Renderer Wrappers ───
-
-@Composable
-private fun HotspotImageStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
-    com.maxinesworld.engineactivity.renderers.ActivityRenderer(
-        step = step,
-        onResult = { viewModel.onActivityResult(it) },
-        onHint = { }
-    )
-}
-
-@Composable
-private fun MatchingPairsStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
-    com.maxinesworld.engineactivity.renderers.ActivityRenderer(
-        step = step,
-        onResult = { viewModel.onActivityResult(it) },
-        onHint = { }
-    )
-}
-
-@Composable
-private fun InteractiveSpecStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
-    com.maxinesworld.engineactivity.renderers.ActivityRenderer(
-        step = step,
-        onResult = { viewModel.onActivityResult(it) },
-        onHint = { }
-    )
-}
 
 // ─── Feedback, Character, Error, Completion ───
 

@@ -25,6 +25,10 @@ import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
 
+class UnsupportedActivityTypeException(lessonId: String, activityId: String, rawType: String) :
+    IllegalStateException("Unsupported activity type in lesson $lessonId / $activityId: \"$rawType\"")
+
+
 data class LessonUiState(
     val isLoading: Boolean = true,
     val lesson: LessonManifest? = null,
@@ -201,17 +205,10 @@ class LessonPlayerViewModel @Inject constructor(
             languageOfInstruction = m1.language,
             wildlifeDiscovery = wildlifeMeta,
             steps = m1.activities.map { act ->
+                val canonical = canonicalActivityType(act.type)
+                    ?: throw UnsupportedActivityTypeException(m1.lessonId, act.activityId, act.type)
                 ActivityStep(
-                    id = act.activityId, type = when (act.type) {
-                        "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
-                        "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
-                        "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
-                        "HOTSPOT_IMAGE" -> "HOTSPOT_IMAGE_V1"
-                        "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
-                        "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
-                        "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
-                        else -> "ANIMATED_EXPLANATION_V1"
-                    },
+                    id = act.activityId, type = canonical,
                     narrationText = act.instruction,
                     options = emptyList(), correctIndex = -1,
                     feedback = ActivityFeedback(
