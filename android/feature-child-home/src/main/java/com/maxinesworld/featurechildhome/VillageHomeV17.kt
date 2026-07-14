@@ -16,7 +16,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,6 +31,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -316,24 +319,71 @@ private fun NBox(rect: NRect, width: Dp, height: Dp, content: @Composable BoxSco
 
 @Composable
 private fun PlaygroundBanner(pg: com.maxinesworld.playground.PlaygroundGateState, onClick: () -> Unit) {
-    val (bg, label, enabled) = when (pg.status) {
-        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked -> Triple(
-            androidx.compose.ui.graphics.Color(0xFF65B0D0).copy(alpha = 0.85f), "🎠 Playground Open!", true
-        )
-        com.maxinesworld.playground.PlaygroundGateStatus.Locked -> Triple(
-            androidx.compose.ui.graphics.Color(0xFFAAAAAA).copy(alpha = 0.7f),
-            "🔒 ${pg.completed}/${pg.totalAssigned} quests — Finish today's quests!", false
-        )
-        com.maxinesworld.playground.PlaygroundGateStatus.NoQuests -> Triple(
-            androidx.compose.ui.graphics.Color(0xFFCCCCCC).copy(alpha = 0.6f),
-            "🎠 Today's quests aren't ready yet", false
-        )
-        else -> Triple(
-            androidx.compose.ui.graphics.Color(0xFFDDDDDD).copy(alpha = 0.5f), "...", false
-        )
+    var showDialog by remember { mutableStateOf(false) }
+    val action: (() -> Unit)? = when (pg.status) {
+        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked -> onClick
+        com.maxinesworld.playground.PlaygroundGateStatus.Locked -> ({ showDialog = true })
+        else -> null
     }
-    Row(Modifier.fillMaxSize().background(bg, RoundedCornerShape(12.dp)).clickable(enabled = enabled, onClick = onClick).padding(horizontal = 12.dp),
-        verticalAlignment = Alignment.CenterVertically) {
-        Text(label, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp, maxLines = 1)
+    val label = when (pg.status) {
+        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked ->
+            "Playground open"
+        com.maxinesworld.playground.PlaygroundGateStatus.Locked ->
+            "Playground closed. ${pg.completed} of ${pg.totalAssigned} quests complete"
+        com.maxinesworld.playground.PlaygroundGateStatus.NoQuests ->
+            "Today's quests aren't ready yet"
+        com.maxinesworld.playground.PlaygroundGateStatus.Loading ->
+            "Checking Playground"
+        com.maxinesworld.playground.PlaygroundGateStatus.Error ->
+            "Playground status unavailable"
     }
+
+    Row(
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xFF3A6B63).copy(alpha = 0.85f), RoundedCornerShape(12.dp))
+            .semantics(mergeDescendants = true) {
+                contentDescription = label
+                if (action != null) role = Role.Button else disabled()
+            }
+            .then(
+                if (action != null) Modifier.clickable(role = Role.Button, onClick = action)
+                else Modifier
+            )
+            .padding(horizontal = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            painter = painterResource(
+                if (pg.status == com.maxinesworld.playground.PlaygroundGateStatus.Unlocked)
+                    R.drawable.ic_playground_open
+                else R.drawable.ic_playground_closed
+            ),
+            contentDescription = null,
+            tint = Color.White,
+            modifier = Modifier.size(24.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(label, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp, maxLines = 2)
+    }
+
+    if (showDialog && pg.status == com.maxinesworld.playground.PlaygroundGateStatus.Locked) {
+        LockedPlaygroundDialog(pg) { showDialog = false }
+    }
+}
+
+@Composable
+private fun LockedPlaygroundDialog(pg: com.maxinesworld.playground.PlaygroundGateState, onDismiss: () -> Unit) {
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Finish today's quests") },
+        text = {
+            Text("Complete all of today's quests to open the Playground. Progress: ${pg.completed} of ${pg.totalAssigned}.")
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss, modifier = Modifier.heightIn(min = 48.dp)) {
+                Text("Got it")
+            }
+        },
+        modifier = Modifier.testTag("locked_playground_dialog"),
+    )
 }
