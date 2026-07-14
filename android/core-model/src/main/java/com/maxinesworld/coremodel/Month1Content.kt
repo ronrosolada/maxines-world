@@ -9,8 +9,9 @@ data class Month1Lesson(
     val lessonId: String,
     val schemaVersion: Int,
     val grade: Int,
-    val month: Int,
-    val day: Int,
+    /** Month-based packs set this; quarter/week packs may omit it. */
+    val month: Int = 0,
+    val day: Int = 1,
     val subject: String,
     val title: String,
     val objective: String,
