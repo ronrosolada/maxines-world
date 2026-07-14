@@ -1,5 +1,5 @@
 {
-  "lessonId": "eng-g3-m02-l04",
+  "lessonId": "english-g3-q2-w02-d04",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "eng-g3-m02-l04-a01",
+      "activityId": "english-g3-q2-w02-d04-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "eng-g3-m02-l04-visual",
+      "assetId": "english-g3-q2-w02-d04-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Identify roots of high frequency words (nouns, verbs, and",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Look at what Milo shows you.",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m02-l04-a02",
+      "activityId": "english-g3-q2-w02-d04-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Which one is correct? Tap it!",
+      "narration": "Choose the best answer! You can do it!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m02-l04-a03",
+      "activityId": "english-g3-q2-w02-d04-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m02-l04-a04",
+      "activityId": "english-g3-q2-w02-d04-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Tap on the right part of the picture! Where is it?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m02-l04-a05",
+      "activityId": "english-g3-q2-w02-d04-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Draw a line between each pair.",
+      "narration": "Find the matching pairs! Connect them together.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m02-l04-a06",
+      "activityId": "english-g3-q2-w02-d04-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "What comes first? What comes next?",
+      "narration": "Arrange them step by step! Start from the beginning.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "eng-g3-m02-l04-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"Identify roots of high frequency words (nouns,\"?",
+        "question": "What is this lesson about?",
         "choices": [
           {
-            "id": "a",
-            "text": "Learning about Identify roots of high"
+            "text": "Understanding new words and reading",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "Something else entirely"
+            "text": "Eating food",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "A different topic"
+            "text": "Playing games",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "None of these"
+            "text": "Watching TV",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Identify roots of high is an important concept to understand."
+        "narration": "Milo asks: What is this lesson about?"
       },
       {
-        "itemId": "eng-g3-m02-l04-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which word from today's lesson is a sight word?",
+        "question": "Which word did we learn today?",
         "choices": [
           {
-            "id": "a",
-            "text": "Identify"
+            "text": "Table",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "xylophone"
+            "text": "Running",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "pterodactyl"
+            "text": "Banana",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "chrysanthemum"
+            "text": "Sight words and vocabulary",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Identify roots of high is an important concept to understand."
+        "narration": "Milo asks: Which word did we learn today?"
       },
       {
-        "itemId": "eng-g3-m02-l04-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Why is it important to learn about identify roots of high?",
+        "question": "What should you do after reading?",
         "choices": [
           {
-            "id": "a",
-            "text": "It helps you read better"
+            "text": "Think about what you learned",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "It doesn't matter"
+            "text": "Eat a snack",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only for tests"
+            "text": "Go to sleep",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Just for fun"
+            "text": "Forget everything",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Identify roots of high is an important concept to understand."
+        "narration": "Milo asks: What should you do after reading?"
       },
       {
-        "itemId": "eng-g3-m02-l04-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which sentence uses a word from today's lesson correctly?",
+        "question": "Why do we learn new words?",
         "choices": [
           {
-            "id": "a",
-            "text": "I saw the Identify today."
+            "text": "To read and understand better",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "I saw the xylophone running."
+            "text": "To waste time",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "I saw the quickly."
+            "text": "No reason",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "None"
+            "text": "Because we have to",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Identify roots of high is an important concept to understand."
+        "narration": "Milo asks: Why do we learn new words?"
       },
       {
-        "itemId": "eng-g3-m02-l04-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What should you do when you see a word you don't know?",
+        "question": "How can you practice at home?",
         "choices": [
           {
-            "id": "a",
-            "text": "Try to figure it out, then ask for help"
+            "text": "Only use pictures",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Skip it and never look back"
+            "text": "Never look at words",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Guess randomly"
+            "text": "Ignore text",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Close the book"
+            "text": "Read books every day!",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Identify roots of high is an important concept to understand."
+        "narration": "Milo asks: How can you practice at home?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo found a book full of new words! \"Let's read them together!\" he says excitedly.",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

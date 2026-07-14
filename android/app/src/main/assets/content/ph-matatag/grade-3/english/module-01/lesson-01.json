@@ -1,106 +1,353 @@
 {
-  "id": "eng-g3-m01-l01",
+  "lessonId": "english-g3-q2-w01-d01",
   "schemaVersion": 1,
-  "subject": "english",
-  "moduleId": "eng-g3-m01",
-  "skillIds": ["eng-g3-comp-main-idea", "eng-g3-comp-details"],
-  "title": "The Cats Who Saved the Garden",
-  "objective": "Identify the main idea and supporting details in a story.",
-  "prerequisiteSkillIds": [],
-  "estimatedMinutes": 10,
-  "guideCharacter": "mira",
-  "curriculumStandard": null,
-  "term": 1,
-  "languageOfInstruction": "english",
-  "steps": [
+  "contentVersion": 1,
+  "grade": 3,
+  "quarter": 2,
+  "week": 1,
+  "day": 1,
+  "subject": "ENGLISH",
+  "title": "Identify Grade 3 level-appropriate sight words",
+  "objective": "Identify Grade 3 level-appropriate sight words and read them accurately.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "language": "en-PH",
+  "introduction": "Welcome, detective! 🕵️ Sight words are words we see ALL the time when we read. Words like 'because', 'friend', and 'people' show up again and again. When you know them by sight — without having to sound them out — you become a faster, more confident reader. Today you'll spot sight words, sort them, and read them out loud. Ready to solve the case?",
+  "vocabulary": [
     {
-      "id": "step-01",
-      "type": "animated_explanation",
-      "narrationText": "Mira the calico cat loves to read stories. Today, she wants to share a story about how some brave cats saved a beautiful garden. Listen carefully — there will be questions after!",
-      "imageAssets": ["content/ph-matatag/grade-3/english/module-01/assets/scene-01-intro.png"]
+      "term": "Sight word",
+      "definition": "A common word you recognize instantly without sounding out."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Watch and listen! These words appear in almost every story you read.",
+      "content": "Identify Grade 3 level-appropriate sight words",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Now you know your target words. Let's practice!",
+        "retry": "Watch the explanation again."
+      },
+      "accessibilityAlternative": "Text: Sight words are common words you recognize instantly. Today's words: because, friend, should, people, around, little, always, another.",
+      "prompt": "Pay attention to the story!",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-02",
-      "type": "story_comprehension",
-      "narrationText": "Once upon a time, in a small village, there was a beautiful garden full of sunflowers, tomatoes, and herbs. The villagers loved this garden because it gave them food and joy. But one day, a big storm came! The wind was so strong it blew down the garden fence. The rain was so heavy it started to flood the vegetable beds. Three clever cats — Milo, Mira, and Niko — saw what was happening. 'We have to work together!' said Milo. Mira gathered sticks to build a new fence. Niko dug small canals to drain the water away. Milo carried seeds back to replant what was lost. By morning, the garden was saved! The grateful villagers gave each cat a bowl of fresh milk and a cozy spot by the fire.",
-      "question": "What is the main idea of this story?",
-      "options": [
-        "Cats love to drink milk",
-        "The cats worked together to save the garden from a storm",
-        "Gardens need sunflowers to be beautiful",
-        "Villagers should not have gardens"
-      ],
-      "correctIndex": 1,
+      "activityId": "english-g3-q2-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Tap each word card to hear it read aloud, then repeat it!",
+      "content": {
+        "examples": [
+          "because — 'I am happy BECAUSE I have a good friend.'",
+          "friend — 'My FRIEND and I play together.'",
+          "should — 'You SHOULD always try your best.'",
+          "people — 'Many PEOPLE live in our barangay.'",
+          "around — 'The dog ran AROUND the yard.'",
+          "little — 'The LITTLE kitten is so cute!'",
+          "always — 'I ALWAYS say po and opo.'",
+          "another — 'Can I have ANOTHER rice cake?'"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 8
+      },
       "feedback": {
-        "correct": "Purr-fect! The cats worked as a team to save the garden. That's the main idea! 🐱",
-        "incorrect": "Let's think again. What did the cats do together? What was the big problem they solved?"
-      }
+        "correct": "You found every word! Great detective work.",
+        "retry": "There are more words to discover. Keep tapping!"
+      },
+      "accessibilityAlternative": "All eight sight words are listed with example sentences.",
+      "prompt": "Where is it? Tap to find!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-03",
-      "type": "multiple_choice",
-      "narrationText": "Let's look at the details. What did Mira do to help?",
-      "question": "What was Mira's job in the story?",
-      "options": ["She gathered sticks to build a new fence", "She dug canals to drain water", "She carried seeds back", "She slept through the storm"],
-      "correctIndex": 0,
+      "activityId": "english-g3-q2-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Sort each word: Is it a sight word or not a sight word?",
+      "content": {
+        "fits": [
+          "because",
+          "friend",
+          "people",
+          "always",
+          "should",
+          "little",
+          "around",
+          "another"
+        ],
+        "doesNotFit": [
+          "xylophone",
+          "giraffe",
+          "avocado",
+          "pterodactyl"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 12
+      },
       "feedback": {
-        "correct": "Yes! Mira gathered sticks to rebuild the fence. Great attention to detail! 🌟",
-        "incorrect": "Try again! Think about what Mira the calico cat did with her paws."
-      }
+        "correct": "You sorted them all correctly!",
+        "retry": "Some words need to move. Try again!"
+      },
+      "accessibilityAlternative": "Sort each word into sight-word or not-sight-word groups.",
+      "prompt": "Drag each item to its group.",
+      "narration": "Let's organize! Which items go where?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-04",
-      "type": "multiple_choice",
-      "narrationText": "Now, what was Niko's job?",
-      "question": "How did Niko help save the garden?",
-      "options": ["He barked at the storm", "He dug small canals to drain the water away", "He planted new flowers", "He asked the villagers for help"],
-      "correctIndex": 1,
+      "activityId": "english-g3-q2-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Which word is a sight word that means 'a person you like'?",
+      "content": {
+        "options": [
+          "friend",
+          "xylophone",
+          "quickly",
+          "through"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
       "feedback": {
-        "correct": "Correct! Niko the clever gray cat dug canals to drain the water. 💧",
-        "incorrect": "Remember — Niko used his paws to make paths for the water to flow away."
-      }
+        "correct": "Yes! 'Friend' is a common sight word.",
+        "retry": "Think about which word you see often in stories."
+      },
+      "accessibilityAlternative": "Choose the sight word from the list.",
+      "prompt": "Tap the best answer!",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-05",
-      "type": "timeline_builder",
-      "narrationText": "Let's sort the events. Put them in the order they happened, from first to last.",
-      "question": "Put these events in order, from first to last.",
-      "options": [
-        "A big storm came with strong wind and heavy rain",
-        "Mira gathered sticks to build a new fence",
-        "Niko dug canals to drain the water",
-        "Milo carried seeds to replant what was lost",
-        "The villagers gave the cats milk and a cozy spot"
-      ],
-      "correctIndex": 0,
+      "activityId": "english-g3-q2-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Match each sight word to a sentence that uses it!",
+      "content": {
+        "pairs": [
+          {
+            "left": "because",
+            "right": "I smiled ___ I was happy."
+          },
+          {
+            "left": "friend",
+            "right": "My best ___ is named Ana."
+          },
+          {
+            "left": "people",
+            "right": "Many ___ came to the fiesta."
+          },
+          {
+            "left": "always",
+            "right": "I ___ help my Lola."
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 4
+      },
       "feedback": {
-        "correct": "Amazing! You put the story events in perfect order! 📚",
-        "incorrect": "Let's think about what happened first, then next."
-      }
+        "correct": "Perfect matches! You know these words.",
+        "retry": "Try matching the words to the right sentences."
+      },
+      "accessibilityAlternative": "Match each sight word to its sentence.",
+      "prompt": "Connect the matching pairs.",
+      "narration": "Match the pairs! Which ones go together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "id": "step-06",
-      "type": "multiple_choice",
-      "narrationText": "Supporting details help us understand the main idea better.",
-      "question": "Which detail from the story supports the idea that the cats were helpers?",
-      "options": [
-        "The garden had sunflowers and tomatoes",
-        "The villagers loved the garden",
-        "The cats fixed the fence, drained water, and replanted seeds",
-        "The storm happened at night"
-      ],
-      "correctIndex": 2,
+      "activityId": "english-g3-q2-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Put these steps in order: How do we learn a new sight word?",
+      "content": {
+        "steps": [
+          "See the word",
+          "Say the word out loud",
+          "Use the word in a sentence",
+          "Read the word in a story"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 4
+      },
       "feedback": {
-        "correct": "Exactly! The cats' actions — fixing, draining, replanting — show they were helpers. These are supporting details! 🎯",
-        "incorrect": "Look for details that tell us WHAT the cats DID to help."
-      }
+        "correct": "That's the right order! See, say, use, read.",
+        "retry": "Think about what you do first when you learn a new word."
+      },
+      "accessibilityAlternative": "Order the steps: See, Say, Use, Read.",
+      "prompt": "What comes first? What comes next?",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "passThreshold": 0.8,
-    "minQuestions": 5
+    "passingCorrectCount": 4,
+    "totalItems": 5,
+    "items": [
+      {
+        "question": "What is this lesson about?",
+        "choices": [
+          {
+            "text": "Understanding new words and reading",
+            "correct": true
+          },
+          {
+            "text": "Playing games",
+            "correct": false
+          },
+          {
+            "text": "Watching TV",
+            "correct": false
+          },
+          {
+            "text": "Eating food",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What is this lesson about?"
+      },
+      {
+        "question": "Which word did we learn today?",
+        "choices": [
+          {
+            "text": "Sight words and vocabulary",
+            "correct": true
+          },
+          {
+            "text": "Running",
+            "correct": false
+          },
+          {
+            "text": "Banana",
+            "correct": false
+          },
+          {
+            "text": "Table",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Which word did we learn today?"
+      },
+      {
+        "question": "What should you do after reading?",
+        "choices": [
+          {
+            "text": "Forget everything",
+            "correct": false
+          },
+          {
+            "text": "Think about what you learned",
+            "correct": true
+          },
+          {
+            "text": "Eat a snack",
+            "correct": false
+          },
+          {
+            "text": "Go to sleep",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: What should you do after reading?"
+      },
+      {
+        "question": "Why do we learn new words?",
+        "choices": [
+          {
+            "text": "To read and understand better",
+            "correct": true
+          },
+          {
+            "text": "Because we have to",
+            "correct": false
+          },
+          {
+            "text": "No reason",
+            "correct": false
+          },
+          {
+            "text": "To waste time",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: Why do we learn new words?"
+      },
+      {
+        "question": "How can you practice at home?",
+        "choices": [
+          {
+            "text": "Read books every day!",
+            "correct": true
+          },
+          {
+            "text": "Ignore text",
+            "correct": false
+          },
+          {
+            "text": "Only use pictures",
+            "correct": false
+          },
+          {
+            "text": "Never look at words",
+            "correct": false
+          }
+        ],
+        "narration": "Milo asks: How can you practice at home?"
+      }
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
-  "version": 1,
-  "status": "DRAFT",
-  "educatorValidated": false
+  "accessibility": {
+    "narrationAvailable": false,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
+  },
+  "storyIntro": "Milo found a book full of new words! \"Let's read them together!\" he says excitedly.",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
+  }
 }

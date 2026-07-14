@@ -1,5 +1,5 @@
 {
-  "lessonId": "math-g3-m01-l04",
+  "lessonId": "mathematics-g3-q1-w01-d04",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "math-g3-m01-l04-a01",
+      "activityId": "mathematics-g3-q1-w01-d04-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "math-g3-m01-l04-visual",
+      "assetId": "mathematics-g3-q1-w01-d04-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "identify and draw line segments of equal length using a ruler.",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Watch and listen carefully.",
+      "narration": "Milo says: Let's learn about this! Pay close attention.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m01-l04-a02",
+      "activityId": "mathematics-g3-q1-w01-d04-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Choose the best answer! You can do it!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m01-l04-a03",
+      "activityId": "mathematics-g3-q1-w01-d04-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Sort these into groups! What belongs together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m01-l04-a04",
+      "activityId": "mathematics-g3-q1-w01-d04-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Tap the right spot in the picture!",
+      "narration": "Can you spot it? Tap the correct spot!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m01-l04-a05",
+      "activityId": "mathematics-g3-q1-w01-d04-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Every pair has a match! Can you find them all?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "math-g3-m01-l04-a06",
+      "activityId": "mathematics-g3-q1-w01-d04-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "What comes first? What comes next?",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "math-g3-m01-l04-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"identify and draw line segments of equal\"?",
+        "question": "What math topic did we learn?",
         "choices": [
           {
-            "id": "a",
-            "text": "The correct definition of identify and draw line"
+            "text": "Music",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Something completely different"
+            "text": "Numbers, shapes, and problem solving",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "A type of food"
+            "text": "Reading stories",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A kind of animal"
+            "text": "Art class",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. identify and draw line is an important concept to understand."
+        "narration": "Milo asks: What math topic did we learn?"
       },
       {
-        "itemId": "math-g3-m01-l04-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which is an example of identify and draw line?",
+        "question": "How do you solve a math problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "A real example from the lesson"
+            "text": "Think step by step, then check your work",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "A made-up wrong example"
+            "text": "Give up",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something from science class"
+            "text": "Guess randomly",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "A story character"
+            "text": "Ask someone else",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. identify and draw line is an important concept to understand."
+        "narration": "Milo asks: How do you solve a math problem?"
       },
       {
-        "itemId": "math-g3-m01-l04-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "How do we use identify and draw line in real life?",
+        "question": "Where can you use math in real life?",
         "choices": [
           {
-            "id": "a",
-            "text": "We use it to solve everyday problems"
+            "text": "Never",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "We never use it"
+            "text": "At the store, cooking, and counting things",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Only in school"
+            "text": "Only in school",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Only on weekends"
+            "text": "It's useless",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. identify and draw line is an important concept to understand."
+        "narration": "Milo asks: Where can you use math in real life?"
       },
       {
-        "itemId": "math-g3-m01-l04-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Choose the correct statement about identify and draw line:",
+        "question": "What helps you get better at math?",
         "choices": [
           {
-            "id": "a",
-            "text": "The right answer about identify and draw line"
+            "text": "Nothing helps",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "A wrong but tempting answer"
+            "text": "A magic wand",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Something that sounds smart but is wrong"
+            "text": "Practice and asking questions!",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "None of the above"
+            "text": "Wishing really hard",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. identify and draw line is an important concept to understand."
+        "narration": "Milo asks: What helps you get better at math?"
       },
       {
-        "itemId": "math-g3-m01-l04-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "If you have a problem about identify and draw line, what's the first step?",
+        "question": "What if you get stuck on a problem?",
         "choices": [
           {
-            "id": "a",
-            "text": "Understand what the problem is asking"
+            "text": "Cry and give up",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Guess the answer"
+            "text": "Throw your paper away",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Ask someone else to solve it"
+            "text": "Ignore it",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Skip it"
+            "text": "Try a different way, then ask for help",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. identify and draw line is an important concept to understand."
+        "narration": "Milo asks: What if you get stuck on a problem?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo is counting his toys. \"Numbers are everywhere! Let's figure this out!\"",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }

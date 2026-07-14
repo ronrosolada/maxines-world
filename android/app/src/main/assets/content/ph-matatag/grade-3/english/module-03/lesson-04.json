@@ -1,5 +1,5 @@
 {
-  "lessonId": "eng-g3-m03-l04",
+  "lessonId": "english-g3-q2-w03-d04",
   "schemaVersion": 1,
   "contentVersion": 1,
   "grade": 3,
@@ -27,12 +27,12 @@
   ],
   "activities": [
     {
-      "activityId": "eng-g3-m03-l04-a01",
+      "activityId": "english-g3-q2-w03-d04-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "eng-g3-m03-l04-visual",
+      "assetId": "english-g3-q2-w03-d04-visual",
       "instruction": "Complete the Animated Explanation activity.",
       "content": "Sequence words to represent meaning in simple sentences.",
       "completionRule": {
@@ -42,10 +42,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION"
+      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
+      "prompt": "Watch and listen carefully.",
+      "narration": "Watch carefully! Milo will show you something cool.",
+      "guideHint": "Listen carefully!",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m03-l04-a02",
+      "activityId": "english-g3-q2-w03-d04-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
@@ -68,10 +72,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE"
+      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
+      "prompt": "Choose the right answer.",
+      "narration": "Milo wants to know: what's the right answer? Pick one!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m03-l04-a03",
+      "activityId": "english-g3-q2-w03-d04-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
       "capability": "SORT_AND_CLASSIFY_V1",
@@ -97,10 +105,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY"
+      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
+      "prompt": "Drag each item to its group.",
+      "narration": "Sort these into groups! What belongs together?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m03-l04-a04",
+      "activityId": "english-g3-q2-w03-d04-a04",
       "sequence": 4,
       "type": "HOTSPOT_IMAGE",
       "capability": "HOTSPOT_IMAGE_V1",
@@ -122,10 +134,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE"
+      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
+      "prompt": "Find and tap the correct place.",
+      "narration": "Find it in the picture! Tap where you think it is.",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m03-l04-a05",
+      "activityId": "english-g3-q2-w03-d04-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
@@ -155,10 +171,14 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS"
+      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
+      "prompt": "Match the ones that go together!",
+      "narration": "Every pair has a match! Can you find them all?",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     },
     {
-      "activityId": "eng-g3-m03-l04-a06",
+      "activityId": "english-g3-q2-w03-d04-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
@@ -180,146 +200,129 @@
         "correct": "Well done! You're making great progress.",
         "retry": "Not quite — take another look and try again."
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER"
+      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
+      "prompt": "Put the steps in order!",
+      "narration": "What's the correct order? Drag to arrange!",
+      "guideHint": "Need a hint?",
+      "nextLabel": "Next →"
     }
   ],
   "assessment": {
-    "itemCount": 5,
     "passingCorrectCount": 4,
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "claimsMastery": false,
+    "totalItems": 5,
     "items": [
       {
-        "itemId": "eng-g3-m03-l04-q01",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What is the main idea of this lesson: \"Sequence words to represent meaning in simple\"?",
+        "question": "What is this lesson about?",
         "choices": [
           {
-            "id": "a",
-            "text": "Learning about Sequence words to represent"
+            "text": "Eating food",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Something else entirely"
+            "text": "Watching TV",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "A different topic"
+            "text": "Playing games",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "None of these"
+            "text": "Understanding new words and reading",
+            "correct": true
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Sequence words to represent is an important concept to understand."
+        "narration": "Milo asks: What is this lesson about?"
       },
       {
-        "itemId": "eng-g3-m03-l04-q02",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which word from today's lesson is a sight word?",
+        "question": "Which word did we learn today?",
         "choices": [
           {
-            "id": "a",
-            "text": "Sequence"
+            "text": "Table",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "xylophone"
+            "text": "Running",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "pterodactyl"
+            "text": "Sight words and vocabulary",
+            "correct": true
           },
           {
-            "id": "d",
-            "text": "chrysanthemum"
+            "text": "Banana",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Sequence words to represent is an important concept to understand."
+        "narration": "Milo asks: Which word did we learn today?"
       },
       {
-        "itemId": "eng-g3-m03-l04-q03",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Why is it important to learn about sequence words to represent?",
+        "question": "What should you do after reading?",
         "choices": [
           {
-            "id": "a",
-            "text": "It helps you read better"
+            "text": "Think about what you learned",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "It doesn't matter"
+            "text": "Forget everything",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "Only for tests"
+            "text": "Go to sleep",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Just for fun"
+            "text": "Eat a snack",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Sequence words to represent is an important concept to understand."
+        "narration": "Milo asks: What should you do after reading?"
       },
       {
-        "itemId": "eng-g3-m03-l04-q04",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "Which sentence uses a word from today's lesson correctly?",
+        "question": "Why do we learn new words?",
         "choices": [
           {
-            "id": "a",
-            "text": "I saw the Sequence today."
+            "text": "To read and understand better",
+            "correct": true
           },
           {
-            "id": "b",
-            "text": "I saw the xylophone running."
+            "text": "To waste time",
+            "correct": false
           },
           {
-            "id": "c",
-            "text": "I saw the quickly."
+            "text": "Because we have to",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "None"
+            "text": "No reason",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Sequence words to represent is an important concept to understand."
+        "narration": "Milo asks: Why do we learn new words?"
       },
       {
-        "itemId": "eng-g3-m03-l04-q05",
-        "type": "MULTIPLE_CHOICE",
-        "capability": "MULTIPLE_CHOICE_V1",
-        "prompt": "What should you do when you see a word you don't know?",
+        "question": "How can you practice at home?",
         "choices": [
           {
-            "id": "a",
-            "text": "Try to figure it out, then ask for help"
+            "text": "Ignore text",
+            "correct": false
           },
           {
-            "id": "b",
-            "text": "Skip it and never look back"
+            "text": "Read books every day!",
+            "correct": true
           },
           {
-            "id": "c",
-            "text": "Guess randomly"
+            "text": "Never look at words",
+            "correct": false
           },
           {
-            "id": "d",
-            "text": "Close the book"
+            "text": "Only use pictures",
+            "correct": false
           }
         ],
-        "correctChoiceId": "a",
-        "explanation": "The first answer is correct. Sequence words to represent is an important concept to understand."
+        "narration": "Milo asks: How can you practice at home?"
       }
-    ]
+    ],
+    "narration": "Milo says: Great job! Now let's see what you remember!"
   },
   "accessibility": {
     "narrationAvailable": false,
@@ -327,5 +330,10 @@
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
+  },
+  "storyIntro": "Milo found a book full of new words! \"Let's read them together!\" he says excitedly.",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning Treehouse"
   }
 }
