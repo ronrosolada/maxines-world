@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.gamification.FishTreatPolicy
+import com.maxinesworld.featurerewards.CAT_CAFE_MENU
 import com.maxinesworld.playground.PlaygroundGateRepository
 import com.maxinesworld.playground.LocalDayProvider
 import com.maxinesworld.playground.PlaygroundGateState
@@ -47,12 +48,10 @@ data class WildlifeDiscovery(
 
 @Immutable
 data class CafeUnlockState(
-    val itemId: String = "cafe-cushion-teal",
-    val name: String = "Teal Cushion",
-    val requiredTreats: Int = 12,
-    val progress: Int = 0,
+    val ownedItemCount: Int = 0,
+    val totalMenuItems: Int = 8,
+    val fishTreats: Int = 0,
     val isUnlocked: Boolean = false,
-    val isPurchased: Boolean = false,
 )
 
 @HiltViewModel
@@ -64,6 +63,8 @@ class VillageHomeViewModel @Inject constructor(
     private val dailyQuestDao: DailyQuestDao,
     private val gateRepository: PlaygroundGateRepository,
     private val dayProvider: LocalDayProvider,
+    private val rewardLedgerDao: RewardLedgerDao,
+    private val inventoryDao: InventoryDao,
 ) : ViewModel() {
     private val childId: String = savedStateHandle["childId"] ?: error("childId missing")
 
@@ -92,8 +93,12 @@ class VillageHomeViewModel @Inject constructor(
                     _state.value = _state.value.copy(isLoading = false, error = "Child not found")
                     return@launch
                 }
-                val fishTreatTotal = rewardDao.getTotalByType(childId, FishTreatPolicy.TYPE) ?: 0
-                val cafePurchased = rewardDao.getTotalByType(childId, "CAFE_UNLOCK_cafe-cushion-teal") ?: 0
+                val fishTreatTotal = rewardLedgerDao.fishTreatBalance(childId)
+                // Café ownership: check inventory for any owned café menu items
+                var ownedCafeCount = 0
+                for (menuId in CAT_CAFE_MENU.keys) {
+                    if (inventoryDao.owns(childId, menuId)) ownedCafeCount++
+                }
 
                 val today = dayProvider.currentDayKey()
                 val quest = dailyQuestDao.getByChildAndDate(childId, today)
@@ -124,9 +129,9 @@ class VillageHomeViewModel @Inject constructor(
                         discoveries = discoveries,
                         showMiraRequest = showMira,
                         cafeUnlock = CafeUnlockState(
-                            progress = fishTreatTotal.coerceAtMost(12),
-                            isUnlocked = fishTreatTotal >= 12,
-                            isPurchased = cafePurchased > 0,
+                            ownedItemCount = ownedCafeCount,
+                            fishTreats = fishTreatTotal,
+                            isUnlocked = true,
                         ),
                         questText = "Complete 3 activities",
                         questProgressText = "$completedCount / 3",

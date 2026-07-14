@@ -16,6 +16,7 @@ import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import com.maxinesworld.featurechildhome.VillageHomeV17Screen
+import com.maxinesworld.featurerewards.CatCafeShopScreen
 import com.maxinesworld.coremodel.Subject
 import com.maxinesworld.featurechildhome.VillageHomeViewModel
 import com.maxinesworld.featurechildhome.VillageHomeState
@@ -46,6 +47,7 @@ object Routes {
     const val PLAYGROUND_KITTEN_MATCH = "playground/{childId}/kitten-match"
     const val PLAYGROUND_FIREFLY_GARDEN = "playground/{childId}/firefly-garden"
     const val PLAYGROUND_PAW_BEATS = "playground/{childId}/paw-beats"
+    const val CAT_CAFE_SHOP = "cat_cafe/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val PARENT_CONTENT = "parent_content/{childId}"
@@ -56,6 +58,7 @@ object Routes {
     fun playgroundKittenMatch(childId: String) = "playground/$childId/kitten-match"
     fun playgroundFireflyGarden(childId: String) = "playground/$childId/firefly-garden"
     fun playgroundPawBeats(childId: String) = "playground/$childId/paw-beats"
+    fun catCafeShop(childId: String) = "cat_cafe/$childId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
     fun parentContent(childId: String) = "parent_content/$childId"
@@ -126,7 +129,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.lessonPlayer(childId, "english-g3-m01-d01"))
                 },
                 onDiscoveriesClick = { },
-                onCafeClick = { },
+                onCafeClick = { navController.navigate(Routes.catCafeShop(childId)) },
                 onPlaygroundClick = {
                     navController.navigate(Routes.playground(childId))
                 },
@@ -355,6 +358,16 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     onExit = { navController.popBackStack() }
                 )
             }
+        }
+
+        composable(
+            route = Routes.CAT_CAFE_SHOP,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            CatCafeShopScreen(
+                onBack = { navController.popBackStack() }
+            )
         }
     }
 }
