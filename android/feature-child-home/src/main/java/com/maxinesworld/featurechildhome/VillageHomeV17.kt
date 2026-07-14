@@ -13,10 +13,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,6 +33,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -74,6 +79,7 @@ fun VillageHomeV17Screen(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -103,10 +109,11 @@ fun VillageHomeV17Screen(
                 onMiraClick = onMiraClick,
                 onDiscoveriesClick = onDiscoveriesClick,
                 onCafeClick = onCafeClick,
+                onPlaygroundClick = onPlaygroundClick,
                 onParentsClick = onParentsClick,
             )
         } else {
-            CompactVillage(state, onDestinationClick, onMiraClick, onDiscoveriesClick, onCafeClick, onParentsClick)
+            CompactVillage(state, onDestinationClick, onMiraClick, onDiscoveriesClick, onCafeClick, onPlaygroundClick, onParentsClick)
         }
     }
 }
@@ -119,6 +126,7 @@ private fun ExpandedVillage(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
 ) {
     Box(Modifier.size(sceneWidth, sceneHeight).clip(RoundedCornerShape(2.dp))) {
@@ -145,6 +153,12 @@ private fun ExpandedVillage(
             if (bounds != null) {
                 NBox(bounds, sceneWidth, sceneHeight) { DestinationHotspot(dest, onDestinationClick) }
             } else { Log.w("Village", "Unknown dest: ${dest.id}") }
+        }
+        // Playground banner
+        state.playground?.let { pg ->
+            NBox(NRect(.108f, .790f, .805f, .055f), sceneWidth, sceneHeight) {
+                PlaygroundBanner(pg, onPlaygroundClick)
+            }
         }
         // Bottom nav
         NBox(NRect(.108f, .858f, .805f, .085f), sceneWidth, sceneHeight) {
@@ -256,6 +270,7 @@ private fun CompactVillage(
     onMiraClick: () -> Unit,
     onDiscoveriesClick: () -> Unit,
     onCafeClick: () -> Unit,
+    onPlaygroundClick: () -> Unit = {},
     onParentsClick: () -> Unit,
 ) {
     Column(Modifier.fillMaxSize().background(Color(0xFFFFF5DD))
@@ -302,4 +317,75 @@ private fun CompactVillage(
 @Composable
 private fun NBox(rect: NRect, width: Dp, height: Dp, content: @Composable BoxScope.() -> Unit) {
     Box(Modifier.offset(x = width * rect.x, y = height * rect.y).size(width = width * rect.w, height = height * rect.h), content = content)
+}
+
+@Composable
+private fun PlaygroundBanner(pg: com.maxinesworld.playground.PlaygroundGateState, onClick: () -> Unit) {
+    var showDialog by remember { mutableStateOf(false) }
+    val action: (() -> Unit)? = when (pg.status) {
+        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked -> onClick
+        com.maxinesworld.playground.PlaygroundGateStatus.Locked -> ({ showDialog = true })
+        else -> null
+    }
+    val label = when (pg.status) {
+        com.maxinesworld.playground.PlaygroundGateStatus.Unlocked ->
+            "Playground open"
+        com.maxinesworld.playground.PlaygroundGateStatus.Locked ->
+            "Playground closed. ${pg.completed} of ${pg.totalAssigned} quests complete"
+        com.maxinesworld.playground.PlaygroundGateStatus.NoQuests ->
+            "Today's quests aren't ready yet"
+        com.maxinesworld.playground.PlaygroundGateStatus.Loading ->
+            "Checking Playground"
+        com.maxinesworld.playground.PlaygroundGateStatus.Error ->
+            "Playground status unavailable"
+    }
+
+    Row(
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xFF3A6B63).copy(alpha = 0.85f), RoundedCornerShape(12.dp))
+            .semantics(mergeDescendants = true) {
+                contentDescription = label
+                if (action != null) role = Role.Button else disabled()
+            }
+            .then(
+                if (action != null) Modifier.clickable(role = Role.Button, onClick = action)
+                else Modifier
+            )
+            .padding(horizontal = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            painter = painterResource(
+                if (pg.status == com.maxinesworld.playground.PlaygroundGateStatus.Unlocked)
+                    R.drawable.ic_playground_open
+                else R.drawable.ic_playground_closed
+            ),
+            contentDescription = null,
+            tint = Color.White,
+            modifier = Modifier.size(24.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(label, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp, maxLines = 2)
+    }
+
+    if (showDialog && pg.status == com.maxinesworld.playground.PlaygroundGateStatus.Locked) {
+        LockedPlaygroundDialog(pg) { showDialog = false }
+    }
+}
+
+@Composable
+private fun LockedPlaygroundDialog(pg: com.maxinesworld.playground.PlaygroundGateState, onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Finish today's quests") },
+        text = {
+            Text("Complete all of today's quests to open the Playground. Progress: ${pg.completed} of ${pg.totalAssigned}.")
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss, modifier = Modifier.heightIn(min = 48.dp)) {
+                Text("Got it")
+            }
+        },
+        modifier = Modifier.testTag("locked_playground_dialog"),
+    )
 }

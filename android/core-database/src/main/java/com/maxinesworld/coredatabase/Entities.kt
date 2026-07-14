@@ -189,3 +189,42 @@ data class InventoryEntity(
     val itemId: String,
     val acquiredAtEpochMillis: Long = System.currentTimeMillis()
 )
+
+// ─── Playground Gate Persistence ───
+
+@Entity(
+    tableName = "daily_quest_sets",
+    indices = [Index(value = ["childId", "dayKey"], unique = true)]
+)
+data class DailyQuestSetEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}"
+    val childId: String,
+    val dayKey: String,
+    val assignedQuestIds: String,         // JSON array of quest IDs
+    val assignedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+@Entity(
+    tableName = "daily_quest_completions",
+    indices = [Index(value = ["childId", "dayKey", "questId"], unique = true)]
+)
+data class DailyQuestCompletionEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}_{questId}"
+    val childId: String,
+    val dayKey: String,
+    val questId: String,
+    val completionEventId: String,
+    val completedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+@Entity(
+    tableName = "playground_unlock_receipts",
+    indices = [Index(value = ["childId", "dayKey"], unique = true)]
+)
+data class PlaygroundUnlockReceiptEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}"
+    val childId: String,
+    val dayKey: String,
+    val sourceQuestSetHash: String,
+    val unlockedAtEpochMillis: Long = System.currentTimeMillis()
+)
