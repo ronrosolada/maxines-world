@@ -1,6 +1,8 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -13,6 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -224,6 +227,7 @@ private fun BottomNav(onDiscoveries: () -> Unit, onCafe: () -> Unit, onParents: 
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceEvenly) {
         items.forEach { item ->
             Column(Modifier.weight(1f).fillMaxHeight()
+                .semantics(mergeDescendants = true) { contentDescription = item.label; role = Role.Button }
                 .clickable(role = Role.Button, onClick = item.action),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                 Icon(painterResource(item.icon), item.label, tint = Color(0xFF075F63), modifier = Modifier.size(22.dp))
