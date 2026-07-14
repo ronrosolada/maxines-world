@@ -16,9 +16,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -174,9 +176,15 @@ private fun CompactHeader(state: VillageHomeState) {
 
 @Composable
 private fun MiraBubble(onClick: () -> Unit) {
+    val reducedMotion = false // TODO: wire from ViewModel/prefs
+    val bobOffset = rememberMiraBobOffset(reducedMotion)
+    val pulseScale = rememberHelpMiraPulse(reducedMotion)
     val desc = "Mira needs help finishing a story. Tap to help."
     Row(Modifier.fillMaxSize()
+        .offset(y = (bobOffset).dp)
+        .scale(pulseScale)
         .clip(RoundedCornerShape(12.dp)).background(Color(0xFFFFF5DD))
+        .pressScale()
         .semantics(mergeDescendants = true) { contentDescription = desc; role = Role.Button }
         .clickable(role = Role.Button, onClick = onClick)
         .padding(horizontal = 8.dp, vertical = 4.dp),
@@ -198,6 +206,7 @@ private fun DestinationHotspot(dest: VillageDestination, onClick: (String) -> Un
     val desc = "${dest.name}, ${dest.subject}, ${dest.progressText}" +
             if (dest.recommended) ", recommended today" else ""
     Box(Modifier.fillMaxSize()
+        .pressScale()
         .semantics(mergeDescendants = true) { contentDescription = desc; role = Role.Button; if (!dest.enabled) disabled() }
         .clickable(enabled = dest.enabled, role = Role.Button) { onClick(dest.id) }
         .padding(horizontal = 6.dp, vertical = 5.dp),
@@ -227,6 +236,7 @@ private fun BottomNav(onDiscoveries: () -> Unit, onCafe: () -> Unit, onParents: 
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceEvenly) {
         items.forEach { item ->
             Column(Modifier.weight(1f).fillMaxHeight()
+                .pressScale()
                 .semantics(mergeDescendants = true) { contentDescription = item.label; role = Role.Button }
                 .clickable(role = Role.Button, onClick = item.action),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
