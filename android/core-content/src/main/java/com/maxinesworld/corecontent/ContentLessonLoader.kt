@@ -9,7 +9,8 @@ import kotlinx.serialization.json.Json
 import java.util.concurrent.ConcurrentHashMap
 
 class ContentLessonLoader(
-    private val context: Context
+    private val context: Context,
+    private val activeContentIndex: ActiveContentIndex
 ) {
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
     private val lessonCache = ConcurrentHashMap<String, Month1Lesson>()
@@ -17,7 +18,28 @@ class ContentLessonLoader(
 
     suspend fun loadLesson(lessonId: String): Month1Lesson? = withContext(Dispatchers.IO) {
         lessonCache[lessonId]?.let { return@withContext it }
-        val raw = tryPath(lessonId) ?: return@withContext null
+
+        // Path 0: Check active (synced) content first
+        val activePath = activeContentIndex.resolveLessonPath(lessonId)
+        if (activePath != null) {
+            val raw = try {
+                java.io.File(activePath).readText()
+            } catch (_: Exception) { null }
+            if (raw != null) {
+                val result = runCatching {
+                    json.decodeFromString<Month1Lesson>(raw)
+                }.getOrNull()
+                if (result != null) {
+                    lessonCache[lessonId] = result
+                    return@withContext result
+                }
+            }
+        }
+
+        // Path 1-3: Try bundled assets
+        val raw = tryPath(lessonId)
+        if (raw == null) return@withContext null
+
         val result = runCatching {
             json.decodeFromString<Month1Lesson>(raw)
         }.onFailure {

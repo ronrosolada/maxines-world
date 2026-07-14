@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.coremodel.*
 import com.maxinesworld.coredatabase.*
+import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
@@ -43,10 +44,11 @@ class LessonPlayerViewModel @Inject constructor(
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
     private val masteryEngine: MasteryEngine,
-    private val badgeAwarder: BadgeAwarder
+    private val badgeAwarder: BadgeAwarder,
+    private val activeContentIndex: ActiveContentIndex
 ) : AndroidViewModel(application) {
 
-    private val contentLessonLoader = ContentLessonLoader(application)
+    private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
     private var childId: String = ""
