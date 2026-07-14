@@ -13,6 +13,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
@@ -373,7 +375,7 @@ private fun PlaygroundBanner(pg: com.maxinesworld.playground.PlaygroundGateState
 
 @Composable
 private fun LockedPlaygroundDialog(pg: com.maxinesworld.playground.PlaygroundGateState, onDismiss: () -> Unit) {
-    androidx.compose.material3.AlertDialog(
+    AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Finish today's quests") },
         text = {
