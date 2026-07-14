@@ -45,6 +45,7 @@ object WildlifeBadgeEvaluator {
 /**
  * Wildlife discovery metadata embedded in a lesson JSON.
  */
+@kotlinx.serialization.Serializable
 data class WildlifeDiscoveryMetadata(
     val badgeId: String,
     val trigger: String = "QUALIFYING_COMPLETION",
