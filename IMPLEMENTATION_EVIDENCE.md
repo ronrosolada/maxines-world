@@ -252,7 +252,7 @@ adb shell pm clear com.maxinesworld.app.debug
 
 ## PR URL
 
-https://github.com/ronrosolada/maxines-world/pull/new/fix/cat-first-remediation
+https://github.com/ronrosolada/maxines-world/pull/1
 
-**Final SHA:** e7cdd18
+**Final SHA:** a3fd7a4
 **Branch:** fix/cat-first-remediation
