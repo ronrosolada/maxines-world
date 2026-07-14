@@ -1,0 +1,340 @@
+{
+  "lessonId": "science-g3-m01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "SCIENCE",
+  "title": "Animals Around Us",
+  "objective": "Relate familiar animals to suitable habitats without disturbing wildlife.",
+  "estimatedMinutes": 12,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "language": "en-PH",
+  "introduction": "Habitats provide resources such as food, water, shelter, and space. You will explore examples, sort cards, practice, and answer five questions.",
+  "vocabulary": [
+    {
+      "term": "Animals",
+      "definition": "A key word used in the lesson “Animals Around Us”."
+    },
+    {
+      "term": "Around",
+      "definition": "A key word used in the lesson “Animals Around Us”."
+    },
+    {
+      "term": "Us",
+      "definition": "A key word used in the lesson “Animals Around Us”."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Study the idea and listen to the narration.",
+      "content": "Habitats provide resources such as food, water, shelter, and space.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Ready for the next step.",
+        "retry": "Review the explanation once more."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Text alternative: Habitats provide resources such as food, water, shelter, and space."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Explore each learning token, then read the examples.",
+      "content": {
+        "examples": [
+          "fish—water habitat",
+          "bird—nesting area and food",
+          "frog—moist habitat"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "You explored every example.",
+        "retry": "Open each remaining token."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+      "content": {
+        "fits": [
+          "fish—water habitat",
+          "bird—nesting area and food",
+          "frog—moist habitat"
+        ],
+        "doesNotFit": [
+          "Every animal fits one habitat only",
+          "Take wildlife home",
+          "Feed unknown wild animals"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Your groups follow the lesson rule.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Why does an animal need a habitat?",
+      "content": {
+        "options": [
+          "It provides needed resources.",
+          "It gives the animal a school grade.",
+          "It changes every animal into a pet."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: It provides needed resources.",
+        "retry": "Read the lesson rule again. It gives the animal a school grade. and It changes every animal into a pet. do not fit."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the lesson idea.",
+      "content": {
+        "pairs": [
+          {
+            "left": "fish—water habitat",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "bird—nesting area and food",
+            "right": "fits the lesson idea"
+          },
+          {
+            "left": "frog—moist habitat",
+            "right": "fits the lesson idea"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "All examples are matched.",
+        "retry": "Return to the explanation and compare one pair at a time."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Complete the guided review in order.",
+      "content": {
+        "steps": [
+          "State the lesson idea.",
+          "Study one example.",
+          "Explain why it fits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "You are ready for the five-question check.",
+        "retry": "Complete each review step."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement best matches “Animals Around Us”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Habitats provide resources such as food, water, shelter, and space."
+          },
+          {
+            "id": "b",
+            "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "c",
+            "text": "Take wildlife home"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Habitats provide resources such as food, water, shelter, and space.” because it follows the lesson explanation: Habitats provide resources such as food, water, shelter, and space."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a correct example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "fish—water habitat"
+          },
+          {
+            "id": "b",
+            "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "c",
+            "text": "Take wildlife home"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “fish—water habitat” because it follows the lesson explanation: Habitats provide resources such as food, water, shelter, and space."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice does not follow the lesson idea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "b",
+            "text": "fish—water habitat"
+          },
+          {
+            "id": "c",
+            "text": "bird—nesting area and food"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “Every animal fits one habitat only” because it follows the lesson explanation: Habitats provide resources such as food, water, shelter, and space."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Why does an animal need a habitat?",
+        "options": [
+          {
+            "id": "a",
+            "text": "It provides needed resources."
+          },
+          {
+            "id": "b",
+            "text": "It gives the animal a school grade."
+          },
+          {
+            "id": "c",
+            "text": "It changes every animal into a pet."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “It provides needed resources.” because it follows the lesson explanation: Habitats provide resources such as food, water, shelter, and space."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example should be used in the final review?",
+        "options": [
+          {
+            "id": "a",
+            "text": "frog—moist habitat"
+          },
+          {
+            "id": "b",
+            "text": "Feed unknown wild animals"
+          },
+          {
+            "id": "c",
+            "text": "Every animal fits one habitat only"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The correct response is “frog—moist habitat” because it follows the lesson explanation: Habitats provide resources such as food, water, shelter, and space."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d04-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d04-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Animals Around Us; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Animals Around Us.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "7408b8dd0097d00eb9474d49089729d5e6937856e5f6306b7b3f9e01e65563ab"
+}
