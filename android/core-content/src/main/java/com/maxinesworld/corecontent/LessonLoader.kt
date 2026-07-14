@@ -9,15 +9,26 @@ import javax.inject.Singleton
 
 @Singleton
 class LessonLoader @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val activeContentIndex: ActiveContentIndex
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
     /**
      * Load a lesson by its ID (e.g., "eng-g3-m01-l01").
-     * Tries multiple paths: old flat path, new subject-based path, and content-pack path.
+     * Priority order:
+     *   0. Active (synced) content — content/active/{packageId}/{version}/lessons/
+     *   1. Old flat path — content/ph-matatag/grade-3/{lessonId}.json
+     *   2. Derived subject path — content/ph-matatag/grade-3/{subject}/module-{M}/lesson-{L}.json
+     *   3. Content pack path — content-packs/ph-grade3-v1/lessons/{filename}.json
      */
     fun loadLesson(lessonId: String): LessonManifest? {
+        // Path 0: Active synced content (from DreamNAS)
+        val activePath = activeContentIndex.resolveLessonPath(lessonId)
+        if (activePath != null) {
+            loadLessonFromFile(activePath)?.let { return it }
+        }
+
         // Path 1: Old flat path — content/ph-matatag/grade-3/{lessonId}.json
         val flatPath = "content/ph-matatag/grade-3/$lessonId.json"
         tryLoad(flatPath)?.let { return it }
@@ -30,7 +41,6 @@ class LessonLoader @Inject constructor(
         }
 
         // Path 3: Content pack path — content-packs/ph-grade3-v1/lessons/{filename}.json
-        // Try with the lesson ID as filename
         val packPath = "content-packs/ph-grade3-v1/lessons/$lessonId.json"
         tryLoad(packPath)?.let { return it }
 
