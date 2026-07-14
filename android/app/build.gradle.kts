@@ -67,6 +67,9 @@ dependencies {
     implementation(project(":engine-minigame"))
     implementation(project(":game-cat-cafe"))
     implementation(project(":game-pawprint-parkour"))
+    implementation(project(":game-kitten-match"))
+    implementation(project(":game-firefly-catch"))
+    implementation(project(":game-paw-beats"))
 
     // Material Components (for XML theme)
     implementation("com.google.android.material:material:1.12.0")
