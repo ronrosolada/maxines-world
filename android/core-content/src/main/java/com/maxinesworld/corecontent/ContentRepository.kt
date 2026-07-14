@@ -3,6 +3,7 @@ package com.maxinesworld.corecontent
 import android.content.Context
 import android.content.res.AssetManager
 import com.maxinesworld.coredatabase.ActiveContentPackageDao
+import com.maxinesworld.coredatabase.ActiveContentPackageEntity
 import com.maxinesworld.coredatabase.ContentPackageDao
 import com.maxinesworld.coredatabase.ContentPackageEntity
 import com.maxinesworld.coremodel.LessonManifest
@@ -60,6 +61,28 @@ class ContentRepository @Inject constructor(
         return resolve(packageId) { root, _ ->
             try { context.assets.open("$root/$relativePath") }
             catch (_: Exception) { null }
+        }
+    }
+
+    /** Rollback a package to the bundled baseline. */
+    suspend fun rollbackToBundled(packageId: String) {
+        activeContentPackageDao.removeActive(packageId)
+        // Next resolve() will fall through to bundled baseline
+    }
+
+    /** Rollback to a specific downloaded version. */
+    suspend fun rollbackToVersion(packageId: String, version: Int) {
+        val pkg = contentPackageDao.getVersions(packageId)
+            .firstOrNull { it.version == version && it.source == "DOWNLOADED" }
+        if (pkg != null) {
+            activeContentPackageDao.setActive(
+                ActiveContentPackageEntity(
+                    packageId = packageId, version = version, source = "DOWNLOADED"
+                )
+            )
+        } else {
+            // Fall back to bundled
+            activeContentPackageDao.removeActive(packageId)
         }
     }
 
