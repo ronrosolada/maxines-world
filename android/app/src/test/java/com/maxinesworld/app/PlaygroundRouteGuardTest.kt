@@ -44,8 +44,8 @@ class PlaygroundRouteGuardTest {
     @Test
     fun `lockedFireflyGardenRoute_isBlocked`() {
         assertTrue(isBlocked(
-            assignedQuestIds = setOf("subject:english"),
-            completedQuestIds = setOf("subject:english"), // 1 of 1 but not 3-of-5
+            assignedQuestIds = setOf("subject:english", "subject:filipino", "subject:mathematics"),
+            completedQuestIds = setOf("subject:english"), // 1 of 3 — still blocked
             hasUnlockReceipt = false,
         ))
     }
