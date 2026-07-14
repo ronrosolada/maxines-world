@@ -185,7 +185,7 @@ class LessonPlayerViewModel @Inject constructor(
             moduleId = "g3-m01",
             title = m1.title, subject = subj, objective = m1.objective,
             skillIds = listOf(m1.lessonId),
-            guideCharacter = "Milo",
+            guideCharacter = if (subj == "english") "Mira" else "Milo",
             estimatedMinutes = m1.estimatedMinutes,
             languageOfInstruction = m1.language,
             steps = m1.activities.map { act ->
