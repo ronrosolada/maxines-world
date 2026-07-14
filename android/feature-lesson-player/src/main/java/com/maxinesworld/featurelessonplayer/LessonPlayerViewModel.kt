@@ -11,6 +11,7 @@ import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.coremodel.gamification.FishTreatPolicy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -141,20 +142,19 @@ class LessonPlayerViewModel @Inject constructor(
                 ))
             }
 
-            // Reward with deterministic ID
-            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
+            // Fish treat reward with deterministic ID
+            val improved = scoredResults.any { it.attempts > 1 && it.correct }
+            val crossed = accuracy >= 0.8
+            val treats = FishTreatPolicy.amount(completed = true, improvedAfterRetry = improved, crossedMasteryThreshold = crossed)
+            val rewardKey = FishTreatPolicy.rewardKey(childId, lesson.id, attemptId)
             rewardDao.insert(RewardEntity(
-                id = "${completionId}:reward:star",
+                id = "${completionId}:reward:fish_treat",
                 childId = childId,
-                type = "STAR", subject = lesson.subject, amount = starsEarned
+                type = FishTreatPolicy.TYPE,
+                subject = lesson.subject,
+                amount = treats,
+                metadata = "rewardKey=$rewardKey,accuracy=$accuracy"
             ))
-            if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(
-                    id = "${completionId}:reward:coin",
-                    childId = childId,
-                    type = "COIN", subject = lesson.subject, amount = 10
-                ))
-            }
 
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
