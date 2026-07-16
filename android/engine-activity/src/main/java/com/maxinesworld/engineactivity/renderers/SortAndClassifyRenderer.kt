@@ -32,10 +32,22 @@ fun SortAndClassifyRenderer(
     var allCorrect by remember { mutableStateOf(false) }
 
     val options = step.options
-    val catCount = maxOf(1, options.size / 2)
-    val categories = options.take(catCount)
-    val items = options.drop(catCount).ifEmpty { options }
-    val correctMapping = items.indices.associateWith { it % catCount }
+    // Prefer explicit 2-bin classify (Fits / Does not fit + items).
+    // correctIndex = number of items that belong to category 0 (prefix of items list).
+    val categories: List<String>
+    val items: List<String>
+    val correctMapping: Map<Int, Int>
+    if (options.size >= 3) {
+        categories = options.take(2)
+        items = options.drop(2)
+        val cat0Count = if (step.correctIndex in 0..items.size) step.correctIndex else items.size / 2
+        correctMapping = items.indices.associateWith { i -> if (i < cat0Count) 0 else 1 }
+    } else {
+        val catCount = maxOf(1, options.size / 2)
+        categories = options.take(catCount)
+        items = options.drop(catCount).ifEmpty { options }
+        correctMapping = items.indices.associateWith { it % maxOf(1, categories.size) }
+    }
 
     Column(
         modifier = modifier.fillMaxWidth().padding(16.dp),

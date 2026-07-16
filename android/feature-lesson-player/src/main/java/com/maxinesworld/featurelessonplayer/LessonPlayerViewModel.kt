@@ -316,27 +316,33 @@ class LessonPlayerViewModel @Inject constructor(
                     } else emptyList<String>() to 0
                 }
                 "SORT_AND_CLASSIFY" -> {
-                    val fits = (obj["fits"] as? kotlinx.serialization.json.JsonArray)
-                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
-                        ?: emptyList()
-                    val doesNot = (obj["doesNotFit"] as? kotlinx.serialization.json.JsonArray)
-                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
-                        ?: emptyList()
-                    (listOf("Fits", "Does not fit") + fits + doesNot) to -1
-                }
+                                    val fits = (obj["fits"] as? kotlinx.serialization.json.JsonArray)
+                                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                                        ?: emptyList()
+                                    val doesNot = (obj["doesNotFit"] as? kotlinx.serialization.json.JsonArray)
+                                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                                        ?: emptyList()
+                                    // categories first, then Fits items, then Does-not items.
+                                    // correctIndex = count of items belonging to category 0 (Fits).
+                                    (listOf("Fits", "Does not fit") + fits + doesNot) to fits.size
+                                }
                 "MATCHING_PAIRS" -> {
-                    val pairs = obj["pairs"] as? kotlinx.serialization.json.JsonArray
-                    val labels = pairs?.flatMap { p ->
-                        val o = p as? kotlinx.serialization.json.JsonObject ?: return@flatMap emptyList()
-                        listOfNotNull(
-                            (o["left"] as? kotlinx.serialization.json.JsonPrimitive)?.content
-                                ?: (o["a"] as? kotlinx.serialization.json.JsonPrimitive)?.content,
-                            (o["right"] as? kotlinx.serialization.json.JsonPrimitive)?.content
-                                ?: (o["b"] as? kotlinx.serialization.json.JsonPrimitive)?.content,
-                        )
-                    } ?: emptyList()
-                    labels to -1
-                }
+                                    val pairs = obj["pairs"] as? kotlinx.serialization.json.JsonArray
+                                    val lefts = mutableListOf<String>()
+                                    val rights = mutableListOf<String>()
+                                    pairs?.forEach { p ->
+                                        val o = p as? kotlinx.serialization.json.JsonObject ?: return@forEach
+                                        val left = (o["left"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                            ?: (o["a"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                        val right = (o["right"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                            ?: (o["b"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                        if (left != null) lefts += left
+                                        if (right != null) rights += right
+                                    }
+                                    // MatchingPairsRenderer splits options as left = first half, right = second half
+                                    // and treats same index as a correct pair.
+                                    (lefts + rights) to -1
+                                }
                 "SEQUENCE_BUILDER" -> {
                     val steps = (obj["steps"] as? kotlinx.serialization.json.JsonArray)
                         ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
