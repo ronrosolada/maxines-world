@@ -127,10 +127,10 @@ private fun TabletLivingVillage(
     var containerSize by remember { mutableStateOf(IntSize.Zero) }
 
     Box(Modifier.fillMaxSize().onSizeChanged { containerSize = it }) {
-        // Layer 1: Clean village background
+        // Layer 1: Clean village background — use Fit to match contentFitTransform coords
         Image(
             painter = painterResource(R.drawable.village_home_six_landmarks_master),
-            contentDescription = null, contentScale = ContentScale.FillBounds,
+            contentDescription = null, contentScale = ContentScale.Fit,
             modifier = Modifier.fillMaxSize(),
         )
 
