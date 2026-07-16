@@ -9,6 +9,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -26,8 +27,11 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -53,6 +57,11 @@ private val WarmBg = Color(0xFFFFF5DD)
 private val Ink = Color(0xFF173E38)
 private val RailValueColor = Color(0xFFFFF8E8)
 private val RailLabelColor = Color(0xFFD4C8A0)
+
+// ─── Storybook caption colors ───
+internal val LessonCaptionCocoa = Color(0xFF3B281C)
+internal val LessonCaptionHalo = Color(0xE6FFF3D6)
+internal val LessonCaptionActive = Color(0xFFD6942C)
 
 // ─── Medallion drawable map ───
 internal val subjectMedallionRes = mapOf(
@@ -277,22 +286,23 @@ private fun MedallionLayer(
         }
 
         SubjectMedallion(
-            imageRes = imageRes,
-            label = approvedLabel,
-            progressText = destination.progressText,
-            isActive = isActive,
-            enabled = destination.enabled,
-            reducedMotion = reducedMotion,
-            metrics = metrics,
-            onClick = { onClick(destination.id) },
-            modifier = Modifier.offset {
-                IntOffset(
-                    x = (position.x - groupWidthPx / 2f).roundToInt(),
-                    y = (position.y - iconSizePx / 2f).roundToInt(),
+                    imageRes = imageRes,
+                    label = approvedLabel,
+                    subjectId = destination.id,
+                    progressText = destination.progressText,
+                    isActive = isActive,
+                    enabled = destination.enabled,
+                    reducedMotion = reducedMotion,
+                    metrics = metrics,
+                    onClick = { onClick(destination.id) },
+                    modifier = Modifier.offset {
+                        IntOffset(
+                            x = (position.x - groupWidthPx / 2f).roundToInt(),
+                            y = (position.y - iconSizePx / 2f).roundToInt(),
+                        )
+                    }
+                        .testTag("living_village_subject_${destination.id}"),
                 )
-            }
-                .testTag("living_village_subject_${destination.id}"),
-        )
     }
 }
 
@@ -300,6 +310,7 @@ private fun MedallionLayer(
 private fun SubjectMedallion(
     imageRes: Int,
     label: String,
+    subjectId: String,
     progressText: String,
     isActive: Boolean,
     enabled: Boolean,
@@ -362,7 +373,8 @@ private fun SubjectMedallion(
                 enabled = enabled,
                 role = Role.Button,
                 onClick = onClick,
-            ),
+            )
+            .testTag("living_village_subject_$subjectId"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
@@ -376,65 +388,67 @@ private fun SubjectMedallion(
                     scaleY = animatedScale
                     alpha = glowAlpha
                 }
-                .testTag("living_village_subject_icon_${label.lowercase().replace(" ", "_")}"),
+                .testTag("living_village_subject_icon_$subjectId"),
         )
 
-        Spacer(Modifier.height(2.dp))
+        Spacer(Modifier.height(3.dp))
 
-        LessonDestinationPlaque(
+        LessonStorybookCaption(
             label = label,
+            isActive = isActive,
             metrics = metrics,
+            modifier = Modifier.testTag(
+                "living_village_subject_label_$subjectId"
+            ),
         )
     }
 }
 
 @Composable
-private fun LessonDestinationPlaque(
+private fun LessonStorybookCaption(
     label: String,
+    isActive: Boolean,
     metrics: VillageUiMetrics,
+    modifier: Modifier = Modifier,
 ) {
-    val usesTwoLines = label in setOf(
-        "Bahay ng Kuwento",
-        "Number Market",
-        "Discovery Lab",
-        "Heritage Harbor",
-        "Kindness Corner",
-    )
-
-    val height = if (usesTwoLines) {
-        metrics.twoLineLabelHeight
-    } else {
-        metrics.oneLineLabelHeight
-    }
-
-    Box(
-        modifier = Modifier
-            .width(metrics.lessonLabelWidth)
-            .height(height)
-            .testTag("living_village_subject_label_${label.lowercase().replace(" ", "_")}"),
-        contentAlignment = Alignment.Center,
+    Column(
+        modifier = modifier.width(metrics.lessonLabelWidth),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(
-            painter = painterResource(R.drawable.mw_subject_plaque),
-            contentDescription = null,
-            contentScale = ContentScale.FillBounds,
-            modifier = Modifier.fillMaxSize(),
-        )
-
         Text(
             text = label,
-            color = Color.White,
-            fontWeight = FontWeight.ExtraBold,
+            color = LessonCaptionCocoa,
             fontSize = metrics.lessonLabelFontSp.sp,
             lineHeight = metrics.lessonLabelLineHeightSp.sp,
+            fontWeight = FontWeight.ExtraBold,
+            fontFamily = FontFamily.Serif,
             textAlign = TextAlign.Center,
-            maxLines = if (usesTwoLines) 2 else 1,
-            softWrap = usesTwoLines,
+            maxLines = 2,
+            softWrap = true,
             overflow = TextOverflow.Clip,
-            modifier = Modifier.padding(
-                horizontal = 12.dp,
-                vertical = 4.dp,
+            style = LocalTextStyle.current.copy(
+                shadow = Shadow(
+                    color = LessonCaptionHalo,
+                    offset = Offset.Zero,
+                    blurRadius = 4f,
+                ),
             ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag("living_village_subject_caption_$label"),
+        )
+
+        Spacer(Modifier.height(2.dp))
+
+        Box(
+            modifier = Modifier
+                .width(if (isActive) 34.dp else 0.dp)
+                .height(2.dp)
+                .alpha(if (isActive) 0.78f else 0f)
+                .background(
+                    color = LessonCaptionActive,
+                    shape = RoundedCornerShape(50),
+                ),
         )
     }
 }

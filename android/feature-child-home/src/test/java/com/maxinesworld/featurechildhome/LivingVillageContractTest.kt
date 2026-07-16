@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
 import com.maxinesworld.playground.PlaygroundGateState
 import com.maxinesworld.playground.PlaygroundGateStatus
@@ -206,7 +207,7 @@ class LivingVillageContractTest {
 
         assertEquals(0.58f, metrics.scale, 0.001f)
         assertTrue(metrics.medallionSize.value >= 48f)
-        assertTrue(metrics.lessonLabelWidth.value >= 96f)
+        assertTrue(metrics.lessonLabelWidth.value >= 104f)
     }
 
     @Test
@@ -253,6 +254,54 @@ class LivingVillageContractTest {
         assertEquals(
             approvedDestinationNames.keys,
             subjectMedallionRes.keys,
+        )
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // Storybook caption tests
+    // ═══════════════════════════════════════════════════════
+
+    @Test
+    fun captionColorIsDarkCocoa() {
+        assertEquals(Color(0xFF3B281C), LessonCaptionCocoa)
+    }
+
+    @Test
+    fun captionMetricsRemainReadableAtCompactScale() {
+        val metrics = villageUiMetrics(
+            viewportWidthDp = 400f,
+            viewportHeightDp = 250f,
+        )
+
+        assertTrue(metrics.lessonLabelWidth.value >= 104f)
+        assertTrue(metrics.lessonLabelFontSp >= 11f)
+        assertTrue(metrics.lessonLabelLineHeightSp >= 13f)
+    }
+
+    @Test
+    fun captionMetricsRemainBoundedOnLargeTablet() {
+        val metrics = villageUiMetrics(
+            viewportWidthDp = 1400f,
+            viewportHeightDp = 900f,
+        )
+
+        assertTrue(metrics.lessonLabelWidth.value <= 168f)
+        assertTrue(metrics.lessonLabelFontSp <= 14f)
+        assertTrue(metrics.lessonLabelLineHeightSp <= 17f)
+    }
+
+    @Test
+    fun approvedDestinationNamesRemainComplete() {
+        assertEquals(
+            setOf(
+                "Story Tree",
+                "Bahay ng Kuwento",
+                "Number Market",
+                "Discovery Lab",
+                "Heritage Harbor",
+                "Kindness Corner",
+            ),
+            approvedDestinationNames.values.toSet(),
         )
     }
 }
