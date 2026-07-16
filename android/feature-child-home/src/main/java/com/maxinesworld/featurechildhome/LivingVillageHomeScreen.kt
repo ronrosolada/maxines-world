@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.*
@@ -32,22 +33,15 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredesignsystem.LocalReducedMotion
+import kotlin.math.roundToInt
 
 // ─── Design tokens from handoff v2.0.0 ───
 private val DESIGN_W = 3048
 private val DESIGN_H = 2032
-private val MEDALLION_SIZE = 96.dp
-private val MEDALLION_SELECTED = 120.dp
-private val MEDALLION_LABEL_WIDTH = 168.dp
-private val MEDALLION_TOUCH_MIN = 120.dp
-private val MIRA_HEIGHT = 224.dp
-private val QUEST_BOOK_WIDTH = 360.dp
 private val STATUS_RAIL_WIDTH = 340.dp
 private val STATUS_RAIL_HEIGHT = 76.dp
 private val BOTTOM_NAV_HEIGHT = 64.dp
 private val BOTTOM_NAV_MAX_WIDTH = 500.dp
-private val WORLD_MARKER_SIZE = 112.dp
-private val WORLD_LABEL_WIDTH = 144.dp
 
 // ─── Colors ───
 private val Teal = Color(0xFF087F83)
@@ -125,6 +119,20 @@ private fun TabletLivingVillage(
     onParents: () -> Unit,
 ) {
     var containerSize by remember { mutableStateOf(IntSize.Zero) }
+    val density = LocalDensity.current
+
+    val uiMetrics = remember(containerSize, density) {
+        if (containerSize == IntSize.Zero) {
+            null
+        } else {
+            with(density) {
+                villageUiMetrics(
+                    viewportWidthDp = containerSize.width.toDp().value,
+                    viewportHeightDp = containerSize.height.toDp().value,
+                )
+            }
+        }
+    }
 
     Box(Modifier.fillMaxSize().onSizeChanged { containerSize = it }) {
         // Layer 1: Clean village background — use Fit to match contentFitTransform coords
@@ -135,21 +143,35 @@ private fun TabletLivingVillage(
         )
 
         // Layer 2: Paw trail — always when quest target is known.
-                // Reduced motion: static 6 paws, no pulse (handoff §04).
-                val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
-                if (resolvedQuestAnchor != null) {
-                    PawTrailLayer(
-                        questSubjectId = state.questSubjectId!!,
-                        containerSize = containerSize,
-                        reducedMotion = state.reducedMotion,
-                    )
-                }
+        val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
+        if (resolvedQuestAnchor != null) {
+            PawTrailLayer(
+                questSubjectId = state.questSubjectId!!,
+                containerSize = containerSize,
+                reducedMotion = state.reducedMotion,
+            )
+        }
 
-        // Layer 3: Subject medallions
-        MedallionLayer(state.destinations, state.questSubjectId, containerSize, state.reducedMotion, onSubject)
+        uiMetrics?.let { metrics ->
+            // Layer 3: Subject medallions
+            MedallionLayer(
+                destinations = state.destinations,
+                activeSubjectId = state.questSubjectId,
+                containerSize = containerSize,
+                reducedMotion = state.reducedMotion,
+                metrics = metrics,
+                onClick = onSubject,
+            )
 
-        // Layer 4: Cat Café + Playground (non-subject world destinations)
-        WorldDestinationLayer(state, containerSize, onCafe, onPlayground)
+            // Layer 4: Cat Café + Playground (non-subject world destinations)
+            WorldDestinationLayer(
+                state = state,
+                containerSize = containerSize,
+                metrics = metrics,
+                onCafe = onCafe,
+                onPlayground = onPlayground,
+            )
+        }
 
         // Layer 5: Wooden status rail
         WoodenStatusRail(
@@ -161,7 +183,7 @@ private fun TabletLivingVillage(
         )
 
         // Layer 6: Mira + storybook quest group
-        MiraQuestGroup(state, onMira,
+        MiraQuestGroup(state, onMira, uiMetrics,
             modifier = Modifier.align(Alignment.BottomStart)
                 .padding(start = 24.dp, bottom = BOTTOM_NAV_HEIGHT + 12.dp))
 
@@ -188,11 +210,26 @@ private fun CompactLivingVillage(
     Column(Modifier.fillMaxSize().background(WarmBg).verticalScroll(rememberScrollState())) {
         CompactStatusStrip(state, onPlayground)
         var vpSize by remember { mutableStateOf(IntSize.Zero) }
+        val density = LocalDensity.current
+        val uiMetrics = remember(vpSize, density) {
+            if (vpSize == IntSize.Zero) {
+                null
+            } else {
+                with(density) {
+                    villageUiMetrics(
+                        viewportWidthDp = vpSize.width.toDp().value,
+                        viewportHeightDp = vpSize.height.toDp().value,
+                    )
+                }
+            }
+        }
         Box(Modifier.fillMaxWidth().aspectRatio(16f / 10f).onSizeChanged { vpSize = it }) {
             Image(painter = painterResource(R.drawable.village_home_six_landmarks_master), contentDescription = null,
                 contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
-            MedallionLayer(state.destinations, state.questSubjectId, vpSize, state.reducedMotion, onSubject)
-            WorldDestinationLayer(state, vpSize, onCafe, onPlayground)
+            uiMetrics?.let { metrics ->
+                MedallionLayer(state.destinations, state.questSubjectId, vpSize, state.reducedMotion, metrics, onSubject)
+                WorldDestinationLayer(state, vpSize, metrics, onCafe, onPlayground)
+            }
         }
         CompactMiraSheet(state, onMira)
         MinimalHomeNav({}, onParents, Modifier.height(BOTTOM_NAV_HEIGHT).padding(bottom = 8.dp))
@@ -209,67 +246,195 @@ private fun MedallionLayer(
     activeSubjectId: String?,
     containerSize: IntSize,
     reducedMotion: Boolean,
+    metrics: VillageUiMetrics,
     onClick: (String) -> Unit,
 ) {
     if (containerSize == IntSize.Zero) return
     val transform = remember(containerSize) {
         contentFitTransform(containerSize, IntSize(DESIGN_W, DESIGN_H))
     }
-    destinations.forEach { dest ->
-        val anchor = subjectAnchors[dest.id] ?: return@forEach
-        val pos = transform.map(anchor.x, anchor.y)
-        val isActive = dest.id == activeSubjectId
-        val resId = subjectMedallionRes[dest.id] ?: R.drawable.subject_blank
-        val size = if (isActive) MEDALLION_SELECTED else MEDALLION_SIZE
+    val density = LocalDensity.current
+
+    destinations.forEach { destination ->
+        val anchor = subjectAnchors[destination.id] ?: return@forEach
+        val imageRes = subjectMedallionRes[destination.id] ?: return@forEach
+        val approvedLabel = approvedDestinationNames[destination.id] ?: return@forEach
+        val position = transform.map(anchor.x, anchor.y)
+        val isActive = destination.id == activeSubjectId
+
+        val iconSize = if (isActive) {
+            metrics.selectedMedallionSize
+        } else {
+            metrics.medallionSize
+        }
+
+        val groupWidthPx = with(density) {
+            metrics.lessonLabelWidth.toPx()
+        }
+
+        val iconSizePx = with(density) {
+            iconSize.toPx()
+        }
+
         SubjectMedallion(
-            imageRes = resId, label = dest.label, progressText = dest.progressText,
-            isActive = isActive, enabled = dest.enabled, reducedMotion = reducedMotion,
-            size = size, onClick = { onClick(dest.id) },
-            modifier = Modifier
-                .offset { IntOffset((pos.x - size.toPx() / 2).toInt(), (pos.y - size.toPx() / 2).toInt()) }
-                .size(size),
+            imageRes = imageRes,
+            label = approvedLabel,
+            progressText = destination.progressText,
+            isActive = isActive,
+            enabled = destination.enabled,
+            reducedMotion = reducedMotion,
+            metrics = metrics,
+            onClick = { onClick(destination.id) },
+            modifier = Modifier.offset {
+                IntOffset(
+                    x = (position.x - groupWidthPx / 2f).roundToInt(),
+                    y = (position.y - iconSizePx / 2f).roundToInt(),
+                )
+            }
+                .testTag("living_village_subject_${destination.id}"),
         )
     }
 }
 
 @Composable
 private fun SubjectMedallion(
-    imageRes: Int, label: String, progressText: String,
-    isActive: Boolean, enabled: Boolean, reducedMotion: Boolean,
-    size: androidx.compose.ui.unit.Dp, onClick: () -> Unit,
+    imageRes: Int,
+    label: String,
+    progressText: String,
+    isActive: Boolean,
+    enabled: Boolean,
+    reducedMotion: Boolean,
+    metrics: VillageUiMetrics,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val scale by animateFloatAsState(
-        targetValue = if (isActive) 1.06f else 1f,
-        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy), label = "medallion",
+    val animatedScale by animateFloatAsState(
+        targetValue = if (isActive && !reducedMotion) 1.05f else 1f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMediumLow,
+        ),
+        label = "lessonMedallionScale",
     )
-    val glowAlpha = if (!reducedMotion && isActive) {
-        val glow by rememberInfiniteTransition().animateFloat(
-            initialValue = 0.85f, targetValue = 1.0f,
-            animationSpec = infiniteRepeatable(tween(4000), RepeatMode.Reverse), label = "glow",
-        )
-        glow
-    } else 1f
 
-    val desc = "$label, $progressText${if (!enabled) ", locked" else ""}"
+    val glowAlpha = if (isActive && !reducedMotion) {
+        val transition = rememberInfiniteTransition(label = "lessonMedallionGlow")
+        val value by transition.animateFloat(
+            initialValue = 0.88f,
+            targetValue = 1f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(1800),
+                repeatMode = RepeatMode.Reverse,
+            ),
+            label = "lessonMedallionGlowAlpha",
+        )
+        value
+    } else {
+        1f
+    }
+
+    val iconSize = if (isActive) {
+        metrics.selectedMedallionSize
+    } else {
+        metrics.medallionSize
+    }
+
+    val accessibilityLabel = buildString {
+        append(label)
+        if (progressText.isNotBlank()) {
+            append(", ")
+            append(progressText)
+        }
+        if (!enabled) {
+            append(", locked")
+        }
+    }
+
+    Column(
+        modifier = modifier
+            .width(metrics.lessonLabelWidth)
+            .semantics(mergeDescendants = true) {
+                contentDescription = accessibilityLabel
+                role = Role.Button
+                if (!enabled) disabled()
+            }
+            .clickable(
+                enabled = enabled,
+                role = Role.Button,
+                onClick = onClick,
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            painter = painterResource(imageRes),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .size(iconSize)
+                .graphicsLayer {
+                    scaleX = animatedScale
+                    scaleY = animatedScale
+                    alpha = glowAlpha
+                }
+                .testTag("living_village_subject_icon_${label.lowercase().replace(" ", "_")}"),
+        )
+
+        Spacer(Modifier.height(2.dp))
+
+        LessonDestinationPlaque(
+            label = label,
+            metrics = metrics,
+        )
+    }
+}
+
+@Composable
+private fun LessonDestinationPlaque(
+    label: String,
+    metrics: VillageUiMetrics,
+) {
+    val usesTwoLines = label in setOf(
+        "Bahay ng Kuwento",
+        "Number Market",
+        "Discovery Lab",
+        "Heritage Harbor",
+        "Kindness Corner",
+    )
+
+    val height = if (usesTwoLines) {
+        metrics.twoLineLabelHeight
+    } else {
+        metrics.oneLineLabelHeight
+    }
+
     Box(
-        modifier = modifier.scale(scale).alpha(glowAlpha).clip(CircleShape)
-            .semantics(mergeDescendants = true) { contentDescription = desc; role = Role.Button; if (!enabled) disabled() }
-            .clickable(enabled = enabled, role = Role.Button) { onClick() },
+        modifier = Modifier
+            .width(metrics.lessonLabelWidth)
+            .height(height)
+            .testTag("living_village_subject_label_${label.lowercase().replace(" ", "_")}"),
         contentAlignment = Alignment.Center,
     ) {
-        Image(painter = painterResource(imageRes), contentDescription = null,
-            contentScale = ContentScale.Fit, modifier = Modifier.fillMaxSize())
-        // Label: 168dp wide, 2 lines, 14sp, no ellipsis, centered
+        Image(
+            painter = painterResource(R.drawable.mw_subject_plaque),
+            contentDescription = null,
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize(),
+        )
+
         Text(
-            text = label, color = Color.White, fontWeight = FontWeight.Bold,
-            fontSize = 14.sp, lineHeight = 16.sp, textAlign = TextAlign.Center,
-            maxLines = 2, softWrap = true, overflow = TextOverflow.Clip,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .widthIn(max = MEDALLION_LABEL_WIDTH)
-                .background(Color(0xCC000000), RoundedCornerShape(5.dp))
-                .padding(horizontal = 8.dp, vertical = 4.dp),
+            text = label,
+            color = Color.White,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = metrics.lessonLabelFontSp.sp,
+            lineHeight = metrics.lessonLabelLineHeightSp.sp,
+            textAlign = TextAlign.Center,
+            maxLines = if (usesTwoLines) 2 else 1,
+            softWrap = usesTwoLines,
+            overflow = TextOverflow.Clip,
+            modifier = Modifier.padding(
+                horizontal = 12.dp,
+                vertical = 4.dp,
+            ),
         )
     }
 }
@@ -322,6 +487,7 @@ private fun WoodenStatusRail(
 @Composable
 private fun MiraQuestGroup(
     state: LivingVillageHomeState, onContinue: () -> Unit,
+    metrics: VillageUiMetrics?,
     modifier: Modifier = Modifier,
 ) {
     val bobOffset = if (state.reducedMotion) 0f else {
@@ -334,6 +500,9 @@ private fun MiraQuestGroup(
     }
     val poseRes = miraPose(state)
 
+    val miraHeight = metrics?.miraHeight ?: 224.dp
+    val questBookWidth = metrics?.questBookWidth ?: 360.dp
+
     Row(
         modifier = modifier.clickable(role = Role.Button) { onContinue() }
             .semantics(mergeDescendants = true) {
@@ -342,12 +511,12 @@ private fun MiraQuestGroup(
         verticalAlignment = Alignment.Bottom,
     ) {
         Image(painter = painterResource(poseRes), contentDescription = null, contentScale = ContentScale.Fit,
-            modifier = Modifier.height(MIRA_HEIGHT).graphicsLayer { translationY = bobOffset })
+            modifier = Modifier.height(miraHeight).graphicsLayer { translationY = bobOffset })
 
         Spacer(Modifier.width(2.dp))
 
         // Storybook quest panel with corrected insets
-        Box(Modifier.width(QUEST_BOOK_WIDTH).height(MIRA_HEIGHT * 0.52f)) {
+        Box(Modifier.width(questBookWidth).height(miraHeight * 0.52f)) {
             Image(painter = painterResource(R.drawable.storybook_quest_panel), contentDescription = null,
                 contentScale = ContentScale.FillBounds, modifier = Modifier.fillMaxSize())
             Column(Modifier.fillMaxSize()
@@ -428,49 +597,62 @@ private fun PawTrailLayer(
 @Composable
 private fun WorldDestinationLayer(
     state: LivingVillageHomeState, containerSize: IntSize,
+    metrics: VillageUiMetrics,
     onCafe: () -> Unit, onPlayground: () -> Unit,
 ) {
     if (containerSize == IntSize.Zero) return
     val transform = remember(containerSize) { contentFitTransform(containerSize, IntSize(DESIGN_W, DESIGN_H)) }
+    val density = LocalDensity.current
 
-    // Cat Café — separate anchor, 112dp marker, 144dp label, 4dp spacing
+    // Cat Café — separate anchor
     val cafePos = transform.map(catCafeAnchor.x, catCafeAnchor.y)
+    val cafeMarkerSizePx = with(density) { metrics.worldMarkerSize.toPx() }
+    val cafeLabelWidthPx = with(density) { metrics.worldLabelWidth.toPx() }
     Column(
-        Modifier.offset { IntOffset((cafePos.x - WORLD_MARKER_SIZE.toPx() / 2).toInt(),
-            (cafePos.y - WORLD_MARKER_SIZE.toPx() / 2).toInt()) }
+        Modifier.offset {
+            IntOffset(
+                x = (cafePos.x - cafeMarkerSizePx / 2f).roundToInt(),
+                y = (cafePos.y - cafeMarkerSizePx / 2f).roundToInt(),
+            )
+        }
             .semantics(mergeDescendants = true) { contentDescription = "Cat Café"; role = Role.Button }
             .clickable(role = Role.Button) { onCafe() },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(painter = painterResource(R.drawable.cat_cafe_marker), contentDescription = "Cat Café",
-            contentScale = ContentScale.Fit, modifier = Modifier.size(WORLD_MARKER_SIZE))
+            contentScale = ContentScale.Fit, modifier = Modifier.size(metrics.worldMarkerSize))
         Spacer(Modifier.height(4.dp))
         Text("Cat Café", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.width(WORLD_LABEL_WIDTH)
+            modifier = Modifier.width(metrics.worldLabelWidth)
                 .background(Color(0xCC000000), RoundedCornerShape(6.dp))
                 .padding(horizontal = 8.dp, vertical = 3.dp))
     }
 
-    // Playground — separate anchor, 112dp marker, 144dp label, 4dp spacing
+    // Playground — separate anchor
     val pgPos = transform.map(playgroundAnchor.x, playgroundAnchor.y)
+    val pgMarkerSizePx = with(density) { metrics.worldMarkerSize.toPx() }
     val (pgRes, pgDesc) = when (state.playground) {
         is PlaygroundUi.Open -> R.drawable.playground_open to "Playground — Open"
         is PlaygroundUi.Locked -> R.drawable.playground_locked to "Playground — ${state.playground.remaining} to go"
         is PlaygroundUi.Unavailable -> R.drawable.playground_locked to "Playground"
     }
     Column(
-        Modifier.offset { IntOffset((pgPos.x - WORLD_MARKER_SIZE.toPx() / 2).toInt(),
-            (pgPos.y - WORLD_MARKER_SIZE.toPx() / 2).toInt()) }
+        Modifier.offset {
+            IntOffset(
+                x = (pgPos.x - pgMarkerSizePx / 2f).roundToInt(),
+                y = (pgPos.y - pgMarkerSizePx / 2f).roundToInt(),
+            )
+        }
             .semantics(mergeDescendants = true) { contentDescription = pgDesc; role = Role.Button }
             .clickable(role = Role.Button) { onPlayground() },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(painter = painterResource(pgRes), contentDescription = pgDesc, contentScale = ContentScale.Fit, modifier = Modifier.size(WORLD_MARKER_SIZE))
+        Image(painter = painterResource(pgRes), contentDescription = pgDesc, contentScale = ContentScale.Fit, modifier = Modifier.size(metrics.worldMarkerSize))
         Spacer(Modifier.height(4.dp))
         Text("Playground", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.width(WORLD_LABEL_WIDTH)
+            modifier = Modifier.width(metrics.worldLabelWidth)
                 .background(Color(0xCC000000), RoundedCornerShape(6.dp))
                 .padding(horizontal = 8.dp, vertical = 3.dp))
     }
@@ -512,9 +694,9 @@ private fun CompactStatusStrip(state: LivingVillageHomeState, onPlayground: () -
     ) {
         Text("Hi, ${state.childName}!", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 16.sp)
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text("🐟 ${state.fishTreats}", color = Gold, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-            Text("📋 ${state.completedQuests}/${state.totalQuests}", color = Color.White, fontSize = 14.sp)
-            Text(if (state.playground is PlaygroundUi.Open) "🎮" else "🔒",
+            Text("\uD83D\uDC1F ${state.fishTreats}", color = Gold, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+            Text("\uD83D\uDCCB ${state.completedQuests}/${state.totalQuests}", color = Color.White, fontSize = 14.sp)
+            Text(if (state.playground is PlaygroundUi.Open) "\uD83C\uDFAE" else "\uD83D\uDD12",
                 color = Color.White, fontSize = 14.sp, modifier = Modifier.clickable { onPlayground() })
         }
     }

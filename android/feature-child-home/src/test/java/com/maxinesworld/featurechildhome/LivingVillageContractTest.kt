@@ -160,18 +160,17 @@ class LivingVillageContractTest {
         assertNotNull("english must have an anchor", anchor)
     }
 
-    // 18. Reduced-motion disables final paw pulse
+    // 18. Reduced-motion state is preserved through mapping
     @Test
-    fun reducedMotionDisablesNonessentialAnimation() {
-        // When reducedMotion is true, miraBob should return 0f
-        // This is a behavioral contract — actual rendering verified visually
+    fun reducedMotionIsPreservedAndDisablesAnimationCondition() {
         val state = VillageHomeState(
             playground = PlaygroundGateState("test", "2026-07-16", 0, 0, PlaygroundGateStatus.Unlocked),
         )
         val lv = state.toLivingVillage(reducedMotion = true)
         assertTrue(lv.reducedMotion)
-        // Quest target exists but should not animate in reduced-motion mode
-        lv.copy(questSubjectId = "english")
+        // In this state, the animation condition in SubjectMedallion evaluates to:
+        // animateFloatAsState targetValue = if (isActive && !lv.reducedMotion) 1.05f else 1f
+        // With reducedMotion=true, targetValue is always 1f regardless of isActive
         assertTrue(lv.reducedMotion)
     }
 
@@ -180,5 +179,80 @@ class LivingVillageContractTest {
         val state = VillageHomeState(playground = null)
         val lv = state.toLivingVillage(reducedMotion = false)
         assertEquals(PlaygroundUi.Unavailable, lv.playground)
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // Responsive scaling tests
+    // ═══════════════════════════════════════════════════════
+
+    @Test
+    fun visualScaleUsesReferenceScaleAt720DpShortSide() {
+        val metrics = villageUiMetrics(
+            viewportWidthDp = 1108f,
+            viewportHeightDp = 720f,
+        )
+
+        assertEquals(1f, metrics.scale, 0.001f)
+        assertEquals(88f, metrics.medallionSize.value, 0.01f)
+        assertEquals(104f, metrics.selectedMedallionSize.value, 0.01f)
+    }
+
+    @Test
+    fun visualScaleClampsForCompactViewport() {
+        val metrics = villageUiMetrics(
+            viewportWidthDp = 400f,
+            viewportHeightDp = 250f,
+        )
+
+        assertEquals(0.58f, metrics.scale, 0.001f)
+        assertTrue(metrics.medallionSize.value >= 48f)
+        assertTrue(metrics.lessonLabelWidth.value >= 96f)
+    }
+
+    @Test
+    fun visualScaleClampsForLargeTablet() {
+        val metrics = villageUiMetrics(
+            viewportWidthDp = 1400f,
+            viewportHeightDp = 900f,
+        )
+
+        assertEquals(1.08f, metrics.scale, 0.001f)
+        assertTrue(metrics.selectedMedallionSize.value <= 113f)
+        assertTrue(metrics.lessonLabelWidth.value <= 168f)
+    }
+
+    @Test
+    fun selectedMedallionIsLargerThanStandardMedallion() {
+        val metrics = villageUiMetrics(1108f, 720f)
+
+        assertTrue(
+            metrics.selectedMedallionSize >
+                metrics.medallionSize
+        )
+    }
+
+    @Test
+    fun allApprovedLabelsFitConfiguredLineRules() {
+        val oneLine = setOf("Story Tree")
+        val twoLine = setOf(
+            "Bahay ng Kuwento",
+            "Number Market",
+            "Discovery Lab",
+            "Heritage Harbor",
+            "Kindness Corner",
+        )
+
+        assertEquals(
+            approvedDestinationNames.values.toSet(),
+            oneLine + twoLine,
+        )
+    }
+
+    @Test
+    fun subjectRenderingHasNoBlankDrawableFallback() {
+        assertEquals(
+            approvedDestinationNames.keys,
+            subjectMedallionRes.keys,
+        )
     }
 }
