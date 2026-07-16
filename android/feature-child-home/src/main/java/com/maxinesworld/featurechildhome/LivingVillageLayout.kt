@@ -12,6 +12,8 @@ data class DesignTransform(val scale: Float, val dx: Float, val dy: Float) {
     fun map(x: Float, y: Float) = Offset(dx + x * scale, dy + y * scale)
 }
 
+data class DesignPoint(val x: Float, val y: Float)
+
 fun contentFitTransform(container: IntSize, design: IntSize = IntSize(3048, 2032)): DesignTransform {
     val scale = min(
         container.width / design.width.toFloat(),
@@ -25,8 +27,8 @@ fun contentFitTransform(container: IntSize, design: IntSize = IntSize(3048, 2032
 }
 
 /**
- * Subject medallion anchors in design pixels (3048×2032 reference canvas).
- * Calibrated to attach each medallion to the correct building in the village scene.
+ * Exactly six subject medallion anchors in design pixels (3048×2032).
+ * Cat Café and Playground are NOT subject destinations.
  */
 val subjectAnchors = mapOf(
     "english" to Offset(610f, 780f),
@@ -35,5 +37,8 @@ val subjectAnchors = mapOf(
     "science" to Offset(640f, 1460f),
     "history" to Offset(1510f, 1510f),
     "gmrc" to Offset(2360f, 1470f),
-    "cat-cafe" to Offset(2700f, 1750f),
 )
+
+/** Non-subject world destination anchors */
+val playgroundAnchor = DesignPoint(x = 340f, y = 1160f)
+val catCafeAnchor = DesignPoint(x = 2690f, y = 1570f)

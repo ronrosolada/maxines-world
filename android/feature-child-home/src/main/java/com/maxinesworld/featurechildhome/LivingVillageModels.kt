@@ -12,6 +12,16 @@ data class SubjectDestinationUi(
     val enabled: Boolean = true,
 )
 
+/** Approved full destination names — must not be shortened */
+val approvedDestinationNames = mapOf(
+    "english" to "Story Tree",
+    "filipino" to "Bahay ng Kuwento",
+    "mathematics" to "Number Market",
+    "science" to "Discovery Lab",
+    "history" to "Heritage Harbor",
+    "gmrc" to "Kindness Corner",
+)
+
 sealed interface PlaygroundUi {
     data class Locked(val completed: Int, val total: Int, val remaining: Int) : PlaygroundUi
     data object Open : PlaygroundUi
@@ -54,7 +64,7 @@ fun VillageHomeState.toLivingVillage(reducedMotion: Boolean): LivingVillageHomeS
             total = playground.totalAssigned,
             remaining = playground.totalAssigned - playground.completed,
         )
-        else -> PlaygroundUi.Unavailable // Loading, NoQuests, Error
+        else -> PlaygroundUi.Unavailable
     }
     val questSubject = if (showMiraRequest) "english" else null
     return LivingVillageHomeState(
