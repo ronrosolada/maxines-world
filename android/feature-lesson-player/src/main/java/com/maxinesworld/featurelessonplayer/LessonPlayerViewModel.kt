@@ -260,10 +260,14 @@ class LessonPlayerViewModel @Inject constructor(
             steps = m1.activities.map { act ->
                 val canonical = canonicalActivityType(act.type)
                     ?: throw UnsupportedActivityTypeException(m1.lessonId, act.activityId, act.type)
+                val (options, correctIndex) = extractOptionsAndCorrectIndex(act)
                 ActivityStep(
-                    id = act.activityId, type = canonical,
+                    id = act.activityId,
+                    type = canonical,
                     narrationText = act.instruction,
-                    options = emptyList(), correctIndex = -1,
+                    question = act.instruction,
+                    options = options,
+                    correctIndex = correctIndex,
                     feedback = ActivityFeedback(
                         correct = act.feedback?.correct ?: "Great job!",
                         incorrect = act.feedback?.retry ?: "Let's try again!"
@@ -271,6 +275,79 @@ class LessonPlayerViewModel @Inject constructor(
                 )
             }
         )
+    }
+
+    /**
+     * Map Month1 activity JSON `content` into ActivityStep options/correctIndex.
+     * Without this, renderers fall back to A/B/C/D with correctIndex=-1 and
+     * lessons cannot be scored or completed.
+     */
+    private fun extractOptionsAndCorrectIndex(act: Month1Activity): Pair<List<String>, Int> {
+        val el = act.content ?: return emptyList<String>() to -1
+        return try {
+            val obj = el as? kotlinx.serialization.json.JsonObject
+                ?: return emptyList<String>() to -1
+            when (act.type.uppercase()) {
+                "MULTIPLE_CHOICE" -> {
+                    val optionsEl = obj["options"]
+                    val options = when (optionsEl) {
+                        is kotlinx.serialization.json.JsonArray -> optionsEl.mapNotNull { item ->
+                            when (item) {
+                                is kotlinx.serialization.json.JsonPrimitive -> item.content
+                                is kotlinx.serialization.json.JsonObject ->
+                                    item["text"]?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                                        ?: item["label"]?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                                else -> null
+                            }
+                        }
+                        else -> emptyList()
+                    }
+                    val correctIndex = obj["correctIndex"]
+                        ?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content?.toIntOrNull() }
+                        ?: -1
+                    options to correctIndex
+                }
+                "HOTSPOT_IMAGE" -> {
+                    val examples = (obj["examples"] as? kotlinx.serialization.json.JsonArray)
+                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                        ?: emptyList()
+                    if (examples.isNotEmpty()) {
+                        examples.mapIndexed { i, _ -> "Region ${i + 1}" } to 0
+                    } else emptyList<String>() to 0
+                }
+                "SORT_AND_CLASSIFY" -> {
+                    val fits = (obj["fits"] as? kotlinx.serialization.json.JsonArray)
+                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                        ?: emptyList()
+                    val doesNot = (obj["doesNotFit"] as? kotlinx.serialization.json.JsonArray)
+                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                        ?: emptyList()
+                    (listOf("Fits", "Does not fit") + fits + doesNot) to -1
+                }
+                "MATCHING_PAIRS" -> {
+                    val pairs = obj["pairs"] as? kotlinx.serialization.json.JsonArray
+                    val labels = pairs?.flatMap { p ->
+                        val o = p as? kotlinx.serialization.json.JsonObject ?: return@flatMap emptyList()
+                        listOfNotNull(
+                            (o["left"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                ?: (o["a"] as? kotlinx.serialization.json.JsonPrimitive)?.content,
+                            (o["right"] as? kotlinx.serialization.json.JsonPrimitive)?.content
+                                ?: (o["b"] as? kotlinx.serialization.json.JsonPrimitive)?.content,
+                        )
+                    } ?: emptyList()
+                    labels to -1
+                }
+                "SEQUENCE_BUILDER" -> {
+                    val steps = (obj["steps"] as? kotlinx.serialization.json.JsonArray)
+                        ?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                        ?: emptyList()
+                    steps to -1
+                }
+                else -> emptyList<String>() to -1
+            }
+        } catch (_: Exception) {
+            emptyList<String>() to -1
+        }
     }
 
     companion object {
@@ -302,7 +379,9 @@ class LessonPlayerViewModel @Inject constructor(
                         .map { it.trim().removeSurrounding("\"") }
                         .filter { it.isNotBlank() }
                 } else emptyList()
-            } catch (_: Exception) { emptyList() }
+            } catch (_: Exception) {
+                emptyList()
+            }
         }
     }
 }

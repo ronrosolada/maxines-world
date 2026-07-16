@@ -134,12 +134,16 @@ private fun TabletLivingVillage(
             modifier = Modifier.fillMaxSize(),
         )
 
-        // Layer 2: Paw trail (deterministic — only when valid quest subject)
-        val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
-        val showPawTrail = resolvedQuestAnchor != null
-        if (showPawTrail && !state.reducedMotion) {
-            PawTrailLayer(state.questSubjectId!!, containerSize)
-        }
+        // Layer 2: Paw trail — always when quest target is known.
+                // Reduced motion: static 6 paws, no pulse (handoff §04).
+                val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
+                if (resolvedQuestAnchor != null) {
+                    PawTrailLayer(
+                        questSubjectId = state.questSubjectId!!,
+                        containerSize = containerSize,
+                        reducedMotion = state.reducedMotion,
+                    )
+                }
 
         // Layer 3: Subject medallions
         MedallionLayer(state.destinations, state.questSubjectId, containerSize, state.reducedMotion, onSubject)
@@ -375,31 +379,42 @@ private fun MiraQuestGroup(
 // ═══════════════════
 
 @Composable
-private fun PawTrailLayer(questSubjectId: String, containerSize: IntSize) {
+private fun PawTrailLayer(
+    questSubjectId: String,
+    containerSize: IntSize,
+    reducedMotion: Boolean,
+) {
     if (containerSize == IntSize.Zero) return
     val targetAnchor = subjectAnchors[questSubjectId] ?: return
     val transform = remember(containerSize) { contentFitTransform(containerSize, IntSize(DESIGN_W, DESIGN_H)) }
     val target = transform.map(targetAnchor.x, targetAnchor.y)
     val miraPos = transform.map(200f, 1800f)
 
+    // Exactly six paws; last print pulses unless reduced motion.
     Box(Modifier.testTag("living_village_paw_trail")) {
         repeat(6) { i ->
             val t = i.toFloat() / 5f
             val x = miraPos.x + (target.x - miraPos.x) * t
             val y = miraPos.y + (target.y - miraPos.y) * t
             val isLast = i == 5
-            val alpha = if (isLast && !false /* reducedMotion handled by caller */) {
+            val alpha = if (isLast && !reducedMotion) {
                 val pulse by rememberInfiniteTransition().animateFloat(
                     initialValue = 0.82f, targetValue = 1.0f,
                     animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse), label = "pulse",
                 )
                 pulse
-            } else 0.45f + t * 0.25f
+            } else {
+                0.45f + t * 0.25f
+            }
 
             Image(
-                painter = painterResource(R.drawable.paw_trail), contentDescription = null, contentScale = ContentScale.Fit,
-                modifier = Modifier.offset { IntOffset((x - 22).toInt(), (y - 22).toInt()) }
-                    .size(44.dp).alpha(alpha)
+                painter = painterResource(R.drawable.paw_trail),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .offset { IntOffset((x - 22).toInt(), (y - 22).toInt()) }
+                    .size(44.dp)
+                    .alpha(alpha)
                     .testTag("living_village_paw_${i + 1}"),
             )
         }
