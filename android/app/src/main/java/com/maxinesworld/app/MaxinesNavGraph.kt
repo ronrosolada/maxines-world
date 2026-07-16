@@ -15,7 +15,7 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
-import com.maxinesworld.featurechildhome.VillageHomeV17Screen
+import com.maxinesworld.featurechildhome.LivingVillageHomeScreen
 import com.maxinesworld.featurerewards.CatCafeShopScreen
 import com.maxinesworld.coremodel.Subject
 import com.maxinesworld.featurechildhome.VillageHomeViewModel
@@ -118,7 +118,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             val viewModel: VillageHomeViewModel = hiltViewModel()
             val state by viewModel.state.collectAsState()
-            VillageHomeV17Screen(
+            LivingVillageHomeScreen(
                 state = state,
                 onDestinationClick = { subject ->
                     Subject.fromId(subject)?.let { resolved ->
