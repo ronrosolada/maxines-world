@@ -135,63 +135,63 @@ private fun TabletLivingVillage(
     }
 
     Box(Modifier.fillMaxSize().onSizeChanged { containerSize = it }) {
-        // Layer 1: Clean village background — use Fit to match contentFitTransform coords
-        Image(
-            painter = painterResource(R.drawable.village_home_six_landmarks_master),
-            contentDescription = null, contentScale = ContentScale.Fit,
-            modifier = Modifier.fillMaxSize(),
-        )
-
-        // Layer 2: Paw trail — always when quest target is known.
-        val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
-        if (resolvedQuestAnchor != null) {
-            PawTrailLayer(
-                questSubjectId = state.questSubjectId!!,
-                containerSize = containerSize,
-                reducedMotion = state.reducedMotion,
+            // Layer 1: Clean village background — use Fit to match contentFitTransform coords
+            Image(
+                painter = painterResource(R.drawable.village_home_six_landmarks_master),
+                contentDescription = null, contentScale = ContentScale.Fit,
+                modifier = Modifier.fillMaxSize(),
             )
+
+            // Layer 2: Paw trail — always when quest target is known.
+            val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
+            if (resolvedQuestAnchor != null) {
+                PawTrailLayer(
+                    questSubjectId = state.questSubjectId!!,
+                    containerSize = containerSize,
+                    reducedMotion = state.reducedMotion,
+                )
+            }
+
+            // Layer 3: Mira + storybook quest group (before medallions so science anchor is not covered)
+            MiraQuestGroup(state, onMira, uiMetrics,
+                modifier = Modifier.align(Alignment.BottomStart)
+                    .padding(start = 24.dp, bottom = BOTTOM_NAV_HEIGHT + 12.dp))
+
+            uiMetrics?.let { metrics ->
+                // Layer 4: Subject medallions (above Mira so all 6 are visible)
+                MedallionLayer(
+                    destinations = state.destinations,
+                    activeSubjectId = state.questSubjectId,
+                    containerSize = containerSize,
+                    reducedMotion = state.reducedMotion,
+                    metrics = metrics,
+                    onClick = onSubject,
+                )
+
+                // Layer 5: Cat Café + Playground (non-subject world destinations)
+                WorldDestinationLayer(
+                    state = state,
+                    containerSize = containerSize,
+                    metrics = metrics,
+                    onCafe = onCafe,
+                    onPlayground = onPlayground,
+                )
+            }
+
+            // Layer 6: Wooden status rail
+            WoodenStatusRail(
+                fishTreats = state.fishTreats, completed = state.completedQuests,
+                total = state.totalQuests, playground = state.playground,
+                onPlaygroundClick = onPlayground,
+                modifier = Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 16.dp)
+                    .width(STATUS_RAIL_WIDTH).height(STATUS_RAIL_HEIGHT),
+            )
+
+            // Layer 7: Minimal bottom nav
+            MinimalHomeNav(onDiscoveries, onParents,
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
+                    .widthIn(max = BOTTOM_NAV_MAX_WIDTH).height(BOTTOM_NAV_HEIGHT))
         }
-
-        uiMetrics?.let { metrics ->
-            // Layer 3: Subject medallions
-            MedallionLayer(
-                destinations = state.destinations,
-                activeSubjectId = state.questSubjectId,
-                containerSize = containerSize,
-                reducedMotion = state.reducedMotion,
-                metrics = metrics,
-                onClick = onSubject,
-            )
-
-            // Layer 4: Cat Café + Playground (non-subject world destinations)
-            WorldDestinationLayer(
-                state = state,
-                containerSize = containerSize,
-                metrics = metrics,
-                onCafe = onCafe,
-                onPlayground = onPlayground,
-            )
-        }
-
-        // Layer 5: Wooden status rail
-        WoodenStatusRail(
-            fishTreats = state.fishTreats, completed = state.completedQuests,
-            total = state.totalQuests, playground = state.playground,
-            onPlaygroundClick = onPlayground,
-            modifier = Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 16.dp)
-                .width(STATUS_RAIL_WIDTH).height(STATUS_RAIL_HEIGHT),
-        )
-
-        // Layer 6: Mira + storybook quest group
-        MiraQuestGroup(state, onMira, uiMetrics,
-            modifier = Modifier.align(Alignment.BottomStart)
-                .padding(start = 24.dp, bottom = BOTTOM_NAV_HEIGHT + 12.dp))
-
-        // Layer 7: Minimal bottom nav
-        MinimalHomeNav(onDiscoveries, onParents,
-            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
-                .widthIn(max = BOTTOM_NAV_MAX_WIDTH).height(BOTTOM_NAV_HEIGHT))
-    }
 }
 
 // ══════════════════════
