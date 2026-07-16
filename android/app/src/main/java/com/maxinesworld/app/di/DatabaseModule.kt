@@ -25,8 +25,12 @@ object DatabaseModule {
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
         return Room.databaseBuilder(context, MaxinesDatabase::class.java, "maxines_world.db")
             .addMigrations(
-                MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5,
-                MaxinesMigrations.MIGRATION_5_6
+                MIGRATION_1_2,
+                MIGRATION_2_3,
+                MIGRATION_3_4,
+                MIGRATION_4_5,
+                MaxinesMigrations.MIGRATION_5_6,
+                MaxinesMigrations.MIGRATION_6_7,
             )
             .build()
     }
@@ -82,10 +86,30 @@ object DatabaseModule {
 
     private val MIGRATION_4_5 = object : Migration(4, 5) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            db.execSQL("CREATE TABLE IF NOT EXISTS `reward_ledger` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `amount` INTEGER NOT NULL, `sourceKey` TEXT NOT NULL, `occurredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_reward_ledger_sourceKey` ON `reward_ledger` (`sourceKey`)")
-            db.execSQL("CREATE TABLE IF NOT EXISTS `inventory` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `itemId` TEXT NOT NULL, `acquiredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
-            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `idx_inventory_owner` ON `inventory` (`childId`, `itemId`)")
+            // Index names MUST match Room schema JSON exactly.
+            db.execSQL(
+                "CREATE TABLE IF NOT EXISTS `reward_ledger` (" +
+                    "`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `amount` INTEGER NOT NULL, " +
+                    "`sourceKey` TEXT NOT NULL, `occurredAtEpochMillis` INTEGER NOT NULL, " +
+                    "PRIMARY KEY(`id`))"
+            )
+            db.execSQL(
+                "CREATE INDEX IF NOT EXISTS `index_reward_ledger_childId` " +
+                    "ON `reward_ledger` (`childId`)"
+            )
+            db.execSQL(
+                "CREATE UNIQUE INDEX IF NOT EXISTS `index_reward_ledger_sourceKey` " +
+                    "ON `reward_ledger` (`sourceKey`)"
+            )
+            db.execSQL(
+                "CREATE TABLE IF NOT EXISTS `inventory` (" +
+                    "`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `itemId` TEXT NOT NULL, " +
+                    "`acquiredAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))"
+            )
+            db.execSQL(
+                "CREATE UNIQUE INDEX IF NOT EXISTS `index_inventory_childId_itemId` " +
+                    "ON `inventory` (`childId`, `itemId`)"
+            )
         }
     }
 

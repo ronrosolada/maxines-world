@@ -49,4 +49,23 @@ object MaxinesMigrations {
             db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_childId`")
         }
     }
+
+    /**
+     * v6→v7: Repair reward_ledger / inventory indexes on devices that already
+     * applied the incomplete MIGRATION_4_5 (missing childId index; wrong inventory index name).
+     * No table shape changes — schemas 6 and 7 are identical except for version.
+     */
+    val MIGRATION_6_7 = object : Migration(6, 7) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "CREATE INDEX IF NOT EXISTS `index_reward_ledger_childId` " +
+                    "ON `reward_ledger` (`childId`)"
+            )
+            db.execSQL("DROP INDEX IF EXISTS `idx_inventory_owner`")
+            db.execSQL(
+                "CREATE UNIQUE INDEX IF NOT EXISTS `index_inventory_childId_itemId` " +
+                    "ON `inventory` (`childId`, `itemId`)"
+            )
+        }
+    }
 }
