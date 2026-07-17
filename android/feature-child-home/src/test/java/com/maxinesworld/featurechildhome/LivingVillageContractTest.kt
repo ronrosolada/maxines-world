@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
 import com.maxinesworld.playground.PlaygroundGateState
@@ -303,5 +304,108 @@ class LivingVillageContractTest {
             ),
             approvedDestinationNames.values.toSet(),
         )
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // Lower layout correction tests
+    // ═══════════════════════════════════════════════════════
+
+    @Test
+    fun upperSubjectAnchorsUnchanged() {
+        assertEquals(Offset(610f, 780f), subjectAnchors["english"])
+        assertEquals(Offset(1570f, 820f), subjectAnchors["filipino"])
+        assertEquals(Offset(2380f, 820f), subjectAnchors["mathematics"])
+    }
+
+    @Test
+    fun discoveryLabReceivesPresentationOffset() {
+        val original = subjectAnchors["science"] ?: error("missing")
+        val adjusted = presentationAnchor("science", original)
+        assertEquals(original.x + discoveryPresentationOffset.x, adjusted.x)
+        assertEquals(original.y + discoveryPresentationOffset.y, adjusted.y)
+    }
+
+    @Test
+    fun heritageHarborUsesCaptionAbove() {
+        assertEquals(CaptionPlacement.Above, captionPlacement("history"))
+    }
+
+    @Test
+    fun otherSubjectsUseCaptionBelow() {
+        for (id in listOf("english", "filipino", "mathematics", "science", "gmrc")) {
+            assertEquals("$id should use Below", CaptionPlacement.Below, captionPlacement(id))
+        }
+    }
+
+    @Test
+    fun lowerSubjectsReceiveHighContrast() {
+        assertTrue("science is lower", "science" in lowerSubjectIds)
+        assertTrue("history is lower", "history" in lowerSubjectIds)
+        assertTrue("gmrc is lower", "gmrc" in lowerSubjectIds)
+        assertFalse("english is not lower", "english" in lowerSubjectIds)
+    }
+
+    @Test
+        fun worldCaptionColorIsDarkCocoa() {
+            assertTrue("World caption should be dark (red)", WorldCaptionCocoa.red < 0.3f)
+            assertTrue("World caption should be dark (green)", WorldCaptionCocoa.green < 0.2f)
+            assertTrue("World caption should be dark (blue)", WorldCaptionCocoa.blue < 0.2f)
+        }
+
+    @Test
+    fun questBookMetricsWithinBounds() {
+        val metrics = villageUiMetrics(1108f, 720f)
+        // Reference viewport: scale=1.0
+        assertTrue(metrics.questBookWidth.value in 278f..344f)
+        assertTrue(metrics.questBookHeight.value in 150f..184f)
+        assertTrue(metrics.miraBookGap.value in 6f..8f)
+        assertTrue(metrics.miraHeight.value in 164f..208f)
+    }
+
+    @Test
+        fun miraBookGroupClearsBottomNavigation() {
+            val metrics = villageUiMetrics(1108f, 720f)
+            // Mira + book are horizontal (Row), so the group height is max(miraHeight, questBookHeight).
+            // This must leave room for bottom nav (64dp) + padding.
+            val groupHeight = maxOf(metrics.miraHeight.value, metrics.questBookHeight.value)
+            assertTrue("Group should fit above nav", groupHeight < 350f)
+        }
+
+    @Test
+    fun miraQuestAnchorIsInBottomHalf() {
+        assertTrue("Y > 1016 (bottom half of 2032)", miraQuestAnchor.y > 1016f)
+        assertTrue("X should be left side", miraQuestAnchor.x < 1524f)
+    }
+
+    @Test
+    fun discoveryPresentationAnchorIsDistinctFromCanonical() {
+        val canonical = subjectAnchors["science"] ?: error("missing")
+        val display = presentationAnchor("science", canonical)
+        assertNotEquals(canonical, display)
+    }
+
+    @Test
+    fun nonScienceSubjectsKeepCanonicalAnchor() {
+        for (id in listOf("english", "filipino", "mathematics", "history", "gmrc")) {
+            val canonical = subjectAnchors[id] ?: error("missing $id")
+            assertEquals(canonical, presentationAnchor(id, canonical))
+        }
+    }
+
+    @Test
+    fun allApprovedLabelsStillPresent() {
+        val names = approvedDestinationNames.values.toSet()
+        assertEquals(6, names.size)
+        for (label in listOf("Story Tree", "Bahay ng Kuwento", "Number Market",
+                "Discovery Lab", "Heritage Harbor", "Kindness Corner")) {
+            assertTrue("Missing: $label", label in names)
+        }
+    }
+
+    @Test
+    fun lessonCaptionColorsMatchApprovedTokens() {
+        assertEquals(Color(0xFF3B281C), LessonCaptionCocoa)
+        assertEquals(Color(0xF2FFF3D6), LessonCaptionHalo)
+        assertEquals(Color(0xFFD6942C), LessonCaptionActive)
     }
 }

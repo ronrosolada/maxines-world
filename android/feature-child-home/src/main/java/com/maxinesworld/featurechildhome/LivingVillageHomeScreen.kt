@@ -16,9 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
@@ -26,9 +28,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.*
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.TextStyle
@@ -60,8 +61,9 @@ private val RailLabelColor = Color(0xFFD4C8A0)
 
 // ─── Storybook caption colors ───
 internal val LessonCaptionCocoa = Color(0xFF3B281C)
-internal val LessonCaptionHalo = Color(0xE6FFF3D6)
+internal val LessonCaptionHalo = Color(0xF2FFF3D6)
 internal val LessonCaptionActive = Color(0xFFD6942C)
+internal val WorldCaptionCocoa = Color(0xFF342216)
 
 // ─── Medallion drawable map ───
 internal val subjectMedallionRes = mapOf(
@@ -128,6 +130,7 @@ private fun TabletLivingVillage(
     onParents: () -> Unit,
 ) {
     var containerSize by remember { mutableStateOf(IntSize.Zero) }
+    var miraQuestSize by remember { mutableStateOf(IntSize.Zero) }
     val density = LocalDensity.current
 
     val uiMetrics = remember(containerSize, density) {
@@ -143,64 +146,90 @@ private fun TabletLivingVillage(
         }
     }
 
-    Box(Modifier.fillMaxSize().onSizeChanged { containerSize = it }) {
-            // Layer 1: Clean village background — use Fit to match contentFitTransform coords
-            Image(
-                painter = painterResource(R.drawable.village_home_six_landmarks_master),
-                contentDescription = null, contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxSize(),
+    Box(
+        Modifier
+            .fillMaxSize()
+            .clipToBounds()
+            .onSizeChanged { containerSize = it }
+    ) {
+        // Layer 1: Clean village background
+        Image(
+            painter = painterResource(R.drawable.village_home_six_landmarks_master),
+            contentDescription = null, contentScale = ContentScale.Fit,
+            modifier = Modifier.fillMaxSize(),
+        )
+
+        // Layer 2: Paw trail
+        val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
+        if (resolvedQuestAnchor != null) {
+            PawTrailLayer(
+                questSubjectId = state.questSubjectId!!,
+                containerSize = containerSize,
+                reducedMotion = state.reducedMotion,
             )
-
-            // Layer 2: Paw trail — always when quest target is known.
-            val resolvedQuestAnchor = state.questSubjectId?.let { subjectAnchors[it] }
-            if (resolvedQuestAnchor != null) {
-                PawTrailLayer(
-                    questSubjectId = state.questSubjectId!!,
-                    containerSize = containerSize,
-                    reducedMotion = state.reducedMotion,
-                )
-            }
-
-            // Layer 3: Mira + storybook quest group (before medallions so science anchor is not covered)
-            MiraQuestGroup(state, onMira, uiMetrics,
-                modifier = Modifier.align(Alignment.BottomStart)
-                    .padding(start = 24.dp, bottom = BOTTOM_NAV_HEIGHT + 12.dp))
-
-            uiMetrics?.let { metrics ->
-                // Layer 4: Subject medallions (above Mira so all 6 are visible)
-                MedallionLayer(
-                    destinations = state.destinations,
-                    activeSubjectId = state.questSubjectId,
-                    containerSize = containerSize,
-                    reducedMotion = state.reducedMotion,
-                    metrics = metrics,
-                    onClick = onSubject,
-                )
-
-                // Layer 5: Cat Café + Playground (non-subject world destinations)
-                WorldDestinationLayer(
-                    state = state,
-                    containerSize = containerSize,
-                    metrics = metrics,
-                    onCafe = onCafe,
-                    onPlayground = onPlayground,
-                )
-            }
-
-            // Layer 6: Wooden status rail
-            WoodenStatusRail(
-                fishTreats = state.fishTreats, completed = state.completedQuests,
-                total = state.totalQuests, playground = state.playground,
-                onPlaygroundClick = onPlayground,
-                modifier = Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 16.dp)
-                    .width(STATUS_RAIL_WIDTH).height(STATUS_RAIL_HEIGHT),
-            )
-
-            // Layer 7: Minimal bottom nav
-            MinimalHomeNav(onDiscoveries, onParents,
-                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
-                    .widthIn(max = BOTTOM_NAV_MAX_WIDTH).height(BOTTOM_NAV_HEIGHT))
         }
+
+        uiMetrics?.let { metrics ->
+            val transform = remember(containerSize) {
+                contentFitTransform(
+                    container = containerSize,
+                    design = IntSize(DESIGN_W, DESIGN_H),
+                )
+            }
+
+            // Layer 3: Mira + storybook quest group (positioned by anchor)
+            val miraAnchorPx = transform.map(
+                miraQuestAnchor.x,
+                miraQuestAnchor.y,
+            )
+            MiraQuestGroup(
+                state = state,
+                onContinue = onMira,
+                metrics = metrics,
+                modifier = Modifier
+                    .onSizeChanged { miraQuestSize = it }
+                    .offset {
+                        IntOffset(
+                            x = (miraAnchorPx.x - miraQuestSize.width / 2f).roundToInt(),
+                            y = (miraAnchorPx.y - miraQuestSize.height).roundToInt(),
+                        )
+                    },
+            )
+
+            // Layer 4: Subject medallions
+            MedallionLayer(
+                destinations = state.destinations,
+                activeSubjectId = state.questSubjectId,
+                containerSize = containerSize,
+                reducedMotion = state.reducedMotion,
+                metrics = metrics,
+                onClick = onSubject,
+            )
+
+            // Layer 5: World destinations
+            WorldDestinationLayer(
+                state = state,
+                containerSize = containerSize,
+                metrics = metrics,
+                onCafe = onCafe,
+                onPlayground = onPlayground,
+            )
+        }
+
+        // Layer 6: Wooden status rail
+        WoodenStatusRail(
+            fishTreats = state.fishTreats, completed = state.completedQuests,
+            total = state.totalQuests, playground = state.playground,
+            onPlaygroundClick = onPlayground,
+            modifier = Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 16.dp)
+                .width(STATUS_RAIL_WIDTH).height(STATUS_RAIL_HEIGHT),
+        )
+
+        // Layer 7: Minimal bottom nav
+        MinimalHomeNav(onDiscoveries, onParents,
+            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
+                .widthIn(max = BOTTOM_NAV_MAX_WIDTH).height(BOTTOM_NAV_HEIGHT))
+    }
 }
 
 // ══════════════════════
@@ -232,7 +261,13 @@ private fun CompactLivingVillage(
                 }
             }
         }
-        Box(Modifier.fillMaxWidth().aspectRatio(16f / 10f).onSizeChanged { vpSize = it }) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .aspectRatio(16f / 10f)
+                .clipToBounds()
+                .onSizeChanged { vpSize = it }
+        ) {
             Image(painter = painterResource(R.drawable.village_home_six_landmarks_master), contentDescription = null,
                 contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
             uiMetrics?.let { metrics ->
@@ -268,8 +303,13 @@ private fun MedallionLayer(
         val anchor = subjectAnchors[destination.id] ?: return@forEach
         val imageRes = subjectMedallionRes[destination.id] ?: return@forEach
         val approvedLabel = approvedDestinationNames[destination.id] ?: return@forEach
-        val position = transform.map(anchor.x, anchor.y)
+        val displayAnchor = presentationAnchor(
+            subjectId = destination.id,
+            canonicalAnchor = anchor,
+        )
+        val position = transform.map(displayAnchor.x, displayAnchor.y)
         val isActive = destination.id == activeSubjectId
+        val placement = captionPlacement(destination.id)
 
         val iconSize = if (isActive) {
             metrics.selectedMedallionSize
@@ -286,23 +326,24 @@ private fun MedallionLayer(
         }
 
         SubjectMedallion(
-                    imageRes = imageRes,
-                    label = approvedLabel,
-                    subjectId = destination.id,
-                    progressText = destination.progressText,
-                    isActive = isActive,
-                    enabled = destination.enabled,
-                    reducedMotion = reducedMotion,
-                    metrics = metrics,
-                    onClick = { onClick(destination.id) },
-                    modifier = Modifier.offset {
-                        IntOffset(
-                            x = (position.x - groupWidthPx / 2f).roundToInt(),
-                            y = (position.y - iconSizePx / 2f).roundToInt(),
-                        )
-                    }
-                        .testTag("living_village_subject_${destination.id}"),
+            imageRes = imageRes,
+            label = approvedLabel,
+            subjectId = destination.id,
+            progressText = destination.progressText,
+            isActive = isActive,
+            enabled = destination.enabled,
+            reducedMotion = reducedMotion,
+            metrics = metrics,
+            captionPlacement = placement,
+            onClick = { onClick(destination.id) },
+            modifier = Modifier.offset {
+                IntOffset(
+                    x = (position.x - groupWidthPx / 2f).roundToInt(),
+                    y = (position.y - iconSizePx / 2f).roundToInt(),
                 )
+            }
+                .testTag("living_village_subject_${destination.id}"),
+        )
     }
 }
 
@@ -316,6 +357,7 @@ private fun SubjectMedallion(
     enabled: Boolean,
     reducedMotion: Boolean,
     metrics: VillageUiMetrics,
+    captionPlacement: CaptionPlacement,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -361,6 +403,36 @@ private fun SubjectMedallion(
         }
     }
 
+    val highContrast = subjectId in lowerSubjectIds
+
+    val icon = @Composable {
+        Image(
+            painter = painterResource(imageRes),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .size(iconSize)
+                .graphicsLayer {
+                    scaleX = animatedScale
+                    scaleY = animatedScale
+                    alpha = glowAlpha
+                }
+                .testTag("living_village_subject_icon_$subjectId"),
+        )
+    }
+
+    val caption = @Composable {
+        LessonStorybookCaption(
+            label = label,
+            isActive = isActive,
+            highContrast = highContrast,
+            metrics = metrics,
+            modifier = Modifier.testTag(
+                "living_village_subject_label_$subjectId"
+            ),
+        )
+    }
+
     Column(
         modifier = modifier
             .width(metrics.lessonLabelWidth)
@@ -377,30 +449,18 @@ private fun SubjectMedallion(
             .testTag("living_village_subject_$subjectId"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(
-            painter = painterResource(imageRes),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .size(iconSize)
-                .graphicsLayer {
-                    scaleX = animatedScale
-                    scaleY = animatedScale
-                    alpha = glowAlpha
-                }
-                .testTag("living_village_subject_icon_$subjectId"),
-        )
-
-        Spacer(Modifier.height(3.dp))
-
-        LessonStorybookCaption(
-            label = label,
-            isActive = isActive,
-            metrics = metrics,
-            modifier = Modifier.testTag(
-                "living_village_subject_label_$subjectId"
-            ),
-        )
+        when (captionPlacement) {
+            CaptionPlacement.Above -> {
+                caption()
+                Spacer(Modifier.height(3.dp))
+                icon()
+            }
+            CaptionPlacement.Below -> {
+                icon()
+                Spacer(Modifier.height(3.dp))
+                caption()
+            }
+        }
     }
 }
 
@@ -408,9 +468,20 @@ private fun SubjectMedallion(
 private fun LessonStorybookCaption(
     label: String,
     isActive: Boolean,
+    highContrast: Boolean = false,
     metrics: VillageUiMetrics,
     modifier: Modifier = Modifier,
 ) {
+    val captionShadow = Shadow(
+        color = if (highContrast) {
+            LessonCaptionHalo
+        } else {
+            Color(0xD9FFF3D6)
+        },
+        offset = Offset.Zero,
+        blurRadius = if (highContrast) 6f else 4f,
+    )
+
     Column(
         modifier = modifier.width(metrics.lessonLabelWidth),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -427,11 +498,7 @@ private fun LessonStorybookCaption(
             softWrap = true,
             overflow = TextOverflow.Clip,
             style = LocalTextStyle.current.copy(
-                shadow = Shadow(
-                    color = LessonCaptionHalo,
-                    offset = Offset.Zero,
-                    blurRadius = 4f,
-                ),
+                shadow = captionShadow,
             ),
             modifier = Modifier
                 .fillMaxWidth()
@@ -451,6 +518,38 @@ private fun LessonStorybookCaption(
                 ),
         )
     }
+}
+
+// ═══════════════════════
+// Quiet World Caption
+// ═══════════════════════
+
+@Composable
+private fun QuietWorldCaption(
+    label: String,
+    metrics: VillageUiMetrics,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        text = label,
+        color = WorldCaptionCocoa,
+        fontFamily = FontFamily.Serif,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = metrics.lessonLabelFontSp.sp,
+        lineHeight = metrics.lessonLabelLineHeightSp.sp,
+        textAlign = TextAlign.Center,
+        maxLines = 1,
+        softWrap = false,
+        overflow = TextOverflow.Clip,
+        style = LocalTextStyle.current.copy(
+            shadow = Shadow(
+                color = LessonCaptionHalo,
+                offset = Offset.Zero,
+                blurRadius = 6f,
+            ),
+        ),
+        modifier = modifier.width(metrics.worldLabelWidth),
+    )
 }
 
 // ═══════════════════
@@ -495,13 +594,13 @@ private fun WoodenStatusRail(
 }
 
 // ═══════════════════════════
-// Mira + Quest — one group
+// Mira + Quest
 // ═══════════════════════════
 
 @Composable
 private fun MiraQuestGroup(
     state: LivingVillageHomeState, onContinue: () -> Unit,
-    metrics: VillageUiMetrics?,
+    metrics: VillageUiMetrics,
     modifier: Modifier = Modifier,
 ) {
     val bobOffset = if (state.reducedMotion) 0f else {
@@ -514,8 +613,10 @@ private fun MiraQuestGroup(
     }
     val poseRes = miraPose(state)
 
-    val miraHeight = metrics?.miraHeight ?: 224.dp
-    val questBookWidth = metrics?.questBookWidth ?: 360.dp
+    val questTitleSize = (16f * metrics.scale).coerceIn(14f, 17f).sp
+    val questTitleLineHeight = (19f * metrics.scale).coerceIn(17f, 20f).sp
+    val questBodySize = (13f * metrics.scale).coerceIn(12f, 14f).sp
+    val questBodyLineHeight = (16f * metrics.scale).coerceIn(15f, 18f).sp
 
     Row(
         modifier = modifier.clickable(role = Role.Button) { onContinue() }
@@ -525,32 +626,60 @@ private fun MiraQuestGroup(
         verticalAlignment = Alignment.Bottom,
     ) {
         Image(painter = painterResource(poseRes), contentDescription = null, contentScale = ContentScale.Fit,
-            modifier = Modifier.height(miraHeight).graphicsLayer { translationY = bobOffset })
+            modifier = Modifier.height(metrics.miraHeight).graphicsLayer { translationY = bobOffset })
 
-        Spacer(Modifier.width(2.dp))
+        Spacer(Modifier.width(metrics.miraBookGap))
 
-        // Storybook quest panel with corrected insets
-        Box(Modifier.width(questBookWidth).height(miraHeight * 0.52f)) {
+        Box(
+            Modifier
+                .width(metrics.questBookWidth)
+                .height(metrics.questBookHeight)
+        ) {
             Image(painter = painterResource(R.drawable.storybook_quest_panel), contentDescription = null,
                 contentScale = ContentScale.FillBounds, modifier = Modifier.fillMaxSize())
             Column(Modifier.fillMaxSize()
-                .padding(start = 32.dp, top = 24.dp, end = 32.dp, bottom = 20.dp),
-                verticalArrangement = Arrangement.Center,
+                .padding(start = 36.dp, top = 28.dp, end = 28.dp, bottom = 22.dp),
             ) {
-                Text(state.questTitle.ifEmpty { "Your Quest" }, color = DarkTeal,
-                    fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
-                    maxLines = 2, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Start)
-                Spacer(Modifier.height(4.dp))
-                Text(state.questPrompt.ifEmpty { "Tap to continue" }, color = MutedTeal,
-                    fontSize = 11.sp, maxLines = 2, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Start)
+                // 1. Quest title
+                Text(state.questTitle.ifEmpty { "Your Quest" },
+                    color = DarkTeal,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontFamily = FontFamily.Serif,
+                    fontSize = questTitleSize,
+                    lineHeight = questTitleLineHeight,
+                    maxLines = 2, overflow = TextOverflow.Clip, textAlign = TextAlign.Start)
+
+                // 2. Quest description
+                Text(state.questPrompt.ifEmpty { "Tap to continue" },
+                    color = MutedTeal,
+                    fontWeight = FontWeight.Medium,
+                    fontFamily = FontFamily.Serif,
+                    fontSize = questBodySize,
+                    lineHeight = questBodyLineHeight,
+                    maxLines = 2, overflow = TextOverflow.Clip, textAlign = TextAlign.Start)
+
                 if (state.totalQuests > 0) {
-                    Spacer(Modifier.height(12.dp))
+                    // 3. 10dp spacing
+                    Spacer(Modifier.height(10.dp))
+
+                    // 4. Progress bar
                     val prog = state.completedQuests.toFloat() / state.totalQuests
                     Box(Modifier.fillMaxWidth(0.65f).height(4.dp)
                         .background(Color(0x33075F63), RoundedCornerShape(2.dp))) {
                         Box(Modifier.fillMaxWidth(prog.coerceIn(0f, 1f)).fillMaxHeight()
                             .background(Gold, RoundedCornerShape(2.dp)))
                     }
+
+                    // 5. 6dp spacing
+                    Spacer(Modifier.height(6.dp))
+
+                    // 6. Progress text
+                    Text(
+                        text = "${state.completedQuests}/${state.totalQuests} complete",
+                        color = MutedTeal,
+                        fontSize = 11.sp,
+                        fontFamily = FontFamily.Serif,
+                    )
                 }
             }
         }
@@ -573,7 +702,6 @@ private fun PawTrailLayer(
     val target = transform.map(targetAnchor.x, targetAnchor.y)
     val miraPos = transform.map(200f, 1800f)
 
-    // Exactly six paws; last print pulses unless reduced motion.
     Box(Modifier.testTag("living_village_paw_trail")) {
         repeat(6) { i ->
             val t = i.toFloat() / 5f
@@ -618,10 +746,9 @@ private fun WorldDestinationLayer(
     val transform = remember(containerSize) { contentFitTransform(containerSize, IntSize(DESIGN_W, DESIGN_H)) }
     val density = LocalDensity.current
 
-    // Cat Café — separate anchor
+    // Cat Café
     val cafePos = transform.map(catCafeAnchor.x, catCafeAnchor.y)
     val cafeMarkerSizePx = with(density) { metrics.worldMarkerSize.toPx() }
-    val cafeLabelWidthPx = with(density) { metrics.worldLabelWidth.toPx() }
     Column(
         Modifier.offset {
             IntOffset(
@@ -636,14 +763,10 @@ private fun WorldDestinationLayer(
         Image(painter = painterResource(R.drawable.cat_cafe_marker), contentDescription = "Cat Café",
             contentScale = ContentScale.Fit, modifier = Modifier.size(metrics.worldMarkerSize))
         Spacer(Modifier.height(4.dp))
-        Text("Cat Café", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.width(metrics.worldLabelWidth)
-                .background(Color(0xCC000000), RoundedCornerShape(6.dp))
-                .padding(horizontal = 8.dp, vertical = 3.dp))
+        QuietWorldCaption("Cat Café", metrics)
     }
 
-    // Playground — separate anchor
+    // Playground
     val pgPos = transform.map(playgroundAnchor.x, playgroundAnchor.y)
     val pgMarkerSizePx = with(density) { metrics.worldMarkerSize.toPx() }
     val (pgRes, pgDesc) = when (state.playground) {
@@ -664,11 +787,7 @@ private fun WorldDestinationLayer(
     ) {
         Image(painter = painterResource(pgRes), contentDescription = pgDesc, contentScale = ContentScale.Fit, modifier = Modifier.size(metrics.worldMarkerSize))
         Spacer(Modifier.height(4.dp))
-        Text("Playground", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.width(metrics.worldLabelWidth)
-                .background(Color(0xCC000000), RoundedCornerShape(6.dp))
-                .padding(horizontal = 8.dp, vertical = 3.dp))
+        QuietWorldCaption("Playground", metrics)
     }
 }
 

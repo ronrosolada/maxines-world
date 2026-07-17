@@ -29,6 +29,8 @@ data class VillageUiMetrics(
     val worldLabelWidth: Dp,
     val miraHeight: Dp,
     val questBookWidth: Dp,
+    val questBookHeight: Dp,
+    val miraBookGap: Dp,
 )
 
 fun villageUiMetrics(
@@ -52,8 +54,10 @@ fun villageUiMetrics(
         lessonLabelLineHeightSp = (15f * scale).coerceIn(13f, 17f),
         worldMarkerSize = (96f * scale).coerceIn(58f, 104f).dp,
         worldLabelWidth = (144f * scale).coerceIn(96f, 156f).dp,
-        miraHeight = (224f * scale).coerceIn(176f, 224f).dp,
-        questBookWidth = (360f * scale).coerceIn(292f, 360f).dp,
+        miraHeight = (208f * scale).coerceIn(164f, 208f).dp,
+        questBookWidth = (344f * scale).coerceIn(278f, 344f).dp,
+        questBookHeight = (184f * scale).coerceIn(150f, 184f).dp,
+        miraBookGap = (8f * scale).coerceIn(6f, 8f).dp,
     )
 }
 
@@ -85,3 +89,44 @@ val subjectAnchors = mapOf(
 /** Non-subject world destination anchors */
 val playgroundAnchor = DesignPoint(x = 340f, y = 1160f)
 val catCafeAnchor = DesignPoint(x = 2690f, y = 1570f)
+
+// ═══════════════════════════════════════════════════════════
+// Lower layout correction — caption placement & contrast
+// ═══════════════════════════════════════════════════════════
+
+internal enum class CaptionPlacement {
+    Above,
+    Below,
+}
+
+internal val lowerSubjectIds = setOf(
+    "science",
+    "history",
+    "gmrc",
+)
+
+internal val discoveryPresentationOffset = Offset(
+    x = 90f,
+    y = -120f,
+)
+
+internal val miraQuestAnchor = DesignPoint(
+    x = 720f,
+    y = 1740f,
+)
+
+internal fun presentationAnchor(
+    subjectId: String,
+    canonicalAnchor: Offset,
+): Offset = if (subjectId == "science") {
+    canonicalAnchor + discoveryPresentationOffset
+} else {
+    canonicalAnchor
+}
+
+internal fun captionPlacement(subjectId: String): CaptionPlacement =
+    if (subjectId == "history") {
+        CaptionPlacement.Above
+    } else {
+        CaptionPlacement.Below
+    }
