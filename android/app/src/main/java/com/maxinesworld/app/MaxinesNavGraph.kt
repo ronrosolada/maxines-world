@@ -15,29 +15,50 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
-import com.maxinesworld.featurechildhome.VillageHomeV17Screen
-import com.maxinesworld.featurechildhome.VillageHomeV17State
+import com.maxinesworld.featurechildhome.LivingVillageHomeScreen
+import com.maxinesworld.featurerewards.CatCafeShopScreen
+import com.maxinesworld.coremodel.Subject
+import com.maxinesworld.featurechildhome.VillageHomeViewModel
+import com.maxinesworld.featurechildhome.VillageHomeState
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
 import com.maxinesworld.featureparent.ParentContentScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.app.PlaygroundScreen
+import com.maxinesworld.app.PlaygroundRouteGuard
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
+import com.maxinesworld.gamekittenmatch.KittenMatchScreen
+import com.maxinesworld.gamefireflycatch.FireflyCatchScreen
+import com.maxinesworld.gamepawbeats.PawBeatsScreen
 import dagger.hilt.android.EntryPointAccessors
 
 object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
+    const val PLAYGROUND = "playground/{childId}"
+    const val PLAYGROUND_KITTEN_MATCH = "playground/{childId}/kitten-match"
+    const val PLAYGROUND_FIREFLY_GARDEN = "playground/{childId}/firefly-garden"
+    const val PLAYGROUND_PAW_BEATS = "playground/{childId}/paw-beats"
+    const val CAT_CAFE_SHOP = "cat_cafe/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val PARENT_CONTENT = "parent_content/{childId}"
 
     fun childHome(childId: String) = "child_home/$childId"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
+    fun playground(childId: String) = "playground/$childId"
+    fun playgroundKittenMatch(childId: String) = "playground/$childId/kitten-match"
+    fun playgroundFireflyGarden(childId: String) = "playground/$childId/firefly-garden"
+    fun playgroundPawBeats(childId: String) = "playground/$childId/paw-beats"
+    fun catCafeShop(childId: String) = "cat_cafe/$childId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
     fun parentContent(childId: String) = "parent_content/$childId"
@@ -95,29 +116,28 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
-            VillageHomeV17Screen(
-                state = VillageHomeV17State(),
+            val viewModel: VillageHomeViewModel = hiltViewModel()
+            val state by viewModel.state.collectAsState()
+            LivingVillageHomeScreen(
+                state = state,
                 onDestinationClick = { subject ->
-                    val lessonId = when (subject) {
-                        "english" -> "english-g3-m01-d01"
-                        "filipino" -> "filipino-g3-m01-d01"
-                        "mathematics" -> "mathematics-g3-m01-d01"
-                        "science" -> "science-g3-m01-d01"
-                        "philippine-history" -> "mkb-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
-                        else -> "english-g3-m01-d01"
+                    Subject.fromId(subject)?.let { resolved ->
+                        navController.navigate(Routes.lessonPlayer(childId, resolved.lessonId))
                     }
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onQuestClick = { },
-                onHomeClick = { },
-                onProgressClick = { },
-                onAvatarsClick = {
-                    navController.navigate(Routes.wildlifeFieldGuide(childId))
+                onMiraClick = {
+                    navController.navigate(Routes.lessonPlayer(childId, "english-g3-m01-d01"))
+                },
+                onDiscoveriesClick = { navController.navigate(Routes.wildlifeFieldGuide(childId)) },
+                onCafeClick = { navController.navigate(Routes.catCafeShop(childId)) },
+                onPlaygroundClick = {
+                    navController.navigate(Routes.playground(childId))
                 },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
+                },
+                onDismissPlaygroundUnlockCelebration = {
+                    viewModel.dismissPlaygroundUnlockCelebration()
                 },
             )
         }
@@ -264,6 +284,88 @@ fun MaxinesNavGraph(navController: NavHostController) {
             WildlifeFieldGuideScreen(
                 childId = childId,
                 badgeAwarder = badgeAwarder,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ─── Playground Routes ───
+
+        composable(
+            route = Routes.PLAYGROUND,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            PlaygroundRouteGuard(
+                onBlockedExit = { navController.popBackStack() },
+            ) {
+                PlaygroundScreen(
+                    childId = childId,
+                    onBack = { navController.popBackStack() },
+                    onPlayGame = { gameId ->
+                        when (gameId) {
+                            "kitten-match" -> navController.navigate(Routes.playgroundKittenMatch(childId))
+                            "firefly-catch" -> navController.navigate(Routes.playgroundFireflyGarden(childId))
+                            "paw-beats" -> navController.navigate(Routes.playgroundPawBeats(childId))
+                        }
+                    },
+                )
+            }
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_KITTEN_MATCH,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            PlaygroundRouteGuard(
+                onBlockedExit = { navController.popBackStack() },
+            ) {
+                val childId = backStackEntry.arguments?.getString("childId") ?: return@PlaygroundRouteGuard
+                KittenMatchScreen(
+                    childId = childId,
+                    rewardBreakId = "playground_${childId}_kitten_match",
+                    onExit = { navController.popBackStack() }
+                )
+            }
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_FIREFLY_GARDEN,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            PlaygroundRouteGuard(
+                onBlockedExit = { navController.popBackStack() },
+            ) {
+                val childId = backStackEntry.arguments?.getString("childId") ?: return@PlaygroundRouteGuard
+                FireflyCatchScreen(
+                    childId = childId,
+                    rewardBreakId = "playground_${childId}_firefly_catch",
+                    onExit = { navController.popBackStack() }
+                )
+            }
+        }
+
+        composable(
+            route = Routes.PLAYGROUND_PAW_BEATS,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            PlaygroundRouteGuard(
+                onBlockedExit = { navController.popBackStack() },
+            ) {
+                val childId = backStackEntry.arguments?.getString("childId") ?: return@PlaygroundRouteGuard
+                PawBeatsScreen(
+                    childId = childId,
+                    rewardBreakId = "playground_${childId}_paw_beats",
+                    onExit = { navController.popBackStack() }
+                )
+            }
+        }
+
+        composable(
+            route = Routes.CAT_CAFE_SHOP,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            CatCafeShopScreen(
                 onBack = { navController.popBackStack() }
             )
         }

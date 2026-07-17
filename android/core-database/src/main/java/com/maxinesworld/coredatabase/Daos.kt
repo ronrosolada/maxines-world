@@ -89,7 +89,7 @@ interface DailyChallengeDao {
 @Dao
 interface CollectedBadgeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(badge: CollectedBadgeEntity)
+    suspend fun insertIgnoring(badge: CollectedBadgeEntity): Long
 
     @Query("SELECT * FROM collected_badges WHERE childId = :childId ORDER BY earnedAtEpochMillis ASC")
     suspend fun getAllByChild(childId: String): List<CollectedBadgeEntity>
@@ -129,4 +129,80 @@ interface DailyQuestDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(quest: DailyQuestEntity)
+}
+
+@Dao
+interface LessonCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(completion: LessonCompletionEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId)")
+    suspend fun exists(childId: String, lessonId: String): Boolean
+
+    @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
+    suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
+}
+
+// ─── Cat Café Purchase System ───
+
+@Dao
+interface RewardLedgerDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
+
+    @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE childId = :childId")
+    suspend fun fishTreatBalance(childId: String): Int
+}
+
+@Dao
+interface InventoryDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(item: InventoryEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
+    suspend fun owns(childId: String, itemId: String): Boolean
+}
+
+// ─── Playground Gate Persistence ───
+
+@Dao
+interface DailyQuestSetDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestSetEntity): Long
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<DailyQuestSetEntity?>
+}
+
+@Dao
+interface DailyQuestCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestCompletionEntity): Long
+
+    @Query("SELECT * FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): List<DailyQuestCompletionEntity>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getCompletedQuestIds(childId: String, dayKey: String): List<String>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeCompletedQuestIds(childId: String, dayKey: String): Flow<List<String>>
+}
+
+@Dao
+interface PlaygroundUnlockReceiptDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: PlaygroundUnlockReceiptEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey)")
+    suspend fun existsByChildAndDay(childId: String, dayKey: String): Boolean
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): PlaygroundUnlockReceiptEntity?
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<PlaygroundUnlockReceiptEntity?>
 }

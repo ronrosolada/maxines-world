@@ -1,5 +1,6 @@
 package com.maxinesworld.coremodel
 
+import com.maxinesworld.coremodel.gamification.WildlifeDiscoveryMetadata
 import kotlinx.serialization.Serializable
 
 // ─── Auth & Profiles ───
@@ -41,7 +42,8 @@ data class LessonManifest(
     val curriculumStandard: String? = null,
     val term: Int? = null,
     val languageOfInstruction: String? = null,
-    val version: Int = 1
+    val version: Int = 1,
+    val wildlifeDiscovery: WildlifeDiscoveryMetadata? = null
 )
 
 @Serializable

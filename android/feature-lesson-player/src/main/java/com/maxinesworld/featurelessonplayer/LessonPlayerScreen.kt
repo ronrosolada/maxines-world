@@ -133,14 +133,15 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         }
 
         when (step.type) {
-            "ANIMATED_EXPLANATION_V1", "animated_explanation" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
+            "ANIMATED_EXPLANATION_V1" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
-            "multiple_choice", "story_comprehension", "prediction_observation_explanation" -> MultipleChoiceStep(step, viewModel)
-            "sort_and_classify", "timeline_builder" -> SortStep(step, viewModel)
-            "array_builder" -> ArrayStep(step, viewModel)
-            "sentence_builder" -> SentenceBuilderStep(step, viewModel)
-            else -> UnsupportedActivity(step)
+            else -> com.maxinesworld.engineactivity.renderers.ActivityRenderer(
+                step = step,
+                onResult = viewModel::onActivityResult,
+                onHint = { },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
 
         if (state.showFeedback) {

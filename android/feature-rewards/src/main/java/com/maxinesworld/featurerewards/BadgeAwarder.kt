@@ -2,6 +2,7 @@ package com.maxinesworld.featurerewards
 
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.CollectibleBadge
+import com.maxinesworld.coremodel.gamification.*
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.UUID
@@ -9,24 +10,24 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Core badge award mechanic: Daily Five-Subject Challenge.
- * Award one badge per day when all 5 subjects are completed.
- * Idempotent — repeated calls on the same day never double-award.
+ * Badge award mechanics.
+ * Daily Five-Subject Challenge is preserved for legacy quest tracking.
+ * Wildlife badges are awarded ONLY via content-metadata mapping
+ * (WildlifeBadgeEvaluator), never by catalog order.
  */
 @Singleton
 class BadgeAwarder @Inject constructor(
     private val dailyChallengeDao: DailyChallengeDao,
     private val collectedBadgeDao: CollectedBadgeDao,
-    private val badgeLoader: BadgeLoader
+    private val badgeLoader: BadgeLoader,
 ) {
     companion object {
         val SUBJECTS = listOf("english", "filipino", "mathematics", "science", "makabansa")
     }
 
     /**
-     * Called after a lesson is completed. Records the subject as done for today.
-     * If all 5 subjects are now complete, awards the next badge.
-     * Returns: (challenge state, newly awarded badge or null)
+     * Legacy daily challenge tracking (preserved for quests).
+     * Wildlife badge awards have been moved to WildlifeBadgeEvaluator.
      */
     suspend fun recordSubjectCompletion(
         childId: String,
@@ -53,36 +54,46 @@ class BadgeAwarder @Inject constructor(
             updated.mathematicsCompleted, updated.scienceCompleted, updated.makabansaCompleted).count { it }
 
         val allDone = completedCount == 5 && !updated.badgeAwarded
-        val awardedBadge = if (allDone) {
-            val badge = awardNextBadge(childId, today)
-            dailyChallengeDao.upsert(updated.copy(allCompleted = true, badgeAwarded = true, awardedBadgeId = badge?.id))
-            badge
+        if (allDone) {
+            dailyChallengeDao.upsert(updated.copy(allCompleted = true, badgeAwarded = true))
         } else {
             dailyChallengeDao.upsert(updated)
-            null
         }
 
         return ChallengeProgress(
             english = updated.englishCompleted, filipino = updated.filipinoCompleted,
             mathematics = updated.mathematicsCompleted, science = updated.scienceCompleted,
             makabansa = updated.makabansaCompleted, completedCount = completedCount,
-            newlyAwardedBadge = awardedBadge
+            newlyAwardedBadge = null, // wildlife badges now come from evaluator
         )
     }
 
-    private suspend fun awardNextBadge(childId: String, today: String): CollectibleBadge? {
-        val allBadges = badgeLoader.loadAll()
-        val earnedIds = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
-        val nextBadge = allBadges.firstOrNull { it.id !in earnedIds } ?: return null
+    /**
+     * Award a wildlife badge using content-metadata evaluation.
+     * Returns: (badge display info, or null if not eligible)
+     */
+    suspend fun evaluateAndAwardWildlifeBadge(
+        childId: String,
+        lessonMetadata: WildlifeDiscoveryMetadata?,
+        attemptFacts: AttemptQualification,
+    ): CollectibleBadge? {
+        val catalog = badgeLoader.loadAll()
+        val alreadyCollected = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
 
-        collectedBadgeDao.insert(CollectedBadgeEntity(
-            id = "${childId}_${nextBadge.id}",
-            childId = childId,
-            badgeId = nextBadge.id,
-            biome = nextBadge.biome,
-            earnedDate = today
-        ))
-        return nextBadge
+        return when (val evaluation = WildlifeBadgeEvaluator.evaluate(catalog, lessonMetadata, attemptFacts, alreadyCollected)) {
+            is BadgeEvaluation.Award -> {
+                val badge = catalog.first { it.id == evaluation.badgeId }
+                collectedBadgeDao.insertIgnoring(CollectedBadgeEntity(
+                    id = deterministicUuid("badge-award:$childId:${evaluation.badgeId}").toString(),
+                    childId = childId,
+                    badgeId = evaluation.badgeId,
+                    biome = badge.biome,
+                    earnedDate = todayDate(),
+                ))
+                badge.copy(isCollected = true)
+            }
+            else -> null
+        }
     }
 
     suspend fun getTodayProgress(childId: String): ChallengeProgress {
@@ -95,7 +106,7 @@ class BadgeAwarder @Inject constructor(
             makabansa = challenge.makabansaCompleted,
             completedCount = listOf(challenge.englishCompleted, challenge.filipinoCompleted,
                 challenge.mathematicsCompleted, challenge.scienceCompleted, challenge.makabansaCompleted).count { it },
-            newlyAwardedBadge = null
+            newlyAwardedBadge = null,
         )
     }
 

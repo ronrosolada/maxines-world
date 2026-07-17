@@ -138,7 +138,7 @@ data class DailyChallengeEntity(
     val updatedAtEpochMillis: Long = System.currentTimeMillis()
 )
 
-@Entity(tableName = "collected_badges", indices = [Index(value = ["childId"], unique = false), Index(value = ["badgeId"], unique = true)])
+@Entity(tableName = "collected_badges", indices = [Index(value = ["childId", "badgeId"], unique = true)])
 data class CollectedBadgeEntity(
     @PrimaryKey val id: String,      // compound: childId_badgeId
     val childId: String,
@@ -146,4 +146,85 @@ data class CollectedBadgeEntity(
     val biome: String,
     val earnedDate: String,          // ISO date YYYY-MM-DD
     val earnedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Lesson Completion Idempotency ───
+
+@Entity(
+    tableName = "lesson_completions",
+    indices = [Index(value = ["childId", "lessonId", "attemptId"], unique = true)]
+)
+data class LessonCompletionEntity(
+    @PrimaryKey val id: String,       // "{childId}:{lessonId}:{attemptId}"
+    val childId: String,
+    val lessonId: String,
+    val attemptId: String,
+    val accuracy: Double,
+    val completedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Fish Treat Ledger ───
+
+@Entity(
+    tableName = "reward_ledger",
+    indices = [Index(value = ["childId"]), Index(value = ["sourceKey"], unique = true)]
+)
+data class RewardLedgerEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val amount: Int,
+    val sourceKey: String,      // "lesson-first:{childId}:{lessonId}", "purchase:{childId}:{itemId}", etc.
+    val occurredAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Inventory ───
+
+@Entity(
+    tableName = "inventory",
+    indices = [Index(value = ["childId", "itemId"], unique = true)]
+)
+data class InventoryEntity(
+    @PrimaryKey val id: String,
+    val childId: String,
+    val itemId: String,
+    val acquiredAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+// ─── Playground Gate Persistence ───
+
+@Entity(
+    tableName = "daily_quest_sets",
+    indices = [Index(value = ["childId", "dayKey"], unique = true)]
+)
+data class DailyQuestSetEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}"
+    val childId: String,
+    val dayKey: String,
+    val assignedQuestIds: String,         // JSON array of quest IDs
+    val assignedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+@Entity(
+    tableName = "daily_quest_completions",
+    indices = [Index(value = ["childId", "dayKey", "questId"], unique = true)]
+)
+data class DailyQuestCompletionEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}_{questId}"
+    val childId: String,
+    val dayKey: String,
+    val questId: String,
+    val completionEventId: String,
+    val completedAtEpochMillis: Long = System.currentTimeMillis()
+)
+
+@Entity(
+    tableName = "playground_unlock_receipts",
+    indices = [Index(value = ["childId", "dayKey"], unique = true)]
+)
+data class PlaygroundUnlockReceiptEntity(
+    @PrimaryKey val id: String,           // "{childId}_{dayKey}"
+    val childId: String,
+    val dayKey: String,
+    val sourceQuestSetHash: String,
+    val unlockedAtEpochMillis: Long = System.currentTimeMillis()
 )
