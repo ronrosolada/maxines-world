@@ -17,6 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 
 @Composable
 fun SequenceBuilderRenderer(
@@ -25,20 +27,22 @@ fun SequenceBuilderRenderer(
     onHint: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
     var ordered by remember { mutableStateOf(listOf<Int>()) }
     var submitted by remember { mutableStateOf(false) }
     var isCorrect by remember { mutableStateOf(false) }
 
-    val items = step.options.ifEmpty { listOf("Step 1", "Step 2", "Step 3", "Step 4") }
+    val items = step.options.ifEmpty { listOf("1", "2", "3", "4") }
     val available = items.indices.filter { it !in ordered }
+    val prompt = step.question.ifBlank { step.narrationText }.ifBlank { ui.arrangeInOrder }
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        Text(step.question.ifEmpty { "Arrange in order:" }, style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.semantics { contentDescription = "Sequence: ${step.question}" })
+        Text(prompt, style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.semantics { contentDescription = "Sequence: $prompt" })
 
-        Text("Available:", style = MaterialTheme.typography.labelLarge, color = VillageTeal)
+        Text(ui.available, style = MaterialTheme.typography.labelLarge, color = VillageTeal)
         available.forEach { idx ->
             Row(Modifier.fillMaxWidth().sizeIn(minHeight = 44.dp).clip(RoundedCornerShape(10.dp))
                 .background(SurfaceContainer)
@@ -50,7 +54,7 @@ fun SequenceBuilderRenderer(
             }
         }
 
-        Text("Your order:", style = MaterialTheme.typography.labelLarge, color = SunshineGold)
+        Text(ui.yourOrder, style = MaterialTheme.typography.labelLarge, color = SunshineGold)
         ordered.forEachIndexed { pos, idx ->
             val bg by animateColorAsState(when {
                 submitted && isCorrect -> SuccessGreen.copy(alpha = 0.15f)
@@ -77,13 +81,13 @@ fun SequenceBuilderRenderer(
                     attempts++; isCorrect = ordered == items.indices.toList(); submitted = true
                     if (isCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
                 }
-            }.semantics { contentDescription = if (submitted && !isCorrect) "Try again" else "Submit" },
+            }.semantics { contentDescription = if (submitted && !isCorrect) ui.tryAgain else ui.submit },
             contentAlignment = Alignment.Center) {
             Text(when {
-                submitted && isCorrect -> "Great job! 🎉"
-                submitted -> "Try Again"
-                ordered.size < items.size -> "Select all (${ordered.size}/${items.size})"
-                else -> "Submit"
+                submitted && isCorrect -> ui.greatJob
+                submitted -> ui.tryAgain
+                ordered.size < items.size -> "${ui.selectAll} (${ordered.size}/${items.size})"
+                else -> ui.submit
             }, color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
         }
     }

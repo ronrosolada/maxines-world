@@ -1,26 +1,39 @@
 {
   "lessonId": "filipino-g3-q1-w01-d01",
   "schemaVersion": 1,
-  "contentVersion": 1,
   "grade": 3,
   "quarter": 1,
   "week": 1,
   "day": 1,
   "subject": "FILIPINO",
-  "title": "Nagagamit ang mga salitang may tiyak na",
-  "objective": "Nagagamit ang mga salitang may tiyak na tuong pangnilalaman (GMRC at ✓ ✓",
-  "estimatedMinutes": 12,
+  "title": "Paggamit ng Pangngalan sa Pagsasalaysay",
+  "objective": "Nakagagamit ng pangngalan sa pagsasalaysay tungkol sa mga tao, lugar at bagay sa paligid",
+  "competencyCode": "F3WG-Ia-d-2",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
   "language": "fil-PH",
-  "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon, pag-aaralan natin ang: Nagagamit ang mga salitang may tiyak. Handa ka na bang matuto ng bagong kaalaman? Tara na!",
+  "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon pag-aaralan natin ang: Pangngalan sa Pagsasalaysay. Handa ka na bang matuto? Tara na!",
   "vocabulary": [
     {
-      "term": "Talasalitaan",
-      "definition": "Mga salitang alam at ginagamit ng isang tao."
+      "term": "Pangngalan",
+      "definition": "Salitang tumutukoy sa ngalan ng tao, bagay, hayop, lugar, at pangyayari."
+    },
+    {
+      "term": "Pantangi",
+      "definition": "Tiyak o partikular na ngalan ng tao, bagay, hayop, lugar, at pangyayari. Nagsisimula sa malaking titik."
+    },
+    {
+      "term": "Pambalana",
+      "definition": "Pangkalahatang ngalan ng tao, bagay, hayop, lugar, at pangyayari. Nagsisimula sa maliit na titik."
     }
   ],
+  "storyIntro": "Si Milo ay may kuwento tungkol sa pangngalan at kung paano ito gamitin. Gusto mo bang makinig?",
+  "scene": {
+    "character": "Milo ang Pusa",
+    "setting": "Bahay Puno ng Kaalaman ni Milo"
+  },
   "activities": [
     {
       "activityId": "filipino-g3-q1-w01-d01-a01",
@@ -29,20 +42,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Animated Explanation activity.",
-      "content": "Nagagamit ang mga salitang may tiyak na tuong pangnilalaman (GMRC at ✓ ✓",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa pangngalan.",
+      "content": "Ang pangngalan ay salitang tumutukoy sa ngalan ng tao, bagay, hayop, lugar, at pangyayari. May dalawang uri ito: ang pantangi at pambalana.\n\nAng pantangi ay tiyak na ngalan. Halimbawa: Mara (tao), Mankilam (lugar), Araw ng Barangay (pangyayari). Nagsisimula ito sa malaking titik.\n\nAng pambalana ay pangkalahatang ngalan. Halimbawa: aso (hayop), bahay (bagay), guro (tao), paaralan (lugar). Nagsisimula ito sa maliit na titik.\n\nTingnan natin ang kuwento ni Mara: Si Mara ay nakatira sa Barangay Mankilam. May alaga siyang aso. Masaya siya sa kanilang bahay.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Magaling! Naunawaan mo ang pagkakaiba ng pantangi at pambalana!",
+        "retry": "Subukan mong panoorin ulit para mas maintindihan."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-      "prompt": "Look at what Milo shows you.",
-      "narration": "Milo says: Let's learn about this! Pay close attention.",
-      "guideHint": "Listen carefully!",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Panoorin at pakinggan ang aralin!",
+      "narration": "Si Milo ay magpapaliwanag: Alamin natin ang dalawang uri ng pangngalan — pantangi at pambalana!",
+      "guideHint": "Makinig nang mabuti!",
+      "nextLabel": "Susunod →"
     },
     {
       "activityId": "filipino-g3-q1-w01-d01-a02",
@@ -51,28 +64,28 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Multiple Choice activity.",
+      "instruction": "Piliin ang tamang uri ng pangngalan.",
       "content": {
         "options": [
-          "The correct choice about Nagagamit ang mga salitang",
-          "A close-but-wrong answer",
-          "Something that sounds right but isn't",
-          "A clearly wrong answer"
+          "Pantangi — tiyak na ngalan ng tao, bagay, hayop, lugar, o pangyayari",
+          "Pambalana — pangkalahatang ngalan",
+          "Pandiwa — salitang kilos",
+          "Pang-uri — salitang naglalarawan"
         ],
         "correctIndex": 0
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Tama ka! Ang pantangi ay tiyak na ngalan!",
+        "retry": "Ay hindi. Alalahanin mo: pantangi ay tiyak na ngalan. Subukan muli!"
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-      "prompt": "Tap the best answer!",
-      "narration": "Choose the best answer! You can do it!",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Ano ang tawag sa tiyak o partikular na ngalan?",
+      "narration": "Itinatanong ni Milo: Ano ang pangngalang pantangi? Pumili ka ng tamang sagot!",
+      "guideHint": "Kailangan mo ng tulong? Ang pantangi ay nagsisimula sa malaking titik!",
+      "nextLabel": "Susunod →"
     },
     {
       "activityId": "filipino-g3-q1-w01-d01-a03",
@@ -81,31 +94,34 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Sort And Classify activity.",
+      "instruction": "I-grupo ang mga salita: ilagay sa tamang kahon ang Pantangi o Pambalana.",
       "content": {
         "fits": [
-          "Example of Nagagamit ang mga — correct",
-          "Another correct example about Nagagamit ang mga",
-          "Yes — this matches Nagagamit ang mga salitang"
+          "Mara",
+          "Mankilam",
+          "Araw ng Barangay",
+          "Pilipinas"
         ],
         "doesNotFit": [
-          "This does not fit the lesson idea",
-          "This is unrelated — try again",
-          "This belongs somewhere else"
+          "aso",
+          "bahay",
+          "lapis",
+          "paaralan",
+          "guro"
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_ITEMS_SORTED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Kahanga-hanga! Naayos mo nang tama ang pantangi at pambalana!",
+        "retry": "May mali pa. Alalahanin: pantangi ay tiyak na ngalan, pambalana ay pangkalahatan. Subukan muli!"
       },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-      "prompt": "Drag each item to its group.",
-      "narration": "Help Milo sort these things! Drag them to the right spot.",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "I-drag ang bawat salita sa tamang kahon!",
+      "narration": "Sabi ni Milo: Ayusin natin ang mga salita! Alin ang pantangi? Alin ang pambalana?",
+      "guideHint": "Ang pantangi ay tiyak na pangalan. Ang pambalana ay pangkalahatan.",
+      "nextLabel": "Susunod →"
     },
     {
       "activityId": "filipino-g3-q1-w01-d01-a04",
@@ -114,27 +130,58 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Hotspot Image activity.",
+      "instruction": "Tingnan ang larawan at pindutin ang tamang lugar na tinutukoy.",
       "content": {
-        "examples": [
-          "Key idea: Nagagamit ang mga salitang may tiyak na tuong pangnilalaman (GMRC at ✓ ✓",
-          "Remember: Nagagamit ang mga salitang may tiyak na tuong pangnilalaman (GMRC at ✓ ✓",
-          "Think about: Nagagamit ang mga salitang may...",
-          "Try this: Can you explain Nagagamit ang mga in your own words?"
+        "targets": [
+          {
+            "id": "target-1",
+            "x": 0.15,
+            "y": 0.3,
+            "label": "Mara (tao)",
+            "feedback": "Tama! Si Mara ay halimbawa ng pantangi na tumutukoy sa tao."
+          },
+          {
+            "id": "target-2",
+            "x": 0.4,
+            "y": 0.75,
+            "label": "aso (hayop)",
+            "feedback": "Tama! Ang aso ay halimbawa ng pambalana na tumutukoy sa hayop."
+          },
+          {
+            "id": "target-3",
+            "x": 0.65,
+            "y": 0.2,
+            "label": "bahay (bagay)",
+            "feedback": "Tama! Ang bahay ay halimbawa ng pambalana na tumutukoy sa bagay."
+          },
+          {
+            "id": "target-4",
+            "x": 0.8,
+            "y": 0.5,
+            "label": "paaralan (lugar)",
+            "feedback": "Tama! Ang paaralan ay halimbawa ng pambalana na tumutukoy sa lugar."
+          },
+          {
+            "id": "target-5",
+            "x": 0.5,
+            "y": 0.5,
+            "label": "Mankilam (lugar)",
+            "feedback": "Tama! Ang Mankilam ay halimbawa ng pantangi na tumutukoy sa tiyak na lugar."
+          }
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_TARGETS_VISITED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Napakahusay! Nakita mo ang lahat ng halimbawa ng pangngalan sa larawan!",
+        "retry": "May hindi ka pa napipindot. Hanapin mo pa ang ibang pangngalan sa larawan!"
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-      "prompt": "Tap the right spot in the picture!",
-      "narration": "Find it in the picture! Tap where you think it is.",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Pindutin ang mga pangngalan sa larawan!",
+      "narration": "Sabi ni Milo: Tingnan mong mabuti ang larawan. Hanapin mo ang mga pangngalan!",
+      "guideHint": "May 5 pangngalan sa larawan. Hanapin mo silang lahat!",
+      "nextLabel": "Susunod →"
     },
     {
       "activityId": "filipino-g3-q1-w01-d01-a05",
@@ -143,64 +190,43 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Matching Pairs activity.",
+      "instruction": "Itugma ang pangngalang pambalana sa katumbas nitong pantangi.",
       "content": {
         "pairs": [
           {
-            "left": "Concept: Nagagamit ang mga",
-            "right": "Matches the lesson"
+            "left": "ina",
+            "right": "Aling Nena"
           },
           {
-            "left": "Example of Nagagamit ang",
-            "right": "Fits the idea"
+            "left": "kainan",
+            "right": "Jollibee Carenderia"
           },
           {
-            "left": "Key term: Nagagamit",
-            "right": "Correct"
+            "left": "sapatos",
+            "right": "Didas Shoe"
+          },
+          {
+            "left": "simbahan",
+            "right": "San Pedro Cathedral"
+          },
+          {
+            "left": "probinsiya",
+            "right": "Davao del Norte"
           }
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Napakagaling! Naipares mo nang tama ang lahat ng pambalana sa pantangi!",
+        "retry": "May hindi pa tama. Ang pambalana ay pangkalahatan, ang pantangi ay tiyak. Subukan ulit!"
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-      "prompt": "Connect the matching pairs.",
-      "narration": "Every pair has a match! Can you find them all?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q1-w01-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Complete the Sequence Builder activity.",
-      "content": {
-        "steps": [
-          "First: Understand Nagagamit ang mga",
-          "Then: Practice with examples",
-          "Next: Check your understanding",
-          "Finally: Apply what you learned!"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-      "prompt": "What comes first? What comes next?",
-      "narration": "Put these in the right order! What comes first?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Pagdugtungin ang magkatambal na salita!",
+      "narration": "Sabi ni Milo: Ikonekta ang bawat pambalana sa tamang pantangi! Anong kainan? Anong sapatos?",
+      "guideHint": "Isipin mo: ang 'ina' ay pangkalahatan, sino ang tiyak na ina?",
+      "nextLabel": "Tapusin →"
     }
   ],
   "assessment": {
@@ -208,128 +234,115 @@
     "totalItems": 5,
     "items": [
       {
-        "question": "Ano ang aralin natin ngayon?",
+        "question": "Alin sa sumusunod ang pangngalang pantangi?",
         "choices": [
           {
-            "text": "Laro",
-            "correct": false
-          },
-          {
-            "text": "Mga salita at pagbasa sa Filipino",
+            "text": "Mara",
             "correct": true
           },
           {
-            "text": "Pagkain",
+            "text": "aso",
             "correct": false
           },
           {
-            "text": "Bahay",
+            "text": "bahay",
+            "correct": false
+          },
+          {
+            "text": "paaralan",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang aralin natin ngayon?"
+        "narration": "Tanong ni Milo: Alin sa mga ito ang pangngalang pantangi?"
       },
       {
-        "question": "Aling salita ang natutuhan natin?",
+        "question": "Alin sa sumusunod ang pangngalang pambalana?",
         "choices": [
           {
-            "text": "Takbo",
+            "text": "Pilipinas",
             "correct": false
           },
           {
-            "text": "Mga salitang may tamang gamit",
+            "text": "Araw ng Barangay",
+            "correct": false
+          },
+          {
+            "text": "lapis",
             "correct": true
           },
           {
-            "text": "Mesa",
-            "correct": false
-          },
-          {
-            "text": "Saging",
+            "text": "Mankilam",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Aling salita ang natutuhan natin?"
+        "narration": "Tanong ni Milo: Alin sa mga ito ang pangngalang pambalana?"
       },
       {
-        "question": "Bakit mahalaga ang araling ito?",
+        "question": "Anong uri ng pangngalan ang 'Mankilam'?",
         "choices": [
           {
-            "text": "Hindi mahalaga",
-            "correct": false
-          },
-          {
-            "text": "Para matutong bumasa at umunawa",
+            "text": "Pantangi — tiyak na lugar",
             "correct": true
           },
           {
-            "text": "Para lang may gawin",
+            "text": "Pambalana — pangkalahatang lugar",
             "correct": false
           },
           {
-            "text": "Walang dahilan",
+            "text": "Pandiwa",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Bakit mahalaga ang araling ito?"
+        "narration": "Tanong ni Milo: Ang Mankilam ay pantangi o pambalana?"
       },
       {
-        "question": "Paano ka magsasanay sa bahay?",
+        "question": "Alin ang tamang pares ng pambalana at pantangi?",
         "choices": [
           {
-            "text": "Manood lang ng TV",
-            "correct": false
-          },
-          {
-            "text": "Huwag magbasa",
-            "correct": false
-          },
-          {
-            "text": "Matulog",
-            "correct": false
-          },
-          {
-            "text": "Magbasa ng mga aklat araw-araw",
+            "text": "sapatos — Didas Shoe",
             "correct": true
+          },
+          {
+            "text": "sapatos — paaralan",
+            "correct": false
+          },
+          {
+            "text": "ina — Mankilam",
+            "correct": false
+          },
+          {
+            "text": "aso — Pilipinas",
+            "correct": false
           }
         ],
-        "narration": "Milo asks: Paano ka magsasanay sa bahay?"
+        "narration": "Tanong ni Milo: Alin ang tamang pares ng pambalana sa pantangi?"
       },
       {
-        "question": "Ano ang dapat tandaan?",
+        "question": "Ang 'guro' ay halimbawa ng anong uri ng pangngalan?",
         "choices": [
           {
-            "text": "Hindi kailangan",
+            "text": "Pantangi",
             "correct": false
           },
           {
-            "text": "Mahalaga ang pag-aaral ng wika",
+            "text": "Pambalana",
             "correct": true
           },
           {
-            "text": "Kalimutan lahat",
-            "correct": false
-          },
-          {
-            "text": "Wala",
+            "text": "Panghalip",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang dapat tandaan?"
+        "narration": "Tanong ni Milo: Ang salitang 'guro' ay pantangi o pambalana?"
       }
     ],
-    "narration": "Milo says: Great job! Now let's see what you remember!"
+    "narration": "Magaling! Tingnan natin kung ano ang natatandaan mo!"
   },
   "accessibility": {
-    "narrationAvailable": false,
-    "captionsAvailable": false,
+    "narrationAvailable": true,
+    "captionsAvailable": true,
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
-  },
-  "storyIntro": "May bagong kuwento si Milo! \"Halika, basahin natin ito!\" masayang sabi niya.",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning Treehouse"
   }
 }

@@ -5,27 +5,23 @@
   "month": 1,
   "day": 5,
   "subject": "FILIPINO",
-  "title": "Mga Salitang May Tatlong Pantig",
-  "objective": "Kilalanin at buuin ang salitang may tatlong pantig batay sa bigkas.",
-  "estimatedMinutes": 12,
+  "title": "Pagbasa ng Salitang may Tatlong Pantig at Salitang Hiram",
+  "objective": "Nababasa ang mga salitang may tatlong pantig pataas at mga salitang hiram",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M05",
   "language": "fil-PH",
-  "introduction": "Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Tapakan ang pantig — ba-ya-ni! 🥁🎵",
   "vocabulary": [
     {
-      "term": "Mga",
-      "definition": "A key word used in the lesson “Mga Salitang May Tatlong Pantig”."
+      "term": "Pantig",
+      "definition": "Paraan ng paghahati-hati ng salita. Halimbawa: ba-ya-ni (tatlong pantig)."
     },
     {
-      "term": "Salitang",
-      "definition": "A key word used in the lesson “Mga Salitang May Tatlong Pantig”."
-    },
-    {
-      "term": "May",
-      "definition": "A key word used in the lesson “Mga Salitang May Tatlong Pantig”."
+      "term": "Salitang Hiram",
+      "definition": "Mga salitang walang katumbas sa wikang Filipino at tinanggap nang gamitin sa pakikipag-usap. Halimbawa: jeepney, zoo, virus."
     }
   ],
   "activities": [
@@ -33,156 +29,159 @@
       "activityId": "filipino-g3-m01-d05-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig.",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa pantig at salitang hiram.",
+      "content": {
+        "text": "Ang PANTIG ay paraan ng paghahati-hati ng salita. Halimbawa:\n• la-la-ki (3 pantig)\n• pag-ka-in (3 pantig)\n• ba-ba-e (3 pantig)\n• trans-por-tas-yon (4 pantig)\n\nAng SALITANG HIRAM ay mga salitang walang katumbas sa wikang Filipino kaya tinanggap na gamitin sa pakikipag-usap!",
+        "visualScene": "🥁📝🚌🌏",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Magaling! Alam mo na ang tungkol sa pantig at salitang hiram!",
+        "retry": "Panoorin muli para mas maintindihan ang pagpapantig at salitang hiram."
       },
       "assetId": "filipino-g3-m01-d05-visual",
-      "accessibilityAlternative": "Text alternative: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
       "activityId": "filipino-g3-m01-d05-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "ha-la-man",
-          "ka-la-pati",
-          "sa-la-min"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d05-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d05-a03",
-      "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "I-grupo: alin ang SALITANG HIRAM at alin ang SALITANG KATUTUBO?",
       "content": {
         "fits": [
-          "ha-la-man",
-          "ka-la-pati",
-          "sa-la-min"
+          "jeepney",
+          "zoo",
+          "xylophone",
+          "virus",
+          "frontliners"
         ],
         "doesNotFit": [
-          "bahay—dalawang pantig",
-          "mesa—dalawang pantig",
-          "aklat—dalawang pantig"
-        ]
+          "bayani",
+          "paaralan",
+          "kabayo",
+          "bandila",
+          "masipag"
+        ],
+        "visualScene": "🥁📝🚌🌏",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
+        "targetCount": 10
       },
       "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
+        "correct": "Mahusay! Nakilala mo ang pagkakaiba ng salitang hiram at katutubo!",
+        "retry": "May mali pa. Ang salitang hiram ay galing sa ibang wika tulad ng Ingles. Subukan muli!"
       },
       "assetId": "filipino-g3-m01-d05-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
-      "activityId": "filipino-g3-m01-d05-a04",
-      "sequence": 4,
+      "activityId": "filipino-g3-m01-d05-a03",
+      "sequence": 3,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Alin ang may tatlong pantig?",
+      "instruction": "Piliin ang tamang bilang ng pantig ng salita.",
       "content": {
         "options": [
-          "halaman",
-          "mesa",
-          "bahay"
+          "🌟 3 (tatlo)",
+          "🎯 2 (dalawa)",
+          "🐾 4 (apat)",
+          "🎈 5 (lima)"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🥁📝🚌🌏",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: halaman",
-        "retry": "Read the lesson rule again. mesa and bahay do not fit."
+        "correct": "Tama! Ang 'bayani' ay may tatlong pantig: ba-ya-ni!",
+        "retry": "Hindi iyon. Bilangin natin: ba-ya-ni. Ilan iyon? Subukan muli!"
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d05-visual",
+      "accessibilityAlternative": "Accessible version of this activity."
+    },
+    {
+      "activityId": "filipino-g3-m01-d05-a04",
+      "sequence": 4,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagpapantig ng salita.",
+      "content": {
+        "steps": [
+          "Basahin ang buong salita nang malakas",
+          "Pakinggan ang bawat tunog o pantig ng salita",
+          "Hatiin ang salita ayon sa bawat pantig (hal. pa-a-ra-lan)",
+          "Bilangin kung ilang pantig mayroon ang salita",
+          "Basahin muli ang salita nang may tamang pantig"
+        ],
+        "visualScene": "🥁📝🚌🌏",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "targetCount": 5
+      },
+      "feedback": {
+        "correct": "Magaling! Alam mo na ang tamang hakbang sa pagpapantig!",
+        "retry": "May mali sa pagkakasunod-sunod. Una, basahin ang salita. Pagkatapos, pakinggan ang pantig. Subukan muli!"
+      },
+      "assetId": "filipino-g3-m01-d05-visual",
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
       "activityId": "filipino-g3-m01-d05-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itugma ang salita sa tamang bilang ng pantig nito.",
       "content": {
         "pairs": [
           {
-            "left": "ha-la-man",
-            "right": "fits the lesson idea"
-          },
-          {
-            "left": "ka-la-pati",
-            "right": "fits the lesson idea"
+            "left": "ku-si-na",
+            "right": "Tatlong Pantig"
           },
           {
             "left": "sa-la-min",
-            "right": "fits the lesson idea"
+            "right": "Tatlong Pantig — sa-la-min"
+          },
+          {
+            "left": "ba-ya-ni-han",
+            "right": "Apat na Pantig"
+          },
+          {
+            "left": "ma-sa-ga-na",
+            "right": "Apat na Pantig — ma-sa-ga-na"
+          },
+          {
+            "left": "ma-ma-ma-yan",
+            "right": "Apat na Pantig — ma-ma-ma-yan"
           }
-        ]
+        ],
+        "visualScene": "🥁📝🚌🌏",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Napakagaling! Naipares mo nang tama ang bawat salita sa bilang ng pantig nito!",
+        "retry": "May hindi pa tama. Bilangin mong mabuti ang pantig ng bawat salita. Subukan muli!"
       },
       "assetId": "filipino-g3-m01-d05-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-    },
-    {
-      "activityId": "filipino-g3-m01-d05-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-      "content": {
-        "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
-      },
-      "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
-      },
-      "assetId": "filipino-g3-m01-d05-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Accessible version of this activity."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +190,136 @@
         "itemId": "filipino-g3-m01-d05-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Mga Salitang May Tatlong Pantig”?",
+        "prompt": "Ilang pantig mayroon ang salitang 'paaralan'?",
         "options": [
           {
-            "id": "a",
-            "text": "Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+            "id": "o1",
+            "text": "2 (dalawa)"
           },
           {
-            "id": "b",
-            "text": "bahay—dalawang pantig"
+            "id": "o2",
+            "text": "3 (tatlo)"
           },
           {
-            "id": "c",
-            "text": "mesa—dalawang pantig"
+            "id": "o3",
+            "text": "4 (apat)"
+          },
+          {
+            "id": "o4",
+            "text": "5 (lima)"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o3"
         ],
-        "explanation": "The correct response is “Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig.” because it follows the lesson explanation: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d05-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Alin sa sumusunod ang salitang hiram?",
         "options": [
           {
-            "id": "a",
-            "text": "ha-la-man"
+            "id": "o1",
+            "text": "bandila"
           },
           {
-            "id": "b",
-            "text": "bahay—dalawang pantig"
+            "id": "o2",
+            "text": "jeepney"
           },
           {
-            "id": "c",
-            "text": "mesa—dalawang pantig"
+            "id": "o3",
+            "text": "masipag"
+          },
+          {
+            "id": "o4",
+            "text": "sapatos"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “ha-la-man” because it follows the lesson explanation: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d05-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Alin ang tamang pagpapantig ng salitang 'masipag'?",
         "options": [
           {
-            "id": "a",
-            "text": "bahay—dalawang pantig"
+            "id": "o1",
+            "text": "ma-si-pag"
           },
           {
-            "id": "b",
-            "text": "ha-la-man"
+            "id": "o2",
+            "text": "mas-i-pag"
           },
           {
-            "id": "c",
-            "text": "ka-la-pati"
+            "id": "o3",
+            "text": "ma-sip-ag"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “bahay—dalawang pantig” because it follows the lesson explanation: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d05-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang may tatlong pantig?",
+        "prompt": "Ilang pantig mayroon ang salitang 'bayani'?",
         "options": [
           {
-            "id": "a",
-            "text": "halaman"
+            "id": "o1",
+            "text": "2 (dalawa)"
           },
           {
-            "id": "b",
-            "text": "mesa"
+            "id": "o2",
+            "text": "3 (tatlo)"
           },
           {
-            "id": "c",
-            "text": "bahay"
+            "id": "o3",
+            "text": "4 (apat)"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “halaman” because it follows the lesson explanation: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d05-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Ano ang salitang hiram?",
         "options": [
           {
-            "id": "a",
-            "text": "sa-la-min"
+            "id": "o1",
+            "text": "Mga salitang gawa sa Pilipinas lamang"
           },
           {
-            "id": "b",
-            "text": "aklat—dalawang pantig"
+            "id": "o2",
+            "text": "Mga salitang walang katumbas sa Filipino at tinanggap gamitin"
           },
           {
-            "id": "c",
-            "text": "bahay—dalawang pantig"
+            "id": "o3",
+            "text": "Mga salitang may isang pantig lamang"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “sa-la-min” because it follows the lesson explanation: Ang pantig ay bahagi ng salitang binibigkas sa isang bugso o kumpas ng tinig."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d05-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d05-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Mga Salitang May Tatlong Pantig; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Mga Salitang May Tatlong Pantig.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "e548255037825e8229feccd87ea6434c8376d96233e4d8c73fa82b8ff946bae7"
+  "storyIntro": "Tapakan ang pantig — ba-ya-ni! 🥁🎵",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🥁📝🚌🌏"
+  }
 }

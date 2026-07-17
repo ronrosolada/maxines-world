@@ -1,206 +1,155 @@
 {
-  "lessonId": "filipino-g3-q1-w02-d01",
+  "lessonId": "filipino-g3-q1-w01-d02",
   "schemaVersion": 1,
-  "contentVersion": 1,
   "grade": 3,
   "quarter": 1,
-  "week": 2,
-  "day": 1,
+  "week": 1,
+  "day": 2,
   "subject": "FILIPINO",
-  "title": "Nakikilala ang kahulugan ng mga salita",
-  "objective": "Nakikilala ang kahulugan ng mga salita",
-  "estimatedMinutes": 12,
+  "title": "Naunang Kaalaman sa Pag-unawa ng Teksto",
+  "objective": "Nakagagamit ng naunang kaalaman o karanasan sa pag-unawa ng napakinggang teksto",
+  "competencyCode": "F3PN-Ib-2",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
   "language": "fil-PH",
-  "introduction": "Kumusta, Kaibigan! 🤗 Ang aralin natin ngayon ay tungkol sa: Nakikilala ang kahulugan ng mga salita. Makinig nang mabuti at sumali sa mga gawain. Simulan na natin!",
+  "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon pag-aaralan natin ang: Naunang Kaalaman sa Pag-unawa ng Teksto. Handa ka na bang matuto? Tara na!",
   "vocabulary": [
     {
-      "term": "Talasalitaan",
-      "definition": "Mga salitang alam at ginagamit ng isang tao."
+      "term": "Naunang Kaalaman",
+      "definition": "Mga bagay na alam mo na bago mo pa basahin o pakinggan ang isang teksto."
+    },
+    {
+      "term": "Pagkakaisa",
+      "definition": "Pagtutulungan at pagkakasundo ng mga kasapi ng pamilya o grupo."
+    },
+    {
+      "term": "Pananalig",
+      "definition": "Matibay na paniniwala at pagtitiwala sa Diyos."
     }
   ],
+  "storyIntro": "Si Milo ay may kuwento tungkol sa isang masayang pamilya na nagkakaisa. Gusto mo bang makinig?",
+  "scene": {
+    "character": "Milo ang Pusa",
+    "setting": "Bahay Puno ng Kaalaman ni Milo"
+  },
   "activities": [
     {
-      "activityId": "filipino-g3-q1-w02-d01-a01",
+      "activityId": "filipino-g3-q1-w01-d02-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Animated Explanation activity.",
-      "content": "Nakikilala ang kahulugan ng mga salita",
+      "assetId": "filipino-g3-q1-w01-d02-visual",
+      "instruction": "Panoorin at pakinggan ang kuwento at paliwanag.",
+      "content": "Sa pakikinig ng teksto, mas mauunawaan mo ang ideya nito kung gagamitin mo ang iyong naunang kaalaman at karanasan.\n\nHalimbawa, kung may kuwento tungkol sa pamilya, gamitin mo ang alam mo na tungkol sa sarili mong pamilya — sino ang mga kasapi, ano ang inyong ginagawa nang sama-sama.\n\nPakinggan natin ang kuwentong 'Ang Pamilya': Masaya ang aming pamilya. Ipinaparamdam nina nanay at tatay ang pagmamahal sa aming magkakapatid. Tinuturuan nila kami ng magagandang asal — lalong-lalo na ang pananalig at pagmamahal sa Diyos. Sama-sama kaming nagsisimba at nagdarasal. Nagtutulungan kami sa anumang gawain sa tahanan. Ang bawat problema ay nalalampasan dahil kami ay nagkakaisa.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Magaling! Naunawaan mo kung paano gamitin ang naunang kaalaman sa pag-unawa ng teksto!",
+        "retry": "Subukan mong panoorin ulit. Isipin ang sarili mong karanasan sa pamilya!"
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-      "prompt": "Pay attention to the story!",
-      "narration": "Watch carefully! Milo will show you something cool.",
-      "guideHint": "Listen carefully!",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Panoorin at pakinggan ang kuwento tungkol sa pamilya!",
+      "narration": "Si Milo ay magkukuwento: Pakinggan natin ang kuwento ng isang masayang pamilya. Isipin mo rin ang sarili mong pamilya!",
+      "guideHint": "Makinig nang mabuti at isipin ang iyong sariling pamilya!",
+      "nextLabel": "Susunod →"
     },
     {
-      "activityId": "filipino-g3-q1-w02-d01-a02",
+      "activityId": "filipino-g3-q1-w01-d02-a02",
       "sequence": 2,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Multiple Choice activity.",
+      "assetId": "filipino-g3-q1-w01-d02-visual",
+      "instruction": "Basahin at piliin ang tamang sagot tungkol sa kuwento.",
       "content": {
         "options": [
-          "The correct choice about Nakikilala ang kahulugan ng",
-          "A close-but-wrong answer",
-          "Something that sounds right but isn't",
-          "A clearly wrong answer"
+          "Sama-sama silang nagsisimba at nagdarasal",
+          "Naglalaro lamang sila sa labas",
+          "Nanunuod sila ng telebisyon maghapon",
+          "Natutulog lamang sila sa bahay"
         ],
         "correctIndex": 0
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Tama! Sama-sama silang nagsisimba at nagdarasal bilang pamilya.",
+        "retry": "Hindi iyon ang tamang sagot. Balikan ang kuwento: paano itinuturo ng mga magulang ang pananalig sa Diyos?"
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-      "prompt": "Which one is correct? Tap it!",
-      "narration": "Choose the best answer! You can do it!",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Paano itinuturo ng mga magulang ang pananalig sa Diyos?",
+      "narration": "Tanong ni Milo: Sa kuwento, paano ipinapakita ng pamilya ang pananalig sa Diyos?",
+      "guideHint": "Kailangan mo ng tulong? Alalahanin ang sinabi sa kuwento tungkol sa pagsisimba.",
+      "nextLabel": "Susunod →"
     },
     {
-      "activityId": "filipino-g3-q1-w02-d01-a03",
+      "activityId": "filipino-g3-q1-w01-d02-a03",
       "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Sort And Classify activity.",
-      "content": {
-        "fits": [
-          "Example of Nakikilala ang kahulugan — correct",
-          "Another correct example about Nakikilala ang kahulugan",
-          "Yes — this matches Nakikilala ang kahulugan ng"
-        ],
-        "doesNotFit": [
-          "This does not fit the lesson idea",
-          "This is unrelated — try again",
-          "This belongs somewhere else"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-      "prompt": "Drag each item to its group.",
-      "narration": "Let's organize! Which items go where?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q1-w02-d01-a04",
-      "sequence": 4,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Hotspot Image activity.",
-      "content": {
-        "examples": [
-          "Key idea: Nakikilala ang kahulugan ng mga salita",
-          "Remember: Nakikilala ang kahulugan ng mga salita",
-          "Think about: Nakikilala ang kahulugan ng mga...",
-          "Try this: Can you explain Nakikilala ang kahulugan in your own words?"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-      "prompt": "Find and tap the correct place.",
-      "narration": "Can you spot it? Tap the correct spot!",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q1-w02-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Matching Pairs activity.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Concept: Nakikilala ang kahulugan",
-            "right": "Matches the lesson"
-          },
-          {
-            "left": "Example of Nakikilala ang",
-            "right": "Fits the idea"
-          },
-          {
-            "left": "Key term: Nakikilala",
-            "right": "Correct"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-      "prompt": "Draw a line between each pair.",
-      "narration": "Every pair has a match! Can you find them all?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q1-w02-d01-a06",
-      "sequence": 6,
       "type": "SEQUENCE_BUILDER",
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
-      "assetId": "filipino-g3-q1-w02-d01-visual",
-      "instruction": "Complete the Sequence Builder activity.",
+      "assetId": "filipino-g3-q1-w01-d02-visual",
+      "instruction": "Ayusin ang mga pangyayari sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "First: Understand Nakikilala ang kahulugan",
-          "Then: Practice with examples",
-          "Next: Check your understanding",
-          "Finally: Apply what you learned!"
+          "Ipinaparamdam nina nanay at tatay ang pagmamahal sa magkakapatid",
+          "Tinuturuan ng mga magulang ang magagandang asal at pananalig sa Diyos",
+          "Sama-samang nagsisimba at nagdarasal ang buong pamilya",
+          "Nalampasan ang bawat problema dahil nagkakaisa ang pamilya"
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Mahusay! Naayos mo nang tama ang pagkakasunod-sunod ng mga pangyayari!",
+        "retry": "May mali sa pagkakasunod-sunod. Isipin mo: ano ang nauna? Ang pagmamahal, pagtuturo, pagsisimba, o pagkakaisa?"
       },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-      "prompt": "Arrange from first to last.",
-      "narration": "Put these in the right order! What comes first?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Ayusin mula una hanggang huli ang mga pangyayari!",
+      "narration": "Sabi ni Milo: Ayusin natin ang mga pangyayari sa kuwento! Ano ang naunang nangyari?",
+      "guideHint": "Simulan mo sa unang ginawa ng pamilya: ipinadama ang pagmamahal.",
+      "nextLabel": "Susunod →"
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d02-a04",
+      "sequence": 4,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d02-visual",
+      "instruction": "I-grupo: alin ang nagpapakita ng pagkakaisa ng pamilya at alin ang hindi?",
+      "content": {
+        "fits": [
+          "Nagtutulungan sa gawaing bahay",
+          "Sama-samang nagsisimba",
+          "Nag-uusap kapag may problema",
+          "Nagmamahalan ang magkakapatid"
+        ],
+        "doesNotFit": [
+          "Nag-aaway ang magkakapatid",
+          "Hindi nakikinig sa magulang",
+          "Iniiwan ang gawaing bahay",
+          "Hindi pumapasok sa paaralan"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED"
+      },
+      "feedback": {
+        "correct": "Magaling! Alam mo na kung ano ang nagpapakita ng pagkakaisa ng pamilya!",
+        "retry": "May mali pa. Ang nagpapakita ng pagkakaisa ay pagtutulungan at pagmamahalan. Subukan muli!"
+      },
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "I-drag ang bawat gawain sa tamang grupo!",
+      "narration": "Sabi ni Milo: Alin sa mga ito ang nagpapakita ng pagkakaisa ng pamilya?",
+      "guideHint": "Ang pagkakaisa ay tungkol sa pagtutulungan at pagmamahalan.",
+      "nextLabel": "Susunod →"
     }
   ],
   "assessment": {
@@ -208,128 +157,107 @@
     "totalItems": 5,
     "items": [
       {
-        "question": "Ano ang aralin natin ngayon?",
+        "question": "Ano ang pamagat ng kuwentong napakinggan?",
         "choices": [
           {
-            "text": "Laro",
-            "correct": false
-          },
-          {
-            "text": "Bahay",
-            "correct": false
-          },
-          {
-            "text": "Mga salita at pagbasa sa Filipino",
+            "text": "Ang Pamilya",
             "correct": true
           },
           {
-            "text": "Pagkain",
+            "text": "Ang Aso at Pusa",
+            "correct": false
+          },
+          {
+            "text": "Ang Paaralan",
+            "correct": false
+          },
+          {
+            "text": "Ang Magkaibigan",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang aralin natin ngayon?"
+        "narration": "Tanong ni Milo: Ano ang pamagat ng ating kuwento?"
       },
       {
-        "question": "Aling salita ang natutuhan natin?",
+        "question": "Sino-sino ang bumubuo ng pamilya sa kuwento?",
         "choices": [
           {
-            "text": "Mga salitang may tamang gamit",
+            "text": "nanay at tatay lamang",
+            "correct": false
+          },
+          {
+            "text": "nanay, tatay, ate, kuya, at bunso",
             "correct": true
           },
           {
-            "text": "Saging",
-            "correct": false
-          },
-          {
-            "text": "Takbo",
-            "correct": false
-          },
-          {
-            "text": "Mesa",
+            "text": "lolo at lola lamang",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Aling salita ang natutuhan natin?"
+        "narration": "Tanong ni Milo: Sino-sino ang kasapi ng pamilya sa kuwento?"
       },
       {
-        "question": "Bakit mahalaga ang araling ito?",
+        "question": "Bakit nalalampasan ng pamilya ang bawat problema?",
         "choices": [
           {
-            "text": "Para matutong bumasa at umunawa",
+            "text": "Dahil mayaman sila",
+            "correct": false
+          },
+          {
+            "text": "Dahil nagkakaisa sila at nananalig sa Diyos",
             "correct": true
           },
           {
-            "text": "Para lang may gawin",
-            "correct": false
-          },
-          {
-            "text": "Walang dahilan",
-            "correct": false
-          },
-          {
-            "text": "Hindi mahalaga",
+            "text": "Dahil marami silang kaibigan",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Bakit mahalaga ang araling ito?"
+        "narration": "Tanong ni Milo: Paano nalampasan ng pamilya ang mga problema?"
       },
       {
-        "question": "Paano ka magsasanay sa bahay?",
+        "question": "Ano ang palaging bilin ng mga magulang sa magkakapatid?",
         "choices": [
           {
-            "text": "Magbasa ng mga aklat araw-araw",
+            "text": "Mag-aral nang mabuti at yumaman",
+            "correct": false
+          },
+          {
+            "text": "Mahalin ang Diyos at gumawa ng mabuti sa kapwa",
             "correct": true
           },
           {
-            "text": "Matulog",
-            "correct": false
-          },
-          {
-            "text": "Manood lang ng TV",
-            "correct": false
-          },
-          {
-            "text": "Huwag magbasa",
+            "text": "Huwag makipagkaibigan kaninuman",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Paano ka magsasanay sa bahay?"
+        "narration": "Tanong ni Milo: Ano ang bilin ng mga magulang sa kanilang mga anak?"
       },
       {
-        "question": "Ano ang dapat tandaan?",
+        "question": "Bakit mahalaga ang pagkakaisa ng pamilya?",
         "choices": [
           {
-            "text": "Kalimutan lahat",
+            "text": "Upang maging magulo ang tahanan",
             "correct": false
           },
           {
-            "text": "Mahalaga ang pag-aaral ng wika",
+            "text": "Upang maging mapayapa at matibay ang pamilya",
             "correct": true
           },
           {
-            "text": "Wala",
-            "correct": false
-          },
-          {
-            "text": "Hindi kailangan",
+            "text": "Upang makaiwas sa gawaing bahay",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang dapat tandaan?"
+        "narration": "Tanong ni Milo: Bakit mahalaga ang pagkakaisa ng pamilya?"
       }
     ],
-    "narration": "Milo says: Great job! Now let's see what you remember!"
+    "narration": "Magaling! Tingnan natin kung ano ang natatandaan mo!"
   },
   "accessibility": {
-    "narrationAvailable": false,
-    "captionsAvailable": false,
+    "narrationAvailable": true,
+    "captionsAvailable": true,
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
-  },
-  "storyIntro": "May bagong kuwento si Milo! \"Halika, basahin natin ito!\" masayang sabi niya.",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning Treehouse"
   }
 }

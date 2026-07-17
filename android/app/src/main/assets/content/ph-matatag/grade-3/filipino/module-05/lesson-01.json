@@ -1,206 +1,199 @@
 {
-  "lessonId": "filipino-g3-q2-w05-d01",
+  "lessonId": "filipino-g3-q1-w03-d01",
   "schemaVersion": 1,
-  "contentVersion": 1,
   "grade": 3,
-  "quarter": 2,
-  "week": 5,
+  "quarter": 1,
+  "week": 3,
   "day": 1,
   "subject": "FILIPINO",
-  "title": "Naisusulat nang maayos at wasto ang mga",
-  "objective": "Naisusulat nang maayos at wasto ang mga natutuhang salita ✓ ✓",
-  "estimatedMinutes": 12,
+  "title": "Pagbasa ng Salitang may Tatlong Pantig at Salitang Hiram",
+  "objective": "Nababasa ang mga salitang may tatlong pantig pataas at mga salitang hiram",
+  "competencyCode": "F3AL-If-1.3, F3PP-IVcg-2.5",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
   "language": "fil-PH",
-  "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon, pag-aaralan natin ang: Naisusulat nang maayos at wasto ang. Handa ka na bang matuto ng bagong kaalaman? Tara na!",
+  "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon pag-aaralan natin ang: Pagbasa ng Salitang may Tatlong Pantig at Salitang Hiram. Handa ka na bang matuto? Tara na!",
   "vocabulary": [
     {
-      "term": "Talasalitaan",
-      "definition": "Mga salitang alam at ginagamit ng isang tao."
+      "term": "Pantig",
+      "definition": "Paraan ng paghahati-hati ng salita. Halimbawa: ba-ya-ni (tatlong pantig)."
+    },
+    {
+      "term": "Salitang Hiram",
+      "definition": "Mga salitang walang katumbas sa wikang Filipino at tinanggap nang gamitin sa pakikipag-usap. Halimbawa: jeepney, zoo, virus."
     }
   ],
+  "storyIntro": "Si Milo ay may kuwento tungkol sa mga salitang may pantig at mga salitang hiram mula sa ibang wika. Gusto mo bang makinig?",
+  "scene": {
+    "character": "Milo ang Pusa",
+    "setting": "Bahay Puno ng Kaalaman ni Milo"
+  },
   "activities": [
     {
-      "activityId": "filipino-g3-q2-w05-d01-a01",
+      "activityId": "filipino-g3-q1-w03-d01-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Animated Explanation activity.",
-      "content": "Naisusulat nang maayos at wasto ang mga natutuhang salita ✓ ✓",
+      "assetId": "filipino-g3-q1-w03-d01-visual",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa pantig at salitang hiram.",
+      "content": "Ang PANTIG ay paraan ng paghahati-hati ng salita. Halimbawa:\n• la-la-ki (3 pantig)\n• pag-ka-in (3 pantig)\n• ba-ba-e (3 pantig)\n• trans-por-tas-yon (4 pantig)\n\nAng SALITANG HIRAM ay mga salitang walang katumbas sa wikang Filipino kaya tinanggap na gamitin sa pakikipag-usap. Halimbawa:\n• jeepney\n• zoo\n• xylophone\n• zipper\n• virus\n• frontliners\n• social media\n• quarantine pass\n\nAng mga salitang ito ay mula sa ibang wika tulad ng Ingles at Espanyol. Mahalagang matutuhan natin ang tamang pagpapantig at pagkilala ng salitang hiram.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Magaling! Alam mo na ang tungkol sa pantig at salitang hiram!",
+        "retry": "Panoorin muli para mas maintindihan ang pagpapantig at salitang hiram."
       },
-      "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-      "prompt": "Watch and listen carefully.",
-      "narration": "Milo says: Let's learn about this! Pay close attention.",
-      "guideHint": "Listen carefully!",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Panoorin at pakinggan ang aralin!",
+      "narration": "Si Milo ay magtuturo: Alamin natin ang pagpapantig at ang mga salitang hiram!",
+      "guideHint": "Pakinggan mong mabuti ang mga halimbawa ng pantig at salitang hiram!",
+      "nextLabel": "Susunod →"
     },
     {
-      "activityId": "filipino-g3-q2-w05-d01-a02",
+      "activityId": "filipino-g3-q1-w03-d01-a02",
       "sequence": 2,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d01-visual",
+      "instruction": "I-grupo: alin ang SALITANG HIRAM at alin ang SALITANG KATUTUBO?",
+      "content": {
+        "fits": [
+          "jeepney",
+          "zoo",
+          "xylophone",
+          "virus",
+          "frontliners"
+        ],
+        "doesNotFit": [
+          "bayani",
+          "paaralan",
+          "kabayo",
+          "bandila",
+          "masipag"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakilala mo ang pagkakaiba ng salitang hiram at katutubo!",
+        "retry": "May mali pa. Ang salitang hiram ay galing sa ibang wika tulad ng Ingles. Subukan muli!"
+      },
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "I-drag ang bawat salita sa tamang grupo!",
+      "narration": "Sabi ni Milo: Alin sa mga salitang ito ang hiram? Alin ang katutubo?",
+      "guideHint": "Ang salitang hiram ay karaniwang galing sa Ingles. Ang katutubo ay purong Filipino.",
+      "nextLabel": "Susunod →"
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d01-a03",
+      "sequence": 3,
       "type": "MULTIPLE_CHOICE",
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Multiple Choice activity.",
+      "assetId": "filipino-g3-q1-w03-d01-visual",
+      "instruction": "Piliin ang tamang bilang ng pantig ng salita.",
       "content": {
         "options": [
-          "The correct choice about Naisusulat nang maayos at",
-          "A close-but-wrong answer",
-          "Something that sounds right but isn't",
-          "A clearly wrong answer"
+          "3 (tatlo)",
+          "2 (dalawa)",
+          "4 (apat)",
+          "5 (lima)"
         ],
         "correctIndex": 0
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Tama! Ang 'bayani' ay may tatlong pantig: ba-ya-ni!",
+        "retry": "Hindi iyon. Bilangin natin: ba-ya-ni. Ilan iyon? Subukan muli!"
       },
-      "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-      "prompt": "Tap the best answer!",
-      "narration": "Which one is correct? Think about what we learned!",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Ilang pantig mayroon ang salitang 'bayani'?",
+      "narration": "Tanong ni Milo: Ilang pantig ang 'bayani'? Bilangin natin: ba-ya-ni!",
+      "guideHint": "Hatiin ang salita: ba-ya-ni. Bilangin mo ang hati.",
+      "nextLabel": "Susunod →"
     },
     {
-      "activityId": "filipino-g3-q2-w05-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Sort And Classify activity.",
-      "content": {
-        "fits": [
-          "Example of Naisusulat nang maayos — correct",
-          "Another correct example about Naisusulat nang maayos",
-          "Yes — this matches Naisusulat nang maayos at"
-        ],
-        "doesNotFit": [
-          "This does not fit the lesson idea",
-          "This is unrelated — try again",
-          "This belongs somewhere else"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-      "prompt": "Sort them into the right boxes.",
-      "narration": "Help Milo sort these things! Drag them to the right spot.",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q2-w05-d01-a04",
+      "activityId": "filipino-g3-q1-w03-d01-a04",
       "sequence": 4,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Hotspot Image activity.",
+      "assetId": "filipino-g3-q1-w03-d01-visual",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagpapantig ng salita.",
       "content": {
-        "examples": [
-          "Key idea: Naisusulat nang maayos at wasto ang mga natutuhang salita ✓ ✓",
-          "Remember: Naisusulat nang maayos at wasto ang mga natutuhang salita ✓ ✓",
-          "Think about: Naisusulat nang maayos at wasto...",
-          "Try this: Can you explain Naisusulat nang maayos in your own words?"
+        "steps": [
+          "Basahin ang buong salita nang malakas",
+          "Pakinggan ang bawat tunog o pantig ng salita",
+          "Hatiin ang salita ayon sa bawat pantig (hal. pa-a-ra-lan)",
+          "Bilangin kung ilang pantig mayroon ang salita",
+          "Basahin muli ang salita nang may tamang pantig"
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Magaling! Alam mo na ang tamang hakbang sa pagpapantig!",
+        "retry": "May mali sa pagkakasunod-sunod. Una, basahin ang salita. Pagkatapos, pakinggan ang pantig. Subukan muli!"
       },
-      "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-      "prompt": "Tap the right spot in the picture!",
-      "narration": "Tap on the right part of the picture! Where is it?",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Ayusin ang mga hakbang sa tamang pagpapantig!",
+      "narration": "Sabi ni Milo: Ayusin natin ang tamang paraan ng pagpapantig! Ano ang unang gagawin?",
+      "guideHint": "Simulan sa pagbasa ng buong salita. Pagkatapos ay pakinggan ang pantig.",
+      "nextLabel": "Susunod →"
     },
     {
-      "activityId": "filipino-g3-q2-w05-d01-a05",
+      "activityId": "filipino-g3-q1-w03-d01-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Matching Pairs activity.",
+      "assetId": "filipino-g3-q1-w03-d01-visual",
+      "instruction": "Itugma ang salita sa tamang bilang ng pantig nito.",
       "content": {
         "pairs": [
           {
-            "left": "Concept: Naisusulat nang maayos",
-            "right": "Matches the lesson"
+            "left": "ku-si-na",
+            "right": "Tatlong Pantig"
           },
           {
-            "left": "Example of Naisusulat nang",
-            "right": "Fits the idea"
+            "left": "sa-la-min",
+            "right": "Tatlong Pantig — sa-la-min"
           },
           {
-            "left": "Key term: Naisusulat",
-            "right": "Correct"
+            "left": "ba-ya-ni-han",
+            "right": "Apat na Pantig"
+          },
+          {
+            "left": "ma-sa-ga-na",
+            "right": "Apat na Pantig — ma-sa-ga-na"
+          },
+          {
+            "left": "ma-ma-ma-yan",
+            "right": "Apat na Pantig — ma-ma-ma-yan"
           }
         ]
       },
       "completionRule": {
-        "type": "COMPLETE"
+        "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
+        "correct": "Napakagaling! Naipares mo nang tama ang bawat salita sa bilang ng pantig nito!",
+        "retry": "May hindi pa tama. Bilangin mong mabuti ang pantig ng bawat salita. Subukan muli!"
       },
-      "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-      "prompt": "Draw a line between each pair.",
-      "narration": "Find the matching pairs! Connect them together.",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
-    },
-    {
-      "activityId": "filipino-g3-q2-w05-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w05-d01-visual",
-      "instruction": "Complete the Sequence Builder activity.",
-      "content": {
-        "steps": [
-          "First: Understand Naisusulat nang maayos",
-          "Then: Practice with examples",
-          "Next: Check your understanding",
-          "Finally: Apply what you learned!"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Well done! You're making great progress.",
-        "retry": "Not quite — take another look and try again."
-      },
-      "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-      "prompt": "Put the steps in order!",
-      "narration": "What's the correct order? Drag to arrange!",
-      "guideHint": "Need a hint?",
-      "nextLabel": "Next →"
+      "accessibilityAlternative": "Accessible version of this activity.",
+      "prompt": "Pagdugtungin ang salita sa tamang bilang ng pantig!",
+      "narration": "Sabi ni Milo: Ikonekta ang bawat salita sa tamang bilang ng pantig! Ilang pantig mayroon ang kusina?",
+      "guideHint": "Bilangin ang mga hati ng salita. Ang ku-si-na ay may 3 hati.",
+      "nextLabel": "Tapusin →"
     }
   ],
   "assessment": {
@@ -208,128 +201,111 @@
     "totalItems": 5,
     "items": [
       {
-        "question": "Ano ang aralin natin ngayon?",
+        "question": "Ilang pantig mayroon ang salitang 'paaralan'?",
         "choices": [
           {
-            "text": "Mga salita at pagbasa sa Filipino",
+            "text": "2 (dalawa)",
+            "correct": false
+          },
+          {
+            "text": "3 (tatlo)",
+            "correct": false
+          },
+          {
+            "text": "4 (apat)",
             "correct": true
           },
           {
-            "text": "Pagkain",
-            "correct": false
-          },
-          {
-            "text": "Bahay",
-            "correct": false
-          },
-          {
-            "text": "Laro",
+            "text": "5 (lima)",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang aralin natin ngayon?"
+        "narration": "Tanong ni Milo: Ilang pantig ang salitang 'paaralan'? Hatiin natin: pa-a-ra-lan."
       },
       {
-        "question": "Aling salita ang natutuhan natin?",
+        "question": "Alin sa sumusunod ang salitang hiram?",
         "choices": [
           {
-            "text": "Mesa",
+            "text": "bandila",
             "correct": false
           },
           {
-            "text": "Mga salitang may tamang gamit",
+            "text": "jeepney",
             "correct": true
           },
           {
-            "text": "Saging",
+            "text": "masipag",
             "correct": false
           },
           {
-            "text": "Takbo",
+            "text": "sapatos",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Aling salita ang natutuhan natin?"
+        "narration": "Tanong ni Milo: Alin sa mga salitang ito ang hiram mula sa ibang wika?"
       },
       {
-        "question": "Bakit mahalaga ang araling ito?",
+        "question": "Alin ang tamang pagpapantig ng salitang 'masipag'?",
         "choices": [
           {
-            "text": "Hindi mahalaga",
-            "correct": false
-          },
-          {
-            "text": "Para matutong bumasa at umunawa",
+            "text": "ma-si-pag",
             "correct": true
           },
           {
-            "text": "Walang dahilan",
+            "text": "mas-i-pag",
             "correct": false
           },
           {
-            "text": "Para lang may gawin",
+            "text": "ma-sip-ag",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Bakit mahalaga ang araling ito?"
+        "narration": "Tanong ni Milo: Paano papantigin ang salitang 'masipag'?"
       },
       {
-        "question": "Paano ka magsasanay sa bahay?",
+        "question": "Ilang pantig mayroon ang salitang 'bayani'?",
         "choices": [
           {
-            "text": "Huwag magbasa",
+            "text": "2 (dalawa)",
             "correct": false
           },
           {
-            "text": "Magbasa ng mga aklat araw-araw",
+            "text": "3 (tatlo)",
             "correct": true
           },
           {
-            "text": "Matulog",
-            "correct": false
-          },
-          {
-            "text": "Manood lang ng TV",
+            "text": "4 (apat)",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Paano ka magsasanay sa bahay?"
+        "narration": "Tanong ni Milo: Ilang pantig ang 'bayani'? Bilangin: ba-ya-ni."
       },
       {
-        "question": "Ano ang dapat tandaan?",
+        "question": "Ano ang salitang hiram?",
         "choices": [
           {
-            "text": "Mahalaga ang pag-aaral ng wika",
+            "text": "Mga salitang gawa sa Pilipinas lamang",
+            "correct": false
+          },
+          {
+            "text": "Mga salitang walang katumbas sa Filipino at tinanggap gamitin",
             "correct": true
           },
           {
-            "text": "Wala",
-            "correct": false
-          },
-          {
-            "text": "Kalimutan lahat",
-            "correct": false
-          },
-          {
-            "text": "Hindi kailangan",
+            "text": "Mga salitang may isang pantig lamang",
             "correct": false
           }
         ],
-        "narration": "Milo asks: Ano ang dapat tandaan?"
+        "narration": "Tanong ni Milo: Ano ang ibig sabihin ng salitang hiram?"
       }
     ],
-    "narration": "Milo says: Great job! Now let's see what you remember!"
+    "narration": "Magaling! Tingnan natin kung ano ang natatandaan mo!"
   },
   "accessibility": {
-    "narrationAvailable": false,
-    "captionsAvailable": false,
+    "narrationAvailable": true,
+    "captionsAvailable": true,
     "reducedMotionSupported": true,
     "dragAlternativeAvailable": true,
     "colorIndependent": true
-  },
-  "storyIntro": "May bagong kuwento si Milo! \"Halika, basahin natin ito!\" masayang sabi niya.",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning Treehouse"
   }
 }

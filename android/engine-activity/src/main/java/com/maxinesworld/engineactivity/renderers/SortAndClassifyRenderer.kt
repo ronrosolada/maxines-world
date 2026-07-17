@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 
 @Composable
 fun SortAndClassifyRenderer(
@@ -24,6 +26,7 @@ fun SortAndClassifyRenderer(
     onHint: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
     var selectedItem by remember { mutableIntStateOf(-1) }
@@ -48,13 +51,14 @@ fun SortAndClassifyRenderer(
         items = options.drop(catCount).ifEmpty { options }
         correctMapping = items.indices.associateWith { it % maxOf(1, categories.size) }
     }
+    val prompt = step.question.ifBlank { step.narrationText }
 
     Column(
         modifier = modifier.fillMaxWidth().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text(step.question, style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.semantics { contentDescription = "Sort: ${step.question}" })
+        Text(prompt, style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.semantics { contentDescription = "Sort: $prompt" })
 
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             categories.forEachIndexed { ci, label ->
@@ -98,9 +102,9 @@ fun SortAndClassifyRenderer(
                     attempts++; allCorrect = classified.all { (it, c) -> c == correctMapping[it] }; submitted = true
                     if (allCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
                 }
-            }.semantics { contentDescription = if (submitted && !allCorrect) "Try again" else "Submit" },
+            }.semantics { contentDescription = if (submitted && !allCorrect) ui.tryAgain else ui.submit },
             contentAlignment = Alignment.Center) {
-            Text(if (submitted) { if (allCorrect) "Great job! 🎉" else "Try Again" } else "Submit",
+            Text(if (submitted) { if (allCorrect) ui.greatJob else ui.tryAgain } else ui.submit,
                 color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
         }
     }

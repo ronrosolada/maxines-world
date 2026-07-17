@@ -5,27 +5,31 @@
   "month": 1,
   "day": 9,
   "subject": "FILIPINO",
-  "title": "Panghalip na Pamalit",
-  "objective": "Gamitin ang panghalip na may malinaw na tinutukoy.",
-  "estimatedMinutes": 12,
+  "title": "Panghalip Panao (Ako, Ikaw, at Siya)",
+  "objective": "Nakagagamit ng panghalip panao bilang pamalit sa pangngalan — ako, ikaw, at siya (F3WG-Ie-h-3).",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M09",
   "language": "fil-PH",
-  "introduction": "Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Ako, ikaw, siya — sino ang nagsasalita? 🎤🎭",
   "vocabulary": [
     {
-      "term": "Panghalip",
-      "definition": "A key word used in the lesson “Panghalip na Pamalit”."
+      "term": "Panghalip Panao",
+      "definition": "Mga salitang pamalit sa ngalan ng tao upang hindi ito paulit-ulit sa pangungusap."
     },
     {
-      "term": "na",
-      "definition": "A key word used in the lesson “Panghalip na Pamalit”."
+      "term": "Ako",
+      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang sarili o ang taong nagsasalita."
     },
     {
-      "term": "Pamalit",
-      "definition": "A key word used in the lesson “Panghalip na Pamalit”."
+      "term": "Ikaw",
+      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang taong kinakausap."
+    },
+    {
+      "term": "Siya",
+      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang taong pinag-uusapan."
     }
   ],
   "activities": [
@@ -33,300 +37,300 @@
       "activityId": "filipino-g3-m01-d09-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy.",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa panghalip panao na ako, ikaw, at siya.",
+      "content": {
+        "text": "Ang ako, ikaw, at siya ay mga panghalip panao. Ginagamit ang panghalip panao bilang pamalit sa ngalan ng tao upang maiwasan ang paulit-ulit na pagbanggit ng pangalan. Ako — pamalit sa ngalan ng taong nagsasalita. Halimbawa: Ako ay kumakain ng mansanas. Ikaw — pamalit sa ngalan ng taong kinakausap!",
+        "visualScene": "🎤👧👦🧑",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay! Naunawaan mo ang gamit ng ako, ikaw, at siya.",
+        "retry": "Panoorin muli ang paliwanag tungkol sa panghalip panao."
       },
       "assetId": "filipino-g3-m01-d09-visual",
-      "accessibilityAlternative": "Text alternative: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+      "accessibilityAlternative": "Paliwanag tungkol sa panghalip panao. Ang ako ay pamalit sa nagsasalita. Ang ikaw ay pamalit sa kinakausap. Ang siya ay pamalit sa pinag-uusapan. May mga halimbawa ng bawat isa sa pangungusap."
     },
     {
       "activityId": "filipino-g3-m01-d09-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "Si Mara ay nagbasa. Siya ay tahimik.",
-          "Ang mga bata ay dumating. Sila ay masaya.",
-          "Hawak ko ang aklat. Ito ay bago."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d09-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d09-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "Si Mara ay nagbasa. Siya ay tahimik.",
-          "Ang mga bata ay dumating. Sila ay masaya.",
-          "Hawak ko ang aklat. Ito ay bago."
-        ],
-        "doesNotFit": [
-          "Panghalip na walang malinaw na tinutukoy",
-          "Siya para sa maraming tao",
-          "Sila para sa isang lapis"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d09-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d09-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "“Si Ana ay umawit. ___ ay masaya.”",
+      "instruction": "Basahin ang sitwasyon at piliin ang tamang panghalip panao na dapat gamitin.",
       "content": {
         "options": [
-          "Siya",
-          "Sila",
-          "Iyon"
+          "🌟 Siya",
+          "🎯 Ako",
+          "🐾 Ikaw",
+          "🎈 Kami"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🎤👧👦🧑",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: Siya",
-        "retry": "Read the lesson rule again. Sila and Iyon do not fit."
+        "correct": "Tama! Si 'Tiyo Alfredo' ay pinag-uusapan kaya 'siya' ang tamang panghalip.",
+        "retry": "Isipin mong muli. Ang Tiyo Alfredo ba ay nagsasalita, kinakausap, o pinag-uusapan?"
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d09-visual",
+      "accessibilityAlternative": "Tanong: 'Si Tiyo Alfredo ay isang enhinyero.' Anong panghalip ang maaaring pamalit kay Tiyo Alfredo? Ang tamang sagot ay 'siya' dahil siya ang pinag-uusapan."
     },
     {
-      "activityId": "filipino-g3-m01-d09-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d09-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Basahin ang bawat pangungusap. Ilagay sa AKO (Nagsasalita) kung ang panghalip ay tumutukoy sa sarili!",
+      "content": {
+        "fits": [
+          "Ako ay kumakain ng kanin at isda.",
+          "Ako ang maghuhugas ng pinggan mamaya.",
+          "Ako na ang aalalay sa iyo."
+        ],
+        "doesNotFit": [
+          "Ikaw ba si Rosa na bagong kaklase?",
+          "Siya ang kaibigan ni Rosa na may dalang aklat.",
+          "Ikaw ang kasama sa pamamasyal bukas."
+        ],
+        "visualScene": "🎤👧👦🧑",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 6
+      },
+      "feedback": {
+        "correct": "Magaling! Nakikilala mo na ang pagkakaiba ng ako sa ikaw at siya.",
+        "retry": "Balikan ang paliwanag. Sino ang tinutukoy ng bawat panghalip?"
+      },
+      "assetId": "filipino-g3-m01-d09-visual",
+      "accessibilityAlternative": "Pagbukud-bukurin ang anim na pangungusap. Ilagay sa AKO ang mga pangungusap na tumutukoy sa sarili. Ilagay sa IKAW/SIYA ang mga tumutukoy sa ibang tao."
+    },
+    {
+      "activityId": "filipino-g3-m01-d09-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat sitwasyon sa tamang panghalip panao na dapat gamitin.",
       "content": {
         "pairs": [
           {
-            "left": "Si Mara ay nagbasa. Siya ay tahimik.",
-            "right": "fits the lesson idea"
+            "left": "Ikaw ang nagsasalita tungkol sa iyong sarili",
+            "right": "Ako"
           },
           {
-            "left": "Ang mga bata ay dumating. Sila ay masaya.",
-            "right": "fits the lesson idea"
+            "left": "Kinakausap mo ang iyong kaklase",
+            "right": "Ikaw"
           },
           {
-            "left": "Hawak ko ang aklat. Ito ay bago.",
-            "right": "fits the lesson idea"
+            "left": "Pinag-uusapan ninyo ang inyong guro",
+            "right": "Siya"
+          },
+          {
+            "left": "Sinasabi mo ang iyong pangalan sa klase",
+            "right": "Ako — Sinasabi mo ang iyong pa"
           }
-        ]
+        ],
+        "visualScene": "🎤👧👦🧑",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 4
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Ang galing! Alam mo na kung kailan gagamitin ang ako, ikaw, at siya.",
+        "retry": "Balikan ang kahulugan ng bawat panghalip panao."
       },
       "assetId": "filipino-g3-m01-d09-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Itapat ang apat na sitwasyon sa tamang panghalip. Kapag nagsasalita ka tungkol sa sarili — ako. Kapag kinakausap mo ang iba — ikaw. Kapag pinag-uusapan ang iba — siya."
     },
     {
-      "activityId": "filipino-g3-m01-d09-a06",
-      "sequence": 6,
+      "activityId": "filipino-g3-m01-d09-a05",
+      "sequence": 5,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "instruction": "Ayusin ang mga hakbang kung paano pumili ng tamang panghalip panao sa isang pangungusap!",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+          "Tukuyin kung sino ang tinutukoy sa pangungusap — ang nagsasalita, kinakausap, o pinag-uusapan.",
+          "Kung ang tinutukoy ay ang sarili, gamitin ang AKO.",
+          "Kung ang tinutukoy ay ang kausap, gamitin ang IKAW.",
+          "Kung ang tinutukoy ay ang pinag-uusapan, gamitin ang SIYA."
+        ],
+        "visualScene": "🎤👧👦🧑",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "targetCount": 4
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Tama! Iyan ang tamang hakbang sa pagpili ng panghalip panao.",
+        "retry": "Isipin mong muli. Ano ang unang dapat gawin?"
       },
       "assetId": "filipino-g3-m01-d09-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa pagpili ng tamang panghalip. Una, tukuyin kung sino ang tinutukoy. Kung sarili — ako. Kung kausap — ikaw. Kung pinag-uusapan — siya."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
-    "passingCorrectCount": 4,
+    "passingCorrectCount": 3,
     "claimsMastery": false,
     "items": [
       {
         "itemId": "filipino-g3-m01-d09-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Panghalip na Pamalit”?",
+        "prompt": "Kailan ginagamit ang panghalip na 'ako'?",
         "options": [
           {
-            "id": "a",
-            "text": "Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+            "id": "o1",
+            "text": "Kapag ang tinutukoy ay ang sarili o ang nagsasalita."
           },
           {
-            "id": "b",
-            "text": "Panghalip na walang malinaw na tinutukoy"
+            "id": "o2",
+            "text": "Kapag ang tinutukoy ay ang kausap."
           },
           {
-            "id": "c",
-            "text": "Siya para sa maraming tao"
+            "id": "o3",
+            "text": "Kapag ang tinutukoy ay ang pinag-uusapan."
+          },
+          {
+            "id": "o4",
+            "text": "Kapag ang tinutukoy ay maraming tao."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy.” because it follows the lesson explanation: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d09-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Si Karla ay naghanda ng plano para sa kaniyang kaarawan. Anong panghalip ang maaaring pamalit kay Karla?",
         "options": [
           {
-            "id": "a",
-            "text": "Si Mara ay nagbasa. Siya ay tahimik."
+            "id": "o1",
+            "text": "Siya"
           },
           {
-            "id": "b",
-            "text": "Panghalip na walang malinaw na tinutukoy"
+            "id": "o2",
+            "text": "Ako"
           },
           {
-            "id": "c",
-            "text": "Siya para sa maraming tao"
+            "id": "o3",
+            "text": "Ikaw"
+          },
+          {
+            "id": "o4",
+            "text": "Kami"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Si Mara ay nagbasa. Siya ay tahimik.” because it follows the lesson explanation: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d09-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Sino ang tinutukoy kapag ginamit ang 'ikaw'?",
         "options": [
           {
-            "id": "a",
-            "text": "Panghalip na walang malinaw na tinutukoy"
+            "id": "o1",
+            "text": "Ang taong kinakausap."
           },
           {
-            "id": "b",
-            "text": "Si Mara ay nagbasa. Siya ay tahimik."
+            "id": "o2",
+            "text": "Ang taong nagsasalita."
           },
           {
-            "id": "c",
-            "text": "Ang mga bata ay dumating. Sila ay masaya."
+            "id": "o3",
+            "text": "Ang taong pinag-uusapan."
+          },
+          {
+            "id": "o4",
+            "text": "Ang lahat ng tao sa paligid."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Panghalip na walang malinaw na tinutukoy” because it follows the lesson explanation: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d09-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "“Si Ana ay umawit. ___ ay masaya.”",
+        "prompt": "Alin sa sumusunod ang tamang pangungusap na gumagamit ng 'siya'?",
         "options": [
           {
-            "id": "a",
-            "text": "Siya"
+            "id": "o1",
+            "text": "Siya ang magdadala ng damit."
           },
           {
-            "id": "b",
-            "text": "Sila"
+            "id": "o2",
+            "text": "siya ang magdadala ng damit."
           },
           {
-            "id": "c",
-            "text": "Iyon"
+            "id": "o3",
+            "text": "Siya ang magdadala ng damit"
+          },
+          {
+            "id": "o4",
+            "text": "siya ang magdadala ng damit"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Siya” because it follows the lesson explanation: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d09-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Bakit mahalagang gamitin ang panghalip panao?",
         "options": [
           {
-            "id": "a",
-            "text": "Hawak ko ang aklat. Ito ay bago."
+            "id": "o1",
+            "text": "Upang hindi paulit-ulit ang pangalan ng tao sa pangungusap."
           },
           {
-            "id": "b",
-            "text": "Sila para sa isang lapis"
+            "id": "o2",
+            "text": "Upang humaba ang ating mga pangungusap."
           },
           {
-            "id": "c",
-            "text": "Panghalip na walang malinaw na tinutukoy"
+            "id": "o3",
+            "text": "Upang hindi maintindihan ang pinag-uusapan."
+          },
+          {
+            "id": "o4",
+            "text": "Upang magamit ang lahat ng letra ng alpabeto."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Hawak ko ang aklat. Ito ay bago.” because it follows the lesson explanation: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d09-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d09-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Panghalip na Pamalit; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Panghalip na Pamalit.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "e2984d0340fcc244c4e1aa2bf685330d1e362f0cac0c3b6d661d71bcfcf3bc75"
+  "storyIntro": "Ako, ikaw, siya — sino ang nagsasalita? 🎤🎭",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🎤👧👦🧑"
+  }
 }

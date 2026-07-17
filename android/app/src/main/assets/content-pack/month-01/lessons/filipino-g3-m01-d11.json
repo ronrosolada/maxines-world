@@ -6,26 +6,30 @@
   "day": 11,
   "subject": "FILIPINO",
   "title": "Elemento ng Kuwento",
-  "objective": "Tukuyin ang tauhan, tagpuan, pangyayari, suliranin, at posibleng kalutasan.",
-  "estimatedMinutes": 12,
+  "objective": "Nailalarawan ang mga elemento ng kuwento gaya ng tauhan, tagpuan, at banghay.",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M11",
   "language": "fil-PH",
-  "introduction": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Buuin ang kuwento: tauhan, tagpuan, banghay! 🎬",
   "vocabulary": [
     {
-      "term": "Elemento",
-      "definition": "A key word used in the lesson “Elemento ng Kuwento”."
+      "term": "Tauhan",
+      "definition": "Ang mga taong gumaganap o karakter sa kuwento."
     },
     {
-      "term": "ng",
-      "definition": "A key word used in the lesson “Elemento ng Kuwento”."
+      "term": "Tagpuan",
+      "definition": "Ang lugar at panahon kung saan nangyari ang kuwento."
     },
     {
-      "term": "Kuwento",
-      "definition": "A key word used in the lesson “Elemento ng Kuwento”."
+      "term": "Banghay",
+      "definition": "Ang pagkakasunod-sunod ng mga pangyayari sa kuwento."
+    },
+    {
+      "term": "Pamagat",
+      "definition": "Ang paksa o pangalan ng kuwento."
     }
   ],
   "activities": [
@@ -33,156 +37,152 @@
       "activityId": "filipino-g3-m01-d11-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan.",
+      "instruction": "Panoorin at pakinggan ang kuwento tungkol kay Ana.",
+      "content": {
+        "text": "Si Ana ay isang masayahing batang nag-aaral sa ikatlong baitang. Isang hapon, kasama niya ang kaniyang matalik na kaibigan na si Ben pauwi mula sa paaralan. Habang sila ay naglalakad sa daan, may nakita silang maliit na ibon na sugatan sa ilalim ng puno!",
+        "visualScene": "🎬👧🏡🌟",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Magandang kuwento!",
+        "retry": "Pakinggan muli."
       },
       "assetId": "filipino-g3-m01-d11-visual",
-      "accessibilityAlternative": "Text alternative: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+      "accessibilityAlternative": "Si Ana at Ben ay naglalakad pauwi. May nakita silang sugatang ibon. Ginamot nila ito at pinakawalan pagkaraan ng ilang araw."
     },
     {
       "activityId": "filipino-g3-m01-d11-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga pangyayari sa tamang pagkakasunod-sunod.",
       "content": {
-        "examples": [
-          "tauhan—gumaganap",
-          "tagpuan—lugar at panahon",
-          "pangyayari—naganap"
-        ]
+        "steps": [
+          "Sina Ana at Ben ay naglakad pauwi mula sa paaralan.",
+          "May nakita silang sugatang ibon sa ilalim ng puno.",
+          "Dinala nila ang ibon sa bahay ni Ana.",
+          "Ginamot nila ang sugat ng ibon at pinakain ito.",
+          "Gumaling ang ibon at pinalipad nila ito."
+        ],
+        "visualScene": "🎬👧🏡🌟",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
+        "type": "ALL_STEPS_COMPLETED",
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
+        "correct": "Tama ang pagkakasunod-sunod!",
+        "retry": "Ayusin muli ang pagkakasunod-sunod."
       },
       "assetId": "filipino-g3-m01-d11-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+      "accessibilityAlternative": "Limang pangyayari mula sa kuwento ang kailangang ayusin."
     },
     {
       "activityId": "filipino-g3-m01-d11-a03",
       "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "tauhan—gumaganap",
-          "tagpuan—lugar at panahon",
-          "pangyayari—naganap"
-        ],
-        "doesNotFit": [
-          "tagpuan—pangalan ng may-akda",
-          "tauhan—pamagat ng aklat",
-          "kalutasan—anumang di-kaugnay na wakas"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d11-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d11-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Ano ang tagpuan?",
+      "instruction": "Piliin ang tamang sagot tungkol sa elemento ng kuwento.",
       "content": {
         "options": [
-          "lugar at panahon ng kuwento",
-          "taong sumulat",
-          "aral lamang"
+          "🌟 Ang tauhan ay ang taong gumaganap sa kuwento.",
+          "🎯 Ang tauhan ay ang lugar kung saan nangyari ang kuwento.",
+          "🐾 Ang tauhan ay ang pagkakasunod-sunod ng pangyayari.",
+          "🎈 Ang tauhan ay ang paksa ng kuwento."
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🎬👧🏡🌟",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: lugar at panahon ng kuwento",
-        "retry": "Read the lesson rule again. taong sumulat and aral lamang do not fit."
+        "correct": "Tama! Ang tauhan ay ang gumaganap sa kuwento.",
+        "retry": "Basahin muli at subukan."
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d11-visual",
+      "accessibilityAlternative": "Pumili ng tamang kahulugan ng tauhan."
     },
     {
-      "activityId": "filipino-g3-m01-d11-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d11-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat elemento ng kuwento sa tamang kahulugan nito.",
       "content": {
         "pairs": [
           {
-            "left": "tauhan—gumaganap",
-            "right": "fits the lesson idea"
+            "left": "Tauhan",
+            "right": "Ang taong gumaganap sa kuwento"
           },
           {
-            "left": "tagpuan—lugar at panahon",
-            "right": "fits the lesson idea"
+            "left": "Tagpuan",
+            "right": "Ang lugar kung saan nangyari ang kuwento"
           },
           {
-            "left": "pangyayari—naganap",
-            "right": "fits the lesson idea"
+            "left": "Banghay",
+            "right": "Ang pagkakasunod-sunod ng mga pangyayari"
+          },
+          {
+            "left": "Pamagat",
+            "right": "Ang paksa o pangalan ng kuwento"
           }
-        ]
+        ],
+        "visualScene": "🎬👧🏡🌟",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 4
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Naitapat mo nang tama ang lahat!",
+        "retry": "Subukan muli ang pagtatapat."
       },
       "assetId": "filipino-g3-m01-d11-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Itapat ang apat na elemento sa kanilang mga kahulugan."
     },
     {
-      "activityId": "filipino-g3-m01-d11-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "activityId": "filipino-g3-m01-d11-a05",
+      "sequence": 5,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Pagbukud-bukurin kung ang salita ay tumutukoy sa tauhan, tagpuan, o banghay.",
       "content": {
-        "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+        "fits": [
+          "Ana — Tauhan",
+          "Sa daan — Tagpuan",
+          "Paggamot sa ibon — Banghay",
+          "Ben — Tauhan",
+          "Bahay ni Ana — Tagpuan"
+        ],
+        "doesNotFit": [
+          "Saging — Hindi elemento ng kuwento",
+          "Laruan — Hindi elemento ng kuwento"
+        ],
+        "visualScene": "🎬👧🏡🌟",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 7
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
+        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
       },
       "assetId": "filipino-g3-m01-d11-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga salita kung ito ay tauhan, tagpuan, banghay, o hindi elemento ng kuwento."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +191,148 @@
         "itemId": "filipino-g3-m01-d11-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Elemento ng Kuwento”?",
+        "prompt": "Ano ang tawag sa taong gumaganap sa kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+            "id": "o1",
+            "text": "Tauhan"
           },
           {
-            "id": "b",
-            "text": "tagpuan—pangalan ng may-akda"
+            "id": "o2",
+            "text": "Tagpuan"
           },
           {
-            "id": "c",
-            "text": "tauhan—pamagat ng aklat"
+            "id": "o3",
+            "text": "Pamagat"
+          },
+          {
+            "id": "o4",
+            "text": "Banghay"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan.” because it follows the lesson explanation: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d11-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Ano ang tawag sa lugar kung saan nangyari ang kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "tauhan—gumaganap"
+            "id": "o1",
+            "text": "Tagpuan"
           },
           {
-            "id": "b",
-            "text": "tagpuan—pangalan ng may-akda"
+            "id": "o2",
+            "text": "Tauhan"
           },
           {
-            "id": "c",
-            "text": "tauhan—pamagat ng aklat"
+            "id": "o3",
+            "text": "Banghay"
+          },
+          {
+            "id": "o4",
+            "text": "Paksa"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “tauhan—gumaganap” because it follows the lesson explanation: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d11-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Sino ang pangunahing tauhan sa kuwentong napakinggan?",
         "options": [
           {
-            "id": "a",
-            "text": "tagpuan—pangalan ng may-akda"
+            "id": "o1",
+            "text": "Ana"
           },
           {
-            "id": "b",
-            "text": "tauhan—gumaganap"
+            "id": "o2",
+            "text": "Milo"
           },
           {
-            "id": "c",
-            "text": "tagpuan—lugar at panahon"
+            "id": "o3",
+            "text": "Lolo Pedro"
+          },
+          {
+            "id": "o4",
+            "text": "Ben"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “tagpuan—pangalan ng may-akda” because it follows the lesson explanation: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d11-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tagpuan?",
+        "prompt": "Ano ang tawag sa pagkakasunod-sunod ng mga pangyayari sa kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "lugar at panahon ng kuwento"
+            "id": "o1",
+            "text": "Banghay"
           },
           {
-            "id": "b",
-            "text": "taong sumulat"
+            "id": "o2",
+            "text": "Tauhan"
           },
           {
-            "id": "c",
-            "text": "aral lamang"
+            "id": "o3",
+            "text": "Tagpuan"
+          },
+          {
+            "id": "o4",
+            "text": "Pamagat"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “lugar at panahon ng kuwento” because it follows the lesson explanation: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d11-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Saan naganap ang kuwento nina Ana?",
         "options": [
           {
-            "id": "a",
-            "text": "pangyayari—naganap"
+            "id": "o1",
+            "text": "Sa daan pauwi mula sa paaralan"
           },
           {
-            "id": "b",
-            "text": "kalutasan—anumang di-kaugnay na wakas"
+            "id": "o2",
+            "text": "Sa loob ng silid-aralan"
           },
           {
-            "id": "c",
-            "text": "tagpuan—pangalan ng may-akda"
+            "id": "o3",
+            "text": "Sa palengke"
+          },
+          {
+            "id": "o4",
+            "text": "Sa simbahan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “pangyayari—naganap” because it follows the lesson explanation: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d11-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d11-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Elemento ng Kuwento; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Elemento ng Kuwento.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "6fbd2c1bde3c355cec249168e3963055bf9b671082a88d6526eec6eaea39ca2a"
+  "storyIntro": "Buuin ang kuwento: tauhan, tagpuan, banghay! 🎬",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🎬👧🏡🌟"
+  }
 }

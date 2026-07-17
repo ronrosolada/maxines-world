@@ -5,27 +5,35 @@
   "month": 1,
   "day": 13,
   "subject": "FILIPINO",
-  "title": "Malaki, Maliit, at Bantas",
-  "objective": "Gumamit ng malaking titik at wastong bantas sa payak na pangungusap.",
-  "estimatedMinutes": 12,
+  "title": "Malaki at Maliit na Letra at Bantas",
+  "objective": "Nagagamit ang malaki at maliit na letra at mga bantas sa pagsulat ng mga salita, parirala, at pangungusap.",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M13",
   "language": "fil-PH",
-  "introduction": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Malaki o maliit na letra? Parang superhero rules! 🦸🔠",
   "vocabulary": [
     {
-      "term": "Malaki",
-      "definition": "A key word used in the lesson “Malaki, Maliit, at Bantas”."
+      "term": "Malaking letra",
+      "definition": "Letrang may malaking anyo; ginagamit sa tiyak na ngalan ng tao, lugar, araw, at simula ng pangungusap."
     },
     {
-      "term": "Maliit",
-      "definition": "A key word used in the lesson “Malaki, Maliit, at Bantas”."
+      "term": "Maliit na letra",
+      "definition": "Letrang may maliit na anyo; ginagamit sa hindi tiyak na ngalan."
     },
     {
-      "term": "at",
-      "definition": "A key word used in the lesson “Malaki, Maliit, at Bantas”."
+      "term": "Tuldok",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagsasalaysay."
+    },
+    {
+      "term": "Tandang pananong",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagtatanong."
+    },
+    {
+      "term": "Tandang padamdam",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na may matinding damdamin."
     }
   ],
   "activities": [
@@ -33,156 +41,156 @@
       "activityId": "filipino-g3-m01-d13-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam.",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa malaki at maliit na letra.",
+      "content": {
+        "text": "Ang malaking letra ay ginagamit sa simula ng pangungusap at sa mga tiyak na ngalan. Halimbawa: Sabado (tiyak na araw), Pilipinas (tiyak na bansa), Jose Rizal (tiyak na tao). Ang maliit na letra naman ay ginagamit sa mga hindi tiyak na ngalan. Halimbawa: araw, bansa, bayani!",
+        "visualScene": "🔠Aa.! ⭐",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay!",
+        "retry": "Pakinggan muli."
       },
       "assetId": "filipino-g3-m01-d13-visual",
-      "accessibilityAlternative": "Text alternative: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+      "accessibilityAlternative": "Paliwanag kung kailan ginagamit ang malaki at maliit na letra at mga bantas."
     },
     {
       "activityId": "filipino-g3-m01-d13-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "Masaya si Lino.",
-          "Nasaan ang aklat?",
-          "Naku! Nahulog ang bola!"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d13-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d13-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "Masaya si Lino.",
-          "Nasaan ang aklat?",
-          "Naku! Nahulog ang bola!"
-        ],
-        "doesNotFit": [
-          "masaya si Lino.",
-          "Nasaan ang aklat.",
-          "Naku nahulog ang bola"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d13-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d13-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Alin ang wastong pangungusap?",
+      "instruction": "Piliin ang salitang may tamang gamit ng malaki at maliit na letra.",
       "content": {
         "options": [
-          "Masaya si Lino.",
-          "masaya si lino",
-          "Masaya si Lino"
+          "🌟 Linggo",
+          "🎯 linggo (bilang araw)",
+          "🐾 LInggo",
+          "🎈 linGgo"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🔠Aa.! ⭐",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: Masaya si Lino.",
-        "retry": "Read the lesson rule again. masaya si lino and Masaya si Lino do not fit."
+        "correct": "Tama! Ang Linggo ay tiyak na araw kaya may malaking letra.",
+        "retry": "Isipin mo — ang Linggo ay tiyak na ngalan ng araw."
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d13-visual",
+      "accessibilityAlternative": "Pumili ng tamang pagkakasulat ng pangalan ng araw na Linggo."
     },
     {
-      "activityId": "filipino-g3-m01-d13-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d13-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Pagbukud-bukurin kung TAMA o MALI ang gamit ng malaking letra.",
+      "content": {
+        "fits": [
+          "Pilipinas — TAMA (tiyak na bansa)",
+          "Sabado — TAMA (tiyak na araw)",
+          "Jose Rizal — TAMA (tiyak na tao)",
+          "Batangas — TAMA (tiyak na lugar)"
+        ],
+        "doesNotFit": [
+          "araw — Dapat malaki (MALI, ito ay hindi tiyak)",
+          "bansa — Dapat malaki (MALI, ito ay hindi tiyak)",
+          "bayani — Dapat malaki (MALI, ito ay hindi tiyak)"
+        ],
+        "visualScene": "🔠Aa.! ⭐",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 7
+      },
+      "feedback": {
+        "correct": "Mahusay! Alam mo na ang tama at mali!",
+        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
+      },
+      "assetId": "filipino-g3-m01-d13-visual",
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga salita ayon sa kung tama o mali ang gamit ng malaking letra."
+    },
+    {
+      "activityId": "filipino-g3-m01-d13-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang salita sa tamang pagsulat nito gamit ang tamang letra.",
       "content": {
         "pairs": [
           {
-            "left": "Masaya si Lino.",
-            "right": "fits the lesson idea"
+            "left": "sabado",
+            "right": "Sabado"
           },
           {
-            "left": "Nasaan ang aklat?",
-            "right": "fits the lesson idea"
+            "left": "pilipinas",
+            "right": "Pilipinas"
           },
           {
-            "left": "Naku! Nahulog ang bola!",
-            "right": "fits the lesson idea"
+            "left": "araw",
+            "right": "araw"
+          },
+          {
+            "left": "bansa",
+            "right": "bansa"
+          },
+          {
+            "left": "juan",
+            "right": "Juan"
           }
-        ]
+        ],
+        "visualScene": "🔠Aa.! ⭐",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Tama ang lahat ng pagtatapat!",
+        "retry": "Subukan muli."
       },
       "assetId": "filipino-g3-m01-d13-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Itapat ang bawat salita sa tamang pagsulat nito."
     },
     {
-      "activityId": "filipino-g3-m01-d13-a06",
-      "sequence": 6,
+      "activityId": "filipino-g3-m01-d13-a05",
+      "sequence": 5,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "instruction": "Ayusin ang mga tuntunin sa paggamit ng bantas ayon sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+          "Gumamit ng tuldok (.) sa hulihan ng pangungusap na nagsasalaysay.",
+          "Gumamit ng tandang pananong (?) sa hulihan ng tanong.",
+          "Gumamit ng tandang padamdam (!) sa hulihan ng pangungusap na may matinding damdamin.",
+          "Gumamit ng kuwit (,) sa paghihiwalay ng mga salita sa serye.",
+          "Tandaan: Ang tamang bantas ay mahalaga upang maunawaan ang diwa ng pangungusap."
+        ],
+        "visualScene": "🔠Aa.! ⭐",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Tama! Alam mo na ang mga tuntunin sa bantas.",
+        "retry": "Ayusin muli ang pagkakasunod-sunod."
       },
       "assetId": "filipino-g3-m01-d13-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Limang tuntunin sa paggamit ng bantas na kailangang ayusin."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +199,148 @@
         "itemId": "filipino-g3-m01-d13-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Malaki, Maliit, at Bantas”?",
+        "prompt": "Alin sa mga sumusunod ang dapat isulat sa malaking letra?",
         "options": [
           {
-            "id": "a",
-            "text": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+            "id": "o1",
+            "text": "Pilipinas"
           },
           {
-            "id": "b",
-            "text": "masaya si Lino."
+            "id": "o2",
+            "text": "bansa"
           },
           {
-            "id": "c",
-            "text": "Nasaan ang aklat."
+            "id": "o3",
+            "text": "araw"
+          },
+          {
+            "id": "o4",
+            "text": "lugar"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam.” because it follows the lesson explanation: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d13-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Alin sa sumusunod ang may tamang bantas sa hulihan ng pangungusap na nagtatanong?",
         "options": [
           {
-            "id": "a",
-            "text": "Masaya si Lino."
+            "id": "o1",
+            "text": "Saan ka pupunta?"
           },
           {
-            "id": "b",
-            "text": "masaya si Lino."
+            "id": "o2",
+            "text": "Saan ka pupunta."
           },
           {
-            "id": "c",
-            "text": "Nasaan ang aklat."
+            "id": "o3",
+            "text": "Saan ka pupunta,"
+          },
+          {
+            "id": "o4",
+            "text": "Saan ka pupunta!"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Masaya si Lino.” because it follows the lesson explanation: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d13-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Kailan ginagamit ang malaking letra?",
         "options": [
           {
-            "id": "a",
-            "text": "masaya si Lino."
+            "id": "o1",
+            "text": "Sa tiyak na ngalan ng tao, lugar, at araw"
           },
           {
-            "id": "b",
-            "text": "Masaya si Lino."
+            "id": "o2",
+            "text": "Sa lahat ng salita"
           },
           {
-            "id": "c",
-            "text": "Nasaan ang aklat?"
+            "id": "o3",
+            "text": "Sa gitna ng pangungusap"
+          },
+          {
+            "id": "o4",
+            "text": "Sa mga salitang hiram lamang"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “masaya si Lino.” because it follows the lesson explanation: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d13-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong pangungusap?",
+        "prompt": "Alin ang may tamang bantas para sa pahayag na may matinding damdamin?",
         "options": [
           {
-            "id": "a",
-            "text": "Masaya si Lino."
+            "id": "o1",
+            "text": "Naku, nasunog ang bahay!"
           },
           {
-            "id": "b",
-            "text": "masaya si lino"
+            "id": "o2",
+            "text": "Naku, nasunog ang bahay."
           },
           {
-            "id": "c",
-            "text": "Masaya si Lino"
+            "id": "o3",
+            "text": "Naku, nasunog ang bahay?"
+          },
+          {
+            "id": "o4",
+            "text": "Naku, nasunog ang bahay,"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Masaya si Lino.” because it follows the lesson explanation: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d13-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Alin ang tamang pagsulat ng pangalan ng araw?",
         "options": [
           {
-            "id": "a",
-            "text": "Naku! Nahulog ang bola!"
+            "id": "o1",
+            "text": "Sabado"
           },
           {
-            "id": "b",
-            "text": "Naku nahulog ang bola"
+            "id": "o2",
+            "text": "sabado"
           },
           {
-            "id": "c",
-            "text": "masaya si Lino."
+            "id": "o3",
+            "text": "SABADO"
+          },
+          {
+            "id": "o4",
+            "text": "sabAdo"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Naku! Nahulog ang bola!” because it follows the lesson explanation: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d13-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d13-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Malaki, Maliit, at Bantas; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Malaki, Maliit, at Bantas.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "b07828a6511cc30aeebbb0cfd67e4ac34fbfa89f3ac84dd0f1d6920130bbc61f"
+  "storyIntro": "Malaki o maliit na letra? Parang superhero rules! 🦸🔠",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🔠Aa.! ⭐"
+  }
 }
