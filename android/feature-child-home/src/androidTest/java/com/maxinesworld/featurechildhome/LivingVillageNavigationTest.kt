@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -17,11 +17,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Connected navigation tests for LivingVillageHomeScreen.
- * These tests verify that destination clicks produce correct route callbacks.
- * Requires a device or emulator (connectedDebugAndroidTest).
- */
 @RunWith(AndroidJUnit4::class)
 class LivingVillageNavigationTest {
 
@@ -42,7 +37,7 @@ class LivingVillageNavigationTest {
                 onPlaygroundClick = {}, onParentsClick = {},
             )
         }
-        composeTestRule.onNodeWithContentDescription("Story Tree, 42%,", substring = true, ignoreCase = true)
+        composeTestRule.onNodeWithContentDescription("Story Tree, 42%", substring = true, ignoreCase = true)
             .performClick()
         assertEquals("english", lastSubject)
     }
@@ -148,7 +143,7 @@ class LivingVillageNavigationTest {
                 onParentsClick = {},
             )
         }
-        composeTestRule.onNodeWithContentDescription("Playground", substring = true, ignoreCase = true)
+        composeTestRule.onNodeWithContentDescription("Playground 0/3", substring = true, ignoreCase = true)
             .performClick()
         assertTrue(playgroundClicked)
     }
@@ -167,7 +162,7 @@ class LivingVillageNavigationTest {
                 onParentsClick = {},
             )
         }
-        composeTestRule.onNodeWithContentDescription("Playground", substring = true, ignoreCase = true)
+        composeTestRule.onNodeWithContentDescription("Playground — Open", substring = true, ignoreCase = true)
             .performClick()
         assertTrue(playgroundClicked)
     }
@@ -186,8 +181,10 @@ class LivingVillageNavigationTest {
                 onCafeClick = {}, onPlaygroundClick = {}, onParentsClick = {},
             )
         }
-        // Paw trail should not exist when questSubjectId is null
-        val nodes = composeTestRule.onAllNodes(useUnmergedTree = true, matcher = androidx.compose.ui.test.SemanticsMatcher("any") { true })
+        val nodes = composeTestRule.onAllNodes(
+            useUnmergedTree = true,
+            matcher = SemanticsMatcher("any") { true }
+        )
         var pawTrailFound = false
         nodes.fetchSemanticsNodes().forEach {
             if (it.config.contains(androidx.compose.ui.semantics.SemanticsProperties.TestTag) &&
@@ -201,13 +198,8 @@ class LivingVillageNavigationTest {
 
     @Test
     fun compactLayoutIncludesPlayground() {
-        // Set a narrow width to trigger compact layout
         composeTestRule.setContent {
-            androidx.compose.foundation.layout.Box(
-                modifier = androidx.compose.ui.Modifier
-                    .fillMaxSize()
-                    .width(360.dp)
-            ) {
+            Box(Modifier.fillMaxSize().width(360.dp)) {
                 LivingVillageHomeScreen(
                     state = testVillageState(),
                     onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
@@ -217,18 +209,20 @@ class LivingVillageNavigationTest {
                 )
             }
         }
-        // Playground should be reachable in compact layout
-        composeTestRule.onNodeWithContentDescription("🔒", substring = true, ignoreCase = true).assertExists()
+        val nodes = composeTestRule.onAllNodes(
+            useUnmergedTree = true,
+            matcher = SemanticsMatcher("has Playground") {
+                it.config.getOrElse(androidx.compose.ui.semantics.SemanticsProperties.ContentDescription) { listOf("") }
+                    .any { d -> d.contains("Playground", ignoreCase = true) }
+            }
+        )
+        assertTrue("Playground must exist in compact layout", nodes.fetchSemanticsNodes().isNotEmpty())
     }
 
     @Test
     fun compactLayoutIncludesCatCafe() {
         composeTestRule.setContent {
-            androidx.compose.foundation.layout.Box(
-                modifier = androidx.compose.ui.Modifier
-                    .fillMaxSize()
-                    .width(360.dp)
-            ) {
+            Box(Modifier.fillMaxSize().width(360.dp)) {
                 LivingVillageHomeScreen(
                     state = testVillageState(),
                     onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
@@ -239,8 +233,6 @@ class LivingVillageNavigationTest {
         }
         composeTestRule.onNodeWithContentDescription("Cat Café", ignoreCase = true).assertExists()
     }
-
-    // ─── Playground gate state tests ───
 
     @Test
     fun playgroundLockedAtZeroOfThreeShowsProgress() {
@@ -318,11 +310,7 @@ class LivingVillageNavigationTest {
             playground = PlaygroundGateState("test", "2026-07-16", 3, 1, PlaygroundGateStatus.Locked),
         )
         composeTestRule.setContent {
-            androidx.compose.foundation.layout.Box(
-                modifier = androidx.compose.ui.Modifier
-                    .fillMaxSize()
-                    .width(360.dp)
-            ) {
+            Box(Modifier.fillMaxSize().width(360.dp)) {
                 LivingVillageHomeScreen(
                     state = state,
                     onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
@@ -332,10 +320,15 @@ class LivingVillageNavigationTest {
                 )
             }
         }
-        composeTestRule.onNodeWithContentDescription("Playground", substring = true, ignoreCase = true).assertExists()
+        val nodes = composeTestRule.onAllNodes(
+            useUnmergedTree = true,
+            matcher = SemanticsMatcher("has Playground") {
+                it.config.getOrElse(androidx.compose.ui.semantics.SemanticsProperties.ContentDescription) { listOf("") }
+                    .any { d -> d.contains("Playground", ignoreCase = true) }
+            }
+        )
+        assertTrue("Playground must be accessible in compact layout", nodes.fetchSemanticsNodes().isNotEmpty())
     }
-
-    // ─── helpers ───
 
     private fun testVillageState(): VillageHomeState = VillageHomeState(
         isLoading = false,
