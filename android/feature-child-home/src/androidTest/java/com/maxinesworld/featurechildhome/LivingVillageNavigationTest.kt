@@ -1,12 +1,18 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.maxinesworld.playground.PlaygroundGateState
 import com.maxinesworld.playground.PlaygroundGateStatus
+import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -181,7 +187,7 @@ class LivingVillageNavigationTest {
             )
         }
         // Paw trail should not exist when questSubjectId is null
-        val nodes = composeTestRule.onAllNodes(useUnmergedTree = true)
+        val nodes = composeTestRule.onAllNodes(useUnmergedTree = true, matcher = androidx.compose.ui.test.SemanticsMatcher("any") { true })
         var pawTrailFound = false
         nodes.fetchSemanticsNodes().forEach {
             if (it.config.contains(androidx.compose.ui.semantics.SemanticsProperties.TestTag) &&
@@ -232,6 +238,101 @@ class LivingVillageNavigationTest {
             }
         }
         composeTestRule.onNodeWithContentDescription("Cat Café", ignoreCase = true).assertExists()
+    }
+
+    // ─── Playground gate state tests ───
+
+    @Test
+    fun playgroundLockedAtZeroOfThreeShowsProgress() {
+        val state = testVillageState().copy(
+            playground = PlaygroundGateState("test", "2026-07-16", 3, 0, PlaygroundGateStatus.Locked),
+        )
+        composeTestRule.setContent {
+            LivingVillageHomeScreen(
+                state = state,
+                onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
+                onCafeClick = {},
+                onPlaygroundClick = { playgroundClicked = true },
+                onParentsClick = {},
+            )
+        }
+        composeTestRule.onNodeWithContentDescription("Playground 0/3", substring = true, ignoreCase = true).assertExists()
+    }
+
+    @Test
+    fun playgroundPartialAtOneOfThreeShowsProgress() {
+        val state = testVillageState().copy(
+            playground = PlaygroundGateState("test", "2026-07-16", 3, 1, PlaygroundGateStatus.Locked),
+        )
+        composeTestRule.setContent {
+            LivingVillageHomeScreen(
+                state = state,
+                onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
+                onCafeClick = {},
+                onPlaygroundClick = { playgroundClicked = true },
+                onParentsClick = {},
+            )
+        }
+        composeTestRule.onNodeWithContentDescription("Playground 1/3", substring = true, ignoreCase = true).assertExists()
+    }
+
+    @Test
+    fun playgroundUnlockedShowsOpenState() {
+        val state = testVillageState().copy(
+            playground = PlaygroundGateState("test", "2026-07-16", 3, 3, PlaygroundGateStatus.Unlocked),
+        )
+        composeTestRule.setContent {
+            LivingVillageHomeScreen(
+                state = state,
+                onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
+                onCafeClick = {},
+                onPlaygroundClick = { playgroundClicked = true },
+                onParentsClick = {},
+            )
+        }
+        composeTestRule.onNodeWithContentDescription("Playground — Open", substring = true, ignoreCase = true).assertExists()
+    }
+
+    @Test
+    fun playgroundLockedFiresCallback() {
+        val state = testVillageState().copy(
+            playground = PlaygroundGateState("test", "2026-07-16", 3, 0, PlaygroundGateStatus.Locked),
+        )
+        composeTestRule.setContent {
+            LivingVillageHomeScreen(
+                state = state,
+                onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
+                onCafeClick = {},
+                onPlaygroundClick = { playgroundClicked = true },
+                onParentsClick = {},
+            )
+        }
+        composeTestRule.onNodeWithContentDescription("Playground 0/3", substring = true, ignoreCase = true)
+            .performClick()
+        assertTrue(playgroundClicked)
+    }
+
+    @Test
+    fun compactLayoutKeepsPlaygroundAccessible() {
+        val state = testVillageState().copy(
+            playground = PlaygroundGateState("test", "2026-07-16", 3, 1, PlaygroundGateStatus.Locked),
+        )
+        composeTestRule.setContent {
+            androidx.compose.foundation.layout.Box(
+                modifier = androidx.compose.ui.Modifier
+                    .fillMaxSize()
+                    .width(360.dp)
+            ) {
+                LivingVillageHomeScreen(
+                    state = state,
+                    onDestinationClick = {}, onMiraClick = {}, onDiscoveriesClick = {},
+                    onCafeClick = {},
+                    onPlaygroundClick = { playgroundClicked = true },
+                    onParentsClick = {},
+                )
+            }
+        }
+        composeTestRule.onNodeWithContentDescription("Playground", substring = true, ignoreCase = true).assertExists()
     }
 
     // ─── helpers ───
