@@ -5,23 +5,27 @@
   "month": 1,
   "day": 12,
   "subject": "FILIPINO",
-  "title": "Muling Pagsasalaysay",
-  "objective": "Isalaysay muli ang mahahalagang pangyayari sa sariling salita at tamang ayos.",
-  "estimatedMinutes": 12,
+  "title": "Pagsasalaysay Muli ng Teksto",
+  "objective": "Naisasalaysay muli ang teksto nang may tamang pagkakasunod-sunod ng mga pangyayari sa tulong ng pamatnubay na tanong.",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M12",
   "language": "fil-PH",
-  "introduction": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Ulitin ang kuwento ni Pam — handa ka ba? 🔁📖",
   "vocabulary": [
     {
-      "term": "Muling",
-      "definition": "A key word used in the lesson “Muling Pagsasalaysay”."
+      "term": "Pagsasalaysay",
+      "definition": "Ang pagbabahagi muli ng kuwento sa sariling pananalita."
     },
     {
-      "term": "Pagsasalaysay",
-      "definition": "A key word used in the lesson “Muling Pagsasalaysay”."
+      "term": "Pamatnubay na tanong",
+      "definition": "Mga tanong na tumutulong upang maalala ang mga detalye ng kuwento."
+    },
+    {
+      "term": "Balangkas",
+      "definition": "Ang pagkasunod-sunod ng mahahalagang detalye ng teksto."
     }
   ],
   "activities": [
@@ -29,156 +33,124 @@
       "activityId": "filipino-g3-m01-d12-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli.",
+      "instruction": "Panoorin at pakinggan ang kuwento tungkol kay Pam.",
+      "content": {
+        "text": "Si Pam ay isang batang matalino, masayahin, at maganda. Mahilig siyang kumanta at sumayaw. Marunong din siyang tumula. Isa sa pinakagusto niyang gawin ay ang pagguhit. Masaya si Pam tuwing siya ay gumuguhit!",
+        "visualScene": "🎨🎵💃📚",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Magandang kuwento!",
+        "retry": "Pakinggan muli."
       },
       "assetId": "filipino-g3-m01-d12-visual",
-      "accessibilityAlternative": "Text alternative: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      "accessibilityAlternative": "Kuwento tungkol kay Pam na batang matalino at mahilig gumuhit ng kaniyang pamilya."
     },
     {
       "activityId": "filipino-g3-m01-d12-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga pangyayari sa kuwento ni Pam ayon sa tamang pagkakasunod-sunod.",
       "content": {
-        "examples": [
-          "Una, tinupi ang dahon.",
-          "Sumunod, inilagay sa tubig.",
-          "Sa huli, lumutang ang bangka."
-        ]
+        "steps": [
+          "Si Pam ay mahilig kumanta, sumayaw, at gumuhit.",
+          "Araw-araw, gumuguhit si Pam ng mga bundok, puno, at bulaklak.",
+          "Ang pinakapaborito niyang iguhit ay ang larawan ng kaniyang pamilya.",
+          "Sinusuportahan siya ng kaniyang mga magulang sa kaniyang mga hilig.",
+          "Dahil sa pag-aaruga ng magulang, naging mabait at matalino si Pam."
+        ],
+        "visualScene": "🎨🎵💃📚",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
+        "type": "ALL_STEPS_COMPLETED",
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
+        "correct": "Tama ang pagkakasunod-sunod!",
+        "retry": "Ayusin muli."
       },
       "assetId": "filipino-g3-m01-d12-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+      "accessibilityAlternative": "Limang pangyayari tungkol kay Pam ang kailangang ayusin."
     },
     {
       "activityId": "filipino-g3-m01-d12-a03",
       "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "Una, tinupi ang dahon.",
-          "Sumunod, inilagay sa tubig.",
-          "Sa huli, lumutang ang bangka."
-        ],
-        "doesNotFit": [
-          "Kopyahin bawat pangungusap",
-          "Magdagdag ng di-nangyari",
-          "Baligtarin ang ayos nang walang paliwanag"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d12-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d12-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Aling salita ang hudyat ng huling pangyayari?",
+      "instruction": "Sagutin ang tanong tungkol sa kuwento ni Pam.",
       "content": {
         "options": [
-          "Sa huli",
-          "Una",
-          "Bago"
+          "🌟 Ang pagsasalaysay ay pagbabahagi muli ng kuwento sa sariling pananalita.",
+          "🎯 Ang pagsasalaysay ay pagbabasa ng kuwento nang malakas.",
+          "🐾 Ang pagsasalaysay ay pagsusulat ng bagong kuwento.",
+          "🎈 Ang pagsasalaysay ay pagguhit ng mga tauhan."
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🎨🎵💃📚",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: Sa huli",
-        "retry": "Read the lesson rule again. Una and Bago do not fit."
+        "correct": "Tama! Ang pagsasalaysay ay muling pagbabahagi ng kuwento.",
+        "retry": "Basahin muli at subukan."
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d12-visual",
+      "accessibilityAlternative": "Pumili ng tamang kahulugan ng pagsasalaysay."
     },
     {
-      "activityId": "filipino-g3-m01-d12-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d12-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat gabay na tanong sa tamang sagot mula sa kuwento ni Pam.",
       "content": {
         "pairs": [
           {
-            "left": "Una, tinupi ang dahon.",
-            "right": "fits the lesson idea"
+            "left": "Ano ang pamagat ng kuwento?",
+            "right": "Si Pam"
           },
           {
-            "left": "Sumunod, inilagay sa tubig.",
-            "right": "fits the lesson idea"
+            "left": "Sino ang batang matalino at masayahin?",
+            "right": "Si Pam — Sino ang batang matalino"
           },
           {
-            "left": "Sa huli, lumutang ang bangka.",
-            "right": "fits the lesson idea"
+            "left": "Ano ang hilig gawin ni Pam?",
+            "right": "Gumuhit, kumanta, sumayaw, at tumula"
+          },
+          {
+            "left": "Saan siya gumuguhit?",
+            "right": "Sa kanilang tahanan"
+          },
+          {
+            "left": "Bakit siya naging mabait na bata?",
+            "right": "Dahil inaaruga siya ng kaniyang magulang"
           }
-        ]
+        ],
+        "visualScene": "🎨🎵💃📚",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Naitapat mo nang tama ang lahat!",
+        "retry": "Subukan muli ang pagtatapat."
       },
       "assetId": "filipino-g3-m01-d12-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-    },
-    {
-      "activityId": "filipino-g3-m01-d12-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-      "content": {
-        "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
-      },
-      "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
-      },
-      "assetId": "filipino-g3-m01-d12-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Itapat ang limang gabay na tanong sa tamang sagot."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -187,142 +159,148 @@
         "itemId": "filipino-g3-m01-d12-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Muling Pagsasalaysay”?",
+        "prompt": "Ano ang pamagat ng kuwentong napakinggan?",
         "options": [
           {
-            "id": "a",
-            "text": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+            "id": "o1",
+            "text": "Si Pam"
           },
           {
-            "id": "b",
-            "text": "Kopyahin bawat pangungusap"
+            "id": "o2",
+            "text": "Ang Pamilya"
           },
           {
-            "id": "c",
-            "text": "Magdagdag ng di-nangyari"
+            "id": "o3",
+            "text": "Ang Batang Masipag"
+          },
+          {
+            "id": "o4",
+            "text": "Si Ana"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d12-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Ano ang pinakapaboritong gawin ni Pam?",
         "options": [
           {
-            "id": "a",
-            "text": "Una, tinupi ang dahon."
+            "id": "o1",
+            "text": "Pagguhit"
           },
           {
-            "id": "b",
-            "text": "Kopyahin bawat pangungusap"
+            "id": "o2",
+            "text": "Pagluluto"
           },
           {
-            "id": "c",
-            "text": "Magdagdag ng di-nangyari"
+            "id": "o3",
+            "text": "Pagsasayaw mag-isa"
+          },
+          {
+            "id": "o4",
+            "text": "Paglilinis"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Una, tinupi ang dahon.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d12-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Ano ang madalas iginuhit ni Pam?",
         "options": [
           {
-            "id": "a",
-            "text": "Kopyahin bawat pangungusap"
+            "id": "o1",
+            "text": "Larawan ng kaniyang pamilya"
           },
           {
-            "id": "b",
-            "text": "Una, tinupi ang dahon."
+            "id": "o2",
+            "text": "Larawan ng mga hayop"
           },
           {
-            "id": "c",
-            "text": "Sumunod, inilagay sa tubig."
+            "id": "o3",
+            "text": "Larawan ng paaralan"
+          },
+          {
+            "id": "o4",
+            "text": "Larawan ng sasakyan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Kopyahin bawat pangungusap” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d12-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling salita ang hudyat ng huling pangyayari?",
+        "prompt": "Ano ang katangian ni Pam?",
         "options": [
           {
-            "id": "a",
-            "text": "Sa huli"
+            "id": "o1",
+            "text": "Matalino, masayahin, at maganda"
           },
           {
-            "id": "b",
-            "text": "Una"
+            "id": "o2",
+            "text": "Tamad at malungkutin"
           },
           {
-            "id": "c",
-            "text": "Bago"
+            "id": "o3",
+            "text": "Magulo at maingay"
+          },
+          {
+            "id": "o4",
+            "text": "Tahimik at mahiyain"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Sa huli” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d12-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Bakit naging mabait at masipag si Pam?",
         "options": [
           {
-            "id": "a",
-            "text": "Sa huli, lumutang ang bangka."
+            "id": "o1",
+            "text": "Dahil inaaruga at tinuturuan siya ng kaniyang mga magulang"
           },
           {
-            "id": "b",
-            "text": "Baligtarin ang ayos nang walang paliwanag"
+            "id": "o2",
+            "text": "Dahil marami siyang laruan"
           },
           {
-            "id": "c",
-            "text": "Kopyahin bawat pangungusap"
+            "id": "o3",
+            "text": "Dahil lagi siyang nasa paaralan"
+          },
+          {
+            "id": "o4",
+            "text": "Dahil mayaman ang kaniyang pamilya"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Sa huli, lumutang ang bangka.” because it follows the lesson explanation: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d12-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d12-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Muling Pagsasalaysay; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Muling Pagsasalaysay.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "259a60ff6b3b2c3b364e1f2bbe1fd7725fe1b67751d413584ec8e8fe6a529b8d"
+  "storyIntro": "Ulitin ang kuwento ni Pam — handa ka ba? 🔁📖",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🎨🎵💃📚"
+  }
 }

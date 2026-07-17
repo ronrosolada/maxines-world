@@ -5,27 +5,27 @@
   "month": 1,
   "day": 8,
   "subject": "FILIPINO",
-  "title": "Hanap-Salita sa Diksyunaryo",
-  "objective": "Gamitin ang alpabetikong ayos at entry word sa paghahanap ng kahulugan.",
-  "estimatedMinutes": 12,
+  "title": "Paggamit ng Diksyunaryo",
+  "objective": "Nakagagamit ng diksyunaryo sa pagbibigay kahulugan ng mga salita (F3EP-Id6.1).",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M08",
   "language": "fil-PH",
-  "introduction": "Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Hanapin ang kayamanan sa diksyunaryo! 💎📘",
   "vocabulary": [
     {
-      "term": "Hanap-Salita",
-      "definition": "A key word used in the lesson “Hanap-Salita sa Diksyunaryo”."
-    },
-    {
-      "term": "sa",
-      "definition": "A key word used in the lesson “Hanap-Salita sa Diksyunaryo”."
-    },
-    {
       "term": "Diksyunaryo",
-      "definition": "A key word used in the lesson “Hanap-Salita sa Diksyunaryo”."
+      "definition": "Isang aklat na binubuo ng mga salita ng isang wika na isinasaayos nang paalpabeto mula A hanggang Z, na may mga paliwanag at kahulugan."
+    },
+    {
+      "term": "Paaplabeto",
+      "definition": "Ang pagkakasunod-sunod ng mga salita ayon sa alpabeto — A, B, C, D, E, hanggang Z."
+    },
+    {
+      "term": "Kahulugan",
+      "definition": "Ang ibig sabihin o paliwanag ng isang salita."
     }
   ],
   "activities": [
@@ -33,300 +33,331 @@
       "activityId": "filipino-g3-m01-d08-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo.",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa paggamit ng diksyunaryo.",
+      "content": {
+        "text": "Ang diksyunaryo ay isang aklat na binubuo ng mga salita ng isang wika. Ang mga salita ay isinasaayos nang paalpabeto — mula A hanggang Z. Bawat salita ay may kasamang paliwanag, pagpapakahulugan, o pagbibigay ng katuturan!",
+        "visualScene": "📘🔍💎🌈",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay! Alam mo na ngayon kung ano ang diksyunaryo at kung paano ito gamitin.",
+        "retry": "Panoorin muli ang paliwanag tungkol sa diksyunaryo."
       },
       "assetId": "filipino-g3-m01-d08-visual",
-      "accessibilityAlternative": "Text alternative: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+      "accessibilityAlternative": "Paliwanag tungkol sa diksyunaryo. Ito ay aklat na naglalaman ng mga salitang nakaayos nang paalpabeto mula A hanggang Z kasama ang kanilang kahulugan."
     },
     {
       "activityId": "filipino-g3-m01-d08-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang tamang pagkakasunod-sunod ng mga hakbang sa paggamit ng diksyunaryo!",
       "content": {
-        "examples": [
-          "aso bago bata",
-          "bata bago dahon",
-          "entry word at kahulugan"
-        ]
+        "steps": [
+          "Tingnan ang unang titik ng salitang hinahanap mo.",
+          "Hanapin ang bahagi ng diksyunaryo para sa titik na iyon.",
+          "Basahin ang mga salita nang paalpabeto hanggang makita ang hinahanap.",
+          "Basahin ang kahulugan ng salita na nasa tabi nito."
+        ],
+        "visualScene": "📘🔍💎🌈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
+        "type": "ALL_STEPS_COMPLETED",
+        "targetCount": 4
       },
       "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
+        "correct": "Tama! Iyan ang tamang paraan ng paghahanap ng salita sa diksyunaryo.",
+        "retry": "Isipin mong muli. Ano ang unang dapat gawin? Tingnan ang unang titik!"
       },
       "assetId": "filipino-g3-m01-d08-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa paggamit ng diksyunaryo. Una, tingnan ang unang titik ng salita. Pangalawa, hanapin ang tamang bahagi. Pangatlo, basahin nang paalpabeto. Panghuli, basahin ang kahulugan."
     },
     {
       "activityId": "filipino-g3-m01-d08-a03",
       "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "aso bago bata",
-          "bata bago dahon",
-          "entry word at kahulugan"
-        ],
-        "doesNotFit": [
-          "Hanapin ayon sa haba ng salita",
-          "Ipagpalagay na pareho lahat ng diksyunaryo",
-          "Balewalain ang unang letra"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d08-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d08-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Alin ang mauuna sa alpabetikong ayos?",
+      "instruction": "Basahin ang tanong at piliin ang tamang sagot tungkol sa diksyunaryo.",
       "content": {
         "options": [
-          "aso",
-          "bata",
-          "dahon"
+          "🌟 Hanapin ang titik M at basahin nang paalpabeto ang mga salita.",
+          "🎯 Hanapin ang titik S at basahin ang lahat ng salita.",
+          "🐾 Hanapin ang titik A at magsimula sa simula ng aklat.",
+          "🎈 Hanapin ang titik Z at bumalik sa simula."
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "📘🔍💎🌈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: aso",
-        "retry": "Read the lesson rule again. bata and dahon do not fit."
+        "correct": "Tama! Ang salitang 'matatag' ay hahanapin sa titik M.",
+        "retry": "Isipin ang unang titik ng 'matatag'. Anong titik iyon?"
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d08-visual",
+      "accessibilityAlternative": "Tanong: Paano mo hahanapin ang salitang 'matatag' sa diksyunaryo? Ang tamang sagot ay hanapin ang titik M at basahin nang paalpabeto."
     },
     {
-      "activityId": "filipino-g3-m01-d08-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d08-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat salita sa tamang kahulugan nito mula sa diksyunaryo.",
       "content": {
         "pairs": [
           {
-            "left": "aso bago bata",
-            "right": "fits the lesson idea"
+            "left": "marikit",
+            "right": "maganda"
           },
           {
-            "left": "bata bago dahon",
-            "right": "fits the lesson idea"
+            "left": "mabilis",
+            "right": "matulin"
           },
           {
-            "left": "entry word at kahulugan",
-            "right": "fits the lesson idea"
+            "left": "matatag",
+            "right": "matibay"
+          },
+          {
+            "left": "maligaya",
+            "right": "masaya"
+          },
+          {
+            "left": "marunong",
+            "right": "matalino"
           }
-        ]
+        ],
+        "visualScene": "📘🔍💎🌈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Ang galing! Alam mo na ang kahulugan ng mga salita sa diksyunaryo.",
+        "retry": "Balikan ang diksyunaryo at basahin muli ang mga kahulugan."
       },
       "assetId": "filipino-g3-m01-d08-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Itapat ang limang salita sa kanilang kahulugan. Marikit ay maganda, mabilis ay matulin, matatag ay matibay, maligaya ay masaya, marunong ay matalino."
     },
     {
-      "activityId": "filipino-g3-m01-d08-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "activityId": "filipino-g3-m01-d08-a05",
+      "sequence": 5,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tingnan ang pahina ng diksyunaryo. Pindutin ang bawat bahagi upang malaman ang gamit nito!",
       "content": {
-        "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+        "targets": [
+          {
+            "id": "t1",
+            "x": 0.2,
+            "y": 0.35,
+            "label": "Pamagat",
+            "feedback": "Tama! Dito makikita ang pamagat."
+          },
+          {
+            "id": "t2",
+            "x": 0.5,
+            "y": 0.4,
+            "label": "Katawan",
+            "feedback": "Tama! Dito ang pangunahing nilalaman."
+          },
+          {
+            "id": "t3",
+            "x": 0.8,
+            "y": 0.35,
+            "label": "Glosari",
+            "feedback": "Tama! Dito ang kahulugan ng mga salita."
+          },
+          {
+            "id": "t4",
+            "x": 0.35,
+            "y": 0.7,
+            "label": "Talaan",
+            "feedback": "Tama! Dito ang talaan ng nilalaman."
+          },
+          {
+            "id": "t5",
+            "x": 0.65,
+            "y": 0.7,
+            "label": "Indeks",
+            "feedback": "Tama! Dito ang indeks."
+          }
+        ],
+        "visualScene": "📘🔍💎🌈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Mahusay! Alam mo na ang bawat bahagi ng isang pahina ng diksyunaryo.",
+        "retry": "Pindutin ang lahat ng bahagi ng pahina ng diksyunaryo."
       },
       "assetId": "filipino-g3-m01-d08-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Isang pahina ng diksyunaryo na may apat na bahagi: ang pamagat, ang titik ng alpabeto sa itaas, ang salitang hinahanap na nakasulat nang makapal, at ang kahulugan sa tabi nito."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
-    "passingCorrectCount": 4,
+    "passingCorrectCount": 3,
     "claimsMastery": false,
     "items": [
       {
         "itemId": "filipino-g3-m01-d08-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Hanap-Salita sa Diksyunaryo”?",
+        "prompt": "Ano ang diksyunaryo?",
         "options": [
           {
-            "id": "a",
-            "text": "Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+            "id": "o1",
+            "text": "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto."
           },
           {
-            "id": "b",
-            "text": "Hanapin ayon sa haba ng salita"
+            "id": "o2",
+            "text": "Isang aklat ng mga kuwento at tula."
           },
           {
-            "id": "c",
-            "text": "Ipagpalagay na pareho lahat ng diksyunaryo"
+            "id": "o3",
+            "text": "Isang aklat na may mga larawan lamang."
+          },
+          {
+            "id": "o4",
+            "text": "Isang aklat na nagtuturo ng pagluluto."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo.” because it follows the lesson explanation: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d08-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Paano nakaayos ang mga salita sa diksyunaryo?",
         "options": [
           {
-            "id": "a",
-            "text": "aso bago bata"
+            "id": "o1",
+            "text": "Nakaayos nang paalpabeto mula A hanggang Z."
           },
           {
-            "id": "b",
-            "text": "Hanapin ayon sa haba ng salita"
+            "id": "o2",
+            "text": "Nakaayos ayon sa haba ng salita."
           },
           {
-            "id": "c",
-            "text": "Ipagpalagay na pareho lahat ng diksyunaryo"
+            "id": "o3",
+            "text": "Nakaayos ayon sa kulay ng pahina."
+          },
+          {
+            "id": "o4",
+            "text": "Nakaayos ayon sa bilang ng pantig."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “aso bago bata” because it follows the lesson explanation: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d08-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Ano ang kahulugan ng salitang 'marikit'?",
         "options": [
           {
-            "id": "a",
-            "text": "Hanapin ayon sa haba ng salita"
+            "id": "o1",
+            "text": "Maganda"
           },
           {
-            "id": "b",
-            "text": "aso bago bata"
+            "id": "o2",
+            "text": "Mabilis"
           },
           {
-            "id": "c",
-            "text": "bata bago dahon"
+            "id": "o3",
+            "text": "Malakas"
+          },
+          {
+            "id": "o4",
+            "text": "Matalino"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Hanapin ayon sa haba ng salita” because it follows the lesson explanation: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d08-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang mauuna sa alpabetikong ayos?",
+        "prompt": "Saan mo hahanapin sa diksyunaryo ang salitang 'bulaklak'?",
         "options": [
           {
-            "id": "a",
-            "text": "aso"
+            "id": "o1",
+            "text": "Sa titik B, pagkatapos ng 'buhay'"
           },
           {
-            "id": "b",
-            "text": "bata"
+            "id": "o2",
+            "text": "Sa titik B, pagitan ng 'bintana' at 'buhay'"
           },
           {
-            "id": "c",
-            "text": "dahon"
+            "id": "o3",
+            "text": "Sa titik A, pagkatapos ng 'ahas'"
+          },
+          {
+            "id": "o4",
+            "text": "Sa titik P, kasama ng 'pagong'"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “aso” because it follows the lesson explanation: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d08-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Alin sa sumusunod ang tamang pagkakasunod-sunod ng mga salita sa diksyunaryo?",
         "options": [
           {
-            "id": "a",
-            "text": "entry word at kahulugan"
+            "id": "o1",
+            "text": "agham, apoy, ahas"
           },
           {
-            "id": "b",
-            "text": "Balewalain ang unang letra"
+            "id": "o2",
+            "text": "ahas, agham, apoy"
           },
           {
-            "id": "c",
-            "text": "Hanapin ayon sa haba ng salita"
+            "id": "o3",
+            "text": "apoy, agham, ahas"
+          },
+          {
+            "id": "o4",
+            "text": "apoy, ahas, agham"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “entry word at kahulugan” because it follows the lesson explanation: Ang mga salita sa diksyunaryo ay karaniwang nakaayos nang paalpabeto; maaaring magkaiba ang ayos ng detalye sa bawat diksyunaryo."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d08-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d08-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Hanap-Salita sa Diksyunaryo; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Hanap-Salita sa Diksyunaryo.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "8a6c44cb62372a626f68db25b789b0d904998fbda2076a7542c700e1c1b374c2"
+  "storyIntro": "Hanapin ang kayamanan sa diksyunaryo! 💎📘",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "📘🔍💎🌈"
+  }
 }

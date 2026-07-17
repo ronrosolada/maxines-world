@@ -14,6 +14,8 @@ import com.maxinesworld.coredesignsystem.components.MaxinesAnswerCard
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 
 /**
  * Multiple-choice question with correct/incorrect feedback and retry support.
@@ -26,6 +28,7 @@ fun MultipleChoiceRenderer(
     onHint: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
     var selectedIndex by remember { mutableIntStateOf(-1) }
@@ -33,6 +36,8 @@ fun MultipleChoiceRenderer(
     var submitted by remember { mutableStateOf(false) }
 
     val options = step.options.ifEmpty { listOf("A", "B", "C", "D") }
+    val prompt = step.question.ifBlank { step.narrationText }
+    val safeCorrectIndex = if (step.correctIndex in options.indices) step.correctIndex else 0
 
     Column(
         modifier = modifier
@@ -40,16 +45,19 @@ fun MultipleChoiceRenderer(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        if (step.imageAssets.isNotEmpty()) {
+            KidSceneBanner(imageAssets = step.imageAssets)
+        }
         Text(
-            text = step.question,
+            text = prompt,
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.semantics { contentDescription = "Question: ${step.question}" }
+            modifier = Modifier.semantics { contentDescription = "Question: $prompt" }
         )
 
         options.forEachIndexed { index, option ->
             val cardState = when {
-                submitted && index == step.correctIndex -> AnswerCardState.CORRECT
-                submitted && index == selectedIndex && index != step.correctIndex -> AnswerCardState.INCORRECT
+                submitted && index == safeCorrectIndex -> AnswerCardState.CORRECT
+                submitted && index == selectedIndex && index != safeCorrectIndex -> AnswerCardState.INCORRECT
                 index == selectedIndex -> AnswerCardState.SELECTED
                 else -> AnswerCardState.IDLE
             }
@@ -63,7 +71,7 @@ fun MultipleChoiceRenderer(
                     .sizeIn(minHeight = 56.dp)
                     .semantics {
                         contentDescription = "Option ${index + 1}: $option" +
-                            if (submitted && index == step.correctIndex) " — Correct" else ""
+                            if (submitted && index == safeCorrectIndex) " — Correct" else ""
                     }
             ) {
                 Text(
@@ -78,9 +86,9 @@ fun MultipleChoiceRenderer(
         if (submitted && feedbackState != null) {
             Text(
                 text = if (feedbackState == true)
-                    step.feedback?.correct ?: "Great job! 🎉"
+                    step.feedback?.correct ?: ui.greatJob
                 else
-                    step.feedback?.incorrect ?: "Let's try again! 💪",
+                    step.feedback?.incorrect ?: ui.tryAgain,
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (feedbackState == true) SuccessGreen else ErrorRed,
                 modifier = Modifier.semantics {
@@ -101,13 +109,13 @@ fun MultipleChoiceRenderer(
                     onHint()
                     attempts++
                 },
-                text = "Hint",
+                text = ui.hint,
                 containerColor = SunshineGold,
                 enabled = !submitted,
                 modifier = Modifier
                     .weight(1f)
                     .sizeIn(minHeight = 48.dp)
-                    .semantics { contentDescription = "Get a hint" }
+                    .semantics { contentDescription = ui.getHint }
             )
 
             // Submit / Retry button
@@ -120,7 +128,7 @@ fun MultipleChoiceRenderer(
                         feedbackState = null
                     } else if (selectedIndex >= 0) {
                         attempts++
-                        val correct = selectedIndex == step.correctIndex
+                        val correct = selectedIndex == safeCorrectIndex
                         feedbackState = correct
                         submitted = true
                         if (correct) {
@@ -136,14 +144,14 @@ fun MultipleChoiceRenderer(
                         }
                     }
                 },
-                text = if (submitted && feedbackState == false) "Retry" else "Submit",
+                text = if (submitted && feedbackState == false) ui.retry else ui.submit,
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
                 enabled = selectedIndex >= 0 || (submitted && feedbackState == false),
                 modifier = Modifier
                     .weight(1f)
                     .sizeIn(minHeight = 48.dp)
                     .semantics {
-                        contentDescription = if (submitted && feedbackState == false) "Retry" else "Submit answer"
+                        contentDescription = if (submitted && feedbackState == false) ui.retry else ui.submitAnswer
                     }
             )
         }

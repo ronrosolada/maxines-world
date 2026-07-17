@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -29,8 +30,11 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
+import androidx.compose.runtime.CompositionLocalProvider
 
 // ─── Main Screen ───
 
@@ -46,6 +50,8 @@ fun LessonPlayerScreen(
 
     LaunchedEffect(lessonId, childId) { viewModel.loadLesson(lessonId, childId) }
 
+    val uiLang = state.lesson?.languageOfInstruction ?: "en-PH"
+    CompositionLocalProvider(LocalLessonUiLanguage provides uiLang) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -75,6 +81,7 @@ fun LessonPlayerScreen(
                 else -> LessonContent(state, viewModel)
             }
         }
+    }
     }
 }
 
@@ -155,6 +162,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
 
 @Composable
 private fun ExplanationStep(step: ActivityStep, language: String = "english", onContinue: () -> Unit) {
+    val ui = lessonUiStrings(language)
     val context = LocalContext.current
     val ttsPlayer = remember { LessonTtsPlayer(context) }
     var ttsSpeaking by remember { mutableStateOf(false) }
@@ -163,10 +171,33 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
 
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(containerColor = Cream), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
         Column(Modifier.padding(24.dp)) {
+            if (step.imageAssets.isNotEmpty()) {
+                com.maxinesworld.engineactivity.renderers.KidSceneBanner(
+                    imageAssets = step.imageAssets,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(Modifier.height(12.dp))
+            }
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
+                // bigger guide avatar with soft scale
+                val bounce = rememberInfiniteTransition(label = "guide")
+                val scale by bounce.animateFloat(
+                    0.96f, 1.04f,
+                    infiniteRepeatable(tween(900), RepeatMode.Reverse),
+                    label = "gscale"
+                )
+                Box(
+                    Modifier
+                        .size(56.dp)
+                        .graphicsLayer { scaleX = scale; scaleY = scale }
+                        .clip(CircleShape)
+                        .background(Orange80),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("🧡", fontSize = 28.sp)
+                }
                 Spacer(Modifier.width(12.dp))
-                Text("Read Along", fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
+                Text(ui.readAlong, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
                 IconButton(onClick = {
                     if (ttsSpeaking) {
                         ttsPlayer.stop(); ttsSpeaking = false
@@ -199,7 +230,7 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
                     Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.Info, "Info", tint = SunshineGold, modifier = Modifier.size(20.dp))
                         Spacer(Modifier.width(8.dp))
-                        Text("Filipino voice not available on this device — please read along instead.",
+                        Text(ui.voiceUnavailableBanner,
                             fontSize = 14.sp, color = Ink.copy(alpha = 0.7f))
                     }
                 }
@@ -210,11 +241,11 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
             Spacer(Modifier.height(24.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    if (ttsSpeaking) "Reading aloud..."
-                    else if (ttsUnavailable) "Filipino voice not available"
-                    else "Tap speaker to listen",
+                    if (ttsSpeaking) ui.readingAloud
+                    else if (ttsUnavailable) ui.voiceUnavailable
+                    else ui.tapSpeaker,
                     fontSize = 14.sp, color = Teal40.copy(alpha = 0.5f))
-                MaxinesPrimaryButton(onClick = onContinue, text = "Continue",
+                MaxinesPrimaryButton(onClick = onContinue, text = ui.continueLabel,
                     containerColor = Teal40, modifier = Modifier)
             }
         }
@@ -337,12 +368,13 @@ private fun SentenceBuilderStep(step: ActivityStep, viewModel: LessonPlayerViewM
 
 @Composable
 private fun FeedbackBanner(text: String, correct: Boolean, onNext: () -> Unit) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f))) {
         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(if (correct) Icons.Default.CheckCircle else Icons.Default.Info, null, tint = if (correct) SuccessGreen else ErrorRed)
             Spacer(Modifier.width(12.dp))
             Text(text, modifier = Modifier.weight(1f), fontWeight = FontWeight.Medium)
-            TextButton(onClick = onNext) { Text(if (correct) "Next" else "Try Next", color = Teal40) }
+            TextButton(onClick = onNext) { Text(if (correct) ui.next else ui.tryNext, color = Teal40) }
         }
     }
 }

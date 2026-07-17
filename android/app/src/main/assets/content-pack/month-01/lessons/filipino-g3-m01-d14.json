@@ -5,27 +5,31 @@
   "month": 1,
   "day": 14,
   "subject": "FILIPINO",
-  "title": "Mga Salitang Magkakatugma",
-  "objective": "Kilalanin ang mga salitang magkatugma batay sa hulihang tunog.",
-  "estimatedMinutes": 12,
+  "title": "Panghalip na Pamatlig (Ito, Iyan, Iyon)",
+  "objective": "Nakagagamit ng panghalip na pamatlig — ito, iyan, at iyon — bilang pamalit sa pangngalan.",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M14",
   "language": "fil-PH",
-  "introduction": "Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Ito, iyan, iyon — malapit o malayo? 📏👀",
   "vocabulary": [
     {
-      "term": "Mga",
-      "definition": "A key word used in the lesson “Mga Salitang Magkakatugma”."
+      "term": "Panghalip na pamatlig",
+      "definition": "Salitang ginagamit bilang pamalit sa pangngalan upang ituro ang layo o lapit ng bagay."
     },
     {
-      "term": "Salitang",
-      "definition": "A key word used in the lesson “Mga Salitang Magkakatugma”."
+      "term": "Ito",
+      "definition": "Ginagamit kapag hawak o napakalapit ng bagay sa nagsasalita."
     },
     {
-      "term": "Magkakatugma",
-      "definition": "A key word used in the lesson “Mga Salitang Magkakatugma”."
+      "term": "Iyan",
+      "definition": "Ginagamit kapag nasa tabi o malapit sa nagsasalita ang bagay."
+    },
+    {
+      "term": "Iyon",
+      "definition": "Ginagamit kapag malayo ang bagay sa nagsasalita."
     }
   ],
   "activities": [
@@ -33,156 +37,156 @@
       "activityId": "filipino-g3-m01-d14-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay.",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa ito, iyan, at iyon.",
+      "content": {
+        "text": "Ang panghalip na pamatlig ay ginagamit bilang pamalit sa pangngalan upang ituro ang layo o lapit ng bagay. May tatlong panghalip na pamatlig: ITO, IYAN, at IYON. ITO ay ginagamit kung hawak ng nagsasalita ang bagay na tinutukoy. Halimbawa: Ito ang paborito kong laruan. (hawak mo ang laruan)!",
+        "visualScene": "👈👉👆🏝️",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay!",
+        "retry": "Pakinggan muli."
       },
       "assetId": "filipino-g3-m01-d14-visual",
-      "accessibilityAlternative": "Text alternative: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+      "accessibilityAlternative": "Paliwanag: Ito para sa hawak, Iyan para sa malapit, Iyon para sa malayo."
     },
     {
       "activityId": "filipino-g3-m01-d14-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "bahay—sabay",
-          "gabi—sabi",
-          "laro—taro"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d14-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d14-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "bahay—sabay",
-          "gabi—sabi",
-          "laro—taro"
-        ],
-        "doesNotFit": [
-          "bahay—bata",
-          "gabi—guro",
-          "laro—libro"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d14-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d14-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Alin ang magkatugma?",
+      "instruction": "Piliin ang tamang panghalip na pamatlig para sa sitwasyon.",
       "content": {
         "options": [
-          "gabi at sabi",
-          "gabi at guro",
-          "gabi at bahay"
+          "🌟 Ito ang regalo ko para sa iyo. (hawak mo ang regalo)",
+          "🎯 Ito ang bahay namin sa kabila ng ilog. (malayo ang bahay)",
+          "🐾 Ito ang bag na nasa ibabaw ng kabinet. (malayo ang bag)",
+          "🎈 Ito ang ibon na lumilipad sa himpapawid. (malayo ang ibon)"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "👈👉👆🏝️",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: gabi at sabi",
-        "retry": "Read the lesson rule again. gabi at guro and gabi at bahay do not fit."
+        "correct": "Tama! Hawak mo ang regalo kaya Ito ang dapat gamitin.",
+        "retry": "Tandaan: Kung hawak mo, Ito ang gamit."
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d14-visual",
+      "accessibilityAlternative": "Pumili ng tamang pangungusap na gumagamit ng Ito para sa hawak na bagay."
     },
     {
-      "activityId": "filipino-g3-m01-d14-a05",
-      "sequence": 5,
+      "activityId": "filipino-g3-m01-d14-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Pagbukud-bukurin kung ang sitwasyon ay nangangailangan ng ITO, IYAN, o IYON.",
+      "content": {
+        "fits": [
+          "Hawak ang bola — ITO",
+          "Katabi ang payong — IYAN",
+          "Malayo ang eroplano — IYON",
+          "Hawak ang aklat — ITO",
+          "Nasa kabilang bundok ang bahay — IYON"
+        ],
+        "doesNotFit": [
+          "Hindi panghalip — Sila",
+          "Hindi panghalip — Kami"
+        ],
+        "visualScene": "👈👉👆🏝️",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 7
+      },
+      "feedback": {
+        "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
+        "retry": "May item na hindi tama ang pagkakabukod. Subukan muli."
+      },
+      "assetId": "filipino-g3-m01-d14-visual",
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga sitwasyon kung ito ay gumagamit ng Ito, Iyan, o Iyon."
+    },
+    {
+      "activityId": "filipino-g3-m01-d14-a04",
+      "sequence": 4,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat sitwasyon sa tamang panghalip na pamatlig.",
       "content": {
         "pairs": [
           {
-            "left": "bahay—sabay",
-            "right": "fits the lesson idea"
+            "left": "Hawak mo ang lapis",
+            "right": "Ito"
           },
           {
-            "left": "gabi—sabi",
-            "right": "fits the lesson idea"
+            "left": "Nasa tabi mo ang bag",
+            "right": "Iyan"
           },
           {
-            "left": "laro—taro",
-            "right": "fits the lesson idea"
+            "left": "Nasa malayong puno ang ibon",
+            "right": "Iyon"
+          },
+          {
+            "left": "Bitbit mo ang tsokolate",
+            "right": "Ito — Bitbit mo ang tsokolate"
+          },
+          {
+            "left": "Nasa kabilang kalsada ang aso",
+            "right": "Iyon — Nasa kabilang kalsada an"
           }
-        ]
+        ],
+        "visualScene": "👈👉👆🏝️",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Tama ang lahat ng pagtatapat!",
+        "retry": "Subukan muli."
       },
       "assetId": "filipino-g3-m01-d14-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Itapat ang limang sitwasyon sa tamang panghalip na pamatlig."
     },
     {
-      "activityId": "filipino-g3-m01-d14-a06",
-      "sequence": 6,
+      "activityId": "filipino-g3-m01-d14-a05",
+      "sequence": 5,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "instruction": "Ayusin ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+          "Ito — hawak ng nagsasalita (pinakamalapit)",
+          "Iyan — katabi o malapit sa nagsasalita",
+          "Iyon — malayo sa nagsasalita (pinakamalayo)",
+          "Gamitin ang Ito kung ang bagay ay nasa iyong kamay.",
+          "Gamitin ang Iyon kung ang bagay ay hindi mo agad maabot."
+        ],
+        "visualScene": "👈👉👆🏝️",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Tama ang pagkakasunod-sunod!",
+        "retry": "Ayusin muli."
       },
       "assetId": "filipino-g3-m01-d14-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Limang hakbang mula sa pinakamalapit hanggang pinakamalayo."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +195,148 @@
         "itemId": "filipino-g3-m01-d14-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Mga Salitang Magkakatugma”?",
+        "prompt": "Hawak mo ang isang lapis. Anong panghalip ang gagamitin mo?",
         "options": [
           {
-            "id": "a",
-            "text": "Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+            "id": "o1",
+            "text": "Ito"
           },
           {
-            "id": "b",
-            "text": "bahay—bata"
+            "id": "o2",
+            "text": "Iyan"
           },
           {
-            "id": "c",
-            "text": "gabi—guro"
+            "id": "o3",
+            "text": "Iyon"
+          },
+          {
+            "id": "o4",
+            "text": "Sila"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay.” because it follows the lesson explanation: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d14-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Nasa tabi mo ang isang aklat. Anong panghalip ang gagamitin mo?",
         "options": [
           {
-            "id": "a",
-            "text": "bahay—sabay"
+            "id": "o1",
+            "text": "Iyan"
           },
           {
-            "id": "b",
-            "text": "bahay—bata"
+            "id": "o2",
+            "text": "Ito"
           },
           {
-            "id": "c",
-            "text": "gabi—guro"
+            "id": "o3",
+            "text": "Iyon"
+          },
+          {
+            "id": "o4",
+            "text": "Kami"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “bahay—sabay” because it follows the lesson explanation: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d14-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Malayo sa iyo ang isang bundok. Anong panghalip ang gagamitin mo?",
         "options": [
           {
-            "id": "a",
-            "text": "bahay—bata"
+            "id": "o1",
+            "text": "Iyon"
           },
           {
-            "id": "b",
-            "text": "bahay—sabay"
+            "id": "o2",
+            "text": "Ito"
           },
           {
-            "id": "c",
-            "text": "gabi—sabi"
+            "id": "o3",
+            "text": "Iyan"
+          },
+          {
+            "id": "o4",
+            "text": "Tayo"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “bahay—bata” because it follows the lesson explanation: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d14-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang magkatugma?",
+        "prompt": "Kailan ginagamit ang panghalip na \"ito\"?",
         "options": [
           {
-            "id": "a",
-            "text": "gabi at sabi"
+            "id": "o1",
+            "text": "Kapag hawak o napakalapit ng bagay sa nagsasalita"
           },
           {
-            "id": "b",
-            "text": "gabi at guro"
+            "id": "o2",
+            "text": "Kapag malayo ang bagay sa nagsasalita"
           },
           {
-            "id": "c",
-            "text": "gabi at bahay"
+            "id": "o3",
+            "text": "Kapag nasa kabilang baryo ang bagay"
+          },
+          {
+            "id": "o4",
+            "text": "Sa lahat ng oras"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “gabi at sabi” because it follows the lesson explanation: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d14-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Alin sa sumusunod ang tamang gamit ng \"iyon\"?",
         "options": [
           {
-            "id": "a",
-            "text": "laro—taro"
+            "id": "o1",
+            "text": "Iyon ang pinakamalayong bituin sa kalangitan."
           },
           {
-            "id": "b",
-            "text": "laro—libro"
+            "id": "o2",
+            "text": "Iyon hawak ko ngayon."
           },
           {
-            "id": "c",
-            "text": "bahay—bata"
+            "id": "o3",
+            "text": "Iyon nasa tabi mo."
+          },
+          {
+            "id": "o4",
+            "text": "Iyon ang binabasa kong aklat sa aking mga kamay."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “laro—taro” because it follows the lesson explanation: Ang tugma ay pagkakatulad ng hulihang tunog, hindi lamang ng baybay."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d14-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d14-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Mga Salitang Magkakatugma; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Mga Salitang Magkakatugma.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "1e2296b92fe7cd7ad83ba7394c19996aee2699b90201e7cec910f4bc68fb43a2"
+  "storyIntro": "Ito, iyan, iyon — malapit o malayo? 📏👀",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "👈👉👆🏝️"
+  }
 }

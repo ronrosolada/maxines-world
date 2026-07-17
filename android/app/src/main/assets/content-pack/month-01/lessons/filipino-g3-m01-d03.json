@@ -5,27 +5,35 @@
   "month": 1,
   "day": 3,
   "subject": "FILIPINO",
-  "title": "Sagot Mula sa Teksto",
-  "objective": "Sagutin ang sino, ano, saan, kailan, at bakit mula sa binasa.",
-  "estimatedMinutes": 12,
+  "title": "Pagsagot sa Tanong tungkol sa Kuwento",
+  "objective": "Nasasagot ang mga tanong tungkol sa kuwento at usapan",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M03",
   "language": "fil-PH",
-  "introduction": "Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Tanong-sagot adventure! Sino? Ano? Saan? ❓🗺️",
   "vocabulary": [
     {
-      "term": "Sagot",
-      "definition": "A key word used in the lesson “Sagot Mula sa Teksto”."
+      "term": "Sino",
+      "definition": "Salitang pananong na tumutukoy sa pangalan ng tao."
     },
     {
-      "term": "Mula",
-      "definition": "A key word used in the lesson “Sagot Mula sa Teksto”."
+      "term": "Ano",
+      "definition": "Salitang pananong na tumutukoy sa bagay, hayop, at pangyayari."
     },
     {
-      "term": "sa",
-      "definition": "A key word used in the lesson “Sagot Mula sa Teksto”."
+      "term": "Saan",
+      "definition": "Salitang pananong na tumutukoy sa lugar."
+    },
+    {
+      "term": "Kailan",
+      "definition": "Salitang pananong na tumutukoy sa oras o panahon."
+    },
+    {
+      "term": "Bakit",
+      "definition": "Salitang pananong na tumutukoy sa dahilan."
     }
   ],
   "activities": [
@@ -33,156 +41,157 @@
       "activityId": "filipino-g3-m01-d03-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong.",
+      "instruction": "Panoorin at pakinggan ang kuwento at ang mga salitang pananong.",
+      "content": {
+        "text": "Sa pagsagot sa mga tanong tungkol sa kuwento, mahalagang maunawaan mo ang bawat pangyayari!",
+        "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay! Naunawaan mo ang mga salitang pananong at ang kuwento!",
+        "retry": "Subukan mong panoorin ulit. Tandaan ang mga salitang pananong!"
       },
       "assetId": "filipino-g3-m01-d03-visual",
-      "accessibilityAlternative": "Text alternative: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
       "activityId": "filipino-g3-m01-d03-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "Sino—tauhan",
-          "Saan—lugar",
-          "Kailan—oras o panahon"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d03-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d03-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "Sino—tauhan",
-          "Saan—lugar",
-          "Kailan—oras o panahon"
-        ],
-        "doesNotFit": [
-          "Magdagdag ng detalyeng wala sa teksto",
-          "Hulaan nang walang batayan",
-          "Palitan ang pangalan ng tauhan"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d03-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d03-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "“Nagtanim si Lina sa hardin noong umaga.” Saan siya nagtanim?",
+      "instruction": "Piliin ang tamang sagot tungkol sa kuwentong 'Pamasyal ng Mag-anak'.",
       "content": {
         "options": [
-          "sa hardin",
-          "noong umaga",
-          "si Lina"
+          "🌟 sa Energy Park",
+          "🎯 sa palengke",
+          "🐾 sa paaralan",
+          "🎈 sa simbahan"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: sa hardin",
-        "retry": "Read the lesson rule again. noong umaga and si Lina do not fit."
-      },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-    },
-    {
-      "activityId": "filipino-g3-m01-d03-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Sino—tauhan",
-            "right": "fits the lesson idea"
-          },
-          {
-            "left": "Saan—lugar",
-            "right": "fits the lesson idea"
-          },
-          {
-            "left": "Kailan—oras o panahon",
-            "right": "fits the lesson idea"
-          }
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
-      },
-      "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Tama! Sa Energy Park namasyal ang mag-anak!",
+        "retry": "Hindi iyon ang tamang sagot. Saan nagpipiknik ang mag-anak? Balikan ang kuwento!"
       },
       "assetId": "filipino-g3-m01-d03-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
-      "activityId": "filipino-g3-m01-d03-a06",
-      "sequence": 6,
+      "activityId": "filipino-g3-m01-d03-a03",
+      "sequence": 3,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "instruction": "Ayusin ang mga pangyayari sa kuwento sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+          "Nagsimba ang pamilya ni G. Rudy Mercado",
+          "Pagkatapos magsimba, nagpunta sila sa Energy Park",
+          "Sama-sama silang kumain ng inihandang pagkain ni Nanay Alma",
+          "Nagpalipad ng saranggola sina Jef at Jec",
+          "Masayang-masaya ang mag-anak sa kanilang pamasyal"
+        ],
+        "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Magaling! Naayos mo nang tama ang pagkakasunod-sunod ng mga pangyayari sa pamasyal!",
+        "retry": "May mali sa pagkakasunod-sunod. Isipin mo: nauna ang pagsisimba, pagkatapos ay ang pamasyal. Subukan muli!"
       },
       "assetId": "filipino-g3-m01-d03-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Accessible version of this activity."
+    },
+    {
+      "activityId": "filipino-g3-m01-d03-a04",
+      "sequence": 4,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itugma ang tanong sa tamang sagot.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Sino ang namasyal?",
+            "right": "Ang pamilya ni G. Rudy Mercado"
+          },
+          {
+            "left": "Saan sila nagpiknik?",
+            "right": "Sa Energy Park"
+          },
+          {
+            "left": "Kailan sila namasyal?",
+            "right": "Araw ng Linggo"
+          },
+          {
+            "left": "Ano ang ginawa nina Jef at Jec?",
+            "right": "Nagpalipad ng saranggola"
+          },
+          {
+            "left": "Bakit masaya ang mag-anak?",
+            "right": "Sama-sama silang namasyal"
+          }
+        ],
+        "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "targetCount": 5
+      },
+      "feedback": {
+        "correct": "Napakagaling! Natugma mo nang tama ang lahat ng tanong sa sagot!",
+        "retry": "May hindi pa tama. Tingnan ang salitang pananong: Sino ay tao, Saan ay lugar, Kailan ay oras. Subukan muli!"
+      },
+      "assetId": "filipino-g3-m01-d03-visual",
+      "accessibilityAlternative": "Accessible version of this activity."
+    },
+    {
+      "activityId": "filipino-g3-m01-d03-a05",
+      "sequence": 5,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "I-grupo: alin ang TOTOO ayon sa kuwento at alin ang HINDI TOTOO?",
+      "content": {
+        "fits": [
+          "Nagsisimba ang pamilya tuwing Linggo",
+          "Nagpipiknik sila sa Energy Park",
+          "Nagpalipad ng saranggola sina Jef at Jec",
+          "Nagdasal muna sila bago kumain"
+        ],
+        "doesNotFit": [
+          "Nagpipiknik sila sa loob ng simbahan",
+          "Si Kris ay nagpalipad ng eroplano",
+          "Lunes sila namasyal",
+          "Malungkot ang mag-anak"
+        ],
+        "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Alam mo kung ano ang totoo at hindi totoo sa kuwento!",
+        "retry": "May mali pa. Balikan ang kuwento: Araw ng Linggo ba o Lunes? Saan sila nagpiknik? Subukan muli!"
+      },
+      "assetId": "filipino-g3-m01-d03-visual",
+      "accessibilityAlternative": "Accessible version of this activity."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +200,136 @@
         "itemId": "filipino-g3-m01-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Sagot Mula sa Teksto”?",
+        "prompt": "Saan naganap ang kuwentong 'Pamasyal ng Mag-anak'?",
         "options": [
           {
-            "id": "a",
-            "text": "Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+            "id": "o1",
+            "text": "sa bahay"
           },
           {
-            "id": "b",
-            "text": "Magdagdag ng detalyeng wala sa teksto"
+            "id": "o2",
+            "text": "sa parke"
           },
           {
-            "id": "c",
-            "text": "Hulaan nang walang batayan"
+            "id": "o3",
+            "text": "sa paaralan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong.” because it follows the lesson explanation: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Kailan namamasyal ang mag-anak?",
         "options": [
           {
-            "id": "a",
-            "text": "Sino—tauhan"
+            "id": "o1",
+            "text": "Araw ng Lunes"
           },
           {
-            "id": "b",
-            "text": "Magdagdag ng detalyeng wala sa teksto"
+            "id": "o2",
+            "text": "Araw ng Linggo"
           },
           {
-            "id": "c",
-            "text": "Hulaan nang walang batayan"
+            "id": "o3",
+            "text": "Araw ng Sabado"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Sino—tauhan” because it follows the lesson explanation: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Ano ang ginawa nina Jef at Jec sa parke?",
         "options": [
           {
-            "id": "a",
-            "text": "Magdagdag ng detalyeng wala sa teksto"
+            "id": "o1",
+            "text": "Kumain ng meryenda"
           },
           {
-            "id": "b",
-            "text": "Sino—tauhan"
+            "id": "o2",
+            "text": "Sumakay sa duyan"
           },
           {
-            "id": "c",
-            "text": "Saan—lugar"
+            "id": "o3",
+            "text": "Nagpalipad ng saranggola"
+          },
+          {
+            "id": "o4",
+            "text": "Nagdasal"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o3"
         ],
-        "explanation": "The correct response is “Magdagdag ng detalyeng wala sa teksto” because it follows the lesson explanation: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "“Nagtanim si Lina sa hardin noong umaga.” Saan siya nagtanim?",
+        "prompt": "Anong salitang pananong ang tumutukoy sa dahilan?",
         "options": [
           {
-            "id": "a",
-            "text": "sa hardin"
+            "id": "o1",
+            "text": "Sino"
           },
           {
-            "id": "b",
-            "text": "noong umaga"
+            "id": "o2",
+            "text": "Ano"
           },
           {
-            "id": "c",
-            "text": "si Lina"
+            "id": "o3",
+            "text": "Bakit"
+          },
+          {
+            "id": "o4",
+            "text": "Kailan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o3"
         ],
-        "explanation": "The correct response is “sa hardin” because it follows the lesson explanation: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Bakit mahalagang maglaan ng oras para sa pamilya?",
         "options": [
           {
-            "id": "a",
-            "text": "Kailan—oras o panahon"
+            "id": "o1",
+            "text": "Dahil wala silang magawa sa bahay"
           },
           {
-            "id": "b",
-            "text": "Palitan ang pangalan ng tauhan"
+            "id": "o2",
+            "text": "Upang maging mas matibay ang pagsasamahan"
           },
           {
-            "id": "c",
-            "text": "Magdagdag ng detalyeng wala sa teksto"
+            "id": "o3",
+            "text": "Dahil marami silang pera"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Kailan—oras o panahon” because it follows the lesson explanation: Hanapin sa teksto ang detalyeng tuwirang sumasagot sa tanong."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d03-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d03-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Sagot Mula sa Teksto; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Sagot Mula sa Teksto.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "08018f540a0bc53b335fdf798d537eb1fee46b9682f392d2463bf85ab848cb34"
+  "storyIntro": "Tanong-sagot adventure! Sino? Ano? Saan? ❓🗺️",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "❓👨‍👩‍👧‍👦🏞️🎈"
+  }
 }

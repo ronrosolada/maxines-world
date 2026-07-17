@@ -13,6 +13,8 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 
 /**
  * VIEW_AND_ACKNOWLEDGE rule: shows instruction text with a Continue button.
@@ -25,7 +27,9 @@ fun AnimatedExplanationRenderer(
     onHint: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     val startTime = remember { System.currentTimeMillis() }
+    val body = step.narrationText.ifEmpty { step.question }
 
     Column(
         modifier = modifier
@@ -34,11 +38,14 @@ fun AnimatedExplanationRenderer(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        if (step.imageAssets.isNotEmpty()) {
+            KidSceneBanner(imageAssets = step.imageAssets)
+        }
         Text(
-            text = step.narrationText.ifEmpty { step.question },
+            text = body,
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.semantics {
-                contentDescription = "Instruction: ${step.narrationText.ifEmpty { step.question }}"
+                contentDescription = "Instruction: $body"
             }
         )
 
@@ -57,12 +64,12 @@ fun AnimatedExplanationRenderer(
                     )
                 )
             },
-            text = "Continue",
+            text = ui.continueLabel,
             containerColor = VillageTeal,
             modifier = Modifier
                 .fillMaxWidth()
                 .sizeIn(minHeight = 56.dp)
-                .semantics { contentDescription = "Continue to next activity" }
+                .semantics { contentDescription = ui.continueNext }
         )
     }
 }

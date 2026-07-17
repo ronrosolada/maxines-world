@@ -5,27 +5,31 @@
   "month": 1,
   "day": 15,
   "subject": "FILIPINO",
-  "title": "Palawakin ang Talasalitaan",
-  "objective": "Gamitin ang larawan, konteksto, kasingkahulugan, at kasalungat upang maunawaan ang salita.",
-  "estimatedMinutes": 12,
+  "title": "Pagbuo ng Kuwento",
+  "objective": "Nakabubuo ng isang kuwento na katumbas ng napakinggang kuwento.",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M15",
   "language": "fil-PH",
-  "introduction": "Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Ikaw ang manunulat! Buuin ang sariling kuwento! ✍️🌟",
   "vocabulary": [
     {
-      "term": "Palawakin",
-      "definition": "A key word used in the lesson “Palawakin ang Talasalitaan”."
+      "term": "Simula",
+      "definition": "Ang unang bahagi ng kuwento kung saan ipinapakilala ang mga tauhan at tagpuan."
     },
     {
-      "term": "ang",
-      "definition": "A key word used in the lesson “Palawakin ang Talasalitaan”."
+      "term": "Gitna",
+      "definition": "Ang bahagi ng kuwento kung saan inilalahad ang suliranin o problema."
     },
     {
-      "term": "Talasalitaan",
-      "definition": "A key word used in the lesson “Palawakin ang Talasalitaan”."
+      "term": "Wakas",
+      "definition": "Ang huling bahagi ng kuwento kung saan ipinapakita ang solusyon at katapusan."
+    },
+    {
+      "term": "Suliranin",
+      "definition": "Ang problema o pagsubok na kinakaharap ng tauhan sa kuwento."
     }
   ],
   "activities": [
@@ -33,156 +37,156 @@
       "activityId": "filipino-g3-m01-d15-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan.",
+      "instruction": "Panoorin at pakinggan ang kuwento para sa aralin ngayon.",
+      "content": {
+        "text": "Ang bawat kuwento ay may tatlong bahagi: Simula, Gitna, at Wakas. Sa Simula, ipinapakilala ang mga tauhan at tagpuan. Sa Gitna, inilalahad ang suliranin o problema ng tauhan. Sa Wakas, ipinapakita ang naging solusyon at ang katapusan ng kuwento!",
+        "visualScene": "✍️🐱🌙⭐",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Mahusay!",
+        "retry": "Pakinggan muli."
       },
       "assetId": "filipino-g3-m01-d15-visual",
-      "accessibilityAlternative": "Text alternative: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+      "accessibilityAlternative": "Paliwanag tungkol sa tatlong bahagi ng kuwento: Simula, Gitna, at Wakas, gamit ang halimbawa ni Toby at Sid."
     },
     {
       "activityId": "filipino-g3-m01-d15-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "masaya—maligaya",
-          "mabilis—matulin",
-          "mataas—mababa bilang kasalungat"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d15-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d15-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "masaya—maligaya",
-          "mabilis—matulin",
-          "mataas—mababa bilang kasalungat"
-        ],
-        "doesNotFit": [
-          "Piliin ang kahulugan nang walang konteksto",
-          "Ipagpalagay na laging iisa ang kahulugan",
-          "Balewalain ang pangungusap"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d15-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d15-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Ano ang kasingkahulugan ng masaya?",
+      "instruction": "Piliin ang tamang sagot tungkol sa istruktura ng kuwento.",
       "content": {
         "options": [
-          "maligaya",
-          "malungkot",
-          "mabagal"
+          "🌟 Sa simula ipinapakilala ang mga tauhan at tagpuan ng kuwento.",
+          "🎯 Sa simula ibinibigay ang wakas ng kuwento.",
+          "🐾 Sa simula inilalahad ang solusyon ng kuwento.",
+          "🎈 Sa simula walang nangyayari."
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "✍️🐱🌙⭐",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: maligaya",
-        "retry": "Read the lesson rule again. malungkot and mabagal do not fit."
+        "correct": "Tama! Sa simula ipinapakilala ang tauhan at tagpuan.",
+        "retry": "Isipin mo — ano ang unang bahagi ng isang kuwento?"
       },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+      "assetId": "filipino-g3-m01-d15-visual",
+      "accessibilityAlternative": "Pumili ng tamang pahayag tungkol sa simula ng kuwento."
+    },
+    {
+      "activityId": "filipino-g3-m01-d15-a03",
+      "sequence": 3,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang limang hakbang sa pagbuo ng kuwento.",
+      "content": {
+        "steps": [
+          "Pumili ng mga tauhan para sa iyong kuwento.",
+          "Tukuyin ang tagpuan — saan mangyayari ang kuwento?",
+          "Ilahad ang suliranin o problema sa gitna ng kuwento.",
+          "Ipakita kung paano nalutas ang suliranin.",
+          "Tapusin ang kuwento sa pamamagitan ng wakas na nagpapakita ng aral."
+        ],
+        "visualScene": "✍️🐱🌙⭐",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "targetCount": 5
+      },
+      "feedback": {
+        "correct": "Tama ang iyong pagkakasunod-sunod!",
+        "retry": "Ayusin muli ang mga hakbang."
+      },
+      "assetId": "filipino-g3-m01-d15-visual",
+      "accessibilityAlternative": "Limang hakbang sa pagbuo ng kuwento mula una hanggang huli."
+    },
+    {
+      "activityId": "filipino-g3-m01-d15-a04",
+      "sequence": 4,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Pagbukud-bukurin kung ang pangyayari ay SIMULA o WAKAS ng kuwento.",
+      "content": {
+        "fits": [
+          "Ipinakilala ang pangunahing tauhan — SIMULA",
+          "Inilarawan ang tagpuan — SIMULA",
+          "Ipinakilala ang pangalawang tauhan — SIMULA"
+        ],
+        "doesNotFit": [
+          "Nalutas ang suliranin — WAKAS",
+          "Nagtapos ang kuwento nang masaya — WAKAS",
+          "Nagkaroon ng aral ang tauhan — WAKAS",
+          "Naging magkaibigan ang mga tauhan — WAKAS"
+        ],
+        "visualScene": "✍️🐱🌙⭐",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 7
+      },
+      "feedback": {
+        "correct": "Mahusay! Alam mo na ang pagkakaiba ng simula at wakas.",
+        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
+      },
+      "assetId": "filipino-g3-m01-d15-visual",
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga pangyayari kung ito ay simula o wakas ng kuwento."
     },
     {
       "activityId": "filipino-g3-m01-d15-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "instruction": "Itapat ang bawat elemento ng kuwento sa tamang tungkulin nito.",
       "content": {
         "pairs": [
           {
-            "left": "masaya—maligaya",
-            "right": "fits the lesson idea"
+            "left": "Tauhan",
+            "right": "Ang gumaganap o karakter sa kuwento"
           },
           {
-            "left": "mabilis—matulin",
-            "right": "fits the lesson idea"
+            "left": "Tagpuan",
+            "right": "Ang lugar at panahon ng kuwento"
           },
           {
-            "left": "mataas—mababa bilang kasalungat",
-            "right": "fits the lesson idea"
+            "left": "Suliranin",
+            "right": "Ang problema o pagsubok na kakaharapin"
+          },
+          {
+            "left": "Solusyon",
+            "right": "Ang kasagutan sa problema sa kuwento"
+          },
+          {
+            "left": "Aral",
+            "right": "Ang natutuhan o mensahe ng kuwento"
           }
-        ]
+        ],
+        "visualScene": "✍️🐱🌙⭐",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
+        "targetCount": 5
       },
       "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Mahusay! Alam mo na ang gamit ng bawat elemento.",
+        "retry": "Subukan muli ang pagtatapat."
       },
       "assetId": "filipino-g3-m01-d15-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-    },
-    {
-      "activityId": "filipino-g3-m01-d15-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-      "content": {
-        "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
-      },
-      "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
-      },
-      "assetId": "filipino-g3-m01-d15-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Itapat ang limang elemento ng kuwento sa kanilang tamang tungkulin."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +195,148 @@
         "itemId": "filipino-g3-m01-d15-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Palawakin ang Talasalitaan”?",
+        "prompt": "Ano ang tawag sa simula ng kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+            "id": "o1",
+            "text": "Simula"
           },
           {
-            "id": "b",
-            "text": "Piliin ang kahulugan nang walang konteksto"
+            "id": "o2",
+            "text": "Gitna"
           },
           {
-            "id": "c",
-            "text": "Ipagpalagay na laging iisa ang kahulugan"
+            "id": "o3",
+            "text": "Wakas"
+          },
+          {
+            "id": "o4",
+            "text": "Pamagat"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan.” because it follows the lesson explanation: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d15-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Ano ang tatlong pangunahing bahagi ng isang kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "masaya—maligaya"
+            "id": "o1",
+            "text": "Simula, Gitna, Wakas"
           },
           {
-            "id": "b",
-            "text": "Piliin ang kahulugan nang walang konteksto"
+            "id": "o2",
+            "text": "Pamagat, Tauhan, Tagpuan"
           },
           {
-            "id": "c",
-            "text": "Ipagpalagay na laging iisa ang kahulugan"
+            "id": "o3",
+            "text": "Una, Ikalawa, Ikatlo"
+          },
+          {
+            "id": "o4",
+            "text": "Kahapon, Ngayon, Bukas"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “masaya—maligaya” because it follows the lesson explanation: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d15-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Ano ang ipinakita ng pangunahing tauhan sa kuwentong napakinggan?",
         "options": [
           {
-            "id": "a",
-            "text": "Piliin ang kahulugan nang walang konteksto"
+            "id": "o1",
+            "text": "Pagtulong sa kapwa"
           },
           {
-            "id": "b",
-            "text": "masaya—maligaya"
+            "id": "o2",
+            "text": "Pagiging tamad"
           },
           {
-            "id": "c",
-            "text": "mabilis—matulin"
+            "id": "o3",
+            "text": "Pag-aaway"
+          },
+          {
+            "id": "o4",
+            "text": "Pagsisinungaling"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Piliin ang kahulugan nang walang konteksto” because it follows the lesson explanation: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d15-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang kasingkahulugan ng masaya?",
+        "prompt": "Saang bahagi ng kuwento makikita ang suliranin?",
         "options": [
           {
-            "id": "a",
-            "text": "maligaya"
+            "id": "o1",
+            "text": "Sa gitna"
           },
           {
-            "id": "b",
-            "text": "malungkot"
+            "id": "o2",
+            "text": "Sa simula"
           },
           {
-            "id": "c",
-            "text": "mabagal"
+            "id": "o3",
+            "text": "Sa wakas"
+          },
+          {
+            "id": "o4",
+            "text": "Sa pamagat"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “maligaya” because it follows the lesson explanation: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d15-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Ano ang layunin ng wakas ng kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "mataas—mababa bilang kasalungat"
+            "id": "o1",
+            "text": "Tapusin ang kuwento at ipakita ang naging resulta"
           },
           {
-            "id": "b",
-            "text": "Balewalain ang pangungusap"
+            "id": "o2",
+            "text": "Ipakilala ang mga tauhan"
           },
           {
-            "id": "c",
-            "text": "Piliin ang kahulugan nang walang konteksto"
+            "id": "o3",
+            "text": "Magbigay ng bagong suliranin"
+          },
+          {
+            "id": "o4",
+            "text": "Magbigay ng pamagat"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “mataas—mababa bilang kasalungat” because it follows the lesson explanation: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d15-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d15-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Palawakin ang Talasalitaan; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Palawakin ang Talasalitaan.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "a8c36bc2706271b53cc45126eead8e4ed46536346ed9c802c3c944afa055ef6d"
+  "storyIntro": "Ikaw ang manunulat! Buuin ang sariling kuwento! ✍️🌟",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "✍️🐱🌙⭐"
+  }
 }

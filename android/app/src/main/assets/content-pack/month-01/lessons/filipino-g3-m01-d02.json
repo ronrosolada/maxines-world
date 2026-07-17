@@ -5,27 +5,27 @@
   "month": 1,
   "day": 2,
   "subject": "FILIPINO",
-  "title": "Gamitin ang Naunang Kaalaman",
-  "objective": "Iugnay ang dating kaalaman sa bagong teksto o larawan.",
-  "estimatedMinutes": 12,
+  "title": "Naunang Kaalaman sa Pag-unawa ng Teksto",
+  "objective": "Nakagagamit ng naunang kaalaman o karanasan sa pag-unawa ng napakinggang teksto",
+  "estimatedMinutes": 15,
   "educatorValidated": false,
   "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
   "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+  "alignmentStatus": "SLM_Q1_M02",
   "language": "fil-PH",
-  "introduction": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto. You will explore examples, sort cards, practice, and answer five questions.",
+  "introduction": "Bago basahin, isipin muna: ano na ang alam mo? 🧠💭",
   "vocabulary": [
     {
-      "term": "Gamitin",
-      "definition": "A key word used in the lesson “Gamitin ang Naunang Kaalaman”."
+      "term": "Naunang Kaalaman",
+      "definition": "Mga bagay na alam mo na bago mo pa basahin o pakinggan ang isang teksto."
     },
     {
-      "term": "ang",
-      "definition": "A key word used in the lesson “Gamitin ang Naunang Kaalaman”."
+      "term": "Pagkakaisa",
+      "definition": "Pagtutulungan at pagkakasundo ng mga kasapi ng pamilya o grupo."
     },
     {
-      "term": "Naunang",
-      "definition": "A key word used in the lesson “Gamitin ang Naunang Kaalaman”."
+      "term": "Pananalig",
+      "definition": "Matibay na paniniwala at pagtitiwala sa Diyos."
     }
   ],
   "activities": [
@@ -33,156 +33,113 @@
       "activityId": "filipino-g3-m01-d02-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-      "content": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.",
+      "instruction": "Panoorin at pakinggan ang kuwento at paliwanag.",
+      "content": {
+        "text": "Sa pakikinig ng teksto, mas mauunawaan mo ang ideya nito kung gagamitin mo ang iyong naunang kaalaman at karanasan.\n\nHalimbawa, kung may kuwento tungkol sa pamilya, gamitin mo ang alam mo na tungkol sa sarili mong pamilya!",
+        "visualScene": "🧠📖👨‍👩‍👧💡",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
       "required": true,
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Ready for the next step.",
-        "retry": "Review the explanation once more."
+        "correct": "Magaling! Naunawaan mo kung paano gamitin ang naunang kaalaman sa pag-unawa ng teksto!",
+        "retry": "Subukan mong panoorin ulit. Isipin ang sarili mong karanasan sa pamilya!"
       },
       "assetId": "filipino-g3-m01-d02-visual",
-      "accessibilityAlternative": "Text alternative: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
       "activityId": "filipino-g3-m01-d02-a02",
       "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat learning token at basahin ang mga halimbawa.",
-      "content": {
-        "examples": [
-          "Payong at ulap—maaaring umulan",
-          "Basang daan—maaaring bagong umulan",
-          "Pamagat at larawan—gumawa ng hula"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining token."
-      },
-      "assetId": "filipino-g3-m01-d02-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "filipino-g3-m01-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-      "content": {
-        "fits": [
-          "Payong at ulap—maaaring umulan",
-          "Basang daan—maaaring bagong umulan",
-          "Pamagat at larawan—gumawa ng hula"
-        ],
-        "doesNotFit": [
-          "Ituring na tiyak ang lahat ng hula",
-          "Huwag basahin ang teksto",
-          "Piliin ang hulang walang pahiwatig"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups follow the lesson rule.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "filipino-g3-m01-d02-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "filipino-g3-m01-d02-a04",
-      "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
+      "instruction": "Basahin at piliin ang tamang sagot tungkol sa kuwento.",
       "content": {
         "options": [
-          "Maaaring umulan.",
-          "Nasa ilalim siya ng dagat.",
-          "Gawa sa papel ang ulap."
+          "🌟 Sama-sama silang nagsisimba at nagdarasal",
+          "🎯 Naglalaro lamang sila sa labas",
+          "🐾 Nanunuod sila ng telebisyon maghapon",
+          "🎈 Natutulog lamang sila sa bahay"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "visualScene": "🧠📖👨‍👩‍👧💡",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Correct: Maaaring umulan.",
-        "retry": "Read the lesson rule again. Nasa ilalim siya ng dagat. and Gawa sa papel ang ulap. do not fit."
-      },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-    },
-    {
-      "activityId": "filipino-g3-m01-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Payong at ulap—maaaring umulan",
-            "right": "fits the lesson idea"
-          },
-          {
-            "left": "Basang daan—maaaring bagong umulan",
-            "right": "fits the lesson idea"
-          },
-          {
-            "left": "Pamagat at larawan—gumawa ng hula",
-            "right": "fits the lesson idea"
-          }
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
-      },
-      "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
+        "correct": "Tama! Sama-sama silang nagsisimba at nagdarasal bilang pamilya.",
+        "retry": "Hindi iyon ang tamang sagot. Balikan ang kuwento: paano itinuturo ng mga magulang ang pananalig sa Diyos?"
       },
       "assetId": "filipino-g3-m01-d02-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+      "accessibilityAlternative": "Accessible version of this activity."
     },
     {
-      "activityId": "filipino-g3-m01-d02-a06",
-      "sequence": 6,
+      "activityId": "filipino-g3-m01-d02-a03",
+      "sequence": 3,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "instruction": "Ayusin ang mga pangyayari sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
-        ]
+          "Ipinaparamdam nina nanay at tatay ang pagmamahal sa magkakapatid",
+          "Tinuturuan ng mga magulang ang magagandang asal at pananalig sa Diyos",
+          "Sama-samang nagsisimba at nagdarasal ang buong pamilya",
+          "Nalampasan ang bawat problema dahil nagkakaisa ang pamilya"
+        ],
+        "visualScene": "🧠📖👨‍👩‍👧💡",
+        "celebrationEmoji": "🎉⭐🐾"
       },
       "required": true,
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
+        "targetCount": 4
       },
       "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Complete each review step."
+        "correct": "Mahusay! Naayos mo nang tama ang pagkakasunod-sunod ng mga pangyayari!",
+        "retry": "May mali sa pagkakasunod-sunod. Isipin mo: ano ang nauna? Ang pagmamahal, pagtuturo, pagsisimba, o pagkakaisa?"
       },
       "assetId": "filipino-g3-m01-d02-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+      "accessibilityAlternative": "Accessible version of this activity."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "I-grupo: alin ang nagpapakita ng pagkakaisa ng pamilya at alin ang hindi?",
+      "content": {
+        "fits": [
+          "Nagtutulungan sa gawaing bahay",
+          "Sama-samang nagsisimba",
+          "Nag-uusap kapag may problema",
+          "Nagmamahalan ang magkakapatid"
+        ],
+        "doesNotFit": [
+          "Nag-aaway ang magkakapatid",
+          "Hindi nakikinig sa magulang",
+          "Iniiwan ang gawaing bahay",
+          "Hindi pumapasok sa paaralan"
+        ],
+        "visualScene": "🧠📖👨‍👩‍👧💡",
+        "celebrationEmoji": "🎉⭐🐾"
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "targetCount": 8
+      },
+      "feedback": {
+        "correct": "Magaling! Alam mo na kung ano ang nagpapakita ng pagkakaisa ng pamilya!",
+        "retry": "May mali pa. Ang nagpapakita ng pagkakaisa ay pagtutulungan at pagmamahalan. Subukan muli!"
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "Accessible version of this activity."
     }
   ],
   "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
+    "purpose": "FORMATIVE",
     "itemCount": 5,
     "passingCorrectCount": 4,
     "claimsMastery": false,
@@ -191,142 +148,132 @@
         "itemId": "filipino-g3-m01-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling pahayag ang pinakaangkop sa “Gamitin ang Naunang Kaalaman”?",
+        "prompt": "Ano ang pamagat ng kuwentong napakinggan?",
         "options": [
           {
-            "id": "a",
-            "text": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+            "id": "o1",
+            "text": "Ang Pamilya"
           },
           {
-            "id": "b",
-            "text": "Ituring na tiyak ang lahat ng hula"
+            "id": "o2",
+            "text": "Ang Aso at Pusa"
           },
           {
-            "id": "c",
-            "text": "Huwag basahin ang teksto"
+            "id": "o3",
+            "text": "Ang Paaralan"
+          },
+          {
+            "id": "o4",
+            "text": "Ang Magkaibigan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o1"
         ],
-        "explanation": "The correct response is “Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.” because it follows the lesson explanation: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong halimbawa?",
+        "prompt": "Sino-sino ang bumubuo ng pamilya sa kuwento?",
         "options": [
           {
-            "id": "a",
-            "text": "Payong at ulap—maaaring umulan"
+            "id": "o1",
+            "text": "nanay at tatay lamang"
           },
           {
-            "id": "b",
-            "text": "Ituring na tiyak ang lahat ng hula"
+            "id": "o2",
+            "text": "nanay, tatay, ate, kuya, at bunso"
           },
           {
-            "id": "c",
-            "text": "Huwag basahin ang teksto"
+            "id": "o3",
+            "text": "lolo at lola lamang"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Payong at ulap—maaaring umulan” because it follows the lesson explanation: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+        "prompt": "Bakit nalalampasan ng pamilya ang bawat problema?",
         "options": [
           {
-            "id": "a",
-            "text": "Ituring na tiyak ang lahat ng hula"
+            "id": "o1",
+            "text": "Dahil mayaman sila"
           },
           {
-            "id": "b",
-            "text": "Payong at ulap—maaaring umulan"
+            "id": "o2",
+            "text": "Dahil nagkakaisa sila at nananalig sa Diyos"
           },
           {
-            "id": "c",
-            "text": "Basang daan—maaaring bagong umulan"
+            "id": "o3",
+            "text": "Dahil marami silang kaibigan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Ituring na tiyak ang lahat ng hula” because it follows the lesson explanation: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
+        "prompt": "Ano ang palaging bilin ng mga magulang sa magkakapatid?",
         "options": [
           {
-            "id": "a",
-            "text": "Maaaring umulan."
+            "id": "o1",
+            "text": "Mag-aral nang mabuti at yumaman"
           },
           {
-            "id": "b",
-            "text": "Nasa ilalim siya ng dagat."
+            "id": "o2",
+            "text": "Mahalin ang Diyos at gumawa ng mabuti sa kapwa"
           },
           {
-            "id": "c",
-            "text": "Gawa sa papel ang ulap."
+            "id": "o3",
+            "text": "Huwag makipagkaibigan kaninuman"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Maaaring umulan.” because it follows the lesson explanation: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       },
       {
         "itemId": "filipino-g3-m01-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+        "prompt": "Bakit mahalaga ang pagkakaisa ng pamilya?",
         "options": [
           {
-            "id": "a",
-            "text": "Pamagat at larawan—gumawa ng hula"
+            "id": "o1",
+            "text": "Upang maging magulo ang tahanan"
           },
           {
-            "id": "b",
-            "text": "Piliin ang hulang walang pahiwatig"
+            "id": "o2",
+            "text": "Upang maging mapayapa at matibay ang pamilya"
           },
           {
-            "id": "c",
-            "text": "Ituring na tiyak ang lahat ng hula"
+            "id": "o3",
+            "text": "Upang makaiwas sa gawaing bahay"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "o2"
         ],
-        "explanation": "The correct response is “Pamagat at larawan—gumawa ng hula” because it follows the lesson explanation: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+        "explanation": "Tama! Ito ang wastong sagot batay sa aralin."
       }
     ]
   },
-  "assetSpecs": [
-    {
-      "assetId": "filipino-g3-m01-d02-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/filipino-g3-m01-d02-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Gamitin ang Naunang Kaalaman; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Gamitin ang Naunang Kaalaman.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "54f5d572effa8cd91ed5bc61d988f289f2307b82df8c5057ae9627575a0dcdc5"
+  "storyIntro": "Bago basahin, isipin muna: ano na ang alam mo? 🧠💭",
+  "scene": {
+    "character": "Milo",
+    "setting": "Bahay ng Kuwento",
+    "visualScene": "🧠📖👨‍👩‍👧💡"
+  }
 }

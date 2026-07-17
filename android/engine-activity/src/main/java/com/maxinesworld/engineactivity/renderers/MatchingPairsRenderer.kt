@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.LocalLessonUiLanguage
+import com.maxinesworld.engineactivity.lessonUiStrings
 
 @Composable
 fun MatchingPairsRenderer(
@@ -26,6 +28,7 @@ fun MatchingPairsRenderer(
     onHint: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ui = lessonUiStrings(LocalLessonUiLanguage.current)
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
     var selectedLeft by remember { mutableIntStateOf(-1) }
@@ -37,14 +40,15 @@ fun MatchingPairsRenderer(
     val left = all.take(half)
     val right = all.drop(half).ifEmpty { all }
     val n = minOf(left.size, right.size)
+    val prompt = step.question.ifBlank { step.narrationText }.ifBlank { ui.matchPairs }
 
     LaunchedEffect(mismatch) {
         if (mismatch != null) { kotlinx.coroutines.delay(800); mismatch = null; selectedLeft = -1 }
     }
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        Text(step.question.ifEmpty { "Match the pairs!" }, style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.semantics { contentDescription = "Match pairs: ${step.question}" })
+        Text(prompt, style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.semantics { contentDescription = "Match pairs: $prompt" })
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -84,7 +88,7 @@ fun MatchingPairsRenderer(
             }
         }
 
-        Text("Matched: ${matched.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
+        Text("${ui.matchedProgress}: ${matched.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
             modifier = Modifier.semantics { contentDescription = "${matched.size} of $n matched" })
         Spacer(Modifier.weight(1f))
     }

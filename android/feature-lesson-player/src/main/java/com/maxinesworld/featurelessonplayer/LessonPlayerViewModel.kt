@@ -259,17 +259,18 @@ class LessonPlayerViewModel @Inject constructor(
             steps = m1.activities.map { act ->
                 val canonical = canonicalActivityType(act.type)
                     ?: throw UnsupportedActivityTypeException(m1.lessonId, act.activityId, act.type)
-                val (options, correctIndex) = extractOptionsAndCorrectIndex(act)
+                val mapped = mapActivityContent(act, canonical, m1.language)
                 ActivityStep(
                     id = act.activityId,
                     type = canonical,
-                    narrationText = act.instruction,
-                    question = act.instruction,
-                    options = options,
-                    correctIndex = correctIndex,
+                    narrationText = mapped.narrationText,
+                    question = mapped.question,
+                    options = mapped.options,
+                    correctIndex = mapped.correctIndex,
+                    imageAssets = mapped.imageAssets,
                     feedback = ActivityFeedback(
-                        correct = act.feedback?.correct ?: "Great job!",
-                        incorrect = act.feedback?.retry ?: "Let's try again!"
+                        correct = act.feedback?.correct ?: "Yehey! Tama! 🎉",
+                        incorrect = act.feedback?.retry ?: "Halos na! Subukan muli 💪"
                     )
                 )
             }
