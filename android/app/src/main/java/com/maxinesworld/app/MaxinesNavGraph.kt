@@ -128,7 +128,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onMiraClick = {
                     navController.navigate(Routes.lessonPlayer(childId, "english-g3-m01-d01"))
                 },
-                onDiscoveriesClick = { },
+                onDiscoveriesClick = { navController.navigate(Routes.wildlifeFieldGuide(childId)) },
                 onCafeClick = { navController.navigate(Routes.catCafeShop(childId)) },
                 onPlaygroundClick = {
                     navController.navigate(Routes.playground(childId))

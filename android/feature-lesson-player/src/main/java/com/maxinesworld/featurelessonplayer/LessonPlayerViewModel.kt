@@ -154,19 +154,18 @@ class LessonPlayerViewModel @Inject constructor(
                 ))
             }
 
-            // Fish treat reward with deterministic ID
-            val improved = scoredResults.any { it.attempts > 1 && it.correct }
-            val crossed = accuracy >= 0.8
-            val treats = FishTreatPolicy.amount(completed = true, improvedAfterRetry = improved, crossedMasteryThreshold = crossed)
-            val rewardKey = FishTreatPolicy.rewardKey(childId, lesson.id, attemptId)
-            rewardDao.insert(RewardEntity(
-                id = "${completionId}:reward:fish_treat",
-                childId = childId,
-                type = FishTreatPolicy.TYPE,
-                subject = lesson.subject,
-                amount = treats,
-                metadata = "rewardKey=$rewardKey,accuracy=$accuracy"
-            ))
+            // Fish treat reward with deterministic source key — written to reward_ledger (authoritative balance)
+                        val improved = scoredResults.any { it.attempts > 1 && it.correct }
+                        val crossed = accuracy >= 0.8
+                        val treats = FishTreatPolicy.amount(completed = true, improvedAfterRetry = improved, crossedMasteryThreshold = crossed)
+                        val rewardKey = FishTreatPolicy.rewardKey(childId, lesson.id, attemptId)
+                        rewardLedgerDao.insertIgnoring(RewardLedgerEntity(
+                            id = deterministicUuid("${completionId}:reward:fish_treat"),
+                            childId = childId,
+                            amount = treats,
+                            sourceKey = rewardKey,
+                            occurredAtEpochMillis = System.currentTimeMillis()
+                        ))
 
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {
