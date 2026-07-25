@@ -98,16 +98,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
             VillageHomeV17Screen(
                 state = VillageHomeV17State(),
                 onDestinationClick = { subject ->
-                    val lessonId = when (subject) {
-                        "english" -> "english-g3-m01-d01"
-                        "filipino" -> "filipino-g3-m01-d01"
-                        "mathematics" -> "mathematics-g3-m01-d01"
-                        "science" -> "science-g3-m01-d01"
-                        "philippine-history" -> "mkb-g3-m01-l01"
-                        "makabansa" -> "mkb-g3-m01-l01"
-                        "gmrc" -> "gmrc-g3-m01-l01"
-                        else -> "english-g3-m01-d01"
-                    }
+                    val lessonId = lessonIdForSubject(subject)
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
                 onQuestClick = { },
@@ -268,4 +259,15 @@ fun MaxinesNavGraph(navController: NavHostController) {
             )
         }
     }
+}
+
+internal fun lessonIdForSubject(subject: String): String = when (subject) {
+    "english" -> "english-g3-m01-d01"
+    "filipino" -> "filipino-g3-m01-d01"
+    "mathematics" -> "mathematics-g3-m01-d01"
+    "science" -> "science-g3-m01-d01"
+    "araling-panlipunan", "philippine-history", "makabansa", "heritage-harbor" ->
+        "araling-panlipunan-g3-m01-d01"
+    "gmrc" -> "araling-panlipunan-g3-m01-d01"
+    else -> "english-g3-m01-d01"
 }
