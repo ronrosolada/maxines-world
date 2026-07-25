@@ -32,10 +32,10 @@ fun MatchingPairsRenderer(
     var matched by remember { mutableStateOf(setOf<Int>()) }
     var mismatch by remember { mutableStateOf<Pair<Int, Int>?>(null) }
 
-    val all = step.options
-    val half = maxOf(1, all.size / 2)
-    val left = all.take(half)
-    val right = all.drop(half).ifEmpty { all }
+    val left: List<String> = if (step.matchPairs.isNotEmpty()) step.matchPairs.map { it.left }
+        else step.options.filterIndexed { i, _ -> i % 2 == 0 }
+    val right: List<String> = if (step.matchPairs.isNotEmpty()) step.matchPairs.map { it.right }
+        else step.options.filterIndexed { i, _ -> i % 2 == 1 }
     val n = minOf(left.size, right.size)
 
     LaunchedEffect(mismatch) {
@@ -73,9 +73,14 @@ fun MatchingPairsRenderer(
                     Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
                         .clickable(enabled = i !in matched && selectedLeft >= 0 && mismatch == null) {
                             attempts++
-                            if (selectedLeft == i) { matched = matched + i; selectedLeft = -1
+                            if (right[i] == right[selectedLeft]) { matched = matched + i; selectedLeft = -1
                                 if (matched.size == n) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
-                            } else mismatch = selectedLeft to i
+                            } else {
+                                mismatch = selectedLeft to i
+                                if (attempts >= 6) {
+                                    onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
+                                }
+                            }
                         }.padding(10.dp).semantics { contentDescription = "Right: $label${if (i in matched) " — matched" else ""}" },
                         contentAlignment = Alignment.Center) {
                         Text(label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
