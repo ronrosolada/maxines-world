@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maxine's World — Village Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #FFF7E8;
+    --surface: #FFFFFF;
+    --fg: #183B4A;
+    --fg-2: #45606B;
+    --muted: #5A7280;
+    --border: #EADFC5;
+    --border-soft: #F1E8D2;
+
+    --teal: #087F83;
+    --gold: #F5B82E;
+    --coral: #F47C6B;
+    --green: #66A83E;
+    --purple: #7653B5;
+    --sky: #3C9DDB;
+
+    --tint-english: #F1EBFA;
+    --tint-math: #E6F4FC;
+    --tint-filipino: #FCEBE7;
+    --tint-science: #EDF7E8;
+    --tint-makabansa: #FFF3D7;
+    --tint-gmrc: #E4F5F2;
+
+    --math-btn: color-mix(in srgb, var(--sky) 70%, black);
+    --science-btn: color-mix(in srgb, var(--green) 75%, black);
+    --coral-btn: color-mix(in srgb, var(--coral) 88%, white);
+
+    --accent: var(--teal);
+    --accent-on: #FFFFFF;
+    --accent-hover: color-mix(in oklab, var(--teal), black 8%);
+    --accent-active: color-mix(in oklab, var(--teal), black 14%);
+    --success: #2E9D57;
+    --danger: #E5484D;
+    --focus-ring: 0 0 0 4px rgba(8, 127, 131, 0.28);
+
+    --font-display: "Baloo 2", system-ui, sans-serif;
+    --font-body: "Nunito", system-ui, sans-serif;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+
+    --elev-raised: 0 18px 40px rgba(24, 59, 74, 0.16);
+    --elev-ring: 0 0 0 1px var(--border);
+    --elev-card: 0 10px 18px rgba(24, 59, 74, 0.10);
+
+    --motion-fast: 150ms;
+    --motion-base: 240ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  * , *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: #EFE6C9;
+    font-family: var(--font-body);
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .stage {
+    position: relative;
+    width: 1280px;
+    height: 853px;
+    background: var(--bg);
+    border-radius: 28px;
+    box-shadow: var(--elev-raised);
+    overflow: hidden;
+    padding: 26px 36px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  button { font-family: inherit; }
+
+  /* ---------- Top bar ---------- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; height: 46px; flex: 0 0 auto; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 42px; height: 42px; border-radius: 13px; background: var(--teal);
+    display: flex; align-items: center; justify-content: center; box-shadow: var(--elev-ring);
+    flex-shrink: 0;
+  }
+  .brand-mark svg { width: 24px; height: 24px; }
+  .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 21px; color: var(--fg); line-height: 1.1; }
+  .brand-name small { display: block; font-family: var(--font-body); font-weight: 700; font-size: 10.5px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; }
+
+  .header-pills { display: flex; gap: 10px; }
+  .pill { display: flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: var(--radius-pill); border: 1px solid var(--border); box-shadow: var(--elev-ring); background: var(--surface); }
+  .pill svg { width: 19px; height: 19px; flex-shrink: 0; }
+  .pill-streak { background: var(--tint-makabansa); }
+  .pill-xp { background: var(--tint-gmrc); }
+  .pill-value { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--fg); }
+  .pill-label { font-family: var(--font-body); font-weight: 700; font-size: 11px; color: var(--fg-2); text-transform: uppercase; letter-spacing: 0.3px; }
+
+  /* ---------- Greeting band ---------- */
+  .greeting { display: flex; align-items: center; gap: 18px; height: 88px; flex: 0 0 auto; }
+  .milo-avatar {
+    width: 84px; height: 84px; border-radius: 50%; background: #FFEFD6; border: 3px solid #FFFFFF;
+    box-shadow: var(--elev-card); flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .milo-avatar svg { width: 62px; height: 62px; }
+  .greeting-text { margin-right: auto; }
+  .greeting-text h1 { font-family: var(--font-display); font-weight: 700; font-size: 30px; color: var(--fg); margin: 0; line-height: 1.1; }
+  .greeting-text p { font-family: var(--font-body); font-weight: 600; font-size: 15px; color: var(--fg-2); margin: 5px 0 0; }
+
+  .tabs { display: flex; gap: 6px; background: var(--surface); padding: 6px; border-radius: var(--radius-pill); border: 1px solid var(--border); box-shadow: var(--elev-ring); flex-shrink: 0; }
+  .tab {
+    font-family: var(--font-body); font-weight: 800; font-size: 14px; min-height: 44px; padding: 0 22px; border-radius: var(--radius-pill);
+    border: none; background: transparent; color: var(--fg-2); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+  }
+  .tab:hover { background: var(--tint-gmrc); color: var(--fg); }
+  .tab.active { background: var(--teal); color: #FFFFFF; }
+  .tab.active:hover { background: var(--accent-hover); color: #FFFFFF; }
+  .tab:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  /* ---------- Shelf zone ---------- */
+  .shelf-zone { flex: 1; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+  .shelf-title { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--fg); margin: 0; flex: 0 0 auto; }
+  .shelf-rows { flex: 1; display: flex; flex-direction: column; gap: 20px; min-height: 0; }
+  .shelf-row { flex: 1; position: relative; display: flex; gap: 26px; padding-bottom: 18px; min-height: 0; }
+  .shelf-row::after {
+    content: ""; position: absolute; left: -8px; right: -8px; bottom: 0; height: 16px; border-radius: 10px; z-index: 0;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0 2px, transparent 2px 30px),
+      linear-gradient(180deg, #C98A4B 0%, #A96A34 55%, #8C5626 100%);
+    box-shadow: 0 8px 14px rgba(88, 52, 20, 0.30);
+  }
+  .shelf-row::before {
+    content: ""; position: absolute; left: -8px; right: -8px; bottom: 15px; height: 3px; z-index: 1;
+    background: rgba(255, 255, 255, 0.40); border-radius: 4px;
+  }
+
+  .book {
+    position: relative; z-index: 2; flex: 1 1 0; max-width: 380px; display: flex; flex-direction: column; justify-content: flex-start;
+    text-align: left; padding: 14px 14px 12px; border-radius: var(--radius-md) var(--radius-md) 6px 6px;
+    border: 1px solid var(--border); box-shadow: var(--elev-card); cursor: pointer;
+    -webkit-appearance: none; appearance: none; margin: 0;
+    transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
+  }
+  .book:hover { transform: translateY(-5px); box-shadow: var(--elev-raised); }
+  .book:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--elev-card); }
+  .book.locked { filter: saturate(0.55); opacity: 0.92; }
+  .book.locked:hover { transform: translateY(-2px); }
+
+  .book-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .book-icon svg { width: 22px; height: 22px; }
+
+  .book-subject { font-family: var(--font-body); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-top: 8px; }
+  .book-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--fg); margin: 3px 0 0; line-height: 1.2; }
+  .book-meta { font-family: var(--font-body); font-weight: 600; font-size: 12px; color: var(--fg-2); margin-top: 3px; }
+
+  .book-cta {
+    margin-top: auto; align-self: flex-start; padding: 8px 16px; border-radius: var(--radius-pill);
+    font-family: var(--font-body); font-weight: 800; font-size: 12.5px; border: none; pointer-events: none;
+  }
+
+  .book-lock-badge {
+    position: absolute; top: 12px; right: 12px; display: flex; align-items: center; gap: 5px;
+    background: rgba(24, 59, 74, 0.88); color: #FFFFFF; font-family: var(--font-body); font-weight: 800; font-size: 11px;
+    padding: 5px 10px 5px 8px; border-radius: var(--radius-pill);
+  }
+  .book-lock-badge svg { width: 12px; height: 12px; }
+
+  /* ---------- Bottom row ---------- */
+  .bottom-row { display: flex; gap: 18px; height: 204px; flex: 0 0 auto; }
+  .friends-card, .quest-card {
+    flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    box-shadow: var(--elev-card); padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0;
+  }
+  .card-head { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; }
+  .card-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--fg); margin: 0; }
+  .card-badge { font-family: var(--font-body); font-weight: 800; font-size: 12px; color: var(--teal); background: var(--tint-gmrc); padding: 4px 11px; border-radius: var(--radius-pill); }
+
+  .friends-row { display: flex; gap: 10px; flex: 1; align-items: center; }
+  .friend { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; background: none; border: none; cursor: pointer; padding: 4px; border-radius: var(--radius-sm); }
+  .friend:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .friend-avatar { width: 54px; height: 54px; border-radius: 50%; border: 2px solid #FFFFFF; box-shadow: var(--elev-ring); display: flex; align-items: center; justify-content: center; position: relative; }
+  .friend-avatar svg { width: 40px; height: 40px; }
+  .friend.locked .friend-avatar { filter: grayscale(1) brightness(1.05); opacity: 0.6; }
+  .friend-lock { position: absolute; bottom: -3px; right: -3px; width: 20px; height: 20px; border-radius: 50%; background: var(--fg); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px #FFFFFF; }
+  .friend-lock svg { width: 10px; height: 10px; }
+  .friend-name { font-family: var(--font-body); font-weight: 700; font-size: 12px; color: var(--fg-2); }
+  .friend.locked .friend-name { color: var(--muted); }
+
+  .quest-list { display: flex; flex-direction: column; gap: 4px; flex: 1; justify-content: center; }
+  .quest-item {
+    display: flex; align-items: center; gap: 11px; min-height: 44px; padding: 7px 9px; border-radius: var(--radius-sm); cursor: pointer;
+    background: none; border: none; text-align: left; width: 100%;
+    transition: background var(--motion-fast) var(--ease-standard);
+  }
+  .quest-item:hover { background: var(--tint-gmrc); }
+  .quest-item:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .quest-check {
+    width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; transition: all var(--motion-fast) var(--ease-standard);
+  }
+  .quest-check svg { width: 12px; height: 12px; opacity: 0; transition: opacity var(--motion-fast) var(--ease-standard); }
+  .quest-item.done .quest-check { background: var(--science-btn); border-color: var(--science-btn); }
+  .quest-item.done .quest-check svg { opacity: 1; }
+  .quest-text { font-family: var(--font-body); font-weight: 700; font-size: 14px; color: var(--fg); transition: color var(--motion-fast) var(--ease-standard); }
+  .quest-item.done .quest-text { color: var(--muted); text-decoration: line-through; }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay {
+    position: absolute; inset: 0; background: rgba(24, 59, 74, 0.46); display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity var(--motion-base) var(--ease-standard); z-index: 50; padding: 30px;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: auto; }
+  .modal {
+    width: 580px; max-width: 100%; max-height: 100%; background: var(--surface); border-radius: var(--radius-lg);
+    box-shadow: var(--elev-raised); overflow: hidden; transform: translateY(14px) scale(0.98);
+    transition: transform var(--motion-base) var(--ease-standard); display: flex; flex-direction: column; position: relative;
+  }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+  .modal-header { padding: 22px 26px 18px; display: flex; align-items: center; gap: 14px; }
+  .modal-icon { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .modal-icon svg { width: 27px; height: 27px; }
+  .modal-eyebrow { font-family: var(--font-body); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+  .modal-title { font-family: var(--font-display); font-weight: 700; font-size: 21px; color: var(--fg); margin: 2px 0 0; }
+  .modal-close {
+    position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: none;
+    background: var(--border-soft); color: var(--fg); font-size: 20px; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: background var(--motion-fast) var(--ease-standard);
+  }
+  .modal-close:hover { background: var(--border); }
+  .modal-close:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .modal-body { padding: 0 26px 26px; overflow-y: auto; }
+  .modal-passage { font-family: var(--font-body); font-weight: 600; font-size: 15px; line-height: 1.62; color: var(--fg-2); margin: 0; }
+  .modal-question { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--fg); margin: 18px 0 0; }
+  .modal-choices { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .choice-btn {
+    min-height: 44px; padding: 0 20px; border-radius: var(--radius-pill); border: 2px solid var(--border); background: var(--surface);
+    font-family: var(--font-body); font-weight: 800; font-size: 14.5px; color: var(--fg); cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
+  }
+  .choice-btn:hover { border-color: var(--teal); }
+  .choice-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .choice-btn.correct { background: var(--success); border-color: var(--success); color: #FFFFFF; }
+  .choice-btn.wrong { background: #FBE2E1; border-color: var(--danger); color: #9A2A2E; }
+  .modal-feedback { margin-top: 14px; font-family: var(--font-body); font-weight: 800; font-size: 14.5px; min-height: 20px; color: var(--success); }
+  .modal-locked-note {
+    display: flex; align-items: center; gap: 12px; margin-top: 16px; padding: 14px 16px; border-radius: var(--radius-md);
+    background: var(--tint-gmrc); border: 1px solid var(--border-soft);
+  }
+  .modal-locked-note svg { width: 26px; height: 26px; flex-shrink: 0; }
+  .modal-locked-note p { margin: 0; font-family: var(--font-body); font-weight: 700; font-size: 14px; color: var(--fg); }
+</style>
+</head>
+<body>
+  <main class="stage" id="stage" data-od-id="village-home-screen">
+
+    <header class="topbar" data-od-id="topbar">
+      <div class="brand" data-od-id="brand-logo">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5L12 5l8 6.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V19a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-8.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-4.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-name">Maxine's World<small>Village of Wonder</small></span>
+      </div>
+      <div class="header-pills">
+        <div class="pill pill-streak" data-od-id="streak-pill">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5c1 3 4 4.5 4 8.5a4 4 0 1 1-8 0c0-1 .3-1.8.8-2.6.4.9 1.2 1.4 1.7 1.1-.6-1.8.2-4 1.5-7Z" fill="#F5B82E" stroke="#B9790B" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          <span class="pill-value">12</span>
+          <span class="pill-label">day streak</span>
+        </div>
+        <div class="pill pill-xp" data-od-id="xp-pill">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.2 1 5.9L12 16.4 6.8 19.3l1-5.9-4.3-4.2 5.9-.8L12 3Z" fill="#087F83" stroke="#065C5F" stroke-width="1"/></svg>
+          <span class="pill-value">240</span>
+          <span class="pill-label">XP</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="greeting" data-od-id="greeting-band">
+      <span class="milo-avatar" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <ellipse cx="50" cy="58" rx="30" ry="26" fill="#F5B82E"/>
+          <path d="M24 40 L30 16 L42 36Z" fill="#F5B82E"/>
+          <path d="M76 40 L70 16 L58 36Z" fill="#F5B82E"/>
+          <path d="M27 36 L31 22 L39 34Z" fill="#F47C6B"/>
+          <path d="M73 36 L69 22 L61 34Z" fill="#F47C6B"/>
+          <ellipse cx="50" cy="60" rx="30" ry="26" fill="#F7C55A"/>
+          <path d="M28 55c3-3 6-3 9 0M63 55c3-3 6-3 9 0" stroke="#B9790B" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="37" cy="58" r="5.4" fill="#183B4A"/>
+          <circle cx="63" cy="58" r="5.4" fill="#183B4A"/>
+          <circle cx="38.6" cy="56.2" r="1.6" fill="#fff"/>
+          <circle cx="64.6" cy="56.2" r="1.6" fill="#fff"/>
+          <path d="M47 66c1.6 1.6 4.4 1.6 6 0" stroke="#183B4A" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M50 62v3" stroke="#183B4A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 62c-8 2-11 10-8 16 4-2 8-6 10-11" fill="#F7C55A"/>
+          <path d="M12 62c2 4 2 10-2 14" stroke="#B9790B" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
+      <div class="greeting-text">
+        <h1>Hi Maxine!</h1>
+        <p>Which village should we visit today?</p>
+      </div>
+      <nav class="tabs" aria-label="Sections" data-od-id="home-tabs">
+        <button class="tab active" data-tab="learn" data-od-id="tab-learn">Learn</button>
+        <button class="tab" data-tab="read" data-od-id="tab-read">Read</button>
+        <button class="tab" data-tab="abc" data-od-id="tab-abc">ABC</button>
+        <button class="tab" data-tab="play" data-od-id="tab-play">Play</button>
+      </nav>
+    </section>
+
+    <section class="shelf-zone" data-od-id="book-shelf">
+      <h2 class="shelf-title">Today's shelf</h2>
+      <div class="shelf-rows">
+        <div class="shelf-row" data-od-id="shelf-row-1">
+          <button class="book" style="background:var(--tint-english)" data-book="english" data-od-id="book-english">
+            <span class="book-icon" style="background:#E4D6F5" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5c2.5-1.3 5.3-1.3 8 0v13c-2.7-1.3-5.5-1.3-8 0v-13Z" fill="#7653B5"/><path d="M20 5.5c-2.5-1.3-5.3-1.3-8 0v13c2.7-1.3 5.5-1.3 8 0v-13Z" fill="#7653B5" fill-opacity="0.7"/></svg>
+            </span>
+            <span class="book-subject">English</span>
+            <span class="book-title">The Kind Dragon</span>
+            <span class="book-meta">Story · 6 pages</span>
+            <span class="book-cta" style="background:var(--purple); color:#fff">Read again</span>
+          </button>
+
+          <button class="book" style="background:var(--tint-math)" data-book="math" data-od-id="book-math">
+            <span class="book-icon" style="background:#D3ECFB" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB" fill-opacity="0.55"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB" fill-opacity="0.55"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB"/></svg>
+            </span>
+            <span class="book-subject">Math</span>
+            <span class="book-title">Counting with Kiko</span>
+            <span class="book-meta">Numbers to 20</span>
+            <span class="book-cta" style="background:var(--math-btn); color:#fff">Practice</span>
+          </button>
+
+          <button class="book" style="background:var(--tint-filipino)" data-book="filipino" data-od-id="book-filipino">
+            <span class="book-icon" style="background:#FBDAD2" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v7A2.5 2.5 0 0 1 18.5 16H10l-4.5 4v-4H5.5A2.5 2.5 0 0 1 3 13.5v-7Z" fill="#F47C6B"/></svg>
+            </span>
+            <span class="book-subject">Filipino</span>
+            <span class="book-title">Si Pilandok at ang Palaka</span>
+            <span class="book-meta">Kwentong-bayan</span>
+            <span class="book-cta" style="background:var(--coral-btn); color:var(--fg)">Read again</span>
+          </button>
+        </div>
+
+        <div class="shelf-row" data-od-id="shelf-row-2">
+          <button class="book" style="background:var(--tint-science)" data-book="science" data-od-id="book-science">
+            <span class="book-icon" style="background:#DBF0D4" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-5-2-8-6-8-11 0-3 2-6 8-7 6 1 8 4 8 7 0 5-3 9-8 11Z" fill="#66A83E"/><path d="M12 21V9" stroke="#3F7A24" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span class="book-subject">Science</span>
+            <span class="book-title">Why Leaves Change Color</span>
+            <span class="book-meta">Plants · Colors</span>
+            <span class="book-cta" style="background:var(--science-btn); color:#fff">Start</span>
+          </button>
+
+          <button class="book" style="background:var(--tint-makabansa)" data-book="makabansa" data-od-id="book-makabansa">
+            <span class="book-icon" style="background:#FBE7B8" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V11l8-5 8 5v9" stroke="#B9790B" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M9 20v-6h6v6" fill="#F5B82E"/></svg>
+            </span>
+            <span class="book-subject">Makabansa</span>
+            <span class="book-title">Bayan Ko, Tahanan Ko</span>
+            <span class="book-meta">Kabutihang-asal</span>
+            <span class="book-cta" style="background:var(--gold); color:var(--fg)">Start</span>
+          </button>
+
+          <button class="book locked" style="background:var(--tint-gmrc)" data-book="gmrc" data-od-id="book-gmrc">
+            <span class="book-lock-badge">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" fill="#FFFFFF"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
+              Level 4
+            </span>
+            <span class="book-icon" style="background:#CDEBE7" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.4-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="#087F83"/></svg>
+            </span>
+            <span class="book-subject">GMRC</span>
+            <span class="book-title">Being a Good Friend</span>
+            <span class="book-meta">Kindness &amp; values</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-row" data-od-id="bottom-row">
+      <div class="friends-card" data-od-id="village-friends-card">
+        <div class="card-head">
+          <h3>Village friends</h3>
+          <span class="card-badge">3 of 4</span>
+        </div>
+        <div class="friends-row">
+          <button class="friend" data-od-id="friend-kiko">
+            <span class="friend-avatar" style="background:var(--tint-science)" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="55" rx="26" ry="22" fill="#66A83E"/><ellipse cx="50" cy="52" rx="20" ry="16" fill="#8FC768"/><circle cx="42" cy="50" r="4" fill="#183B4A"/><circle cx="58" cy="50" r="4" fill="#183B4A"/><path d="M44 60c3 2.4 9 2.4 12 0" stroke="#183B4A" stroke-width="2" stroke-linecap="round"/><ellipse cx="27" cy="66" rx="6" ry="4" fill="#66A83E"/><ellipse cx="73" cy="66" rx="6" ry="4" fill="#66A83E"/></svg>
+            </span>
+            <span class="friend-name">Kiko</span>
+          </button>
+          <button class="friend" data-od-id="friend-owly">
+            <span class="friend-avatar" style="background:var(--tint-makabansa)" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="56" rx="24" ry="26" fill="#B9834A"/><circle cx="38" cy="48" r="12" fill="#fff"/><circle cx="62" cy="48" r="12" fill="#fff"/><circle cx="38" cy="48" r="6" fill="#183B4A"/><circle cx="62" cy="48" r="6" fill="#183B4A"/><path d="M50 54l-4 6h8Z" fill="#F5B82E"/><path d="M30 34l8 6M70 34l-8 6" stroke="#8A6535" stroke-width="3" stroke-linecap="round"/></svg>
+            </span>
+            <span class="friend-name">Owly</span>
+          </button>
+          <button class="friend" data-od-id="friend-pipoy">
+            <span class="friend-avatar" style="background:var(--tint-filipino)" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="55" rx="25" ry="23" fill="#F5A9A0"/><ellipse cx="50" cy="58" rx="12" ry="9" fill="#F47C6B"/><circle cx="44" cy="56" r="2.6" fill="#183B4A"/><circle cx="56" cy="56" r="2.6" fill="#183B4A"/><circle cx="36" cy="45" r="5" fill="#F5A9A0"/><circle cx="64" cy="45" r="5" fill="#F5A9A0"/><circle cx="37" cy="46" r="2.8" fill="#183B4A"/><circle cx="63" cy="46" r="2.8" fill="#183B4A"/></svg>
+            </span>
+            <span class="friend-name">Pipoy</span>
+          </button>
+          <button class="friend locked" data-od-id="friend-ely">
+            <span class="friend-avatar" style="background:var(--tint-gmrc)" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="48" cy="58" rx="27" ry="22" fill="#9FB4C4"/><ellipse cx="22" cy="52" rx="9" ry="12" fill="#9FB4C4"/><ellipse cx="74" cy="52" rx="9" ry="12" fill="#9FB4C4"/><circle cx="40" cy="52" r="4" fill="#183B4A"/><circle cx="58" cy="52" r="4" fill="#183B4A"/><path d="M50 60c4 2 6 8 3 13" stroke="#7E93A3" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+              <span class="friend-lock" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" fill="#FFFFFF"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
+              </span>
+            </span>
+            <span class="friend-name">Ely · Lvl 5</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="quest-card" data-od-id="quest-card">
+        <div class="card-head">
+          <h3>Today's quest</h3>
+          <span class="card-badge" id="questBadge">2 of 3</span>
+        </div>
+        <div class="quest-list" id="questList">
+          <button class="quest-item done" data-od-id="quest-item-1">
+            <span class="quest-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="quest-text">Read 1 story</span>
+          </button>
+          <button class="quest-item done" data-od-id="quest-item-2">
+            <span class="quest-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="quest-text">Practice counting to 20</span>
+          </button>
+          <button class="quest-item" data-od-id="quest-item-3">
+            <span class="quest-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="quest-text">Play a matching game</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal-overlay" id="modalOverlay" data-od-id="lesson-modal">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon" id="modalIcon" aria-hidden="true"></span>
+          <div>
+            <div class="modal-eyebrow" id="modalEyebrow"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+          </div>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+  </main>
+
+<script>
+  var LESSONS = {
+    english: {
+      eyebrow: 'English · Story',
+      title: 'The Kind Dragon',
+      tint: 'var(--tint-english)',
+      accent: '#7653B5',
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5c2.5-1.3 5.3-1.3 8 0v13c-2.7-1.3-5.5-1.3-8 0v-13Z" fill="#7653B5"/><path d="M20 5.5c-2.5-1.3-5.3-1.3-8 0v13c2.7-1.3 5.5-1.3 8 0v-13Z" fill="#7653B5" fill-opacity="0.7"/></svg>',
+      passage: 'Ember was a small dragon who loved to share his warm cave with lost travelers. One rainy night, a shivering fox knocked on his door and asked for shelter. Ember gave the fox a blanket and a bowl of warm soup, and they shared stories until the storm passed.',
+      question: 'What did Ember do when the fox knocked?',
+      choices: ['Shared soup and shelter', 'Closed the door', 'Flew away'],
+      correct: 0
+    },
+    math: {
+      eyebrow: 'Math · Counting',
+      title: 'Counting with Kiko',
+      tint: 'var(--tint-math)',
+      accent: '#3C9DDB',
+      icon: '<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB" fill-opacity="0.55"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB" fill-opacity="0.55"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" fill="#3C9DDB"/></svg>',
+      passage: 'Kiko the turtle is hopping across the lily pads, counting out loud as she goes: 1, 2, 3, 4, 5, 6... Help Kiko find the very next lily pad in her counting path.',
+      question: 'Kiko counted 1 to 6. Which number comes next?',
+      choices: ['7', '9', '5'],
+      correct: 0
+    },
+    filipino: {
+      eyebrow: 'Filipino · Kwento',
+      title: 'Si Pilandok at ang Palaka',
+      tint: 'var(--tint-filipino)',
+      accent: '#F47C6B',
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v7A2.5 2.5 0 0 1 18.5 16H10l-4.5 4v-4H5.5A2.5 2.5 0 0 1 3 13.5v-7Z" fill="#F47C6B"/></svg>',
+      passage: 'Si Pilandok ay matalinong hayop sa gubat. Isang araw, nakita niya ang isang malaking palaka sa tabi ng ilog na humihingi ng tulong. Gamit ang kanyang katalinuhan, tinulungan siya ni Pilandok nang hindi nasasaktan ang sinuman.',
+      question: 'Sino ang matalinong hayop sa kwento?',
+      choices: ['Si Pilandok', 'Ang palaka', 'Ang ibon'],
+      correct: 0
+    },
+    science: {
+      eyebrow: 'Science · Plants',
+      title: 'Why Leaves Change Color',
+      tint: 'var(--tint-science)',
+      accent: '#66A83E',
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-5-2-8-6-8-11 0-3 2-6 8-7 6 1 8 4 8 7 0 5-3 9-8 11Z" fill="#66A83E"/><path d="M12 21V9" stroke="#3F7A24" stroke-width="1.6" stroke-linecap="round"/></svg>',
+      passage: 'In autumn, leaves stop making green chlorophyll. Once the green fades, the yellow and orange colors that were hiding underneath finally get to show through.',
+      question: 'Which color is hiding under the green?',
+      choices: ['Yellow and orange', 'Blue', 'Pink'],
+      correct: 0
+    },
+    makabansa: {
+      eyebrow: 'Makabansa · Bansa',
+      title: 'Bayan Ko, Tahanan Ko',
+      tint: 'var(--tint-makabansa)',
+      accent: '#F5B82E',
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M4 20V11l8-5 8 5v9" stroke="#B9790B" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M9 20v-6h6v6" fill="#F5B82E"/></svg>',
+      passage: 'Ang Pilipinas ay may tatlong pangunahing pangkat ng pulo: Luzon, Visayas, at Mindanao. Bawat isa ay may sariling kwento, wika, at kaugalian na nagpapayaman sa ating bansa.',
+      question: 'Alin sa mga ito ang isa sa tatlong pangunahing pulo?',
+      choices: ['Luzon', 'Palawan lamang', 'Maynila lamang'],
+      correct: 0
+    }
+  };
+
+  var stage = document.getElementById('stage');
+  var overlay = document.getElementById('modalOverlay');
+  var modalIcon = document.getElementById('modalIcon');
+  var modalEyebrow = document.getElementById('modalEyebrow');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalBody = document.getElementById('modalBody');
+
+  function openModal(key) {
+    if (key === 'gmrc') {
+      modalIcon.style.background = '#CDEBE7';
+      modalIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.4-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="#087F83"/></svg>';
+      modalEyebrow.textContent = 'GMRC · Locked';
+      modalTitle.textContent = 'Being a Good Friend';
+      modalBody.innerHTML =
+        '<p class="modal-passage">This book unlocks once Maxine reaches Level 4. It teaches kindness, sharing, and respect through short village stories.</p>' +
+        '<div class="modal-locked-note"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2.5" fill="#087F83"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#087F83" stroke-width="2" fill="none"/></svg><p>Keep learning to reach Level 4 and unlock this book!</p></div>';
+      overlay.classList.add('open');
+      return;
+    }
+    var data = LESSONS[key];
+    if (!data) return;
+    modalIcon.style.background = data.tint;
+    modalIcon.innerHTML = data.icon;
+    modalEyebrow.textContent = data.eyebrow;
+    modalTitle.textContent = data.title;
+
+    var choicesHtml = '';
+    for (var i = 0; i < data.choices.length; i++) {
+      choicesHtml += '<button class="choice-btn" data-idx="' + i + '">' + data.choices[i] + '</button>';
+    }
+
+    modalBody.innerHTML =
+      '<p class="modal-passage">' + data.passage + '</p>' +
+      '<p class="modal-question">' + data.question + '</p>' +
+      '<div class="modal-choices">' + choicesHtml + '</div>' +
+      '<p class="modal-feedback" id="modalFeedback"></p>';
+
+    var buttons = modalBody.querySelectorAll('.choice-btn');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = Number(btn.getAttribute('data-idx'));
+        var feedback = document.getElementById('modalFeedback');
+        if (btn.classList.contains('correct') || btn.classList.contains('wrong')) return;
+        if (idx === data.correct) {
+          btn.classList.add('correct');
+          feedback.style.color = 'var(--success)';
+          feedback.textContent = 'Great job, Maxine!';
+        } else {
+          btn.classList.add('wrong');
+          feedback.style.color = 'var(--danger)';
+          feedback.textContent = 'Almost! Try the next one.';
+        }
+      });
+    });
+
+    overlay.classList.add('open');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+  }
+
+  document.querySelectorAll('.book').forEach(function (book) {
+    book.addEventListener('click', function () {
+      openModal(book.getAttribute('data-book'));
+    });
+  });
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  document.querySelectorAll('.tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
+
+  var questBadge = document.getElementById('questBadge');
+  function updateQuestBadge() {
+    var total = document.querySelectorAll('.quest-item').length;
+    var done = document.querySelectorAll('.quest-item.done').length;
+    questBadge.textContent = done + ' of ' + total;
+  }
+  document.querySelectorAll('.quest-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      item.classList.toggle('done');
+      updateQuestBadge();
+    });
+  });
+</script>
+</body>
+</html>

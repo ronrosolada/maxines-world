@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Adventure Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E; --leaf:#66A83E;
+    --purple:#7653B5; --sky:#3C9DDB; --ink:#183B4A; --night:#0B2A36;
+    --cream:#FFF7E8;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:radial-gradient(ellipse at 50% -20%, #123E4F 0%, var(--night) 62%);
+    color:#EAF4F6;line-height:1.45;overflow-x:hidden;min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  /* stars */
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFE9A8;opacity:.8;animation:twinkle 3.4s infinite}
+  @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.95}}
+
+  .page{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:22px 30px 30px}
+
+  /* ── Top HUD ── */
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .hud .left{display:flex;align-items:center;gap:14px}
+  .hud .title{font-size:24px;display:flex;align-items:center;gap:10px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+  .hud .title small{display:block;font-family:"Nunito";font-size:12px;font-weight:800;letter-spacing:2px;color:#9FD8CF;text-transform:uppercase}
+  .xpbar{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:8px 16px;border-radius:999px}
+  .xpbar .lvl{font-family:"Baloo 2";font-weight:800;font-size:18px;color:var(--gold)}
+  .xpbar .bar{width:140px;height:9px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+  .xpbar .fill{height:100%;width:66%;border-radius:99px;background:linear-gradient(90deg,var(--gold),#FFD76E)}
+  .hud .day{font-size:13px;font-weight:800;color:#9FD8CF}
+
+  /* ── Map ── */
+  .map{
+    position:relative;margin-top:22px;height:600px;border-radius:30px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 85% 8%, rgba(60,157,219,.28), transparent 55%),
+      linear-gradient(180deg,#0F3B4B 0%, #0A2430 100%);
+    border:1.5px solid rgba(255,255,255,.12);
+    box-shadow:0 24px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .map svg.path{position:absolute;inset:0;width:100%;height:100%}
+  .pathline{fill:none;stroke:rgba(245,184,46,.5);stroke-width:9;stroke-linecap:round;stroke-dasharray:1 14;animation:flow 1.4s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-30}}
+
+  .node{
+    position:absolute;transform:translate(-50%,-50%);text-align:center;width:150px;
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.5));transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  .node:hover{transform:translate(-50%,-50%) scale(1.08)}
+  .node .halo{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle, rgba(245,184,46,.35), transparent 70%);z-index:-1;transform:scale(1.25)}
+  .node .building{
+    width:96px;height:74px;margin:0 auto;border-radius:16px 16px 10px 10px;
+    display:grid;place-items:center;font-size:38px;position:relative;
+    border:2.5px solid rgba(255,255,255,.85);box-shadow:0 6px 16px rgba(0,0,0,.45), inset 0 -14px 22px rgba(0,0,0,.22);
+  }
+  .node .building::before{ /* roof */
+    content:"";position:absolute;top:-22px;left:-12px;right:-12px;height:24px;
+    background:inherit;clip-path:polygon(50% 0, 0 100%, 100% 100%);
+    border-radius:4px 4px 0 0;border:2.5px solid rgba(255,255,255,.85);border-bottom:none;
+    box-shadow:0 -4px 10px rgba(0,0,0,.3);
+  }
+  .node.locked .building{filter:grayscale(.9) brightness(.6)}
+  .node .label{
+    display:inline-block;margin-top:14px;background:rgba(11,42,54,.85);border:1px solid rgba(255,255,255,.22);
+    padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:800;letter-spacing:.3px;backdrop-filter:blur(4px);
+  }
+  .node .xp{font-size:11px;font-weight:800;color:var(--gold);margin-top:3px;text-shadow:0 1px 3px #000;white-space:nowrap}
+  .node .done-mark{position:absolute;top:-4px;right:14px;width:26px;height:26px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:14px;color:#2B2100;font-weight:900;border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.4)}
+  .node.locked .done-mark{display:none}
+
+  /* floating clouds / fireflies */
+  .float{position:absolute;font-size:26px;opacity:.55;animation:drift 9s ease-in-out infinite}
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* ── Quest banner ── */
+  .quest{
+    margin-top:20px;background:linear-gradient(90deg,rgba(245,184,46,.16),rgba(245,184,46,.05));
+    border:1.5px dashed rgba(245,184,46,.55);border-radius:20px;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  }
+  .quest .l{display:flex;align-items:center;gap:12px}
+  .quest .l .ic{font-size:28px}
+  .quest .l b{font-family:"Baloo 2";font-size:17px;color:#FFE9A8;display:block}
+  .quest .l span{font-size:13px;font-weight:700;color:#B8DFD7}
+  .quest .go{
+    background:linear-gradient(135deg,var(--gold),#F0A93B);color:#2B2100;font-weight:800;
+    padding:10px 22px;border-radius:999px;font-size:14px;box-shadow:0 6px 16px rgba(245,184,46,.35);
+    transition:transform .12s ease;
+  }
+  .quest .go:active{transform:scale(.95)}
+
+  /* ── Legend / footer ── */
+  .legend{display:flex;align-items:center;gap:22px;margin-top:16px;font-size:12.5px;font-weight:800;color:#9FD8CF;flex-wrap:wrap}
+  .legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}
+
+  /* ── Modal ── */
+  .overlay{position:fixed;inset:0;background:rgba(2,12,17,.66);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:50;padding:26px}
+  .overlay.open{display:flex}
+  .sheet{background:#0F3848;border:1.5px solid rgba(255,255,255,.18);border-radius:24px;width:min(560px,94%);padding:24px 26px;box-shadow:0 26px 70px rgba(0,0,0,.6)}
+  .sheet h2{font-size:23px;display:flex;align-items:center;gap:10px;color:#fff}
+  .sheet .sub{font-size:13px;font-weight:800;color:#9FD8CF;margin-top:2px;letter-spacing:.5px}
+  .lesson{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:11px 14px;margin-top:9px;font-size:13.5px;font-weight:700}
+  .lesson .num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;color:#2F9E62}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#0B6B6F);color:#fff;font-weight:800;font-size:15px;border:1px solid rgba(255,255,255,.2)}
+  .sheet .close:active{transform:scale(.98)}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="page">
+
+  <!-- HUD -->
+  <header class="hud">
+    <div class="left">
+      <div style="font-size:46px;line-height:1">🐱</div>
+      <div class="title">
+        <div>
+          <small>Adventure Map</small>
+          Maxine's World
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="xpbar"><span class="lvl">Lv 3</span><span class="bar"><span class="fill"></span></span><span style="font-weight:800;font-size:13px">240 XP</span></div>
+      <div class="day">🔥 12-day streak</div>
+    </div>
+  </header>
+
+  <!-- MAP -->
+  <div class="map">
+    <svg class="path" viewBox="0 0 1200 600" preserveAspectRatio="none">
+      <path class="pathline" d="M 110 500 C 260 460, 330 260, 480 230 S 700 200, 760 330 S 900 420, 1060 380 L 1100 160"/>
+    </svg>
+
+    <div class="float" style="top:36px;left:120px">☁️</div>
+    <div class="float" style="top:64px;right:180px;animation-delay:-3s">☁️</div>
+    <div class="float" style="bottom:70px;left:44%">✨</div>
+    <div class="float" style="top:120px;left:55%;animation-delay:-5s">🦋</div>
+
+    <!-- Nodes -->
+    <div class="node" data-subj="English" style="left:11%;top:80%">
+      <span class="halo"></span><span class="done-mark">✓</span>
+      <div class="building" style="background:linear-gradient(180deg,#8A68C9,var(--eng))">📖</div>
+      <span class="label">Story Tree</span><span class="xp">+40 XP</span>
+    </div>
+    <div class="node" data-subj="Mathematics" style="left:40%;top:38%">
+      <span class="halo"></span><span class="done-mark">✓</span>
+      <div class="building" style="background:linear-gradient(180deg,#3FA0D8,var(--mat))">🔢</div>
+      <span class="label">Number Market</span><span class="xp">+40 XP</span>
+    </div>
+    <div class="node" data-subj="Filipino" style="left:63%;top:33%">
+      <span class="halo"></span><span class="done-mark">✓</span>
+      <div class="building" style="background:linear-gradient(180deg,#E27E6E,var(--fil))">🪁</div>
+      <span class="label">Bahay ng Kuwento</span><span class="xp">+40 XP</span>
+    </div>
+    <div class="node" data-subj="Science" style="left:82%;top:55%">
+      <span class="halo"></span><span class="done-mark">✓</span>
+      <div class="building" style="background:linear-gradient(180deg,#72B155,var(--sci))">🔬</div>
+      <span class="label">Discovery Lab</span><span class="xp">+40 XP</span>
+    </div>
+    <div class="node" data-subj="Makabansa" style="left:93%;top:24%">
+      <span class="halo"></span><span class="done-mark">✓</span>
+      <div class="building" style="background:linear-gradient(180deg,#CB8F3D,var(--mak))">🇵🇭</div>
+      <span class="label">Heritage Harbor</span><span class="xp">+40 XP</span>
+    </div>
+    <div class="node locked" data-subj="GMRC" style="left:27%;top:16%">
+      <span class="halo"></span>
+      <div class="building" style="background:linear-gradient(180deg,#41B7A9,var(--gmrc))">💛</div>
+      <span class="label">🔒 Kindness Corner</span><span class="xp">Reach Lv 4</span>
+    </div>
+  </div>
+
+  <!-- QUEST -->
+  <div class="quest">
+    <div class="l">
+      <div class="ic">🎯</div>
+      <div><b>Daily Quest: collect 3 paw prints</b><span>Do any 3 lessons today and unlock a mystery sticker</span></div>
+    </div>
+    <button class="go">Start Quest →</button>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span><span class="dot" style="background:var(--gold)"></span>2/3 paw prints today</span>
+    <span><span class="dot" style="background:var(--teal)"></span>6 villages to visit</span>
+    <span><span class="dot" style="background:#5C7780"></span>Milo follows you around 🐾</span>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">📖 Story Tree</h2>
+    <p class="sub" id="m-sub">English · Week 1 · +40 XP</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const lessons = {
+    English:["The Clever Turtle — read along","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"],
+    Filipino:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"],
+    Mathematics:["Addition to 20 — quick facts","Counting by 5s to 100","Shapes around us","Story problems — add & take away"],
+    Science:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"],
+    Makabansa:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"],
+    GMRC:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+
+  document.querySelectorAll('.node:not(.locked)').forEach(n => {
+    n.addEventListener('click', () => {
+      const s = n.dataset.subj;
+      document.getElementById('m-title').textContent = icon[s] + ' ' + n.querySelector('.label').textContent.replace(/🔒\s*/,'');
+      document.getElementById('m-sub').textContent = s + ' · Week 1 · +40 XP';
+      document.getElementById('m-lessons').innerHTML = lessons[s].map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[s]}">${i+1}</span>${l}<span class="st">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  // twinkling stars
+  const starBox = document.getElementById('stars');
+  for(let i=0;i<46;i++){
+    const s=document.createElement('i');
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*3)+'s';
+    s.style.transform=`scale(${0.6+Math.random()})`;
+    starBox.appendChild(s);
+  }
+</script>
+</body>
+</html>

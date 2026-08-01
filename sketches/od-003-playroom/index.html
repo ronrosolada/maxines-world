@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1280, initial-scale=1" />
+<title>Maxine's World — Village Home (Playroom)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* -- Colorful DS structural tokens (radius / spacing / motion / elevation kept) -- */
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-12: 48px;
+    --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px; --radius-pill: 9999px;
+    --elev-flat: none;
+    --elev-ring: 0 0 0 1px var(--border);
+    --elev-raised: 0 18px 40px rgba(24,59,74,0.16);
+    --elev-soft: 0 10px 24px rgba(24,59,74,0.10);
+    --motion-fast: 150ms; --motion-base: 240ms;
+    --ease-standard: cubic-bezier(0.2,0,0,1);
+
+    /* -- Village brand colors (explicit brief values — take precedence) -- */
+    --teal: #087F83;
+    --teal-deep: color-mix(in oklab, #087F83, black 10%);
+    --gold: #F5B82E;
+    --coral: #F47C6B;
+    --green: #66A83E;
+    --purple: #7653B5;
+    --sky: #3C9DDB;
+    --ink: #183B4A;
+    --cream: #FFF7E8;
+    --ph-flag-blue: #0038A8;
+    --ph-flag-red: #CE1126;
+    --ph-flag-gold: #FCD116;
+
+    /* -- Semantic bindings (Colorful token names, brand values) -- */
+    --bg: var(--cream);
+    --surface: #FFFFFF;
+    --surface-warm: var(--cream);
+    --fg: var(--ink);
+    --fg-2: color-mix(in oklab, var(--ink), white 30%);
+    --muted: color-mix(in oklab, var(--ink), white 46%);
+    --border: color-mix(in oklab, var(--ink), white 84%);
+    --border-soft: color-mix(in oklab, var(--ink), white 90%);
+    --accent: var(--teal);
+    --accent-on: #FFFFFF;
+    --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+    --accent-active: color-mix(in oklab, var(--accent), black 16%);
+    --success: var(--green);
+    --warn: var(--gold);
+    --danger: #E5484D;
+    --focus-ring: 0 0 0 4px rgba(8,127,131,0.32);
+
+    --font-display: "Baloo 2", system-ui, sans-serif;
+    --font-body: "Nunito", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    width: 1280px; height: 853px;
+    overflow: hidden;
+    font-family: var(--font-body);
+    color: var(--fg);
+  }
+  button { font-family: inherit; }
+
+  body {
+    background:
+      radial-gradient(circle at 14% 8%, rgba(255,255,255,0.35), rgba(255,255,255,0) 32%),
+      radial-gradient(circle at 92% 88%, rgba(255,255,255,0.22), rgba(255,255,255,0) 30%),
+      linear-gradient(135deg, var(--gold) 0%, var(--coral) 68%, var(--coral) 100%);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .app {
+    width: 1280px; height: 853px;
+    padding: 22px 30px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+
+  /* decorative flourish blobs — restrained, single system */
+  .blob { position: absolute; border-radius: 50%; filter: blur(0px); opacity: 0.16; pointer-events: none; }
+  .blob-1 { width: 220px; height: 220px; background: var(--purple); top: -70px; left: 620px; }
+  .blob-2 { width: 160px; height: 160px; background: var(--sky); bottom: -50px; left: -40px; }
+
+  /* ---------- HEADER ---------- */
+  .topbar {
+    height: 62px;
+    background: rgba(255,255,255,0.92);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--elev-soft);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 10px 0 10px;
+    z-index: 2;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-badge {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 3px 0 var(--teal-deep);
+    flex: none;
+  }
+  .brand-badge svg { width: 26px; height: 26px; }
+  .brand-word { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); line-height: 1; }
+  .brand-sub { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+  .status-pills { display: flex; gap: 10px; padding-right: 6px; }
+  .pill {
+    display: flex; align-items: center; gap: 7px;
+    height: 44px; padding: 0 16px 0 10px;
+    border-radius: var(--radius-pill);
+    font-weight: 800; font-size: 15px;
+    line-height: 1;
+  }
+  .pill-icon { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+  .pill-icon svg { width: 16px; height: 16px; }
+  .pill-streak { background: color-mix(in oklab, var(--gold), white 78%); color: var(--ink); }
+  .pill-streak .pill-icon { background: var(--gold); }
+  .pill-streak .pill-icon svg { fill: var(--ink); }
+  .pill-xp { background: color-mix(in oklab, var(--teal), white 84%); color: var(--ink); }
+  .pill-xp .pill-icon { background: var(--teal); }
+  .pill-xp .pill-icon svg { fill: #fff; }
+  .pill-label { font-weight: 700; color: var(--muted); font-size: 12px; margin-left: 2px; }
+
+  /* ---------- GREETING ---------- */
+  .greeting {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 4px 14px 0 18px;
+    z-index: 2;
+    height: 128px;
+  }
+  .greeting-eyebrow { font-size: 14px; font-weight: 800; color: color-mix(in oklab, var(--ink), white 15%); margin: 0 0 2px; letter-spacing: 0.01em; }
+  .greeting h1 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 44px; line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--ink); margin: 0 0 6px;
+    text-shadow: 0 2px 0 rgba(255,255,255,0.35);
+  }
+  .greeting-sub { font-size: 16px; font-weight: 700; color: color-mix(in oklab, var(--ink), white 25%); margin: 0; max-width: 480px; }
+
+  .mascot-wrap { position: relative; display: flex; align-items: flex-end; gap: 14px; flex: none; }
+  .speech-bubble {
+    background: #fff; color: var(--ink); font-weight: 800; font-size: 14px;
+    padding: 10px 16px; border-radius: 16px; border-bottom-right-radius: 4px;
+    box-shadow: var(--elev-soft); max-width: 168px; margin-bottom: 30px;
+  }
+  .mascot-circle {
+    width: 118px; height: 118px; border-radius: 50%;
+    background: color-mix(in oklab, var(--cream), white 40%);
+    box-shadow: var(--elev-soft);
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .mascot-circle svg { width: 108px; height: 108px; }
+
+  /* ---------- ISLANDS GRID ---------- */
+  .islands-grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    z-index: 2;
+  }
+  .island {
+    position: relative;
+    display: flex; flex-direction: column; justify-content: center;
+    text-align: left;
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    cursor: pointer;
+    box-shadow: var(--elev-soft);
+    transition: transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
+    border: 2px solid transparent;
+    color: var(--ink);
+  }
+  .island:hover { transform: translateY(-4px) scale(1.015); box-shadow: var(--elev-raised); }
+  .island:active { transform: translateY(-1px) scale(1.0); }
+
+  .island-badge {
+    width: 52px; height: 52px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+  }
+  .island-badge svg { width: 28px; height: 28px; fill: #fff; }
+  .island-title { font-family: var(--font-display); font-weight: 800; font-size: 21px; margin: 0 0 3px; letter-spacing: -0.01em; }
+  .island-sub { font-size: 13.5px; font-weight: 700; color: color-mix(in oklab, var(--ink), white 28%); margin: 0; }
+  .island-arrow {
+    position: absolute; right: 18px; bottom: 18px;
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+  .island-arrow svg { width: 16px; height: 16px; }
+  .island:hover .island-arrow { transform: translateX(3px); }
+
+  .island-story  { background: color-mix(in oklab, var(--purple) 16%, white); border-color: color-mix(in oklab, var(--purple) 38%, white); }
+  .island-story  .island-badge { background: var(--purple); }
+  .island-story  .island-arrow { background: color-mix(in oklab, var(--purple) 26%, white); }
+  .island-story  .island-arrow svg { fill: var(--purple); }
+
+  .island-numbers { background: color-mix(in oklab, var(--sky) 16%, white); border-color: color-mix(in oklab, var(--sky) 38%, white); }
+  .island-numbers .island-badge { background: var(--sky); }
+  .island-numbers .island-arrow { background: color-mix(in oklab, var(--sky) 26%, white); }
+  .island-numbers .island-arrow svg { fill: var(--sky); }
+
+  .island-kwentuhan { background: color-mix(in oklab, var(--coral) 18%, white); border-color: color-mix(in oklab, var(--coral) 40%, white); }
+  .island-kwentuhan .island-badge { background: var(--coral); }
+  .island-kwentuhan .island-arrow { background: color-mix(in oklab, var(--coral) 28%, white); }
+  .island-kwentuhan .island-arrow svg { fill: var(--coral); }
+
+  .island-discovery { background: color-mix(in oklab, var(--green) 18%, white); border-color: color-mix(in oklab, var(--green) 40%, white); }
+  .island-discovery .island-badge { background: var(--green); }
+  .island-discovery .island-arrow { background: color-mix(in oklab, var(--green) 28%, white); }
+  .island-discovery .island-arrow svg { fill: var(--green); }
+
+  .island-heritage { background: color-mix(in oklab, var(--gold) 22%, white); border-color: color-mix(in oklab, var(--gold) 46%, white); }
+  .island-heritage .island-badge { background: var(--gold); }
+  .island-heritage .island-badge svg { fill: var(--ink); }
+  .island-heritage .island-arrow { background: color-mix(in oklab, var(--gold) 32%, white); }
+  .island-heritage .island-arrow svg { fill: var(--ink); }
+
+  .island-kindness { background: color-mix(in oklab, var(--teal) 16%, white); border-color: color-mix(in oklab, var(--teal) 36%, white); }
+  .island-kindness .island-badge { background: var(--teal); }
+  .island-kindness .island-arrow { background: color-mix(in oklab, var(--teal) 26%, white); }
+  .island-kindness .island-arrow svg { fill: var(--teal); }
+
+  .island.locked { cursor: not-allowed; filter: grayscale(0.72) saturate(0.55); }
+  .island.locked:hover { transform: none; box-shadow: var(--elev-soft); }
+  .island.locked .island-badge { position: relative; }
+  .lock-chip {
+    position: absolute; top: 16px; right: 16px;
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(24,59,74,0.86); color: #fff;
+    font-size: 12px; font-weight: 800;
+    padding: 6px 10px 6px 8px; border-radius: var(--radius-pill);
+  }
+  .lock-chip svg { width: 13px; height: 13px; fill: #fff; }
+
+  /* ---------- STICKER STRIP ---------- */
+  .sticker-strip {
+    background: rgba(255,255,255,0.92);
+    border-radius: var(--radius-lg);
+    padding: 12px 20px 14px;
+    z-index: 2;
+  }
+  .sticker-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+  .sticker-head h2 { font-family: var(--font-display); font-size: 17px; font-weight: 800; margin: 0; color: var(--ink); }
+  .sticker-count { font-size: 12.5px; font-weight: 800; color: var(--muted); }
+  .sticker-row { display: flex; gap: 10px; }
+  .sticker {
+    width: 58px; height: 58px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.10);
+    border: none; cursor: default;
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+  .sticker svg { width: 30px; height: 30px; }
+  .sticker:hover, .sticker:focus-visible { transform: rotate(-8deg) scale(1.12); }
+  .sticker-empty {
+    background: transparent;
+    border: 2.5px dashed color-mix(in oklab, var(--ink), white 78%);
+    box-shadow: none;
+  }
+  .sticker-empty:hover { transform: none; }
+
+  /* ---------- QUEST BAR ---------- */
+  .quest-bar {
+    height: 62px;
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    display: flex; align-items: center; gap: 18px;
+    padding: 0 20px;
+    z-index: 2;
+  }
+  .quest-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; flex: none; }
+  .quest-icon svg { width: 18px; height: 18px; fill: var(--ink); }
+  .quest-text { color: #fff; font-weight: 800; font-size: 16px; white-space: nowrap; }
+  .quest-progress-label { color: color-mix(in oklab, #fff, transparent 30%); font-size: 12.5px; font-weight: 700; margin-left: -6px; }
+  .quest-dots { display: flex; gap: 8px; margin-left: auto; }
+  .quest-dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 2px solid color-mix(in oklab, #fff, transparent 55%);
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: transform var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
+  }
+  .quest-dot svg { width: 15px; height: 15px; fill: color-mix(in oklab, #fff, transparent 60%); }
+  .quest-dot.filled { background: var(--gold); border-color: var(--gold); }
+  .quest-dot.filled svg { fill: var(--ink); }
+  .quest-dot:hover { transform: scale(1.1); }
+  .btn-start {
+    height: 42px; padding: 0 24px;
+    background: var(--teal);
+    color: #fff; border: none; border-radius: var(--radius-pill);
+    font-weight: 800; font-size: 15px; cursor: pointer;
+    box-shadow: 0 3px 0 var(--teal-deep);
+    transition: transform var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
+  }
+  .btn-start:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn-start:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--teal-deep); }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(24,59,74,0.58);
+    display: none; align-items: center; justify-content: center;
+    z-index: 50;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-card {
+    width: 560px; max-height: 640px;
+    background: #fff; border-radius: var(--radius-lg);
+    box-shadow: var(--elev-raised);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .modal-banner {
+    height: 84px; display: flex; align-items: center; gap: 14px; padding: 0 24px;
+    position: relative;
+  }
+  .modal-banner-badge { width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 0 rgba(0,0,0,0.14); }
+  .modal-banner-badge svg { width: 28px; height: 28px; fill: #fff; }
+  .modal-banner-title { font-family: var(--font-display); font-weight: 800; font-size: 20px; color: #fff; }
+  .modal-banner-kicker { font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.06em; }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.28); border: none; color: #fff;
+    font-size: 18px; line-height: 1; cursor: pointer; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.42); }
+  .modal-body { padding: 20px 24px 24px; overflow-y: auto; }
+  .modal-meta { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .meta-chip { font-size: 12px; font-weight: 800; background: var(--border-soft); color: var(--fg-2); padding: 5px 11px; border-radius: var(--radius-pill); }
+  .modal-story-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; margin: 0 0 8px; color: var(--ink); }
+  .modal-excerpt { font-size: 15px; line-height: 1.6; color: var(--ink); margin: 0 0 10px; background: var(--cream); border-radius: var(--radius-md); padding: 14px 16px; }
+  .modal-excerpt.fil { font-style: normal; }
+  .modal-translate { font-size: 13.5px; line-height: 1.55; color: var(--fg-2); margin: 0 0 16px; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 6px; }
+  .modal-btn-primary {
+    flex: 1; height: 48px; border: none; border-radius: var(--radius-pill);
+    color: #fff; font-weight: 800; font-size: 15px; cursor: pointer;
+    transition: filter var(--motion-fast) var(--ease-standard);
+  }
+  .modal-btn-primary:hover { filter: brightness(1.06); }
+  .modal-btn-secondary {
+    height: 48px; padding: 0 18px; border-radius: var(--radius-pill);
+    background: transparent; border: 2px solid var(--border); color: var(--fg-2);
+    font-weight: 800; font-size: 14px; cursor: pointer;
+  }
+  .modal-btn-secondary:hover { border-color: var(--muted); }
+
+  /* ---------- TOAST ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: 34px; transform: translate(-50%, 16px);
+    background: var(--ink); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 12px 20px; border-radius: var(--radius-pill);
+    box-shadow: var(--elev-raised);
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard);
+    z-index: 60;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .toast svg { width: 16px; height: 16px; fill: var(--gold); flex: none; }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ic-book" viewBox="0 0 24 24"><path d="M4 4.5C4 3.7 4.7 3 5.5 3H11v16.5H5.5C4.7 19.5 4 18.8 4 18V4.5ZM20 4.5C20 3.7 19.3 3 18.5 3H13v16.5h5.5c.8 0 1.5-.7 1.5-1.5V4.5Z"/></symbol>
+    <symbol id="ic-abacus" viewBox="0 0 24 24"><path d="M3 5h18v2H3V5Zm0 12h18v2H3v-2ZM6 9a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm6 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm6 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-4.4 3.3A.6.6 0 0 1 3.6 20V6a1 1 0 0 1 1-1Z M12 8.6c1-1.4 3.4-1.2 3.7.7.3 1.9-2.1 3.4-3.7 4.6-1.6-1.2-4-2.7-3.7-4.6.3-1.9 2.7-2.1 3.7-.7Z" fill-rule="evenodd" clip-rule="evenodd"/></symbol>
+    <symbol id="ic-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 10 4 18v2h2c8 0 14-6 14-16Zm-2.3 2.3C16.8 12 12.6 15.9 8 17.3c1.5-4.6 5.4-8.8 11.1-9.7-.3.2-.3.4-1.4 1.7Z"/></symbol>
+    <symbol id="ic-flag" viewBox="0 0 24 24"><path d="M3 2h2v20H3V2Zm2 0h16l-4 5 4 5H5V2Z"/></symbol>
+    <symbol id="ic-paw" viewBox="0 0 24 24"><path d="M6.5 10.2c1.1 0 2 1.1 2 2.4s-.9 2.4-2 2.4-2-1.1-2-2.4.9-2.4 2-2.4Zm11 0c1.1 0 2 1.1 2 2.4s-.9 2.4-2 2.4-2-1.1-2-2.4.9-2.4 2-2.4ZM9.3 6.4c1 0 1.9 1.1 1.9 2.4s-.8 2.4-1.9 2.4-1.9-1.1-1.9-2.4.8-2.4 1.9-2.4Zm5.4 0c1 0 1.9 1.1 1.9 2.4s-.8 2.4-1.9 2.4-1.9-1.1-1.9-2.4.8-2.4 1.9-2.4ZM12 12c2.4 0 5 2 5 4.6 0 1.6-1.3 2.6-2.9 2.6-.8 0-1.4-.4-2.1-.4s-1.3.4-2.1.4C8.3 19.2 7 18.2 7 16.6 7 14 9.6 12 12 12Z"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1Zm2 0h6V8a3 3 0 0 0-6 0v2Z"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.7-4.9 4.6 1.3 6.6L12 17l-5.9 3.5 1.3-6.6-4.9-4.6 6.6-.7L12 2.5Z"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7V5Z"/></symbol>
+    <symbol id="ic-turtle" viewBox="0 0 24 24"><path d="M12 6c3.9 0 7 2.7 7 6.2 0 3.3-2.9 5.8-7 5.8s-7-2.5-7-5.8C5 8.7 8.1 6 12 6Zm0 2.2c-2.6 0-4.7 1.7-4.7 4 0 2.1 2 3.6 4.7 3.6s4.7-1.5 4.7-3.6c0-2.3-2.1-4-4.7-4ZM4 11c-1 0-1.8.8-1.8 1.6S3 14 4 14v-3Zm16 0c1 0 1.8.8 1.8 1.6S21 14 20 14v-3Zm-10-6c-.9-.7-2.3-.6-2.9.4-.5.9 0 2 1 2.3.4-1 1.1-1.9 1.9-2.7Zm4 0c.9-.7 2.3-.6 2.9.4.5.9 0 2-1 2.3-.4-1-1.1-1.9-1.9-2.7Z"/></symbol>
+    <symbol id="ic-kite" viewBox="0 0 24 24"><path d="M12 2 4 11l8 11 8-11-8-9Zm0 3.2L17.8 11 12 17l-1.2-1.4L14 12l-3.2-3.6L12 5.2Zm-1 15.2-1 3-1.2-1 1-3 1.2 1Z"/></symbol>
+    <symbol id="ic-rainbow" viewBox="0 0 24 24"><path d="M2 20a10 10 0 0 1 20 0h-2.6a7.4 7.4 0 0 0-14.8 0H2Zm3.4 0a6.6 6.6 0 0 1 13.2 0h-2.6a4 4 0 0 0-8 0H5.4Z"/></symbol>
+    <symbol id="ic-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.3c1.8 0 3.2-1.4 3.2-3.2C20.5 6.6 16.7 3 12 3Zm-4.5 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></symbol>
+    <symbol id="ic-sunflower" viewBox="0 0 24 24"><path d="M12 9.5A2.5 2.5 0 1 1 12 14.5 2.5 2.5 0 0 1 12 9.5Zm0-6.5c1 1.4 1.4 2.8 1.2 4.2A4.9 4.9 0 0 0 12 7c-.4 0-.8.1-1.2.2C11 5.8 11 4.4 12 3Zm0 18c-1-1.4-1.4-2.8-1.2-4.2.4.1.8.2 1.2.2s.8-.1 1.2-.2c.2 1.4.2 2.8-1.2 4.2ZM3 12c1.4-1 2.8-1.4 4.2-1.2A4.9 4.9 0 0 0 7 12c0 .4.1.8.2 1.2C5.8 13 4.4 13 3 12Zm18 0c-1.4 1-2.8 1.4-4.2 1.2.1-.4.2-.8.2-1.2s-.1-.8-.2-1.2c1.4-.2 2.8-.2 4.2 1.2ZM5.8 5.8c1.6-.4 3-.1 4.2.9-.6.6-1 1.3-1.2 2.1-1-.7-1.9-1.8-3-3Zm12.4 12.4c-1.6.4-3 .1-4.2-.9.6-.6 1-1.3 1.2-2.1 1 .7 1.9 1.8 3 3ZM5.8 18.2c1.1-1.1 2-2 3-3 .2.8.6 1.5 1.2 2.1-1.2 1-2.6 1.3-4.2.9Zm12.4-12.4c-1.1 1.1-2 2-3 3-.2-.8-.6-1.5-1.2-2.1 1.2-1 2.6-1.3 4.2-.9Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" data-od-id="village-home-screen">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <header class="topbar" data-od-id="header-bar">
+    <div class="brand" data-od-id="brand-logo">
+      <div class="brand-badge"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-paw"/></svg></div>
+      <div>
+        <div class="brand-word">Maxine's World</div>
+        <div class="brand-sub">Village · Playroom</div>
+      </div>
+    </div>
+    <div class="status-pills" data-od-id="status-pills">
+      <div class="pill pill-streak" data-od-id="pill-streak">
+        <span class="pill-icon"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></span>
+        12 <span class="pill-label">Day Streak</span>
+      </div>
+      <div class="pill pill-xp" data-od-id="pill-xp">
+        <span class="pill-icon"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span>
+        240 <span class="pill-label">XP</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="greeting" data-od-id="greeting-section">
+    <div class="greeting-text">
+      <p class="greeting-eyebrow">Kumusta, Maxine!</p>
+      <h1 data-od-id="greeting-heading">Let's play &amp; learn!</h1>
+      <p class="greeting-sub">Choose an island below and start today's adventure.</p>
+    </div>
+    <div class="mascot-wrap" data-od-id="milo-mascot">
+      <div class="speech-bubble">Tara, let's explore an island today!</div>
+      <div class="mascot-circle">
+        <svg viewBox="0 0 140 140">
+          <ellipse cx="70" cy="128" rx="30" ry="8" fill="rgba(24,59,74,0.10)"/>
+          <path d="M32 44 L52 66 L40 78 Z" fill="var(--teal)"/>
+          <path d="M108 44 L88 66 L100 78 Z" fill="var(--teal)"/>
+          <path d="M37 46 L49 62 L42 70 Z" fill="var(--coral)"/>
+          <path d="M103 46 L91 62 L98 70 Z" fill="var(--coral)"/>
+          <circle cx="70" cy="78" r="46" fill="var(--cream)" stroke="var(--teal)" stroke-width="3"/>
+          <ellipse cx="52" cy="76" rx="10" ry="12" fill="#fff"/>
+          <ellipse cx="88" cy="76" rx="10" ry="12" fill="#fff"/>
+          <circle cx="53" cy="79" r="5" fill="var(--ink)"/>
+          <circle cx="89" cy="79" r="5" fill="var(--ink)"/>
+          <circle cx="55" cy="76" r="1.6" fill="#fff"/>
+          <circle cx="91" cy="76" r="1.6" fill="#fff"/>
+          <circle cx="44" cy="92" r="6" fill="var(--coral)" opacity="0.45"/>
+          <circle cx="96" cy="92" r="6" fill="var(--coral)" opacity="0.45"/>
+          <path d="M64 94 Q70 100 76 94" stroke="var(--ink)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M70 88 L66 94 L74 94 Z" fill="var(--coral)"/>
+          <path d="M18 82 L44 86 M18 90 L44 90 M18 98 L44 94" stroke="var(--ink)" stroke-width="1.4" opacity="0.4"/>
+          <path d="M122 82 L96 86 M122 90 L96 90 M122 98 L96 94" stroke="var(--ink)" stroke-width="1.4" opacity="0.4"/>
+          <path d="M96 118 Q120 118 118 96 Q130 100 128 116 Q126 132 100 130 Z" fill="var(--cream)" stroke="var(--teal)" stroke-width="3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="islands-grid" data-od-id="activity-islands">
+    <button class="island island-story" data-od-id="island-story" data-activity="story">
+      <span class="island-badge"><svg><use href="#ic-book"/></svg></span>
+      <h3 class="island-title">Story Time</h3>
+      <p class="island-sub">Read with Owly</p>
+      <span class="island-arrow"><svg><use href="#ic-arrow"/></svg></span>
+    </button>
+
+    <button class="island island-numbers" data-od-id="island-numbers" data-activity="numbers">
+      <span class="island-badge"><svg><use href="#ic-abacus"/></svg></span>
+      <h3 class="island-title">Number Fun</h3>
+      <p class="island-sub">Count with Kiko</p>
+      <span class="island-arrow"><svg><use href="#ic-arrow"/></svg></span>
+    </button>
+
+    <button class="island island-kwentuhan" data-od-id="island-kwentuhan" data-activity="kwentuhan">
+      <span class="island-badge"><svg><use href="#ic-chat"/></svg></span>
+      <h3 class="island-title">Kwentuhan</h3>
+      <p class="island-sub">Filipino stories &amp; legends</p>
+      <span class="island-arrow"><svg><use href="#ic-arrow"/></svg></span>
+    </button>
+
+    <button class="island island-discovery" data-od-id="island-discovery" data-activity="discovery">
+      <span class="island-badge"><svg><use href="#ic-leaf"/></svg></span>
+      <h3 class="island-title">Discovery</h3>
+      <p class="island-sub">Explore with Tutti</p>
+      <span class="island-arrow"><svg><use href="#ic-arrow"/></svg></span>
+    </button>
+
+    <button class="island island-heritage" data-od-id="island-heritage" data-activity="heritage">
+      <span class="island-badge"><svg><use href="#ic-flag"/></svg></span>
+      <h3 class="island-title">Heritage</h3>
+      <p class="island-sub">Alamin ang Pilipinas</p>
+      <span class="island-arrow"><svg><use href="#ic-arrow"/></svg></span>
+    </button>
+
+    <button class="island island-kindness locked" data-od-id="island-kindness" data-activity="locked" aria-disabled="true">
+      <span class="lock-chip"><svg><use href="#ic-lock"/></svg>Level 4</span>
+      <span class="island-badge"><svg><use href="#ic-paw"/></svg></span>
+      <h3 class="island-title">Kindness</h3>
+      <p class="island-sub">Unlocks at Level 4</p>
+    </button>
+  </section>
+
+  <section class="sticker-strip" data-od-id="sticker-book-section">
+    <div class="sticker-head">
+      <h2>Sticker Book</h2>
+      <span class="sticker-count" data-od-id="sticker-count-label">8 of 12 collected</span>
+    </div>
+    <div class="sticker-row" data-od-id="sticker-row">
+      <button class="sticker" data-od-id="sticker-turtle" style="background:var(--green)" title="Turtle"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-turtle"/></svg></button>
+      <button class="sticker" data-od-id="sticker-star" style="background:var(--gold)" title="Star"><svg viewBox="0 0 24 24" fill="var(--ink)"><use href="#ic-star"/></svg></button>
+      <button class="sticker" data-od-id="sticker-kite" style="background:var(--sky)" title="Kite"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-kite"/></svg></button>
+      <button class="sticker" data-od-id="sticker-rainbow" style="background:var(--coral)" title="Rainbow"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-rainbow"/></svg></button>
+      <button class="sticker" data-od-id="sticker-book" style="background:var(--purple)" title="Book"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-book"/></svg></button>
+      <button class="sticker" data-od-id="sticker-palette" style="background:var(--teal)" title="Palette"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-palette"/></svg></button>
+      <button class="sticker" data-od-id="sticker-sunflower" style="background:var(--gold)" title="Sunflower"><svg viewBox="0 0 24 24" fill="var(--ink)"><use href="#ic-sunflower"/></svg></button>
+      <button class="sticker" data-od-id="sticker-paw" style="background:var(--green)" title="Paw"><svg viewBox="0 0 24 24" fill="#fff"><use href="#ic-paw"/></svg></button>
+      <div class="sticker sticker-empty" data-od-id="sticker-empty-1"></div>
+      <div class="sticker sticker-empty" data-od-id="sticker-empty-2"></div>
+      <div class="sticker sticker-empty" data-od-id="sticker-empty-3"></div>
+      <div class="sticker sticker-empty" data-od-id="sticker-empty-4"></div>
+    </div>
+  </section>
+
+  <footer class="quest-bar" data-od-id="quest-bar">
+    <span class="quest-icon"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></span>
+    <span class="quest-text">Collect 3 paw prints today</span>
+    <span class="quest-progress-label" data-od-id="quest-progress-label">2 of 3 collected</span>
+    <div class="quest-dots" data-od-id="quest-dots">
+      <button class="quest-dot filled" data-od-id="quest-dot-1"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></button>
+      <button class="quest-dot filled" data-od-id="quest-dot-2"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></button>
+      <button class="quest-dot" data-od-id="quest-dot-3"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></button>
+      <button class="quest-dot" data-od-id="quest-dot-4"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></button>
+      <button class="quest-dot" data-od-id="quest-dot-5"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg></button>
+    </div>
+    <button class="btn-start" data-od-id="quest-start-btn">Start</button>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="activityModal" data-od-id="activity-modal">
+  <div class="modal-card">
+    <div class="modal-banner" id="modalBanner">
+      <button class="modal-close" data-od-id="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <span class="modal-banner-badge" id="modalBadge"><svg viewBox="0 0 24 24" id="modalBadgeIcon"><use href="#ic-book"/></svg></span>
+      <div>
+        <div class="modal-banner-kicker" id="modalKicker">Story Time</div>
+        <div class="modal-banner-title" id="modalTitle">Read with Owly</div>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><svg viewBox="0 0 24 24"><use href="#ic-paw"/></svg><span id="toastText"></span></div>
+
+<script>
+(function () {
+  var ACTIVITIES = {
+    story: {
+      color: 'var(--purple)', icon: 'ic-book', kicker: 'Story Time', title: 'Read with Owly',
+      meta: ['Grade 3', 'Reading', '5 min'],
+      storyTitle: '"The Little Seed That Waited"',
+      excerpt: 'Deep in the garden, a tiny seed waited under the warm soil. "When will it be my turn to grow?" she whispered. Then one morning, sunlight peeked through and said, "Today, little seed. Today is your day."',
+      note: 'Owly reads aloud with you, then asks three questions about the story to check what you remember.'
+    },
+    numbers: {
+      color: 'var(--sky)', icon: 'ic-abacus', kicker: 'Number Fun', title: 'Count with Kiko',
+      meta: ['Grade 3', 'Math', '5 min'],
+      storyTitle: 'Skip Counting by 5s',
+      excerpt: 'Kiko the fox hops down the path by 5s: 5, 10, 15, ___, 25, ___, 35. Can you fill in the missing hops before Kiko reaches the finish line?',
+      note: 'Builds toward multiplication — 8 rounds, gets a little trickier each time.'
+    },
+    kwentuhan: {
+      color: 'var(--coral)', icon: 'ic-chat', kicker: 'Kwentuhan', title: 'Ang Alamat ng Pinya',
+      meta: ['Grade 3', 'Kwento', '6 min'],
+      storyTitle: 'Ang Alamat ng Pinya (Legend of the Pineapple)',
+      excerpt: 'Noong unang panahon, may isang batang babae na si Pina na ayaw tumulong sa kanyang ina. Isang araw, hinanap niya ang nawawalang sandok — at bigla, lumitaw ang isang bagong halaman na may maraming mata. Iyon ay ang unang pinya.',
+      note: 'A Filipino folktale about a lazy girl turned into a fruit with many eyes — a gentle lesson in helping others.'
+    },
+    discovery: {
+      color: 'var(--green)', icon: 'ic-leaf', kicker: 'Discovery', title: 'Bakit Umuulan?',
+      meta: ['Grade 3', 'Science', '5 min'],
+      storyTitle: 'Bakit Umuulan? (Why Does It Rain?)',
+      excerpt: 'Ang tubig sa dagat at ilog ay umaakyat sa alapaap bilang singaw. Kapag lumamig ang singaw sa itaas, ito ay nagiging patak — at bumabagsak bilang ulan!',
+      note: 'Explore the water cycle with Tutti through a hands-on drag-and-drop diagram.'
+    },
+    heritage: {
+      color: 'var(--gold)', icon: 'ic-flag', kicker: 'Heritage', title: 'Ang Watawat ng Pilipinas',
+      meta: ['Grade 3', 'Heritage', '4 min'],
+      storyTitle: 'Ang Watawat ng Pilipinas (The Philippine Flag)',
+      excerpt: 'Ang tatlong bituin ay kumakatawan sa Luzon, Visayas, at Mindanao. Ang araw na may walong sinag ay para sa walong lalawigang unang naghimagsik. Pula para sa tapang, asul para sa kapayapaan, puti para sa kalinisan.',
+      note: 'Ends with a matching game: color the flag and place the stars in the right spots.'
+    }
+  };
+
+  var modal = document.getElementById('activityModal');
+  var banner = document.getElementById('modalBanner');
+  var badge = document.getElementById('modalBadge');
+  var badgeIcon = document.getElementById('modalBadgeIcon');
+  var kicker = document.getElementById('modalKicker');
+  var titleEl = document.getElementById('modalTitle');
+  var body = document.getElementById('modalBody');
+  var toast = document.getElementById('toast');
+  var toastText = document.getElementById('toastText');
+  var toastTimer = null;
+
+  function showToast(msg) {
+    toastText.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+
+  function openModal(key) {
+    var a = ACTIVITIES[key];
+    if (!a) return;
+    banner.style.background = a.color;
+    badge.style.background = 'rgba(255,255,255,0.24)';
+    badgeIcon.innerHTML = '<use href="#' + a.icon + '"/>';
+    kicker.textContent = a.kicker;
+    titleEl.textContent = a.title;
+    body.innerHTML =
+      '<div class="modal-meta">' + a.meta.map(function (m) { return '<span class="meta-chip">' + m + '</span>'; }).join('') + '</div>' +
+      '<h4 class="modal-story-title">' + a.storyTitle + '</h4>' +
+      '<p class="modal-excerpt fil">' + a.excerpt + '</p>' +
+      '<p class="modal-translate">' + a.note + '</p>' +
+      '<div class="modal-actions">' +
+      '<button class="modal-btn-primary" style="background:' + a.color + '" id="modalStartBtn">Start Activity</button>' +
+      '<button class="modal-btn-secondary" id="modalLaterBtn">Maybe Later</button>' +
+      '</div>';
+    modal.classList.add('open');
+
+    document.getElementById('modalStartBtn').addEventListener('click', function () {
+      modal.classList.remove('open');
+      showToast('Loading ' + a.title + ' — have fun!');
+    });
+    document.getElementById('modalLaterBtn').addEventListener('click', closeModal);
+  }
+
+  function closeModal() { modal.classList.remove('open'); }
+
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+  document.querySelectorAll('.island').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var key = el.getAttribute('data-activity');
+      if (key === 'locked') {
+        showToast('Kindness Island unlocks at Level 4 — keep collecting paw prints!');
+        return;
+      }
+      openModal(key);
+    });
+  });
+
+  var goal = 3;
+  function updateQuestLabel() {
+    var filled = document.querySelectorAll('.quest-dot.filled').length;
+    var label = document.querySelector('[data-od-id="quest-progress-label"]');
+    var count = Math.min(filled, goal);
+    label.textContent = count + ' of ' + goal + ' collected';
+    if (filled >= goal) {
+      label.textContent = goal + ' of ' + goal + ' collected — quest complete!';
+    }
+  }
+
+  document.querySelectorAll('.quest-dot').forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      var wasComplete = document.querySelectorAll('.quest-dot.filled').length >= goal;
+      dot.classList.toggle('filled');
+      updateQuestLabel();
+      var nowComplete = document.querySelectorAll('.quest-dot.filled').length >= goal;
+      if (nowComplete && !wasComplete) {
+        showToast('Quest complete! Great job today, Maxine!');
+      }
+    });
+  });
+
+  document.getElementById('quest-start-btn').addEventListener('click', function (e) {
+    var btn = e.currentTarget;
+    var original = btn.textContent;
+    btn.textContent = 'Playing...';
+    showToast('Quest started — finish an activity to earn a paw print!');
+    setTimeout(function () { btn.textContent = original; }, 2000);
+  });
+})();
+</script>
+</body>
+</html>

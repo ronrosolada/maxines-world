@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Playroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E; --leaf:#66A83E;
+    --purple:#7653B5; --sky:#3C9DDB; --ink:#183B4A; --cream:#FFF7E8;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);line-height:1.4;min-height:100vh;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(circle at 12% 16%, rgba(255,255,255,.9) 0 4%, transparent 4.5%),
+      radial-gradient(circle at 82% 12%, rgba(255,255,255,.7) 0 3%, transparent 3.5%),
+      radial-gradient(circle at 64% 26%, rgba(255,255,255,.6) 0 2.5%, transparent 3%),
+      linear-gradient(135deg,#FFD76E 0%,#FFB84D 42%,#F47C6B 100%);
+  }
+  h1,h2,h3{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .page{max-width:1180px;margin:0 auto;padding:18px 26px 26px}
+
+  /* ── Header ── */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:14px;color:#5C2E00}
+  .top .l{display:flex;align-items:center;gap:12px}
+  .top .l .logo{width:48px;height:48px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:25px;box-shadow:0 5px 0 rgba(0,0,0,.12)}
+  .top .l b{font-size:23px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.18)}
+  .top .l small{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#7A3D00}
+  .top .r{display:flex;gap:10px}
+  .pill{display:flex;align-items:center;gap:6px;background:#fff;border-bottom:4px solid rgba(0,0,0,.14);border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:800;color:var(--ink)}
+
+  /* ── Big greeting ── */
+  .hello{margin:16px 0 4px;text-align:center;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.16)}
+  .hello h1{font-size:38px}
+  .hello p{font-size:16px;font-weight:800;color:#3E1E00;text-shadow:0 1px 0 rgba(255,255,255,.4)}
+
+  /* ── Activity islands ── */
+  .islands{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+  .island{
+    position:relative;border-radius:26px;padding:22px 18px 18px;text-align:center;background:#fff;
+    border-bottom:8px solid rgba(0,0,0,.16);box-shadow:0 14px 26px rgba(92,46,0,.22);
+    transition:transform .16s cubic-bezier(.34,1.56,.64,1);
+  }
+  .island:hover{transform:translateY(-6px) rotate(-1deg)}
+  .island .big{width:88px;height:88px;margin:0 auto 10px;border-radius:26px;display:grid;place-items:center;font-size:48px;border:4px solid #fff;box-shadow:0 6px 0 rgba(0,0,0,.12)}
+  .island h2{font-size:21px}
+  .island .desc{font-size:12.5px;font-weight:700;color:#8A6A4A;margin-top:2px}
+  .island .play{
+    margin-top:12px;width:100%;padding:11px;border-radius:15px;font-weight:800;font-size:15px;color:#fff;
+    border-bottom:5px solid rgba(0,0,0,.2);text-shadow:0 1px 0 rgba(0,0,0,.18);font-family:"Baloo 2";
+    transition:transform .1s ease, border-width .1s ease;
+  }
+  .island .play:active{transform:translateY(3px);border-bottom-width:2px}
+  .island[data-locked]{filter:saturate(.55)}
+  .island[data-locked] .play{background:#9A938A;color:#EFEFE9}
+  .island[data-locked] .lock-tag{position:absolute;top:14px;right:14px;background:#3A3A3A;color:#FFE9A8;font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;box-shadow:0 3px 0 rgba(0,0,0,.3);z-index:3}
+
+  /* ── Sticker strip ── */
+  .stickers{margin-top:20px;background:#FFF9EA;border:3px solid #fff;border-radius:24px;padding:14px 22px;display:flex;align-items:center;gap:20px;box-shadow:0 10px 22px rgba(92,46,0,.2)}
+  .stickers .lbl{font-size:14px;font-weight:800;color:#8A5B10;flex:none;display:flex;align-items:center;gap:8px}
+  .stickers .lbl .count{background:var(--gold);color:#2B2100;border-radius:99px;padding:2px 10px;font-size:13px}
+  .strips{display:flex;gap:14px;flex-wrap:wrap}
+  .sticker{width:52px;height:52px;border-radius:16px;background:#fff;border:2.5px dashed #D9C48F;display:grid;place-items:center;font-size:26px;transition:transform .15s ease, border-color .15s ease}
+  .sticker.won{border-style:solid;border-color:#FFC800;background:linear-gradient(135deg,#FFF6D6,#FFE9A8);transform:rotate(3deg)}
+  .sticker.won:hover{transform:rotate(0) scale(1.15)}
+  .sticker.empty{background:#F6EFDC}
+
+  /* ── Bottom quest bar ── */
+  .questbar{margin-top:18px;display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;border-bottom:6px solid rgba(0,0,0,.12);padding:12px 18px;box-shadow:0 10px 22px rgba(92,46,0,.18)}
+  .questbar .ic{font-size:30px}
+  .questbar .q-txt{font-size:14px;font-weight:800}
+  .questbar .q-txt small{display:block;font-weight:700;color:#8A6A4A;font-size:12px}
+  .questbar .dots{display:flex;gap:8px;margin-left:auto}
+  .dot{width:16px;height:16px;border-radius:50%;background:#EAD9AE;border:2px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+  .dot.on{background:var(--leaf)}
+  .questbar .go{margin-left:14px;background:var(--teal);color:#fff;font-weight:800;padding:10px 22px;border-radius:14px;border-bottom:5px solid #065F63;font-size:14px;font-family:"Baloo 2"}
+  .questbar .go:active{transform:translateY(3px);border-bottom-width:2px}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(60,30,0,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+  .overlay.open{display:flex}
+  .sheet{background:#fff;border-radius:24px;width:min(540px,94%);padding:24px 26px;box-shadow:0 26px 60px rgba(0,0,0,.4)}
+  .sheet h2{font-size:22px;display:flex;align-items:center;gap:10px}
+  .sheet .sub{font-size:13px;font-weight:700;color:#8A6A4A;margin-top:2px}
+  .lesson{display:flex;align-items:center;gap:12px;border:2px solid #F2E8D8;border-radius:13px;padding:11px 13px;margin-top:9px;font-size:13.5px;font-weight:700}
+  .lesson .num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:12.5px;color:#fff;flex:none}
+  .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--leaf)}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:13px;background:var(--coral);color:#fff;font-weight:800;font-size:15px;border-bottom:4px solid #D95C4B}
+  .sheet .close:active{transform:translateY(2px);border-bottom-width:2px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP -->
+  <header class="top">
+    <div class="l">
+      <span class="logo">🐱</span>
+      <div><small>Milo's Playroom</small><b>Maxine's World</b></div>
+    </div>
+    <div class="r">
+      <span class="pill">🔥 12-day streak</span>
+      <span class="pill">⭐ 240 XP</span>
+    </div>
+  </header>
+
+  <!-- HELLO -->
+  <div class="hello">
+    <h1>Let's play &amp; learn! 🎉</h1>
+    <p>Tap an activity — Milo will play along with you</p>
+  </div>
+
+  <!-- ISLANDS -->
+  <div class="islands">
+    <button class="island" data-subj="English">
+      <span class="big" style="background:var(--pastel,#F1EBFA);background:linear-gradient(135deg,#EFE6FA,#E1D2F5)">📖</span>
+      <h2>Story Time</h2>
+      <span class="desc">Read with Owly the owl</span>
+      <span class="play" style="background:var(--purple)">▶ Read</span>
+    </button>
+    <button class="island" data-subj="Mathematics">
+      <span class="big" style="background:linear-gradient(135deg,#E6F4FC,#C9E7FA)">🔢</span>
+      <h2>Number Fun</h2>
+      <span class="desc">Count with Kiko the monkey</span>
+      <span class="play" style="background:var(--mat)">▶ Play</span>
+    </button>
+    <button class="island" data-subj="Filipino">
+      <span class="big" style="background:linear-gradient(135deg,#FCEBE7,#F8D6CF)">🪁</span>
+      <h2>Kwentuhan</h2>
+      <span class="desc">Stories in Filipino</span>
+      <span class="play" style="background:var(--fil)">▶ Read</span>
+    </button>
+    <button class="island" data-subj="Science">
+      <span class="big" style="background:linear-gradient(135deg,#EDF7E8,#D8EFCC)">🔬</span>
+      <h2>Discovery</h2>
+      <span class="desc">Explore with Tutti the turtle</span>
+      <span class="play" style="background:var(--sci)">▶ Explore</span>
+    </button>
+    <button class="island" data-subj="Makabansa">
+      <span class="big" style="background:linear-gradient(135deg,#FFF3D7,#FFE5A8)">🇵🇭</span>
+      <h2>Heritage</h2>
+      <span class="desc">Proud of our bayan</span>
+      <span class="play" style="background:var(--mak)">▶ Learn</span>
+    </button>
+    <button class="island" data-subj="GMRC" data-locked="1">
+      <span class="big" style="background:linear-gradient(135deg,#E4F5F2,#C8ECE7)">💛</span>
+      <h2>Kindness</h2>
+      <span class="desc">Share &amp; care with friends</span>
+      <span class="play">🔒 Locked</span>
+      <span class="lock-tag">🔒 Lv 4</span>
+    </button>
+  </div>
+
+  <!-- STICKERS -->
+  <div class="stickers">
+    <div class="lbl">🏅 Sticker book <span class="count">8 / 20</span></div>
+    <div class="strips">
+      <div class="sticker won">🐢</div>
+      <div class="sticker won">⭐</div>
+      <div class="sticker won">🪁</div>
+      <div class="sticker won">🌈</div>
+      <div class="sticker won">📖</div>
+      <div class="sticker won">🎨</div>
+      <div class="sticker won">🌻</div>
+      <div class="sticker won">🐾</div>
+      <div class="sticker empty">?</div>
+      <div class="sticker empty">?</div>
+      <div class="sticker empty">?</div>
+      <div class="sticker empty">?</div>
+    </div>
+  </div>
+
+  <!-- QUEST BAR -->
+  <div class="questbar">
+    <span class="ic">🎯</span>
+    <div class="q-txt">Collect 3 paw prints today<small>Any 3 activities unlock a mystery sticker</small></div>
+    <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <button class="go">Start!</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">📖 Story Time</h2>
+    <p class="sub" id="m-sub">English · Read with Owly</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const acts = {
+    English:{t:"Story Time",s:"English · Read with Owly",l:["The Clever Turtle — read along","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"]},
+    Mathematics:{t:"Number Fun",s:"Mathematics · Count with Kiko",l:["Addition to 20 — quick facts","Counting by 5s to 100","Shapes around us","Story problems — add & take away"]},
+    Filipino:{t:"Kwentuhan",s:"Filipino · Stories",l:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"]},
+    Science:{t:"Discovery",s:"Science · Explore with Tutti",l:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"]},
+    Makabansa:{t:"Heritage",s:"Makabansa · Proud of our bayan",l:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"]},
+    GMRC:{t:"Kindness",s:"GMRC · Share & care",l:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]}
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+
+  document.querySelectorAll('.island:not([data-locked])').forEach(isl => {
+    isl.addEventListener('click', () => {
+      const d = acts[isl.dataset.subj];
+      document.getElementById('m-title').textContent = icon[isl.dataset.subj] + ' ' + d.t;
+      document.getElementById('m-sub').textContent = d.s;
+      document.getElementById('m-lessons').innerHTML = d.l.map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[isl.dataset.subj]}">${i+1}</span>${l}<span class="st">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  // paw print dots toggle
+  document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => d.classList.toggle('on')));
+</script>
+</body>
+</html>

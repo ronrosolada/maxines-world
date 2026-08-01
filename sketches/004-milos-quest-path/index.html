@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Milo's Quest Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#58CC02; --green-dark:#46A302; --blue:#1CB0F6; --purple:#CE82FF;
+    --red:#FF4B4B; --yellow:#FFC800; --orange:#FF9600; --ink:#4B4B4B; --cream:#FFF7E8;
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#F7F7F0;color:var(--ink);line-height:1.4;min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 20% 10%, rgba(88,204,2,.05) 0 40%, transparent 40%),
+                     radial-gradient(circle at 85% 90%, rgba(30,176,246,.06) 0 35%, transparent 35%);
+  }
+  h1,h2,h3{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .page{max-width:1100px;margin:0 auto;padding:18px 26px 30px}
+
+  /* ── HUD ── */
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .hud .stats{display:flex;gap:10px}
+  .stat{background:#fff;border:2px solid #E5E5E0;border-bottom-width:4px;border-radius:14px;padding:6px 14px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px}
+  .stat .ic{font-size:17px}
+  .stat .val{color:var(--ink)}
+  .hud .gems{margin-left:auto}
+
+  /* ── Mascot + speech ── */
+  .intro{display:flex;align-items:center;gap:16px;margin:18px 0 6px}
+  .milo{
+    width:86px;height:86px;border-radius:50%;flex:none;font-size:52px;line-height:1;
+    display:grid;place-items:center;background:linear-gradient(135deg,#FFF4D6,#FFE9A8);
+    border:3px solid #FFD76E;box-shadow:0 6px 0 #E0B44A, 0 10px 18px rgba(0,0,0,.14);
+    transform:rotate(-6deg);transition:transform .2s ease;
+  }
+  .milo:hover{transform:rotate(4deg) scale(1.05)}
+  .speech{
+    background:#fff;border:2.5px solid #E5E5E0;border-bottom-width:5px;border-radius:18px;
+    padding:12px 18px;position:relative;max-width:430px;
+  }
+  .speech::before{content:"";position:absolute;left:-14px;top:30px;border:8px solid transparent;border-right-color:#E5E5E0}
+  .speech b{font-family:"Baloo 2";font-size:17px}
+  .speech p{font-size:13.5px;font-weight:600;color:#777}
+
+  /* ── Path ── */
+  .stage{display:grid;grid-template-columns:1fr 360px;gap:10px;align-items:start;margin-top:10px}
+  .path-wrap{position:relative;padding:14px 0 20px}
+  .rail{position:absolute;left:50%;top:14px;bottom:18px;width:12px;transform:translateX(-50%);border-radius:99px;background:linear-gradient(180deg,#FFE27A,#FFC800);box-shadow:inset 0 0 0 2px rgba(0,0,0,.06)}
+  .node{position:relative;width:62px;height:62px;margin:8px auto;border-radius:50%;display:grid;place-items:center;font-size:28px;cursor:pointer;
+    border:4px solid #fff;transition:transform .15s cubic-bezier(.34,1.56,.64,1), box-shadow .15s ease;z-index:2}
+  .node:hover{transform:scale(1.12)}
+  .node .ring{position:absolute;inset:-7px;border-radius:50%;border:4px solid rgba(0,0,0,.07)}
+  .node.done .ring{border-color:var(--yellow)}
+  .node.locked{filter:grayscale(.75);cursor:not-allowed;opacity:.75}
+  .node.locked .ring{display:none}
+  .node.current{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(88,204,2,.5)}50%{box-shadow:0 0 0 14px rgba(88,204,2,0)}}
+  .node .chk{position:absolute;bottom:-4px;right:-4px;width:26px;height:26px;border-radius:50%;background:var(--yellow);border:3px solid #fff;display:grid;place-items:center;font-size:13px;color:#2B2100;font-weight:900}
+  .node .lbl{position:absolute;top:50%;left:calc(100% + 14px);transform:translateY(-50%);white-space:nowrap;background:#fff;border:2px solid #E5E5E0;border-bottom-width:4px;border-radius:12px;padding:3px 11px;font-size:12.5px;font-weight:800;text-align:left}
+  .node:nth-child(even) .lbl{left:auto;right:calc(100% + 14px);text-align:right}
+  .node .lbl small{display:block;font-size:10.5px;color:#9A9A9A;font-weight:700}
+  .node.locked .lbl small{color:#C4A200}
+
+  .chest{margin:20px auto 0;width:84px;height:66px;border-radius:14px;background:linear-gradient(180deg,#F0A93B,#D98716);border:4px solid #fff;border-bottom-width:5px;display:grid;place-items:center;font-size:36px;position:relative;box-shadow:0 6px 0 #A8640F, 0 12px 20px rgba(0,0,0,.2);cursor:pointer;transition:transform .15s ease}
+  .chest:hover{transform:scale(1.08) rotate(-2deg)}
+  .chest span{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11.5px;font-weight:800;color:#B87916}
+
+  /* ── Side panel ── */
+  .side{background:#fff;border:2px solid #E5E5E0;border-bottom-width:5px;border-radius:22px;padding:20px;position:sticky;top:16px}
+  .side h2{font-size:19px;display:flex;align-items:center;gap:8px}
+  .side .sub{font-size:13px;font-weight:700;color:#9A9A9A;margin-bottom:14px}
+  .quest-row{display:flex;align-items:center;gap:10px;background:#F7F7F0;border:2px solid #EDEDE6;border-radius:14px;padding:10px 12px;margin-top:8px;font-size:13.5px;font-weight:700;text-align:left;transition:all .14s ease}
+  .quest-row:hover{border-color:#BBD68F}
+  .quest-row .box{width:22px;height:22px;border-radius:7px;border:2px solid #C9C9C2;flex:none;display:grid;place-items:center;font-size:13px;color:transparent;background:#fff;transition:all .14s ease}
+  .quest-row.done .box{background:var(--green);border-color:var(--green);color:#fff}
+  .quest-row.done{background:#F0FAD9;border-color:#C7E4A2}
+  .quest-row.done .xpts{color:#9A9A9A}
+
+  /* ── Big CTA ── */
+  .cta{
+    margin-top:18px;width:100%;padding:15px;border-radius:16px;font-weight:800;font-size:17px;
+    background:var(--green);color:#fff;border-bottom:6px solid var(--green-dark);
+    display:flex;align-items:center;justify-content:center;gap:8px;font-family:"Baloo 2";
+    text-shadow:0 2px 0 rgba(0,0,0,.18);transition:transform .1s ease, border-width .1s ease;
+  }
+  .cta:active{transform:translateY(4px);border-bottom-width:2px}
+  .cta .xp{background:rgba(255,255,255,.22);border-radius:99px;padding:2px 10px;font-size:13px}
+
+  /* confetti */
+  .confetti{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+  .confetti i{position:absolute;width:10px;height:14px;top:-20px;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(50,50,50,.5);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+  .overlay.open{display:flex}
+  .sheet{background:#fff;border-radius:22px;width:min(540px,94%);padding:24px 26px;box-shadow:0 26px 60px rgba(0,0,0,.3)}
+  .sheet h2{font-size:22px;display:flex;align-items:center;gap:10px}
+  .sheet .sub{font-size:13px;font-weight:700;color:#9A9A9A;margin-top:2px}
+  .lesson{display:flex;align-items:center;gap:12px;border:2px solid #EEEEEA;border-radius:13px;padding:11px 13px;margin-top:9px;font-size:13.5px;font-weight:700}
+  .lesson .num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:12.5px;color:#fff;flex:none}
+  .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--green)}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:13px;background:var(--blue);color:#fff;font-weight:800;font-size:15px;border-bottom:4px solid #1598D2}
+  .sheet .close:active{transform:translateY(2px);border-bottom-width:2px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HUD -->
+  <header class="hud">
+    <div class="stats">
+      <div class="stat"><span class="ic">🔥</span><span class="val">12</span></div>
+      <div class="stat"><span class="ic">⭐</span><span class="val">240</span></div>
+      <div class="stat"><span class="ic">💎</span><span class="val">35</span></div>
+      <div class="stat"><span class="ic">❤️</span><span class="val">5</span></div>
+    </div>
+    <div class="gems" style="font-size:13px;font-weight:800;color:#9A9A9A">G3 · Week 1 · English</div>
+  </header>
+
+  <!-- MASCOT -->
+  <div class="intro">
+    <div class="milo">🐱</div>
+    <div class="speech">
+      <b>Magandang umaga, Maxine! ✨</b>
+      <p>One lesson a day keeps the streak alive. Story Tree is waiting — tap it to start!</p>
+    </div>
+  </div>
+
+  <div class="stage">
+    <!-- PATH -->
+    <div class="path-wrap">
+      <div class="rail"></div>
+      <div class="node done" style="background:var(--eng)"><span class="ring"></span>📖<span class="chk">✓</span><span class="lbl">The Clever Turtle<small>English · done</small></span></div>
+      <div class="node done" style="background:var(--mat)"><span class="ring"></span>🔢<span class="chk">✓</span><span class="lbl">Addition to 20<small>Math · done</small></span></div>
+      <div class="node current" style="background:var(--fil)"><span class="ring"></span>🪁<span class="lbl">Ang Matalinong Pagong<small>Filipino · up next</small></span></div>
+      <div class="node" style="background:var(--sci)"><span class="ring"></span>🔬<span class="lbl">Living things<small>Science · locked</small></span></div>
+      <div class="node" style="background:var(--mak)"><span class="ring"></span>🇵🇭<span class="lbl">Ako ay Pilipino<small>Makabansa · locked</small></span></div>
+      <div class="node" style="background:var(--gmrc)"><span class="ring"></span>💛<span class="lbl">Sharing with friends<small>GMRC · locked</small></span></div>
+      <div class="chest"><span>Weekly Chest</span>🎁</div>
+    </div>
+
+    <!-- SIDE -->
+    <aside class="side">
+      <h2>🎯 Today's Quest</h2>
+      <p class="sub">2 of 3 done — keep going!</p>
+      <button class="quest-row done"><span class="box">✓</span> Finish 1 English lesson<span class="xpts" style="margin-left:auto;font-size:12px;font-weight:800;color:var(--green)">+20</span></button>
+      <button class="quest-row done"><span class="box">✓</span> Practice 5 addition facts<span class="xpts" style="margin-left:auto;font-size:12px;font-weight:800;color:var(--green)">+15</span></button>
+      <button class="quest-row"><span class="box">✓</span> Read one Filipino story<span class="xpts" style="margin-left:auto;font-size:12px;font-weight:800;color:var(--green)">+15</span></button>
+      <button class="cta">Start lesson <span class="xp">+20 XP</span></button>
+    </aside>
+  </div>
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">🪁 Ang Matalinong Pagong</h2>
+    <p class="sub" id="m-sub">Filipino · Week 1 · +20 XP</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const lessons = {
+    English:["The Clever Turtle — read along","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"],
+    Filipino:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"],
+    Mathematics:["Addition to 20 — quick facts","Counting by 5s to 100","Shapes around us","Story problems — add & take away"],
+    Science:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"],
+    Makabansa:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"],
+    GMRC:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+
+  document.querySelectorAll('.node:not(.locked)').forEach(n => {
+    n.addEventListener('click', () => {
+      const lbl = n.querySelector('.lbl').childNodes[0].textContent.trim();
+      const sub = n.querySelector('.lbl small').textContent;
+      document.getElementById('m-title').textContent = n.textContent.match(/[📖🪁🔢🔬🇵🇭💛]/)?.[0] + ' ' + lbl;
+      document.getElementById('m-sub').textContent = sub + ' · +20 XP';
+      const key = Object.keys(lessons).find(k => icon[k] === n.textContent.match(/[📖🪁🔢🔬🇵🇭💛]/)?.[0]);
+      document.getElementById('m-lessons').innerHTML = lessons[key||'English'].map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[key||'English']}">${i+1}</span>${l}<span class="st">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  document.querySelectorAll('.quest-row').forEach(t => t.addEventListener('click', () => t.classList.toggle('done')));
+
+  // CTA → confetti
+  const confetti = document.getElementById('confetti');
+  document.querySelector('.cta').addEventListener('click', () => {
+    const colors = ['#58CC02','#1CB0F6','#CE82FF','#FFC800','#FF9600','#F47C6B'];
+    for(let i=0;i<70;i++){
+      const c=document.createElement('i');
+      c.style.left=Math.random()*100+'%';
+      c.style.background=colors[i%colors.length];
+      c.style.animationDuration=(1.6+Math.random()*1.6)+'s';
+      c.style.animationDelay=(Math.random()*.5)+'s';
+      c.style.transform=`rotate(${Math.random()*360}deg)`;
+      confetti.appendChild(c);
+      setTimeout(()=>c.remove(),4000);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Clean Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E; --leaf:#66A83E;
+    --purple:#7653B5; --sky:#3C9DDB; --ink:#183B4A; --cream:#FFF7E8;
+    --surface:#F7F5EF; --card:#FFFFFF; --line:#E8E3D6;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--surface);color:var(--ink);line-height:1.45;
+    -webkit-font-smoothing:antialiased;min-height:100vh;
+  }
+  h1,h2,h3{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .page{max-width:1200px;margin:0 auto;padding:0 28px 30px}
+
+  /* ── Top bar ── */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;background:rgba(255,255,255,.8);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-size:21px}
+  .brand .logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--teal),#0B6B6F);display:grid;place-items:center;font-size:21px;box-shadow:0 4px 12px rgba(8,127,131,.3)}
+  .topbar .right{display:flex;align-items:center;gap:14px}
+  .chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800}
+  .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--coral));display:grid;place-items:center;font-size:19px;color:#fff}
+
+  /* ── Greeting ── */
+  .greet{margin:24px 0 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+  .greet h1{font-size:28px}
+  .greet p{font-size:14.5px;font-weight:600;color:#5C7780;margin-top:3px}
+  .greet .date{font-size:13px;font-weight:800;color:#5C7780;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+
+  /* ── Main grid ── */
+  .layout{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+
+  /* subjects */
+  .subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .subj{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 15px;text-align:left;transition:transform .14s ease, box-shadow .14s ease;
+    display:flex;flex-direction:column;gap:11px;
+  }
+  .subj:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(24,59,74,.1)}
+  .subj .top{display:flex;align-items:center;gap:12px}
+  .subj .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:23px;flex:none}
+  .subj .nm{font-size:17.5px}
+  .subj .lg{font-size:12px;font-weight:800;letter-spacing:1px;color:#5C7780;text-transform:uppercase}
+  .subj .bar{height:7px;border-radius:99px;background:#EFE9DC;overflow:hidden}
+  .subj .fill{height:100%;border-radius:99px}
+  .subj .meta{display:flex;justify-content:space-between;font-size:12.5px;font-weight:800;color:#5C7780}
+  .subj .meta b{color:var(--ink)}
+
+  /* ── Right column ── */
+  .side{display:flex;flex-direction:column;gap:16px;position:sticky;top:86px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .card h2{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+
+  .task{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;font-weight:700}
+  .task:last-child{border-bottom:none}
+  .task .box{width:22px;height:22px;border-radius:7px;border:2px solid #B9C8CC;flex:none;display:grid;place-items:center;font-size:13px;color:transparent;transition:all .14s ease;background:#fff}
+  .task.done .box{background:var(--teal);border-color:var(--teal);color:#fff}
+  .task.done{color:#8AA3AA;text-decoration:line-through}
+  .task .pts{margin-left:auto;font-size:12px;font-weight:800;color:var(--teal)}
+
+  .ring-wrap{display:flex;align-items:center;gap:16px}
+  .ring{width:74px;height:74px;border-radius:50%;background:conic-gradient(var(--teal) 240deg,#EFE9DC 0);display:grid;place-items:center;position:relative;flex:none}
+  .ring::before{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+  .ring b{position:relative;font-family:"Baloo 2";font-size:19px}
+  .ring-cap{font-size:13px;font-weight:700;color:#5C7780;line-height:1.5}
+  .ring-cap b{color:var(--ink);font-size:14px}
+
+  .go{width:100%;margin-top:12px;background:var(--teal);color:#fff;font-weight:800;font-size:14.5px;padding:12px;border-radius:13px;transition:transform .12s ease, background .12s ease}
+  .go:hover{background:#0A6E72}
+  .go:active{transform:scale(.98)}
+
+  /* mini-games */
+  .games{display:flex;flex-direction:column;gap:10px}
+  .game{display:flex;align-items:center;gap:12px;background:#FBF9F3;border:1px solid var(--line);border-radius:14px;padding:11px 13px;text-align:left;transition:transform .12s ease}
+  .game:hover{transform:translateX(3px)}
+  .game .g{font-size:26px}
+  .game .gn{font-size:14px;font-weight:800}
+  .game .gs{font-size:11.5px;font-weight:700;color:#5C7780}
+  .game .lock{margin-left:auto;font-size:12px;font-weight:800;color:#B9A44F;background:#FFF3CE;padding:4px 9px;border-radius:99px}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(24,59,74,.42);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+  .overlay.open{display:flex}
+  .sheet{background:#fff;border-radius:22px;width:min(560px,94%);padding:24px 26px;box-shadow:0 26px 60px rgba(24,59,74,.3)}
+  .sheet h2{font-size:22px;display:flex;align-items:center;gap:10px}
+  .sheet .sub{font-size:13px;font-weight:700;color:#5C7780;margin-top:2px}
+  .lesson{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:11px 13px;margin-top:9px;font-size:13.5px;font-weight:700}
+  .lesson .num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:12.5px;color:#fff;flex:none}
+  .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;color:#2F9E62}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:13px;background:var(--teal);color:#fff;font-weight:800;font-size:15px}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="brand"><span class="logo">🐱</span><span>Maxine's World</span></div>
+  <div class="right">
+    <span class="chip">🔥 12-day streak</span>
+    <span class="chip">⭐ 240 XP</span>
+    <span class="avatar">M</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- GREETING -->
+  <div class="greet">
+    <div>
+      <h1>Good morning, Maxine 🌞</h1>
+      <p>You're 2 lessons away from finishing this week. Let's keep the streak going!</p>
+    </div>
+    <span class="date">Friday · Aug 7</span>
+  </div>
+
+  <div class="layout">
+    <!-- SUBJECTS -->
+    <section class="subjects">
+      <button class="subj" data-subj="English">
+        <span class="top"><span class="ic" style="background:#F1EBFA">📖</span><span><span class="nm">English</span><br><span class="lg">Story Tree</span></span></span>
+        <span class="bar"><span class="fill" style="width:62%;background:var(--eng)"></span></span>
+        <span class="meta"><span>5 of 8 lessons</span><b>62%</b></span>
+      </button>
+      <button class="subj" data-subj="Mathematics">
+        <span class="top"><span class="ic" style="background:#E6F4FC">🔢</span><span><span class="nm">Mathematics</span><br><span class="lg">Number Market</span></span></span>
+        <span class="bar"><span class="fill" style="width:87%;background:var(--mat)"></span></span>
+        <span class="meta"><span>7 of 8 lessons</span><b>87%</b></span>
+      </button>
+      <button class="subj" data-subj="Filipino">
+        <span class="top"><span class="ic" style="background:#FCEBE7">🪁</span><span><span class="nm">Filipino</span><br><span class="lg">Bahay ng Kuwento</span></span></span>
+        <span class="bar"><span class="fill" style="width:37%;background:var(--fil)"></span></span>
+        <span class="meta"><span>3 of 8 lessons</span><b>37%</b></span>
+      </button>
+      <button class="subj" data-subj="Science">
+        <span class="top"><span class="ic" style="background:#EDF7E8">🔬</span><span><span class="nm">Science</span><br><span class="lg">Discovery Lab</span></span></span>
+        <span class="bar"><span class="fill" style="width:25%;background:var(--sci)"></span></span>
+        <span class="meta"><span>2 of 8 lessons</span><b>25%</b></span>
+      </button>
+      <button class="subj" data-subj="Makabansa">
+        <span class="top"><span class="ic" style="background:#FFF3D7">🇵🇭</span><span><span class="nm">Makabansa</span><br><span class="lg">Heritage Harbor</span></span></span>
+        <span class="bar"><span class="fill" style="width:50%;background:var(--mak)"></span></span>
+        <span class="meta"><span>4 of 8 lessons</span><b>50%</b></span>
+      </button>
+      <button class="subj" data-subj="GMRC">
+        <span class="top"><span class="ic" style="background:#E4F5F2">💛</span><span><span class="nm">GMRC</span><br><span class="lg">Kindness Corner</span></span></span>
+        <span class="bar"><span class="fill" style="width:75%;background:var(--gmrc)"></span></span>
+        <span class="meta"><span>6 of 8 lessons</span><b>75%</b></span>
+      </button>
+    </section>
+
+    <!-- SIDE -->
+    <aside class="side">
+      <div class="card">
+        <h2>🎯 Today's Quest</h2>
+        <button class="task"><span class="box">✓</span> Finish 1 English lesson<span class="pts">+20 XP</span></button>
+        <button class="task"><span class="box">✓</span> Practice 5 addition facts<span class="pts">+15 XP</span></button>
+        <button class="task"><span class="box">✓</span> Read one Filipino story<span class="pts">+15 XP</span></button>
+        <button class="go">Continue last lesson →</button>
+      </div>
+
+      <div class="card">
+        <h2>📊 This week</h2>
+        <div class="ring-wrap">
+          <div class="ring"><b>67%</b></div>
+          <div class="ring-cap"><b>16 of 24 lessons</b><br>done this week.<br>2 more days to finish!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🎮 Mini-games</h2>
+        <div class="games">
+          <button class="game"><span class="g">🐱</span><span><span class="gn">Cat Café Dash</span><br><span class="gs">Serve snacks, earn tips</span></span><span class="lock">Unlocked</span></button>
+          <button class="game"><span class="g">🐾</span><span><span class="gn">Pawprint Parkour</span><br><span class="gs">Jump with Milo</span></span><span class="lock">Unlocked</span></button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">📖 English</h2>
+    <p class="sub" id="m-sub">Story Tree · Week 1 of Grade 3</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const lessons = {
+    English:["The Clever Turtle — read along","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"],
+    Filipino:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"],
+    Mathematics:["Addition to 20 — quick facts","Counting by 5s to 100","Shapes around us","Story problems — add & take away"],
+    Science:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"],
+    Makabansa:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"],
+    GMRC:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+
+  document.querySelectorAll('.subj').forEach(s => {
+    s.addEventListener('click', () => {
+      const name = s.dataset.subj;
+      document.getElementById('m-title').textContent = icon[name] + ' ' + name;
+      document.getElementById('m-sub').textContent = s.querySelector('.lg').textContent + ' · Week 1 of Grade 3';
+      document.getElementById('m-lessons').innerHTML = lessons[name].map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[name]}">${i+1}</span>${l}<span class="st">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  document.querySelectorAll('.task').forEach(t => t.addEventListener('click', () => t.classList.toggle('done')));
+</script>
+</body>
+</html>
