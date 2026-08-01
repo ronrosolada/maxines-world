@@ -90,23 +90,32 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 ---
 
-## ADR-004: Offline-First with WorkManager Sync
+## ADR-004: Offline-First — Bundled Content, Deferred Progress Sync
 
-**Decision:** The app works fully offline. Progress is buffered locally and syncs via WorkManager when connectivity returns.
+**Decision:** The app works fully offline.
+
+- **Content: bundled-only (decided 2026-08-01).** Lessons ship inside the APK
+  (`assets/content-pack/`); there is no content server, no package downloads,
+  no content API. Content is authored in `ronrosolada/maxines-world-content`
+  and converted into the playable pack at release time.
+- **Progress sync: deferred.** `ProgressEvent` rows are written locally with
+  `sync_status = PENDING`; a WorkManager sync path (15 min, connectivity
+  constraint) exists for a future parent dashboard but no server is configured
+  today.
 
 **Mechanism:**
-1. Lessons and assets are downloaded as versioned packages
+1. Lessons are bundled in the APK — installed, never downloaded
 2. `ProgressEvent` rows are written locally with `sync_status = PENDING`
-3. `WorkManager` periodic worker (15 min, with connectivity constraint) batches uploads
+3. `WorkManager` periodic worker (15 min, with connectivity constraint) batches uploads **when a server is configured** (not currently)
 4. Server responds with idempotency-confirmed event IDs
 5. Mastery recomputed locally after confirmed sync
-6. Content package downloads also use WorkManager (one-time with network constraint)
+6. Content package downloads: **removed** — no runtime content acquisition
 
 **Conflict resolution:**
 - Progress events are append-only — no update conflicts
 - Mastery is always computed from the complete event stream
 - Last-write-wins for profile/avatar changes (low risk)
-- Content packages use checksum verification before activation
+- Content is validated by the pack integrity test at build time (no runtime checksum needed)
 
 ---
 

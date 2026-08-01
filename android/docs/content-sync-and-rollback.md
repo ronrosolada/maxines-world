@@ -1,65 +1,51 @@
-# Content Sync and Rollback
+# Content Packaging — Bundled-Only (2026-08-01)
 
-## Sync Workflow
+**Decision: no external content server.** All educational content ships inside
+the APK (`app/src/main/assets/content-pack/`). DreamNAS sync is retired.
+The content repo (github.com/ronrosolada/maxines-world-content) is the
+authoring source of truth; each APK release bundles the current month/quarter
+content into the playable pack.
 
-```
-[Parent taps Sync] or [Periodic WorkManager job]
-         ↓
-    Fetch catalog from configured URL (10.10.10.33/catalog.json)
-         ↓
-    Compare with installed packages (content/active/)
-         ↓
-    If new version available:
-         ↓
-    Download to content/staging/{packageId}-v{version}.zip
-         ↓
-    Verify SHA-256 (ContentVerifier.verifyChecksum)
-         ↓
-    Verify file size (ContentVerifier.verifySize)
-         ↓
-    Safe extract to content/active/{packageId}/{version}/
-         ↓
-    Delete staging ZIP
-         ↓
-    Update active package pointer
-```
+## How content gets into the app
 
-## Storage Layout
+1. Authoring home: `maxines-world-content` repo — 62 weekly packages
+   (catalog v2 + `.zip` packages per subject/week).
+2. The app repo mirrors the DepEd Matatag SLM source under
+   `app/src/main/assets/content/ph-matatag/grade-3/`.
+3. `tools/convert_slm_to_pack.py` converts SLM source → playable
+   `Month1Lesson` format in `app/src/main/assets/content-pack/month-01/lessons/`.
+4. The APK build bundles the pack; the app reads it from assets at runtime
+   (`ActiveContentIndex` catalog v2 + `LessonLoader`).
+
+## Runtime layout
 
 ```
-filesDir/content/
-├── staging/               # Temporary downloads (cleaned after use)
-├── active/
-│   └── {packageId}/
-│       └── {version}/     # Extracted package contents
-└── rollback/              # Previous valid version (one kept)
+assets/content-pack/
+├── month-01/
+│   ├── lessons/          # 329 lessons (100 legacy + 229 converted)
+│   └── days/             # Day manifests
+└── catalog.json          # ActiveContentIndex catalog
 ```
 
-## Rollback
+No `filesDir/content/` usage, no download, no SHA-256 verification at
+runtime — the APK is the immutable, versioned unit.
 
-If a new package fails validation or the parent requests rollback:
-1. Mark current active package as SUPERSEDED
-2. Restore the rollback package as ACTIVE
-3. Update the active package pointer
-4. Keep the failed package for debugging if needed
+## Content updates
 
-## Offline Behavior
+Any content change = update `maxines-world-content` (or the SLM source),
+regenerate the pack (converter), rebuild the APK, ship a new release.
+There is no content-only update path — by design: the app is self-contained
+and never depends on network availability.
 
-- Installed packages remain usable without network
-- Sync worker respects NetworkType.CONNECTED constraint
-- Starter content (bundled in APK assets) provides fallback
-- First launch works without NAS connection
+## What was removed
 
-## Manual Sync Trigger
+- `nas-deployment/` (Caddy content server, catalog, package ZIPs, deploy/verify scripts)
+- Runtime sync: `ContentSyncWorker` enqueue from parent screen, `content/active/` scan paths
+- Rollback/staging machinery (`content/staging/`, `content/rollback/`)
 
-From the parent content management screen:
-1. Tapping "Sync Now" enqueues ContentSyncWorker
-2. Progress shown in UI via WorkManager's LiveData/Flow
-3. On failure, shows last error and suggests retry
+## Why
 
-## Network Constraints
-
-- Sync requires CONNECTED network (WiFi or mobile data)
-- Exponential backoff: 30s, 60s, 120s, then fail
-- Max 3 retry attempts
-- Server timeout: 15s connect, 60s read
+- Child-safe, privacy-first: no network dependency, no server to reach, no
+  tracking of what the child loads.
+- Simpler correctness story: the APK is the only versioning unit; upgrade
+  and content update are the same action.

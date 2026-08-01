@@ -1,14 +1,26 @@
 # Content Runtime Architecture
 
-Maxine's World uses a decoupled architecture where the Android application is a stable learning runtime and educational content is independently authored, reviewed, versioned, and published as immutable packages.
+Maxine's World uses a decoupled architecture where the Android application is a stable learning runtime and educational content is authored in a dedicated repo, converted, and **bundled inside the APK** (no external content server).
 
-## Three Systems
+## Two Systems
 
 ```
-Android Learning Runtime     Educational Content Repository     Content Server (NAS)
-        ↓ reads packages              ↓ publishes releases              ↓ serves files
-  Generic player + progress      YAML lessons + assessment +      Read-only Caddy container
-  Room persistence + rewards     review + provenance + assets     No learner data, no write API
+Content repo (ronrosolada/maxines-world-content)     Android Learning Runtime
+        ↓ converted into the pack                            ↓ reads bundled assets
+  Weekly packages, catalog v2                        Generic player + progress
+  DepEd SLM source, assets                           Room persistence + rewards
+```
+
+Content pipeline (offline, deterministic):
+
+```
+maxines-world-content (authoring: 62 weekly packages)
+        ↓ SLM source mirrored in app assets
+ph-matatag/grade-3 (assets)
+        ↓ tools/convert_slm_to_pack.py
+content-pack/month-01/lessons/ (playable Month1Lesson format)
+        ↓ APK build
+Bundled assets → ActiveContentIndex (catalog v2) → LessonLoader
 ```
 
 ## Schema Version 1 (Frozen 2026-07-13)
@@ -22,36 +34,27 @@ Android Learning Runtime     Educational Content Repository     Content Server (
 | Activity model | 6 activities per lesson, stable IDs |
 | Badge model | 5 subjects/day → 1 badge, 50 badges total |
 
-## Package Lifecycle
+## Package Lifecycle (bundled)
 
 ```
-Fetch catalog → verify compatibility → download to staging → 
-verify SHA-256 → extract safely → validate schema → 
-atomic activate → retain rollback → clean staging
+Author/review SLM source → convert to Month1Lesson → commit to assets →
+APK build bundles the pack → release signed APK → install/upgrade replaces content atomically
 ```
-
-## Release Channels
-
-| Channel | URL | Packages | Purpose |
-|---|---|---|---|
-| Development | `/catalogs/development.json` | 62 | In-progress, unverified |
-| Preview | `/catalogs/preview.json` | 62 | Parent-supervised testing |
-| Production | `/catalogs/production.json` | 0 | Educator-approved only |
-
-Each package is per-week, per-subject (e.g., `g3-english-q2-w01-v1.zip`).
-App default: preview channel. Content-only fixes never require APK rebuild.
 
 ## Content Updates
 
 | Change type | What's needed |
 |---|---|
-| Fix a typo in a lesson | Content release only (increment contentVersion) |
-| Add an illustration | Content release only |
-| Change an assessment | Content release only |
-| New activity type | Android release first (add capability), then content release |
+| Fix a typo in a lesson | Regenerate pack + APK release |
+| Add an illustration | APK release (asset bundled) |
+| Change an assessment | APK release |
+| New activity type | Android release first (add capability), then content in the pack |
 | Database schema change | Android release with migration |
 | Reward rule change | Android release only |
 
-## Server
+## Server — RETIRED
 
-DreamNAS @ 10.10.10.33:80 — read-only Caddy container. No auth, no learner data, no write endpoints.
+There is no content server. DreamNAS (10.10.10.33) is no longer a content
+source; the app never contacts it. Authoring lives in
+`ronrosolada/maxines-world-content`; the APK bundles the playable pack.
+See `content-sync-and-rollback.md` for the full bundled-only decision.

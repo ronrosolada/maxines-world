@@ -28,7 +28,7 @@ android/
 ├── engine-activity/              # Reusable activity composables
 ├── engine-assessment/            # Scoring and thresholds
 ├── engine-mastery/               # Mastery state machine
-└── engine-sync/                  # WorkManager sync
+└── engine-sync/                  # WorkManager sync (progress reporting)
 ```
 
 ## Build

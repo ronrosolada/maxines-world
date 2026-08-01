@@ -139,9 +139,9 @@ M1 (scaffold)
 **Risk:** Lesson content must be validated by qualified Philippine educators before release. The handoff explicitly forbids inventing DepEd competency codes.
 **Mitigation:** Pilot lessons use skill-based objectives without DepEd codes. Curriculum metadata fields exist in the JSON schema but are left empty or marked `educatorValidated: false`. Content CMS review workflow is designed but not staffed.
 
-### R5: Backend Absence (MEDIUM)
+### R5: Backend Absence (MEDIUM — RESOLVED for content)
 **Risk:** The handoff describes a full backend (auth, content API, sync, reporting), but implementing it alongside the Android app is a parallel project.
-**Mitigation:** MVP is fully offline. Content bundles ship in APK assets. "Sync" stubs log to console. Parent dashboard reads local Room data. A backend can be added incrementally.
+**Mitigation (decided 2026-08-01):** MVP is fully offline. **Content delivery is bundled-only — there is no content API or server.** Content is authored in `ronrosolada/maxines-world-content` and bundled into APK releases (month/quarter packs). "Sync" stubs log to console. Parent dashboard reads local Room data. A backend can be added incrementally if ever needed.
 
 ### R6: Physical Device Testing (MEDIUM)
 **Risk:** The app targets a specific child (age 8, Grade 3). Her actual device, reading level, touch precision, and engagement patterns are unknown until tested.
