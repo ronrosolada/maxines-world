@@ -36,6 +36,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -111,27 +112,28 @@ fun PlayroomHomeScreen(
     onParentsClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
+    BoxWithConstraints(
         modifier = modifier
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(listOf(Color(0xFFFFD76E), Color(0xFFFFB84D), PlayCoral))
             )
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally,
+            .windowInsetsPadding(WindowInsets.safeDrawing),
     ) {
-        Column(Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 16.dp)) {
+        val expanded = maxHeight >= 780.dp
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .then(if (expanded) Modifier else Modifier.verticalScroll(rememberScrollState()))
+                .padding(horizontal = 22.dp, vertical = 16.dp),
+            verticalArrangement = if (expanded) Arrangement.SpaceBetween else Arrangement.spacedBy(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             PlayroomHeader(state, onParentsClick)
-            Spacer(Modifier.height(14.dp))
             PlayroomGreeting(state)
-            Spacer(Modifier.height(16.dp))
-            PlayroomIslandGrid(state, onDestinationClick)
-            Spacer(Modifier.height(14.dp))
+            PlayroomIslandGrid(state, onDestinationClick, islandHeight = if (expanded) 185.dp else 150.dp)
             PlayroomStickerStrip(state)
-            Spacer(Modifier.height(14.dp))
             PlayroomQuestBar(state, onQuestClick)
-            Spacer(Modifier.height(16.dp))
             PlayroomBottomNav(onHomeClick, onProgressClick, onAvatarsClick, onParentsClick)
         }
     }
@@ -256,10 +258,14 @@ private fun SurfaceSpeechBubble(text: String) {
 // ─── Island grid ─────────────────────────────────────────────────────
 
 @Composable
-private fun PlayroomIslandGrid(state: PlayroomHomeState, onDestinationClick: (String) -> Unit) {
+private fun PlayroomIslandGrid(
+    state: PlayroomHomeState,
+    onDestinationClick: (String) -> Unit,
+    islandHeight: Dp = 150.dp,
+) {
     state.islands.chunked(3).forEach { rowIslands ->
         Row(
-            Modifier.fillMaxWidth().height(150.dp),
+            Modifier.fillMaxWidth().height(islandHeight),
             horizontalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             rowIslands.forEach { island ->
@@ -293,68 +299,69 @@ private fun PlayroomIslandCard(
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
     ) {
-        Column(
-            Modifier.fillMaxSize().padding(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
+        Box(Modifier.fillMaxWidth().fillMaxHeight()) {
             if (island.locked) {
                 Surface(
                     shape = RoundedCornerShape(99.dp),
                     color = PlayInkDark,
                     contentColor = Color(0xFFFFE9A8),
-                    modifier = Modifier.align(Alignment.End),
+                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 2.dp, end = 2.dp),
                 ) {
                     Text("🔒 Lv ${island.lockLevel}", fontSize = 9.sp, fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp))
                 }
-                Spacer(Modifier.height(2.dp))
             }
-            Box(
-                Modifier.size(52.dp).clip(RoundedCornerShape(15.dp)).background(
-                    if (island.locked) Color(0xFFEFECE3) else island.color.copy(alpha = .14f),
-                    RoundedCornerShape(15.dp),
-                ).border(2.dp, if (island.locked) Color(0xFFE2DDD0) else island.color, RoundedCornerShape(15.dp)),
-                contentAlignment = Alignment.Center,
+            Column(
+                Modifier.fillMaxSize().padding(12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
             ) {
-                Icon(
-                    painterResource(island.iconRes),
-                    null,
-                    tint = if (island.locked) Color(0xFFB4AFA4) else island.color,
-                    modifier = Modifier.size(26.dp),
-                )
-            }
-            Spacer(Modifier.height(8.dp))
-            Text(
-                island.title,
-                color = PlayInk,
-                fontWeight = FontWeight.ExtraBold,
-                fontSize = 15.sp,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Text(
-                island.subtitle,
-                color = if (island.locked) Color(0xFF9AA0A3) else PlayMuted,
-                fontSize = 10.5.sp,
-                fontWeight = FontWeight.Bold,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(Modifier.height(8.dp))
-            Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = if (island.locked) Color(0xFFE8E3D4) else island.color,
-                contentColor = if (island.locked) Color(0xFF8AA0A7) else Color.White,
-                modifier = Modifier.heightIn(min = 34.dp),
-            ) {
+                Box(
+                    Modifier.size(52.dp).clip(RoundedCornerShape(15.dp)).background(
+                        if (island.locked) Color(0xFFEFECE3) else island.color.copy(alpha = .14f),
+                        RoundedCornerShape(15.dp),
+                    ).border(2.dp, if (island.locked) Color(0xFFE2DDD0) else island.color, RoundedCornerShape(15.dp)),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        painterResource(island.iconRes),
+                        null,
+                        tint = if (island.locked) Color(0xFFB4AFA4) else island.color,
+                        modifier = Modifier.size(26.dp),
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
                 Text(
-                    if (island.locked) "Locked" else "▶ Play",
-                    fontSize = 11.5.sp,
-                    fontWeight = FontWeight.Black,
-                    modifier = Modifier.padding(horizontal = 18.dp, vertical = 7.dp),
+                    island.title,
+                    color = PlayInk,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 15.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
+                Text(
+                    island.subtitle,
+                    color = if (island.locked) Color(0xFF9AA0A3) else PlayMuted,
+                    fontSize = 10.5.sp,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = if (island.locked) Color(0xFFE8E3D4) else island.color,
+                    contentColor = if (island.locked) Color(0xFF8AA0A7) else Color.White,
+                    modifier = Modifier.heightIn(min = 34.dp),
+                ) {
+                    Text(
+                        if (island.locked) "Locked" else "▶ Play",
+                        fontSize = 11.5.sp,
+                        fontWeight = FontWeight.Black,
+                        modifier = Modifier.padding(horizontal = 18.dp, vertical = 7.dp),
+                    )
+                }
             }
         }
     }
