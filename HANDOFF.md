@@ -101,3 +101,12 @@ core-database/
 - **Backups disabled** — `allowBackup=false` + `data_extraction_rules.xml`; child data never leaves the device.
 - **Cleartext config removed** — `network_security_config.xml` deleted with the sync path.
 - **App instrumentation in CI** — emulator job runs `:app:connectedDebugAndroidTest` + `:core-database:connectedDebugAndroidTest`.
+
+## Known CI issue (2026-08-01): GitHub runner KVM regression
+The `migration-tests` emulator job fails with `ProbeKVM: This user doesn't have
+permissions to use KVM (/dev/kvm)` → "No compatible devices connected". This is a
+GitHub-hosted-runner fleet regression (job passed 15:14Z, broke mid-day, affects
+both ubuntu-latest and ubuntu-22.04). NOT a code issue — all tests pass locally on
+the AVD. Do not rework the tests or the workflow; retry the failed run
+(`gh run rerun <id> --failed`) until the fleet recovers. Job is intentionally
+pinned to ubuntu-22.04 and kept REQUIRED.
