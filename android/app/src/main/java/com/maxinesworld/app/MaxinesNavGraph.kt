@@ -15,8 +15,8 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
-import com.maxinesworld.featurechildhome.VillageHomeV17Screen
-import com.maxinesworld.featurechildhome.VillageHomeV17State
+import com.maxinesworld.featurechildhome.PlayroomHomeScreen
+import com.maxinesworld.featurechildhome.PlayroomHomeState
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -95,8 +95,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
-            VillageHomeV17Screen(
-                state = VillageHomeV17State(),
+            PlayroomHomeScreen(
+                state = PlayroomHomeState(),
                 onDestinationClick = { subject ->
                     val lessonId = lessonIdForSubject(subject)
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
