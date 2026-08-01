@@ -19,6 +19,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
+import com.maxinesworld.featurechildhome.SubjectModulesScreen
+import com.maxinesworld.featurechildhome.SubjectModulesViewModel
+import com.maxinesworld.featurechildhome.ModuleLessonsScreen
+import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
+import com.maxinesworld.featurechildhome.subjectForPack
 import com.maxinesworld.featurechildhome.PlayroomHomeState
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
@@ -33,11 +38,15 @@ import dagger.hilt.android.EntryPointAccessors
 object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
+    const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
+    const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
 
     fun childHome(childId: String) = "child_home/$childId"
+    fun subjectModules(childId: String, subject: String) = "subject_modules/$childId/$subject"
+    fun moduleLessons(childId: String, subject: String, moduleKey: String) = "module_lessons/$childId/$subject/$moduleKey"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
@@ -99,15 +108,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val homeState by homeViewModel.state.collectAsStateWithLifecycle()
             PlayroomHomeScreen(
                 state = homeState,
-                onDestinationClick = { subject ->
-                    val lessonId = lessonIdForSubject(subject)
-                    if (lessonId != null) {
-                        navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                    } else {
-                        // Explicit failure state: unknown subject must NOT open an
-                        // unrelated lesson. Surface as a visible error, never a redirect.
-                        android.util.Log.w("MaxinesNavGraph", "Unsupported subject tapped: '$subject' — refusing navigation")
-                    }
+                onDestinationClick = { islandId ->
+                    val subject = subjectForPack(islandId)
+                    navController.navigate(Routes.subjectModules(childId, subject))
                 },
                 onQuestClick = { },
                 onHomeClick = { },
@@ -118,6 +121,50 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
+            )
+        }
+
+        composable(
+            route = Routes.SUBJECT_MODULES,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
+            val viewModel: SubjectModulesViewModel = hiltViewModel(backStackEntry)
+            val state by viewModel.state.collectAsStateWithLifecycle()
+            SubjectModulesScreen(
+                subject = subject,
+                state = state,
+                onModuleClick = { moduleKey ->
+                    navController.navigate(Routes.moduleLessons(childId, subject, moduleKey))
+                },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Routes.MODULE_LESSONS,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") { type = NavType.StringType },
+                navArgument("moduleKey") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
+            val moduleKey = backStackEntry.arguments?.getString("moduleKey") ?: return@composable
+            val viewModel: ModuleLessonsViewModel = hiltViewModel(backStackEntry)
+            val state by viewModel.state.collectAsStateWithLifecycle()
+            ModuleLessonsScreen(
+                moduleTitle = state.moduleTitle.ifEmpty { moduleKey },
+                state = state,
+                onLessonClick = { lessonId ->
+                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
+                },
+                onBack = { navController.popBackStack() }
             )
         }
 
