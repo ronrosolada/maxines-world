@@ -53,7 +53,28 @@ data class ActivityStep(
     val options: List<String> = emptyList(),
     val correctIndex: Int = -1,
     val imageAssets: List<String> = emptyList(),
-    val feedback: ActivityFeedback? = null
+    val feedback: ActivityFeedback? = null,
+    // ─── Typed activity payloads (added for the activity pipeline repair) ───
+    // Populated by LessonPlayerViewModel.convertToLessonManifest from the
+    // lesson JSON `content` object. All default to empty so existing
+    // construction sites remain source-compatible.
+    val sortCategories: List<String> = emptyList(),
+    val sortItems: List<SortItem> = emptyList(),
+    val matchPairs: List<MatchPair> = emptyList(),
+    val sequenceSteps: List<String> = emptyList(),
+    val hotspotExamples: List<String> = emptyList()
+)
+
+@Serializable
+data class SortItem(
+    val label: String,
+    val categoryIndex: Int
+)
+
+@Serializable
+data class MatchPair(
+    val left: String,
+    val right: String
 )
 
 @Serializable

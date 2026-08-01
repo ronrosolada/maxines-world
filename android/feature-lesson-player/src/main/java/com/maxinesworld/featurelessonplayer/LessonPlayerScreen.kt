@@ -29,6 +29,7 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.engineactivity.renderers.ActivityRenderer
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
 
@@ -132,15 +133,21 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             Spacer(Modifier.height(14.dp))
         }
 
-        when (step.type) {
-            "ANIMATED_EXPLANATION_V1", "animated_explanation" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
+        // ANIMATED_EXPLANATION keeps the local renderer because it owns the
+        // text-to-speech playback path (LessonTtsPlayer), which engine-activity
+        // does not have access to. Everything else goes through the shared
+        // type-safe dispatcher.
+        if (step.type == "ANIMATED_EXPLANATION_V1") {
+            ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
-            "multiple_choice", "story_comprehension", "prediction_observation_explanation" -> MultipleChoiceStep(step, viewModel)
-            "sort_and_classify", "timeline_builder" -> SortStep(step, viewModel)
-            "array_builder" -> ArrayStep(step, viewModel)
-            "sentence_builder" -> SentenceBuilderStep(step, viewModel)
-            else -> UnsupportedActivity(step)
+        } else {
+            ActivityRenderer(
+                step = step,
+                onResult = { result -> viewModel.onActivityResult(result) },
+                onHint = { },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
 
         if (state.showFeedback) {
@@ -220,117 +227,6 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
     }
 }
 
-// ─── Unsupported Activity Safe Fallback ───
-
-@Composable
-private fun UnsupportedActivity(step: ActivityStep) {
-    Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Warning.copy(alpha = 0.15f))) {
-        Column(Modifier.padding(16.dp)) {
-            Text("Activity type \"${step.type}\" is not yet supported.", style = MaterialTheme.typography.bodyMedium, color = Warning)
-            Text("This lesson step needs an engine update. Your progress is saved.", fontSize = 14.sp, color = Warning.copy(alpha = 0.7f))
-        }
-    }
-}
-
-// ─── Activity Steps ───
-
-@Composable
-private fun MultipleChoiceStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
-    var selectedIndex by remember { mutableStateOf<Int?>(null) }
-    var submitted by remember { mutableStateOf(false) }
-    var attemptCount by remember { mutableIntStateOf(1) }
-    var showRetry by remember { mutableStateOf(false) }
-
-    LaunchedEffect(step.id) { selectedIndex = null; submitted = false; attemptCount = 1; showRetry = false }
-
-    fun submit(index: Int) {
-        val isCorrect = index == step.correctIndex
-        if (isCorrect || attemptCount >= 2) {
-            submitted = true; selectedIndex = index
-            viewModel.onActivityResult(ActivityResult(step.id, isCorrect, attemptCount, 0, 0))
-        } else {
-            attemptCount++; selectedIndex = index; showRetry = true
-        }
-    }
-
-    Text(step.question, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
-    Spacer(Modifier.height(16.dp))
-
-    step.options.forEachIndexed { index, option ->
-        val bgColor = when {
-            submitted && index == step.correctIndex -> SuccessGreen.copy(alpha = 0.2f)
-            showRetry && index == selectedIndex -> ErrorRed.copy(alpha = 0.15f)
-            index == selectedIndex -> Teal90 else -> SurfaceContainer
-        }
-        Card(Modifier.fillMaxWidth().padding(vertical = 4.dp).clickable(enabled = !submitted && !(showRetry && index != selectedIndex)) { submit(index) },
-            shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = bgColor),
-            elevation = CardDefaults.cardElevation(defaultElevation = if (index == selectedIndex) 4.dp else 2.dp)) {
-            Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                val circleColor = when { submitted && index == step.correctIndex -> SuccessGreen; showRetry && index == selectedIndex -> ErrorRed; else -> Teal90 }
-                Box(Modifier.size(40.dp).clip(CircleShape).background(circleColor), contentAlignment = Alignment.Center) {
-                    if (submitted && index == step.correctIndex) Icon(Icons.Default.Check, "Correct", tint = Color.White)
-                    else if (showRetry && index == selectedIndex) Icon(Icons.Default.Close, "Wrong", tint = Color.White)
-                    else Text(('A' + index).toString(), fontWeight = FontWeight.Bold, color = Teal40)
-                }
-                Spacer(Modifier.width(12.dp))
-                Text(option, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
-            }
-        }
-    }
-    if (showRetry) {
-        Spacer(Modifier.height(12.dp))
-        TextButton(onClick = { selectedIndex = null; showRetry = false }) { Text("Try again", color = Teal40) }
-    }
-}
-
-// ─── Sort, Array, Sentence Builder Steps ───
-
-@Composable
-private fun SortStep(step: ActivityStep, viewModel: LessonPlayerViewModel) {
-    val options = step.options
-    val shuffledIndices = remember(step.id) { options.indices.shuffled() }
-    var selectedOrder by remember(step.id) { mutableStateOf<List<Int>>(emptyList()) }
-
-    Text(step.question, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
-    Spacer(Modifier.height(12.dp))
-
-    if (selectedOrder.isNotEmpty()) {
-        Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.1f))) {
-            Column(Modifier.padding(12.dp)) {
-                Text("Your order:", fontWeight = FontWeight.Bold, color = Teal40)
-                selectedOrder.forEachIndexed { idx, optionIdx -> Text("${idx + 1}. ${options[optionIdx]}", style = MaterialTheme.typography.bodyMedium) }
-            }
-        }
-        Spacer(Modifier.height(12.dp))
-    }
-
-    Text("Tap items in the correct order:", style = MaterialTheme.typography.labelMedium)
-    Spacer(Modifier.height(8.dp))
-
-    shuffledIndices.forEach { shuffledIdx ->
-        if (shuffledIdx !in selectedOrder) {
-            Card(Modifier.fillMaxWidth().padding(vertical = 3.dp).clickable { selectedOrder = selectedOrder + shuffledIdx },
-                shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(containerColor = Amber90)) {
-                Text(options[shuffledIdx], modifier = Modifier.padding(14.dp), style = MaterialTheme.typography.bodyLarge)
-            }
-        }
-    }
-
-    if (selectedOrder.size == options.size) {
-        Spacer(Modifier.height(12.dp))
-        val isCorrect = selectedOrder == options.indices.toList()
-        Text(if (isCorrect) "Correct order!" else "Not quite right.", fontWeight = FontWeight.Bold, color = if (isCorrect) SuccessGreen else ErrorRed)
-        MaxinesPrimaryButton(
-            onClick = { viewModel.onActivityResult(ActivityResult(step.id, isCorrect, 1, 0, 0)) },
-            text = "Submit", modifier = Modifier.fillMaxWidth())
-    }
-}
-
-@Composable
-private fun ArrayStep(step: ActivityStep, viewModel: LessonPlayerViewModel) = MultipleChoiceStep(step, viewModel)
-
-@Composable
-private fun SentenceBuilderStep(step: ActivityStep, viewModel: LessonPlayerViewModel) = UnsupportedActivity(step)
 
 // ─── Feedback, Character, Error, Completion ───
 
