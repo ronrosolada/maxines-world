@@ -5,6 +5,12 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.coremodel.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
@@ -158,26 +164,109 @@ class LessonPlayerViewModel @Inject constructor(
             guideCharacter = "Milo",
             estimatedMinutes = m1.estimatedMinutes,
             languageOfInstruction = m1.language,
-            steps = m1.activities.map { act ->
-                ActivityStep(
-                    id = act.activityId, type = when (act.type) {
-                        "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
-                        "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
-                        "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
-                        "HOTSPOT_IMAGE" -> "HOTSPOT_IMAGE_V1"
-                        "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
-                        "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
-                        "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
-                        else -> "ANIMATED_EXPLANATION_V1"
-                    },
-                    narrationText = act.instruction,
-                    options = emptyList(), correctIndex = -1,
-                    feedback = ActivityFeedback(
-                        correct = act.feedback?.correct ?: "Great job!",
-                        incorrect = act.feedback?.retry ?: "Let's try again!"
-                    )
-                )
-            }
+            steps = m1.activities.map { act -> toActivityStep(act) }
         )
     }
+}
+
+/** Maps the on-disk activity type to the versioned renderer key. */
+internal fun rendererType(rawType: String): String = when (rawType) {
+    "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
+    "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
+    "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
+    "HOTSPOT_IMAGE" -> "HOTSPOT_IMAGE_V1"
+    "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
+    "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
+    "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
+    else -> "ANIMATED_EXPLANATION_V1"
+}
+
+private fun JsonObject.stringList(key: String): List<String> =
+    (this[key] as? JsonArray)?.mapNotNull { it.jsonPrimitive.contentOrNull() } ?: emptyList()
+
+private fun JsonPrimitive.contentOrNull(): String? =
+    this.content.takeIf { it.isNotBlank() }
+
+/**
+ * Converts one Month1Activity into a renderer-ready ActivityStep, parsing the
+ * loosely-typed `content` JSON into the typed fields each renderer needs.
+ *
+ * Parsing is defensive: a malformed payload yields an ActivityStep with empty
+ * typed fields rather than throwing, so one bad lesson cannot crash the player.
+ */
+internal fun toActivityStep(act: Month1Activity): ActivityStep {
+    val type = rendererType(act.type)
+    val content = act.content
+    val obj = content as? JsonObject
+
+    var question = act.instruction
+    var options: List<String> = emptyList()
+    var correctIndex = -1
+    var sortCategories: List<String> = emptyList()
+    var sortItems: List<SortItem> = emptyList()
+    var matchPairs: List<MatchPair> = emptyList()
+    var sequenceSteps: List<String> = emptyList()
+    var hotspotExamples: List<String> = emptyList()
+    var narration = act.instruction
+
+    runCatching {
+        when (act.type) {
+            "ANIMATED_EXPLANATION" -> {
+                val body = (content as? JsonPrimitive)?.content.orEmpty()
+                narration = if (body.isNotBlank()) body else act.instruction
+            }
+
+            "HOTSPOT_IMAGE" -> {
+                hotspotExamples = obj?.stringList("examples") ?: emptyList()
+            }
+
+            "SORT_AND_CLASSIFY" -> {
+                val fits = obj?.stringList("fits") ?: emptyList()
+                val doesNotFit = obj?.stringList("doesNotFit") ?: emptyList()
+                // Category 0 = fits, category 1 = does not fit.
+                sortCategories = listOf("Fits the lesson", "Does not fit")
+                sortItems = (fits.map { SortItem(it, 0) } + doesNotFit.map { SortItem(it, 1) })
+                    .shuffled(java.util.Random(act.activityId.hashCode().toLong()))
+            }
+
+            "MULTIPLE_CHOICE" -> {
+                options = obj?.stringList("options") ?: emptyList()
+                correctIndex = obj?.get("correctIndex")?.jsonPrimitive?.content?.toIntOrNull() ?: -1
+                if (correctIndex !in options.indices) correctIndex = -1
+            }
+
+            "MATCHING_PAIRS" -> {
+                matchPairs = (obj?.get("pairs") as? JsonArray)?.mapNotNull { element ->
+                    val p = element.jsonObject
+                    val left = p["left"]?.jsonPrimitive?.contentOrNull()
+                    val right = p["right"]?.jsonPrimitive?.contentOrNull()
+                    if (left != null && right != null) MatchPair(left, right) else null
+                } ?: emptyList()
+            }
+
+            "SEQUENCE_BUILDER" -> {
+                sequenceSteps = obj?.stringList("steps") ?: emptyList()
+            }
+        }
+    }.onFailure {
+        android.util.Log.e("LessonVM", "content parse failed for ${act.activityId}: ${it.message}", it)
+    }
+
+    return ActivityStep(
+        id = act.activityId,
+        type = type,
+        narrationText = narration,
+        question = question,
+        options = options,
+        correctIndex = correctIndex,
+        feedback = ActivityFeedback(
+            correct = act.feedback?.correct ?: "Great job!",
+            incorrect = act.feedback?.retry ?: "Let's try again!"
+        ),
+        sortCategories = sortCategories,
+        sortItems = sortItems,
+        matchPairs = matchPairs,
+        sequenceSteps = sequenceSteps,
+        hotspotExamples = hotspotExamples
+    )
 }

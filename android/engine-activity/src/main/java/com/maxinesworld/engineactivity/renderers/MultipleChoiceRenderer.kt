@@ -32,7 +32,15 @@ fun MultipleChoiceRenderer(
     var feedbackState by remember { mutableStateOf<Boolean?>(null) } // null=no feedback, true=correct, false=incorrect
     var submitted by remember { mutableStateOf(false) }
 
-    val options = step.options.ifEmpty { listOf("A", "B", "C", "D") }
+    val options = step.options
+    if (options.isEmpty()) {
+        Text(
+            text = "This activity is unavailable.",
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.padding(24.dp)
+        )
+        return
+    }
 
     Column(
         modifier = modifier
@@ -114,10 +122,22 @@ fun MultipleChoiceRenderer(
             MaxinesPrimaryButton(
                 onClick = {
                     if (submitted) {
-                        // Retry: reset state
-                        submitted = false
-                        selectedIndex = -1
-                        feedbackState = null
+                        // Third failure: advance anyway so the child is never trapped.
+                        if (feedbackState == false && attempts >= 3) {
+                            onResult(
+                                ActivityResult(
+                                    activityId = step.id,
+                                    correct = false,
+                                    attempts = attempts,
+                                    hintsUsed = 0,
+                                    responseTimeMs = System.currentTimeMillis() - startTime
+                                )
+                            )
+                        } else {
+                            submitted = false
+                            selectedIndex = -1
+                            feedbackState = null
+                        }
                     } else if (selectedIndex >= 0) {
                         attempts++
                         val correct = selectedIndex == step.correctIndex
@@ -136,7 +156,11 @@ fun MultipleChoiceRenderer(
                         }
                     }
                 },
-                text = if (submitted && feedbackState == false) "Retry" else "Submit",
+                text = when {
+                    submitted && feedbackState == false && attempts >= 3 -> "Keep going →"
+                    submitted && feedbackState == false -> "Retry"
+                    else -> "Submit"
+                },
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
                 enabled = selectedIndex >= 0 || (submitted && feedbackState == false),
                 modifier = Modifier

@@ -31,11 +31,22 @@ fun SortAndClassifyRenderer(
     var submitted by remember { mutableStateOf(false) }
     var allCorrect by remember { mutableStateOf(false) }
 
-    val options = step.options
-    val catCount = maxOf(1, options.size / 2)
-    val categories = options.take(catCount)
-    val items = options.drop(catCount).ifEmpty { options }
-    val correctMapping = items.indices.associateWith { it % catCount }
+    // Typed fields are authoritative. The positional fallback below exists only
+    // for legacy ActivitySteps that predate the typed model.
+    val categories = step.sortCategories.ifEmpty {
+        val n = maxOf(1, step.options.size / 2)
+        step.options.take(n)
+    }
+    val items: List<String> = if (step.sortItems.isNotEmpty()) {
+        step.sortItems.map { it.label }
+    } else {
+        step.options.drop(maxOf(1, step.options.size / 2)).ifEmpty { step.options }
+    }
+    val correctMapping: Map<Int, Int> = if (step.sortItems.isNotEmpty()) {
+        step.sortItems.indices.associateWith { step.sortItems[it].categoryIndex }
+    } else {
+        items.indices.associateWith { it % maxOf(1, categories.size) }
+    }
 
     Column(
         modifier = modifier.fillMaxWidth().padding(16.dp),
@@ -81,14 +92,29 @@ fun SortAndClassifyRenderer(
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
             .background(if (submitted && allCorrect) SuccessGreen else VillageTeal)
             .clickable {
-                if (submitted) { classified = mutableMapOf(); submitted = false; allCorrect = false; attempts++ }
-                else if (classified.size == items.size) {
-                    attempts++; allCorrect = classified.all { (it, c) -> c == correctMapping[it] }; submitted = true
+                if (submitted && !allCorrect) {
+                    // Third failure: advance anyway so the child is never trapped.
+                    if (attempts >= 3) {
+                        onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
+                    } else {
+                        classified = mutableMapOf(); submitted = false
+                    }
+                } else if (!submitted && classified.size == items.size) {
+                    attempts++
+                    allCorrect = classified.all { (i, c) -> c == correctMapping[i] }
+                    submitted = true
                     if (allCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
                 }
             }.semantics { contentDescription = if (submitted && !allCorrect) "Try again" else "Submit" },
             contentAlignment = Alignment.Center) {
-            Text(if (submitted) { if (allCorrect) "Great job! 🎉" else "Try Again" } else "Submit",
+            Text(
+                if (submitted) {
+                    when {
+                        allCorrect -> "Great job! 🎉"
+                        attempts >= 3 -> "Keep going →"
+                        else -> "Try Again"
+                    }
+                } else "Submit",
                 color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
         }
     }
