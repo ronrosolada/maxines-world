@@ -23,6 +23,9 @@ interface ChildProfileDao {
     @Query("SELECT * FROM child_profiles WHERE id = :childId")
     suspend fun getById(childId: String): ChildProfileEntity?
 
+    @Query("SELECT * FROM child_profiles WHERE id = :childId")
+    fun observeById(childId: String): Flow<ChildProfileEntity?>
+
     @Query("SELECT * FROM child_profiles WHERE parentId = :parentId")
     fun observeByParent(parentId: String): Flow<List<ChildProfileEntity>>
 
@@ -143,6 +146,9 @@ interface LessonCompletionDao {
 
     @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
     suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
+
+    @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId")
+    fun observeDistinctLessonCount(childId: String): Flow<Int>
 }
 
 // ─── Fish Treat Ledger (v7) ───

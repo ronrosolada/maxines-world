@@ -51,7 +51,8 @@ class LessonPlayerViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val masteryEngine: MasteryEngine,
     private val badgeAwarder: BadgeAwarder,
-    private val activeContentIndex: ActiveContentIndex
+    private val activeContentIndex: ActiveContentIndex,
+    private val lessonCompletionDao: LessonCompletionDao,
 ) : AndroidViewModel(application) {
 
     private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
@@ -125,6 +126,17 @@ class LessonPlayerViewModel @Inject constructor(
             }
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+            // Record idempotent lesson completion (distinct lessonId drives child level).
+            lessonCompletionDao.insertIgnoring(
+                LessonCompletionEntity(
+                    id = UUID.randomUUID().toString(),
+                    childId = childId,
+                    lessonId = lesson.id,
+                    attemptId = UUID.randomUUID().toString(),
+                    accuracy = accuracy,
+                    completedAtEpochMillis = System.currentTimeMillis(),
+                )
+            )
             val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
             rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
                 type = "STAR", subject = lesson.subject, amount = starsEarned))
