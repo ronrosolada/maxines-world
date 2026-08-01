@@ -15,9 +15,20 @@ import androidx.room.RoomDatabase
         RewardBreakEntitlementEntity::class,
         MiniGameResultEntity::class,
         DailyChallengeEntity::class,
-        CollectedBadgeEntity::class
+        CollectedBadgeEntity::class,
+        // v7: adopted from v6 lineage (playground/quest/ledger)
+        LessonCompletionEntity::class,
+        RewardLedgerEntity::class,
+        InventoryEntity::class,
+        DailyQuestSetEntity::class,
+        DailyQuestCompletionEntity::class,
+        PlaygroundUnlockReceiptEntity::class,
+        // v7: adopted from v4 lineage (content packages)
+        ContentPackageEntity::class,
+        ActiveContentPackageEntity::class,
+        ContentSyncRunEntity::class
     ],
-    version = 3,
+    version = 7,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {
@@ -32,4 +43,13 @@ abstract class MaxinesDatabase : RoomDatabase() {
     abstract fun miniGameResultDao(): MiniGameResultDao
     abstract fun dailyChallengeDao(): DailyChallengeDao
     abstract fun collectedBadgeDao(): CollectedBadgeDao
+    abstract fun lessonCompletionDao(): LessonCompletionDao
+    abstract fun rewardLedgerDao(): RewardLedgerDao
+    abstract fun inventoryDao(): InventoryDao
+    abstract fun dailyQuestSetDao(): DailyQuestSetDao
+    abstract fun dailyQuestCompletionDao(): DailyQuestCompletionDao
+    abstract fun playgroundUnlockReceiptDao(): PlaygroundUnlockReceiptDao
+    abstract fun contentPackageDao(): ContentPackageDao
+    abstract fun activeContentPackageDao(): ActiveContentPackageDao
+    abstract fun contentSyncRunDao(): ContentSyncRunDao
 }

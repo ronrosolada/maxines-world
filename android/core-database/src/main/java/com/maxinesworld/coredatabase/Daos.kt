@@ -130,3 +130,122 @@ interface DailyQuestDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(quest: DailyQuestEntity)
 }
+
+// ─── Lesson Completion Idempotency (v7) ───
+
+@Dao
+interface LessonCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(completion: LessonCompletionEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId)")
+    suspend fun exists(childId: String, lessonId: String): Boolean
+
+    @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
+    suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
+}
+
+// ─── Fish Treat Ledger (v7) ───
+
+@Dao
+interface RewardLedgerDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
+
+    @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE childId = :childId")
+    suspend fun fishTreatBalance(childId: String): Int
+}
+
+@Dao
+interface InventoryDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(item: InventoryEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
+    suspend fun owns(childId: String, itemId: String): Boolean
+}
+
+// ─── Playground Gate Persistence (v7) ───
+
+@Dao
+interface DailyQuestSetDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestSetEntity): Long
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
+
+    @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<DailyQuestSetEntity?>
+}
+
+@Dao
+interface DailyQuestCompletionDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: DailyQuestCompletionEntity): Long
+
+    @Query("SELECT * FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): List<DailyQuestCompletionEntity>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getCompletedQuestIds(childId: String, dayKey: String): List<String>
+
+    @Query("SELECT questId FROM daily_quest_completions WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeCompletedQuestIds(childId: String, dayKey: String): Flow<List<String>>
+}
+
+@Dao
+interface PlaygroundUnlockReceiptDao {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: PlaygroundUnlockReceiptEntity): Long
+
+    @Query("SELECT EXISTS(SELECT 1 FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey)")
+    suspend fun existsByChildAndDay(childId: String, dayKey: String): Boolean
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun getByChildAndDay(childId: String, dayKey: String): PlaygroundUnlockReceiptEntity?
+
+    @Query("SELECT * FROM playground_unlock_receipts WHERE childId = :childId AND dayKey = :dayKey")
+    fun observeByChildAndDay(childId: String, dayKey: String): Flow<PlaygroundUnlockReceiptEntity?>
+}
+
+// ─── Content Package Registry (v7) ───
+
+@Dao
+interface ContentPackageDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(pkg: ContentPackageEntity)
+
+    @Query("SELECT * FROM content_packages WHERE packageId = :packageId ORDER BY version DESC")
+    suspend fun getVersions(packageId: String): List<ContentPackageEntity>
+
+    @Query("SELECT * FROM content_packages WHERE source = :source AND state = 'VERIFIED'")
+    suspend fun getVerifiedBySource(source: String): List<ContentPackageEntity>
+
+    @Query("SELECT COUNT(*) FROM content_packages")
+    suspend fun count(): Int
+}
+
+@Dao
+interface ActiveContentPackageDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun setActive(active: ActiveContentPackageEntity)
+
+    @Query("SELECT * FROM active_content_package WHERE packageId = :packageId")
+    suspend fun getActive(packageId: String): ActiveContentPackageEntity?
+
+    @Query("DELETE FROM active_content_package WHERE packageId = :packageId")
+    suspend fun removeActive(packageId: String)
+}
+
+@Dao
+interface ContentSyncRunDao {
+    @Insert
+    suspend fun insert(run: ContentSyncRunEntity)
+
+    @Query("SELECT * FROM content_sync_runs ORDER BY startedAtEpochMillis DESC LIMIT 10")
+    suspend fun getRecent(): List<ContentSyncRunEntity>
+
+    @Query("UPDATE content_sync_runs SET state = :state, completedAtEpochMillis = :completedAt, errorMessage = :error WHERE id = :id")
+    suspend fun complete(id: String, state: String, completedAt: Long, error: String?)
+}
