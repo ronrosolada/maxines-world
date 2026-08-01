@@ -132,9 +132,6 @@ dependencies {
     // DataStore
     implementation(libs.datastore.preferences)
 
-    // WorkManager
-    implementation(libs.workmanager.runtime)
-
     // Testing
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
@@ -145,4 +142,41 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.compose.ui.test.junit4)
+}
+
+// ─── Release gate: no unreviewed lesson may ship ─────────────────────────
+// Fails the build if any playable lesson in the bundled pack is not
+// educator-approved (educatorValidated=true AND releaseStatus=RELEASED).
+// Approval is performed deliberately via tools/mark_lessons_reviewed.py
+// after a human curriculum review — the gate exists so a release can never
+// accidentally ship draft curriculum to a child.
+val verifyPlayableContent by tasks.registering {
+    group = "verification"
+    description = "Fail if any playable lesson is not educator-reviewed"
+    val packDir = project.layout.projectDirectory.dir("src/main/assets/content-pack/month-01/lessons")
+    doLast {
+        val slurper = groovy.json.JsonSlurper()
+        var total = 0
+        var unreviewed = 0
+        val bad = mutableListOf<String>()
+        packDir.asFileTree.matching { include("*.json") }.forEach { file ->
+            total++
+            @Suppress("UNCHECKED_CAST")
+            val lesson = slurper.parse(file) as Map<String, Any?>
+            val validated = lesson["educatorValidated"] as? Boolean ?: false
+            val released = lesson["releaseStatus"] == "RELEASED"
+            if (!(validated && released)) {
+                unreviewed++
+                bad += file.name
+            }
+        }
+        if (unreviewed > 0) {
+            throw GradleException(
+                "Release gate FAILED: $unreviewed/$total playable lessons are not " +
+                    "educator-reviewed (e.g. ${bad.take(5)}). " +
+                    "Run tools/mark_lessons_reviewed.py after a human curriculum review."
+            )
+        }
+        println("Release gate OK: $total playable lessons are educator-reviewed.")
+    }
 }
