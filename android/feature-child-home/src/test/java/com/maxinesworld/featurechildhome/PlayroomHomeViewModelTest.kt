@@ -59,7 +59,7 @@ class PlayroomHomeViewModelTest {
         vm.state.value.islands.first { it.id == "gmrc" }
 
     @Test
-    fun `kindness island locked at level 1`() = runTest(dispatcher) {
+    fun `kindness locked at level 1`() = runTest(dispatcher) {
         val vm = buildViewModel(completedLessons = 0)
         advanceUntilIdle()
         assertTrue("kindness locked at 0 lessons", kindness(vm).locked)
@@ -77,10 +77,28 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
-    fun `kindness unlocked at level 4`() = runTest(dispatcher) {
+    fun `kindness locked exactly at 11 distinct lessons with singular subtitle`() = runTest(dispatcher) {
+        val vm = buildViewModel(completedLessons = 11)
+        advanceUntilIdle()
+        assertTrue("kindness still locked at 11 lessons", kindness(vm).locked)
+        assertEquals(3, ChildLevelPolicy.levelFor(11))
+        assertEquals("Unlocks at Level 4 · 1 lesson to go", kindness(vm).subtitle)
+    }
+
+    @Test
+    fun `kindness unlocked exactly at 12 distinct lessons`() = runTest(dispatcher) {
         val vm = buildViewModel(completedLessons = 12)
         advanceUntilIdle()
         assertFalse("kindness unlocked at 12 lessons", kindness(vm).locked)
+        assertEquals("Kindness awaits!", kindness(vm).subtitle)
+    }
+
+    @Test
+    fun `kindness stays unlocked above threshold`() = runTest(dispatcher) {
+        val vm = buildViewModel(completedLessons = 20)
+        advanceUntilIdle()
+        assertFalse(kindness(vm).locked)
+        assertEquals(6, ChildLevelPolicy.levelFor(20))
         assertEquals("Kindness awaits!", kindness(vm).subtitle)
     }
 
