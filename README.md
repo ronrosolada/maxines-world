@@ -40,3 +40,9 @@ cd android
 ## Architecture
 See [docs/01-architecture-decisions.md](docs/01-architecture-decisions.md)  
 See [docs/02-milestones-and-risks.md](docs/02-milestones-and-risks.md)
+
+## License
+- **Code:** All rights reserved — see [LICENSE](LICENSE)
+- **Content (lessons, art, design):** CC BY-NC 4.0 — see [CONTENT-LICENSE](CONTENT-LICENSE)
+- **Attribution & provenance:** see [NOTICE](NOTICE)
+- Fonts (Baloo 2, Nunito): SIL Open Font License
