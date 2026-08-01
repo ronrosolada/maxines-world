@@ -104,7 +104,13 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 state = homeState,
                 onDestinationClick = { subject ->
                     val lessonId = lessonIdForSubject(subject)
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
+                    if (lessonId != null) {
+                        navController.navigate(Routes.lessonPlayer(childId, lessonId))
+                    } else {
+                        // Explicit failure state: unknown subject must NOT open an
+                        // unrelated lesson. Surface as a visible error, never a redirect.
+                        android.util.Log.w("MaxinesNavGraph", "Unsupported subject tapped: '$subject' — refusing navigation")
+                    }
                 },
                 onQuestClick = { },
                 onHomeClick = { },
@@ -266,13 +272,25 @@ fun MaxinesNavGraph(navController: NavHostController) {
     }
 }
 
-internal fun lessonIdForSubject(subject: String): String = when (subject) {
+/**
+ * Map a Playroom island/subject ID to a lesson ID.
+ *
+ * Returns null for unknown subjects — callers MUST handle null explicitly
+ * (show an error state / refuse navigation). There is deliberately NO silent
+ * fallback to English: an unknown subject must never open an unrelated lesson.
+ *
+ * KNOWN GAP (documented, requires product decision): GMRC currently routes to
+ * an Araling Panlipunan lesson because no GMRC lesson exists in a playable
+ * Month1Lesson format. Tracked as a known issue — do NOT change without
+ * first adding real GMRC content.
+ */
+internal fun lessonIdForSubject(subject: String): String? = when (subject) {
     "english" -> "english-g3-m01-d01"
     "filipino" -> "filipino-g3-m01-d01"
     "mathematics" -> "mathematics-g3-m01-d01"
     "science" -> "science-g3-m01-d01"
     "araling-panlipunan", "philippine-history", "makabansa", "heritage-harbor" ->
         "araling-panlipunan-g3-m01-d01"
-    "gmrc" -> "araling-panlipunan-g3-m01-d01"
-    else -> "english-g3-m01-d01"
+    "gmrc" -> "araling-panlipunan-g3-m01-d01"  // KNOWN GAP: no playable GMRC content yet
+    else -> null
 }
