@@ -104,7 +104,7 @@ class MigrationTest {
         }
 
         // ── Phase 2: Migrate to v2, verify v1 data preserved + new tables exist ──
-        val dbV2 = helper.runMigrationsAndValidate(TEST_DB, 2, true)
+        val dbV2 = helper.runMigrationsAndValidate(TEST_DB, 2, true, MaxinesMigrations.MIGRATION_1_2)
 
         // Verify v1 data survived migration
         val parentCursor = dbV2.query("SELECT * FROM parent_accounts WHERE id = 'parent_1'")
@@ -171,7 +171,7 @@ class MigrationTest {
         dbV2.close()
 
         // ── Phase 3: Migrate to v3, verify all data preserved + new tables exist ──
-        val dbV3 = helper.runMigrationsAndValidate(TEST_DB, 3, true)
+        val dbV3 = helper.runMigrationsAndValidate(TEST_DB, 3, true, MaxinesMigrations.MIGRATION_2_3)
 
         // Verify v1 data STILL intact after v2→v3 migration
         val parentV3 = dbV3.query("SELECT COUNT(*) AS cnt FROM parent_accounts WHERE id = 'parent_1'")
@@ -243,5 +243,147 @@ class MigrationTest {
         }
 
         dbV3.close()
+    }
+
+    // ─────────────────────────────────────────────
+    // v3 → v7: the main release path (v0.17/v0.18 devices)
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate3to7_preservesData_andAddsTables() = runTest {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val testId = "migration_test_child"
+
+        // Phase 1: create v3 database with representative data
+        val dbV3 = helper.createDatabase(TEST_DB, 3).apply {
+            execSQL("INSERT INTO parent_accounts (id, displayName, pinHash, biometricEnabled, createdAt) VALUES ('parent_1', 'Test Parent', 'hash_abc', 0, 1700000000000)")
+            execSQL("INSERT INTO child_profiles (id, parentId, name, avatarId, grade, curriculum, createdAt) VALUES ('$testId', 'parent_1', 'Test Child', 'cat_orange_default', 3, 'ph-matatag', 1700000000000)")
+            execSQL("INSERT INTO progress_events (id, childId, skillId, lessonId, activityId, eventType, accuracy, attempts, hintsUsed, responseTimeMs, timestamp, syncStatus) VALUES ('prog_1', '$testId', 'skill_001', 'lesson_001', 'act_001', 'COMPLETED', 0.85, 2, 1, 5000, 1700000000000, 'PENDING')")
+            execSQL("INSERT INTO collected_badges (id, childId, badgeId, biome, earnedDate, earnedAtEpochMillis) VALUES ('${testId}_badge_01', '$testId', 'badge_01', 'forest_friends', '2026-07-13', 1700000000000)")
+            close()
+        }
+
+        // Phase 2: migrate 3 → 7 using the real migration
+        val dbV7 = helper.runMigrationsAndValidate(TEST_DB, 7, true, MaxinesMigrations.MIGRATION_3_7)
+
+        // Core data preserved
+        val child = dbV7.query("SELECT COUNT(*) AS cnt FROM child_profiles WHERE id = '$testId'")
+        child.moveToFirst()
+        assertEquals("child preserved through 3→7", 1, child.getInt(0))
+        child.close()
+
+        val badge = dbV7.query("SELECT COUNT(*) AS cnt FROM collected_badges WHERE badgeId = 'badge_01'")
+        badge.moveToFirst()
+        assertEquals("badge preserved through 3→7", 1, badge.getInt(0))
+        badge.close()
+
+        // New v6-lineage tables exist and are writable
+        dbV7.execSQL("INSERT INTO lesson_completions (id, childId, lessonId, attemptId, accuracy, completedAtEpochMillis) VALUES ('lc_1', '$testId', 'lesson_001', 'att_1', 0.9, 1700000000000)")
+        dbV7.execSQL("INSERT INTO reward_ledger (id, childId, amount, sourceKey, occurredAtEpochMillis) VALUES ('rl_1', '$testId', 10, 'lesson-first:$testId:lesson_001', 1700000000000)")
+        dbV7.execSQL("INSERT INTO inventory (id, childId, itemId, acquiredAtEpochMillis) VALUES ('inv_1', '$testId', 'fish_treat', 1700000000000)")
+        dbV7.execSQL("INSERT INTO daily_quest_sets (id, childId, dayKey, assignedQuestIds, assignedAtEpochMillis) VALUES ('dqs_1', '$testId', '2026-08-01', '[\"q1\",\"q2\"]', 1700000000000)")
+        dbV7.execSQL("INSERT INTO daily_quest_completions (id, childId, dayKey, questId, completionEventId, completedAtEpochMillis) VALUES ('dqc_1', '$testId', '2026-08-01', 'q1', 'ev_1', 1700000000000)")
+        dbV7.execSQL("INSERT INTO playground_unlock_receipts (id, childId, dayKey, sourceQuestSetHash, unlockedAtEpochMillis) VALUES ('pur_1', '$testId', '2026-08-01', 'hash_1', 1700000000000)")
+
+        // New v4-lineage tables exist and are writable
+        dbV7.execSQL("INSERT INTO content_packages (id, packageId, version, source, state, rootPath, contentHash, installedAtEpochMillis) VALUES ('cp_1', 'ph-grade3-v1', 1, 'BUNDLED', 'ACTIVE', '/assets', 'abc123', 1700000000000)")
+        dbV7.execSQL("INSERT INTO active_content_package (packageId, version, source, activatedAtEpochMillis) VALUES ('ph-grade3-v1', 1, 'BUNDLED', 1700000000000)")
+        dbV7.execSQL("INSERT INTO content_sync_runs (id, channel, state, catalogVersion, packagesUpdated, startedAtEpochMillis, completedAtEpochMillis, errorMessage) VALUES ('csr_1', 'PRODUCTION', 'SUCCEEDED', 2, 1, 1700000000000, 1700000060000, NULL)")
+
+        // Spot-check reads
+        val lc = dbV7.query("SELECT * FROM lesson_completions WHERE id = 'lc_1'")
+        assertTrue("lesson completion readable", lc.moveToFirst())
+        assertEquals("lc accuracy", 0.9, lc.getDouble(lc.getColumnIndexOrThrow("accuracy")), 0.001)
+        lc.close()
+
+        val cp = dbV7.query("SELECT * FROM content_packages WHERE id = 'cp_1'")
+        assertTrue("content package readable", cp.moveToFirst())
+        assertEquals("cp state", "ACTIVE", cp.getString(cp.getColumnIndexOrThrow("state")))
+        cp.close()
+
+        dbV7.close()
+    }
+
+    // ─────────────────────────────────────────────
+    // v4 → v7: v0.7.0-alpha devices (content tables already present)
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate4to7_preservesContentPackData() = runTest {
+        val testId = "migration_test_child"
+
+        val dbV4 = helper.createDatabase(TEST_DB, 4).apply {
+            execSQL("INSERT INTO parent_accounts (id, displayName, pinHash, biometricEnabled, createdAt) VALUES ('parent_1', 'Test Parent', 'hash_abc', 0, 1700000000000)")
+            execSQL("INSERT INTO content_packages (id, packageId, version, source, state, rootPath, contentHash, installedAtEpochMillis) VALUES ('cp_alpha', 'ph-grade3-v1', 1, 'DOWNLOADED', 'VERIFIED', '/data', 'abc123', 1700000000000)")
+            execSQL("INSERT INTO active_content_package (packageId, version, source, activatedAtEpochMillis) VALUES ('ph-grade3-v1', 1, 'DOWNLOADED', 1700000000000)")
+            execSQL("INSERT INTO content_sync_runs (id, channel, state, catalogVersion, packagesUpdated, startedAtEpochMillis, completedAtEpochMillis, errorMessage) VALUES ('csr_alpha', 'PREVIEW', 'SUCCEEDED', 1, 1, 1700000000000, 1700000060000, NULL)")
+            close()
+        }
+
+        val dbV7 = helper.runMigrationsAndValidate(TEST_DB, 7, true, MaxinesMigrations.MIGRATION_4_7)
+
+        // Content data preserved from v4
+        val cp = dbV7.query("SELECT * FROM content_packages WHERE id = 'cp_alpha'")
+        assertTrue("alpha content package preserved", cp.moveToFirst())
+        assertEquals("cp source preserved", "DOWNLOADED", cp.getString(cp.getColumnIndexOrThrow("source")))
+        cp.close()
+
+        val active = dbV7.query("SELECT * FROM active_content_package WHERE packageId = 'ph-grade3-v1'")
+        assertTrue("active pointer preserved", active.moveToFirst())
+        active.close()
+
+        // v6-lineage tables now exist (they didn't in v4)
+        dbV7.execSQL("INSERT INTO daily_quest_sets (id, childId, dayKey, assignedQuestIds, assignedAtEpochMillis) VALUES ('dqs_1', '$testId', '2026-08-01', '[\"q1\"]', 1700000000000)")
+        val dqs = dbV7.query("SELECT * FROM daily_quest_sets WHERE id = 'dqs_1'")
+        assertTrue("daily quest set writable after 4→7", dqs.moveToFirst())
+        dqs.close()
+
+        dbV7.close()
+    }
+
+    // ─────────────────────────────────────────────
+    // v6 → v7: v0.6.13-next.10 devices (playground tables already present)
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate6to7_preservesPlaygroundData() = runTest {
+        val testId = "migration_test_child"
+
+        val dbV6 = helper.createDatabase(TEST_DB, 6).apply {
+            execSQL("INSERT INTO parent_accounts (id, displayName, pinHash, biometricEnabled, createdAt) VALUES ('parent_1', 'Test Parent', 'hash_abc', 0, 1700000000000)")
+            execSQL("INSERT INTO lesson_completions (id, childId, lessonId, attemptId, accuracy, completedAtEpochMillis) VALUES ('lc_next', '$testId', 'lesson_001', 'att_1', 0.95, 1700000000000)")
+            execSQL("INSERT INTO reward_ledger (id, childId, amount, sourceKey, occurredAtEpochMillis) VALUES ('rl_next', '$testId', 25, 'lesson-first:$testId:lesson_001', 1700000000000)")
+            execSQL("INSERT INTO daily_quest_sets (id, childId, dayKey, assignedQuestIds, assignedAtEpochMillis) VALUES ('dqs_next', '$testId', '2026-08-01', '[\"q1\",\"q2\",\"q3\"]', 1700000000000)")
+            execSQL("INSERT INTO playground_unlock_receipts (id, childId, dayKey, sourceQuestSetHash, unlockedAtEpochMillis) VALUES ('pur_next', '$testId', '2026-08-01', 'hash_x', 1700000000000)")
+            close()
+        }
+
+        val dbV7 = helper.runMigrationsAndValidate(TEST_DB, 7, true, MaxinesMigrations.MIGRATION_6_7)
+
+        // Playground data preserved from v6
+        val lc = dbV7.query("SELECT * FROM lesson_completions WHERE id = 'lc_next'")
+        assertTrue("next.10 lesson completion preserved", lc.moveToFirst())
+        assertEquals("accuracy preserved", 0.95, lc.getDouble(lc.getColumnIndexOrThrow("accuracy")), 0.001)
+        lc.close()
+
+        val ledger = dbV7.query("SELECT * FROM reward_ledger WHERE id = 'rl_next'")
+        assertTrue("ledger entry preserved", ledger.moveToFirst())
+        assertEquals("ledger amount", 25, ledger.getInt(ledger.getColumnIndexOrThrow("amount")))
+        ledger.close()
+
+        val pur = dbV7.query("SELECT * FROM playground_unlock_receipts WHERE id = 'pur_next'")
+        assertTrue("unlock receipt preserved", pur.moveToFirst())
+        pur.close()
+
+        // Content tables now exist (they didn't in v6)
+        dbV7.execSQL("INSERT INTO content_packages (id, packageId, version, source, state, rootPath, contentHash, installedAtEpochMillis) VALUES ('cp_1', 'ph-grade3-v1', 1, 'BUNDLED', 'ACTIVE', '/assets', 'abc123', 1700000000000)")
+        val cp = dbV7.query("SELECT * FROM content_packages WHERE id = 'cp_1'")
+        assertTrue("content package writable after 6→7", cp.moveToFirst())
+        cp.close()
+
+        dbV7.close()
     }
 }

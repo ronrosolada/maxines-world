@@ -17,6 +17,13 @@ android {
     room {
         schemaDirectory("$projectDir/schemas")
     }
+
+    sourceSets {
+        getByName("androidTest") {
+            // Room's MigrationTestHelper reads exported schema JSONs from test assets
+            assets.srcDirs(files("$projectDir/schemas"))
+        }
+    }
 }
 
 dependencies {
