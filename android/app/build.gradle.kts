@@ -83,7 +83,6 @@ dependencies {
     implementation(project(":engine-activity"))
     implementation(project(":engine-assessment"))
     implementation(project(":engine-mastery"))
-    implementation(project(":engine-sync"))
     implementation(project(":engine-minigame"))
     implementation(project(":game-cat-cafe"))
     implementation(project(":game-pawprint-parkour"))

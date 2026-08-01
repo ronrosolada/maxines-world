@@ -16,7 +16,7 @@ env:
 
 jobs:
   content-integrity:
-    name: Content integrity (100 lessons)
+    name: Content integrity (349 lessons)
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -114,7 +114,7 @@ jobs:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
           working-directory: android
-          script: ./gradlew :core-database:connectedDebugAndroidTest --stacktrace
+          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest --stacktrace
 
       - name: Upload migration test report
         if: always()
