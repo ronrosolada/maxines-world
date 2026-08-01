@@ -39,14 +39,11 @@ class LessonRouteTest {
     }
 
     @Test
-    fun `gmrc routes per known-gap policy (documented, not silent English)`() {
+    fun `gmrc maps to a REAL gmrc lesson`() {
         val lessonId = lessonIdForSubject("gmrc")
-        // KNOWN GAP: no playable GMRC content exists yet, so gmrc routes to an
-        // Araling Panlipunan lesson. This is a DOCUMENTED product decision, not a
-        // silent fallback — and it must never resolve to English.
         assertNotNull("gmrc must map to a lesson", lessonId)
-        assertTrue("gmrc must NOT silently map to English", lessonId != "english-g3-m01-d01")
-        // The mapped file must exist so the island opens something playable
+        assertTrue("gmrc must map to gmrc content, got: $lessonId", lessonId!!.startsWith("gmrc"))
+        // The mapped file must exist in the bundle (converted SLM content)
         val file = File(lessonsDir(), "$lessonId.json")
         assertTrue("gmrc-mapped lesson must exist in bundle: $file", file.isFile)
     }

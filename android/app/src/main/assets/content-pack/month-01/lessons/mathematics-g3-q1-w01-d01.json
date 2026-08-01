@@ -1,0 +1,373 @@
+{
+ "lessonId": "mathematics-g3-q1-w01-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 1,
+ "subject": "mathematics",
+ "title": "Recognize, draw, and describe points, lines, line",
+ "objective": "Recognize, draw, and describe points, lines, line segments, and rays using models.",
+ "estimatedMinutes": 15,
+ "educatorValidated": false,
+ "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "language": "en-PH",
+ "introduction": "Look around you! The tip of your pencil is a point. The edge of your ruler is a line segment. The sun's rays shooting through the window — those are rays! Geometry is everywhere. Today you'll become a Geometry Explorer and learn to spot points, lines, line segments, and rays in the world around you.",
+ "vocabulary": [
+  {
+   "term": "Point",
+   "definition": "Isang eksaktong lokasyon, tulad ng dulo ng lapis."
+  },
+  {
+   "term": "Line",
+   "definition": "Isang tuwid na guhit na walang hangganan sa magkabilang dulo."
+  },
+  {
+   "term": "Line segment",
+   "definition": "Bahagi ng linya na may dalawang dulo."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Watch and learn! See how points, lines, and rays are different.",
+   "content": "A POINT is a tiny dot showing an exact spot. A LINE SEGMENT connects two points — it stops! A RAY starts at one point and goes on forever. PARALLEL lines never cross, like train tracks. PERPENDICULAR lines cross at a perfect corner.",
+   "completionRule": {
+    "type": "VIEW_AND_ACKNOWLEDGE"
+   },
+   "feedback": {
+    "correct": "Now you know the basics! Let's practice.",
+    "retry": "Watch once more."
+   },
+   "accessibilityAlternative": "Text description of geometric shapes: point, line segment, ray, parallel, perpendicular.",
+   "prompt": "Pay attention to the story!",
+   "narration": "Milo says: Let's learn about this! Pay close attention.",
+   "guideHint": "Listen carefully!",
+   "nextLabel": "Next →"
+  },
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Tap each shape to learn its name and what makes it special!",
+   "content": {
+    "examples": [
+     "Point A — a tiny red dot showing an exact location",
+     "Line Segment CD — a blue line with two endpoints. It stops!",
+     "Ray EF — an orange line with one endpoint. It goes forever!",
+     "Parallel Lines — two purple lines that never meet",
+     "Perpendicular Lines — two green lines that cross at a square corner"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 5
+   },
+   "feedback": {
+    "correct": "You explored every shape!",
+    "retry": "Tap the remaining shapes to learn about them."
+   },
+   "accessibilityAlternative": "Five geometric shapes are listed: point, line segment, ray, parallel lines, perpendicular lines.",
+   "prompt": "Find and tap the correct place.",
+   "narration": "Can you spot it? Tap the correct spot!",
+   "guideHint": "Need a hint?",
+   "nextLabel": "Next →"
+  },
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Sort each item: is it a POINT, LINE SEGMENT, or RAY?",
+   "content": {
+    "fits": [
+     "Tip of a pencil — POINT",
+     "Edge of a book — LINE SEGMENT",
+     "Light from a flashlight — RAY",
+     "Corner of a room — POINT",
+     "Side of a door — LINE SEGMENT",
+     "Sunbeam through clouds — RAY"
+    ],
+    "doesNotFit": [
+     "A bouncing ball",
+     "A whole pizza",
+     "A cloud"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 9
+   },
+   "feedback": {
+    "correct": "You sorted them all! You're thinking like a geometer.",
+    "retry": "Some items need a different group."
+   },
+   "accessibilityAlternative": "Sort real-world examples into point, line segment, or ray categories.",
+   "prompt": "Drag each item to its group.",
+   "narration": "Sort these into groups! What belongs together?",
+   "guideHint": "Need a hint?",
+   "nextLabel": "Next →"
+  },
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Which describes a LINE SEGMENT?",
+   "content": {
+    "options": [
+     "A straight path with two endpoints",
+     "A shape that goes on forever in both directions",
+     "A round shape with no corners",
+     "A path that curves around"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Correct! A line segment has two endpoints — it stops!",
+    "retry": "Think: does it have endpoints or go forever?"
+   },
+   "accessibilityAlternative": "Choose which description matches a line segment.",
+   "prompt": "Tap the best answer!",
+   "narration": "Choose the best answer! You can do it!",
+   "guideHint": "Need a hint?",
+   "nextLabel": "Next →"
+  },
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Match each geometry word to its real-world example!",
+   "content": {
+    "pairs": [
+     {
+      "left": "Point",
+      "right": "The tip of your ballpen"
+     },
+     {
+      "left": "Line segment",
+      "right": "The edge of your ruler"
+     },
+     {
+      "left": "Ray",
+      "right": "A sunbeam coming through the window"
+     },
+     {
+      "left": "Parallel lines",
+      "right": "The two rails of a train track"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_PAIRS_MATCHED",
+    "pairCount": 4
+   },
+   "feedback": {
+    "correct": "Perfect matches! Geometry is all around you.",
+    "retry": "Try matching each word to the best example."
+   },
+   "accessibilityAlternative": "Match geometry terms to real-world examples.",
+   "prompt": "Match the ones that go together!",
+   "narration": "Match the pairs! Which ones go together?",
+   "guideHint": "Need a hint?",
+   "nextLabel": "Next →"
+  },
+  {
+   "activityId": "mathematics-g3-q1-w01-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w01-d01-visual",
+   "instruction": "Put these in order: from simplest to most complex!",
+   "content": {
+    "steps": [
+     "A single point (just a dot!)",
+     "A line segment (two points connected)",
+     "A ray (one endpoint, goes forever)",
+     "Two parallel lines (never meet!)"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_STEPS_COMPLETED",
+    "stepCount": 4
+   },
+   "feedback": {
+    "correct": "That's the right order — from point to parallel lines!",
+    "retry": "Start with the simplest idea first."
+   },
+   "accessibilityAlternative": "Order geometric concepts from simplest to most complex.",
+   "prompt": "Arrange from first to last.",
+   "narration": "What's the correct order? Drag to arrange!",
+   "guideHint": "Need a hint?",
+   "nextLabel": "Next →"
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What math topic did we learn?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Numbers, shapes, and problem solving"
+     },
+     {
+      "id": "b",
+      "text": "Art class"
+     },
+     {
+      "id": "c",
+      "text": "Music"
+     },
+     {
+      "id": "d",
+      "text": "Reading stories"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Milo asks: What math topic did we learn?"
+   },
+   {
+    "itemId": "q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "How do you solve a math problem?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask someone else"
+     },
+     {
+      "id": "b",
+      "text": "Guess randomly"
+     },
+     {
+      "id": "c",
+      "text": "Think step by step, then check your work"
+     },
+     {
+      "id": "d",
+      "text": "Give up"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Milo asks: How do you solve a math problem?"
+   },
+   {
+    "itemId": "q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Where can you use math in real life?",
+    "options": [
+     {
+      "id": "a",
+      "text": "It's useless"
+     },
+     {
+      "id": "b",
+      "text": "Never"
+     },
+     {
+      "id": "c",
+      "text": "At the store, cooking, and counting things"
+     },
+     {
+      "id": "d",
+      "text": "Only in school"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Milo asks: Where can you use math in real life?"
+   },
+   {
+    "itemId": "q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What helps you get better at math?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Nothing helps"
+     },
+     {
+      "id": "b",
+      "text": "A magic wand"
+     },
+     {
+      "id": "c",
+      "text": "Practice and asking questions!"
+     },
+     {
+      "id": "d",
+      "text": "Wishing really hard"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Milo asks: What helps you get better at math?"
+   },
+   {
+    "itemId": "q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What if you get stuck on a problem?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Cry and give up"
+     },
+     {
+      "id": "b",
+      "text": "Throw your paper away"
+     },
+     {
+      "id": "c",
+      "text": "Ignore it"
+     },
+     {
+      "id": "d",
+      "text": "Try a different way, then ask for help"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Milo asks: What if you get stuck on a problem?"
+   }
+  ]
+ }
+}

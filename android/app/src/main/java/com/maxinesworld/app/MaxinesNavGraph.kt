@@ -279,10 +279,10 @@ fun MaxinesNavGraph(navController: NavHostController) {
  * (show an error state / refuse navigation). There is deliberately NO silent
  * fallback to English: an unknown subject must never open an unrelated lesson.
  *
- * KNOWN GAP (documented, requires product decision): GMRC currently routes to
- * an Araling Panlipunan lesson because no GMRC lesson exists in a playable
- * Month1Lesson format. Tracked as a known issue — do NOT change without
- * first adding real GMRC content.
+ * GMRC (Kindness island) now maps to REAL GMRC content converted from the
+ * DepEd Matatag SLM source (tools/convert_slm_to_pack.py) — previously it
+ * routed to an Araling Panlipunan lesson because no playable GMRC content
+ * existed. The heritage island keeps the legacy AP lesson.
  */
 internal fun lessonIdForSubject(subject: String): String? = when (subject) {
     "english" -> "english-g3-m01-d01"
@@ -291,6 +291,6 @@ internal fun lessonIdForSubject(subject: String): String? = when (subject) {
     "science" -> "science-g3-m01-d01"
     "araling-panlipunan", "philippine-history", "makabansa", "heritage-harbor" ->
         "araling-panlipunan-g3-m01-d01"
-    "gmrc" -> "araling-panlipunan-g3-m01-d01"  // KNOWN GAP: no playable GMRC content yet
+    "gmrc" -> "gmrc-g3-q1-w01-d01"
     else -> null
 }

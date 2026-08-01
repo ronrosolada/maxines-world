@@ -48,19 +48,18 @@ class OfflineLessonLoadTest {
     }
 
     @Test
-    fun gmrcRoutesToPlayableLessonPerKnownGapPolicy() = runBlocking {
-        // KNOWN GAP (documented in MaxinesNavGraph): no playable GMRC content
-        // exists yet, so gmrc routes to an AP lesson. The guarantee we test:
-        // it must load SOMETHING playable offline and never silently open English.
+    fun gmrcMapsToRealGmrcLesson() = runBlocking {
+        // GMRC content converted from DepEd SLM source — the Kindness island
+        // must open a REAL gmrc lesson (not an AP placeholder, not English).
         val activeIndex = ActiveContentIndex(context)
         val contentLoader = ContentLessonLoader(context, activeIndex)
         val legacyLoader = LessonLoader(context, activeIndex)
 
         val lessonId = lessonIdForSubject("gmrc")!!
-        assertTrue("gmrc must not silently map to English", lessonId != "english-g3-m01-d01")
+        assertTrue("gmrc must map to gmrc content, got: $lessonId", lessonId.startsWith("gmrc"))
 
         val viaContent = contentLoader.loadLesson(lessonId)
         val viaLegacy = legacyLoader.loadLesson(lessonId)
-        assertTrue("gmrc-mapped lesson must load offline", viaContent != null || viaLegacy != null)
+        assertTrue("gmrc lesson must load offline", viaContent != null || viaLegacy != null)
     }
 }
