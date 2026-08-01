@@ -378,6 +378,15 @@ class MigrationTest {
         assertTrue("unlock receipt preserved", pur.moveToFirst())
         pur.close()
 
+        // Migrated lesson data must contribute to Kindness progress: the distinct
+        // lesson count used by ChildLevelPolicy must include the v6 row.
+        val distinctCursor = dbV7.query(
+            "SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = '$testId' AND length(trim(lessonId)) > 0"
+        )
+        distinctCursor.moveToFirst()
+        assertEquals("migrated v6 lesson counts toward progress", 1, distinctCursor.getInt(0))
+        distinctCursor.close()
+
         // Content tables now exist (they didn't in v6)
         dbV7.execSQL("INSERT INTO content_packages (id, packageId, version, source, state, rootPath, contentHash, installedAtEpochMillis) VALUES ('cp_1', 'ph-grade3-v1', 1, 'BUNDLED', 'ACTIVE', '/assets', 'abc123', 1700000000000)")
         val cp = dbV7.query("SELECT * FROM content_packages WHERE id = 'cp_1'")
