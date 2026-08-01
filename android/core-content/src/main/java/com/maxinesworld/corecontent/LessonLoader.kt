@@ -61,12 +61,11 @@ class LessonLoader @Inject constructor(
         val lessonNum = parts[3].removePrefix("l")  // "l01" → "01"
 
         val subjectDir = when (subjectCode) {
-            "eng" -> "english"
-            "fil" -> "filipino"
-            "math" -> "mathematics"
-            "sci" -> "science"
-            "mkb" -> "makabansa"
-            "hist" -> "makabansa"  // legacy
+            "eng", "english" -> "english"
+            "fil", "filipino" -> "filipino"
+            "math", "mathematics" -> "mathematics"
+            "sci", "science" -> "science"
+            "mkb", "makabansa", "hist" -> "makabansa"  // legacy
             "gmrc" -> "gmrc"
             else -> return null
         }
