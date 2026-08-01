@@ -83,3 +83,43 @@ jobs:
           name: unit-test-reports
           path: '**/build/reports/tests/testDebugUnitTest/'
           if-no-files-found: ignore
+
+  migration-tests:
+    name: Migration tests (emulator, API ${{ matrix.api-level }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        api-level: [34]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+        working-directory: android
+
+      - name: Run migration tests on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          arch: x86_64
+          working-directory: android
+          script: ./gradlew :core-database:connectedDebugAndroidTest --stacktrace
+
+      - name: Upload migration test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-test-report
+          path: android/core-database/build/reports/androidTests/
+          if-no-files-found: ignore
