@@ -147,7 +147,7 @@ interface LessonCompletionDao {
     @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
     suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
 
-    @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId")
+    @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonCount(childId: String): Flow<Int>
 }
 
