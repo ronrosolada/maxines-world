@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Meadow Shelf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E; --leaf:#66A83E;
+    --purple:#7653B5; --sky:#3C9DDB; --ink:#183B4A; --cream:#FFF7E8;
+    --pastel-blue:#DCF1FA; --pastel-pink:#FDE8E4; --pastel-green:#E4F3DA; --pastel-yellow:#FFF3CE; --pastel-purple:#EFE6FA; --pastel-teal:#DDF2EF;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);line-height:1.45;min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(110% 70% at 90% -10%, rgba(60,157,219,.18), transparent 55%),
+      radial-gradient(90% 60% at -10% 110%, rgba(245,184,46,.16), transparent 55%),
+      linear-gradient(180deg,#FDFBF4 0%,#F7F3E6 100%);
+  }
+  h1,h2,h3{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .page{max-width:1200px;margin:0 auto;padding:20px 28px 30px}
+
+  /* ── Header ── */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .top .l{display:flex;align-items:center;gap:12px}
+  .top .l .logo{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,var(--teal),#0B6B6F);display:grid;place-items:center;font-size:24px;box-shadow:0 5px 0 #065F63, 0 8px 16px rgba(8,127,131,.25)}
+  .top .l b{font-size:21px}
+  .top .l small{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;color:#8AA0A7;text-transform:uppercase}
+  .top .r{display:flex;gap:10px}
+  .pill{display:flex;align-items:center;gap:6px;background:#fff;border:2px solid #EFE8D6;border-bottom-width:4px;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800}
+  .pill b{font-size:15px}
+
+  /* ── Greeting band ── */
+  .band{margin-top:20px;background:#fff;border:2px solid #EFE8D6;border-radius:24px;padding:14px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 6px 18px rgba(24,59,74,.06)}
+  .band .guide{display:flex;align-items:center;gap:12px}
+  .guide .g{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:30px;flex:none;border:3px solid #fff;box-shadow:0 3px 0 rgba(0,0,0,.08)}
+  .guide b{font-size:16px;display:block}
+  .guide span{font-size:12.5px;font-weight:700;color:#8AA0A7}
+  .band .paths{display:flex;gap:10px;margin-left:auto;flex-wrap:wrap}
+  .path-btn{background:#F7F3E6;border:2px solid #EFE8D6;border-bottom-width:4px;border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:800;display:flex;align-items:center;gap:6px;transition:all .13s ease}
+  .path-btn:hover{border-color:#C9C2B0}
+  .path-btn.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* ── Library shelf ── */
+  .shelf-title{display:flex;align-items:baseline;justify-content:space-between;margin:24px 0 6px}
+  .shelf-title h2{font-size:21px}
+  .shelf-title span{font-size:13px;font-weight:800;color:#8AA0A7}
+  .shelf{
+    position:relative;background:linear-gradient(180deg,#8A5A2B,#6E4520);border-radius:18px;
+    padding:20px 22px 34px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.25), 0 8px 20px rgba(110,69,32,.35);
+  }
+  .shelf::after{ /* front lip */
+    content:"";position:absolute;left:0;right:0;bottom:16px;height:8px;background:#5A3718;border-radius:0 0 14px 14px;
+  }
+  .books{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;position:relative;z-index:2}
+  .book{
+    background:#fff;border-radius:16px;padding:14px 12px 12px;text-align:left;
+    display:flex;flex-direction:column;align-items:center;gap:8px;border-bottom:6px solid #E5E0D2;
+    transition:transform .15s cubic-bezier(.34,1.56,.64,1), box-shadow .15s ease;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+  }
+  .book:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 10px 20px rgba(0,0,0,.15)}
+  .book .b-ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:26px}
+  .book b{font-size:14px;text-align:center;line-height:1.2}
+  .book .b-meta{font-size:11px;font-weight:800;color:#8AA0A7;display:flex;align-items:center;gap:4px}
+  .book .b-meta .star{color:var(--gold);font-size:12px}
+  .book .b-go{font-size:11px;font-weight:800;border-radius:99px;padding:4px 12px;margin-top:2px}
+  .book.locked{opacity:.85;border-bottom-color:#D8D2C2}
+  .book.locked .b-go{background:#E8E3D4;color:#8AA0A7}
+
+  /* ── Bottom row ── */
+  .bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  .card{background:#fff;border:2px solid #EFE8D6;border-radius:20px;padding:16px 18px;box-shadow:0 6px 16px rgba(24,59,74,.05)}
+  .card h2{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .friends{display:flex;gap:12px}
+  .friend{flex:1;background:#FBF9F2;border:2px solid #EFE8D6;border-radius:16px;padding:12px;text-align:center;transition:transform .13s ease}
+  .friend:hover{transform:translateY(-3px)}
+  .friend .f{width:44px;height:44px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;font-size:24px;border:2.5px solid #fff;box-shadow:0 3px 0 rgba(0,0,0,.07)}
+  .friend b{font-size:12.5px;display:block}
+  .friend span{font-size:10.5px;font-weight:800;color:#8AA0A7}
+  .friend.dim{opacity:.55}
+
+  .task{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed #EFE8D6;font-size:13.5px;font-weight:700}
+  .task:last-child{border-bottom:none}
+  .task .box{width:21px;height:21px;border-radius:7px;border:2px solid #C9C2B0;flex:none;display:grid;place-items:center;font-size:12px;color:transparent;background:#fff;transition:all .13s ease}
+  .task.done .box{background:var(--leaf);border-color:var(--leaf);color:#fff}
+  .task.done{color:#9AA8AD;text-decoration:line-through}
+  .task .pts{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--leaf)}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(24,59,74,.4);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+  .overlay.open{display:flex}
+  .sheet{background:#fff;border-radius:22px;width:min(540px,94%);padding:24px 26px;box-shadow:0 26px 60px rgba(24,59,74,.3)}
+  .sheet h2{font-size:22px;display:flex;align-items:center;gap:10px}
+  .sheet .sub{font-size:13px;font-weight:700;color:#8AA0A7;margin-top:2px}
+  .lesson{display:flex;align-items:center;gap:12px;border:2px solid #EFE8D6;border-radius:13px;padding:11px 13px;margin-top:9px;font-size:13.5px;font-weight:700}
+  .lesson .num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:12.5px;color:#fff;flex:none}
+  .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--leaf)}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:13px;background:var(--teal);color:#fff;font-weight:800;font-size:15px;border-bottom:4px solid #065F63}
+  .sheet .close:active{transform:translateY(2px);border-bottom-width:2px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP -->
+  <header class="top">
+    <div class="l">
+      <span class="logo">🐱</span>
+      <div><small>Maxine's Meadow</small><b>Maxine's World</b></div>
+    </div>
+    <div class="r">
+      <span class="pill">🔥 <b>12</b></span>
+      <span class="pill">⭐ <b>240</b></span>
+    </div>
+  </header>
+
+  <!-- GREETING BAND -->
+  <div class="band">
+    <div class="guide">
+      <div class="g" style="background:var(--pastel-yellow)">🐱</div>
+      <div><b>Hi Maxine! 👋</b><span>Milo found your books for today</span></div>
+    </div>
+    <div class="paths">
+      <button class="path-btn on">📚 Learn</button>
+      <button class="path-btn">📖 Read</button>
+      <button class="path-btn">🔤 ABC</button>
+      <button class="path-btn">🎨 Play</button>
+    </div>
+  </div>
+
+  <!-- LIBRARY SHELF -->
+  <div class="shelf-title">
+    <h2>Today's bookshelf</h2>
+    <span>2 of 3 done today · tap a book to open it</span>
+  </div>
+  <div class="shelf">
+    <div class="books">
+      <button class="book" data-subj="English">
+        <span class="b-ic" style="background:var(--pastel-purple)">📖</span>
+        <b>The Clever<br>Turtle</b>
+        <span class="b-meta"><span class="star">★</span> Story Tree</span>
+        <span class="b-go" style="background:var(--purple);color:#fff">Read again</span>
+      </button>
+      <button class="book" data-subj="Mathematics">
+        <span class="b-ic" style="background:var(--pastel-blue)">🔢</span>
+        <b>Counting<br>by 5s</b>
+        <span class="b-meta"><span class="star">★</span> Number Market</span>
+        <span class="b-go" style="background:var(--mat);color:#fff">Practice</span>
+      </button>
+      <button class="book" data-subj="Filipino">
+        <span class="b-ic" style="background:var(--pastel-pink)">🪁</span>
+        <b>Ang Matalinong<br>Pagong</b>
+        <span class="b-meta"><span class="star">☆</span> Bahay ng Kuwento</span>
+        <span class="b-go" style="background:var(--fil);color:#fff">Start</span>
+      </button>
+      <button class="book" data-subj="Science">
+        <span class="b-ic" style="background:var(--pastel-green)">🔬</span>
+        <b>Living &amp;<br>Non-living</b>
+        <span class="b-meta"><span class="star">☆</span> Discovery Lab</span>
+        <span class="b-go" style="background:var(--sci);color:#fff">Start</span>
+      </button>
+      <button class="book" data-subj="Makabansa">
+        <span class="b-ic" style="background:var(--pastel-yellow)">🇵🇭</span>
+        <b>Ako ay<br>Pilipino</b>
+        <span class="b-meta"><span class="star">☆</span> Heritage Harbor</span>
+        <span class="b-go" style="background:var(--mak);color:#fff">Start</span>
+      </button>
+      <button class="book locked" data-subj="GMRC">
+        <span class="b-ic" style="background:#EFECE3">💛</span>
+        <b>Sharing with<br>friends</b>
+        <span class="b-meta">🔒 Level 4</span>
+        <span class="b-go">Locked</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+    <div class="card">
+      <h2>🐾 Village friends</h2>
+      <div class="friends">
+        <button class="friend"><div class="f" style="background:var(--pastel-green)">🐢</div><b>Kiko</b><span>Science</span></button>
+        <button class="friend"><div class="f" style="background:var(--pastel-blue)">🦉</div><b>Owly</b><span>English</span></button>
+        <button class="friend"><div class="f" style="background:var(--pastel-pink)">🐖</div><b>Pipoy</b><span>Filipino</span></button>
+        <button class="friend dim"><div class="f" style="background:var(--pastel-purple)">🐘</div><b>Ely</b><span>soon…</span></button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>🎯 Today's quest</h2>
+      <button class="task done"><span class="box">✓</span> Read 1 story<span class="pts">+20</span></button>
+      <button class="task done"><span class="box">✓</span> Practice counting by 5s<span class="pts">+15</span></button>
+      <button class="task"><span class="box">✓</span> Meet a new village friend<span class="pts">+15</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">📖 The Clever Turtle</h2>
+    <p class="sub" id="m-sub">English · Story Tree</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const books = {
+    English:{t:"The Clever Turtle",s:"English · Story Tree",l:["Read along — The Clever Turtle","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"]},
+    Mathematics:{t:"Counting by 5s",s:"Mathematics · Number Market",l:["Counting by 5s to 100","Addition to 20 — quick facts","Shapes around us","Story problems — add & take away"]},
+    Filipino:{t:"Ang Matalinong Pagong",s:"Filipino · Bahay ng Kuwento",l:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"]},
+    Science:{t:"Living & Non-living",s:"Science · Discovery Lab",l:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"]},
+    Makabansa:{t:"Ako ay Pilipino",s:"Makabansa · Heritage Harbor",l:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"]},
+    GMRC:{t:"Sharing with friends",s:"GMRC · Kindness Corner",l:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]}
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+
+  document.querySelectorAll('.book:not(.locked)').forEach(b => {
+    b.addEventListener('click', () => {
+      const d = books[b.dataset.subj];
+      document.getElementById('m-title').textContent = icon[b.dataset.subj] + ' ' + d.t;
+      document.getElementById('m-sub').textContent = d.s;
+      document.getElementById('m-lessons').innerHTML = d.l.map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[b.dataset.subj]}">${i+1}</span>${l}<span class="st">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  document.querySelectorAll('.task').forEach(t => t.addEventListener('click', () => t.classList.toggle('done')));
+
+  // tabs switch (state transition)
+  document.querySelectorAll('.path-btn').forEach(p => p.addEventListener('click', () => {
+    document.querySelectorAll('.path-btn').forEach(x => x.classList.remove('on'));
+    p.classList.add('on');
+  }));
+</script>
+</body>
+</html>

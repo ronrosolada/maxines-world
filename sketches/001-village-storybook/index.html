@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Maxine's World — Village Storybook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ── Tokens (from core-design-system Color.kt / Theme.kt) ── */
+  :root{
+    --teal:#087F83; --coral:#F47C6B; --gold:#F5B82E; --leaf:#66A83E;
+    --purple:#7653B5; --sky:#3C9DDB; --ink:#183B4A; --cream:#FFF7E8;
+    --surface:#F5F0E8; --white:#FFFFFF;
+    --eng:#7653B5; --fil:#D96555; --mat:#218CC8; --sci:#57943B; --mak:#B87916; --gmrc:#26A69A;
+    --radius:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:
+      radial-gradient(circle at 85% -10%, rgba(60,157,219,.14), transparent 42%),
+      radial-gradient(circle at 0% 110%, rgba(245,184,46,.16), transparent 40%),
+      var(--cream);
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    padding:26px 30px 18px;
+  }
+  h1,h2,h3,.baloo{font-family:"Baloo 2",cursive;font-weight:800}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+  .page{max-width:1240px;margin:0 auto}
+
+  /* ── Hero ── */
+  .hero{
+    position:relative;border-radius:28px;overflow:hidden;
+    background:linear-gradient(135deg,#0E6E72 0%,#087F83 48%,#0B8F86 100%);
+    color:#fff;padding:26px 34px;box-shadow:0 10px 30px rgba(8,127,131,.28);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .hero::before{ /* rolling hills */
+    content:"";position:absolute;left:-10%;right:-10%;bottom:-42px;height:110px;
+    background:radial-gradient(60% 100% at 25% 100%,#6DBE4A 60%,transparent 61%),
+               radial-gradient(50% 100% at 55% 100%,#F5B82E 62%,transparent 63%),
+               radial-gradient(55% 100% at 82% 100%,#66A83E 60%,transparent 61%);
+    opacity:.85;
+  }
+  .hero-txt{position:relative;z-index:2}
+  .hero-txt .wave{font-size:15px;font-weight:800;color:#FFE9A8;letter-spacing:.5px}
+  .hero-txt h1{font-size:34px;line-height:1.12;margin-top:2px;text-shadow:0 2px 0 rgba(0,0,0,.12)}
+  .hero-txt p{margin-top:6px;font-size:16px;font-weight:600;color:#EAF7F4;max-width:340px}
+  .hero-badge{
+    position:relative;z-index:2;display:flex;align-items:center;gap:12px;
+    background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);
+    padding:12px 18px;border-radius:999px;backdrop-filter:blur(3px);
+  }
+  .hero-badge .star{font-size:24px}
+  .hero-badge .lbl{font-size:12px;font-weight:800;letter-spacing:.8px;color:#FFE9A8}
+  .hero-badge .val{font-size:22px;font-weight:800;line-height:1}
+  .milo{position:relative;z-index:2;font-size:64px;line-height:1;transform:rotate(-4deg);filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+
+  /* ── Layout ── */
+  .grid{display:grid;grid-template-columns:1fr 330px;gap:22px;margin-top:22px}
+
+  /* ── Subject cottages ── */
+  .cottages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cottage{
+    position:relative;background:var(--white);border-radius:var(--radius);
+    padding:18px 18px 16px;border:2px solid transparent;
+    box-shadow:0 4px 14px rgba(24,59,74,.08);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    text-align:left;display:flex;flex-direction:column;gap:10px;
+  }
+  .cottage::before{ /* storybook arch roof */
+    content:"";position:absolute;top:-2px;left:18px;right:18px;height:9px;
+    border-radius:0 0 10px 10px;
+  }
+  .cottage:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(24,59,74,.14)}
+  .cottage .roofband{height:6px;border-radius:99px;width:52px}
+  .cottage .icon{font-size:34px;line-height:1}
+  .cottage .name{font-family:"Baloo 2",cursive;font-weight:800;font-size:19px}
+  .cottage .meta{font-size:13px;font-weight:700;color:#5C7780}
+  .progress{display:flex;align-items:center;gap:8px}
+  .progress .bar{flex:1;height:8px;border-radius:99px;background:#EDE6D8;overflow:hidden}
+  .progress .fill{height:100%;border-radius:99px}
+  .progress .pct{font-size:12px;font-weight:800;color:var(--ink)}
+  .cottage .foot{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
+  .cottage .go{
+    font-size:13px;font-weight:800;color:#fff;border-radius:999px;
+    padding:6px 14px;transition:transform .12s ease;
+  }
+  .cottage .go:active{transform:scale(.94)}
+  .stars{font-size:13px;letter-spacing:1px}
+
+  /* ── Daily Quest (parchment) ── */
+  .quest{
+    background:linear-gradient(160deg,#FFFDF6,#FBF1D9);
+    border:2px solid #EAD9AE;border-radius:var(--radius);
+    padding:18px;box-shadow:0 6px 18px rgba(184,121,22,.14);
+    position:sticky;top:20px;
+  }
+  .quest h2{font-size:21px;display:flex;align-items:center;gap:8px;color:#8A5B10}
+  .quest .stamp{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .quest .task{
+    display:flex;align-items:center;gap:10px;background:#fff;border:1.5px dashed #D9C48F;
+    border-radius:14px;padding:10px 12px;font-size:14px;font-weight:700;text-align:left;
+    transition:background .15s ease;
+  }
+  .quest .task:hover{background:#FFFDF4}
+  .quest .task.done{border-style:solid;border-color:#A8D5A2;background:#F2FBE9}
+  .quest .task.done .ck{background:#2F9E62;color:#fff;border-color:#2F9E62}
+  .ck{
+    width:24px;height:24px;border-radius:8px;border:2px solid #C9B273;
+    display:grid;place-items:center;font-size:14px;color:transparent;flex:none;
+    background:#fff;transition:all .15s ease;
+  }
+  .quest .reward{
+    margin-top:14px;display:flex;align-items:center;justify-content:space-between;
+    background:#FFF1C9;border-radius:14px;padding:10px 12px;font-weight:800;font-size:14px;color:#8A5B10;
+  }
+  .quest .reward b{font-size:17px;color:#B87916}
+
+  /* ── Bottom nav ── */
+  .dock{
+    margin-top:20px;background:var(--white);border-radius:999px;
+    box-shadow:0 4px 16px rgba(24,59,74,.1);
+    display:flex;justify-content:center;gap:8px;padding:8px;max-width:460px;margin-left:auto;margin-right:auto;
+  }
+  .dock button{
+    display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#5C7780;
+    padding:10px 18px;border-radius:999px;transition:all .15s ease;
+  }
+  .dock button:hover{color:var(--teal);background:#E8F4F1}
+  .dock button.on{color:#fff;background:var(--teal);box-shadow:0 3px 10px rgba(8,127,131,.35)}
+
+  /* ── Modal ── */
+  .overlay{
+    position:fixed;inset:0;background:rgba(11,42,54,.5);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;z-index:50;padding:30px;
+  }
+  .overlay.open{display:flex}
+  .sheet{
+    background:var(--cream);border-radius:24px;width:min(600px,94%);max-height:82%;
+    overflow:auto;box-shadow:0 24px 60px rgba(11,42,54,.4);padding:24px 26px;
+  }
+  .sheet h2{font-size:24px;display:flex;align-items:center;gap:10px}
+  .sheet .sub{font-size:14px;font-weight:700;color:#5C7780;margin-top:2px}
+  .lesson{
+    display:flex;align-items:center;gap:12px;background:#fff;border-radius:14px;
+    padding:12px 14px;margin-top:10px;border:1.5px solid #EFE7D5;font-size:14px;font-weight:700;
+  }
+  .lesson .num{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+  .lesson .st{font-size:12px;color:#2F9E62;font-weight:800}
+  .sheet .close{margin-top:18px;width:100%;padding:12px;border-radius:14px;background:var(--teal);color:#fff;font-weight:800;font-size:15px}
+  .sheet .close:active{transform:scale(.98)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-txt">
+      <div class="wave">☀️ Magandang umaga!</div>
+      <h1>Maxine's Village</h1>
+      <p>Matuto tayo at maglaro! Six friends are waiting for you today.</p>
+    </div>
+    <div class="milo" title="Milo, your village cat">🐱</div>
+    <div class="hero-badge">
+      <span class="star">⭐</span>
+      <div>
+        <div class="lbl">LEVEL 3 · 240 XP</div>
+        <div class="val">12 days strong!</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- COTTAGES -->
+    <section class="cottages">
+      <button class="cottage" data-subj="English" style="--ac:var(--eng)">
+        <span class="roofband" style="background:var(--eng)"></span>
+        <span class="icon">📖</span>
+        <span class="name">Story Tree</span>
+        <span class="meta">English · 5/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:62%;background:var(--eng)"></span></span><span class="pct">62%</span></div>
+        <span class="foot"><span class="stars">★★★★☆</span><span class="go" style="background:var(--eng)">Explore →</span></span>
+      </button>
+
+      <button class="cottage" data-subj="Filipino" style="--ac:var(--fil)">
+        <span class="roofband" style="background:var(--fil)"></span>
+        <span class="icon">🪁</span>
+        <span class="name">Bahay ng Kuwento</span>
+        <span class="meta">Filipino · 3/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:37%;background:var(--fil)"></span></span><span class="pct">37%</span></div>
+        <span class="foot"><span class="stars">★★☆☆☆</span><span class="go" style="background:var(--fil)">Explore →</span></span>
+      </button>
+
+      <button class="cottage" data-subj="Mathematics" style="--ac:var(--mat)">
+        <span class="roofband" style="background:var(--mat)"></span>
+        <span class="icon">🔢</span>
+        <span class="name">Number Market</span>
+        <span class="meta">Mathematics · 7/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:87%;background:var(--mat)"></span></span><span class="pct">87%</span></div>
+        <span class="foot"><span class="stars">★★★★☆</span><span class="go" style="background:var(--mat)">Explore →</span></span>
+      </button>
+
+      <button class="cottage" data-subj="Science" style="--ac:var(--sci)">
+        <span class="roofband" style="background:var(--sci)"></span>
+        <span class="icon">🔬</span>
+        <span class="name">Discovery Lab</span>
+        <span class="meta">Science · 2/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:25%;background:var(--sci)"></span></span><span class="pct">25%</span></div>
+        <span class="foot"><span class="stars">★★☆☆☆</span><span class="go" style="background:var(--sci)">Explore →</span></span>
+      </button>
+
+      <button class="cottage" data-subj="Makabansa" style="--ac:var(--mak)">
+        <span class="roofband" style="background:var(--mak)"></span>
+        <span class="icon">🇵🇭</span>
+        <span class="name">Heritage Harbor</span>
+        <span class="meta">Makabansa · 4/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:50%;background:var(--mak)"></span></span><span class="pct">50%</span></div>
+        <span class="foot"><span class="stars">★★★☆☆</span><span class="go" style="background:var(--mak)">Explore →</span></span>
+      </button>
+
+      <button class="cottage" data-subj="GMRC" style="--ac:var(--gmrc)">
+        <span class="roofband" style="background:var(--gmrc)"></span>
+        <span class="icon">💛</span>
+        <span class="name">Kindness Corner</span>
+        <span class="meta">GMRC · 6/8 lessons</span>
+        <div class="progress"><span class="bar"><span class="fill" style="width:75%;background:var(--gmrc)"></span></span><span class="pct">75%</span></div>
+        <span class="foot"><span class="stars">★★★★☆</span><span class="go" style="background:var(--gmrc)">Explore →</span></span>
+      </button>
+    </section>
+
+    <!-- DAILY QUEST -->
+    <aside class="quest">
+      <h2>📋 Daily Quest</h2>
+      <p style="font-size:13px;font-weight:700;color:#9A7B3C;margin-top:2px">Finish 3 tasks to earn a mystery sticker!</p>
+      <div class="stamp">
+        <button class="task"><span class="ck">✓</span> Read 1 story at Story Tree</button>
+        <button class="task"><span class="ck">✓</span> Practice 5 addition facts</button>
+        <button class="task"><span class="ck">✓</span> Help a friend at Kindness Corner</button>
+      </div>
+      <div class="reward"><span>🎁 Daily reward</span><b>+50 XP</b></div>
+    </aside>
+  </div>
+
+  <!-- DOCK -->
+  <nav class="dock">
+    <button class="on">🏡 Village</button>
+    <button>⭐ Rewards</button>
+    <button>🎮 Games</button>
+    <button>👨‍👩‍👧 Parents</button>
+  </nav>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="sheet">
+    <h2 id="m-title">📖 Story Tree</h2>
+    <p class="sub" id="m-sub">English · Week 1 of Grade 3</p>
+    <div id="m-lessons"></div>
+    <button class="close" id="m-close">Close</button>
+  </div>
+</div>
+
+<script>
+  // Lesson data per subject (realistic Grade 3 content)
+  const lessons = {
+    English:["The Clever Turtle — read along","Story Tree — 5 new words","My Family — write 3 sentences","Animal friends — matching game"],
+    Filipino:["Ang Matalinong Pagong","Alpabetong Filipino — larawan","Pang-uri — kulay at laki","Aking Pamilya — pagsulat"],
+    Mathematics:["Addition to 20 — quick facts","Counting by 5s to 100","Shapes around us","Story problems — add & take away"],
+    Science:["Living & non-living things","Plants need water & sun","Animal homes — who lives where?","Senses — hear, see, taste"],
+    Makabansa:["Ako ay Pilipino","Philippine flag colors","My barangay helpers","Proud of my town"],
+    GMRC:["Saying thank you","Sharing with friends","Listening politely","Helping at home"]
+  };
+  const icon = {English:"📖",Filipino:"🪁",Mathematics:"🔢",Science:"🔬",Makabansa:"🇵🇭",GMRC:"💛"};
+  const col = {English:"#7653B5",Filipino:"#D96555",Mathematics:"#218CC8",Science:"#57943B",Makabansa:"#B87916",GMRC:"#26A69A"};
+  const modal = document.getElementById('modal');
+  const t = document.getElementById('m-title');
+
+  document.querySelectorAll('.cottage').forEach(c => {
+    c.addEventListener('click', () => {
+      const s = c.dataset.subj;
+      t.textContent = icon[s] + ' ' + c.querySelector('.name').textContent;
+      document.getElementById('m-sub').textContent = s + ' · Week 1 of Grade 3';
+      document.getElementById('m-lessons').innerHTML = lessons[s].map((l,i) =>
+        `<div class="lesson"><span class="num" style="background:${col[s]}">${i+1}</span>${l}<span class="st" style="margin-left:auto">${i===0?'▶ Start':'✓ Done'}</span></div>`
+      ).join('');
+      modal.classList.add('open');
+    });
+  });
+  document.getElementById('m-close').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+  // Daily quest toggle (state transition)
+  document.querySelectorAll('.task').forEach(task => {
+    task.addEventListener('click', () => task.classList.toggle('done'));
+  });
+</script>
+</body>
+</html>
