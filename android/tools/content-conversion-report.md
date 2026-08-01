@@ -1,23 +1,30 @@
 # Content Conversion Report
 
-Generated: 229 lessons from SLM source → playable pack.
+Generated: 249 lessons from SLM source → playable pack.
 
 ## Per subject
 
 | Subject | Lessons |
 |---|---|
-| english | 53 |
+| english | 73 |
 | filipino | 63 |
 | gmrc | 24 |
 | makabansa | 26 |
 | mathematics | 38 |
 | science | 25 |
 
+English Q1 (weeks 1–4, 20 lessons) authored via `tools/author_english_q1.py`
+(DepEd Matatag-aligned: picture reading, characters, endings, diary, telling
+sentences, short vowels, common/proper nouns, plurals, syllables, be-verbs,
+tenses, blends, digraphs, sight words, possessives, cause/effect, details,
+retelling, picture graphs).
+
 ## Coverage (quarter, week)
 
-- Q1 W1: 22
-- Q1 W2: 12
-- Q1 W3: 5
+- Q1 W1: 27
+- Q1 W2: 17
+- Q1 W3: 10
+- Q1 W4: 5
 - Q2 W1: 4
 - Q2 W2: 8
 - Q2 W3: 18

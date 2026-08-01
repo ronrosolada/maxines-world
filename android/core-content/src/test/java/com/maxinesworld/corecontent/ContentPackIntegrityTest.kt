@@ -64,9 +64,9 @@ class ContentPackIntegrityTest {
         val names = allLessonFiles().map { it.name }
         // Legacy hand-authored month-01 pack: 5 subjects × 20 days = 100
         assertEquals(100, names.count { "-g3-m01-d" in it })
-        // Converted SLM lessons: 229 across 6 subjects (q-format IDs)
-        assertEquals(229, names.count { "-g3-q" in it })
-        assertEquals(329, names.size)
+        // Converted SLM lessons: 249 across 6 subjects (q-format IDs)
+        assertEquals(249, names.count { "-g3-q" in it })
+        assertEquals(349, names.size)
     }
 
     @Test

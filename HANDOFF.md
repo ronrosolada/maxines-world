@@ -71,14 +71,14 @@ core-database/
 ## Content Server — RETIRED (bundled-only)
 - **Decision (2026-08-01):** no external content server. All educational content ships inside the APK (`assets/content-pack/`).
 - `nas-deployment/` removed — DreamNAS is no longer a content source; the app never contacts it.
-
 ## Content
 - **Authoring home:** `ronrosolada/maxines-world-content` (62 weekly packages, catalog v2) — content is authored/updated there, then bundled into APK releases.
-- **Playable pack: 329 lessons** in `content-pack/month-01/lessons/`:
+- **Playable pack: 349 lessons** in `content-pack/month-01/lessons/`:
   - 100 legacy hand-authored (5 subjects × 20 days, `-g3-m01-d` IDs)
-  - **229 converted from DepEd SLM source** (`-g3-q` IDs, 6 subjects incl. gmrc + makabansa) via `android/tools/convert_slm_to_pack.py` — idempotent, deterministic, regenerates from `assets/content/ph-matatag/grade-3/`
+  - **249 converted from DepEd SLM source** (`-g3-q` IDs, 6 subjects incl. gmrc + makabansa) via `android/tools/convert_slm_to_pack.py` — idempotent, deterministic, regenerates from `assets/content/ph-matatag/grade-3/`
+  - **English Q1 (20 lessons) authored** via `android/tools/author_english_q1.py` — DepEd Matatag-aligned, fills the only missing-quarter gap
 - **GMRC KNOWN GAP: RESOLVED** — Kindness island maps to `gmrc-g3-q1-w01-d01` (real GMRC content, not an AP placeholder).
-- Coverage: english Q2–Q3 (53), filipino Q1–Q4 (63), gmrc Q1–Q4 (24), makabansa Q1–Q4 (26), mathematics Q1–Q4 (38), science Q1–Q4 (25). English has **no Q1** in the SLM source — legacy month-01 English covers the gap.
+- Coverage: english Q1–Q3 (73), filipino Q1–Q4 (63), gmrc Q1–Q4 (24), makabansa Q1–Q4 (26), mathematics Q1–Q4 (38), science Q1–Q4 (25). English Q4 is the only remaining gap (no source material).
 - Conversion report: `android/tools/content-conversion-report.md`
 - **Delivery: bundled-only** — every month/quarter lesson ships inside the APK; no content server, no runtime download (decision 2026-08-01).
 
