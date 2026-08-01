@@ -7,24 +7,44 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+import java.io.File
+import java.util.Properties
+
 android {
     namespace = "com.maxinesworld.app"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 19
-        versionName = "0.19.0"
+        versionCode = 20
+        versionName = "0.20.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        // Release keystore, configured via USER-LEVEL properties file
+        // (~/.gradle/maxines-world-signing.properties) — never committed.
+        // Absent file → signingConfig stays null → unsigned release build,
+        // so CI/contributor builds keep working without a keystore.
+        create("release") {
+            val props = Properties().apply {
+                val f = File(System.getProperty("user.home"), ".gradle/maxines-world-signing.properties")
+                if (f.isFile) f.inputStream().use { load(it) }
+            }
+            storeFile = props.getProperty("MW_KEYSTORE_PATH")?.let { File(it) }
+            storePassword = props.getProperty("MW_KEYSTORE_PASS")
+            keyAlias = props.getProperty("MW_KEY_ALIAS")
+            keyPassword = props.getProperty("MW_KEY_PASS")
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.findByName("release")
         }
         debug {
             isMinifyEnabled = false
