@@ -72,15 +72,23 @@ core-database/
 - DreamNAS: LAN-only (10.10.10.33) — sync populates `filesDir/content/active/`; SHA-256 validated.
 - Bundled assets are the offline fallback; fresh install with no server reachable uses bundled lessons.
 
+## Content
+- **Playable pack: 329 lessons** in `content-pack/month-01/lessons/`:
+  - 100 legacy hand-authored (5 subjects × 20 days, `-g3-m01-d` IDs)
+  - **229 converted from DepEd SLM source** (`-g3-q` IDs, 6 subjects incl. gmrc + makabansa) via `android/tools/convert_slm_to_pack.py` — idempotent, deterministic, regenerates from `assets/content/ph-matatag/grade-3/`
+- **GMRC KNOWN GAP: RESOLVED** — Kindness island maps to `gmrc-g3-q1-w01-d01` (real GMRC content, not an AP placeholder).
+- Coverage: english Q2–Q3 (53), filipino Q1–Q4 (63), gmrc Q1–Q4 (24), makabansa Q1–Q4 (26), mathematics Q1–Q4 (38), science Q1–Q4 (25). English has **no Q1** in the SLM source — legacy month-01 English covers the gap.
+- Conversion report: `android/tools/content-conversion-report.md`
+
 ## CI (`.github/workflows/ci.yml`)
-- Job 1: content integrity (`:core-content:testDebugUnitTest` — 100 lessons).
+- Job 1: content integrity (`:core-content:testDebugUnitTest` — 329 lessons).
 - Job 2: `assembleDebug` + full `testDebugUnitTest`.
-- **Not yet in CI:** instrumentation/migration tests, lint. (Roadmap: add emulator-backed migration job + lint.)
+- Job 3: emulator-backed migration tests + offline-load instrumented tests.
+- **Not yet in CI:** lint. (Roadmap.)
 
 ## Known Risks / Open Items
-1. Migration tests exist but **run locally only** — not in CI yet (planned).
-2. `lessonIdForSubject` has a **silent fallback to English** for unknown subjects — hardening planned (no silent unknown→English).
-3. Badge ownership uniqueness in v7 needs an audit (child-specific vs global `badgeId`).
-4. Legacy PRs #1–#6, #8, #9: pre-Playroom stacks — **do not merge wholesale**; salvage only valuable behavior as fresh branches off `main`.
-5. Large binaries (screenshots, ZIPs) in repo root — asset hygiene planned; no license selected yet (curriculum/art redistribution rights pending owner decision).
-6. Root `HANDOFF.md` is the canonical handoff — this file. Do not revive the v0.16.0 document.
+1. English Q1 has no SLM source content — covered by legacy month-01 pack; verify curriculum alignment when Q1 English SLM becomes available.
+2. Badge ownership uniqueness in v7 needs an audit (child-specific vs global `badgeId`).
+3. Legacy PRs #1–#6, #8, #9: pre-Playroom stacks — **do not merge wholesale**; salvage only valuable behavior as fresh branches off `main`.
+4. Large binaries (screenshots, ZIPs) in repo root — asset hygiene planned (Phase 7).
+5. Root `HANDOFF.md` is the canonical handoff — this file. Do not revive the v0.16.0 document.
