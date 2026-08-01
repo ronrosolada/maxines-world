@@ -89,8 +89,15 @@ core-database/
 - **Not yet in CI:** lint. (Roadmap.)
 
 ## Known Risks / Open Items
-1. English Q1 has no SLM source content — covered by legacy month-01 pack; verify curriculum alignment when Q1 English SLM becomes available.
-2. Badge ownership uniqueness in v7 needs an audit (child-specific vs global `badgeId`).
-3. Legacy PRs #1–#6, #8, #9: pre-Playroom stacks — **do not merge wholesale**; salvage only valuable behavior as fresh branches off `main`.
-4. Large binaries (screenshots, ZIPs) in repo root — asset hygiene planned (Phase 7).
-5. Root `HANDOFF.md` is the canonical handoff — this file. Do not revive the v0.16.0 document.
+1. English Q4 has no SLM source content — only remaining quarter gap; author when source material becomes available.
+2. **Release gate (ACTIVE):** `:app:verifyPlayableContent` blocks releases until every lesson is educator-approved (349/349 unreviewed). Approval = human review → `python3 android/tools/mark_lessons_reviewed.py` → commit. See `.github/workflows/release-gate.yml` (runs on v* tags).
+3. Badge ownership uniqueness in v7 needs an audit (child-specific vs global `badgeId`).
+4. Legacy PRs #1–#6, #8, #9: pre-Playroom stacks — **do not merge wholesale**; salvage only valuable behavior as fresh branches off `main`.
+5. Large binaries (screenshots, ZIPs) in repo root — asset hygiene planned (Phase 7).
+6. Root `HANDOFF.md` is the canonical handoff — this file. Do not revive the v0.16.0 document.
+
+## Security posture (2026-08-01 external review addressed)
+- **No INTERNET permission** — app is fully offline (bundled content only); sync engine removed.
+- **Backups disabled** — `allowBackup=false` + `data_extraction_rules.xml`; child data never leaves the device.
+- **Cleartext config removed** — `network_security_config.xml` deleted with the sync path.
+- **App instrumentation in CI** — emulator job runs `:app:connectedDebugAndroidTest` + `:core-database:connectedDebugAndroidTest`.
