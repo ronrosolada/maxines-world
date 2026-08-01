@@ -43,6 +43,7 @@ class ModuleCatalog(
 ) {
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
     private val cache = mutableMapOf<String, List<ContentModule>>()
+    private var legacyTitles: Map<String, String>? = null
 
     /** All modules for a subject, in display order. Empty list if none found. */
     suspend fun modulesFor(subject: String): List<ContentModule> = withContext(Dispatchers.IO) {
@@ -79,7 +80,7 @@ class ModuleCatalog(
         val modules = byModule.map { (key, metas) ->
             ContentModule(
                 key = key,
-                title = ModuleIdRules.moduleTitle(key),
+                title = moduleTitleFor(subject, key),
                 lessons = metas.sortedBy { it.day }.map {
                     ContentModuleLesson(it.lessonId, it.title, it.day, it.minutes)
                 }
@@ -90,6 +91,30 @@ class ModuleCatalog(
         modules
     }
 
+    /**
+     * Title for a module key. The legacy m01 pack gets its real story title
+     * from the SLM source manifest (e.g. math → "Milo's Equal-Groups Market");
+     * SLM modules get "Quarter N · Week M". Falls back to "Module 1" if the
+     * manifest is missing or has no entry for this subject.
+     */
+    private fun moduleTitleFor(subject: String, key: String): String {
+        if (key != "m01") return ModuleIdRules.moduleTitle(key)
+        val titles = legacyTitles ?: loadLegacyTitles().also { legacyTitles = it }
+        return titles[subject] ?: ModuleIdRules.moduleTitle(key)
+    }
+
+    /** Read the bundled SLM manifest once; map subject → legacy module title. */
+    private fun loadLegacyTitles(): Map<String, String> {
+        return runCatching {
+            val text = context.assets.open(MANIFEST_PATH).bufferedReader().use { it.readText() }
+            val manifest = json.decodeFromString<ManifestShim>(text)
+            manifest.subjects.mapNotNull { (subject, info) ->
+                val legacyModule = info.modules.firstOrNull { it.id.endsWith("-m01") }
+                legacyModule?.let { subject to it.title }
+            }.toMap()
+        }.getOrElse { emptyMap() }
+    }
+
     /** Small decode shim — avoids pulling full Month1Lesson deserialization here. */
     @kotlinx.serialization.Serializable
     private data class Month1LessonShim(
@@ -97,8 +122,25 @@ class ModuleCatalog(
         val estimatedMinutes: Int = 10
     )
 
+    @kotlinx.serialization.Serializable
+    private data class ManifestShim(
+        val subjects: Map<String, ManifestSubjectShim> = emptyMap()
+    )
+
+    @kotlinx.serialization.Serializable
+    private data class ManifestSubjectShim(
+        val modules: List<ManifestModuleShim> = emptyList()
+    )
+
+    @kotlinx.serialization.Serializable
+    private data class ManifestModuleShim(
+        val id: String = "",
+        val title: String = ""
+    )
+
     private companion object {
         const val LESSONS_DIR = "content-pack/month-01/lessons"
+        const val MANIFEST_PATH = "content/ph-matatag/grade-3/manifest.json"
     }
 }
 

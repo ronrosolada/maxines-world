@@ -73,4 +73,20 @@ class ModuleStructureTest {
         assertTrue(ids.isNotEmpty())
         assertEquals("m01", moduleOf(ids.first()))
     }
+
+    @Test
+    fun `manifest carries legacy module titles used by the catalog`() {
+        val manifest = File("src/main/assets/content/ph-matatag/grade-3/manifest.json").takeIf { it.isFile }
+            ?: File("app/src/main/assets/content/ph-matatag/grade-3/manifest.json")
+        assertTrue("manifest must exist", manifest.isFile)
+
+        val text = manifest.readText()
+        listOf(
+            "Milo's Equal-Groups Market",       // mathematics
+            "The Cats Who Saved the Garden",    // english
+            "Niko's Plant Investigation"        // science
+        ).forEach { title ->
+            assertTrue("manifest must contain '$title'", text.contains(title))
+        }
+    }
 }

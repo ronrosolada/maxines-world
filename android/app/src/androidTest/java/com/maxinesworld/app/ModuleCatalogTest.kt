@@ -26,7 +26,7 @@ class ModuleCatalogTest {
         val modules = catalog.modulesFor("mathematics")
 
         assertTrue("math must have multiple modules, got ${modules.size}", modules.size > 1)
-        assertEquals("Module 1", modules.first().title)
+        assertEquals("Milo's Equal-Groups Market", modules.first().title)
         assertTrue(modules.any { it.title == "Quarter 2 · Week 4" })
         assertTrue(modules.any { it.title == "Quarter 4 · Week 9" })
         // every module must carry its lessons
