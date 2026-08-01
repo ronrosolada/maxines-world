@@ -86,7 +86,9 @@ jobs:
 
   migration-tests:
     name: Migration tests (emulator, API ${{ matrix.api-level }})
-    runs-on: ubuntu-latest
+    # Pin to 22.04: ubuntu-latest (24.04) runner images regressed KVM access,
+    # which breaks the x86_64 emulator ("No compatible devices connected").
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
