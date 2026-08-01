@@ -8,6 +8,10 @@ import org.junit.Test
 
 class MasteryEngineTest {
 
+    private companion object {
+        const val DAY_MS = 24L * 60 * 60 * 1000
+    }
+
     private lateinit var engine: MasteryEngine
 
     @Before
@@ -34,7 +38,14 @@ class MasteryEngineTest {
 
     @Test
     fun `10 perfect attempts returns MASTERED`() {
-        val events = (1..10).map { createEvent(accuracy = 1.0) }
+        // Engine audit requirements: ≥2 distinct activity types AND ≥2 calendar days
+        val events = (1..10).map { i ->
+            createEvent(
+                accuracy = 1.0,
+                activityId = if (i % 2 == 0) "lesson_quiz_a" else "lesson_quiz_b",
+                timestamp = DAY_MS * (i / 3 + 1), // spans several days
+            )
+        }
         assertEquals(MasteryState.MASTERED, engine.computeMastery(events))
     }
 
@@ -60,13 +71,14 @@ class MasteryEngineTest {
         assertEquals(1, engine.nextReviewDays(MasteryState.NEEDS_REVIEW))
     }
 
-    private fun createEvent(accuracy: Double) = ProgressEvent(
+    private fun createEvent(accuracy: Double, activityId: String = "test_activity", timestamp: Long = System.currentTimeMillis()) = ProgressEvent(
         id = "ev_${System.nanoTime()}",
         childId = "test_child",
         skillId = "test_skill",
         lessonId = "test_lesson",
-        activityId = "test_activity",
+        activityId = activityId,
         eventType = "answer",
-        accuracy = accuracy
+        accuracy = accuracy,
+        timestamp = timestamp,
     )
 }
