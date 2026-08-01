@@ -1,0 +1,15 @@
+# ─── Phase 7 hygiene: untracked artifacts (kept on disk, never committed) ───
+# Hermes Desktop attachments (design handoffs, zips, uploads) — not project assets
+.hermes/
+
+# Dev emulator screenshots — transient evidence, not deliverables
+emulator-*.png
+baseline-before.png
+
+# Build / IDE
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
