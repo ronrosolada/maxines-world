@@ -63,7 +63,9 @@ data class ActivityStep(
     val sortItems: List<SortItem> = emptyList(),
     val matchPairs: List<MatchPair> = emptyList(),
     val sequenceSteps: List<String> = emptyList(),
-    val hotspotExamples: List<String> = emptyList()
+    val hotspotExamples: List<String> = emptyList(),
+    val completionRule: String = "",
+    val completionTargetCount: Int = 0
 )
 
 @Serializable

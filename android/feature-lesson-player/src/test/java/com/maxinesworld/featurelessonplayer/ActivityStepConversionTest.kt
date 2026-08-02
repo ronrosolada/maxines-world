@@ -1,6 +1,7 @@
 package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coremodel.Month1Activity
+import com.maxinesworld.coremodel.CompletionRule
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import org.junit.Assert.assertEquals
@@ -11,13 +12,19 @@ class ActivityStepConversionTest {
 
     private fun parse(raw: String): JsonElement = Json.parseToJsonElement(raw)
 
-    private fun activity(type: String, contentJson: String, id: String = "a-01") =
+    private fun activity(
+        type: String,
+        contentJson: String,
+        id: String = "a-01",
+        completionRule: CompletionRule? = null
+    ) =
         Month1Activity(
             activityId = id,
             sequence = 1,
             type = type,
             instruction = "Do the thing.",
-            content = parse(contentJson)
+            content = parse(contentJson),
+            completionRule = completionRule
         )
 
     @Test
@@ -87,6 +94,20 @@ class ActivityStepConversionTest {
             activity("HOTSPOT_IMAGE", """{"examples":["e1","e2"]}""")
         )
         assertEquals(listOf("e1", "e2"), step.hotspotExamples)
+    }
+
+    @Test
+    fun `multi-target hotspot completion rule is carried into the renderer step`() {
+        val step = toActivityStep(
+            activity(
+                "HOTSPOT_IMAGE",
+                """{"examples":["e1","e2","e3"]}""",
+                completionRule = CompletionRule("ALL_TARGETS_VISITED", targetCount = 3)
+            )
+        )
+
+        assertEquals("ALL_TARGETS_VISITED", step.completionRule)
+        assertEquals(3, step.completionTargetCount)
     }
 
     @Test

@@ -305,6 +305,8 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         sortItems = sortItems,
         matchPairs = matchPairs,
         sequenceSteps = sequenceSteps,
-        hotspotExamples = hotspotExamples
+        hotspotExamples = hotspotExamples,
+        completionRule = act.completionRule?.type.orEmpty(),
+        completionTargetCount = act.completionRule?.targetCount ?: 0
     )
 }
