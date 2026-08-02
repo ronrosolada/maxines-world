@@ -37,6 +37,19 @@ cd android
 ./gradlew assembleDebug
 ```
 
+## Independent educator review
+
+The bundled Grade 3 lesson pack has a dedicated handoff for independent LLM or
+human curriculum review:
+
+- [Educator content review brief](docs/educator-content-review-brief.md)
+- [Current state and handoff](HANDOFF.md)
+
+The brief names the exact review baseline, lesson counts, non-destructive audit
+commands, educator rubric, high-risk patterns, and required findings format.
+Approval metadata and passing structural tests are not substitutes for factual,
+pedagogical, language, and safety review.
+
 ## Architecture
 See [docs/01-architecture-decisions.md](docs/01-architecture-decisions.md)  
 See [docs/02-milestones-and-risks.md](docs/02-milestones-and-risks.md)
