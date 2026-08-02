@@ -122,6 +122,19 @@ def convert_lesson(raw: dict, subject_key: str) -> dict | None:
     quarter = raw.get("quarter", 1)
     week = raw.get("week", 1)
 
+    # Fix truncated titles: many SLM titles are cut mid-phrase while the
+    # objective holds the complete sentence (e.g. title "…points, lines,
+    # line" vs objective "…points, lines, line segments, and rays using
+    # models."). If the title is a strict prefix of the objective and the
+    # objective continues with real content (not a ":" annotation block),
+    # promote the full objective to the title. Deterministic + idempotent.
+    title = raw.get("title", "") or ""
+    objective = raw.get("objective", "") or ""
+    if title and objective.startswith(title) and len(objective) > len(title):
+        continuation = objective[len(title):]
+        if not continuation.startswith(":"):
+            title = objective.rstrip(".")
+
     return {
         "lessonId": lesson_id,
         "schemaVersion": raw.get("schemaVersion", 1),
@@ -129,7 +142,7 @@ def convert_lesson(raw: dict, subject_key: str) -> dict | None:
         "month": month_for(quarter, week),
         "day": raw.get("day", 1),
         "subject": SUBJECT_MAP.get(str(raw.get("subject", "")).upper(), subject_key),
-        "title": raw.get("title", ""),
+        "title": title,
         "objective": raw.get("objective", ""),
         "estimatedMinutes": raw.get("estimatedMinutes", 10),
         "educatorValidated": raw.get("educatorValidated", False),
