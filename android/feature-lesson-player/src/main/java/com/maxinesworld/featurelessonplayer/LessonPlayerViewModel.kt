@@ -176,6 +176,7 @@ class LessonPlayerViewModel @Inject constructor(
             guideCharacter = "Milo",
             estimatedMinutes = m1.estimatedMinutes,
             languageOfInstruction = m1.language,
+            vocabulary = m1.vocabulary,
             steps = m1.activities.map { act -> toActivityStep(act) }
         )
     }

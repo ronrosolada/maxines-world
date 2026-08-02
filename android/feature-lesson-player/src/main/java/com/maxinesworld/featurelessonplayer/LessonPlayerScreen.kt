@@ -26,12 +26,51 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coremodel.VocabTerm
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.engineactivity.renderers.ActivityRenderer
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
+
+// ─── New Words card ───
+
+@Composable
+private fun VocabularyCard(terms: List<VocabTerm>) {
+    Card(
+        Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = SkyBlue.copy(alpha = 0.12f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+    ) {
+        Column(Modifier.padding(14.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.MenuBook, "New words", tint = Teal40, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("New Words", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = Teal40)
+            }
+            Spacer(Modifier.height(8.dp))
+            terms.take(4).forEach { term ->
+                Row(Modifier.padding(vertical = 2.dp)) {
+                    Text(
+                        term.term,
+                        fontWeight = FontWeight.Bold,
+                        color = Ink,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        term.definition,
+                        color = Ink.copy(alpha = 0.75f),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+            }
+        }
+    }
+}
 
 // ─── Main Screen ───
 
@@ -87,6 +126,12 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
     val step = lesson.steps.getOrNull(state.currentStep) ?: return
 
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
+        // New Words — vocabulary preview (only when the lesson has terms)
+        if (lesson.vocabulary.isNotEmpty()) {
+            VocabularyCard(lesson.vocabulary)
+            Spacer(Modifier.height(14.dp))
+        }
+
         // Step progress dots — design v2 §24.3: clear, countable, 48dp touch
         Row(
             Modifier.fillMaxWidth().padding(vertical = 8.dp),

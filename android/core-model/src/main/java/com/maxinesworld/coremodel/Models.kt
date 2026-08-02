@@ -41,6 +41,7 @@ data class LessonManifest(
     val curriculumStandard: String? = null,
     val term: Int? = null,
     val languageOfInstruction: String? = null,
+    val vocabulary: List<VocabTerm> = emptyList(),
     val version: Int = 1
 )
 
