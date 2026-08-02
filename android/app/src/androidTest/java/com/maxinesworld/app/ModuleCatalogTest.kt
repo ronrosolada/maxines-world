@@ -41,6 +41,19 @@ class ModuleCatalogTest {
     }
 
     @Test
+    fun englishHidesRedundantLegacyModule() = runBlocking {
+        val catalog = ModuleCatalog(context)
+        val modules = catalog.modulesFor("english")
+
+        // Legacy Module 1 (20 day-lessons) duplicates SLM Q1 — must be hidden
+        // so the child doesn't replay "Picture Detective" twice.
+        assertTrue("english must not show legacy m01", modules.none { it.key == "m01" })
+        assertTrue("english must still show SLM modules", modules.isNotEmpty())
+        // Q1 SLM covers the same skills the legacy pack used to
+        assertTrue(modules.any { it.title == "Quarter 1 · Week 1" })
+    }
+
+    @Test
     fun everyPlayroomSubjectHasModules() = runBlocking {
         val catalog = ModuleCatalog(context)
         listOf("english", "filipino", "mathematics", "science", "gmrc", "makabansa")

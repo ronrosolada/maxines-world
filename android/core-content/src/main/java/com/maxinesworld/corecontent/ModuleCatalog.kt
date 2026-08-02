@@ -86,6 +86,11 @@ class ModuleCatalog(
                 }
             )
         }.sortedBy { ModuleIdRules.moduleSortRank(it.key) }
+            // English legacy Module 1 (20 day-lessons) is ~90% duplicated by the
+            // SLM Q1 lessons (same skill map, same titles, newer format) — the
+            // legacy pack was the original Q1 gap-filler and is now redundant.
+            // Hide it so a child never plays "Picture Detective" twice.
+            .filterNot { it.key == "m01" && subject == "english" }
 
         cache[subject] = modules
         modules
