@@ -51,7 +51,7 @@ data class StickerUi(
 )
 
 @androidx.compose.runtime.Immutable
-data class StickerBookUi(
+data class WildlifeStickersUi(
     val collectedCount: Int,
     val totalCount: Int,
     val stickers: List<StickerUi> = emptyList(),
@@ -70,7 +70,7 @@ sealed interface PlayroomHomeUiState {
         val xp: Int,
         val subjects: List<SubjectCardUi>,
         val quest: QuestUi,
-        val stickerBook: StickerBookUi,
+        val wildlifeStickers: WildlifeStickersUi,
         val offline: Boolean = false,
         val openingSubjectId: String? = null,
         val staleBanner: Boolean = false,

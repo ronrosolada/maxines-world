@@ -44,6 +44,7 @@ object Routes {
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
+    const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
 
     fun childHome(childId: String) = "child_home/$childId"
     fun subjectModules(childId: String, subject: String) = "subject_modules/$childId/$subject"
@@ -51,7 +52,8 @@ object Routes {
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
     fun parentDashboard(childId: String) = "parent_dashboard/$childId"
     fun parentGate(childId: String) = "parent_gate/$childId"
-    fun wildlifeFieldGuide(childId: String) = "wildlife_field_guide/$childId"
+    fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
+        "wildlife_field_guide/$childId?badgeId=${badgeId.orEmpty()}"
 }
 
 @Composable
@@ -134,8 +136,10 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                 },
                 onHomeClick = { /* Home is the current destination — no push */ },
-                onProgressClick = { /* Progress: Coming soon — disabled in UI */ },
-                onAvatarsClick = {
+                onCollectionClick = {
+                    navController.navigate(Routes.wildlifeFieldGuide(childId))
+                },
+                onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onParentsClick = {
@@ -207,6 +211,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.childHome(childId)) {
                         popUpTo(Routes.CHILD_HOME) { inclusive = true }
                     }
+                },
+                onViewFieldGuide = { badgeId ->
+                    navController.navigate(Routes.wildlifeFieldGuide(childId, badgeId))
                 },
                 onRewardBreak = { cId, breakId ->
                     navController.navigate(MiniGameRoutes.hub(cId, breakId))
@@ -308,16 +315,24 @@ fun MaxinesNavGraph(navController: NavHostController) {
             )
         }
 
-        // Wildlife Field Guide (badge collection)
         composable(
-            route = "wildlife_field_guide/{childId}",
-            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+            route = Routes.WILDLIFE_FIELD_GUIDE,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("badgeId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
+            )
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val badgeId = backStackEntry.arguments?.getString("badgeId")
             val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             WildlifeFieldGuideScreen(
                 childId = childId,
                 badgeAwarder = badgeAwarder,
+                initialBadgeId = badgeId,
                 onBack = { navController.popBackStack() }
             )
         }

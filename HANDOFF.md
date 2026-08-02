@@ -9,6 +9,8 @@
 
 > For the independent educational review scope, evidence, rubric, and commands,
 > read [`docs/educator-content-review-brief.md`](docs/educator-content-review-brief.md).
+> For the UX/UI/gamification implementation status and unresolved child-facing release decisions,
+> read [`docs/grand-ux-gamification-implementation.md`](docs/grand-ux-gamification-implementation.md).
 > The branch's approval metadata is not a substitute for independent educator sign-off.
 
 ---

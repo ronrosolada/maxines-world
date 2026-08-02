@@ -26,6 +26,7 @@ import com.maxinesworld.coredesignsystem.theme.*
 fun WildlifeFieldGuideScreen(
     childId: String,
     badgeAwarder: BadgeAwarder,
+    initialBadgeId: String? = null,
     onBack: () -> Unit
 ) {
     val allBadges by produceState<List<CollectibleBadge>>(emptyList()) {
@@ -33,6 +34,12 @@ fun WildlifeFieldGuideScreen(
     }
     val totalCollected = allBadges.count { it.isCollected }
     var selectedBadge by remember { mutableStateOf<CollectibleBadge?>(null) }
+
+    LaunchedEffect(allBadges, initialBadgeId) {
+        if (initialBadgeId != null) {
+            selectedBadge = allBadges.firstOrNull { it.id == initialBadgeId && it.isCollected }
+        }
+    }
 
     Scaffold(
         topBar = {

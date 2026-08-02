@@ -126,6 +126,7 @@ class LessonPlayerViewModel @Inject constructor(
             }
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+            val firstLessonCompletion = !lessonCompletionDao.exists(childId, lesson.id)
             // Record idempotent lesson completion (distinct lessonId drives child level).
             lessonCompletionDao.insertIgnoring(
                 LessonCompletionEntity(
@@ -137,12 +138,27 @@ class LessonPlayerViewModel @Inject constructor(
                     completedAtEpochMillis = System.currentTimeMillis(),
                 )
             )
-            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                type = "STAR", subject = lesson.subject, amount = starsEarned))
-            if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                    type = "COIN", subject = lesson.subject, amount = 10))
+            if (firstLessonCompletion) {
+                val rewardKey = "lesson-first:$childId:${lesson.id}"
+                val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
+                rewardDao.insertIgnoring(RewardEntity(
+                    id = "$rewardKey:STAR",
+                    childId = childId,
+                    type = "STAR",
+                    subject = lesson.subject,
+                    amount = starsEarned,
+                    metadata = rewardKey,
+                ))
+                if (accuracy >= 0.8) {
+                    rewardDao.insertIgnoring(RewardEntity(
+                        id = "$rewardKey:COIN",
+                        childId = childId,
+                        type = "COIN",
+                        subject = lesson.subject,
+                        amount = 10,
+                        metadata = rewardKey,
+                    ))
+                }
             }
             val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
             if (progress.newlyAwardedBadge != null) {

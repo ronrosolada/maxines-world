@@ -28,6 +28,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -137,9 +138,9 @@ fun PlayroomHomeScreen(
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
     onHomeClick: () -> Unit,
-    onProgressClick: () -> Unit,
-    onAvatarsClick: () -> Unit,
+    onCollectionClick: () -> Unit,
     onParentsClick: () -> Unit,
+    onOpenCollection: () -> Unit = onCollectionClick,
     onRetry: () -> Unit = {},
     onBack: () -> Unit = {},
     modifier: Modifier = Modifier,
@@ -187,13 +188,13 @@ fun PlayroomHomeScreen(
                     railBeside = showRailBeside,
                     onSubjectClick = onSubjectClick,
                     onQuestAction = onQuestAction,
+                    onOpenCollection = onOpenCollection,
                 )
             }
 
             PlayroomBottomNav(
                 onHomeClick = onHomeClick,
-                onProgressClick = onProgressClick,
-                onAvatarsClick = onAvatarsClick,
+                onCollectionClick = onCollectionClick,
                 onParentsClick = onParentsClick,
                 compact = widthClass == HomeWidthClass.Compact || fontScale >= 1.3f,
             )
@@ -210,6 +211,7 @@ private fun ContentLayout(
     railBeside: Boolean,
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
+    onOpenCollection: () -> Unit,
 ) {
     // “Choose a subject” moves focus to the first available card (§11.4)
     val firstAvailableId = content.subjects.firstOrNull { it.isAvailable }?.id
@@ -251,14 +253,22 @@ private fun ContentLayout(
             )
             Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
-                StickerBookPreview(content.stickerBook, Modifier.fillMaxWidth())
+                WildlifeStickersPreview(
+                    wildlifeStickers = content.wildlifeStickers,
+                    onOpenCollection = onOpenCollection,
+                    modifier = Modifier.fillMaxWidth(),
+                )
             }
         }
     } else {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             // Quest moves above the grid for medium/narrow widths (§7.1)
             TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
-            StickerBookPreview(content.stickerBook, Modifier.fillMaxWidth())
+            WildlifeStickersPreview(
+                wildlifeStickers = content.wildlifeStickers,
+                onOpenCollection = onOpenCollection,
+                modifier = Modifier.fillMaxWidth(),
+            )
             SubjectGrid(
                 subjects = content.subjects,
                 columns = columns,
@@ -754,11 +764,12 @@ private fun TodayQuestCard(
     }
 }
 
-// ─── Sticker Book (design.md §12) ────────────────────────────────────
+// ─── Wildlife stickers preview (design.md §12) ───────────────────────
 
 @Composable
-private fun StickerBookPreview(
-    stickerBook: StickerBookUi,
+private fun WildlifeStickersPreview(
+    wildlifeStickers: WildlifeStickersUi,
+    onOpenCollection: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -778,7 +789,7 @@ private fun StickerBookPreview(
                     modifier = Modifier.weight(1f),
                 )
                 Text(
-                    stringResource(R.string.home_collected, stickerBook.collectedCount, stickerBook.totalCount),
+                    stringResource(R.string.home_collected, wildlifeStickers.collectedCount, wildlifeStickers.totalCount),
                     color = PlayMuted,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp, lineHeight = 18.sp,
@@ -786,18 +797,26 @@ private fun StickerBookPreview(
                 )
             }
             Spacer(Modifier.height(12.dp))
-            if (stickerBook.stickers.isEmpty()) {
-                Text(
-                    stringResource(R.string.home_no_stickers),
-                    color = PlayMuted,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp, lineHeight = 20.sp,
-                )
-            } else {
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    items(stickerBook.stickers) { sticker ->
-                        StickerSlot(sticker)
+            val previewStickers = wildlifeStickers.stickers.filter { it.won }.take(3)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (previewStickers.isEmpty()) {
+                    Text(
+                        stringResource(R.string.home_no_stickers),
+                        color = PlayMuted,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 14.sp, lineHeight = 20.sp,
+                        modifier = Modifier.weight(1f),
+                    )
+                } else {
+                    LazyRow(
+                        modifier = Modifier.weight(1f),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        items(previewStickers) { sticker -> StickerSlot(sticker) }
                     }
+                }
+                TextButton(onClick = onOpenCollection) {
+                    Text(stringResource(R.string.home_open_field_guide), maxLines = 1)
                 }
             }
         }
@@ -833,8 +852,7 @@ private fun StickerSlot(sticker: StickerUi) {
 @Composable
 private fun PlayroomBottomNav(
     onHomeClick: () -> Unit,
-    onProgressClick: () -> Unit,
-    onAvatarsClick: () -> Unit,
+    onCollectionClick: () -> Unit,
     onParentsClick: () -> Unit,
     compact: Boolean,
 ) {
@@ -847,15 +865,12 @@ private fun PlayroomBottomNav(
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         NavItem("Home", isSelected = true, onClick = onHomeClick, compact = compact)
-        // Progress destination is not implemented yet → visibly unavailable
         NavItem(
-            stringResource(R.string.nav_progress),
+            stringResource(R.string.nav_collection),
             isSelected = false,
-            onClick = null,
+            onClick = onCollectionClick,
             compact = compact,
-            comingSoon = true,
         )
-        NavItem("Avatars", isSelected = false, onClick = onAvatarsClick, compact = compact)
         NavItem(
             stringResource(R.string.nav_parents),
             isSelected = false,

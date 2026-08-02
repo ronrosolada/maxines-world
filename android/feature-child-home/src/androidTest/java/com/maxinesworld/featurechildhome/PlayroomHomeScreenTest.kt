@@ -3,6 +3,8 @@ package com.maxinesworld.featurechildhome
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -46,17 +48,23 @@ class PlayroomHomeScreenTest {
                 pawPrintsCompleted = 0, pawPrintTotal = 3,
                 buttonLabel = "Continue",
             ),
-            stickerBook = StickerBookUi(collectedCount = 0, totalCount = 0),
+            wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
         )
     }
 
-    private fun setHome(state: PlayroomHomeUiState, onSubjectClick: (String) -> Unit = {}) {
+    private fun setHome(
+        state: PlayroomHomeUiState,
+        onSubjectClick: (String) -> Unit = {},
+        onCollectionClick: () -> Unit = {},
+    ) {
         composeRule.setContent {
             PlayroomHomeScreen(
                 state = state,
                 onSubjectClick = onSubjectClick,
                 onQuestAction = {},
-                onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {},
+                onHomeClick = {},
+                onCollectionClick = onCollectionClick,
+                onParentsClick = {},
             )
         }
     }
@@ -82,7 +90,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun lockedCard_clickDoesNotNavigate() {
         var clicks = 0
-        setHome(stateFor(0)) { clicks++ }
+        setHome(stateFor(0), onSubjectClick = { clicks++ })
         // Kindness card is click-disabled when locked
         composeRule.onNodeWithText("GMRC").assertIsNotEnabled()
         composeRule.onNodeWithText("GMRC").performClick()
@@ -93,7 +101,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun unlockedCard_clickNavigates() {
         var clicks = 0
-        setHome(stateFor(12)) { clicks++ }
+        setHome(stateFor(12), onSubjectClick = { clicks++ })
         composeRule.onNodeWithText("GMRC").assertIsEnabled()
         composeRule.onNodeWithText("GMRC").performClick()
         composeRule.waitForIdle()
@@ -111,7 +119,8 @@ class PlayroomHomeScreenTest {
     fun questPanelAndStickerBookRender() {
         setHome(stateFor(0))
         composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
-        composeRule.onNodeWithText("Sticker Book").assertIsDisplayed()
+        composeRule.onNodeWithText("Wildlife Stickers").assertIsDisplayed()
+        composeRule.onNodeWithText("Open Field Guide").assertIsDisplayed()
         composeRule.onNodeWithText("Continue").assertIsDisplayed()
     }
 
@@ -122,8 +131,14 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
-    fun progressNavIsDisabledComingSoon() {
-        setHome(stateFor(0))
-        composeRule.onNodeWithText("Coming soon").assertIsDisplayed()
+    fun collectionNavIsAvailableAndInvokesCallback() {
+        var opens = 0
+        setHome(stateFor(0), onCollectionClick = { opens++ })
+        composeRule.onNodeWithText("Collection").assertIsDisplayed()
+        composeRule.onNodeWithText("Collection").assertIsEnabled().performClick()
+        composeRule.waitForIdle()
+        assertEquals("collection must navigate", 1, opens)
+        composeRule.onAllNodesWithText("Avatars").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Coming soon").assertCountEquals(0)
     }
 }

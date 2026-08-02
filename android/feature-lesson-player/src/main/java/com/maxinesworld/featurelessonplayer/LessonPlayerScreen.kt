@@ -78,7 +78,9 @@ private fun VocabularyCard(terms: List<VocabTerm>) {
 @Composable
 fun LessonPlayerScreen(
     lessonId: String, childId: String = "",
-    onBack: () -> Unit, onComplete: () -> Unit,
+    onBack: () -> Unit,
+    onComplete: () -> Unit,
+    onViewFieldGuide: (String) -> Unit = {},
     onRewardBreak: (String, String) -> Unit = { _, _ -> },
     viewModel: LessonPlayerViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
@@ -105,7 +107,7 @@ fun LessonPlayerScreen(
                         BadgeRevealScreen(
                             badge = state.badgeAwarded!!,
                             challengeProgress = ChallengeProgress(completedCount = 5),
-                            onViewFieldGuide = { /* TODO: navigate */ },
+                            onViewFieldGuide = { onViewFieldGuide(state.badgeAwarded!!.id) },
                             onReturnToVillage = onComplete
                         )
                     } else {

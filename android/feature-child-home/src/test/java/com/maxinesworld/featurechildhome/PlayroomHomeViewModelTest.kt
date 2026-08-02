@@ -243,10 +243,10 @@ class PlayroomHomeViewModelTest {
         )
         val vm = buildViewModel(badges = badges)
         advanceUntilIdle()
-        val sb = content(vm).stickerBook
+        val sb = content(vm).wildlifeStickers
         assertEquals(1, sb.collectedCount)
         assertEquals(3, sb.totalCount)
-        assertEquals(listOf(true, false, false), sb.stickers.map { it.won })
+        assertEquals(listOf(true), sb.stickers.map { it.won })
     }
 
     @Test

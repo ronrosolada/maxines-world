@@ -167,12 +167,13 @@ class PlayroomHomeViewModel @Inject constructor(
         }
 
         val collected = badges.count { it.isCollected }
-        val stickerBook = StickerBookUi(
+        val wildlifeStickers = WildlifeStickersUi(
             collectedCount = collected,
             totalCount = badges.size,
-            stickers = badges.map { b ->
-                StickerUi(id = b.id, won = b.isCollected, emoji = b.emoji)
-            },
+            stickers = badges
+                .filter { it.isCollected }
+                .sortedByDescending { it.collectedAtEpochMillis }
+                .map { b -> StickerUi(id = b.id, won = true, emoji = b.emoji) },
         )
 
         return PlayroomHomeUiState.Content(
@@ -181,7 +182,7 @@ class PlayroomHomeViewModel @Inject constructor(
             xp = completed.size * XP_PER_LESSON,
             subjects = subjects,
             quest = questUi,
-            stickerBook = stickerBook,
+            wildlifeStickers = wildlifeStickers,
             offline = false, // bundled pack is offline-first by design
         )
     }
