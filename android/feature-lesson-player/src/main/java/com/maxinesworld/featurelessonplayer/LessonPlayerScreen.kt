@@ -106,7 +106,7 @@ fun LessonPlayerScreen(
                     if (state.badgeAwarded != null) {
                         BadgeRevealScreen(
                             badge = state.badgeAwarded!!,
-                            challengeProgress = ChallengeProgress(completedCount = 5),
+                            challengeProgress = state.expeditionProgress,
                             onViewFieldGuide = { onViewFieldGuide(state.badgeAwarded!!.id) },
                             onReturnToVillage = onComplete
                         )

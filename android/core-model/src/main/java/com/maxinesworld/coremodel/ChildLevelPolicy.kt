@@ -10,12 +10,16 @@ package com.maxinesworld.coremodel
  *   Level 1: 0 lessons        Level 5: 16 lessons
  *   Level 2: 4 lessons        Level 6: 20 lessons
  *   Level 3: 8 lessons        ...
- *   Level 4: 12 lessons       (Kindness island unlock — GMRC)
+ *   Level 4: 12 lessons       (Kindness Garden cosmetic milestone)
  */
 object ChildLevelPolicy {
     const val LESSONS_PER_LEVEL = 4
-    const val KINDNESS_UNLOCK_LEVEL = 4
-    const val KINDNESS_UNLOCK_LESSONS = (KINDNESS_UNLOCK_LEVEL - 1) * LESSONS_PER_LEVEL // 12
+    /** Level milestone reserved for the cosmetic Kindness Garden; it does not gate GMRC. */
+    const val KINDNESS_GARDEN_UNLOCK_LEVEL = 4
+    @Deprecated("Use KINDNESS_GARDEN_UNLOCK_LEVEL; this milestone is cosmetic")
+    const val KINDNESS_UNLOCK_LEVEL = KINDNESS_GARDEN_UNLOCK_LEVEL
+    @Deprecated("Use lesson milestones only for cosmetic rewards")
+    const val KINDNESS_UNLOCK_LESSONS = (KINDNESS_GARDEN_UNLOCK_LEVEL - 1) * LESSONS_PER_LEVEL // 12
 
     /** 1-based level for a child with [completedLessonCount] distinct lesson completions. */
     fun levelFor(completedLessonCount: Int): Int {

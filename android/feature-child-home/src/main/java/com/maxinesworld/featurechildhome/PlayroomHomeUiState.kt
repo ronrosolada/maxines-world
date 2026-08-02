@@ -66,8 +66,6 @@ sealed interface PlayroomHomeUiState {
 
     data class Content(
         val childName: String,
-        val streakDays: Int,
-        val xp: Int,
         val subjects: List<SubjectCardUi>,
         val quest: QuestUi,
         val wildlifeStickers: WildlifeStickersUi,

@@ -3,50 +3,62 @@
 **Review baseline:** 3 August 2026
 **Implementation branch:** `fix/grand-ux-gamification-review`
 
-This note records which findings were addressed in code and which remain product decisions. It is intentionally explicit: passing tests do not make an unfinished engagement policy production-ready.
+This note records the implemented child-facing policy and the remaining visual/product follow-up. Passing tests do not replace a human review of the experience, but the core reward loop is now persistent and replay-safe.
 
-## Addressed in this branch
+## Implemented
 
 ### Homepage trust
 
-- Homepage streak and XP remain visible only because the ViewModel derives them from persisted completion data; there are no demo defaults in the production ViewModel.
+- Child Home no longer displays XP or streak counters that do not serve the learning loop.
 - The disabled/no-op Progress destination was removed from child navigation.
 - The misleading Avatars destination was renamed **Collection** and routes to the Wildlife Field Guide.
-- The quest action routes to a subject or the Field Guide; the selected Home destination does not push a duplicate route.
+- GMRC is available from the first session; it is not a Level 4 curriculum gate.
+- The collection preview uses real earned Wildlife Sticker records and does not render generic demo slots.
 
-### Collection and reward reveal
+### Wildlife Expedition
 
-- The home preview is now **Wildlife Stickers**, backed by the same collected wildlife badge IDs and count used by the Field Guide.
-- The preview shows at most three real earned animal stickers, ordered by earned timestamp, plus **Open Field Guide**. It no longer renders generic locked/demo slots on the homepage.
-- Lesson reward reveal navigation carries the exact newly awarded badge ID into the Field Guide. The Field Guide selects that collected item when opened.
+- The old daily five-subject reset was replaced by a persistent local-week expedition.
+- A child completes **3 distinct lessons across at least 2 learning areas**.
+- Progress survives day changes and app restarts; missing a day does not reset it.
+- GMRC counts exactly like every other learning area.
+- A repeated lesson ID cannot inflate progress.
+- The next wildlife sticker is awarded at most once per child/week.
+- Week rollover starts a new expedition while retaining previously collected stickers.
 
-### Replay-safe rewards
+### Reward semantics
 
-- First-completion star and coin rewards use a deterministic key:
+- First completion awards 1 star.
+- Accuracy can add up to 2 mastery stars (`>=80%`, `>=95%`).
+- Completion rewards remain idempotent through the deterministic key:
   `lesson-first:{childId}:{lessonId}`.
-- Reward inserts use `IGNORE`, so replaying or concurrently completing the same lesson cannot insert another first-completion reward record.
-- A DAO instrumentation test verifies the first insert succeeds and the second insert is ignored.
+- Coins are no longer awarded by the lesson flow; there is no child-facing economy until a meaningful cosmetic use exists.
+- The Room database is now version 8 with a migration for `wildlife_expeditions`.
 
-## Remaining release blockers from the review
+### Reduced motion
 
-These were not silently changed because they alter product policy or require new UX/data design:
+- Badge reveal animation is skipped when Android's animator duration scale is zero.
+- The CI emulator disables animations and uses a fresh headless AVD to reduce false failures.
 
-1. **GMRC/Kindness gate:** still unlocks at Level 4. Decide whether GMRC is available from the first session and move progression rewards to cosmetic content.
-2. **Daily five-subject challenge:** still uses the existing daily subject set. Replace it with a forgiving multi-day Wildlife Expedition before child-facing release.
-3. **Star semantics:** first completion is now idempotent, but the existing accuracy-based star formula still needs a deliberate completion/mastery policy.
-4. **Coins:** still have no child-facing use in this slice. Remove them or define one fixed, non-consumable cosmetic use before expanding the economy.
-5. **Reduced motion:** completion/reveal animation accessibility still needs implementation and device verification.
-6. **Responsive visual review:** compact phones, tablets, and large font scales still need representative emulator/screenshot review.
+## Remaining follow-up
+
+1. Add a real cosmetic Kindness Garden reward at the existing level milestone; curriculum access remains independent of it.
+2. Perform screenshot/accessibility review at compact phone, tablet, and approximately 1.3x font scale.
+3. Verify the full lesson → reward → Field Guide → Back flow manually on the target child device.
 
 ## Verification
 
 ```bash
 cd android
-./gradlew :feature-child-home:testDebugUnitTest \
-  :feature-lesson-player:testDebugUnitTest \
-  :feature-rewards:testDebugUnitTest
+./gradlew testDebugUnitTest assembleDebug lintDebug --stacktrace
 ./gradlew :core-database:connectedDebugAndroidTest \
-  :feature-child-home:connectedDebugAndroidTest
+  :feature-child-home:connectedDebugAndroidTest \
+  :app:connectedDebugAndroidTest --stacktrace
 ```
 
-The database suite covers the stable reward-key insert behavior. The child-home suite covers the Collection navigation label and removal of the disabled Progress destination.
+Latest local results:
+
+- Full unit suite, debug assembly, and lint: passed.
+- Core database instrumentation: **19/19 passed**.
+- Child Home instrumentation: **6/6 passed**.
+- App instrumentation: **5/5 passed**.
+- Remote hotspot migration rerun: still blocked before test execution by GitHub's emulator (`adb exit code 1`, `No compatible devices connected`); the workflow now adds fresh-AVD and headless-emulator hardening.

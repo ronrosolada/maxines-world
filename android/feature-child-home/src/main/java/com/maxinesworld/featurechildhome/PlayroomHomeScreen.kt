@@ -168,8 +168,6 @@ fun PlayroomHomeScreen(
             // Header (kept visible in every state)
             PlayroomHeader(
                 childName = (state as? PlayroomHomeUiState.Content)?.childName.orEmpty(),
-                streakDays = (state as? PlayroomHomeUiState.Content)?.streakDays ?: 0,
-                xp = (state as? PlayroomHomeUiState.Content)?.xp ?: 0,
                 offline = (state as? PlayroomHomeUiState.Content)?.offline == true,
                 wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
             )
@@ -287,8 +285,6 @@ private fun ContentLayout(
 @Composable
 private fun PlayroomHeader(
     childName: String,
-    streakDays: Int,
-    xp: Int,
     offline: Boolean,
     wide: Boolean,
 ) {
@@ -297,47 +293,13 @@ private fun PlayroomHeader(
             BrandBlock(Modifier.width(210.dp))
             MascotAvatar(Modifier.size(88.dp))
             GreetingBlock(childName, Modifier.widthIn(min = 250.dp).padding(horizontal = 16.dp))
-            Spacer(Modifier.weight(1f))
-            MetricPill(
-                label = stringResource(R.string.home_day_streak),
-                value = "$streakDays",
-                icon = { FlameGlyph(PlayCoral) },
-                modifier = Modifier.width(164.dp).height(68.dp),
-            )
-            Spacer(Modifier.width(12.dp))
-            MetricPill(
-                label = stringResource(R.string.home_xp_earned),
-                value = "$xp",
-                icon = { Icon(Icons.Filled.Check, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
-                modifier = Modifier.width(164.dp).height(68.dp),
-            )
         }
     } else {
-        // Wrapped header: brand + mascot on one line, greeting + pills below
         Row(verticalAlignment = Alignment.CenterVertically) {
             BrandBlock(Modifier.weight(1f))
             MascotAvatar(Modifier.size(72.dp))
         }
-        Row(
-            Modifier.fillMaxWidth().padding(top = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            GreetingBlock(childName, Modifier.weight(1f))
-            MetricPill(
-                label = stringResource(R.string.home_day_streak),
-                value = "$streakDays",
-                icon = { FlameGlyph(PlayCoral) },
-                modifier = Modifier.height(64.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            MetricPill(
-                label = stringResource(R.string.home_xp_earned),
-                value = "$xp",
-                icon = { Icon(Icons.Filled.Check, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
-                modifier = Modifier.height(64.dp),
-            )
-        }
+        GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
     if (offline) {
         Surface(

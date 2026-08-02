@@ -115,6 +115,9 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          force-avd-creation: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
           working-directory: android
           script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest --stacktrace
 

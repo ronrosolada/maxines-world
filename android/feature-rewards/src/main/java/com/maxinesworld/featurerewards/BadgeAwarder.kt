@@ -1,107 +1,131 @@
 package com.maxinesworld.featurerewards
 
-import com.maxinesworld.coredatabase.*
+import com.maxinesworld.coredatabase.CollectedBadgeDao
+import com.maxinesworld.coredatabase.CollectedBadgeEntity
+import com.maxinesworld.coredatabase.WildlifeExpeditionDao
+import com.maxinesworld.coredatabase.WildlifeExpeditionEntity
 import com.maxinesworld.coremodel.CollectibleBadge
+import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.ZoneId
-import java.util.UUID
+import java.time.temporal.TemporalAdjusters
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Core badge award mechanic: Daily Five-Subject Challenge.
- * Award one badge per day when all 5 subjects are completed.
- * Idempotent — repeated calls on the same day never double-award.
+ * Persistent Wildlife Expedition reward policy.
+ *
+ * A child completes three distinct lessons from at least two learning areas
+ * during the same local calendar week. Progress never resets between days,
+ * GMRC counts like every other subject, and the next wildlife sticker is
+ * awarded at most once per child/week.
  */
 @Singleton
 class BadgeAwarder @Inject constructor(
-    private val dailyChallengeDao: DailyChallengeDao,
+    private val wildlifeExpeditionDao: WildlifeExpeditionDao,
     private val collectedBadgeDao: CollectedBadgeDao,
-    private val badgeLoader: BadgeLoader
+    private val badgeLoader: BadgeLoader,
 ) {
+    private val awardMutex = Mutex()
+
     companion object {
-        val SUBJECTS = listOf("english", "filipino", "mathematics", "science", "makabansa")
+        const val EXPEDITION_TARGET_LESSONS = 3
+        const val EXPEDITION_MIN_SUBJECTS = 2
+        const val SUBJECT_MAKABANSA = "makabansa"
+
+        /** Canonical learning-area keys used by the expedition. */
+        val SUBJECTS = listOf(
+            "english", "filipino", "mathematics", "science", SUBJECT_MAKABANSA, "gmrc"
+        )
     }
 
-    /**
-     * Called after a lesson is completed. Records the subject as done for today.
-     * If all 5 subjects are now complete, awards the next badge.
-     * Returns: (challenge state, newly awarded badge or null)
-     */
-    suspend fun recordSubjectCompletion(
+    /** Record one distinct lesson completion in this week's expedition. */
+    suspend fun recordLessonCompletion(
         childId: String,
-        subject: String
-    ): ChallengeProgress {
-        val today = todayDate()
-        val existing = dailyChallengeDao.getByChildAndDate(childId, today)
-        val challenge = existing ?: DailyChallengeEntity(
-            id = "${childId}_$today",
-            childId = childId,
-            challengeDate = today
-        )
+        subject: String,
+        lessonId: String,
+    ): ChallengeProgress = awardMutex.withLock {
+        val normalizedSubject = normalizeSubject(subject)
+            ?: return@withLock getExpeditionProgressLocked(childId)
+        if (lessonId.isBlank()) return@withLock getExpeditionProgressLocked(childId)
 
-        val updated = when (subject) {
-            "english" -> challenge.copy(englishCompleted = true, updatedAtEpochMillis = System.currentTimeMillis())
-            "filipino" -> challenge.copy(filipinoCompleted = true, updatedAtEpochMillis = System.currentTimeMillis())
-            "mathematics" -> challenge.copy(mathematicsCompleted = true, updatedAtEpochMillis = System.currentTimeMillis())
-            "science" -> challenge.copy(scienceCompleted = true, updatedAtEpochMillis = System.currentTimeMillis())
-            "makabansa" -> challenge.copy(makabansaCompleted = true, updatedAtEpochMillis = System.currentTimeMillis())
-            else -> challenge
-        }
+        val weekKey = currentWeekKey()
+        val existing = wildlifeExpeditionDao.getByChildAndWeek(childId, weekKey)
+            ?: WildlifeExpeditionEntity(
+                id = "${childId}_$weekKey",
+                childId = childId,
+                weekKey = weekKey,
+            )
 
-        val completedCount = listOf(updated.englishCompleted, updated.filipinoCompleted,
-            updated.mathematicsCompleted, updated.scienceCompleted, updated.makabansaCompleted).count { it }
+        val lessonIds = existing.completedLessonIds.toSetValue()
+        val subjectKeys = existing.subjectKeys.toSetValue()
+        val updatedLessonIds = lessonIds + lessonId
+        val updatedSubjectKeys = subjectKeys + normalizedSubject
+        val qualifies = updatedLessonIds.size >= EXPEDITION_TARGET_LESSONS &&
+            updatedSubjectKeys.size >= EXPEDITION_MIN_SUBJECTS
 
-        val allDone = completedCount == 5 && !updated.badgeAwarded
-        val awardedBadge = if (allDone) {
-            val badge = awardNextBadge(childId, today)
-            dailyChallengeDao.upsert(updated.copy(allCompleted = true, badgeAwarded = true, awardedBadgeId = badge?.id))
-            badge
+        val newlyAwarded = if (qualifies && !existing.badgeAwarded) {
+            awardNextBadge(childId, weekKey)
         } else {
-            dailyChallengeDao.upsert(updated)
             null
         }
 
-        return ChallengeProgress(
-            english = updated.englishCompleted, filipino = updated.filipinoCompleted,
-            mathematics = updated.mathematicsCompleted, science = updated.scienceCompleted,
-            makabansa = updated.makabansaCompleted, completedCount = completedCount,
-            newlyAwardedBadge = awardedBadge
+        val updated = existing.copy(
+            completedLessonIds = updatedLessonIds.joinToString("|"),
+            subjectKeys = updatedSubjectKeys.joinToString("|"),
+            badgeAwarded = existing.badgeAwarded || qualifies,
+            awardedBadgeId = existing.awardedBadgeId ?: newlyAwarded?.id,
+            updatedAtEpochMillis = System.currentTimeMillis(),
         )
+        wildlifeExpeditionDao.upsert(updated)
+
+        progressFrom(updated, newlyAwarded)
     }
 
-    private suspend fun awardNextBadge(childId: String, today: String): CollectibleBadge? {
+    /**
+     * Compatibility wrapper for callers that only have a subject. New lesson
+     * code must call [recordLessonCompletion] so replaying one lesson cannot
+     * count as another adventure.
+     */
+    @Deprecated("Use recordLessonCompletion(childId, subject, lessonId)")
+    suspend fun recordSubjectCompletion(childId: String, subject: String): ChallengeProgress =
+        recordLessonCompletion(childId, subject, "legacy:${normalizeSubject(subject) ?: subject}")
+
+    /** Current week's expedition progress; unlike the old daily challenge it does not reset each day. */
+    suspend fun getExpeditionProgress(childId: String): ChallengeProgress = awardMutex.withLock {
+        getExpeditionProgressLocked(childId)
+    }
+
+    /** Compatibility name retained for existing home callers during the migration. */
+    suspend fun getTodayProgress(childId: String): ChallengeProgress = getExpeditionProgress(childId)
+
+    private suspend fun getExpeditionProgressLocked(childId: String): ChallengeProgress {
+        val expedition = wildlifeExpeditionDao.getByChildAndWeek(childId, currentWeekKey())
+            ?: return ChallengeProgress()
+        return progressFrom(expedition)
+    }
+
+    private suspend fun awardNextBadge(childId: String, weekKey: String): CollectibleBadge? {
         val allBadges = badgeLoader.loadAll()
         val earnedIds = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
         val nextBadge = allBadges.firstOrNull { it.id !in earnedIds } ?: return null
 
-        collectedBadgeDao.insert(CollectedBadgeEntity(
-            id = "${childId}_${nextBadge.id}",
-            childId = childId,
-            badgeId = nextBadge.id,
-            biome = nextBadge.biome,
-            earnedDate = today
-        ))
+        collectedBadgeDao.insert(
+            CollectedBadgeEntity(
+                id = "${childId}_${nextBadge.id}",
+                childId = childId,
+                badgeId = nextBadge.id,
+                biome = nextBadge.biome,
+                earnedDate = weekKey,
+            )
+        )
         return nextBadge
     }
 
-    suspend fun getTodayProgress(childId: String): ChallengeProgress {
-        val today = todayDate()
-        val challenge = dailyChallengeDao.getByChildAndDate(childId, today)
-            ?: return ChallengeProgress()
-        return ChallengeProgress(
-            english = challenge.englishCompleted, filipino = challenge.filipinoCompleted,
-            mathematics = challenge.mathematicsCompleted, science = challenge.scienceCompleted,
-            makabansa = challenge.makabansaCompleted,
-            completedCount = listOf(challenge.englishCompleted, challenge.filipinoCompleted,
-                challenge.mathematicsCompleted, challenge.scienceCompleted, challenge.makabansaCompleted).count { it },
-            newlyAwardedBadge = null
-        )
-    }
-
     suspend fun getCollectedBadges(childId: String): List<CollectibleBadge> {
-        val earned = collectedBadgeDao.getAllByChild(childId)
-            .associateBy { it.badgeId }
+        val earned = collectedBadgeDao.getAllByChild(childId).associateBy { it.badgeId }
         val all = badgeLoader.loadAll()
         return all.map { badge ->
             val record = earned[badge.id]
@@ -113,14 +137,60 @@ class BadgeAwarder @Inject constructor(
     }
 
     suspend fun getCollectedCount(childId: String): Int = collectedBadgeDao.countByChild(childId)
-    suspend fun getCollectedByBiome(childId: String, biome: String): Int = collectedBadgeDao.countByBiome(childId, biome)
 
-    private fun todayDate(): String = LocalDate.now(ZoneId.systemDefault()).toString()
+    suspend fun getCollectedByBiome(childId: String, biome: String): Int =
+        collectedBadgeDao.countByBiome(childId, biome)
+
+    private fun progressFrom(
+        expedition: WildlifeExpeditionEntity,
+        newlyAwarded: CollectibleBadge? = null,
+    ): ChallengeProgress {
+        val lessonIds = expedition.completedLessonIds.toSetValue()
+        val subjectKeys = expedition.subjectKeys.toSetValue()
+        return ChallengeProgress(
+            english = "english" in subjectKeys,
+            filipino = "filipino" in subjectKeys,
+            mathematics = "mathematics" in subjectKeys,
+            science = "science" in subjectKeys,
+            makabansa = SUBJECT_MAKABANSA in subjectKeys,
+            gmrc = "gmrc" in subjectKeys,
+            completedCount = lessonIds.size,
+            subjectCount = subjectKeys.size,
+            expeditionComplete = expedition.badgeAwarded || (
+                lessonIds.size >= EXPEDITION_TARGET_LESSONS &&
+                    subjectKeys.size >= EXPEDITION_MIN_SUBJECTS
+                ),
+            newlyAwardedBadge = newlyAwarded,
+        )
+    }
+
+    private fun normalizeSubject(subject: String): String? = when (subject.lowercase()) {
+        "english" -> "english"
+        "filipino" -> "filipino"
+        "mathematics", "math" -> "mathematics"
+        "science" -> "science"
+        "makabansa", "araling_panlipunan", "araling-panlipunan" -> SUBJECT_MAKABANSA
+        "gmrc" -> "gmrc"
+        else -> null
+    }
+
+    private fun currentWeekKey(): String = LocalDate.now(ZoneId.systemDefault())
+        .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY))
+        .toString()
 }
 
 data class ChallengeProgress(
-    val english: Boolean = false, val filipino: Boolean = false,
-    val mathematics: Boolean = false, val science: Boolean = false,
-    val makabansa: Boolean = false, val completedCount: Int = 0,
-    val newlyAwardedBadge: CollectibleBadge? = null
+    val english: Boolean = false,
+    val filipino: Boolean = false,
+    val mathematics: Boolean = false,
+    val science: Boolean = false,
+    val makabansa: Boolean = false,
+    val gmrc: Boolean = false,
+    val completedCount: Int = 0,
+    val subjectCount: Int = 0,
+    val expeditionComplete: Boolean = false,
+    val newlyAwardedBadge: CollectibleBadge? = null,
 )
+
+private fun String.toSetValue(): Set<String> =
+    split('|').filter { it.isNotBlank() }.toSet()
