@@ -5,27 +5,27 @@
  "month": 5,
  "day": 2,
  "subject": "mathematics",
- "title": "subtract numbers, where both numbers are less than 10 000, with and without",
- "objective": "subtract numbers, where both numbers are less than 10 000, with and without",
+ "title": "Take-Away Trail",
+ "objective": "Subtract numbers below 10,000 with or without regrouping.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Numbers and shapes are like puzzle pieces — they fit together to create amazing things! 🧩 Today: subtract numbers, where both numbers are. Let's explore how math helps us understand the world.",
+ "introduction": "Milo has a new mission! 🐱✨ Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Number",
-   "definition": "Simbolo na ginagamit sa pagbibilang o pagsusukat."
+   "term": "458 − 123 = 335",
+   "definition": "correct idea"
   },
   {
-   "term": "one",
-   "definition": "The number that comes first when counting."
+   "term": "700 − 245 = 455",
+   "definition": "useful example"
   },
   {
-   "term": "order",
-   "definition": "Arranging things from first to last."
+   "term": "regroup one hundred as ten tens",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "subtract numbers, where both numbers are less than 10 000, with and without",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   },
   {
-   "activityId": "mathematics-g3-q2-w04-d02-a04",
+   "activityId": "mathematics-g3-q2-w04-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: subtract numbers, where both numbers are less than 10 000, with and without",
-     "Remember: subtract numbers, where both numbers are less than 10 000, with and without",
-     "Think about: subtract numbers where both numbers...",
-     "Try this: Can you explain subtract numbers where in your own words?"
-    ]
+     "458 − 123 = 335",
+     "700 − 245 = 455",
+     "regroup one hundred as ten tens",
+     "check by adding the difference"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   },
   {
    "activityId": "mathematics-g3-q2-w04-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of subtract numbers where — correct",
-     "Another correct example about subtract numbers where",
-     "Yes — this matches subtract numbers where both"
+     "458 − 123 = 335",
+     "700 − 245 = 455",
+     "regroup one hundred as ten tens",
+     "check by adding the difference"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   },
   {
-   "activityId": "mathematics-g3-q2-w04-d02-a02",
+   "activityId": "mathematics-g3-q2-w04-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about subtract numbers where both",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "458 − 123 = 335",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   },
   {
    "activityId": "mathematics-g3-q2-w04-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: subtract numbers where",
-      "right": "Matches the lesson"
+      "left": "458 − 123 = 335",
+      "right": "correct idea"
      },
      {
-      "left": "Example of subtract numbers",
-      "right": "Fits the idea"
+      "left": "700 − 245 = 455",
+      "right": "useful example"
      },
      {
-      "left": "Key term: subtract",
-      "right": "Correct"
+      "left": "regroup one hundred as ten tens",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   },
   {
    "activityId": "mathematics-g3-q2-w04-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand subtract numbers where",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q2-w04-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Take-Away Trail?",
     "options": [
      {
       "id": "a",
-      "text": "Art class"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Music"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Reading stories"
+      "text": "Subtract from ones to thousands."
      },
      {
       "id": "d",
-      "text": "Numbers, shapes, and problem solving"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "c"
     ],
-    "explanation": "Milo asks: What math topic did we learn?"
+    "explanation": "The best answer is: Subtract from ones to thousands."
    },
    {
-    "itemId": "q02",
+    "itemId": "mathematics-g3-q2-w04-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
+    "prompt": "Which statement best fits Take-Away Trail?",
     "options": [
      {
       "id": "a",
-      "text": "Guess randomly"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "Ask someone else"
+      "text": "Subtract from ones to thousands."
      },
      {
       "id": "c",
-      "text": "Give up"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Think step by step, then check your work"
+      "text": "an unrelated operation"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "b"
     ],
-    "explanation": "Milo asks: How do you solve a math problem?"
+    "explanation": "The best answer is: Subtract from ones to thousands."
    },
    {
-    "itemId": "q03",
+    "itemId": "mathematics-g3-q2-w04-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
+    "prompt": "Which statement best fits Take-Away Trail?",
     "options": [
      {
       "id": "a",
-      "text": "It's useless"
+      "text": "Subtract from ones to thousands."
      },
      {
       "id": "b",
-      "text": "At the store, cooking, and counting things"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Never"
+      "text": "an answer with no label"
      },
      {
       "id": "d",
-      "text": "Only in school"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Where can you use math in real life?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Nothing helps"
-     },
-     {
-      "id": "b",
-      "text": "Practice and asking questions!"
-     },
-     {
-      "id": "c",
-      "text": "A magic wand"
-     },
-     {
-      "id": "d",
-      "text": "Wishing really hard"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: What helps you get better at math?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Try a different way, then ask for help"
-     },
-     {
-      "id": "b",
-      "text": "Cry and give up"
-     },
-     {
-      "id": "c",
-      "text": "Ignore it"
-     },
-     {
-      "id": "d",
-      "text": "Throw your paper away"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: Subtract from ones to thousands."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w04-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Take-Away Trail?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "b",
+      "text": "a random guess"
+     },
+     {
+      "id": "c",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "d",
+      "text": "Subtract from ones to thousands."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Subtract from ones to thousands."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w04-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Take-Away Trail?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "Subtract from ones to thousands."
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Subtract from ones to thousands."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

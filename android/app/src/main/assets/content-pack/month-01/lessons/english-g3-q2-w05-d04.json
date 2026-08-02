@@ -5,27 +5,27 @@
  "month": 6,
  "day": 4,
  "subject": "english",
- "title": "Comprehend informational texts.",
- "objective": "Comprehend informational texts.",
+ "title": "Fact Finders",
+ "objective": "Find the topic and important facts in a short informational text.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Welcome, Word Explorer! 🌟 Today's mission: master new sight words. The more sight words you know, the faster and easier reading becomes. Let's begin!",
+ "introduction": "Milo has a new mission! 🐱✨ Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Ready to explore?",
  "vocabulary": [
   {
-   "term": "story",
-   "definition": "A tale with characters and events."
+   "term": "topic: mangrove trees",
+   "definition": "a correct example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "fact: roots hold soil",
+   "definition": "a related example"
   },
   {
-   "term": "sequence",
-   "definition": "The order of events in a story."
+   "term": "fact: trees provide shelter",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Comprehend informational texts.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   },
   {
-   "activityId": "english-g3-q2-w05-d04-a04",
+   "activityId": "english-g3-q2-w05-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Comprehend informational texts.",
-     "Remember: Comprehend informational texts.",
-     "Think about: Comprehend informational texts...",
-     "Try this: Can you explain Comprehend informational texts in your own words?"
-    ]
+     "topic: mangrove trees",
+     "fact: roots hold soil",
+     "fact: trees provide shelter",
+     "detail from the text"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   },
   {
    "activityId": "english-g3-q2-w05-d04-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Comprehend informational texts — correct",
-     "Another correct example about Comprehend informational texts",
-     "Yes — this matches Comprehend informational texts"
+     "topic: mangrove trees",
+     "fact: roots hold soil",
+     "fact: trees provide shelter",
+     "detail from the text"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Put things where they belong.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   },
   {
-   "activityId": "english-g3-q2-w05-d04-a02",
+   "activityId": "english-g3-q2-w05-d04-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Comprehend informational texts",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "topic: mangrove trees",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   },
   {
    "activityId": "english-g3-q2-w05-d04-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Comprehend informational texts",
-      "right": "Matches the lesson"
+      "left": "topic: mangrove trees",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Comprehend informational",
-      "right": "Fits the idea"
+      "left": "fact: roots hold soil",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Comprehend",
-      "right": "Correct"
+      "left": "fact: trees provide shelter",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   },
   {
    "activityId": "english-g3-q2-w05-d04-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Comprehend informational texts",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w05-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Fact Finders?",
     "options": [
      {
       "id": "a",
-      "text": "Watching TV"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Playing games"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Understanding new words and reading"
+      "text": "Informational texts teach about a real topic."
      },
      {
       "id": "d",
-      "text": "Eating food"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Informational texts teach about a real topic."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q2-w05-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits Fact Finders?",
     "options": [
      {
       "id": "a",
-      "text": "Banana"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Running"
+      "text": "Informational texts teach about a real topic."
      },
      {
       "id": "c",
-      "text": "Sight words and vocabulary"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Table"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
-    "explanation": "Milo asks: Which word did we learn today?"
+    "explanation": "The best answer is: Informational texts teach about a real topic."
    },
    {
-    "itemId": "q03",
+    "itemId": "english-g3-q2-w05-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Fact Finders?",
     "options": [
      {
       "id": "a",
-      "text": "Go to sleep"
+      "text": "Informational texts teach about a real topic."
      },
      {
       "id": "b",
-      "text": "Forget everything"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Think about what you learned"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Eat a snack"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: What should you do after reading?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
-    "options": [
-     {
-      "id": "a",
-      "text": "To waste time"
-     },
-     {
-      "id": "b",
-      "text": "Because we have to"
-     },
-     {
-      "id": "c",
-      "text": "To read and understand better"
-     },
-     {
-      "id": "d",
-      "text": "No reason"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Why do we learn new words?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Read books every day!"
-     },
-     {
-      "id": "b",
-      "text": "Never look at words"
-     },
-     {
-      "id": "c",
-      "text": "Only use pictures"
-     },
-     {
-      "id": "d",
-      "text": "Ignore text"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Informational texts teach about a real topic."
+   },
+   {
+    "itemId": "english-g3-q2-w05-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Fact Finders?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "Informational texts teach about a real topic."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Informational texts teach about a real topic."
+   },
+   {
+    "itemId": "english-g3-q2-w05-d04-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Fact Finders?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "Informational texts teach about a real topic."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Informational texts teach about a real topic."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

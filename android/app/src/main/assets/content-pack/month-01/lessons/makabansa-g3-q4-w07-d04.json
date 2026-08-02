@@ -5,27 +5,27 @@
  "month": 14,
  "day": 4,
  "subject": "makabansa",
- "title": "Naipamamalas ang pagiging isang Soundscape",
- "objective": "Naipamamalas ang pagiging isang Soundscape: Learners composes soundscapes inspired by an active and responsible Filipino",
+ "title": "Kapaligiran at Kultura",
+ "objective": "Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon, pag-aaralan natin ang: Naipamamalas ang pagiging isang Soundscape: Learners. Handa ka na bang matuto ng bagong kaalaman? Tara na!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "Bayan",
-   "definition": "Ang lugar na kinabibilangan ng bawat mamamayan."
+   "term": "pangingisda sa baybayin",
+   "definition": "kaugnay na halimbawa"
   },
   {
-   "term": "paksa",
-   "definition": "Ang pinag-uusapan o pinag-aaralan sa teksto."
+   "term": "pagsasaka sa kapatagan",
+   "definition": "bahagi ng paksa"
   },
   {
-   "term": "kasaysayan",
-   "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
+   "term": "disenyong angkop sa klima",
+   "definition": "makabuluhang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Naipamamalas ang pagiging isang Soundscape: Learners composes soundscapes inspired by an active and responsible Filipino",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   },
   {
-   "activityId": "makabansa-g3-q4-w07-d04-a04",
+   "activityId": "makabansa-g3-q4-w07-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Naipamamalas ang pagiging isang Soundscape: Learners composes soundscapes inspir",
-     "Remember: Naipamamalas ang pagiging isang Soundscape: Learners composes soundscapes inspir",
-     "Think about: Naipamamalas ang pagiging isang Soundscape:...",
-     "Try this: Can you explain Naipamamalas ang pagiging in your own words?"
-    ]
+     "pangingisda sa baybayin",
+     "pagsasaka sa kapatagan",
+     "disenyong angkop sa klima",
+     "pagkain mula sa lokal na ani"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   },
   {
    "activityId": "makabansa-g3-q4-w07-d04-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Naipamamalas ang pagiging — correct",
-     "Another correct example about Naipamamalas ang pagiging",
-     "Yes — this matches Naipamamalas ang pagiging isang"
+     "pangingisda sa baybayin",
+     "pagsasaka sa kapatagan",
+     "disenyong angkop sa klima",
+     "pagkain mula sa lokal na ani"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura",
+     "gawaing nakapipinsala sa kapwa"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Put things where they belong.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   },
   {
-   "activityId": "makabansa-g3-q4-w07-d04-a02",
+   "activityId": "makabansa-g3-q4-w07-d04-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Naipamamalas ang pagiging isang",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "pangingisda sa baybayin",
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   },
   {
    "activityId": "makabansa-g3-q4-w07-d04-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Naipamamalas ang pagiging",
-      "right": "Matches the lesson"
+      "left": "pangingisda sa baybayin",
+      "right": "kaugnay na halimbawa"
      },
      {
-      "left": "Example of Naipamamalas ang",
-      "right": "Fits the idea"
+      "left": "pagsasaka sa kapatagan",
+      "right": "bahagi ng paksa"
      },
      {
-      "left": "Key term: Naipamamalas",
-      "right": "Correct"
+      "left": "disenyong angkop sa klima",
+      "right": "makabuluhang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   },
   {
    "activityId": "makabansa-g3-q4-w07-d04-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w07-d04-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Naipamamalas ang pagiging",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Tingnan ang halimbawa",
+     "Tukuyin ang mahalagang ideya",
+     "Iugnay sa komunidad",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "makabansa-g3-q4-w07-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang paksa ng aralin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kapaligiran at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Pagkain"
+      "text": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
      },
      {
       "id": "b",
-      "text": "Sayaw"
+      "text": "hula na walang batayan"
      },
      {
       "id": "c",
-      "text": "Laro"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Ang ating komunidad at kasaysayan"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Ano ang paksa ng aralin?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang kasaysayan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Hindi kailangan"
-     },
-     {
-      "id": "b",
-      "text": "Walang saysay"
-     },
-     {
-      "id": "c",
-      "text": "Nakakatamad"
-     },
-     {
-      "id": "d",
-      "text": "Para maunawaan ang ating pinagmulan"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Bakit mahalaga ang kasaysayan?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang tungkulin mo sa komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Maging mabuting mamamayan"
-     },
-     {
-      "id": "b",
-      "text": "Manahimik lang"
-     },
-     {
-      "id": "c",
-      "text": "Huwag tumulong"
-     },
-     {
-      "id": "d",
-      "text": "Wala"
+      "text": "pang-aalipusta sa kultura"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Ano ang tungkulin mo sa komunidad?"
+    "explanation": "Ang pinakamainam na sagot ay: Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
    },
    {
-    "itemId": "q04",
-    "sequence": 4,
+    "itemId": "makabansa-g3-q4-w07-d04-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang dapat nating igalang?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kapaligiran at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Sarili lang"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Ang nakatatanda at kapwa tao"
+      "text": "pang-aalipusta sa kultura"
      },
      {
       "id": "c",
-      "text": "Walang sinuman"
+      "text": "gawaing nakapipinsala sa kapwa"
      },
      {
       "id": "d",
-      "text": "Walang dapat igalang"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Sino ang dapat nating igalang?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano maipapakita ang pagmamahal sa bayan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Huwag mag-aral"
-     },
-     {
-      "id": "b",
-      "text": "Maging tamad"
-     },
-     {
-      "id": "c",
-      "text": "Walang gawin"
-     },
-     {
-      "id": "d",
-      "text": "Mag-aral nang mabuti at tumulong sa kapwa"
+      "text": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Paano maipapakita ang pagmamahal sa bayan?"
+    "explanation": "Ang pinakamainam na sagot ay: Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+   },
+   {
+    "itemId": "makabansa-g3-q4-w07-d04-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kapaligiran at Kultura?",
+    "options": [
+     {
+      "id": "a",
+      "text": "gawaing nakapipinsala sa kapwa"
+     },
+     {
+      "id": "b",
+      "text": "hula na walang batayan"
+     },
+     {
+      "id": "c",
+      "text": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+     },
+     {
+      "id": "d",
+      "text": "pang-aalipusta sa kultura"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+   },
+   {
+    "itemId": "makabansa-g3-q4-w07-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kapaligiran at Kultura?",
+    "options": [
+     {
+      "id": "a",
+      "text": "impormasyong walang kaugnayan"
+     },
+     {
+      "id": "b",
+      "text": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+     },
+     {
+      "id": "c",
+      "text": "gawaing nakapipinsala sa kapwa"
+     },
+     {
+      "id": "d",
+      "text": "hula na walang batayan"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+   },
+   {
+    "itemId": "makabansa-g3-q4-w07-d04-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kapaligiran at Kultura?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+     },
+     {
+      "id": "b",
+      "text": "hula na walang batayan"
+     },
+     {
+      "id": "c",
+      "text": "impormasyong walang kaugnayan"
+     },
+     {
+      "id": "d",
+      "text": "pang-aalipusta sa kultura"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

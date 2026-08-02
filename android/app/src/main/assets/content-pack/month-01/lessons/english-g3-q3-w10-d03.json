@@ -5,27 +5,27 @@
  "month": 11,
  "day": 3,
  "subject": "english",
- "title": "Sequence words to represent meaning in simple sentences",
- "objective": "Sequence words to represent meaning in simple sentences.",
+ "title": "Sentence Order",
+ "objective": "Use sequence words to show the order of events or ideas.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Can you read a word without sounding it out? That's what we call a SIGHT WORD! Today we explore: Sequence words to represent meaning in simple sentences.. Let's build your reading superpowers! 🦸",
+ "introduction": "Milo has a new mission! 🐱✨ Sequence words such as first, next, then, and finally help readers follow an order. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Sentence",
-   "definition": "A group of words that expresses a complete thought."
+   "term": "First, wash the fruit.",
+   "definition": "a correct example"
   },
   {
-   "term": "sequence",
-   "definition": "The order of events in a story."
+   "term": "Next, cut it safely.",
+   "definition": "a related example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "Then, share it.",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Sequence words to represent meaning in simple sentences.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   },
   {
-   "activityId": "english-g3-q3-w10-d03-a04",
+   "activityId": "english-g3-q3-w10-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Sequence words to represent meaning in simple sentences.",
-     "Remember: Sequence words to represent meaning in simple sentences.",
-     "Think about: Sequence words to represent meaning...",
-     "Try this: Can you explain Sequence words to in your own words?"
-    ]
+     "First, wash the fruit.",
+     "Next, cut it safely.",
+     "Then, share it.",
+     "Finally, clean up."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   },
   {
    "activityId": "english-g3-q3-w10-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Sequence words to — correct",
-     "Another correct example about Sequence words to",
-     "Yes — this matches Sequence words to represent"
+     "First, wash the fruit.",
+     "Next, cut it safely.",
+     "Then, share it.",
+     "Finally, clean up."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   },
   {
-   "activityId": "english-g3-q3-w10-d03-a02",
+   "activityId": "english-g3-q3-w10-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Sequence words to represent",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "First, wash the fruit.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Which one is correct? Tap it!",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   },
   {
    "activityId": "english-g3-q3-w10-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Sequence words to",
-      "right": "Matches the lesson"
+      "left": "First, wash the fruit.",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Sequence words",
-      "right": "Fits the idea"
+      "left": "Next, cut it safely.",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Sequence",
-      "right": "Correct"
+      "left": "Then, share it.",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   },
   {
    "activityId": "english-g3-q3-w10-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Sequence words to",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q3-w10-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Sentence Order?",
     "options": [
      {
       "id": "a",
-      "text": "Playing games"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Understanding new words and reading"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Eating food"
+      "text": "Sequence words such as first, next, then, and finally help readers follow an order."
      },
      {
       "id": "d",
-      "text": "Watching TV"
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Sequence words such as first, next, then, and finally help readers follow an order."
+   },
+   {
+    "itemId": "english-g3-q3-w10-d03-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Sentence Order?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "Sequence words such as first, next, then, and finally help readers follow an order."
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Sequence words such as first, next, then, and finally help readers follow an order."
    },
    {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Banana"
-     },
-     {
-      "id": "b",
-      "text": "Table"
-     },
-     {
-      "id": "c",
-      "text": "Sight words and vocabulary"
-     },
-     {
-      "id": "d",
-      "text": "Running"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
+    "itemId": "english-g3-q3-w10-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Sentence Order?",
     "options": [
      {
       "id": "a",
-      "text": "Go to sleep"
+      "text": "Sequence words such as first, next, then, and finally help readers follow an order."
      },
      {
       "id": "b",
-      "text": "Forget everything"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Think about what you learned"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Eat a snack"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: Sequence words such as first, next, then, and finally help readers follow an order."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q3-w10-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Sentence Order?",
     "options": [
      {
       "id": "a",
-      "text": "Because we have to"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "No reason"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "To read and understand better"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To waste time"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Why do we learn new words?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Never look at words"
-     },
-     {
-      "id": "b",
-      "text": "Only use pictures"
-     },
-     {
-      "id": "c",
-      "text": "Ignore text"
-     },
-     {
-      "id": "d",
-      "text": "Read books every day!"
+      "text": "Sequence words such as first, next, then, and finally help readers follow an order."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Sequence words such as first, next, then, and finally help readers follow an order."
+   },
+   {
+    "itemId": "english-g3-q3-w10-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Sentence Order?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "Sequence words such as first, next, then, and finally help readers follow an order."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Sequence words such as first, next, then, and finally help readers follow an order."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

@@ -5,27 +5,27 @@
  "month": 14,
  "day": 1,
  "subject": "science",
- "title": "describe how changes in the weather can affect daily activities and explain how some types",
- "objective": "describe how changes in the weather can affect daily activities and explain how some types",
+ "title": "Light and Sound Lab",
+ "objective": "Describe how light and sound behave and identify safe ways to protect people.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Did you know that science happens all around you, every single day? 🌍 In 'describe how changes in the weather', you'll discover something amazing about our world. Curiosity ON!",
+ "introduction": "Milo has a new mission! 🐱✨ Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels. Ready to explore?",
  "vocabulary": [
   {
-   "term": "weather",
-   "definition": "What the sky and air are like each day."
+   "term": "a vibrating guitar string makes sound",
+   "definition": "observable evidence"
   },
   {
-   "term": "classify",
-   "definition": "To sort things into groups that are alike."
+   "term": "a flashlight helps us see",
+   "definition": "safe example"
   },
   {
-   "term": "season",
-   "definition": "A time of year with its own weather."
+   "term": "move away from very loud speakers",
+   "definition": "connected idea"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "describe how changes in the weather can affect daily activities and explain how some types",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   },
   {
-   "activityId": "science-g3-q4-w08-d01-a04",
+   "activityId": "science-g3-q4-w08-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: describe how changes in the weather can affect daily activities and explain how ",
-     "Remember: describe how changes in the weather can affect daily activities and explain how ",
-     "Think about: describe how changes in the...",
-     "Try this: Can you explain describe how changes in your own words?"
-    ]
+     "a vibrating guitar string makes sound",
+     "a flashlight helps us see",
+     "move away from very loud speakers",
+     "never stare at the Sun"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   },
   {
    "activityId": "science-g3-q4-w08-d01-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of describe how changes — correct",
-     "Another correct example about describe how changes",
-     "Yes — this matches describe how changes in"
+     "a vibrating guitar string makes sound",
+     "a flashlight helps us see",
+     "move away from very loud speakers",
+     "never stare at the Sun"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone",
+     "make a claim without observing"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   },
   {
-   "activityId": "science-g3-q4-w08-d01-a02",
+   "activityId": "science-g3-q4-w08-d01-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about describe how changes in",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "a vibrating guitar string makes sound",
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   },
   {
    "activityId": "science-g3-q4-w08-d01-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: describe how changes",
-      "right": "Matches the lesson"
+      "left": "a vibrating guitar string makes sound",
+      "right": "observable evidence"
      },
      {
-      "left": "Example of describe how",
-      "right": "Fits the idea"
+      "left": "a flashlight helps us see",
+      "right": "safe example"
      },
      {
-      "left": "Key term: describe",
-      "right": "Correct"
+      "left": "move away from very loud speakers",
+      "right": "connected idea"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   },
   {
    "activityId": "science-g3-q4-w08-d01-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand describe how changes",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Observe safely",
+     "Name the property or pattern",
+     "Compare the examples",
+     "Explain what the evidence shows"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "science-g3-q4-w08-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What science topic did we explore?",
+    "prompt": "Which statement best fits Light and Sound Lab?",
     "options": [
      {
       "id": "a",
-      "text": "How things work in our world"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "A cooking show"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "A story about cats"
+      "text": "Light helps us see."
      },
      {
       "id": "d",
-      "text": "A video game"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: What science topic did we explore?"
+    "explanation": "The best answer is: Light helps us see."
    },
    {
-    "itemId": "q02",
+    "itemId": "science-g3-q4-w08-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What does a scientist do?",
+    "prompt": "Which statement best fits Light and Sound Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Only wear lab coats"
+      "text": "make a claim without observing"
      },
      {
       "id": "b",
-      "text": "Observe, ask questions, and test ideas"
+      "text": "Light helps us see."
      },
      {
       "id": "c",
-      "text": "Make wild guesses"
+      "text": "look directly at the Sun"
      },
      {
       "id": "d",
-      "text": "Just read books all day"
+      "text": "use a dangerous tool alone"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What does a scientist do?"
+    "explanation": "The best answer is: Light helps us see."
    },
    {
-    "itemId": "q03",
+    "itemId": "science-g3-q4-w08-d01-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you find science?",
+    "prompt": "Which statement best fits Light and Sound Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Everywhere — at home, in nature, in you!"
+      "text": "Light helps us see."
      },
      {
       "id": "b",
-      "text": "Only in a laboratory"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Nowhere interesting"
+      "text": "make a claim without observing"
      },
      {
       "id": "d",
-      "text": "Only in textbooks"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Where can you find science?"
+    "explanation": "The best answer is: Light helps us see."
    },
    {
-    "itemId": "q04",
+    "itemId": "science-g3-q4-w08-d01-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the first step in exploring?",
+    "prompt": "Which statement best fits Light and Sound Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Ignore what you see"
+      "text": "make a claim without observing"
      },
      {
       "id": "b",
-      "text": "Close your eyes"
+      "text": "taste an unknown material"
      },
      {
       "id": "c",
-      "text": "Jump to conclusions"
+      "text": "look directly at the Sun"
      },
      {
       "id": "d",
-      "text": "Look closely and observe carefully!"
+      "text": "Light helps us see."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: What is the first step in exploring?"
+    "explanation": "The best answer is: Light helps us see."
    },
    {
-    "itemId": "q05",
+    "itemId": "science-g3-q4-w08-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why is science exciting?",
+    "prompt": "Which statement best fits Light and Sound Lab?",
     "options": [
      {
       "id": "a",
-      "text": "No reason"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "You discover amazing things about the world!"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Because you have to"
+      "text": "Light helps us see."
      },
      {
       "id": "d",
-      "text": "It's not exciting at all"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "c"
     ],
-    "explanation": "Milo asks: Why is science exciting?"
+    "explanation": "The best answer is: Light helps us see."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

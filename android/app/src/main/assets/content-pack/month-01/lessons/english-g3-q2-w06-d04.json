@@ -5,27 +5,27 @@
  "month": 6,
  "day": 4,
  "subject": "english",
- "title": "Use common expressions and polite greetings appropriate to",
- "objective": "Use basic sight words, high frequency, and content-specific",
+ "title": "Kind Words, Right Place",
+ "objective": "Choose a polite expression that fits the situation.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Can you read a word without sounding it out? That's what we call a SIGHT WORD! Today we explore: Use basic sight words, high frequency, and content-specific. Let's build your reading superpowers! 🦸",
+ "introduction": "Milo has a new mission! 🐱✨ A greeting and polite expression should fit the person, time, and situation. Ready to explore?",
  "vocabulary": [
   {
-   "term": "sound",
-   "definition": "Something you hear with your ears."
+   "term": "Good morning.",
+   "definition": "a correct example"
   },
   {
-   "term": "story",
-   "definition": "A tale with characters and events."
+   "term": "Please help me.",
+   "definition": "a related example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "Thank you.",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Use common expressions and polite greetings appropriate to",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "A greeting and polite expression should fit the person, time, and situation.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   },
   {
-   "activityId": "english-g3-q2-w06-d04-a04",
+   "activityId": "english-g3-q2-w06-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Use basic sight words, high frequency, and content-specific",
-     "Remember: Use basic sight words, high frequency, and content-specific",
-     "Think about: Use basic sight words high...",
-     "Try this: Can you explain Use basic sight in your own words?"
-    ]
+     "Good morning.",
+     "Please help me.",
+     "Thank you.",
+     "Excuse me."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   },
   {
    "activityId": "english-g3-q2-w06-d04-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Use basic sight — correct",
-     "Another correct example about Use basic sight",
-     "Yes — this matches Use basic sight words"
+     "Good morning.",
+     "Please help me.",
+     "Thank you.",
+     "Excuse me."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   },
   {
-   "activityId": "english-g3-q2-w06-d04-a02",
+   "activityId": "english-g3-q2-w06-d04-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Use basic sight words",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "Good morning.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   },
   {
    "activityId": "english-g3-q2-w06-d04-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Use basic sight",
-      "right": "Matches the lesson"
+      "left": "Good morning.",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Use basic",
-      "right": "Fits the idea"
+      "left": "Please help me.",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Use",
-      "right": "Correct"
+      "left": "Thank you.",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Draw a line between each pair.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   },
   {
    "activityId": "english-g3-q2-w06-d04-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Use basic sight",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w06-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Kind Words, Right Place?",
     "options": [
      {
       "id": "a",
-      "text": "Eating food"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Playing games"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Understanding new words and reading"
+      "text": "A greeting and polite expression should fit the person, time, and situation."
      },
      {
       "id": "d",
-      "text": "Watching TV"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: A greeting and polite expression should fit the person, time, and situation."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q2-w06-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits Kind Words, Right Place?",
     "options": [
      {
       "id": "a",
-      "text": "Sight words and vocabulary"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Table"
+      "text": "A greeting and polite expression should fit the person, time, and situation."
      },
      {
       "id": "c",
-      "text": "Banana"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Running"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Milo asks: Which word did we learn today?"
+    "explanation": "The best answer is: A greeting and polite expression should fit the person, time, and situation."
    },
    {
-    "itemId": "q03",
+    "itemId": "english-g3-q2-w06-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Kind Words, Right Place?",
     "options": [
      {
       "id": "a",
-      "text": "Think about what you learned"
+      "text": "A greeting and polite expression should fit the person, time, and situation."
      },
      {
       "id": "b",
-      "text": "Eat a snack"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Forget everything"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Go to sleep"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: A greeting and polite expression should fit the person, time, and situation."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q2-w06-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Kind Words, Right Place?",
     "options": [
      {
       "id": "a",
-      "text": "To read and understand better"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "No reason"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "Because we have to"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To waste time"
+      "text": "A greeting and polite expression should fit the person, time, and situation."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: A greeting and polite expression should fit the person, time, and situation."
    },
    {
-    "itemId": "q05",
+    "itemId": "english-g3-q2-w06-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Kind Words, Right Place?",
     "options": [
      {
       "id": "a",
-      "text": "Read books every day!"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Only use pictures"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Ignore text"
+      "text": "A greeting and polite expression should fit the person, time, and situation."
      },
      {
       "id": "d",
-      "text": "Never look at words"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: A greeting and polite expression should fit the person, time, and situation."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

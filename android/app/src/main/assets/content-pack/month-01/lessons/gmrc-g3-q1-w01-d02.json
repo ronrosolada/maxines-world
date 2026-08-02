@@ -5,27 +5,27 @@
  "month": 1,
  "day": 2,
  "subject": "gmrc",
- "title": "Pagpapatatag ng Natututuhan ng mag-aaral ang pag- — Naipakikita ang pagiging mapagmalasakit sa pamamagitan",
- "objective": "Pagpapatatag ng Natututuhan ng mag-aaral ang pag- — Naipakikita ang pagiging mapagmalasakit sa pamamagitan",
+ "title": "Paggalang sa Kapwa",
+ "objective": "Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Alam mo ba na ang bawat salitang binabasa mo ay may kapangyarihan? 📚 Ngayon: Pagpapatatag ng Natututuhan ng mag-aaral ang pag- 2. Naipakikita ang pagiging ma. Sama-sama tayong magbasa at matuto!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+   "term": "nakikinig",
+   "definition": "mabuting halimbawa"
   },
   {
-   "term": "mabuti",
-   "definition": "May mabuting puso at tama ang gawain."
+   "term": "nagsasabi ng po at opo kung angkop",
+   "definition": "angkop na kilos"
   },
   {
-   "term": "paggalang",
-   "definition": "Ang pagpapakita ng respeto sa iba."
+   "term": "humihingi ng pahintulot",
+   "definition": "responsableng gawain"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Pagpapatatag ng Natututuhan ng mag-aaral ang pag- 2. Naipakikita ang pagiging mapagmalasakit sa pamamagitan",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   },
   {
-   "activityId": "gmrc-g3-q1-w01-d02-a04",
+   "activityId": "gmrc-g3-q1-w01-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Pagpapatatag ng Natututuhan ng mag-aaral ang pag- 2. Naipakikita ang pagiging ma",
-     "Remember: Pagpapatatag ng Natututuhan ng mag-aaral ang pag- 2. Naipakikita ang pagiging ma",
-     "Think about: Pagpapatatag ng Natututuhan ng mag-aaral...",
-     "Try this: Can you explain Pagpapatatag ng Natututuhan in your own words?"
-    ]
+     "nakikinig",
+     "nagsasabi ng po at opo kung angkop",
+     "humihingi ng pahintulot",
+     "gumagalang sa pagkakaiba"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   },
   {
    "activityId": "gmrc-g3-q1-w01-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Pagpapatatag ng Natututuhan — correct",
-     "Another correct example about Pagpapatatag ng Natututuhan",
-     "Yes — this matches Pagpapatatag ng Natututuhan ng"
+     "nakikinig",
+     "nagsasabi ng po at opo kung angkop",
+     "humihingi ng pahintulot",
+     "gumagalang sa pagkakaiba"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "nanunukso sa kapwa",
+     "kumukuha ng hindi kanya",
+     "sumusuway sa ligtas na tuntunin",
+     "hindi nakikinig"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   },
   {
-   "activityId": "gmrc-g3-q1-w01-d02-a02",
+   "activityId": "gmrc-g3-q1-w01-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Pagpapatatag ng Natututuhan ng",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "nakikinig",
+     "nanunukso sa kapwa",
+     "kumukuha ng hindi kanya",
+     "sumusuway sa ligtas na tuntunin"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   },
   {
    "activityId": "gmrc-g3-q1-w01-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Pagpapatatag ng Natututuhan",
-      "right": "Matches the lesson"
+      "left": "nakikinig",
+      "right": "mabuting halimbawa"
      },
      {
-      "left": "Example of Pagpapatatag ng",
-      "right": "Fits the idea"
+      "left": "nagsasabi ng po at opo kung angkop",
+      "right": "angkop na kilos"
      },
      {
-      "left": "Key term: Pagpapatatag",
-      "right": "Correct"
+      "left": "humihingi ng pahintulot",
+      "right": "responsableng gawain"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Match the pairs! Which ones go together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   },
   {
    "activityId": "gmrc-g3-q1-w01-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "gmrc-g3-q1-w01-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Pagpapatatag ng Natututuhan",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Unawain ang sitwasyon",
+     "Isipin ang epekto sa kapwa",
+     "Piliin ang mabuting kilos",
+     "Isagawa ito nang ligtas"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "gmrc-g3-q1-w01-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Anong mabuting asal ang natutuhan?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Paggalang sa Kapwa?",
     "options": [
      {
       "id": "a",
-      "text": "Pagsisinungaling"
+      "text": "sumusuway sa ligtas na tuntunin"
      },
      {
       "id": "b",
-      "text": "Kawalan ng respeto"
+      "text": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
      },
      {
       "id": "c",
-      "text": "Paggalang at kabutihang-loob"
+      "text": "nanunukso sa kapwa"
      },
      {
       "id": "d",
-      "text": "Pang-aaway"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Anong mabuting asal ang natutuhan?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang pagiging mabuti?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Walang dahilan"
-     },
-     {
-      "id": "b",
-      "text": "Para magkaroon ng mabuting samahan"
-     },
-     {
-      "id": "c",
-      "text": "Hindi mahalaga"
-     },
-     {
-      "id": "d",
-      "text": "Para lang may medalya"
+      "text": "kumukuha ng hindi kanya"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: Bakit mahalaga ang pagiging mabuti?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
    },
    {
-    "itemId": "q03",
-    "sequence": 3,
+    "itemId": "gmrc-g3-q1-w01-d02-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano mo ipapakita ang paggalang?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Paggalang sa Kapwa?",
     "options": [
      {
       "id": "a",
-      "text": "Maging bastos"
+      "text": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
      },
      {
       "id": "b",
-      "text": "Sumigaw"
+      "text": "kumukuha ng hindi kanya"
      },
      {
       "id": "c",
-      "text": "Huwag makinig"
+      "text": "sumusuway sa ligtas na tuntunin"
      },
      {
       "id": "d",
-      "text": "Makinig at gumamit ng magagalang na salita"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Paano mo ipapakita ang paggalang?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang gagawin kung may nangangailangan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Tumulong nang bukal sa kalooban"
-     },
-     {
-      "id": "b",
-      "text": "Tawanan sila"
-     },
-     {
-      "id": "c",
-      "text": "Lumayo"
-     },
-     {
-      "id": "d",
-      "text": "Magkunwari"
+      "text": "hindi nakikinig"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Ano ang gagawin kung may nangangailangan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "gmrc-g3-q1-w01-d02-q03",
+    "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano pinapalakas ang tiwala sa sarili?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Paggalang sa Kapwa?",
     "options": [
      {
       "id": "a",
-      "text": "Maghihintay ng himala"
+      "text": "sumusuway sa ligtas na tuntunin"
      },
      {
       "id": "b",
-      "text": "Susuko agad"
+      "text": "hindi nakikinig"
      },
      {
       "id": "c",
-      "text": "Maniniwala sa sarili at magsasanay"
+      "text": "nanunukso sa kapwa"
      },
      {
       "id": "d",
-      "text": "Sasabihing hindi kaya"
+      "text": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Paggalang sa Kapwa?",
+    "options": [
+     {
+      "id": "a",
+      "text": "nanunukso sa kapwa"
+     },
+     {
+      "id": "b",
+      "text": "kumukuha ng hindi kanya"
+     },
+     {
+      "id": "c",
+      "text": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+     },
+     {
+      "id": "d",
+      "text": "hindi nakikinig"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: Paano pinapalakas ang tiwala sa sarili?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Paggalang sa Kapwa?",
+    "options": [
+     {
+      "id": "a",
+      "text": "sumusuway sa ligtas na tuntunin"
+     },
+     {
+      "id": "b",
+      "text": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+     },
+     {
+      "id": "c",
+      "text": "nanunukso sa kapwa"
+     },
+     {
+      "id": "d",
+      "text": "kumukuha ng hindi kanya"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

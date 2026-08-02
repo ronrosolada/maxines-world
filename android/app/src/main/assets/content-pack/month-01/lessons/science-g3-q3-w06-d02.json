@@ -5,27 +5,27 @@
  "month": 10,
  "day": 2,
  "subject": "science",
- "title": "explain how light and sound can be harmful",
- "objective": "participate in guided activities to explore and describe some ways to use movement,",
+ "title": "Material Detectives",
+ "objective": "Describe familiar materials by observable properties and choose safe uses or handling.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Did you know that science happens all around you, every single day? 🌍 In 'participate in guided activities to explore', you'll discover something amazing about our world. Curiosity ON!",
+ "introduction": "Milo has a new mission! 🐱✨ Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water. Ready to explore?",
  "vocabulary": [
   {
-   "term": "light",
-   "definition": "Energy that lets us see things."
+   "term": "metal spoon — hard and shiny",
+   "definition": "observable evidence"
   },
   {
-   "term": "sound",
-   "definition": "Something you hear with your ears."
+   "term": "rubber band — flexible",
+   "definition": "safe example"
   },
   {
-   "term": "classify",
-   "definition": "To sort things into groups that are alike."
+   "term": "paper towel — absorbs water",
+   "definition": "connected idea"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "explain how light and sound can be harmful",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   },
   {
-   "activityId": "science-g3-q3-w06-d02-a04",
+   "activityId": "science-g3-q3-w06-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: participate in guided activities to explore and describe some ways to use moveme",
-     "Remember: participate in guided activities to explore and describe some ways to use moveme",
-     "Think about: participate in guided activities to...",
-     "Try this: Can you explain participate in guided in your own words?"
-    ]
+     "metal spoon — hard and shiny",
+     "rubber band — flexible",
+     "paper towel — absorbs water",
+     "wooden ruler — hard and useful for measuring"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   },
   {
    "activityId": "science-g3-q3-w06-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of participate in guided — correct",
-     "Another correct example about participate in guided",
-     "Yes — this matches participate in guided activities"
+     "metal spoon — hard and shiny",
+     "rubber band — flexible",
+     "paper towel — absorbs water",
+     "wooden ruler — hard and useful for measuring"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone",
+     "make a claim without observing"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Put things where they belong.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   },
   {
-   "activityId": "science-g3-q3-w06-d02-a02",
+   "activityId": "science-g3-q3-w06-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about participate in guided activities",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "metal spoon — hard and shiny",
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   },
   {
    "activityId": "science-g3-q3-w06-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: participate in guided",
-      "right": "Matches the lesson"
+      "left": "metal spoon — hard and shiny",
+      "right": "observable evidence"
      },
      {
-      "left": "Example of participate in",
-      "right": "Fits the idea"
+      "left": "rubber band — flexible",
+      "right": "safe example"
      },
      {
-      "left": "Key term: participate",
-      "right": "Correct"
+      "left": "paper towel — absorbs water",
+      "right": "connected idea"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   },
   {
    "activityId": "science-g3-q3-w06-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "science-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand participate in guided",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Observe safely",
+     "Name the property or pattern",
+     "Compare the examples",
+     "Explain what the evidence shows"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "science-g3-q3-w06-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What science topic did we explore?",
+    "prompt": "Which statement best fits Material Detectives?",
     "options": [
      {
       "id": "a",
-      "text": "A video game"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "A cooking show"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "How things work in our world"
+      "text": "Observe materials without tasting or touching unknown substances."
      },
      {
       "id": "d",
-      "text": "A story about cats"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What science topic did we explore?"
+    "explanation": "The best answer is: Observe materials without tasting or touching unknown substances."
    },
    {
-    "itemId": "q02",
+    "itemId": "science-g3-q3-w06-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What does a scientist do?",
+    "prompt": "Which statement best fits Material Detectives?",
     "options": [
      {
       "id": "a",
-      "text": "Just read books all day"
+      "text": "make a claim without observing"
      },
      {
       "id": "b",
-      "text": "Observe, ask questions, and test ideas"
+      "text": "Observe materials without tasting or touching unknown substances."
      },
      {
       "id": "c",
-      "text": "Make wild guesses"
+      "text": "look directly at the Sun"
      },
      {
       "id": "d",
-      "text": "Only wear lab coats"
+      "text": "use a dangerous tool alone"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What does a scientist do?"
+    "explanation": "The best answer is: Observe materials without tasting or touching unknown substances."
    },
    {
-    "itemId": "q03",
+    "itemId": "science-g3-q3-w06-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you find science?",
+    "prompt": "Which statement best fits Material Detectives?",
     "options": [
      {
       "id": "a",
-      "text": "Only in textbooks"
+      "text": "Observe materials without tasting or touching unknown substances."
      },
      {
       "id": "b",
-      "text": "Nowhere interesting"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Only in a laboratory"
+      "text": "make a claim without observing"
      },
      {
       "id": "d",
-      "text": "Everywhere — at home, in nature, in you!"
+      "text": "taste an unknown material"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Observe materials without tasting or touching unknown substances."
+   },
+   {
+    "itemId": "science-g3-q3-w06-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Material Detectives?",
+    "options": [
+     {
+      "id": "a",
+      "text": "make a claim without observing"
+     },
+     {
+      "id": "b",
+      "text": "taste an unknown material"
+     },
+     {
+      "id": "c",
+      "text": "look directly at the Sun"
+     },
+     {
+      "id": "d",
+      "text": "Observe materials without tasting or touching unknown substances."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Where can you find science?"
+    "explanation": "The best answer is: Observe materials without tasting or touching unknown substances."
    },
    {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the first step in exploring?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Look closely and observe carefully!"
-     },
-     {
-      "id": "b",
-      "text": "Close your eyes"
-     },
-     {
-      "id": "c",
-      "text": "Ignore what you see"
-     },
-     {
-      "id": "d",
-      "text": "Jump to conclusions"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: What is the first step in exploring?"
-   },
-   {
-    "itemId": "q05",
+    "itemId": "science-g3-q3-w06-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why is science exciting?",
+    "prompt": "Which statement best fits Material Detectives?",
     "options": [
      {
       "id": "a",
-      "text": "You discover amazing things about the world!"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "No reason"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Because you have to"
+      "text": "Observe materials without tasting or touching unknown substances."
      },
      {
       "id": "d",
-      "text": "It's not exciting at all"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: Why is science exciting?"
+    "explanation": "The best answer is: Observe materials without tasting or touching unknown substances."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

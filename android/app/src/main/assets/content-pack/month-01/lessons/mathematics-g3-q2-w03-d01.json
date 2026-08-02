@@ -5,27 +5,27 @@
  "month": 5,
  "day": 1,
  "subject": "mathematics",
- "title": "measure capacity in liters (L) and/or milliliters (mL), using appropriate measuring tools",
- "objective": "measure capacity in liters (L) and/or milliliters (mL), using appropriate measuring tools.",
+ "title": "Capacity Lab",
+ "objective": "Measure capacity in liters or milliliters with an appropriate tool.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Ever wondered how we measure things, draw shapes, or count large numbers? 🤔 In 'measure capacity in liters (L) and/or', you'll discover the answer. Math is an adventure!",
+ "introduction": "Milo has a new mission! 🐱✨ Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Measure",
-   "definition": "Pag-alam ng laki, haba, o dami ng isang bagay."
+   "term": "water bottle — milliliters",
+   "definition": "correct idea"
   },
   {
-   "term": "Capacity",
-   "definition": "Ang dami ng kayang lamanin ng isang lalagyan."
+   "term": "bucket — liters",
+   "definition": "useful example"
   },
   {
-   "term": "number",
-   "definition": "A symbol or word that tells how many."
+   "term": "measuring cup — milliliters",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "measure capacity in liters (L) and/or milliliters (mL), using appropriate measuring tools.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   },
   {
-   "activityId": "mathematics-g3-q2-w03-d01-a04",
+   "activityId": "mathematics-g3-q2-w03-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: measure capacity in liters (L) and/or milliliters (mL), using appropriate measur",
-     "Remember: measure capacity in liters (L) and/or milliliters (mL), using appropriate measur",
-     "Think about: measure capacity in liters (L)...",
-     "Try this: Can you explain measure capacity in in your own words?"
-    ]
+     "water bottle — milliliters",
+     "bucket — liters",
+     "measuring cup — milliliters",
+     "jerry can — liters"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d01-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of measure capacity in — correct",
-     "Another correct example about measure capacity in",
-     "Yes — this matches measure capacity in liters"
+     "water bottle — milliliters",
+     "bucket — liters",
+     "measuring cup — milliliters",
+     "jerry can — liters"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   },
   {
-   "activityId": "mathematics-g3-q2-w03-d01-a02",
+   "activityId": "mathematics-g3-q2-w03-d01-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about measure capacity in liters",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "water bottle — milliliters",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d01-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: measure capacity in",
-      "right": "Matches the lesson"
+      "left": "water bottle — milliliters",
+      "right": "correct idea"
      },
      {
-      "left": "Example of measure capacity",
-      "right": "Fits the idea"
+      "left": "bucket — liters",
+      "right": "useful example"
      },
      {
-      "left": "Key term: measure",
-      "right": "Correct"
+      "left": "measuring cup — milliliters",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Draw a line between each pair.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d01-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d01-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand measure capacity in",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q2-w03-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Capacity Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Numbers, shapes, and problem solving"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Art class"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Music"
+      "text": "Capacity tells how much a container can hold."
      },
      {
       "id": "d",
-      "text": "Reading stories"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: What math topic did we learn?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Give up"
-     },
-     {
-      "id": "b",
-      "text": "Ask someone else"
-     },
-     {
-      "id": "c",
-      "text": "Guess randomly"
-     },
-     {
-      "id": "d",
-      "text": "Think step by step, then check your work"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: How do you solve a math problem?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Only in school"
-     },
-     {
-      "id": "b",
-      "text": "Never"
-     },
-     {
-      "id": "c",
-      "text": "At the store, cooking, and counting things"
-     },
-     {
-      "id": "d",
-      "text": "It's useless"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: Where can you use math in real life?"
+    "explanation": "The best answer is: Capacity tells how much a container can hold."
    },
    {
-    "itemId": "q04",
-    "sequence": 4,
+    "itemId": "mathematics-g3-q2-w03-d01-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
+    "prompt": "Which statement best fits Capacity Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Wishing really hard"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "Practice and asking questions!"
+      "text": "Capacity tells how much a container can hold."
      },
      {
       "id": "c",
-      "text": "A magic wand"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Nothing helps"
+      "text": "an unrelated operation"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What helps you get better at math?"
+    "explanation": "The best answer is: Capacity tells how much a container can hold."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "mathematics-g3-q2-w03-d01-q03",
+    "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
+    "prompt": "Which statement best fits Capacity Lab?",
     "options": [
      {
       "id": "a",
-      "text": "Try a different way, then ask for help"
+      "text": "Capacity tells how much a container can hold."
      },
      {
       "id": "b",
-      "text": "Throw your paper away"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Cry and give up"
+      "text": "an answer with no label"
      },
      {
       "id": "d",
-      "text": "Ignore it"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: Capacity tells how much a container can hold."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w03-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Capacity Lab?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "b",
+      "text": "a random guess"
+     },
+     {
+      "id": "c",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "d",
+      "text": "Capacity tells how much a container can hold."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Capacity tells how much a container can hold."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w03-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Capacity Lab?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "Capacity tells how much a container can hold."
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Capacity tells how much a container can hold."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

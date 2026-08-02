@@ -5,27 +5,27 @@
  "month": 11,
  "day": 5,
  "subject": "filipino",
- "title": "Nagagamit ang magagalang na pananalita sa pagbati at ekspresyon sa iba’t ibang sitwasyon",
- "objective": "Nagagamit ang magagalang na pananalita sa pagbati at ekspresyon sa iba’t ibang sitwasyon",
+ "title": "Magagalang na Pananalita",
+ "objective": "Nagagamit ang magagalang na pagbati at pananalita ayon sa sitwasyon.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon, pag-aaralan natin ang: Nagagamit ang magagalang na pananalita sa. Handa ka na bang matuto ng bagong kaalaman? Tara na!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "nagagamit",
-   "definition": "Nagagamit nang wasto ang salita sa pangungusap."
+   "term": "Magandang umaga po.",
+   "definition": "angkop na halimbawa"
   },
   {
-   "term": "magagalang",
-   "definition": "Mga salitang magalang, tulad ng po at opo."
+   "term": "Maaari po bang makiusap?",
+   "definition": "malinaw na gamit"
   },
   {
-   "term": "pananalita",
-   "definition": "Ang paraan ng pagsasalita o mga sinasabi."
+   "term": "Salamat po.",
+   "definition": "tamang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Nagagamit ang magagalang na pananalita sa pagbati at ekspresyon sa iba’t ibang sitwasyon",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   },
   {
-   "activityId": "filipino-g3-q3-w09-d05-a04",
+   "activityId": "filipino-g3-q3-w09-d05-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Nagagamit ang magagalang na pananalita sa pagbati at ekspresyon sa iba’t ibang s",
-     "Remember: Nagagamit ang magagalang na pananalita sa pagbati at ekspresyon sa iba’t ibang s",
-     "Think about: Nagagamit ang magagalang na pananalita...",
-     "Try this: Can you explain Nagagamit ang magagalang in your own words?"
-    ]
+     "Magandang umaga po.",
+     "Maaari po bang makiusap?",
+     "Salamat po.",
+     "Paumanhin po."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Tap the right spot in the picture!",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   },
   {
    "activityId": "filipino-g3-q3-w09-d05-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Nagagamit ang magagalang — correct",
-     "Another correct example about Nagagamit ang magagalang",
-     "Yes — this matches Nagagamit ang magagalang na"
+     "Magandang umaga po.",
+     "Maaari po bang makiusap?",
+     "Salamat po.",
+     "Paumanhin po."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig",
+     "paksang iba sa aralin"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   },
   {
-   "activityId": "filipino-g3-q3-w09-d05-a02",
+   "activityId": "filipino-g3-q3-w09-d05-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Nagagamit ang magagalang na",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "Magandang umaga po.",
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Which one is correct? Tap it!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   },
   {
    "activityId": "filipino-g3-q3-w09-d05-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Nagagamit ang magagalang",
-      "right": "Matches the lesson"
+      "left": "Magandang umaga po.",
+      "right": "angkop na halimbawa"
      },
      {
-      "left": "Example of Nagagamit ang",
-      "right": "Fits the idea"
+      "left": "Maaari po bang makiusap?",
+      "right": "malinaw na gamit"
      },
      {
-      "left": "Key term: Nagagamit",
-      "right": "Correct"
+      "left": "Salamat po.",
+      "right": "tamang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Match the pairs! Which ones go together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   },
   {
    "activityId": "filipino-g3-q3-w09-d05-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Nagagamit ang magagalang",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Basahin ang halimbawa",
+     "Hanapin ang pahiwatig",
+     "Piliin ang tamang ideya",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "filipino-g3-q3-w09-d05-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang aralin natin ngayon?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Magagalang na Pananalita?",
     "options": [
      {
       "id": "a",
-      "text": "Pagkain"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Mga salita at pagbasa sa Filipino"
+      "text": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
      },
      {
       "id": "c",
-      "text": "Laro"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Bahay"
+      "text": "hindi magalang na pahayag"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: Ano ang aralin natin ngayon?"
+    "explanation": "Ang pinakamainam na sagot ay: Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
    },
    {
-    "itemId": "q02",
+    "itemId": "filipino-g3-q3-w09-d05-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling salita ang natutuhan natin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Magagalang na Pananalita?",
     "options": [
      {
       "id": "a",
-      "text": "Mga salitang may tamang gamit"
+      "text": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
      },
      {
       "id": "b",
-      "text": "Mesa"
+      "text": "hindi magalang na pahayag"
      },
      {
       "id": "c",
-      "text": "Saging"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "d",
-      "text": "Takbo"
+      "text": "paksang iba sa aralin"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Aling salita ang natutuhan natin?"
+    "explanation": "Ang pinakamainam na sagot ay: Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
    },
    {
-    "itemId": "q03",
+    "itemId": "filipino-g3-q3-w09-d05-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang araling ito?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Magagalang na Pananalita?",
     "options": [
      {
       "id": "a",
-      "text": "Para lang may gawin"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Hindi mahalaga"
+      "text": "paksang iba sa aralin"
      },
      {
       "id": "c",
-      "text": "Para matutong bumasa at umunawa"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Walang dahilan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Bakit mahalaga ang araling ito?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano ka magsasanay sa bahay?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Manood lang ng TV"
-     },
-     {
-      "id": "b",
-      "text": "Magbasa ng mga aklat araw-araw"
-     },
-     {
-      "id": "c",
-      "text": "Matulog"
-     },
-     {
-      "id": "d",
-      "text": "Huwag magbasa"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Paano ka magsasanay sa bahay?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang dapat tandaan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Wala"
-     },
-     {
-      "id": "b",
-      "text": "Hindi kailangan"
-     },
-     {
-      "id": "c",
-      "text": "Kalimutan lahat"
-     },
-     {
-      "id": "d",
-      "text": "Mahalaga ang pag-aaral ng wika"
+      "text": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Ano ang dapat tandaan?"
+    "explanation": "Ang pinakamainam na sagot ay: Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+   },
+   {
+    "itemId": "filipino-g3-q3-w09-d05-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Magagalang na Pananalita?",
+    "options": [
+     {
+      "id": "a",
+      "text": "salitang walang kaugnayan"
+     },
+     {
+      "id": "b",
+      "text": "hindi magalang na pahayag"
+     },
+     {
+      "id": "c",
+      "text": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+     },
+     {
+      "id": "d",
+      "text": "paksang iba sa aralin"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+   },
+   {
+    "itemId": "filipino-g3-q3-w09-d05-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Magagalang na Pananalita?",
+    "options": [
+     {
+      "id": "a",
+      "text": "hula na walang pahiwatig"
+     },
+     {
+      "id": "b",
+      "text": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+     },
+     {
+      "id": "c",
+      "text": "salitang walang kaugnayan"
+     },
+     {
+      "id": "d",
+      "text": "hindi magalang na pahayag"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

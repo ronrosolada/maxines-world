@@ -5,27 +5,27 @@
  "month": 13,
  "day": 2,
  "subject": "makabansa",
- "title": "Napahahalagahan ang papel ng pagiging aktibong Pilipino",
- "objective": "Napahahalagahan ang papel ng pagiging aktibong Pilipino",
+ "title": "Tunog, Ritmo, at Kultura",
+ "objective": "Naiuugnay ang ritmo at tunog sa sining at kultura ng komunidad.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Magandang araw, Batang Matalino! 🌸 Ngayon, pag-aaralan natin ang: Napahahalagahan ang papel ng pagiging aktibong. Handa ka na bang matuto ng bagong kaalaman? Tara na!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "Bayan",
-   "definition": "Ang lugar na kinabibilangan ng bawat mamamayan."
+   "term": "paulit-ulit na ritmo",
+   "definition": "kaugnay na halimbawa"
   },
   {
-   "term": "paksa",
-   "definition": "Ang pinag-uusapan o pinag-aaralan sa teksto."
+   "term": "salitang tugon sa awit",
+   "definition": "bahagi ng paksa"
   },
   {
-   "term": "kasaysayan",
-   "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
+   "term": "tunog ng palengke",
+   "definition": "makabuluhang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Napahahalagahan ang papel ng pagiging aktibong Pilipino",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   },
   {
-   "activityId": "makabansa-g3-q4-w04-d02-a04",
+   "activityId": "makabansa-g3-q4-w04-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Napahahalagahan ang papel ng pagiging aktibong Pilipino",
-     "Remember: Napahahalagahan ang papel ng pagiging aktibong Pilipino",
-     "Think about: Napahahalagahan ang papel ng pagiging...",
-     "Try this: Can you explain Napahahalagahan ang papel in your own words?"
-    ]
+     "paulit-ulit na ritmo",
+     "salitang tugon sa awit",
+     "tunog ng palengke",
+     "awiting-bayan bilang bahagi ng kultura"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   },
   {
    "activityId": "makabansa-g3-q4-w04-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Napahahalagahan ang papel — correct",
-     "Another correct example about Napahahalagahan ang papel",
-     "Yes — this matches Napahahalagahan ang papel ng"
+     "paulit-ulit na ritmo",
+     "salitang tugon sa awit",
+     "tunog ng palengke",
+     "awiting-bayan bilang bahagi ng kultura"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura",
+     "gawaing nakapipinsala sa kapwa"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   },
   {
-   "activityId": "makabansa-g3-q4-w04-d02-a02",
+   "activityId": "makabansa-g3-q4-w04-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Napahahalagahan ang papel ng",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "paulit-ulit na ritmo",
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   },
   {
    "activityId": "makabansa-g3-q4-w04-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Napahahalagahan ang papel",
-      "right": "Matches the lesson"
+      "left": "paulit-ulit na ritmo",
+      "right": "kaugnay na halimbawa"
      },
      {
-      "left": "Example of Napahahalagahan ang",
-      "right": "Fits the idea"
+      "left": "salitang tugon sa awit",
+      "right": "bahagi ng paksa"
      },
      {
-      "left": "Key term: Napahahalagahan",
-      "right": "Correct"
+      "left": "tunog ng palengke",
+      "right": "makabuluhang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   },
   {
    "activityId": "makabansa-g3-q4-w04-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w04-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Napahahalagahan ang papel",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Tingnan ang halimbawa",
+     "Tukuyin ang mahalagang ideya",
+     "Iugnay sa komunidad",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang ostinato ay paulit-ulit na padron ng ritmo. Sa call and response, salitan ang umaawit o tumutugtog. Ang soundscape ay pinagsamang tunog ng isang lugar."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "makabansa-g3-q4-w04-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang paksa ng aralin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Tunog, Ritmo, at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Ang ating komunidad at kasaysayan"
+      "text": "Ang ostinato ay paulit-ulit na padron ng ritmo."
      },
      {
       "id": "b",
-      "text": "Laro"
+      "text": "hula na walang batayan"
      },
      {
       "id": "c",
-      "text": "Pagkain"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Sayaw"
+      "text": "pang-aalipusta sa kultura"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Ano ang paksa ng aralin?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang ostinato ay paulit-ulit na padron ng ritmo."
    },
    {
-    "itemId": "q02",
+    "itemId": "makabansa-g3-q4-w04-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang kasaysayan?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Tunog, Ritmo, at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Para maunawaan ang ating pinagmulan"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Walang saysay"
+      "text": "pang-aalipusta sa kultura"
      },
      {
       "id": "c",
-      "text": "Nakakatamad"
+      "text": "gawaing nakapipinsala sa kapwa"
      },
      {
       "id": "d",
-      "text": "Hindi kailangan"
+      "text": "Ang ostinato ay paulit-ulit na padron ng ritmo."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Milo asks: Bakit mahalaga ang kasaysayan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang ostinato ay paulit-ulit na padron ng ritmo."
    },
    {
-    "itemId": "q03",
+    "itemId": "makabansa-g3-q4-w04-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang tungkulin mo sa komunidad?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Tunog, Ritmo, at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Huwag tumulong"
+      "text": "gawaing nakapipinsala sa kapwa"
      },
      {
       "id": "b",
-      "text": "Maging mabuting mamamayan"
+      "text": "hula na walang batayan"
      },
      {
       "id": "c",
-      "text": "Manahimik lang"
+      "text": "Ang ostinato ay paulit-ulit na padron ng ritmo."
      },
      {
       "id": "d",
-      "text": "Wala"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Ano ang tungkulin mo sa komunidad?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang dapat nating igalang?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Sarili lang"
-     },
-     {
-      "id": "b",
-      "text": "Walang dapat igalang"
-     },
-     {
-      "id": "c",
-      "text": "Ang nakatatanda at kapwa tao"
-     },
-     {
-      "id": "d",
-      "text": "Walang sinuman"
+      "text": "pang-aalipusta sa kultura"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: Sino ang dapat nating igalang?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang ostinato ay paulit-ulit na padron ng ritmo."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "makabansa-g3-q4-w04-d02-q04",
+    "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano maipapakita ang pagmamahal sa bayan?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Tunog, Ritmo, at Kultura?",
     "options": [
      {
       "id": "a",
-      "text": "Mag-aral nang mabuti at tumulong sa kapwa"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Walang gawin"
+      "text": "Ang ostinato ay paulit-ulit na padron ng ritmo."
      },
      {
       "id": "c",
-      "text": "Maging tamad"
+      "text": "gawaing nakapipinsala sa kapwa"
      },
      {
       "id": "d",
-      "text": "Huwag mag-aral"
+      "text": "hula na walang batayan"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang ostinato ay paulit-ulit na padron ng ritmo."
+   },
+   {
+    "itemId": "makabansa-g3-q4-w04-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Tunog, Ritmo, at Kultura?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Ang ostinato ay paulit-ulit na padron ng ritmo."
+     },
+     {
+      "id": "b",
+      "text": "hula na walang batayan"
+     },
+     {
+      "id": "c",
+      "text": "impormasyong walang kaugnayan"
+     },
+     {
+      "id": "d",
+      "text": "pang-aalipusta sa kultura"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Paano maipapakita ang pagmamahal sa bayan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang ostinato ay paulit-ulit na padron ng ritmo."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

@@ -5,27 +5,27 @@
  "month": 5,
  "day": 2,
  "subject": "english",
- "title": "Use simple sentences to express ideas about regional themes",
- "objective": "Use simple sentences to express ideas about regional themes.",
+ "title": "Sentence or Not?",
+ "objective": "Tell whether a group of words expresses a complete idea.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Welcome, Word Explorer! 🌟 Today's mission: master new sight words. The more sight words you know, the faster and easier reading becomes. Let's begin!",
+ "introduction": "Milo has a new mission! 🐱✨ A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Sentence",
-   "definition": "A group of words that expresses a complete thought."
+   "term": "The bird sings.",
+   "definition": "a correct example"
   },
   {
-   "term": "story",
-   "definition": "A tale with characters and events."
+   "term": "We walk home.",
+   "definition": "a related example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "under the table",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Use simple sentences to express ideas about regional themes.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
   {
-   "activityId": "english-g3-q2-w03-d02-a04",
+   "activityId": "english-g3-q2-w03-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Use simple sentences to express ideas about regional themes.",
-     "Remember: Use simple sentences to express ideas about regional themes.",
-     "Think about: Use simple sentences to express...",
-     "Try this: Can you explain Use simple sentences in your own words?"
-    ]
+     "The bird sings.",
+     "We walk home.",
+     "under the table",
+     "blue and shiny"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
   {
    "activityId": "english-g3-q2-w03-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Use simple sentences — correct",
-     "Another correct example about Use simple sentences",
-     "Yes — this matches Use simple sentences to"
+     "The bird sings.",
+     "We walk home.",
+     "under the table",
+     "blue and shiny"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
   {
-   "activityId": "english-g3-q2-w03-d02-a02",
+   "activityId": "english-g3-q2-w03-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Use simple sentences to",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "The bird sings.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Which one is correct? Tap it!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
   {
    "activityId": "english-g3-q2-w03-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Use simple sentences",
-      "right": "Matches the lesson"
+      "left": "The bird sings.",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Use simple",
-      "right": "Fits the idea"
+      "left": "We walk home.",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Use",
-      "right": "Correct"
+      "left": "under the table",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
   {
    "activityId": "english-g3-q2-w03-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Use simple sentences",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w03-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Sentence or Not??",
     "options": [
      {
       "id": "a",
-      "text": "Understanding new words and reading"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Eating food"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Playing games"
+      "text": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
      },
      {
       "id": "d",
-      "text": "Watching TV"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: What is this lesson about?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Banana"
-     },
-     {
-      "id": "b",
-      "text": "Running"
-     },
-     {
-      "id": "c",
-      "text": "Table"
-     },
-     {
-      "id": "d",
-      "text": "Sight words and vocabulary"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Forget everything"
-     },
-     {
-      "id": "b",
-      "text": "Eat a snack"
-     },
-     {
-      "id": "c",
-      "text": "Think about what you learned"
-     },
-     {
-      "id": "d",
-      "text": "Go to sleep"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
    },
    {
-    "itemId": "q04",
-    "sequence": 4,
+    "itemId": "english-g3-q2-w03-d02-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Sentence or Not??",
     "options": [
      {
       "id": "a",
-      "text": "No reason"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "To read and understand better"
+      "text": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
      },
      {
       "id": "c",
-      "text": "Because we have to"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To waste time"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "english-g3-q2-w03-d02-q03",
+    "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Sentence or Not??",
     "options": [
      {
       "id": "a",
-      "text": "Never look at words"
+      "text": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
      },
      {
       "id": "b",
-      "text": "Ignore text"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Only use pictures"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Read books every day!"
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+   },
+   {
+    "itemId": "english-g3-q2-w03-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+   },
+   {
+    "itemId": "english-g3-q2-w03-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

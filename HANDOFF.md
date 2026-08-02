@@ -1,10 +1,15 @@
 # Maxine's World — Current State & Handoff
 
-**Date:** 2026-08-01
-**Version:** [v0.19.0](https://github.com/ronrosolada/maxines-world/releases/tag/v0.19.0)
-**Commit:** `27f7d4c` on `main`
+**Document baseline:** 2026-08-03
+**Application baseline:** [v0.19.0](https://github.com/ronrosolada/maxines-world/releases/tag/v0.19.0)
+**Content-review branch:** `content/educator-review` at `d2a3a86`
+**Parent baseline:** `origin/main` at `253233c`
 **Repo visibility:** PUBLIC (https://github.com/ronrosolada/maxines-world)
 **Build:** `./gradlew assembleDebug` → BUILD SUCCESSFUL (CI-verified)
+
+> For the independent educational review scope, evidence, rubric, and commands,
+> read [`docs/educator-content-review-brief.md`](docs/educator-content-review-brief.md).
+> The branch's approval metadata is not a substitute for independent educator sign-off.
 
 ---
 
@@ -12,7 +17,7 @@
 
 ```bash
 cd android
-./gradlew :core-content:testDebugUnitTest --stacktrace   # 100-lesson content integrity
+./gradlew :core-content:testDebugUnitTest --stacktrace   # 349-lesson content integrity
 ./gradlew testDebugUnitTest --stacktrace                 # full JVM unit suite
 ./gradlew assembleDebug --stacktrace                     # APK → app/build/outputs/apk/debug/
 ./gradlew lintDebug --stacktrace                         # static analysis (not yet in CI — see notes)
@@ -74,14 +79,19 @@ core-database/
 ## Content
 - **Authoring home:** `ronrosolada/maxines-world-content` (62 weekly packages, catalog v2) — content is authored/updated there, then bundled into APK releases.
 - **Playable pack: 349 lessons** in `content-pack/month-01/lessons/`:
-  - 100 legacy hand-authored (5 subjects × 20 days, `-g3-m01-d` IDs)
-  - **249 converted from DepEd SLM source** (`-g3-q` IDs, 6 subjects incl. gmrc + makabansa) via `android/tools/convert_slm_to_pack.py` — idempotent, deterministic, regenerates from `assets/content/ph-matatag/grade-3/`
-- **English Q1 (20 lessons) authored** via `android/tools/author_english_q1.py` — DepEd Matatag-aligned, fills the only missing-quarter gap
+  - 100 legacy hand-authored month-01 lessons (5 subject folders × 20 days, `-g3-m01-d` IDs)
+  - **249 converted/curated SLM lessons** (`-g3-q` IDs, 6 subjects incl. GMRC + Makabansa) via `android/tools/convert_slm_to_pack.py` and `android/tools/content_review.py`
 - **In-app navigation (2026-08-01):** island → `SubjectModulesScreen` (module list, legacy Module 1 first then SLM Quarter N · Week M) → `ModuleLessonsScreen` (day-ordered lesson rows) → `LessonPlayerScreen`. Driven by `ModuleCatalog` in core-content (`ModuleIdRules` parses `-mNN`/`-qN-wNN` from lesson IDs). No more single-lesson direct jump.
 - **GMRC KNOWN GAP: RESOLVED** — Kindness island maps to real GMRC content.
 - Coverage: english Q1–Q3 (73), filipino Q1–Q4 (63), gmrc Q1–Q4 (24), makabansa Q1–Q4 (26), mathematics Q1–Q4 (38), science Q1–Q4 (25). English Q4 is the only remaining gap (no source material).
 - Conversion report: `android/tools/content-conversion-report.md`
 - **Delivery: bundled-only** — every month/quarter lesson ships inside the APK; no content server, no runtime download (decision 2026-08-01).
+
+### Independent educator review
+- Review handoff: [`docs/educator-content-review-brief.md`](docs/educator-content-review-brief.md)
+- Baseline: branch `content/educator-review`, commit `d2a3a86`, parent `origin/main` `253233c`.
+- All 349 lessons currently carry `educatorValidated=true` and `releaseStatus=RELEASED` from the prior RonBot pass. Treat this as process metadata requiring independent verification, not as proof of human curriculum sign-off.
+- Non-destructive reviewer tools: `android/tools/content_review.py`, `android/tools/test_content_review.py`, and `android/core-content/src/test/java/com/maxinesworld/corecontent/ContentPackIntegrityTest.kt`.
 
 ## CI (`.github/workflows/ci.yml`)
 - Job 1: content integrity (`:core-content:testDebugUnitTest` — 349 lessons).
