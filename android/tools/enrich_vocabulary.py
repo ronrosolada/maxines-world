@@ -161,49 +161,87 @@ EN_DEFS = {
     "need": "Something you must have to live, like food and water.",
     "motion": "The way something moves from one place to another.",
     "reference": "A starting point used to tell where something is.",
+    "line segment": "A straight part of a line with two endpoints.",
+    "area": "The space inside a flat shape.",
+    "fraction": "A part of a whole, like 1/2 or 1/4.",
+    "ordinal": "A number that tells order, like first or second.",
+    "graph": "A drawing that shows numbers or amounts.",
+    "measure": "To find out the size, length, or amount of something.",
+    "multiply": "To add the same number again and again.",
+    "divide": "To split into equal parts.",
+    "common noun": "A name for any person, place, or thing.",
+    "proper noun": "The special name of a person, place, or thing.",
+    "singular": "One person, place, or thing.",
+    "synonym": "A word that means the same as another word.",
+    "antonym": "A word that means the opposite of another word.",
+    "be-verb": "A verb like am, is, are, was, and were.",
+    "first person": "Talking about yourself using words like I and me.",
+    "telling sentence": "A sentence that tells something and ends with a period.",
+    "period": "The dot at the end of a telling sentence.",
+    "owner": "The person who owns or has something.",
+    "clap": "To hit your hands together to make a sound.",
+    "short sound": "The quick sound a vowel makes, like a in cat.",
+    "instantly": "Right away, without waiting.",
+    "picture graph": "A graph that uses pictures to show numbers.",
+    "row": "A line of things going across.",
+    "sound": "What you hear with your ears.",
+    "animal": "A living thing that can move, like a dog or bird.",
+    "vibration": "A fast back-and-forth movement that makes sound.",
+    "metal": "A hard, shiny material like iron or gold.",
+    "moon": "The round object we see in the sky at night.",
+    "star": "A bright light in the night sky.",
+    "trait": "A feature or quality a living thing has.",
+    "property": "A feature of a material, like hardness or color.",
+    "pattern": "A repeated design or order.",
+    "product": "The answer when you multiply numbers.",
 }
 
 AP_DEFS = {
-    "map": "A drawing that shows where places are.",
-    "symbol": "A picture or sign that stands for something.",
-    "province": "A place in the Philippines made of towns and cities.",
-    "population": "The number of people who live in a place.",
-    "physical features": "The land and water shapes of a place, like mountains and rivers.",
-    "landform": "A shape on the land, like a mountain or a hill.",
-    "water form": "A body of water, like a river, lake, or sea.",
-    "natural resources": "Gifts of nature like water, trees, and soil.",
-    "hero": "A brave person who helps others and serves the country.",
-    "community": "The people living and working together in one place.",
-    "culture": "The traditions, food, music, and way of life of a place.",
-    "tradition": "A custom or practice passed from older to younger people.",
-    "livelihood": "The work people do to earn a living.",
-    "region": "A big part of the country with its own culture.",
-    "evidence": "Something that shows a fact is true.",
-    "hazard": "A danger that can harm people or property.",
-    "continuity": "The things that stay the same through time.",
-    "change": "The things that become different over time.",
-    "identity": "What makes a person or a place special and unique.",
-    "historical places": "Old places that tell stories of the past.",
-    "hymn": "A song of praise, like a provincial song.",
-    "arts": "Paintings, music, dances, and crafts of a place.",
-    "service": "Work done to help other people.",
-    "natural resources": "Gifts of nature like water, trees, and soil.",
-    "land": "The solid part of the earth, not covered by water.",
-    "water": "The clear liquid in rivers, lakes, and seas.",
-    "location": "The place where something is found.",
-    "protect": "To keep something safe from harm.",
-    "environment": "The world around us — land, water, air, and living things.",
-    "story": "A tale about people, places, or events.",
-    "place": "A spot or area where something is.",
-    "practice": "A custom or a habit done again and again.",
-    "history": "The story of what happened in the past.",
-    "heritage": "The treasures from the past, like old buildings and customs.",
-    "picture": "An image or drawing that shows something.",
-    "graph": "A drawing that shows numbers or amounts.",
-    "provincial": "Belonging to a province.",
+    "mapa": "Ang guhit o larawang nagpapakita ng mga lugar.",
+    "sagisag": "Ang simbolo o tanda ng isang lugar o grupo.",
+    "lalawigan": "Ang bahagi ng bansa na binubuo ng mga bayan at lungsod.",
+    "populasyon": "Ang bilang ng mga taong nakatira sa isang lugar.",
+    "anyong lupa": "Ang mga hugis ng lupa, tulad ng bundok at burol.",
+    "anyong tubig": "Ang mga anyo ng tubig, tulad ng ilog, lawa, at dagat.",
+    "likas na yaman": "Ang mga kayamanan ng kalikasan, tulad ng tubig, puno, at lupa.",
+    "bayani": "Ang matapang na taong tumutulong sa kapwa at naglilingkod sa bayan.",
+    "komunidad": "Ang mga taong naninirahan at nagtutulungan sa isang lugar.",
+    "kultura": "Ang mga tradisyon, pagkain, musika, at pamumuhay ng isang lugar.",
+    "tradisyon": "Ang mga kaugaliang ipinamana ng mga matatanda sa mga bata.",
+    "kabuhayan": "Ang hanapbuhay o trabaho ng mga tao.",
+    "rehiyon": "Malaking bahagi ng bansa na may sariling kultura.",
+    "ebidensya": "Ang mga bagay na nagpapatunay na totoo ang isang pangyayari.",
+    "panganib": "Ang bagay na maaaring makasakit o makapinsala.",
+    "pagpapatuloy": "Ang mga bagay na nananatili sa paglipas ng panahon.",
+    "pagbabago": "Ang mga bagay na nagiging iba sa paglipas ng panahon.",
+    "pagkakakilanlan": "Ang mga bagay na nagpapakilala sa isang tao o lugar.",
+    "makasaysayang lugar": "Ang mga lumang lugar na nagkukuwento ng nakaraan.",
+    "awit": "Ang awiting papuri, tulad ng awit ng lalawigan.",
+    "sining": "Ang mga pintura, musika, sayaw, at gawaing kamay ng isang lugar.",
+    "paglilingkod": "Ang gawaing pagtulong sa kapwa.",
+    "kuwento": "Ang salaysay ng mga pangyayari, totoo man o kathang-isip.",
+    "alamat": "Ang kuwentong bayan tungkol sa pinagmulan ng mga bagay.",
+    "kasaysayan": "Ang mga pangyayari noong unang panahon.",
+    "pamayanan": "Ang mga taong naninirahan sa isang lugar.",
+    "pagtulong": "Ang pagbibigay ng tulong sa iba.",
+    "larawan": "Ang guhit o litrato na nagpapakita ng isang bagay.",
+    "lokasyon": "Ang lugar kung saan matatagpuan ang isang bagay.",
+    "pangangalaga": "Ang pag-aalaga at pagprotekta sa isang bagay.",
+    "kapaligiran": "Ang mundo sa ating paligid — lupa, tubig, hangin, at mga bagay.",
+    "gawi": "Ang nakagawiang gawain o paraan ng pamumuhay.",
+    "legend": "Ang bahagi ng mapa na nagpapaliwanag ng mga sagisag.",
+    "direksiyon": "Ang mga direksiyon sa mapa, tulad ng hilaga, timog, silangan, at kanluran.",
+    "label": "Ang mga salitang nagpapakilala ng mga bagay sa mapa.",
+    "heograpiya": "Ang pag-aaral ng mga lugar at katangian ng daigdig.",
+    "yaman": "Ang mga bagay na mahalaga at may halaga.",
+    "kathang-isip": "Ang mga kuwentong gawa-gawa o hindi totoo.",
+    "ebidensya": "Ang mga bagay na nagpapatunay na totoo ang isang pangyayari.",
+    "source": "Ang pinagmulan ng impormasyon o ebidensya.",
+    "sagisag": "Ang simbolo o tanda ng isang lugar o grupo.",
 }
 
-TL_DEFS = {"paghahambing": "Ang paghahambing ng dalawang bagay o tao.",
+TL_DEFS = {"bayan": "Ang lugar o bayang ating kinabibilangan.",
+    "paghahambing": "Ang paghahambing ng dalawang bagay o tao.",
     "pareho": "Kaparehas o magkapantay ang dalawang bagay.",
     "kapwa": "Ang bawat isa o ang lahat ng tao.",
     "kaysa": "Salitang ginagamit sa paghahambing ng dalawang bagay.",
@@ -340,16 +378,16 @@ TL_DEFS = {"paghahambing": "Ang paghahambing ng dalawang bagay o tao.",
 # generic for text-grounded extraction. Terms come from the lesson TITLE
 # topic. Only used when a lesson would otherwise stay under MIN_TERMS.
 CURATED_FALLBACK = {
-    "araling-panlipunan-g3-m01-d02": ["map", "region", "province"],
-    "araling-panlipunan-g3-m01-d03": ["population", "graph", "picture"],
-    "araling-panlipunan-g3-m01-d05": ["land", "water", "map"],
-    "araling-panlipunan-g3-m01-d07": ["hazard", "map", "location"],
-    "araling-panlipunan-g3-m01-d08": ["natural resources", "protect", "environment"],
-    "araling-panlipunan-g3-m01-d09": ["map", "environment", "hazard"],
-    "araling-panlipunan-g3-m01-d13": ["symbol", "province", "story"],
-    "araling-panlipunan-g3-m01-d14": ["hymn", "arts", "culture"],
-    "araling-panlipunan-g3-m01-d17": ["culture", "practice", "tradition"],
-    "araling-panlipunan-g3-m01-d19": ["historical places", "history", "evidence"],
+    "araling-panlipunan-g3-m01-d02": ["mapa", "lalawigan", "rehiyon"],
+    "araling-panlipunan-g3-m01-d03": ["populasyon", "larawan", "kasaysayan"],
+    "araling-panlipunan-g3-m01-d05": ["anyong lupa", "anyong tubig", "mapa"],
+    "araling-panlipunan-g3-m01-d07": ["panganib", "mapa", "lokasyon"],
+    "araling-panlipunan-g3-m01-d08": ["likas na yaman", "pangangalaga", "kapaligiran"],
+    "araling-panlipunan-g3-m01-d09": ["mapa", "kapaligiran", "panganib"],
+    "araling-panlipunan-g3-m01-d13": ["sagisag", "lalawigan", "kuwento"],
+    "araling-panlipunan-g3-m01-d14": ["awit", "sining", "kultura"],
+    "araling-panlipunan-g3-m01-d17": ["kultura", "gawi", "tradisyon"],
+    "araling-panlipunan-g3-m01-d19": ["makasaysayang lugar", "kasaysayan", "ebidensya"],
     "english-g3-m01-d01": ["detective", "clue", "picture"],
     "english-g3-m01-d04": ["diary", "write", "story"],
     "english-g3-m01-d18": ["detail", "main idea", "clue"],
@@ -362,10 +400,83 @@ CURATED_FALLBACK = {
     "filipino-g3-m01-d12": ["salita", "pagsasalaysay", "kuwento"],
     "filipino-g3-m01-d14": ["salita", "tugma", "tunog"],
     "filipino-g3-m01-d19": ["pahiwatig", "paghinuha", "kuwento"],
+    "filipino-g3-q2-w04-d01": ["salita", "natutukoy", "kahulugan"],
+    "filipino-g3-q2-w04-d02": ["salita", "nagagamit", "kahulugan"],
+    "filipino-g3-q2-w07-d01": ["talata", "salita", "paksa"],
+    "filipino-g3-q3-w08-d02": ["salita", "nagagamit", "kahulugan"],
+    "filipino-g3-q3-w10-d02": ["talata", "salita", "paksa"],
+    "filipino-g3-q4-w11-d01": ["salita", "nagagamit", "kahulugan"],
+    "filipino-g3-q4-w11-d03": ["salita", "nagagamit", "kahulugan"],
+    "filipino-g3-q4-w13-d04": ["salita", "nagagamit", "kahulugan"],
+    "filipino-g3-q4-w14-d02": ["talata", "salita", "paksa"],
+    "araling-panlipunan-g3-m01-d04": ["anyong lupa", "lalawigan", "heograpiya"],
+    "araling-panlipunan-g3-m01-d12": ["kabuhayan", "kasaysayan", "kuwento"],
+    "araling-panlipunan-g3-m01-d20": ["mapa", "sining", "kultura"],
+    "english-g3-m01-d15": ["sentence", "word", "story"],
+    "english-g3-q1-w01-d03": ["ending", "story", "retell"],
+    "english-g3-q1-w04-d03": ["detail", "main idea", "story"],
+    "english-g3-q2-w01-d03": ["word", "sequence", "picture"],
+    "science-g3-m01-d03": ["sense", "sound", "hearing"],
+    "science-g3-m01-d05": ["animal", "body", "habitat"],
+    "science-g3-m01-d10": ["energy", "life cycle", "plant"],
+    "science-g3-m01-d11": ["environment", "trait", "animal"],
+    "science-g3-m01-d16": ["motion", "reference", "point"],
+    "science-g3-m01-d18": ["light", "sun", "shadow"],
+    "science-g3-q1-w01-d02": ["material", "classify", "solid"],
+    "science-g3-q1-w01-d05": ["material", "classify", "waste"],
+    "science-g3-q1-w02-d02": ["classify", "metal", "property"],
+    "science-g3-q2-w03-d02": ["environment", "classify", "habitat"],
+    "science-g3-q3-w05-d02": ["classify", "need", "motion"],
+    "science-g3-q4-w07-d03": ["material", "classify", "moon"],
+    "science-g3-q4-w08-d01": ["weather", "classify", "season"],
+    "science-g3-q4-w08-d02": ["observe", "classify", "environment"],
+    "science-g3-q4-w08-d04": ["classify", "sun", "moon"],
     "mathematics-g3-m01-d02": ["digit", "place value", "value"],
     "mathematics-g3-m01-d03": ["number", "symbol", "word"],
     "science-g3-m01-d13": ["home", "need", "environment"],
     "science-g3-m01-d16": ["motion", "point", "reference"],
+}
+
+# Per-subject term allowlists over the shared EN_DEFS: a math word like
+# "one" or a science word like "classify" must never surface as vocabulary
+# in an English lesson (and vice versa). Terms are text-grounded, but only
+# within the subject's own domain.
+EN_SUBJECT_KEYS = {
+    "english": {
+        "sight word", "sentence", "plural", "possessive", "noun", "verb",
+        "adjective", "syllable", "digraph", "blend", "vowel", "consonant",
+        "cause", "effect", "detail", "sequence", "beginning", "ending",
+        "story", "character", "setting", "retell", "main idea", "punctuation",
+        "past", "present", "future", "subject", "predicate", "capital letter",
+        "title", "paragraph", "picture", "detective", "clue", "diary", "write",
+        "word", "sound", "animal", "common noun", "proper noun", "singular",
+        "synonym", "antonym", "be-verb", "first person", "telling sentence",
+        "period", "owner", "clap", "short sound", "instantly", "picture graph",
+        "row",
+    },
+    "mathematics": {
+        "number", "digit", "place value", "thousand", "hundred", "ten", "one",
+        "addition", "subtraction", "multiplication", "division", "sum",
+        "difference", "product", "quotient", "estimate", "round", "compare",
+        "order", "capacity", "length", "pattern", "geometry", "point", "line",
+        "ray", "array", "equal groups", "regroup", "money", "peso", "centavo",
+        "data", "bar graph", "temperature", "value", "symbol",
+        "line segment", "area", "fraction", "ordinal", "graph", "measure",
+        "multiply", "divide",
+    },
+    "science": {
+        "observe", "classify", "material", "solid", "liquid", "gas", "matter",
+        "float", "sink", "dissolve", "mixture", "living thing", "non-living thing",
+        "plant", "animal", "habitat", "body", "sense", "hearing", "touch",
+        "taste", "smell", "light", "shadow", "sound", "heat", "force", "push",
+        "pull", "magnet", "attract", "repel", "weather", "temperature", "cloud",
+        "rain", "wind", "sun", "season", "soil", "water", "air", "energy",
+        "electricity", "life cycle", "seed", "root", "stem", "leaf", "flower",
+        "fruit", "shelter", "food chain", "predator", "prey", "ecosystem",
+        "environment", "recycle", "reduce", "reuse", "waste", "home", "need",
+        "motion", "reference", "vibration", "metal", "moon", "star", "trait",
+        "property", "pattern", "product", "point", "line",
+    },
 }
 
 SUBJECT_DEFS = {
@@ -407,7 +518,7 @@ def extract_terms(subject: str, text: str) -> list[str]:
     so terms follow the lesson flow.
     """
     low = text.lower()
-    defs = SUBJECT_DEFS.get(subject, EN_DEFS)
+    defs = defs_for(subject)
     hits = []
     for term in defs:
         base = re.escape(term)
@@ -441,6 +552,17 @@ def lesson_text(lesson: dict) -> str:
     return " ".join(parts)
 
 
+# Legacy placeholder definitions: "A key word used in the lesson …" etc.
+# Generic curriculum labels that repeat across many lessons (talasalitaan,
+# wika, mathematics, sight word…) — replaceable when lesson text offers
+# topic-specific terms instead.
+GENERIC_TERMS = {
+    "talasalitaan", "vocabulary", "wika", "mathematics", "science",
+    "kabutihang asal", "sight word", "living thing", "non-living thing",
+    "beginning", "detective work", "-es plural", "-ies plural",
+}
+
+
 def is_placeholder(term: dict) -> bool:
     """Legacy placeholders: 'A key word used in the lesson …' or empty/circular defs."""
     t = (term.get("term", "") or "").strip()
@@ -452,25 +574,45 @@ def is_placeholder(term: dict) -> bool:
     return "key word used in the lesson" in d.lower() or "placeholder" in d.lower()
 
 
+def defs_for(subject: str) -> dict:
+    """Definitions applicable to a subject: per-subject allowlist for the
+    English-language packs (ENGLISH/MATHEMATICS/SCIENCE legacy uppercase
+    included), full dictionary for the Tagalog packs."""
+    base = SUBJECT_DEFS.get(subject, EN_DEFS)
+    if subject.lower() in ("english", "mathematics", "science"):
+        keys = EN_SUBJECT_KEYS.get(subject.lower(), set(EN_DEFS))
+        return {k: v for k, v in EN_DEFS.items() if k in keys}
+    return base
+
+
 def enrich_lesson(lesson: dict) -> list[str]:
     """Return the terms ADDED to this lesson (empty if none needed).
 
-    Drops legacy placeholder entries first (they count toward the minimum
-    but teach nothing), then adds real terms from the lesson's own text.
-    Lessons still thin after that get a curated title-topic fallback that
-    REPLACES the vocabulary (removes cross-language/template junk).
+    Drops legacy placeholder entries AND generic curriculum labels first
+    (both count toward the minimum but teach nothing), then adds real
+    topic-specific terms from the lesson's own text. Lessons still thin
+    after that get a curated title-topic fallback that REPLACES the
+    vocabulary (removes cross-language/template junk).
     """
     subject = lesson.get("subject", "")
-    defs = SUBJECT_DEFS.get(subject, EN_DEFS)
+    defs = defs_for(subject)
     vocab = lesson.get("vocabulary", [])
-    kept = [v for v in vocab if not is_placeholder(v)]
+    kept = [
+        v for v in vocab
+        if not is_placeholder(v)
+        and v.get("term", "").lower() not in GENERIC_TERMS
+        and v.get("term", "").lower() in defs  # drop out-of-domain terms (e.g. "one" in English)
+    ]
     if len(kept) != len(vocab):
         lesson["vocabulary"] = kept
     existing = {v.get("term", "").lower() for v in kept}
     if len(existing) >= MIN_TERMS:
         return []
 
-    candidates = [t for t in extract_terms(subject, lesson_text(lesson)) if t in defs and t.lower() not in existing]
+    candidates = [
+        t for t in extract_terms(subject, lesson_text(lesson))
+        if t in defs and t.lower() not in existing and t not in GENERIC_TERMS
+    ]
 
     added = []
     for term in candidates:
