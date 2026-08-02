@@ -5,27 +5,27 @@
  "month": 6,
  "day": 2,
  "subject": "filipino",
- "title": "Natutukoy ang salitang-ugat ng mga natutuhang salita na high frequency o ✓ ✓",
- "objective": "Natutukoy ang salitang-ugat ng mga natutuhang salita na high frequency o ✓ ✓",
+ "title": "Salitang-Ugat",
+ "objective": "Natutukoy ang salitang-ugat ng mga karaniwang salita.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Kumusta, Kaibigan! 🤗 Ang aralin natin ngayon ay tungkol sa: Natutukoy ang salitang-ugat ng mga natutuhang. Makinig nang mabuti at sumali sa mga gawain. Simulan na natin!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "natutukoy",
-   "definition": "Ang pagkilala o pagtukoy sa isang bagay."
+   "term": "sulat → sumulat",
+   "definition": "angkop na halimbawa"
   },
   {
-   "term": "natutuhang",
-   "definition": "Ang mga salita o kaalamang natutuhan sa aralin."
+   "term": "laro → naglaro",
+   "definition": "malinaw na gamit"
   },
   {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+   "term": "basa → bumasa",
+   "definition": "tamang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Natutukoy ang salitang-ugat ng mga natutuhang salita na high frequency o ✓ ✓",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
   {
-   "activityId": "filipino-g3-q2-w05-d02-a04",
+   "activityId": "filipino-g3-q2-w05-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Natutukoy ang salitang-ugat ng mga natutuhang salita na high frequency o ✓ ✓",
-     "Remember: Natutukoy ang salitang-ugat ng mga natutuhang salita na high frequency o ✓ ✓",
-     "Think about: Natutukoy ang salitang-ugat ng mga...",
-     "Try this: Can you explain Natutukoy ang salitang-ugat in your own words?"
-    ]
+     "sulat → sumulat",
+     "laro → naglaro",
+     "basa → bumasa",
+     "tanim → nagtanim"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
   {
    "activityId": "filipino-g3-q2-w05-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Natutukoy ang salitang-ugat — correct",
-     "Another correct example about Natutukoy ang salitang-ugat",
-     "Yes — this matches Natutukoy ang salitang-ugat ng"
+     "sulat → sumulat",
+     "laro → naglaro",
+     "basa → bumasa",
+     "tanim → nagtanim"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig",
+     "paksang iba sa aralin"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
   {
-   "activityId": "filipino-g3-q2-w05-d02-a02",
+   "activityId": "filipino-g3-q2-w05-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Natutukoy ang salitang-ugat ng",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "sulat → sumulat",
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
   {
    "activityId": "filipino-g3-q2-w05-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Natutukoy ang salitang-ugat",
-      "right": "Matches the lesson"
+      "left": "sulat → sumulat",
+      "right": "angkop na halimbawa"
      },
      {
-      "left": "Example of Natutukoy ang",
-      "right": "Fits the idea"
+      "left": "laro → naglaro",
+      "right": "malinaw na gamit"
      },
      {
-      "left": "Key term: Natutukoy",
-      "right": "Correct"
+      "left": "basa → bumasa",
+      "right": "tamang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
   {
    "activityId": "filipino-g3-q2-w05-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w05-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Natutukoy ang salitang-ugat",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Basahin ang halimbawa",
+     "Hanapin ang pahiwatig",
+     "Piliin ang tamang ideya",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "filipino-g3-q2-w05-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang aralin natin ngayon?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Salitang-Ugat?",
     "options": [
      {
       "id": "a",
-      "text": "Mga salita at pagbasa sa Filipino"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Pagkain"
+      "text": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
      },
      {
       "id": "c",
-      "text": "Laro"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Bahay"
+      "text": "hindi magalang na pahayag"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Milo asks: Ano ang aralin natin ngayon?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
    },
    {
-    "itemId": "q02",
+    "itemId": "filipino-g3-q2-w05-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling salita ang natutuhan natin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Salitang-Ugat?",
     "options": [
      {
       "id": "a",
-      "text": "Mga salitang may tamang gamit"
+      "text": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
      },
      {
       "id": "b",
-      "text": "Mesa"
+      "text": "hindi magalang na pahayag"
      },
      {
       "id": "c",
-      "text": "Takbo"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "d",
-      "text": "Saging"
+      "text": "paksang iba sa aralin"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Aling salita ang natutuhan natin?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
    },
    {
-    "itemId": "q03",
+    "itemId": "filipino-g3-q2-w05-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang araling ito?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Salitang-Ugat?",
     "options": [
      {
       "id": "a",
-      "text": "Walang dahilan"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Para matutong bumasa at umunawa"
+      "text": "paksang iba sa aralin"
      },
      {
       "id": "c",
-      "text": "Hindi mahalaga"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Para lang may gawin"
+      "text": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
      }
     ],
     "correctOptionIds": [
-     "b"
+     "d"
     ],
-    "explanation": "Milo asks: Bakit mahalaga ang araling ito?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
    },
    {
-    "itemId": "q04",
+    "itemId": "filipino-g3-q2-w05-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano ka magsasanay sa bahay?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Salitang-Ugat?",
     "options": [
      {
       "id": "a",
-      "text": "Manood lang ng TV"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Magbasa ng mga aklat araw-araw"
+      "text": "hindi magalang na pahayag"
      },
      {
       "id": "c",
-      "text": "Huwag magbasa"
+      "text": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
      },
      {
       "id": "d",
-      "text": "Matulog"
+      "text": "paksang iba sa aralin"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+   },
+   {
+    "itemId": "filipino-g3-q2-w05-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Salitang-Ugat?",
+    "options": [
+     {
+      "id": "a",
+      "text": "hula na walang pahiwatig"
+     },
+     {
+      "id": "b",
+      "text": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+     },
+     {
+      "id": "c",
+      "text": "salitang walang kaugnayan"
+     },
+     {
+      "id": "d",
+      "text": "hindi magalang na pahayag"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: Paano ka magsasanay sa bahay?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang dapat tandaan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Mahalaga ang pag-aaral ng wika"
-     },
-     {
-      "id": "b",
-      "text": "Wala"
-     },
-     {
-      "id": "c",
-      "text": "Kalimutan lahat"
-     },
-     {
-      "id": "d",
-      "text": "Hindi kailangan"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: Ano ang dapat tandaan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

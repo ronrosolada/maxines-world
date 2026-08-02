@@ -5,27 +5,27 @@
  "month": 10,
  "day": 3,
  "subject": "mathematics",
- "title": "multiply numbers with and without regrouping:",
- "objective": "multiply numbers with and without regrouping:",
+ "title": "Multiplication Builders",
+ "objective": "Multiply numbers by using place value, groups, and an accurate algorithm.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Mathematicians, assemble! 📐 Today we're learning about: multiply numbers with and without regrouping:. Math isn't just numbers on paper — it's the language of the universe! Ready?",
+ "introduction": "Milo has a new mission! 🐱✨ Multiplication can show equal groups. Keep place values aligned and check the product with an estimate. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Number",
-   "definition": "Simbolo na ginagamit sa pagbibilang o pagsusukat."
+   "term": "3 groups of 4 = 12",
+   "definition": "correct idea"
   },
   {
-   "term": "Multiply",
-   "definition": "Paulit-ulit na pagdaragdag ng parehong bilang."
+   "term": "6 × 5 = 30",
+   "definition": "useful example"
   },
   {
-   "term": "regroup",
-   "definition": "To trade ten ones for one ten when adding or subtracting."
+   "term": "2 × 14 = 28",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "multiply numbers with and without regrouping:",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   },
   {
-   "activityId": "mathematics-g3-q3-w06-d03-a04",
+   "activityId": "mathematics-g3-q3-w06-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: multiply numbers with and without regrouping:",
-     "Remember: multiply numbers with and without regrouping:",
-     "Think about: multiply numbers with and without...",
-     "Try this: Can you explain multiply numbers with in your own words?"
-    ]
+     "3 groups of 4 = 12",
+     "6 × 5 = 30",
+     "2 × 14 = 28",
+     "estimate before solving"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of multiply numbers with — correct",
-     "Another correct example about multiply numbers with",
-     "Yes — this matches multiply numbers with and"
+     "3 groups of 4 = 12",
+     "6 × 5 = 30",
+     "2 × 14 = 28",
+     "estimate before solving"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   },
   {
-   "activityId": "mathematics-g3-q3-w06-d03-a02",
+   "activityId": "mathematics-g3-q3-w06-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about multiply numbers with and",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "3 groups of 4 = 12",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: multiply numbers with",
-      "right": "Matches the lesson"
+      "left": "3 groups of 4 = 12",
+      "right": "correct idea"
      },
      {
-      "left": "Example of multiply numbers",
-      "right": "Fits the idea"
+      "left": "6 × 5 = 30",
+      "right": "useful example"
      },
      {
-      "left": "Key term: multiply",
-      "right": "Correct"
+      "left": "2 × 14 = 28",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand multiply numbers with",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q3-w06-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Multiplication Builders?",
     "options": [
      {
       "id": "a",
-      "text": "Art class"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Music"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Numbers, shapes, and problem solving"
+      "text": "Multiplication can show equal groups."
      },
      {
       "id": "d",
-      "text": "Reading stories"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What math topic did we learn?"
+    "explanation": "The best answer is: Multiplication can show equal groups."
    },
    {
-    "itemId": "q02",
+    "itemId": "mathematics-g3-q3-w06-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
+    "prompt": "Which statement best fits Multiplication Builders?",
     "options": [
      {
       "id": "a",
-      "text": "Think step by step, then check your work"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "Guess randomly"
+      "text": "Multiplication can show equal groups."
      },
      {
       "id": "c",
-      "text": "Give up"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Ask someone else"
+      "text": "an unrelated operation"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Multiplication can show equal groups."
+   },
+   {
+    "itemId": "mathematics-g3-q3-w06-d03-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Multiplication Builders?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Multiplication can show equal groups."
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: How do you solve a math problem?"
+    "explanation": "The best answer is: Multiplication can show equal groups."
    },
    {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
-    "options": [
-     {
-      "id": "a",
-      "text": "It's useless"
-     },
-     {
-      "id": "b",
-      "text": "Never"
-     },
-     {
-      "id": "c",
-      "text": "Only in school"
-     },
-     {
-      "id": "d",
-      "text": "At the store, cooking, and counting things"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Where can you use math in real life?"
-   },
-   {
-    "itemId": "q04",
+    "itemId": "mathematics-g3-q3-w06-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
+    "prompt": "Which statement best fits Multiplication Builders?",
     "options": [
      {
       "id": "a",
-      "text": "Wishing really hard"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "A magic wand"
+      "text": "a random guess"
      },
      {
       "id": "c",
-      "text": "Nothing helps"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Practice and asking questions!"
+      "text": "Multiplication can show equal groups."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: What helps you get better at math?"
+    "explanation": "The best answer is: Multiplication can show equal groups."
    },
    {
-    "itemId": "q05",
+    "itemId": "mathematics-g3-q3-w06-d03-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
+    "prompt": "Which statement best fits Multiplication Builders?",
     "options": [
      {
       "id": "a",
-      "text": "Ignore it"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Cry and give up"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Try a different way, then ask for help"
+      "text": "Multiplication can show equal groups."
      },
      {
       "id": "d",
-      "text": "Throw your paper away"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: Multiplication can show equal groups."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

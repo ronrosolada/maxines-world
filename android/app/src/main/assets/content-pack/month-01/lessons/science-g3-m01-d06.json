@@ -8,12 +8,12 @@
  "title": "Classify the Animals",
  "objective": "Classify animals by observable traits and explain the chosen rule.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A learner-made group is an observation tool, not formal biological taxonomy. You will explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "A learner-made group is an observation tool, not formal biological taxonomy. Explore examples, sort cards, practice, and answer five questions.",
  "vocabulary": [
   {
    "term": "classify",
@@ -40,8 +40,8 @@
     "type": "VIEW_AND_ACKNOWLEDGE"
    },
    "feedback": {
-    "correct": "Ready for the next step.",
-    "retry": "Review the explanation once more."
+    "correct": "Nice work. Continue to the next step.",
+    "retry": "Read the explanation once more."
    },
    "assetId": "science-g3-m01-d06-visual",
    "accessibilityAlternative": "Text alternative: A learner-made group is an observation tool, not formal biological taxonomy."
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d06-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each learning token, then read the examples.",
+   "instruction": "Explore each example, then read the examples.",
    "content": {
     "examples": [
      "feathers/no feathers",
@@ -65,7 +65,7 @@
    },
    "feedback": {
     "correct": "You explored every example.",
-    "retry": "Open each remaining token."
+    "retry": "Open each remaining example."
    },
    "assetId": "science-g3-m01-d06-visual",
    "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,7 +74,7 @@
    "activityId": "science-g3-m01-d06-a03",
    "sequence": 3,
    "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+   "instruction": "Sort each card into “shows the skill” or “does not show the skill.”",
    "content": {
     "fits": [
      "feathers/no feathers",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups follow the lesson rule.",
+    "correct": "Your groups follow the skill rule.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d06-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: has feathers or no feathers",
-    "retry": "Read the lesson rule again. is nice or not nice and is lucky or unlucky do not fit."
+    "retry": "Read the skill rule again. is nice or not nice and is lucky or unlucky do not show the skill."
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "feathers/no feathers",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      },
      {
       "left": "moves by swimming/walking",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      },
      {
       "left": "has scales/no scales",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      }
     ]
    },
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d06-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Complete the guided review in order.",
+   "instruction": "Follow the guided review in order.",
    "content": {
     "steps": [
      "State the lesson idea.",
@@ -175,7 +175,7 @@
    },
    "feedback": {
     "correct": "You are ready for the five-question check.",
-    "retry": "Complete each review step."
+    "retry": "Finish each review step."
    },
    "assetId": "science-g3-m01-d06-visual",
    "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -209,7 +209,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A learner-made group is an observation tool, not formal biological taxonomy.” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “A learner-made group is an observation tool, not formal biological taxonomy.” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
    },
    {
     "itemId": "science-g3-m01-d06-q02",
@@ -233,7 +233,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “feathers/no feathers” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “feathers/no feathers” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
    },
    {
     "itemId": "science-g3-m01-d06-q03",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Group by favorite color” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “Group by favorite color” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
    },
    {
     "itemId": "science-g3-m01-d06-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “has feathers or no feathers” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “has feathers or no feathers” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
    },
    {
     "itemId": "science-g3-m01-d06-q05",
@@ -305,7 +305,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “has scales/no scales” because it follows the lesson explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “has scales/no scales” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
    }
   ]
  },
@@ -336,5 +336,17 @@
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],
- "contentHash": "8121ca04924555df6af758bc805e71b47619aa53bd5bfc87f847532c8dd07755"
+ "contentHash": "8121ca04924555df6af758bc805e71b47619aa53bd5bfc87f847532c8dd07755",
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

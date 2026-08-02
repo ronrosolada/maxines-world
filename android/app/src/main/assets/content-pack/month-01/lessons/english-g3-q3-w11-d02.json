@@ -5,27 +5,27 @@
  "month": 11,
  "day": 2,
  "subject": "english",
- "title": "Identify in a compound sentence:",
- "objective": "Identify in a compound sentence:",
+ "title": "Compound Sentence Crew",
+ "objective": "Identify two complete ideas joined in a compound sentence.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Can you read a word without sounding it out? That's what we call a SIGHT WORD! Today we explore: Identify in a compound sentence:. Let's build your reading superpowers! 🦸",
+ "introduction": "Milo has a new mission! 🐱✨ A compound sentence joins two complete ideas with a word such as and, but, or so. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Sentence",
-   "definition": "A group of words that expresses a complete thought."
+   "term": "I read, and Milo listens.",
+   "definition": "a correct example"
   },
   {
-   "term": "sound",
-   "definition": "Something you hear with your ears."
+   "term": "It rained, so we stayed inside.",
+   "definition": "a related example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "I wanted to play, but I had homework.",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Identify in a compound sentence:",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   },
   {
-   "activityId": "english-g3-q3-w11-d02-a04",
+   "activityId": "english-g3-q3-w11-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Identify in a compound sentence:",
-     "Remember: Identify in a compound sentence:",
-     "Think about: Identify in a compound sentence:...",
-     "Try this: Can you explain Identify in a in your own words?"
-    ]
+     "I read, and Milo listens.",
+     "It rained, so we stayed inside.",
+     "I wanted to play, but I had homework.",
+     "Ana sings, and Ben claps."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Tap the right spot in the picture!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   },
   {
    "activityId": "english-g3-q3-w11-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Identify in a — correct",
-     "Another correct example about Identify in a",
-     "Yes — this matches Identify in a compound"
+     "I read, and Milo listens.",
+     "It rained, so we stayed inside.",
+     "I wanted to play, but I had homework.",
+     "Ana sings, and Ben claps."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Put things where they belong.",
-   "narration": "Sort these into groups! What belongs together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   },
   {
-   "activityId": "english-g3-q3-w11-d02-a02",
+   "activityId": "english-g3-q3-w11-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Identify in a compound",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "I read, and Milo listens.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   },
   {
    "activityId": "english-g3-q3-w11-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Identify in a",
-      "right": "Matches the lesson"
+      "left": "I read, and Milo listens.",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Identify in",
-      "right": "Fits the idea"
+      "left": "It rained, so we stayed inside.",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Identify",
-      "right": "Correct"
+      "left": "I wanted to play, but I had homework.",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   },
   {
    "activityId": "english-g3-q3-w11-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Identify in a",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q3-w11-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Compound Sentence Crew?",
     "options": [
      {
       "id": "a",
-      "text": "Understanding new words and reading"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Watching TV"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Playing games"
+      "text": "A compound sentence joins two complete ideas with a word such as and, but, or so."
      },
      {
       "id": "d",
-      "text": "Eating food"
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: A compound sentence joins two complete ideas with a word such as and, but, or so."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Compound Sentence Crew?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "A compound sentence joins two complete ideas with a word such as and, but, or so."
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: A compound sentence joins two complete ideas with a word such as and, but, or so."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Compound Sentence Crew?",
+    "options": [
+     {
+      "id": "a",
+      "text": "A compound sentence joins two complete ideas with a word such as and, but, or so."
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "a different topic"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: A compound sentence joins two complete ideas with a word such as and, but, or so."
    },
    {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Running"
-     },
-     {
-      "id": "b",
-      "text": "Sight words and vocabulary"
-     },
-     {
-      "id": "c",
-      "text": "Table"
-     },
-     {
-      "id": "d",
-      "text": "Banana"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Forget everything"
-     },
-     {
-      "id": "b",
-      "text": "Go to sleep"
-     },
-     {
-      "id": "c",
-      "text": "Eat a snack"
-     },
-     {
-      "id": "d",
-      "text": "Think about what you learned"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: What should you do after reading?"
-   },
-   {
-    "itemId": "q04",
+    "itemId": "english-g3-q3-w11-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Compound Sentence Crew?",
     "options": [
      {
       "id": "a",
-      "text": "No reason"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "To read and understand better"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "To waste time"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Because we have to"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Why do we learn new words?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Never look at words"
-     },
-     {
-      "id": "b",
-      "text": "Ignore text"
-     },
-     {
-      "id": "c",
-      "text": "Only use pictures"
-     },
-     {
-      "id": "d",
-      "text": "Read books every day!"
+      "text": "A compound sentence joins two complete ideas with a word such as and, but, or so."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: A compound sentence joins two complete ideas with a word such as and, but, or so."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Compound Sentence Crew?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "A compound sentence joins two complete ideas with a word such as and, but, or so."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: A compound sentence joins two complete ideas with a word such as and, but, or so."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

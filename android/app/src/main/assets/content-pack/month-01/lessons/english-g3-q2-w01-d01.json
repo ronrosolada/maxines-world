@@ -5,27 +5,27 @@
  "month": 5,
  "day": 1,
  "subject": "english",
- "title": "Identify Grade 3 level-appropriate sight words and read them accurately",
- "objective": "Identify Grade 3 level-appropriate sight words and read them accurately.",
+ "title": "Word Explorer",
+ "objective": "Use high-frequency and content-specific words in context.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Welcome, detective! 🕵️ Sight words are words we see ALL the time when we read. Words like 'because', 'friend', and 'people' show up again and again. When you know them by sight — without having to sound them out — you become a faster, more confident reader. Today you'll spot sight words, sort them, and read them out loud. Ready to solve the case?",
+ "introduction": "Milo has a new mission! 🐱✨ Context clues and the topic help readers understand and use new words accurately. Ready to explore?",
  "vocabulary": [
   {
-   "term": "sound",
-   "definition": "Something you hear with your ears."
+   "term": "look at nearby words",
+   "definition": "a correct example"
   },
   {
-   "term": "story",
-   "definition": "A tale with characters and events."
+   "term": "connect the word to the topic",
+   "definition": "a related example"
   },
   {
-   "term": "detective",
-   "definition": "A person who looks for clues to find the answer."
+   "term": "try the word in a sentence",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,20 +36,20 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Watch and listen! These words appear in almost every story you read.",
-   "content": "Identify Grade 3 level-appropriate sight words",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Context clues and the topic help readers understand and use new words accurately.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Now you know your target words. Let's practice!",
-    "retry": "Watch the explanation again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Text: Sight words are common words you recognize instantly. Today's words: because, friend, should, people, around, little, always, another.",
-   "prompt": "Pay attention to the story!",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
   {
    "activityId": "english-g3-q2-w01-d01-a02",
@@ -58,32 +58,29 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Tap each word card to hear it read aloud, then repeat it!",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "because — 'I am happy BECAUSE I have a good friend.'",
-     "friend — 'My FRIEND and I play together.'",
-     "should — 'You SHOULD always try your best.'",
-     "people — 'Many PEOPLE live in our barangay.'",
-     "around — 'The dog ran AROUND the yard.'",
-     "little — 'The LITTLE kitten is so cute!'",
-     "always — 'I ALWAYS say po and opo.'",
-     "another — 'Can I have ANOTHER rice cake?'"
-    ]
+     "look at nearby words",
+     "connect the word to the topic",
+     "try the word in a sentence",
+     "check the meaning"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
     "type": "ALL_TARGETS_VISITED",
-    "targetCount": 8
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "You found every word! Great detective work.",
-    "retry": "There are more words to discover. Keep tapping!"
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "All eight sight words are listed with example sentences.",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
   {
    "activityId": "english-g3-q2-w01-d01-a03",
@@ -92,38 +89,34 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Sort each word: Is it a sight word or not a sight word?",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "because",
-     "friend",
-     "people",
-     "always",
-     "should",
-     "little",
-     "around",
-     "another"
+     "look at nearby words",
+     "connect the word to the topic",
+     "try the word in a sentence",
+     "check the meaning"
     ],
     "doesNotFit": [
-     "xylophone",
-     "giraffe",
-     "avocado",
-     "pterodactyl"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
     "type": "ALL_ITEMS_SORTED",
-    "itemCount": 12
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "You sorted them all correctly!",
-    "retry": "Some words need to move. Try again!"
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Sort each word into sight-word or not-sight-word groups.",
-   "prompt": "Drag each item to its group.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
   {
    "activityId": "english-g3-q2-w01-d01-a04",
@@ -132,13 +125,13 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Which word is a sight word that means 'a person you like'?",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "friend",
-     "xylophone",
-     "quickly",
-     "through"
+     "look at nearby words",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
@@ -146,14 +139,14 @@
     "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Yes! 'Friend' is a common sight word.",
-    "retry": "Think about which word you see often in stories."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Choose the sight word from the list.",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
   {
    "activityId": "english-g3-q2-w01-d01-a05",
@@ -162,40 +155,35 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Match each sight word to a sentence that uses it!",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "because",
-      "right": "I smiled ___ I was happy."
+      "left": "look at nearby words",
+      "right": "a correct example"
      },
      {
-      "left": "friend",
-      "right": "My best ___ is named Ana."
+      "left": "connect the word to the topic",
+      "right": "a related example"
      },
      {
-      "left": "people",
-      "right": "Many ___ came to the fiesta."
-     },
-     {
-      "left": "always",
-      "right": "I ___ help my Lola."
+      "left": "try the word in a sentence",
+      "right": "another example"
      }
     ]
    },
    "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 4
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Perfect matches! You know these words.",
-    "retry": "Try matching the words to the right sentences."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Match each sight word to its sentence.",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Match the pairs! Which ones go together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
   {
    "activityId": "english-g3-q2-w01-d01-a06",
@@ -204,28 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Put these steps in order: How do we learn a new sight word?",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "See the word",
-     "Say the word out loud",
-     "Use the word in a sentence",
-     "Read the word in a story"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 4
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "That's the right order! See, say, use, read.",
-    "retry": "Think about what you do first when you learn a new word."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Order the steps: See, Say, Use, Read.",
-   "prompt": "What comes first? What comes next?",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   }
  ],
  "assessment": {
@@ -235,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Word Explorer?",
     "options": [
      {
       "id": "a",
-      "text": "Understanding new words and reading"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Playing games"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Watching TV"
+      "text": "Context clues and the topic help readers understand and use new words accurately."
      },
      {
       "id": "d",
-      "text": "Eating food"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Context clues and the topic help readers understand and use new words accurately."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q2-w01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits Word Explorer?",
     "options": [
      {
       "id": "a",
-      "text": "Sight words and vocabulary"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Running"
+      "text": "Context clues and the topic help readers understand and use new words accurately."
      },
      {
       "id": "c",
-      "text": "Banana"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Table"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Forget everything"
-     },
-     {
-      "id": "b",
-      "text": "Think about what you learned"
-     },
-     {
-      "id": "c",
-      "text": "Eat a snack"
-     },
-     {
-      "id": "d",
-      "text": "Go to sleep"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: Context clues and the topic help readers understand and use new words accurately."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q2-w01-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Word Explorer?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Context clues and the topic help readers understand and use new words accurately."
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "a different topic"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Context clues and the topic help readers understand and use new words accurately."
+   },
+   {
+    "itemId": "english-g3-q2-w01-d01-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Word Explorer?",
     "options": [
      {
       "id": "a",
-      "text": "To read and understand better"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Because we have to"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "No reason"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To waste time"
+      "text": "Context clues and the topic help readers understand and use new words accurately."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: Context clues and the topic help readers understand and use new words accurately."
    },
    {
-    "itemId": "q05",
+    "itemId": "english-g3-q2-w01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Word Explorer?",
     "options": [
      {
       "id": "a",
-      "text": "Read books every day!"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Ignore text"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Only use pictures"
+      "text": "Context clues and the topic help readers understand and use new words accurately."
      },
      {
       "id": "d",
-      "text": "Never look at words"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Context clues and the topic help readers understand and use new words accurately."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

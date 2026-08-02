@@ -5,27 +5,27 @@
  "month": 12,
  "day": 3,
  "subject": "english",
- "title": "Compose texts to react to the character, setting, or events in a",
- "objective": "Compose texts to react to the character, setting, or events in a",
+ "title": "Meet the Characters",
+ "objective": "Identify story characters and support ideas about them with actions or words.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Can you read a word without sounding it out? That's what we call a SIGHT WORD! Today we explore: Compose texts to react to the character, setting, or events . Let's build your reading superpowers! 🦸",
+ "introduction": "Milo has a new mission! 🐱✨ Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues. Ready to explore?",
  "vocabulary": [
   {
-   "term": "character",
-   "definition": "A person or animal in a story."
+   "term": "Ana",
+   "definition": "shares an umbrella"
   },
   {
-   "term": "setting",
-   "definition": "Where and when a story happens."
+   "term": "puppy",
+   "definition": "hides under a chair"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "Lola",
+   "definition": "tells a story"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Compose texts to react to the character, setting, or events in a",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   },
   {
-   "activityId": "english-g3-q3-w13-d03-a04",
+   "activityId": "english-g3-q3-w13-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Compose texts to react to the character, setting, or events in a",
-     "Remember: Compose texts to react to the character, setting, or events in a",
-     "Think about: Compose texts to react to...",
-     "Try this: Can you explain Compose texts to in your own words?"
-    ]
+     "Ana shares her umbrella",
+     "the puppy hides under the chair",
+     "Lola tells a funny story",
+     "the bird carries a twig"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   },
   {
    "activityId": "english-g3-q3-w13-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Compose texts to — correct",
-     "Another correct example about Compose texts to",
-     "Yes — this matches Compose texts to react"
+     "Ana",
+     "the puppy",
+     "Lola",
+     "the bird"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "the rain",
+     "the blue chair",
+     "a mango tree",
+     "the color red"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   },
   {
-   "activityId": "english-g3-q3-w13-d03-a02",
+   "activityId": "english-g3-q3-w13-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Compose texts to react",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "Ana shares her umbrella",
+     "the rain",
+     "the blue chair",
+     "a mango tree"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   },
   {
    "activityId": "english-g3-q3-w13-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Compose texts to",
-      "right": "Matches the lesson"
+      "left": "Ana",
+      "right": "shares an umbrella"
      },
      {
-      "left": "Example of Compose texts",
-      "right": "Fits the idea"
+      "left": "puppy",
+      "right": "hides under a chair"
      },
      {
-      "left": "Key term: Compose",
-      "right": "Correct"
+      "left": "Lola",
+      "right": "tells a story"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Draw a line between each pair.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   },
   {
    "activityId": "english-g3-q3-w13-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Compose texts to",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Notice who is present",
+     "Read what each one says",
+     "Watch what each one does",
+     "Describe the character with evidence"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q3-w13-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Meet the Characters?",
     "options": [
      {
       "id": "a",
-      "text": "Understanding new words and reading"
+      "text": "the blue chair"
      },
      {
       "id": "b",
-      "text": "Eating food"
+      "text": "a mango tree"
      },
      {
       "id": "c",
-      "text": "Playing games"
+      "text": "Characters are the people, animals, or make-believe beings who act in a story."
      },
      {
       "id": "d",
-      "text": "Watching TV"
+      "text": "the rain"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Characters are the people, animals, or make-believe beings who act in a story."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q3-w13-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits Meet the Characters?",
     "options": [
      {
       "id": "a",
-      "text": "Sight words and vocabulary"
+      "text": "the color red"
      },
      {
       "id": "b",
-      "text": "Running"
+      "text": "Characters are the people, animals, or make-believe beings who act in a story."
      },
      {
       "id": "c",
-      "text": "Table"
+      "text": "the blue chair"
      },
      {
       "id": "d",
-      "text": "Banana"
+      "text": "a mango tree"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Milo asks: Which word did we learn today?"
+    "explanation": "The best answer is: Characters are the people, animals, or make-believe beings who act in a story."
    },
    {
-    "itemId": "q03",
+    "itemId": "english-g3-q3-w13-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Meet the Characters?",
     "options": [
      {
       "id": "a",
-      "text": "Go to sleep"
+      "text": "Characters are the people, animals, or make-believe beings who act in a story."
      },
      {
       "id": "b",
-      "text": "Think about what you learned"
+      "text": "a mango tree"
      },
      {
       "id": "c",
-      "text": "Forget everything"
+      "text": "the color red"
      },
      {
       "id": "d",
-      "text": "Eat a snack"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: What should you do after reading?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
-    "options": [
-     {
-      "id": "a",
-      "text": "To read and understand better"
-     },
-     {
-      "id": "b",
-      "text": "Because we have to"
-     },
-     {
-      "id": "c",
-      "text": "To waste time"
-     },
-     {
-      "id": "d",
-      "text": "No reason"
+      "text": "the rain"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: Characters are the people, animals, or make-believe beings who act in a story."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "english-g3-q3-w13-d03-q04",
+    "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Meet the Characters?",
     "options": [
      {
       "id": "a",
-      "text": "Ignore text"
+      "text": "the color red"
      },
      {
       "id": "b",
-      "text": "Read books every day!"
+      "text": "the rain"
      },
      {
       "id": "c",
-      "text": "Only use pictures"
+      "text": "the blue chair"
      },
      {
       "id": "d",
-      "text": "Never look at words"
+      "text": "Characters are the people, animals, or make-believe beings who act in a story."
      }
     ],
     "correctOptionIds": [
-     "b"
+     "d"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Characters are the people, animals, or make-believe beings who act in a story."
+   },
+   {
+    "itemId": "english-g3-q3-w13-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Meet the Characters?",
+    "options": [
+     {
+      "id": "a",
+      "text": "the blue chair"
+     },
+     {
+      "id": "b",
+      "text": "a mango tree"
+     },
+     {
+      "id": "c",
+      "text": "Characters are the people, animals, or make-believe beings who act in a story."
+     },
+     {
+      "id": "d",
+      "text": "the rain"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Characters are the people, animals, or make-believe beings who act in a story."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

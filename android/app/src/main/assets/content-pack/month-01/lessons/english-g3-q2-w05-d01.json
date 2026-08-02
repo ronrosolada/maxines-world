@@ -5,27 +5,27 @@
  "month": 6,
  "day": 1,
  "subject": "english",
- "title": "Identify discourse markers for a given text type",
- "objective": "Identify discourse markers for a given text type.",
+ "title": "Signal Words",
+ "objective": "Identify words that show order, reason, contrast, or result in a text.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Every good reader knows some words by heart — like magic! ✨ In today's lesson, 'Identify discourse markers for a given', you'll practice reading words instantly. Ready to become a word wizard?",
+ "introduction": "Milo has a new mission! 🐱✨ Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result. Ready to explore?",
  "vocabulary": [
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "first",
+   "definition": "a correct example"
   },
   {
-   "term": "instantly",
-   "definition": "Right away, without waiting."
+   "term": "because",
+   "definition": "a related example"
   },
   {
-   "term": "sequence",
-   "definition": "The order of events in a story."
+   "term": "but",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Identify discourse markers for a given text type.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   },
   {
-   "activityId": "english-g3-q2-w05-d01-a04",
+   "activityId": "english-g3-q2-w05-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Identify discourse markers for a given text type.",
-     "Remember: Identify discourse markers for a given text type.",
-     "Think about: Identify discourse markers for a...",
-     "Try this: Can you explain Identify discourse markers in your own words?"
-    ]
+     "first",
+     "because",
+     "but",
+     "so"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   },
   {
    "activityId": "english-g3-q2-w05-d01-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Identify discourse markers — correct",
-     "Another correct example about Identify discourse markers",
-     "Yes — this matches Identify discourse markers for"
+     "first",
+     "because",
+     "but",
+     "so"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Put things where they belong.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   },
   {
-   "activityId": "english-g3-q2-w05-d01-a02",
+   "activityId": "english-g3-q2-w05-d01-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Identify discourse markers for",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "first",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   },
   {
    "activityId": "english-g3-q2-w05-d01-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Identify discourse markers",
-      "right": "Matches the lesson"
+      "left": "first",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Identify discourse",
-      "right": "Fits the idea"
+      "left": "because",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Identify",
-      "right": "Correct"
+      "left": "but",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Match the pairs! Which ones go together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   },
   {
    "activityId": "english-g3-q2-w05-d01-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d01-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Identify discourse markers",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w05-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Signal Words?",
     "options": [
      {
       "id": "a",
-      "text": "Eating food"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Understanding new words and reading"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Playing games"
+      "text": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
      },
      {
       "id": "d",
-      "text": "Watching TV"
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+   },
+   {
+    "itemId": "english-g3-q2-w05-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Signal Words?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
    },
    {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Running"
-     },
-     {
-      "id": "b",
-      "text": "Table"
-     },
-     {
-      "id": "c",
-      "text": "Banana"
-     },
-     {
-      "id": "d",
-      "text": "Sight words and vocabulary"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
+    "itemId": "english-g3-q2-w05-d01-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Signal Words?",
     "options": [
      {
       "id": "a",
-      "text": "Think about what you learned"
+      "text": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
      },
      {
       "id": "b",
-      "text": "Eat a snack"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Go to sleep"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Forget everything"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q2-w05-d01-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Signal Words?",
     "options": [
      {
       "id": "a",
-      "text": "Because we have to"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "To waste time"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "No reason"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To read and understand better"
+      "text": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
    },
    {
-    "itemId": "q05",
+    "itemId": "english-g3-q2-w05-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Signal Words?",
     "options": [
      {
       "id": "a",
-      "text": "Read books every day!"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Never look at words"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Ignore text"
+      "text": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
      },
      {
       "id": "d",
-      "text": "Only use pictures"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

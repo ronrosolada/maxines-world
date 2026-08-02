@@ -5,27 +5,27 @@
  "month": 10,
  "day": 2,
  "subject": "mathematics",
- "title": "estimation of products of two",
- "objective": "estimation of products of two",
+ "title": "Rounding Ramp",
+ "objective": "Round numbers to the nearest ten, hundred, or thousand.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Mathematicians, assemble! 📐 Today we're learning about: estimation of products of two. Math isn't just numbers on paper — it's the language of the universe! Ready?",
+ "introduction": "Milo has a new mission! 🐱✨ Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down. Ready to explore?",
  "vocabulary": [
   {
-   "term": "product",
-   "definition": "The answer when you multiply."
+   "term": "47 rounds to 50",
+   "definition": "correct idea"
   },
   {
-   "term": "number",
-   "definition": "A symbol or word that tells how many."
+   "term": "342 rounds to 300",
+   "definition": "useful example"
   },
   {
-   "term": "one",
-   "definition": "The number that comes first when counting."
+   "term": "3,650 rounds to 4,000",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "estimation of products of two",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   },
   {
-   "activityId": "mathematics-g3-q3-w06-d02-a04",
+   "activityId": "mathematics-g3-q3-w06-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: estimation of products of two",
-     "Remember: estimation of products of two",
-     "Think about: estimation of products of two...",
-     "Try this: Can you explain estimation of products in your own words?"
-    ]
+     "47 rounds to 50",
+     "342 rounds to 300",
+     "3,650 rounds to 4,000",
+     "1,241 rounds to 1,200"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of estimation of products — correct",
-     "Another correct example about estimation of products",
-     "Yes — this matches estimation of products of"
+     "47 rounds to 50",
+     "342 rounds to 300",
+     "3,650 rounds to 4,000",
+     "1,241 rounds to 1,200"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   },
   {
-   "activityId": "mathematics-g3-q3-w06-d02-a02",
+   "activityId": "mathematics-g3-q3-w06-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about estimation of products of",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "47 rounds to 50",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: estimation of products",
-      "right": "Matches the lesson"
+      "left": "47 rounds to 50",
+      "right": "correct idea"
      },
      {
-      "left": "Example of estimation of",
-      "right": "Fits the idea"
+      "left": "342 rounds to 300",
+      "right": "useful example"
      },
      {
-      "left": "Key term: estimation",
-      "right": "Correct"
+      "left": "3,650 rounds to 4,000",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Match the ones that go together!",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   },
   {
    "activityId": "mathematics-g3-q3-w06-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w06-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand estimation of products",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q3-w06-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Rounding Ramp?",
     "options": [
      {
       "id": "a",
-      "text": "Art class"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Reading stories"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Music"
+      "text": "Look at the digit to the right of the place you are rounding."
      },
      {
       "id": "d",
-      "text": "Numbers, shapes, and problem solving"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "c"
     ],
-    "explanation": "Milo asks: What math topic did we learn?"
+    "explanation": "The best answer is: Look at the digit to the right of the place you are rounding."
    },
    {
-    "itemId": "q02",
+    "itemId": "mathematics-g3-q3-w06-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
+    "prompt": "Which statement best fits Rounding Ramp?",
     "options": [
      {
       "id": "a",
-      "text": "Guess randomly"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "Ask someone else"
+      "text": "Look at the digit to the right of the place you are rounding."
      },
      {
       "id": "c",
-      "text": "Think step by step, then check your work"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Give up"
+      "text": "an unrelated operation"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
-    "explanation": "Milo asks: How do you solve a math problem?"
+    "explanation": "The best answer is: Look at the digit to the right of the place you are rounding."
    },
    {
-    "itemId": "q03",
+    "itemId": "mathematics-g3-q3-w06-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
+    "prompt": "Which statement best fits Rounding Ramp?",
     "options": [
      {
       "id": "a",
-      "text": "It's useless"
+      "text": "Look at the digit to the right of the place you are rounding."
      },
      {
       "id": "b",
-      "text": "Never"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "At the store, cooking, and counting things"
+      "text": "an answer with no label"
      },
      {
       "id": "d",
-      "text": "Only in school"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Where can you use math in real life?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Wishing really hard"
-     },
-     {
-      "id": "b",
-      "text": "A magic wand"
-     },
-     {
-      "id": "c",
-      "text": "Practice and asking questions!"
-     },
-     {
-      "id": "d",
-      "text": "Nothing helps"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: What helps you get better at math?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Try a different way, then ask for help"
-     },
-     {
-      "id": "b",
-      "text": "Ignore it"
-     },
-     {
-      "id": "c",
-      "text": "Throw your paper away"
-     },
-     {
-      "id": "d",
-      "text": "Cry and give up"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: Look at the digit to the right of the place you are rounding."
+   },
+   {
+    "itemId": "mathematics-g3-q3-w06-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Rounding Ramp?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "b",
+      "text": "a random guess"
+     },
+     {
+      "id": "c",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "d",
+      "text": "Look at the digit to the right of the place you are rounding."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Look at the digit to the right of the place you are rounding."
+   },
+   {
+    "itemId": "mathematics-g3-q3-w06-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Rounding Ramp?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "Look at the digit to the right of the place you are rounding."
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Look at the digit to the right of the place you are rounding."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

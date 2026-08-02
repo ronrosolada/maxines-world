@@ -22,6 +22,9 @@ month-01 lessons are NOT overwritten (only files whose lessonId starts
 with a known subject code + '-g3-q' pattern are touched).
 
 Also writes tools/content-conversion-report.md with a per-subject summary.
+Converted lessons pass through content_review.curate_lesson before writing, so
+regenerating the pack does not reintroduce placeholder activities or malformed
+subject copy. Approval remains explicit via mark_lessons_reviewed.py.
 """
 
 import argparse
@@ -29,6 +32,8 @@ import json
 import sys
 from collections import Counter
 from pathlib import Path
+
+from content_review import curate_lesson
 
 REPO_ROOT = Path(__file__).resolve().parents[1]  # android/
 SLM_ROOT = REPO_ROOT / "app/src/main/assets/content/ph-matatag/grade-3"
@@ -184,6 +189,7 @@ def main() -> int:
         if converted is None:
             failed.append(f"{json_file.relative_to(SLM_ROOT)}: no lessonId")
             continue
+        converted = curate_lesson(converted)
 
         lesson_id = converted["lessonId"]
         out = PACK_DIR / f"{lesson_id}.json"

@@ -5,27 +5,27 @@
  "month": 1,
  "day": 3,
  "subject": "mathematics",
- "title": "points, lines, line segments,",
- "objective": "parallel, perpendicular, and — recognize, using models, and draws a point, line, line segment, and ray.",
+ "title": "Shape Trail",
+ "objective": "Recognize and describe points, lines, line segments, rays, and special line relationships.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Mathematicians, assemble! 📐 Today we're learning about: parallel, perpendicular, and 5. recognize, using models, and draws a point, line. Math isn't just numbers on paper — it's the language of the universe! Ready?",
+ "introduction": "Milo has a new mission! 🐱✨ A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Point",
-   "definition": "Isang eksaktong lokasyon, tulad ng dulo ng lapis."
+   "term": "point A",
+   "definition": "correct idea"
   },
   {
-   "term": "Line",
-   "definition": "Isang tuwid na guhit na walang hangganan sa magkabilang dulo."
+   "term": "segment AB",
+   "definition": "useful example"
   },
   {
-   "term": "Line segment",
-   "definition": "Bahagi ng linya na may dalawang dulo."
+   "term": "ray CD",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "points, lines, line segments,",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   },
   {
-   "activityId": "mathematics-g3-q1-w01-d03-a04",
+   "activityId": "mathematics-g3-q1-w01-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: parallel, perpendicular, and 5. recognize, using models, and draws a point, line",
-     "Remember: parallel, perpendicular, and 5. recognize, using models, and draws a point, line",
-     "Think about: parallel perpendicular and 5 recognize...",
-     "Try this: Can you explain parallel perpendicular and in your own words?"
-    ]
+     "point A",
+     "segment AB",
+     "ray CD",
+     "parallel lines"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   },
   {
    "activityId": "mathematics-g3-q1-w01-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of parallel perpendicular and — correct",
-     "Another correct example about parallel perpendicular and",
-     "Yes — this matches parallel perpendicular and 5"
+     "point A",
+     "segment AB",
+     "ray CD",
+     "parallel lines"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   },
   {
-   "activityId": "mathematics-g3-q1-w01-d03-a02",
+   "activityId": "mathematics-g3-q1-w01-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about parallel perpendicular and 5",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "point A",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   },
   {
    "activityId": "mathematics-g3-q1-w01-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: parallel perpendicular and",
-      "right": "Matches the lesson"
+      "left": "point A",
+      "right": "correct idea"
      },
      {
-      "left": "Example of parallel perpendicular",
-      "right": "Fits the idea"
+      "left": "segment AB",
+      "right": "useful example"
      },
      {
-      "left": "Key term: parallel",
-      "right": "Correct"
+      "left": "ray CD",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   },
   {
    "activityId": "mathematics-g3-q1-w01-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand parallel perpendicular and",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A point marks a location. A line segment has two endpoints. A ray has one endpoint and continues in one direction. Parallel lines do not meet; perpendicular lines meet to form a right angle."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q1-w01-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Shape Trail?",
     "options": [
      {
       "id": "a",
-      "text": "Numbers, shapes, and problem solving"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Music"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Art class"
+      "text": "A point marks a location."
      },
      {
       "id": "d",
-      "text": "Reading stories"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: What math topic did we learn?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ask someone else"
-     },
-     {
-      "id": "b",
-      "text": "Think step by step, then check your work"
-     },
-     {
-      "id": "c",
-      "text": "Guess randomly"
-     },
-     {
-      "id": "d",
-      "text": "Give up"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: How do you solve a math problem?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
-    "options": [
-     {
-      "id": "a",
-      "text": "It's useless"
-     },
-     {
-      "id": "b",
-      "text": "Never"
-     },
-     {
-      "id": "c",
-      "text": "Only in school"
-     },
-     {
-      "id": "d",
-      "text": "At the store, cooking, and counting things"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Where can you use math in real life?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Nothing helps"
-     },
-     {
-      "id": "b",
-      "text": "A magic wand"
-     },
-     {
-      "id": "c",
-      "text": "Practice and asking questions!"
-     },
-     {
-      "id": "d",
-      "text": "Wishing really hard"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: What helps you get better at math?"
+    "explanation": "The best answer is: A point marks a location."
    },
    {
-    "itemId": "q05",
-    "sequence": 5,
+    "itemId": "mathematics-g3-q1-w01-d03-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
+    "prompt": "Which statement best fits Shape Trail?",
     "options": [
      {
       "id": "a",
-      "text": "Ignore it"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "Throw your paper away"
+      "text": "A point marks a location."
      },
      {
       "id": "c",
-      "text": "Cry and give up"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Try a different way, then ask for help"
+      "text": "an unrelated operation"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: A point marks a location."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w01-d03-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Shape Trail?",
+    "options": [
+     {
+      "id": "a",
+      "text": "A point marks a location."
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: A point marks a location."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w01-d03-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Shape Trail?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "b",
+      "text": "a random guess"
+     },
+     {
+      "id": "c",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "d",
+      "text": "A point marks a location."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: A point marks a location."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w01-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Shape Trail?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "A point marks a location."
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: A point marks a location."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

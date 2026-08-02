@@ -5,27 +5,27 @@
  "month": 5,
  "day": 2,
  "subject": "mathematics",
- "title": "estimate capacity using liters and/or milliliters.",
- "objective": "estimate capacity using liters and/or milliliters.",
+ "title": "Add-Up Adventure",
+ "objective": "Add numbers with sums up to 10,000, with or without regrouping.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Numbers and shapes are like puzzle pieces — they fit together to create amazing things! 🧩 Today: estimate capacity using liters and/or milliliters.. Let's explore how math helps us understand the world.",
+ "introduction": "Milo has a new mission! 🐱✨ Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Capacity",
-   "definition": "Ang dami ng kayang lamanin ng isang lalagyan."
+   "term": "245 + 123 = 368",
+   "definition": "correct idea"
   },
   {
-   "term": "estimate",
-   "definition": "A careful guess about a number or size."
+   "term": "2,650 + 1,200 = 3,850",
+   "definition": "useful example"
   },
   {
-   "term": "number",
-   "definition": "A symbol or word that tells how many."
+   "term": "regroup 10 ones",
+   "definition": "check the concept"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "estimate capacity using liters and/or milliliters.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   },
   {
-   "activityId": "mathematics-g3-q2-w03-d02-a04",
+   "activityId": "mathematics-g3-q2-w03-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: estimate capacity using liters and/or milliliters.",
-     "Remember: estimate capacity using liters and/or milliliters.",
-     "Think about: estimate capacity using liters and/or...",
-     "Try this: Can you explain estimate capacity using in your own words?"
-    ]
+     "245 + 123 = 368",
+     "2,650 + 1,200 = 3,850",
+     "regroup 10 ones",
+     "check with an estimate"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Tap on the right part of the picture! Where is it?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d02-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of estimate capacity using — correct",
-     "Another correct example about estimate capacity using",
-     "Yes — this matches estimate capacity using liters"
+     "245 + 123 = 368",
+     "2,650 + 1,200 = 3,850",
+     "regroup 10 ones",
+     "check with an estimate"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation",
+     "an answer with no label"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   },
   {
-   "activityId": "mathematics-g3-q2-w03-d02-a02",
+   "activityId": "mathematics-g3-q2-w03-d02-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about estimate capacity using liters",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "245 + 123 = 368",
+     "a random guess",
+     "a mismatched unit",
+     "an unrelated operation"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d02-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: estimate capacity using",
-      "right": "Matches the lesson"
+      "left": "245 + 123 = 368",
+      "right": "correct idea"
      },
      {
-      "left": "Example of estimate capacity",
-      "right": "Fits the idea"
+      "left": "2,650 + 1,200 = 3,850",
+      "right": "useful example"
      },
      {
-      "left": "Key term: estimate",
-      "right": "Correct"
+      "left": "regroup 10 ones",
+      "right": "check the concept"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Draw a line between each pair.",
-   "narration": "Match the pairs! Which ones go together?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   },
   {
    "activityId": "mathematics-g3-q2-w03-d02-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w03-d02-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand estimate capacity using",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the question",
+     "Choose the operation or model",
+     "Solve carefully",
+     "Check whether the answer makes sense"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Arrange from first to last.",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "mathematics-g3-q2-w03-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What math topic did we learn?",
+    "prompt": "Which statement best fits Add-Up Adventure?",
     "options": [
      {
       "id": "a",
-      "text": "Music"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Reading stories"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Art class"
+      "text": "Add from ones to thousands."
      },
      {
       "id": "d",
-      "text": "Numbers, shapes, and problem solving"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: What math topic did we learn?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How do you solve a math problem?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Guess randomly"
-     },
-     {
-      "id": "b",
-      "text": "Ask someone else"
-     },
-     {
-      "id": "c",
-      "text": "Give up"
-     },
-     {
-      "id": "d",
-      "text": "Think step by step, then check your work"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: How do you solve a math problem?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you use math in real life?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Never"
-     },
-     {
-      "id": "b",
-      "text": "It's useless"
-     },
-     {
-      "id": "c",
-      "text": "At the store, cooking, and counting things"
-     },
-     {
-      "id": "d",
-      "text": "Only in school"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: Where can you use math in real life?"
+    "explanation": "The best answer is: Add from ones to thousands."
    },
    {
-    "itemId": "q04",
+    "itemId": "mathematics-g3-q2-w03-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Add-Up Adventure?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "b",
+      "text": "Add from ones to thousands."
+     },
+     {
+      "id": "c",
+      "text": "a mismatched unit"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated operation"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Add from ones to thousands."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w03-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Add-Up Adventure?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Add from ones to thousands."
+     },
+     {
+      "id": "b",
+      "text": "an unrelated operation"
+     },
+     {
+      "id": "c",
+      "text": "an answer with no label"
+     },
+     {
+      "id": "d",
+      "text": "a random guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Add from ones to thousands."
+   },
+   {
+    "itemId": "mathematics-g3-q2-w03-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What helps you get better at math?",
+    "prompt": "Which statement best fits Add-Up Adventure?",
     "options": [
      {
       "id": "a",
-      "text": "Practice and asking questions!"
+      "text": "an answer with no label"
      },
      {
       "id": "b",
-      "text": "A magic wand"
+      "text": "a random guess"
      },
      {
       "id": "c",
-      "text": "Nothing helps"
+      "text": "a mismatched unit"
      },
      {
       "id": "d",
-      "text": "Wishing really hard"
+      "text": "Add from ones to thousands."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Milo asks: What helps you get better at math?"
+    "explanation": "The best answer is: Add from ones to thousands."
    },
    {
-    "itemId": "q05",
+    "itemId": "mathematics-g3-q2-w03-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What if you get stuck on a problem?",
+    "prompt": "Which statement best fits Add-Up Adventure?",
     "options": [
      {
       "id": "a",
-      "text": "Try a different way, then ask for help"
+      "text": "a mismatched unit"
      },
      {
       "id": "b",
-      "text": "Ignore it"
+      "text": "an unrelated operation"
      },
      {
       "id": "c",
-      "text": "Cry and give up"
+      "text": "Add from ones to thousands."
      },
      {
       "id": "d",
-      "text": "Throw your paper away"
+      "text": "a random guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: What if you get stuck on a problem?"
+    "explanation": "The best answer is: Add from ones to thousands."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

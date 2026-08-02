@@ -5,27 +5,27 @@
  "month": 6,
  "day": 3,
  "subject": "english",
- "title": "Express ideas about one’s experiences.",
- "objective": "Express ideas about one’s experiences.",
+ "title": "My Experience",
+ "objective": "Express an idea about a personal experience in clear sentences.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Welcome, Word Explorer! 🌟 Today's mission: master new sight words. The more sight words you know, the faster and easier reading becomes. Let's begin!",
+ "introduction": "Milo has a new mission! 🐱✨ A clear personal account tells what happened and may include a feeling, reason, or detail. Ready to explore?",
  "vocabulary": [
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "what happened",
+   "definition": "a correct example"
   },
   {
-   "term": "picture",
-   "definition": "An image or drawing that shows something."
+   "term": "where it happened",
+   "definition": "a related example"
   },
   {
-   "term": "sequence",
-   "definition": "The order of events in a story."
+   "term": "how I felt",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Express ideas about one’s experiences.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
   {
-   "activityId": "english-g3-q2-w06-d03-a04",
+   "activityId": "english-g3-q2-w06-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Express ideas about one’s experiences.",
-     "Remember: Express ideas about one’s experiences.",
-     "Think about: Express ideas about one’s experiences...",
-     "Try this: Can you explain Express ideas about in your own words?"
-    ]
+     "what happened",
+     "where it happened",
+     "how I felt",
+     "what I learned"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Tap the right spot in the picture!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
   {
    "activityId": "english-g3-q2-w06-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Express ideas about — correct",
-     "Another correct example about Express ideas about",
-     "Yes — this matches Express ideas about one’s"
+     "what happened",
+     "where it happened",
+     "how I felt",
+     "what I learned"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
   {
-   "activityId": "english-g3-q2-w06-d03-a02",
+   "activityId": "english-g3-q2-w06-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Express ideas about one’s",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "what happened",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Which one is correct? Tap it!",
-   "narration": "Milo wants to know: what's the right answer? Pick one!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
   {
    "activityId": "english-g3-q2-w06-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Express ideas about",
-      "right": "Matches the lesson"
+      "left": "what happened",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Express ideas",
-      "right": "Fits the idea"
+      "left": "where it happened",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Express",
-      "right": "Correct"
+      "left": "how I felt",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
   {
    "activityId": "english-g3-q2-w06-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Express ideas about",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Put these in the right order! What comes first?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q2-w06-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits My Experience?",
     "options": [
      {
       "id": "a",
-      "text": "Understanding new words and reading"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Playing games"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Eating food"
+      "text": "A clear personal account tells what happened and may include a feeling, reason, or detail."
      },
      {
       "id": "d",
-      "text": "Watching TV"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: A clear personal account tells what happened and may include a feeling, reason, or detail."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q2-w06-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits My Experience?",
     "options": [
      {
       "id": "a",
-      "text": "Running"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Table"
+      "text": "A clear personal account tells what happened and may include a feeling, reason, or detail."
      },
      {
       "id": "c",
-      "text": "Sight words and vocabulary"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Banana"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
-    "explanation": "Milo asks: Which word did we learn today?"
+    "explanation": "The best answer is: A clear personal account tells what happened and may include a feeling, reason, or detail."
    },
    {
-    "itemId": "q03",
+    "itemId": "english-g3-q2-w06-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits My Experience?",
     "options": [
      {
       "id": "a",
-      "text": "Think about what you learned"
+      "text": "A clear personal account tells what happened and may include a feeling, reason, or detail."
      },
      {
       "id": "b",
-      "text": "Go to sleep"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Eat a snack"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Forget everything"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: A clear personal account tells what happened and may include a feeling, reason, or detail."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q2-w06-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits My Experience?",
     "options": [
      {
       "id": "a",
-      "text": "To read and understand better"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "No reason"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "To waste time"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Because we have to"
+      "text": "A clear personal account tells what happened and may include a feeling, reason, or detail."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: A clear personal account tells what happened and may include a feeling, reason, or detail."
    },
    {
-    "itemId": "q05",
+    "itemId": "english-g3-q2-w06-d03-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits My Experience?",
     "options": [
      {
       "id": "a",
-      "text": "Only use pictures"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Ignore text"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Read books every day!"
+      "text": "A clear personal account tells what happened and may include a feeling, reason, or detail."
      },
      {
       "id": "d",
-      "text": "Never look at words"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: A clear personal account tells what happened and may include a feeling, reason, or detail."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

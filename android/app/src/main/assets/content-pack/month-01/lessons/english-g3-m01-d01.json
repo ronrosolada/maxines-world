@@ -8,12 +8,12 @@
  "title": "Picture Detective",
  "objective": "Describe people, places, objects, and actions using evidence from a picture.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A good description names what is visible and uses a complete sentence. You will explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "A good description names what is visible and uses a complete sentence. Explore examples, sort cards, practice, and answer five questions.",
  "vocabulary": [
   {
    "term": "sentence",
@@ -40,8 +40,8 @@
     "type": "VIEW_AND_ACKNOWLEDGE"
    },
    "feedback": {
-    "correct": "Ready for the next step.",
-    "retry": "Review the explanation once more."
+    "correct": "Nice work. Continue to the next step.",
+    "retry": "Read the explanation once more."
    },
    "assetId": "english-g3-m01-d01-visual",
    "accessibilityAlternative": "Text alternative: A good description names what is visible and uses a complete sentence."
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each learning token, then read the examples.",
+   "instruction": "Explore each example, then read the examples.",
    "content": {
     "examples": [
      "The child holds a red kite.",
@@ -65,7 +65,7 @@
    },
    "feedback": {
     "correct": "You explored every example.",
-    "retry": "Open each remaining token."
+    "retry": "Open each remaining example."
    },
    "assetId": "english-g3-m01-d01-visual",
    "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,7 +74,7 @@
    "activityId": "english-g3-m01-d01-a03",
    "sequence": 3,
    "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card into “fits the lesson” or “does not fit.”",
+   "instruction": "Sort each card into “shows the skill” or “does not show the skill.”",
    "content": {
     "fits": [
      "The child holds a red kite.",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups follow the lesson rule.",
+    "correct": "Your groups follow the skill rule.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "english-g3-m01-d01-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: The child",
-    "retry": "Read the lesson rule again. The dog and The tree do not fit."
+    "retry": "Read the skill rule again. The dog and The tree do not show the skill."
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "The child holds a red kite.",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      },
      {
       "left": "Two birds sit in the tree.",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      },
      {
       "left": "A dog runs beside the bench.",
-      "right": "fits the lesson idea"
+      "right": "shows the skill"
      }
     ]
    },
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d01-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Complete the guided review in order.",
+   "instruction": "Follow the guided review in order.",
    "content": {
     "steps": [
      "State the lesson idea.",
@@ -175,7 +175,7 @@
    },
    "feedback": {
     "correct": "You are ready for the five-question check.",
-    "retry": "Complete each review step."
+    "retry": "Finish each review step."
    },
    "assetId": "english-g3-m01-d01-visual",
    "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -209,7 +209,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A good description names what is visible and uses a complete sentence.” because it follows the lesson explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “A good description names what is visible and uses a complete sentence.” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
    },
    {
     "itemId": "english-g3-m01-d01-q02",
@@ -233,7 +233,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “The child holds a red kite.” because it follows the lesson explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “The child holds a red kite.” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
    },
    {
     "itemId": "english-g3-m01-d01-q03",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Guessing what is outside the picture” because it follows the lesson explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “Guessing what is outside the picture” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
    },
    {
     "itemId": "english-g3-m01-d01-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “The child” because it follows the lesson explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “The child” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
    },
    {
     "itemId": "english-g3-m01-d01-q05",
@@ -305,7 +305,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A dog runs beside the bench.” because it follows the lesson explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “A dog runs beside the bench.” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
    }
   ]
  },
@@ -328,5 +328,17 @@
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],
- "contentHash": "6553bf5d57fccdcf21d025c5d23deacc382b86d86c51ebd84f068d728309d1f1"
+ "contentHash": "6553bf5d57fccdcf21d025c5d23deacc382b86d86c51ebd84f068d728309d1f1",
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

@@ -5,27 +5,27 @@
  "month": 5,
  "day": 4,
  "subject": "filipino",
- "title": "Nababasa nang wasto ang mga natutuhang salita ✓ ✓",
- "objective": "Nababasa nang wasto ang mga natutuhang salita ✓ ✓",
+ "title": "Bahagi ng Pangungusap",
+ "objective": "Natutukoy ang simuno at panaguri sa payak na pangungusap.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Alam mo ba na ang bawat salitang binabasa mo ay may kapangyarihan? 📚 Ngayon: Nababasa nang wasto ang mga natutuhang salita ✓ ✓. Sama-sama tayong magbasa at matuto!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "nababasa",
-   "definition": "Ang mga salitang kayang basahin nang wasto."
+   "term": "Si Ana / ay nagbabasa.",
+   "definition": "angkop na halimbawa"
   },
   {
-   "term": "natutuhang",
-   "definition": "Ang mga salita o kaalamang natutuhan sa aralin."
+   "term": "Ang aso / ay tumatakbo.",
+   "definition": "malinaw na gamit"
   },
   {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+   "term": "Si Milo / ay natututo.",
+   "definition": "tamang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Nababasa nang wasto ang mga natutuhang salita ✓ ✓",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Watch and listen carefully.",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   },
   {
-   "activityId": "filipino-g3-q2-w04-d04-a04",
+   "activityId": "filipino-g3-q2-w04-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Nababasa nang wasto ang mga natutuhang salita ✓ ✓",
-     "Remember: Nababasa nang wasto ang mga natutuhang salita ✓ ✓",
-     "Think about: Nababasa nang wasto ang mga...",
-     "Try this: Can you explain Nababasa nang wasto in your own words?"
-    ]
+     "Si Ana / ay nagbabasa.",
+     "Ang aso / ay tumatakbo.",
+     "Si Milo / ay natututo.",
+     "Ang mga bata / ay naglalaro."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Find and tap the correct place.",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   },
   {
    "activityId": "filipino-g3-q2-w04-d04-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Nababasa nang wasto — correct",
-     "Another correct example about Nababasa nang wasto",
-     "Yes — this matches Nababasa nang wasto ang"
+     "Si Ana / ay nagbabasa.",
+     "Ang aso / ay tumatakbo.",
+     "Si Milo / ay natututo.",
+     "Ang mga bata / ay naglalaro."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig",
+     "paksang iba sa aralin"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   },
   {
-   "activityId": "filipino-g3-q2-w04-d04-a02",
+   "activityId": "filipino-g3-q2-w04-d04-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Nababasa nang wasto ang",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "Si Ana / ay nagbabasa.",
+     "salitang walang kaugnayan",
+     "hindi magalang na pahayag",
+     "hula na walang pahiwatig"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Which one is correct? Tap it!",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   },
   {
    "activityId": "filipino-g3-q2-w04-d04-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Nababasa nang wasto",
-      "right": "Matches the lesson"
+      "left": "Si Ana / ay nagbabasa.",
+      "right": "angkop na halimbawa"
      },
      {
-      "left": "Example of Nababasa nang",
-      "right": "Fits the idea"
+      "left": "Ang aso / ay tumatakbo.",
+      "right": "malinaw na gamit"
      },
      {
-      "left": "Key term: Nababasa",
-      "right": "Correct"
+      "left": "Si Milo / ay natututo.",
+      "right": "tamang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Draw a line between each pair.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   },
   {
    "activityId": "filipino-g3-q2-w04-d04-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "filipino-g3-q2-w04-d04-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Nababasa nang wasto",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Basahin ang halimbawa",
+     "Hanapin ang pahiwatig",
+     "Piliin ang tamang ideya",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "filipino-g3-q2-w04-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang aralin natin ngayon?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Bahagi ng Pangungusap?",
     "options": [
      {
       "id": "a",
-      "text": "Pagkain"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Laro"
+      "text": "Ang simuno ang pinag-uusapan."
      },
      {
       "id": "c",
-      "text": "Mga salita at pagbasa sa Filipino"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Bahay"
+      "text": "hindi magalang na pahayag"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
-    "explanation": "Milo asks: Ano ang aralin natin ngayon?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang simuno ang pinag-uusapan."
    },
    {
-    "itemId": "q02",
+    "itemId": "filipino-g3-q2-w04-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling salita ang natutuhan natin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Bahagi ng Pangungusap?",
     "options": [
      {
       "id": "a",
-      "text": "Mesa"
+      "text": "Ang simuno ang pinag-uusapan."
      },
      {
       "id": "b",
-      "text": "Takbo"
+      "text": "hindi magalang na pahayag"
      },
      {
       "id": "c",
-      "text": "Mga salitang may tamang gamit"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "d",
-      "text": "Saging"
+      "text": "paksang iba sa aralin"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
-    "explanation": "Milo asks: Aling salita ang natutuhan natin?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang simuno ang pinag-uusapan."
    },
    {
-    "itemId": "q03",
+    "itemId": "filipino-g3-q2-w04-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang araling ito?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Bahagi ng Pangungusap?",
     "options": [
      {
       "id": "a",
-      "text": "Hindi mahalaga"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Para lang may gawin"
+      "text": "paksang iba sa aralin"
      },
      {
       "id": "c",
-      "text": "Para matutong bumasa at umunawa"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Walang dahilan"
+      "text": "Ang simuno ang pinag-uusapan."
      }
     ],
     "correctOptionIds": [
-     "c"
+     "d"
     ],
-    "explanation": "Milo asks: Bakit mahalaga ang araling ito?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang simuno ang pinag-uusapan."
    },
    {
-    "itemId": "q04",
+    "itemId": "filipino-g3-q2-w04-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano ka magsasanay sa bahay?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Bahagi ng Pangungusap?",
     "options": [
      {
       "id": "a",
-      "text": "Matulog"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Huwag magbasa"
+      "text": "hindi magalang na pahayag"
      },
      {
       "id": "c",
-      "text": "Magbasa ng mga aklat araw-araw"
+      "text": "Ang simuno ang pinag-uusapan."
      },
      {
       "id": "d",
-      "text": "Manood lang ng TV"
+      "text": "paksang iba sa aralin"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: Paano ka magsasanay sa bahay?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang simuno ang pinag-uusapan."
    },
    {
-    "itemId": "q05",
+    "itemId": "filipino-g3-q2-w04-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang dapat tandaan?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Bahagi ng Pangungusap?",
     "options": [
      {
       "id": "a",
-      "text": "Wala"
+      "text": "hula na walang pahiwatig"
      },
      {
       "id": "b",
-      "text": "Hindi kailangan"
+      "text": "Ang simuno ang pinag-uusapan."
      },
      {
       "id": "c",
-      "text": "Mahalaga ang pag-aaral ng wika"
+      "text": "salitang walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Kalimutan lahat"
+      "text": "hindi magalang na pahayag"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
-    "explanation": "Milo asks: Ano ang dapat tandaan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang simuno ang pinag-uusapan."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

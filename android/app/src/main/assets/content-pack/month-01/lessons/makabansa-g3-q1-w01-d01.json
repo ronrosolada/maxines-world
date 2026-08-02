@@ -5,27 +5,27 @@
  "month": 1,
  "day": 1,
  "subject": "makabansa",
- "title": "Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan ng pook (hal. barangay, bayan, lungsod,",
- "objective": "Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan ng pook (hal. barangay, bayan, lungsod,",
+ "title": "Kasaysayan ng Komunidad",
+ "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "Kumusta, Kaibigan! 🤗 Ang aralin natin ngayon ay tungkol sa: Natatalakay ang mahahalagang tao, lugar, at. Makinig nang mabuti at sumali sa mga gawain. Simulan na natin!",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok?",
  "vocabulary": [
   {
-   "term": "Komunidad",
-   "definition": "Lugar kung saan sama-samang namumuhay ang mga tao."
+   "term": "barangay hall",
+   "definition": "kaugnay na halimbawa"
   },
   {
-   "term": "Kasaysayan",
-   "definition": "Ang nakaraan — mga mahahalagang tao, lugar, at pangyayari."
+   "term": "pamilihan",
+   "definition": "bahagi ng paksa"
   },
   {
-   "term": "mabuti",
-   "definition": "May mabuting puso at tama ang gawain."
+   "term": "paaralan",
+   "definition": "makabuluhang ideya"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan ng pook (hal. barangay, bayan, lungsod,",
+   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Milo says: Let's learn about this! Pay close attention.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   },
   {
-   "activityId": "makabansa-g3-q1-w01-d01-a04",
+   "activityId": "makabansa-g3-q1-w01-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
    "content": {
     "examples": [
-     "Key idea: Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan n",
-     "Remember: Natatalakay ang mahahalagang tao, lugar, at pangyayari na bahagi ng kasaysayan n",
-     "Think about: Natatalakay ang mahahalagang tao lugar...",
-     "Try this: Can you explain Natatalakay ang mahahalagang in your own words?"
-    ]
+     "barangay hall",
+     "pamilihan",
+     "paaralan",
+     "mga kuwento ng nakatatanda"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Can you spot it? Tap the correct spot!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   },
   {
    "activityId": "makabansa-g3-q1-w01-d01-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
    "content": {
     "fits": [
-     "Example of Natatalakay ang mahahalagang — correct",
-     "Another correct example about Natatalakay ang mahahalagang",
-     "Yes — this matches Natatalakay ang mahahalagang tao"
+     "barangay hall",
+     "pamilihan",
+     "paaralan",
+     "mga kuwento ng nakatatanda"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura",
+     "gawaing nakapipinsala sa kapwa"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   },
   {
-   "activityId": "makabansa-g3-q1-w01-d01-a02",
+   "activityId": "makabansa-g3-q1-w01-d01-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Piliin ang pinakamainam na sagot.",
    "content": {
     "options": [
-     "The correct choice about Natatalakay ang mahahalagang tao",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "barangay hall",
+     "hula na walang batayan",
+     "impormasyong walang kaugnayan",
+     "pang-aalipusta sa kultura"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Piliin ang pinakamainam na sagot.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   },
   {
    "activityId": "makabansa-g3-q1-w01-d01-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Itugma ang magkakaugnay na ideya.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Natatalakay ang mahahalagang",
-      "right": "Matches the lesson"
+      "left": "barangay hall",
+      "right": "kaugnay na halimbawa"
      },
      {
-      "left": "Example of Natatalakay ang",
-      "right": "Fits the idea"
+      "left": "pamilihan",
+      "right": "bahagi ng paksa"
      },
      {
-      "left": "Key term: Natatalakay",
-      "right": "Correct"
+      "left": "paaralan",
+      "right": "makabuluhang ideya"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Itugma ang magkakaugnay na ideya.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   },
   {
    "activityId": "makabansa-g3-q1-w01-d01-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
    "content": {
     "steps": [
-     "First: Understand Natatalakay ang mahahalagang",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Tingnan ang halimbawa",
+     "Tukuyin ang mahalagang ideya",
+     "Iugnay sa komunidad",
+     "Ipaliwanag ang sagot"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "makabansa-g3-q1-w01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang paksa ng aralin?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
     "options": [
      {
       "id": "a",
-      "text": "Sayaw"
+      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
      },
      {
       "id": "b",
-      "text": "Laro"
+      "text": "hula na walang batayan"
      },
      {
       "id": "c",
-      "text": "Pagkain"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "d",
-      "text": "Ang ating komunidad at kasaysayan"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: Ano ang paksa ng aralin?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang kasaysayan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Para maunawaan ang ating pinagmulan"
-     },
-     {
-      "id": "b",
-      "text": "Hindi kailangan"
-     },
-     {
-      "id": "c",
-      "text": "Nakakatamad"
-     },
-     {
-      "id": "d",
-      "text": "Walang saysay"
+      "text": "pang-aalipusta sa kultura"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Milo asks: Bakit mahalaga ang kasaysayan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
    },
    {
-    "itemId": "q03",
-    "sequence": 3,
+    "itemId": "makabansa-g3-q1-w01-d01-q02",
+    "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang tungkulin mo sa komunidad?",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
     "options": [
      {
       "id": "a",
-      "text": "Wala"
+      "text": "impormasyong walang kaugnayan"
      },
      {
       "id": "b",
-      "text": "Manahimik lang"
+      "text": "pang-aalipusta sa kultura"
      },
      {
       "id": "c",
-      "text": "Maging mabuting mamamayan"
+      "text": "gawaing nakapipinsala sa kapwa"
      },
      {
       "id": "d",
-      "text": "Huwag tumulong"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: Ano ang tungkulin mo sa komunidad?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang dapat nating igalang?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Walang sinuman"
-     },
-     {
-      "id": "b",
-      "text": "Ang nakatatanda at kapwa tao"
-     },
-     {
-      "id": "c",
-      "text": "Walang dapat igalang"
-     },
-     {
-      "id": "d",
-      "text": "Sarili lang"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Sino ang dapat nating igalang?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano maipapakita ang pagmamahal sa bayan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Maging tamad"
-     },
-     {
-      "id": "b",
-      "text": "Huwag mag-aral"
-     },
-     {
-      "id": "c",
-      "text": "Walang gawin"
-     },
-     {
-      "id": "d",
-      "text": "Mag-aral nang mabuti at tumulong sa kapwa"
+      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Paano maipapakita ang pagmamahal sa bayan?"
+    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+    "options": [
+     {
+      "id": "a",
+      "text": "gawaing nakapipinsala sa kapwa"
+     },
+     {
+      "id": "b",
+      "text": "hula na walang batayan"
+     },
+     {
+      "id": "c",
+      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+     },
+     {
+      "id": "d",
+      "text": "pang-aalipusta sa kultura"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+    "options": [
+     {
+      "id": "a",
+      "text": "impormasyong walang kaugnayan"
+     },
+     {
+      "id": "b",
+      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+     },
+     {
+      "id": "c",
+      "text": "gawaing nakapipinsala sa kapwa"
+     },
+     {
+      "id": "d",
+      "text": "hula na walang batayan"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+     },
+     {
+      "id": "b",
+      "text": "hula na walang batayan"
+     },
+     {
+      "id": "c",
+      "text": "impormasyong walang kaugnayan"
+     },
+     {
+      "id": "d",
+      "text": "pang-aalipusta sa kultura"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

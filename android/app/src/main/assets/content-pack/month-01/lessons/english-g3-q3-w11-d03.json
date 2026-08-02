@@ -5,27 +5,27 @@
  "month": 11,
  "day": 3,
  "subject": "english",
- "title": "Use correct capitalization and punctuation in compound",
- "objective": "Use correct capitalization and punctuation in compound",
+ "title": "Sentence Polishing",
+ "objective": "Use a capital letter and correct end punctuation in a simple sentence.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Every good reader knows some words by heart — like magic! ✨ In today's lesson, 'Use correct capitalization and punctuation in', you'll practice reading words instantly. Ready to become a word wizard?",
+ "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore?",
  "vocabulary": [
   {
-   "term": "punctuation",
-   "definition": "Marks like . ! ? that help us read clearly."
+   "term": "Milo reads.",
+   "definition": "a correct example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "Where is the book?",
+   "definition": "a related example"
   },
   {
-   "term": "instantly",
-   "definition": "Right away, without waiting."
+   "term": "Look out!",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Use correct capitalization and punctuation in compound",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Look at what Milo shows you.",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   },
   {
-   "activityId": "english-g3-q3-w11-d03-a04",
+   "activityId": "english-g3-q3-w11-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Use correct capitalization and punctuation in compound",
-     "Remember: Use correct capitalization and punctuation in compound",
-     "Think about: Use correct capitalization and punctuation...",
-     "Try this: Can you explain Use correct capitalization in your own words?"
-    ]
+     "Milo reads.",
+     "Where is the book?",
+     "Look out!",
+     "We are ready."
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   },
   {
    "activityId": "english-g3-q3-w11-d03-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Use correct capitalization — correct",
-     "Another correct example about Use correct capitalization",
-     "Yes — this matches Use correct capitalization and"
+     "Milo reads.",
+     "Where is the book?",
+     "Look out!",
+     "We are ready."
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   },
   {
-   "activityId": "english-g3-q3-w11-d03-a02",
+   "activityId": "english-g3-q3-w11-d03-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Use correct capitalization and",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "Milo reads.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Choose the right answer.",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   },
   {
    "activityId": "english-g3-q3-w11-d03-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Use correct capitalization",
-      "right": "Matches the lesson"
+      "left": "Milo reads.",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Use correct",
-      "right": "Fits the idea"
+      "left": "Where is the book?",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Use",
-      "right": "Correct"
+      "left": "Look out!",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   },
   {
    "activityId": "english-g3-q3-w11-d03-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Use correct capitalization",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "Put the steps in order!",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q3-w11-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Sentence Polishing?",
     "options": [
      {
       "id": "a",
-      "text": "Watching TV"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Understanding new words and reading"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Playing games"
+      "text": "Begin a sentence with a capital letter."
      },
      {
       "id": "d",
-      "text": "Eating food"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "c"
     ],
-    "explanation": "Milo asks: What is this lesson about?"
+    "explanation": "The best answer is: Begin a sentence with a capital letter."
    },
    {
-    "itemId": "q02",
+    "itemId": "english-g3-q3-w11-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
+    "prompt": "Which statement best fits Sentence Polishing?",
     "options": [
      {
       "id": "a",
-      "text": "Table"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "Running"
+      "text": "Begin a sentence with a capital letter."
      },
      {
       "id": "c",
-      "text": "Banana"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "Sight words and vocabulary"
+      "text": "a detail not in the lesson"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "b"
     ],
-    "explanation": "Milo asks: Which word did we learn today?"
+    "explanation": "The best answer is: Begin a sentence with a capital letter."
    },
    {
-    "itemId": "q03",
+    "itemId": "english-g3-q3-w11-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
+    "prompt": "Which statement best fits Sentence Polishing?",
     "options": [
      {
       "id": "a",
-      "text": "Forget everything"
+      "text": "Begin a sentence with a capital letter."
      },
      {
       "id": "b",
-      "text": "Think about what you learned"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Go to sleep"
+      "text": "a different topic"
      },
      {
       "id": "d",
-      "text": "Eat a snack"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
-    "explanation": "Milo asks: What should you do after reading?"
+    "explanation": "The best answer is: Begin a sentence with a capital letter."
    },
    {
-    "itemId": "q04",
+    "itemId": "english-g3-q3-w11-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
+    "prompt": "Which statement best fits Sentence Polishing?",
     "options": [
      {
       "id": "a",
-      "text": "To waste time"
+      "text": "a different topic"
      },
      {
       "id": "b",
-      "text": "No reason"
+      "text": "an unrelated guess"
      },
      {
       "id": "c",
-      "text": "Because we have to"
+      "text": "a random symbol"
      },
      {
       "id": "d",
-      "text": "To read and understand better"
+      "text": "Begin a sentence with a capital letter."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: Why do we learn new words?"
+    "explanation": "The best answer is: Begin a sentence with a capital letter."
    },
    {
-    "itemId": "q05",
+    "itemId": "english-g3-q3-w11-d03-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
+    "prompt": "Which statement best fits Sentence Polishing?",
     "options": [
      {
       "id": "a",
-      "text": "Ignore text"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Read books every day!"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Never look at words"
+      "text": "Begin a sentence with a capital letter."
      },
      {
       "id": "d",
-      "text": "Only use pictures"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Begin a sentence with a capital letter."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

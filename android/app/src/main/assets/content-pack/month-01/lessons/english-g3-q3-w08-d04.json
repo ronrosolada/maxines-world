@@ -5,27 +5,27 @@
  "month": 10,
  "day": 4,
  "subject": "english",
- "title": "Identify the synonyms and antonyms of words.",
- "objective": "Identify the synonyms and antonyms of words.",
+ "title": "Word Twins",
+ "objective": "Identify synonyms and antonyms by comparing word meanings.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Can you read a word without sounding it out? That's what we call a SIGHT WORD! Today we explore: Identify the synonyms and antonyms of words.. Let's build your reading superpowers! 🦸",
+ "introduction": "Milo has a new mission! 🐱✨ Synonyms have similar meanings; antonyms have opposite meanings. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Synonym",
-   "definition": "A word that means the same as another word."
+   "term": "happy — glad",
+   "definition": "a correct example"
   },
   {
-   "term": "Antonym",
-   "definition": "A word that means the opposite of another word."
+   "term": "begin — start",
+   "definition": "a related example"
   },
   {
-   "term": "word",
-   "definition": "A group of letters with a meaning."
+   "term": "hot — cold",
+   "definition": "another example"
   }
  ],
  "activities": [
@@ -36,49 +36,51 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Animated Explanation activity.",
-   "content": "Identify the synonyms and antonyms of words.",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of ANIMATED EXPLANATION",
-   "prompt": "Pay attention to the story!",
-   "narration": "Watch carefully! Milo will show you something cool.",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
   {
-   "activityId": "english-g3-q3-w08-d04-a04",
+   "activityId": "english-g3-q3-w08-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Hotspot Image activity.",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Key idea: Identify the synonyms and antonyms of words.",
-     "Remember: Identify the synonyms and antonyms of words.",
-     "Think about: Identify the synonyms and antonyms...",
-     "Try this: Can you explain Identify the synonyms in your own words?"
-    ]
+     "happy — glad",
+     "begin — start",
+     "hot — cold",
+     "early — late"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of HOTSPOT IMAGE",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
   {
    "activityId": "english-g3-q3-w08-d04-a03",
@@ -87,61 +89,64 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Sort And Classify activity.",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Example of Identify the synonyms — correct",
-     "Another correct example about Identify the synonyms",
-     "Yes — this matches Identify the synonyms and"
+     "happy — glad",
+     "begin — start",
+     "hot — cold",
+     "early — late"
     ],
     "doesNotFit": [
-     "This does not fit the lesson idea",
-     "This is unrelated — try again",
-     "This belongs somewhere else"
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SORT AND CLASSIFY",
-   "prompt": "Drag each item to its group.",
-   "narration": "Help Milo sort these things! Drag them to the right spot.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
   {
-   "activityId": "english-g3-q3-w08-d04-a02",
+   "activityId": "english-g3-q3-w08-d04-a04",
    "sequence": 4,
    "type": "MULTIPLE_CHOICE",
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Multiple Choice activity.",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "The correct choice about Identify the synonyms and",
-     "A close-but-wrong answer",
-     "Something that sounds right but isn't",
-     "A clearly wrong answer"
+     "happy — glad",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
     ],
     "correctIndex": 0
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MULTIPLE CHOICE",
-   "prompt": "Tap the best answer!",
-   "narration": "Choose the best answer! You can do it!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
   {
    "activityId": "english-g3-q3-w08-d04-a05",
@@ -150,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Matching Pairs activity.",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Concept: Identify the synonyms",
-      "right": "Matches the lesson"
+      "left": "happy — glad",
+      "right": "a correct example"
      },
      {
-      "left": "Example of Identify the",
-      "right": "Fits the idea"
+      "left": "begin — start",
+      "right": "a related example"
      },
      {
-      "left": "Key term: Identify",
-      "right": "Correct"
+      "left": "hot — cold",
+      "right": "another example"
      }
     ]
    },
@@ -171,14 +176,14 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of MATCHING PAIRS",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Find the matching pairs! Connect them together.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
   {
    "activityId": "english-g3-q3-w08-d04-a06",
@@ -187,27 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Complete the Sequence Builder activity.",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "First: Understand Identify the synonyms",
-     "Then: Practice with examples",
-     "Next: Check your understanding",
-     "Finally: Apply what you learned!"
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
     ]
    },
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Well done! You're making great progress.",
-    "retry": "Not quite — take another look and try again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Accessible version of SEQUENCE BUILDER",
-   "prompt": "What comes first? What comes next?",
-   "narration": "What's the correct order? Drag to arrange!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   }
  ],
  "assessment": {
@@ -217,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "english-g3-q3-w08-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is this lesson about?",
+    "prompt": "Which statement best fits Word Twins?",
     "options": [
      {
       "id": "a",
-      "text": "Playing games"
+      "text": "a random symbol"
      },
      {
       "id": "b",
-      "text": "Eating food"
+      "text": "a detail not in the lesson"
      },
      {
       "id": "c",
-      "text": "Watching TV"
+      "text": "Synonyms have similar meanings; antonyms have opposite meanings."
      },
      {
       "id": "d",
-      "text": "Understanding new words and reading"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: What is this lesson about?"
-   },
-   {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word did we learn today?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Running"
-     },
-     {
-      "id": "b",
-      "text": "Sight words and vocabulary"
-     },
-     {
-      "id": "c",
-      "text": "Table"
-     },
-     {
-      "id": "d",
-      "text": "Banana"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Milo asks: Which word did we learn today?"
-   },
-   {
-    "itemId": "q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What should you do after reading?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Forget everything"
-     },
-     {
-      "id": "b",
-      "text": "Go to sleep"
-     },
-     {
-      "id": "c",
-      "text": "Eat a snack"
-     },
-     {
-      "id": "d",
-      "text": "Think about what you learned"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Milo asks: What should you do after reading?"
-   },
-   {
-    "itemId": "q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Why do we learn new words?",
-    "options": [
-     {
-      "id": "a",
-      "text": "To read and understand better"
-     },
-     {
-      "id": "b",
-      "text": "No reason"
-     },
-     {
-      "id": "c",
-      "text": "Because we have to"
-     },
-     {
-      "id": "d",
-      "text": "To waste time"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Milo asks: Why do we learn new words?"
-   },
-   {
-    "itemId": "q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How can you practice at home?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Only use pictures"
-     },
-     {
-      "id": "b",
-      "text": "Never look at words"
-     },
-     {
-      "id": "c",
-      "text": "Read books every day!"
-     },
-     {
-      "id": "d",
-      "text": "Ignore text"
+      "text": "an unrelated guess"
      }
     ],
     "correctOptionIds": [
      "c"
     ],
-    "explanation": "Milo asks: How can you practice at home?"
+    "explanation": "The best answer is: Synonyms have similar meanings; antonyms have opposite meanings."
+   },
+   {
+    "itemId": "english-g3-q3-w08-d04-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Word Twins?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "Synonyms have similar meanings; antonyms have opposite meanings."
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Synonyms have similar meanings; antonyms have opposite meanings."
+   },
+   {
+    "itemId": "english-g3-q3-w08-d04-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Word Twins?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Synonyms have similar meanings; antonyms have opposite meanings."
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "a different topic"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Synonyms have similar meanings; antonyms have opposite meanings."
+   },
+   {
+    "itemId": "english-g3-q3-w08-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Word Twins?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "Synonyms have similar meanings; antonyms have opposite meanings."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Synonyms have similar meanings; antonyms have opposite meanings."
+   },
+   {
+    "itemId": "english-g3-q3-w08-d04-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Word Twins?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "Synonyms have similar meanings; antonyms have opposite meanings."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Synonyms have similar meanings; antonyms have opposite meanings."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

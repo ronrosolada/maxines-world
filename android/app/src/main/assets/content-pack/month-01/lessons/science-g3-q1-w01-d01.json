@@ -5,27 +5,27 @@
  "month": 1,
  "day": 1,
  "subject": "science",
- "title": "Identify objects, activities, and natural events observed in the local environment that involve science",
- "objective": "Identify objects, activities, and natural events observed in the local environment that involve science.",
+ "title": "Life Around Us",
+ "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
  "estimatedMinutes": 12,
- "educatorValidated": false,
- "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
- "alignmentStatus": "DRAFT_MAPPING_REQUIRED",
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Did you know you're a scientist? 🧪 Every time you ask 'why is the sky blue?' or 'how do plants grow?', you're doing science! Science is about observing the world, asking questions, and discovering answers. Today you'll explore how science is hiding in your kitchen, your garden, your playground — everywhere!",
+ "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
  "vocabulary": [
   {
-   "term": "Observe",
-   "definition": "Panonood nang mabuti gamit ang iyong mga pandama."
+   "term": "a mango tree — living",
+   "definition": "observable evidence"
   },
   {
-   "term": "environment",
-   "definition": "Everything around us — land, water, and air."
+   "term": "a dog — living",
+   "definition": "safe example"
   },
   {
-   "term": "plant",
-   "definition": "A living thing that grows in soil and makes food."
+   "term": "a rock — non-living",
+   "definition": "connected idea"
   }
  ],
  "activities": [
@@ -36,20 +36,20 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Watch and discover — science is hiding all around you!",
-   "content": "When you cook rice, you're doing CHEMISTRY! When you water a plant and it grows, that's BIOLOGY! When you slide down a slide, that's PHYSICS — gravity pulls you down! When you see a rainbow after the rain, that's light science. Science isn't just in books — it's in your kitchen, your garden, and your playground!",
+   "instruction": "Study the idea and listen to Milo.",
+   "content": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
    "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Now you see — science is everywhere!",
-    "retry": "Watch the explanation again."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Science is in cooking (chemistry), gardens (biology), playgrounds (physics), and the sky (light and weather).",
-   "prompt": "Pay attention to the story!",
-   "narration": "Ready to explore? Let's go!",
-   "guideHint": "Listen carefully!",
-   "nextLabel": "Next →"
+   "prompt": "Study the idea and listen to Milo.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
   {
    "activityId": "science-g3-q1-w01-d01-a02",
@@ -58,28 +58,29 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Tap each scene to discover the science hiding there!",
+   "instruction": "Explore each example and find the important detail.",
    "content": {
     "examples": [
-     "Kitchen 🍳 — When water boils and turns into steam, that's science! Cooking food changes it — that's chemistry!",
-     "Garden 🌱 — Seeds grow into plants using sunlight. Butterflies change from caterpillars — that's a life cycle!",
-     "Playground 🛝 — You slide down because gravity pulls you. You swing back and forth because of motion!",
-     "Sky 🌈 — Rainbows appear when sunlight shines through raindrops. Clouds form from water vapor — that's weather science!"
-    ]
+     "a mango tree — living",
+     "a dog — living",
+     "a rock — non-living",
+     "roots help a plant take in water"
+    ],
+    "visualScene": "🐱🔎✨"
    },
    "completionRule": {
     "type": "ALL_TARGETS_VISITED",
     "targetCount": 4
    },
    "feedback": {
-    "correct": "You found science in all four places!",
-    "retry": "Tap each scene — there's science in all of them!"
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Four scenes: kitchen (chemistry), garden (biology), playground (physics), sky (light/weather).",
-   "prompt": "Where is it? Tap to find!",
-   "narration": "Find it in the picture! Tap where you think it is.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Explore each example and find the important detail.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
   {
    "activityId": "science-g3-q1-w01-d01-a03",
@@ -88,19 +89,19 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Sort each activity: Is it SCIENCE or NOT SCIENCE?",
+   "instruction": "Sort each example into the correct group.",
    "content": {
     "fits": [
-     "Watching a caterpillar become a butterfly",
-     "Mixing vinegar and baking soda to see bubbles",
-     "Growing monggo seeds in cotton",
-     "Observing clouds to predict rain",
-     "Testing which ball bounces highest"
+     "a mango tree — living",
+     "a dog — living",
+     "a rock — non-living",
+     "roots help a plant take in water"
     ],
     "doesNotFit": [
-     "Just guessing without looking",
-     "Watching TV without thinking about how it works",
-     "Following a recipe without measuring"
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone",
+     "make a claim without observing"
     ]
    },
    "completionRule": {
@@ -108,14 +109,14 @@
     "itemCount": 8
    },
    "feedback": {
-    "correct": "Yes! Science is about observing and testing, not just guessing.",
-    "retry": "Think: does it involve observing or testing something?"
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Sort activities into 'uses scientific thinking' or 'does not use scientific thinking'.",
-   "prompt": "Sort them into the right boxes.",
-   "narration": "Let's organize! Which items go where?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Sort each example into the correct group.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
   {
    "activityId": "science-g3-q1-w01-d01-a04",
@@ -124,13 +125,13 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "You see water boiling in a pot. What kind of science is this?",
+   "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "Chemistry — the water is changing form!",
-     "It's not science at all",
-     "Only scientists can know",
-     "Magic"
+     "a mango tree — living",
+     "taste an unknown material",
+     "look directly at the Sun",
+     "use a dangerous tool alone"
     ],
     "correctIndex": 0
    },
@@ -138,14 +139,14 @@
     "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Right! Water changing from liquid to gas is chemistry in action.",
-    "retry": "Think about what's happening to the water."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Choose the type of science involved in boiling water.",
-   "prompt": "Choose the right answer.",
-   "narration": "Which one is correct? Think about what we learned!",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Choose the best answer.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
   {
    "activityId": "science-g3-q1-w01-d01-a05",
@@ -154,40 +155,35 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Match each place to the science you can find there!",
+   "instruction": "Match the ideas that belong together.",
    "content": {
     "pairs": [
      {
-      "left": "Kitchen",
-      "right": "Mixing, heating, and changing food"
+      "left": "a mango tree — living",
+      "right": "observable evidence"
      },
      {
-      "left": "Garden",
-      "right": "How plants and animals grow"
+      "left": "a dog — living",
+      "right": "safe example"
      },
      {
-      "left": "Playground",
-      "right": "Pushing, pulling, and moving"
-     },
-     {
-      "left": "Sky",
-      "right": "Weather, clouds, and rainbows"
+      "left": "a rock — non-living",
+      "right": "connected idea"
      }
     ]
    },
    "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 4
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "You matched them all! Science really is everywhere.",
-    "retry": "Match each place to the kind of science you do there."
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Match locations to the type of science activity that happens there.",
-   "prompt": "Connect the matching pairs.",
-   "narration": "Every pair has a match! Can you find them all?",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Match the ideas that belong together.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
   {
    "activityId": "science-g3-q1-w01-d01-a06",
@@ -196,28 +192,27 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "A scientist follows steps. Put these in the right order!",
+   "instruction": "Put the steps in the correct order.",
    "content": {
     "steps": [
-     "Observe something interesting",
-     "Ask a question about it",
-     "Make a guess (hypothesis)",
-     "Test your guess and see what happens!"
+     "Observe safely",
+     "Name the property or pattern",
+     "Compare the examples",
+     "Explain what the evidence shows"
     ]
    },
    "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 4
+    "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "That's the scientific method! Observe, Ask, Guess, Test!",
-    "retry": "What does a scientist do first?"
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
    },
-   "accessibilityAlternative": "Order the steps of the scientific method: Observe, Question, Hypothesize, Test.",
-   "prompt": "Arrange from first to last.",
-   "narration": "Arrange them step by step! Start from the beginning.",
-   "guideHint": "Need a hint?",
-   "nextLabel": "Next →"
+   "prompt": "Put the steps in the correct order.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   }
  ],
  "assessment": {
@@ -227,145 +222,157 @@
   "claimsMastery": false,
   "items": [
    {
-    "itemId": "q01",
+    "itemId": "science-g3-q1-w01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What science topic did we explore?",
+    "prompt": "Which statement best fits Life Around Us?",
     "options": [
      {
       "id": "a",
-      "text": "A story about cats"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "How things work in our world"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "A video game"
+      "text": "Living things grow, need resources, and respond to their surroundings."
      },
      {
       "id": "d",
-      "text": "A cooking show"
+      "text": "taste an unknown material"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Living things grow, need resources, and respond to their surroundings."
+   },
+   {
+    "itemId": "science-g3-q1-w01-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which statement best fits Life Around Us?",
+    "options": [
+     {
+      "id": "a",
+      "text": "make a claim without observing"
+     },
+     {
+      "id": "b",
+      "text": "Living things grow, need resources, and respond to their surroundings."
+     },
+     {
+      "id": "c",
+      "text": "look directly at the Sun"
+     },
+     {
+      "id": "d",
+      "text": "use a dangerous tool alone"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Milo asks: What science topic did we explore?"
+    "explanation": "The best answer is: Living things grow, need resources, and respond to their surroundings."
    },
    {
-    "itemId": "q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What does a scientist do?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Just read books all day"
-     },
-     {
-      "id": "b",
-      "text": "Only wear lab coats"
-     },
-     {
-      "id": "c",
-      "text": "Observe, ask questions, and test ideas"
-     },
-     {
-      "id": "d",
-      "text": "Make wild guesses"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Milo asks: What does a scientist do?"
-   },
-   {
-    "itemId": "q03",
+    "itemId": "science-g3-q1-w01-d01-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Where can you find science?",
+    "prompt": "Which statement best fits Life Around Us?",
     "options": [
      {
       "id": "a",
-      "text": "Only in a laboratory"
+      "text": "Living things grow, need resources, and respond to their surroundings."
      },
      {
       "id": "b",
-      "text": "Nowhere interesting"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Everywhere — at home, in nature, in you!"
+      "text": "make a claim without observing"
      },
      {
       "id": "d",
-      "text": "Only in textbooks"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
-    "explanation": "Milo asks: Where can you find science?"
+    "explanation": "The best answer is: Living things grow, need resources, and respond to their surroundings."
    },
    {
-    "itemId": "q04",
+    "itemId": "science-g3-q1-w01-d01-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the first step in exploring?",
+    "prompt": "Which statement best fits Life Around Us?",
     "options": [
      {
       "id": "a",
-      "text": "Close your eyes"
+      "text": "make a claim without observing"
      },
      {
       "id": "b",
-      "text": "Jump to conclusions"
+      "text": "taste an unknown material"
      },
      {
       "id": "c",
-      "text": "Ignore what you see"
+      "text": "look directly at the Sun"
      },
      {
       "id": "d",
-      "text": "Look closely and observe carefully!"
+      "text": "Living things grow, need resources, and respond to their surroundings."
      }
     ],
     "correctOptionIds": [
      "d"
     ],
-    "explanation": "Milo asks: What is the first step in exploring?"
+    "explanation": "The best answer is: Living things grow, need resources, and respond to their surroundings."
    },
    {
-    "itemId": "q05",
+    "itemId": "science-g3-q1-w01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Why is science exciting?",
+    "prompt": "Which statement best fits Life Around Us?",
     "options": [
      {
       "id": "a",
-      "text": "It's not exciting at all"
+      "text": "look directly at the Sun"
      },
      {
       "id": "b",
-      "text": "You discover amazing things about the world!"
+      "text": "use a dangerous tool alone"
      },
      {
       "id": "c",
-      "text": "Because you have to"
+      "text": "Living things grow, need resources, and respond to their surroundings."
      },
      {
       "id": "d",
-      "text": "No reason"
+      "text": "taste an unknown material"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "c"
     ],
-    "explanation": "Milo asks: Why is science exciting?"
+    "explanation": "The best answer is: Living things grow, need resources, and respond to their surroundings."
    }
   ]
- }
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
