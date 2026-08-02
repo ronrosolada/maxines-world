@@ -1,8 +1,8 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -13,81 +13,117 @@ import org.junit.Rule
 import org.junit.Test
 
 /**
- * UI coverage for the Kindness island gate states (Phase 2):
- * locked, nearly-unlocked (11/12), unlocked — and that a locked island
- * cannot be clicked through to navigation.
+ * UI coverage for the Option 3 Playroom Collections home:
+ * the six canonical subjects, Kindness gate states, quest panel,
+ * and that a locked card cannot be clicked through to navigation.
  */
 class PlayroomHomeScreenTest {
 
     @get:Rule
     val composeRule = createComposeRule()
 
-    private fun stateFor(completedLessons: Int): PlayroomHomeState {
+    private fun stateFor(completedLessons: Int): PlayroomHomeUiState.Content {
         val level = ChildLevelPolicy.levelFor(completedLessons)
         val unlocked = level >= ChildLevelPolicy.KINDNESS_UNLOCK_LEVEL
         val lessonsToGo = ChildLevelPolicy.lessonsRemainingTo(
             completedLessons, ChildLevelPolicy.KINDNESS_UNLOCK_LEVEL
         )
-        val islands = defaultPlayroomIslands.map { island ->
-            if (island.id == "gmrc") {
-                island.copy(
-                    locked = !unlocked,
-                    subtitle = if (unlocked) "Kindness awaits!"
-                    else "Unlocks at Level 4 · $lessonsToGo lesson${if (lessonsToGo == 1) "" else "s"} to go"
+        val subjects = canonicalSubjects.map { subject ->
+            if (subject.id == "gmrc" && !unlocked) {
+                subject.copy(
+                    availability = SubjectAvailability.Locked,
+                    lockReason = "Locked until level 4 · $lessonsToGo lesson${if (lessonsToGo == 1) "" else "s"} to go",
                 )
-            } else island
+            } else subject
         }
-        return PlayroomHomeState(islands = islands)
+        return PlayroomHomeUiState.Content(
+            childName = "Maxine",
+            streakDays = 0,
+            xp = 0,
+            subjects = subjects,
+            quest = QuestUi(
+                task = "Complete one activity to earn today’s paw print.",
+                pawPrintsCompleted = 0, pawPrintTotal = 3,
+                buttonLabel = "Continue",
+            ),
+            stickerBook = StickerBookUi(collectedCount = 0, totalCount = 0),
+        )
+    }
+
+    private fun setHome(state: PlayroomHomeUiState, onSubjectClick: (String) -> Unit = {}) {
+        composeRule.setContent {
+            PlayroomHomeScreen(
+                state = state,
+                onSubjectClick = onSubjectClick,
+                onQuestAction = {},
+                onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {},
+            )
+        }
     }
 
     @Test
-    fun lockedState_showsLockedSubtitle() {
-        composeRule.setContent { PlayroomHomeScreen(state = stateFor(0), onDestinationClick = {}, onQuestClick = {}, onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {}) }
-        composeRule.onNodeWithText("Unlocks at Level 4 · 12 lessons to go").assertIsDisplayed()
+    fun lockedState_showsLockReason() {
+        setHome(stateFor(0))
+        composeRule.onNodeWithText("Locked until level 4 · 12 lessons to go").assertIsDisplayed()
     }
 
     @Test
     fun nearlyUnlockedState_showsSingularLessonRemaining() {
-        composeRule.setContent { PlayroomHomeScreen(state = stateFor(11), onDestinationClick = {}, onQuestClick = {}, onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {}) }
-        composeRule.onNodeWithText("Unlocks at Level 4 · 1 lesson to go").assertIsDisplayed()
+        setHome(stateFor(11))
+        composeRule.onNodeWithText("Locked until level 4 · 1 lesson to go").assertIsDisplayed()
     }
 
     @Test
-    fun unlockedState_showsKindnessAwaits() {
-        composeRule.setContent { PlayroomHomeScreen(state = stateFor(12), onDestinationClick = {}, onQuestClick = {}, onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {}) }
-        composeRule.onNodeWithText("Kindness awaits!").assertIsDisplayed()
+    fun unlockedState_hasNoLockReason() {
+        setHome(stateFor(12))
+        composeRule.onNodeWithText("Locked until level 4 · 1 lesson to go").assertDoesNotExist()
     }
 
     @Test
-    fun lockedIsland_clickDoesNotNavigate() {
+    fun lockedCard_clickDoesNotNavigate() {
         var clicks = 0
-        composeRule.setContent {
-            PlayroomHomeScreen(
-                state = stateFor(0),
-                onDestinationClick = { clicks++ },
-                onQuestClick = {}, onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {},
-            )
-        }
-        // Kindness island is click-disabled when locked
-        composeRule.onNodeWithText("Kindness").assertIsNotEnabled()
-        composeRule.onNodeWithText("Kindness").performClick()
+        setHome(stateFor(0)) { clicks++ }
+        // Kindness card is click-disabled when locked
+        composeRule.onNodeWithText("GMRC").assertIsNotEnabled()
+        composeRule.onNodeWithText("GMRC").performClick()
         composeRule.waitForIdle()
-        assertEquals("locked island must not navigate", 0, clicks)
+        assertEquals("locked card must not navigate", 0, clicks)
     }
 
     @Test
-    fun unlockedIsland_clickNavigates() {
+    fun unlockedCard_clickNavigates() {
         var clicks = 0
-        composeRule.setContent {
-            PlayroomHomeScreen(
-                state = stateFor(12),
-                onDestinationClick = { clicks++ },
-                onQuestClick = {}, onHomeClick = {}, onProgressClick = {}, onAvatarsClick = {}, onParentsClick = {},
-            )
-        }
-        composeRule.onNodeWithText("Kindness").assertIsEnabled()
-        composeRule.onNodeWithText("Kindness").performClick()
+        setHome(stateFor(12)) { clicks++ }
+        composeRule.onNodeWithText("GMRC").assertIsEnabled()
+        composeRule.onNodeWithText("GMRC").performClick()
         composeRule.waitForIdle()
-        assertTrue("unlocked island must navigate", clicks > 0)
+        assertTrue("unlocked card must navigate", clicks > 0)
+    }
+
+    @Test
+    fun allSixCanonicalSubjectsRender() {
+        setHome(stateFor(12))
+        listOf("Mathematics", "English", "Science", "Filipino", "Araling Panlipunan", "GMRC")
+            .forEach { composeRule.onNodeWithText(it).assertIsDisplayed() }
+    }
+
+    @Test
+    fun questPanelAndStickerBookRender() {
+        setHome(stateFor(0))
+        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Sticker Book").assertIsDisplayed()
+        composeRule.onNodeWithText("Continue").assertIsDisplayed()
+    }
+
+    @Test
+    fun greetingUsesChildName() {
+        setHome(stateFor(0))
+        composeRule.onNodeWithText("Hi, Maxine!").assertIsDisplayed()
+    }
+
+    @Test
+    fun progressNavIsDisabledComingSoon() {
+        setHome(stateFor(0))
+        composeRule.onNodeWithText("Coming soon").assertIsDisplayed()
     }
 }

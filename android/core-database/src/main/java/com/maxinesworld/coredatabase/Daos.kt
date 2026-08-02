@@ -149,6 +149,15 @@ interface LessonCompletionDao {
 
     @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonCount(childId: String): Flow<Int>
+
+    @Query("SELECT DISTINCT lessonId FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
+    fun observeDistinctLessonIds(childId: String): Flow<List<String>>
+
+    @Query(
+        "SELECT DISTINCT strftime('%Y-%m-%d', completedAtEpochMillis / 1000, 'unixepoch') AS day " +
+        "FROM lesson_completions WHERE childId = :childId ORDER BY day DESC"
+    )
+    fun observeCompletionDays(childId: String): Flow<List<String>>
 }
 
 // ─── Fish Treat Ledger (v7) ───

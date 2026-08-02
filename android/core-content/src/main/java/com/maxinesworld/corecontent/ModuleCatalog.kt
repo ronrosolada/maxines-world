@@ -1,10 +1,12 @@
 package com.maxinesworld.corecontent
 
 import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import javax.inject.Inject
 
 /**
  * One module of a subject's curriculum, e.g. "Quarter 2 · Week 4" (SLM)
@@ -38,8 +40,8 @@ data class ContentModuleLesson(
  * Modules sort with the legacy pack first, then SLM modules in
  * (quarter, week) order. Lessons within a module sort by day.
  */
-class ModuleCatalog(
-    private val context: Context
+class ModuleCatalog @Inject constructor(
+    @ApplicationContext private val context: Context
 ) {
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
     private val cache = mutableMapOf<String, List<ContentModule>>()

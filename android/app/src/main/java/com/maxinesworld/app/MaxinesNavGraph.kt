@@ -19,12 +19,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
+import com.maxinesworld.featurechildhome.PlayroomHomeUiState
+import com.maxinesworld.featurechildhome.QuestAction
 import com.maxinesworld.featurechildhome.SubjectModulesScreen
 import com.maxinesworld.featurechildhome.SubjectModulesViewModel
 import com.maxinesworld.featurechildhome.ModuleLessonsScreen
 import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
 import com.maxinesworld.featurechildhome.subjectForPack
-import com.maxinesworld.featurechildhome.PlayroomHomeState
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
@@ -108,19 +109,40 @@ fun MaxinesNavGraph(navController: NavHostController) {
             val homeState by homeViewModel.state.collectAsStateWithLifecycle()
             PlayroomHomeScreen(
                 state = homeState,
-                onDestinationClick = { islandId ->
-                    val subject = subjectForPack(islandId)
-                    navController.navigate(Routes.subjectModules(childId, subject))
+                onSubjectClick = { subjectId ->
+                    val subject = subjectForPack(subjectId)
+                    if (subject != null) {
+                        homeViewModel.onSubjectSelected(subjectId)
+                        navController.navigate(Routes.subjectModules(childId, subject))
+                        homeViewModel.onOpenFinished()
+                    }
                 },
-                onQuestClick = { },
-                onHomeClick = { },
-                onProgressClick = { },
+                onQuestAction = { action ->
+                    when (action) {
+                        QuestAction.Continue -> {
+                            val target = (homeState as? PlayroomHomeUiState.Content)
+                                ?.quest?.recommendedSubjectId
+                            val subject = target?.let(::subjectForPack)
+                            if (subject != null) {
+                                navController.navigate(Routes.subjectModules(childId, subject))
+                            }
+                        }
+                        QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
+                        QuestAction.ViewReward -> {
+                            navController.navigate(Routes.wildlifeFieldGuide(childId))
+                        }
+                    }
+                },
+                onHomeClick = { /* Home is the current destination — no push */ },
+                onProgressClick = { /* Progress: Coming soon — disabled in UI */ },
                 onAvatarsClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
+                onRetry = homeViewModel::retry,
+                onBack = { navController.popBackStack() },
             )
         }
 

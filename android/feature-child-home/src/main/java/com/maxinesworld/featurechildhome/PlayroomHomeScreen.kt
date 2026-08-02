@@ -1,365 +1,642 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.roundToInt
 
-// ─── Playroom palette (from OD Playroom concept, bound to core Color.kt) ───
-private val PlayTeal = Color(0xFF087F83)
-private val PlayCoral = Color(0xFFF47C6B)
-private val PlayGold = Color(0xFFF5B82E)
-private val PlayLeaf = Color(0xFF57943B)
-private val PlayPurple = Color(0xFF7653B5)
-private val PlaySky = Color(0xFF218CC8)
-private val PlayFilCoral = Color(0xFFD96555)
-private val PlayHeritageGold = Color(0xFFB87916)
-private val PlayGmrcTeal = Color(0xFF26A69A)
-private val PlayInk = Color(0xFF183B4A)
-private val PlayInkDark = Color(0xFF0B2A36)
-private val PlayCream = Color(0xFFFFF7E8)
-private val PlayMuted = Color(0xFF8A6A4A)
+// ─── Option 3 palette (design.md §8.1) ───
+internal val PlayGoldTop = Color(0xFFFFD76E)
+internal val PlayGoldMid = Color(0xFFFFB84D)
+internal val PlayCoralBottom = Color(0xFFF47C6B)
+internal val PlayTeal = Color(0xFF087F83)
+internal val PlayTealPressed = Color(0xFF06676A)
+internal val PlayInk = Color(0xFF183B4A)
+internal val PlayInkDark = Color(0xFF0B2A36)
+internal val PlayCream = Color(0xFFFFF7E8)
+internal val PlayWhite = Color(0xFFFFFFFF)
+internal val PlaySunshine = Color(0xFFF5B82E)
+internal val PlayCoral = Color(0xFFF47C6B)
+internal val PlaySuccess = Color(0xFF2F9E62)
+internal val PlayError = Color(0xFFB3261E)
+internal val PlayMuted = Color(0xFF4E5F66)
 
-/** One activity island on the playroom grid. */
-@Immutable
-data class PlayroomIsland(
-    val id: String,
-    val title: String,
-    val subtitle: String,
-    val color: Color,
-    @DrawableRes val iconRes: Int,
-    val locked: Boolean = false,
-    val lockLevel: Int = 0,
+internal val SubjectAccent = mapOf(
+    "mathematics" to Color(0xFF218CC8),
+    "english" to Color(0xFF7653B5),
+    "science" to Color(0xFF57943B),
+    "filipino" to Color(0xFFD96555),
+    "araling_panlipunan" to Color(0xFFB87916),
+    "gmrc" to Color(0xFF26A69A),
 )
 
-/** Full-screen UI state for the Playroom home. */
-@Immutable
-data class PlayroomHomeState(
-    val childName: String = "Maxine",
-    val streak: Int = 12,
-    val xp: Int = 240,
-    val pawPrints: Int = 2,
-    val pawPrintTotal: Int = 3,
-    val stickerCollected: Int = 8,
-    val stickerTotal: Int = 12,
-    val questTitle: String = "Collect 3 paw prints today",
-    val islands: List<PlayroomIsland> = defaultPlayroomIslands,
-    @DrawableRes val stickerIcons: List<Int> = defaultPlayroomStickers,
+internal val SubjectPale = mapOf(
+    "mathematics" to Color(0xFFE7F4FC),
+    "english" to Color(0xFFF1EBFA),
+    "science" to Color(0xFFEDF7E8),
+    "filipino" to Color(0xFFFCEBE7),
+    "araling_panlipunan" to Color(0xFFFFF3D7),
+    "gmrc" to Color(0xFFE5F7F5),
 )
 
-val defaultPlayroomIslands = listOf(
-    PlayroomIsland("english", "Story Time", "Read with Owly", PlayPurple, R.drawable.mw_ic_book),
-    PlayroomIsland("mathematics", "Number Fun", "Count with Kiko", PlaySky, R.drawable.mw_ic_math),
-    PlayroomIsland("filipino", "Kwentuhan", "Filipino stories & legends", PlayFilCoral, R.drawable.mw_ic_language),
-    PlayroomIsland("science", "Discovery", "Explore with Tutti", PlayLeaf, R.drawable.mw_ic_science),
-    PlayroomIsland("heritage-harbor", "Heritage", "Alamin ang Pilipinas", PlayHeritageGold, R.drawable.mw_ic_history),
-    PlayroomIsland("gmrc", "Kindness", "Unlocks at Level 4", PlayGmrcTeal, R.drawable.mw_ic_heart, locked = true, lockLevel = 4),
-)
+private fun subjectAccent(id: String): Color = SubjectAccent[id] ?: PlayTeal
+private fun subjectPale(id: String): Color = SubjectPale[id] ?: Color(0xFFF2F2F0)
 
-val defaultPlayroomStickers = listOf(
-    R.drawable.mw_ic_star, R.drawable.mw_ic_trophy, R.drawable.mw_ic_coin,
-    R.drawable.mw_ic_book, R.drawable.mw_ic_math, R.drawable.mw_ic_language,
-    R.drawable.mw_ic_science, R.drawable.mw_ic_heart,
-)
+// ─── Width classes (design.md §7.1) ───
+private enum class HomeWidthClass { Wide, Medium, Narrow, Compact }
+
+@Composable
+private fun widthClassFor(maxWidth: Dp): HomeWidthClass = when {
+    maxWidth >= 1100.dp -> HomeWidthClass.Wide
+    maxWidth >= 840.dp -> HomeWidthClass.Medium
+    maxWidth >= 600.dp -> HomeWidthClass.Narrow
+    else -> HomeWidthClass.Compact
+}
+
+/** Maximum subject columns given width class + font scale (§7.1, §7.2). */
+@Composable
+private fun maxColumns(widthClass: HomeWidthClass, maxWidth: Dp): Int {
+    val fontScale = LocalDensity.current.fontScale
+    return when {
+        fontScale >= 1.8f -> 1
+        fontScale >= 1.3f -> 2
+        else -> when (widthClass) {
+            HomeWidthClass.Wide -> 3
+            HomeWidthClass.Medium -> 2
+            HomeWidthClass.Narrow -> if (maxWidth >= 720.dp) 2 else 1
+            HomeWidthClass.Compact -> 1
+        }
+    }
+}
 
 /**
- * Playroom home screen — the OD Colorful design-system concept implemented in Compose.
- * Warm gold→coral canvas, activity islands, sticker strip, paw-print quest bar.
+ * Option 3 Playroom Collections home (design.md). Stateless and previewable;
+ * the route owns the ViewModel and navigation.
  */
 @Composable
 fun PlayroomHomeScreen(
-    state: PlayroomHomeState,
-    onDestinationClick: (String) -> Unit,
-    onQuestClick: () -> Unit,
+    state: PlayroomHomeUiState,
+    onSubjectClick: (String) -> Unit,
+    onQuestAction: (QuestAction) -> Unit,
     onHomeClick: () -> Unit,
     onProgressClick: () -> Unit,
     onAvatarsClick: () -> Unit,
     onParentsClick: () -> Unit,
+    onRetry: () -> Unit = {},
+    onBack: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     BoxWithConstraints(
         modifier = modifier
             .fillMaxSize()
-            .background(
-                Brush.verticalGradient(listOf(Color(0xFFFFD76E), Color(0xFFFFB84D), PlayCoral))
-            )
+            .background(Brush.verticalGradient(listOf(PlayGoldTop, PlayGoldMid, PlayCoralBottom)))
             .windowInsetsPadding(WindowInsets.safeDrawing),
     ) {
-        val expanded = maxHeight >= 780.dp
+        val widthClass = widthClassFor(maxWidth)
+        val columns = maxColumns(widthClass, maxWidth)
+        val scrollable = maxHeight < 720.dp
+        val fontScale = LocalDensity.current.fontScale
+        val fullWidth = maxWidth
+        val showRailBeside = widthClass == HomeWidthClass.Wide
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .then(if (expanded) Modifier else Modifier.verticalScroll(rememberScrollState()))
-                .padding(horizontal = 22.dp, vertical = 16.dp),
-            verticalArrangement = if (expanded) Arrangement.SpaceBetween else Arrangement.spacedBy(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .then(if (scrollable) Modifier.verticalScroll(rememberScrollState()) else Modifier)
+                .padding(horizontal = if (fullWidth >= 600.dp) 24.dp else 16.dp, vertical = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            PlayroomHeader(state, onParentsClick)
-            PlayroomGreeting(state)
-            PlayroomIslandGrid(state, onDestinationClick, islandHeight = if (expanded) 185.dp else 150.dp)
-            PlayroomStickerStrip(state)
-            PlayroomQuestBar(state, onQuestClick)
-            PlayroomBottomNav(onHomeClick, onProgressClick, onAvatarsClick, onParentsClick)
-        }
-    }
-}
-
-// ─── Header ──────────────────────────────────────────────────────────
-
-@Composable
-private fun PlayroomHeader(state: PlayroomHomeState, onParentsClick: () -> Unit) {
-    Row(
-        Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(
-                Modifier.size(44.dp).clip(RoundedCornerShape(14.dp)).background(Color.White),
-                contentAlignment = Alignment.Center,
-            ) {
-                Canvas(Modifier.size(24.dp)) {
-                    // simple paw print
-                    val c = Color(0xFFB87916)
-                    drawCircle(c, radius = size.minDimension * .30f, center = Offset(size.width / 2f, size.height * .72f))
-                    drawCircle(c, radius = size.minDimension * .16f, center = Offset(size.width * .32f, size.height * .40f))
-                    drawCircle(c, radius = size.minDimension * .16f, center = Offset(size.width * .68f, size.height * .40f))
-                    drawCircle(c, radius = size.minDimension * .13f, center = Offset(size.width * .18f, size.height * .58f))
-                    drawCircle(c, radius = size.minDimension * .13f, center = Offset(size.width * .82f, size.height * .58f))
-                }
-            }
-            Spacer(Modifier.width(10.dp))
-            Column {
-                Text(
-                    "Maxine's World",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = Color.White,
-                )
-                Text(
-                    "VILLAGE · PLAYROOM",
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.Black,
-                    letterSpacing = 2.sp,
-                    color = Color(0xFF5C2E00),
-                )
-            }
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            PlayroomPill(icon = R.drawable.mw_ic_star, iconTint = PlayCoral, value = "${state.streak}-day streak")
-            PlayroomPill(icon = R.drawable.mw_ic_trophy, iconTint = PlayTeal, value = "${state.xp} XP")
-        }
-    }
-}
-
-@Composable
-private fun PlayroomPill(@DrawableRes icon: Int, iconTint: Color, value: String) {
-    Row(
-        Modifier
-            .clip(RoundedCornerShape(99.dp))
-            .background(Color.White, RoundedCornerShape(99.dp))
-            .padding(horizontal = 12.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Icon(painterResource(icon), null, tint = iconTint, modifier = Modifier.size(16.dp))
-        Spacer(Modifier.width(6.dp))
-        Text(value, color = PlayInk, fontWeight = FontWeight.ExtraBold, fontSize = 12.5.sp)
-    }
-}
-
-// ─── Greeting ────────────────────────────────────────────────────────
-
-@Composable
-private fun PlayroomGreeting(state: PlayroomHomeState) {
-    Row(
-        Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        Column(Modifier.weight(1f)) {
-            Text("Kumusta, ${state.childName}!", fontSize = 15.sp, fontWeight = FontWeight.Black, color = Color(0xFF5C2E00))
-            Text(
-                "Let's play & learn!",
-                style = MaterialTheme.typography.headlineMedium,
-                color = Color.White,
+            // Header (kept visible in every state)
+            PlayroomHeader(
+                childName = (state as? PlayroomHomeUiState.Content)?.childName.orEmpty(),
+                streakDays = (state as? PlayroomHomeUiState.Content)?.streakDays ?: 0,
+                xp = (state as? PlayroomHomeUiState.Content)?.xp ?: 0,
+                offline = (state as? PlayroomHomeUiState.Content)?.offline == true,
+                wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
             )
-            Text(
-                "Choose an island below and start today's adventure.",
-                fontSize = 13.5.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF5C2E00),
+
+            when (state) {
+                is PlayroomHomeUiState.Loading -> LoadingPlaceholders(columns = columns)
+                is PlayroomHomeUiState.Error -> ErrorCard(
+                    message = state.message,
+                    canRetry = state.canRetry,
+                    onRetry = onRetry,
+                    onBack = onBack,
+                )
+                is PlayroomHomeUiState.Content -> ContentLayout(
+                    content = state,
+                    columns = columns,
+                    railBeside = showRailBeside,
+                    onSubjectClick = onSubjectClick,
+                    onQuestAction = onQuestAction,
+                )
+            }
+
+            PlayroomBottomNav(
+                onHomeClick = onHomeClick,
+                onProgressClick = onProgressClick,
+                onAvatarsClick = onAvatarsClick,
+                onParentsClick = onParentsClick,
+                compact = widthClass == HomeWidthClass.Compact || fontScale >= 1.3f,
             )
         }
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            SurfaceSpeechBubble("Tara, let's explore an island today!")
-            Spacer(Modifier.width(10.dp))
-            Box(
-                Modifier.size(72.dp).clip(CircleShape).background(Color.White, CircleShape)
-                    .border(3.dp, Color.White, CircleShape),
-                contentAlignment = Alignment.Center,
-            ) {
-                Icon(
-                    painterResource(R.drawable.character_milo),
-                    contentDescription = "Milo",
-                    tint = Color.Unspecified,
-                    modifier = Modifier.size(64.dp),
-                )
-            }
-        }
     }
 }
 
-@Composable
-private fun SurfaceSpeechBubble(text: String) {
-    Box(
-        Modifier
-            .clip(RoundedCornerShape(16.dp, 16.dp, 16.dp, 6.dp))
-            .background(Color.White, RoundedCornerShape(16.dp, 16.dp, 16.dp, 6.dp))
-            .padding(horizontal = 14.dp, vertical = 9.dp),
-    ) {
-        Text(text, color = PlayInk, fontWeight = FontWeight.Bold, fontSize = 12.5.sp, maxLines = 2)
-    }
-}
-
-// ─── Island grid ─────────────────────────────────────────────────────
+// ─── Content layout ──────────────────────────────────────────────────
 
 @Composable
-private fun PlayroomIslandGrid(
-    state: PlayroomHomeState,
-    onDestinationClick: (String) -> Unit,
-    islandHeight: Dp = 150.dp,
+private fun ContentLayout(
+    content: PlayroomHomeUiState.Content,
+    columns: Int,
+    railBeside: Boolean,
+    onSubjectClick: (String) -> Unit,
+    onQuestAction: (QuestAction) -> Unit,
 ) {
-    state.islands.chunked(3).forEach { rowIslands ->
+    // “Choose a subject” moves focus to the first available card (§11.4)
+    val firstAvailableId = content.subjects.firstOrNull { it.isAvailable }?.id
+    val focusRequester = remember { FocusRequester() }
+    val questAction: (QuestAction) -> Unit = { action ->
+        if (action == QuestAction.ChooseSubject && firstAvailableId != null) {
+            focusRequester.requestFocus()
+        } else {
+            onQuestAction(action)
+        }
+    }
+
+    if (content.staleBanner) {
+        Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = PlayCream,
+            contentColor = PlayInk,
+            border = BorderStroke(1.dp, PlaySunshine),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(
+                stringResource(R.string.home_stale_banner),
+                fontSize = 14.sp, fontWeight = FontWeight.Medium,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+            )
+        }
+    }
+
+    if (railBeside) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            SubjectGrid(
+                subjects = content.subjects,
+                columns = columns,
+                openingSubjectId = content.openingSubjectId,
+                firstFocusId = firstAvailableId,
+                firstFocusRequester = focusRequester,
+                onSubjectClick = onSubjectClick,
+                modifier = Modifier.weight(0.66f),
+            )
+            Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+                StickerBookPreview(content.stickerBook, Modifier.fillMaxWidth())
+            }
+        }
+    } else {
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            // Quest moves above the grid for medium/narrow widths (§7.1)
+            TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+            StickerBookPreview(content.stickerBook, Modifier.fillMaxWidth())
+            SubjectGrid(
+                subjects = content.subjects,
+                columns = columns,
+                openingSubjectId = content.openingSubjectId,
+                firstFocusId = firstAvailableId,
+                firstFocusRequester = focusRequester,
+                onSubjectClick = onSubjectClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+// ─── Header (design.md §9) ───────────────────────────────────────────
+
+@Composable
+private fun PlayroomHeader(
+    childName: String,
+    streakDays: Int,
+    xp: Int,
+    offline: Boolean,
+    wide: Boolean,
+) {
+    if (wide) {
+        Row(Modifier.fillMaxWidth().heightIn(min = 96.dp), verticalAlignment = Alignment.CenterVertically) {
+            BrandBlock(Modifier.width(210.dp))
+            MascotAvatar(Modifier.size(88.dp))
+            GreetingBlock(childName, Modifier.widthIn(min = 250.dp).padding(horizontal = 16.dp))
+            Spacer(Modifier.weight(1f))
+            MetricPill(
+                label = stringResource(R.string.home_day_streak),
+                value = "$streakDays",
+                icon = { FlameGlyph(PlayCoral) },
+                modifier = Modifier.width(164.dp).height(68.dp),
+            )
+            Spacer(Modifier.width(12.dp))
+            MetricPill(
+                label = stringResource(R.string.home_xp_earned),
+                value = "$xp",
+                icon = { Icon(Icons.Filled.Check, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
+                modifier = Modifier.width(164.dp).height(68.dp),
+            )
+        }
+    } else {
+        // Wrapped header: brand + mascot on one line, greeting + pills below
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            BrandBlock(Modifier.weight(1f))
+            MascotAvatar(Modifier.size(72.dp))
+        }
         Row(
-            Modifier.fillMaxWidth().height(islandHeight),
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
+            Modifier.fillMaxWidth().padding(top = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            rowIslands.forEach { island ->
-                PlayroomIslandCard(island, Modifier.weight(1f), onDestinationClick)
-            }
-            repeat(3 - rowIslands.size) { Spacer(Modifier.weight(1f)) }
+            GreetingBlock(childName, Modifier.weight(1f))
+            MetricPill(
+                label = stringResource(R.string.home_day_streak),
+                value = "$streakDays",
+                icon = { FlameGlyph(PlayCoral) },
+                modifier = Modifier.height(64.dp),
+            )
+            Spacer(Modifier.width(8.dp))
+            MetricPill(
+                label = stringResource(R.string.home_xp_earned),
+                value = "$xp",
+                icon = { Icon(Icons.Filled.Check, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
+                modifier = Modifier.height(64.dp),
+            )
         }
-        Spacer(Modifier.height(14.dp))
+    }
+    if (offline) {
+        Surface(
+            shape = RoundedCornerShape(99.dp),
+            color = PlayInkDark, contentColor = PlayWhite,
+            modifier = Modifier.padding(top = 8.dp),
+        ) {
+            Text(
+                stringResource(R.string.home_offline_chip),
+                fontSize = 12.sp, fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
+            )
+        }
     }
 }
 
 @Composable
-private fun PlayroomIslandCard(
-    island: PlayroomIsland,
+private fun BrandBlock(modifier: Modifier = Modifier) {
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+        Box(
+            Modifier.size(44.dp).clip(RoundedCornerShape(14.dp)).background(Color.White),
+            contentAlignment = Alignment.Center,
+        ) {
+            PawGlyph(PlayHeritageGold)
+        }
+        Spacer(Modifier.width(10.dp))
+        Column {
+            Text(
+                stringResource(R.string.home_brand),
+                color = PlayInk,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 20.sp, lineHeight = 24.sp,
+                maxLines = 1, overflow = TextOverflow.Clip,
+            )
+            Text(
+                "PLAYROOM",
+                fontSize = 10.sp, fontWeight = FontWeight.Black,
+                letterSpacing = 2.sp, color = Color(0xFF7A3B00),
+            )
+        }
+    }
+}
+
+private val PlayHeritageGold = Color(0xFFB87916)
+
+@Composable
+private fun MascotAvatar(modifier: Modifier = Modifier) {
+    Box(
+        modifier
+            .clip(CircleShape)
+            .background(Color.White, CircleShape)
+            .border(3.dp, Color.White, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
+            painterResource(R.drawable.mw_mascot_guide),
+            contentDescription = null, // decorative; greeting carries the meaning
+            tint = Color.Unspecified,
+            modifier = Modifier.fillMaxSize().padding(3.dp),
+        )
+    }
+}
+
+@Composable
+private fun GreetingBlock(childName: String, modifier: Modifier = Modifier) {
+    Column(modifier) {
+        Text(
+            stringResource(
+                if (childName.isBlank()) R.string.home_greeting_fallback
+                else R.string.home_greeting, childName
+            ),
+            color = PlayInk,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 26.sp, lineHeight = 32.sp,
+            maxLines = 1, overflow = TextOverflow.Clip,
+        )
+        Text(
+            stringResource(R.string.home_encouragement),
+            color = Color(0xFF5C2E00),
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 15.sp, lineHeight = 21.sp,
+            maxLines = 1, overflow = TextOverflow.Clip,
+        )
+    }
+}
+
+@Composable
+private fun MetricPill(
+    label: String,
+    value: String,
+    icon: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    onDestinationClick: (String) -> Unit,
 ) {
-    val enabled = !island.locked
-    val spoken = "${island.title}, ${island.subtitle}" +
-        if (island.locked) ", locked until level ${island.lockLevel}" else ", tap to play"
+    Row(
+        modifier
+            .clip(RoundedCornerShape(20.dp))
+            .background(Color.White, RoundedCornerShape(20.dp))
+            .padding(horizontal = 14.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        icon()
+        Spacer(Modifier.width(8.dp))
+        Column {
+            Text(value, color = PlayInk, fontWeight = FontWeight.ExtraBold, fontSize = 20.sp, lineHeight = 24.sp)
+            Text(label, color = PlayMuted, fontWeight = FontWeight.Medium, fontSize = 12.sp, lineHeight = 16.sp)
+        }
+    }
+}
+
+// ─── Subject grid + card (design.md §10) ─────────────────────────────
+
+@Composable
+private fun SubjectGrid(
+    subjects: List<SubjectCardUi>,
+    columns: Int,
+    openingSubjectId: String?,
+    firstFocusId: String?,
+    firstFocusRequester: FocusRequester,
+    onSubjectClick: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        subjects.chunked(columns).forEach { rowSubjects ->
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(14.dp),
+            ) {
+                rowSubjects.forEach { subject ->
+                    SubjectCard(
+                        subject = subject,
+                        opening = subject.id == openingSubjectId,
+                        firstFocus = subject.id == firstFocusId,
+                        firstFocusRequester = firstFocusRequester,
+                        onClick = { onSubjectClick(subject.id) },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                repeat(columns - rowSubjects.size) { Spacer(Modifier.weight(1f)) }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SubjectCard(
+    subject: SubjectCardUi,
+    opening: Boolean,
+    firstFocus: Boolean,
+    firstFocusRequester: FocusRequester,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val accent = subjectAccent(subject.id)
+    val pale = subjectPale(subject.id)
+    val enabled = subject.isAvailable && !opening
+    val interaction = remember { MutableInteractionSource() }
+    var focused by remember { mutableStateOf(false) }
+    val progress = subject.progressPercent?.coerceIn(0, 100)
+    val progressLabel = when {
+        progress == null -> stringResource(R.string.home_not_started)
+        progress >= 100 -> stringResource(R.string.home_complete)
+        else -> "$progress%"
+    }
+    val spoken = buildString {
+        append(subject.formalName).append(", ").append(subject.playfulName)
+        append(". ")
+        when {
+            subject.availability == SubjectAvailability.Locked -> {
+                append(stringResource(R.string.home_locked)).append(".")
+                subject.lockReason?.let { append(" ").append(it).append(".") }
+            }
+            progress == null -> append(stringResource(R.string.home_not_started)).append(".")
+            progress >= 100 -> append(stringResource(R.string.home_complete)).append(".")
+            else -> append("$progress percent complete.")
+        }
+    }
+
     Card(
         modifier = modifier
-            .fillMaxHeight()
+            .fillMaxWidth()
+            .heightIn(min = 150.dp)
             .semantics(mergeDescendants = true) {
                 contentDescription = spoken
                 role = Role.Button
                 if (!enabled) disabled()
+                stateDescription = progressLabel
             }
-            .clickable(enabled = enabled, role = Role.Button) { onDestinationClick(island.id) },
-        shape = RoundedCornerShape(20.dp),
+            .focusable(enabled = enabled, interactionSource = interaction)
+            .then(if (firstFocus) Modifier.focusRequester(firstFocusRequester) else Modifier)
+            .onFocusChanged { focused = it.isFocused }
+            .border(
+                width = if (focused) 3.dp else 0.dp,
+                color = if (focused) PlayTeal else Color.Transparent,
+                shape = RoundedCornerShape(22.dp),
+            )
+            .clickable(
+                enabled = enabled,
+                interactionSource = interaction,
+                indication = null,
+                role = Role.Button,
+                onClick = onClick,
+            ),
+        shape = RoundedCornerShape(22.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 1.dp),
     ) {
-        Box(Modifier.fillMaxWidth().fillMaxHeight()) {
-            if (island.locked) {
+        Box(Modifier.fillMaxWidth()) {
+            Column(
+                Modifier.fillMaxWidth().padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                // Top content row (baseline 132dp): illustration + text
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        Modifier.size(96.dp).clip(RoundedCornerShape(16.dp)).background(pale, RoundedCornerShape(16.dp)),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Icon(
+                            painterResource(subject.illustrationRes),
+                            contentDescription = null,
+                            tint = Color.Unspecified,
+                            modifier = Modifier.size(88.dp),
+                        )
+                    }
+                    Spacer(Modifier.width(10.dp))
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            subject.formalName,
+                            color = PlayInk,
+                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 17.sp, lineHeight = 22.sp,
+                            maxLines = 2, overflow = TextOverflow.Clip, // never ellipsize formal name
+                        )
+                        Spacer(Modifier.height(2.dp))
+                        Text(
+                            subject.playfulName,
+                            color = accent,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 15.sp, lineHeight = 20.sp,
+                            maxLines = 1, overflow = TextOverflow.Clip,
+                        )
+                    }
+                }
+
+                // Bottom row: progress bar + arrow
+                Row(
+                    Modifier.fillMaxWidth().heightIn(min = 44.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Box(
+                            Modifier.fillMaxWidth().height(8.dp)
+                                .clip(RoundedCornerShape(99.dp))
+                                .background(pale, RoundedCornerShape(99.dp)),
+                        ) {
+                            if (progress != null && progress > 0) {
+                                Box(
+                                    Modifier.fillMaxWidth(progress / 100f).fillMaxHeight()
+                                        .background(accent, RoundedCornerShape(99.dp)),
+                                )
+                            }
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            if (progress != null && progress >= 100) {
+                                Icon(Icons.Filled.CheckCircle, null, tint = PlaySuccess, modifier = Modifier.size(16.dp))
+                                Spacer(Modifier.width(4.dp))
+                            }
+                            Text(
+                                progressLabel,
+                                color = PlayMuted,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp, lineHeight = 18.sp,
+                                maxLines = 1,
+                            )
+                        }
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Box(
+                        Modifier.size(44.dp).clip(CircleShape).background(if (opening) pale else accent, CircleShape),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        if (opening) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(20.dp),
+                                color = accent,
+                                strokeWidth = 2.5.dp,
+                            )
+                        } else if (enabled) {
+                            Text("›", color = Color.White, fontWeight = FontWeight.Black, fontSize = 22.sp)
+                        } else {
+                            Icon(Icons.Filled.Lock, null, tint = Color.White, modifier = Modifier.size(18.dp))
+                        }
+                    }
+                }
+            }
+
+            // Locked reason chip (visible, not low-opacity-only)
+            if (subject.availability == SubjectAvailability.Locked) {
                 Surface(
                     shape = RoundedCornerShape(99.dp),
                     color = PlayInkDark,
                     contentColor = Color(0xFFFFE9A8),
-                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 2.dp, end = 2.dp),
-                ) {
-                    Text("🔒 Lv ${island.lockLevel}", fontSize = 9.sp, fontWeight = FontWeight.Black,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp))
-                }
-            }
-            Column(
-                Modifier.fillMaxSize().padding(12.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-            ) {
-                Box(
-                    Modifier.size(52.dp).clip(RoundedCornerShape(15.dp)).background(
-                        if (island.locked) Color(0xFFEFECE3) else island.color.copy(alpha = .14f),
-                        RoundedCornerShape(15.dp),
-                    ).border(2.dp, if (island.locked) Color(0xFFE2DDD0) else island.color, RoundedCornerShape(15.dp)),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Icon(
-                        painterResource(island.iconRes),
-                        null,
-                        tint = if (island.locked) Color(0xFFB4AFA4) else island.color,
-                        modifier = Modifier.size(26.dp),
-                    )
-                }
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    island.title,
-                    color = PlayInk,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 15.sp,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    island.subtitle,
-                    color = if (island.locked) Color(0xFF9AA0A3) else PlayMuted,
-                    fontSize = 10.5.sp,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center,
-                )
-                Spacer(Modifier.height(8.dp))
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = if (island.locked) Color(0xFFE8E3D4) else island.color,
-                    contentColor = if (island.locked) Color(0xFF8AA0A7) else Color.White,
-                    modifier = Modifier.heightIn(min = 34.dp),
+                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 10.dp, end = 10.dp),
                 ) {
                     Text(
-                        if (island.locked) "Locked" else "▶ Play",
-                        fontSize = 11.5.sp,
-                        fontWeight = FontWeight.Black,
-                        modifier = Modifier.padding(horizontal = 18.dp, vertical = 7.dp),
+                        subject.lockReason ?: stringResource(R.string.home_locked),
+                        fontSize = 9.5.sp, fontWeight = FontWeight.Black,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        maxLines = 2, overflow = TextOverflow.Clip,
                     )
                 }
             }
@@ -367,119 +644,191 @@ private fun PlayroomIslandCard(
     }
 }
 
-// ─── Sticker strip ───────────────────────────────────────────────────
+// ─── Today's Quest (design.md §11) ───────────────────────────────────
 
 @Composable
-private fun PlayroomStickerStrip(state: PlayroomHomeState) {
-    Row(
-        Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xFFFFF9EA), RoundedCornerShape(20.dp))
-            .border(2.dp, Color.White, RoundedCornerShape(20.dp))
-            .padding(horizontal = 14.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
+private fun TodayQuestCard(
+    quest: QuestUi,
+    onQuestAction: (QuestAction) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = PlayCream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 2.dp),
     ) {
-        Column(Modifier.width(110.dp)) {
-            Text("🏅 Sticker book", color = Color(0xFF8A5B10), fontWeight = FontWeight.Black, fontSize = 12.sp)
-            Text(
-                "${state.stickerCollected} of ${state.stickerTotal} collected",
-                color = Color(0xFF8A5B10), fontWeight = FontWeight.Bold, fontSize = 10.5.sp,
-            )
-        }
-        Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            state.stickerIcons.forEach { iconRes ->
-                StickerSlot(iconRes, won = true)
+        Column(Modifier.fillMaxWidth()) {
+            // Header: teal→ink dark gradient
+            Box(
+                Modifier.fillMaxWidth()
+                    .background(Brush.horizontalGradient(listOf(PlayTeal, PlayInkDark)))
+                    .padding(horizontal = 20.dp, vertical = 14.dp),
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        Modifier.size(36.dp).clip(CircleShape).background(Color.White.copy(alpha = 0.16f)),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        PawGlyph(Color(0xFFFFE9A8), size = 20.dp)
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        stringResource(R.string.home_today_quest),
+                        color = Color.White,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 21.sp, lineHeight = 28.sp,
+                        maxLines = 1, overflow = TextOverflow.Clip,
+                    )
+                }
             }
-            repeat((state.stickerTotal - state.stickerCollected).coerceAtLeast(0)) {
-                StickerSlot(null, won = false)
-            }
-        }
-    }
-}
 
-@Composable
-private fun StickerSlot(@DrawableRes iconRes: Int?, won: Boolean) {
-    Box(
-        modifier = Modifier.size(40.dp).clip(RoundedCornerShape(12.dp))
-            .background(
-                if (won) Brush.linearGradient(listOf(Color(0xFFFFF6D6), Color(0xFFFFE9A8)))
-                else Brush.linearGradient(listOf(Color(0xFFF6EFDC), Color(0xFFF1EAD8))),
-                RoundedCornerShape(12.dp),
-            )
-            .border(2.dp, if (won) PlayGold else Color(0xFFD9C48F), RoundedCornerShape(12.dp)),
-        contentAlignment = Alignment.Center,
-    ) {
-        if (won && iconRes != null) {
-            Icon(painterResource(iconRes), null, tint = Color(0xFFB87916), modifier = Modifier.size(20.dp))
-        } else {
-            Text("?", color = Color(0xFFC9B273), fontWeight = FontWeight.Black, fontSize = 13.sp)
-        }
-    }
-}
-
-// ─── Quest bar ───────────────────────────────────────────────────────
-
-@Composable
-private fun PlayroomQuestBar(state: PlayroomHomeState, onQuestClick: () -> Unit) {
-    Row(
-        Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(20.dp))
-            .background(PlayInkDark, RoundedCornerShape(20.dp))
-            .padding(horizontal = 16.dp, vertical = 13.dp)
-            .clickable(role = Role.Button, onClick = onQuestClick),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Canvas(Modifier.size(26.dp)) {
-            drawCircle(Color(0xFFFFE9A8), radius = size.minDimension * .30f, center = Offset(size.width / 2f, size.height * .72f))
-            drawCircle(Color(0xFFFFE9A8), radius = size.minDimension * .16f, center = Offset(size.width * .32f, size.height * .40f))
-            drawCircle(Color(0xFFFFE9A8), radius = size.minDimension * .16f, center = Offset(size.width * .68f, size.height * .40f))
-            drawCircle(Color(0xFFFFE9A8), radius = size.minDimension * .13f, center = Offset(size.width * .18f, size.height * .58f))
-            drawCircle(Color(0xFFFFE9A8), radius = size.minDimension * .13f, center = Offset(size.width * .82f, size.height * .58f))
-        }
-        Spacer(Modifier.width(12.dp))
-        Column(Modifier.weight(1f)) {
-            Text(state.questTitle, color = Color.White, fontWeight = FontWeight.Black, fontSize = 13.5.sp)
-            Text(
-                "${state.pawPrints} of ${state.pawPrintTotal} collected",
-                color = Color(0xFF9FD8CF), fontWeight = FontWeight.Bold, fontSize = 11.sp,
-            )
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(7.dp)) {
-            repeat(state.pawPrintTotal) { i ->
-                Box(
-                    Modifier.size(14.dp).clip(CircleShape)
-                        .background(
-                            if (i < state.pawPrints) PlayGold else Color(0x336DFFA),
-                            CircleShape,
+            Column(Modifier.padding(20.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        Modifier.size(64.dp).clip(CircleShape).background(Color.White, CircleShape),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Icon(
+                            painterResource(R.drawable.mw_mascot_guide),
+                            contentDescription = null,
+                            tint = Color.Unspecified,
+                            modifier = Modifier.size(58.dp),
                         )
-                        .border(
-                            2.dp,
-                            if (i < state.pawPrints) PlayGold else Color(0xFF3D5A63),
-                            CircleShape,
-                        ),
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            quest.task,
+                            color = PlayInk,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 16.sp, lineHeight = 23.sp,
+                            maxLines = 3, overflow = TextOverflow.Clip,
+                        )
+                        Spacer(Modifier.height(6.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                repeat(quest.pawPrintTotal) { i ->
+                                    PawGlyph(
+                                        if (i < quest.pawPrintsCompleted) PlaySunshine else PlayInk.copy(alpha = 0.18f),
+                                        size = 18.dp,
+                                    )
+                                }
+                            }
+                            Spacer(Modifier.width(10.dp))
+                            Text(
+                                "${quest.pawPrintsCompleted} of ${quest.pawPrintTotal}",
+                                color = PlayMuted,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.sp, lineHeight = 18.sp,
+                            )
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(16.dp))
+
+                Surface(
+                    shape = RoundedCornerShape(18.dp),
+                    color = PlayTeal,
+                    contentColor = Color.White,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp)
+                        .semantics { role = Role.Button }
+                        .clickable(role = Role.Button, onClick = { onQuestAction(quest.buttonAction) }),
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(
+                            quest.buttonLabel,
+                            color = Color.White,
+                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 17.sp, lineHeight = 22.sp,
+                            textAlign = TextAlign.Center,
+                            maxLines = 1, overflow = TextOverflow.Clip,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ─── Sticker Book (design.md §12) ────────────────────────────────────
+
+@Composable
+private fun StickerBookPreview(
+    stickerBook: StickerBookUi,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Column(Modifier.fillMaxWidth().padding(14.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    stringResource(R.string.home_sticker_book),
+                    color = PlayInk,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 16.sp, lineHeight = 22.sp,
+                    maxLines = 1,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    stringResource(R.string.home_collected, stickerBook.collectedCount, stickerBook.totalCount),
+                    color = PlayMuted,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.sp, lineHeight = 18.sp,
+                    maxLines = 1,
                 )
             }
-        }
-        Spacer(Modifier.width(14.dp))
-        Surface(
-            shape = RoundedCornerShape(14.dp),
-            color = PlayTeal,
-            contentColor = Color.White,
-            modifier = Modifier.clickable(role = Role.Button, onClick = onQuestClick),
-        ) {
-            Text(
-                "Start!",
-                fontWeight = FontWeight.Black,
-                fontSize = 13.sp,
-                modifier = Modifier.padding(horizontal = 18.dp, vertical = 9.dp),
-            )
+            Spacer(Modifier.height(12.dp))
+            if (stickerBook.stickers.isEmpty()) {
+                Text(
+                    stringResource(R.string.home_no_stickers),
+                    color = PlayMuted,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp, lineHeight = 20.sp,
+                )
+            } else {
+                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items(stickerBook.stickers) { sticker ->
+                        StickerSlot(sticker)
+                    }
+                }
+            }
         }
     }
 }
 
-// ─── Bottom nav ──────────────────────────────────────────────────────
+@Composable
+private fun StickerSlot(sticker: StickerUi) {
+    val mystery = stringResource(R.string.home_mystery_sticker)
+    Box(
+        Modifier.size(44.dp).clip(RoundedCornerShape(10.dp))
+            .background(
+                if (sticker.won) Brush.linearGradient(listOf(Color(0xFFFFF6D6), Color(0xFFFFE9A8)))
+                else Brush.linearGradient(listOf(Color(0xFFF3EFE2), Color(0xFFECE7D8))),
+                RoundedCornerShape(10.dp),
+            )
+            .border(2.dp, if (sticker.won) PlaySunshine else Color(0xFFD9C48F), RoundedCornerShape(10.dp))
+            .semantics {
+                contentDescription = if (sticker.won) sticker.emoji ?: sticker.id else mystery
+            },
+        contentAlignment = Alignment.Center,
+    ) {
+        if (sticker.won) {
+            Text(sticker.emoji ?: "★", fontSize = 20.sp)
+        } else {
+            Text("?", color = Color(0xFF8A6A3A), fontWeight = FontWeight.Black, fontSize = 16.sp)
+        }
+    }
+}
+
+// ─── Bottom nav (design.md §13) ──────────────────────────────────────
 
 @Composable
 private fun PlayroomBottomNav(
@@ -487,30 +836,198 @@ private fun PlayroomBottomNav(
     onProgressClick: () -> Unit,
     onAvatarsClick: () -> Unit,
     onParentsClick: () -> Unit,
+    compact: Boolean,
 ) {
-    val items = listOf(
-        Triple("Home", R.drawable.mw_ic_home, onHomeClick),
-        Triple("Progress", R.drawable.mw_ic_progress, onProgressClick),
-        Triple("Avatars", R.drawable.mw_ic_avatars, onAvatarsClick),
-        Triple("Parents", R.drawable.mw_ic_lock, onParentsClick),
-    )
     Row(
         Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(99.dp))
-            .background(Color.White, RoundedCornerShape(99.dp))
+            .clip(RoundedCornerShape(32.dp))
+            .background(Color.White, RoundedCornerShape(32.dp))
             .padding(horizontal = 8.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
-        items.forEach { (label, icon, action) ->
-            Column(
-                Modifier.weight(1f).heightIn(min = 48.dp).clickable(role = Role.Button, onClick = action),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-            ) {
-                Icon(painterResource(icon), null, tint = PlayTeal, modifier = Modifier.size(22.dp))
-                Text(label, color = PlayInk, fontWeight = FontWeight.Bold, fontSize = 10.5.sp)
+        NavItem("Home", isSelected = true, onClick = onHomeClick, compact = compact)
+        // Progress destination is not implemented yet → visibly unavailable
+        NavItem(
+            stringResource(R.string.nav_progress),
+            isSelected = false,
+            onClick = null,
+            compact = compact,
+            comingSoon = true,
+        )
+        NavItem("Avatars", isSelected = false, onClick = onAvatarsClick, compact = compact)
+        NavItem(
+            stringResource(R.string.nav_parents),
+            isSelected = false,
+            onClick = onParentsClick,
+            compact = compact,
+            leadingIcon = { Icon(Icons.Filled.Lock, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
+        )
+    }
+}
+
+@Composable
+private fun RowScope.NavItem(
+    label: String,
+    isSelected: Boolean,
+    onClick: (() -> Unit)?,
+    compact: Boolean,
+    comingSoon: Boolean = false,
+    leadingIcon: (@Composable () -> Unit)? = null,
+) {
+    val enabled = onClick != null
+    val interaction = remember { MutableInteractionSource() }
+    val showComingSoon = comingSoon && !compact
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .weight(1f)
+            .heightIn(min = 56.dp)
+            .clip(RoundedCornerShape(20.dp))
+            .background(if (isSelected) PlayTeal.copy(alpha = 0.14f) else Color.Transparent)
+            .semantics {
+                role = Role.Button
+                if (isSelected) selected = true
+                if (!enabled) disabled()
+            }
+            .focusable(enabled = enabled, interactionSource = interaction)
+            .then(
+                if (enabled) Modifier.clickable(interactionSource = interaction, indication = null, role = Role.Button, onClick = onClick)
+                else Modifier
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        if (leadingIcon != null) {
+            leadingIcon()
+        } else {
+            Text("●", color = if (isSelected) PlayTeal else if (enabled) PlayMuted else PlayMuted.copy(alpha = 0.5f), fontSize = 16.sp)
+        }
+        Spacer(Modifier.height(2.dp))
+        Text(
+            label,
+            color = if (isSelected) PlayTeal else if (enabled) PlayMuted else PlayMuted.copy(alpha = 0.5f),
+            fontWeight = FontWeight.Bold,
+            fontSize = if (compact) 12.sp else 14.sp,
+            lineHeight = 18.sp,
+            maxLines = 1,
+        )
+        if (showComingSoon) {
+            Text(
+                stringResource(R.string.home_coming_soon),
+                color = PlayMuted.copy(alpha = 0.7f),
+                fontWeight = FontWeight.Medium,
+                fontSize = 10.sp, lineHeight = 14.sp,
+                maxLines = 1,
+            )
+        }
+        // Active underline indicator
+        Box(
+            Modifier
+                .padding(top = 3.dp)
+                .width(if (isSelected) 20.dp else 0.dp)
+                .height(3.dp)
+                .clip(RoundedCornerShape(99.dp))
+                .background(if (isSelected) PlayTeal else Color.Transparent),
+        )
+    }
+}
+
+// ─── Loading / error (design.md §15) ─────────────────────────────────
+
+@Composable
+private fun LoadingPlaceholders(columns: Int) {
+    // Polite live region: “Loading home” once
+    Text(
+        stringResource(R.string.home_loading),
+        color = Color.Transparent,
+        modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+    )
+    // Six card placeholders preserving final geometry; hidden from a11y
+    Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        repeat(2) { row ->
+            Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxWidth()) {
+                repeat(columns) {
+                    Box(
+                        Modifier.weight(1f).height(160.dp)
+                            .clip(RoundedCornerShape(22.dp))
+                            .background(Color.White.copy(alpha = 0.85f))
+                            .semantics { disabled() },
+                    )
+                }
             }
         }
+    }
+}
+
+@Composable
+private fun ErrorCard(
+    message: String,
+    canRetry: Boolean,
+    onRetry: () -> Unit,
+    onBack: () -> Unit,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 32.dp),
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = PlayCream),
+    ) {
+        Column(
+            Modifier.fillMaxWidth().padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(message, color = PlayInk, fontWeight = FontWeight.ExtraBold, fontSize = 20.sp, textAlign = TextAlign.Center)
+            Spacer(Modifier.height(16.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                if (canRetry) {
+                    Surface(
+                        shape = RoundedCornerShape(18.dp),
+                        color = PlayTeal, contentColor = Color.White,
+                        modifier = Modifier.clickable(role = Role.Button, onClick = onRetry),
+                    ) {
+                        Text(
+                            stringResource(R.string.home_retry),
+                            fontWeight = FontWeight.ExtraBold, fontSize = 16.sp,
+                            modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+                        )
+                    }
+                }
+                Surface(
+                    shape = RoundedCornerShape(18.dp),
+                    color = Color.White, contentColor = PlayInk,
+                    modifier = Modifier.clickable(role = Role.Button, onClick = onBack),
+                ) {
+                    Text(
+                        stringResource(R.string.nav_home),
+                        fontWeight = FontWeight.ExtraBold, fontSize = 16.sp,
+                        modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+// ─── Glyphs ──────────────────────────────────────────────────────────
+
+@Composable
+private fun PawGlyph(color: Color, size: Dp = 26.dp) {
+    Canvas(Modifier.size(size)) {
+        val c = color
+        drawCircle(c, radius = size.toPx() * .30f, center = Offset(this.size.width / 2f, this.size.height * .72f))
+        drawCircle(c, radius = size.toPx() * .16f, center = Offset(this.size.width * .32f, this.size.height * .40f))
+        drawCircle(c, radius = size.toPx() * .16f, center = Offset(this.size.width * .68f, this.size.height * .40f))
+        drawCircle(c, radius = size.toPx() * .13f, center = Offset(this.size.width * .18f, this.size.height * .58f))
+        drawCircle(c, radius = size.toPx() * .13f, center = Offset(this.size.width * .82f, this.size.height * .58f))
+    }
+}
+
+@Composable
+private fun FlameGlyph(color: Color) {
+    Canvas(Modifier.size(20.dp)) {
+        val c = color
+        drawCircle(c, radius = size.minDimension * .28f, center = Offset(size.width * .5f, size.height * .68f))
+        drawCircle(c, radius = size.minDimension * .22f, center = Offset(size.width * .42f, size.height * .42f))
+        drawCircle(c, radius = size.minDimension * .15f, center = Offset(size.width * .58f, size.height * .30f))
     }
 }
