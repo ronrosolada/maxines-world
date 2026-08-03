@@ -28,4 +28,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.test.runner)
 }
