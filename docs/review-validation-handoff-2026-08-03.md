@@ -594,11 +594,21 @@ The adversarial review's headline finding was fixed on `main` in commit `fd7cfb4
 - New connected `everyPlayroomSubjectAssessmentIsConvertible` in `OfflineLessonLoadTest` — proves every Playroom-reachable subject's real bundled assessment block parses into the converter's contract (≥2 options, keyed `correctOptionIds`, non-blank explanation).
 - Full gate: `testDebugUnitTest` + `lintDebug` + `:app:verifyPlayableContent` + `:app:assembleDebug` BUILD SUCCESSFUL; `:app:connectedDebugAndroidTest` 6/6 green.
 
-### Remaining from the review (unchanged priorities)
+### Remaining from the review (updated 2026-08-03, second content wave)
 
-- P0 #2/#5 partial: vocabulary/narration/chrome fixed; **activity-shell redesign, source-fidelity traces, and the semantic QA pipeline remain**.
-- P1: misconception-based distractors, runtime option remapping, transfer items.
-- The authored lessons themselves still use the universal 6-activity shell (content-side redesign, not a player bug).
+**DONE this wave (commits `af52f9a`, `dba7d76`):**
+
+- **English (22 lessons, 4 skill groups)** — stock junk ("an unrelated guess", "a random symbol", …) fully removed. Each lesson now has authored vocabulary (real word + definition), concept-faithful sort/options/matching, skill-specific assessment prompts. Word Explorer lessons received real G3 word sets (28 words with definitions, sentences, cloze); story lessons received 5 authored Milo-world mini-stories with detail items.
+- **Mathematics + Science (43 lessons, 5 skill groups)** — per-instance content sets (9 addition, 9 multiplication, 7 living/non-living, 11 material properties, 7 light/sound). Math assessments are now real computation items generated from the lesson's own equations with near-miss numeric distractors (±10, ±100, off-by-one factors), prompts use number words; science items use cross-set real examples and safe-action rules as correct answers.
+- **Lesson-specific shells** — instructions, hotspot examples, sort fits, sequence steps, animated intros now reference each lesson's own content instead of the universal stamp.
+- **Similarity gate upgraded** (`tools/content_similarity_gate.py`): digits are content tokens (math equations count); same-objective pairs flagged only ≥0.95 (spiraling practice groups are expected to share objective+shell); cross-objective ≥0.70. Result: **flagged pairs 1,154 → 473 (−59%)**; all repaired groups cleared. Final report: `docs/content-similarity-report-2026-08-03-final.json`.
+- All tools have regression tests (54 tool tests OK); `verifyPlayableContent` + `testDebugUnitTest` green.
+
+**Remaining flagged clusters (next wave, not yet repaired):**
+- Filipino bodies: Munting Talata (16), simuno/panaguri activity bodies (10+7+4+4) — assessment items were fixed earlier; activity bodies still byte-identical.
+- Makabansa (16+5) and GMRC (15) groups — untouched.
+- Small leftovers: english-g3-q2-w04 (4), science q1-w01/q3-w05 groups, math rounding/place-value groups.
+- P0 #2 residual: the universal 6-activity shell still exists in unrepaired groups (content-side, not a player bug).
 
 ## Safe Continuation Commands
 
