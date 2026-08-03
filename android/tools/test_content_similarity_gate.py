@@ -26,9 +26,10 @@ def lesson(title="T", objective="O", intro="", activities=None, assessment=None)
 
 
 class TokenizeTests(unittest.TestCase):
-    def test_strips_punctuation_and_digits(self):
-        tokens = tokenize("Ang aso ay tumatakbo! 3x?")
-        self.assertEqual({"aso", "tumatakbo"}, tokens)
+    def test_strips_punctuation_keeps_digits(self):
+        # Digits are real content (math equations); punctuation is noise.
+        tokens = tokenize("Ang aso ay tumatakbo! 3x? 245 + 123")
+        self.assertEqual({"aso", "tumatakbo", "3x", "245", "123"}, tokens)
 
     def test_filters_stop_words(self):
         tokens = tokenize("the and ang ng sa ay of to is")

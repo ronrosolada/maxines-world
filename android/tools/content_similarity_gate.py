@@ -59,11 +59,11 @@ STOP_WORDS = {
     "gawin", "gagawa", "ginawa", "sabihin", "sabi", "alam", "gusto",
 }
 
-TOKEN_RE = re.compile(r"[a-zñ]+")
+TOKEN_RE = re.compile(r"[a-zñ0-9]+")
 
 
 def normalize_text(text: str) -> str:
-    """NFC-normalize, lowercase, strip digits/punctuation."""
+    """NFC-normalize and lowercase (keeps digits: math content is real content)."""
     text = unicodedata.normalize("NFC", text or "")
     return text.lower()
 
@@ -131,14 +131,23 @@ def load_lessons(pack_root: Path, include_legacy: bool) -> dict[str, dict]:
 def find_near_duplicates(
     lessons: dict[str, dict], threshold: float
 ) -> list[tuple[str, str, float]]:
-    """Pairwise Jaccard scan; O(n^2) is fine for ~600 lessons."""
+    """Pairwise Jaccard scan; O(n^2) is fine for ~600 lessons.
+
+    Same-objective pairs (spiraling curriculum practice groups) are only
+    flagged at near-identity (>= 0.95): sharing an objective and shell is
+    expected, sharing a body is the defect. Cross-objective pairs use the
+    regular threshold: those are genuine duplication signals.
+    """
     token_sets = {lid: tokenize(lesson_pedagogical_text(lesson)) for lid, lesson in lessons.items()}
+    objectives = {lid: lesson.get("objective", "") for lid, lesson in lessons.items()}
     pairs: list[tuple[str, str, float]] = []
     ids = list(token_sets)
     for i in range(len(ids)):
         for j in range(i + 1, len(ids)):
             sim = jaccard(token_sets[ids[i]], token_sets[ids[j]])
-            if sim >= threshold:
+            same_obj = objectives[ids[i]] == objectives[ids[j]]
+            cutoff = 0.95 if same_obj else threshold
+            if sim >= cutoff:
                 pairs.append((ids[i], ids[j], sim))
     pairs.sort(key=lambda p: -p[2])
     return pairs

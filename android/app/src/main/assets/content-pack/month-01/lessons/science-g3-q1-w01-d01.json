@@ -1,378 +1,377 @@
 {
- "lessonId": "science-g3-q1-w01-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 1,
- "subject": "science",
- "title": "Life Around Us · Q1 W01 D01",
- "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
- "vocabulary": [
-  {
-   "term": "a mango tree — living",
-   "definition": "observable evidence"
-  },
-  {
-   "term": "a dog — living",
-   "definition": "safe example"
-  },
-  {
-   "term": "a rock — non-living",
-   "definition": "connected idea"
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-q1-w01-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q1-w01-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Explore each example and find the important detail.",
-   "content": {
-    "examples": [
-     "a mango tree — living",
-     "a dog — living",
-     "a rock — non-living",
-     "roots help a plant take in water"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Explore each example and find the important detail.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q1-w01-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Sort each example into the correct group.",
-   "content": {
-    "fits": [
-     "a mango tree — living",
-     "a dog — living",
-     "a rock — non-living",
-     "roots help a plant take in water"
-    ],
-    "doesNotFit": [
-     "taste an unknown material",
-     "look directly at the Sun",
-     "use a dangerous tool alone",
-     "make a claim without observing"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Sort each example into the correct group.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q1-w01-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Choose the best answer.",
-   "content": {
-    "options": [
-     "a mango tree — living",
-     "taste an unknown material",
-     "look directly at the Sun",
-     "use a dangerous tool alone"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Choose the best answer.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q1-w01-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Match the ideas that belong together.",
-   "content": {
-    "pairs": [
-     {
-      "left": "a mango tree — living",
-      "right": "observable evidence"
-     },
-     {
-      "left": "a dog — living",
-      "right": "safe example"
-     },
-     {
-      "left": "a rock — non-living",
-      "right": "connected idea"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Match the ideas that belong together.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q1-w01-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "science-g3-q1-w01-d01-visual",
-   "instruction": "Put the steps in the correct order.",
-   "content": {
-    "steps": [
-     "Observe safely",
-     "Name the property or pattern",
-     "Compare the examples",
-     "Explain what the evidence shows"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Put the steps in the correct order.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-q1-w01-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Life Around Us?",
-    "options": [
-     {
-      "id": "a",
-      "text": "look directly at the Sun"
-     },
-     {
-      "id": "b",
-      "text": "use a dangerous tool alone"
-     },
-     {
-      "id": "c",
-      "text": "a mango tree — living"
-     },
-     {
-      "id": "d",
-      "text": "taste an unknown material"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The best answer is: a mango tree — living"
-   },
-   {
-    "itemId": "science-g3-q1-w01-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Life Around Us?",
-    "options": [
-     {
-      "id": "a",
-      "text": "make a claim without observing"
-     },
-     {
-      "id": "b",
-      "text": "a dog — living"
-     },
-     {
-      "id": "c",
-      "text": "look directly at the Sun"
-     },
-     {
-      "id": "d",
-      "text": "use a dangerous tool alone"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "The best answer is: a dog — living"
-   },
-   {
-    "itemId": "science-g3-q1-w01-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Life Around Us?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a rock — non-living"
-     },
-     {
-      "id": "b",
-      "text": "use a dangerous tool alone"
-     },
-     {
-      "id": "c",
-      "text": "make a claim without observing"
-     },
-     {
-      "id": "d",
-      "text": "taste an unknown material"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The best answer is: a rock — non-living"
-   },
-   {
-    "itemId": "science-g3-q1-w01-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Life Around Us?",
-    "options": [
-     {
-      "id": "a",
-      "text": "make a claim without observing"
-     },
-     {
-      "id": "b",
-      "text": "taste an unknown material"
-     },
-     {
-      "id": "c",
-      "text": "look directly at the Sun"
-     },
-     {
-      "id": "d",
-      "text": "roots help a plant take in water"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "The best answer is: roots help a plant take in water"
-   },
-   {
-    "itemId": "science-g3-q1-w01-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Life Around Us?",
-    "options": [
-     {
-      "id": "a",
-      "text": "look directly at the Sun"
-     },
-     {
-      "id": "b",
-      "text": "use a dangerous tool alone"
-     },
-     {
-      "id": "c",
-      "text": "a mango tree — living"
-     },
-     {
-      "id": "d",
-      "text": "taste an unknown material"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The best answer is: a mango tree — living"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-q1-w01-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "science",
+  "title": "Life Around Us · Q1 W01 D01",
+  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
+  "vocabulary": [
+    {
+      "term": "living thing",
+      "definition": "something that grows, needs food and water, and can respond"
+    },
+    {
+      "term": "non-living thing",
+      "definition": "something that does not grow or need food and water"
+    },
+    {
+      "term": "basic need",
+      "definition": "something a living thing must have to live, like food and water"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "science-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+      "content": "a mango tree is a living thing: it grows and needs food and water. a rock is non-living, so it does not grow.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+      "narration": "a mango tree is a living thing: it grows and needs food and water. a rock is non-living, so it does not grow.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "a mango tree is a living thing: it grows and needs food and water. a rock is non-living, so it does not grow."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Explore each example. a mango tree and a dog are living, but a rock is not.",
+      "content": {
+        "examples": [
+          "a mango tree — living",
+          "a dog — living",
+          "roots help a plant take in water",
+          "a rock — non-living"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Explore each example. a mango tree and a dog are living, but a rock is not.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Sort the examples: a mango tree and a dog are living things.",
+      "content": {
+        "fits": [
+          "a mango tree — living",
+          "a dog — living",
+          "roots help a plant take in water"
+        ],
+        "doesNotFit": [
+          "a rock — non-living",
+          "water",
+          "a pencil",
+          "a spoon"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Sort the examples: a mango tree and a dog are living things.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Choose the best answer. Ask: does it grow, and does it need food and water?",
+      "content": {
+        "options": [
+          "a mango tree",
+          "water",
+          "a pencil",
+          "a spoon"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Choose the best answer. Ask: does it grow, and does it need food and water?",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Match a mango tree, a dog, and a rock with their groups.",
+      "content": {
+        "pairs": [
+          {
+            "left": "a mango tree",
+            "right": "living thing"
+          },
+          {
+            "left": "a rock",
+            "right": "non-living thing"
+          },
+          {
+            "left": "roots help a plant take in water",
+            "right": "a plant part"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Match a mango tree, a dog, and a rock with their groups.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d01-visual",
+      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "content": {
+        "steps": [
+          "Observe the example: a mango tree",
+          "Ask: does it grow?",
+          "Check what it needs",
+          "Sort it as living or not"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q1-w01-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a living thing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a mango tree"
+          },
+          {
+            "id": "b",
+            "text": "water"
+          },
+          {
+            "id": "c",
+            "text": "a pencil"
+          },
+          {
+            "id": "d",
+            "text": "a spoon"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The best answer is: a mango tree"
+      },
+      {
+        "itemId": "science-g3-q1-w01-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is NOT a living thing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a rock"
+          },
+          {
+            "id": "b",
+            "text": "a mango tree"
+          },
+          {
+            "id": "c",
+            "text": "a dog"
+          },
+          {
+            "id": "d",
+            "text": "water"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The best answer is: a rock"
+      },
+      {
+        "itemId": "science-g3-q1-w01-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What do all living things need to grow?",
+        "options": [
+          {
+            "id": "a",
+            "text": "food and water"
+          },
+          {
+            "id": "b",
+            "text": "a battery"
+          },
+          {
+            "id": "c",
+            "text": "a plastic cover"
+          },
+          {
+            "id": "d",
+            "text": "a quiet shelf"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The best answer is: food and water"
+      },
+      {
+        "itemId": "science-g3-q1-w01-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What body part helps a plant take in water?",
+        "options": [
+          {
+            "id": "a",
+            "text": "roots"
+          },
+          {
+            "id": "b",
+            "text": "wings"
+          },
+          {
+            "id": "c",
+            "text": "fur"
+          },
+          {
+            "id": "d",
+            "text": "wheels"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The best answer is: roots"
+      },
+      {
+        "itemId": "science-g3-q1-w01-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example shows a living thing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a dog"
+          },
+          {
+            "id": "b",
+            "text": "a rock"
+          },
+          {
+            "id": "c",
+            "text": "a pencil"
+          },
+          {
+            "id": "d",
+            "text": "a spoon"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The best answer is: a dog"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
