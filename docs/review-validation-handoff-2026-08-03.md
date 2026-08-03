@@ -604,11 +604,44 @@ The adversarial review's headline finding was fixed on `main` in commit `fd7cfb4
 - **Similarity gate upgraded** (`tools/content_similarity_gate.py`): digits are content tokens (math equations count); same-objective pairs flagged only ≥0.95 (spiraling practice groups are expected to share objective+shell); cross-objective ≥0.70. Result: **flagged pairs 1,154 → 473 (−59%)**; all repaired groups cleared. Final report: `docs/content-similarity-report-2026-08-03-final.json`.
 - All tools have regression tests (54 tool tests OK); `verifyPlayableContent` + `testDebugUnitTest` green.
 
-**Remaining flagged clusters (next wave, not yet repaired):**
-- Filipino bodies: Munting Talata (16), simuno/panaguri activity bodies (10+7+4+4) — assessment items were fixed earlier; activity bodies still byte-identical.
-- Makabansa (16+5) and GMRC (15) groups — untouched.
-- Small leftovers: english-g3-q2-w04 (4), science q1-w01/q3-w05 groups, math rounding/place-value groups.
+**Remaining flagged clusters (updated 2026-08-03, third content wave):**
+- ~~Filipino bodies: Munting Talata (16), simuno/panaguri activity bodies (10+7+4+4)~~ — **DONE, see below.**
+- Makabansa (134 pairs) and GMRC (109 pairs) — untouched.
+- Small leftovers: English q2-w06/q2-w07 groups (22 pairs), math rounding/place-value groups (9 pairs).
 - P0 #2 residual: the universal 6-activity shell still exists in unrepaired groups (content-side, not a player bug).
+
+## Current Continuation Update — Filipino content repair (2026-08-03, third content wave)
+
+**DONE this wave (commit `d443fef`):** `android/tools/repair_filipino_content.py` +
+`test_repair_filipino_content.py` (14 tests) rebuilt all six Filipino skill groups
+(63 lessons). Similarity gate result: **Filipino 199 → 0 flagged pairs; total
+274 pairs / 25 clusters** (makabansa 134, gmrc 109, english 22, mathematics 9).
+All 63 lessons junk-free, 0 broken items, idempotent; `verifyPlayableContent` +
+`testDebugUnitTest` green.
+
+| Group | Lessons | Content |
+|---|---|---|
+| simuno/panaguri | 32 | 64-sentence pool, lesson i takes window `[2i..2i+4)` — unique 4-set per lesson, adjacent share only 2. All assessment options derive from the lesson's own block. |
+| munting talata | 12 | 12 authored G3 paragraphs; paksa/ideya/detalye/wakas items verbatim from each lesson's own paragraph. |
+| wastong pagsulat | 7 | 7 word sets (spelling, definition, cloze, authored misspellings never equal to real words). |
+| salitang-ugat | 4 | 4 root→related pair sets incl. a "HINDI galing sa ugat" discriminator item. |
+| magagalang na pananalita | 4 | 4 polite-phrase sets + impolite distractors. |
+| maikling buod | 4 | 4 authored stories; tauhan/suliranin/pangyayari/wakas items verbatim from each lesson's own story. |
+
+Filipino junk eliminated (2,069 → 0 instances across the pack): "salitang walang
+kaugnayan", "hindi magalang na pahayag", "hula na walang pahiwatig", "angkop na
+halimbawa", "malinaw na gamit", "tamang ideya", "paksang iba sa aralin".
+
+**Pitfalls learned (apply to Makabansa/GMRC waves):**
+1. Absolute distractor slices (`other[:3]`) saturate token-set unions → gate reports
+   1.00 for genuinely different lessons. Rotate windows per lesson index.
+2. Windows of (n−1) from an n-set still converge (3-of-4 stories = all others).
+   Use windows ≤ n/2 plus fixed/cross-element fillers.
+3. Options drawn from a shared pool leak pool tokens into every lesson — options
+   must come from the lesson's own content block.
+4. Static fragment strings must not collide with pool vocabulary.
+5. Answer sentences must be exact substrings of the lesson text (mind sentence
+   boundaries).
 
 ## Safe Continuation Commands
 
