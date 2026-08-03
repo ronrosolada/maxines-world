@@ -1,378 +1,378 @@
 {
- "lessonId": "english-g3-q3-w12-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 11,
- "day": 2,
- "subject": "english",
- "title": "Story Clue Crew · Q3 W12 D02",
- "objective": "Use details from a story to explain characters, events, and ideas.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
- "vocabulary": [
-  {
-   "term": "a character's action",
-   "definition": "a correct example"
-  },
-  {
-   "term": "the setting",
-   "definition": "a related example"
-  },
-  {
-   "term": "an important event",
-   "definition": "another example"
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q3-w12-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  },
-  {
-   "activityId": "english-g3-q3-w12-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
-   "content": {
-    "examples": [
-     "a character's action",
-     "the setting",
-     "an important event",
-     "a clue from the text"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Explore each example and find the important detail.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  },
-  {
-   "activityId": "english-g3-q3-w12-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Sort each example into the correct group.",
-   "content": {
-    "fits": [
-     "a character's action",
-     "the setting",
-     "an important event",
-     "a clue from the text"
-    ],
-    "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Sort each example into the correct group.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  },
-  {
-   "activityId": "english-g3-q3-w12-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Choose the best answer.",
-   "content": {
-    "options": [
-     "a character's action",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Choose the best answer.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  },
-  {
-   "activityId": "english-g3-q3-w12-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Match the ideas that belong together.",
-   "content": {
-    "pairs": [
-     {
-      "left": "a character's action",
-      "right": "a correct example"
-     },
-     {
-      "left": "the setting",
-      "right": "a related example"
-     },
-     {
-      "left": "an important event",
-      "right": "another example"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Match the ideas that belong together.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  },
-  {
-   "activityId": "english-g3-q3-w12-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w12-d02-visual",
-   "instruction": "Put the steps in the correct order.",
-   "content": {
-    "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Put the steps in the correct order.",
-   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q3-w12-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Detail Tracker?",
-    "options": [
-     {
-      "id": "a",
-      "text": "an unrelated fact"
-     },
-     {
-      "id": "b",
-      "text": "a title from another text"
-     },
-     {
-      "id": "c",
-      "text": "main idea: mango trees give fruit"
-     },
-     {
-      "id": "d",
-      "text": "a personal guess"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The best answer is: main idea: mango trees give fruit"
-   },
-   {
-    "itemId": "english-g3-q3-w12-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Detail Tracker?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a detail not mentioned"
-     },
-     {
-      "id": "b",
-      "text": "detail: flowers grow first"
-     },
-     {
-      "id": "c",
-      "text": "an unrelated fact"
-     },
-     {
-      "id": "d",
-      "text": "a title from another text"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "The best answer is: detail: flowers grow first"
-   },
-   {
-    "itemId": "english-g3-q3-w12-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Detail Tracker?",
-    "options": [
-     {
-      "id": "a",
-      "text": "detail: fruit ripens later"
-     },
-     {
-      "id": "b",
-      "text": "a title from another text"
-     },
-     {
-      "id": "c",
-      "text": "a detail not mentioned"
-     },
-     {
-      "id": "d",
-      "text": "a personal guess"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The best answer is: detail: fruit ripens later"
-   },
-   {
-    "itemId": "english-g3-q3-w12-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Detail Tracker?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a detail not mentioned"
-     },
-     {
-      "id": "b",
-      "text": "a personal guess"
-     },
-     {
-      "id": "c",
-      "text": "an unrelated fact"
-     },
-     {
-      "id": "d",
-      "text": "detail: trees need sunlight"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "The best answer is: detail: trees need sunlight"
-   },
-   {
-    "itemId": "english-g3-q3-w12-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Detail Tracker?",
-    "options": [
-     {
-      "id": "a",
-      "text": "an unrelated fact"
-     },
-     {
-      "id": "b",
-      "text": "a title from another text"
-     },
-     {
-      "id": "c",
-      "text": "main idea: mango trees give fruit"
-     },
-     {
-      "id": "d",
-      "text": "a personal guess"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The best answer is: main idea: mango trees give fruit"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q3-w12-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 2,
+  "subject": "english",
+  "title": "Story Clue Crew · Q3 W12 D02",
+  "objective": "Use details from a story to explain characters, events, and ideas.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
+  "vocabulary": [
+    {
+      "term": "character",
+      "definition": "the person or animal in the story"
+    },
+    {
+      "term": "setting",
+      "definition": "where and when the story happens"
+    },
+    {
+      "term": "event",
+      "definition": "something that happens in the story"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w12-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Study the idea and listen to Milo.",
+      "content": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Study the idea and listen to Milo.",
+      "narration": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'"
+    },
+    {
+      "activityId": "english-g3-q3-w12-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Explore each example and find the important detail.",
+      "content": {
+        "examples": [
+          "the character: Ben and the ants",
+          "the setting: the yard",
+          "the event: the ants marched in a line carrying food",
+          "the clue: Each ant carried a small piece of food."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Explore each example and find the important detail.",
+      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Sort each example into the correct group.",
+      "content": {
+        "fits": [
+          "the character: Ben and the ants",
+          "the setting: the yard",
+          "the event: the ants marched in a line carrying food",
+          "the clue: Each ant carried a small piece of food."
+        ],
+        "doesNotFit": [
+          "The ants carried stones.",
+          "Ben fed the ants bread.",
+          "The ants were flying home.",
+          "Ben stepped on the ants."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Sort each example into the correct group.",
+      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Choose the best answer.",
+      "content": {
+        "options": [
+          "The ants carried stones.",
+          "the character: Ben and the ants",
+          "Ben fed the ants bread.",
+          "The ants were flying home."
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Choose the best answer.",
+      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Match the ideas that belong together.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ben and the ants",
+            "right": "character"
+          },
+          {
+            "left": "the yard",
+            "right": "setting"
+          },
+          {
+            "left": "the ants marched in a line carrying food",
+            "right": "event"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Match the ideas that belong together.",
+      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d02-visual",
+      "instruction": "Put the steps in the correct order.",
+      "content": {
+        "steps": [
+          "Read the story",
+          "Find the character",
+          "Find the setting",
+          "Look for what happened"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! You found the key idea. 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Put the steps in the correct order.",
+      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w12-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Who is in the story?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the mailman"
+          },
+          {
+            "id": "b",
+            "text": "Ben and the ants"
+          },
+          {
+            "id": "c",
+            "text": "the teacher"
+          },
+          {
+            "id": "d",
+            "text": "the cook"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The best answer is: Ben and the ants"
+      },
+      {
+        "itemId": "english-g3-q3-w12-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Where does the story happen?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the market"
+          },
+          {
+            "id": "b",
+            "text": "the yard"
+          },
+          {
+            "id": "c",
+            "text": "the beach"
+          },
+          {
+            "id": "d",
+            "text": "the school"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The best answer is: the yard"
+      },
+      {
+        "itemId": "english-g3-q3-w12-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What happened in the story?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The ants carried stones."
+          },
+          {
+            "id": "b",
+            "text": "the ants marched in a line carrying food"
+          },
+          {
+            "id": "c",
+            "text": "Ben fed the ants bread."
+          },
+          {
+            "id": "d",
+            "text": "The ants were flying home."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The best answer is: the ants marched in a line carrying food"
+      },
+      {
+        "itemId": "english-g3-q3-w12-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which detail is TRUE from the story?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The ants carried stones."
+          },
+          {
+            "id": "b",
+            "text": "Each ant carried a small piece of food."
+          },
+          {
+            "id": "c",
+            "text": "Ben fed the ants bread."
+          },
+          {
+            "id": "d",
+            "text": "The ants were flying home."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The best answer is: Each ant carried a small piece of food."
+      },
+      {
+        "itemId": "english-g3-q3-w12-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "How did Ben feel at the end of the story?",
+        "options": [
+          {
+            "id": "a",
+            "text": "angry"
+          },
+          {
+            "id": "b",
+            "text": "amazed"
+          },
+          {
+            "id": "c",
+            "text": "sleepy"
+          },
+          {
+            "id": "d",
+            "text": "hungry"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The best answer is: amazed"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": false
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
