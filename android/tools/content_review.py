@@ -526,12 +526,34 @@ def profile_for(lesson: dict[str, Any]) -> dict[str, Any]:
 def make_assessment(profile: dict[str, Any], lesson_id: str) -> dict[str, Any]:
     checks = list(profile.get("checks", []))
     examples = profile["examples"]
+    prompt_templates = (
+        [
+            "Which example belongs to {title}?",
+            "Which choice shows the skill in {title}?",
+            "What is one example from {title}?",
+            "Which situation matches {title}?",
+            "Which answer demonstrates {title}?",
+        ]
+        if profile.get("language") != "fil-PH"
+        else [
+            "Aling halimbawa ang kabilang sa {title}?",
+            "Aling pagpipilian ang nagpapakita ng kasanayan sa {title}?",
+            "Alin ang isang halimbawa ng {title}?",
+            "Aling sitwasyon ang tumutugma sa {title}?",
+            "Aling sagot ang nagpapakita ng {title}?",
+        ]
+    )
     while len(checks) < 5:
         idx = len(checks)
+        correct = examples[idx % len(examples)]
         checks.append((
-            f"Which statement best fits {profile['title']}?",
-            profile["explain"].split(".")[0] + ".",
-            [profile["wrong"][idx % len(profile["wrong"])], profile["wrong"][(idx + 1) % len(profile["wrong"])], profile["wrong"][(idx + 2) % len(profile["wrong"])]]
+            prompt_templates[idx].format(title=profile["title"]),
+            correct,
+            [
+                profile["wrong"][idx % len(profile["wrong"])],
+                profile["wrong"][(idx + 1) % len(profile["wrong"])],
+                profile["wrong"][(idx + 2) % len(profile["wrong"])],
+            ],
         ))
     items = []
     for n, (prompt, correct, wrong) in enumerate(checks[:5], start=1):

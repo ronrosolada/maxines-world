@@ -105,6 +105,40 @@ class ContentReviewTest(unittest.TestCase):
         ):
             self.assertNotIn(filler, blob)
 
+    def test_generated_assessment_prompts_are_unique_and_topic_grounded(self):
+        lessons = [
+            {
+                "lessonId": "mathematics-g3-q1-w01-d01",
+                "subject": "MATHEMATICS",
+                "title": "Shape Trail",
+                "objective": "Recognize and describe points, lines, line segments, rays, and special line relationships.",
+                "language": "en-PH",
+                "vocabulary": [],
+                "activities": [],
+                "assessment": {"items": []},
+            },
+            {
+                "lessonId": "filipino-g3-q2-w06-d03",
+                "subject": "FILIPINO",
+                "title": "Bahagi ng Pangungusap",
+                "objective": "Natutukoy ang mga bahagi ng payak na pangungusap.",
+                "language": "fil-PH",
+                "vocabulary": [],
+                "activities": [],
+                "assessment": {"items": []},
+            },
+        ]
+        for lesson in lessons:
+            curated = curate_lesson(lesson)
+            items = curated["assessment"]["items"]
+            prompts = [item["prompt"] for item in items]
+            self.assertEqual(len(prompts), len(set(prompts)))
+            self.assertTrue(all(len(item["correctOptionIds"]) == 1 for item in items))
+            for item in items:
+                correct = item["correctOptionIds"][0]
+                option_ids = {option["id"] for option in item["options"]}
+                self.assertIn(correct, option_ids)
+
     def test_live_mcq_correct_position_varies_by_lesson(self):
         profile = profile_for({
             "lessonId": "mathematics-g3-q1-w01-d01",
