@@ -334,3 +334,37 @@ Gradle unit tests + :app:verifyPlayableContent: BUILD SUCCESSFUL
 1. Reduce repeated lesson/module titles where repetition harms navigation.
 2. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the visual boards.
 3. Address the code follow-ups listed in §9.3 through the Android app owner.
+
+---
+
+## 13. Current validation after repeated lesson-title cleanup — 2026-08-03
+
+Sections 7, 9.2, 10, 11, and 12 preserve the historical findings and prior validations. The current `main` state is now `3ea2545` (`docs: record lesson title disambiguation`), with content changes in `e8119f4` (`fix(content): disambiguate repeated lesson titles`).
+
+### Resolved since §12
+
+- **Duplicate lesson titles:** removed all 58 duplicate-title groups covering 256 lessons.
+- **Navigation clarity:** repeated titles now carry deterministic quarter/week/day or legacy module/day qualifiers.
+- **Scope control:** only the JSON `title` field changed in those 256 lesson files; lesson IDs, objectives, activities, assessments, vocabulary, and release metadata were preserved.
+- **Regression protection:** added `android/tools/dedupe_lesson_titles.py` and `android/tools/test_dedupe_lesson_titles.py`; the check is idempotent and reports zero duplicate title groups.
+
+### Current checks
+
+```text
+349 lesson files
+349 unique lesson IDs
+349 unique lesson titles
+0 duplicate-title groups
+256 lesson files changed
+0 non-title JSON changes
+14/14 Python content and asset tests passed
+Gradle unit tests + lint + :app:verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+The qualifiers improve deterministic module-lesson navigation but remain suitable for later editorial refinement during independent educator review.
+
+### Current remaining priorities
+
+1. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the visual boards.
+2. Address the code follow-ups listed in §9.3 through the Android app owner.
