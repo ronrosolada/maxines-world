@@ -559,6 +559,43 @@ Prioritize the remaining work in this order:
 13. Reconcile the coin-award implementation with product documentation.
 14. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
+## Current Continuation Update — external adversarial review received and verified (2026-08-03 evening)
+
+An external LLM adversarial educational-content review was received and archived verbatim at [`docs/external-llm-review-adversarial-2026-08-03.md`](external-llm-review-adversarial-2026-08-03.md). Its claims were verified against current `main` (HEAD `0ee9eee`) before being accepted.
+
+### Claim verification (all confirmed)
+
+| Review claim | Code evidence |
+|---|---|
+| Authored assessment items are never played | `LessonManifest.assessment` exists (core-model/Models.kt:40) but `convertToLessonManifest()` never populates it — `steps = m1.activities.map { ... }` only (LessonPlayerViewModel.kt:215); `totalSteps = lesson.steps.size` (line 90), so completion happens after the 6 activities |
+| Vocabulary card shown on every step | `LessonContent` renders `VocabularyCard` above every step when terms exist (LessonPlayerScreen.kt:131–135) |
+| Narration repeated on explanation screens | Generic narration card (LessonPlayerScreen.kt:173–181) **and** `ExplanationStep` both render `step.narrationText` (line 262) |
+| English chrome on Filipino lessons | "New Words" (line 51), "Read Along" (line 222), "Continue" (line 270), "Next"/"Try Next" (line 287), "Lesson Complete!" (line 340) — all hardcoded English |
+| Generic sort labels ("Fits the lesson" / "Does not fit") | Hardcoded in `toActivityStep` (LessonPlayerViewModel.kt:275) |
+| Reduced-motion not wired in lesson-complete | `val reducedMotion = false // TODO: wire system setting` (LessonPlayerScreen.kt:323) |
+| Six-activity universal shell | `rendererType()` maps exactly ANIMATED_EXPLANATION, MULTIPLE_CHOICE, SORT_AND_CLASSIFY, HOTSPOT_IMAGE, MATCHING_PAIRS, SEQUENCE_BUILDER, INTERACTIVE_SPEC (LessonPlayerViewModel.kt:221–230); all 349 lessons carry 6 activities |
+| Deterministic shuffle for SORT only; MCQ positions not runtime-randomized | SORT items are shuffled deterministically (line 277); MULTIPLE_CHOICE uses the authored `correctIndex` verbatim (lines 280–284) — no runtime option remap |
+
+No contradicted claims were found. The review is accepted as a current-state assessment.
+
+### Response plan
+
+1. **P0 — assessment delivery path:** map `m1.assessment.items` into a distinct playable assessment phase appended after activities; track a `phase` in the player state instead of treating every screen as an equivalent step; only scored practice contributes to accuracy (the first-steps/wildlife badge reveal already uses scored results).
+2. **P0 — chrome and narration fixes (quick wins):** show vocabulary once (or on demand), remove the duplicated narration card on explanation steps, localize lesson chrome strings per `languageOfInstruction`.
+3. **P0 — content blocking:** block known contradictory/profile-mismatched lessons; add a normalized-content similarity gate across the 349 lessons; create source-to-lesson traces for quarterly conversions.
+4. **P1 — distractor/feedback quality:** misconception-based distractors, actionable corrective feedback, at least one transfer item per assessment, runtime-deterministic option remapping.
+5. **P1 — semantic QA pipeline + golden lessons per subject** with educator sign-off; child tests.
+6. **Process:** release approval must reference a reviewed commit, not metadata; keep incremental subject/module releases.
+
+### Recommended next steps (updated)
+
+1. ✅ through ✅ — all previously completed items unchanged (see list above).
+2. **Deliver the authored assessment phase in the lesson player** (P0, review item 1).
+3. **Fix lesson chrome: vocabulary once, no narration duplication, localized labels** (P0, review item 5).
+4. **Build the semantic QA pipeline** — objective-verb vs task checks, duplication gate, assessment alignment (P1, review item 5).
+5. **Golden lessons + educator sign-off** for one module per subject (P2, review rollout phase 2).
+6. Then the remaining code follow-ups (PIN throttling, reduced motion, resume UX, streaks, coins).
+
 ## Safe Continuation Commands
 
 Before making additional changes:
