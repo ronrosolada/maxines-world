@@ -3,6 +3,9 @@ package com.maxinesworld.engineactivity
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.MatchPair
 import com.maxinesworld.coremodel.SortItem
+import com.maxinesworld.engineactivity.renderers.HotspotProgress
+import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
+import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -47,5 +50,29 @@ class RendererContractTest {
         val a = (0 until 3).shuffled(java.util.Random(id.hashCode().toLong()))
         val b = (0 until 3).shuffled(java.util.Random(id.hashCode().toLong()))
         assertEquals(a, b)
+    }
+
+    @Test
+    fun `multi-target hotspot completes only after every unique target is visited`() {
+        val first = recordHotspotTargetTap(HotspotProgress(), index = 0, targetCount = 3)
+        val second = recordHotspotTargetTap(first, index = 1, targetCount = 3)
+        val duplicate = recordHotspotTargetTap(second, index = 1, targetCount = 3)
+        val complete = recordHotspotTargetTap(duplicate, index = 2, targetCount = 3)
+
+        assertEquals(setOf(0), first.visited)
+        assertTrue(!first.completed)
+        assertEquals(setOf(0, 1), second.visited)
+        assertEquals(second, duplicate)
+        assertEquals(setOf(0, 1, 2), complete.visited)
+        assertTrue(complete.completed)
+        assertEquals(3, complete.attempts)
+    }
+
+    @Test
+    fun `hotspot grid keeps five and eight targets in separate cells`() {
+        assertEquals(2, hotspotGridColumns(4))
+        assertEquals(3, hotspotGridColumns(5))
+        assertEquals(3, hotspotGridColumns(8))
+        assertEquals(4, hotspotGridColumns(10))
     }
 }

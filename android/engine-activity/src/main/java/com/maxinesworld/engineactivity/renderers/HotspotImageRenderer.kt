@@ -15,15 +15,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 
+internal data class HotspotProgress(
+    val visited: Set<Int> = emptySet(),
+    val attempts: Int = 0,
+    val completed: Boolean = false
+)
+
+/** Records one unique target visit for an ALL_TARGETS_VISITED hotspot activity. */
+internal fun recordHotspotTargetTap(
+    progress: HotspotProgress,
+    index: Int,
+    targetCount: Int
+): HotspotProgress {
+    if (progress.completed || index < 0 || index in progress.visited) return progress
+    val visited = progress.visited + index
+    return progress.copy(
+        visited = visited,
+        attempts = progress.attempts + 1,
+        completed = visited.size >= targetCount.coerceAtLeast(1)
+    )
+}
+
+internal fun hotspotGridColumns(hotspotCount: Int): Int = when {
+    hotspotCount <= 1 -> 1
+    hotspotCount <= 4 -> 2
+    hotspotCount <= 9 -> 3
+    else -> 4
+}
+
 /**
  * Hotspot image: tappable regions overlaid on a placeholder image area.
- * Each region highlights on tap, shows success/correct feedback.
- * Options describe hotspot labels; correctIndex identifies the target region.
+ * Single-answer activities finish on one correct tap. ALL_TARGETS_VISITED
+ * activities remain interactive until every unique target has been visited.
  */
 @Composable
 fun HotspotImageRenderer(
@@ -36,10 +65,17 @@ fun HotspotImageRenderer(
     var attempts by remember { mutableIntStateOf(0) }
     var tappedRegion by remember { mutableIntStateOf(-1) }
     var result by remember { mutableStateOf<Boolean?>(null) } // null = unanswered
+    var hotspotProgress by remember { mutableStateOf(HotspotProgress()) }
 
-    val hotspots = step.options.ifEmpty { listOf("Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right") }
+    val hotspots = step.hotspotExamples
+        .ifEmpty { step.options }
+        .ifEmpty { listOf("Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right") }
+    val allTargetsRequired = step.completionRule == "ALL_TARGETS_VISITED"
+    val targetCount = step.completionTargetCount
+        .takeIf { it > 0 }
+        ?.coerceAtMost(hotspots.size)
+        ?: hotspots.size
     val targetIndex = if (step.correctIndex in hotspots.indices) step.correctIndex else 0
-    val hotspotPositions = listOf(Alignment.TopStart, Alignment.TopEnd, Alignment.BottomStart, Alignment.BottomEnd)
 
     Column(
         modifier = modifier
@@ -53,30 +89,72 @@ fun HotspotImageRenderer(
             modifier = Modifier.semantics { contentDescription = "Hotspot: ${step.question}" }
         )
 
-        // Image placeholder with hotspot overlay
-        Box(
+        // Responsive example board with hotspot overlay. The content pack's
+        // example strings are the accessible/text fallback for the optional
+        // artwork asset, so never leave the board visually empty.
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(4f / 3f)
+                .height(220.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .background(StoryPurple.copy(alpha = 0.08f))
                 .border(2.dp, VillageTeal.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.TopStart
         ) {
-            Text(
-                text = if (step.imageAssets.isNotEmpty()) step.imageAssets.first() else "🖼️",
-                style = MaterialTheme.typography.displayMedium
-            )
+            val columns = hotspotGridColumns(hotspots.size)
+            val rows = (hotspots.size + columns - 1) / columns
+            val boardPadding = 16.dp
+            val cellWidth = (maxWidth - boardPadding * 2) / columns
+            val cellHeight = (maxHeight - boardPadding * 2) / rows
+            val hotspotSize = 48.dp
 
-            // Overlay hotspots in 4 corners
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(boardPadding),
+                verticalArrangement = Arrangement.SpaceEvenly
+            ) {
+                hotspots.chunked(columns).forEach { rowHotspots ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        rowHotspots.forEach { label ->
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight()
+                                    .padding(vertical = 8.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(Cream.copy(alpha = 0.82f))
+                                    .border(1.dp, VillageTeal.copy(alpha = 0.25f), RoundedCornerShape(12.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = label,
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.padding(40.dp, 12.dp, 12.dp, 12.dp)
+                                )
+                            }
+                        }
+                        repeat(columns - rowHotspots.size) { Spacer(Modifier.weight(1f)) }
+                    }
+                }
+            }
+
             hotspots.forEachIndexed { index, label ->
                 val isTarget = index == targetIndex
-                val isTapped = tappedRegion == index
+                val isVisited = index in hotspotProgress.visited
+                val isTapped = if (allTargetsRequired) isVisited else tappedRegion == index
                 val bgColor by animateColorAsState(
                     targetValue = when {
                         result == true && isTapped -> SuccessGreen
                         result == false && isTapped -> ErrorRed
-                        isTapped -> SunshineGold
+                        isVisited -> SunshineGold
                         else -> VillageTeal.copy(alpha = 0.6f)
                     },
                     label = "hotspot$index"
@@ -84,34 +162,57 @@ fun HotspotImageRenderer(
 
                 Box(
                     modifier = Modifier
-                        .align(hotspotPositions.getOrElse(index) { Alignment.Center })
-                        .padding(12.dp)
-                        .size(48.dp)
+                        .offset(
+                            x = boardPadding + cellWidth * (index % columns).toFloat() + (cellWidth - hotspotSize) / 2,
+                            y = boardPadding + cellHeight * (index / columns).toFloat() + 8.dp
+                        )
+                        .size(hotspotSize)
                         .clip(CircleShape)
                         .background(bgColor)
-                        .clickable(enabled = result == null) {
-                            tappedRegion = index
-                            attempts++
-                            val correct = isTarget
-                            result = correct
-                            onResult(
-                                ActivityResult(
-                                    activityId = step.id,
-                                    correct = correct,
-                                    attempts = attempts,
-                                    hintsUsed = 0,
-                                    responseTimeMs = System.currentTimeMillis() - startTime
+                        .clickable(enabled = result == null && (!allTargetsRequired || !isVisited)) {
+                            if (allTargetsRequired) {
+                                val nextProgress = recordHotspotTargetTap(hotspotProgress, index, targetCount)
+                                hotspotProgress = nextProgress
+                                if (nextProgress.completed) {
+                                    result = true
+                                    onResult(
+                                        ActivityResult(
+                                            activityId = step.id,
+                                            correct = true,
+                                            attempts = nextProgress.attempts,
+                                            hintsUsed = 0,
+                                            responseTimeMs = System.currentTimeMillis() - startTime
+                                        )
+                                    )
+                                }
+                            } else {
+                                tappedRegion = index
+                                attempts++
+                                val correct = isTarget
+                                result = correct
+                                onResult(
+                                    ActivityResult(
+                                        activityId = step.id,
+                                        correct = correct,
+                                        attempts = attempts,
+                                        hintsUsed = 0,
+                                        responseTimeMs = System.currentTimeMillis() - startTime
+                                    )
                                 )
-                            )
+                            }
                         }
                         .semantics {
                             contentDescription = "Hotspot $label" +
-                                if (result == true && isTapped) " — Correct!" else ""
+                                when {
+                                    result == true && isTapped -> " — Correct!"
+                                    isVisited -> " — Visited"
+                                    else -> ""
+                                }
                         },
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = if (result == true && isTapped) "✓" else "${index + 1}",
+                        text = if (isVisited) "✓" else "${index + 1}",
                         color = White,
                         style = MaterialTheme.typography.labelLarge
                     )
@@ -119,17 +220,28 @@ fun HotspotImageRenderer(
             }
         }
 
-        // Labels row
-        Row(
+        // Labels grid; keep longer content usable when a lesson has more than four targets.
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            hotspots.forEachIndexed { index, label ->
-                Text(
-                    text = "${index + 1}. $label",
-                    style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.semantics { contentDescription = "Region ${index + 1}: $label" }
-                )
+            hotspots.chunked(2).forEachIndexed { rowIndex, rowHotspots ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    rowHotspots.forEachIndexed { columnIndex, label ->
+                        val index = rowIndex * 2 + columnIndex
+                        Text(
+                            text = "${index + 1}. $label",
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier
+                                .weight(1f)
+                                .semantics { contentDescription = "Region ${index + 1}: $label" }
+                        )
+                    }
+                    if (rowHotspots.size == 1) Spacer(Modifier.weight(1f))
+                }
             }
         }
 
