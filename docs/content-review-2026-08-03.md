@@ -171,3 +171,63 @@ Every lesson has exactly 6 activities in a fixed order:
 - `android/feature-child-home/.../PlayroomHomeViewModel.kt` (6 canonical subjects; GMRC Available)
 - Content: `content-pack/month-01/lessons/*.json` (349), `content-pack/month-01/assets/vectors/*.svg` (100, m01 only)
 - Audit artifacts: `/tmp/mw-content-review/audit.out`, emulator dumps `/tmp/mw-emulator/*.png|xml`
+
+---
+
+## 9. Validation update — post-PR #26 (2026-08-03)
+
+**Validated against:** `main` @ `11b49af` (`fix: close educational content review P0s (#26)`), clean and synced.
+
+**Method:** re-ran the static audit (`/tmp/mw-content-review/audit.py`) on the current content-pack, plus direct source inspection and targeted scans. Note: `diff` of the pre- and post-#26 audit output is **empty** — the bundled lesson JSONs are byte-identical to the review baseline, i.e. PR #26 was code-only.
+
+**Automated checks** (from `/home/ron/workspace/maxines-world/repo/android`):
+
+```bash
+./gradlew testDebugUnitTest lintDebug :app:verifyPlayableContent   # exit 0
+./gradlew :app:connectedDebugAndroidTest :core-database:connectedDebugAndroidTest \
+  :feature-child-home:connectedDebugAndroidTest                    # 30/30 passed, 0 failed, 0 skipped
+```
+
+### 9.1 Fixed by PR #26 — verified on current `main`
+
+| Original finding | Status | Verification |
+|---|---|---|
+| §3: 26 Makabansa lessons unreachable (no UI path) | ✅ Fixed | `PlayroomHomeUiState.kt:111` defines the island (`id = "makabansa"`, playful name "Bayan at Kultura"). `ModuleCatalog.modulesFor()` is subject-agnostic — it groups any subject prefix found in lesson IDs — so the module/lesson list resolves once the island routes to `makabansa`. |
+| §4: Live (child-facing) Math filler — vocab definitions ("correct idea", "useful example", "check the concept"), sort cards, MCQ distractors | ✅ Fixed | Targeted scan of the **activity path only** (MCQ `content.options`, prompts, sort cards, pairs) across all 349 lessons: **0 occurrences** of "a random guess", "a mismatched unit", "an unrelated operation", "an answer with no label", "correct idea", "useful example", "check the concept". All 570 remaining hits (audit §6/§11) are confined to the unused `assessment` block. One `responsableng gawain` remains in `araling-panlipunan-g3-m01-d08` — educator-reviewed and assessed as legitimate, not filler. |
+| §4: Correct answer always option A (349/349), renderer never shuffled | ✅ Fixed at runtime | `MultipleChoiceRenderer.kt:194` shuffles options deterministically per step (`order.shuffle(Random(stepId.hashCode()))`). Static content still has strong correct-index bias (321/9/9/10 across 349 activity MCQs), but displayed order is re-shuffled, so "always tap the first card" no longer scores 5/5. The future assessment path must still shuffle and rebalance its own options before exposure. |
+
+### 9.2 Still valid on current `main` — content unchanged
+
+| Finding | Current evidence | Priority |
+|---|---|---|
+| Assessment filler: 570 option hits in the 38 quarterly Math lessons ("a mismatched unit" 152, "an unrelated operation" 152, "a random guess" 152, "an answer with no label" 114) | audit §6/§11; block still has no UI consumer (no screen/route — only `Scorer.kt` + tests reference it) | P1 — replace before the assessment flow is exposed |
+| Duplicate assessment prompts: 230 lessons repeat a prompt within their own 5-item set | audit §6 (`dup_prompt_in_lesson: 230`) | P1 |
+| Asset coverage: 1,994 activity `assetId` refs → 349 distinct IDs; only 100 SVGs (all `m01`); 1,494 refs unresolved → hotspot fallback labels | audit §7 + `assets/vectors` (100 files) | P1 — "Picture Detective" still has no picture |
+| English Q4 gap: quarterly English = q1 (20) + q2 (27) + q3 (26); no `english-g3-q4-*` files (93 lessons total incl. m01) | filename scan of `content-pack/month-01/lessons/` | P2 — author Q4 or document the coverage boundary |
+| Repeated titles / module subtitles | audit §8: English m01↔q1 exact-title overlap 18/20; `ModuleCatalog.kt:95` hides English m01 as mitigation; repeats persist elsewhere ("Shape Trail" ×3 in Q1-W01, "Picture Detective" ×4, Math "Multiplication Builders" ×4 consecutive modules) | P2 |
+| `educatorValidated=true` / `releaseStatus="RELEASED"` on 349/349 | audit §2 — self-attested metadata, not independent human curriculum sign-off | gate |
+| Legacy `ph-matatag` tree: 250 JSONs still shipped | `assets/content/ph-matatag/` — 250 JSON files. **Correction to the validation handoff's "count: 0" claim** (that check was scoped to the wrong root). Nuance vs. the original review: not strictly unreachable — `ContentLessonLoader.tryPath()` path 3 falls back to `content/ph-matatag/grade-3/{lessonId}.json`, and `ModuleCatalog` reads `grade-3/manifest.json` for legacy m01 titles. All 349 bundled IDs resolve via path 1, so the 250 lesson JSONs are fallback-only APK weight today. | P2 |
+
+### 9.3 Open code follow-ups (identified during validation, not yet addressed)
+
+1. **Reduced-motion:** `LessonPlayerScreen.kt` (~lines 322–326) hard-codes reduced-motion behavior instead of respecting the device accessibility setting.
+2. **Resume/completion UX:** `ModuleLessonsScreen.kt` / `ModuleLessonsViewModel.kt` don't expose completed lessons, current lesson, resume position, or recommended next lesson (Playroom-level subject progress does exist).
+3. **Parent streak:** `ParentDashboardScreen.kt` derives streak from display/activity strings rather than date-based completion records — review across consecutive days, timezone boundaries, duplicate completions, missed days.
+4. **PIN brute force:** `ParentAuthViewModel.kt` (~lines 85–95) clears input and shows "Incorrect PIN. Try again." with no attempt counter, delay, cooldown, or lockout.
+5. **Coins documentation contradiction:** the lesson flow persists and awards coins while related docs claim coins are no longer awarded — reconcile implementation with the documented reward policy.
+
+### 9.4 Prioritized remaining work (current state)
+
+| Pri | Item |
+|---|---|
+| P1 | Replace assessment filler in the 38 quarterly Math lessons |
+| P1 | Deduplicate assessment prompts in the 230 affected lessons |
+| P1 | Decide: quarterly SVG artwork, or intentionally redesign those activities as text-based (drops the 1,494 dangling refs) |
+| P2 | Resolve English Q4 gap or document the coverage boundary |
+| P2 | PIN attempt throttling + temporary lockout |
+| P2 | Proper reduced-motion support (respect system setting) |
+| P2 | Completion/resume state in module lesson lists |
+| P2 | Date-based parent streak calculation |
+| P2 | Reconcile coin-award implementation with product docs |
+| P2 | Reduce repeated lesson/module titles where repetition harms navigation |
+| Gate | Genuine independent educator review (factual accuracy, pedagogy, language, safety) — `mark_lessons_reviewed.py` must not run before it |
