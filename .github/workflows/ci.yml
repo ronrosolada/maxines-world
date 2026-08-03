@@ -110,6 +110,14 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: android
 
+      - name: Enable KVM for emulator
+        # Hosted runners ship /dev/kvm but the runner user is not in the kvm
+        # group (group is empty); without access the emulator runner falls back
+        # to -accel off and the API 34 image never boots in time.
+        run: |
+          sudo chmod 666 /dev/kvm
+          ls -l /dev/kvm
+
       - name: Run migration tests on emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
