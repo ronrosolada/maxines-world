@@ -31,7 +31,12 @@ This note records the implemented child-facing policy and the remaining visual/p
 - Accuracy can add up to 2 mastery stars (`>=80%`, `>=95%`).
 - Completion rewards remain idempotent through the deterministic key:
   `lesson-first:{childId}:{lessonId}`.
-- Coins are no longer awarded by the lesson flow; there is no child-facing economy until a meaningful cosmetic use exists.
+- Coins are still awarded by the lesson flow (10 per lesson at `>=80%` accuracy,
+  idempotent through the reward ledger) and shown as a balance in the rewards
+  hub, but there is no spend mechanism yet: no purchase, redeem, or exchange
+  flow exists in code. The intended policy is that coins become meaningful only
+  when a cosmetic use (e.g., Kindness Garden decorations) ships — until then
+  the balance is purely informational.
 - The Room database is now version 8 with a migration for `wildlife_expeditions`.
 
 ### Reduced motion

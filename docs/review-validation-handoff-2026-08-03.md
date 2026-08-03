@@ -199,21 +199,13 @@ The earlier handoff claim of "count: 0" was an error — that check was scoped t
 
 These were identified during validation and remain unresolved.
 
-### Reduced-motion support
+### Reduced-motion support — ✅ DONE (commit `8f3c43a`, 2026-08-03)
 
-The lesson player currently hard-codes reduced-motion behavior instead of clearly respecting the device accessibility setting.
+The lesson player previously hard-coded `reducedMotion = false // TODO: wire system setting`; the celebration confetti now honors `Settings.Global.ANIMATOR_DURATION_SCALE == 0` (Android reduced-motion preference). Particle generation and the infinite animation are skipped entirely when disabled.
 
-Relevant file:
+### Lesson resume and completion UX — ✅ DONE (commit `347494f`, 2026-08-03)
 
-```text
-android/feature-lesson-player/src/main/java/com/maxinesworld/featurelessonplayer/LessonPlayerScreen.kt
-```
-
-The relevant logic was around lines 322–326 during validation.
-
-### Lesson resume and completion UX
-
-The module lesson list does not clearly expose completed lessons, the current lesson, resume position, or a recommended next lesson.
+The module lesson list now layers persisted completion state (`LessonCompletionDao.observeDistinctLessonIds`) over the catalog: header shows "X of Y complete · keep going! / module done! 🎉"; completed rows show a ✓ chip, green tint, and check icon; the first incomplete lesson in module order gets a gold border and "Up next — tap to continue" as the child's resume point. 7 unit tests for the `nextLessonId()` helper.
 
 Relevant files:
 
@@ -222,11 +214,9 @@ android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/Modul
 android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/ModuleLessonsViewModel.kt
 ```
 
-The Playroom does calculate subject-level progress from persisted completions, but the module list needs a stronger learner resume experience.
+### Parent streak calculation — ✅ DONE (commit `3fad627`, 2026-08-03)
 
-### Parent streak calculation
-
-The parent dashboard streak logic appears to derive information from display/activity strings rather than robust date-based records. Review behavior across consecutive days, timezone boundaries, duplicate completions, and missed days.
+The dashboard now computes a real consecutive-day streak in the child's local timezone. Old logic counted distinct recent-activity strings (which contained no dates) as "streak days"; new logic uses `longestStreak()` over local dates derived from event timestamps, breaking on gaps and handling duplicates. The UTC date bucketing that shifted pre-8am Manila completions to the previous day is fixed. 11 unit tests incl. month/year boundaries and Manila timezone cases.
 
 Relevant file:
 
@@ -234,15 +224,9 @@ Relevant file:
 android/feature-parent/src/main/java/com/maxinesworld/featureparent/ParentDashboardScreen.kt
 ```
 
-### PIN brute-force protection
+### PIN brute-force protection — ✅ DONE (commit `34aef08`, 2026-08-03)
 
-PIN verification currently clears the input and displays:
-
-```text
-Incorrect PIN. Try again.
-```
-
-No failed-attempt counter, delay, cooldown, or temporary lockout was found.
+Lockout implemented: persistent failed-attempt counter + lockout deadline in DataStore (survives process restarts). Policy: lock after 5 consecutive failures, escalating 30s → 60s → 120s → 240s, capped 300s. Correct PIN rejected while locked; counter resets on success. 6 regression tests in `ParentAuthLockoutTest.kt`.
 
 Relevant file:
 
@@ -250,13 +234,9 @@ Relevant file:
 android/feature-auth/src/main/java/com/maxinesworld/featureauth/ParentAuthViewModel.kt
 ```
 
-The verification path was around lines 85–95 during validation.
+### Coins documentation contradiction — ✅ DONE (2026-08-03)
 
-### Coins documentation contradiction
-
-The current lesson flow persists and awards coins, while related documentation says coins are no longer awarded. The claim that coins are not awarded is therefore not accurate for current code.
-
-Reconcile the implementation and documentation, then document the intended reward policy clearly.
+Reconciled `docs/grand-ux-gamification-implementation.md`: coins ARE awarded by the lesson flow (10 per lesson at `>=80%` accuracy, idempotent via the reward ledger) and shown as a balance in the rewards hub, but there is no spend mechanism in code. Policy documented: the balance stays informational until a cosmetic use (e.g., Kindness Garden decorations) ships.
 
 ## Validation Already Completed
 
