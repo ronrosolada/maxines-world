@@ -121,7 +121,6 @@ jobs:
           heap-size: 512M
           force-avd-creation: true
           emulator-boot-timeout: 900
-          disable-linux-hw-accel: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: android
