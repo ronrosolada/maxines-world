@@ -268,3 +268,39 @@ The release gate still reports 349 educator-reviewed lessons because approval me
 4. Complete genuine independent educator review for factual accuracy, pedagogy, language, and safety.
 5. Address the code follow-ups listed in §9.3 through the Android app owner.
 
+---
+
+## 11. Current validation after quarterly visual asset completion — 2026-08-03
+
+Sections 7, 9.2, and 10 preserve the historical and assessment-fix findings. The current `main` state is now `1c61805`, with quarterly assets and generator changes in `d34f4e7` (`feat(content): add quarterly visual learning boards`) and the handoff update in `1c61805`.
+
+### Resolved since §10
+
+- **Quarterly asset coverage:** added deterministic topic-grounded SVG visual boards for all 249 quarterly lesson visual IDs.
+- **Asset references:** all 1,994 activity `assetId` references now resolve against the 349-file vector inventory (100 legacy `m01` assets plus 249 quarterly assets).
+- **Generator:** added `android/tools/generate_quarterly_assets.py`; it is idempotent and writes only missing quarterly assets.
+- **Regression coverage:** added `android/tools/test_generate_quarterly_assets.py` for inventory, SVG metadata, and full existing-asset validation.
+- **Scope control:** no lesson JSON, Android UI, or loader code was changed in the asset commit.
+
+The generated boards are topic-grounded visual scaffolds and should still receive independent educator/illustrator review. They are not a replacement for genuine curriculum sign-off, and the release gate remains at 349 educator-reviewed lessons.
+
+### Current checks
+
+```text
+249 quarterly lessons discovered
+249/249 quarterly SVG references resolve
+349 total vector assets present
+0 malformed SVGs
+0 dangling visual-asset references
+11/11 Python content and asset-generator tests passed
+Gradle unit tests + lint + :app:verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+### Current remaining priorities
+
+1. Resolve the English Q4 coverage gap or document the intended boundary.
+2. Reduce repeated lesson/module titles where repetition harms navigation.
+3. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
+4. Address the code follow-ups listed in §9.3 through the Android app owner.
+
