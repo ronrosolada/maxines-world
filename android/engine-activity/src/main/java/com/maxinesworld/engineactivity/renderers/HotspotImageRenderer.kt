@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
@@ -88,27 +89,62 @@ fun HotspotImageRenderer(
             modifier = Modifier.semantics { contentDescription = "Hotspot: ${step.question}" }
         )
 
-        // Image placeholder with hotspot overlay
+        // Responsive example board with hotspot overlay. The content pack's
+        // example strings are the accessible/text fallback for the optional
+        // artwork asset, so never leave the board visually empty.
         BoxWithConstraints(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(4f / 3f)
+                .height(220.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .background(StoryPurple.copy(alpha = 0.08f))
                 .border(2.dp, VillageTeal.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.TopStart
         ) {
-            Text(
-                text = if (step.imageAssets.isNotEmpty()) step.imageAssets.first() else "🖼️",
-                style = MaterialTheme.typography.displayMedium,
-                modifier = Modifier.align(Alignment.Center)
-            )
-
             val columns = hotspotGridColumns(hotspots.size)
             val rows = (hotspots.size + columns - 1) / columns
-            val cellWidth = maxWidth / columns
-            val cellHeight = maxHeight / rows
+            val boardPadding = 16.dp
+            val cellWidth = (maxWidth - boardPadding * 2) / columns
+            val cellHeight = (maxHeight - boardPadding * 2) / rows
             val hotspotSize = 48.dp
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(boardPadding),
+                verticalArrangement = Arrangement.SpaceEvenly
+            ) {
+                hotspots.chunked(columns).forEach { rowHotspots ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        rowHotspots.forEach { label ->
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight()
+                                    .padding(vertical = 8.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(Cream.copy(alpha = 0.82f))
+                                    .border(1.dp, VillageTeal.copy(alpha = 0.25f), RoundedCornerShape(12.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = label,
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.padding(40.dp, 12.dp, 12.dp, 12.dp)
+                                )
+                            }
+                        }
+                        repeat(columns - rowHotspots.size) { Spacer(Modifier.weight(1f)) }
+                    }
+                }
+            }
 
             hotspots.forEachIndexed { index, label ->
                 val isTarget = index == targetIndex
@@ -127,8 +163,8 @@ fun HotspotImageRenderer(
                 Box(
                     modifier = Modifier
                         .offset(
-                            x = cellWidth * (index % columns).toFloat() + (cellWidth - hotspotSize) / 2,
-                            y = cellHeight * (index / columns).toFloat() + (cellHeight - hotspotSize) / 2
+                            x = boardPadding + cellWidth * (index % columns).toFloat() + (cellWidth - hotspotSize) / 2,
+                            y = boardPadding + cellHeight * (index / columns).toFloat() + 8.dp
                         )
                         .size(hotspotSize)
                         .clip(CircleShape)
