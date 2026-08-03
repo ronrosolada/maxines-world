@@ -115,11 +115,21 @@ core-database/
 - **Cleartext config removed** — `network_security_config.xml` deleted with the sync path.
 - **App instrumentation in CI** — emulator job runs `:app:connectedDebugAndroidTest` + `:core-database:connectedDebugAndroidTest`.
 
-## Known CI issue (2026-08-01): GitHub runner KVM regression
-The `migration-tests` emulator job fails with `ProbeKVM: This user doesn't have
-permissions to use KVM (/dev/kvm)` → "No compatible devices connected". This is a
-GitHub-hosted-runner fleet regression (job passed 15:14Z, broke mid-day, affects
-both ubuntu-latest and ubuntu-22.04). NOT a code issue — all tests pass locally on
-the AVD. Do not rework the tests or the workflow; retry the failed run
-(`gh run rerun <id> --failed`) until the fleet recovers. Job is intentionally
-pinned to ubuntu-22.04 and kept REQUIRED.
+## CI emulator KVM configuration (verified 2026-08-03)
+GitHub-hosted `ubuntu-22.04` runners expose `/dev/kvm`, but the `kvm` group is
+empty. Without access, `reactivecircus/android-emulator-runner` falls back to
+`-accel off`; the API 34 x86_64 emulator stays offline and Gradle eventually
+fails with "No compatible devices connected".
+
+The migration job fixes this before boot:
+
+```yaml
+- name: Enable KVM for emulator
+  run: |
+    sudo chmod 666 /dev/kvm
+    ls -l /dev/kvm
+```
+
+Do **not** add `disable-linux-hw-accel: true`; that explicitly forces the slow
+software path. With the permission step, the migration job passes in about five
+minutes and remains required.
