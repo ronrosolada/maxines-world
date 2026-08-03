@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "245 + 123 = 368",
-   "definition": "correct idea"
+   "definition": "joins quantities"
   },
   {
    "term": "2,650 + 1,200 = 3,850",
-   "definition": "useful example"
+   "definition": "regroups by place value"
   },
   {
    "term": "regroup 10 ones",
-   "definition": "check the concept"
+   "definition": "checks a sum"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "check with an estimate"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "subtract the addends",
+     "multiply the numbers",
+     "compare without finding a sum",
+     "write an unlabeled number"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "compare without finding a sum",
      "245 + 123 = 368",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "subtract the addends",
+     "multiply the numbers"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "245 + 123 = 368",
-      "right": "correct idea"
+      "right": "joins quantities"
      },
      {
       "left": "2,650 + 1,200 = 3,850",
-      "right": "useful example"
+      "right": "regroups by place value"
      },
      {
       "left": "regroup 10 ones",
-      "right": "check the concept"
+      "right": "checks a sum"
      }
     ]
    },

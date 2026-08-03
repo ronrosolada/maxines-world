@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from content_review import curate_lesson, make_assessment, review_flags, sanitize_legacy_lesson
+from content_review import curate_lesson, make_activities, make_assessment, profile_for, review_flags, sanitize_legacy_lesson
 
 
 class ContentReviewTest(unittest.TestCase):
@@ -80,6 +80,53 @@ class ContentReviewTest(unittest.TestCase):
         }
         once = curate_lesson(lesson)
         self.assertEqual(once, curate_lesson(once))
+
+    def test_math_quarterly_activities_use_topic_grounded_distractors(self):
+        lesson = {
+            "lessonId": "mathematics-g3-q1-w01-d01",
+            "subject": "MATHEMATICS",
+            "title": "Shape Trail",
+            "objective": "Recognize and describe points, lines, line segments, rays, and special line relationships.",
+            "language": "en-PH",
+            "vocabulary": [],
+            "activities": [],
+            "assessment": {"items": []},
+        }
+        curated = curate_lesson(lesson)
+        blob = str(curated).lower()
+        for filler in (
+            "a random guess",
+            "a mismatched unit",
+            "an unrelated operation",
+            "an answer with no label",
+            "correct idea",
+            "useful example",
+            "check the concept",
+        ):
+            self.assertNotIn(filler, blob)
+
+    def test_live_mcq_correct_position_varies_by_lesson(self):
+        profile = profile_for({
+            "lessonId": "mathematics-g3-q1-w01-d01",
+            "subject": "MATHEMATICS",
+            "title": "Shape Trail",
+            "objective": "Recognize and describe points, lines, line segments, rays, and special line relationships.",
+            "language": "en-PH",
+            "vocabulary": [],
+            "activities": [],
+            "assessment": {"items": []},
+        })
+        positions = []
+        for lesson_id in (
+            "mathematics-g3-q1-w01-d01",
+            "mathematics-g3-q2-w03-d02",
+            "mathematics-g3-q3-w05-d04",
+            "mathematics-g3-q4-w09-d04",
+        ):
+            mcq = next(a for a in make_activities(profile, lesson_id) if a["type"] == "MULTIPLE_CHOICE")
+            positions.append(mcq["content"]["correctIndex"])
+            self.assertEqual(mcq["content"]["options"][mcq["content"]["correctIndex"]], profile["examples"][0])
+        self.assertGreater(len(set(positions)), 1)
 
     def test_review_flags_rejects_placeholders_and_bad_assessment(self):
         lesson = {

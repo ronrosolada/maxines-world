@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "458 − 123 = 335",
-   "definition": "correct idea"
+   "definition": "takes away a quantity"
   },
   {
    "term": "700 − 245 = 455",
-   "definition": "useful example"
+   "definition": "may require regrouping"
   },
   {
    "term": "regroup one hundred as ten tens",
-   "definition": "check the concept"
+   "definition": "checks a difference"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "check by adding the difference"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "add the numbers",
+     "multiply the numbers",
+     "compare without finding a difference",
+     "write the starting number as the answer"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "multiply the numbers",
+     "compare without finding a difference",
      "458 − 123 = 335",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "add the numbers"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "458 − 123 = 335",
-      "right": "correct idea"
+      "right": "takes away a quantity"
      },
      {
       "left": "700 − 245 = 455",
-      "right": "useful example"
+      "right": "may require regrouping"
      },
      {
       "left": "regroup one hundred as ten tens",
-      "right": "check the concept"
+      "right": "checks a difference"
      }
     ]
    },

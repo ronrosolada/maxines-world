@@ -137,6 +137,6 @@ fun subjectDisplayName(subject: String): String = when (subject) {
 /** Normalize an island ID to the pack subject used in lesson IDs. */
 fun subjectForPack(subject: String): String? = when (subject) {
     "heritage-harbor", "philippine-history", "araling_panlipunan" -> "araling-panlipunan"
-    "mathematics", "english", "science", "filipino", "gmrc" -> subject
+    "makabansa", "mathematics", "english", "science", "filipino", "gmrc" -> subject
     else -> null
 }

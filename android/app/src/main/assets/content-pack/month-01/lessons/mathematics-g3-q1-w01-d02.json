@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "4 × 3 = 12 square units",
-   "definition": "correct idea"
+   "definition": "space inside a shape"
   },
   {
    "term": "a 5 by 2 rectangle has 10 square units",
-   "definition": "useful example"
+   "definition": "length times width"
   },
   {
    "term": "a square has equal side lengths",
-   "definition": "check the concept"
+   "definition": "measured in square units"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "counting unit squares checks the answer"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "the distance around a shape",
+     "the length of one side only",
+     "the number of corners",
+     "a measurement without square units"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "the length of one side only",
+     "the number of corners",
      "4 × 3 = 12 square units",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "the distance around a shape"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "4 × 3 = 12 square units",
-      "right": "correct idea"
+      "right": "space inside a shape"
      },
      {
       "left": "a 5 by 2 rectangle has 10 square units",
-      "right": "useful example"
+      "right": "length times width"
      },
      {
       "left": "a square has equal side lengths",
-      "right": "check the concept"
+      "right": "measured in square units"
      }
     ]
    },

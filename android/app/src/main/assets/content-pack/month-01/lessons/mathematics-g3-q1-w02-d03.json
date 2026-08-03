@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "4,205 > 4,025",
-   "definition": "correct idea"
+   "definition": "shows the greater number"
   },
   {
    "term": "3,100 < 3,900",
-   "definition": "useful example"
+   "definition": "shows the smaller number"
   },
   {
    "term": "6,450 = 6,450",
-   "definition": "check the concept"
+   "definition": "shows equal amounts"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "8,001 > 7,999"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "the number with fewer digits is always greater",
+     "compare only the ones digit",
+     "use + instead of a comparison symbol",
+     "ignore the thousands digit"
     ]
    },
    "completionRule": {
@@ -129,9 +129,9 @@
    "content": {
     "options": [
      "4,205 > 4,025",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "the number with fewer digits is always greater",
+     "compare only the ones digit",
+     "use + instead of a comparison symbol"
     ],
     "correctIndex": 0
    },
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "4,205 > 4,025",
-      "right": "correct idea"
+      "right": "shows the greater number"
      },
      {
       "left": "3,100 < 3,900",
-      "right": "useful example"
+      "right": "shows the smaller number"
      },
      {
       "left": "6,450 = 6,450",
-      "right": "check the concept"
+      "right": "shows equal amounts"
      }
     ]
    },

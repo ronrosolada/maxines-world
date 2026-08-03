@@ -1,0 +1,23 @@
+package com.maxinesworld.engineactivity.renderers
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+class MultipleChoiceRendererTest {
+    @Test
+    fun `shuffled order preserves every option and moves the correct answer`() {
+        val ids = listOf(
+            "mathematics-g3-q1-w01-d01-a04",
+            "mathematics-g3-q2-w03-d02-a04",
+            "mathematics-g3-q3-w05-d04-a04",
+            "mathematics-g3-q4-w09-d04-a04",
+        )
+        val positions = ids.map { id ->
+            val order = optionOrderFor(id, optionCount = 4, correctIndex = 0)
+            assertEquals(listOf(0, 1, 2, 3).toSet(), order.toSet())
+            order.indexOf(0)
+        }
+        assertTrue("correct answer must not stay in one fixed position: $positions", positions.toSet().size > 1)
+    }
+}

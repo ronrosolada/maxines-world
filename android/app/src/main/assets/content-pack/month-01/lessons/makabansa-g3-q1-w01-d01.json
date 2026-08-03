@@ -1,378 +1,378 @@
 {
- "lessonId": "makabansa-g3-q1-w01-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 1,
- "subject": "makabansa",
- "title": "Kasaysayan ng Komunidad",
- "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "barangay hall",
-   "definition": "kaugnay na halimbawa"
-  },
-  {
-   "term": "pamilihan",
-   "definition": "bahagi ng paksa"
-  },
-  {
-   "term": "paaralan",
-   "definition": "makabuluhang ideya"
-  }
- ],
- "activities": [
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "content": {
-    "examples": [
-     "barangay hall",
-     "pamilihan",
-     "paaralan",
-     "mga kuwento ng nakatatanda"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "content": {
-    "fits": [
-     "barangay hall",
-     "pamilihan",
-     "paaralan",
-     "mga kuwento ng nakatatanda"
-    ],
-    "doesNotFit": [
-     "hula na walang batayan",
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura",
-     "gawaing nakapipinsala sa kapwa"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Piliin ang pinakamainam na sagot.",
-   "content": {
-    "options": [
-     "barangay hall",
-     "hula na walang batayan",
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Piliin ang pinakamainam na sagot.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Itugma ang magkakaugnay na ideya.",
-   "content": {
-    "pairs": [
-     {
-      "left": "barangay hall",
-      "right": "kaugnay na halimbawa"
-     },
-     {
-      "left": "pamilihan",
-      "right": "bahagi ng paksa"
-     },
-     {
-      "left": "paaralan",
-      "right": "makabuluhang ideya"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Itugma ang magkakaugnay na ideya.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "content": {
-    "steps": [
-     "Tingnan ang halimbawa",
-     "Tukuyin ang mahalagang ideya",
-     "Iugnay sa komunidad",
-     "Ipaliwanag ang sagot"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-     },
-     {
-      "id": "b",
-      "text": "hula na walang batayan"
-     },
-     {
-      "id": "c",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "d",
-      "text": "pang-aalipusta sa kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "b",
-      "text": "pang-aalipusta sa kultura"
-     },
-     {
-      "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "gawaing nakapipinsala sa kapwa"
-     },
-     {
-      "id": "b",
-      "text": "hula na walang batayan"
-     },
-     {
-      "id": "c",
-      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-     },
-     {
-      "id": "d",
-      "text": "pang-aalipusta sa kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "b",
-      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-     },
-     {
-      "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "hula na walang batayan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-     },
-     {
-      "id": "b",
-      "text": "hula na walang batayan"
-     },
-     {
-      "id": "c",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "d",
-      "text": "pang-aalipusta sa kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "makabansa-g3-q1-w01-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "makabansa",
+  "title": "Kasaysayan ng Komunidad",
+  "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "barangay hall",
+      "definition": "may mahalagang papel sa komunidad"
+    },
+    {
+      "term": "pamilihan",
+      "definition": "bahagi ng pamumuhay"
+    },
+    {
+      "term": "paaralan",
+      "definition": "lugar ng pagkatuto"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+      "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "content": {
+        "examples": [
+          "barangay hall",
+          "pamilihan",
+          "paaralan",
+          "mga kuwento ng nakatatanda"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "content": {
+        "fits": [
+          "barangay hall",
+          "pamilihan",
+          "paaralan",
+          "mga kuwento ng nakatatanda"
+        ],
+        "doesNotFit": [
+          "hula na walang batayan",
+          "impormasyong walang kaugnayan",
+          "pang-aalipusta sa kultura",
+          "gawaing nakapipinsala sa kapwa"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Piliin ang pinakamainam na sagot.",
+      "content": {
+        "options": [
+          "barangay hall",
+          "hula na walang batayan",
+          "impormasyong walang kaugnayan",
+          "pang-aalipusta sa kultura"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang pinakamainam na sagot.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Itugma ang magkakaugnay na ideya.",
+      "content": {
+        "pairs": [
+          {
+            "left": "barangay hall",
+            "right": "may mahalagang papel sa komunidad"
+          },
+          {
+            "left": "pamilihan",
+            "right": "bahagi ng pamumuhay"
+          },
+          {
+            "left": "paaralan",
+            "right": "lugar ng pagkatuto"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Itugma ang magkakaugnay na ideya.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d01-visual",
+      "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "content": {
+        "steps": [
+          "Tingnan ang halimbawa",
+          "Tukuyin ang mahalagang ideya",
+          "Iugnay sa komunidad",
+          "Ipaliwanag ang sagot"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q1-w01-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+          },
+          {
+            "id": "b",
+            "text": "hula na walang batayan"
+          },
+          {
+            "id": "c",
+            "text": "impormasyong walang kaugnayan"
+          },
+          {
+            "id": "d",
+            "text": "pang-aalipusta sa kultura"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "impormasyong walang kaugnayan"
+          },
+          {
+            "id": "b",
+            "text": "pang-aalipusta sa kultura"
+          },
+          {
+            "id": "c",
+            "text": "gawaing nakapipinsala sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "gawaing nakapipinsala sa kapwa"
+          },
+          {
+            "id": "b",
+            "text": "hula na walang batayan"
+          },
+          {
+            "id": "c",
+            "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+          },
+          {
+            "id": "d",
+            "text": "pang-aalipusta sa kultura"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "impormasyong walang kaugnayan"
+          },
+          {
+            "id": "b",
+            "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+          },
+          {
+            "id": "c",
+            "text": "gawaing nakapipinsala sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "hula na walang batayan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Kasaysayan ng Komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+          },
+          {
+            "id": "b",
+            "text": "hula na walang batayan"
+          },
+          {
+            "id": "c",
+            "text": "impormasyong walang kaugnayan"
+          },
+          {
+            "id": "d",
+            "text": "pang-aalipusta sa kultura"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

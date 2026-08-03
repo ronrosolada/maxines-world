@@ -5,7 +5,7 @@ import androidx.annotation.DrawableRes
 /**
  * Option 3 Playroom Collections homepage state (design.md §14).
  *
- * The screen renders exactly six canonical subject cards in the order below.
+ * The screen renders exactly seven canonical subject cards in the order below.
  * Remote/DB data may update progress, lock state, and availability, but must
  * never rename, remove, duplicate, or reorder these definitions.
  */
@@ -80,7 +80,7 @@ sealed interface PlayroomHomeUiState {
     ) : PlayroomHomeUiState
 }
 
-/** The six canonical subjects in fixed order (design.md §10.1). */
+/** The seven canonical subjects in fixed order (design.md §10.1). */
 val canonicalSubjects: List<SubjectCardUi> = listOf(
     SubjectCardUi(
         id = "mathematics", formalName = "Mathematics", playfulName = "Number Fun",
@@ -106,6 +106,11 @@ val canonicalSubjects: List<SubjectCardUi> = listOf(
         id = "araling_panlipunan", formalName = "Araling Panlipunan", playfulName = "Heritage",
         illustrationRes = R.drawable.mw_subject_ap_heritage,
         progressPercent = null, destination = "araling-panlipunan",
+    ),
+    SubjectCardUi(
+        id = "makabansa", formalName = "Makabansa", playfulName = "Bayan at Kultura",
+        illustrationRes = R.drawable.ic_subject_history,
+        progressPercent = null, destination = "makabansa",
     ),
     SubjectCardUi(
         id = "gmrc", formalName = "GMRC", playfulName = "Kindness",
