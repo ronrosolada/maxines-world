@@ -231,3 +231,40 @@ Every lesson has exactly 6 activities in a fixed order:
 | P2 | Reconcile coin-award implementation with product docs |
 | P2 | Reduce repeated lesson/module titles where repetition harms navigation |
 | Gate | Genuine independent educator review (factual accuracy, pedagogy, language, safety) — `mark_lessons_reviewed.py` must not run before it |
+
+---
+
+## 10. Current validation after assessment P1 fixes — 2026-08-03
+
+Sections 7 and 9.2 preserve the historical/pre-fix findings. The current `main` state is now `999caa5`, with content changes in `9da1ffc` (`fix(content): replace assessment filler and duplicate prompts`).
+
+### Resolved since §9.2
+
+- **Assessment filler:** all 570 generic option hits in the 38 quarterly Mathematics lessons were replaced with topic-grounded examples and distractors.
+- **Duplicate prompts:** all 230 affected lessons now have five distinct assessment prompts.
+- **Generator regression guard:** `android/tools/content_review.py` now generates five distinct English or Filipino fallback prompts when a profile has fewer than five hand-authored checks.
+
+The content commit's diff was verified at the object level: all 230 changed lesson files differ from their `main` baseline only in their `assessment` object. No activity, title, vocabulary, release metadata, or review-marker fields were changed.
+
+### Current checks
+
+```text
+349 lesson JSON files parse
+0 duplicate assessment-prompt lessons
+0 assessment filler hits
+0 assessment schema errors
+8/8 Python content-review tests passed
+Gradle unit tests + lint + :app:verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+The release gate still reports 349 educator-reviewed lessons because approval metadata was intentionally preserved. Automated validation is not independent educator approval.
+
+### Current remaining priorities
+
+1. Decide whether to create quarterly SVG artwork or intentionally redesign those activities as text-based (1,494 dangling refs).
+2. Resolve the English Q4 coverage gap or document the intended boundary.
+3. Reduce repeated lesson/module titles where repetition harms navigation.
+4. Complete genuine independent educator review for factual accuracy, pedagogy, language, and safety.
+5. Address the code follow-ups listed in §9.3 through the Android app owner.
+
