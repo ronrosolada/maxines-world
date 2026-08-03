@@ -395,4 +395,29 @@ class MigrationTest {
 
         dbV7.close()
     }
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate7to8_addsWildlifeExpeditionTable() = runTest {
+        val testId = "migration_test_child"
+        helper.createDatabase(TEST_DB, 7).apply {
+            execSQL("INSERT INTO parent_accounts (id, displayName, pinHash, biometricEnabled, createdAt) VALUES ('parent_1', 'Test Parent', 'hash_abc', 0, 1700000000000)")
+            close()
+        }
+
+        val dbV8 = helper.runMigrationsAndValidate(
+            TEST_DB,
+            8,
+            true,
+            MaxinesMigrations.MIGRATION_7_8,
+        )
+        dbV8.execSQL("INSERT INTO wildlife_expeditions (id, childId, weekKey, completedLessonIds, subjectKeys, badgeAwarded, awardedBadgeId, createdAtEpochMillis, updatedAtEpochMillis) VALUES ('${testId}_2026-08-03', '$testId', '2026-08-03', 'lesson-1|lesson-2', 'english|gmrc', 0, NULL, 1700000000000, 1700000000000)")
+
+        val expedition = dbV8.query("SELECT * FROM wildlife_expeditions WHERE childId = '$testId'")
+        assertTrue("wildlife expedition table is writable", expedition.moveToFirst())
+        assertEquals("week key preserved", "2026-08-03", expedition.getString(expedition.getColumnIndexOrThrow("weekKey")))
+        assertEquals("lesson set preserved", "lesson-1|lesson-2", expedition.getString(expedition.getColumnIndexOrThrow("completedLessonIds")))
+        expedition.close()
+        dbV8.close()
+    }
 }

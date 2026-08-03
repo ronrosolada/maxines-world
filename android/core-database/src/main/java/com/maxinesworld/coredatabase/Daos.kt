@@ -105,12 +105,24 @@ interface CollectedBadgeDao {
 }
 
 @Dao
+interface WildlifeExpeditionDao {
+    @Query("SELECT * FROM wildlife_expeditions WHERE childId = :childId AND weekKey = :weekKey")
+    suspend fun getByChildAndWeek(childId: String, weekKey: String): WildlifeExpeditionEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(expedition: WildlifeExpeditionEntity)
+}
+
+@Dao
 interface RewardDao {
     @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")
     fun observeByChild(childId: String): Flow<List<RewardEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(reward: RewardEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(reward: RewardEntity): Long
 
     @Query("SELECT SUM(amount) FROM rewards WHERE childId = :childId AND type = :type")
     suspend fun getTotalByType(childId: String, type: String): Int?

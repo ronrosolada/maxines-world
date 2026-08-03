@@ -71,6 +71,14 @@ object MaxinesMigrations {
         }
     }
 
+    /** v7 → v8: persist one non-resetting Wildlife Expedition per local week. */
+    val MIGRATION_7_8 = object : Migration(7, 8) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("CREATE TABLE IF NOT EXISTS `wildlife_expeditions` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `weekKey` TEXT NOT NULL, `completedLessonIds` TEXT NOT NULL, `subjectKeys` TEXT NOT NULL, `badgeAwarded` INTEGER NOT NULL, `awardedBadgeId` TEXT, `createdAtEpochMillis` INTEGER NOT NULL, `updatedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_wildlife_expeditions_childId_weekKey` ON `wildlife_expeditions` (`childId`, `weekKey`)")
+        }
+    }
+
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {
         db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_badgeId`")
         db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_childId`")

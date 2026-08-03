@@ -111,7 +111,7 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
                 Text(badge.name, fontSize = 16.sp, color = Ink.copy(alpha = 0.6f))
             } else {
                 Text("Undiscovered Animal", fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.Black.copy(alpha = 0.3f))
-                Text("Complete the Daily Challenge to reveal!", fontSize = 14.sp, color = Ink.copy(alpha = 0.4f))
+                Text("Complete the Wildlife Expedition to reveal!", fontSize = 14.sp, color = Ink.copy(alpha = 0.4f))
             }
             Spacer(Modifier.height(12.dp))
             if (badge.isCollected) {

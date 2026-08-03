@@ -17,6 +17,7 @@ import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,7 +40,8 @@ data class LessonUiState(
     val isComplete: Boolean = false,
     val error: String? = null,
     val results: List<ActivityResult> = emptyList(),
-    val badgeAwarded: CollectibleBadge? = null
+    val badgeAwarded: CollectibleBadge? = null,
+    val expeditionProgress: ChallengeProgress = ChallengeProgress(),
 )
 
 @HiltViewModel
@@ -126,6 +128,7 @@ class LessonPlayerViewModel @Inject constructor(
             }
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
+            val firstLessonCompletion = !lessonCompletionDao.exists(childId, lesson.id)
             // Record idempotent lesson completion (distinct lessonId drives child level).
             lessonCompletionDao.insertIgnoring(
                 LessonCompletionEntity(
@@ -137,16 +140,38 @@ class LessonPlayerViewModel @Inject constructor(
                     completedAtEpochMillis = System.currentTimeMillis(),
                 )
             )
-            val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
-            rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                type = "STAR", subject = lesson.subject, amount = starsEarned))
-            if (accuracy >= 0.8) {
-                rewardDao.insert(RewardEntity(id = UUID.randomUUID().toString(), childId = childId,
-                    type = "COIN", subject = lesson.subject, amount = 10))
+            if (firstLessonCompletion) {
+                val rewardKey = "lesson-first:$childId:${lesson.id}"
+                val starsEarned = 1 +
+                    (if (accuracy >= 0.8) 1 else 0) +
+                    (if (accuracy >= 0.95) 1 else 0)
+                rewardDao.insertIgnoring(RewardEntity(
+                    id = "$rewardKey:STAR",
+                    childId = childId,
+                    type = "STAR",
+                    subject = lesson.subject,
+                    amount = starsEarned.coerceIn(1, 3),
+                    metadata = rewardKey,
+                ))
+                // Coins are persisted too — the completion screen shows them, so
+                // the Parent Dashboard must be able to read them back.
+                if (accuracy >= 0.8) {
+                    rewardDao.insertIgnoring(RewardEntity(
+                        id = "$rewardKey:COIN",
+                        childId = childId,
+                        type = "COIN",
+                        subject = lesson.subject,
+                        amount = 10,
+                        metadata = rewardKey,
+                    ))
+                }
             }
-            val progress = badgeAwarder.recordSubjectCompletion(childId, lesson.subject)
-            if (progress.newlyAwardedBadge != null) {
-                _state.update { it.copy(badgeAwarded = progress.newlyAwardedBadge) }
+            val progress = badgeAwarder.recordLessonCompletion(childId, lesson.subject, lesson.id)
+            _state.update {
+                it.copy(
+                    expeditionProgress = progress,
+                    badgeAwarded = progress.newlyAwardedBadge,
+                )
             }
         }
     }

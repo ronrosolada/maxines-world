@@ -4,8 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
-import com.maxinesworld.coremodel.ChildLevelPolicy
-import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -16,28 +14,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 /**
- * Drives the Option 3 Playroom Collections home from real persisted data:
+ * Drives the Playroom Collections home from real persisted data.
  *
- * * Per-subject progress = distinct completed lessons ÷ lessons in the
- *   bundled catalog for that subject (ModuleCatalog).
- * * Streak = consecutive days (ending today or yesterday) with at least one
- *   completed lesson, from real completion timestamps.
- * * XP = completed lessons × [XP_PER_LESSON] — a deterministic product rule
- *   over real completions; never a fabricated number.
- * * Today's Quest + sticker book come from [BadgeAwarder] (real daily
- *   challenge and collected badges).
- * * GMRC (Kindness) stays a REAL gate: unlocked only at Level 4.
- *
- * No child-sensitive data is ever logged.
+ * The home exposes subject progress, a forgiving weekly Wildlife Expedition,
+ * and collected stickers. GMRC is available from the first session; level
+ * progression can later unlock cosmetic spaces without blocking curriculum.
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
@@ -54,8 +39,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val _state = MutableStateFlow<PlayroomHomeUiState>(PlayroomHomeUiState.Loading)
     val state: StateFlow<PlayroomHomeUiState> = _state.asStateFlow()
 
-    /** Opening-subject state lives in the UI state; navigation is one-shot. */
-    private var _openingSubjectId: String? = null
+    private var openingSubjectId: String? = null
 
     init {
         collectState()
@@ -64,33 +48,28 @@ class PlayroomHomeViewModel @Inject constructor(
     private fun collectState() {
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
-        val daysFlow = lessonCompletionDao.observeCompletionDays(childId)
 
         viewModelScope.launch {
-            combine(profileFlow, lessonIdsFlow, daysFlow) { profile, ids, days ->
-                Triple(profile, ids, days)
-            }
-                .flatMapLatest { (profile, lessonIds, days) ->
-                    val quest = badgeAwarder.getTodayProgress(childId)
+            combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
+                .collect { (profile, lessonIds) ->
+                    val expedition = badgeAwarder.getExpeditionProgress(childId)
                     val badges = badgeAwarder.getCollectedBadges(childId)
-                    flowOf(buildContent(profile?.name, lessonIds, days, quest, badges))
+                    _state.value = buildContent(profile?.name, lessonIds, expedition, badges)
                 }
-                .collect { _state.value = it }
         }
     }
 
-    /** Atomic single-open guard: rejects repeated activation while opening. */
     fun onSubjectSelected(subjectId: String) {
-        if (_openingSubjectId != null) return
+        if (openingSubjectId != null) return
         val current = _state.value as? PlayroomHomeUiState.Content ?: return
         val subject = current.subjects.firstOrNull { it.id == subjectId } ?: return
         if (!subject.isAvailable) return
-        _openingSubjectId = subjectId
+        openingSubjectId = subjectId
         _state.value = current.copy(openingSubjectId = subjectId)
     }
 
     fun onOpenFinished() {
-        _openingSubjectId = null
+        openingSubjectId = null
         val current = _state.value as? PlayroomHomeUiState.Content ?: return
         _state.value = current.copy(openingSubjectId = null)
     }
@@ -103,16 +82,10 @@ class PlayroomHomeViewModel @Inject constructor(
     private suspend fun buildContent(
         childName: String?,
         lessonIds: List<String>,
-        days: List<String>,
-        quest: ChallengeProgress,
-        badges: List<CollectibleBadge>,
+        expedition: ChallengeProgress,
+        badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
-        val level = ChildLevelPolicy.levelFor(completed.size)
-        val kindnessUnlocked = level >= ChildLevelPolicy.KINDNESS_UNLOCK_LEVEL
-        val lessonsToGo = ChildLevelPolicy.lessonsRemainingTo(
-            completed.size, ChildLevelPolicy.KINDNESS_UNLOCK_LEVEL
-        )
 
         // Per-subject progress: completed in subject ÷ total in catalog.
         val subjects = canonicalSubjects.map { subject ->
@@ -121,45 +94,31 @@ class PlayroomHomeViewModel @Inject constructor(
             }.getOrDefault(0)
             val done = completed.count { it.startsWith("${subject.destination}-g3-") }
             val progress = if (total > 0) (done * 100 / total) else null
-
-            val (availability, lockReason) = if (subject.id == "gmrc" && !kindnessUnlocked) {
-                SubjectAvailability.Locked to
-                    "Locked until level $KINDNESS_UNLOCK_LEVEL · $lessonsToGo lesson${if (lessonsToGo == 1) "" else "s"} to go"
-            } else SubjectAvailability.Available to null
-
             subject.copy(
                 progressPercent = if (progress == 0) null else progress,
-                availability = availability,
-                lockReason = lockReason,
+                availability = SubjectAvailability.Available,
+                lockReason = null,
             )
         }
 
-        // Quest: daily challenge paw prints (real). Total = the five challenge
-        // subjects; if none recorded yet, fall back to “choose a subject”.
-        val questTotal = BadgeAwarder.SUBJECTS.size
-        val completedToday = quest.completedCount.coerceIn(0, questTotal)
+        val questTotal = BadgeAwarder.EXPEDITION_TARGET_LESSONS
+        val completedCount = expedition.completedCount.coerceIn(0, questTotal)
         val availableFirst = subjects.firstOrNull { it.isAvailable }
-        val questUi = if (questTotal == 0) {
+        val questUi = if (expedition.expeditionComplete) {
             QuestUi(
-                task = "Choose any subject to begin today",
-                pawPrintsCompleted = 0, pawPrintTotal = 0,
-                recommendedSubjectId = null,
-                buttonLabel = "Choose a subject",
-                buttonAction = QuestAction.ChooseSubject,
-            )
-        } else if (completedToday >= questTotal) {
-            QuestUi(
-                task = "Quest complete!",
-                pawPrintsCompleted = questTotal, pawPrintTotal = questTotal,
+                task = "Expedition complete — your wildlife friend is waiting!",
+                pawPrintsCompleted = questTotal,
+                pawPrintTotal = questTotal,
                 isComplete = true,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "View reward",
+                buttonLabel = "Open Field Guide",
                 buttonAction = QuestAction.ViewReward,
             )
         } else {
             QuestUi(
-                task = "Complete one activity to earn today’s paw print.",
-                pawPrintsCompleted = completedToday, pawPrintTotal = questTotal,
+                task = "Complete 3 adventures across 2 learning areas this week.",
+                pawPrintsCompleted = completedCount,
+                pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = "Continue",
                 buttonAction = QuestAction.Continue,
@@ -167,44 +126,21 @@ class PlayroomHomeViewModel @Inject constructor(
         }
 
         val collected = badges.count { it.isCollected }
-        val stickerBook = StickerBookUi(
+        val wildlifeStickers = WildlifeStickersUi(
             collectedCount = collected,
             totalCount = badges.size,
-            stickers = badges.map { b ->
-                StickerUi(id = b.id, won = b.isCollected, emoji = b.emoji)
-            },
+            stickers = badges
+                .filter { it.isCollected }
+                .sortedByDescending { it.collectedAtEpochMillis }
+                .map { badge -> StickerUi(id = badge.id, won = true, emoji = badge.emoji) },
         )
 
         return PlayroomHomeUiState.Content(
             childName = childName?.takeIf { it.isNotBlank() } ?: "",
-            streakDays = computeStreak(days),
-            xp = completed.size * XP_PER_LESSON,
             subjects = subjects,
             quest = questUi,
-            stickerBook = stickerBook,
-            offline = false, // bundled pack is offline-first by design
+            wildlifeStickers = wildlifeStickers,
+            offline = false,
         )
-    }
-
-    /** Consecutive days with completions, ending today or yesterday. */
-    internal fun computeStreak(days: List<String>): Int {
-        if (days.isEmpty()) return 0
-        val daySet = days.toSet()
-        val fmt = DateTimeFormatter.ISO_LOCAL_DATE
-        var cursor = LocalDate.now()
-        if (cursor.format(fmt) !in daySet) {
-            cursor = cursor.minusDays(1) // allow streak ending yesterday
-        }
-        var streak = 0
-        while (cursor.format(fmt) in daySet) {
-            streak++
-            cursor = cursor.minusDays(1)
-        }
-        return streak
-    }
-
-    companion object {
-        const val KINDNESS_UNLOCK_LEVEL = ChildLevelPolicy.KINDNESS_UNLOCK_LEVEL
-        const val XP_PER_LESSON = 10
     }
 }

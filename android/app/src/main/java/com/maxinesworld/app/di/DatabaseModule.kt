@@ -24,6 +24,7 @@ object DatabaseModule {
                 MaxinesMigrations.MIGRATION_3_7,
                 MaxinesMigrations.MIGRATION_4_7,
                 MaxinesMigrations.MIGRATION_6_7,
+                MaxinesMigrations.MIGRATION_7_8,
             )
             .build()
     }
@@ -39,6 +40,7 @@ object DatabaseModule {
     @Provides fun provideMiniGameResultDao(db: MaxinesDatabase): MiniGameResultDao = db.miniGameResultDao()
     @Provides fun provideDailyChallengeDao(db: MaxinesDatabase): DailyChallengeDao = db.dailyChallengeDao()
     @Provides fun provideCollectedBadgeDao(db: MaxinesDatabase): CollectedBadgeDao = db.collectedBadgeDao()
+    @Provides fun provideWildlifeExpeditionDao(db: MaxinesDatabase): WildlifeExpeditionDao = db.wildlifeExpeditionDao()
     @Provides fun provideLessonCompletionDao(db: MaxinesDatabase): LessonCompletionDao = db.lessonCompletionDao()
     @Provides fun provideRewardLedgerDao(db: MaxinesDatabase): RewardLedgerDao = db.rewardLedgerDao()
     @Provides fun provideInventoryDao(db: MaxinesDatabase): InventoryDao = db.inventoryDao()

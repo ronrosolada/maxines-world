@@ -1,5 +1,6 @@
 package com.maxinesworld.featurerewards
 
+import android.provider.Settings
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -14,6 +15,7 @@ import androidx.compose.ui.draw.*
 import androidx.compose.ui.geometry.*
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
@@ -26,6 +28,7 @@ import com.maxinesworld.coredesignsystem.theme.*
 fun WildlifeFieldGuideScreen(
     childId: String,
     badgeAwarder: BadgeAwarder,
+    initialBadgeId: String? = null,
     onBack: () -> Unit
 ) {
     val allBadges by produceState<List<CollectibleBadge>>(emptyList()) {
@@ -33,6 +36,12 @@ fun WildlifeFieldGuideScreen(
     }
     val totalCollected = allBadges.count { it.isCollected }
     var selectedBadge by remember { mutableStateOf<CollectibleBadge?>(null) }
+
+    LaunchedEffect(allBadges, initialBadgeId) {
+        if (initialBadgeId != null) {
+            selectedBadge = allBadges.firstOrNull { it.id == initialBadgeId && it.isCollected }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -166,11 +175,23 @@ fun BadgeRevealScreen(
 ) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accent = Color(biome.colorHex)
-    var step by remember { mutableIntStateOf(0) }
+    val context = LocalContext.current
+    val reduceMotion = remember {
+        Settings.Global.getFloat(
+            context.contentResolver,
+            Settings.Global.ANIMATOR_DURATION_SCALE,
+            1f,
+        ) == 0f
+    }
+    var step by remember { mutableIntStateOf(if (reduceMotion) 2 else 0) }
 
-    LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(800); step = 1
-        kotlinx.coroutines.delay(1000); step = 2
+    LaunchedEffect(reduceMotion) {
+        if (!reduceMotion) {
+            kotlinx.coroutines.delay(800)
+            step = 1
+            kotlinx.coroutines.delay(1000)
+            step = 2
+        }
     }
 
     Scaffold(containerColor = Cream) { padding ->
@@ -178,13 +199,11 @@ fun BadgeRevealScreen(
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             when (step) {
                 0 -> {
-                    // Show challenge completed
-                    Text("Daily Challenge Complete!", fontWeight = FontWeight.Bold, fontSize = 26.sp, color = VillageTeal, textAlign = TextAlign.Center)
+                    Text("Wildlife Expedition Complete!", fontWeight = FontWeight.Bold, fontSize = 26.sp, color = VillageTeal, textAlign = TextAlign.Center)
                     Spacer(Modifier.height(16.dp))
-                    DailyChallengeProgressRow(challengeProgress)
+                    WildlifeExpeditionProgressRow(challengeProgress)
                 }
                 1 -> {
-                    // Pulsing silhouette — mystery until revealed
                     val pulse by rememberInfiniteTransition().animateFloat(0.85f, 1.15f,
                         animationSpec = infiniteRepeatable(tween(500), RepeatMode.Reverse))
                     Box(Modifier.size(150.dp).scale(pulse)) {
@@ -192,7 +211,6 @@ fun BadgeRevealScreen(
                             val r = size.minDimension / 2
                             drawCircle(Color(0xFF1A1A2E).copy(alpha = 0.85f), radius = r, center = center)
                             drawCircle(Color.Black.copy(alpha = 0.6f), radius = r * 0.85f, style = Stroke(width = 3f))
-                            // Mystery glow
                             drawCircle(accent.copy(alpha = 0.15f), radius = r * 0.6f, center = center)
                             drawCircle(accent.copy(alpha = 0.3f), radius = r * 0.15f, center = center)
                         }
@@ -202,16 +220,13 @@ fun BadgeRevealScreen(
                     Text("Discovering...", fontSize = 18.sp, color = accent, fontWeight = FontWeight.Medium)
                 }
                 2 -> {
-                    // Full reveal — badge emerges from silhouette
                     Box(Modifier.size(150.dp).clip(CircleShape).background(accent.copy(alpha = 0.12f)), contentAlignment = Alignment.Center) {
                         Text(badge.emoji, fontSize = 72.sp)
                     }
                     Spacer(Modifier.height(16.dp))
-                    // Name and title revealed
                     Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 24.sp, color = accent, textAlign = TextAlign.Center)
                     Text(badge.name, fontSize = 16.sp, color = Ink.copy(alpha = 0.6f))
                     Spacer(Modifier.height(12.dp))
-                    // Fun fact — only shown after reveal
                     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
                         colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
                         Row(Modifier.padding(16.dp)) {
@@ -237,24 +252,38 @@ fun BadgeRevealScreen(
 }
 
 @Composable
-fun DailyChallengeProgressRow(progress: ChallengeProgress) {
+fun WildlifeExpeditionProgressRow(progress: ChallengeProgress) {
     val subjects = listOf(
         Triple("English", progress.english, Icons.Default.MenuBook),
         Triple("Filipino", progress.filipino, Icons.Default.AutoStories),
         Triple("Math", progress.mathematics, Icons.Default.Calculate),
         Triple("Science", progress.science, Icons.Default.Science),
-        Triple("History", progress.makabansa, Icons.Default.Flag)
+        Triple("AP", progress.makabansa, Icons.Default.Flag),
+        Triple("GMRC", progress.gmrc, Icons.Default.Favorite),
     )
-    Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-        subjects.forEach { (name, done, icon) ->
-            Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-                Box(Modifier.size(44.dp).clip(CircleShape)
-                    .background(if (done) SuccessGreen.copy(alpha = 0.15f) else Color.Black.copy(alpha = 0.05f)),
-                    contentAlignment = Alignment.Center) {
-                    Icon(icon, name, tint = if (done) SuccessGreen else Color.Black.copy(alpha = 0.2f), modifier = Modifier.size(20.dp))
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            "${progress.completedCount}/3 adventures · ${progress.subjectCount}/2 learning areas",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = VillageTeal,
+        )
+        Spacer(Modifier.height(8.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
+            subjects.forEach { (name, done, icon) ->
+                Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Box(Modifier.size(40.dp).clip(CircleShape)
+                        .background(if (done) SuccessGreen.copy(alpha = 0.15f) else Color.Black.copy(alpha = 0.05f)),
+                        contentAlignment = Alignment.Center) {
+                        Icon(icon, name, tint = if (done) SuccessGreen else Color.Black.copy(alpha = 0.2f), modifier = Modifier.size(18.dp))
+                    }
+                    Text(name, fontSize = 10.sp, color = if (done) SuccessGreen else Ink.copy(alpha = 0.3f))
                 }
-                Text(name, fontSize = 11.sp, color = if (done) SuccessGreen else Ink.copy(alpha = 0.3f))
             }
         }
     }
 }
+
+/** Compatibility alias for existing callers and tests. */
+@Composable
+fun DailyChallengeProgressRow(progress: ChallengeProgress) = WildlifeExpeditionProgressRow(progress)

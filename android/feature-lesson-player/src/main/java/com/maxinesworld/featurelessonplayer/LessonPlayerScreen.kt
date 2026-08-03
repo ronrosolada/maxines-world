@@ -78,7 +78,9 @@ private fun VocabularyCard(terms: List<VocabTerm>) {
 @Composable
 fun LessonPlayerScreen(
     lessonId: String, childId: String = "",
-    onBack: () -> Unit, onComplete: () -> Unit,
+    onBack: () -> Unit,
+    onComplete: () -> Unit,
+    onViewFieldGuide: (String) -> Unit = {},
     onRewardBreak: (String, String) -> Unit = { _, _ -> },
     viewModel: LessonPlayerViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
@@ -104,8 +106,8 @@ fun LessonPlayerScreen(
                     if (state.badgeAwarded != null) {
                         BadgeRevealScreen(
                             badge = state.badgeAwarded!!,
-                            challengeProgress = ChallengeProgress(completedCount = 5),
-                            onViewFieldGuide = { /* TODO: navigate */ },
+                            challengeProgress = state.expeditionProgress,
+                            onViewFieldGuide = { onViewFieldGuide(state.badgeAwarded!!.id) },
                             onReturnToVillage = onComplete
                         )
                     } else {
@@ -312,7 +314,9 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
     val correct = scored.count { it.correct }
     val total = scored.size
     val accuracy = if (total > 0) correct.toFloat() / total else 0f
-    val starsEarned = kotlin.math.ceil(accuracy * 5).toInt().coerceIn(1, 5)
+    val starsEarned = 1 +
+        (if (accuracy >= 0.8f) 1 else 0) +
+        (if (accuracy >= 0.95f) 1 else 0)
     val coinsEarned = if (accuracy >= 0.8f) 10 else 0
 
     // Confetti — respect reduced motion

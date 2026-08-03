@@ -16,6 +16,7 @@ import androidx.room.RoomDatabase
         MiniGameResultEntity::class,
         DailyChallengeEntity::class,
         CollectedBadgeEntity::class,
+        WildlifeExpeditionEntity::class,
         // v7: adopted from v6 lineage (playground/quest/ledger)
         LessonCompletionEntity::class,
         RewardLedgerEntity::class,
@@ -28,7 +29,7 @@ import androidx.room.RoomDatabase
         ActiveContentPackageEntity::class,
         ContentSyncRunEntity::class
     ],
-    version = 7,
+    version = 8,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {
@@ -43,6 +44,7 @@ abstract class MaxinesDatabase : RoomDatabase() {
     abstract fun miniGameResultDao(): MiniGameResultDao
     abstract fun dailyChallengeDao(): DailyChallengeDao
     abstract fun collectedBadgeDao(): CollectedBadgeDao
+    abstract fun wildlifeExpeditionDao(): WildlifeExpeditionDao
     abstract fun lessonCompletionDao(): LessonCompletionDao
     abstract fun rewardLedgerDao(): RewardLedgerDao
     abstract fun inventoryDao(): InventoryDao

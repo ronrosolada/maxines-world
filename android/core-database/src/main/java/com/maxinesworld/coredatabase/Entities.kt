@@ -148,6 +148,27 @@ data class CollectedBadgeEntity(
     val earnedAtEpochMillis: Long = System.currentTimeMillis()
 )
 
+/**
+ * One forgiving Wildlife Expedition per child and local calendar week.
+ * Lesson IDs and normalized subject keys are stored as a small delimiter-
+ * separated set so progress survives app restarts without another JSON layer.
+ */
+@Entity(
+    tableName = "wildlife_expeditions",
+    indices = [Index(value = ["childId", "weekKey"], unique = true)]
+)
+data class WildlifeExpeditionEntity(
+    @PrimaryKey val id: String, // "{childId}_{weekKey}"
+    val childId: String,
+    val weekKey: String, // ISO date of the Monday starting the local week
+    val completedLessonIds: String = "",
+    val subjectKeys: String = "",
+    val badgeAwarded: Boolean = false,
+    val awardedBadgeId: String? = null,
+    val createdAtEpochMillis: Long = System.currentTimeMillis(),
+    val updatedAtEpochMillis: Long = System.currentTimeMillis(),
+)
+
 // ─── Lesson Completion Idempotency (v6 lineage, adopted v7) ───
 
 @Entity(
