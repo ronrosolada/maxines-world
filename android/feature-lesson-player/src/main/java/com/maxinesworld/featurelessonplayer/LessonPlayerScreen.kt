@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import android.provider.Settings
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -460,8 +461,13 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
         (if (accuracy >= 0.95f) 1 else 0)
     val coinsEarned = if (accuracy >= 0.8f) 10 else 0
 
-    // Confetti — respect reduced motion
-    val reducedMotion = false // TODO: wire system setting
+    // Confetti — respect reduced motion (ANIMATOR_DURATION_SCALE == 0 on
+    // Android disables system animations; children with this preference get
+    // a static celebration screen instead of falling confetti).
+    val context = LocalContext.current
+    val reducedMotion = remember {
+        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
+    }
     val confettiColors = if (!reducedMotion) listOf(Coral, SunshineGold, SkyBlue, StoryPurple, LeafGreen, VillageTeal) else emptyList()
     val particles = remember { List(if (reducedMotion) 0 else 40) { Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat()) } }
     val confettiAnim by rememberInfiniteTransition(label = "confetti").animateFloat(0f, 800f, infiniteRepeatable(tween(3000, easing = LinearEasing), RepeatMode.Restart), "fall")
