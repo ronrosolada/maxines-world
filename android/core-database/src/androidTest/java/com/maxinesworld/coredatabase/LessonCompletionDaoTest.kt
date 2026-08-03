@@ -72,6 +72,21 @@ class LessonCompletionDaoTest {
     }
 
     @Test
+    fun countDistinctLessonsMatchesFlowVariant() = runBlocking {
+        dao.insertIgnoring(completion("child_1", "lesson-a", "att_1"))
+        dao.insertIgnoring(completion("child_1", "lesson-b", "att_1"))
+        dao.insertIgnoring(completion("child_1", "lesson-a", "att_2"))
+
+        assertEquals("suspend count agrees with the Flow count", 2, dao.countDistinctLessons("child_1"))
+        assertEquals(2, dao.observeDistinctLessonCount("child_1").first())
+    }
+
+    @Test
+    fun countDistinctLessonsIsZeroForNewChild() = runBlocking {
+        assertEquals("brand-new child has no lessons yet", 0, dao.countDistinctLessons("child_fresh"))
+    }
+
+    @Test
     fun duplicateAttemptIdIsIgnoredNotDoubleCounted() = runBlocking {
         // Same (childId, lessonId, attemptId) — unique index → IGNORE, no new row
         dao.insertIgnoring(completion("child_1", "english-g3-m01-d01", "att_1"))

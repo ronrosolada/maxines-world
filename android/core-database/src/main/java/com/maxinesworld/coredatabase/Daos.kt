@@ -162,6 +162,9 @@ interface LessonCompletionDao {
     @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonCount(childId: String): Flow<Int>
 
+    @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
+    suspend fun countDistinctLessons(childId: String): Int
+
     @Query("SELECT DISTINCT lessonId FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonIds(childId: String): Flow<List<String>>
 

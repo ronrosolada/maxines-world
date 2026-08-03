@@ -34,6 +34,8 @@ class BadgeAwarder @Inject constructor(
         const val EXPEDITION_TARGET_LESSONS = 3
         const val EXPEDITION_MIN_SUBJECTS = 2
         const val SUBJECT_MAKABANSA = "makabansa"
+        const val MILESTONE_BIOME = "milestone"
+        const val FIRST_STEPS_BADGE_ID = "milestone_first_steps"
 
         /** Canonical learning-area keys used by the expedition. */
         val SUBJECTS = listOf(
@@ -93,6 +95,28 @@ class BadgeAwarder @Inject constructor(
     suspend fun recordSubjectCompletion(childId: String, subject: String): ChallengeProgress =
         recordLessonCompletion(childId, subject, "legacy:${normalizeSubject(subject) ?: subject}")
 
+    /**
+     * Awards the child's very first sticker the first time they complete any
+     * lesson. Idempotent: a child can only ever earn this milestone once,
+     * regardless of how many lessons they complete or replays they make.
+     */
+    suspend fun recordFirstLessonCompletion(childId: String): CollectibleBadge? = awardMutex.withLock {
+        val earned = collectedBadgeDao.getAllByChild(childId)
+        if (earned.any { it.badgeId == FIRST_STEPS_BADGE_ID }) return@withLock null
+        val firstSteps = badgeLoader.loadAll().firstOrNull { it.id == FIRST_STEPS_BADGE_ID }
+            ?: return@withLock null
+        collectedBadgeDao.insert(
+            CollectedBadgeEntity(
+                id = "${childId}_${firstSteps.id}",
+                childId = childId,
+                badgeId = firstSteps.id,
+                biome = firstSteps.biome,
+                earnedDate = currentWeekKey(),
+            )
+        )
+        firstSteps
+    }
+
     /** Current week's expedition progress; unlike the old daily challenge it does not reset each day. */
     suspend fun getExpeditionProgress(childId: String): ChallengeProgress = awardMutex.withLock {
         getExpeditionProgressLocked(childId)
@@ -110,7 +134,10 @@ class BadgeAwarder @Inject constructor(
     private suspend fun awardNextBadge(childId: String, weekKey: String): CollectibleBadge? {
         val allBadges = badgeLoader.loadAll()
         val earnedIds = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
-        val nextBadge = allBadges.firstOrNull { it.id !in earnedIds } ?: return null
+        // Milestone stickers (e.g. First Steps) are awarded by their own
+        // triggers; the weekly wildlife expedition must never hand one out.
+        val nextBadge = allBadges.firstOrNull { it.id !in earnedIds && it.biome != MILESTONE_BIOME }
+            ?: return null
 
         collectedBadgeDao.insert(
             CollectedBadgeEntity(

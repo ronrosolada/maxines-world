@@ -129,6 +129,9 @@ class LessonPlayerViewModel @Inject constructor(
             val scoredCorrect = scoredResults.count { it.correct }
             val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
             val firstLessonCompletion = !lessonCompletionDao.exists(childId, lesson.id)
+            // The very first lesson this child has EVER completed earns the
+            // First Steps milestone sticker (before we insert the completion).
+            val isFirstLessonEver = lessonCompletionDao.countDistinctLessons(childId) == 0
             // Record idempotent lesson completion (distinct lessonId drives child level).
             lessonCompletionDao.insertIgnoring(
                 LessonCompletionEntity(
@@ -167,10 +170,17 @@ class LessonPlayerViewModel @Inject constructor(
                 }
             }
             val progress = badgeAwarder.recordLessonCompletion(childId, lesson.subject, lesson.id)
+            val firstStepsSticker = if (isFirstLessonEver) {
+                badgeAwarder.recordFirstLessonCompletion(childId)
+            } else {
+                null
+            }
             _state.update {
                 it.copy(
                     expeditionProgress = progress,
-                    badgeAwarded = progress.newlyAwardedBadge,
+                    // The First Steps milestone takes precedence in the reveal —
+                    // it only ever fires on the child's very first lesson.
+                    badgeAwarded = firstStepsSticker ?: progress.newlyAwardedBadge,
                 )
             }
         }

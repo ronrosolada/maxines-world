@@ -22,6 +22,7 @@ import java.time.ZoneId
 class BadgeAwarderTest {
     private val childId = "child_test_1"
     private val badges = listOf(
+        CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You finished your first lesson!", "🌟"),
         CollectibleBadge("badge_01", "forest_friends", "Tarsier", "Moon-Eyed", "Big eyes", "🐒"),
         CollectibleBadge("badge_02", "forest_friends", "Tamaraw", "Mini Buffalo", "Rare", "🐃"),
         CollectibleBadge("badge_03", "sky_scouts", "Eagle", "Forest King", "National bird", "🦅"),
@@ -31,6 +32,7 @@ class BadgeAwarderTest {
     private lateinit var collectedBadgeDao: CollectedBadgeDao
     private lateinit var badgeLoader: BadgeLoader
     private var current: WildlifeExpeditionEntity? = null
+    private val collectedBadges = mutableListOf<CollectedBadgeEntity>()
 
     @Before
     fun setUp() {
@@ -38,10 +40,12 @@ class BadgeAwarderTest {
         expeditionDao = mockk()
         collectedBadgeDao = mockk()
         badgeLoader = mockk()
+        current = null
+        collectedBadges.clear()
         coEvery { expeditionDao.getByChildAndWeek(childId, any()) } answers { current }
         coEvery { expeditionDao.upsert(any()) } answers { current = firstArg() }
-        coEvery { collectedBadgeDao.getAllByChild(childId) } returns emptyList()
-        coEvery { collectedBadgeDao.insert(any()) } just runs
+        coEvery { collectedBadgeDao.getAllByChild(childId) } answers { collectedBadges.toList() }
+        coEvery { collectedBadgeDao.insert(any()) } answers { collectedBadges.add(firstArg()) }
         coEvery { badgeLoader.loadAll() } returns badges
         mockDate("2026-08-03") // Monday; all following dates are the same week.
     }
@@ -49,6 +53,7 @@ class BadgeAwarderTest {
     @After
     fun tearDown() {
         current = null
+        collectedBadges.clear()
         unmockkAll()
     }
 
@@ -77,6 +82,38 @@ class BadgeAwarderTest {
         assertTrue(result.expeditionComplete)
         assertEquals("badge_01", result.newlyAwardedBadge?.id)
         coVerify(exactly = 1) { collectedBadgeDao.insert(any()) }
+    }
+
+    @Test
+    fun `first lesson completion awards the First Steps milestone sticker once`() = runTest {
+        val awarder = awarder()
+        val first = awarder.recordFirstLessonCompletion(childId)
+
+        assertEquals("milestone_first_steps", first?.id)
+        assertEquals("milestone", first?.biome)
+        coVerify(exactly = 1) { collectedBadgeDao.insert(any()) }
+
+        // Idempotent: replaying the first-lesson trigger must not double-award.
+        val second = awarder.recordFirstLessonCompletion(childId)
+        assertNull(second)
+        coVerify(exactly = 1) { collectedBadgeDao.insert(any()) }
+    }
+
+    @Test
+    fun `milestone sticker never leaks into the weekly expedition`() = runTest {
+        // Add a milestone sticker to the catalog ahead of the wildlife badges.
+        coEvery { badgeLoader.loadAll() } returns listOf(
+            CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You did it!", "🌟"),
+        ) + badges
+
+        awarder().recordLessonCompletion(childId, "english", "english-g3-lesson-01")
+        awarder().recordLessonCompletion(childId, "gmrc", "gmrc-g3-lesson-01")
+        val result = awarder().recordLessonCompletion(childId, "science", "science-g3-lesson-01")
+
+        // The expedition must skip the milestone sticker and award the first wildlife badge.
+        assertEquals("badge_01", result.newlyAwardedBadge?.id)
+        coVerify(exactly = 1) { collectedBadgeDao.insert(any()) }
+        coVerify { collectedBadgeDao.insert(match { it.badgeId == "badge_01" }) }
     }
 
     @Test
@@ -151,9 +188,10 @@ class BadgeAwarderTest {
         )
 
         val result = awarder().getCollectedBadges(childId)
-        assertEquals(3, result.size)
+        assertEquals("catalog now has 4 badges (3 wildlife + 1 milestone)", 4, result.size)
         assertTrue(result.first { it.id == "badge_01" }.isCollected)
         assertEquals(42L, result.first { it.id == "badge_01" }.collectedAtEpochMillis)
+        assertFalse("milestone sticker stays uncollected here", result.first { it.id == "milestone_first_steps" }.isCollected)
     }
 
     private fun awarder() = BadgeAwarder(expeditionDao, collectedBadgeDao, badgeLoader)
