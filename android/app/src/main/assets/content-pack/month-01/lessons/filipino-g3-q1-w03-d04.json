@@ -1,378 +1,372 @@
 {
- "lessonId": "filipino-g3-q1-w03-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 4,
- "subject": "filipino",
- "title": "Maikling Buod · Q1 W03 D04",
- "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "tauhan",
-   "definition": "angkop na halimbawa"
-  },
-  {
-   "term": "suliranin",
-   "definition": "malinaw na gamit"
-  },
-  {
-   "term": "mahalagang pangyayari",
-   "definition": "tamang ideya"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "content": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "content": {
-    "examples": [
-     "tauhan",
-     "suliranin",
-     "mahalagang pangyayari",
-     "wakas"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "content": {
-    "fits": [
-     "tauhan",
-     "suliranin",
-     "mahalagang pangyayari",
-     "wakas"
-    ],
-    "doesNotFit": [
-     "salitang walang kaugnayan",
-     "hindi magalang na pahayag",
-     "hula na walang pahiwatig",
-     "paksang iba sa aralin"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Piliin ang pinakamainam na sagot.",
-   "content": {
-    "options": [
-     "tauhan",
-     "salitang walang kaugnayan",
-     "hindi magalang na pahayag",
-     "hula na walang pahiwatig"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Piliin ang pinakamainam na sagot.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Itugma ang magkakaugnay na ideya.",
-   "content": {
-    "pairs": [
-     {
-      "left": "tauhan",
-      "right": "angkop na halimbawa"
-     },
-     {
-      "left": "suliranin",
-      "right": "malinaw na gamit"
-     },
-     {
-      "left": "mahalagang pangyayari",
-      "right": "tamang ideya"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Itugma ang magkakaugnay na ideya.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d04-visual",
-   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "content": {
-    "steps": [
-     "Basahin ang halimbawa",
-     "Hanapin ang pahiwatig",
-     "Piliin ang tamang ideya",
-     "Ipaliwanag ang sagot"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "filipino-g3-q1-w03-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang kabilang sa Maikling Buod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "hula na walang pahiwatig"
-     },
-     {
-      "id": "b",
-      "text": "tauhan"
-     },
-     {
-      "id": "c",
-      "text": "salitang walang kaugnayan"
-     },
-     {
-      "id": "d",
-      "text": "hindi magalang na pahayag"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: tauhan"
-   },
-   {
-    "itemId": "filipino-g3-q1-w03-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pagpipilian ang nagpapakita ng kasanayan sa Maikling Buod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "suliranin"
-     },
-     {
-      "id": "b",
-      "text": "hindi magalang na pahayag"
-     },
-     {
-      "id": "c",
-      "text": "hula na walang pahiwatig"
-     },
-     {
-      "id": "d",
-      "text": "paksang iba sa aralin"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: suliranin"
-   },
-   {
-    "itemId": "filipino-g3-q1-w03-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang isang halimbawa ng Maikling Buod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "hula na walang pahiwatig"
-     },
-     {
-      "id": "b",
-      "text": "paksang iba sa aralin"
-     },
-     {
-      "id": "c",
-      "text": "salitang walang kaugnayan"
-     },
-     {
-      "id": "d",
-      "text": "mahalagang pangyayari"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: mahalagang pangyayari"
-   },
-   {
-    "itemId": "filipino-g3-q1-w03-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sitwasyon ang tumutugma sa Maikling Buod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "salitang walang kaugnayan"
-     },
-     {
-      "id": "b",
-      "text": "hindi magalang na pahayag"
-     },
-     {
-      "id": "c",
-      "text": "wakas"
-     },
-     {
-      "id": "d",
-      "text": "paksang iba sa aralin"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: wakas"
-   },
-   {
-    "itemId": "filipino-g3-q1-w03-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sagot ang nagpapakita ng Maikling Buod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "hula na walang pahiwatig"
-     },
-     {
-      "id": "b",
-      "text": "tauhan"
-     },
-     {
-      "id": "c",
-      "text": "salitang walang kaugnayan"
-     },
-     {
-      "id": "d",
-      "text": "hindi magalang na pahayag"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: tauhan"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q1-w03-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "filipino",
+  "title": "Maikling Buod · Q1 W03 D04",
+  "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "tauhan",
+      "definition": "ang mga tao o hayop sa kuwento"
+    },
+    {
+      "term": "suliranin",
+      "definition": "ang problema sa kuwento"
+    },
+    {
+      "term": "buod",
+      "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "content": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at sa kusina. Natagpuan nila ito sa ilalim ng unan. Nagpasalamat si Lola Rosa sa kanila. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "narration": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at sa kusina. Natagpuan nila ito sa ilalim ng unan. Nagpasalamat si Lola Rosa sa kanila. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at sa kusina. Natagpuan nila ito sa ilalim ng unan. Nagpasalamat si Lola Rosa sa kanila. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+      "content": {
+        "examples": [
+          "Lola Rosa, Milo, at Ana",
+          "Nawala ang alampay ni Lola Rosa.",
+          "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
+          "Natagpuan nila ito sa ilalim ng unan."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
+      "content": {
+        "fits": [
+          "Lola Rosa, Milo, at Ana",
+          "Nawala ang alampay ni Lola Rosa.",
+          "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
+          "Natagpuan nila ito sa ilalim ng unan."
+        ],
+        "doesNotFit": [
+          "Naghintay siya hanggang hapon.",
+          "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+          "Ibinalot ni Marco ang kanyang jacket sa matanda."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+      "content": {
+        "options": [
+          "Lola Rosa, Milo, at Ana",
+          "Ben",
+          "Aling Rosa at Nena",
+          "Marco at isang matanda"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Lola Rosa, Milo, at Ana",
+            "right": "tauhan"
+          },
+          {
+            "left": "Nawala ang alampay ni Lola Rosa.",
+            "right": "suliranin"
+          },
+          {
+            "left": "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
+            "right": "mahalagang pangyayari"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d04-visual",
+      "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+      "content": {
+        "steps": [
+          "Basahin ang kuwento",
+          "Tukuyin ang tauhan",
+          "Hanapin ang suliranin at pangyayari",
+          "Isulat ang maikling buod"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w03-d04-q1",
+        "prompt": "Sino ang tauhan sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Lola Rosa, Milo, at Ana"
+          },
+          {
+            "id": "b",
+            "text": "Ben"
+          },
+          {
+            "id": "c",
+            "text": "Aling Rosa at Nena"
+          },
+          {
+            "id": "d",
+            "text": "Gustong maglaro ni Ben pero mainit ang araw."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Lola Rosa, Milo, at Ana"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w03-d04-q2",
+        "prompt": "Ano ang suliranin sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nawala ang alampay ni Lola Rosa."
+          },
+          {
+            "id": "b",
+            "text": "Gustong maglaro ni Ben pero mainit ang araw."
+          },
+          {
+            "id": "c",
+            "text": "Nabasag ang paso ng halaman ni Aling Rosa."
+          },
+          {
+            "id": "d",
+            "text": "Naghintay siya hanggang hapon."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Nawala ang alampay ni Lola Rosa."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w03-d04-q3",
+        "prompt": "Ano ang mahalagang pangyayari sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Hinanap ito nina Milo at Ana sa sala at sa kusina."
+          },
+          {
+            "id": "b",
+            "text": "Naghintay siya hanggang hapon."
+          },
+          {
+            "id": "c",
+            "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+          },
+          {
+            "id": "d",
+            "text": "Naglaro siya nang masaya sa labas."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Hinanap ito nina Milo at Ana sa sala at sa kusina."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w03-d04-q4",
+        "prompt": "Paano natapos ang kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Natagpuan nila ito sa ilalim ng unan."
+          },
+          {
+            "id": "b",
+            "text": "Naglaro siya nang masaya sa labas."
+          },
+          {
+            "id": "c",
+            "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
+          },
+          {
+            "id": "d",
+            "text": "Ben"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Natagpuan nila ito sa ilalim ng unan."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w03-d04-q5",
+        "prompt": "Alin ang maikling buod ng kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nawala ang alampay ni Lola Rosa, at natagpuan ito nina Milo at Ana sa ilalim ng unan."
+          },
+          {
+            "id": "b",
+            "text": "Mainit noong tanghali, kaya naghintay si Ben hanggang hapon bago naglaro."
+          },
+          {
+            "id": "c",
+            "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
+          },
+          {
+            "id": "d",
+            "text": "Naghintay siya hanggang hapon."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Nawala ang alampay ni Lola Rosa, at natagpuan ito nina Milo at Ana sa ilalim ng unan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

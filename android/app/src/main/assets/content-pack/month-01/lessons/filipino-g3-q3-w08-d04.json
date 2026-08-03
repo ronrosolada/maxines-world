@@ -16,16 +16,16 @@
   "introduction": "May bagong misyon si Milo! 🐱✨ Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Handa ka na bang sumubok?",
   "vocabulary": [
     {
-      "term": "Si Ana / ay nagbabasa.",
-      "definition": "angkop na halimbawa"
+      "term": "simuno",
+      "definition": "ang pinag-uusapan sa pangungusap"
     },
     {
-      "term": "Ang aso / ay tumatakbo.",
-      "definition": "malinaw na gamit"
+      "term": "panaguri",
+      "definition": "ang nagsasabi tungkol sa simuno"
     },
     {
-      "term": "Si Milo / ay natututo.",
-      "definition": "tamang ideya"
+      "term": "payak na pangungusap",
+      "definition": "pangungusap na may isang simuno at isang panaguri"
     }
   ],
   "activities": [
@@ -36,8 +36,8 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-      "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "instruction": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dino / ay nagkukuwento.",
       "completionRule": {
         "type": "COMPLETE"
       },
@@ -45,11 +45,11 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dino / ay nagkukuwento.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dino / ay nagkukuwento."
     },
     {
       "activityId": "filipino-g3-q3-w08-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Dino / ay nagkukuwento.'.",
       "content": {
         "examples": [
-          "Si Ana / ay nagbabasa.",
-          "Ang aso / ay tumatakbo.",
-          "Si Milo / ay natututo.",
-          "Ang mga bata / ay naglalaro."
+          "Si Dino / ay nagkukuwento.",
+          "Ang manok / ay tumitilaok.",
+          "Si Lita / ay nagtatahi.",
+          "Ang apoy / ay nagliliyab."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -76,7 +76,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "prompt": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Dino / ay nagkukuwento.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga buong pangungusap na may simuno at panaguri, tulad ng 'Si Dino / ay nagkukuwento.'.",
       "content": {
         "fits": [
-          "Si Ana / ay nagbabasa.",
-          "Ang aso / ay tumatakbo.",
-          "Si Milo / ay natututo.",
-          "Ang mga bata / ay naglalaro."
+          "Si Dino / ay nagkukuwento.",
+          "Ang manok / ay tumitilaok.",
+          "Si Lita / ay nagtatahi.",
+          "Ang apoy / ay nagliliyab."
         ],
         "doesNotFit": [
-          "salitang walang kaugnayan",
-          "hindi magalang na pahayag",
-          "hula na walang pahiwatig",
-          "paksang iba sa aralin"
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "at nagmamadali tuwing gabi",
+          "kasi tuwang-tuwa ang lahat"
         ]
       },
       "completionRule": {
@@ -112,7 +112,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga buong pangungusap na may simuno at panaguri, tulad ng 'Si Dino / ay nagkukuwento.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Piliin ang pinakamainam na sagot.",
+      "instruction": "Piliin ang pinakamabuting sagot. Buong pangungusap ang may simuno at panaguri, tulad ng 'Si Dino / ay nagkukuwento.'.",
       "content": {
         "options": [
-          "Si Ana / ay nagbabasa.",
-          "salitang walang kaugnayan",
-          "hindi magalang na pahayag",
-          "hula na walang pahiwatig"
+          "Si Dino / ay nagkukuwento.",
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "kasi tuwang-tuwa ang lahat"
         ],
         "correctIndex": 0
       },
@@ -142,7 +142,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang pinakamainam na sagot.",
+      "prompt": "Piliin ang pinakamabuting sagot. Buong pangungusap ang may simuno at panaguri, tulad ng 'Si Dino / ay nagkukuwento.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Itugma ang magkakaugnay na ideya.",
+      "instruction": "Itugma ang bawat bahagi sa wastong pangkat: simuno, panaguri, o buong pangungusap. Halimbawa: 'Si Dino / ay nagkukuwento.'.",
       "content": {
         "pairs": [
           {
-            "left": "Si Ana / ay nagbabasa.",
-            "right": "angkop na halimbawa"
+            "left": "Si Dino",
+            "right": "simuno"
           },
           {
-            "left": "Ang aso / ay tumatakbo.",
-            "right": "malinaw na gamit"
+            "left": "ay nagkukuwento.",
+            "right": "panaguri"
           },
           {
-            "left": "Si Milo / ay natututo.",
-            "right": "tamang ideya"
+            "left": "Si Dino / ay nagkukuwento.",
+            "right": "buong pangungusap"
           }
         ]
       },
@@ -179,7 +179,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Itugma ang magkakaugnay na ideya.",
+      "prompt": "Itugma ang bawat bahagi sa wastong pangkat: simuno, panaguri, o buong pangungusap. Halimbawa: 'Si Dino / ay nagkukuwento.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q3-w08-d04-visual",
-      "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "instruction": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Dino / ay nagkukuwento.'.",
       "content": {
         "steps": [
-          "Basahin ang halimbawa",
-          "Hanapin ang pahiwatig",
-          "Piliin ang tamang ideya",
-          "Ipaliwanag ang sagot"
+          "Basahin ang pangungusap",
+          "Hanapin kung sino o ano ang pinag-uusapan",
+          "Hanapin ang sinasabi tungkol dito",
+          "Sabihin: simuno at panaguri"
         ]
       },
       "completionRule": {
@@ -208,7 +208,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Dino / ay nagkukuwento.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -222,144 +222,139 @@
     "claimsMastery": false,
     "items": [
       {
-        "itemId": "filipino-g3-q3-w08-d04-q01",
         "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin sa sumusunod ang tamang paghahati ng simuno at panaguri?",
+        "itemId": "filipino-g3-q3-w08-d04-q1",
+        "prompt": "Alin ang simuno sa 'Si Dino / ay nagkukuwento.'?",
         "options": [
           {
             "id": "a",
-            "text": "Ang mga bata ay / naglalaro"
+            "text": "Si Dino"
           },
           {
             "id": "b",
-            "text": "Ang mga / bata ay naglalaro"
+            "text": "Ang manok"
           },
           {
             "id": "c",
-            "text": "Ang / mga bata ay naglalaro"
+            "text": "Si Lita"
           },
           {
             "id": "d",
-            "text": "Ang mga bata / ay naglalaro"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang tamang paghahati: 'Ang mga bata' (simuno) / 'ay naglalaro' (panaguri)."
-      },
-      {
-        "itemId": "filipino-g3-q3-w08-d04-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Kung ang simuno ay 'Ang pusa', alin ang maaaring panaguri?",
-        "options": [
-          {
-            "id": "a",
-            "text": "ay natutulog sa sofa"
-          },
-          {
-            "id": "b",
-            "text": "Ang pusa"
-          },
-          {
-            "id": "c",
-            "text": "Ang sofa"
-          },
-          {
-            "id": "d",
-            "text": "mabilis"
+            "text": "Ang apoy"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang panaguri ay nagsasabi tungkol sa simuno: 'ay natutulog sa sofa'."
+        "explanation": "Ang pinakamabuting sagot ay: Si Dino"
       },
       {
-        "itemId": "filipino-g3-q3-w08-d04-q03",
+        "sequence": 2,
+        "itemId": "filipino-g3-q3-w08-d04-q2",
+        "prompt": "Alin ang panaguri sa 'Si Dino / ay nagkukuwento.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay nagkukuwento."
+          },
+          {
+            "id": "b",
+            "text": "ay tumitilaok."
+          },
+          {
+            "id": "c",
+            "text": "ay nagtatahi."
+          },
+          {
+            "id": "d",
+            "text": "ay nagliliyab."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: ay nagkukuwento."
+      },
+      {
         "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang simuno sa pangungusap na 'Ang guro ay nagtuturo'?",
+        "itemId": "filipino-g3-q3-w08-d04-q3",
+        "prompt": "Aling paghahati ang tama: 'Ang manok / ay tumitilaok.'?",
         "options": [
           {
             "id": "a",
-            "text": "Ang aklat"
+            "text": "Ang manok / ay tumitilaok."
           },
           {
             "id": "b",
-            "text": "Ang guro"
+            "text": "Si Dino / ay nagkukuwento."
           },
           {
             "id": "c",
-            "text": "ay nagtuturo"
+            "text": "Si Lita / ay nagtatahi."
           },
           {
             "id": "d",
-            "text": "Ang mga bata"
+            "text": "Ang apoy / ay nagliliyab."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "a"
         ],
-        "explanation": "Ang simuno ay 'Ang guro' — siya ang pinag-uusapan."
+        "explanation": "Ang pinakamabuting sagot ay: Ang manok / ay tumitilaok."
       },
       {
-        "itemId": "filipino-g3-q3-w08-d04-q04",
         "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang panaguri sa 'Si Lolo ay nagbabasa ng libro'?",
+        "itemId": "filipino-g3-q3-w08-d04-q4",
+        "prompt": "Kung ang simuno ay 'Si Dino', alin ang maaaring panaguri?",
         "options": [
           {
             "id": "a",
-            "text": "Si Lolo"
+            "text": "ay nagkukuwento."
           },
           {
             "id": "b",
-            "text": "ay nagbabasa ng libro"
+            "text": "ay tumitilaok."
           },
           {
             "id": "c",
-            "text": "Ang libro"
+            "text": "ay nagtatahi."
           },
           {
             "id": "d",
-            "text": "Ang bahay"
+            "text": "ay nagliliyab."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "a"
         ],
-        "explanation": "Ang panaguri ay 'ay nagbabasa ng libro' — nagsasabi tungkol sa ginagawa ni Lolo."
+        "explanation": "Ang pinakamabuting sagot ay: ay nagkukuwento."
       },
       {
-        "itemId": "filipino-g3-q3-w08-d04-q05",
         "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Sa 'Ang bata ay tumatakbo pababa', alin ang tamang paghahati?",
+        "itemId": "filipino-g3-q3-w08-d04-q5",
+        "prompt": "Aling tamang paghahati: 'Si Lita / ay nagtatahi.'?",
         "options": [
           {
             "id": "a",
-            "text": "Ang bata ay / tumatakbo pababa"
+            "text": "Si Lita / ay nagtatahi."
           },
           {
             "id": "b",
-            "text": "Ang bata / tumatakbo pababa"
+            "text": "Si Dino / ay nagkukuwento."
           },
           {
             "id": "c",
-            "text": "Ang / bata ay tumatakbo pababa"
+            "text": "Ang manok / ay tumitilaok."
           },
           {
             "id": "d",
-            "text": "Ang bata / ay tumatakbo pababa"
+            "text": "Ang apoy / ay nagliliyab."
           }
         ],
         "correctOptionIds": [
-          "d"
+          "a"
         ],
-        "explanation": "Simuno: 'Ang bata' | Panaguri: 'ay tumatakbo pababa'."
+        "explanation": "Ang pinakamabuting sagot ay: Si Lita / ay nagtatahi."
       }
     ]
   },

@@ -16,16 +16,16 @@
   "introduction": "May bagong misyon si Milo! 🐱✨ Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Handa ka na bang sumubok?",
   "vocabulary": [
     {
-      "term": "Si Ana / ay nagbabasa.",
-      "definition": "angkop na halimbawa"
+      "term": "simuno",
+      "definition": "ang pinag-uusapan sa pangungusap"
     },
     {
-      "term": "Ang aso / ay tumatakbo.",
-      "definition": "malinaw na gamit"
+      "term": "panaguri",
+      "definition": "ang nagsasabi tungkol sa simuno"
     },
     {
-      "term": "Si Milo / ay natututo.",
-      "definition": "tamang ideya"
+      "term": "payak na pangungusap",
+      "definition": "pangungusap na may isang simuno at isang panaguri"
     }
   ],
   "activities": [
@@ -36,8 +36,8 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-      "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "instruction": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dodoy / ay sumisipol.",
       "completionRule": {
         "type": "COMPLETE"
       },
@@ -45,11 +45,11 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dodoy / ay sumisipol.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Dodoy / ay sumisipol."
     },
     {
       "activityId": "filipino-g3-q4-w12-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Dodoy / ay sumisipol.'.",
       "content": {
         "examples": [
-          "Si Ana / ay nagbabasa.",
-          "Ang aso / ay tumatakbo.",
-          "Si Milo / ay natututo.",
-          "Ang mga bata / ay naglalaro."
+          "Si Dodoy / ay sumisipol.",
+          "Ang ilog / ay umaagos.",
+          "Si Ester / ay nag-aalaga ng manok.",
+          "Ang ulap / ay gumagalaw."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -76,7 +76,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "prompt": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Dodoy / ay sumisipol.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga buong pangungusap na may simuno at panaguri, tulad ng 'Si Dodoy / ay sumisipol.'.",
       "content": {
         "fits": [
-          "Si Ana / ay nagbabasa.",
-          "Ang aso / ay tumatakbo.",
-          "Si Milo / ay natututo.",
-          "Ang mga bata / ay naglalaro."
+          "Si Dodoy / ay sumisipol.",
+          "Ang ilog / ay umaagos.",
+          "Si Ester / ay nag-aalaga ng manok.",
+          "Ang ulap / ay gumagalaw."
         ],
         "doesNotFit": [
-          "salitang walang kaugnayan",
-          "hindi magalang na pahayag",
-          "hula na walang pahiwatig",
-          "paksang iba sa aralin"
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "at nagmamadali tuwing gabi",
+          "kasi tuwang-tuwa ang lahat"
         ]
       },
       "completionRule": {
@@ -112,7 +112,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga buong pangungusap na may simuno at panaguri, tulad ng 'Si Dodoy / ay sumisipol.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -125,15 +125,15 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Piliin ang pinakamainam na sagot.",
+      "instruction": "Piliin ang pinakamabuting sagot. Buong pangungusap ang may simuno at panaguri, tulad ng 'Si Dodoy / ay sumisipol.'.",
       "content": {
         "options": [
-          "Si Ana / ay nagbabasa.",
-          "salitang walang kaugnayan",
-          "hindi magalang na pahayag",
-          "hula na walang pahiwatig"
+          "ang matiyagang sumusulat",
+          "Si Dodoy / ay sumisipol.",
+          "sa likod ng bahay",
+          "kasi tuwang-tuwa ang lahat"
         ],
-        "correctIndex": 0
+        "correctIndex": 1
       },
       "completionRule": {
         "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang pinakamainam na sagot.",
+      "prompt": "Piliin ang pinakamabuting sagot. Buong pangungusap ang may simuno at panaguri, tulad ng 'Si Dodoy / ay sumisipol.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Itugma ang magkakaugnay na ideya.",
+      "instruction": "Itugma ang bawat bahagi sa wastong pangkat: simuno, panaguri, o buong pangungusap. Halimbawa: 'Si Dodoy / ay sumisipol.'.",
       "content": {
         "pairs": [
           {
-            "left": "Si Ana / ay nagbabasa.",
-            "right": "angkop na halimbawa"
+            "left": "Si Dodoy",
+            "right": "simuno"
           },
           {
-            "left": "Ang aso / ay tumatakbo.",
-            "right": "malinaw na gamit"
+            "left": "ay sumisipol.",
+            "right": "panaguri"
           },
           {
-            "left": "Si Milo / ay natututo.",
-            "right": "tamang ideya"
+            "left": "Si Dodoy / ay sumisipol.",
+            "right": "buong pangungusap"
           }
         ]
       },
@@ -179,7 +179,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Itugma ang magkakaugnay na ideya.",
+      "prompt": "Itugma ang bawat bahagi sa wastong pangkat: simuno, panaguri, o buong pangungusap. Halimbawa: 'Si Dodoy / ay sumisipol.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q4-w12-d01-visual",
-      "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "instruction": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Dodoy / ay sumisipol.'.",
       "content": {
         "steps": [
-          "Basahin ang halimbawa",
-          "Hanapin ang pahiwatig",
-          "Piliin ang tamang ideya",
-          "Ipaliwanag ang sagot"
+          "Basahin ang pangungusap",
+          "Hanapin kung sino o ano ang pinag-uusapan",
+          "Hanapin ang sinasabi tungkol dito",
+          "Sabihin: simuno at panaguri"
         ]
       },
       "completionRule": {
@@ -208,7 +208,7 @@
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Dodoy / ay sumisipol.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
@@ -222,144 +222,139 @@
     "claimsMastery": false,
     "items": [
       {
-        "itemId": "filipino-g3-q4-w12-d01-q01",
         "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang tamang paghahati: 'Si Tatay ay nagmamaneho'?",
+        "itemId": "filipino-g3-q4-w12-d01-q1",
+        "prompt": "Alin ang simuno sa 'Si Dodoy / ay sumisipol.'?",
         "options": [
           {
             "id": "a",
-            "text": "Si Tatay ay / nagmamaneho"
+            "text": "Ang ilog"
           },
           {
             "id": "b",
-            "text": "Si Tatay / nagmamaneho"
+            "text": "Si Dodoy"
           },
           {
             "id": "c",
-            "text": "Si / Tatay ay nagmamaneho"
+            "text": "Si Ester"
           },
           {
             "id": "d",
-            "text": "Si Tatay / ay nagmamaneho"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Simuno: 'Si Tatay' | Panaguri: 'ay nagmamaneho'."
-      },
-      {
-        "itemId": "filipino-g3-q4-w12-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Kung ang simuno ay 'Ang bibe', alin ang panaguri?",
-        "options": [
-          {
-            "id": "a",
-            "text": "ay lumalangoy sa lawa"
-          },
-          {
-            "id": "b",
-            "text": "Ang bibe"
-          },
-          {
-            "id": "c",
-            "text": "Ang lawa"
-          },
-          {
-            "id": "d",
-            "text": "Sa lawa"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang panaguri ay nagsasabi tungkol sa gawain ng bibe."
-      },
-      {
-        "itemId": "filipino-g3-q4-w12-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang simuno sa 'Ang mga bata ay naglalaro'?",
-        "options": [
-          {
-            "id": "a",
-            "text": "naglalaro sa labas"
-          },
-          {
-            "id": "b",
-            "text": "Ang mga bata"
-          },
-          {
-            "id": "c",
-            "text": "ay naglalaro"
-          },
-          {
-            "id": "d",
-            "text": "Ang laruan"
+            "text": "Ang ulap"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang simuno ay 'Ang mga bata' — sila ang pinag-uusapan."
+        "explanation": "Ang pinakamabuting sagot ay: Si Dodoy"
       },
       {
-        "itemId": "filipino-g3-q4-w12-d01-q04",
+        "sequence": 2,
+        "itemId": "filipino-g3-q4-w12-d01-q2",
+        "prompt": "Alin ang panaguri sa 'Si Dodoy / ay sumisipol.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay umaagos."
+          },
+          {
+            "id": "b",
+            "text": "ay sumisipol."
+          },
+          {
+            "id": "c",
+            "text": "ay nag-aalaga ng manok."
+          },
+          {
+            "id": "d",
+            "text": "ay gumagalaw."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: ay sumisipol."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q4-w12-d01-q3",
+        "prompt": "Aling paghahati ang tama: 'Ang ilog / ay umaagos.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si Dodoy / ay sumisipol."
+          },
+          {
+            "id": "b",
+            "text": "Ang ilog / ay umaagos."
+          },
+          {
+            "id": "c",
+            "text": "Si Ester / ay nag-aalaga ng manok."
+          },
+          {
+            "id": "d",
+            "text": "Ang ulap / ay gumagalaw."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Ang ilog / ay umaagos."
+      },
+      {
         "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang panaguri sa 'Si Lola ay nagbabasa'?",
+        "itemId": "filipino-g3-q4-w12-d01-q4",
+        "prompt": "Kung ang simuno ay 'Si Dodoy', alin ang maaaring panaguri?",
         "options": [
           {
             "id": "a",
-            "text": "Si Lola"
+            "text": "ay umaagos."
           },
           {
             "id": "b",
-            "text": "Ang libro"
+            "text": "ay sumisipol."
           },
           {
             "id": "c",
-            "text": "ay nagbabasa"
+            "text": "ay nag-aalaga ng manok."
           },
           {
             "id": "d",
-            "text": "Ang tahanan"
+            "text": "ay gumagalaw."
           }
         ],
         "correctOptionIds": [
-          "c"
+          "b"
         ],
-        "explanation": "Ang panaguri ay 'ay nagbabasa' — ito ang gawain ni Lola."
+        "explanation": "Ang pinakamabuting sagot ay: ay sumisipol."
       },
       {
-        "itemId": "filipino-g3-q4-w12-d01-q05",
         "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang simuno sa pangungusap na 'Si Ana ay nagbabasa'?",
+        "itemId": "filipino-g3-q4-w12-d01-q5",
+        "prompt": "Aling tamang paghahati: 'Si Ester / ay nag-aalaga ng manok.'?",
         "options": [
           {
             "id": "a",
-            "text": "Si Ana"
+            "text": "Si Dodoy / ay sumisipol."
           },
           {
             "id": "b",
-            "text": "ay nagbabasa"
+            "text": "Si Ester / ay nag-aalaga ng manok."
           },
           {
             "id": "c",
-            "text": "Ang aklat"
+            "text": "Ang ilog / ay umaagos."
           },
           {
             "id": "d",
-            "text": "Ang aso"
+            "text": "Ang ulap / ay gumagalaw."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
-        "explanation": "Ang simuno ay 'Si Ana' — siya ang pinag-uusapan sa pangungusap."
+        "explanation": "Ang pinakamabuting sagot ay: Si Ester / ay nag-aalaga ng manok."
       }
     ]
   },
