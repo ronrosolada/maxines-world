@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "47 rounds to 50",
-   "definition": "correct idea"
+   "definition": "look at the next digit"
   },
   {
    "term": "342 rounds to 300",
-   "definition": "useful example"
+   "definition": "moves to a nearby place value"
   },
   {
    "term": "3,650 rounds to 4,000",
-   "definition": "check the concept"
+   "definition": "keeps a useful estimate"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "1,241 rounds to 1,200"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "the exact number before rounding",
+     "a place value that was not named",
+     "a fraction of the original number",
+     "the number of objects in a group"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "47 rounds to 50",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "the exact number before rounding",
+     "a place value that was not named",
+     "a fraction of the original number",
+     "47 rounds to 50"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "47 rounds to 50",
-      "right": "correct idea"
+      "right": "look at the next digit"
      },
      {
       "left": "342 rounds to 300",
-      "right": "useful example"
+      "right": "moves to a nearby place value"
      },
      {
       "left": "3,650 rounds to 4,000",
-      "right": "check the concept"
+      "right": "keeps a useful estimate"
      }
     ]
    },

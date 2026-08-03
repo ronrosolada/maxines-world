@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "a fair coin can land heads",
-   "definition": "correct idea"
+   "definition": "describes a chance"
   },
   {
    "term": "a fish breathing on land is impossible",
-   "definition": "useful example"
+   "definition": "cannot happen in the situation"
   },
   {
    "term": "rain may be likely with dark clouds",
-   "definition": "check the concept"
+   "definition": "compares possible outcomes"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "a fair die has six possible faces"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "an event that must happen every time",
+     "an event that cannot happen in the situation",
+     "a measurement of length",
+     "a result chosen without considering chance"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "a measurement of length",
      "a fair coin can land heads",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "an event that must happen every time",
+     "an event that cannot happen in the situation"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "a fair coin can land heads",
-      "right": "correct idea"
+      "right": "describes a chance"
      },
      {
       "left": "a fish breathing on land is impossible",
-      "right": "useful example"
+      "right": "cannot happen in the situation"
      },
      {
       "left": "rain may be likely with dark clouds",
-      "right": "check the concept"
+      "right": "compares possible outcomes"
      }
     ]
    },

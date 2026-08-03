@@ -32,8 +32,8 @@ fun MultipleChoiceRenderer(
     var feedbackState by remember { mutableStateOf<Boolean?>(null) } // null=no feedback, true=correct, false=incorrect
     var submitted by remember { mutableStateOf(false) }
 
-    val options = step.options
-    if (options.isEmpty()) {
+    val originalOptions = step.options
+    if (originalOptions.isEmpty()) {
         Text(
             text = "This activity is unavailable.",
             style = MaterialTheme.typography.bodyLarge,
@@ -41,6 +41,15 @@ fun MultipleChoiceRenderer(
         )
         return
     }
+
+    // Keep the content model's correctIndex tied to the original option list,
+    // then present a stable per-lesson order so the first card is not always
+    // the answer. Stable ordering avoids reshuffling during recomposition.
+    val optionOrder = remember(step.id, originalOptions, step.correctIndex) {
+        optionOrderFor(step.id, originalOptions.size, step.correctIndex)
+    }
+    val options = optionOrder.map(originalOptions::get)
+    val displayedCorrectIndex = optionOrder.indexOf(step.correctIndex)
 
     Column(
         modifier = modifier
@@ -56,8 +65,8 @@ fun MultipleChoiceRenderer(
 
         options.forEachIndexed { index, option ->
             val cardState = when {
-                submitted && index == step.correctIndex -> AnswerCardState.CORRECT
-                submitted && index == selectedIndex && index != step.correctIndex -> AnswerCardState.INCORRECT
+                submitted && index == displayedCorrectIndex -> AnswerCardState.CORRECT
+                submitted && index == selectedIndex && index != displayedCorrectIndex -> AnswerCardState.INCORRECT
                 index == selectedIndex -> AnswerCardState.SELECTED
                 else -> AnswerCardState.IDLE
             }
@@ -71,7 +80,7 @@ fun MultipleChoiceRenderer(
                     .sizeIn(minHeight = 56.dp)
                     .semantics {
                         contentDescription = "Option ${index + 1}: $option" +
-                            if (submitted && index == step.correctIndex) " — Correct" else ""
+                            if (submitted && index == displayedCorrectIndex) " — Correct" else ""
                     }
             ) {
                 Text(
@@ -140,7 +149,7 @@ fun MultipleChoiceRenderer(
                         }
                     } else if (selectedIndex >= 0) {
                         attempts++
-                        val correct = selectedIndex == step.correctIndex
+                        val correct = selectedIndex == displayedCorrectIndex
                         feedbackState = correct
                         submitted = true
                         if (correct) {
@@ -172,4 +181,17 @@ fun MultipleChoiceRenderer(
             )
         }
     }
+}
+
+/**
+ * Return a deterministic permutation for one lesson's option cards.
+ * Invalid content remains non-crashing; the renderer will simply never mark
+ * an option correct until the content is repaired.
+ */
+internal fun optionOrderFor(stepId: String, optionCount: Int, correctIndex: Int): List<Int> {
+    if (optionCount <= 1) return (0 until optionCount).toList()
+    val order = (0 until optionCount).toMutableList()
+    order.shuffle(java.util.Random(stepId.hashCode().toLong()))
+    if (correctIndex !in 0 until optionCount) return order
+    return order
 }

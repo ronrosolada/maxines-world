@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "3 groups of 4 = 12",
-   "definition": "correct idea"
+   "definition": "shows equal groups"
   },
   {
    "term": "6 × 5 = 30",
-   "definition": "useful example"
+   "definition": "names the product"
   },
   {
    "term": "2 × 14 = 28",
-   "definition": "check the concept"
+   "definition": "can use an array"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "estimate before solving"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "subtract equal groups",
+     "add a different number of groups",
+     "compare symbols without finding a product",
+     "divide the factors before solving"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "compare symbols without finding a product",
      "3 groups of 4 = 12",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "subtract equal groups",
+     "add a different number of groups"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "3 groups of 4 = 12",
-      "right": "correct idea"
+      "right": "shows equal groups"
      },
      {
       "left": "6 × 5 = 30",
-      "right": "useful example"
+      "right": "names the product"
      },
      {
       "left": "2 × 14 = 28",
-      "right": "check the concept"
+      "right": "can use an array"
      }
     ]
    },

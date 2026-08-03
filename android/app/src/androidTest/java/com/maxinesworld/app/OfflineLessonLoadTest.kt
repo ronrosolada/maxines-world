@@ -24,7 +24,7 @@ class OfflineLessonLoadTest {
     // All subjects reachable from the Playroom home islands.
     private val supportedSubjects = listOf(
         "english", "filipino", "mathematics", "science",
-        "araling-panlipunan", "heritage-harbor", "gmrc"
+        "araling-panlipunan", "heritage-harbor", "makabansa", "gmrc"
     )
 
     @Test

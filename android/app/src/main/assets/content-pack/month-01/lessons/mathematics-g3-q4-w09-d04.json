@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "slide right",
-   "definition": "correct idea"
+   "definition": "moves without changing size"
   },
   {
    "term": "turn a quarter-turn",
-   "definition": "useful example"
+   "definition": "keeps the same shape"
   },
   {
    "term": "flip across a line",
-   "definition": "check the concept"
+   "definition": "follows a movement rule"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "compare before and after"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "change the shape's size",
+     "erase one side",
+     "replace the figure with a number",
+     "move it without following the stated rule"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "replace the figure with a number",
      "slide right",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "change the shape's size",
+     "erase one side"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "slide right",
-      "right": "correct idea"
+      "right": "moves without changing size"
      },
      {
       "left": "turn a quarter-turn",
-      "right": "useful example"
+      "right": "keeps the same shape"
      },
      {
       "left": "flip across a line",
-      "right": "check the concept"
+      "right": "follows a movement rule"
      }
     ]
    },

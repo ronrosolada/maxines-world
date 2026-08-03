@@ -50,7 +50,7 @@ class PlayroomHomeViewModelTest {
         val vm = buildViewModel()
         advanceUntilIdle()
         assertEquals(
-            listOf("mathematics", "english", "science", "filipino", "araling_panlipunan", "gmrc"),
+            listOf("mathematics", "english", "science", "filipino", "araling_panlipunan", "makabansa", "gmrc"),
             content(vm).subjects.map { it.id },
         )
         assertTrue(content(vm).subjects.all { it.isAvailable })

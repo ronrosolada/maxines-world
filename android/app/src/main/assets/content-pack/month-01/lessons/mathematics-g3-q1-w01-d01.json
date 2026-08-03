@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "point A",
-   "definition": "correct idea"
+   "definition": "marks one location"
   },
   {
    "term": "segment AB",
-   "definition": "useful example"
+   "definition": "has two endpoints"
   },
   {
    "term": "ray CD",
-   "definition": "check the concept"
+   "definition": "has one endpoint"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "parallel lines"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "a line that continues in both directions",
+     "a curved shape with no endpoint",
+     "a number sentence about a shape",
+     "a color with no location"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
-     "point A",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "a line that continues in both directions",
+     "a curved shape with no endpoint",
+     "a number sentence about a shape",
+     "point A"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "point A",
-      "right": "correct idea"
+      "right": "marks one location"
      },
      {
       "left": "segment AB",
-      "right": "useful example"
+      "right": "has two endpoints"
      },
      {
       "left": "ray CD",
-      "right": "check the concept"
+      "right": "has one endpoint"
      }
     ]
    },

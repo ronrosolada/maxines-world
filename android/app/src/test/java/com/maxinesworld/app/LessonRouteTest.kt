@@ -1,5 +1,7 @@
 package com.maxinesworld.app
 
+import com.maxinesworld.featurechildhome.subjectForPack
+
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
@@ -49,8 +51,21 @@ class LessonRouteTest {
     }
 
     @Test
+    fun `makabansa maps to a REAL makabansa lesson`() {
+        val lessonId = lessonIdForSubject("makabansa")
+        assertNotNull("makabansa must map to a lesson", lessonId)
+        assertTrue("makabansa must map to makabansa content, got: $lessonId", lessonId!!.startsWith("makabansa"))
+        assertTrue("makabansa-mapped lesson must exist in bundle", File(lessonsDir(), "$lessonId.json").isFile)
+    }
+
+    @Test
+    fun `makabansa island resolves to the makabansa pack subject`() {
+        assertEquals("makabansa", subjectForPack("makabansa"))
+    }
+
+    @Test
     fun `heritage aliases all map to araling-panlipunan`() {
-        listOf("araling-panlipunan", "philippine-history", "makabansa", "heritage-harbor").forEach { alias ->
+        listOf("araling-panlipunan", "philippine-history", "heritage-harbor").forEach { alias ->
             assertEquals("alias '$alias' → AP lesson", "araling-panlipunan-g3-m01-d01", lessonIdForSubject(alias))
         }
     }

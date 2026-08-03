@@ -356,8 +356,9 @@ internal fun lessonIdForSubject(subject: String): String? = when (subject) {
     "filipino" -> "filipino-g3-m01-d01"
     "mathematics" -> "mathematics-g3-m01-d01"
     "science" -> "science-g3-m01-d01"
-    "araling-panlipunan", "philippine-history", "makabansa", "heritage-harbor" ->
+    "araling-panlipunan", "philippine-history", "heritage-harbor" ->
         "araling-panlipunan-g3-m01-d01"
+    "makabansa" -> "makabansa-g3-q1-w01-d01"
     "gmrc" -> "gmrc-g3-q1-w01-d01"
     else -> null
 }

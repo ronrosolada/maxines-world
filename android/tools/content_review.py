@@ -349,11 +349,150 @@ def profile_for(lesson: dict[str, Any]) -> dict[str, Any]:
         "fraction": ("Fraction Models", "Represent fractions equal to one or greater than one using equal parts.", "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.", ["3/3 = 1", "4/3 is greater than 1", "parts must be equal", "use a model"]),
         "transformation": ("Shape Moves", "Describe the resulting figure after a slide, turn, or flip using a model.", "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.", ["slide right", "turn a quarter-turn", "flip across a line", "compare before and after"]),
     }
+    math_wrong = {
+        "geometry": [
+            "a line that continues in both directions",
+            "a curved shape with no endpoint",
+            "a number sentence about a shape",
+            "a color with no location",
+        ],
+        "area": [
+            "the distance around a shape",
+            "the length of one side only",
+            "the number of corners",
+            "a measurement without square units",
+        ],
+        "length": [
+            "the space inside a shape",
+            "the number of corners",
+            "the color of an object",
+            "the mass of an object",
+        ],
+        "ordinal": [
+            "the total number in a group",
+            "the size of an object",
+            "a unit of length",
+            "an addition fact",
+        ],
+        "round": [
+            "the exact number before rounding",
+            "a place value that was not named",
+            "a fraction of the original number",
+            "the number of objects in a group",
+        ],
+        "compare": [
+            "the number with fewer digits is always greater",
+            "compare only the ones digit",
+            "use + instead of a comparison symbol",
+            "ignore the thousands digit",
+        ],
+        "order": [
+            "arrange by color",
+            "add the numbers first",
+            "choose without comparing place values",
+            "reverse the requested order",
+        ],
+        "capacity_measure": [
+            "distance in centimeters",
+            "mass in grams",
+            "temperature in degrees",
+            "number of objects",
+        ],
+        "addition": [
+            "subtract the addends",
+            "multiply the numbers",
+            "compare without finding a sum",
+            "write an unlabeled number",
+        ],
+        "addition_word": [
+            "subtract the quantities",
+            "multiply the quantities",
+            "compare without joining them",
+            "give an answer with no unit",
+        ],
+        "subtraction": [
+            "add the numbers",
+            "multiply the numbers",
+            "compare without finding a difference",
+            "write the starting number as the answer",
+        ],
+        "probability": [
+            "an event that must happen every time",
+            "an event that cannot happen in the situation",
+            "a measurement of length",
+            "a result chosen without considering chance",
+        ],
+        "bar_graph": [
+            "read the title as a data value",
+            "change the scale before counting",
+            "choose a bar that is not shown",
+            "guess without comparing heights",
+        ],
+        "multiplication": [
+            "subtract equal groups",
+            "add a different number of groups",
+            "compare symbols without finding a product",
+            "divide the factors before solving",
+        ],
+        "multiplication_properties": [
+            "changing the order changes every product",
+            "break an array into unequal guesses",
+            "subtract the factors instead",
+            "ignore the factors' place values",
+        ],
+        "product_estimate": [
+            "use the exact product as the estimate",
+            "round only one factor without a reason",
+            "subtract the rounded factors",
+            "change the unit after multiplying",
+        ],
+        "pattern": [
+            "choose the next term at random",
+            "change the rule each time",
+            "sort the terms by color only",
+            "ignore the repeated change",
+        ],
+        "fraction": [
+            "parts that are not equal",
+            "a whole number with no parts",
+            "the denominator as the shaded parts",
+            "a shape split into unrelated sizes",
+        ],
+        "transformation": [
+            "change the shape's size",
+            "erase one side",
+            "replace the figure with a number",
+            "move it without following the stated rule",
+        ],
+    }
+    math_pair_rights = {
+        "geometry": ["marks one location", "has two endpoints", "has one endpoint"],
+        "area": ["space inside a shape", "length times width", "measured in square units"],
+        "length": ["shows a distance", "compares which is longer", "starts at the zero mark"],
+        "ordinal": ["shows position", "comes after first", "names order in a line"],
+        "round": ["look at the next digit", "moves to a nearby place value", "keeps a useful estimate"],
+        "compare": ["shows the greater number", "shows the smaller number", "shows equal amounts"],
+        "order": ["least to greatest", "greatest to least", "uses place value"],
+        "capacity_measure": ["measures a small amount", "measures a large amount", "uses a suitable unit"],
+        "addition": ["joins quantities", "regroups by place value", "checks a sum"],
+        "addition_word": ["joins quantities in a story", "chooses addition", "labels the answer"],
+        "subtraction": ["takes away a quantity", "may require regrouping", "checks a difference"],
+        "probability": ["describes a chance", "cannot happen in the situation", "compares possible outcomes"],
+        "bar_graph": ["names the data", "shows one category's amount", "helps compare values"],
+        "multiplication": ["shows equal groups", "names the product", "can use an array"],
+        "multiplication_properties": ["keeps the product the same", "breaks a product into parts", "uses factors"],
+        "product_estimate": ["uses friendly rounded factors", "gives a nearby product", "checks reasonableness"],
+        "pattern": ["repeats a rule", "changes predictably", "helps find the next term"],
+        "fraction": ["names equal parts", "can name one whole", "uses a numerator and denominator"],
+        "transformation": ["moves without changing size", "keeps the same shape", "follows a movement rule"],
+    }
     if subject == "mathematics":
         title, objective, explain, examples = math.get(key, math["addition"])
+        wrong = math_wrong.get(key, math_wrong["addition"])
+        pair_rights = math_pair_rights.get(key, ["shows the skill", "uses the idea", "checks the answer"])
         p.update({"title": title, "objective": objective, "explain": explain, "examples": examples,
-                  "fits": examples, "wrong": ["a random guess", "a mismatched unit", "an unrelated operation", "an answer with no label"],
-                  "pairs": [(examples[0], "correct idea"), (examples[1], "useful example"), (examples[2], "check the concept")],
+                  "fits": examples, "wrong": wrong,
+                  "pairs": list(zip(examples[:3], pair_rights)) ,
                   "steps": ["Read the question", "Choose the operation or model", "Solve carefully", "Check whether the answer makes sense"]})
 
     science = {
@@ -436,11 +575,17 @@ def make_activities(profile: dict[str, Any], lesson_id: str) -> list[dict[str, A
     fits = profile["fits"]
     wrong = profile["wrong"]
     pairs = [{"left": left, "right": right} for left, right in profile["pairs"]]
+    mcq_choices = [examples[0], *wrong[:3]]
+    # Stable per-lesson rotation keeps replay deterministic while preventing
+    # children from learning that the first card is always correct.
+    shift = sum(ord(char) for char in lesson_id) % len(mcq_choices)
+    mcq_choices = mcq_choices[shift:] + mcq_choices[:shift]
+    mcq_correct_index = mcq_choices.index(examples[0])
     activities = [
         ("ANIMATED_EXPLANATION", labels["animated"], profile["explain"]),
         ("HOTSPOT_IMAGE", labels["hotspot"], {"examples": examples, "visualScene": "🐱🔎✨"}),
         ("SORT_AND_CLASSIFY", labels["sort"], {"fits": fits, "doesNotFit": wrong}),
-        ("MULTIPLE_CHOICE", labels["mc"], {"options": [examples[0], wrong[0], wrong[1], wrong[2]], "correctIndex": 0}),
+        ("MULTIPLE_CHOICE", labels["mc"], {"options": mcq_choices, "correctIndex": mcq_correct_index}),
         ("MATCHING_PAIRS", labels["match"], {"pairs": pairs}),
         ("SEQUENCE_BUILDER", labels["sequence"], {"steps": profile["steps"]}),
     ]

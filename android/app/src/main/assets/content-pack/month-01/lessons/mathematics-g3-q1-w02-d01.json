@@ -17,15 +17,15 @@
  "vocabulary": [
   {
    "term": "1st is first",
-   "definition": "correct idea"
+   "definition": "shows position"
   },
   {
    "term": "2nd is second",
-   "definition": "useful example"
+   "definition": "comes after first"
   },
   {
    "term": "10th is tenth",
-   "definition": "check the concept"
+   "definition": "names order in a line"
   }
  ],
  "activities": [
@@ -98,10 +98,10 @@
      "100th is one hundredth"
     ],
     "doesNotFit": [
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation",
-     "an answer with no label"
+     "the total number in a group",
+     "the size of an object",
+     "a unit of length",
+     "an addition fact"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Choose the best answer.",
    "content": {
     "options": [
+     "the size of an object",
+     "a unit of length",
      "1st is first",
-     "a random guess",
-     "a mismatched unit",
-     "an unrelated operation"
+     "the total number in a group"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -160,15 +160,15 @@
     "pairs": [
      {
       "left": "1st is first",
-      "right": "correct idea"
+      "right": "shows position"
      },
      {
       "left": "2nd is second",
-      "right": "useful example"
+      "right": "comes after first"
      },
      {
       "left": "10th is tenth",
-      "right": "check the concept"
+      "right": "names order in a line"
      }
     ]
    },

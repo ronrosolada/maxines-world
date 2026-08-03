@@ -86,6 +86,7 @@ internal val SubjectAccent = mapOf(
     "science" to Color(0xFF57943B),
     "filipino" to Color(0xFFD96555),
     "araling_panlipunan" to Color(0xFFB87916),
+    "makabansa" to Color(0xFF8B5E34),
     "gmrc" to Color(0xFF26A69A),
 )
 
@@ -95,6 +96,7 @@ internal val SubjectPale = mapOf(
     "science" to Color(0xFFEDF7E8),
     "filipino" to Color(0xFFFCEBE7),
     "araling_panlipunan" to Color(0xFFFFF3D7),
+    "makabansa" to Color(0xFFF4EBDD),
     "gmrc" to Color(0xFFE5F7F5),
 )
 
