@@ -304,3 +304,33 @@ Connected Android tests: 30/30 passed, 0 failed, 0 skipped
 3. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 4. Address the code follow-ups listed in §9.3 through the Android app owner.
 
+---
+
+## 12. Current validation after English Q4 boundary documentation — 2026-08-03
+
+Sections 7, 9.2, 10, and 11 preserve the historical findings and prior validations. The current `main` state is now `86cb25d` (`docs: define English quarterly coverage boundary`).
+
+### Resolved since §11
+
+- **English Q4 status:** documented Q1–Q3 as the current bundled English boundary because no source SLM curriculum is available for Q4.
+- **Inventory evidence:** 349 total lesson files; English quarterly lessons are Q1 (20), Q2 (27), and Q3 (26), with 0 English Q4 files.
+- **Scope control:** no lesson JSON or Android code was fabricated or modified to manufacture Q4 content.
+- **Future condition:** author/import English Q4 only after source curriculum is acquired and independently reviewed.
+
+This resolves the review action as a documented scope boundary, not as a claim that English Q4 content exists. The historical §9.2 gap finding remains preserved for future source acquisition.
+
+### Current checks
+
+```text
+349 lesson JSON files unchanged
+English quarterly: Q1 20 / Q2 27 / Q3 26 / Q4 0
+11/11 Python content and asset-generator tests passed
+Content review dry-run: 0 remaining issues
+Gradle unit tests + :app:verifyPlayableContent: BUILD SUCCESSFUL
+```
+
+### Current remaining priorities
+
+1. Reduce repeated lesson/module titles where repetition harms navigation.
+2. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the visual boards.
+3. Address the code follow-ups listed in §9.3 through the Android app owner.
