@@ -339,12 +339,38 @@ Connected Android tests: 30/30 passed, 0 failed, 0 skipped
 
 The release gate still reports 349 educator-reviewed lessons because the approval metadata was intentionally not changed. Automated checks do not constitute independent educator approval.
 
+## Current Continuation Update — quarterly visual assets completed (2026-08-03)
+
+The quarterly visual-asset follow-up was completed on `main` in commit `d34f4e7` (`feat(content): add quarterly visual learning boards`).
+
+### Fixed
+
+- Added deterministic, topic-grounded SVG visual boards for all **249 quarterly lesson visual IDs**.
+- Kept the existing 640×360 SVG contract and added accessible `<title>` and `<desc>` metadata to generated boards.
+- Added `android/tools/generate_quarterly_assets.py`; it is idempotent and writes only missing quarterly assets.
+- Added generator regression coverage in `android/tools/test_generate_quarterly_assets.py`.
+- No lesson JSON, Android UI, or loader code was changed.
+
+### Current validation
+
+```text
+249 quarterly lessons discovered
+249/249 quarterly SVG references resolve
+349 total vector assets present (100 legacy + 249 quarterly)
+0 malformed SVGs
+0 dangling visual-asset references
+11/11 Python content and asset-generator tests passed
+Gradle unit tests + lint + verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+The new boards are deterministic topic-grounded visual scaffolds, not a substitute for independent educator or illustrator review. The release gate remains unchanged at 349 educator-reviewed lessons.
+
 ### Remaining content priorities
 
-1. Decide whether to add quarterly SVG artwork or intentionally redesign those activities as text-based (1,494 dangling asset references).
-2. Resolve the English Q4 coverage gap or document the intended boundary.
-3. Reduce repeated lesson/module titles where repetition harms navigation.
-4. Complete genuine independent educator review for factual accuracy, pedagogy, language, and safety.
+1. Resolve the English Q4 coverage gap or document the intended boundary.
+2. Reduce repeated lesson/module titles where repetition harms navigation.
+3. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 The remaining code follow-ups listed below are unchanged and remain owned by the Android app agent unless explicitly reassigned.
 
@@ -356,7 +382,7 @@ Prioritize the remaining work in this order:
 
 1. ✅ Replace all assessment filler in the 38 quarterly Math lessons — completed in `9da1ffc`.
 2. ✅ Remove duplicate assessment prompts across the 230 affected lessons — completed in `9da1ffc`.
-3. Decide whether to create quarterly visual assets or intentionally redesign those activities as text-based.
+3. ✅ Add quarterly visual assets for all 249 dangling quarterly IDs — completed in `d34f4e7`.
 4. Resolve the English Q4 content gap or document the intended coverage boundary.
 5. Add PIN attempt throttling and temporary lockout.
 6. Implement proper reduced-motion support.
@@ -364,7 +390,7 @@ Prioritize the remaining work in this order:
 8. Verify and correct parent streak calculations using date-based records.
 9. Reconcile the coin-award implementation with product documentation.
 10. Reduce repeated lesson/module titles where repetition harms navigation.
-11. Conduct genuine independent educator review for factual accuracy, pedagogy, language, and safety.
+11. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 ## Safe Continuation Commands
 
