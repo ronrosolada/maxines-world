@@ -153,6 +153,18 @@ class LessonPlayerViewModel @Inject constructor(
                     amount = starsEarned.coerceIn(1, 3),
                     metadata = rewardKey,
                 ))
+                // Coins are persisted too — the completion screen shows them, so
+                // the Parent Dashboard must be able to read them back.
+                if (accuracy >= 0.8) {
+                    rewardDao.insertIgnoring(RewardEntity(
+                        id = "$rewardKey:COIN",
+                        childId = childId,
+                        type = "COIN",
+                        subject = lesson.subject,
+                        amount = 10,
+                        metadata = rewardKey,
+                    ))
+                }
             }
             val progress = badgeAwarder.recordLessonCompletion(childId, lesson.subject, lesson.id)
             _state.update {
