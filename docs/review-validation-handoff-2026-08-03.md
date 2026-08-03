@@ -312,14 +312,50 @@ Static content checks performed:
 - ADB server is running intentionally.
 - The repository was clean and synchronized before this handoff file was created.
 
-This handoff file is the only new file created by the current conversation and has not been committed or pushed.
+This handoff file was committed and pushed to `main` in `b0e5cc2`; the continuation update below is the next documentation revision.
+
+## Current Continuation Update — assessment P1s completed (2026-08-03)
+
+The next continuation work was completed on `main` in commit `9da1ffc` (`fix(content): replace assessment filler and duplicate prompts`).
+
+### Fixed
+
+- **Assessment filler:** replaced all 570 generic assessment-option hits in the 38 quarterly Mathematics lessons with topic-grounded examples and distractors.
+- **Duplicate assessment prompts:** replaced repeated prompts in all 230 affected lessons with five distinct prompts per assessment.
+- **Generator guard:** updated `android/tools/content_review.py` so future generated assessments use five distinct English or Filipino prompt templates when a profile has fewer than five hand-authored checks.
+- **Test coverage:** added a regression test for unique prompts, valid correct-option IDs, and topic-grounded generated assessments.
+
+### Current validation
+
+```text
+349 lesson JSON files parse
+0 duplicate assessment-prompt lessons
+0 assessment filler hits
+0 assessment schema errors
+8/8 Python content-review tests passed
+Gradle unit tests + lint + verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+The release gate still reports 349 educator-reviewed lessons because the approval metadata was intentionally not changed. Automated checks do not constitute independent educator approval.
+
+### Remaining content priorities
+
+1. Decide whether to add quarterly SVG artwork or intentionally redesign those activities as text-based (1,494 dangling asset references).
+2. Resolve the English Q4 coverage gap or document the intended boundary.
+3. Reduce repeated lesson/module titles where repetition harms navigation.
+4. Complete genuine independent educator review for factual accuracy, pedagogy, language, and safety.
+
+The remaining code follow-ups listed below are unchanged and remain owned by the Android app agent unless explicitly reassigned.
+
+---
 
 ## Recommended Next Steps
 
 Prioritize the remaining work in this order:
 
-1. Replace all assessment filler in the 38 quarterly Math lessons.
-2. Remove duplicate assessment prompts across the 230 affected lessons.
+1. ✅ Replace all assessment filler in the 38 quarterly Math lessons — completed in `9da1ffc`.
+2. ✅ Remove duplicate assessment prompts across the 230 affected lessons — completed in `9da1ffc`.
 3. Decide whether to create quarterly visual assets or intentionally redesign those activities as text-based.
 4. Resolve the English Q4 content gap or document the intended coverage boundary.
 5. Add PIN attempt throttling and temporary lockout.
