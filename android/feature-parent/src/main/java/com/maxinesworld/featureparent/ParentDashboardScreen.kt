@@ -33,6 +33,8 @@ data class ParentDashboardState(
     val subjectProgress: List<SubjectProgress> = emptyList(),
     val masterySummary: MasterySummary = MasterySummary(),
     val recentActivity: List<String> = emptyList(),
+    /** Consecutive-day learning streak in the child's local timezone. */
+    val streakDays: Int = 0,
     val isLoading: Boolean = true
 )
 
@@ -117,6 +119,7 @@ class ParentDashboardViewModel @Inject constructor(
                 subjectProgress = subjectProgress,
                 masterySummary = MasterySummary(mastered, developing, needsReview),
                 recentActivity = recentActivity,
+                streakDays = longestStreak(localDatesFromEpochMillis(progress.map { it.timestamp })),
                 isLoading = false
             )
         }
@@ -216,15 +219,14 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
 
                 Spacer(Modifier.height(16.dp))
 
-                // Day streak
-                val streakDays = state.recentActivity.map { it.substringAfterLast(":") }.distinct().size
-                if (streakDays > 0) {
+                // Day streak — consecutive local days with learning activity
+                if (state.streakDays > 0) {
                     Card(colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.08f))) {
                         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(32.dp))
                             Spacer(Modifier.width(12.dp))
                             Column {
-                                Text("$streakDays day streak!", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Coral)
+                                Text("${state.streakDays} day streak!", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Coral)
                                 Text("Keep learning every day to grow your village", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                         }
