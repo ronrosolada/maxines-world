@@ -596,6 +596,30 @@ No contradicted claims were found. The review is accepted as a current-state ass
 5. **Golden lessons + educator sign-off** for one module per subject (P2, review rollout phase 2).
 6. Then the remaining code follow-ups (PIN throttling, reduced motion, resume UX, streaks, coins).
 
+## Current Continuation Update — P0 assessment delivery shipped (2026-08-03)
+
+The adversarial review's headline finding was fixed on `main` in commit `fd7cfb4` (`feat(lesson-player): deliver the authored assessment phase (P0)`).
+
+### What shipped
+
+- **Assessment phase delivered:** `convertToLessonManifest()` now maps `m1.assessment.items` into `ASSESSMENT_V1` steps appended after the practice activities; the manifest `assessment` block carries them with the authored pass threshold (`passingCorrectCount / itemCount`). `totalSteps` now includes the check, so **completion requires every assessment item to be answered**.
+- **Phase separation:** `LessonUiState.assessmentStepCount` splits the lesson; progress dots stop at practice, and an amber "Knowledge Check / Pagsusulit" banner with a "Question X of Y / Tanong X ng Y" counter marks the assessment phase.
+- **Assessment UX:** `AssessmentStepCard` renders the authored prompt + options (single attempt, options lock after answering); feedback uses the authored explanation for both outcomes; after a wrong answer a "Review / Balikan" action re-opens the first worked example in a dialog.
+- **Scoring:** assessment results are scored, so accuracy, stars, and badges now include the knowledge check (previously activities-only).
+- **Chrome fixes from the review:** vocabulary card shows once (first step only, not every step); the narration card no longer duplicates `ExplanationStep`; lesson chrome localized for `fil-PH` lessons ("Bagong Salita", "Basahin Natin", "Sunod", "Subukan Muli", "Pagsusulit", "Tapos na ang Aralin!").
+
+### Tests
+
+- 4 new `ActivityStepConversionTest` cases: key maps by option id, order preserved, malformed options/missing key degrade safely, blank explanation falls back to default feedback.
+- New connected `everyPlayroomSubjectAssessmentIsConvertible` in `OfflineLessonLoadTest` — proves every Playroom-reachable subject's real bundled assessment block parses into the converter's contract (≥2 options, keyed `correctOptionIds`, non-blank explanation).
+- Full gate: `testDebugUnitTest` + `lintDebug` + `:app:verifyPlayableContent` + `:app:assembleDebug` BUILD SUCCESSFUL; `:app:connectedDebugAndroidTest` 6/6 green.
+
+### Remaining from the review (unchanged priorities)
+
+- P0 #2/#5 partial: vocabulary/narration/chrome fixed; **activity-shell redesign, source-fidelity traces, and the semantic QA pipeline remain**.
+- P1: misconception-based distractors, runtime option remapping, transfer items.
+- The authored lessons themselves still use the universal 6-activity shell (content-side redesign, not a player bug).
+
 ## Safe Continuation Commands
 
 Before making additional changes:
