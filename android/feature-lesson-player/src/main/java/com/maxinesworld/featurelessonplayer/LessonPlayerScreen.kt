@@ -36,8 +36,12 @@ import com.maxinesworld.featurerewards.ChallengeProgress
 
 // ─── New Words card ───
 
+/** Minimal lesson-chrome localization: fil-PH lessons get Filipino chrome. */
+private fun uiText(language: String?, en: String, fil: String): String =
+    if (language?.lowercase()?.startsWith("fil") == true) fil else en
+
 @Composable
-private fun VocabularyCard(terms: List<VocabTerm>) {
+private fun VocabularyCard(terms: List<VocabTerm>, title: String = "New Words") {
     Card(
         Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -46,9 +50,9 @@ private fun VocabularyCard(terms: List<VocabTerm>) {
     ) {
         Column(Modifier.padding(14.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.MenuBook, "New words", tint = Teal40, modifier = Modifier.size(20.dp))
+                Icon(Icons.Default.MenuBook, title, tint = Teal40, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("New Words", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = Teal40)
+                Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = Teal40)
             }
             Spacer(Modifier.height(8.dp))
             terms.take(4).forEach { term ->
@@ -126,41 +130,76 @@ fun LessonPlayerScreen(
 private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel) {
     val lesson = state.lesson ?: return
     val step = lesson.steps.getOrNull(state.currentStep) ?: return
+    val lang = lesson.languageOfInstruction
+    val practiceStepCount = (state.totalSteps - state.assessmentStepCount).coerceAtLeast(1)
+    val inAssessment = state.currentStep >= practiceStepCount
+    val assessmentIndex = (state.currentStep - practiceStepCount).coerceAtLeast(0)
+    val reviewExample = lesson.steps
+        .firstOrNull { it.type == "ANIMATED_EXPLANATION_V1" }?.narrationText
+        ?.takeIf { it.isNotBlank() }
+    var showReview by remember { mutableStateOf(false) }
 
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
-        // New Words — vocabulary preview (only when the lesson has terms)
-        if (lesson.vocabulary.isNotEmpty()) {
-            VocabularyCard(lesson.vocabulary)
+        // New Words — vocabulary preview on the first step only (review: it was
+        // repeated above every step; show once, not continuously)
+        if (state.currentStep == 0 && lesson.vocabulary.isNotEmpty()) {
+            VocabularyCard(lesson.vocabulary, uiText(lang, "New Words", "Bagong Salita"))
             Spacer(Modifier.height(14.dp))
         }
 
-        // Step progress dots — design v2 §24.3: clear, countable, 48dp touch
-        Row(
-            Modifier.fillMaxWidth().padding(vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            repeat(state.totalSteps) { index ->
-                val isDone = index < state.currentStep
-                val isCurrent = index == state.currentStep
-                val dotColor = when {
-                    isDone -> SuccessGreen
-                    isCurrent -> VillageTeal
-                    else -> VillageTeal.copy(alpha = 0.15f)
-                }
-                // Full tap-target area with centered content
-                Box(Modifier.size(48.dp), contentAlignment = Alignment.Center) {
-                    Box(
-                        Modifier
-                            .size(if (isCurrent) 36.dp else 32.dp)
-                            .clip(CircleShape)
-                            .background(dotColor),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        if (isDone) Icon(Icons.Default.Check, "Done",
-                            tint = White, modifier = Modifier.size(18.dp))
-                        else if (isCurrent) Box(Modifier.size(14.dp).clip(CircleShape).background(White))
+        if (!inAssessment) {
+            // Step progress dots — design v2 §24.3: clear, countable, 48dp touch
+            Row(
+                Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                repeat(practiceStepCount) { index ->
+                    val isDone = index < state.currentStep
+                    val isCurrent = index == state.currentStep
+                    val dotColor = when {
+                        isDone -> SuccessGreen
+                        isCurrent -> VillageTeal
+                        else -> VillageTeal.copy(alpha = 0.15f)
                     }
+                    // Full tap-target area with centered content
+                    Box(Modifier.size(48.dp), contentAlignment = Alignment.Center) {
+                        Box(
+                            Modifier
+                                .size(if (isCurrent) 36.dp else 32.dp)
+                                .clip(CircleShape)
+                                .background(dotColor),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            if (isDone) Icon(Icons.Default.Check, "Done",
+                                tint = White, modifier = Modifier.size(18.dp))
+                            else if (isCurrent) Box(Modifier.size(14.dp).clip(CircleShape).background(White))
+                        }
+                    }
+                }
+            }
+        } else {
+            // Assessment phase banner — visibly separates the knowledge check
+            // from practice (review: the authored assessment was never played)
+            Card(
+                Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.16f)),
+                elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+            ) {
+                Row(Modifier.padding(horizontal = 16.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Default.Star, null, tint = Amber40, modifier = Modifier.size(22.dp))
+                    Spacer(Modifier.width(10.dp))
+                    Text(
+                        uiText(lang, "Knowledge Check", "Pagsusulit"),
+                        fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink,
+                        modifier = Modifier.weight(1f)
+                    )
+                    Text(
+                        "${uiText(lang, "Question", "Tanong")} ${assessmentIndex + 1} " +
+                            "${uiText(lang, "of", "ng")} ${state.assessmentStepCount}",
+                        fontWeight = FontWeight.Medium, fontSize = 14.sp, color = Ink.copy(alpha = 0.65f)
+                    )
                 }
             }
         }
@@ -170,7 +209,9 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         CharacterGuide(lesson.guideCharacter)
         Spacer(Modifier.height(10.dp))
 
-        if (step.narrationText.isNotEmpty()) {
+        // Narration card — skipped on explanation steps: ExplanationStep renders
+        // the same text itself (review: narration was displayed twice)
+        if (step.narrationText.isNotEmpty() && step.type != "ANIMATED_EXPLANATION_V1") {
             Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
                 colors = CardDefaults.cardColors(containerColor = Cream),
                 elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)) {
@@ -184,12 +225,19 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         // text-to-speech playback path (LessonTtsPlayer), which engine-activity
         // does not have access to. Everything else goes through the shared
         // type-safe dispatcher.
-        if (step.type == "ANIMATED_EXPLANATION_V1") {
-            ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
+        when {
+            step.type == "ASSESSMENT_V1" -> AssessmentStepCard(
+                step = step,
+                language = lang,
+                answered = state.results.any { it.activityId == step.id },
+                onResult = { result -> viewModel.onActivityResult(result) },
+            )
+
+            step.type == "ANIMATED_EXPLANATION_V1" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
-        } else {
-            ActivityRenderer(
+
+            else -> ActivityRenderer(
                 step = step,
                 onResult = { result -> viewModel.onActivityResult(result) },
                 onHint = { },
@@ -199,7 +247,64 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
 
         if (state.showFeedback) {
             Spacer(Modifier.height(12.dp))
-            FeedbackBanner(state.feedbackText, state.feedbackCorrect) { viewModel.onNextStep() }
+            FeedbackBanner(
+                text = state.feedbackText,
+                correct = state.feedbackCorrect,
+                language = lang,
+                isAssessment = inAssessment,
+                onNext = { viewModel.onNextStep() },
+                onReview = if (!state.feedbackCorrect && inAssessment && reviewExample != null) {
+                    { showReview = true }
+                } else null,
+            )
+        }
+    }
+
+    if (showReview && reviewExample != null) {
+        AlertDialog(
+            onDismissRequest = { showReview = false },
+            title = { Text(uiText(lang, "Let's review the lesson", "Balikan natin ang aralin"), fontWeight = FontWeight.Bold) },
+            text = { Text(reviewExample, style = MaterialTheme.typography.bodyLarge, lineHeight = 28.sp) },
+            confirmButton = {
+                TextButton(onClick = { showReview = false }) { Text(uiText(lang, "Got it", "Sige"), fontWeight = FontWeight.Bold) }
+            }
+        )
+    }
+}
+
+// ─── Assessment step — the authored knowledge check ───
+
+@Composable
+private fun AssessmentStepCard(
+    step: ActivityStep,
+    language: String?,
+    answered: Boolean,
+    onResult: (ActivityResult) -> Unit,
+) {
+    Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Cream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
+        Column(Modifier.padding(20.dp)) {
+            Text(step.question, style = MaterialTheme.typography.bodyLarge, fontSize = 19.sp,
+                lineHeight = 30.sp, color = Ink)
+            Spacer(Modifier.height(16.dp))
+            step.options.forEachIndexed { index, option ->
+                Surface(
+                    onClick = { if (!answered) onResult(ActivityResult(step.id, index == step.correctIndex, 1, 0, 0, scored = true)) },
+                    shape = RoundedCornerShape(14.dp),
+                    color = White,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, VillageTeal.copy(alpha = 0.35f)),
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                ) {
+                    Text(option, modifier = Modifier.padding(16.dp),
+                        style = MaterialTheme.typography.bodyLarge, fontSize = 17.sp, color = Ink)
+                }
+            }
+            Spacer(Modifier.height(4.dp))
+            Text(
+                uiText(language, "Pick the best answer.", "Piliin ang pinakamagandang sagot."),
+                fontSize = 13.sp, color = Ink.copy(alpha = 0.5f)
+            )
         }
     }
 }
@@ -219,7 +324,7 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
                 Spacer(Modifier.width(12.dp))
-                Text("Read Along", fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
+                Text(uiText(language, "Read Along", "Basahin Natin"), fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
                 IconButton(onClick = {
                     if (ttsSpeaking) {
                         ttsPlayer.stop(); ttsSpeaking = false
@@ -263,11 +368,13 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
             Spacer(Modifier.height(24.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    if (ttsSpeaking) "Reading aloud..."
-                    else if (ttsUnavailable) "Filipino voice not available"
-                    else "Tap speaker to listen",
+                    when {
+                        ttsSpeaking -> uiText(language, "Reading aloud...", "Binabasa...")
+                        ttsUnavailable -> uiText(language, "Filipino voice not available", "Walang Filipino voice")
+                        else -> uiText(language, "Tap speaker to listen", "Pindutin ang speaker para makinig")
+                    },
                     fontSize = 14.sp, color = Teal40.copy(alpha = 0.5f))
-                MaxinesPrimaryButton(onClick = onContinue, text = "Continue",
+                MaxinesPrimaryButton(onClick = onContinue, text = uiText(language, "Continue", "Sunod"),
                     containerColor = Teal40, modifier = Modifier)
             }
         }
@@ -278,13 +385,33 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
 // ─── Feedback, Character, Error, Completion ───
 
 @Composable
-private fun FeedbackBanner(text: String, correct: Boolean, onNext: () -> Unit) {
+private fun FeedbackBanner(
+    text: String,
+    correct: Boolean,
+    language: String?,
+    isAssessment: Boolean,
+    onNext: () -> Unit,
+    onReview: (() -> Unit)? = null,
+) {
     Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f))) {
         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(if (correct) Icons.Default.CheckCircle else Icons.Default.Info, null, tint = if (correct) SuccessGreen else ErrorRed)
             Spacer(Modifier.width(12.dp))
             Text(text, modifier = Modifier.weight(1f), fontWeight = FontWeight.Medium)
-            TextButton(onClick = onNext) { Text(if (correct) "Next" else "Try Next", color = Teal40) }
+            if (onReview != null) {
+                TextButton(onClick = onReview) { Text(uiText(language, "Review", "Balikan"), color = Teal40) }
+            }
+            // Assessment is a single-attempt knowledge check: the correction is
+            // shown, then the child moves on (no retry inside the check).
+            TextButton(onClick = onNext) {
+                Text(
+                    when {
+                        correct || isAssessment -> uiText(language, "Next", "Sunod")
+                        else -> uiText(language, "Try Next", "Subukan Muli")
+                    },
+                    color = Teal40
+                )
+            }
         }
     }
 }
@@ -337,8 +464,9 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
         }
 
         Column(Modifier.fillMaxSize().padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            Text("Lesson Complete!", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Teal40)
-            Text("You got $correct out of $total correct!", style = MaterialTheme.typography.bodyLarge)
+            val lang = state.lesson?.languageOfInstruction
+            Text(uiText(lang, "Lesson Complete!", "Tapos na ang Aralin!"), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Teal40)
+            Text(uiText(lang, "You got $correct out of $total correct!", "Nakuha mo ang $correct sa $total!"), style = MaterialTheme.typography.bodyLarge)
             Text("${(accuracy * 100).toInt()}%", fontWeight = FontWeight.Bold, fontSize = 48.sp, color = if (accuracy >= 0.8f) SuccessGreen else Amber40)
 
             Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {

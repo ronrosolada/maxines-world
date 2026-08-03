@@ -89,7 +89,10 @@ data class ActivityFeedback(
 @Serializable
 data class AssessmentBlock(
     val passThreshold: Double = 0.8,
-    val minQuestions: Int = 5
+    val minQuestions: Int = 5,
+    /** Converted playable assessment steps (type ASSESSMENT_V1), appended after
+     *  the practice activities in [LessonManifest.steps]. */
+    val items: List<ActivityStep> = emptyList(),
 )
 
 // ─── Progress & Mastery ───

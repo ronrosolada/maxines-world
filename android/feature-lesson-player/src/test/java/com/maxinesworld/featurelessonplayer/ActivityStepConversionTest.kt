@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import com.maxinesworld.coremodel.AssessmentItem
 import com.maxinesworld.coremodel.Month1Activity
 import com.maxinesworld.coremodel.CompletionRule
 import kotlinx.serialization.json.Json
@@ -116,6 +117,67 @@ class ActivityStepConversionTest {
             activity("ANIMATED_EXPLANATION", "\"The body text.\"")
         )
         assertEquals("The body text.", step.narrationText)
+    }
+
+    // ─── Assessment delivery (adversarial review: authored checks were never played) ───
+
+    private fun assessmentItem(
+        id: String = "lesson-q01",
+        prompt: String = "Alin ang simuno?",
+        optionsJson: String = """[{"id":"a","text":"Si Ana"},{"id":"b","text":"ay nagbabasa"},{"id":"c","text":"Ang aklat"},{"id":"d","text":"Ang aso"}]""",
+        correctIds: List<String> = listOf("a"),
+        explanation: String = "Ang simuno ay si Ana."
+    ) = AssessmentItem(
+        itemId = id, sequence = 1, type = "MULTIPLE_CHOICE",
+        prompt = prompt,
+        options = parse(optionsJson),
+        correctOptionIds = correctIds,
+        explanation = explanation
+    )
+
+    @Test
+    fun `assessment item becomes a playable scored multiple choice step`() {
+        val step = toAssessmentStep(assessmentItem())
+
+        assertEquals("ASSESSMENT_V1", step.type)
+        assertEquals("assessment-lesson-q01", step.id)
+        assertEquals("Alin ang simuno?", step.question)
+        assertEquals(listOf("Si Ana", "ay nagbabasa", "Ang aklat", "Ang aso"), step.options)
+        assertEquals(0, step.correctIndex)
+        assertEquals("Ang simuno ay si Ana.", step.feedback?.correct)
+        assertEquals("Ang simuno ay si Ana.", step.feedback?.incorrect)
+    }
+
+    @Test
+    fun `assessment option order is preserved and key maps by option id`() {
+        val step = toAssessmentStep(
+            assessmentItem(
+                optionsJson = """[{"id":"a","text":"Una"},{"id":"b","text":"Pangalawa"},{"id":"c","text":"Pangatlo"}]""",
+                correctIds = listOf("c")
+            )
+        )
+        assertEquals(listOf("Una", "Pangalawa", "Pangatlo"), step.options)
+        assertEquals(2, step.correctIndex)
+    }
+
+    @Test
+    fun `assessment with missing key or malformed options degrades safely`() {
+        val noKey = toAssessmentStep(assessmentItem(correctIds = emptyList()))
+        assertEquals(-1, noKey.correctIndex)
+        assertEquals(4, noKey.options.size)
+
+        val malformed = toAssessmentStep(assessmentItem(optionsJson = "\"not-an-array\""))
+        assertEquals(emptyList<String>(), malformed.options)
+        assertEquals(-1, malformed.correctIndex)
+        // Explanation is still authored, so feedback stays subject-specific.
+        assertEquals("Ang simuno ay si Ana.", malformed.feedback?.correct)
+    }
+
+    @Test
+    fun `assessment item with blank explanation falls back to default feedback`() {
+        val step = toAssessmentStep(assessmentItem(explanation = ""))
+        assertEquals("Great job! 🎉", step.feedback?.correct)
+        assertEquals("Let's try again! 💪", step.feedback?.incorrect)
     }
 
     @Test

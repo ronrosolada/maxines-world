@@ -6,6 +6,9 @@ import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -61,5 +64,43 @@ class OfflineLessonLoadTest {
         val viaContent = contentLoader.loadLesson(lessonId)
         val viaLegacy = legacyLoader.loadLesson(lessonId)
         assertTrue("gmrc lesson must load offline", viaContent != null || viaLegacy != null)
+    }
+
+    /**
+     * Assessment-delivery contract (adversarial review): the bundled content-pack
+     * assessment blocks must parse into the shape toAssessmentStep() consumes —
+     * options as [{id, text}], a keyed correctOptionIds, and an authored
+     * explanation — for every subject a child can reach from the Playroom.
+     * (Legacy lessons have no playable assessment items; they are out of scope.)
+     */
+    @Test
+    fun everyPlayroomSubjectAssessmentIsConvertible() = runBlocking {
+        val activeIndex = ActiveContentIndex(context)
+        val contentLoader = ContentLessonLoader(context, activeIndex)
+
+        val failures = supportedSubjects.mapNotNull { subject ->
+            val lessonId = lessonIdForSubject(subject) ?: return@mapNotNull null
+            val m1 = contentLoader.loadLesson(lessonId) ?: return@mapNotNull null
+            val assessment = m1.assessment
+            if (assessment == null || assessment.items.isEmpty()) {
+                "$subject ($lessonId): no assessment items"
+            } else {
+                val badItems = assessment.items.filter { item ->
+                    val opts = (item.options as? JsonArray)?.mapNotNull { el ->
+                        (el as? JsonObject)?.get("text")
+                    } ?: emptyList()
+                    val ids = (item.options as? JsonArray)?.mapNotNull { el ->
+                        (el as? JsonObject)?.get("id")?.jsonPrimitive?.content
+                    } ?: emptyList()
+                    opts.size < 2 ||
+                        item.correctOptionIds.isEmpty() ||
+                        item.correctOptionIds.first() !in ids ||
+                        item.explanation.isBlank()
+                }
+                if (badItems.isNotEmpty()) "$subject ($lessonId): ${badItems.size} unconvertible items" else null
+            }
+        }
+
+        assertTrue("Assessment contract violations: $failures", failures.isEmpty())
     }
 }

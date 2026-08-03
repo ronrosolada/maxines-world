@@ -34,6 +34,9 @@ data class LessonUiState(
     val lesson: LessonManifest? = null,
     val currentStep: Int = 0,
     val totalSteps: Int = 0,
+    /** Number of steps that belong to the final knowledge check (ASSESSMENT_V1).
+     *  Practice phase = steps [0, totalSteps - assessmentStepCount). */
+    val assessmentStepCount: Int = 0,
     val showFeedback: Boolean = false,
     val feedbackText: String = "",
     val feedbackCorrect: Boolean = false,
@@ -88,6 +91,7 @@ class LessonPlayerViewModel @Inject constructor(
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
                     totalSteps = lesson?.steps?.size ?: 0,
+                    assessmentStepCount = lesson?.assessment?.items?.size ?: 0,
                     error = if (lesson == null) "Could not load lesson." else null)
             }
         }
@@ -203,6 +207,10 @@ class LessonPlayerViewModel @Inject constructor(
 
     private fun convertToLessonManifest(m1: Month1Lesson): LessonManifest {
         val subj = contentLessonLoader.toAppSubject(m1.subject)
+        // The authored knowledge check becomes a distinct playable phase after
+        // the practice activities (review: assessments were authored but never
+        // delivered — completion used to end after the 6 activities).
+        val assessmentSteps = m1.assessment?.items.orEmpty().map { toAssessmentStep(it) }
         return LessonManifest(
             id = m1.lessonId, schemaVersion = m1.schemaVersion,
             moduleId = "g3-m01",
@@ -212,7 +220,14 @@ class LessonPlayerViewModel @Inject constructor(
             estimatedMinutes = m1.estimatedMinutes,
             languageOfInstruction = m1.language,
             vocabulary = m1.vocabulary,
-            steps = m1.activities.map { act -> toActivityStep(act) }
+            assessment = m1.assessment?.let { a ->
+                AssessmentBlock(
+                    passThreshold = if (a.itemCount > 0) a.passingCorrectCount.toDouble() / a.itemCount else 0.8,
+                    minQuestions = a.itemCount,
+                    items = assessmentSteps,
+                )
+            },
+            steps = m1.activities.map { act -> toActivityStep(act) } + assessmentSteps
         )
     }
 }
@@ -227,6 +242,37 @@ internal fun rendererType(rawType: String): String = when (rawType) {
     "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
     "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
     else -> "ANIMATED_EXPLANATION_V1"
+}
+
+/**
+ * Converts one authored assessment item into a playable MCQ step.
+ *
+ * The on-disk format stores options as [{id, text}] with correctOptionIds
+ * pointing at option ids; the renderer needs a plain list plus an index.
+ * Feedback uses the authored explanation for both outcomes so a wrong
+ * answer receives the corrective rationale.
+ */
+internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
+    val optionJson = item.options as? JsonArray
+    val optionIds = optionJson?.mapNotNull { el ->
+        (el as? JsonObject)?.get("id")?.jsonPrimitive?.contentOrNull()
+    } ?: emptyList()
+    val optionTexts = optionJson?.mapNotNull { el ->
+        (el as? JsonObject)?.get("text")?.jsonPrimitive?.contentOrNull()
+    } ?: emptyList()
+    val key = item.correctOptionIds.firstOrNull()
+    val correctIndex = if (key != null) optionIds.indexOf(key) else -1
+    return ActivityStep(
+        id = "assessment-${item.itemId.ifBlank { "q${item.sequence}" }}",
+        type = "ASSESSMENT_V1",
+        question = item.prompt,
+        options = optionTexts,
+        correctIndex = correctIndex,
+        feedback = ActivityFeedback(
+            correct = item.explanation.ifBlank { "Great job! 🎉" },
+            incorrect = item.explanation.ifBlank { "Let's try again! 💪" },
+        ),
+    )
 }
 
 private fun JsonObject.stringList(key: String): List<String> =
