@@ -410,6 +410,136 @@ The remaining code follow-ups listed below are unchanged and remain owned by the
 
 ---
 
+## Current Continuation Update — Filipino assessment correction (2026-08-03)
+
+The assessment prompt correction for the 32 Filipino simuno/panaguri lessons was completed on `main` across two commits:
+
+- `1c7c8d4` — first pass replacing generic title-substituted prompts
+- `916efa9` — corrected pass fixing convention and distractor defects found in review
+
+### Fixed
+
+- **Complete-predicate panaguri convention:** keyed answers for panaguri questions now use the full predicate phrase including the linker (`ay tumatakbo`, `ay nagbabasa ng libro`), matching DepEd Grade 3 convention. The earlier pass keyed bare verbs (`tumatakbo`), which the lesson's own slash notation (`Si Ana / ay nagbabasa.`) contradicts.
+- **Removed near-duplicate distractors:** options that duplicated or near-duplicated the keyed answer were replaced with clearly wrong alternatives (other subjects/nouns for simuno questions; subjects/adverbs for panaguri questions).
+- **Grammar fix:** the ungrammatical option `ay matulog sa sofa` was replaced with `ay natutulog sa sofa`.
+- **Wrong-key fixes:** two templates keyed the wrong option (e.g., marking `nagtuturo` correct when asking for the simuno `Ang guro`); both were corrected.
+- **Answer-position variety:** correct positions now span a/b/c/d (distribution across the 160 items: a=43, b=53, c=32, d=32).
+- **Tooling:** `android/tools/fix_filipino_simuno_panguri_assessment.py` (idempotent regenerator) + `android/tools/test_fix_filipino_simuno_panguri_assessment.py` (7 regression tests: structure, uniqueness, key validity, no generic prompts, complete-predicate convention, position variety, objective specificity).
+- **Scope discipline:** programmatic diff-scope check confirmed the 32 lesson files differ from `1c7c8d4` **only** in `assessment.items` — no other lesson fields changed.
+- **Full-rewrite experiment discarded:** a broader activity-shell rewrite was rejected mid-flight (it regressed assessment variety and would have rewritten narration/vocabulary wholesale); the working tree was restored to the committed assessment-only state. The defect this avoids is documented in the test suite's convention checks.
+
+### Current validation
+
+```text
+160 assessment items across 32 lessons (5 each)
+0 generic title-substituted prompts in the 32 corrected lessons
+0 duplicate option texts, all 4 option ids a-d present per item
+7/7 Python regression tests passed
+Gradle unit tests + lint + verifyPlayableContent: BUILD SUCCESSFUL
+```
+
+### Remaining assessment scope (not yet corrected)
+
+984 generic assessment items remain across **198 lessons** in the other subjects:
+
+```text
+ENGLISH:      264
+MATHEMATICS:  190
+FILIPINO:     155   (other Filipino lessons, different objectives)
+MAKABANSA:    130
+SCIENCE:      125
+GMRC:         120
+```
+
+These still use the title-substituted template prompts and need per-subject objective-specific rewrites following the Filipino pattern (convention → templates → tests → diff-scope check).
+
+## Current Continuation Update — First Steps sticker feature (2026-08-03)
+
+Completed on `main` in commit `2630347` (`feat: First Steps sticker for the child's first completed lesson`).
+
+### What shipped
+
+- **New `milestone` biome** in `core-model/CollectibleBadge.kt` (gold, "Milestones") and a new catalog sticker: `milestone_first_steps` ("First Steps" / "Bright Beginning", 🌟) in `android/app/src/main/assets/badge_catalog.json`.
+- **`BadgeAwarder.recordFirstLessonCompletion(childId)`** — mutex-guarded, idempotent: a child can only earn the First Steps sticker once, replays never double-award. The weekly wildlife expedition now explicitly skips milestone stickers (`biome != MILESTONE_BIOME`) so it can never leak a milestone award.
+- **First-lesson detection:** `LessonCompletionDao.countDistinctLessons(childId)` (new suspend query; Flow variant already existed). `LessonPlayerViewModel.saveProgress()` checks it *before* inserting the completion; on the child's very first lesson ever it awards the sticker and prioritizes it in the reveal.
+- **`BadgeRevealScreen` celebration:** milestone-aware copy ("Your First Sticker! You finished your very first lesson! Milo is cheering for you! 🐱🎉") plus a fun reward animation for **every** sticker reveal: confetti rain, bouncy spring pop-in of the sticker token, and six orbiting ✨ sparkles. Reduced-motion (animator scale = 0) skips all animation and jumps straight to the reveal.
+- **Field guide counters now dynamic:** the header counter was hardcoded `/50` and per-biome `/10`; both now derive from the catalog size (`${biomeBadges.size}`, `allBadges.size`).
+
+### Tests
+
+- `BadgeAwarderTest`: First Steps awarded once and not twice; milestone sticker never leaks into the weekly expedition (catalog ordering puts it first, expedition still picks `badge_01`); persisted-collection metadata test updated for the 4-badge catalog.
+- `LessonCompletionDaoTest` (connected): `countDistinctLessons` matches the Flow variant and is 0 for a fresh child.
+- Full suite: `testDebugUnitTest` BUILD SUCCESSFUL across all modules; `lintDebug`, `:app:verifyPlayableContent`, `:app:assembleDebug` pass; `:core-database:connectedDebugAndroidTest` 21/21 green on the emulator.
+
+### Release
+
+- Prerelease **`v0.20.2-tablet-test`** published to GitHub (commit `2630347`) with `app-debug.apk` + `app-debug.apk.sha256`.
+- APK SHA-256: `80c0a3512d6ba97cdfcf2b3d34c1f0be57a1c0acfe25af7565a7041f38521a8a`.
+
+### Open questions for the external reviewer
+
+1. **First-sticker moment UX:** the reveal fires on the child's first completed lesson regardless of subject. Is a single universal milestone right, or should the first lesson of *each subject* earn a sticker too?
+2. **Milestone biome growth:** the field guide now has 6 biome sections; the milestone section currently holds exactly one sticker. Is that intentional, or should future milestones (e.g., 10th lesson, first full week) be planned?
+3. **Sticker economics:** stars/coins still award alongside the sticker. Is the sticker the primary reward signal, and are stars/coins the right secondary currency?
+4. **Confetti intensity:** the reveal screen confetti mirrors the lesson-complete screen. Review for overstimulation risk with the reduced-motion fallback in mind.
+
+## Current Continuation Update — repository state for external LLM review (2026-08-03)
+
+This handoff doc is the current review-validation context. HEAD of `main` is `2630347`; working tree is clean and synchronized with `origin/main`.
+
+### What changed since the last handoff revision
+
+| Commit | Change |
+|--------|--------|
+| `3ea2545` | docs: record lesson title disambiguation |
+| `e8119f4` | fix(content): disambiguate repeated lesson titles |
+| `86cb25d` | docs: define English quarterly coverage boundary |
+| `1c61805` | docs: record quarterly visual asset validation |
+| `6f93b6d` | docs: corrected educator content review (factual accuracy fixes) |
+| `1c7c8d4` | fix: Filipino simuno/panaguri assessment prompts (32 lessons) |
+| `916efa9` | fix: corrected Filipino assessments (convention, distractors, keys) |
+| `2630347` | feat: First Steps sticker for the child's first completed lesson |
+
+### Current content-pack numbers (re-verified)
+
+```text
+349 lesson JSON files (100 legacy + 249 quarterly)
+349 unique lesson IDs
+349 unique lesson titles
+6 activities per lesson
+5 assessment items per lesson
+3 vocabulary terms per lesson
+1,745 assessment items, all with valid correctOptionIds
+1,994 non-null activity asset references, all resolving
+349 vector assets present (100 legacy + 249 quarterly)
+0 duplicate-title groups
+0 assessment filler hits (was 570)
+0 duplicate assessment-prompt lessons (was 230)
+984 generic assessment prompts remaining (198 lessons, subjects other than the 32 corrected Filipino lessons)
+```
+
+### Assessment integrity status
+
+- All 1,745 items carry valid `correctOptionIds` (schema field is the plural array — a common audit false-positive source).
+- The 32 Filipino simuno/panaguri lessons now have objective-specific, convention-correct, position-varied items (see update above).
+- The remaining 984 generic items are tracked but not yet rewritten; they are a P1 content task, not a release blocker for the debug test build.
+
+### What the external reviewer should focus on
+
+1. **Correctness of the 32 corrected Filipino assessments** — verify the complete-predicate panaguri convention, distractor quality, and Filipino grammar (templates live in `android/tools/fix_filipino_simuno_panguri_assessment.py`).
+2. **First Steps sticker feature** — behavior, idempotency, expedition isolation, and the reveal animation (see open questions above).
+3. **Remaining 984 generic assessment prompts** — confirm the per-subject rewrite plan and that the Filipino pattern (convention → templates → tests → diff-scope check) is the right template.
+4. **Activity-shell monotony** — all 349 lessons still share the same 6-activity sequence with identical per-lesson narration; this is the largest remaining pedagogical concern.
+5. **Vocabulary quality** — ~60% of 1,047 vocabulary entries are example sentences or equations rather than term+definition pairs.
+6. **Factual/pedagogical review of lesson bodies** — automated checks cannot prove educational correctness; the educator review report remains conditional pending independent human review.
+
+### Historical review artifacts (preserved)
+
+- [`educator-content-review-2026-08-03.md`](educator-content-review-2026-08-03.md) — corrected educator review on `main`.
+- [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md) — historical review on `review/content-2026-08-03` (PR #25).
+- [`educator-content-review-brief.md`](educator-content-review-brief.md) — review rubric.
+- `docs/educator-review-{baseline,detailed,sample}-2026-08-03.json` — static audit exports.
+
 ## Recommended Next Steps
 
 Prioritize the remaining work in this order:
@@ -418,13 +548,16 @@ Prioritize the remaining work in this order:
 2. ✅ Remove duplicate assessment prompts across the 230 affected lessons — completed in `9da1ffc`.
 3. ✅ Add quarterly visual assets for all 249 dangling quarterly IDs — completed in `d34f4e7`.
 4. ✅ Document English Q1–Q3 as the current bundled boundary; defer Q4 until source SLM curriculum is available — completed in this handoff update.
-5. Add PIN attempt throttling and temporary lockout.
-6. Implement proper reduced-motion support.
-7. Add completion and resume state to module lesson lists.
-8. Verify and correct parent streak calculations using date-based records.
-9. Reconcile the coin-award implementation with product documentation.
-10. ✅ Reduce repeated lesson/module titles where repetition harms navigation — completed in this handoff update.
-11. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
+5. ✅ Reduce repeated lesson/module titles where repetition harms navigation — completed in this handoff update.
+6. ✅ Correct the 32 Filipino simuno/panaguri assessments (convention, distractors, keys, position variety) — completed in `916efa9`.
+7. ✅ Ship the First Steps sticker milestone + celebration reveal — completed in `2630347` (release `v0.20.2-tablet-test`).
+8. Rewrite the remaining **984 generic assessment prompts** (198 lessons) subject by subject, following the Filipino pattern.
+9. Add PIN attempt throttling and temporary lockout.
+10. Implement proper reduced-motion support in the lesson-complete screen (the reveal screen already respects it).
+11. Add completion and resume state to module lesson lists.
+12. Verify and correct parent streak calculations using date-based records.
+13. Reconcile the coin-award implementation with product documentation.
+14. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 ## Safe Continuation Commands
 

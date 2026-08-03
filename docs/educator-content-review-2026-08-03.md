@@ -472,6 +472,48 @@ These are **tracked, not blockers** for this test round. Your feedback will driv
 
 ---
 
+## Addendum — 2026-08-03 evening revision (post-review changes)
+
+This addendum records changes made *after* the review above was written. It does not rewrite the historical findings.
+
+### 1. Filipino simuno/panaguri assessments corrected (commits `1c7c8d4`, `916efa9`)
+
+The 32 Filipino lessons sharing the simuno/panaguri objective now have **objective-specific assessment items** instead of the generic title-substituted templates:
+
+- Questions test simuno identification, panaguri identification, simuno+panaguri pairing, and sentence partitioning (`paghahati`).
+- **Convention:** keyed panaguri answers use the complete predicate phrase including the linker (`ay tumatakbo`, `ay nagbabasa ng libro`), matching the lesson's own slash notation and DepEd Grade 3 practice.
+- Distractors no longer near-duplicate the keyed answer; wrong options are clearly other classes (subjects/nouns for simuno items; subjects/adverbs for panaguri items).
+- Correct positions span a/b/c/d (160 items: a=43, b=53, c=32, d=32).
+- Regression suite: `android/tools/test_fix_filipino_simuno_panguri_assessment.py` (7 tests), plus a programmatic diff-scope check confirming **only `assessment.items` changed** in the 32 files.
+
+**Remaining:** 984 generic assessment items across 198 lessons in the other subjects (English 264, Math 190, other Filipino 155, Makabansa 130, Science 125, GMRC 120) still need the same treatment.
+
+### 2. First Steps sticker milestone (commit `2630347`)
+
+A new learner now earns their **first sticker after completing their very first lesson**, with an encouraging reveal:
+
+- New `milestone` biome + `milestone_first_steps` sticker ("First Steps" / "Bright Beginning", 🌟) in the badge catalog.
+- `BadgeAwarder.recordFirstLessonCompletion()` is idempotent (once per child); the weekly wildlife expedition explicitly excludes milestone stickers.
+- `LessonCompletionDao.countDistinctLessons()` detects the first-ever lesson; the ViewModel prioritizes the First Steps sticker in the reveal.
+- `BadgeRevealScreen` gained milestone-aware copy plus a celebration for every sticker: confetti, bouncy pop-in, orbiting sparkles, reduced-motion respected.
+- Field-guide counters are now catalog-driven instead of hardcoded `/50` and `/10`.
+
+**Status of the original review findings:**
+
+| Finding | Status after these commits |
+|---------|----------------------------|
+| #5 Generic assessment prompts (1,745 items) | **Partially fixed** — 160 items (32 Filipino lessons) rewritten; 984 remain across 198 lessons |
+| #2 Identical 6-activity sequence | **Unchanged** — still the largest pedagogical concern |
+| #3 Within-lesson narration repetition | **Unchanged** |
+| #4 Objective duplication | **Unchanged** (32-lesson Filipino group now at least has varied assessment depth) |
+| #8 Vocabulary placeholder definitions | **Unchanged** |
+| #6 English Q4 absent | **Unchanged** (documented boundary) |
+| #7 Araling Panlipunan legacy-only | **Unchanged** |
+
+**Overall verdict remains:** debug test build acceptable; production release still requires Tier 1 fixes (activity patterns, narration scaffolding, remaining assessments) plus independent human educator sign-off.
+
+---
+
 ## Sign-Off
 
 **Reviewer:** AI Educator Agent (simulated seasoned early childhood educator)  
