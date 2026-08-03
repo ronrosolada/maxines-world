@@ -187,8 +187,11 @@ fun MultipleChoiceRenderer(
  * Return a deterministic permutation for one lesson's option cards.
  * Invalid content remains non-crashing; the renderer will simply never mark
  * an option correct until the content is repaired.
+ *
+ * Public so the lesson player's assessment phase (feature-lesson-player)
+ * presents its options under the same stable per-item order.
  */
-internal fun optionOrderFor(stepId: String, optionCount: Int, correctIndex: Int): List<Int> {
+fun optionOrderFor(stepId: String, optionCount: Int, correctIndex: Int): List<Int> {
     if (optionCount <= 1) return (0 until optionCount).toList()
     val order = (0 until optionCount).toMutableList()
     order.shuffle(java.util.Random(stepId.hashCode().toLong()))

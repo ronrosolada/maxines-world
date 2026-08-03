@@ -31,6 +31,7 @@ import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.engineactivity.renderers.ActivityRenderer
+import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
 
@@ -281,6 +282,15 @@ private fun AssessmentStepCard(
     answered: Boolean,
     onResult: (ActivityResult) -> Unit,
 ) {
+    // Same deterministic per-item option order as the practice MCQ renderer:
+    // the correct position is remapped by step id, so authored key positions
+    // (and any static bias) never leak to the learner.
+    val optionOrder = remember(step.id, step.options, step.correctIndex) {
+        optionOrderFor(step.id, step.options.size, step.correctIndex)
+    }
+    val options = optionOrder.map { step.options[it] }
+    val displayedCorrectIndex = optionOrder.indexOf(step.correctIndex)
+
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Cream),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
@@ -288,9 +298,13 @@ private fun AssessmentStepCard(
             Text(step.question, style = MaterialTheme.typography.bodyLarge, fontSize = 19.sp,
                 lineHeight = 30.sp, color = Ink)
             Spacer(Modifier.height(16.dp))
-            step.options.forEachIndexed { index, option ->
+            options.forEachIndexed { index, option ->
                 Surface(
-                    onClick = { if (!answered) onResult(ActivityResult(step.id, index == step.correctIndex, 1, 0, 0, scored = true)) },
+                    onClick = {
+                        if (!answered) onResult(
+                            ActivityResult(step.id, index == displayedCorrectIndex, 1, 0, 0, scored = true)
+                        )
+                    },
                     shape = RoundedCornerShape(14.dp),
                     color = White,
                     border = androidx.compose.foundation.BorderStroke(1.dp, VillageTeal.copy(alpha = 0.35f)),
