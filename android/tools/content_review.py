@@ -306,7 +306,7 @@ def profile_for(lesson: dict[str, Any]) -> dict[str, Any]:
         title, objective, explain, examples = gmrc_values.get(key, gmrc_values["self_confidence"])
         p.update({"title": title, "objective": objective, "explain": explain, "examples": examples,
                   "fits": examples, "wrong": ["nanunukso sa kapwa", "kumukuha ng hindi kanya", "sumusuway sa ligtas na tuntunin", "hindi nakikinig"],
-                  "pairs": [(examples[0], "mabuting halimbawa"), (examples[1], "angkop na kilos"), (examples[2], "responsableng gawain")],
+                  "pairs": [(examples[0], "pakikisubok nang may tapang"), (examples[1], "pagsasanay upang mahusay"), (examples[2], "humihingi ng tulong kapag kailangan")],
                   "steps": ["Unawain ang sitwasyon", "Isipin ang epekto sa kapwa", "Piliin ang mabuting kilos", "Isagawa ito nang ligtas"]})
 
     makabansa = {
@@ -320,7 +320,7 @@ def profile_for(lesson: dict[str, Any]) -> dict[str, Any]:
         title, objective, explain, examples = makabansa.get(key, makabansa["community_history"])
         p.update({"title": title, "objective": objective, "explain": explain, "examples": examples,
                   "fits": examples, "wrong": ["hula na walang batayan", "impormasyong walang kaugnayan", "pang-aalipusta sa kultura", "gawaing nakapipinsala sa kapwa"],
-                  "pairs": [(examples[0], "kaugnay na halimbawa"), (examples[1], "bahagi ng paksa"), (examples[2], "makabuluhang ideya")],
+                  "pairs": [(examples[0], "may mahalagang papel sa komunidad"), (examples[1], "bahagi ng pamumuhay"), (examples[2], "lugar ng pagkatuto")],
                   "steps": ["Tingnan ang halimbawa", "Tukuyin ang mahalagang ideya", "Iugnay sa komunidad", "Ipaliwanag ang sagot"]})
 
     math = {

@@ -1,378 +1,378 @@
 {
- "lessonId": "gmrc-g3-q1-w01-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 3,
- "subject": "gmrc",
- "title": "Aking Pananagutan",
- "objective": "Naisasagawa ang tungkulin nang maayos at may pananagutan.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "inaayos ang gamit",
-   "definition": "mabuting halimbawa"
-  },
-  {
-   "term": "tinatapos ang gawain",
-   "definition": "angkop na kilos"
-  },
-  {
-   "term": "sumusunod sa napagkasunduan",
-   "definition": "responsableng gawain"
-  }
- ],
- "activities": [
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "content": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "content": {
-    "examples": [
-     "inaayos ang gamit",
-     "tinatapos ang gawain",
-     "sumusunod sa napagkasunduan",
-     "humihingi ng tulong kapag kailangan"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "content": {
-    "fits": [
-     "inaayos ang gamit",
-     "tinatapos ang gawain",
-     "sumusunod sa napagkasunduan",
-     "humihingi ng tulong kapag kailangan"
-    ],
-    "doesNotFit": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "hindi nakikinig"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Piliin ang pinakamainam na sagot.",
-   "content": {
-    "options": [
-     "inaayos ang gamit",
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Piliin ang pinakamainam na sagot.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Itugma ang magkakaugnay na ideya.",
-   "content": {
-    "pairs": [
-     {
-      "left": "inaayos ang gamit",
-      "right": "mabuting halimbawa"
-     },
-     {
-      "left": "tinatapos ang gawain",
-      "right": "angkop na kilos"
-     },
-     {
-      "left": "sumusunod sa napagkasunduan",
-      "right": "responsableng gawain"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Itugma ang magkakaugnay na ideya.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d03-visual",
-   "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "content": {
-    "steps": [
-     "Unawain ang sitwasyon",
-     "Isipin ang epekto sa kapwa",
-     "Piliin ang mabuting kilos",
-     "Isagawa ito nang ligtas"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
-   "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "gmrc-g3-q1-w01-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sumusuway sa ligtas na tuntunin"
-     },
-     {
-      "id": "b",
-      "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-     },
-     {
-      "id": "c",
-      "text": "nanunukso sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "kumukuha ng hindi kanya"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-     },
-     {
-      "id": "b",
-      "text": "kumukuha ng hindi kanya"
-     },
-     {
-      "id": "c",
-      "text": "sumusuway sa ligtas na tuntunin"
-     },
-     {
-      "id": "d",
-      "text": "hindi nakikinig"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sumusuway sa ligtas na tuntunin"
-     },
-     {
-      "id": "b",
-      "text": "hindi nakikinig"
-     },
-     {
-      "id": "c",
-      "text": "nanunukso sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "nanunukso sa kapwa"
-     },
-     {
-      "id": "b",
-      "text": "kumukuha ng hindi kanya"
-     },
-     {
-      "id": "c",
-      "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-     },
-     {
-      "id": "d",
-      "text": "hindi nakikinig"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sumusuway sa ligtas na tuntunin"
-     },
-     {
-      "id": "b",
-      "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-     },
-     {
-      "id": "c",
-      "text": "nanunukso sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "kumukuha ng hindi kanya"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "gmrc-g3-q1-w01-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "gmrc",
+  "title": "Aking Pananagutan",
+  "objective": "Naisasagawa ang tungkulin nang maayos at may pananagutan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "inaayos ang gamit",
+      "definition": "pagmamahal sa bayan"
+    },
+    {
+      "term": "tinatapos ang gawain",
+      "definition": "mabuting asal"
+    },
+    {
+      "term": "sumusunod sa napagkasunduan",
+      "definition": "mabuting asal"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+      "content": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Pag-aralan ang ideya at pakinggan ang paliwanag.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "content": {
+        "examples": [
+          "inaayos ang gamit",
+          "tinatapos ang gawain",
+          "sumusunod sa napagkasunduan",
+          "humihingi ng tulong kapag kailangan"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "content": {
+        "fits": [
+          "inaayos ang gamit",
+          "tinatapos ang gawain",
+          "sumusunod sa napagkasunduan",
+          "humihingi ng tulong kapag kailangan"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "hindi nakikinig"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ilagay ang bawat halimbawa sa tamang pangkat.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Piliin ang pinakamainam na sagot.",
+      "content": {
+        "options": [
+          "inaayos ang gamit",
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang pinakamainam na sagot.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Itugma ang magkakaugnay na ideya.",
+      "content": {
+        "pairs": [
+          {
+            "left": "inaayos ang gamit",
+            "right": "pagmamahal sa bayan"
+          },
+          {
+            "left": "tinatapos ang gawain",
+            "right": "mabuting asal"
+          },
+          {
+            "left": "sumusunod sa napagkasunduan",
+            "right": "mabuting asal"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Itugma ang magkakaugnay na ideya.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d03-visual",
+      "instruction": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "content": {
+        "steps": [
+          "Unawain ang sitwasyon",
+          "Isipin ang epekto sa kapwa",
+          "Piliin ang mabuting kilos",
+          "Isagawa ito nang ligtas"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod.",
+      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q1-w01-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sumusuway sa ligtas na tuntunin"
+          },
+          {
+            "id": "b",
+            "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+          },
+          {
+            "id": "c",
+            "text": "nanunukso sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "kumukuha ng hindi kanya"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+          },
+          {
+            "id": "b",
+            "text": "kumukuha ng hindi kanya"
+          },
+          {
+            "id": "c",
+            "text": "sumusuway sa ligtas na tuntunin"
+          },
+          {
+            "id": "d",
+            "text": "hindi nakikinig"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sumusuway sa ligtas na tuntunin"
+          },
+          {
+            "id": "b",
+            "text": "hindi nakikinig"
+          },
+          {
+            "id": "c",
+            "text": "nanunukso sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nanunukso sa kapwa"
+          },
+          {
+            "id": "b",
+            "text": "kumukuha ng hindi kanya"
+          },
+          {
+            "id": "c",
+            "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+          },
+          {
+            "id": "d",
+            "text": "hindi nakikinig"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pahayag ang pinakamahusay na naglalarawan sa Aking Pananagutan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sumusuway sa ligtas na tuntunin"
+          },
+          {
+            "id": "b",
+            "text": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+          },
+          {
+            "id": "c",
+            "text": "nanunukso sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "kumukuha ng hindi kanya"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamainam na sagot ay: Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
