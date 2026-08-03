@@ -86,6 +86,7 @@ core-database/
 - **In-app navigation (2026-08-01):** island → `SubjectModulesScreen` (module list, legacy Module 1 first then SLM Quarter N · Week M) → `ModuleLessonsScreen` (day-ordered lesson rows) → `LessonPlayerScreen`. Driven by `ModuleCatalog` in core-content (`ModuleIdRules` parses `-mNN`/`-qN-wNN` from lesson IDs). No more single-lesson direct jump.
 - **GMRC KNOWN GAP: RESOLVED** — Kindness island maps to real GMRC content.
 - Coverage boundary: English Q1–Q3 (73), Filipino Q1–Q4 (63), GMRC Q1–Q4 (24), Makabansa Q1–Q4 (26), Mathematics Q1–Q4 (38), Science Q1–Q4 (25). English Q1–Q3 is the current bundled English scope; Q4 is intentionally deferred because no source SLM material is available. Add Q4 only after source curriculum is acquired and independently reviewed.
+- **Title uniqueness (2026-08-03):** all 349 bundled lesson titles are unique. The 256 formerly duplicated titles now include deterministic `Q# W## D##` or `M## D##` navigation qualifiers; only the JSON `title` fields changed. `android/tools/dedupe_lesson_titles.py` and its tests enforce idempotence.
 - Conversion report: `android/tools/content-conversion-report.md`
 - **Delivery: bundled-only** — every month/quarter lesson ships inside the APK; no content server, no runtime download (decision 2026-08-01).
 

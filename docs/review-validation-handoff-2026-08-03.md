@@ -372,10 +372,39 @@ The English Q4 finding is now resolved as a documented content boundary rather t
 
 This is intentional scope documentation, not a claim that English Q4 content exists. No lesson JSON was fabricated or modified.
 
+## Current Continuation Update — repeated lesson titles resolved (2026-08-03)
+
+The repeated lesson-title follow-up was completed in the bundled content pack.
+
+### Fixed
+
+- Found **58 duplicate-title groups** covering **256 lessons**.
+- Added stable navigation qualifiers derived from lesson IDs:
+  - quarterly lessons: `· Q# W## D##`
+  - legacy Module 1 lessons: `· M## D##`
+- Modified only the JSON `title` field in the 256 affected lesson files.
+- Added `android/tools/dedupe_lesson_titles.py`, an idempotent checker/applicator.
+- Added `android/tools/test_dedupe_lesson_titles.py` regression coverage.
+
+### Current validation
+
+```text
+349 lesson files
+349 unique lesson IDs
+349 unique lesson titles
+0 duplicate-title groups
+256 lesson files changed
+0 non-title JSON changes
+14/14 Python content and asset tests passed
+Gradle unit tests + lint + verifyPlayableContent: BUILD SUCCESSFUL
+Connected Android tests: 30/30 passed, 0 failed, 0 skipped
+```
+
+The qualifiers intentionally expose quarter/week/day context in navigation; they are not a replacement for future editorial title refinement.
+
 ### Remaining content priorities
 
-1. Reduce repeated lesson/module titles where repetition harms navigation.
-2. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
+1. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 The remaining code follow-ups listed below are unchanged and remain owned by the Android app agent unless explicitly reassigned.
 
@@ -394,7 +423,7 @@ Prioritize the remaining work in this order:
 7. Add completion and resume state to module lesson lists.
 8. Verify and correct parent streak calculations using date-based records.
 9. Reconcile the coin-award implementation with product documentation.
-10. Reduce repeated lesson/module titles where repetition harms navigation.
+10. ✅ Reduce repeated lesson/module titles where repetition harms navigation — completed in this handoff update.
 11. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 ## Safe Continuation Commands
