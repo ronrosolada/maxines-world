@@ -85,7 +85,7 @@ core-database/
   - **249 converted/curated SLM lessons** (`-g3-q` IDs, 6 subjects incl. GMRC + Makabansa) via `android/tools/convert_slm_to_pack.py` and `android/tools/content_review.py`
 - **In-app navigation (2026-08-01):** island → `SubjectModulesScreen` (module list, legacy Module 1 first then SLM Quarter N · Week M) → `ModuleLessonsScreen` (day-ordered lesson rows) → `LessonPlayerScreen`. Driven by `ModuleCatalog` in core-content (`ModuleIdRules` parses `-mNN`/`-qN-wNN` from lesson IDs). No more single-lesson direct jump.
 - **GMRC KNOWN GAP: RESOLVED** — Kindness island maps to real GMRC content.
-- Coverage: english Q1–Q3 (73), filipino Q1–Q4 (63), gmrc Q1–Q4 (24), makabansa Q1–Q4 (26), mathematics Q1–Q4 (38), science Q1–Q4 (25). English Q4 is the only remaining gap (no source material).
+- Coverage boundary: English Q1–Q3 (73), Filipino Q1–Q4 (63), GMRC Q1–Q4 (24), Makabansa Q1–Q4 (26), Mathematics Q1–Q4 (38), Science Q1–Q4 (25). English Q1–Q3 is the current bundled English scope; Q4 is intentionally deferred because no source SLM material is available. Add Q4 only after source curriculum is acquired and independently reviewed.
 - Conversion report: `android/tools/content-conversion-report.md`
 - **Delivery: bundled-only** — every month/quarter lesson ships inside the APK; no content server, no runtime download (decision 2026-08-01).
 
@@ -102,7 +102,7 @@ core-database/
 - **Not yet in CI:** lint. (Roadmap.)
 
 ## Known Risks / Open Items
-1. English Q4 has no SLM source content — only remaining quarter gap; author when source material becomes available.
+1. English Q4 is intentionally deferred: no SLM source material is available. Keep the current bundled English boundary at Q1–Q3; author/import Q4 only after source curriculum is acquired and independently reviewed.
 2. **Release gate (ACTIVE):** `:app:verifyPlayableContent` blocks releases until every lesson is educator-approved (349/349 unreviewed). Approval = human review → `python3 android/tools/mark_lessons_reviewed.py` → commit. See `.github/workflows/release-gate.yml` (runs on v* tags).
 3. Badge ownership uniqueness in v7 needs an audit (child-specific vs global `badgeId`).
 4. Legacy PRs #1–#6, #8, #9: pre-Playroom stacks — **do not merge wholesale**; salvage only valuable behavior as fresh branches off `main`.

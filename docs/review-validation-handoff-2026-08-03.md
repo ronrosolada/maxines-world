@@ -366,11 +366,16 @@ Connected Android tests: 30/30 passed, 0 failed, 0 skipped
 
 The new boards are deterministic topic-grounded visual scaffolds, not a substitute for independent educator or illustrator review. The release gate remains unchanged at 349 educator-reviewed lessons.
 
+## Current Continuation Update — English Q4 boundary documented (2026-08-03)
+
+The English Q4 finding is now resolved as a documented content boundary rather than being filled with invented curriculum. The live inventory contains 73 English quarterly lessons across Q1–Q3 and no Q4 source material. `HANDOFF.md` now records Q1–Q3 as the current bundled English scope and defers Q4 until source SLM curriculum is available and independently reviewed.
+
+This is intentional scope documentation, not a claim that English Q4 content exists. No lesson JSON was fabricated or modified.
+
 ### Remaining content priorities
 
-1. Resolve the English Q4 coverage gap or document the intended boundary.
-2. Reduce repeated lesson/module titles where repetition harms navigation.
-3. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
+1. Reduce repeated lesson/module titles where repetition harms navigation.
+2. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
 The remaining code follow-ups listed below are unchanged and remain owned by the Android app agent unless explicitly reassigned.
 
@@ -383,7 +388,7 @@ Prioritize the remaining work in this order:
 1. ✅ Replace all assessment filler in the 38 quarterly Math lessons — completed in `9da1ffc`.
 2. ✅ Remove duplicate assessment prompts across the 230 affected lessons — completed in `9da1ffc`.
 3. ✅ Add quarterly visual assets for all 249 dangling quarterly IDs — completed in `d34f4e7`.
-4. Resolve the English Q4 content gap or document the intended coverage boundary.
+4. ✅ Document English Q1–Q3 as the current bundled boundary; defer Q4 until source SLM curriculum is available — completed in this handoff update.
 5. Add PIN attempt throttling and temporary lockout.
 6. Implement proper reduced-motion support.
 7. Add completion and resume state to module lesson lists.
