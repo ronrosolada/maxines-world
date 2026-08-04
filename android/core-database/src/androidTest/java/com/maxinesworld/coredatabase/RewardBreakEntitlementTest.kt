@@ -61,6 +61,17 @@ class RewardBreakEntitlementTest {
     }
 
     @Test
+    fun wrongChildCannotStartOrConsumeAnEntitlement() = runBlocking {
+        val dao = db.rewardBreakDao()
+        val key = RewardBreakPolicy.dailyQuestCompletionId("child-1", "2026-08-04")
+        dao.insertIgnoring(RewardBreakPolicy.newEntitlement("break-1", "child-1", key, 100L))
+
+        assertEquals(0, dao.startIfCreated("break-1", "child-2", 1_000L))
+        assertEquals(0, dao.consumeIfUnconsumed("break-1", "child-2", 2_000L))
+        assertEquals(RewardBreakPolicy.CREATED, dao.getById("break-1")!!.state)
+    }
+
+    @Test
     fun miniGameResultInsertIsFirstWriteWins() = runBlocking {
         val dao = db.miniGameResultDao()
         val first = MiniGameResultEntity(

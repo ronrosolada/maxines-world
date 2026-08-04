@@ -54,4 +54,25 @@ object RewardBreakPolicy {
         ACTIVE -> remainingAt(entitlement, nowEpochMillis) > 0L
         else -> false
     }
+
+    /**
+     * Validates a game result against the persisted active session.
+     *
+     * The game callback is app-internal today, but keeping the temporal checks
+     * here prevents stale or malformed results from being recorded if another
+     * route or future integration supplies one.
+     */
+    fun isValidResultWindow(
+        entitlement: RewardBreakEntitlementEntity,
+        resultStartedAtEpochMillis: Long,
+        resultEndedAtEpochMillis: Long,
+        nowEpochMillis: Long,
+    ): Boolean {
+        val entitlementStartedAt = entitlement.startedAtEpochMillis ?: return false
+        return entitlement.state == ACTIVE &&
+            resultStartedAtEpochMillis >= entitlementStartedAt &&
+            resultEndedAtEpochMillis >= resultStartedAtEpochMillis &&
+            resultEndedAtEpochMillis <= nowEpochMillis &&
+            canUse(entitlement, resultEndedAtEpochMillis)
+    }
 }

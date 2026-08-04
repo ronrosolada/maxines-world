@@ -65,6 +65,68 @@ class RewardBreakPolicyTest {
     }
 
     @Test
+    fun `valid result window belongs to the active entitlement`() {
+        val entitlement = RewardBreakEntitlementEntity(
+            id = "break-1",
+            childId = "child-1",
+            dailyQuestCompletionId = "child-1:2026-08-04",
+            durationMillis = 300_000L,
+            remainingMillis = 300_000L,
+            createdAtEpochMillis = 500L,
+            startedAtEpochMillis = 1_000L,
+            state = "ACTIVE",
+        )
+
+        assertTrue(
+            RewardBreakPolicy.isValidResultWindow(
+                entitlement = entitlement,
+                resultStartedAtEpochMillis = 1_500L,
+                resultEndedAtEpochMillis = 2_000L,
+                nowEpochMillis = 2_000L,
+            )
+        )
+    }
+
+    @Test
+    fun `malformed or stale result windows are rejected`() {
+        val entitlement = RewardBreakEntitlementEntity(
+            id = "break-1",
+            childId = "child-1",
+            dailyQuestCompletionId = "child-1:2026-08-04",
+            durationMillis = 300_000L,
+            remainingMillis = 300_000L,
+            createdAtEpochMillis = 500L,
+            startedAtEpochMillis = 1_000L,
+            state = "ACTIVE",
+        )
+
+        assertFalse(
+            RewardBreakPolicy.isValidResultWindow(
+                entitlement,
+                resultStartedAtEpochMillis = 900L,
+                resultEndedAtEpochMillis = 1_500L,
+                nowEpochMillis = 1_500L,
+            )
+        )
+        assertFalse(
+            RewardBreakPolicy.isValidResultWindow(
+                entitlement,
+                resultStartedAtEpochMillis = 1_500L,
+                resultEndedAtEpochMillis = 1_400L,
+                nowEpochMillis = 1_500L,
+            )
+        )
+        assertFalse(
+            RewardBreakPolicy.isValidResultWindow(
+                entitlement,
+                resultStartedAtEpochMillis = 1_500L,
+                resultEndedAtEpochMillis = 2_000L,
+                nowEpochMillis = 1_900L,
+            )
+        )
+    }
+
+    @Test
     fun `consumed entitlement cannot be started or used`() {
         val entitlement = RewardBreakEntitlementEntity(
             id = "break-1",

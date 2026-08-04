@@ -111,11 +111,16 @@ class RewardBreakViewModel @Inject constructor(
 
     suspend fun saveResult(result: MiniGameResult): Boolean {
         val entitlement = rewardBreakDao.getById(result.rewardBreakId)
+        val now = System.currentTimeMillis()
         if (
             entitlement == null ||
             entitlement.childId != result.childId ||
-            entitlement.state != RewardBreakPolicy.ACTIVE ||
-            !RewardBreakPolicy.canUse(entitlement, result.endedAtEpochMillis)
+            !RewardBreakPolicy.isValidResultWindow(
+                entitlement = entitlement,
+                resultStartedAtEpochMillis = result.startedAtEpochMillis,
+                resultEndedAtEpochMillis = result.endedAtEpochMillis,
+                nowEpochMillis = now,
+            )
         ) {
             return false
         }
