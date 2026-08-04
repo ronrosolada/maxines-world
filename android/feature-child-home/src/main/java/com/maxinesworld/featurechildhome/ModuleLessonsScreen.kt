@@ -141,7 +141,7 @@ private fun LessonRow(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    if (isCompleted) "✓" else "D${lesson.day}",
+                    if (isCompleted) "✓" else lesson.day.toString(),
                     fontWeight = FontWeight.Black,
                     fontSize = 12.sp,
                     color = when {

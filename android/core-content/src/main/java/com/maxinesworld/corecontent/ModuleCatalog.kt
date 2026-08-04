@@ -40,6 +40,14 @@ data class ContentModuleLesson(
  * Modules sort with the legacy pack first, then SLM modules in
  * (quarter, week) order. Lessons within a module sort by day.
  */
+/**
+ * Strip the authored content-ID suffix from a lesson title, e.g.
+ * "Shape Trail · Q1 W01 D01" → "Shape Trail" (UX review #30). Shared by
+ * every surface that shows a lesson title to a human.
+ */
+fun friendlyLessonTitleOf(raw: String): String =
+    raw.replace(Regex("""\s*·\s*(?:Q\d+\s*W\d+\s*D\d+|M\d+\s*D\d+)\s*$"""), "").trim()
+
 class ModuleCatalog @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
@@ -84,7 +92,7 @@ class ModuleCatalog @Inject constructor(
                 key = key,
                 title = moduleTitleFor(subject, key),
                 lessons = metas.sortedBy { it.day }.map {
-                    ContentModuleLesson(it.lessonId, it.title, it.day, it.minutes)
+                    ContentModuleLesson(it.lessonId, friendlyLessonTitle(it.title), it.day, it.minutes)
                 }
             )
         }.sortedBy { ModuleIdRules.moduleSortRank(it.key) }
@@ -97,6 +105,13 @@ class ModuleCatalog @Inject constructor(
         cache[subject] = modules
         modules
     }
+
+    /**
+     * Lesson titles are authored with their content ID as a suffix
+     * ("Shape Trail · Q1 W01 D01"). That's a schema artifact, not a name —
+     * strip it before the title reaches a child's screen (UX review #30).
+     */
+    private fun friendlyLessonTitle(raw: String): String = friendlyLessonTitleOf(raw)
 
     /**
      * Title for a module key. The legacy m01 pack gets its real story title

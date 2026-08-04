@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredatabase.*
+import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredesignsystem.theme.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -56,7 +57,8 @@ class ParentDashboardViewModel @Inject constructor(
     private val childProfileDao: ChildProfileDao,
     private val rewardDao: RewardDao,
     private val masteryRecordDao: MasteryRecordDao,
-    private val progressEventDao: ProgressEventDao
+    private val progressEventDao: ProgressEventDao,
+    private val moduleCatalog: ModuleCatalog,
 ) : androidx.lifecycle.ViewModel() {
 
     private val _state = MutableStateFlow(ParentDashboardState())
@@ -104,11 +106,29 @@ class ParentDashboardViewModel @Inject constructor(
             val developing = mastery.count { it.state == "DEVELOPING" }
             val needsReview = mastery.count { it.state == "NEEDS_REVIEW" || it.state == "NOT_STARTED" }
 
-            // Recent activity
+            // Recent activity — friendly lesson titles, never raw schema IDs
+            // (adversarial UX review #30: "mathematics-g3-m01-d" means nothing
+            // to a parent).
+            val titleByLessonId = mutableMapOf<String, String>()
+            suspend fun friendlyTitle(lessonId: String): String {
+                titleByLessonId[lessonId]?.let { return it }
+                val prefix = lessonId.substringBefore("-")
+                val subject = when (prefix) {
+                    "eng" -> "english"; "fil" -> "filipino"; "math" -> "mathematics"
+                    "sci" -> "science"; "mkb" -> "makabansa"; "gmrc" -> "gmrc"
+                    else -> null
+                }
+                val title = subject?.let { s ->
+                    moduleCatalog.modulesFor(s).asSequence()
+                        .flatMap { it.lessons.asSequence() }
+                        .firstOrNull { it.lessonId == lessonId }?.title
+                } ?: "Lesson"
+                titleByLessonId[lessonId] = title
+                return title
+            }
             val recentActivity = progress.takeLast(5).map { event ->
-                val lessonName = event.lessonId.take(20)
                 val accuracy = (event.accuracy * 100).toInt()
-                "$lessonName — ${accuracy}%"
+                "${friendlyTitle(event.lessonId)} — $accuracy%"
             }.reversed()
 
             _state.value = ParentDashboardState(
@@ -185,7 +205,8 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         Column(Modifier.padding(16.dp)) {
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                 Text(sp.label, fontWeight = FontWeight.Medium, fontSize = 16.sp, color = Ink)
-                                Text("${sp.lessonsCompleted} lessons · ${(sp.accuracy * 100).toInt()}%", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
+                                val lessonWord = if (sp.lessonsCompleted == 1) "lesson" else "lessons"
+                                Text("${sp.lessonsCompleted} $lessonWord · ${(sp.accuracy * 100).toInt()}%", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                             Spacer(Modifier.height(8.dp))
                             LinearProgressIndicator(
@@ -227,7 +248,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                             Spacer(Modifier.width(12.dp))
                             Column {
                                 Text("${state.streakDays} day streak!", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Coral)
-                                Text("Keep learning every day to grow your village", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
+                                Text("Keep learning every day to grow your Playroom", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                         }
                     }
