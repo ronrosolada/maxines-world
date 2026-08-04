@@ -35,6 +35,7 @@ import com.maxinesworld.engineactivity.renderers.ActivityRenderer
 import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
+import kotlinx.coroutines.launch
 
 // ─── New Words card ───
 
@@ -342,18 +343,53 @@ private fun AssessmentStepCard(
 // ─── Explanation Step (with TTS) ───
 
 @Composable
+fun NarrationControlRow(
+    narrationEnabled: Boolean,
+    ttsSpeaking: Boolean,
+    onToggle: () -> Unit,
+    onReplay: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+        IconButton(
+            onClick = onToggle,
+            modifier = Modifier.size(48.dp)
+        ) {
+            Icon(
+                if (narrationEnabled) Icons.Default.VolumeUp else Icons.Default.VolumeOff,
+                if (narrationEnabled) "Turn narration off" else "Turn narration on",
+                tint = if (narrationEnabled) Teal40 else Ink.copy(alpha = 0.5f),
+                modifier = Modifier.size(28.dp)
+            )
+        }
+        IconButton(
+            enabled = narrationEnabled,
+            onClick = onReplay,
+            modifier = Modifier.size(48.dp)
+        ) {
+            Icon(
+                if (ttsSpeaking) Icons.Default.Stop else Icons.Default.Replay,
+                if (ttsSpeaking) "Stop narration" else "Replay narration",
+                tint = if (ttsSpeaking) Coral else Teal40,
+                modifier = Modifier.size(28.dp)
+            )
+        }
+    }
+}
+
+@Composable
 private fun ExplanationStep(step: ActivityStep, language: String = "english", onContinue: () -> Unit) {
     val context = LocalContext.current
     val ttsPlayer = remember { LessonTtsPlayer(context) }
+    val narrationEnabled by NarrationPreferences.enabled(context).collectAsState(initial = true)
+    val preferenceScope = rememberCoroutineScope()
     var ttsSpeaking by remember { mutableStateOf(false) }
     var ttsUnavailable by remember { mutableStateOf(false) }
     DisposableEffect(Unit) { onDispose { ttsPlayer.shutdown() } }
 
-    // #34: auto-play the narration when the step renders — an emerging
-    // reader must not have to discover the speaker icon to hear the text.
-    // Keyed on step id so returning to the step re-plays, but recomposition
-    // does not restart it.
-    LaunchedEffect(step.id) {
+    fun playNarration() {
+        if (!narrationEnabled) return
+        ttsPlayer.stop()
         ttsUnavailable = false
         ttsSpeaking = true
         ttsPlayer.speak(
@@ -367,36 +403,53 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
         )
     }
 
-    Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(containerColor = Cream), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
+    fun setNarrationEnabled(enabled: Boolean) {
+        preferenceScope.launch { NarrationPreferences.setEnabled(context, enabled) }
+        if (!enabled) {
+            ttsPlayer.stop()
+            ttsSpeaking = false
+        }
+    }
+
+    // #34: auto-play the narration when the step renders — an emerging
+    // reader must not have to discover the speaker icon to hear the text.
+    // Keyed on step id so returning to the step re-plays, but recomposition
+    // does not restart it.
+    LaunchedEffect(step.id, narrationEnabled) {
+        if (narrationEnabled) {
+            playNarration()
+        } else {
+            ttsPlayer.stop()
+            ttsSpeaking = false
+        }
+    }
+
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .clickable(enabled = narrationEnabled, onClick = { playNarration() }),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Cream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
         Column(Modifier.padding(24.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
                 Spacer(Modifier.width(12.dp))
                 Text(uiText(language, "Read Along", "Basahin Natin"), fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
-                IconButton(onClick = {
-                    if (ttsSpeaking) {
-                        ttsPlayer.stop(); ttsSpeaking = false
-                    } else {
-                        ttsUnavailable = false
-                        ttsSpeaking = true
-                        ttsPlayer.speak(
-                            text = step.narrationText,
-                            language = language,
-                            onComplete = { ttsSpeaking = false },
-                            onUnavailable = {
-                                ttsSpeaking = false
-                                ttsUnavailable = true
-                            }
-                        )
-                    }
-                }, modifier = Modifier.size(48.dp)) {
-                    Icon(
-                        if (ttsSpeaking) Icons.Default.Stop else Icons.Default.VolumeUp,
-                        if (ttsSpeaking) "Stop" else "Read aloud",
-                        tint = if (ttsSpeaking) Coral else Teal40,
-                        modifier = Modifier.size(28.dp)
-                    )
-                }
+                NarrationControlRow(
+                    narrationEnabled = narrationEnabled,
+                    ttsSpeaking = ttsSpeaking,
+                    onToggle = { setNarrationEnabled(!narrationEnabled) },
+                    onReplay = {
+                        if (ttsSpeaking) {
+                            ttsPlayer.stop()
+                            ttsSpeaking = false
+                        } else {
+                            playNarration()
+                        }
+                    },
+                )
             }
             Spacer(Modifier.height(16.dp))
 
@@ -417,6 +470,7 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     when {
+                        !narrationEnabled -> uiText(language, "Narration off. Tap the speaker to turn it on.", "Naka-off ang pagbasa. Pindutin ang speaker para i-on.")
                         ttsSpeaking -> uiText(language, "Reading aloud...", "Binabasa...")
                         ttsUnavailable -> uiText(language, "Filipino voice not available", "Walang Filipino voice")
                         else -> uiText(language, "Tap speaker to listen", "Pindutin ang speaker para makinig")
