@@ -30,7 +30,9 @@ data class ParentGateState(
     val pinInput: String = "",
     val pinError: String? = null,
     val isAuthenticated: Boolean = false,
-    val attempts: Int = 0
+    val attempts: Int = 0,
+    /** Epoch millis until PIN entry unlocks; 0 when not locked. */
+    val lockedUntilEpochMillis: Long = 0L,
 )
 
 @HiltViewModel
@@ -40,10 +42,9 @@ class ParentGateViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(ParentGateState())
     val state: StateFlow<ParentGateState> = _state.asStateFlow()
-    private var locked = false
 
     fun onPinDigit(digit: String) {
-        if (locked) return
+        if (isLockedNow()) return
         _state.update {
             val newInput = (it.pinInput + digit).take(6)
             it.copy(pinInput = newInput, pinError = null)
@@ -52,24 +53,58 @@ class ParentGateViewModel @Inject constructor(
     }
 
     fun onPinDelete() {
-        if (locked) return
+        if (isLockedNow()) return
         _state.update { it.copy(pinInput = it.pinInput.dropLast(1), pinError = null) }
+    }
+
+    private fun isLockedNow(): Boolean {
+        val lockedUntil = _state.value.lockedUntilEpochMillis
+        return lockedUntil > System.currentTimeMillis()
     }
 
     private fun verifyPin() {
         viewModelScope.launch {
             val pinHash = authManager.getPinHash()
             val input = _state.value.pinInput
-            val newAttempts = _state.value.attempts + 1
+            val now = System.currentTimeMillis()
+
+            // Persisted lockout from a previous session must still apply.
+            val persistedLockedUntil = authManager.getLockedUntilEpochMillis()
+            if (persistedLockedUntil > now) {
+                val remainingSec = ((persistedLockedUntil - now) / 1000) + 1
+                _state.update {
+                    it.copy(
+                        pinInput = "",
+                        lockedUntilEpochMillis = persistedLockedUntil,
+                        pinError = "Too many attempts. Try again in ${remainingSec}s."
+                    )
+                }
+                return@launch
+            }
 
             if (pinHash != null && authManager.verifyPin(input)) {
-                _state.update { it.copy(isAuthenticated = true, pinInput = "", pinError = null) }
+                authManager.resetFailedAttempts()
+                _state.update { it.copy(isAuthenticated = true, pinInput = "", pinError = null, lockedUntilEpochMillis = 0L) }
             } else {
-                if (newAttempts >= 5) {
-                    locked = true
-                    _state.update { it.copy(pinInput = "", pinError = "Too many attempts. Please wait.", attempts = newAttempts) }
-                } else {
-                    _state.update { it.copy(pinInput = "", pinError = "Incorrect PIN. ${5 - newAttempts} tries left.", attempts = newAttempts) }
+                val newLockedUntil = authManager.recordFailedAttempt(now)
+                val attempts = authManager.getFailedAttempts()
+                _state.update {
+                    if (newLockedUntil > 0) {
+                        val remainingSec = ((newLockedUntil - System.currentTimeMillis()) / 1000) + 1
+                        it.copy(
+                            pinInput = "",
+                            attempts = attempts,
+                            lockedUntilEpochMillis = newLockedUntil,
+                            pinError = "Too many attempts. Try again in ${remainingSec}s."
+                        )
+                    } else {
+                        val left = ParentAuthManager.MAX_ATTEMPTS_BEFORE_LOCK - attempts
+                        it.copy(
+                            pinInput = "",
+                            attempts = attempts,
+                            pinError = "Incorrect PIN. $left attempt${if (left == 1) "" else "s"} left."
+                        )
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.maxinesworld.engineactivity.renderers
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
@@ -22,7 +24,8 @@ fun SortAndClassifyRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAdvance: () -> Unit = {},
 ) {
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
@@ -47,6 +50,13 @@ fun SortAndClassifyRenderer(
     } else {
         items.indices.associateWith { it % maxOf(1, categories.size) }
     }
+    // Buckets glow while a card is selected — the only visual cue that the
+    // interaction is tap-card-then-tap-box (#28). Keep it subtle but present.
+    val bucketHighlight by animateColorAsState(
+        targetValue = if (selectedItem >= 0 && !submitted) VillageTeal.copy(alpha = 0.18f)
+        else SubjectColors.Science.surface,
+        label = "bucketGlow",
+    )
 
     Column(
         modifier = modifier.fillMaxWidth().padding(16.dp),
@@ -55,13 +65,24 @@ fun SortAndClassifyRenderer(
         Text(step.question, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Sort: ${step.question}" })
 
+        // Interaction hint — the tap-tap model is not discoverable by itself
+        // and the natural drag gesture is not supported (#28).
+        Text(
+            "👆 Tap a card, then tap a box",
+            style = MaterialTheme.typography.labelLarge,
+            color = Teal40.copy(alpha = 0.7f),
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.semantics { contentDescription = "Hint: tap a card, then tap a box" }
+        )
+
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             categories.forEachIndexed { ci, label ->
                 val n = classified.count { it.value == ci }
+                val enabled = selectedItem >= 0 && !submitted
                 Box(Modifier.weight(1f).sizeIn(minHeight = 56.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(if (selectedItem >= 0 && !submitted) VillageTeal.copy(alpha = 0.12f) else SubjectColors.Science.surface)
-                    .clickable(enabled = selectedItem >= 0 && !submitted) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
+                    .background(if (enabled) bucketHighlight else SubjectColors.Science.surface)
+                    .clickable(enabled = enabled) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
                     .semantics { contentDescription = "Category $label ($n items)" },
                     contentAlignment = Alignment.Center) {
                     Text("$label ($n)", style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(8.dp))
@@ -89,32 +110,38 @@ fun SortAndClassifyRenderer(
         }
 
         Spacer(Modifier.weight(1f))
+        // Success state: the celebration banner IS the next-step button.
+        // Tapping it advances the lesson — a full-width green button that
+        // does nothing was the #29 complaint; it must not happen again.
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
             .background(if (submitted && allCorrect) SuccessGreen else VillageTeal)
             .clickable {
-                if (submitted && !allCorrect) {
-                    // Third failure: advance anyway so the child is never trapped.
-                    if (attempts >= 3) {
-                        onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
-                    } else {
-                        classified = mutableMapOf(); submitted = false
+                when {
+                    submitted && allCorrect -> onAdvance()
+                    submitted && !allCorrect -> {
+                        // Third failure: advance anyway so the child is never trapped.
+                        if (attempts >= 3) {
+                            onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
+                        } else {
+                            classified = mutableMapOf(); submitted = false
+                        }
                     }
-                } else if (!submitted && classified.size == items.size) {
-                    attempts++
-                    allCorrect = classified.all { (i, c) -> c == correctMapping[i] }
-                    submitted = true
-                    if (allCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
+                    !submitted && classified.size == items.size -> {
+                        attempts++
+                        allCorrect = classified.all { (i, c) -> c == correctMapping[i] }
+                        submitted = true
+                        if (allCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
+                    }
                 }
-            }.semantics { contentDescription = if (submitted && !allCorrect) "Try again" else "Submit" },
+            }.semantics { contentDescription = if (submitted && allCorrect) "Great job, next step" else if (submitted && !allCorrect) "Try again" else "Submit" },
             contentAlignment = Alignment.Center) {
             Text(
-                if (submitted) {
-                    when {
-                        allCorrect -> "Great job! 🎉"
-                        attempts >= 3 -> "Keep going →"
-                        else -> "Try Again"
-                    }
-                } else "Submit",
+                when {
+                    submitted && allCorrect -> "Great job! 🎉 Next →"
+                    submitted && attempts >= 3 -> "Keep going →"
+                    submitted -> "Try Again"
+                    else -> "Submit"
+                },
                 color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
         }
     }

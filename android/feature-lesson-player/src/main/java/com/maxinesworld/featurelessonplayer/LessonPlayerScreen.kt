@@ -243,7 +243,10 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 step = step,
                 onResult = { result -> viewModel.onActivityResult(result) },
                 onHint = { },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                // #29: the success banner is the primary CTA — make it advance
+                // the lesson instead of sitting there looking clickable.
+                onAdvance = { viewModel.onNextStep() }
             )
         }
 
@@ -333,6 +336,24 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
     var ttsSpeaking by remember { mutableStateOf(false) }
     var ttsUnavailable by remember { mutableStateOf(false) }
     DisposableEffect(Unit) { onDispose { ttsPlayer.shutdown() } }
+
+    // #34: auto-play the narration when the step renders — an emerging
+    // reader must not have to discover the speaker icon to hear the text.
+    // Keyed on step id so returning to the step re-plays, but recomposition
+    // does not restart it.
+    LaunchedEffect(step.id) {
+        ttsUnavailable = false
+        ttsSpeaking = true
+        ttsPlayer.speak(
+            text = step.narrationText,
+            language = language,
+            onComplete = { ttsSpeaking = false },
+            onUnavailable = {
+                ttsSpeaking = false
+                ttsUnavailable = true
+            }
+        )
+    }
 
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(containerColor = Cream), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
         Column(Modifier.padding(24.dp)) {

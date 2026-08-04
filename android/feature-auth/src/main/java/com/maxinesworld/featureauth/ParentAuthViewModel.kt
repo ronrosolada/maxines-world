@@ -26,6 +26,7 @@ data class AuthUiState(
     val selectedChildId: String? = null,
     val showCreateProfile: Boolean = false,
     val newChildName: String = "",
+    val childNameError: String? = null,
     val currentScreen: AuthScreen = AuthScreen.LOADING,
     /** Consecutive failed PIN attempts (survives process restarts). */
     val failedAttempts: Int = 0,
@@ -178,11 +179,18 @@ class ParentAuthViewModel @Inject constructor(
 
     fun onCreateChild(name: String) {
         viewModelScope.launch {
+            // No silent "Maxine" fallback — an empty name is an error, not a
+            // license to create a ghost profile named after the developer's
+            // daughter. (Adversarial UX review #27.)
+            if (name.isBlank()) {
+                _state.update { it.copy(childNameError = "Please type your child's name first.") }
+                return@launch
+            }
             val parent = parentAccountDao.getParent() ?: return@launch
             val child = ChildProfileEntity(
                 id = UUID.randomUUID().toString(),
                 parentId = parent.id,
-                name = name.ifBlank { "Maxine" }
+                name = name.trim()
             )
             childProfileDao.upsert(child)
             _state.update {
@@ -191,6 +199,7 @@ class ParentAuthViewModel @Inject constructor(
                     selectedChildId = child.id,
                     showCreateProfile = false,
                     newChildName = "",
+                    childNameError = null,
                     currentScreen = AuthScreen.CHILD_SELECT
                 )
             }
@@ -210,10 +219,26 @@ class ParentAuthViewModel @Inject constructor(
     }
 
     fun onShowCreateProfile() {
-        _state.update { it.copy(showCreateProfile = true) }
+        _state.update {
+            it.copy(
+                showCreateProfile = true,
+                childNameError = null,
+                currentScreen = AuthScreen.CREATE_PROFILE
+            )
+        }
     }
 
     fun onHideCreateProfile() {
-        _state.update { it.copy(showCreateProfile = false) }
+        _state.update {
+            it.copy(
+                showCreateProfile = false,
+                childNameError = null,
+                newChildName = "",
+                // Return to the picker when profiles exist; otherwise fall
+                // back to the parent gate (fresh install has no picker yet).
+                currentScreen = if (it.childProfiles.isNotEmpty()) AuthScreen.CHILD_SELECT
+                else AuthScreen.PIN_LOGIN
+            )
+        }
     }
 }

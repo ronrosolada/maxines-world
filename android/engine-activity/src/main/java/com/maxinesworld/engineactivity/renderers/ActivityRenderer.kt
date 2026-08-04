@@ -14,7 +14,8 @@ fun ActivityRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAdvance: () -> Unit = {},
 ) {
     when (step.type) {
         "ANIMATED_EXPLANATION_V1" ->
@@ -22,7 +23,7 @@ fun ActivityRenderer(
         "MULTIPLE_CHOICE_V1" ->
             MultipleChoiceRenderer(step, onResult, onHint, modifier)
         "SORT_AND_CLASSIFY_V1" ->
-            SortAndClassifyRenderer(step, onResult, onHint, modifier)
+            SortAndClassifyRenderer(step, onResult, onHint, modifier, onAdvance)
         "HOTSPOT_IMAGE_V1" ->
             HotspotImageRenderer(step, onResult, onHint, modifier)
         "MATCHING_PAIRS_V1" ->

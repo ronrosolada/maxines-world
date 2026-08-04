@@ -19,6 +19,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.activity.compose.BackHandler
 import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -31,6 +32,13 @@ fun ParentAuthScreen(
     viewModel: ParentAuthViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    // Back from "Create Child Profile" returns to the profile picker when
+    // profiles exist (the "+ Add another child" path); otherwise the system
+    // default (exit) applies — there is no earlier step to return to.
+    BackHandler(enabled = state.currentScreen == AuthScreen.CREATE_PROFILE && state.childProfiles.isNotEmpty()) {
+        viewModel.onHideCreateProfile()
+    }
 
     when (state.currentScreen) {
         AuthScreen.LOADING -> LoadingScreen()
@@ -90,7 +98,16 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         Spacer(Modifier.height(16.dp))
 
         PinPad { digit -> viewModel.onPinDigit(digit) }
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(12.dp))
+
+        // Delete/backspace — a mis-tapped digit must be correctable without
+        // restarting the app (adversarial UX review #31).
+        TextButton(
+            onClick = viewModel::onPinDelete,
+            enabled = state.pinInput.isNotEmpty()
+        ) {
+            Text("Delete")
+        }
 
         state.pinError?.let {
             Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
@@ -252,14 +269,23 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
             value = state.newChildName,
             onValueChange = viewModel::onUpdateNewChildName,
             label = { Text("Child's name") },
-            placeholder = { Text("Maxine") },
+            placeholder = { Text("Type your child's name") },
+            isError = state.childNameError != null,
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp)
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            state.childNameError ?: "Your child's name — then we can begin!",
+            color = if (state.childNameError != null) ErrorRed else Teal40.copy(alpha = 0.7f),
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(24.dp))
 
         Button(
             onClick = { viewModel.onCreateChild(state.newChildName) },
+            enabled = state.newChildName.isNotBlank(),
             modifier = Modifier.fillMaxWidth().height(56.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Teal40)
