@@ -1,0 +1,388 @@
+{
+  "lessonId": "filipino-g3-q1-w07-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "filipino",
+  "title": "Malaki at Maliit na Letra at Bantas",
+  "objective": "Nagagamit ang malaki at maliit na letra at mga bantas sa pagsulat ng mga salita, parirala, at pangungusap.",
+  "estimatedMinutes": 15,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
+  "language": "fil-PH",
+  "introduction": "Magandang araw! Ako si Milo. Ngayong araw, matututo tayong gumamit ng malaki at maliit na letra at mga tamang bantas. Alam mo ba kung bakit ang Sabado ay may malaking letra pero ang araw ay maliit? Halika, alamin natin!",
+  "vocabulary": [
+    {
+      "term": "Malaking letra",
+      "definition": "Letrang may malaking anyo; ginagamit sa tiyak na ngalan ng tao, lugar, araw, at simula ng pangungusap."
+    },
+    {
+      "term": "Maliit na letra",
+      "definition": "Letrang may maliit na anyo; ginagamit sa hindi tiyak na ngalan."
+    },
+    {
+      "term": "Tuldok",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagsasalaysay."
+    },
+    {
+      "term": "Tandang pananong",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagtatanong."
+    },
+    {
+      "term": "Tandang padamdam",
+      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na may matinding damdamin."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa malaki at maliit na letra.",
+      "content": "Ang malaking letra ay ginagamit sa simula ng pangungusap at sa mga tiyak na ngalan. Halimbawa: Sabado (tiyak na araw), Pilipinas (tiyak na bansa), Jose Rizal (tiyak na tao). Ang maliit na letra naman ay ginagamit sa mga hindi tiyak na ngalan. Halimbawa: araw, bansa, bayani. Mahalaga rin ang mga bantas! Ang tuldok (.) ay ginagamit sa hulihan ng pangungusap na nagsasalaysay. Ang tandang pananong (?) ay sa hulihan ng tanong. Ang tandang padamdam (!) ay sa hulihan ng pangungusap na may matinding damdamin. Tandaan: Tiyak na ngalan = malaking letra. Hindi tiyak = maliit na letra.",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay!",
+        "retry": "Pakinggan muli."
+      },
+      "prompt": "Pakinggan ang aralin tungkol sa malaki at maliit na letra!",
+      "narration": "Ngayon, pag-aaralan natin kung kailan ginagamit ang malaking letra at kailan ang maliit na letra. Handa ka na ba?",
+      "guideHint": "Tandaan: Tiyak na ngalan (Pilipinas, Sabado) = Malaking letra. Hindi tiyak (bansa, araw) = Maliit na letra.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa malaki at maliit na letra."
+    },
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "content": {
+        "examples": [
+          "Pilipinas — TAMA (tiyak na bansa)",
+          "Sabado — TAMA (tiyak na araw)",
+          "Jose Rizal — TAMA (tiyak na tao)",
+          "Batangas — TAMA (tiyak na lugar)"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 0
+      },
+      "feedback": {
+        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
+      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+    },
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Pagbukud-bukurin kung TAMA o MALI ang gamit ng malaking letra.",
+      "content": {
+        "fits": [
+          "Pilipinas — TAMA (tiyak na bansa)",
+          "Sabado — TAMA (tiyak na araw)",
+          "Jose Rizal — TAMA (tiyak na tao)",
+          "Batangas — TAMA (tiyak na lugar)"
+        ],
+        "doesNotFit": [
+          "araw — Dapat malaki (MALI, ito ay hindi tiyak)",
+          "bansa — Dapat malaki (MALI, ito ay hindi tiyak)",
+          "bayani — Dapat malaki (MALI, ito ay hindi tiyak)"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED"
+      },
+      "feedback": {
+        "correct": "Mahusay! Alam mo na ang tama at mali!",
+        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
+      },
+      "prompt": "Tama ba o mali ang gamit ng malaking letra? Ilagay sa tamang grupo!",
+      "narration": "Tingnan natin kung kaya mo nang tukuyin kung tama o mali ang gamit ng malaking letra sa mga salita.",
+      "guideHint": "Ang tiyak na ngalan ay may malaking letra. Ang hindi tiyak ay maliit na letra lamang.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Pagbukud-bukurin kung TAMA o MALI ang gamit ng malaking letra."
+    },
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Piliin ang salitang may tamang gamit ng malaki at maliit na letra.",
+      "content": {
+        "options": [
+          "Linggo",
+          "linggo (bilang araw)",
+          "LInggo",
+          "linGgo"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang Linggo ay tiyak na araw kaya may malaking letra.",
+        "retry": "Isipin mo — ang Linggo ay tiyak na ngalan ng araw."
+      },
+      "prompt": "Alin ang tamang pagsulat ng pangalan ng araw?",
+      "narration": "Subukan mo namang piliin ang tamang pagkakasulat ng salita. Alin ang may tamang gamit ng malaki at maliit na letra?",
+      "guideHint": "Ang tiyak na ngalan ng araw ay isinusulat sa malaking letra.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang salitang may tamang gamit ng malaki at maliit na letra."
+    },
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Itapat ang salita sa tamang pagsulat nito gamit ang tamang letra.",
+      "content": {
+        "pairs": [
+          {
+            "left": "sabado",
+            "right": "Sabado"
+          },
+          {
+            "left": "pilipinas",
+            "right": "Pilipinas"
+          },
+          {
+            "left": "araw",
+            "right": "araw"
+          },
+          {
+            "left": "bansa",
+            "right": "bansa"
+          },
+          {
+            "left": "juan",
+            "right": "Juan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED"
+      },
+      "feedback": {
+        "correct": "Tama ang lahat ng pagtatapat!",
+        "retry": "Subukan muli."
+      },
+      "prompt": "Paano isusulat nang tama ang bawat salita? Itapat!",
+      "narration": "Ngayon, itapat mo naman ang bawat salita sa tamang pagsulat nito. Dapat mong tandaan kung ito ay tiyak o hindi tiyak na ngalan.",
+      "guideHint": "Tanungin ang sarili: Tiyak ba ang ngalan na ito? Kung oo, malaking letra.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Itapat ang salita sa tamang pagsulat nito gamit ang tamang letra."
+    },
+    {
+      "activityId": "filipino-g3-q1-w07-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w07-d01-visual",
+      "instruction": "Ayusin ang mga tuntunin sa paggamit ng bantas ayon sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Gumamit ng tuldok (.) sa hulihan ng pangungusap na nagsasalaysay.",
+          "Gumamit ng tandang pananong (?) sa hulihan ng tanong.",
+          "Gumamit ng tandang padamdam (!) sa hulihan ng pangungusap na may matinding damdamin.",
+          "Gumamit ng kuwit (,) sa paghihiwalay ng mga salita sa serye.",
+          "Tandaan: Ang tamang bantas ay mahalaga upang maunawaan ang diwa ng pangungusap."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED"
+      },
+      "feedback": {
+        "correct": "Tama! Alam mo na ang mga tuntunin sa bantas.",
+        "retry": "Ayusin muli ang pagkakasunod-sunod."
+      },
+      "prompt": "Ayusin ang mga tuntunin sa paggamit ng bantas!",
+      "narration": "Panghuli, ayusin naman natin ang mahahalagang tuntunin sa paggamit ng mga bantas.",
+      "guideHint": "Ang pinakagamitin ay tuldok, sunod ang pananong, padamdam, at kuwit.",
+      "nextLabel": "Tapos na!",
+      "accessibilityAlternative": "Ayusin ang mga tuntunin sa paggamit ng bantas ayon sa tamang pagkakasunod-sunod."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w07-d01-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin sa mga sumusunod ang dapat isulat sa malaking letra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pilipinas"
+          },
+          {
+            "id": "b",
+            "text": "bansa"
+          },
+          {
+            "id": "c",
+            "text": "araw"
+          },
+          {
+            "id": "d",
+            "text": "lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Pilipinas"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w07-d01-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin sa sumusunod ang may tamang bantas sa hulihan ng pangungusap na nagtatanong?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Saan ka pupunta?"
+          },
+          {
+            "id": "b",
+            "text": "Saan ka pupunta."
+          },
+          {
+            "id": "c",
+            "text": "Saan ka pupunta,"
+          },
+          {
+            "id": "d",
+            "text": "Saan ka pupunta!"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Saan ka pupunta?"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w07-d01-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Kailan ginagamit ang malaking letra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sa tiyak na ngalan ng tao, lugar, at araw"
+          },
+          {
+            "id": "b",
+            "text": "Sa lahat ng salita"
+          },
+          {
+            "id": "c",
+            "text": "Sa gitna ng pangungusap"
+          },
+          {
+            "id": "d",
+            "text": "Sa mga salitang hiram lamang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Sa tiyak na ngalan ng tao, lugar, at araw"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w07-d01-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang may tamang bantas para sa pahayag na may matinding damdamin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Naku, nasunog ang bahay!"
+          },
+          {
+            "id": "b",
+            "text": "Naku, nasunog ang bahay."
+          },
+          {
+            "id": "c",
+            "text": "Naku, nasunog ang bahay?"
+          },
+          {
+            "id": "d",
+            "text": "Naku, nasunog ang bahay,"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Naku, nasunog ang bahay!"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w07-d01-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang pagsulat ng pangalan ng araw?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sabado"
+          },
+          {
+            "id": "b",
+            "text": "sabado"
+          },
+          {
+            "id": "c",
+            "text": "SABADO"
+          },
+          {
+            "id": "d",
+            "text": "sabAdo"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Sabado"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "Pending owner/educator review",
+    "source": "ph-matatag-g3-filipino-q1-slm-v2.zip",
+    "rewritten": true,
+    "derivedActivityTypes": [
+      "HOTSPOT_IMAGE"
+    ]
+  }
+}

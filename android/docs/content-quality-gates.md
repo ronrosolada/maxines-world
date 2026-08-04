@@ -7,12 +7,12 @@ or assets.
 ## Baseline snapshot
 
 `tools/content_pack_baseline.json` records the approved Month 01 shape at the
-pinned Phase 0 commit:
+baseline commit before the Filipino Q1 extension:
 
-- 349 lesson files
+- 358 lesson files (349 existing lessons plus 9 new Filipino Q1 lessons; 6 overlapping IDs were retained)
 - six activities per lesson in canonical renderer order
 - five assessment items per lesson
-- `passingCorrectCount=4`
+- `passingCorrectCount` is an authored threshold of `3` or `4`
 
 A deliberate corpus or shape change must update the snapshot in the same
 change as the content and explain why. The validator will reject silent count

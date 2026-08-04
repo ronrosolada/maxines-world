@@ -1,0 +1,377 @@
+{
+  "lessonId": "filipino-g3-q1-w04-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "filipino",
+  "title": "Pagbabaybay nang Wasto ng mga Salita",
+  "objective": "Nakababaybay nang wasto ng mga salitang natutuhan sa aralin at mga salitang di-kilala batay sa bigkas (F3PY-Id-2.2).",
+  "estimatedMinutes": 15,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
+  "language": "fil-PH",
+  "introduction": "Kumusta, kaibigan! Ako si Milo. Nakakita ka na ba ng mga salitang hindi mo pa naririnig dati? Tulad ng tsubibo, kalupi, at batobalani? Ang mga ito ay mga salitang di-kilala. Ngayon, matututo tayong bumaybay nang wasto — ibig sabihin, isusulat natin nang tama ang mga salita batay sa kanilang tunog o bigkas. Handa ka na bang matuto?",
+  "vocabulary": [
+    {
+      "term": "Baybay",
+      "definition": "Ang tamang pagkakasunod-sunod ng mga letra sa pagsulat ng isang salita."
+    },
+    {
+      "term": "Tsubibo",
+      "definition": "Isang uri ng gulong at sasakyang panlibangan — tinatawag ding Ferris Wheel."
+    },
+    {
+      "term": "Batobalani",
+      "definition": "Isang bagay na gawa sa materyal na magnet — dumidikit ito sa bakal."
+    },
+    {
+      "term": "Antipara",
+      "definition": "Salamin na ginagamit ng taong malabo ang mata."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa tamang pagbabaybay ng mga salita.",
+      "content": "Ang pagbabaybay o ispeling ay maaaring pasulat o pabigkas. Kadalasan, sumusunod ito sa alituntunin na kung anong bigkas ay siyang baybay. Halimbawa — ang tunog na /b-a-g/ ay binabaybay na 'bag', ang /m-a-t-a/ ay 'mata', at ang /ts-u-b-i-b-o/ ay 'tsubibo'. Mababaybay mo nang maayos ang salita kung alam at naisaulo mo ang tunog ng bawat letra ng alpabeto at maisusulat ito sa tamang pagkasunod-sunod. Ang mga salitang batobalani, kalupi, miktinig, antipara, tampipi, at tsubibo ay mga halimbawa ng salitang di-kilala. Ang pabigkas na pagbaybay ay dapat paletra at hindi papantig. Halimbawa: aso = /ey-es-o/, lapis = /el-ey-pi-ay-es/. Mahalagang intindihing mabuti kung paano ginamit ang salita sa pangungusap upang maunawaan ang kahulugan nito.",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Magaling! Naunawaan mo kung paano bumaybay nang wasto.",
+        "retry": "Panoorin muli ang paliwanag tungkol sa pagbabaybay."
+      },
+      "prompt": "Pakinggan ang paliwanag ni Milo tungkol sa pagbabaybay!",
+      "narration": "Alamin natin ang tamang paraan ng pagbabaybay ng mga salita!",
+      "guideHint": "Pakinggan ang tunog ng bawat letra.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa tamang pagbabaybay ng mga salita."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "content": {
+        "examples": [
+          "tsubibo",
+          "kalamidad",
+          "eksperimento"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 0
+      },
+      "feedback": {
+        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
+      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Basahin ang bawat salita. Ilagay sa TAMANG BAYBAY kung wasto ang pagkakasulat. Ilagay sa MALING BAYBAY kung hindi wasto.",
+      "content": {
+        "fits": [
+          "tsubibo",
+          "kalamidad",
+          "eksperimento"
+        ],
+        "doesNotFit": [
+          "chubibo",
+          "calamidad",
+          "ekspiremento"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED"
+      },
+      "feedback": {
+        "correct": "Magaling! Nakikilala mo na ang tama at maling baybay ng mga salita.",
+        "retry": "Balikan ang paliwanag. Pakinggan ang tunog ng bawat salita."
+      },
+      "prompt": "Pangkatin ang mga salita ayon sa tamang baybay!",
+      "narration": "Alin ang tama ang baybay? Alin ang mali?",
+      "guideHint": "Pakinggan ang tunog ng bawat letra sa salita.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang bawat salita. Ilagay sa TAMANG BAYBAY kung wasto ang pagkakasulat. Ilagay sa MALING BAYBAY kung hindi wasto."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Piliin ang salitang may tamang baybay sa bawat pangkat.",
+      "content": {
+        "options": [
+          "tampipi",
+          "tampepe",
+          "tampepi",
+          "tampipe"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang 'tampipi' ay nangangahulugang maleta o bag na de gulong.",
+        "retry": "Subukan mong muli. Pakinggan ang tunog ng salita — /t-a-m-p-i-p-i/."
+      },
+      "prompt": "Piliin ang tamang baybay!",
+      "narration": "Alin sa mga ito ang tama ang pagkakasulat ng 'tampipi'?",
+      "guideHint": "Pakinggan ang bawat letra — t-a-m-p-i-p-i.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang salitang may tamang baybay sa bawat pangkat."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Itapat ang bawat salita sa tamang kahulugan nito. Pagdugtungin ang mga pares.",
+      "content": {
+        "pairs": [
+          {
+            "left": "tsubibo",
+            "right": "Ferris Wheel o gulong panlibangan"
+          },
+          {
+            "left": "kalupi",
+            "right": "Pitaka o wallet"
+          },
+          {
+            "left": "batobalani",
+            "right": "Magnet — dumidikit sa bakal"
+          },
+          {
+            "left": "antipara",
+            "right": "Salamin sa malabong mata"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED"
+      },
+      "feedback": {
+        "correct": "Ang galing! Naunawaan mo ang kahulugan ng mga salitang di-kilala.",
+        "retry": "Basahin muli ang kahulugan ng bawat salita sa diksyunaryo."
+      },
+      "prompt": "Itapat ang salita sa kahulugan nito!",
+      "narration": "Ano ang kahulugan ng bawat salita?",
+      "guideHint": "Alalahanin ang kuwento nina Eric at Sem sa karnabal.",
+      "nextLabel": "Tapos na!",
+      "accessibilityAlternative": "Itapat ang bawat salita sa tamang kahulugan nito. Pagdugtungin ang mga pares."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d01-visual",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagbabaybay ng isang salita. Mula una hanggang huli.",
+      "content": {
+        "steps": [
+          "Pakinggang mabuti ang tunog o bigkas ng salita.",
+          "Tukuyin ang bawat tunog at ang katumbas nitong letra.",
+          "Isa-isahin ang mga letra sa tamang pagkakasunod-sunod.",
+          "Isulat ang salita ayon sa tamang baybay."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED"
+      },
+      "feedback": {
+        "correct": "Mahusay! Iyan ang tamang hakbang sa pagbabaybay ng salita.",
+        "retry": "Isipin mong muli. Ano ang unang dapat gawin bago bumaybay?"
+      },
+      "prompt": "Ayusin ang mga hakbang sa tamang pagbabaybay!",
+      "narration": "Ano ang unang hakbang sa pagbabaybay?",
+      "guideHint": "Ano ang unang ginagawa bago sumulat ng salita?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ayusin ang mga hakbang sa tamang pagbabaybay ng isang salita. Mula una hanggang huli."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 3,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w04-d01-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang may tamang baybay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tsubibo"
+          },
+          {
+            "id": "b",
+            "text": "chubibo"
+          },
+          {
+            "id": "c",
+            "text": "tsubebo"
+          },
+          {
+            "id": "d",
+            "text": "chubebo"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: tsubibo"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w04-d01-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang tamang baybay ng salitang nangangahulugang 'salamin sa malabong mata'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "antipara"
+          },
+          {
+            "id": "b",
+            "text": "antipara"
+          },
+          {
+            "id": "c",
+            "text": "antepara"
+          },
+          {
+            "id": "d",
+            "text": "antiparra"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: antipara"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w04-d01-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano binabaybay nang pabigkas ang salitang 'aso'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "/ey-es-o/"
+          },
+          {
+            "id": "b",
+            "text": "/a-so/"
+          },
+          {
+            "id": "c",
+            "text": "/a-es-o/"
+          },
+          {
+            "id": "d",
+            "text": "/ey-so/"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: /ey-es-o/"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w04-d01-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang baybay ng salitang nangangahulugang 'pitaka'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kalupi"
+          },
+          {
+            "id": "b",
+            "text": "kalope"
+          },
+          {
+            "id": "c",
+            "text": "calupi"
+          },
+          {
+            "id": "d",
+            "text": "kalupie"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: kalupi"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w04-d01-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang tawag sa pagsusulat ng salita sa tamang pagkakasunod-sunod ng mga letra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagbabaybay o ispeling"
+          },
+          {
+            "id": "b",
+            "text": "Pagpapantig"
+          },
+          {
+            "id": "c",
+            "text": "Pagsasalita"
+          },
+          {
+            "id": "d",
+            "text": "Pagbabasa"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Pagbabaybay o ispeling"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "Pending owner/educator review",
+    "source": "ph-matatag-g3-filipino-q1-slm-v2.zip",
+    "rewritten": true,
+    "derivedActivityTypes": [
+      "HOTSPOT_IMAGE"
+    ]
+  }
+}

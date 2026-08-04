@@ -1,0 +1,387 @@
+{
+  "lessonId": "filipino-g3-q1-w06-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "filipino",
+  "title": "Pagsasalaysay Muli ng Teksto",
+  "objective": "Naisasalaysay muli ang teksto nang may tamang pagkakasunod-sunod ng mga pangyayari sa tulong ng pamatnubay na tanong.",
+  "estimatedMinutes": 15,
+  "educatorValidated": false,
+  "releaseStatus": "REQUIRES_EDUCATOR_REVIEW",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
+  "language": "fil-PH",
+  "introduction": "Magandang araw! Ako si Milo. Ngayong araw, matututo tayong magsalaysay muli ng kuwento sa tulong ng mga gabay na tanong. Pakinggan natin ang kuwento ni Pam!",
+  "vocabulary": [
+    {
+      "term": "Pagsasalaysay",
+      "definition": "Ang pagbabahagi muli ng kuwento sa sariling pananalita."
+    },
+    {
+      "term": "Pamatnubay na tanong",
+      "definition": "Mga tanong na tumutulong upang maalala ang mga detalye ng kuwento."
+    },
+    {
+      "term": "Balangkas",
+      "definition": "Ang pagkasunod-sunod ng mahahalagang detalye ng teksto."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "Panoorin at pakinggan ang kuwento tungkol kay Pam.",
+      "content": "Si Pam ay isang batang matalino, masayahin, at maganda. Mahilig siyang kumanta at sumayaw. Marunong din siyang tumula. Isa sa pinakagusto niyang gawin ay ang pagguhit. Masaya si Pam tuwing siya ay gumuguhit. Marami na siyang naiguhit — mga bundok, punongkahoy, prutas, bulaklak, palayan, at karagatan. Araw-araw, sa kanilang tahanan, naging libangan na ni Pam ang gumuhit ng mga bagay na nagpapasaya sa kaniya. Sa lahat ng iginuhit ni Pam, ang larawan ng kaniyang mahal na pamilya ang pinakapaborito niya — ang kaniyang mga magulang na palaging sumusuporta at nagtuturo sa kaniya. Dahil sa kanilang pag-aaruga, naging mabait, matalino, at mapagmahal na bata si Pam.",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Magandang kuwento!",
+        "retry": "Pakinggan muli."
+      },
+      "prompt": "Makinig sa kuwento ni Pam!",
+      "narration": "Pakinggan natin ang kuwento ng isang batang mahilig gumuhit. Siya si Pam. Ano kaya ang mga hilig niyang gawin?",
+      "guideHint": "Makinig nang mabuti. Pagkatapos ay sasagutin natin ang mga tanong tungkol sa kuwento.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Panoorin at pakinggan ang kuwento tungkol kay Pam."
+    },
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "content": {
+        "examples": [
+          "Ano ang pamagat ng kuwento?",
+          "Sino ang batang matalino at masayahin?",
+          "Ano ang hilig gawin ni Pam?",
+          "Saan siya gumuguhit?",
+          "Bakit siya naging mabait na bata?"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 0
+      },
+      "feedback": {
+        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
+      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+    },
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin.",
+      "content": {
+        "fits": [
+          "Si Pam",
+          "Pagguhit",
+          "Larawan ng kaniyang pamilya",
+          "Matalino, masayahin, at maganda",
+          "Dahil inaaruga at tinuturuan siya ng kaniyang mga magulang"
+        ],
+        "doesNotFit": [
+          "Ang Pamilya",
+          "Ang Batang Masipag",
+          "Si Ana",
+          "Pagluluto",
+          "Pagsasayaw mag-isa",
+          "Paglilinis"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 11
+      },
+      "feedback": {
+        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ilagay sa tamang grupo ang bawat sagot.",
+      "narration": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin."
+    },
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "Sagutin ang tanong tungkol sa kuwento ni Pam.",
+      "content": {
+        "options": [
+          "Ang pagsasalaysay ay pagbabahagi muli ng kuwento sa sariling pananalita.",
+          "Ang pagsasalaysay ay pagbabasa ng kuwento nang malakas.",
+          "Ang pagsasalaysay ay pagsusulat ng bagong kuwento.",
+          "Ang pagsasalaysay ay pagguhit ng mga tauhan."
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang pagsasalaysay ay muling pagbabahagi ng kuwento.",
+        "retry": "Basahin muli at subukan."
+      },
+      "prompt": "Ano ang ibig sabihin ng pagsasalaysay?",
+      "narration": "Alam mo ba kung ano ang ibig sabihin ng pagsasalaysay? Piliin mo ang tamang sagot.",
+      "guideHint": "Basahing mabuti ang apat na pagpipilian.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sagutin ang tanong tungkol sa kuwento ni Pam."
+    },
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "Itapat ang bawat gabay na tanong sa tamang sagot mula sa kuwento ni Pam.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ano ang pamagat ng kuwento?",
+            "right": "Si Pam"
+          },
+          {
+            "left": "Sino ang batang matalino at masayahin?",
+            "right": "Si Pam — Sino ang batang matalino"
+          },
+          {
+            "left": "Ano ang hilig gawin ni Pam?",
+            "right": "Gumuhit, kumanta, sumayaw, at tumula"
+          },
+          {
+            "left": "Saan siya gumuguhit?",
+            "right": "Sa kanilang tahanan"
+          },
+          {
+            "left": "Bakit siya naging mabait na bata?",
+            "right": "Dahil inaaruga siya ng kaniyang magulang"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED"
+      },
+      "feedback": {
+        "correct": "Naitapat mo nang tama ang lahat!",
+        "retry": "Subukan muli ang pagtatapat."
+      },
+      "prompt": "Sagutin ang mga gabay na tanong. Itapat ang tanong sa tamang sagot!",
+      "narration": "Ngayon, gamit ang mga gabay na tanong, itapat natin ang bawat tanong sa tamang sagot mula sa kuwento ni Pam.",
+      "guideHint": "Balikan mo ang kuwento sa isipan. Sino? Ano? Saan? Kailan? Bakit?",
+      "nextLabel": "Tapos na!",
+      "accessibilityAlternative": "Itapat ang bawat gabay na tanong sa tamang sagot mula sa kuwento ni Pam."
+    },
+    {
+      "activityId": "filipino-g3-q1-w06-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w06-d02-visual",
+      "instruction": "Ayusin ang mga pangyayari sa kuwento ni Pam ayon sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Si Pam ay mahilig kumanta, sumayaw, at gumuhit.",
+          "Araw-araw, gumuguhit si Pam ng mga bundok, puno, at bulaklak.",
+          "Ang pinakapaborito niyang iguhit ay ang larawan ng kaniyang pamilya.",
+          "Sinusuportahan siya ng kaniyang mga magulang sa kaniyang mga hilig.",
+          "Dahil sa pag-aaruga ng magulang, naging mabait at matalino si Pam."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED"
+      },
+      "feedback": {
+        "correct": "Tama ang pagkakasunod-sunod!",
+        "retry": "Ayusin muli."
+      },
+      "prompt": "Ayusin ang mga pangyayari sa tamang pagkakasunod-sunod!",
+      "narration": "Ngayon, ayusin mo naman ang mga pangyayari sa kuwento ni Pam. Simulan mo sa unang nangyari.",
+      "guideHint": "Alalahanin mo — ano ang unang nabanggit tungkol kay Pam?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ayusin ang mga pangyayari sa kuwento ni Pam ayon sa tamang pagkakasunod-sunod."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w06-d02-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pamagat ng kuwentong napakinggan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si Pam"
+          },
+          {
+            "id": "b",
+            "text": "Ang Pamilya"
+          },
+          {
+            "id": "c",
+            "text": "Ang Batang Masipag"
+          },
+          {
+            "id": "d",
+            "text": "Si Ana"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Si Pam"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w06-d02-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pinakapaboritong gawin ni Pam?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagguhit"
+          },
+          {
+            "id": "b",
+            "text": "Pagluluto"
+          },
+          {
+            "id": "c",
+            "text": "Pagsasayaw mag-isa"
+          },
+          {
+            "id": "d",
+            "text": "Paglilinis"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Pagguhit"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w06-d02-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang madalas iginuhit ni Pam?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Larawan ng kaniyang pamilya"
+          },
+          {
+            "id": "b",
+            "text": "Larawan ng mga hayop"
+          },
+          {
+            "id": "c",
+            "text": "Larawan ng paaralan"
+          },
+          {
+            "id": "d",
+            "text": "Larawan ng sasakyan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Larawan ng kaniyang pamilya"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w06-d02-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang katangian ni Pam?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Matalino, masayahin, at maganda"
+          },
+          {
+            "id": "b",
+            "text": "Tamad at malungkutin"
+          },
+          {
+            "id": "c",
+            "text": "Magulo at maingay"
+          },
+          {
+            "id": "d",
+            "text": "Tahimik at mahiyain"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Matalino, masayahin, at maganda"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w06-d02-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit naging mabait at masipag si Pam?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dahil inaaruga at tinuturuan siya ng kaniyang mga magulang"
+          },
+          {
+            "id": "b",
+            "text": "Dahil marami siyang laruan"
+          },
+          {
+            "id": "c",
+            "text": "Dahil lagi siyang nasa paaralan"
+          },
+          {
+            "id": "d",
+            "text": "Dahil mayaman ang kaniyang pamilya"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Dahil inaaruga at tinuturuan siya ng kaniyang mga magulang"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "Pending owner/educator review",
+    "source": "ph-matatag-g3-filipino-q1-slm-v2.zip",
+    "rewritten": true,
+    "derivedActivityTypes": [
+      "HOTSPOT_IMAGE",
+      "SORT_AND_CLASSIFY"
+    ]
+  }
+}
