@@ -250,6 +250,7 @@ private fun ContentLayout(
                 subjects = content.subjects,
                 columns = columns,
                 openingSubjectId = content.openingSubjectId,
+                recommendedSubjectId = content.quest.recommendedSubjectId,
                 firstFocusId = firstAvailableId,
                 firstFocusRequester = focusRequester,
                 onSubjectClick = onSubjectClick,
@@ -277,6 +278,7 @@ private fun ContentLayout(
                 subjects = content.subjects,
                 columns = columns,
                 openingSubjectId = content.openingSubjectId,
+                recommendedSubjectId = content.quest.recommendedSubjectId,
                 firstFocusId = firstAvailableId,
                 firstFocusRequester = focusRequester,
                 onSubjectClick = onSubjectClick,
@@ -467,6 +469,7 @@ private fun SubjectGrid(
     subjects: List<SubjectCardUi>,
     columns: Int,
     openingSubjectId: String?,
+    recommendedSubjectId: String?,
     firstFocusId: String?,
     firstFocusRequester: FocusRequester,
     onSubjectClick: (String) -> Unit,
@@ -482,6 +485,7 @@ private fun SubjectGrid(
                     SubjectCard(
                         subject = subject,
                         opening = subject.id == openingSubjectId,
+                        recommended = subject.id == recommendedSubjectId,
                         firstFocus = subject.id == firstFocusId,
                         firstFocusRequester = firstFocusRequester,
                         onClick = { onSubjectClick(subject.id) },
@@ -498,6 +502,7 @@ private fun SubjectGrid(
 private fun SubjectCard(
     subject: SubjectCardUi,
     opening: Boolean,
+    recommended: Boolean,
     firstFocus: Boolean,
     firstFocusRequester: FocusRequester,
     onClick: () -> Unit,
@@ -660,6 +665,21 @@ private fun SubjectCard(
                         fontSize = 9.5.sp, fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                         maxLines = 2, overflow = TextOverflow.Clip,
+                    )
+                }
+            }
+            if (recommended && subject.availability != SubjectAvailability.Locked && !opening) {
+                Surface(
+                    shape = RoundedCornerShape(99.dp),
+                    color = PlaySunshine,
+                    contentColor = PlayInkDark,
+                    modifier = Modifier.align(Alignment.TopStart).padding(top = 10.dp, start = 10.dp),
+                ) {
+                    Text(
+                        stringResource(R.string.home_start_here),
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                     )
                 }
             }

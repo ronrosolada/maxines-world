@@ -341,8 +341,8 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
     // opaque to a 7-year-old. The same child-facing wording is used for
     // narration and the activity question so the lesson shell cannot render
     // two versions of one instruction.
-    // Bucket labels follow the same rule: True/False is the familiar
-    // DepEd Tama/Mali format (user request, Aug 2026).
+    // Bucket labels must follow the language of the authored lesson. English
+    // True/False is not an acceptable fallback for Filipino content.
 
     runCatching {
         when (act.type) {
@@ -359,9 +359,13 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
                 val fits = obj?.stringList("fits") ?: emptyList()
                 val doesNotFit = obj?.stringList("doesNotFit") ?: emptyList()
                 // Category 0 = fits, category 1 = does not fit.
-                // Bucket labels in the familiar DepEd True/False (Tama/Mali)
-                // format instead of teacher-speak (#36, user request):
-                sortCategories = listOf("True", "False")
+                val filipino = act.activityId.startsWith("filipino-", ignoreCase = true) ||
+                    act.instruction.contains("angkop", ignoreCase = true)
+                sortCategories = if (filipino) {
+                    listOf("Angkop", "Hindi angkop")
+                } else {
+                    listOf("Fits", "Does not fit")
+                }
                 sortItems = (fits.map { SortItem(it, 0) } + doesNotFit.map { SortItem(it, 1) })
                     .shuffled(java.util.Random(act.activityId.hashCode().toLong()))
             }
@@ -400,6 +404,21 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         ?.takeIf { it.isNotBlank() }
         ?: act.hint.orEmpty()
 
+    val filipino = act.activityId.startsWith("filipino-", ignoreCase = true) ||
+        act.instruction.contains("angkop", ignoreCase = true)
+    val defaultIncorrect = if (type == "SORT_AND_CLASSIFY_V1") {
+        if (filipino) "May ilang card sa maling kahon. Ilipat at subukan muli."
+        else "Some cards are in the wrong box. Move them and try again."
+    } else {
+        "Let's try again!"
+    }
+    val authoredIncorrect = act.feedback?.retry?.takeIf { it.isNotBlank() }
+    val incorrectFeedback = if (type == "SORT_AND_CLASSIFY_V1") {
+        listOfNotNull(authoredIncorrect, defaultIncorrect).joinToString(" ")
+    } else {
+        authoredIncorrect ?: defaultIncorrect
+    }
+
     return ActivityStep(
         id = act.activityId,
         type = type,
@@ -408,8 +427,8 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         options = options,
         correctIndex = correctIndex,
         feedback = ActivityFeedback(
-            correct = act.feedback?.correct ?: "Great job!",
-            incorrect = act.feedback?.retry ?: "Let's try again!"
+            correct = act.feedback?.correct?.takeIf { it.isNotBlank() } ?: "Great job!",
+            incorrect = incorrectFeedback,
         ),
         sortCategories = sortCategories,
         sortItems = sortItems,

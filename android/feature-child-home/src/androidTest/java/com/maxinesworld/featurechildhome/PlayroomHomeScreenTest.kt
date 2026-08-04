@@ -25,6 +25,7 @@ class PlayroomHomeScreenTest {
                 task = "Complete 3 adventures across 2 learning areas this week.",
                 pawPrintsCompleted = completed,
                 pawPrintTotal = 3,
+                recommendedSubjectId = canonicalSubjects.first().id,
                 buttonLabel = "Continue",
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
@@ -76,6 +77,12 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertIsDisplayed()
         composeRule.onNodeWithText("Open Field Guide").assertIsDisplayed()
+    }
+
+    @Test
+    fun recommendedSubjectShowsStartHereBadge() {
+        setHome(stateFor())
+        composeRule.onNodeWithText("Start here!").assertIsDisplayed()
     }
 
     @Test

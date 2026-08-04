@@ -19,13 +19,14 @@ class ActivityStepConversionTest {
         type: String,
         contentJson: String,
         id: String = "a-01",
-        completionRule: CompletionRule? = null
+        completionRule: CompletionRule? = null,
+        instruction: String = "Do the thing."
     ) =
         Month1Activity(
             activityId = id,
             sequence = 1,
             type = type,
-            instruction = "Do the thing.",
+            instruction = instruction,
             content = parse(contentJson),
             completionRule = completionRule
         )
@@ -80,6 +81,20 @@ class ActivityStepConversionTest {
         val a = toActivityStep(activity("SORT_AND_CLASSIFY", json, id = "same-id"))
         val b = toActivityStep(activity("SORT_AND_CLASSIFY", json, id = "same-id"))
         assertEquals(a.sortItems.map { it.label }, b.sortItems.map { it.label })
+    }
+
+    @Test
+    fun `Filipino sort uses localized buckets and explains retry`() {
+        val step = toActivityStep(
+            activity(
+                "SORT_AND_CLASSIFY",
+                """{"fits":["f1"],"doesNotFit":["d1"]}""",
+                id = "filipino-sort-01",
+                instruction = "Piliin kung angkop o hindi angkop."
+            )
+        )
+        assertEquals(listOf("Angkop", "Hindi angkop"), step.sortCategories)
+        assertTrue(step.feedback?.incorrect.orEmpty().contains("maling kahon"))
     }
 
     @Test
