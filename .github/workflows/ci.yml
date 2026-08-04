@@ -47,11 +47,118 @@ jobs:
           path: android/core-content/build/reports/tests/testDebugUnitTest/
           if-no-files-found: ignore
 
+  content-schema-assets:
+    name: Content schema + asset references
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate lesson shape and declared vector assets
+        run: |
+          python3 android/tools/content_pack_validation.py \
+            --snapshot android/tools/content_pack_baseline.json \
+            --asset-dir android/app/src/main/assets/content-pack/month-01/assets/vectors \
+            --report "$RUNNER_TEMP/content-pack-validation.json"
+
+      - name: Upload schema and asset report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-schema-asset-report
+          path: ${{ runner.temp }}/content-pack-validation.json
+          if-no-files-found: ignore
+
+  content-semantic-audit:
+    name: Content semantic audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run semantic quality audit
+        run: python3 android/tools/content_quality_audit.py --summary
+
+      - name: Run near-duplicate audit
+        run: |
+          python3 android/tools/content_similarity_gate.py \
+            --json "$RUNNER_TEMP/content-similarity.json" \
+            --top 20
+
+      - name: Upload semantic audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-semantic-audit-report
+          path: ${{ runner.temp }}/content-similarity.json
+          if-no-files-found: ignore
+
+  content-tooling-tests:
+    name: Content tooling tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Python tooling tests
+        run: PYTHONPATH=android:android/tools python3 -m unittest discover -s android/tools -p 'test_*.py' -v
+
+  content-educator:
+    name: Educator approval metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+        working-directory: android
+
+      - name: Verify educator approval metadata
+        run: ./gradlew :app:verifyPlayableContent --stacktrace
+        working-directory: android
+
+  workflow-lint:
+    name: GitHub Actions workflow lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run actionlint
+        uses: docker://rhysd/actionlint:1.7.12
+        with:
+          args: -color
+
   build:
     name: Assemble + unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    needs: content-integrity
+    needs: [content-integrity, content-schema-assets, content-semantic-audit, content-tooling-tests, content-educator, workflow-lint]
     steps:
       - uses: actions/checkout@v4
 
