@@ -193,6 +193,9 @@ interface InventoryDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
     suspend fun owns(childId: String, itemId: String): Boolean
+
+    @Query("SELECT itemId FROM inventory WHERE childId = :childId")
+    suspend fun getOwnedItemIds(childId: String): List<String>
 }
 
 // ─── Playground Gate Persistence (v7) ───

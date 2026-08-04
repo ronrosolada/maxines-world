@@ -34,6 +34,7 @@ class PlayroomHomeScreenTest {
         state: PlayroomHomeUiState,
         onSubjectClick: (String) -> Unit = {},
         onCollectionClick: () -> Unit = {},
+        onTreatShopClick: () -> Unit = {},
     ) {
         composeRule.setContent {
             PlayroomHomeScreen(
@@ -42,6 +43,7 @@ class PlayroomHomeScreenTest {
                 onQuestAction = {},
                 onHomeClick = {},
                 onCollectionClick = onCollectionClick,
+                onTreatShopClick = onTreatShopClick,
                 onParentsClick = {},
             )
         }
@@ -74,6 +76,14 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertIsDisplayed()
         composeRule.onNodeWithText("Open Field Guide").assertIsDisplayed()
+    }
+
+    @Test
+    fun treatShopEntryPointInvokesCallback() {
+        var opens = 0
+        setHome(stateFor(), onTreatShopClick = { opens++ })
+        composeRule.onNodeWithText("Treat Shop").assertIsEnabled().performClick()
+        composeRule.runOnIdle { assertEquals(1, opens) }
     }
 
     @Test

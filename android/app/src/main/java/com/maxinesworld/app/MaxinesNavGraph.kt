@@ -31,6 +31,7 @@ import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
+import com.maxinesworld.featurerewards.TreatShopScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.engineminigame.MiniGameResult
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
@@ -42,6 +43,7 @@ import kotlinx.coroutines.launch
 object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
+    const val TREAT_SHOP = "treat_shop/{childId}"
     const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
     const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
@@ -50,6 +52,7 @@ object Routes {
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
 
     fun childHome(childId: String) = "child_home/$childId"
+    fun treatShop(childId: String) = "treat_shop/$childId"
     fun subjectModules(childId: String, subject: String) = "subject_modules/$childId/$subject"
     fun moduleLessons(childId: String, subject: String, moduleKey: String) = "module_lessons/$childId/$subject/$moduleKey"
     fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
@@ -142,6 +145,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onCollectionClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
+                onTreatShopClick = {
+                    navController.navigate(Routes.treatShop(childId))
+                },
                 onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
@@ -149,6 +155,17 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.parentGate(childId))
                 },
                 onRetry = homeViewModel::retry,
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(
+            route = Routes.TREAT_SHOP,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            TreatShopScreen(
+                childId = childId,
                 onBack = { navController.popBackStack() },
             )
         }
