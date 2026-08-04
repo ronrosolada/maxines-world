@@ -74,6 +74,16 @@ class RewardBreakFlowTest {
         database = entryPoint.database()
         authManager = entryPoint.authManager()
 
+        scenario = composeRule.activityRule.scenario
+        scenario.onActivity { activity ->
+            // Dispose the production NavGraph before seeding Room. Otherwise its startup
+            // coroutine can race the deterministic database setup below.
+            activity.setContent {
+                MaxinesWorldTheme {}
+            }
+        }
+        composeRule.waitForIdle()
+
         withContext(Dispatchers.IO) {
             database.clearAllTables()
             authManager.clearAll()
@@ -106,7 +116,6 @@ class RewardBreakFlowTest {
             )
         }
 
-        scenario = composeRule.activityRule.scenario
         scenario.onActivity { activity ->
             activity.setContent {
                 MaxinesWorldTheme {
