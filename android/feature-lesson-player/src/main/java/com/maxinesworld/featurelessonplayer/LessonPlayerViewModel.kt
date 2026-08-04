@@ -346,6 +346,13 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         android.util.Log.e("LessonVM", "content parse failed for ${act.activityId}: ${it.message}", it)
     }
 
+    // Hints may be authored either as a top-level activity field or inside
+    // the typed content object. Preserve them so the renderer can expose a
+    // real help affordance instead of a button that silently does nothing.
+    val hintText = obj?.get("hint")?.jsonPrimitive?.contentOrNull()
+        ?.takeIf { it.isNotBlank() }
+        ?: act.hint.orEmpty()
+
     return ActivityStep(
         id = act.activityId,
         type = type,
@@ -363,6 +370,7 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         sequenceSteps = sequenceSteps,
         hotspotExamples = hotspotExamples,
         completionRule = act.completionRule?.type.orEmpty(),
-        completionTargetCount = act.completionRule?.targetCount ?: 0
+        completionTargetCount = act.completionRule?.targetCount ?: 0,
+        hintText = hintText
     )
 }

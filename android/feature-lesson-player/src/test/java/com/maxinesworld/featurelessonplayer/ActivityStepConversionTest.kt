@@ -40,6 +40,17 @@ class ActivityStepConversionTest {
     }
 
     @Test
+    fun `authored hint text is carried into the renderer step`() {
+        val step = toActivityStep(
+            activity(
+                "MULTIPLE_CHOICE",
+                """{"options":["A","B"],"correctIndex":0,"hint":"Look at the first word."}"""
+            )
+        )
+        assertEquals("Look at the first word.", step.hintText)
+    }
+
+    @Test
     fun `out of range correct index is rejected`() {
         val step = toActivityStep(
             activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":7}""")

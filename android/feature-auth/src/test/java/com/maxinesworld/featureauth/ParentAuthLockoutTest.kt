@@ -161,4 +161,19 @@ class ParentAuthLockoutTest {
         assertEquals(120_000L, durationFor(15))
         assertEquals(300_000L, durationFor(40))
     }
+
+    @Test
+    fun `extra PIN taps while verification is pending do not start a second check`() = runTest(dispatcher) {
+        coEvery { authManager.verifyPin(any()) } coAnswers {
+            kotlinx.coroutines.delay(1)
+            false
+        }
+        viewModel = createViewModel()
+
+        enterPin(viewModel, "000000")
+        viewModel.onPinDigit("9")
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { authManager.verifyPin(any()) }
+    }
 }

@@ -65,7 +65,9 @@ data class ActivityStep(
     val sequenceSteps: List<String> = emptyList(),
     val hotspotExamples: List<String> = emptyList(),
     val completionRule: String = "",
-    val completionTargetCount: Int = 0
+    val completionTargetCount: Int = 0,
+    /** Authored hint text. Empty means this activity has no hint affordance. */
+    val hintText: String = ""
 )
 
 @Serializable

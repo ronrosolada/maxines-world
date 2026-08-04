@@ -242,7 +242,6 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             else -> ActivityRenderer(
                 step = step,
                 onResult = { result -> viewModel.onActivityResult(result) },
-                onHint = { },
                 modifier = Modifier.fillMaxWidth(),
                 // #29: the success banner is the primary CTA — make it advance
                 // the lesson instead of sitting there looking clickable.
@@ -463,6 +462,23 @@ private fun CharacterGuide(character: String) {
 }
 
 @Composable
+private fun rememberConfettiProgress(enabled: Boolean): Float {
+    if (!enabled) return 0f
+    val transition = rememberInfiniteTransition(label = "confetti")
+    return transition.animateFloat(
+        0f,
+        800f,
+        infiniteRepeatable(
+            tween(3000, easing = LinearEasing),
+            RepeatMode.Restart
+        ),
+        label = "fall"
+    ).value
+}
+
+internal fun confettiAnimationEnabled(animatorDurationScale: Float): Boolean = animatorDurationScale > 0f
+
+@Composable
 private fun ErrorDisplay(error: String, modifier: Modifier = Modifier) {
     Column(modifier.padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Icon(Icons.Default.ErrorOutline, "Error", tint = ErrorRed, modifier = Modifier.size(48.dp))
@@ -486,12 +502,13 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
     // Android disables system animations; children with this preference get
     // a static celebration screen instead of falling confetti).
     val context = LocalContext.current
-    val reducedMotion = remember {
-        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
+    val animationScale = remember {
+        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
     }
+    val reducedMotion = !confettiAnimationEnabled(animationScale)
     val confettiColors = if (!reducedMotion) listOf(Coral, SunshineGold, SkyBlue, StoryPurple, LeafGreen, VillageTeal) else emptyList()
     val particles = remember { List(if (reducedMotion) 0 else 40) { Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat()) } }
-    val confettiAnim by rememberInfiniteTransition(label = "confetti").animateFloat(0f, 800f, infiniteRepeatable(tween(3000, easing = LinearEasing), RepeatMode.Restart), "fall")
+    val confettiAnim = rememberConfettiProgress(enabled = !reducedMotion)
 
     Box(Modifier.fillMaxSize()) {
         if (!reducedMotion) {
