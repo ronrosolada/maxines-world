@@ -36,6 +36,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
+    private val dailyQuestManager: DailyQuestManager,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -59,11 +60,14 @@ class PlayroomHomeViewModel @Inject constructor(
             try {
                 combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
                     .collect { (profile, lessonIds) ->
-                        val expedition = badgeAwarder.getExpeditionProgress(childId)
+                        val dailyQuest = dailyQuestManager.ensureToday(
+                            childId = childId,
+                            completedLessonIds = lessonIds,
+                        )
                         val badges = badgeAwarder.getCollectedBadges(childId)
                         val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
                         val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
-                        _state.value = buildContent(profile?.name, lessonIds, expedition, badges, stars, coins)
+                        _state.value = buildContent(profile?.name, lessonIds, dailyQuest, badges, stars, coins)
                     }
             } catch (cancelled: CancellationException) {
                 throw cancelled
@@ -98,7 +102,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private suspend fun buildContent(
         childName: String?,
         lessonIds: List<String>,
-        expedition: ChallengeProgress,
+        dailyQuest: DailyQuestProgress,
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
         starBalance: Int,
         coinBalance: Int,
@@ -119,12 +123,12 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         }
 
-        val questTotal = BadgeAwarder.EXPEDITION_TARGET_LESSONS
-        val completedCount = expedition.completedCount.coerceIn(0, questTotal)
+        val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
+        val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val availableFirst = subjects.firstOrNull { it.isAvailable }
-        val questUi = if (expedition.expeditionComplete) {
+        val questUi = if (dailyQuest.isComplete) {
             QuestUi(
-                task = "Expedition complete — your wildlife friend is waiting!",
+                task = "Today's quest complete — your wildlife friend is waiting!",
                 pawPrintsCompleted = questTotal,
                 pawPrintTotal = questTotal,
                 isComplete = true,
@@ -134,7 +138,7 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         } else {
             QuestUi(
-                task = "Complete 3 adventures across 2 learning areas this week.",
+                task = "Complete $questTotal learning adventures today.",
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,

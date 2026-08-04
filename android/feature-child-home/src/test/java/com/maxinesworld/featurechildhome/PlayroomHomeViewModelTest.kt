@@ -79,7 +79,7 @@ class PlayroomHomeViewModelTest {
         assertEquals(3, quest.pawPrintTotal)
         assertFalse(quest.isComplete)
         assertEquals("Continue", quest.buttonLabel)
-        assertTrue(quest.task.contains("this week"))
+        assertTrue(quest.task.contains("today"))
     }
 
     @Test
@@ -182,6 +182,13 @@ class PlayroomHomeViewModelTest {
         val rewardDao = mockk<RewardDao>()
         coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
         coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
+        val dailyQuestManager = mockk<DailyQuestManager>()
+        val assignedQuestIds = (0 until 3).map { "daily-quest-$it" }
+        val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
+        coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
+            if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")
+            DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
+        }
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
@@ -189,6 +196,7 @@ class PlayroomHomeViewModelTest {
             lessonCompletionDao = completionDao,
             badgeAwarder = awarder,
             rewardDao = rewardDao,
+            dailyQuestManager = dailyQuestManager,
         )
     }
 
