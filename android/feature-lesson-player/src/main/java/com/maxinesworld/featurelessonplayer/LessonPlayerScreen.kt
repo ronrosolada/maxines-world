@@ -458,7 +458,7 @@ private fun ErrorDisplay(error: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGames: () -> Unit = {}) {
+fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGames: () -> Unit = {}) {
     val scored = state.results.filter { it.scored }
     val correct = scored.count { it.correct }
     val total = scored.size
