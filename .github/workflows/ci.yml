@@ -116,7 +116,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run Python tooling tests
-        run: python3 -m unittest discover -s android/tools -p 'test_*.py' -v
+        run: PYTHONPATH=android:android/tools python3 -m unittest discover -s android/tools -p 'test_*.py' -v
 
   content-educator:
     name: Educator approval metadata
