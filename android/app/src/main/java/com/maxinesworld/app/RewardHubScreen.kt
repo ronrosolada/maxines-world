@@ -29,6 +29,7 @@ fun RewardHubScreen(
     rewardBreakId: String,
     onPlayCatCafe: (Long) -> Unit,
     onPlayParkour: (Long) -> Unit,
+    onPlayKittenMatch: (Long) -> Unit,
     onReturnToVillage: () -> Unit,
     viewModel: RewardBreakViewModel = hiltViewModel(),
 ) {
@@ -121,6 +122,14 @@ fun RewardHubScreen(
                         description = "Jump and run with Milo!",
                         enabled = !breakExpired && !starting,
                         onClick = { beginGame(onPlayParkour) },
+                    )
+                    GameCard(
+                        title = "Kitten Match",
+                        icon = Icons.Default.Pets,
+                        color = SunshineGold,
+                        description = "Find animal friends hiding in pairs!",
+                        enabled = !breakExpired && !starting,
+                        onClick = { beginGame(onPlayKittenMatch) },
                     )
                 }
 

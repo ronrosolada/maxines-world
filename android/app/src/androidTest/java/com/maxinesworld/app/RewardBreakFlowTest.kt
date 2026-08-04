@@ -242,6 +242,10 @@ private fun RewardBreakFlowHost(
                 gameDurationMillis = durationMillis
                 route = RewardBreakTestRoute.CAT_CAFE
             },
+            onPlayKittenMatch = { durationMillis ->
+                gameDurationMillis = durationMillis
+                route = RewardBreakTestRoute.CAT_CAFE
+            },
             onReturnToVillage = { route = RewardBreakTestRoute.VILLAGE },
         )
 

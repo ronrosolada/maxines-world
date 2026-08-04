@@ -35,6 +35,7 @@ import com.maxinesworld.featurerewards.TreatShopScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.engineminigame.MiniGameResult
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
+import com.maxinesworld.gamekittenmatch.KittenMatchScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
 import dagger.hilt.android.EntryPointAccessors
@@ -287,6 +288,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayParkour = { durationMillis ->
                     navController.navigate(MiniGameRoutes.parkour(childId, breakId, durationMillis))
                 },
+                onPlayKittenMatch = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
+                },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
                         popUpTo(0) { inclusive = true }
@@ -374,6 +378,45 @@ fun MaxinesNavGraph(navController: NavHostController) {
                                     collectibleId = result.collectibleId,
                                 )
                             )
+                            if (!navController.popBackStack()) {
+                                navController.navigate(Routes.childHome(childId)) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                        }
+                    }
+                )
+            }
+        }
+
+        composable(
+            route = MiniGameRoutes.KITTEN_MATCH,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType },
+                navArgument("durationMillis") { type = NavType.LongType },
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            val routeDuration = backStackEntry.arguments?.getLong("durationMillis") ?: return@composable
+            val sessionViewModel: RewardBreakViewModel = hiltViewModel(backStackEntry)
+            val scope = rememberCoroutineScope()
+            RewardBreakRouteGuard(
+                childId = childId,
+                rewardBreakId = breakId,
+                viewModel = sessionViewModel,
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) { popUpTo(0) { inclusive = true } }
+                },
+            ) { remainingMillis ->
+                KittenMatchScreen(
+                    childId = childId,
+                    rewardBreakId = breakId,
+                    durationMillis = minOf(routeDuration, remainingMillis),
+                    onExit = { result: MiniGameResult ->
+                        scope.launch {
+                            sessionViewModel.saveResult(result)
                             if (!navController.popBackStack()) {
                                 navController.navigate(Routes.childHome(childId)) {
                                     popUpTo(0) { inclusive = true }
