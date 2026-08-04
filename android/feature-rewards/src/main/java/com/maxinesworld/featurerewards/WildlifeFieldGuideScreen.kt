@@ -196,7 +196,8 @@ fun BadgeRevealScreen(
     badge: CollectibleBadge,
     challengeProgress: ChallengeProgress,
     onViewFieldGuide: () -> Unit,
-    onReturnToVillage: () -> Unit
+    onReturnToVillage: () -> Unit,
+    onPlayGames: (() -> Unit)? = null,
 ) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accent = Color(biome.colorHex)
@@ -260,7 +261,7 @@ fun BadgeRevealScreen(
                 }
             }
 
-            Column(Modifier.fillMaxSize().padding(24.dp),
+            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                 when (step) {
                     0 -> {
@@ -328,12 +329,35 @@ fun BadgeRevealScreen(
                             }
                         }
                         Spacer(Modifier.height(24.dp))
-                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                            Button(onClick = onReturnToVillage, shape = RoundedCornerShape(16.dp),
-                                colors = ButtonDefaults.buttonColors(containerColor = Teal40), modifier = Modifier.height(52.dp)) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Button(
+                                onClick = onReturnToVillage,
+                                shape = RoundedCornerShape(16.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = Teal40),
+                                modifier = Modifier.fillMaxWidth().height(52.dp),
+                            ) {
                                 Text("Back to Playroom")
                             }
-                            OutlinedButton(onClick = onViewFieldGuide, shape = RoundedCornerShape(16.dp), modifier = Modifier.height(52.dp)) {
+                            if (onPlayGames != null) {
+                                Button(
+                                    onClick = onPlayGames,
+                                    shape = RoundedCornerShape(16.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = SunshineGold),
+                                    modifier = Modifier.fillMaxWidth().height(52.dp),
+                                ) {
+                                    Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(20.dp))
+                                    Spacer(Modifier.width(6.dp))
+                                    Text("Play Game")
+                                }
+                            }
+                            OutlinedButton(
+                                onClick = onViewFieldGuide,
+                                shape = RoundedCornerShape(16.dp),
+                                modifier = Modifier.fillMaxWidth().height(52.dp),
+                            ) {
                                 Text("View Field Guide")
                             }
                         }
