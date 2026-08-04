@@ -16,12 +16,15 @@ class ConvertFilipinoQ1SlmTest(unittest.TestCase):
             "objective": "Nakagagamit ng pangngalan.",
             "estimatedMinutes": 12,
             "introduction": "Matuto tayo.",
+            "storyIntro": "May kuwento si Milo.",
+            "scene": {"character": "Milo", "setting": "Silid-aklatan"},
+            "accessibility": {"narrationAvailable": True, "captionsAvailable": True},
             "vocabulary": [{"term": "pangngalan", "definition": "ngalan"}],
             "activities": [
                 {"type": "ANIMATED_EXPLANATION", "instruction": "Panoorin.", "content": "Paliwanag.", "prompt": "Panoorin."},
                 {"type": "MULTIPLE_CHOICE", "instruction": "Piliin.", "content": {"options": ["A", "B"], "correctIndex": 1}, "prompt": "Ano?"},
                 {"type": "SORT_AND_CLASSIFY", "instruction": "I-grupo.", "content": {"fits": ["A"], "doesNotFit": ["B"]}, "prompt": "Ayusin."},
-                {"type": "HOTSPOT_IMAGE", "instruction": "Hanapin.", "content": {"targets": [{"label": "A"}]}, "prompt": "Pindutin."},
+                {"type": "HOTSPOT_IMAGE", "instruction": "Hanapin.", "content": {"targets": [{"label": "A"}]}, "prompt": "Pindutin.", "completionRule": {"type": "ALL_TARGETS_VISITED"}},
                 {"type": "MATCHING_PAIRS", "instruction": "Itugma.", "content": {"pairs": [{"left": "A", "right": "B"}]}, "prompt": "Pagdugtungin."},
             ],
             "assessment": {"passingCorrectCount": 1, "items": [{"question": "Ano?", "choices": [{"text": "A", "correct": True}, {"text": "B", "correct": False}]}]},
@@ -34,6 +37,7 @@ class ConvertFilipinoQ1SlmTest(unittest.TestCase):
             ["ANIMATED_EXPLANATION", "HOTSPOT_IMAGE", "SORT_AND_CLASSIFY", "MULTIPLE_CHOICE", "MATCHING_PAIRS", "SEQUENCE_BUILDER"],
         )
         self.assertEqual(lesson["activities"][1]["content"]["examples"], ["A"])
+        self.assertEqual(lesson["activities"][1]["completionRule"]["targetCount"], 1)
         self.assertEqual(
             lesson["activities"][-1]["content"]["steps"],
             [
@@ -44,8 +48,75 @@ class ConvertFilipinoQ1SlmTest(unittest.TestCase):
             ],
         )
         self.assertEqual(lesson["assessment"]["items"][0]["correctOptionIds"], ["a"])
+        self.assertEqual(lesson["assessment"]["items"][0]["type"], "MULTIPLE_CHOICE")
         self.assertEqual(lesson["educatorValidated"], False)
         self.assertEqual(lesson["releaseStatus"], "REQUIRES_EDUCATOR_REVIEW")
+        self.assertEqual(lesson["storyIntro"], source["storyIntro"])
+        self.assertEqual(lesson["scene"], source["scene"])
+        self.assertEqual(lesson["accessibility"], source["accessibility"])
+
+    def test_derives_hotspot_from_matching_pairs_not_sort_fits(self):
+        source = {
+            "lessonId": "filipino-g3-q1-w01-d02",
+            "grade": 3,
+            "quarter": 1,
+            "week": 1,
+            "day": 2,
+            "subject": "FILIPINO",
+            "title": "Panghalip Panao",
+            "objective": "Nakagagamit ng panghalip panao.",
+            "activities": [
+                {"type": "ANIMATED_EXPLANATION", "instruction": "Panoorin.", "content": "Paliwanag."},
+                {
+                    "type": "SORT_AND_CLASSIFY",
+                    "instruction": "I-grupo.",
+                    "content": {"fits": ["Ako ang nagsasalita"], "doesNotFit": ["Siya ang pinag-uusapan"]},
+                },
+                {
+                    "type": "MULTIPLE_CHOICE",
+                    "instruction": "Piliin.",
+                    "content": {"options": ["Ako", "Siya"], "correctIndex": 0},
+                },
+                {
+                    "type": "MATCHING_PAIRS",
+                    "instruction": "Itugma.",
+                    "content": {"pairs": [{"left": "Kinakausap ang kaklase", "right": "Ikaw"}]},
+                },
+            ],
+            "assessment": {
+                "passingCorrectCount": 1,
+                "items": [
+                    {
+                        "question": "Kailan ginagamit ang ako?",
+                        "choices": [{"text": "Sa sarili", "correct": True}, {"text": "Sa iba", "correct": False}],
+                    }
+                ],
+            },
+        }
+
+        lesson = convert_lesson(source)
+        hotspot = lesson["activities"][1]
+
+        self.assertEqual(hotspot["content"]["examples"], ["Kinakausap ang kaklase"])
+        self.assertNotEqual(hotspot["content"]["examples"], source["activities"][1]["content"]["fits"])
+        self.assertEqual(hotspot["completionRule"]["targetCount"], 1)
+        self.assertIn("Panghalip Panao", hotspot["instruction"])
+        self.assertIn("Panghalip Panao", hotspot["prompt"])
+
+        sequence_fallback = {
+            **source,
+            "lessonId": "filipino-g3-q1-w01-d03",
+            "activities": [
+                source["activities"][0],
+                source["activities"][1],
+                source["activities"][2],
+                {"type": "SEQUENCE_BUILDER", "content": {"steps": ["Unang halimbawa", "Ikalawang halimbawa"]}},
+            ],
+        }
+        fallback_lesson = convert_lesson(sequence_fallback)
+        fallback_hotspot = fallback_lesson["activities"][1]
+        self.assertEqual(fallback_hotspot["content"]["examples"], ["Unang halimbawa", "Ikalawang halimbawa"])
+        self.assertNotEqual(fallback_hotspot["content"]["examples"], source["activities"][1]["content"]["fits"])
 
 
 if __name__ == "__main__":

@@ -53,7 +53,7 @@
       "narration": "Alamin natin ang gamit ng ako, ikaw, at siya sa pangungusap!",
       "guideHint": "Pansinin kung sino ang tinutukoy ng bawat panghalip.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa panghalip panao na ako, ikaw, at siya."
+      "accessibilityAlternative": "Paliwanag tungkol sa panghalip panao. Ang ako ay pamalit sa nagsasalita. Ang ikaw ay pamalit sa kinakausap. Ang siya ay pamalit sa pinag-uusapan. May mga halimbawa ng bawat isa sa pangungusap."
     },
     {
       "activityId": "filipino-g3-q1-w05-d01-a02",
@@ -62,27 +62,28 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Panghalip Panao.",
       "content": {
         "examples": [
-          "Ako ay kumakain ng kanin at isda.",
-          "Ako ang maghuhugas ng pinggan mamaya.",
-          "Ako na ang aalalay sa iyo."
+          "Ikaw ang nagsasalita tungkol sa iyong sarili",
+          "Kinakausap mo ang iyong kaklase",
+          "Pinag-uusapan ninyo ang inyong guro",
+          "Sinasabi mo ang iyong pangalan sa klase"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 4
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Panghalip Panao.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Panghalip Panao.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Panghalip Panao."
     },
     {
       "activityId": "filipino-g3-q1-w05-d01-a03",
@@ -105,7 +106,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
       },
       "feedback": {
         "correct": "Magaling! Nakikilala mo na ang pagkakaiba ng ako sa ikaw at siya.",
@@ -115,7 +117,7 @@
       "narration": "Alin sa mga ito ang gumagamit ng 'ako'? Alin ang 'ikaw' o 'siya'?",
       "guideHint": "Ang 'ako' ay laging tumutukoy sa sarili. Ang 'ikaw' at 'siya' ay tumutukoy sa iba.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Basahin ang bawat pangungusap. Ilagay sa AKO (Nagsasalita) kung ang panghalip ay tumutukoy sa sarili. Ilagay sa IKAW/SIYA (Iba) kung tumutukoy sa kinakausap o pinag-uusapan."
+      "accessibilityAlternative": "Pagbukud-bukurin ang anim na pangungusap. Ilagay sa AKO ang mga pangungusap na tumutukoy sa sarili. Ilagay sa IKAW/SIYA ang mga tumutukoy sa ibang tao."
     },
     {
       "activityId": "filipino-g3-q1-w05-d01-a04",
@@ -145,7 +147,7 @@
       "narration": "'Si Tiyo Alfredo ay isang enhinyero.' Anong panghalip ang pamalit sa kaniya?",
       "guideHint": "Si Tiyo Alfredo ba ay nagsasalita o pinag-uusapan lamang?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Basahin ang sitwasyon at piliin ang tamang panghalip panao na dapat gamitin."
+      "accessibilityAlternative": "Tanong: 'Si Tiyo Alfredo ay isang enhinyero.' Anong panghalip ang maaaring pamalit kay Tiyo Alfredo? Ang tamang sagot ay 'siya' dahil siya ang pinag-uusapan."
     },
     {
       "activityId": "filipino-g3-q1-w05-d01-a05",
@@ -186,7 +188,7 @@
       "narration": "Anong panghalip ang dapat gamitin sa bawat sitwasyon?",
       "guideHint": "Sino ang tinutukoy — ang sarili, ang kausap, o ang pinag-uusapan?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang bawat sitwasyon sa tamang panghalip panao na dapat gamitin."
+      "accessibilityAlternative": "Itapat ang apat na sitwasyon sa tamang panghalip. Kapag nagsasalita ka tungkol sa sarili — ako. Kapag kinakausap mo ang iba — ikaw. Kapag pinag-uusapan ang iba — siya."
     },
     {
       "activityId": "filipino-g3-q1-w05-d01-a06",
@@ -215,7 +217,7 @@
       "narration": "Paano mo malalaman kung anong panghalip ang gagamitin?",
       "guideHint": "Simulan sa pagtukoy kung sino ang tinutukoy sa pangungusap.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Ayusin ang mga hakbang kung paano pumili ng tamang panghalip panao sa isang pangungusap. Mula una hanggang huli."
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa pagpili ng tamang panghalip. Una, tukuyin kung sino ang tinutukoy. Kung sarili — ako. Kung kausap — ikaw. Kung pinag-uusapan — siya."
     }
   ],
   "assessment": {
@@ -373,5 +375,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Masayang nagkukuwentuhan ang magkakaibigan sa labas ng bahay ni Mariz. Sabi ni Melvin, \"Wow! Ang galing mo palang umawit. Ikaw Rico, ano ang gusto mo paglaki?\" Sumagot si Rico, \"Ako, nais kong maging enhinyero. Si Tiyo Alfredo ang naghikayat sa akin.\" Si Marilou naman ay nagsabi, \"Ako gusto kong maging dentista. Gusto kong tumulong sa mga taong may sira ang ngipin.\" Masaya silang nagbahagi ng kanilang mga pangarap.",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa isang parke kung saan nagkukuwentuhan ang magkakaibigan — masaya at makulay ang paligid."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

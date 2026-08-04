@@ -49,7 +49,7 @@
       "narration": "Alamin natin kung paano gumamit ng diksyunaryo!",
       "guideHint": "Pansinin kung paano nakaayos ang mga salita — mula A hanggang Z.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa paggamit ng diksyunaryo."
+      "accessibilityAlternative": "Paliwanag tungkol sa diksyunaryo. Ito ay aklat na naglalaman ng mga salitang nakaayos nang paalpabeto mula A hanggang Z kasama ang kanilang kahulugan."
     },
     {
       "activityId": "filipino-g3-q1-w04-d02-a02",
@@ -69,7 +69,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_TARGETS_VISITED"
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 5
       },
       "feedback": {
         "correct": "Mahusay! Alam mo na ang bawat bahagi ng isang pahina ng diksyunaryo.",
@@ -79,7 +80,7 @@
       "narration": "Tuklasin natin ang mga bahagi ng isang pahina ng diksyunaryo!",
       "guideHint": "May apat na bahagi na dapat mong makita at mapindot.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Tingnan ang pahina ng diksyunaryo. Pindutin ang bawat bahagi upang malaman ang gamit nito. Pindutin ang lahat ng bahagi."
+      "accessibilityAlternative": "Isang pahina ng diksyunaryo na may apat na bahagi: ang pamagat, ang titik ng alpabeto sa itaas, ang salitang hinahanap na nakasulat nang makapal, at ang kahulugan sa tabi nito."
     },
     {
       "activityId": "filipino-g3-q1-w04-d02-a03",
@@ -148,7 +149,7 @@
       "narration": "Kung hahanapin mo ang salitang 'matatag,' saan ka titingin?",
       "guideHint": "Ano ang unang titik ng salitang 'matatag'?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Basahin ang tanong at piliin ang tamang sagot tungkol sa diksyunaryo."
+      "accessibilityAlternative": "Tanong: Paano mo hahanapin ang salitang 'matatag' sa diksyunaryo? Ang tamang sagot ay hanapin ang titik M at basahin nang paalpabeto."
     },
     {
       "activityId": "filipino-g3-q1-w04-d02-a05",
@@ -193,7 +194,7 @@
       "narration": "Ano ang kahulugan ng bawat salita?",
       "guideHint": "Gamitin ang iyong nalalaman tungkol sa diksyunaryo.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang bawat salita sa tamang kahulugan nito mula sa diksyunaryo."
+      "accessibilityAlternative": "Itapat ang limang salita sa kanilang kahulugan. Marikit ay maganda, mabilis ay matulin, matatag ay matibay, maligaya ay masaya, marunong ay matalino."
     },
     {
       "activityId": "filipino-g3-q1-w04-d02-a06",
@@ -222,7 +223,7 @@
       "narration": "Ano ang unang hakbang sa paghahanap ng salita sa diksyunaryo?",
       "guideHint": "Isipin — saan ka unang titingin sa diksyunaryo?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ayusin ang tamang pagkakasunod-sunod ng mga hakbang sa paggamit ng diksyunaryo. Mula una hanggang huli."
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa paggamit ng diksyunaryo. Una, tingnan ang unang titik ng salita. Pangalawa, hanapin ang tamang bahagi. Pangatlo, basahin nang paalpabeto. Panghuli, basahin ang kahulugan."
     }
   ],
   "assessment": {
@@ -380,5 +381,17 @@
     "derivedActivityTypes": [
       "SORT_AND_CLASSIFY"
     ]
+  },
+  "storyIntro": "Isang araw, may bagong salita ang narinig ni Ana mula sa balita — \"epidemya.\" Hindi niya alam kung ano ang ibig sabihin nito. Pumunta siya sa silid-aklatan at kumuha ng diksyunaryo. Tiningnan niya ang titik \"E\" at hinanap ang salita. Nakita niya — \"Epidemya: isang malawakang paglaganap ng sakit sa isang komunidad.\" Ngayon, alam na ni Ana! Tuwang-tuwa siya dahil natuto siyang gumamit ng diksyunaryo.",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa loob ng silid-aklatan — may malaking diksyunaryo sa mesa at maraming aklat sa paligid."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

@@ -57,7 +57,7 @@
       "narration": "Ngayon, pag-aaralan natin kung kailan ginagamit ang malaking letra at kailan ang maliit na letra. Handa ka na ba?",
       "guideHint": "Tandaan: Tiyak na ngalan (Pilipinas, Sabado) = Malaking letra. Hindi tiyak (bansa, araw) = Maliit na letra.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa malaki at maliit na letra."
+      "accessibilityAlternative": "Paliwanag kung kailan ginagamit ang malaki at maliit na letra at mga bantas."
     },
     {
       "activityId": "filipino-g3-q1-w07-d01-a02",
@@ -66,28 +66,29 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w07-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Malaki at Maliit na Letra at Bantas.",
       "content": {
         "examples": [
-          "Pilipinas — TAMA (tiyak na bansa)",
-          "Sabado — TAMA (tiyak na araw)",
-          "Jose Rizal — TAMA (tiyak na tao)",
-          "Batangas — TAMA (tiyak na lugar)"
+          "sabado",
+          "pilipinas",
+          "araw",
+          "bansa",
+          "juan"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 5
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Malaki at Maliit na Letra at Bantas.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Malaki at Maliit na Letra at Bantas.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Malaki at Maliit na Letra at Bantas."
     },
     {
       "activityId": "filipino-g3-q1-w07-d01-a03",
@@ -111,7 +112,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 7
       },
       "feedback": {
         "correct": "Mahusay! Alam mo na ang tama at mali!",
@@ -121,7 +123,7 @@
       "narration": "Tingnan natin kung kaya mo nang tukuyin kung tama o mali ang gamit ng malaking letra sa mga salita.",
       "guideHint": "Ang tiyak na ngalan ay may malaking letra. Ang hindi tiyak ay maliit na letra lamang.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pagbukud-bukurin kung TAMA o MALI ang gamit ng malaking letra."
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga salita ayon sa kung tama o mali ang gamit ng malaking letra."
     },
     {
       "activityId": "filipino-g3-q1-w07-d01-a04",
@@ -151,7 +153,7 @@
       "narration": "Subukan mo namang piliin ang tamang pagkakasulat ng salita. Alin ang may tamang gamit ng malaki at maliit na letra?",
       "guideHint": "Ang tiyak na ngalan ng araw ay isinusulat sa malaking letra.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang salitang may tamang gamit ng malaki at maliit na letra."
+      "accessibilityAlternative": "Pumili ng tamang pagkakasulat ng pangalan ng araw na Linggo."
     },
     {
       "activityId": "filipino-g3-q1-w07-d01-a05",
@@ -196,7 +198,7 @@
       "narration": "Ngayon, itapat mo naman ang bawat salita sa tamang pagsulat nito. Dapat mong tandaan kung ito ay tiyak o hindi tiyak na ngalan.",
       "guideHint": "Tanungin ang sarili: Tiyak ba ang ngalan na ito? Kung oo, malaking letra.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang salita sa tamang pagsulat nito gamit ang tamang letra."
+      "accessibilityAlternative": "Itapat ang bawat salita sa tamang pagsulat nito."
     },
     {
       "activityId": "filipino-g3-q1-w07-d01-a06",
@@ -226,7 +228,7 @@
       "narration": "Panghuli, ayusin naman natin ang mahahalagang tuntunin sa paggamit ng mga bantas.",
       "guideHint": "Ang pinakagamitin ay tuldok, sunod ang pananong, padamdam, at kuwit.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Ayusin ang mga tuntunin sa paggamit ng bantas ayon sa tamang pagkakasunod-sunod."
+      "accessibilityAlternative": "Limang tuntunin sa paggamit ng bantas na kailangang ayusin."
     }
   ],
   "assessment": {
@@ -384,5 +386,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Alam mo ba na may mga salitang dapat isulat sa malaking letra at mayroon namang sa maliit na letra? Gayundin ang mga bantas — may tuldok, kuwit, tandang pananong, at tandang padamdam. Tara, alamin natin kung kailan ginagamit ang mga ito!",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa isang makulay na silid-aralan na may nakasabit na alpabeto sa dingding."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

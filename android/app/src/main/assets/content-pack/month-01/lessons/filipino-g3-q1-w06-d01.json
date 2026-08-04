@@ -53,7 +53,7 @@
       "narration": "Halika, pakinggan natin ang kuwento nina Ana at ang kaniyang kaibigan. Ano kaya ang kanilang ginawang kabutihan?",
       "guideHint": "Pakinggang mabuti ang kuwento. Tandaan ang tauhan, tagpuan, at mga pangyayari.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang kuwento tungkol kay Ana."
+      "accessibilityAlternative": "Si Ana at Ben ay naglalakad pauwi. May nakita silang sugatang ibon. Ginamot nila ito at pinakawalan pagkaraan ng ilang araw."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a02",
@@ -62,29 +62,28 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Elemento ng Kuwento.",
       "content": {
         "examples": [
-          "Ana — Tauhan",
-          "Sa daan — Tagpuan",
-          "Paggamot sa ibon — Banghay",
-          "Ben — Tauhan",
-          "Bahay ni Ana — Tagpuan"
+          "Tauhan",
+          "Tagpuan",
+          "Banghay",
+          "Pamagat"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 4
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Elemento ng Kuwento.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Elemento ng Kuwento.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Elemento ng Kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a03",
@@ -108,7 +107,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 7
       },
       "feedback": {
         "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
@@ -118,7 +118,7 @@
       "narration": "Subukan mo namang pagbukud-bukurin ang mga salita. Alin sa mga ito ang tauhan, tagpuan, o banghay?",
       "guideHint": "Tandaan: Tauhan=tao, Tagpuan=lugar, Banghay=pangyayari.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Pagbukud-bukurin kung ang salita ay tumutukoy sa tauhan, tagpuan, o banghay."
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga salita kung ito ay tauhan, tagpuan, banghay, o hindi elemento ng kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a04",
@@ -148,7 +148,7 @@
       "narration": "Ngayong alam na natin ang kuwento, alamin naman natin ang mga elemento nito. Piliin mo ang tamang sagot.",
       "guideHint": "Isipin mo: sino-sino ang mga karakter sa kuwento?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang tamang sagot tungkol sa elemento ng kuwento."
+      "accessibilityAlternative": "Pumili ng tamang kahulugan ng tauhan."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a05",
@@ -189,7 +189,7 @@
       "narration": "Ngayon, subukan mo namang itapat ang bawat elemento ng kuwento sa tamang kahulugan nito. Kaya mo iyan!",
       "guideHint": "Basahing mabuti ang kahulugan sa kanan bago pumili ng elemento.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang bawat elemento ng kuwento sa tamang kahulugan nito."
+      "accessibilityAlternative": "Itapat ang apat na elemento sa kanilang mga kahulugan."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a06",
@@ -219,7 +219,7 @@
       "narration": "Ngayon, subukan mong ayusin ang mga pangyayari sa kuwento. Alin ang una, pangalawa, at hanggang sa huli?",
       "guideHint": "Simulan sa unang nangyari sa kuwento — ang paglalakad nina Ana pauwi.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ayusin ang mga pangyayari sa tamang pagkakasunod-sunod."
+      "accessibilityAlternative": "Limang pangyayari mula sa kuwento ang kailangang ayusin."
     }
   ],
   "assessment": {
@@ -377,5 +377,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Sina Ana at ang kaniyang kaibigan ay naglalakad pauwi mula sa paaralan. May nakita silang kakaiba sa daan. Ano kaya ito? Halika, alamin natin ang kanilang kuwento!",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa ilalim ng malaking puno sa bakuran ng paaralan, handa nang makinig ng kuwento."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

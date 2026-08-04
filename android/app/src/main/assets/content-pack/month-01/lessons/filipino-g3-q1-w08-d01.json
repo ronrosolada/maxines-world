@@ -53,7 +53,7 @@
       "narration": "Ngayon, aalamin natin kung paano bumuo ng isang kuwento. Ang bawat kuwento ay may simula, gitna, at wakas. Pakinggan natin ang isang halimbawa.",
       "guideHint": "Tandaan ang tatlong bahagi: Simula (pagpapakilala), Gitna (suliranin), Wakas (katapusan).",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang kuwento para sa aralin ngayon."
+      "accessibilityAlternative": "Paliwanag tungkol sa tatlong bahagi ng kuwento: Simula, Gitna, at Wakas, gamit ang halimbawa ni Toby at Sid."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a02",
@@ -62,27 +62,29 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Pagbuo ng Kuwento.",
       "content": {
         "examples": [
-          "Ipinakilala ang pangunahing tauhan — SIMULA",
-          "Inilarawan ang tagpuan — SIMULA",
-          "Ipinakilala ang pangalawang tauhan — SIMULA"
+          "Tauhan",
+          "Tagpuan",
+          "Suliranin",
+          "Solusyon",
+          "Aral"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 5
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Pagbuo ng Kuwento.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Pagbuo ng Kuwento.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Pagbuo ng Kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a03",
@@ -106,7 +108,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 7
       },
       "feedback": {
         "correct": "Mahusay! Alam mo na ang pagkakaiba ng simula at wakas.",
@@ -116,7 +119,7 @@
       "narration": "Subukan mo namang tukuyin kung ang pangyayari ay nasa simula o wakas ng kuwento. Ilagay sa tamang grupo!",
       "guideHint": "Ang simula ay panimula at pagpapakilala. Ang wakas ay resulta at katapusan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pagbukud-bukurin kung ang pangyayari ay SIMULA o WAKAS ng kuwento."
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga pangyayari kung ito ay simula o wakas ng kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a04",
@@ -146,7 +149,7 @@
       "narration": "Ngayon, subukan natin ang iyong kaalaman. Ano ang nangyayari sa simula ng isang kuwento?",
       "guideHint": "Sa simula, ipinapakilala ang mga tauhan at kung saan sila naroon.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang tamang sagot tungkol sa istruktura ng kuwento."
+      "accessibilityAlternative": "Pumili ng tamang pahayag tungkol sa simula ng kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a05",
@@ -191,7 +194,7 @@
       "narration": "Panghuli, itapat mo ang bawat elemento ng kuwento sa tamang tungkulin nito. Ito ang mga mahalagang bahagi ng isang magandang kuwento.",
       "guideHint": "Basahing mabuti ang tungkulin sa kanan bago pumili ng elemento.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Itapat ang bawat elemento ng kuwento sa tamang tungkulin nito."
+      "accessibilityAlternative": "Itapat ang limang elemento ng kuwento sa kanilang tamang tungkulin."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a06",
@@ -221,7 +224,7 @@
       "narration": "Ngayon naman, ayusin mo ang mga hakbang sa pagbuo ng isang kuwento. Saan tayo magsisimula?",
       "guideHint": "Magsimula sa pagpili ng mga tauhan. Saan susunod?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ayusin ang limang hakbang sa pagbuo ng kuwento."
+      "accessibilityAlternative": "Limang hakbang sa pagbuo ng kuwento mula una hanggang huli."
     }
   ],
   "assessment": {
@@ -379,5 +382,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Mahilig ka bang makinig ng kuwento? Ano ang paborito mong kuwento? Ngayong araw, matututo tayong bumuo ng sarili nating kuwento. Pakinggan muna natin ang kuwento ng isang batang matulungin!",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa isang tahimik na hardin na may mga paru-paro at bulaklak, perpekto para magkuwento."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

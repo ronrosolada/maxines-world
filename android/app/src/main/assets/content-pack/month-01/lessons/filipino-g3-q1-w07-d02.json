@@ -53,7 +53,7 @@
       "narration": "Ngayon, alamin natin ang pagkakaiba ng ito, iyan, at iyon. Ang bawat isa ay may tamang gamit ayon sa layo ng bagay.",
       "guideHint": "Tandaan: Ito = hawak mo. Iyan = katabi mo. Iyon = malayo sa iyo.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa ito, iyan, at iyon."
+      "accessibilityAlternative": "Paliwanag: Ito para sa hawak, Iyan para sa malapit, Iyon para sa malayo."
     },
     {
       "activityId": "filipino-g3-q1-w07-d02-a02",
@@ -62,29 +62,29 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig.",
       "content": {
         "examples": [
-          "Hawak ang bola — ITO",
-          "Katabi ang payong — IYAN",
-          "Malayo ang eroplano — IYON",
-          "Hawak ang aklat — ITO",
-          "Nasa kabilang bundok ang bahay — IYON"
+          "Hawak mo ang lapis",
+          "Nasa tabi mo ang bag",
+          "Nasa malayong puno ang ibon",
+          "Bitbit mo ang tsokolate",
+          "Nasa kabilang kalsada ang aso"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 5
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Panghalip na Pamatlig.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Panghalip na Pamatlig.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig."
     },
     {
       "activityId": "filipino-g3-q1-w07-d02-a03",
@@ -108,7 +108,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 7
       },
       "feedback": {
         "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
@@ -118,7 +119,7 @@
       "narration": "Tingnan natin kung kaya mo nang pumili ng tamang panghalip sa bawat sitwasyon.",
       "guideHint": "Basahin ang unang salita: Hawak=Ito, Katabi=Iyan, Malayo=Iyon.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pagbukud-bukurin kung ang sitwasyon ay nangangailangan ng ITO, IYAN, o IYON."
+      "accessibilityAlternative": "Pagbukud-bukurin ang mga sitwasyon kung ito ay gumagamit ng Ito, Iyan, o Iyon."
     },
     {
       "activityId": "filipino-g3-q1-w07-d02-a04",
@@ -148,7 +149,7 @@
       "narration": "Ngayon, subukan mo kung nauunawaan mo na ang gamit ng Ito. Piliin mo ang tamang sagot.",
       "guideHint": "Basahin ang nasa loob ng panaklong. Tama ba ang Ito sa sitwasyong iyon?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang tamang panghalip na pamatlig para sa sitwasyon."
+      "accessibilityAlternative": "Pumili ng tamang pangungusap na gumagamit ng Ito para sa hawak na bagay."
     },
     {
       "activityId": "filipino-g3-q1-w07-d02-a05",
@@ -193,7 +194,7 @@
       "narration": "Ngayon, itapat mo ang bawat sitwasyon sa tamang panghalip na pamatlig. Tandaan ang layo ng bagay.",
       "guideHint": "Hawak=Ito, Katabi=Iyan, Malayo=Iyon. Basahing mabuti ang bawat sitwasyon.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang bawat sitwasyon sa tamang panghalip na pamatlig."
+      "accessibilityAlternative": "Itapat ang limang sitwasyon sa tamang panghalip na pamatlig."
     },
     {
       "activityId": "filipino-g3-q1-w07-d02-a06",
@@ -223,7 +224,7 @@
       "narration": "Panghuli, ayusin mo ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo. Kaya mo iyan!",
       "guideHint": "Simulan mo sa pinakamalapit — iyong hawak mo.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Ayusin ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo."
+      "accessibilityAlternative": "Limang hakbang mula sa pinakamalapit hanggang pinakamalayo."
     }
   ],
   "assessment": {
@@ -381,5 +382,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Nais mo bang matutong tumukoy ng mga bagay nang hindi inuulit ang pangalan nito? May mga salitang pamalit tayong ginagamit — ito, iyan, at iyon. Ang mga ito ay tinatawag na panghalip na pamatlig! Alamin natin kung kailan ginagamit ang bawat isa.",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa loob ng isang palengke, maraming paninda na malapit at malalayo kay Milo."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

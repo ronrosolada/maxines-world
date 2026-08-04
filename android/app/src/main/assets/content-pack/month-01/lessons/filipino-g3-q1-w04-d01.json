@@ -53,7 +53,7 @@
       "narration": "Alamin natin ang tamang paraan ng pagbabaybay ng mga salita!",
       "guideHint": "Pakinggan ang tunog ng bawat letra.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Panoorin at pakinggan ang paliwanag tungkol sa tamang pagbabaybay ng mga salita."
+      "accessibilityAlternative": "Paliwanag tungkol sa pagbabaybay. Ang baybay ay ang tamang pagsulat ng mga letra ng salita. Sumusunod ito sa tunog. Ang pabigkas na baybay ay paletra — bawat letra ay binibigkas nang isa-isa."
     },
     {
       "activityId": "filipino-g3-q1-w04-d01-a02",
@@ -62,27 +62,28 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Pagbabaybay nang Wasto ng mga Salita.",
       "content": {
         "examples": [
           "tsubibo",
-          "kalamidad",
-          "eksperimento"
+          "kalupi",
+          "batobalani",
+          "antipara"
         ]
       },
       "completionRule": {
         "type": "ALL_TARGETS_VISITED",
-        "targetCount": 0
+        "targetCount": 4
       },
       "feedback": {
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
-      "narration": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
+      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Pagbabaybay nang Wasto ng mga Salita.",
+      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Pagbabaybay nang Wasto ng mga Salita.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin."
+      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Pagbabaybay nang Wasto ng mga Salita."
     },
     {
       "activityId": "filipino-g3-q1-w04-d01-a03",
@@ -105,7 +106,8 @@
         ]
       },
       "completionRule": {
-        "type": "ALL_ITEMS_SORTED"
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
       },
       "feedback": {
         "correct": "Magaling! Nakikilala mo na ang tama at maling baybay ng mga salita.",
@@ -115,7 +117,7 @@
       "narration": "Alin ang tama ang baybay? Alin ang mali?",
       "guideHint": "Pakinggan ang tunog ng bawat letra sa salita.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Basahin ang bawat salita. Ilagay sa TAMANG BAYBAY kung wasto ang pagkakasulat. Ilagay sa MALING BAYBAY kung hindi wasto."
+      "accessibilityAlternative": "Pagbukud-bukurin ang anim na salita. Ilagay sa TAMANG BAYBAY ang mga salitang wasto ang pagkakasulat. Ilagay sa MALING BAYBAY ang mga salitang mali ang pagkakasulat."
     },
     {
       "activityId": "filipino-g3-q1-w04-d01-a04",
@@ -145,7 +147,7 @@
       "narration": "Alin sa mga ito ang tama ang pagkakasulat ng 'tampipi'?",
       "guideHint": "Pakinggan ang bawat letra — t-a-m-p-i-p-i.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang salitang may tamang baybay sa bawat pangkat."
+      "accessibilityAlternative": "Piliin ang tamang baybay ng salitang nangangahulugang maleta. Ang tamang sagot ay: t-a-m-p-i-p-i."
     },
     {
       "activityId": "filipino-g3-q1-w04-d01-a05",
@@ -186,7 +188,7 @@
       "narration": "Ano ang kahulugan ng bawat salita?",
       "guideHint": "Alalahanin ang kuwento nina Eric at Sem sa karnabal.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Itapat ang bawat salita sa tamang kahulugan nito. Pagdugtungin ang mga pares."
+      "accessibilityAlternative": "Itapat ang apat na salita sa tamang kahulugan. Tsubibo ay Ferris Wheel. Kalupi ay pitaka. Batobalani ay magnet. Antipara ay salamin sa mata."
     },
     {
       "activityId": "filipino-g3-q1-w04-d01-a06",
@@ -215,7 +217,7 @@
       "narration": "Ano ang unang hakbang sa pagbabaybay?",
       "guideHint": "Ano ang unang ginagawa bago sumulat ng salita?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ayusin ang mga hakbang sa tamang pagbabaybay ng isang salita. Mula una hanggang huli."
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa pagbabaybay: Una, pakinggan ang tunog. Pangalawa, tukuyin ang katumbas na letra. Pangatlo, ayusin ang mga letra. Panghuli, isulat ang salita."
     }
   ],
   "assessment": {
@@ -373,5 +375,17 @@
     "derivedActivityTypes": [
       "HOTSPOT_IMAGE"
     ]
+  },
+  "storyIntro": "Sabik na sabik ang magkapatid na sina Eric at Sem dahil ngayon ang araw na mamamasyal sila sa karnabal. Sasakay sila sa tsubibo kasama si Tiyo Ruel na kararating lamang galing sa Japan. Dala niya ang kanyang tampipi na puno ng pasalubong. Habang naghihintay, pinagdikit-dikit nila ang mga barya mula sa kanilang kalupi gamit ang batobalani. Maya-maya, may dumating na lalaking may suot na antipara — si Tiyo Ruel na pala! Masaya nila itong niyakap at agad silang namasyal.",
+  "scene": {
+    "character": "Milo",
+    "setting": "Sa isang maaliwalas na silid-aklatan na puno ng mga diksyunaryo at aklat."
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
   }
 }

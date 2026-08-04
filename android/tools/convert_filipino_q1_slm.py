@@ -51,6 +51,9 @@ def _lesson_title(source: dict[str, Any]) -> str:
 
 
 def _hotspot_content(content: dict[str, Any]) -> dict[str, Any]:
+    if "examples" in content:
+        examples = content.get("examples", [])
+        return {"examples": [str(example) for example in examples if str(example).strip()]}
     targets = content.get("targets", [])
     examples = [
         target.get("label", target.get("id", "Halimbawa"))
@@ -59,6 +62,16 @@ def _hotspot_content(content: dict[str, Any]) -> dict[str, Any]:
         for target in targets
     ]
     return {"examples": [example for example in examples if example]}
+
+
+def _derived_hotspot_copy(source: dict[str, Any]) -> dict[str, str]:
+    title = str(source.get("title", "aralin"))
+    topic = title.split(" · ", 1)[0].split(" (", 1)[0].strip() or "aralin"
+    return {
+        "instruction": f"Tuklasin ang mga halimbawang kaugnay ng {topic}.",
+        "prompt": f"Pindutin ang bawat halimbawang kaugnay ng {topic}.",
+        "narration": f"Hanapin natin ang mahahalagang halimbawa tungkol sa {topic}.",
+    }
 
 
 def _activity_content(activity_type: str, content: Any) -> Any:
@@ -81,6 +94,19 @@ def _completion_rule(activity_type: str, content: Any) -> dict[str, Any]:
             "itemCount": len(content.get("fits", [])) + len(content.get("doesNotFit", [])),
         }
     return {"type": "COMPLETE"}
+
+
+def _activity_completion_rule(
+    activity_type: str, source_activity: dict[str, Any], normalized_content: Any
+) -> dict[str, Any]:
+    generated = _completion_rule(activity_type, normalized_content)
+    source_rule = source_activity.get("completionRule")
+    if not isinstance(source_rule, dict):
+        return generated
+    merged = {**generated, **source_rule}
+    if activity_type == "HOTSPOT_IMAGE":
+        merged["targetCount"] = generated["targetCount"]
+    return merged
 
 
 def _source_text(source: dict[str, Any]) -> str:
@@ -198,17 +224,27 @@ def _assessment_choices(source: dict[str, Any]) -> tuple[list[str], list[str]]:
 def _derived_activity(source: dict[str, Any], activity_type: str, source_by_type: dict[str, dict[str, Any]]) -> dict[str, Any]:
     correct, incorrect = _assessment_choices(source)
     if activity_type == "HOTSPOT_IMAGE":
-        sort_content = source_by_type.get("SORT_AND_CLASSIFY", {}).get("content", {})
-        examples = list(sort_content.get("fits", [])) if isinstance(sort_content, dict) else []
+        matching_content = source_by_type.get("MATCHING_PAIRS", {}).get("content", {})
+        pairs = matching_content.get("pairs", []) if isinstance(matching_content, dict) else []
+        examples = [
+            str(pair.get("left", "")).strip()
+            for pair in pairs
+            if isinstance(pair, dict) and str(pair.get("left", "")).strip()
+        ]
         if not examples:
-            examples = [pair.get("left", "") for pair in source_by_type.get("MATCHING_PAIRS", {}).get("content", {}).get("pairs", []) if isinstance(pair, dict)]
+            sequence_content = source_by_type.get("SEQUENCE_BUILDER", {}).get("content", {})
+            steps = sequence_content.get("steps", []) if isinstance(sequence_content, dict) else []
+            examples = [str(step).strip() for step in steps if str(step).strip()]
+        if not examples:
+            sort_content = source_by_type.get("SORT_AND_CLASSIFY", {}).get("content", {})
+            examples = list(sort_content.get("fits", [])) if isinstance(sort_content, dict) else []
         if not examples:
             examples = correct
         if not examples:
             raise ValueError(f"{source.get('lessonId')}: cannot derive hotspot examples")
+        copy = _derived_hotspot_copy(source)
         return {
-            "instruction": "Hanapin sa larawan ang mga halimbawang tumutugma sa aralin.",
-            "prompt": "Piliin ang mga halimbawang nagpapakita ng aralin.",
+            **copy,
             "content": {"examples": examples[:6]},
         }
     if activity_type == "SORT_AND_CLASSIFY":
@@ -294,18 +330,20 @@ def convert_lesson(source: dict[str, Any]) -> dict[str, Any]:
                 "assetId": source_activity.get("assetId", f"{lesson_id}-visual"),
                 "instruction": source_activity.get("instruction", "Sundin ang panuto."),
                 "content": normalized_content,
-                "completionRule": source_activity.get("completionRule") or _completion_rule(activity_type, normalized_content),
+                "completionRule": _activity_completion_rule(activity_type, source_activity, normalized_content),
                 "feedback": source_activity.get("feedback") or _feedback(),
                 "prompt": source_activity.get("prompt", source_activity.get("instruction", "Sundin ang panuto.")),
                 "narration": source_activity.get("narration", source_activity.get("instruction", "Sundin ang panuto.")),
                 "guideHint": source_activity.get("guideHint", "Kailangan ng pahiwatig? Basahin muli ang panuto."),
                 "nextLabel": _clean_next_label(source_activity.get("nextLabel")),
-                "accessibilityAlternative": source_activity.get("instruction", "Sundin ang panuto."),
+                "accessibilityAlternative": source_activity.get(
+                    "accessibilityAlternative", source_activity.get("instruction", "Sundin ang panuto.")
+                ),
             }
         )
 
     assessment_items = _assessment_items(source, lesson_id)
-    return {
+    lesson = {
         "lessonId": lesson_id,
         "schemaVersion": 1,
         "grade": source["grade"],
@@ -337,6 +375,10 @@ def convert_lesson(source: dict[str, Any]) -> dict[str, Any]:
             "derivedActivityTypes": derived_types,
         },
     }
+    for field in ("storyIntro", "scene", "accessibility"):
+        if field in source:
+            lesson[field] = source[field]
+    return lesson
 
 
 def convert_zip(source_zip: Path, lessons_dir: Path, assets_dir: Path) -> int:
