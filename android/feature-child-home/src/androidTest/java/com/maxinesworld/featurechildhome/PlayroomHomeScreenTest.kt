@@ -48,6 +48,13 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun loadingStateExplainsWhatMiloIsDoing() {
+        setHome(PlayroomHomeUiState.Loading)
+        composeRule.onNodeWithText("Loading your adventures…").assertIsDisplayed()
+        composeRule.onNodeWithText("Milo is getting your adventures ready.").assertIsDisplayed()
+    }
+
+    @Test
     fun gmrcIsDisplayedAndEnabledFromFirstSession() {
         setHome(stateFor())
         composeRule.onNodeWithText("GMRC").assertIsDisplayed().assertIsEnabled()
