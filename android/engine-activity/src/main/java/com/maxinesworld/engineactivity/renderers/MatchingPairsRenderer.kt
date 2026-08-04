@@ -30,7 +30,8 @@ fun MatchingPairsRenderer(
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
     var selectedLeft by remember { mutableIntStateOf(-1) }
-    var matched by remember { mutableStateOf(setOf<Int>()) }
+    var matchedLeft by remember { mutableStateOf(setOf<Int>()) }
+    var matchedRight by remember { mutableStateOf(setOf<Int>()) }
     var mismatch by remember { mutableStateOf<Pair<Int, Int>?>(null) }
 
     val left: List<String> = if (step.matchPairs.isNotEmpty()) step.matchPairs.map { it.left }
@@ -63,14 +64,14 @@ fun MatchingPairsRenderer(
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 left.forEachIndexed { i, label -> if (i < n) {
                     val bg by animateColorAsState(when {
-                        i in matched -> SuccessGreen.copy(alpha = 0.2f)
+                        i in matchedLeft -> SuccessGreen.copy(alpha = 0.2f)
                         mismatch?.first == i -> ErrorRed.copy(alpha = 0.2f)
                         selectedLeft == i -> VillageTeal.copy(alpha = 0.15f)
                         else -> SurfaceContainer
                     }, label = "L$i")
                     Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
-                        .clickable(enabled = i !in matched && mismatch == null) { selectedLeft = if (selectedLeft == i) -1 else i }
-                        .padding(10.dp).semantics { contentDescription = "Left: $label${if (i in matched) " — matched" else ""}" },
+                        .clickable(enabled = i !in matchedLeft && mismatch == null) { selectedLeft = if (selectedLeft == i) -1 else i }
+                        .padding(10.dp).semantics { contentDescription = "Left: $label${if (i in matchedLeft) " — matched" else ""}" },
                         contentAlignment = Alignment.Center) {
                         Text(label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
                     }
@@ -79,12 +80,12 @@ fun MatchingPairsRenderer(
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 right.forEachIndexed { i, label -> if (i < n) {
                     val bg by animateColorAsState(when {
-                        i in matched -> SuccessGreen.copy(alpha = 0.2f)
+                        i in matchedRight -> SuccessGreen.copy(alpha = 0.2f)
                         mismatch?.second == i -> ErrorRed.copy(alpha = 0.2f)
                         else -> SurfaceContainer
                     }, label = "R$i")
                     Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
-                        .clickable(enabled = i !in matched && selectedLeft >= 0 && mismatch == null) {
+                        .clickable(enabled = i !in matchedRight && selectedLeft >= 0 && mismatch == null) {
                             attempts++
                             // Matching is positional: content authors write
                             // pairs[i] = (left[i], right[i]) and both columns
@@ -96,15 +97,18 @@ fun MatchingPairsRenderer(
                             // rendered as matching. (RendererContractTest
                             // pins this semantic.)
                             val isMatch = right[i] == right[selectedLeft]
-                            if (isMatch) { matched = matched + i; selectedLeft = -1
-                                if (matched.size == n) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
+                            if (isMatch) {
+                                matchedLeft = matchedLeft + selectedLeft
+                                matchedRight = matchedRight + i
+                                selectedLeft = -1
+                                if (matchedLeft.size == n) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
                             } else {
                                 mismatch = selectedLeft to i
                                 if (attempts >= 6) {
                                     onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
                                 }
                             }
-                        }.padding(10.dp).semantics { contentDescription = "Right: $label${if (i in matched) " — matched" else ""}" },
+                        }.padding(10.dp).semantics { contentDescription = "Right: $label${if (i in matchedRight) " — matched" else ""}" },
                         contentAlignment = Alignment.Center) {
                         Text(label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
                     }
@@ -112,8 +116,8 @@ fun MatchingPairsRenderer(
             }
         }
 
-        Text("Matched: ${matched.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
-            modifier = Modifier.semantics { contentDescription = "${matched.size} of $n matched" })
+        Text("Matched: ${matchedLeft.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
+            modifier = Modifier.semantics { contentDescription = "${matchedLeft.size} of $n matched" })
         Spacer(Modifier.weight(1f))
     }
 }
