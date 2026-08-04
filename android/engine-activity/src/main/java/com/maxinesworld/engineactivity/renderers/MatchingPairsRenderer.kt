@@ -20,6 +20,10 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 
+/** Friendly labels for the shared-category targets used by legacy match activities. */
+internal fun matchingTargetLabel(index: Int, authoredLabel: String, sharedLabel: Boolean): String =
+    if (sharedLabel) "Milo says yes ${index + 1}" else authoredLabel
+
 @Composable
 fun MatchingPairsRenderer(
     step: ActivityStep,
@@ -39,6 +43,12 @@ fun MatchingPairsRenderer(
     val right: List<String> = if (step.matchPairs.isNotEmpty()) step.matchPairs.map { it.right }
         else step.options.filterIndexed { i, _ -> i % 2 == 1 }
     val n = minOf(left.size, right.size)
+    val sharedRightLabel = right.take(n).distinct().size == 1
+    val matchingHint = if (sharedRightLabel) {
+        "👆 Tap an example, then tap a Milo says yes box"
+    } else {
+        "👆 Tap an example, then tap its match"
+    }
     // NOTE: matching is positional (right[i] == right[selectedLeft] checks
     // same-authored-index pairing). Content authors must keep left/right
     // lists index-aligned; identical right labels act as a shared category.
@@ -53,11 +63,11 @@ fun MatchingPairsRenderer(
 
         // Interaction hint — tap a left card, then tap its match on the right.
         Text(
-            "👆 Tap an example, then tap its match",
+            matchingHint,
             style = MaterialTheme.typography.labelLarge,
             color = Teal40.copy(alpha = 0.7f),
             fontWeight = FontWeight.Medium,
-            modifier = Modifier.semantics { contentDescription = "Hint: tap an example, then tap its match" }
+            modifier = Modifier.semantics { contentDescription = "Hint: ${matchingHint.removePrefix("👆 ")}" }
         )
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -79,6 +89,7 @@ fun MatchingPairsRenderer(
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 right.forEachIndexed { i, label -> if (i < n) {
+                    val displayLabel = matchingTargetLabel(i, label, sharedRightLabel)
                     val bg by animateColorAsState(when {
                         i in matchedRight -> SuccessGreen.copy(alpha = 0.2f)
                         mismatch?.second == i -> ErrorRed.copy(alpha = 0.2f)
@@ -108,9 +119,9 @@ fun MatchingPairsRenderer(
                                     onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
                                 }
                             }
-                        }.padding(10.dp).semantics { contentDescription = "Right: $label${if (i in matchedRight) " — matched" else ""}" },
+                        }.padding(10.dp).semantics { contentDescription = "Right: $displayLabel${if (i in matchedRight) " — matched" else ""}" },
                         contentAlignment = Alignment.Center) {
-                        Text(label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
+                        Text(displayLabel, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
                     }
                 } }
             }

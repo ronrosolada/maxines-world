@@ -148,9 +148,9 @@ fun RewardHubScreen(
                     shape = RoundedCornerShape(16.dp),
                     modifier = Modifier.height(56.dp),
                 ) {
-                    Icon(Icons.Default.Home, "Village")
+                    Icon(Icons.Default.Home, "Playroom")
                     Spacer(Modifier.width(8.dp))
-                    Text("Return to Village", fontSize = 18.sp)
+                    Text("Return to Playroom", fontSize = 18.sp)
                 }
             }
         }
@@ -207,7 +207,7 @@ private fun RewardBreakUnavailable(message: String, onReturnToVillage: () -> Uni
         Text(message, textAlign = TextAlign.Center, fontSize = 19.sp, color = Ink)
         Spacer(Modifier.height(24.dp))
         Button(onClick = onReturnToVillage, shape = RoundedCornerShape(16.dp)) {
-            Icon(Icons.Default.Home, "Village")
+            Icon(Icons.Default.Home, "Playroom")
             Spacer(Modifier.width(8.dp))
             Text("Back to Playroom")
         }

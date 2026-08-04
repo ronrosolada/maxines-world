@@ -207,7 +207,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                 Text(sp.label, fontWeight = FontWeight.Medium, fontSize = 16.sp, color = Ink)
                                 val lessonWord = if (sp.lessonsCompleted == 1) "lesson" else "lessons"
-                                Text("${sp.lessonsCompleted} $lessonWord · ${(sp.accuracy * 100).toInt()}%", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
+                                Text("${sp.lessonsCompleted} $lessonWord · ${(sp.accuracy * 100).toInt()}% accuracy", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                             Spacer(Modifier.height(8.dp))
                             LinearProgressIndicator(

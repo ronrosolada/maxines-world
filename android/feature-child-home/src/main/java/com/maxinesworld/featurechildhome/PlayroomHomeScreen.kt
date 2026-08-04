@@ -517,7 +517,7 @@ private fun SubjectCard(
     val progressLabel = when {
         progress == null -> stringResource(R.string.home_not_started)
         progress >= 100 -> stringResource(R.string.home_complete)
-        else -> "$progress%"
+        else -> "$progress% complete"
     }
     val spoken = buildString {
         append(subject.formalName).append(", ").append(subject.playfulName)
