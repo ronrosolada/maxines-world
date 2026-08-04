@@ -6,10 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -32,6 +35,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val childProfileDao: ChildProfileDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
+    private val rewardDao: RewardDao,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -40,22 +44,34 @@ class PlayroomHomeViewModel @Inject constructor(
     val state: StateFlow<PlayroomHomeUiState> = _state.asStateFlow()
 
     private var openingSubjectId: String? = null
+    private var stateJob: Job? = null
 
     init {
         collectState()
     }
 
     private fun collectState() {
+        stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
 
-        viewModelScope.launch {
-            combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
-                .collect { (profile, lessonIds) ->
-                    val expedition = badgeAwarder.getExpeditionProgress(childId)
-                    val badges = badgeAwarder.getCollectedBadges(childId)
-                    _state.value = buildContent(profile?.name, lessonIds, expedition, badges)
-                }
+        stateJob = viewModelScope.launch {
+            try {
+                combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
+                    .collect { (profile, lessonIds) ->
+                        val expedition = badgeAwarder.getExpeditionProgress(childId)
+                        val badges = badgeAwarder.getCollectedBadges(childId)
+                        val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
+                        val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
+                        _state.value = buildContent(profile?.name, lessonIds, expedition, badges, stars, coins)
+                    }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                _state.value = PlayroomHomeUiState.Error(
+                    message = "We couldn't load your Playroom. Try again."
+                )
+            }
         }
     }
 
@@ -84,6 +100,8 @@ class PlayroomHomeViewModel @Inject constructor(
         lessonIds: List<String>,
         expedition: ChallengeProgress,
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
+        starBalance: Int,
+        coinBalance: Int,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -120,7 +138,9 @@ class PlayroomHomeViewModel @Inject constructor(
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "Continue",
+                // A fresh quest with no progress should invite a start, not
+                // pretend there is something to continue (#33).
+                buttonLabel = if (completedCount == 0) "Start" else "Continue",
                 buttonAction = QuestAction.Continue,
             )
         }
@@ -141,6 +161,8 @@ class PlayroomHomeViewModel @Inject constructor(
             quest = questUi,
             wildlifeStickers = wildlifeStickers,
             offline = false,
+            starBalance = starBalance,
+            coinBalance = coinBalance,
         )
     }
 }

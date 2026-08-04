@@ -72,6 +72,10 @@ sealed interface PlayroomHomeUiState {
         val offline: Boolean = false,
         val openingSubjectId: String? = null,
         val staleBanner: Boolean = false,
+        /** Child-visible currency — earned stars/coins must be seen and
+         *  counted by the kid, not just the Parent Dashboard (#35). */
+        val starBalance: Int = 0,
+        val coinBalance: Int = 0,
     ) : PlayroomHomeUiState
 
     data class Error(

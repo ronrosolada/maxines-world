@@ -7,6 +7,7 @@ import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import io.mockk.*
@@ -108,6 +109,29 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `balances are loaded into the child home state`() = runTest(dispatcher) {
+        val vm = buildViewModel(starBalance = 12, coinBalance = 37)
+        advanceUntilIdle()
+
+        assertEquals(12, content(vm).starBalance)
+        assertEquals(37, content(vm).coinBalance)
+    }
+
+    @Test
+    fun `load failure enters error and retry creates one fresh content collector`() = runTest(dispatcher) {
+        var shouldFail = true
+        val vm = buildViewModel(shouldFailExpedition = { shouldFail })
+        advanceUntilIdle()
+        assertTrue(vm.state.value is PlayroomHomeUiState.Error)
+
+        shouldFail = false
+        vm.retry()
+        advanceUntilIdle()
+
+        assertTrue(vm.state.value is PlayroomHomeUiState.Content)
+    }
+
+    @Test
     fun `opening subject rejects repeated activation and clears`() = runTest(dispatcher) {
         val vm = buildViewModel()
         advanceUntilIdle()
@@ -133,6 +157,9 @@ class PlayroomHomeViewModelTest {
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
         catalog: ModuleCatalog = emptyCatalog(),
+        starBalance: Int = 0,
+        coinBalance: Int = 0,
+        shouldFailExpedition: () -> Boolean = { false },
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
         coEvery { profileDao.observeById("child_1") } returns flowOf(
@@ -147,14 +174,21 @@ class PlayroomHomeViewModelTest {
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
         val awarder = mockk<BadgeAwarder>()
-        coEvery { awarder.getExpeditionProgress("child_1") } returns quest
+        coEvery { awarder.getExpeditionProgress("child_1") } coAnswers {
+            if (shouldFailExpedition()) throw IllegalStateException("expedition load failed")
+            quest
+        }
         coEvery { awarder.getCollectedBadges("child_1") } returns badges
+        val rewardDao = mockk<RewardDao>()
+        coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
+        coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
             childProfileDao = profileDao,
             lessonCompletionDao = completionDao,
             badgeAwarder = awarder,
+            rewardDao = rewardDao,
         )
     }
 
@@ -169,8 +203,8 @@ class PlayroomHomeViewModelTest {
 
     private fun catalogWithTotals(lessonCounts: Map<String, Int>): ModuleCatalog {
         val catalog = mockk<ModuleCatalog>()
-        coEvery { catalog.modulesFor(any()) } answers {
-            val subject = firstArg<String>()
+        coEvery { catalog.modulesFor(any()) } answers { call ->
+            val subject = call.invocation.args[0] as String
             val count = lessonCounts[subject] ?: 0
             listOf(
                 ContentModule(
