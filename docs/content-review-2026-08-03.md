@@ -368,3 +368,18 @@ The qualifiers improve deterministic module-lesson navigation but remain suitabl
 
 1. Complete genuine independent educator review for factual accuracy, pedagogy, language, safety, and the visual boards.
 2. Address the code follow-ups listed in §9.3 through the Android app owner.
+
+---
+
+## 14. Follow-up PR status — 2026-08-04
+
+This report is an audit record, not an educator sign-off. The open Android PRs are follow-up implementation work and must be revalidated against the merged `main` state before release.
+
+| Area | PR | Current intent |
+|---|---:|---|
+| Child-facing lesson UX, authored hints, reduced motion, PIN retry throttling | #37 | Safety/interaction fixes and regression tests |
+| Child-visible star/coin balances and Playroom reload behavior | #38 | Engagement visibility plus reliable error/retry state |
+| Friendly lesson titles and full-subject parent progress mapping | #39 | Navigation and parent-dashboard correctness |
+| Content audit record | #25 | Historical findings and validation evidence |
+
+The release gate still verifies approval metadata (`educatorValidated` and `releaseStatus`); those flags are not evidence of independent human curriculum review. No PR in this set substitutes for that review.
