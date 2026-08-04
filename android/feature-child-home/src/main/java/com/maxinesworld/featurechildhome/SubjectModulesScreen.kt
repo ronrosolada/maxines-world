@@ -66,23 +66,29 @@ fun SubjectModulesScreen(
                     state.error, Modifier.align(Alignment.Center).padding(24.dp),
                     color = Ink, fontSize = 16.sp
                 )
-                else -> LazyColumn(
-                    Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    item {
-                        Text(
-                            "Choose a module",
-                            fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink
-                        )
-                        Text(
-                            "${state.modules.size} modules · pick one to start learning",
-                            fontSize = 14.sp, color = Ink.copy(alpha = 0.6f)
-                        )
-                    }
-                    items(state.modules, key = { it.key }) { module ->
-                        ModuleCard(module, subject) { onModuleClick(module.key) }
+                else -> {
+                    val recommendedKey = state.modules.firstOrNull { it.lessons.isNotEmpty() }?.key
+                    LazyColumn(
+                        Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        item {
+                            Text(
+                                "Start here, or choose another module.",
+                                fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink
+                            )
+                            Text(
+                                "${state.modules.size} modules · pick one to start learning",
+                                fontSize = 14.sp, color = Ink.copy(alpha = 0.6f)
+                            )
+                        }
+                        items(state.modules, key = { it.key }) { module ->
+                            ModuleCard(
+                                module = module,
+                                recommended = module.key == recommendedKey,
+                            ) { onModuleClick(module.key) }
+                        }
                     }
                 }
             }
@@ -93,7 +99,7 @@ fun SubjectModulesScreen(
 @Composable
 private fun ModuleCard(
     module: ContentModule,
-    subject: String,
+    recommended: Boolean,
     onClick: () -> Unit,
 ) {
     Card(
@@ -109,6 +115,14 @@ private fun ModuleCard(
             )
             Spacer(Modifier.width(14.dp))
             Column(Modifier.weight(1f)) {
+                if (recommended) {
+                    Text(
+                        "Start here!",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 12.sp,
+                        color = VillageTeal,
+                    )
+                }
                 Text(module.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = Ink)
                 Text(
                     "${module.lessonCount} lessons · ${module.lessons.firstOrNull()?.title ?: ""}",
