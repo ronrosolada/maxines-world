@@ -203,8 +203,8 @@ class PlayroomHomeViewModelTest {
 
     private fun catalogWithTotals(lessonCounts: Map<String, Int>): ModuleCatalog {
         val catalog = mockk<ModuleCatalog>()
-        coEvery { catalog.modulesFor(any()) } answers {
-            val subject = firstArg<String>()
+        coEvery { catalog.modulesFor(any()) } answers { call ->
+            val subject = call.invocation.args[0] as String
             val count = lessonCounts[subject] ?: 0
             listOf(
                 ContentModule(

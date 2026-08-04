@@ -328,14 +328,17 @@ private fun PlayroomHeader(
 @Composable
 private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) {
     Row(modifier, horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-        BalanceChip("★", stars, PlaySunshine)
-        BalanceChip("●", coins, PlayTeal)
+        BalanceChip("stars", "★", stars, PlaySunshine)
+        BalanceChip("coins", "●", coins, PlayTeal)
     }
 }
 
 @Composable
-private fun BalanceChip(icon: String, value: Int, tint: Color) {
+private fun BalanceChip(label: String, icon: String, value: Int, tint: Color) {
     Surface(
+        modifier = Modifier.semantics(mergeDescendants = true) {
+            contentDescription = "$value $label"
+        },
         shape = RoundedCornerShape(99.dp),
         color = Color.White.copy(alpha = 0.85f),
         shadowElevation = 1.dp,
