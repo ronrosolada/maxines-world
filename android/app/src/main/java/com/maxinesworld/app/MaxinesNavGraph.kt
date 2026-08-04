@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -31,10 +32,12 @@ import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
 import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.engineminigame.MiniGameResult
 import com.maxinesworld.gamecatcafe.CatCafeDashScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
 import dagger.hilt.android.EntryPointAccessors
+import kotlinx.coroutines.launch
 
 object Routes {
     const val PARENT_AUTH = "parent_auth"
@@ -261,11 +264,11 @@ fun MaxinesNavGraph(navController: NavHostController) {
             RewardHubScreen(
                 childId = childId,
                 rewardBreakId = breakId,
-                onPlayCatCafe = {
-                    navController.navigate(MiniGameRoutes.catCafe(childId, breakId))
+                onPlayCatCafe = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.catCafe(childId, breakId, durationMillis))
                 },
-                onPlayParkour = {
-                    navController.navigate(MiniGameRoutes.parkour(childId, breakId))
+                onPlayParkour = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.parkour(childId, breakId, durationMillis))
                 },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
@@ -279,40 +282,90 @@ fun MaxinesNavGraph(navController: NavHostController) {
             route = MiniGameRoutes.CAT_CAFE,
             arguments = listOf(
                 navArgument("childId") { type = NavType.StringType },
-                navArgument("rewardBreakId") { type = NavType.StringType }
+                navArgument("rewardBreakId") { type = NavType.StringType },
+                navArgument("durationMillis") { type = NavType.LongType },
             )
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
-            CatCafeDashScreen(
+            val routeDuration = backStackEntry.arguments?.getLong("durationMillis") ?: return@composable
+            val sessionViewModel: RewardBreakViewModel = hiltViewModel(backStackEntry)
+            val scope = rememberCoroutineScope()
+            RewardBreakRouteGuard(
                 childId = childId,
                 rewardBreakId = breakId,
-                onExit = {
-                    navController.navigate(MiniGameRoutes.hub(childId, breakId)) {
-                        popUpTo(MiniGameRoutes.CAT_CAFE) { inclusive = true }
+                viewModel = sessionViewModel,
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) { popUpTo(0) { inclusive = true } }
+                },
+            ) { remainingMillis ->
+                CatCafeDashScreen(
+                    childId = childId,
+                    rewardBreakId = breakId,
+                    durationMillis = minOf(routeDuration, remainingMillis),
+                    onExit = { result: MiniGameResult ->
+                        scope.launch {
+                            sessionViewModel.saveResult(result)
+                            if (!navController.popBackStack()) {
+                                navController.navigate(Routes.childHome(childId)) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                        }
                     }
-                }
-            )
+                )
+            }
         }
 
         composable(
             route = MiniGameRoutes.PARKOUR,
             arguments = listOf(
                 navArgument("childId") { type = NavType.StringType },
-                navArgument("rewardBreakId") { type = NavType.StringType }
+                navArgument("rewardBreakId") { type = NavType.StringType },
+                navArgument("durationMillis") { type = NavType.LongType },
             )
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
-            PawprintParkourScreen(
+            val routeDuration = backStackEntry.arguments?.getLong("durationMillis") ?: return@composable
+            val sessionViewModel: RewardBreakViewModel = hiltViewModel(backStackEntry)
+            val scope = rememberCoroutineScope()
+            RewardBreakRouteGuard(
                 childId = childId,
                 rewardBreakId = breakId,
-                onExit = { _: ParkourResult ->
-                    navController.navigate(MiniGameRoutes.hub(childId, breakId)) {
-                        popUpTo(MiniGameRoutes.PARKOUR) { inclusive = true }
+                viewModel = sessionViewModel,
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) { popUpTo(0) { inclusive = true } }
+                },
+            ) { remainingMillis ->
+                PawprintParkourScreen(
+                    childId = childId,
+                    rewardBreakId = breakId,
+                    durationMillis = minOf(routeDuration, remainingMillis),
+                    onExit = { result: ParkourResult ->
+                        scope.launch {
+                            sessionViewModel.saveResult(
+                                MiniGameResult(
+                                    rewardBreakId = result.rewardBreakId,
+                                    gameId = "pawprint-parkour",
+                                    childId = result.childId,
+                                    startedAtEpochMillis = result.startedAtEpochMillis,
+                                    endedAtEpochMillis = result.endedAtEpochMillis,
+                                    roundsCompleted = result.roundsCompleted,
+                                    correctOrders = result.tokensCollected,
+                                    pawTokensEarned = result.pawTokensEarned,
+                                    collectibleId = result.collectibleId,
+                                )
+                            )
+                            if (!navController.popBackStack()) {
+                                navController.navigate(Routes.childHome(childId)) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                        }
                     }
-                }
-            )
+                )
+            }
         }
 
         composable(

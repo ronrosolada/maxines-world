@@ -26,6 +26,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.UUID
 import javax.inject.Inject
 
@@ -45,6 +47,7 @@ data class LessonUiState(
     val results: List<ActivityResult> = emptyList(),
     val badgeAwarded: CollectibleBadge? = null,
     val expeditionProgress: ChallengeProgress = ChallengeProgress(),
+    val rewardBreakId: String? = null,
 )
 
 @HiltViewModel
@@ -58,6 +61,7 @@ class LessonPlayerViewModel @Inject constructor(
     private val badgeAwarder: BadgeAwarder,
     private val activeContentIndex: ActiveContentIndex,
     private val lessonCompletionDao: LessonCompletionDao,
+    private val rewardBreakDao: RewardBreakDao,
 ) : AndroidViewModel(application) {
 
     private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
@@ -173,6 +177,30 @@ class LessonPlayerViewModel @Inject constructor(
                     ))
                 }
             }
+
+            // One idempotent reward break entitlement per child and local day.
+            // Creation starts in CREATED; the hub starts the clock only when
+            // the child chooses a game.
+            val now = System.currentTimeMillis()
+            val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
+            val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey)
+            val existingBreak = rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
+            val rewardBreak = if (existingBreak == null) {
+                val created = RewardBreakPolicy.newEntitlement(
+                    id = UUID.randomUUID().toString(),
+                    childId = childId,
+                    dailyQuestCompletionId = dailyQuestCompletionId,
+                    nowEpochMillis = now,
+                )
+                rewardBreakDao.insertIgnoring(created)
+                rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
+            } else {
+                existingBreak
+            }
+            val usableBreakId = rewardBreak
+                ?.takeIf { RewardBreakPolicy.canUse(it, now) }
+                ?.id
+
             val progress = badgeAwarder.recordLessonCompletion(childId, lesson.subject, lesson.id)
             val firstStepsSticker = if (isFirstLessonEver) {
                 badgeAwarder.recordFirstLessonCompletion(childId)
@@ -185,6 +213,7 @@ class LessonPlayerViewModel @Inject constructor(
                     // The First Steps milestone takes precedence in the reveal —
                     // it only ever fires on the child's very first lesson.
                     badgeAwarded = firstStepsSticker ?: progress.newlyAwardedBadge,
+                    rewardBreakId = usableBreakId,
                 )
             }
         }
