@@ -141,6 +141,7 @@ fun PlayroomHomeScreen(
     onQuestAction: (QuestAction) -> Unit,
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
+    onTreatShopClick: () -> Unit = {},
     onParentsClick: () -> Unit,
     onOpenCollection: () -> Unit = onCollectionClick,
     onRetry: () -> Unit = {},
@@ -174,6 +175,7 @@ fun PlayroomHomeScreen(
                 wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
                 starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
                 coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
+                onTreatShopClick = onTreatShopClick,
             )
 
             when (state) {
@@ -293,6 +295,7 @@ private fun PlayroomHeader(
     wide: Boolean,
     starBalance: Int = 0,
     coinBalance: Int = 0,
+    onTreatShopClick: () -> Unit = {},
 ) {
     if (wide) {
         Row(Modifier.fillMaxWidth().heightIn(min = 96.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -308,6 +311,11 @@ private fun PlayroomHeader(
             MascotAvatar(Modifier.size(72.dp))
         }
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
+    }
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+        TextButton(onClick = onTreatShopClick) {
+            Text("Treat Shop", fontWeight = FontWeight.ExtraBold)
+        }
     }
     if (offline) {
         Surface(
