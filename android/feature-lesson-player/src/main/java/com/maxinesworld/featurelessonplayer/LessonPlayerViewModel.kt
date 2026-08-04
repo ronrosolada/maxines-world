@@ -323,7 +323,11 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
     val content = act.content
     val obj = content as? JsonObject
 
-    var question = act.instruction
+    val childFacingInstruction = act.instruction
+        .replace("does not show the skill", "false")
+        .replace("shows the skill", "true")
+
+    var question = childFacingInstruction
     var options: List<String> = emptyList()
     var correctIndex = -1
     var sortCategories: List<String> = emptyList()
@@ -331,16 +335,14 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
     var matchPairs: List<MatchPair> = emptyList()
     var sequenceSteps: List<String> = emptyList()
     var hotspotExamples: List<String> = emptyList()
-    var narration = act.instruction
+    var narration = childFacingInstruction
 
     // Curriculum jargon in authored instructions ("shows the skill") is
-    // opaque to a 7-year-old. Rewrite the phrase kid-friendly at render
-    // time (adversarial UX review #36) — content files stay untouched.
+    // opaque to a 7-year-old. The same child-facing wording is used for
+    // narration and the activity question so the lesson shell cannot render
+    // two versions of one instruction.
     // Bucket labels follow the same rule: True/False is the familiar
     // DepEd Tama/Mali format (user request, Aug 2026).
-    question = question
-        .replace("does not show the skill", "false")
-        .replace("shows the skill", "true")
 
     runCatching {
         when (act.type) {

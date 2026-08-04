@@ -42,6 +42,12 @@ import com.maxinesworld.featurerewards.ChallengeProgress
 private fun uiText(language: String?, en: String, fil: String): String =
     if (language?.lowercase()?.startsWith("fil") == true) fil else en
 
+/** Returns true only when narration adds context beyond the activity instruction. */
+internal fun shouldShowNarrationCard(step: ActivityStep): Boolean =
+    step.type != "ANIMATED_EXPLANATION_V1" &&
+        step.narrationText.isNotBlank() &&
+        step.narrationText.trim() != step.question.trim()
+
 @Composable
 private fun VocabularyCard(terms: List<VocabTerm>, title: String = "New Words") {
     Card(
@@ -220,7 +226,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
 
         // Narration card — skipped on explanation steps: ExplanationStep renders
         // the same text itself (review: narration was displayed twice)
-        if (step.narrationText.isNotEmpty() && step.type != "ANIMATED_EXPLANATION_V1") {
+        if (shouldShowNarrationCard(step)) {
             Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
                 colors = CardDefaults.cardColors(containerColor = Cream),
                 elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)) {

@@ -1,11 +1,13 @@
 package com.maxinesworld.featurelessonplayer
 
+import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.AssessmentItem
 import com.maxinesworld.coremodel.Month1Activity
 import com.maxinesworld.coremodel.CompletionRule
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -128,6 +130,31 @@ class ActivityStepConversionTest {
             activity("ANIMATED_EXPLANATION", "\"The body text.\"")
         )
         assertEquals("The body text.", step.narrationText)
+    }
+
+    @Test
+    fun `duplicate narration is suppressed from lesson chrome`() {
+        val instruction = "Match each example to the lesson idea."
+        val step = ActivityStep(
+            id = "duplicate-instruction",
+            type = "MATCHING_PAIRS_V1",
+            narrationText = instruction,
+            question = instruction,
+        )
+
+        assertFalse(shouldShowNarrationCard(step))
+    }
+
+    @Test
+    fun `distinct narration remains available as lesson context`() {
+        val step = ActivityStep(
+            id = "distinct-instruction",
+            type = "MATCHING_PAIRS_V1",
+            narrationText = "Milo found three examples in the garden.",
+            question = "Match each example to the lesson idea.",
+        )
+
+        assertTrue(shouldShowNarrationCard(step))
     }
 
     // ─── Assessment delivery (adversarial review: authored checks were never played) ───
