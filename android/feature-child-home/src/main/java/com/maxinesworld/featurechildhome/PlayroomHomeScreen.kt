@@ -172,6 +172,8 @@ fun PlayroomHomeScreen(
                 childName = (state as? PlayroomHomeUiState.Content)?.childName.orEmpty(),
                 offline = (state as? PlayroomHomeUiState.Content)?.offline == true,
                 wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
+                starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
+                coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
             )
 
             when (state) {
@@ -289,16 +291,20 @@ private fun PlayroomHeader(
     childName: String,
     offline: Boolean,
     wide: Boolean,
+    starBalance: Int = 0,
+    coinBalance: Int = 0,
 ) {
     if (wide) {
         Row(Modifier.fillMaxWidth().heightIn(min = 96.dp), verticalAlignment = Alignment.CenterVertically) {
             BrandBlock(Modifier.width(210.dp))
             MascotAvatar(Modifier.size(88.dp))
             GreetingBlock(childName, Modifier.widthIn(min = 250.dp).padding(horizontal = 16.dp))
+            BalanceChips(starBalance, coinBalance, Modifier.weight(1f))
         }
     } else {
         Row(verticalAlignment = Alignment.CenterVertically) {
             BrandBlock(Modifier.weight(1f))
+            BalanceChips(starBalance, coinBalance)
             MascotAvatar(Modifier.size(72.dp))
         }
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
@@ -313,6 +319,38 @@ private fun PlayroomHeader(
                 stringResource(R.string.home_offline_chip),
                 fontSize = 12.sp, fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
+            )
+        }
+    }
+}
+
+/** Child-visible star/coin balances (#35) — the kid must see what she earned. */
+@Composable
+private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) {
+    Row(modifier, horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
+        BalanceChip("★", stars, PlaySunshine)
+        BalanceChip("●", coins, PlayTeal)
+    }
+}
+
+@Composable
+private fun BalanceChip(icon: String, value: Int, tint: Color) {
+    Surface(
+        shape = RoundedCornerShape(99.dp),
+        color = Color.White.copy(alpha = 0.85f),
+        shadowElevation = 1.dp,
+    ) {
+        Row(
+            Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Text(icon, fontSize = 16.sp, color = tint, fontWeight = FontWeight.Black)
+            Text(
+                "$value",
+                color = PlayInk,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 15.sp,
             )
         }
     }

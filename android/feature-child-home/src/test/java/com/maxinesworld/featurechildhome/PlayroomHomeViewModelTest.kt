@@ -7,6 +7,7 @@ import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import io.mockk.*
@@ -149,12 +150,16 @@ class PlayroomHomeViewModelTest {
         val awarder = mockk<BadgeAwarder>()
         coEvery { awarder.getExpeditionProgress("child_1") } returns quest
         coEvery { awarder.getCollectedBadges("child_1") } returns badges
+        val rewardDao = mockk<RewardDao>()
+        coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns 0
+        coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns 0
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
             childProfileDao = profileDao,
             lessonCompletionDao = completionDao,
             badgeAwarder = awarder,
+            rewardDao = rewardDao,
         )
     }
 
