@@ -2,7 +2,6 @@ package com.maxinesworld.app
 
 import androidx.activity.compose.setContent
 import androidx.compose.ui.test.assertIsNotEnabled
-import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -49,7 +48,7 @@ class MatchingPairsRendererTest {
             .onNodeWithContentDescription("Left: L1", useUnmergedTree = true)
             .performClick()
         composeRule
-            .onAllNodesWithContentDescription("Right: fits", useUnmergedTree = true)[1]
+            .onNodeWithContentDescription("Right: Milo says yes 2", useUnmergedTree = true)
             .performClick()
 
         composeRule

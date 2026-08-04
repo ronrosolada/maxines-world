@@ -160,13 +160,13 @@ class RewardBreakFlowTest {
         onText("Save and leave").performClick()
 
         // Leaving the game saves its result but does not consume the break.
-        waitForText("Return to Village")
+        waitForText("Return to Playroom")
         assertEquals(RewardBreakPolicy.ACTIVE, getBreak()?.state)
         assertEquals(1, runBlocking(Dispatchers.IO) {
             database.miniGameResultDao().getByChild(childId).size
         })
 
-        // The hub BackHandler invokes the same finishBreak() path as Return to Village.
+        // The hub BackHandler invokes the same finishBreak() path as Return to Playroom.
         scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
         waitForConsumedBreak()
         waitForText("Hi, Maxine!")

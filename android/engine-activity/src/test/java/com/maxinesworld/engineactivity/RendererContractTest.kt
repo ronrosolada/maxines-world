@@ -4,6 +4,7 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.MatchPair
 import com.maxinesworld.coremodel.SortItem
 import com.maxinesworld.engineactivity.renderers.HotspotProgress
+import com.maxinesworld.engineactivity.renderers.matchingTargetLabel
 import com.maxinesworld.engineactivity.renderers.hotspotBadgeOffset
 import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
 import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
@@ -44,6 +45,12 @@ class RendererContractTest {
         )
         val right = pairs.map { it.right }
         assertTrue(right[0] == right[2])
+    }
+
+    @Test
+    fun `shared match targets get distinct Milo labels`() {
+        assertEquals("Milo says yes 1", matchingTargetLabel(0, "shows the skill", sharedLabel = true))
+        assertEquals("shows the skill", matchingTargetLabel(1, "shows the skill", sharedLabel = false))
     }
 
     @Test
