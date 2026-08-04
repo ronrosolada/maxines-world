@@ -4,7 +4,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.maxinesworld.coredesignsystem.theme.MaxinesWorldTheme
 import com.maxinesworld.coremodel.ActivityStep
@@ -64,5 +66,42 @@ class SortAndClassifyRendererTest {
             assertEquals(true, result?.correct)
             assertEquals(1, result?.attempts)
         }
+    }
+
+    @Test
+    fun emptySubmitExplainsCardsMustBePlaced() {
+        val step = ActivityStep(
+            id = "sort-empty-submit",
+            type = "SORT_AND_CLASSIFY_V1",
+            question = "Sort each group.",
+            sortCategories = listOf("Fits", "Does not fit"),
+            sortItems = listOf(
+                SortItem("Three baskets of four kittens", categoryIndex = 0),
+                SortItem("Five baskets of four kittens", categoryIndex = 1),
+            ),
+        )
+
+        composeRule.activityRule.scenario.onActivity { activity ->
+            activity.setContent {
+                MaxinesWorldTheme {
+                    SortAndClassifyRenderer(
+                        step = step,
+                        onResult = {},
+                        onHint = {},
+                    )
+                }
+            }
+        }
+        composeRule.waitForIdle()
+
+        composeRule
+            .onNodeWithContentDescription(
+                "Sort progress: 0 of 2 cards placed. Place all 2 cards first",
+                useUnmergedTree = true,
+            )
+            .assertIsDisplayed()
+        composeRule
+            .onNodeWithContentDescription("Submit", useUnmergedTree = true)
+            .assertIsNotEnabled()
     }
 }

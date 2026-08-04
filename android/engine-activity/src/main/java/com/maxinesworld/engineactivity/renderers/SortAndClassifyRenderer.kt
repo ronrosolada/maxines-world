@@ -50,6 +50,18 @@ fun SortAndClassifyRenderer(
     } else {
         items.indices.associateWith { it % maxOf(1, categories.size) }
     }
+    val placedCount = classified.size
+    val submitEnabled = submitted || placedCount == items.size
+    val progressCopy = when {
+        placedCount == 0 -> "Place all ${items.size} cards first"
+        placedCount == items.size -> "All ${items.size} cards placed. Ready to check!"
+        else -> {
+            val remaining = items.size - placedCount
+            "Place $remaining more ${if (remaining == 1) "card" else "cards"} to check"
+        }
+    }
+    val progressDescription =
+        "Sort progress: $placedCount of ${items.size} cards placed. $progressCopy"
     // Buckets glow while a card is selected — the only visual cue that the
     // interaction is tap-card-then-tap-box (#28). Keep it subtle but present.
     val bucketHighlight by animateColorAsState(
@@ -109,13 +121,28 @@ fun SortAndClassifyRenderer(
             }
         }
 
+        if (!submitted) {
+            Text(
+                progressCopy,
+                style = MaterialTheme.typography.labelMedium,
+                color = if (submitEnabled) VillageTeal else Teal40,
+                modifier = Modifier.semantics { contentDescription = progressDescription },
+            )
+        }
+
         Spacer(Modifier.weight(1f))
         // Success state: the celebration banner IS the next-step button.
         // Tapping it advances the lesson — a full-width green button that
         // does nothing was the #29 complaint; it must not happen again.
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
-            .background(if (submitted && allCorrect) SuccessGreen else VillageTeal)
-            .clickable {
+            .background(
+                when {
+                    submitted && allCorrect -> SuccessGreen
+                    !submitEnabled -> SurfaceContainer
+                    else -> VillageTeal
+                }
+            )
+            .clickable(enabled = submitEnabled) {
                 when {
                     submitted && allCorrect -> onAdvance()
                     submitted && !allCorrect -> {
@@ -142,7 +169,7 @@ fun SortAndClassifyRenderer(
                     submitted -> "Try Again"
                     else -> "Submit"
                 },
-                color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
+                color = if (!submitEnabled) Teal40 else White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
         }
     }
 }
