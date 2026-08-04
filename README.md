@@ -3,6 +3,17 @@
 An Android-first educational app for Grade 3 learners.  
 Offline-first, curriculum-aligned, animal-village themed.
 
+## Project Goal
+
+Create **Maxine's World** for Maxine, an eight-year-old girl who loves animals.
+The app should aid her studies with factual, age-appropriate educational
+content while making learning engaging and fun through animal guides, clear
+activities, and encouraging feedback.
+
+Every product, content, and design decision should serve that goal: learning
+comes first, facts must be trustworthy, and delight should help Maxine stay
+curious rather than distract from understanding.
+
 ## Tech Stack
 - Kotlin + Jetpack Compose + Material 3
 - Room + DataStore
