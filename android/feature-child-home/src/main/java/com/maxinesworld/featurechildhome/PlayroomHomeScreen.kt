@@ -957,13 +957,37 @@ private fun RowScope.NavItem(
 
 @Composable
 private fun LoadingPlaceholders(columns: Int) {
-    // Polite live region: “Loading home” once
-    Text(
-        stringResource(R.string.home_loading),
-        color = Color.Transparent,
-        modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
-    )
-    // Six card placeholders preserving final geometry; hidden from a11y
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.88f)),
+    ) {
+        Row(
+            Modifier.fillMaxWidth().padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            MascotAvatar(Modifier.size(64.dp))
+            Spacer(Modifier.width(14.dp))
+            Column {
+                Text(
+                    stringResource(R.string.home_loading),
+                    color = PlayInk,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 20.sp,
+                    modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+                )
+                Text(
+                    stringResource(R.string.home_loading_hint),
+                    color = PlayMuted,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
+                    lineHeight = 19.sp,
+                )
+            }
+        }
+    }
+    Spacer(Modifier.height(2.dp))
+    // Card placeholders preserve final geometry while the content loads.
     Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
         repeat(2) { row ->
             Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxWidth()) {
