@@ -6,6 +6,13 @@ import org.junit.Test
 
 class ModuleIdRulesTest {
 
+    @Test
+    fun `friendly lesson title strips schema suffix but keeps authored text`() {
+        assertEquals("Shape Trail", friendlyLessonTitleOf("Shape Trail · Q1 W01 D01"))
+        assertEquals("Market Day", friendlyLessonTitleOf("Market Day · M01 D20"))
+        assertEquals("Already friendly", friendlyLessonTitleOf("Already friendly"))
+    }
+
     // ─── moduleKeyFor ───────────────────────────────────────────────────
 
     @Test

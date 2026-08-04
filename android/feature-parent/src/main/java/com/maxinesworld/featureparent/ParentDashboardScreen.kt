@@ -46,6 +46,21 @@ data class SubjectProgress(
     val accuracy: Float
 )
 
+/** Resolve both current full subject IDs and legacy abbreviated IDs. */
+internal fun subjectKeyForLessonId(lessonId: String): String? {
+    val prefix = lessonId.substringBefore("-")
+    return when {
+        lessonId.startsWith("araling-panlipunan-g3-") -> "araling-panlipunan"
+        prefix == "english" || prefix == "eng" -> "english"
+        prefix == "filipino" || prefix == "fil" -> "filipino"
+        prefix == "mathematics" || prefix == "math" -> "mathematics"
+        prefix == "science" || prefix == "sci" -> "science"
+        prefix == "makabansa" || prefix == "mkb" -> "makabansa"
+        prefix == "gmrc" -> "gmrc"
+        else -> null
+    }
+}
+
 data class MasterySummary(
     val mastered: Int = 0,
     val developing: Int = 0,
@@ -74,21 +89,12 @@ class ParentDashboardViewModel @Inject constructor(
 
             // Subject progress
             val bySubject = progress.groupBy { event ->
-                // Extract subject from lessonId prefix (e.g., "eng-g3-m01-l01" → "english")
-                val prefix = event.lessonId.substringBefore("-")
-                when (prefix) {
-                    "eng" -> "english"
-                    "fil" -> "filipino"
-                    "math" -> "mathematics"
-                    "sci" -> "science"
-                    "mkb" -> "makabansa"
-                    "gmrc" -> "gmrc"
-                    else -> prefix
-                }
+                subjectKeyForLessonId(event.lessonId) ?: event.lessonId.substringBefore("-")
             }
             val subjectLabels = mapOf(
                 "english" to "English", "filipino" to "Filipino",
                 "mathematics" to "Math", "science" to "Science",
+                "araling-panlipunan" to "Araling Panlipunan",
                 "makabansa" to "Makabansa", "gmrc" to "GMRC"
             )
 
@@ -112,12 +118,7 @@ class ParentDashboardViewModel @Inject constructor(
             val titleByLessonId = mutableMapOf<String, String>()
             suspend fun friendlyTitle(lessonId: String): String {
                 titleByLessonId[lessonId]?.let { return it }
-                val prefix = lessonId.substringBefore("-")
-                val subject = when (prefix) {
-                    "eng" -> "english"; "fil" -> "filipino"; "math" -> "mathematics"
-                    "sci" -> "science"; "mkb" -> "makabansa"; "gmrc" -> "gmrc"
-                    else -> null
-                }
+                val subject = subjectKeyForLessonId(lessonId)
                 val title = subject?.let { s ->
                     moduleCatalog.modulesFor(s).asSequence()
                         .flatMap { it.lessons.asSequence() }
