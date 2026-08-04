@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -32,6 +33,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val childProfileDao: ChildProfileDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
+    private val rewardDao: RewardDao,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -54,7 +56,9 @@ class PlayroomHomeViewModel @Inject constructor(
                 .collect { (profile, lessonIds) ->
                     val expedition = badgeAwarder.getExpeditionProgress(childId)
                     val badges = badgeAwarder.getCollectedBadges(childId)
-                    _state.value = buildContent(profile?.name, lessonIds, expedition, badges)
+                    val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
+                    val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
+                    _state.value = buildContent(profile?.name, lessonIds, expedition, badges, stars, coins)
                 }
         }
     }
@@ -84,6 +88,8 @@ class PlayroomHomeViewModel @Inject constructor(
         lessonIds: List<String>,
         expedition: ChallengeProgress,
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
+        starBalance: Int,
+        coinBalance: Int,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -120,7 +126,9 @@ class PlayroomHomeViewModel @Inject constructor(
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "Continue",
+                // A fresh quest with no progress should invite a start, not
+                // pretend there is something to continue (#33).
+                buttonLabel = if (completedCount == 0) "Start" else "Continue",
                 buttonAction = QuestAction.Continue,
             )
         }
@@ -141,6 +149,8 @@ class PlayroomHomeViewModel @Inject constructor(
             quest = questUi,
             wildlifeStickers = wildlifeStickers,
             offline = false,
+            starBalance = starBalance,
+            coinBalance = coinBalance,
         )
     }
 }

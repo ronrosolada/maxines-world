@@ -5,6 +5,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -38,9 +39,32 @@ fun WildlifeFieldGuideScreen(
     val totalCollected = allBadges.count { it.isCollected }
     var selectedBadge by remember { mutableStateOf<CollectibleBadge?>(null) }
 
+    // #32: order biomes so ones with collected stickers come first — the
+    // milestone sticker was unreachable at the bottom of five empty sections.
+    // Stable sort: collected-first by count desc, then natural biome order.
+    val biomeOrder = remember(allBadges) {
+        val collectedFirst = BadgeBiome.entries.sortedByDescending { biome ->
+            allBadges.count { it.biome == biome.name.lowercase() && it.isCollected }
+        }
+        // Keep uncollected biomes in their canonical order after any with stickers.
+        collectedFirst
+    }
+
+    // Scroll to the newly earned sticker when arriving via the reveal screen.
+    val listState = rememberLazyListState()
     LaunchedEffect(allBadges, initialBadgeId) {
         if (initialBadgeId != null) {
             selectedBadge = allBadges.firstOrNull { it.id == initialBadgeId && it.isCollected }
+            val targetBiome = allBadges.firstOrNull { it.id == initialBadgeId }?.biome
+            if (targetBiome != null) {
+                var index = 0
+                for (biome in biomeOrder) {
+                    if (biome.name.lowercase() == targetBiome) break
+                    val count = allBadges.count { it.biome == biome.name.lowercase() }
+                    index += 1 + ((count + 4) / 5) + 1 // header + grid rows + spacer
+                }
+                listState.animateScrollToItem(index)
+            }
         }
     }
 
@@ -54,8 +78,8 @@ fun WildlifeFieldGuideScreen(
             )
         }
     ) { padding ->
-        LazyColumn(Modifier.padding(padding).fillMaxSize().background(Cream)) {
-            BadgeBiome.entries.forEach { biome ->
+        LazyColumn(Modifier.padding(padding).fillMaxSize().background(Cream), state = listState) {
+            biomeOrder.forEach { biome ->
                 val key = biome.name.lowercase()
                 val biomeBadges = allBadges.filter { it.biome == key }
                 val biomeCollected = biomeBadges.count { it.isCollected }
@@ -307,7 +331,7 @@ fun BadgeRevealScreen(
                         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             Button(onClick = onReturnToVillage, shape = RoundedCornerShape(16.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Teal40), modifier = Modifier.height(52.dp)) {
-                                Text("Back to Village")
+                                Text("Back to Playroom")
                             }
                             OutlinedButton(onClick = onViewFieldGuide, shape = RoundedCornerShape(16.dp), modifier = Modifier.height(52.dp)) {
                                 Text("View Field Guide")
