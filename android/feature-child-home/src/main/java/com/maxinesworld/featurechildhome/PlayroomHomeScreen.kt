@@ -659,7 +659,7 @@ private fun SubjectCard(
     }
 }
 
-// ─── Today's Quest (design.md §11) ───────────────────────────────────
+// ─── This Week's Quest (design.md §11) ────────────────────────────────
 
 @Composable
 private fun TodayQuestCard(
