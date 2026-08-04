@@ -2,6 +2,9 @@ package com.maxinesworld.featureauth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,12 +17,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.verticalScroll
 import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -33,11 +41,15 @@ fun ParentAuthScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    // Back from "Create Child Profile" returns to the profile picker when
-    // profiles exist (the "+ Add another child" path); otherwise the system
-    // default (exit) applies — there is no earlier step to return to.
-    BackHandler(enabled = state.currentScreen == AuthScreen.CREATE_PROFILE && state.childProfiles.isNotEmpty()) {
-        viewModel.onHideCreateProfile()
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
+    BackHandler(enabled = state.currentScreen == AuthScreen.PIN_SETUP || state.currentScreen == AuthScreen.CREATE_PROFILE) {
+        if (state.currentScreen == AuthScreen.CREATE_PROFILE && state.childProfiles.isNotEmpty()) {
+            viewModel.onHideCreateProfile()
+        } else {
+            keyboardController?.hide()
+            focusManager.clearFocus(force = true)
+        }
     }
 
     when (state.currentScreen) {
@@ -58,9 +70,13 @@ private fun LoadingScreen() {
 
 @Composable
 private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .imePadding()
+            .verticalScroll(rememberScrollState())
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -88,13 +104,27 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
             label = { Text("Your name") },
             leadingIcon = { Icon(Icons.Default.Person, "Name") },
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp)
+            shape = RoundedCornerShape(16.dp),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Done,
+            ),
+            keyboardActions = KeyboardActions(onDone = {
+                keyboardController?.hide()
+                focusManager.clearFocus(force = true)
+            }),
         )
         Spacer(Modifier.height(16.dp))
 
-        Text("Choose a PIN", fontWeight = FontWeight.Medium)
+        Text("Choose a 6-digit PIN", fontWeight = FontWeight.Medium)
         Spacer(Modifier.height(12.dp))
         PinDots(length = state.pinInput.length)
+        Text(
+            "${state.pinInput.length} of 6 digits",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         Spacer(Modifier.height(16.dp))
 
         PinPad { digit -> viewModel.onPinDigit(digit) }
@@ -248,9 +278,13 @@ private fun ChildSelectScreen(
 
 @Composable
 private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .imePadding()
+            .verticalScroll(rememberScrollState())
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -268,11 +302,20 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
         OutlinedTextField(
             value = state.newChildName,
             onValueChange = viewModel::onUpdateNewChildName,
-            label = { Text("Child's name") },
+            label = { Text("Child's name (required)") },
             placeholder = { Text("Type your child's name") },
             isError = state.childNameError != null,
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp)
+            shape = RoundedCornerShape(16.dp),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Done,
+            ),
+            keyboardActions = KeyboardActions(onDone = {
+                keyboardController?.hide()
+                focusManager.clearFocus(force = true)
+            }),
         )
         Spacer(Modifier.height(8.dp))
         Text(

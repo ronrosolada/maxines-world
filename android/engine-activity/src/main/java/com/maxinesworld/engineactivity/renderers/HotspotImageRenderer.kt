@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
@@ -49,6 +50,23 @@ internal fun hotspotGridColumns(hotspotCount: Int): Int = when {
     else -> 4
 }
 
+/** Keeps the badge in the cell's top-start corner, away from centered labels. */
+internal fun hotspotBadgeOffset(
+    index: Int,
+    columns: Int,
+    boardPadding: Dp,
+    cellWidth: Dp,
+    cellHeight: Dp,
+): Pair<Dp, Dp> {
+    val safeColumns = columns.coerceAtLeast(1)
+    val safeIndex = index.coerceAtLeast(0)
+    return (
+        boardPadding + cellWidth * (safeIndex % safeColumns) + 8.dp
+    ) to (
+        boardPadding + cellHeight * (safeIndex / safeColumns) + 8.dp
+    )
+}
+
 /**
  * Hotspot image: tappable regions overlaid on a placeholder image area.
  * Single-answer activities finish on one correct tap. ALL_TARGETS_VISITED
@@ -76,6 +94,39 @@ fun HotspotImageRenderer(
         ?.coerceAtMost(hotspots.size)
         ?: hotspots.size
     val targetIndex = if (step.correctIndex in hotspots.indices) step.correctIndex else 0
+
+    fun handleHotspotTap(index: Int) {
+        if (allTargetsRequired) {
+            val nextProgress = recordHotspotTargetTap(hotspotProgress, index, targetCount)
+            hotspotProgress = nextProgress
+            if (nextProgress.completed) {
+                result = true
+                onResult(
+                    ActivityResult(
+                        activityId = step.id,
+                        correct = true,
+                        attempts = nextProgress.attempts,
+                        hintsUsed = 0,
+                        responseTimeMs = System.currentTimeMillis() - startTime
+                    )
+                )
+            }
+        } else {
+            tappedRegion = index
+            attempts++
+            val correct = index == targetIndex
+            result = correct
+            onResult(
+                ActivityResult(
+                    activityId = step.id,
+                    correct = correct,
+                    attempts = attempts,
+                    hintsUsed = 0,
+                    responseTimeMs = System.currentTimeMillis() - startTime
+                )
+            )
+        }
+    }
 
     Column(
         modifier = modifier
@@ -114,7 +165,7 @@ fun HotspotImageRenderer(
                     .padding(boardPadding),
                 verticalArrangement = Arrangement.SpaceEvenly
             ) {
-                hotspots.chunked(columns).forEach { rowHotspots ->
+                hotspots.chunked(columns).forEachIndexed { rowIndex, rowHotspots ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -122,7 +173,8 @@ fun HotspotImageRenderer(
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        rowHotspots.forEach { label ->
+                        rowHotspots.forEachIndexed { columnIndex, label ->
+                            val index = rowIndex * columns + columnIndex
                             Box(
                                 modifier = Modifier
                                     .weight(1f)
@@ -130,14 +182,17 @@ fun HotspotImageRenderer(
                                     .padding(vertical = 8.dp)
                                     .clip(RoundedCornerShape(12.dp))
                                     .background(Cream.copy(alpha = 0.82f))
-                                    .border(1.dp, VillageTeal.copy(alpha = 0.25f), RoundedCornerShape(12.dp)),
+                                    .border(1.dp, VillageTeal.copy(alpha = 0.25f), RoundedCornerShape(12.dp))
+                                    .clickable(enabled = result == null && (!allTargetsRequired || index !in hotspotProgress.visited)) {
+                                        handleHotspotTap(index)
+                                    },
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     text = label,
                                     textAlign = TextAlign.Center,
                                     style = MaterialTheme.typography.bodyLarge,
-                                    modifier = Modifier.padding(40.dp, 12.dp, 12.dp, 12.dp)
+                                    modifier = Modifier.padding(start = 56.dp, top = 12.dp, end = 12.dp, bottom = 12.dp)
                                 )
                             }
                         }
@@ -160,46 +215,24 @@ fun HotspotImageRenderer(
                     label = "hotspot$index"
                 )
 
+                val (badgeX, badgeY) = hotspotBadgeOffset(
+                    index = index,
+                    columns = columns,
+                    boardPadding = boardPadding,
+                    cellWidth = cellWidth,
+                    cellHeight = cellHeight,
+                )
                 Box(
                     modifier = Modifier
                         .offset(
-                            x = boardPadding + cellWidth * (index % columns).toFloat() + (cellWidth - hotspotSize) / 2,
-                            y = boardPadding + cellHeight * (index / columns).toFloat() + 8.dp
+                            x = badgeX,
+                            y = badgeY,
                         )
                         .size(hotspotSize)
                         .clip(CircleShape)
                         .background(bgColor)
                         .clickable(enabled = result == null && (!allTargetsRequired || !isVisited)) {
-                            if (allTargetsRequired) {
-                                val nextProgress = recordHotspotTargetTap(hotspotProgress, index, targetCount)
-                                hotspotProgress = nextProgress
-                                if (nextProgress.completed) {
-                                    result = true
-                                    onResult(
-                                        ActivityResult(
-                                            activityId = step.id,
-                                            correct = true,
-                                            attempts = nextProgress.attempts,
-                                            hintsUsed = 0,
-                                            responseTimeMs = System.currentTimeMillis() - startTime
-                                        )
-                                    )
-                                }
-                            } else {
-                                tappedRegion = index
-                                attempts++
-                                val correct = isTarget
-                                result = correct
-                                onResult(
-                                    ActivityResult(
-                                        activityId = step.id,
-                                        correct = correct,
-                                        attempts = attempts,
-                                        hintsUsed = 0,
-                                        responseTimeMs = System.currentTimeMillis() - startTime
-                                    )
-                                )
-                            }
+                            handleHotspotTap(index)
                         }
                         .semantics {
                             contentDescription = "Hotspot $label" +
@@ -220,41 +253,5 @@ fun HotspotImageRenderer(
             }
         }
 
-        // Labels grid; keep longer content usable when a lesson has more than four targets.
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            hotspots.chunked(2).forEachIndexed { rowIndex, rowHotspots ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    rowHotspots.forEachIndexed { columnIndex, label ->
-                        val index = rowIndex * 2 + columnIndex
-                        Text(
-                            text = "${index + 1}. $label",
-                            style = MaterialTheme.typography.labelMedium,
-                            modifier = Modifier
-                                .weight(1f)
-                                .semantics { contentDescription = "Region ${index + 1}: $label" }
-                        )
-                    }
-                    if (rowHotspots.size == 1) Spacer(Modifier.weight(1f))
-                }
-            }
-        }
-
-        if (result != null) {
-            Text(
-                text = if (result == true) step.feedback?.correct ?: "Great job! 🎉"
-                else step.feedback?.incorrect ?: "Let's try again! 💪",
-                color = if (result == true) SuccessGreen else ErrorRed,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.semantics {
-                    contentDescription = if (result == true) "Correct answer" else "Incorrect"
-                }
-            )
-        }
     }
 }

@@ -4,11 +4,13 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.MatchPair
 import com.maxinesworld.coremodel.SortItem
 import com.maxinesworld.engineactivity.renderers.HotspotProgress
+import com.maxinesworld.engineactivity.renderers.hotspotBadgeOffset
 import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
 import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import androidx.compose.ui.unit.dp
 
 /**
  * These are pure-logic guards for the answer-key conventions the renderers
@@ -74,5 +76,12 @@ class RendererContractTest {
         assertEquals(3, hotspotGridColumns(5))
         assertEquals(3, hotspotGridColumns(8))
         assertEquals(4, hotspotGridColumns(10))
+    }
+
+    @Test
+    fun `hotspot badges stay at the top start of their cells`() {
+        val (x, y) = hotspotBadgeOffset(3, 2, 16.dp, 100.dp, 80.dp)
+        assertEquals(124.dp, x)
+        assertEquals(104.dp, y)
     }
 }
