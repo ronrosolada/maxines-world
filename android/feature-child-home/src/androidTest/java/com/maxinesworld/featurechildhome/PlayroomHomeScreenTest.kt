@@ -63,7 +63,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun weeklyExpeditionCopyRenders() {
         setHome(stateFor(2))
-        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
+        composeRule.onNodeWithText("This Week's Quest").assertIsDisplayed()
         composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertIsDisplayed()
         composeRule.onNodeWithText("Open Field Guide").assertIsDisplayed()

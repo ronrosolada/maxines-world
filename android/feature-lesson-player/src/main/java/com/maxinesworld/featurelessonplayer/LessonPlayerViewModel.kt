@@ -15,6 +15,7 @@ import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
+import com.maxinesworld.corecontent.friendlyLessonTitleOf
 import com.maxinesworld.enginemastery.MasteryEngine
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
@@ -243,7 +244,7 @@ class LessonPlayerViewModel @Inject constructor(
         return LessonManifest(
             id = m1.lessonId, schemaVersion = m1.schemaVersion,
             moduleId = "g3-m01",
-            title = m1.title, subject = subj, objective = m1.objective,
+            title = friendlyLessonTitleOf(m1.title), subject = subj, objective = m1.objective,
             skillIds = listOf(m1.lessonId),
             guideCharacter = "Milo",
             estimatedMinutes = m1.estimatedMinutes,
@@ -332,6 +333,15 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
     var hotspotExamples: List<String> = emptyList()
     var narration = act.instruction
 
+    // Curriculum jargon in authored instructions ("shows the skill") is
+    // opaque to a 7-year-old. Rewrite the phrase kid-friendly at render
+    // time (adversarial UX review #36) — content files stay untouched.
+    // Bucket labels follow the same rule: True/False is the familiar
+    // DepEd Tama/Mali format (user request, Aug 2026).
+    question = question
+        .replace("does not show the skill", "false")
+        .replace("shows the skill", "true")
+
     runCatching {
         when (act.type) {
             "ANIMATED_EXPLANATION" -> {
@@ -347,7 +357,9 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
                 val fits = obj?.stringList("fits") ?: emptyList()
                 val doesNotFit = obj?.stringList("doesNotFit") ?: emptyList()
                 // Category 0 = fits, category 1 = does not fit.
-                sortCategories = listOf("Fits the lesson", "Does not fit")
+                // Bucket labels in the familiar DepEd True/False (Tama/Mali)
+                // format instead of teacher-speak (#36, user request):
+                sortCategories = listOf("True", "False")
                 sortItems = (fits.map { SortItem(it, 0) } + doesNotFit.map { SortItem(it, 1) })
                     .shuffled(java.util.Random(act.activityId.hashCode().toLong()))
             }
@@ -363,7 +375,11 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
                     val p = element.jsonObject
                     val left = p["left"]?.jsonPrimitive?.contentOrNull()
                     val right = p["right"]?.jsonPrimitive?.contentOrNull()
-                    if (left != null && right != null) MatchPair(left, right) else null
+                    if (left != null && right != null) {
+                        // Same kid-friendly treatment as sort buckets (#36):
+                        // "shows the skill" → "true" / "does not show the skill" → "false".
+                        MatchPair(left, right.replace("does not show the skill", "false").replace("shows the skill", "true"))
+                    } else null
                 } ?: emptyList()
             }
 
