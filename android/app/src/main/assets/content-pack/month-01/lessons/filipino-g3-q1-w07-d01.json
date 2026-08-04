@@ -26,14 +26,6 @@
     {
       "term": "Tuldok",
       "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagsasalaysay."
-    },
-    {
-      "term": "Tandang pananong",
-      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na nagtatanong."
-    },
-    {
-      "term": "Tandang padamdam",
-      "definition": "Bantas na ginagamit sa hulihan ng pangungusap na may matinding damdamin."
     }
   ],
   "activities": [
@@ -207,14 +199,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w07-d01-visual",
-      "instruction": "Ayusin ang mga tuntunin sa paggamit ng bantas ayon sa tamang pagkakasunod-sunod.",
+      "instruction": "Ayusin ang mga hakbang sa pagwawasto ng isang pangungusap.",
       "content": {
         "steps": [
-          "Gumamit ng tuldok (.) sa hulihan ng pangungusap na nagsasalaysay.",
-          "Gumamit ng tandang pananong (?) sa hulihan ng tanong.",
-          "Gumamit ng tandang padamdam (!) sa hulihan ng pangungusap na may matinding damdamin.",
-          "Gumamit ng kuwit (,) sa paghihiwalay ng mga salita sa serye.",
-          "Tandaan: Ang tamang bantas ay mahalaga upang maunawaan ang diwa ng pangungusap."
+          "Basahin ang pangungusap.",
+          "Tukuyin kung saan kailangan ang malaking letra at bantas.",
+          "Piliin ang angkop na malaking letra at bantas.",
+          "Isulat muli at suriin ang buong pangungusap."
         ]
       },
       "completionRule": {
@@ -224,11 +215,11 @@
         "correct": "Tama! Alam mo na ang mga tuntunin sa bantas.",
         "retry": "Ayusin muli ang pagkakasunod-sunod."
       },
-      "prompt": "Ayusin ang mga tuntunin sa paggamit ng bantas!",
-      "narration": "Panghuli, ayusin naman natin ang mahahalagang tuntunin sa paggamit ng mga bantas.",
-      "guideHint": "Ang pinakagamitin ay tuldok, sunod ang pananong, padamdam, at kuwit.",
+      "prompt": "Ayusin ang mga hakbang mula pagbasa hanggang pagsuri.",
+      "narration": "Gamitin ang mga hakbang upang maitama ang malaking letra at bantas.",
+      "guideHint": "Basahin muna, tukuyin ang kailangan, piliin ang bantas, saka suriin.",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Limang tuntunin sa paggamit ng bantas na kailangang ayusin."
+      "accessibilityAlternative": "Apat na hakbang sa pagwawasto ng malaking letra at bantas."
     }
   ],
   "assessment": {

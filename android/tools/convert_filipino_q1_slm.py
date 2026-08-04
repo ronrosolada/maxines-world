@@ -8,6 +8,7 @@ adapter makes the schema bridge explicit, deterministic, and reviewable.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import zipfile
 from pathlib import Path
@@ -29,6 +30,111 @@ SOURCE_ACTIVITY_ORDER = [
     "MULTIPLE_CHOICE",
     "MATCHING_PAIRS",
 ]
+
+OBJECTIVE_OVERRIDES = {
+    "filipino-g3-q1-w06-d02": "Natutukoy ang mahahalagang pangyayari at naiaayos ang mga ito ayon sa pagkakasunod-sunod sa isang napakinggang kuwento.",
+    "filipino-g3-q1-w08-d01": "Natutukoy ang simula, gitna, at wakas ng kuwento at naiaayos ang mga hakbang sa pagbuo nito.",
+}
+
+VOCABULARY_TERM_SELECTIONS = {
+    "filipino-g3-q1-w04-d01": ["Baybay", "Tsubibo", "Batobalani"],
+    "filipino-g3-q1-w05-d01": ["Ako", "Ikaw", "Siya"],
+    "filipino-g3-q1-w05-d02": ["Pagbati", "Paumanhin", "Pakiusap"],
+    "filipino-g3-q1-w06-d01": ["Tauhan", "Tagpuan", "Banghay"],
+    "filipino-g3-q1-w07-d01": ["Malaking letra", "Maliit na letra", "Tuldok"],
+    "filipino-g3-q1-w07-d02": ["Ito", "Iyan", "Iyon"],
+    "filipino-g3-q1-w08-d01": ["Simula", "Gitna", "Wakas"],
+}
+
+
+def _clean_matching_label(value: Any) -> str:
+    """Keep the answer label separate from source explanatory text."""
+    text = " ".join(str(value or "").split()).strip()
+    return text.split(" — ", 1)[0].strip() if " — " in text else text
+
+
+def _normalize_source(source: dict[str, Any]) -> dict[str, Any]:
+    """Apply reviewed, reproducible corrections before schema conversion."""
+    normalized = copy.deepcopy(source)
+    lesson_id = normalized["lessonId"]
+
+    if lesson_id in OBJECTIVE_OVERRIDES:
+        normalized["objective"] = OBJECTIVE_OVERRIDES[lesson_id]
+
+    if lesson_id in VOCABULARY_TERM_SELECTIONS:
+        vocabulary_by_term = {entry.get("term"): entry for entry in normalized.get("vocabulary", [])}
+        normalized["vocabulary"] = [
+            vocabulary_by_term[term]
+            for term in VOCABULARY_TERM_SELECTIONS[lesson_id]
+            if term in vocabulary_by_term
+        ]
+
+    for activity in normalized.get("activities", []):
+        activity_type = activity.get("type")
+        content = activity.get("content")
+        if activity_type == "MATCHING_PAIRS" and isinstance(content, dict):
+            for pair in content.get("pairs", []):
+                if isinstance(pair, dict):
+                    pair["right"] = _clean_matching_label(pair.get("right"))
+
+        if lesson_id == "filipino-g3-q1-w04-d02" and activity_type == "SORT_AND_CLASSIFY":
+            fits = content.get("fits", []) if isinstance(content, dict) else []
+            activity["content"]["fits"] = [
+                "Sa titik B, pagkatapos ng 'buhay' at bago ang 'bulaklak'."
+                if item == "Sa titik B, pagitan ng 'bintana' at 'buhay'"
+                else item
+                for item in fits
+            ]
+
+        if lesson_id == "filipino-g3-q1-w07-d01" and activity_type == "SEQUENCE_BUILDER":
+            activity["instruction"] = "Ayusin ang mga hakbang sa pagwawasto ng isang pangungusap."
+            activity["prompt"] = "Ayusin ang mga hakbang mula pagbasa hanggang pagsuri."
+            activity["narration"] = "Gamitin ang mga hakbang upang maitama ang malaking letra at bantas."
+            activity["guideHint"] = "Basahin muna, tukuyin ang kailangan, piliin ang bantas, saka suriin."
+            activity["accessibilityAlternative"] = "Apat na hakbang sa pagwawasto ng malaking letra at bantas."
+            activity["content"] = {
+                "steps": [
+                    "Basahin ang pangungusap.",
+                    "Tukuyin kung saan kailangan ang malaking letra at bantas.",
+                    "Piliin ang angkop na malaking letra at bantas.",
+                    "Isulat muli at suriin ang buong pangungusap.",
+                ]
+            }
+
+        if lesson_id == "filipino-g3-q1-w07-d02" and activity_type == "SEQUENCE_BUILDER":
+            activity["content"] = {"steps": activity.get("content", {}).get("steps", [])[:3]}
+            activity["accessibilityAlternative"] = "Tatlong panghalip na pamatlig mula sa pinakamalapit hanggang pinakamalayo."
+
+    if lesson_id == "filipino-g3-q1-w04-d02":
+        for entry in normalized.get("vocabulary", []):
+            if entry.get("term") == "Paaplabeto":
+                entry["term"] = "Paalpabeto"
+        for item in normalized.get("assessment", {}).get("items", []):
+            for choice in item.get("choices", []):
+                if choice.get("text") == "Sa titik B, pagitan ng 'bintana' at 'buhay'":
+                    choice["text"] = "Sa titik B, pagkatapos ng 'buhay' at bago ang 'bulaklak'."
+
+    assessment_items = normalized.get("assessment", {}).get("items", [])
+    if lesson_id == "filipino-g3-q1-w04-d02":
+        for item in assessment_items:
+            for choice in item.get("choices", []):
+                if choice.get("text") == "Paaplabeto":
+                    choice["text"] = "Paalpabeto"
+
+    if lesson_id == "filipino-g3-q1-w06-d01" and len(assessment_items) >= 5:
+        item = assessment_items[4]
+        item["question"] = "Saan nakita nina Ana ang sugatang ibon?"
+        item["choices"] = [
+            {"text": "Sa ilalim ng puno", "correct": True},
+            {"text": "Sa loob ng silid-aralan", "correct": False},
+            {"text": "Sa palengke", "correct": False},
+            {"text": "Sa simbahan", "correct": False},
+        ]
+
+    if lesson_id == "filipino-g3-q1-w06-d02" and len(assessment_items) >= 5:
+        assessment_items[4]["question"] = "Bakit naging mabait, matalino, at mapagmahal si Pam?"
+
+    return normalized
 
 
 def _feedback() -> dict[str, str]:
@@ -308,6 +414,7 @@ def _assessment_items(source: dict[str, Any], lesson_id: str) -> list[dict[str, 
 
 
 def convert_lesson(source: dict[str, Any]) -> dict[str, Any]:
+    source = _normalize_source(source)
     lesson_id = source["lessonId"]
     source_by_type = {activity["type"]: activity for activity in source.get("activities", [])}
     derived_types: list[str] = []

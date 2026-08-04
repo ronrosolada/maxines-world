@@ -1,6 +1,6 @@
 import unittest
 
-from convert_filipino_q1_slm import convert_lesson
+from convert_filipino_q1_slm import _normalize_source, convert_lesson
 
 
 class ConvertFilipinoQ1SlmTest(unittest.TestCase):
@@ -54,6 +54,59 @@ class ConvertFilipinoQ1SlmTest(unittest.TestCase):
         self.assertEqual(lesson["storyIntro"], source["storyIntro"])
         self.assertEqual(lesson["scene"], source["scene"])
         self.assertEqual(lesson["accessibility"], source["accessibility"])
+
+    def test_applies_reviewed_content_corrections_before_conversion(self):
+        source = {
+            "lessonId": "filipino-g3-q1-w07-d01",
+            "objective": "Lumang layunin.",
+            "vocabulary": [{"term": term, "definition": term} for term in [
+                "Malaking letra", "Maliit na letra", "Tuldok", "Tandang pananong", "Tandang padamdam",
+            ]],
+            "activities": [
+                {
+                    "type": "SEQUENCE_BUILDER",
+                    "content": {"steps": ["Tuldok", "Tandang pananong", "Paalala"]},
+                },
+                {
+                    "type": "MATCHING_PAIRS",
+                    "content": {"pairs": [{"left": "Bitbit mo ang tsokolate", "right": "Ito — Bitbit mo ang tsokolate"}]},
+                },
+            ],
+        }
+        normalized = _normalize_source(source)
+        self.assertEqual([entry["term"] for entry in normalized["vocabulary"]], ["Malaking letra", "Maliit na letra", "Tuldok"])
+        self.assertEqual(
+            normalized["activities"][0]["content"]["steps"],
+            [
+                "Basahin ang pangungusap.",
+                "Tukuyin kung saan kailangan ang malaking letra at bantas.",
+                "Piliin ang angkop na malaking letra at bantas.",
+                "Isulat muli at suriin ang buong pangungusap.",
+            ],
+        )
+        self.assertEqual(normalized["activities"][1]["content"]["pairs"][0]["right"], "Ito")
+
+        story_source = {
+            "lessonId": "filipino-g3-q1-w06-d02",
+            "objective": "Lumang layunin.",
+            "assessment": {"items": [{"question": "Q", "choices": []} for _ in range(5)]},
+        }
+        story_normalized = _normalize_source(story_source)
+        self.assertIn("mahahalagang pangyayari", story_normalized["objective"])
+        self.assertIn("matalino", story_normalized["assessment"]["items"][4]["question"])
+
+        dictionary_source = {
+            "lessonId": "filipino-g3-q1-w04-d02",
+            "vocabulary": [{"term": "Paaplabeto", "definition": "..."}],
+            "assessment": {
+                "items": [{
+                    "choices": [{"text": "Sa titik B, pagitan ng 'bintana' at 'buhay'", "correct": True}],
+                }],
+            },
+        }
+        dictionary_normalized = _normalize_source(dictionary_source)
+        self.assertEqual(dictionary_normalized["vocabulary"][0]["term"], "Paalpabeto")
+        self.assertIn("pagkatapos ng 'buhay'", dictionary_normalized["assessment"]["items"][0]["choices"][0]["text"])
 
     def test_derives_hotspot_from_matching_pairs_not_sort_fits(self):
         source = {
