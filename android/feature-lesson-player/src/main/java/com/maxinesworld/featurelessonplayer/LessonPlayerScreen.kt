@@ -114,10 +114,17 @@ fun LessonPlayerScreen(
                             badge = state.badgeAwarded!!,
                             challengeProgress = state.expeditionProgress,
                             onViewFieldGuide = { onViewFieldGuide(state.badgeAwarded!!.id) },
-                            onReturnToVillage = onComplete
+                            onReturnToVillage = onComplete,
+                            onPlayGames = state.rewardBreakId?.let { breakId ->
+                                { onRewardBreak(childId, breakId) }
+                            },
                         )
                     } else {
-                        LessonCompleteScreen(state, onComplete)
+                        LessonCompleteScreen(state, onComplete) {
+                            state.rewardBreakId?.let { breakId ->
+                                onRewardBreak(childId, breakId)
+                            }
+                        }
                     }
                 }
                 else -> LessonContent(state, viewModel)
@@ -488,7 +495,7 @@ private fun ErrorDisplay(error: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGames: () -> Unit = {}) {
+fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGames: () -> Unit = {}) {
     val scored = state.results.filter { it.scored }
     val correct = scored.count { it.correct }
     val total = scored.size
@@ -536,6 +543,19 @@ private fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, o
 
             Spacer(Modifier.height(24.dp))
             MaxinesPrimaryButton(onClick = onComplete, text = "Continue", modifier = Modifier.fillMaxWidth())
+            if (state.rewardBreakId != null) {
+                Spacer(Modifier.height(12.dp))
+                Button(
+                    onClick = onPlayGames,
+                    modifier = Modifier.fillMaxWidth().height(56.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = SunshineGold),
+                ) {
+                    Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
+                    Spacer(Modifier.width(8.dp))
+                    Text("Play a Reward Game", fontSize = 18.sp)
+                }
+            }
         }
     }
 }
