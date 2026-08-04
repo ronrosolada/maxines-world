@@ -39,7 +39,8 @@ data class Month1Activity(
     val completionRule: CompletionRule? = null,
     val feedback: Month1ActivityFeedback? = null,
     val assetId: String? = null,
-    @SerialName("accessibilityAlternative") val accessibilityAlternative: String? = null
+    @SerialName("accessibilityAlternative") val accessibilityAlternative: String? = null,
+    val hint: String? = null
 )
 
 @Serializable data class CompletionRule(val type: String, val targetCount: Int? = null)

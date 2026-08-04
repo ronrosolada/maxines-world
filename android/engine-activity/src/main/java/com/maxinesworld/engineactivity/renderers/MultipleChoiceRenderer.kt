@@ -50,6 +50,9 @@ fun MultipleChoiceRenderer(
     }
     val options = optionOrder.map(originalOptions::get)
     val displayedCorrectIndex = optionOrder.indexOf(step.correctIndex)
+    val hasHint = step.hintText.isNotBlank()
+    var hintVisible by remember(step.id) { mutableStateOf(false) }
+    var hintsUsed by remember(step.id) { mutableIntStateOf(0) }
 
     Column(
         modifier = modifier
@@ -106,26 +109,37 @@ fun MultipleChoiceRenderer(
             )
         }
 
+        if (hintVisible) {
+            Text(
+                text = "Hint: ${step.hintText}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = Ink,
+                modifier = Modifier.semantics { contentDescription = "Hint: ${step.hintText}" }
+            )
+        }
+
         Spacer(modifier = Modifier.weight(1f))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Hint button
-            MaxinesPrimaryButton(
-                onClick = {
-                    onHint()
-                    attempts++
-                },
-                text = "Hint",
-                containerColor = SunshineGold,
-                enabled = !submitted,
-                modifier = Modifier
-                    .weight(1f)
-                    .sizeIn(minHeight = 48.dp)
-                    .semantics { contentDescription = "Get a hint" }
-            )
+            if (hasHint) {
+                MaxinesPrimaryButton(
+                    onClick = {
+                        hintsUsed++
+                        hintVisible = true
+                        onHint()
+                    },
+                    text = "Hint",
+                    containerColor = SunshineGold,
+                    enabled = !submitted,
+                    modifier = Modifier
+                        .weight(1f)
+                        .sizeIn(minHeight = 48.dp)
+                        .semantics { contentDescription = "Get a hint" }
+                )
+            }
 
             // Submit / Retry button
             MaxinesPrimaryButton(
@@ -138,7 +152,7 @@ fun MultipleChoiceRenderer(
                                     activityId = step.id,
                                     correct = false,
                                     attempts = attempts,
-                                    hintsUsed = 0,
+                                    hintsUsed = hintsUsed,
                                     responseTimeMs = System.currentTimeMillis() - startTime
                                 )
                             )
@@ -158,7 +172,7 @@ fun MultipleChoiceRenderer(
                                     activityId = step.id,
                                     correct = true,
                                     attempts = attempts,
-                                    hintsUsed = 0,
+                                    hintsUsed = hintsUsed,
                                     responseTimeMs = System.currentTimeMillis() - startTime
                                 )
                             )

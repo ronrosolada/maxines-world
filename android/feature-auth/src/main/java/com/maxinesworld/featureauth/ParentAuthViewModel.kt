@@ -26,6 +26,7 @@ data class AuthUiState(
     val selectedChildId: String? = null,
     val showCreateProfile: Boolean = false,
     val newChildName: String = "",
+    val childNameError: String? = null,
     val currentScreen: AuthScreen = AuthScreen.LOADING,
     /** Consecutive failed PIN attempts (survives process restarts). */
     val failedAttempts: Int = 0,
@@ -86,50 +87,58 @@ class ParentAuthViewModel @Inject constructor(
         _state.update { it.copy(pinInput = it.pinInput.dropLast(1), pinError = null) }
     }
 
+    private var verificationInFlight = false
+
     private fun verifyPin() {
+        if (verificationInFlight) return
+        verificationInFlight = true
         viewModelScope.launch {
-            val pinHash = authManager.getPinHash()
-            val input = _state.value.pinInput
-            val now = System.currentTimeMillis()
-            val lockedUntil = authManager.getLockedUntilEpochMillis()
+            try {
+                val pinHash = authManager.getPinHash()
+                val input = _state.value.pinInput
+                val now = System.currentTimeMillis()
+                val lockedUntil = authManager.getLockedUntilEpochMillis()
 
-            if (lockedUntil > now) {
-                // Lockout still active: reject even a correct PIN.
-                val remainingSec = ((lockedUntil - now) / 1000) + 1
-                _state.update {
-                    it.copy(
-                        pinInput = "",
-                        pinError = "Too many attempts. Try again in ${remainingSec}s."
-                    )
-                }
-                return@launch
-            }
-
-            if (pinHash != null && authManager.verifyPin(input)) {
-                authManager.resetFailedAttempts()
-                _state.update { it.copy(failedAttempts = 0, lockedUntilEpochMillis = 0L) }
-                onAuthenticated()
-            } else {
-                val newLockedUntil = authManager.recordFailedAttempt(now)
-                val attempts = authManager.getFailedAttempts()
-                _state.update {
-                    if (newLockedUntil > 0) {
-                        val remainingSec = ((newLockedUntil - System.currentTimeMillis()) / 1000) + 1
+                if (lockedUntil > now) {
+                    // Lockout still active: reject even a correct PIN.
+                    val remainingSec = ((lockedUntil - now) / 1000) + 1
+                    _state.update {
                         it.copy(
                             pinInput = "",
-                            failedAttempts = attempts,
-                            lockedUntilEpochMillis = newLockedUntil,
                             pinError = "Too many attempts. Try again in ${remainingSec}s."
                         )
-                    } else {
-                        val left = ParentAuthManager.MAX_ATTEMPTS_BEFORE_LOCK - attempts
-                        it.copy(
-                            pinInput = "",
-                            failedAttempts = attempts,
-                            pinError = "Incorrect PIN. $left attempt${if (left == 1) "" else "s"} left."
-                        )
+                    }
+                    return@launch
+                }
+
+                if (pinHash != null && authManager.verifyPin(input)) {
+                    authManager.resetFailedAttempts()
+                    _state.update { it.copy(failedAttempts = 0, lockedUntilEpochMillis = 0L) }
+                    onAuthenticated()
+                } else {
+                    val newLockedUntil = authManager.recordFailedAttempt(now)
+                    val attempts = authManager.getFailedAttempts()
+                    _state.update {
+                        if (newLockedUntil > 0) {
+                            val remainingSec = ((newLockedUntil - System.currentTimeMillis()) / 1000) + 1
+                            it.copy(
+                                pinInput = "",
+                                failedAttempts = attempts,
+                                lockedUntilEpochMillis = newLockedUntil,
+                                pinError = "Too many attempts. Try again in ${remainingSec}s."
+                            )
+                        } else {
+                            val left = ParentAuthManager.MAX_ATTEMPTS_BEFORE_LOCK - attempts
+                            it.copy(
+                                pinInput = "",
+                                failedAttempts = attempts,
+                                pinError = "Incorrect PIN. $left attempt${if (left == 1) "" else "s"} left."
+                            )
+                        }
                     }
                 }
+            } finally {
+                verificationInFlight = false
             }
         }
     }
@@ -178,11 +187,18 @@ class ParentAuthViewModel @Inject constructor(
 
     fun onCreateChild(name: String) {
         viewModelScope.launch {
+            // No silent "Maxine" fallback — an empty name is an error, not a
+            // license to create a ghost profile named after the developer's
+            // daughter. (Adversarial UX review #27.)
+            if (name.isBlank()) {
+                _state.update { it.copy(childNameError = "Please type your child's name first.") }
+                return@launch
+            }
             val parent = parentAccountDao.getParent() ?: return@launch
             val child = ChildProfileEntity(
                 id = UUID.randomUUID().toString(),
                 parentId = parent.id,
-                name = name.ifBlank { "Maxine" }
+                name = name.trim()
             )
             childProfileDao.upsert(child)
             _state.update {
@@ -191,6 +207,7 @@ class ParentAuthViewModel @Inject constructor(
                     selectedChildId = child.id,
                     showCreateProfile = false,
                     newChildName = "",
+                    childNameError = null,
                     currentScreen = AuthScreen.CHILD_SELECT
                 )
             }
@@ -210,10 +227,26 @@ class ParentAuthViewModel @Inject constructor(
     }
 
     fun onShowCreateProfile() {
-        _state.update { it.copy(showCreateProfile = true) }
+        _state.update {
+            it.copy(
+                showCreateProfile = true,
+                childNameError = null,
+                currentScreen = AuthScreen.CREATE_PROFILE
+            )
+        }
     }
 
     fun onHideCreateProfile() {
-        _state.update { it.copy(showCreateProfile = false) }
+        _state.update {
+            it.copy(
+                showCreateProfile = false,
+                childNameError = null,
+                newChildName = "",
+                // Return to the picker when profiles exist; otherwise fall
+                // back to the parent gate (fresh install has no picker yet).
+                currentScreen = if (it.childProfiles.isNotEmpty()) AuthScreen.CHILD_SELECT
+                else AuthScreen.PIN_LOGIN
+            )
+        }
     }
 }
