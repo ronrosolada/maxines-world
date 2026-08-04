@@ -10,7 +10,9 @@ import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -42,24 +44,34 @@ class PlayroomHomeViewModel @Inject constructor(
     val state: StateFlow<PlayroomHomeUiState> = _state.asStateFlow()
 
     private var openingSubjectId: String? = null
+    private var stateJob: Job? = null
 
     init {
         collectState()
     }
 
     private fun collectState() {
+        stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
 
-        viewModelScope.launch {
-            combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
-                .collect { (profile, lessonIds) ->
-                    val expedition = badgeAwarder.getExpeditionProgress(childId)
-                    val badges = badgeAwarder.getCollectedBadges(childId)
-                    val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
-                    val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
-                    _state.value = buildContent(profile?.name, lessonIds, expedition, badges, stars, coins)
-                }
+        stateJob = viewModelScope.launch {
+            try {
+                combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
+                    .collect { (profile, lessonIds) ->
+                        val expedition = badgeAwarder.getExpeditionProgress(childId)
+                        val badges = badgeAwarder.getCollectedBadges(childId)
+                        val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
+                        val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
+                        _state.value = buildContent(profile?.name, lessonIds, expedition, badges, stars, coins)
+                    }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                _state.value = PlayroomHomeUiState.Error(
+                    message = "We couldn't load your Playroom. Try again."
+                )
+            }
         }
     }
 
