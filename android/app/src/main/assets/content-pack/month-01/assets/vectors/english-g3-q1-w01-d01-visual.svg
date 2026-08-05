@@ -1,1 +1,161 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc"><title id="title">Picture Detective visual board</title><desc id="desc">Topic-grounded visual board for Picture Detective. Four visual clues support the lesson objective without replacing the accessible text content.</desc><rect width="640" height="360" rx="40" fill="#FFF4D6"/><circle cx="590" cy="42" r="18" fill="#F2A65A" opacity="0.65"/><circle cx="52" cy="44" r="12" fill="#8DD3C7" opacity="0.65"/><path d="M72 286 Q180 238 288 286 T568 286" fill="none" stroke="#F2A65A" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"></path><circle cx="88" cy="286" r="11" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="3"></circle><circle cx="244" cy="286" r="11" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="3"></circle><circle cx="400" cy="286" r="11" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="3"></circle><circle cx="556" cy="286" r="11" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="3"></circle><rect x="20" y="84" width="136" height="136" rx="24" fill="#FFFDF5" stroke="#2E6F6D" stroke-width="4"></rect><rect x="77" y="160" width="22" height="45" rx="6" fill="#9A6A45" stroke="#2E6F6D" stroke-width="3"></rect><circle cx="88" cy="132" r="38" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="5"></circle><circle cx="58" cy="148" r="26" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="5"></circle><circle cx="118" cy="148" r="26" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="5"></circle><rect x="176" y="84" width="136" height="136" rx="24" fill="#FFF4D6" stroke="#2E6F6D" stroke-width="4"></rect><path d="M244,114 Q216,102 192,117 L192,190 Q219,177 244,190 Z" fill="#FFFDF5" stroke="#2E6F6D" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path><path d="M244,114 Q272,102 296,117 L296,190 Q269,177 244,190 Z" fill="#FFFDF5" stroke="#2E6F6D" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path><line x1="244" y1="114" x2="244" y2="190" stroke="#F2A65A" stroke-width="4" stroke-linecap="round"></line><rect x="332" y="84" width="136" height="136" rx="24" fill="#FFFDF5" stroke="#2E6F6D" stroke-width="4"></rect><circle cx="372" cy="137" r="22" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="4"></circle><rect x="406" y="115" width="44" height="44" rx="5" fill="#FFFDF5" stroke="#2E6F6D" stroke-width="4"></rect><polygon points="352,199 380,153 408,199" fill="#8DD3C7" stroke="#2E6F6D" stroke-width="4" stroke-linejoin="round"></polygon><rect x="488" y="84" width="136" height="136" rx="24" fill="#FFF4D6" stroke="#2E6F6D" stroke-width="4"></rect><polygon points="556.0,107.0 567.8,135.8 598.8,138.1 575.0,158.2 582.5,188.4 556.0,172.0 529.5,188.4 537.0,158.2 513.2,138.1 544.2,135.8" fill="#F2A65A" stroke="#2E6F6D" stroke-width="5" stroke-linejoin="round"></polygon></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">A lively neighborhood fiesta</title>
+  <desc id="desc">A colorful fiesta street with a parade, dancing people, a band, food on a table, laughing children, streamers, lanterns, and a red flag.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#78D4E8"/>
+      <stop offset="1" stop-color="#D8F5E9"/>
+    </linearGradient>
+    <linearGradient id="street" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6C77C"/>
+      <stop offset="1" stop-color="#E9A45E"/>
+    </linearGradient>
+    <linearGradient id="houseA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF1C9"/>
+      <stop offset="1" stop-color="#FFD49E"/>
+    </linearGradient>
+    <linearGradient id="houseB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFE1D1"/>
+      <stop offset="1" stop-color="#F5B4A2"/>
+    </linearGradient>
+    <linearGradient id="canopy" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#FF6B5E"/>
+      <stop offset="0.5" stop-color="#FFD15C"/>
+      <stop offset="1" stop-color="#4BBF9A"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dy="3" result="offset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- sunny sky and distant neighborhood -->
+  <rect width="640" height="360" rx="28" fill="url(#sky)"/>
+  <circle cx="552" cy="48" r="25" fill="#FFE47A" opacity="0.95"/>
+  <g fill="#FFFFFF" opacity="0.72">
+    <path d="M45 57c0-10 8-18 18-18 6 0 12 3 15 8 3-3 7-5 12-5 10 0 18 8 18 18H45z"/>
+    <path d="M414 43c0-8 6-14 14-14 5 0 9 2 12 6 3-3 6-4 10-4 8 0 14 6 14 14h-50z"/>
+  </g>
+
+  <!-- colorful houses -->
+  <g filter="url(#softShadow)">
+    <path d="M0 157L66 102l71 55v96H0z" fill="url(#houseA)"/>
+    <path d="M-8 157l74-65 79 65-10 11-69-57-64 57z" fill="#DF645E"/>
+    <rect x="24" y="177" width="37" height="42" rx="5" fill="#73BFD0" stroke="#397C80" stroke-width="3"/>
+    <path d="M42.5 177v42M24 198h37" stroke="#397C80" stroke-width="3"/>
+    <rect x="83" y="183" width="30" height="43" rx="4" fill="#A56E4B"/>
+    <circle cx="106" cy="204" r="2.5" fill="#FFE47A"/>
+
+    <path d="M497 151l71-58 72 58v102H497z" fill="url(#houseB)"/>
+    <path d="M484 153l84-70 84 70-11 12-73-60-73 60z" fill="#8E62B5"/>
+    <rect x="520" y="176" width="38" height="42" rx="5" fill="#73BFD0" stroke="#397C80" stroke-width="3"/>
+    <path d="M539 176v42M520 197h38" stroke="#397C80" stroke-width="3"/>
+    <rect x="578" y="177" width="30" height="45" rx="4" fill="#A56E4B"/>
+    <circle cx="601" cy="199" r="2.5" fill="#FFE47A"/>
+  </g>
+
+  <!-- string of streamers and bunting -->
+  <path d="M12 70 Q160 132 318 70 T628 70" fill="none" stroke="#F45E68" stroke-width="5"/>
+  <g stroke="#F45E68" stroke-width="2">
+    <path d="M48 89l12 23 12-15z" fill="#FFD15C"/>
+    <path d="M101 106l12 23 12-15z" fill="#54C59B"/>
+    <path d="M163 116l12 23 12-15z" fill="#FF6B5E"/>
+    <path d="M226 113l12 23 12-15z" fill="#FFD15C"/>
+    <path d="M291 88l12 23 12-15z" fill="#54C59B"/>
+    <path d="M365 88l12 23 12-15z" fill="#FF6B5E"/>
+    <path d="M430 111l12 23 12-15z" fill="#FFD15C"/>
+    <path d="M493 111l12 23 12-15z" fill="#54C59B"/>
+    <path d="M555 91l12 23 12-15z" fill="#FF6B5E"/>
+  </g>
+
+  <!-- hanging fiesta lanterns -->
+  <g stroke="#397C80" stroke-width="3">
+    <path d="M181 4v31M181 41v10"/>
+    <path d="M171 51h20l-3 28h-14z" fill="#FF6B5E"/>
+    <path d="M171 60h20M174 70h14" stroke="#FFD15C"/>
+    <path d="M461 3v28M461 38v10"/>
+    <path d="M451 48h20l-3 28h-14z" fill="#FFD15C"/>
+    <path d="M451 57h20M454 67h14" stroke="#FF6B5E"/>
+  </g>
+
+  <!-- red flag on a pole -->
+  <g filter="url(#softShadow)">
+    <path d="M31 108v150" stroke="#654B43" stroke-width="5"/>
+    <path d="M34 111c27-13 43 15 68 2v43c-25 13-41-15-68-2z" fill="#E9434F" stroke="#A72C45" stroke-width="3"/>
+    <path d="M49 121l7 14 15 2-11 10 3 15-14-8-14 8 3-15-11-10 15-2z" fill="#FFD15C"/>
+  </g>
+
+  <!-- festival street -->
+  <path d="M0 235 Q120 220 240 239 T480 237 T640 231V360H0z" fill="url(#street)"/>
+  <path d="M0 270 Q120 252 242 273 T480 270 T640 264" fill="none" stroke="#FFF0BC" stroke-width="5" opacity="0.8"/>
+  <path d="M0 310 Q120 292 242 313 T480 310 T640 304" fill="none" stroke="#FFF0BC" stroke-width="4" opacity="0.65"/>
+
+  <!-- food table with fiesta food -->
+  <g filter="url(#softShadow)">
+    <path d="M357 192h109l-12 15H369z" fill="#F45E68"/>
+    <path d="M365 207h95l-8 44h-79z" fill="#F8D17B" stroke="#A56E4B" stroke-width="3"/>
+    <path d="M371 215h83" stroke="#E88D58" stroke-width="5"/>
+    <path d="M375 251l-9 40M451 251l9 40" stroke="#805A48" stroke-width="5"/>
+    <ellipse cx="389" cy="190" rx="20" ry="9" fill="#F7F2D8" stroke="#397C80" stroke-width="3"/>
+    <path d="M376 187c4-12 10-13 13 0 5-11 13-8 14 2" fill="#EF8D51"/>
+    <circle cx="426" cy="190" r="12" fill="#7FC66B" stroke="#397C80" stroke-width="3"/>
+    <circle cx="432" cy="184" r="4" fill="#F45E68"/>
+  </g>
+
+  <!-- band: drummer, singer and guitar player -->
+  <g stroke="#397C80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)">
+    <!-- drummer -->
+    <circle cx="264" cy="188" r="13" fill="#B97958"/>
+    <path d="M250 204q14-9 28 0l5 37h-38z" fill="#FF6B5E"/>
+    <path d="M254 218l-17 20M275 218l15 20M255 208l-16-10M277 208l15-10" fill="none"/>
+    <ellipse cx="264" cy="246" rx="22" ry="13" fill="#FFD15C"/>
+    <path d="M243 244h42"/>
+    <path d="M249 231l-8-14M279 231l8-14" stroke="#A56E4B" stroke-width="2"/>
+    <!-- singer -->
+    <circle cx="307" cy="179" r="13" fill="#C78361"/>
+    <path d="M293 195q14-9 28 0l5 47h-38z" fill="#54C59B"/>
+    <path d="M299 211l-16 17M316 211l18-11M299 241l-9 31M317 241l12 31" fill="none" stroke-width="6"/>
+    <path d="M332 195v24"/>
+    <circle cx="332" cy="191" r="5" fill="#6B5560"/>
+    <!-- guitar player -->
+    <circle cx="518" cy="190" r="13" fill="#9A664F"/>
+    <path d="M504 205q14-9 28 0l5 38h-38z" fill="#F5B84E"/>
+    <path d="M510 219l-19 19M528 219l17 20M511 242l-10 31M527 242l12 31" fill="none" stroke-width="6"/>
+    <path d="M494 210l31 25" stroke="#805A48" stroke-width="5"/>
+    <ellipse cx="493" cy="207" rx="10" ry="13" fill="#E9434F"/>
+    <path d="M487 197l-14-21" stroke-width="5"/>
+  </g>
+
+  <!-- parade dancers in front -->
+  <g stroke="#397C80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)">
+    <!-- dancer 1 -->
+    <circle cx="112" cy="246" r="13" fill="#B97958"/>
+    <path d="M98 262q14-10 28 0l5 34H93z" fill="#8E62B5"/>
+    <path d="M104 272l-23-18M120 272l23-21M104 296l-10 34M120 296l13 34" fill="none" stroke-width="6"/>
+    <path d="M78 250l-7-8M143 247l7-8" stroke="#F45E68" stroke-width="4"/>
+    <!-- dancer 2 -->
+    <circle cx="181" cy="242" r="13" fill="#8E5A48"/>
+    <path d="M166 258q15-10 30 0l10 38h-50z" fill="#FFD15C"/>
+    <path d="M172 269l-25-18M190 269l25-20M174 296l-13 34M193 296l16 34" fill="none" stroke-width="6"/>
+    <path d="M143 248l-8-11M216 245l8-11" stroke="#54C59B" stroke-width="4"/>
+    <!-- child laughing 1 -->
+    <circle cx="570" cy="254" r="11" fill="#B97958"/>
+    <path d="M558 266q12-8 24 0l5 30h-34z" fill="#54C59B"/>
+    <path d="M563 276l-15-14M577 276l18-17M564 296l-8 29M578 296l10 29" fill="none" stroke-width="5"/>
+    <path d="M565 249q5 7 10 0M570 260h5" fill="none"/>
+    <!-- child laughing 2 -->
+    <circle cx="611" cy="250" r="11" fill="#8E5A48"/>
+    <path d="M599 263q12-8 24 0l5 33h-34z" fill="#FF6B5E"/>
+    <path d="M603 274l-17-14M618 274l16-17M604 296l-9 29M618 296l10 29" fill="none" stroke-width="5"/>
+    <path d="M605 245q5 7 10 0M610 257h5" fill="none"/>
+  </g>
+
+  <!-- parade streamer ribbons crossing the foreground -->
+  <path d="M0 329 Q100 300 200 330 T400 330 T640 318" fill="none" stroke="#F45E68" stroke-width="7"/>
+  <path d="M0 337 Q100 308 200 338 T400 338 T640 326" fill="none" stroke="#FFD15C" stroke-width="5"/>
+  <g fill="#FFF3C7" stroke="#397C80" stroke-width="2">
+    <circle cx="44" cy="326" r="5"/><circle cx="212" cy="330" r="5"/><circle cx="405" cy="330" r="5"/><circle cx="594" cy="321" r="5"/>
+  </g>
+</svg>

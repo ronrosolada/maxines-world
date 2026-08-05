@@ -99,7 +99,9 @@ def topic_key(lesson: dict[str, Any]) -> str:
             ("synonym", r"synonym|antonym"),
             ("root", r"root|word pattern|word patterns"),
             ("compound", r"compound sentence"),
-            ("sentence_parts", r"parts of simple sentence|who/what"),
+            ("sentence_parts", r"parts of simple sentence|who/what|sentence parts|what the subject does|what the sentence is about"),
+            ("nouns", r"common and proper nouns|common or proper"),
+            ("polite", r"polite expression|kind words"),
             ("capitalization", r"capitalization|punctuation"),
             ("discourse", r"discourse marker"),
             ("greeting", r"greeting|common expression"),
@@ -135,6 +137,13 @@ def topic_key(lesson: dict[str, Any]) -> str:
         ]
     elif subject == "mathematics":
         rules = [
+            ("number", r"building numbers|build and read numbers|thousands, hundreds, tens|numbers to 10,000"),
+            ("place_value", r"place and value|place-value|value of a digit"),
+            ("number_words", r"symbols and words|standard, expanded, and word forms"),
+            ("compare", r"compare whole numbers|greater, less, or equal"),
+            ("number_line", r"number line-up|least to greatest|greatest to least|order whole numbers"),
+            ("money", r"peso|centavo|money market"),
+            ("subtraction", r"subtract numbers|subtraction|regrouping"),
             ("area", r"area|squares and rectangles"),
             ("geometry", r"point|line segment|ray|parallel|perpendicular"),
             ("length", r"equal length|ruler"),
@@ -162,14 +171,23 @@ def topic_key(lesson: dict[str, Any]) -> str:
         ]
     elif subject == "science":
         rules = [
+            ("energy", r"heat and electricity|electricity|safe everyday sources"),
+            ("motion", r"force|pushes and pulls|push|pull|reference point|position and motion|moving objects|movement|surface texture|heaviness"),
             ("materials", r"material|solid|metal|properties|waste"),
             ("living", r"living|non-living|body parts|basic needs|plant|animal|environment"),
-            ("motion", r"moving objects|movement|surface texture|heaviness"),
             ("light_sound", r"light|sound"),
             ("sky_weather", r"sky|celestial|sun|moon|weather|earth material"),
         ]
     elif subject == "filipino":
         rules = [
+            ("story_comprehension", r"sino, ano, saan, kailan, at bakit|sagot mula sa teksto"),
+            ("book_parts", r"bahagi ng aklat|gamit nito"),
+            ("instructions", r"sundin ang malinaw na panuto|dalawa hanggang apat na hakbang"),
+            ("pronouns", r"panghalip|malinaw na tinutukoy"),
+            ("story_elements", r"elemento ng kuwento|tauhan, tagpuan|suliranin"),
+            ("ending_filipino", r"angkop na wakas|pumili ng wakas"),
+            ("inference", r"paghinuha|makatwirang hinuha|pahiwatig"),
+            ("animal_care", r"pag-aalaga ng hayop|alagang hayop"),
             ("greetings", r"magagalang|pagbati|pananalita"),
             ("root", r"salitang-ugat"),
             ("sentence_parts", r"bahagi ng payak|sugnay|tambalang pangungusap|pangungusap"),
@@ -194,6 +212,27 @@ def topic_key(lesson: dict[str, Any]) -> str:
                  ("judgment", r"maingat na paghuhusga|impormasyon"),
                  ("gratitude", r"mapagpasalamat"),
                  ("self_confidence", r"tiwala sa sarili|sariling hilig|sariling kakayahan")]
+    elif subject == "araling-panlipunan":
+        rules = [
+            ("map_symbols", r"map symbols|simbolo|legend|direksiyon|label|hilaga|timog|silangan|kanluran"),
+            ("population", r"population|populasyon|pictograph|bar graph|datos"),
+            ("terrain", r"kapatagan|bundok|lambak|baybayin|talampas|physical features"),
+            ("drainage", r"drainage|daloy ng tubig"),
+            ("land_water", r"anyong lupa|anyong tubig|land and water"),
+            ("hazard", r"hazard|ligtas|hazard-sensitive"),
+            ("resources", r"likas na yaman|natural resources|mapaminsalang paggamit"),
+            ("environment_map", r"environmental map|terrain.*tubig|yaman.*populasyon"),
+            ("province_origins", r"pinagmulan|oral history|alamat|tala"),
+            ("change_continuity", r"nagbago|nanatili|change and continuity"),
+            ("livelihood", r"kabuhayan|livelihood"),
+            ("provincial_symbols", r"sagisag|provincial symbols"),
+            ("arts_place", r"spoken chant|hymns|hymn|sining"),
+            ("community_helper", r"community helper|paglilingkod|local heroes"),
+            ("regional_identity", r"pagkakakilanlan|regional identity"),
+            ("cultural_practice", r"gawi|cultural practices|tradisyon"),
+            ("historical_site", r"historical places|historical site|makasaysayang lugar"),
+            ("cultural_map", r"cultural map|local art"),
+        ]
     else:  # makabansa
         rules = [( "music", r"folk song|ostinato|singing bee|cup game|matrix song|boom|mama|solfeggio|step and skip|soundtrack|call and response|soundscape|ritmo|tunog|awit"),
                  ("identity", r"pagka-pilipino|pagiging isang pilipino|pagkakakilanlan"),
