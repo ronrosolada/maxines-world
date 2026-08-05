@@ -43,11 +43,15 @@ class BadgeAwarder @Inject constructor(
         )
     }
 
+    /** Badge definitions are loaded before a completion transaction starts. */
+    suspend fun loadBadgeCatalog(): List<CollectibleBadge> = badgeLoader.loadAll()
+
     /** Record one distinct lesson completion in this week's expedition. */
     suspend fun recordLessonCompletion(
         childId: String,
         subject: String,
         lessonId: String,
+        badgeCatalog: List<CollectibleBadge>? = null,
     ): ChallengeProgress = awardMutex.withLock {
         val normalizedSubject = normalizeSubject(subject)
             ?: return@withLock getExpeditionProgressLocked(childId)
@@ -69,7 +73,7 @@ class BadgeAwarder @Inject constructor(
             updatedSubjectKeys.size >= EXPEDITION_MIN_SUBJECTS
 
         val newlyAwarded = if (qualifies && !existing.badgeAwarded) {
-            awardNextBadge(childId, weekKey)
+            awardNextBadge(childId, weekKey, badgeCatalog)
         } else {
             null
         }
@@ -100,10 +104,14 @@ class BadgeAwarder @Inject constructor(
      * lesson. Idempotent: a child can only ever earn this milestone once,
      * regardless of how many lessons they complete or replays they make.
      */
-    suspend fun recordFirstLessonCompletion(childId: String): CollectibleBadge? = awardMutex.withLock {
+    suspend fun recordFirstLessonCompletion(
+        childId: String,
+        badgeCatalog: List<CollectibleBadge>? = null,
+    ): CollectibleBadge? = awardMutex.withLock {
         val earned = collectedBadgeDao.getAllByChild(childId)
         if (earned.any { it.badgeId == FIRST_STEPS_BADGE_ID }) return@withLock null
-        val firstSteps = badgeLoader.loadAll().firstOrNull { it.id == FIRST_STEPS_BADGE_ID }
+        val firstSteps = (badgeCatalog ?: badgeLoader.loadAll())
+            .firstOrNull { it.id == FIRST_STEPS_BADGE_ID }
             ?: return@withLock null
         collectedBadgeDao.insert(
             CollectedBadgeEntity(
@@ -131,8 +139,12 @@ class BadgeAwarder @Inject constructor(
         return progressFrom(expedition)
     }
 
-    private suspend fun awardNextBadge(childId: String, weekKey: String): CollectibleBadge? {
-        val allBadges = badgeLoader.loadAll()
+    private suspend fun awardNextBadge(
+        childId: String,
+        weekKey: String,
+        badgeCatalog: List<CollectibleBadge>? = null,
+    ): CollectibleBadge? {
+        val allBadges = badgeCatalog ?: badgeLoader.loadAll()
         val earnedIds = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
         // Milestone stickers (e.g. First Steps) are awarded by their own
         // triggers; the weekly wildlife expedition must never hand one out.

@@ -11,13 +11,13 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.corecontent.friendlyLessonTitleOf
-import com.maxinesworld.enginemastery.MasteryEngine
-import com.maxinesworld.featurerewards.BadgeAwarder
+import com.maxinesworld.coredatabase.RewardBreakDao
+import com.maxinesworld.coredatabase.RewardBreakPolicy
+import com.maxinesworld.engineassessment.Scorer
 import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +44,7 @@ data class LessonUiState(
     val feedbackText: String = "",
     val feedbackCorrect: Boolean = false,
     val isComplete: Boolean = false,
+    val assessmentFailed: Boolean = false,
     val error: String? = null,
     val results: List<ActivityResult> = emptyList(),
     val badgeAwarded: CollectibleBadge? = null,
@@ -55,13 +56,9 @@ data class LessonUiState(
 class LessonPlayerViewModel @Inject constructor(
     application: Application,
     private val lessonLoader: LessonLoader,
-    private val progressEventDao: ProgressEventDao,
-    private val masteryRecordDao: MasteryRecordDao,
-    private val rewardDao: RewardDao,
-    private val masteryEngine: MasteryEngine,
-    private val badgeAwarder: BadgeAwarder,
+    private val scorer: Scorer,
     private val activeContentIndex: ActiveContentIndex,
-    private val lessonCompletionDao: LessonCompletionDao,
+    private val lessonCompletionRepository: LessonCompletionRepository,
     private val rewardBreakDao: RewardBreakDao,
 ) : AndroidViewModel(application) {
 
@@ -103,17 +100,52 @@ class LessonPlayerViewModel @Inject constructor(
     }
 
     fun onNextStep() {
-        _state.update {
-            val next = it.currentStep + 1
-            // Only mark complete if all required steps have results
-            val lesson = it.lesson
-            val requiredIds = lesson?.steps?.map { s -> s.id }?.toSet() ?: emptySet()
-            val completedIds = it.results.map { r -> r.activityId }.toSet()
-            val allDone = completedIds.containsAll(requiredIds) && next >= it.totalSteps
-            if (allDone) it.copy(currentStep = next, isComplete = true)
-            else it.copy(currentStep = next, showFeedback = false)
+        val snapshot = _state.value
+        val next = snapshot.currentStep + 1
+        val lesson = snapshot.lesson
+        val decision = lesson?.let {
+            evaluateLessonCompletion(it, snapshot.results, next, scorer)
         }
-        if (_state.value.isComplete) saveProgress()
+        val completed = decision?.complete == true
+        val assessmentFailed = decision?.assessmentFailed == true
+        _state.update {
+            when {
+                completed -> it.copy(
+                    currentStep = next,
+                    isComplete = true,
+                    assessmentFailed = false,
+                    showFeedback = false,
+                )
+                assessmentFailed -> it.copy(
+                    currentStep = next.coerceAtMost(it.totalSteps),
+                    isComplete = false,
+                    assessmentFailed = true,
+                    showFeedback = false,
+                )
+                else -> it.copy(
+                    currentStep = next,
+                    showFeedback = false,
+                )
+            }
+        }
+        if (completed) saveProgress()
+    }
+
+    /** Restart only the authored assessment; practice results remain visible. */
+    fun retryAssessment() {
+        val lesson = _state.value.lesson ?: return
+        val assessmentIds = lesson.assessment?.items?.map { it.id }?.toSet().orEmpty()
+        if (assessmentIds.isEmpty()) return
+        val assessmentStart = lesson.steps.indexOfFirst { it.id in assessmentIds }
+        if (assessmentStart < 0) return
+        _state.update {
+            it.copy(
+                currentStep = assessmentStart,
+                results = it.results.filterNot { result -> result.activityId in assessmentIds },
+                assessmentFailed = false,
+                showFeedback = false,
+            )
+        }
     }
 
     private fun saveProgress() {
@@ -124,98 +156,43 @@ class LessonPlayerViewModel @Inject constructor(
         if (childId.isBlank() || scoredResults.isEmpty()) return
 
         viewModelScope.launch {
-            for (result in scoredResults) {
-                progressEventDao.insert(ProgressEventEntity(
-                    id = UUID.randomUUID().toString(), childId = childId,
-                    skillId = lesson.skillIds.firstOrNull() ?: lesson.id,
-                    lessonId = lesson.id, activityId = result.activityId,
-                    eventType = "activity_result",
-                    accuracy = if (result.correct) 1.0 else 0.0,
-                    attempts = result.attempts, hintsUsed = result.hintsUsed,
-                    responseTimeMs = result.responseTimeMs
-                ))
-            }
-            val scoredCorrect = scoredResults.count { it.correct }
-            val accuracy = if (scoredResults.isNotEmpty()) scoredCorrect.toDouble() / scoredResults.size else 0.0
-            val firstLessonCompletion = !lessonCompletionDao.exists(childId, lesson.id)
-            // The very first lesson this child has EVER completed earns the
-            // First Steps milestone sticker (before we insert the completion).
-            val isFirstLessonEver = lessonCompletionDao.countDistinctLessons(childId) == 0
-            // Record idempotent lesson completion (distinct lessonId drives child level).
-            lessonCompletionDao.insertIgnoring(
-                LessonCompletionEntity(
-                    id = UUID.randomUUID().toString(),
-                    childId = childId,
-                    lessonId = lesson.id,
-                    attemptId = UUID.randomUUID().toString(),
-                    accuracy = accuracy,
-                    completedAtEpochMillis = System.currentTimeMillis(),
-                )
-            )
-            if (firstLessonCompletion) {
-                val rewardKey = "lesson-first:$childId:${lesson.id}"
-                val starsEarned = 1 +
-                    (if (accuracy >= 0.8) 1 else 0) +
-                    (if (accuracy >= 0.95) 1 else 0)
-                rewardDao.insertIgnoring(RewardEntity(
-                    id = "$rewardKey:STAR",
-                    childId = childId,
-                    type = "STAR",
-                    subject = lesson.subject,
-                    amount = starsEarned.coerceIn(1, 3),
-                    metadata = rewardKey,
-                ))
-                // Coins are persisted too — the completion screen shows them, so
-                // the Parent Dashboard must be able to read them back.
-                if (accuracy >= 0.8) {
-                    rewardDao.insertIgnoring(RewardEntity(
-                        id = "$rewardKey:COIN",
-                        childId = childId,
-                        type = "COIN",
-                        subject = lesson.subject,
-                        amount = 10,
-                        metadata = rewardKey,
-                    ))
+            runCatching {
+                lessonCompletionRepository.complete(childId, lesson, scoredResults)
+            }.onSuccess { result ->
+                _state.update {
+                    it.copy(
+                        expeditionProgress = result.expeditionProgress,
+                        badgeAwarded = result.badgeAwarded ?: it.badgeAwarded,
+                    )
                 }
-            }
+                // One idempotent reward break entitlement per child and local day.
+                // Creation starts in CREATED; the hub starts the clock only when
+                // the child chooses a game.
+                val now = System.currentTimeMillis()
+                val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
+                val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey)
+                val existingBreak = rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
+                val rewardBreak = if (existingBreak == null) {
+                    val created = RewardBreakPolicy.newEntitlement(
+                        id = UUID.randomUUID().toString(),
+                        childId = childId,
+                        dailyQuestCompletionId = dailyQuestCompletionId,
+                        nowEpochMillis = now,
+                    )
+                    rewardBreakDao.insertIgnoring(created)
+                    rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
+                } else {
+                    existingBreak
+                }
+                val usableBreakId = rewardBreak
+                    ?.takeIf { RewardBreakPolicy.canUse(it, now) }
+                    ?.id
 
-            // One idempotent reward break entitlement per child and local day.
-            // Creation starts in CREATED; the hub starts the clock only when
-            // the child chooses a game.
-            val now = System.currentTimeMillis()
-            val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
-            val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey)
-            val existingBreak = rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
-            val rewardBreak = if (existingBreak == null) {
-                val created = RewardBreakPolicy.newEntitlement(
-                    id = UUID.randomUUID().toString(),
-                    childId = childId,
-                    dailyQuestCompletionId = dailyQuestCompletionId,
-                    nowEpochMillis = now,
-                )
-                rewardBreakDao.insertIgnoring(created)
-                rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
-            } else {
-                existingBreak
-            }
-            val usableBreakId = rewardBreak
-                ?.takeIf { RewardBreakPolicy.canUse(it, now) }
-                ?.id
-
-            val progress = badgeAwarder.recordLessonCompletion(childId, lesson.subject, lesson.id)
-            val firstStepsSticker = if (isFirstLessonEver) {
-                badgeAwarder.recordFirstLessonCompletion(childId)
-            } else {
-                null
-            }
-            _state.update {
-                it.copy(
-                    expeditionProgress = progress,
-                    // The First Steps milestone takes precedence in the reveal —
-                    // it only ever fires on the child's very first lesson.
-                    badgeAwarded = firstStepsSticker ?: progress.newlyAwardedBadge,
-                    rewardBreakId = usableBreakId,
-                )
+                _state.update { it.copy(rewardBreakId = usableBreakId) }
+            }.onFailure { error ->
+                // Allow a process/UI retry after a rolled-back transaction.
+                progressSaved = false
+                _state.update { it.copy(error = "Could not save lesson progress: ${error.message}") }
             }
         }
     }
@@ -257,7 +234,7 @@ class LessonPlayerViewModel @Inject constructor(
                     items = assessmentSteps,
                 )
             },
-            steps = m1.activities.map { act -> toActivityStep(act) } + assessmentSteps
+            steps = m1.activities.map { act -> toActivityStep(act, m1.language) } + assessmentSteps
         )
     }
 }
@@ -318,7 +295,7 @@ private fun JsonPrimitive.contentOrNull(): String? =
  * Parsing is defensive: a malformed payload yields an ActivityStep with empty
  * typed fields rather than throwing, so one bad lesson cannot crash the player.
  */
-internal fun toActivityStep(act: Month1Activity): ActivityStep {
+internal fun toActivityStep(act: Month1Activity, language: String? = null): ActivityStep {
     val type = rendererType(act.type)
     val content = act.content
     val obj = content as? JsonObject
@@ -359,9 +336,12 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
                 val fits = obj?.stringList("fits") ?: emptyList()
                 val doesNotFit = obj?.stringList("doesNotFit") ?: emptyList()
                 // Category 0 = fits, category 1 = does not fit.
-                val filipino = act.activityId.startsWith("filipino-", ignoreCase = true) ||
+                val authoredCategories = obj?.stringList("categories")
+                    ?.takeIf { it.size >= 2 }
+                val filipino = language?.startsWith("fil", ignoreCase = true) == true ||
+                    act.activityId.startsWith("filipino-", ignoreCase = true) ||
                     act.instruction.contains("angkop", ignoreCase = true)
-                sortCategories = if (filipino) {
+                sortCategories = authoredCategories ?: if (filipino) {
                     listOf("Angkop", "Hindi angkop")
                 } else {
                     listOf("Fits", "Does not fit")
@@ -404,7 +384,8 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         ?.takeIf { it.isNotBlank() }
         ?: act.hint.orEmpty()
 
-    val filipino = act.activityId.startsWith("filipino-", ignoreCase = true) ||
+    val filipino = language?.startsWith("fil", ignoreCase = true) == true ||
+        act.activityId.startsWith("filipino-", ignoreCase = true) ||
         act.instruction.contains("angkop", ignoreCase = true)
     val defaultIncorrect = if (type == "SORT_AND_CLASSIFY_V1") {
         if (filipino) "May ilang card sa maling kahon. Ilipat at subukan muli."
@@ -412,6 +393,7 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
     } else {
         "Let's try again!"
     }
+
     val authoredIncorrect = act.feedback?.retry?.takeIf { it.isNotBlank() }
     val incorrectFeedback = if (type == "SORT_AND_CLASSIFY_V1") {
         listOfNotNull(authoredIncorrect, defaultIncorrect).joinToString(" ")
@@ -426,6 +408,7 @@ internal fun toActivityStep(act: Month1Activity): ActivityStep {
         question = question,
         options = options,
         correctIndex = correctIndex,
+        imageAssets = listOfNotNull(act.assetId?.takeIf { it.isNotBlank() }),
         feedback = ActivityFeedback(
             correct = act.feedback?.correct?.takeIf { it.isNotBlank() } ?: "Great job!",
             incorrect = incorrectFeedback,

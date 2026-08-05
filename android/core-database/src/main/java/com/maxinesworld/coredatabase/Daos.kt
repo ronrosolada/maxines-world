@@ -53,6 +53,9 @@ interface ProgressEventDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(event: ProgressEventEntity)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(event: ProgressEventEntity)
+
     @Query("UPDATE progress_events SET syncStatus = :status WHERE id = :id")
     suspend fun updateSyncStatus(id: String, status: String)
 
