@@ -94,6 +94,10 @@ class LessonPlayerViewModel @Inject constructor(
                 it.copy(isLoading = false, lesson = lesson,
                     totalSteps = lesson?.steps?.size ?: 0,
                     assessmentStepCount = lesson?.assessment?.items?.size ?: 0,
+                    // Fresh lesson: never carry a prior lesson's badge reveal or
+                    // reward-break entitlement into the new run.
+                    badgeAwarded = null,
+                    rewardBreakId = null,
                     error = if (lesson == null) "Could not load lesson." else null)
             }
         }
@@ -162,7 +166,7 @@ class LessonPlayerViewModel @Inject constructor(
                 _state.update {
                     it.copy(
                         expeditionProgress = result.expeditionProgress,
-                        badgeAwarded = result.badgeAwarded ?: it.badgeAwarded,
+                        badgeAwarded = result.badgeAwarded,
                     )
                 }
                 // One idempotent reward break entitlement per child and local day.

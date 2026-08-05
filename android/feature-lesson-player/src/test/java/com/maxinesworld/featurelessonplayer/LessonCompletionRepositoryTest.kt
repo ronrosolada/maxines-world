@@ -12,6 +12,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -49,6 +50,8 @@ class LessonCompletionRepositoryTest {
         coEvery { badgeAwarder.recordLessonCompletion(any(), any(), any(), any()) } returns
             com.maxinesworld.featurerewards.ChallengeProgress()
         coEvery { badgeAwarder.recordFirstLessonCompletion(any(), any()) } returns null
+        coEvery { badgeAwarder.getExpeditionProgress(any()) } returns
+            com.maxinesworld.featurerewards.ChallengeProgress(english = true, completedCount = 7)
 
         val progressDao = mockk<ProgressEventDao>(relaxed = true)
         val rewardDao = mockk<RewardDao>(relaxed = true)
@@ -75,6 +78,11 @@ class LessonCompletionRepositoryTest {
 
         assertTrue(first.completionInserted)
         assertTrue(replay.alreadyCompleted)
+        // Replay must surface current expedition progress, not defaults.
+        assertEquals(
+            com.maxinesworld.featurerewards.ChallengeProgress(english = true, completedCount = 7),
+            replay.expeditionProgress,
+        )
         coVerify(exactly = 1) { completionDao.insertIgnoring(any()) }
     }
 

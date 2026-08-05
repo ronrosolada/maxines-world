@@ -70,9 +70,12 @@ class LessonCompletionRepository @Inject constructor(
             // deterministic insert below therefore have one first-completion
             // winner even when two completion requests arrive concurrently.
             if (lessonCompletionDao.exists(childId, lesson.id)) {
+                // Replay: no side effects are written, but the UI still needs
+                // the child's current expedition progress (not defaults).
                 return@run LessonCompletionPersistenceResult(
                     completionInserted = false,
                     alreadyCompleted = true,
+                    expeditionProgress = badgeAwarder.getExpeditionProgress(childId),
                 )
             }
 
@@ -93,6 +96,7 @@ class LessonCompletionRepository @Inject constructor(
                 return@run LessonCompletionPersistenceResult(
                     completionInserted = false,
                     alreadyCompleted = true,
+                    expeditionProgress = badgeAwarder.getExpeditionProgress(childId),
                 )
             }
             failureInjector.after(CompletionWriteStage.COMPLETION_INSERTED)
