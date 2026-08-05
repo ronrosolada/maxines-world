@@ -134,6 +134,188 @@ def _normalize_source(source: dict[str, Any]) -> dict[str, Any]:
     if lesson_id == "filipino-g3-q1-w06-d02" and len(assessment_items) >= 5:
         assessment_items[4]["question"] = "Bakit naging mabait, matalino, at mapagmahal si Pam?"
 
+    if lesson_id == "filipino-g3-q1-w04-d01":
+        normalized["storyIntro"] = (
+            "Sabik na sabik ang magkapatid na sina Eric at Sem dahil mamamasyal sila sa karnabal kasama si Tiyo Ruel, na kararating lamang mula sa Japan. "
+            "Dala niya ang kaniyang tampipi na puno ng pasalubong. Habang naghihintay sa pagsisimula ng palabas, ipinakita ni Tiyo Ruel ang ilang pang-ipit na bakal "
+            "at sinubukan nilang idikit ang mga ito sa batobalani. Maya-maya, umikot na ang tsubibo at masaya silang namasyal."
+        )
+        for entry in normalized.get("vocabulary", []):
+            if entry.get("term") == "Tsubibo":
+                entry["definition"] = "Isang sasakyang panlibangan na may bilog at umiikot na plataporma."
+            elif entry.get("term") == "Batobalani":
+                entry["definition"] = "Isang batong may katangiang magnetiko na maaaring dumikit sa ilang bagay na gawa sa bakal."
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "ANIMATED_EXPLANATION":
+                activity["content"] = (
+                    "Ang pagbabaybay o ispeling ay maaaring pasulat o pabigkas. "
+                    "Sa maraming salitang Filipino, nakatutulong ang tamang bigkas upang matukoy ang baybay, "
+                    "ngunit dapat pa ring suriin ang wastong anyo ng salita kapag may alinlangan. "
+                    "Halimbawa — ang tunog na /b-a-g/ ay binabaybay na 'bag', ang /m-a-t-a/ ay 'mata', "
+                    "at ang /ts-u-b-i-b-o/ ay 'tsubibo'. Mababaybay mo nang maayos ang salita kung alam mo ang pangalan ng bawat letra "
+                    "at maisusulat ito sa tamang pagkakasunod-sunod. Ang mga salitang batobalani, kalupi, miktinig, antipara, tampipi, "
+                    "at tsubibo ay mga halimbawa ng salitang di-kilala. Ang pabigkas na pagbaybay ay dapat paletra at hindi papantig. "
+                    "Halimbawa: aso = /ey-es-o/, lapis = /el-ey-pi-ay-es/. Mahalagang intindihing mabuti kung paano ginamit ang salita "
+                    "sa pangungusap upang maunawaan ang kahulugan nito."
+                )
+            elif activity.get("type") == "MATCHING_PAIRS" and isinstance(activity.get("content"), dict):
+                activity["instruction"] = (
+                    "Itapat ang bawat salitang di-kilala sa tamang kahulugan at obserbahan ang wastong baybay nito. Pagdugtungin ang mga pares."
+                )
+                activity["prompt"] = "Itapat ang salita sa tamang kahulugan at baybay."
+                activity["content"]["pairs"] = [
+                    {"left": "tsubibo", "right": "Sasakyang panlibangan na may bilog at umiikot na plataporma"},
+                    {"left": "kalupi", "right": "Pitaka"},
+                    {"left": "batobalani", "right": "Batong may katangiang magnetiko"},
+                    {"left": "antipara", "right": "Salaming paningin"},
+                ]
+        if len(assessment_items) >= 2:
+            assessment_items[1]["choices"] = [
+                {"text": "antipara", "correct": True},
+                {"text": "antepara", "correct": False},
+                {"text": "antiparra", "correct": False},
+                {"text": "antipera", "correct": False},
+            ]
+
+    if lesson_id == "filipino-g3-q1-w04-d02":
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "MULTIPLE_CHOICE":
+                activity["instruction"] = (
+                    "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?"
+                )
+                activity["prompt"] = activity["instruction"]
+            elif activity.get("type") == "SORT_AND_CLASSIFY":
+                activity["instruction"] = (
+                    "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; "
+                    "ilagay sa HINDI TAMANG SAGOT kung hindi."
+                )
+                activity["prompt"] = "Pagbukud-bukurin ang mga pahayag sa TAMANG SAGOT at HINDI TAMANG SAGOT."
+        if len(assessment_items) >= 4:
+            assessment_items[3] = {
+                "question": "Alin ang tamang paglalarawan sa ayos ng salitang 'bulaklak'?",
+                "choices": [
+                    {"text": "Kasunod ito ng 'buhay' dahil nauuna ang h sa l.", "correct": True},
+                    {"text": "Nauuna ito sa 'buhay' dahil nauuna ang l sa h.", "correct": False},
+                    {"text": "Nasa pagitan ito ng 'ahas' at 'bintana'.", "correct": False},
+                    {"text": "Nasa titik P ito kasama ng 'pagong'.", "correct": False},
+                ],
+            }
+
+    if lesson_id == "filipino-g3-q1-w05-d01":
+        normalized["storyIntro"] = normalized.get("storyIntro", "").replace(
+            "Ako gusto kong maging dentista.", "Ako naman, gusto kong maging dentista."
+        )
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "MULTIPLE_CHOICE":
+                activity["instruction"] = (
+                    "Si Karla ay naghanda ng plano para sa kaniyang kaarawan. "
+                    "Anong panghalip ang maaaring ipalit kay Karla? Piliin ang tamang sagot."
+                )
+                activity["prompt"] = "Anong panghalip ang maaaring ipalit kay Karla?"
+            elif activity.get("type") == "MATCHING_PAIRS" and isinstance(activity.get("content"), dict):
+                pairs = activity["content"].get("pairs", [])
+                if pairs:
+                    pairs[0]["left"] = "Nagsasalita ka tungkol sa iyong sarili"
+
+    if lesson_id == "filipino-g3-q1-w05-d02":
+        normalized["storyIntro"] = normalized.get("storyIntro", "").replace(
+            "Ang importante ay", "Ang mahalaga ay"
+        )
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "MULTIPLE_CHOICE":
+                activity["instruction"] = (
+                    "Nais mong magtanong sa iyong guro. Alin ang halimbawa ng magagalang na pananalita? Piliin ang tamang sagot."
+                )
+                activity["prompt"] = "Alin ang halimbawa ng magagalang na pananalita kapag nais mong magtanong sa guro?"
+            elif activity.get("type") == "SORT_AND_CLASSIFY" and isinstance(activity.get("content"), dict):
+                activity["content"]["fits"] = [
+                    item.replace("niyo", "ninyo") for item in activity["content"].get("fits", [])
+                ]
+
+    if lesson_id == "filipino-g3-q1-w06-d01":
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "ANIMATED_EXPLANATION":
+                activity["content"] = (
+                    "Si Ana ay isang masayahing batang nag-aaral sa ikatlong baitang. Isang hapon, kasama niya ang kaniyang matalik na kaibigan na si Ben pauwi mula sa paaralan. "
+                    "Habang sila ay naglalakad sa daan, may nakita silang maliit na ibon na sugatan sa ilalim ng puno. "
+                    "Humingi sila ng tulong sa nanay ni Ana. Maingat itong inilagay ng nanay sa isang ligtas na kahon at tumawag sa beterinaryo. "
+                    "Pagkaraan ng ilang araw, gumaling ang ibon at muli nila itong pinalipad sa tulong ng nakatatanda. "
+                    "Tuwang-tuwa sina Ana at Ben sa kanilang nagawang kabutihan. Ipinangako nilang patuloy na magtutulungan at magmamalasakit sa kapwa."
+                )
+            elif activity.get("type") == "SORT_AND_CLASSIFY" and isinstance(activity.get("content"), dict):
+                activity["content"]["fits"] = [
+                    "Ana — Tauhan",
+                    "Sa daan — Tagpuan",
+                    "Paghingi ng tulong para sa ibon — Banghay",
+                    "Ben — Tauhan",
+                    "Bahay ni Ana — Tagpuan",
+                ]
+            elif activity.get("type") == "SEQUENCE_BUILDER" and isinstance(activity.get("content"), dict):
+                activity["content"]["steps"] = [
+                    "Sina Ana at Ben ay naglakad pauwi mula sa paaralan.",
+                    "May nakita silang sugatang ibon sa ilalim ng puno.",
+                    "Humingi sila ng tulong sa nanay ni Ana.",
+                    "Inilagay ng nanay ang ibon sa ligtas na kahon at tumawag sa beterinaryo.",
+                    "Gumaling ang ibon at pinalipad nila ito sa tulong ng nakatatanda.",
+                ]
+
+    if lesson_id == "filipino-g3-q1-w06-d02":
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "ANIMATED_EXPLANATION":
+                activity["content"] = activity["content"].replace(
+                    "matalino, masayahin, at maganda", "matalino, masayahin, at masipag"
+                )
+            elif activity.get("type") == "MULTIPLE_CHOICE":
+                activity["instruction"] = "Ano ang ibig sabihin ng pagsasalaysay muli? Piliin ang tamang sagot."
+                activity["prompt"] = "Ano ang ibig sabihin ng pagsasalaysay muli?"
+            elif activity.get("type") == "MATCHING_PAIRS" and isinstance(activity.get("content"), dict):
+                activity["content"]["pairs"] = [
+                    {"left": "Sino ang batang matalino at masayahin?", "right": "Si Pam"},
+                    {"left": "Ano ang pinakapaboritong iguhit ni Pam?", "right": "Larawan ng kaniyang pamilya"},
+                    {"left": "Ano ang hilig gawin ni Pam?", "right": "Gumuhit, kumanta, sumayaw, at tumula"},
+                    {"left": "Saan siya gumuguhit?", "right": "Sa kanilang tahanan"},
+                    {"left": "Bakit siya naging mabait na bata?", "right": "Dahil inaaruga siya ng kaniyang mga magulang"},
+                ]
+        if assessment_items:
+            assessment_items[0]["question"] = "Sino ang batang matalino, masayahin, at masipag?"
+        if len(assessment_items) >= 4 and assessment_items[3].get("choices"):
+            assessment_items[3]["choices"][0]["text"] = "Matalino, masayahin, at masipag"
+
+    if lesson_id == "filipino-g3-q1-w07-d02":
+        for entry in normalized.get("vocabulary", []):
+            if entry.get("term") == "Iyan":
+                entry["definition"] = "Ginagamit kapag malapit sa kausap ang bagay na tinutukoy."
+            elif entry.get("term") == "Iyon":
+                entry["definition"] = "Ginagamit kapag malayo sa nagsasalita at sa kausap ang bagay na tinutukoy."
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "ANIMATED_EXPLANATION":
+                activity["content"] = (
+                    "Ang panghalip na pamatlig ay ginagamit bilang pamalit sa pangngalan upang ituro ang layo o lapit ng bagay. "
+                    "May tatlong panghalip na pamatlig: ITO, IYAN, at IYON. ITO ay ginagamit kung malapit o hawak ng nagsasalita ang bagay na tinutukoy. "
+                    "Halimbawa: Ito ang paborito kong laruan. (Hawak ko ang laruan.) IYAN ay ginagamit kung malapit sa kausap ngunit hindi hawak ng nagsasalita ang bagay. "
+                    "Halimbawa: Iyan ang bagong aklat sa tabi mo. IYON ay ginagamit kung malayo sa nagsasalita at sa kausap ang bagay. "
+                    "Halimbawa: Iyon ang pinakamataas na bundok sa ating lugar. Tandaan: Ito = malapit sa nagsasalita, "
+                    "Iyan = malapit sa kausap, Iyon = malayo sa nagsasalita at sa kausap!"
+                )
+
+    if lesson_id == "filipino-g3-q1-w08-d01":
+        normalized["storyIntro"] = (
+            "Mahilig ka bang makinig ng kuwento? Ano ang paborito mong kuwento? "
+            "Ngayong araw, matututo tayong bumuo ng sarili nating kuwento. "
+            "Pakinggan muna natin ang kuwento ng dalawang batang nagtutulungan!"
+        )
+        for activity in normalized.get("activities", []):
+            if activity.get("type") == "ANIMATED_EXPLANATION":
+                activity["content"] = (
+                    "Ang bawat kuwento ay may tatlong bahagi: Simula, Gitna, at Wakas. Sa Simula, ipinapakilala ang mga tauhan at tagpuan. "
+                    "Sa Gitna, inilalahad ang suliranin o problema ng tauhan. Sa Wakas, ipinapakita ang naging solusyon at ang katapusan ng kuwento. "
+                    "Halimbawa: Sa kuwento ng dalawang batang nagtutulungan, sa simula ay ipinakilala ang batang si Toby at ang kaklase niyang si Sid. "
+                    "Napansin ni Toby na pagod at walang baon si Sid. Sa gitna, ibinahagi ni Toby ang kaniyang meryenda at tubig. "
+                    "Humingi rin sila ng tulong sa guro upang matiyak na may makakain si Sid. Nang minsang tuksuhin si Toby ng ilang bata, "
+                    "lumapit siya sa guro at nanatili sa ligtas na lugar. Tinulungan ni Sid na sabihin sa guro ang nangyari. "
+                    "Sa wakas, natuto silang humingi ng tulong at naging mabuting magkaibigan sina Toby at Sid. Iyan ang tatlong bahagi ng kuwento!"
+                )
+
     return normalized
 
 
@@ -425,6 +607,23 @@ def convert_lesson(source: dict[str, Any]) -> dict[str, Any]:
         if source_activity is None:
             source_activity = _derived_activity(source, activity_type, source_by_type)
             derived_types.append(activity_type)
+        if lesson_id == "filipino-g3-q1-w04-d02" and activity_type == "SORT_AND_CLASSIFY":
+            source_activity["instruction"] = (
+                "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; "
+                "ilagay sa HINDI TAMANG SAGOT kung hindi."
+            )
+            source_activity["prompt"] = "Pagbukud-bukurin ang mga pahayag sa TAMANG SAGOT at HINDI TAMANG SAGOT."
+        if lesson_id == "filipino-g3-q1-w05-d02" and activity_type == "SEQUENCE_BUILDER":
+            source_activity["instruction"] = "Ayusin ang mga hakbang sa pagpili ng magagalang na pananalita."
+            source_activity["prompt"] = "Ayusin ang mga hakbang mula sa sitwasyon hanggang sa magalang na sagot."
+            source_activity["content"] = {
+                "steps": [
+                    "Basahin ang sitwasyon at tukuyin ang kausap.",
+                    "Tukuyin kung pagbati, pakiusap, o paghingi ng paumanhin ang kailangan.",
+                    "Piliin ang magagalang na pananalitang angkop.",
+                    "Basahin ang buong pahayag nang maayos.",
+                ]
+            }
         content = source_activity.get("content", {})
         normalized_content = _activity_content(activity_type, content)
         activities.append(

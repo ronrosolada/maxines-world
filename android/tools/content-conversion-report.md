@@ -48,17 +48,44 @@ The source lessons remain review-gated. Every converted lesson has
 | W07 D02 | `HOTSPOT_IMAGE` |
 | W08 D01 | `HOTSPOT_IMAGE` |
 
+## Independent educator review
+
+A separate educator-style review was completed for the nine new Filipino Q1 lessons
+(W04 D01 through W08 D01). The review checked objective alignment, Filipino
+language accuracy, assessment validity, narrative coherence, Grade 3 suitability,
+and child safety.
+
+Repairs applied in the converter and regenerated lesson assets include:
+
+- removed the duplicate `antipara` assessment option;
+- replaced under-specified multiple-choice prompts with complete situations;
+- corrected the dictionary-order assessment so the answer is not self-referential;
+- corrected the `ito`/`iyan`/`iyon` distance explanation;
+- made the Pam matching activity and assessment text answerable from the story;
+- modeled adult help and veterinary care for an injured bird;
+- replaced the stigmatizing `pulubi` example and modeled seeking a trusted teacher
+  when bullying occurs; and
+- corrected inconsistent or misleading Filipino wording and examples.
+
+**Recommendation: CONDITIONAL.** The nine lessons are materially improved and
+technically validated, but `educatorValidated=false` and
+`releaseStatus=REQUIRES_EDUCATOR_REVIEW` remain intentionally unchanged. An
+authorized human educator must make the final release decision; this independent
+review must not be treated as human curriculum sign-off.
+
 ## Validation evidence
 
-- Converter unit test: passed
-- Android structural validator (15-lesson source stage): 0 errors, 0 warnings
-- Published nine-lesson quality audit: 0 errors, 7 conservative alignment warnings
+- Converter unit tests: passed (3 tests)
+- Android structural validator: 0 errors, 315 historical soft warnings
+- Published nine-lesson quality audit: 0 errors, 3 conservative alignment warnings
 - Full bundled validator: 358 lessons, 0 errors, 315 existing soft warnings
 - Strict curation flags on published lessons: 0
 - Filipino English/placeholder scan on published lessons: 0 hits
-- Similarity gate at 0.85 on the source stage: 0 near-duplicate pairs, 0 clusters
+- Similarity gate for the nine changed lessons at 0.85: 0 near-duplicate pairs
+- Android content verification, debug APK assembly, and unit tests: passed
 
-The seven published-lesson alignment warnings are report-only keyword-overlap
-warnings and remain visible for owner/educator review; they were not suppressed
-or converted into release approval. The full-pack soft warnings are historical
-assessment-type warnings in retained content.
+The three published-lesson alignment warnings are report-only keyword-overlap
+warnings (`W04 D01` matching vocabulary and two `W05 D02` activity warnings).
+They do not indicate a structural or answer-validity failure and remain visible
+for human educator review. The full-pack soft warnings are historical findings
+in retained content.

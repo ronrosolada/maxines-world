@@ -108,7 +108,112 @@ class ConvertFilipinoQ1SlmTest(unittest.TestCase):
         self.assertEqual(dictionary_normalized["vocabulary"][0]["term"], "Paalpabeto")
         self.assertIn("pagkatapos ng 'buhay'", dictionary_normalized["assessment"]["items"][0]["choices"][0]["text"])
 
-    def test_derives_hotspot_from_matching_pairs_not_sort_fits(self):
+    def test_applies_educator_content_repairs(self):
+        spelling = {
+            "lessonId": "filipino-g3-q1-w04-d01",
+            "storyIntro": "old story",
+            "vocabulary": [
+                {"term": "Baybay", "definition": "old"},
+                {"term": "Tsubibo", "definition": "old"},
+                {"term": "Batobalani", "definition": "old"},
+            ],
+            "activities": [
+                {"type": "ANIMATED_EXPLANATION", "content": "old explanation"},
+                {"type": "MATCHING_PAIRS", "content": {"pairs": []}},
+            ],
+            "assessment": {"items": [{"choices": []}, {"choices": [{"text": "old", "correct": True}]}]},
+        }
+        spelling_normalized = _normalize_source(spelling)
+        self.assertNotIn("Maya-maya, dumating", spelling_normalized["storyIntro"])
+        self.assertIn("katangiang magnetiko", spelling_normalized["vocabulary"][2]["definition"])
+        spelling_choices = spelling_normalized["assessment"]["items"][1]["choices"]
+        self.assertEqual(len({choice["text"] for choice in spelling_choices}), 4)
+        self.assertIn("Sasakyang panlibangan", spelling_normalized["activities"][1]["content"]["pairs"][0]["right"])
+
+        dictionary = {
+            "lessonId": "filipino-g3-q1-w04-d02",
+            "activities": [
+                {"type": "MULTIPLE_CHOICE", "content": {"options": []}},
+                {"type": "SORT_AND_CLASSIFY", "content": {"fits": ["old"], "doesNotFit": []}},
+            ],
+            "assessment": {"items": [{"choices": []} for _ in range(4)]},
+        }
+        dictionary_normalized = _normalize_source(dictionary)
+        self.assertIn("salitang 'mata'", dictionary_normalized["activities"][0]["instruction"])
+        self.assertIn("TAMANG SAGOT", dictionary_normalized["activities"][1]["instruction"])
+        self.assertIn("nauuna ang h sa l", dictionary_normalized["assessment"]["items"][3]["choices"][0]["text"])
+
+        pronoun = {
+            "lessonId": "filipino-g3-q1-w05-d01",
+            "storyIntro": "Ako gusto kong maging dentista.",
+            "activities": [
+                {"type": "MULTIPLE_CHOICE", "content": {"options": []}},
+                {"type": "MATCHING_PAIRS", "content": {"pairs": [{"left": "old", "right": "Ako"}]}},
+            ],
+            "assessment": {"items": []},
+        }
+        pronoun_normalized = _normalize_source(pronoun)
+        self.assertIn("Ako naman", pronoun_normalized["storyIntro"])
+        self.assertIn("Si Karla", pronoun_normalized["activities"][0]["instruction"])
+        self.assertEqual(pronoun_normalized["activities"][1]["content"]["pairs"][0]["left"], "Nagsasalita ka tungkol sa iyong sarili")
+
+        animal_story = {
+            "lessonId": "filipino-g3-q1-w06-d01",
+            "activities": [
+                {"type": "ANIMATED_EXPLANATION", "content": "old"},
+                {"type": "SORT_AND_CLASSIFY", "content": {"fits": [], "doesNotFit": []}},
+                {"type": "SEQUENCE_BUILDER", "content": {"steps": []}},
+            ],
+            "assessment": {"items": []},
+        }
+        animal_normalized = _normalize_source(animal_story)
+        animal_text = animal_normalized["activities"][0]["content"]
+        self.assertIn("Humingi sila ng tulong sa nanay ni Ana", animal_text)
+        self.assertNotIn("dinala sa bahay ni Ana", animal_text)
+        self.assertIn("beterinaryo", animal_text)
+        self.assertTrue(any("Paghingi ng tulong para sa ibon" in item for item in animal_normalized["activities"][1]["content"]["fits"]))
+
+        retell = {
+            "lessonId": "filipino-g3-q1-w06-d02",
+            "activities": [
+                {"type": "ANIMATED_EXPLANATION", "content": "matalino, masayahin, at maganda"},
+                {"type": "MULTIPLE_CHOICE", "content": {"options": []}},
+                {"type": "MATCHING_PAIRS", "content": {"pairs": []}},
+            ],
+            "assessment": {"items": [{"question": "old", "choices": []} for _ in range(5)]},
+        }
+        retell_normalized = _normalize_source(retell)
+        self.assertIn("masipag", retell_normalized["activities"][0]["content"])
+        self.assertNotIn("Ano ang pamagat", retell_normalized["assessment"]["items"][0]["question"])
+        self.assertEqual(len(retell_normalized["activities"][2]["content"]["pairs"]), 5)
+
+        demonstratives = {
+            "lessonId": "filipino-g3-q1-w07-d02",
+            "vocabulary": [
+                {"term": "Ito", "definition": "old"},
+                {"term": "Iyan", "definition": "old"},
+                {"term": "Iyon", "definition": "old"},
+            ],
+            "activities": [{"type": "ANIMATED_EXPLANATION", "content": "old"}],
+            "assessment": {"items": []},
+        }
+        demonstratives_normalized = _normalize_source(demonstratives)
+        self.assertIn("malapit sa kausap", demonstratives_normalized["vocabulary"][1]["definition"])
+        self.assertIn("malayo sa nagsasalita at sa kausap", demonstratives_normalized["vocabulary"][2]["definition"])
+        self.assertIn("malapit sa kausap", demonstratives_normalized["activities"][0]["content"])
+
+        story_structure = {
+            "lessonId": "filipino-g3-q1-w08-d01",
+            "storyIntro": "old story",
+            "activities": [{"type": "ANIMATED_EXPLANATION", "content": "old story with pulubi"}],
+            "assessment": {"items": []},
+        }
+        story_structure_normalized = _normalize_source(story_structure)
+        safe_story = story_structure_normalized["activities"][0]["content"]
+        self.assertNotIn("pulubi", safe_story)
+        self.assertIn("tulong sa guro", safe_story)
+        self.assertIn("ligtas na lugar", safe_story)
+
         source = {
             "lessonId": "filipino-g3-q1-w01-d02",
             "grade": 3,

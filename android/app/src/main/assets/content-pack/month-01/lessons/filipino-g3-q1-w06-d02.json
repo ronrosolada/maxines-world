@@ -37,7 +37,7 @@
       "required": true,
       "assetId": "filipino-g3-q1-w06-d02-visual",
       "instruction": "Panoorin at pakinggan ang kuwento tungkol kay Pam.",
-      "content": "Si Pam ay isang batang matalino, masayahin, at maganda. Mahilig siyang kumanta at sumayaw. Marunong din siyang tumula. Isa sa pinakagusto niyang gawin ay ang pagguhit. Masaya si Pam tuwing siya ay gumuguhit. Marami na siyang naiguhit — mga bundok, punongkahoy, prutas, bulaklak, palayan, at karagatan. Araw-araw, sa kanilang tahanan, naging libangan na ni Pam ang gumuhit ng mga bagay na nagpapasaya sa kaniya. Sa lahat ng iginuhit ni Pam, ang larawan ng kaniyang mahal na pamilya ang pinakapaborito niya — ang kaniyang mga magulang na palaging sumusuporta at nagtuturo sa kaniya. Dahil sa kanilang pag-aaruga, naging mabait, matalino, at mapagmahal na bata si Pam.",
+      "content": "Si Pam ay isang batang matalino, masayahin, at masipag. Mahilig siyang kumanta at sumayaw. Marunong din siyang tumula. Isa sa pinakagusto niyang gawin ay ang pagguhit. Masaya si Pam tuwing siya ay gumuguhit. Marami na siyang naiguhit — mga bundok, punongkahoy, prutas, bulaklak, palayan, at karagatan. Araw-araw, sa kanilang tahanan, naging libangan na ni Pam ang gumuhit ng mga bagay na nagpapasaya sa kaniya. Sa lahat ng iginuhit ni Pam, ang larawan ng kaniyang mahal na pamilya ang pinakapaborito niya — ang kaniyang mga magulang na palaging sumusuporta at nagtuturo sa kaniya. Dahil sa kanilang pag-aaruga, naging mabait, matalino, at mapagmahal na bata si Pam.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
@@ -61,8 +61,8 @@
       "instruction": "Tuklasin ang mga halimbawang kaugnay ng Pagsasalaysay Muli ng Teksto.",
       "content": {
         "examples": [
-          "Ano ang pamagat ng kuwento?",
           "Sino ang batang matalino at masayahin?",
+          "Ano ang pinakapaboritong iguhit ni Pam?",
           "Ano ang hilig gawin ni Pam?",
           "Saan siya gumuguhit?",
           "Bakit siya naging mabait na bata?"
@@ -95,7 +95,7 @@
           "Si Pam",
           "Pagguhit",
           "Larawan ng kaniyang pamilya",
-          "Matalino, masayahin, at maganda",
+          "Matalino, masayahin, at masipag",
           "Dahil inaaruga at tinuturuan siya ng kaniyang mga magulang"
         ],
         "doesNotFit": [
@@ -128,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d02-visual",
-      "instruction": "Sagutin ang tanong tungkol sa kuwento ni Pam.",
+      "instruction": "Ano ang ibig sabihin ng pagsasalaysay muli? Piliin ang tamang sagot.",
       "content": {
         "options": [
           "Ang pagsasalaysay ay pagbabahagi muli ng kuwento sa sariling pananalita.",
@@ -145,7 +145,7 @@
         "correct": "Tama! Ang pagsasalaysay ay muling pagbabahagi ng kuwento.",
         "retry": "Basahin muli at subukan."
       },
-      "prompt": "Ano ang ibig sabihin ng pagsasalaysay?",
+      "prompt": "Ano ang ibig sabihin ng pagsasalaysay muli?",
       "narration": "Alam mo ba kung ano ang ibig sabihin ng pagsasalaysay? Piliin mo ang tamang sagot.",
       "guideHint": "Basahing mabuti ang apat na pagpipilian.",
       "nextLabel": "Susunod →",
@@ -162,12 +162,12 @@
       "content": {
         "pairs": [
           {
-            "left": "Ano ang pamagat ng kuwento?",
+            "left": "Sino ang batang matalino at masayahin?",
             "right": "Si Pam"
           },
           {
-            "left": "Sino ang batang matalino at masayahin?",
-            "right": "Si Pam"
+            "left": "Ano ang pinakapaboritong iguhit ni Pam?",
+            "right": "Larawan ng kaniyang pamilya"
           },
           {
             "left": "Ano ang hilig gawin ni Pam?",
@@ -179,7 +179,7 @@
           },
           {
             "left": "Bakit siya naging mabait na bata?",
-            "right": "Dahil inaaruga siya ng kaniyang magulang"
+            "right": "Dahil inaaruga siya ng kaniyang mga magulang"
           }
         ]
       },
@@ -237,7 +237,7 @@
         "sequence": 1,
         "itemId": "filipino-g3-q1-w06-d02-q1",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang pamagat ng kuwentong napakinggan?",
+        "prompt": "Sino ang batang matalino, masayahin, at masipag?",
         "options": [
           {
             "id": "a",
@@ -325,7 +325,7 @@
         "options": [
           {
             "id": "a",
-            "text": "Matalino, masayahin, at maganda"
+            "text": "Matalino, masayahin, at masipag"
           },
           {
             "id": "b",
@@ -343,7 +343,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Matalino, masayahin, at maganda"
+        "explanation": "Ang pinakamabuting sagot ay: Matalino, masayahin, at masipag"
       },
       {
         "sequence": 5,

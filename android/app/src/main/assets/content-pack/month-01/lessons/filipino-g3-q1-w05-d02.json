@@ -92,7 +92,7 @@
       "instruction": "Basahin ang bawat pahayag. Ilagay sa MAGALANG kung nagpapakita ito ng paggalang. Ilagay sa DI-MAGALANG kung hindi nagpapakita ng paggalang.",
       "content": {
         "fits": [
-          "Ipagpaumanhin niyo po, hindi ko na po uulitin.",
+          "Ipagpaumanhin ninyo po, hindi ko na po uulitin.",
           "Maaari po ba akong magtanong?",
           "Makikiraan po.",
           "Maraming salamat po sa tulong ninyo."
@@ -123,7 +123,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Basahin ang sitwasyon at piliin ang angkop na magagalang na pananalita.",
+      "instruction": "Nais mong magtanong sa iyong guro. Alin ang halimbawa ng magagalang na pananalita? Piliin ang tamang sagot.",
       "content": {
         "options": [
           "Maaari po bang magtanong?",
@@ -140,7 +140,7 @@
         "correct": "Tama! 'Maaari po bang magtanong?' ay magalang na paraan ng pakikipag-usap sa hindi kilala.",
         "retry": "Isipin mo — paano ka magtatanong nang magalang sa isang hindi mo kilala?"
       },
-      "prompt": "Piliin ang tamang magalang na pananalita!",
+      "prompt": "Alin ang halimbawa ng magagalang na pananalita kapag nais mong magtanong sa guro?",
       "narration": "May itatanong ka sa isang matandang hindi mo kilala. Ano ang sasabihin mo?",
       "guideHint": "Paano ka magsisimula ng tanong nang may paggalang?",
       "nextLabel": "Susunod →",
@@ -198,13 +198,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Ayusin ang mga hakbang sa magalang na paraan ng panghihiram ng gamit sa kaklase. Mula una hanggang huli.",
+      "instruction": "Ayusin ang mga hakbang sa pagpili ng magagalang na pananalita.",
       "content": {
         "steps": [
-          "Lumapit nang maayos sa iyong kaklase.",
-          "Magalang na magtanong — 'Maaari ko bang mahiram ang iyong lapis?'",
-          "Hintayin ang tugon ng iyong kaklase bago kunin ang gamit.",
-          "Magpasalamat pagkatapos hiramin — 'Maraming salamat!'"
+          "Basahin ang sitwasyon at tukuyin ang kausap.",
+          "Tukuyin kung pagbati, pakiusap, o paghingi ng paumanhin ang kailangan.",
+          "Piliin ang magagalang na pananalitang angkop.",
+          "Basahin ang buong pahayag nang maayos."
         ]
       },
       "completionRule": {
@@ -214,7 +214,7 @@
         "correct": "Tama! Iyan ang magalang na paraan ng panghihiram ng gamit.",
         "retry": "Isipin mong muli. Ano ang unang dapat gawin bago manghiram?"
       },
-      "prompt": "Ayusin ang mga hakbang sa magalang na panghihiram!",
+      "prompt": "Ayusin ang mga hakbang mula sa sitwasyon hanggang sa magalang na sagot.",
       "narration": "Paano ka manghihiram ng gamit sa iyong kaklase nang magalang?",
       "guideHint": "Simulan sa paglapit nang maayos sa iyong kaklase.",
       "nextLabel": "Tapos na!",
@@ -377,7 +377,7 @@
       "HOTSPOT_IMAGE"
     ]
   },
-  "storyIntro": "Lunes ng umaga, maagang pumasok si Amy sa paaralan. Binuksan niya ang pinto ng kanilang silid-aralan at nagsimulang magpunas ng mesa. Sa hindi inaasahan, biglang nahulog at nabasag ang plorera sa mesa ng kaniyang guro na si Gng. Santos. Agad na lumapit si Amy sa kaniyang guro at nagsabi, \"Magandang umaga po, Gng. Santos. Hindi ko po sinasadyang mabasag ang inyong plorera. Ipagpaumanhin po ninyo.\" Ngumiti si Gng. Santos at sinabi, \"Ang importante ay hindi ka nasugatan at nagsabi ka ng totoo, Amy.\"",
+  "storyIntro": "Lunes ng umaga, maagang pumasok si Amy sa paaralan. Binuksan niya ang pinto ng kanilang silid-aralan at nagsimulang magpunas ng mesa. Sa hindi inaasahan, biglang nahulog at nabasag ang plorera sa mesa ng kaniyang guro na si Gng. Santos. Agad na lumapit si Amy sa kaniyang guro at nagsabi, \"Magandang umaga po, Gng. Santos. Hindi ko po sinasadyang mabasag ang inyong plorera. Ipagpaumanhin po ninyo.\" Ngumiti si Gng. Santos at sinabi, \"Ang mahalaga ay hindi ka nasugatan at nagsabi ka ng totoo, Amy.\"",
   "scene": {
     "character": "Milo",
     "setting": "Sa loob ng paaralan — isang Lunes ng umaga, maliwanag at tahimik ang paligid."

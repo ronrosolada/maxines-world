@@ -89,13 +89,13 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin.",
+      "instruction": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi.",
       "content": {
         "fits": [
           "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto.",
           "Nakaayos nang paalpabeto mula A hanggang Z.",
           "Maganda",
-          "Sa titik B, pagkatapos ng 'buhay' at bago ang 'bulaklak'.",
+          "Kasunod ito ng 'buhay' dahil nauuna ang h sa l.",
           "ahas, agham, apoy"
         ],
         "doesNotFit": [
@@ -115,11 +115,11 @@
         "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
         "retry": "Balikan ang halimbawa at subukan muli. 💪"
       },
-      "prompt": "Ilagay sa tamang grupo ang bawat sagot.",
-      "narration": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin.",
+      "prompt": "Pagbukud-bukurin ang mga pahayag sa TAMANG SAGOT at HINDI TAMANG SAGOT.",
+      "narration": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "I-grupo ang mga sagot ayon sa pagkakatugma nito sa aralin."
+      "accessibilityAlternative": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi."
     },
     {
       "activityId": "filipino-g3-q1-w04-d02-a04",
@@ -128,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Basahin ang tanong at piliin ang tamang sagot tungkol sa diksyunaryo.",
+      "instruction": "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?",
       "content": {
         "options": [
           "Hanapin ang titik M at basahin nang paalpabeto ang mga salita.",
@@ -145,7 +145,7 @@
         "correct": "Tama! Ang salitang 'matatag' ay hahanapin sa titik M.",
         "retry": "Isipin ang unang titik ng 'matatag'. Anong titik iyon?"
       },
-      "prompt": "Piliin ang tamang sagot!",
+      "prompt": "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?",
       "narration": "Kung hahanapin mo ang salitang 'matatag,' saan ka titingin?",
       "guideHint": "Ano ang unang titik ng salitang 'matatag'?",
       "nextLabel": "Susunod →",
@@ -320,29 +320,29 @@
         "sequence": 4,
         "itemId": "filipino-g3-q1-w04-d02-q4",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Saan mo hahanapin sa diksyunaryo ang salitang 'bulaklak'?",
+        "prompt": "Alin ang tamang paglalarawan sa ayos ng salitang 'bulaklak'?",
         "options": [
           {
             "id": "a",
-            "text": "Sa titik B, pagkatapos ng 'buhay'"
+            "text": "Kasunod ito ng 'buhay' dahil nauuna ang h sa l."
           },
           {
             "id": "b",
-            "text": "Sa titik B, pagkatapos ng 'buhay' at bago ang 'bulaklak'."
+            "text": "Nauuna ito sa 'buhay' dahil nauuna ang l sa h."
           },
           {
             "id": "c",
-            "text": "Sa titik A, pagkatapos ng 'ahas'"
+            "text": "Nasa pagitan ito ng 'ahas' at 'bintana'."
           },
           {
             "id": "d",
-            "text": "Sa titik P, kasama ng 'pagong'"
+            "text": "Nasa titik P ito kasama ng 'pagong'."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Sa titik B, pagkatapos ng 'buhay' at bago ang 'bulaklak'."
+        "explanation": "Ang pinakamabuting sagot ay: Kasunod ito ng 'buhay' dahil nauuna ang h sa l."
       },
       {
         "sequence": 5,
