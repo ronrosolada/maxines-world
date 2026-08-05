@@ -58,6 +58,8 @@ fun MatchingPairsRenderer(
     }
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        LessonVisual(step)
+
         Text(step.question.ifEmpty { "Match the pairs!" }, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Match pairs: ${step.question}" })
 

@@ -4,20 +4,37 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.MatchPair
 import com.maxinesworld.coremodel.SortItem
 import com.maxinesworld.engineactivity.renderers.HotspotProgress
-import com.maxinesworld.engineactivity.renderers.matchingTargetLabel
 import com.maxinesworld.engineactivity.renderers.hotspotBadgeOffset
 import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
+import com.maxinesworld.engineactivity.renderers.lessonVisualAssetId
+import com.maxinesworld.engineactivity.renderers.matchingTargetLabel
 import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
 import org.junit.Assert.assertEquals
+import androidx.compose.ui.unit.dp
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import androidx.compose.ui.unit.dp
 
 /**
  * These are pure-logic guards for the answer-key conventions the renderers
  * rely on. They do not instantiate Compose.
  */
 class RendererContractTest {
+
+    @Test
+    fun `lesson visual uses the first authored asset and ignores blanks`() {
+        val step = ActivityStep(
+            id = "visual-1",
+            type = "MULTIPLE_CHOICE_V1",
+            imageAssets = listOf("", "english-g3-m01-d01-visual", "unused"),
+        )
+
+        assertEquals("english-g3-m01-d01-visual", lessonVisualAssetId(step))
+    }
+
+    @Test
+    fun `lesson visual is absent when no authored asset exists`() {
+        assertEquals(null, lessonVisualAssetId(ActivityStep(id = "visual-2", type = "MULTIPLE_CHOICE_V1")))
+    }
 
     @Test
     fun `sort mapping derives from typed items not positional halving`() {

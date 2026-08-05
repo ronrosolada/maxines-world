@@ -74,6 +74,8 @@ fun SortAndClassifyRenderer(
         modifier = modifier.fillMaxWidth().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+        LessonVisual(step)
+
         Text(step.question, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Sort: ${step.question}" })
 

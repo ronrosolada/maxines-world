@@ -60,6 +60,8 @@ fun MultipleChoiceRenderer(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        LessonVisual(step)
+
         Text(
             text = step.question,
             style = MaterialTheme.typography.titleMedium,
@@ -147,15 +149,8 @@ fun MultipleChoiceRenderer(
                     if (submitted) {
                         // Third failure: advance anyway so the child is never trapped.
                         if (feedbackState == false && attempts >= 3) {
-                            onResult(
-                                ActivityResult(
-                                    activityId = step.id,
-                                    correct = false,
-                                    attempts = attempts,
-                                    hintsUsed = hintsUsed,
-                                    responseTimeMs = System.currentTimeMillis() - startTime
-                                )
-                            )
+                            onResult(multipleChoiceResult(step.id, false, attempts, hintsUsed,
+                                System.currentTimeMillis() - startTime))
                         } else {
                             submitted = false
                             selectedIndex = -1
@@ -167,15 +162,8 @@ fun MultipleChoiceRenderer(
                         feedbackState = correct
                         submitted = true
                         if (correct) {
-                            onResult(
-                                ActivityResult(
-                                    activityId = step.id,
-                                    correct = true,
-                                    attempts = attempts,
-                                    hintsUsed = hintsUsed,
-                                    responseTimeMs = System.currentTimeMillis() - startTime
-                                )
-                            )
+                            onResult(multipleChoiceResult(step.id, true, attempts, hintsUsed,
+                                System.currentTimeMillis() - startTime))
                         }
                     }
                 },
@@ -196,6 +184,20 @@ fun MultipleChoiceRenderer(
         }
     }
 }
+
+internal fun multipleChoiceResult(
+    activityId: String,
+    correct: Boolean,
+    attempts: Int,
+    hintsUsed: Int,
+    responseTimeMs: Long,
+): ActivityResult = ActivityResult(
+    activityId = activityId,
+    correct = correct,
+    attempts = attempts,
+    hintsUsed = hintsUsed,
+    responseTimeMs = responseTimeMs,
+)
 
 /**
  * Return a deterministic permutation for one lesson's option cards.

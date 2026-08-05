@@ -38,6 +38,8 @@ fun InteractiveSpecRenderer(
     val positions = listOf(Alignment.TopCenter, Alignment.BottomCenter, Alignment.CenterStart, Alignment.CenterEnd)
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        LessonVisual(step)
+
         Text(step.question.ifEmpty { "Tap the correct label" }, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Diagram: ${step.question}" })
 

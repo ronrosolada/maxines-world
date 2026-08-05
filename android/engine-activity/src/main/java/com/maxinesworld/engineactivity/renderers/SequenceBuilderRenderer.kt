@@ -40,6 +40,8 @@ fun SequenceBuilderRenderer(
     val available = displayOrder.filter { it !in ordered }
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        LessonVisual(step)
+
         Text(step.question.ifEmpty { "Arrange in order:" }, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Sequence: ${step.question}" })
 

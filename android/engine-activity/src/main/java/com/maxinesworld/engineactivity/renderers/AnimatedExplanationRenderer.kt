@@ -34,6 +34,8 @@ fun AnimatedExplanationRenderer(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        LessonVisual(step)
+
         Text(
             text = step.narrationText.ifEmpty { step.question },
             style = MaterialTheme.typography.bodyLarge,
