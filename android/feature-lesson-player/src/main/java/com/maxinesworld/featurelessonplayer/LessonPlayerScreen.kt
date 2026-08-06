@@ -37,6 +37,7 @@ import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.engineactivity.renderers.ActivityRenderer
+import com.maxinesworld.engineactivity.renderers.LessonConceptVisual
 import com.maxinesworld.engineactivity.renderers.LessonVisual
 import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
@@ -511,6 +512,8 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
                     },
                 )
             }
+            Spacer(Modifier.height(16.dp))
+            LessonConceptVisual(step)
             Spacer(Modifier.height(16.dp))
 
             if (ttsUnavailable) {
