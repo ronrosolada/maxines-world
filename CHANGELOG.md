@@ -4,6 +4,13 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
+## [0.21.1] - 2026-08-06
+
+### Lesson reliability
+- Sort & Classify prompts now use the same vocabulary as the visible answer buckets.
+- Retrying Sort & Classify preserves correctly placed cards instead of forcing a full restart.
+- Added regression coverage for both learner-facing behaviors.
+
 ## [0.21.0] - 2026-08-06
 
 ### Content
