@@ -13,6 +13,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.VolumeOff
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -37,6 +40,7 @@ import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.engineactivity.renderers.ActivityRenderer
+import com.maxinesworld.engineactivity.renderers.LessonConceptVisual
 import com.maxinesworld.engineactivity.renderers.LessonVisual
 import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
@@ -65,7 +69,7 @@ private fun VocabularyCard(terms: List<VocabTerm>, title: String = "New Words") 
     ) {
         Column(Modifier.padding(14.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.MenuBook, title, tint = Teal40, modifier = Modifier.size(20.dp))
+                Icon(Icons.AutoMirrored.Filled.MenuBook, title, tint = Teal40, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
                 Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = Teal40)
             }
@@ -119,7 +123,11 @@ fun LessonPlayerScreen(
         Box(Modifier.fillMaxSize().padding(innerPadding)) {
             when {
                 state.isLoading -> CircularProgressIndicator(Modifier.align(Alignment.Center), color = Teal40)
-                state.error != null -> ErrorDisplay(state.error!!, Modifier.align(Alignment.Center))
+                state.error != null -> ErrorDisplay(
+                    error = state.error!!,
+                    modifier = Modifier.align(Alignment.Center),
+                    onRetry = { viewModel.loadLesson(lessonId, childId) },
+                )
                 state.isComplete -> {
                     // Show badge reveal if a badge was just earned
                     if (state.badgeAwarded != null) {
@@ -413,7 +421,7 @@ fun NarrationControlRow(
             modifier = Modifier.size(48.dp)
         ) {
             Icon(
-                if (narrationEnabled) Icons.Default.VolumeUp else Icons.Default.VolumeOff,
+                if (narrationEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeOff,
                 if (narrationEnabled) "Turn narration off" else "Turn narration on",
                 tint = if (narrationEnabled) Teal40 else Ink.copy(alpha = 0.5f),
                 modifier = Modifier.size(28.dp)
@@ -490,11 +498,14 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(Modifier.padding(24.dp)) {
-            LessonVisual(step)
+            LessonVisual(
+                step = step,
+                fallback = { LessonConceptVisual(step) },
+            )
             Spacer(Modifier.height(16.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
+                Icon(Icons.AutoMirrored.Filled.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
                 Spacer(Modifier.width(12.dp))
                 Text(uiText(language, "Read Along", "Basahin Natin"), fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Teal40, modifier = Modifier.weight(1f))
                 NarrationControlRow(
@@ -665,11 +676,15 @@ private fun rememberConfettiProgress(enabled: Boolean): Float {
 internal fun confettiAnimationEnabled(animatorDurationScale: Float): Boolean = animatorDurationScale > 0f
 
 @Composable
-private fun ErrorDisplay(error: String, modifier: Modifier = Modifier) {
+private fun ErrorDisplay(error: String, modifier: Modifier = Modifier, onRetry: () -> Unit) {
     Column(modifier.padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Icon(Icons.Default.ErrorOutline, "Error", tint = ErrorRed, modifier = Modifier.size(48.dp))
         Spacer(Modifier.height(16.dp))
         Text(error, color = ErrorRed, textAlign = TextAlign.Center)
+        Spacer(Modifier.height(16.dp))
+        Button(onClick = onRetry, shape = RoundedCornerShape(16.dp)) {
+            Text("Retry")
+        }
     }
 }
 

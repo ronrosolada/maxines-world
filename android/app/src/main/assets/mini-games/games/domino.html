@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+
+
+    <title>Domino — Mini Games</title>
+
+
+
+
+    <!-- Open Graph -->
+
+
+
+
+
+
+
+
+
+
+    <!-- Twitter Card -->
+
+
+
+
+
+    <style data-maxines-source-global-css>
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-translate-x:0;--tw-translate-y:0;--tw-translate-z:0;--tw-rotate-x:initial;--tw-rotate-y:initial;--tw-rotate-z:initial;--tw-skew-x:initial;--tw-skew-y:initial;--tw-space-y-reverse:0;--tw-border-style:solid;--tw-gradient-position:initial;--tw-gradient-from:#0000;--tw-gradient-via:#0000;--tw-gradient-to:#0000;--tw-gradient-stops:initial;--tw-gradient-via-stops:initial;--tw-gradient-from-position:0%;--tw-gradient-via-position:50%;--tw-gradient-to-position:100%;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000;--tw-outline-style:solid;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial;--tw-backdrop-blur:initial;--tw-backdrop-brightness:initial;--tw-backdrop-contrast:initial;--tw-backdrop-grayscale:initial;--tw-backdrop-hue-rotate:initial;--tw-backdrop-invert:initial;--tw-backdrop-opacity:initial;--tw-backdrop-saturate:initial;--tw-backdrop-sepia:initial;--tw-duration:initial;--tw-ease:initial;--tw-scale-x:1;--tw-scale-y:1;--tw-scale-z:1}}}@layer theme{:root,:host{--font-sans:"Inter", system-ui, sans-serif;--font-mono:"JetBrains Mono", "Fira Code", monospace;--color-red-400:oklch(70.4% .191 22.216);--color-amber-300:oklch(87.9% .169 91.605);--color-amber-400:oklch(82.8% .189 84.429);--color-amber-500:oklch(76.9% .188 70.08);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-emerald-600:oklch(59.6% .145 163.225);--color-sky-300:oklch(82.8% .111 230.318);--color-sky-500:oklch(68.5% .169 237.323);--color-violet-300:oklch(81.1% .111 293.571);--color-violet-400:oklch(70.2% .183 293.541);--color-violet-500:oklch(60.6% .25 292.717);--color-violet-600:oklch(54.1% .281 293.009);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-600:oklch(44.6% .043 257.281);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-white:#fff;--spacing:.25rem;--container-2xl:42rem;--container-5xl:64rem;--container-6xl:72rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-base:1rem;--text-base--line-height:calc(1.5 / 1);--text-lg:1.125rem;--text-lg--line-height:calc(1.75 / 1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75 / 1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2 / 1.5);--text-3xl:1.875rem;--text-3xl--line-height:calc(2.25 / 1.875);--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5 / 2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-6xl:3.75rem;--text-6xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--tracking-wider:.05em;--tracking-widest:.1em;--leading-tight:1.25;--leading-relaxed:1.625;--radius-lg:.5rem;--radius-xl:.75rem;--ease-in:cubic-bezier(.4, 0, 1, 1);--ease-out:cubic-bezier(0, 0, .2, 1);--ease-in-out:cubic-bezier(.4, 0, .2, 1);--animate-pulse:pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;--blur-3xl:64px;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1);--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono);--animate-fade-in:fadeIn .5s ease-in-out;--animate-slide-up:slideUp .4s ease-out}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}html{scroll-behavior:smooth}body{background-color:var(--color-slate-900);font-family:var(--font-sans);color:var(--color-slate-100);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}}@layer components{.btn-primary{align-items:center;gap:calc(var(--spacing) * 2);border-radius:var(--radius-lg);background-color:var(--color-violet-600);padding-inline:calc(var(--spacing) * 6);padding-block:calc(var(--spacing) * 3);--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold);color:var(--color-white);transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration));--tw-duration:.2s;transition-duration:.2s;display:inline-flex}@media (hover:hover){.btn-primary:hover{background-color:var(--color-violet-500);--tw-shadow:0 10px 15px -3px var(--tw-shadow-color,#0000001a), 0 4px 6px -4px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);--tw-shadow-color:#8d54ff40}@supports (color:color-mix(in lab, red, red)){.btn-primary:hover{--tw-shadow-color:color-mix(in oklab, color-mix(in oklab, var(--color-violet-500) 25%, transparent) var(--tw-shadow-alpha), transparent)}}}.btn-primary:active{--tw-scale-x:95%;--tw-scale-y:95%;--tw-scale-z:95%;scale:var(--tw-scale-x) var(--tw-scale-y)}.btn-secondary{align-items:center;gap:calc(var(--spacing) * 2);border-radius:var(--radius-lg);background-color:var(--color-slate-700);padding-inline:calc(var(--spacing) * 6);padding-block:calc(var(--spacing) * 3);--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold);color:var(--color-slate-100);transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration));--tw-duration:.2s;transition-duration:.2s;display:inline-flex}@media (hover:hover){.btn-secondary:hover{background-color:var(--color-slate-600)}}.btn-secondary:active{--tw-scale-x:95%;--tw-scale-y:95%;--tw-scale-z:95%;scale:var(--tw-scale-x) var(--tw-scale-y)}.card{border-radius:var(--radius-xl);border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-700);background-color:var(--color-slate-800);transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration));--tw-duration:.2s;transition-duration:.2s}@media (hover:hover){.card:hover{--tw-translate-y:calc(var(--spacing) * -1);translate:var(--tw-translate-x) var(--tw-translate-y);border-color:#8d54ff80}@supports (color:color-mix(in lab, red, red)){.card:hover{border-color:color-mix(in oklab, var(--color-violet-500) 50%, transparent)}}.card:hover{--tw-shadow:0 20px 25px -5px var(--tw-shadow-color,#0000001a), 0 8px 10px -6px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);--tw-shadow-color:#8d54ff1a}@supports (color:color-mix(in lab, red, red)){.card:hover{--tw-shadow-color:color-mix(in oklab, color-mix(in oklab, var(--color-violet-500) 10%, transparent) var(--tw-shadow-alpha), transparent)}}}.badge{border-style:var(--tw-border-style);padding-inline:calc(var(--spacing) * 2.5);padding-block:calc(var(--spacing) * .5);font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height));--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium);border-width:1px;border-radius:3.40282e38px;align-items:center;display:inline-flex}}@layer utilities{.pointer-events-none{pointer-events:none}.invisible{visibility:hidden}.visible{visibility:visible}.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.static{position:static}.sticky{position:sticky}.inset-0{inset:0}.top-0{top:0}.top-1\/2{top:50%}.right-1\/4{right:25%}.bottom-0{bottom:0}.left-1\/4{left:25%}.left-3{left:calc(var(--spacing) * 3)}.-z-10{z-index:calc(10 * -1)}.z-50{z-index:50}.container{width:100%}@media (min-width:40rem){.container{max-width:40rem}}@media (min-width:48rem){.container{max-width:48rem}}@media (min-width:64rem){.container{max-width:64rem}}@media (min-width:80rem){.container{max-width:80rem}}@media (min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.mt-8{margin-top:calc(var(--spacing) * 8)}.mt-20{margin-top:calc(var(--spacing) * 20)}.mb-1{margin-bottom:var(--spacing)}.mb-2{margin-bottom:calc(var(--spacing) * 2)}.mb-3{margin-bottom:calc(var(--spacing) * 3)}.mb-4{margin-bottom:calc(var(--spacing) * 4)}.mb-6{margin-bottom:calc(var(--spacing) * 6)}.mb-8{margin-bottom:calc(var(--spacing) * 8)}.mb-10{margin-bottom:calc(var(--spacing) * 10)}.mb-12{margin-bottom:calc(var(--spacing) * 12)}.mb-14{margin-bottom:calc(var(--spacing) * 14)}.block{display:block}.contents{display:contents}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline{display:inline}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.h-2{height:calc(var(--spacing) * 2)}.h-3\.5{height:calc(var(--spacing) * 3.5)}.h-4{height:calc(var(--spacing) * 4)}.h-5{height:calc(var(--spacing) * 5)}.h-16{height:calc(var(--spacing) * 16)}.h-96{height:calc(var(--spacing) * 96)}.h-px{height:1px}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-3\.5{width:calc(var(--spacing) * 3.5)}.w-4{width:calc(var(--spacing) * 4)}.w-5{width:calc(var(--spacing) * 5)}.w-48{width:calc(var(--spacing) * 48)}.w-96{width:calc(var(--spacing) * 96)}.w-full{width:100%}.max-w-2xl{max-width:var(--container-2xl)}.max-w-5xl{max-width:var(--container-5xl)}.max-w-6xl{max-width:var(--container-6xl)}.flex-1{flex:1}.flex-shrink{flex-shrink:1}.grow{flex-grow:1}.border-collapse{border-collapse:collapse}.-translate-y-1\/2{--tw-translate-y:calc(calc(1 / 2 * 100%) * -1);translate:var(--tw-translate-x) var(--tw-translate-y)}.transform{transform:var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.animate-fade-in{animation:var(--animate-fade-in)}.animate-pulse{animation:var(--animate-pulse)}.animate-slide-up{animation:var(--animate-slide-up)}.resize{resize:both}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-6{gap:calc(var(--spacing) * 6)}.gap-10{gap:calc(var(--spacing) * 10)}:where(.space-y-1>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(var(--spacing) * var(--tw-space-y-reverse));margin-block-end:calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)))}.gap-x-6{column-gap:calc(var(--spacing) * 6)}.gap-y-2{row-gap:calc(var(--spacing) * 2)}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded-full{border-radius:3.40282e38px}.rounded-xl{border-radius:var(--radius-xl)}.border{border-style:var(--tw-border-style);border-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-amber-500\/30{border-color:#f99c004d}@supports (color:color-mix(in lab, red, red)){.border-amber-500\/30{border-color:color-mix(in oklab, var(--color-amber-500) 30%, transparent)}}.border-emerald-500\/30{border-color:#00bb7f4d}@supports (color:color-mix(in lab, red, red)){.border-emerald-500\/30{border-color:color-mix(in oklab, var(--color-emerald-500) 30%, transparent)}}.border-sky-500\/30{border-color:#00a5ef4d}@supports (color:color-mix(in lab, red, red)){.border-sky-500\/30{border-color:color-mix(in oklab, var(--color-sky-500) 30%, transparent)}}.border-slate-500\/30{border-color:#62748e4d}@supports (color:color-mix(in lab, red, red)){.border-slate-500\/30{border-color:color-mix(in oklab, var(--color-slate-500) 30%, transparent)}}.border-slate-700{border-color:var(--color-slate-700)}.border-slate-800{border-color:var(--color-slate-800)}.border-violet-500\/20{border-color:#8d54ff33}@supports (color:color-mix(in lab, red, red)){.border-violet-500\/20{border-color:color-mix(in oklab, var(--color-violet-500) 20%, transparent)}}.border-violet-500\/30{border-color:#8d54ff4d}@supports (color:color-mix(in lab, red, red)){.border-violet-500\/30{border-color:color-mix(in oklab, var(--color-violet-500) 30%, transparent)}}.bg-amber-500\/20{background-color:#f99c0033}@supports (color:color-mix(in lab, red, red)){.bg-amber-500\/20{background-color:color-mix(in oklab, var(--color-amber-500) 20%, transparent)}}.bg-emerald-500\/20{background-color:#00bb7f33}@supports (color:color-mix(in lab, red, red)){.bg-emerald-500\/20{background-color:color-mix(in oklab, var(--color-emerald-500) 20%, transparent)}}.bg-emerald-600\/10{background-color:#0097671a}@supports (color:color-mix(in lab, red, red)){.bg-emerald-600\/10{background-color:color-mix(in oklab, var(--color-emerald-600) 10%, transparent)}}.bg-sky-500\/20{background-color:#00a5ef33}@supports (color:color-mix(in lab, red, red)){.bg-sky-500\/20{background-color:color-mix(in oklab, var(--color-sky-500) 20%, transparent)}}.bg-slate-500\/20{background-color:#62748e33}@supports (color:color-mix(in lab, red, red)){.bg-slate-500\/20{background-color:color-mix(in oklab, var(--color-slate-500) 20%, transparent)}}.bg-slate-800{background-color:var(--color-slate-800)}.bg-slate-800\/40{background-color:#1d293d66}@supports (color:color-mix(in lab, red, red)){.bg-slate-800\/40{background-color:color-mix(in oklab, var(--color-slate-800) 40%, transparent)}}.bg-slate-800\/60{background-color:#1d293d99}@supports (color:color-mix(in lab, red, red)){.bg-slate-800\/60{background-color:color-mix(in oklab, var(--color-slate-800) 60%, transparent)}}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-900\/80{background-color:#0f172bcc}@supports (color:color-mix(in lab, red, red)){.bg-slate-900\/80{background-color:color-mix(in oklab, var(--color-slate-900) 80%, transparent)}}.bg-violet-400{background-color:var(--color-violet-400)}.bg-violet-500\/10{background-color:#8d54ff1a}@supports (color:color-mix(in lab, red, red)){.bg-violet-500\/10{background-color:color-mix(in oklab, var(--color-violet-500) 10%, transparent)}}.bg-violet-500\/20{background-color:#8d54ff33}@supports (color:color-mix(in lab, red, red)){.bg-violet-500\/20{background-color:color-mix(in oklab, var(--color-violet-500) 20%, transparent)}}.bg-violet-600\/10{background-color:#7f22fe1a}@supports (color:color-mix(in lab, red, red)){.bg-violet-600\/10{background-color:color-mix(in oklab, var(--color-violet-600) 10%, transparent)}}.bg-gradient-to-r{--tw-gradient-position:to right in oklab;background-image:linear-gradient(var(--tw-gradient-stops))}.from-violet-400{--tw-gradient-from:var(--color-violet-400);--tw-gradient-stops:var(--tw-gradient-via-stops,var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.to-emerald-400{--tw-gradient-to:var(--color-emerald-400);--tw-gradient-stops:var(--tw-gradient-via-stops,var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-5{padding:calc(var(--spacing) * 5)}.p-6{padding:calc(var(--spacing) * 6)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-6{padding-block:calc(var(--spacing) * 6)}.py-12{padding-block:calc(var(--spacing) * 12)}.py-16{padding-block:calc(var(--spacing) * 16)}.py-24{padding-block:calc(var(--spacing) * 24)}.pt-2{padding-top:calc(var(--spacing) * 2)}.pt-6{padding-top:calc(var(--spacing) * 6)}.pt-12{padding-top:calc(var(--spacing) * 12)}.pr-4{padding-right:calc(var(--spacing) * 4)}.pb-8{padding-bottom:calc(var(--spacing) * 8)}.pl-9{padding-left:calc(var(--spacing) * 9)}.text-center{text-align:center}.font-mono{font-family:var(--font-mono)}.text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading,var(--text-2xl--line-height))}.text-3xl{font-size:var(--text-3xl);line-height:var(--tw-leading,var(--text-3xl--line-height))}.text-4xl{font-size:var(--text-4xl);line-height:var(--tw-leading,var(--text-4xl--line-height))}.text-5xl{font-size:var(--text-5xl);line-height:var(--tw-leading,var(--text-5xl--line-height))}.text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading,var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.leading-none{--tw-leading:1;line-height:1}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.leading-tight{--tw-leading:var(--leading-tight);line-height:var(--leading-tight)}.font-bold{--tw-font-weight:var(--font-weight-bold);font-weight:var(--font-weight-bold)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-wider{--tw-tracking:var(--tracking-wider);letter-spacing:var(--tracking-wider)}.tracking-widest{--tw-tracking:var(--tracking-widest);letter-spacing:var(--tracking-widest)}.whitespace-nowrap{white-space:nowrap}.text-amber-300{color:var(--color-amber-300)}.text-amber-400{color:var(--color-amber-400)}.text-emerald-300{color:var(--color-emerald-300)}.text-emerald-400{color:var(--color-emerald-400)}.text-red-400{color:var(--color-red-400)}.text-sky-300{color:var(--color-sky-300)}.text-slate-200{color:var(--color-slate-200)}.text-slate-300{color:var(--color-slate-300)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-600{color:var(--color-slate-600)}.text-transparent{color:#0000}.text-violet-300{color:var(--color-violet-300)}.text-violet-400{color:var(--color-violet-400)}.text-white{color:var(--color-white)}.capitalize{text-transform:capitalize}.normal-case{text-transform:none}.uppercase{text-transform:uppercase}.placeholder-slate-500::placeholder{color:var(--color-slate-500)}.shadow{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a), 0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.outline{outline-style:var(--tw-outline-style);outline-width:1px}.blur-3xl{--tw-blur:blur(var(--blur-3xl));filter:var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,)}.filter{filter:var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.transition{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to,opacity,box-shadow,transform,translate,scale,rotate,filter,-webkit-backdrop-filter,backdrop-filter,display,content-visibility,overlay,pointer-events;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-colors{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-transform{transition-property:transform,translate,scale,rotate;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.duration-150{--tw-duration:.15s;transition-duration:.15s}.ease-in{--tw-ease:var(--ease-in);transition-timing-function:var(--ease-in)}.ease-in-out{--tw-ease:var(--ease-in-out);transition-timing-function:var(--ease-in-out)}.ease-out{--tw-ease:var(--ease-out);transition-timing-function:var(--ease-out)}@media (hover:hover){.group-hover\:-translate-x-0\.5:is(:where(.group):hover *){--tw-translate-x:calc(var(--spacing) * -.5);translate:var(--tw-translate-x) var(--tw-translate-y)}.group-hover\:text-violet-400:is(:where(.group):hover *){color:var(--color-violet-400)}.group-hover\:text-white:is(:where(.group):hover *){color:var(--color-white)}.group-hover\:underline:is(:where(.group):hover *){text-decoration-line:underline}.hover\:border-slate-600:hover{border-color:var(--color-slate-600)}.hover\:border-violet-500\/50:hover{border-color:#8d54ff80}@supports (color:color-mix(in lab, red, red)){.hover\:border-violet-500\/50:hover{border-color:color-mix(in oklab, var(--color-violet-500) 50%, transparent)}}.hover\:bg-slate-700:hover{background-color:var(--color-slate-700)}.hover\:text-slate-300:hover{color:var(--color-slate-300)}.hover\:text-violet-300:hover{color:var(--color-violet-300)}.hover\:text-violet-400:hover{color:var(--color-violet-400)}.hover\:text-white:hover{color:var(--color-white)}.hover\:underline:hover{text-decoration-line:underline}}.focus\:border-violet-500\/60:focus{border-color:#8d54ff99}@supports (color:color-mix(in lab, red, red)){.focus\:border-violet-500\/60:focus{border-color:color-mix(in oklab, var(--color-violet-500) 60%, transparent)}}.focus\:ring-1:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.focus\:ring-violet-500\/30:focus{--tw-ring-color:#8d54ff4d}@supports (color:color-mix(in lab, red, red)){.focus\:ring-violet-500\/30:focus{--tw-ring-color:color-mix(in oklab, var(--color-violet-500) 30%, transparent)}}.focus\:outline-none:focus{--tw-outline-style:none;outline-style:none}@media (min-width:40rem){.sm\:w-72{width:calc(var(--spacing) * 72)}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:px-6{padding-inline:calc(var(--spacing) * 6)}.sm\:py-32{padding-block:calc(var(--spacing) * 32)}.sm\:text-left{text-align:left}.sm\:text-6xl{font-size:var(--text-6xl);line-height:var(--tw-leading,var(--text-6xl--line-height))}}@media (min-width:48rem){.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (min-width:64rem){.lg\:col-span-1{grid-column:span 1/span 1}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:text-7xl{font-size:var(--text-7xl);line-height:var(--tw-leading,var(--text-7xl--line-height))}}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}@keyframes slideUp{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false}@property --tw-rotate-y{syntax:"*";inherits:false}@property --tw-rotate-z{syntax:"*";inherits:false}@property --tw-skew-x{syntax:"*";inherits:false}@property --tw-skew-y{syntax:"*";inherits:false}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-gradient-position{syntax:"*";inherits:false}@property --tw-gradient-from{syntax:"<color>";inherits:false;initial-value:#0000}@property --tw-gradient-via{syntax:"<color>";inherits:false;initial-value:#0000}@property --tw-gradient-to{syntax:"<color>";inherits:false;initial-value:#0000}@property --tw-gradient-stops{syntax:"*";inherits:false}@property --tw-gradient-via-stops{syntax:"*";inherits:false}@property --tw-gradient-from-position{syntax:"<length-percentage>";inherits:false;initial-value:0%}@property --tw-gradient-via-position{syntax:"<length-percentage>";inherits:false;initial-value:50%}@property --tw-gradient-to-position{syntax:"<length-percentage>";inherits:false;initial-value:100%}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-tracking{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-drop-shadow-color{syntax:"*";inherits:false}@property --tw-drop-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-drop-shadow-size{syntax:"*";inherits:false}@property --tw-backdrop-blur{syntax:"*";inherits:false}@property --tw-backdrop-brightness{syntax:"*";inherits:false}@property --tw-backdrop-contrast{syntax:"*";inherits:false}@property --tw-backdrop-grayscale{syntax:"*";inherits:false}@property --tw-backdrop-hue-rotate{syntax:"*";inherits:false}@property --tw-backdrop-invert{syntax:"*";inherits:false}@property --tw-backdrop-opacity{syntax:"*";inherits:false}@property --tw-backdrop-saturate{syntax:"*";inherits:false}@property --tw-backdrop-sepia{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-scale-x{syntax:"*";inherits:false;initial-value:1}@property --tw-scale-y{syntax:"*";inherits:false;initial-value:1}@property --tw-scale-z{syntax:"*";inherits:false;initial-value:1}@keyframes pulse{50%{opacity:.5}}
+</style>
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'; img-src data: blob:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'">
+
+<style data-maxines-host-motion>
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+  <body class="min-h-screen bg-slate-900 flex flex-col">
+    <!-- Game Nav -->
+
+
+    <!-- Game Content -->
+    <div class="flex-1 flex flex-col">
+
+
+<style>
+  :root {
+    --pip: clamp(8px, 2.4vw, 11px);
+    --half: calc(var(--pip) * 3 + 10px);
+    --tile-w: calc(var(--half) * 2 + 4px);
+    --tile-h: var(--half);
+  }
+  #game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: calc(100vh - 60px);
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .score-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    text-align: center;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    min-width: 64px;
+  }
+  .stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+  }
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e2e8f0;
+    font-family: monospace;
+  }
+  #board-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 640px;
+  }
+  #chain-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0f172a;
+  }
+  #chain-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+  #chain-scroll::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  #chain-scroll::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 2px;
+  }
+  #chain {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-height: calc(var(--tile-h) + 20px);
+    padding: 6px 12px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    width: max-content;
+    min-width: 100%;
+  }
+  #chain-empty {
+    color: #475569;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+  .chain-end-label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+  /* Open ends summary row */
+  #ends-row {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .end-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+    flex: 1;
+  }
+  .end-badge.end-right {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  .end-dir {
+    font-size: 0.8rem;
+    color: #64748b;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .end-badge .d-half {
+    --pip: 7px;
+    width: calc(var(--pip) * 3 + 8px);
+    height: calc(var(--pip) * 3 + 8px);
+    padding: 2px;
+    gap: 1px;
+    flex-shrink: 0;
+    background: #e2e8f0;
+    border: 1.5px solid #475569;
+    border-radius: 3px;
+  }
+  /* Domino tile */
+  .domino {
+    display: inline-flex;
+    flex-direction: row;
+    border: 2px solid #94a3b8;
+    border-radius: 5px;
+    background: #e2e8f0;
+    cursor: default;
+    user-select: none;
+    flex-shrink: 0;
+    transition:
+      transform 0.1s,
+      box-shadow 0.1s,
+      border-color 0.1s;
+  }
+  .domino.hand-tile {
+    cursor: pointer;
+    border-color: #64748b;
+    flex-direction: column;
+  }
+  .domino.hand-tile .d-half + .d-half {
+    border-left: none;
+    border-top: 2px solid;
+    border-top-color: inherit;
+  }
+  .domino.hand-tile:hover {
+    border-color: #94a3b8;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  .domino.selected {
+    border-color: #3b82f6;
+    box-shadow:
+      0 0 0 2px rgba(59, 130, 246, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+  }
+  .domino.valid-hint {
+    border-color: #22c55e;
+  }
+  .domino.invalid-tile {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .domino.invalid-tile:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #64748b;
+  }
+  .d-half {
+    width: var(--half);
+    height: var(--half);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+  .d-half + .d-half {
+    border-left: 2px solid #94a3b8;
+  }
+  .domino.selected .d-half + .d-half,
+  .domino.valid-hint .d-half + .d-half {
+    border-left-color: inherit;
+  }
+  .d-dot {
+    border-radius: 50%;
+    background: #dc2626;
+  }
+  /* Status and actions */
+  #status {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    text-align: center;
+    min-height: 1.5rem;
+  }
+  #action-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 2.5rem;
+    align-items: center;
+  }
+  .action-btn {
+    padding: 0.4rem 1rem;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s;
+  }
+  .action-btn:hover {
+    background: #1d4ed8;
+  }
+  .action-btn.draw-btn {
+    background: #0f766e;
+  }
+  .action-btn.draw-btn:hover {
+    background: #0d9488;
+  }
+  .action-btn.pass-btn {
+    background: #6b21a8;
+  }
+  .action-btn.pass-btn:hover {
+    background: #7e22ce;
+  }
+  .action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  #hand-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  #hand-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+  }
+  #player-hand {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    padding: 0.5rem;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    min-height: calc(var(--tile-h) + 24px);
+    width: 100%;
+    align-items: center;
+  }
+  #ai-hand-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  #ai-hand-top {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  #ai-hand-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+  }
+  #ai-hand {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    padding: 0.5rem;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    min-height: calc(var(--half) * 2 + 28px);
+    width: 100%;
+    align-items: center;
+  }
+  /* Face-down domino back */
+  .domino-back {
+    width: calc(var(--half) + 4px);
+    height: calc(var(--half) * 2 + 4px);
+    border: 2px solid #475569;
+    border-radius: 5px;
+    flex-shrink: 0;
+    background: repeating-linear-gradient(45deg, #1e3a5f 0, #1e3a5f 3px, #162d4a 3px, #162d4a 9px);
+    position: relative;
+  }
+  .domino-back::after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    top: 50%;
+    height: 2px;
+    background: rgba(148, 163, 184, 0.25);
+    transform: translateY(-50%);
+    border-radius: 1px;
+  }
+  .boneyard-badge {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .controls-hint {
+    font-size: 0.78rem;
+    color: #475569;
+    text-align: center;
+    max-width: 380px;
+  }
+  .play-btn {
+    padding: 0.5rem 1.5rem;
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .play-btn:hover {
+    background: #1e40af;
+  }
+  /* Game Over overlay */
+  #gameover-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 100;
+    padding: 1rem;
+  }
+  #gameover-overlay h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0;
+    text-align: center;
+  }
+  #go-icon {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .summary-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .summary-stat {
+    text-align: center;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    min-width: 70px;
+  }
+  .summary-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+  }
+  .summary-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e2e8f0;
+    font-family: monospace;
+  }
+  #go-context {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    max-width: 300px;
+  }
+  /* Round summary overlay */
+  #round-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 100;
+    padding: 1rem;
+  }
+  #round-overlay h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0;
+    text-align: center;
+  }
+  #round-icon {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  #round-desc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 0;
+  }
+  .round-btn-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .secondary-btn {
+    padding: 0.5rem 1.5rem;
+    background: #334155;
+    color: #e2e8f0;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .secondary-btn:hover {
+    background: #475569;
+  }
+  /* Lobby overlay */
+  #lobby-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 200;
+    padding: 1rem;
+  }
+  #lobby-overlay h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0;
+    text-align: center;
+  }
+  #lobby-overlay p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+    max-width: 280px;
+  }
+  .diff-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .diff-btn {
+    padding: 0.35rem 1rem;
+    background: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+  }
+  .diff-btn.active,
+  .diff-btn:hover {
+    background: #334155;
+    color: white;
+    border-color: #1d4ed8;
+  }
+  .mode-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .mode-btn {
+    padding: 0.35rem 1rem;
+    background: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+  }
+  .mode-btn.active,
+  .mode-btn:hover {
+    background: #334155;
+    color: white;
+    border-color: #1d4ed8;
+  }
+  #lobby-mode-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    max-width: 260px;
+    margin-top: -0.25rem;
+  }
+  /* Round history */
+  .history-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+  .history-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    background: #1e293b;
+    margin-bottom: 3px;
+  }
+  .history-round {
+    color: #64748b;
+    width: 2.5rem;
+    flex-shrink: 0;
+    font-size: 0.72rem;
+  }
+  .history-pts {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+  }
+  .history-you {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  .history-ai {
+    color: #f87171;
+    font-weight: 600;
+  }
+  .history-result {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+  /* Info section */
+  .info-section {
+    width: 100%;
+    max-width: 480px;
+    padding: 0 1rem 2rem;
+    margin: 0 auto;
+  }
+  .info-details {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .info-details summary {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+  .info-details summary::-webkit-details-marker {
+    display: none;
+  }
+  .info-details summary::after {
+    content: "+";
+    font-size: 1.1rem;
+    color: #64748b;
+  }
+  .info-details[open] summary::after {
+    content: "−";
+  }
+  .info-body {
+    padding: 0.75rem 1rem 1rem;
+    color: #94a3b8;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    border-top: 1px solid #334155;
+  }
+  .info-body h4 {
+    color: #e2e8f0;
+    font-weight: 600;
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.875rem;
+  }
+  .info-body h4:first-child {
+    margin-top: 0;
+  }
+  .info-body ul {
+    padding-left: 1.25rem;
+    margin: 0.25rem 0;
+  }
+  .info-body li {
+    margin-bottom: 0.25rem;
+  }
+  .info-body p {
+    margin: 0.25rem 0;
+  }
+</style>
+
+<div id="game-wrapper">
+  <div class="score-row">
+
+<div class="stat">
+  <div class="stat-label" >🙂 You</div>
+  <div class="stat-value" id="score-player">0</div>
+</div>
+
+<div class="stat">
+  <div class="stat-label" >🤖 AI</div>
+  <div class="stat-value" id="score-ai">0</div>
+</div>
+
+<div class="stat">
+  <div class="stat-label" >Best</div>
+  <div class="stat-value" id="score-best">0</div>
+</div>
+
+    <span id="round-card-wrap">
+<div class="stat">
+  <div class="stat-label" >Round</div>
+  <div class="stat-value" id="score-round">1</div>
+</div>
+</span>
+  </div>
+
+  <div id="board-area">
+    <div id="ai-hand-section">
+      <div id="ai-hand-top">
+        <div id="ai-hand-label">🤖 AI's Hand</div>
+        <div class="boneyard-badge">🃏 Boneyard: <strong id="boneyard-count">14</strong></div>
+      </div>
+      <div id="ai-hand"></div>
+    </div>
+
+    <div id="chain-scroll">
+      <div id="chain">
+        <span id="chain-empty">Place your first tile to start the chain…</span>
+      </div>
+    </div>
+
+    <div id="ends-row">
+      <div class="end-badge end-left">
+        <div id="end-left-pip"></div>
+        <span class="end-dir">← Left open</span>
+      </div>
+      <div class="end-badge end-right">
+        <div id="end-right-pip"></div>
+        <span class="end-dir">Right open →</span>
+      </div>
+    </div>
+
+    <div id="status">Your turn</div>
+
+    <div id="action-row"></div>
+
+    <div id="hand-section">
+      <div id="hand-label">Your Hand</div>
+      <div id="player-hand"></div>
+    </div>
+  </div>
+
+  <p class="controls-hint">Click a tile to select it, then choose ← Left or Right → to place.</p>
+
+  <button class="play-btn" onclick="showLobby()">New Game</button>
+</div>
+
+<div id="gameover-overlay" style="display: none">
+  <span id="go-icon">💀</span>
+  <h2 id="go-title">Game Over</h2>
+  <div class="summary-row">
+    <div class="summary-stat">
+      <div class="summary-label">🙂 You</div>
+      <div class="summary-value" id="go-player">0</div>
+    </div>
+    <div class="summary-stat">
+      <div class="summary-label">🤖 AI</div>
+      <div class="summary-value" id="go-ai">0</div>
+    </div>
+    <div class="summary-stat">
+      <div class="summary-label">Best</div>
+      <div class="summary-value" id="go-best">0</div>
+    </div>
+  </div>
+  <p id="go-context"></p>
+  <div id="go-history-wrap" style="width: 100%; max-width: 300px; display: none">
+    <div class="history-label">Round History</div>
+    <div id="go-history-table"></div>
+  </div>
+  <button class="play-btn" onclick="showLobby()">New Game</button>
+</div>
+
+<div id="round-overlay" style="display: none">
+  <span id="round-icon">🎉</span>
+  <h2 id="round-title">Round Over</h2>
+  <p id="round-desc"></p>
+  <div class="summary-row">
+    <div class="summary-stat">
+      <div class="summary-label">🙂 You</div>
+      <div class="summary-value" id="round-player">0</div>
+    </div>
+    <div class="summary-stat">
+      <div class="summary-label">🤖 AI</div>
+      <div class="summary-value" id="round-ai">0</div>
+    </div>
+  </div>
+  <div id="round-history-wrap" style="width: 100%; max-width: 300px; display: none">
+    <div class="history-label">Round History</div>
+    <div id="round-history-table"></div>
+  </div>
+  <div class="round-btn-row">
+    <button class="play-btn" onclick="nextRound()">Next Round</button>
+    <button class="secondary-btn" onclick="showLobby()">New Game</button>
+  </div>
+</div>
+
+<div id="lobby-overlay">
+  <span style="font-size: 3rem">🎲</span>
+  <h2>Domino</h2>
+  <p>Match tiles end-to-end. Empty your hand to score your opponent's pips.</p>
+  <div class="mode-row">
+    <button class="mode-btn active" id="mode-single" onclick="selectMode('single')">Single Round</button>
+    <button class="mode-btn" id="mode-multi" onclick="selectMode('multi')">Match (to 100)</button>
+  </div>
+  <p id="lobby-mode-desc">One round decides the winner.</p>
+  <div class="diff-row">
+    <button class="diff-btn active" id="diff-easy" onclick="selectDiff('easy')">Easy</button>
+    <button class="diff-btn" id="diff-medium" onclick="selectDiff('medium')">Medium</button>
+    <button class="diff-btn" id="diff-hard" onclick="selectDiff('hard')">Hard</button>
+  </div>
+  <button class="play-btn" onclick="startGame()">Play Game</button>
+</div>
+
+<div class="info-section">
+
+<details class="info-details">
+  <summary>How to Play</summary>
+  <div class="info-body">
+  <h4>Goal</h4>
+  <p>
+    Be the first to reach <strong>100 points</strong> across multiple rounds. Empty your hand each round to score the
+    total pip value of your opponent's remaining tiles.
+  </p>
+  <h4>Placing Tiles</h4>
+  <p>
+    Click a tile to select it, then click <strong>← Left</strong> or <strong>Right →</strong> to place it on the
+    matching open end of the chain. The touching pips must match.
+  </p>
+  <h4>Drawing</h4>
+  <p>
+    If you have no valid tile to play, click <strong>Draw</strong> to take a tile from the boneyard. Keep drawing until
+    you can play or the boneyard is empty.
+  </p>
+  <h4>Blocked Game</h4>
+  <p>
+    If both players are stuck (no valid plays, empty boneyard), the player with the lower pip total wins and scores the
+    difference.
+  </p>
+  <h4>Scoring</h4>
+  <p>Points are awarded at the end of each round:</p>
+  <ul>
+    <li>
+      <strong>You empty your hand</strong> — you score the sum of all pips left in the AI's hand (e.g. AI holds [3|2]
+      and [4|1] → you score 10).
+    </li>
+    <li><strong>AI empties its hand</strong> — AI scores the sum of all pips left in your hand.</li>
+    <li>
+      <strong>Blocked game</strong> — the player with the lower pip total wins and scores the
+      <em>difference</em> between the two totals.
+    </li>
+    <li><strong>Tied blocked game</strong> — both totals are equal, no points scored.</li>
+  </ul>
+  <p>The first player to reach <strong>100 points</strong> wins the match.</p>
+  <h4>Difficulty</h4>
+  <ul>
+    <li><strong>Easy</strong> — AI plays a random valid tile</li>
+    <li><strong>Medium</strong> — AI prefers highest-value valid tile</li>
+    <li><strong>Hard</strong> — AI plays strategically, minimizing exposed ends and blocking</li>
+  </ul>
+  </div>
+</details>
+
+<details class="info-details">
+  <summary>FAQ</summary>
+  <div class="info-body">
+  <h4>Who goes first?</h4>
+  <p>
+    The player holding the highest double (6-6, then 5-5, etc.) places it first. If neither player has a double, the
+    player with the highest-valued tile goes first.
+  </p>
+  <h4>Can I place a tile on both ends?</h4>
+  <p>
+    Yes! If your tile matches both open ends, you choose which side to play. Both buttons (← Left and Right →) will
+    appear.
+  </p>
+  <h4>Is my best score saved?</h4>
+  <p>Yes — your highest total score is saved in your browser's local storage between sessions.</p>
+  <h4>What happens when the boneyard is empty?</h4>
+  <p>
+    If you can't play and there are no tiles left to draw, you must pass. If both players pass consecutively, the game
+    is blocked and the lower-pip-count player wins the round.
+  </p>
+  </div>
+</details>
+
+</div>
+
+<script>
+  // ── Confetti ──────────────────────────────────────────────────────────────
+  function launchConfetti() {
+    const canvas = document.createElement("canvas");
+    canvas.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999";
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const colors = ["#ef4444", "#fbbf24", "#10b981", "#3b82f6", "#a78bfa", "#f97316", "#ec4899"];
+    const pieces = Array.from({ length: 80 }, () => ({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 40,
+      r: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: Math.random() * 4 + 2,
+      angle: Math.random() * Math.PI * 2,
+      va: (Math.random() - 0.5) * 0.15,
+    }));
+    const start = performance.now();
+    function draw(now) {
+      if (now - start > 3000) {
+        canvas.remove();
+        return;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.angle += p.va;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+        ctx.restore();
+      });
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  // ── Constants ─────────────────────────────────────────────────────────────
+  const STORAGE_KEY = "mini-domino-best";
+  const STORAGE_KEY_SINGLE = "mini-domino-best-single";
+  const TARGET_SCORE = 100;
+
+  // Pip grid positions in a 3×3 grid (index 0-8):
+  // 0 1 2
+  // 3 4 5
+  // 6 7 8
+  const PIPS = [[], [4], [2, 6], [2, 4, 6], [0, 2, 6, 8], [0, 2, 4, 6, 8], [0, 3, 6, 2, 5, 8]];
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let boneyard = [];
+  let playerHand = [];
+  let aiHand = [];
+  let chain = []; // [{left, right}] where left/right are pip values as displayed
+  let currentTurn = "player";
+  let selectedIdx = -1;
+  let passCount = 0;
+  let gameOver = false;
+  let aiActing = false;
+  let difficulty = "easy";
+  let gameMode = "single"; // "single" | "multi"
+  let playerScore = 0;
+  let aiScore = 0;
+  let roundNum = 0;
+  let roundHistory = []; // [{num, youPts, aiPts, winner}]
+  let bestMulti = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
+  let bestSingle = parseInt(localStorage.getItem(STORAGE_KEY_SINGLE) || "0", 10);
+  let best = bestSingle; // updated when mode is selected
+
+  // ── Tile helpers ──────────────────────────────────────────────────────────
+  function createDominoes() {
+    const tiles = [];
+    for (let a = 0; a <= 6; a++) {
+      for (let b = a; b <= 6; b++) {
+        tiles.push({ a, b });
+      }
+    }
+    return tiles;
+  }
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function pipSum(hand) {
+    return hand.reduce((s, t) => s + t.a + t.b, 0);
+  }
+
+  function getChainEnds() {
+    if (chain.length === 0) return { left: null, right: null };
+    return { left: chain[0].left, right: chain[chain.length - 1].right };
+  }
+
+  function canPlace(tile) {
+    const { left, right } = getChainEnds();
+    if (left === null) return { canLeft: true, canRight: true };
+    return {
+      canLeft: tile.a === left || tile.b === left,
+      canRight: tile.a === right || tile.b === right,
+    };
+  }
+
+  function hasValidMove(hand) {
+    return hand.some((t) => {
+      const { canLeft, canRight } = canPlace(t);
+      return canLeft || canRight;
+    });
+  }
+
+  function placeTileOnChain(tile, side) {
+    if (chain.length === 0) {
+      chain.push({ left: tile.a, right: tile.b });
+      return;
+    }
+    const { left, right } = getChainEnds();
+    if (side === "left") {
+      // New tile's right face must match chain's left open end
+      if (tile.a === left) {
+        chain.unshift({ left: tile.b, right: tile.a });
+      } else {
+        chain.unshift({ left: tile.a, right: tile.b });
+      }
+    } else {
+      // New tile's left face must match chain's right open end
+      if (tile.a === right) {
+        chain.push({ left: tile.a, right: tile.b });
+      } else {
+        chain.push({ left: tile.b, right: tile.a });
+      }
+    }
+  }
+
+  // ── Rendering ─────────────────────────────────────────────────────────────
+  function makeHalfHTML(val) {
+    const pips = new Set(PIPS[val]);
+    let cells = "";
+    for (let i = 0; i < 9; i++) {
+      cells += `<span class="${pips.has(i) ? "d-dot" : ""}"></span>`;
+    }
+    return `<div class="d-half">${cells}</div>`;
+  }
+
+  function makeTileHTML(l, r, extraClass = "") {
+    return `<div class="domino${extraClass ? " " + extraClass : ""}">${makeHalfHTML(l)}${makeHalfHTML(r)}</div>`;
+  }
+
+  function renderChain() {
+    const el = document.getElementById("chain");
+    const endsRow = document.getElementById("ends-row");
+    if (chain.length === 0) {
+      el.innerHTML = `<span id="chain-empty">Place your first tile to start the chain…</span>`;
+      endsRow.style.display = "none";
+      return;
+    }
+    const { left, right } = getChainEnds();
+    let html = "";
+    for (const t of chain) {
+      html += makeTileHTML(t.left, t.right, "chain-tile");
+    }
+    el.innerHTML = html;
+    // Scroll to end of chain when new tile is added
+    const scroll = document.getElementById("chain-scroll");
+    scroll.scrollLeft = scroll.scrollWidth;
+    // Update always-visible open-ends summary
+    document.getElementById("end-left-pip").innerHTML = makeHalfHTML(left);
+    document.getElementById("end-right-pip").innerHTML = makeHalfHTML(right);
+    endsRow.style.display = "flex";
+  }
+
+  function renderPlayerHand() {
+    const el = document.getElementById("player-hand");
+    if (playerHand.length === 0) {
+      el.innerHTML = `<span style="color:#475569;font-size:0.85rem">No tiles</span>`;
+      return;
+    }
+    const { left, right } = getChainEnds();
+    const isPlayerTurn = currentTurn === "player" && !gameOver && !aiActing;
+
+    el.innerHTML = playerHand
+      .map((t, i) => {
+        const { canLeft, canRight } = canPlace(t);
+        const valid = canLeft || canRight;
+        let cls = "hand-tile";
+        if (!isPlayerTurn) cls += " invalid-tile";
+        else if (i === selectedIdx) cls += " selected";
+        else if (valid) cls += " valid-hint";
+        else cls += " invalid-tile";
+
+        const tile = makeTileHTML(t.a, t.b, cls);
+        // Wrap in a button-like div for click handling
+        return tile.replace('class="domino', `onclick="selectTile(${i})" class="domino`);
+      })
+      .join("");
+  }
+
+  function renderAIHand() {
+    const el = document.getElementById("ai-hand");
+    if (aiHand.length === 0) {
+      el.innerHTML = `<span style="color:#475569;font-size:0.85rem">No tiles</span>`;
+    } else {
+      el.innerHTML = Array(aiHand.length).fill('<div class="domino-back"></div>').join("");
+    }
+  }
+
+  function renderStats() {
+    document.getElementById("score-player").textContent = playerScore;
+    document.getElementById("score-ai").textContent = aiScore;
+    document.getElementById("score-best").textContent = best;
+    document.getElementById("score-round").textContent = roundNum;
+    document.getElementById("boneyard-count").textContent = boneyard.length;
+    renderAIHand();
+  }
+
+  function renderActionButtons() {
+    const el = document.getElementById("action-row");
+    if (gameOver || currentTurn !== "player" || aiActing) {
+      el.innerHTML = "";
+      return;
+    }
+
+    const { canLeft, canRight } =
+      selectedIdx >= 0 ? canPlace(playerHand[selectedIdx]) : { canLeft: false, canRight: false };
+
+    let html = "";
+
+    if (selectedIdx >= 0) {
+      if (canLeft) {
+        html += `<button class="action-btn" onclick="playerPlace('left')">← Left</button>`;
+      }
+      if (canRight) {
+        html += `<button class="action-btn" onclick="playerPlace('right')">Right →</button>`;
+      }
+    }
+
+    if (!hasValidMove(playerHand)) {
+      if (boneyard.length > 0) {
+        html += `<button class="action-btn draw-btn" onclick="playerDraw()">Draw 🃏</button>`;
+      } else {
+        html += `<button class="action-btn pass-btn" onclick="playerPass()">Pass</button>`;
+      }
+    }
+
+    el.innerHTML = html;
+  }
+
+  function renderStatus() {
+    if (gameOver) return;
+    const el = document.getElementById("status");
+    if (aiActing) {
+      el.textContent = "AI is thinking…";
+    } else if (currentTurn === "player") {
+      if (!hasValidMove(playerHand)) {
+        el.textContent = boneyard.length > 0 ? "No valid tile — draw from boneyard!" : "No valid tile — you must pass.";
+      } else if (selectedIdx >= 0) {
+        const { canLeft, canRight } = canPlace(playerHand[selectedIdx]);
+        if (canLeft && canRight) el.textContent = "Choose which end to place on.";
+        else if (canLeft) el.textContent = "Place on the left end.";
+        else el.textContent = "Place on the right end.";
+      } else {
+        el.textContent = "Your turn — select a tile.";
+      }
+    }
+  }
+
+  function renderAll() {
+    renderChain();
+    renderAIHand();
+    renderPlayerHand();
+    renderStats();
+    renderActionButtons();
+    renderStatus();
+  }
+
+  // ── Player actions ────────────────────────────────────────────────────────
+  function selectTile(idx) {
+    if (currentTurn !== "player" || gameOver || aiActing) return;
+    const { canLeft, canRight } = canPlace(playerHand[idx]);
+    if (!canLeft && !canRight) return;
+
+    if (selectedIdx === idx) {
+      selectedIdx = -1;
+    } else {
+      selectedIdx = idx;
+      // Auto-place if only one valid side
+      const { canLeft: cL, canRight: cR } = canPlace(playerHand[idx]);
+      if (cL && !cR) {
+        playerPlace("left");
+        return;
+      } else if (!cL && cR) {
+        playerPlace("right");
+        return;
+      }
+    }
+    renderAll();
+  }
+
+  function playerPlace(side) {
+    if (selectedIdx < 0 || currentTurn !== "player" || gameOver || aiActing) return;
+    const tile = playerHand[selectedIdx];
+    const { canLeft, canRight } = canPlace(tile);
+    if (side === "left" && !canLeft) return;
+    if (side === "right" && !canRight) return;
+
+    placeTileOnChain(tile, side);
+    playerHand.splice(selectedIdx, 1);
+    selectedIdx = -1;
+    passCount = 0;
+
+    if (playerHand.length === 0) {
+      endRound("player");
+      return;
+    }
+    currentTurn = "ai";
+    renderAll();
+    scheduleAI();
+  }
+
+  function playerDraw() {
+    if (boneyard.length === 0 || currentTurn !== "player" || gameOver || aiActing) return;
+    const drawn = boneyard.pop();
+    playerHand.push(drawn);
+    passCount = 0;
+    renderStats();
+    // Check if newly drawn tile can be played
+    if (hasValidMove(playerHand)) {
+      renderAll();
+    } else if (boneyard.length > 0) {
+      renderAll();
+    } else {
+      renderAll();
+    }
+  }
+
+  function playerPass() {
+    if (currentTurn !== "player" || gameOver || aiActing) return;
+    passCount++;
+    if (passCount >= 2) {
+      endRound("blocked");
+      return;
+    }
+    currentTurn = "ai";
+    renderAll();
+    scheduleAI();
+  }
+
+  // ── AI logic ──────────────────────────────────────────────────────────────
+  function scheduleAI() {
+    aiActing = true;
+    renderStatus();
+    setTimeout(aiTurn, 900);
+  }
+
+  function aiChooseMove() {
+    const { left, right } = getChainEnds();
+    const valid = [];
+    for (let i = 0; i < aiHand.length; i++) {
+      const t = aiHand[i];
+      const { canLeft, canRight } = canPlace(t);
+      if (canLeft || canRight) {
+        valid.push({ i, t, canLeft, canRight, score: t.a + t.b });
+      }
+    }
+    if (valid.length === 0) return null;
+
+    if (difficulty === "easy") {
+      return valid[Math.floor(Math.random() * valid.length)];
+    }
+
+    if (difficulty === "medium") {
+      // Greedy: pick highest pip sum
+      valid.sort((a, b) => b.score - a.score);
+      return valid[0];
+    }
+
+    // Hard: prefer doubles, then highest value; prefer side that limits opponent options
+    valid.sort((a, b) => {
+      const aDouble = a.t.a === a.t.b ? 1 : 0;
+      const bDouble = b.t.a === b.t.b ? 1 : 0;
+      if (bDouble !== aDouble) return bDouble - aDouble;
+      return b.score - a.score;
+    });
+    return valid[0];
+  }
+
+  function aiTurn() {
+    if (gameOver) return;
+    const move = aiChooseMove();
+
+    if (move) {
+      const side = move.canRight ? "right" : "left";
+      placeTileOnChain(move.t, side);
+      aiHand.splice(move.i, 1);
+      passCount = 0;
+      aiActing = false;
+
+      if (aiHand.length === 0) {
+        endRound("ai");
+        return;
+      }
+      currentTurn = "player";
+      renderAll();
+    } else if (boneyard.length > 0) {
+      // AI draws one tile and tries again
+      const drawn = boneyard.pop();
+      aiHand.push(drawn);
+      renderStats();
+      // Try to play the drawn tile
+      const { canLeft, canRight } = canPlace(drawn);
+      if (canLeft || canRight) {
+        setTimeout(aiTurn, 500);
+      } else if (boneyard.length > 0) {
+        setTimeout(aiTurn, 400);
+      } else {
+        // Boneyard now empty, try one more time
+        setTimeout(aiTurn, 400);
+      }
+    } else {
+      // Must pass
+      passCount++;
+      aiActing = false;
+      if (passCount >= 2) {
+        endRound("blocked");
+      } else {
+        currentTurn = "player";
+        renderAll();
+      }
+    }
+  }
+
+  // ── Round & Game end ──────────────────────────────────────────────────────
+  function endRound(winner) {
+    aiActing = false;
+    let youPts = 0;
+    let aiPts = 0;
+
+    if (winner === "player") {
+      youPts = pipSum(aiHand);
+      playerScore += youPts;
+    } else if (winner === "ai") {
+      aiPts = pipSum(playerHand);
+      aiScore += aiPts;
+    } else {
+      // blocked: lower pip total wins
+      const pp = pipSum(playerHand);
+      const ap = pipSum(aiHand);
+      const diff = Math.abs(pp - ap);
+      if (pp < ap) {
+        youPts = diff;
+        playerScore += diff;
+      } else if (ap < pp) {
+        aiPts = diff;
+        aiScore += diff;
+      }
+      // equal: no points scored
+    }
+
+    roundHistory.push({ num: roundNum, youPts, aiPts, winner });
+    renderStats();
+
+    if (gameMode === "single") {
+      let singleWinner;
+      if (winner === "player") singleWinner = "player";
+      else if (winner === "ai") singleWinner = "ai";
+      else singleWinner = playerScore > aiScore ? "player" : aiScore > playerScore ? "ai" : "draw";
+      endGame(singleWinner);
+      return;
+    }
+
+    if (playerScore >= TARGET_SCORE || aiScore >= TARGET_SCORE) {
+      endGame(playerScore >= TARGET_SCORE && playerScore > aiScore ? "player" : "ai");
+    } else {
+      showRoundSummary(winner, youPts, aiPts);
+    }
+  }
+
+  function buildHistoryHTML(history) {
+    return history
+      .map((r) => {
+        const badge = r.winner === "player" ? "🎉" : r.winner === "ai" ? "😤" : "🤝";
+        return `<div class="history-row">
+          <span class="history-round">Rnd ${r.num}</span>
+          <span class="history-pts">
+            <span class="history-you">You +${r.youPts}</span>
+            <span class="history-ai">AI +${r.aiPts}</span>
+          </span>
+          <span class="history-result">${badge}</span>
+        </div>`;
+      })
+      .join("");
+  }
+
+  function renderRoundHistory() {
+    const isMulti = gameMode === "multi";
+    const roundWrap = document.getElementById("round-history-wrap");
+    if (roundWrap) {
+      const show = isMulti && roundHistory.length > 1;
+      roundWrap.style.display = show ? "block" : "none";
+      if (show) document.getElementById("round-history-table").innerHTML = buildHistoryHTML(roundHistory);
+    }
+    const goWrap = document.getElementById("go-history-wrap");
+    if (goWrap) {
+      const show = isMulti && roundHistory.length > 0;
+      goWrap.style.display = show ? "block" : "none";
+      if (show) document.getElementById("go-history-table").innerHTML = buildHistoryHTML(roundHistory);
+    }
+  }
+
+  function showRoundSummary(winner, youPts, aiPts) {
+    gameOver = true;
+    let icon, title, desc;
+    const roundPts = youPts || aiPts;
+    if (winner === "player") {
+      icon = "🎉";
+      title = "Round Won!";
+      desc = `You scored ${youPts} point${youPts !== 1 ? "s" : ""} from the AI's remaining tiles.`;
+    } else if (winner === "ai") {
+      icon = "😤";
+      title = "Round Lost";
+      desc = `AI scored ${aiPts} point${aiPts !== 1 ? "s" : ""} from your remaining tiles.`;
+    } else {
+      icon = roundPts > 0 ? (playerScore > aiScore ? "🎉" : "😤") : "🤝";
+      title = "Round Blocked";
+      desc =
+        roundPts > 0
+          ? `${playerScore > aiScore ? "You" : "AI"} scored ${roundPts} pts (lower pip count).`
+          : "Both hands tied — no points scored this round.";
+    }
+    document.getElementById("round-icon").textContent = icon;
+    document.getElementById("round-title").textContent = title;
+    document.getElementById("round-desc").textContent = desc;
+    document.getElementById("round-player").textContent = playerScore;
+    document.getElementById("round-ai").textContent = aiScore;
+    renderRoundHistory();
+    document.getElementById("round-overlay").style.display = "flex";
+  }
+
+  function nextRound() {
+    document.getElementById("round-overlay").style.display = "none";
+    gameOver = false;
+    startRound();
+  }
+
+  function endGame(winner) {
+    gameOver = true;
+    const storageKey = gameMode === "single" ? STORAGE_KEY_SINGLE : STORAGE_KEY;
+
+    if (winner !== "draw" && playerScore > best) {
+      best = playerScore;
+      if (gameMode === "single") bestSingle = best;
+      else bestMulti = best;
+      localStorage.setItem(storageKey, best);
+      document.getElementById("score-best").textContent = best;
+      if (winner === "player") launchConfetti();
+    } else if (winner === "player") {
+      launchConfetti();
+    }
+
+    const icons = { player: "🏆", ai: "🤖", draw: "🤝" };
+    const titles = { player: "You Win!", ai: "AI Wins!", draw: "It's a Draw!" };
+    const isSingle = gameMode === "single";
+    const contexts = {
+      player: isSingle
+        ? `You scored ${playerScore} point${playerScore !== 1 ? "s" : ""} — well played!`
+        : `You reached ${playerScore} points — well played!`,
+      ai: isSingle
+        ? `AI scored ${aiScore} point${aiScore !== 1 ? "s" : ""}. Better luck next time!`
+        : `AI reached ${aiScore} points. Better luck next time!`,
+      draw: "Both players tied — no points this round.",
+    };
+
+    document.getElementById("go-icon").textContent = icons[winner] || "💀";
+    document.getElementById("go-title").textContent = titles[winner] || "Game Over";
+    document.getElementById("go-player").textContent = playerScore;
+    document.getElementById("go-ai").textContent = aiScore;
+    document.getElementById("go-best").textContent = best;
+    document.getElementById("go-context").textContent = contexts[winner] || "";
+
+    renderRoundHistory();
+    document.getElementById("gameover-overlay").style.display = "flex";
+  }
+
+  // ── Game setup ────────────────────────────────────────────────────────────
+  function initRound() {
+    const all = shuffle(createDominoes());
+    playerHand = all.slice(0, 7);
+    aiHand = all.slice(7, 14);
+    boneyard = all.slice(14);
+    chain = [];
+    selectedIdx = -1;
+    passCount = 0;
+    aiActing = false;
+
+    // Determine first player: highest double, else highest pip sum
+    currentTurn = "player";
+    let bestDouble = -1;
+    for (const t of playerHand) {
+      if (t.a === t.b && t.a > bestDouble) bestDouble = t.a;
+    }
+    let aiBestDouble = -1;
+    for (const t of aiHand) {
+      if (t.a === t.b && t.a > aiBestDouble) aiBestDouble = t.a;
+    }
+
+    if (aiBestDouble > bestDouble) {
+      // AI goes first, auto-play the best double
+      currentTurn = "ai";
+    }
+  }
+
+  function startRound() {
+    roundNum++;
+    initRound();
+    renderAll();
+    if (currentTurn === "ai") {
+      scheduleAI();
+    }
+  }
+
+  function selectMode(m) {
+    gameMode = m;
+    ["single", "multi"].forEach((x) => {
+      document.getElementById("mode-" + x).classList.toggle("active", x === m);
+    });
+    best = gameMode === "single" ? bestSingle : bestMulti;
+    document.getElementById("score-best").textContent = best;
+    document.getElementById("lobby-mode-desc").textContent =
+      m === "single" ? "One round decides the winner." : "Accumulate points across rounds. First to 100 wins!";
+  }
+
+  function startGame() {
+    document.getElementById("lobby-overlay").style.display = "none";
+    document.getElementById("gameover-overlay").style.display = "none";
+    gameOver = false;
+    playerScore = 0;
+    aiScore = 0;
+    roundNum = 0;
+    roundHistory = [];
+    // Show/hide Round card based on mode
+    document.getElementById("round-card-wrap").style.display = gameMode === "multi" ? "" : "none";
+    renderStats();
+    startRound();
+  }
+
+  function showLobby() {
+    gameOver = true;
+    aiActing = false;
+    document.getElementById("gameover-overlay").style.display = "none";
+    document.getElementById("round-overlay").style.display = "none";
+    document.getElementById("lobby-overlay").style.display = "flex";
+    selectDiff(difficulty);
+    selectMode(gameMode);
+  }
+
+  function selectDiff(d) {
+    difficulty = d;
+    ["easy", "medium", "hard"].forEach((x) => {
+      document.getElementById("diff-" + x).classList.toggle("active", x === d);
+    });
+  }
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  document.getElementById("score-best").textContent = best;
+  document.getElementById("round-card-wrap").style.display = "none"; // hidden until multi mode starts
+  showLobby();
+</script>
+</div>
+
+
+
+
+  </body>
+</html>

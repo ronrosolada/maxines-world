@@ -17,8 +17,8 @@ android {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 22
-        versionName = "0.21.1"
+        versionCode = 23
+        versionName = "0.22.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,17 +26,19 @@ android {
     signingConfigs {
         // Release keystore, configured via USER-LEVEL properties file
         // (~/.gradle/maxines-world-signing.properties) — never committed.
-        // Absent file → signingConfig stays null → unsigned release build,
-        // so CI/contributor builds keep working without a keystore.
-        create("release") {
-            val props = Properties().apply {
-                val f = File(System.getProperty("user.home"), ".gradle/maxines-world-signing.properties")
-                if (f.isFile) f.inputStream().use { load(it) }
+        // Absent file → no release signing config is registered, so CI and
+        // contributor builds produce an unsigned release candidate.
+        val signingFile = File(System.getProperty("user.home"), ".gradle/maxines-world-signing.properties")
+        if (signingFile.isFile) {
+            create("release") {
+                val props = Properties().apply {
+                    signingFile.inputStream().use { load(it) }
+                }
+                storeFile = props.getProperty("MW_KEYSTORE_PATH")?.let { File(it) }
+                storePassword = props.getProperty("MW_KEYSTORE_PASS")
+                keyAlias = props.getProperty("MW_KEY_ALIAS")
+                keyPassword = props.getProperty("MW_KEY_PASS")
             }
-            storeFile = props.getProperty("MW_KEYSTORE_PATH")?.let { File(it) }
-            storePassword = props.getProperty("MW_KEYSTORE_PASS")
-            keyAlias = props.getProperty("MW_KEY_ALIAS")
-            keyPassword = props.getProperty("MW_KEY_PASS")
         }
     }
 
@@ -209,12 +211,76 @@ val verifyPlayableContent by tasks.registering {
     }
 }
 
+// ─── Offline mini-game gate ────────────────────────────────────────────────
+// Reward-break games are bundled HTML. Keep the catalog complete and prevent
+// accidental network-capable content from entering the child-facing WebView.
+val verifyOfflineMiniGames by tasks.registering {
+    group = "verification"
+    description = "Validate bundled mini-game count, CSP, and offline isolation"
+    val gamesDir = project.layout.projectDirectory.dir("src/main/assets/mini-games/games")
+    val requiredCspDirectives = listOf(
+        "default-src 'none'",
+        "base-uri 'none'",
+        "form-action 'none'",
+        "frame-src 'none'",
+        "object-src 'none'",
+        "img-src data: blob:",
+        "style-src 'unsafe-inline'",
+        "script-src 'unsafe-inline'",
+        "connect-src 'none'",
+    )
+    val externalUrl = Regex("""(?i)https?://""")
+    val networkApi = Regex("""(?i)\b(fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b""")
+    val htmlComment = Regex("""<!--(?s:.*?)-->""")
+    val cssComment = Regex("""/\*(?s:.*?)\*/""")
+
+    doLast {
+        val htmlFiles = gamesDir.asFileTree.matching { include("*.html") }
+            .files
+            .sortedBy { it.name }
+        if (htmlFiles.size != 29) {
+            throw GradleException(
+                "Offline mini-game gate FAILED: expected 29 HTML games, found ${htmlFiles.size}."
+            )
+        }
+
+        val failures = mutableListOf<String>()
+        htmlFiles.forEach { file ->
+            val source = file.readText()
+            val missingCsp = requiredCspDirectives.filterNot(source::contains)
+            if (missingCsp.isNotEmpty()) {
+                failures += "${file.name}: missing CSP ${missingCsp.joinToString()}."
+            }
+
+            // License/attribution comments may contain source URLs, but are
+            // not executable or loadable resources. Inspect active markup/code.
+            val activeSource = source.replace(htmlComment, "").replace(cssComment, "")
+            if (externalUrl.containsMatchIn(activeSource)) {
+                failures += "${file.name}: active external URL found."
+            }
+            if (networkApi.containsMatchIn(activeSource)) {
+                failures += "${file.name}: browser network API found."
+            }
+        }
+        if (failures.isNotEmpty()) {
+            throw GradleException(
+                "Offline mini-game gate FAILED:\n${failures.joinToString("\n")}"
+            )
+        }
+        println("Offline mini-game gate OK: ${htmlFiles.size}/29 pages are CSP-protected and offline.")
+    }
+}
+
 // The educator gate must run on every verification pass AND on the
 // release build itself — a release can never ship draft curriculum.
 // (2026-08-06: previously registered but never wired into any task.)
-tasks.named("check") { dependsOn(verifyPlayableContent) }
+tasks.named("check") {
+    dependsOn(verifyPlayableContent)
+    dependsOn(verifyOfflineMiniGames)
+}
 // assembleRelease is created by AGP after project evaluation, so hook
 // via matching/configureEach rather than named().
 tasks.matching { it.name == "assembleRelease" }.configureEach {
     dependsOn(verifyPlayableContent)
+    dependsOn(verifyOfflineMiniGames)
 }

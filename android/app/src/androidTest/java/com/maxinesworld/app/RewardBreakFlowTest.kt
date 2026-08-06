@@ -175,6 +175,18 @@ class RewardBreakFlowTest {
         assertEquals(0L, consumed?.remainingMillis)
     }
 
+    @Test
+    fun leavingRewardHubBeforeStartingGamePreservesCreatedBreak() {
+        waitForText("Lesson Complete!")
+        onText("Play a Reward Game").performClick()
+        waitForText("Great work today!")
+        assertEquals(RewardBreakPolicy.CREATED, getBreak()?.state)
+
+        scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
+        waitForText("Hi, Maxine!")
+        assertEquals(RewardBreakPolicy.CREATED, getBreak()?.state)
+    }
+
     private fun getBreak() = runBlocking(Dispatchers.IO) {
         database.rewardBreakDao().getById(rewardBreakId)
     }
@@ -246,6 +258,7 @@ private fun RewardBreakFlowHost(
                 gameDurationMillis = durationMillis
                 route = RewardBreakTestRoute.CAT_CAFE
             },
+            onOpenSourceGames = {},
             onReturnToVillage = { route = RewardBreakTestRoute.VILLAGE },
         )
 

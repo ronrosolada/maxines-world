@@ -2,6 +2,7 @@ package com.maxinesworld.engineactivity.renderers
 
 import android.graphics.Color as AndroidColor
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.viewinterop.AndroidView
+import java.io.ByteArrayInputStream
 import java.nio.charset.StandardCharsets
 
 private const val VECTOR_ASSET_ROOT = "content-pack/month-01/assets/vectors"
@@ -55,6 +57,22 @@ internal fun AssetSvgPreview(
                         view: WebView,
                         request: WebResourceRequest,
                     ): Boolean = true
+
+                    override fun shouldInterceptRequest(
+                        view: WebView,
+                        request: WebResourceRequest,
+                    ): WebResourceResponse? {
+                        val scheme = request.url.scheme?.lowercase()
+                        return if (scheme == "http" || scheme == "https") {
+                            WebResourceResponse(
+                                "text/plain",
+                                "UTF-8",
+                                ByteArrayInputStream(ByteArray(0)),
+                            )
+                        } else {
+                            null
+                        }
+                    }
                 }
             }
         },

@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -54,10 +55,21 @@ class ModuleLessonsViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(ModuleLessonsState())
     val state: StateFlow<ModuleLessonsState> = _state.asStateFlow()
+    private var loadJob: Job? = null
 
     init {
-        val catalog = ModuleCatalog(application)
-        viewModelScope.launch {
+        loadModule()
+    }
+
+    fun retry() {
+        loadJob?.cancel()
+        loadModule()
+    }
+
+    private fun loadModule() {
+        val catalog = ModuleCatalog(getApplication<Application>())
+        loadJob = viewModelScope.launch {
+            _state.update { it.copy(isLoading = true, error = null) }
             val module = catalog.modulesFor(subject).firstOrNull { it.key == moduleKey }
             if (module == null) {
                 _state.value = ModuleLessonsState(isLoading = false, error = "Module not found")

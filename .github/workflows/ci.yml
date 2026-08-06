@@ -155,7 +155,7 @@ jobs:
           args: -color
 
   build:
-    name: Assemble + unit tests
+    name: Assemble, lint + unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 45
     needs: [content-integrity, content-schema-assets, content-semantic-audit, content-tooling-tests, content-educator, workflow-lint]
@@ -177,6 +177,14 @@ jobs:
 
       - name: Assemble debug
         run: ./gradlew assembleDebug --stacktrace
+        working-directory: android
+
+      - name: Lint debug
+        run: ./gradlew lintDebug --stacktrace
+        working-directory: android
+
+      - name: Assemble unsigned release
+        run: ./gradlew assembleRelease --stacktrace
         working-directory: android
 
       - name: Run all unit tests
@@ -239,7 +247,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: android
-          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest --stacktrace
+          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace
 
       - name: Upload migration test report
         if: always()
