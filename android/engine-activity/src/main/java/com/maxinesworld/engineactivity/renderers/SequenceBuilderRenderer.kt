@@ -75,7 +75,7 @@ fun SequenceBuilderRenderer(
             }
         }
 
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(24.dp))
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
             .background(if (submitted && isCorrect) SuccessGreen else VillageTeal)
             .clickable {
@@ -98,7 +98,11 @@ fun SequenceBuilderRenderer(
                 submitted -> "Try Again"
                 ordered.size < items.size -> "Select all (${ordered.size}/${items.size})"
                 else -> "Submit"
-            }, color = White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
+            },
+                color = if (submitted && isCorrect) OnSuccess else White,
+                style = MaterialTheme.typography.labelLarge,
+                modifier = Modifier.padding(14.dp),
+            )
         }
     }
 }

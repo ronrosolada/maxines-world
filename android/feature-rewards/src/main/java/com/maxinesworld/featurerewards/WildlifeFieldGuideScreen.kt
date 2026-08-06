@@ -203,11 +203,13 @@ fun BadgeRevealScreen(
     val accent = Color(biome.colorHex)
     val context = LocalContext.current
     val reduceMotion = remember {
-        Settings.Global.getFloat(
-            context.contentResolver,
-            Settings.Global.ANIMATOR_DURATION_SCALE,
-            1f,
-        ) == 0f
+        !badgeRevealAnimationEnabled(
+            Settings.Global.getFloat(
+                context.contentResolver,
+                Settings.Global.ANIMATOR_DURATION_SCALE,
+                1f,
+            )
+        )
     }
     val isMilestone = badge.biome == BadgeAwarder.MILESTONE_BIOME
     var step by remember { mutableIntStateOf(if (reduceMotion) 2 else 0) }
@@ -232,17 +234,28 @@ fun BadgeRevealScreen(
             Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat())
         }
     }
-    val confettiAnim by rememberInfiniteTransition(label = "confetti").animateFloat(
-        0f, 800f, infiniteRepeatable(tween(3000, easing = LinearEasing), RepeatMode.Restart), "fall"
-    )
+    val confettiAnim = if (reduceMotion) {
+        0f
+    } else {
+        rememberInfiniteTransition(label = "confetti").animateFloat(
+            0f, 800f, infiniteRepeatable(tween(3000, easing = LinearEasing), RepeatMode.Restart), "fall"
+        ).value
+    }
     val popScale by animateFloatAsState(
         targetValue = if (step == 2) 1f else 0f,
-        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
+        animationSpec = if (reduceMotion) snap() else spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMediumLow,
+        ),
         label = "stickerPop",
     )
-    val sparkleSpin by rememberInfiniteTransition(label = "sparkle").animateFloat(
-        0f, 360f, infiniteRepeatable(tween(4000, easing = LinearEasing), RepeatMode.Restart), "spin"
-    )
+    val sparkleSpin = if (reduceMotion) {
+        0f
+    } else {
+        rememberInfiniteTransition(label = "sparkle").animateFloat(
+            0f, 360f, infiniteRepeatable(tween(4000, easing = LinearEasing), RepeatMode.Restart), "spin"
+        ).value
+    }
 
     Scaffold(containerColor = Cream) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
@@ -345,7 +358,10 @@ fun BadgeRevealScreen(
                                 Button(
                                     onClick = onPlayGames,
                                     shape = RoundedCornerShape(16.dp),
-                                    colors = ButtonDefaults.buttonColors(containerColor = SunshineGold),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = SunshineGold,
+                                        contentColor = OnGold,
+                                    ),
                                     modifier = Modifier.fillMaxWidth().height(52.dp),
                                 ) {
                                     Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(20.dp))
@@ -367,6 +383,9 @@ fun BadgeRevealScreen(
         }
     }
 }
+
+internal fun badgeRevealAnimationEnabled(animatorDurationScale: Float): Boolean =
+    animatorDurationScale > 0f
 
 @Composable
 fun WildlifeExpeditionProgressRow(progress: ChallengeProgress) {

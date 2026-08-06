@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Fingerprint
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -19,6 +20,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.disabled
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.ImeAction
@@ -158,6 +164,7 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
 
 @Composable
 private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
+    val locked = state.lockRemainingSeconds > 0
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -165,7 +172,12 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("🔒", fontSize = 64.sp)
+        Icon(
+            Icons.Default.Lock,
+            contentDescription = "Parent access",
+            tint = Teal40,
+            modifier = Modifier.size(64.dp),
+        )
         Spacer(Modifier.height(16.dp))
         Text(
             "Parent Access",
@@ -184,15 +196,24 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         PinDots(length = state.pinInput.length)
         Spacer(Modifier.height(24.dp))
 
-        PinPad { digit -> viewModel.onPinDigit(digit) }
+        PinPad(enabled = !locked) { digit -> viewModel.onPinDigit(digit) }
         Spacer(Modifier.height(12.dp))
 
         // Delete button
-        TextButton(onClick = viewModel::onPinDelete) {
+        TextButton(
+            onClick = viewModel::onPinDelete,
+            enabled = !locked && state.pinInput.isNotEmpty(),
+        ) {
             Text("Delete")
         }
 
-        state.pinError?.let {
+        if (locked) {
+            Text(
+                "Too many attempts. Try again in ${state.lockRemainingSeconds}s.",
+                color = ErrorRed,
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        } else state.pinError?.let {
             Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
             Spacer(Modifier.height(8.dp))
         }
@@ -356,7 +377,7 @@ fun PinDots(length: Int, maxLength: Int = 6) {
 }
 
 @Composable
-fun PinPad(onDigit: (String) -> Unit) {
+fun PinPad(enabled: Boolean = true, onDigit: (String) -> Unit) {
     val digits = listOf(
         listOf("1", "2", "3"),
         listOf("4", "5", "6"),
@@ -376,7 +397,12 @@ fun PinPad(onDigit: (String) -> Unit) {
                                 .size(72.dp)
                                 .clip(CircleShape)
                                 .background(Teal90)
-                                .clickable { onDigit(digit) },
+                                .clickable(enabled = enabled, role = Role.Button) { onDigit(digit) }
+                                .semantics {
+                                    contentDescription = "Digit $digit"
+                                    role = Role.Button
+                                    if (!enabled) disabled()
+                                },
                             contentAlignment = Alignment.Center
                         ) {
                             Text(

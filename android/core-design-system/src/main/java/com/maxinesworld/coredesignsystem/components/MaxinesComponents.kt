@@ -2,6 +2,7 @@ package com.maxinesworld.coredesignsystem.components
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -10,6 +11,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.Cancel
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.RadioButtonChecked
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,6 +25,8 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -48,7 +54,7 @@ private fun Color.darker(factor: Float = 0.7f): Color = Color(
  * (y+5dp, blur 0). On press the button translates down 4dp, the shadow
  * shrinks to y+1dp, and everything springs back.
  *
- * Label is Baloo 2 weight 700‑800 (via [AppDisplayFont]).
+ * Label uses the theme's supplied display font at weight 700‑800.
  * Height: 56‑64 dp (§9).
  */
 @Composable
@@ -64,23 +70,24 @@ fun MaxinesPrimaryButton(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     // Shadow offset below the button: 5dp → 1dp on press
     val shadowOffsetY by animateDpAsState(
         targetValue = if (isPressed) 1.dp else 5.dp,
-        animationSpec = spring(dampingRatio = 0.55f, stiffness = 600f)
+        animationSpec = if (animationsDisabled) snap() else spring(dampingRatio = 0.55f, stiffness = 600f)
     )
 
     // Button vertical translation: 0dp → 4dp on press
     val buttonOffsetY by animateDpAsState(
         targetValue = if (isPressed) 4.dp else 0.dp,
-        animationSpec = spring(dampingRatio = 0.55f, stiffness = 600f)
+        animationSpec = if (animationsDisabled) snap() else spring(dampingRatio = 0.55f, stiffness = 600f)
     )
 
     // Shadow alpha: full → slightly faded on press
     val shadowAlpha by animateFloatAsState(
         targetValue = if (isPressed) 0.45f else 1f,
-        animationSpec = spring(dampingRatio = 0.55f, stiffness = 600f)
+        animationSpec = if (animationsDisabled) snap() else spring(dampingRatio = 0.55f, stiffness = 600f)
     )
 
     val shadowColor = containerColor.darker(0.65f) // darker tint of button color
@@ -140,6 +147,7 @@ fun MaxinesAnswerCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
+    val haptic = LocalHapticFeedback.current
     val bgColor = when (state) {
         AnswerCardState.CORRECT -> SuccessGreen.copy(alpha = 0.15f)
         AnswerCardState.INCORRECT -> ErrorRed.copy(alpha = 0.1f)
@@ -148,7 +156,10 @@ fun MaxinesAnswerCard(
         AnswerCardState.IDLE -> SurfaceContainer
     }
     Card(
-        onClick = onClick,
+        onClick = {
+            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+            onClick()
+        },
         modifier = modifier
             .shadow(
                 elevation = when (state) {
@@ -160,9 +171,26 @@ fun MaxinesAnswerCard(
                 spotColor = bgColor
             ),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = bgColor)
+        colors = CardDefaults.cardColors(containerColor = bgColor),
+        border = when (state) {
+            AnswerCardState.CORRECT -> BorderStroke(2.dp, SuccessGreen)
+            AnswerCardState.INCORRECT -> BorderStroke(2.dp, ErrorRed)
+            AnswerCardState.SELECTED -> BorderStroke(2.dp, VillageTeal)
+            else -> null
+        },
     ) {
-        content()
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(Modifier.weight(1f)) { content() }
+            when (state) {
+                AnswerCardState.CORRECT -> Icon(Icons.Default.CheckCircle, "Correct", tint = SuccessGreen, modifier = Modifier.padding(end = 16.dp))
+                AnswerCardState.INCORRECT -> Icon(Icons.Default.Cancel, "Incorrect", tint = ErrorRed, modifier = Modifier.padding(end = 16.dp))
+                AnswerCardState.SELECTED -> Icon(Icons.Default.RadioButtonChecked, "Selected", tint = VillageTeal, modifier = Modifier.padding(end = 16.dp))
+                else -> Unit
+            }
+        }
     }
 }
 

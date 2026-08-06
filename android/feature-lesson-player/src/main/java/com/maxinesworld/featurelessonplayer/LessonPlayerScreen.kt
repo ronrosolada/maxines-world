@@ -22,6 +22,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -159,6 +161,13 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         .firstOrNull { it.type == "ANIMATED_EXPLANATION_V1" }?.narrationText
         ?.takeIf { it.isNotBlank() }
     var showReview by remember { mutableStateOf(false) }
+    var feedbackHeightPx by remember { mutableIntStateOf(0) }
+    val density = LocalDensity.current
+    val feedbackBottomPadding = if (state.showFeedback && feedbackHeightPx > 0) {
+        with(density) { feedbackHeightPx.toDp() + 16.dp }
+    } else {
+        LessonFeedbackLayout.bottomContentPaddingDp(state.showFeedback).dp
+    }
 
     Box(Modifier.fillMaxSize()) {
         Column(
@@ -166,7 +175,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
-                .padding(bottom = LessonFeedbackLayout.bottomContentPaddingDp(state.showFeedback).dp)
+                .padding(bottom = feedbackBottomPadding)
         ) {
         // New Words — vocabulary preview on the first step only (review: it was
         // repeated above every step; show once, not continuously)
@@ -282,6 +291,7 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(16.dp)
+                    .onSizeChanged { feedbackHeightPx = it.height }
                     .navigationBarsPadding(),
                 text = state.feedbackText,
                 correct = state.feedbackCorrect,
@@ -658,7 +668,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             val lang = state.lesson?.languageOfInstruction
             Text(uiText(lang, "Lesson Complete!", "Tapos na ang Aralin!"), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Teal40)
             Text(uiText(lang, "You got $correct out of $total correct!", "Nakuha mo ang $correct sa $total!"), style = MaterialTheme.typography.bodyLarge)
-            Text("${(accuracy * 100).toInt()}%", fontWeight = FontWeight.Bold, fontSize = 48.sp, color = if (accuracy >= 0.8f) SuccessGreen else Amber40)
+            Text("${(accuracy * 100).toInt()}%", fontWeight = FontWeight.Bold, fontSize = 48.sp, color = if (accuracy >= 0.8f) SuccessGreenText else HeritageGold)
 
             Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
                 Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(24.dp)) {
@@ -675,7 +685,10 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                     onClick = onPlayGames,
                     modifier = Modifier.fillMaxWidth().height(56.dp),
                     shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = SunshineGold),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = SunshineGold,
+                        contentColor = OnGold,
+                    ),
                 ) {
                     Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
                     Spacer(Modifier.width(8.dp))

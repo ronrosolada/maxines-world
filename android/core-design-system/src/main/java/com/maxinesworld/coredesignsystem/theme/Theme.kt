@@ -1,56 +1,77 @@
 package com.maxinesworld.coredesignsystem.theme
 
+import android.provider.Settings
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 
-// KEPT from v0.6.5 working baseline — mutable vars
-var AppDisplayFont: FontFamily = FontFamily.Default
-var AppBodyFont: FontFamily = FontFamily.Default
+val LocalAnimationsDisabled = staticCompositionLocalOf { false }
 
 private val LightColorScheme = lightColorScheme(
     primary = VillageTeal, onPrimary = White,
     primaryContainer = VillageTeal.copy(alpha = 0.12f),
-    secondary = SunshineGold, onSecondary = Color(0xFF2B2100),
+    secondary = SunshineGold, onSecondary = OnGold,
     secondaryContainer = SunshineGold.copy(alpha = 0.12f),
-    tertiary = Coral, onTertiary = White,
+    tertiary = Coral, onTertiary = OnCoral,
     surface = SurfaceLight, onSurface = Ink,
     surfaceContainer = SurfaceContainer,
     background = SurfaceLight, onBackground = Ink,
-    error = ErrorRed, onError = White
+    error = ErrorRed, onError = OnError
 )
 
-val MaxinesTypography = Typography(
-    displayLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 36.sp, lineHeight = 44.sp),
-    displayMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 30.sp, lineHeight = 38.sp),
-    headlineLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 28.sp, lineHeight = 36.sp),
-    headlineMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 24.sp, lineHeight = 32.sp),
-    titleLarge = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 28.sp),
-    titleMedium = TextStyle(fontFamily = AppDisplayFont, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, lineHeight = 24.sp),
-    bodyLarge = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Normal, fontSize = 18.sp, lineHeight = 26.sp),
-    bodyMedium = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Normal, fontSize = 16.sp, lineHeight = 24.sp),
-    labelLarge = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Bold, fontSize = 16.sp, lineHeight = 22.sp),
-    labelMedium = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Medium, fontSize = 14.sp, lineHeight = 20.sp),
-    labelSmall = TextStyle(fontFamily = AppBodyFont, fontWeight = FontWeight.Medium, fontSize = 13.sp, lineHeight = 18.sp)
+internal fun maxinesTypography(
+    displayFont: FontFamily,
+    bodyFont: FontFamily,
+): Typography = Typography(
+    displayLarge = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.Bold, fontSize = 36.sp, lineHeight = 44.sp),
+    displayMedium = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.Bold, fontSize = 30.sp, lineHeight = 38.sp),
+    headlineLarge = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.Bold, fontSize = 28.sp, lineHeight = 36.sp),
+    headlineMedium = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.Bold, fontSize = 24.sp, lineHeight = 32.sp),
+    titleLarge = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 28.sp),
+    titleMedium = TextStyle(fontFamily = displayFont, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, lineHeight = 24.sp),
+    bodyLarge = TextStyle(fontFamily = bodyFont, fontWeight = FontWeight.Normal, fontSize = 18.sp, lineHeight = 26.sp),
+    bodyMedium = TextStyle(fontFamily = bodyFont, fontWeight = FontWeight.Normal, fontSize = 16.sp, lineHeight = 24.sp),
+    labelLarge = TextStyle(fontFamily = bodyFont, fontWeight = FontWeight.Bold, fontSize = 16.sp, lineHeight = 22.sp),
+    labelMedium = TextStyle(fontFamily = bodyFont, fontWeight = FontWeight.Medium, fontSize = 14.sp, lineHeight = 20.sp),
+    labelSmall = TextStyle(fontFamily = bodyFont, fontWeight = FontWeight.Medium, fontSize = 13.sp, lineHeight = 18.sp),
 )
 
 @Composable
 fun MaxinesWorldTheme(
-    displayFont: FontFamily = AppDisplayFont,
-    bodyFont: FontFamily = AppBodyFont,
-    content: @Composable () -> Unit
+    displayFont: FontFamily = FontFamily.Default,
+    bodyFont: FontFamily = FontFamily.Default,
+    content: @Composable () -> Unit,
 ) {
-    AppDisplayFont = displayFont
-    AppBodyFont = bodyFont
-    MaterialTheme(
-        colorScheme = LightColorScheme,
-        typography = MaxinesTypography,
-        content = content
-    )
+    val typography = remember(displayFont, bodyFont) {
+        maxinesTypography(displayFont, bodyFont)
+    }
+    val context = LocalContext.current
+    val animationsDisabled = remember(context) {
+        !animationsEnabledForScale(
+            Settings.Global.getFloat(
+                context.contentResolver,
+                Settings.Global.ANIMATOR_DURATION_SCALE,
+                1f,
+            )
+        )
+    }
+    CompositionLocalProvider(LocalAnimationsDisabled provides animationsDisabled) {
+        MaterialTheme(
+            colorScheme = LightColorScheme,
+            typography = typography,
+            content = content
+        )
+    }
 }
+
+internal fun animationsEnabledForScale(animatorDurationScale: Float): Boolean =
+    animatorDurationScale > 0f

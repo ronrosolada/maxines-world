@@ -45,9 +45,9 @@ fun MatchingPairsRenderer(
     val n = minOf(left.size, right.size)
     val sharedRightLabel = right.take(n).distinct().size == 1
     val matchingHint = if (sharedRightLabel) {
-        "👆 Tap an example, then tap a Milo says yes box"
+        "Tap an example, then tap a Milo says yes box"
     } else {
-        "👆 Tap an example, then tap its match"
+        "Tap an example, then tap its match"
     }
     // NOTE: matching is positional (right[i] == right[selectedLeft] checks
     // same-authored-index pairing). Content authors must keep left/right
@@ -69,7 +69,7 @@ fun MatchingPairsRenderer(
             style = MaterialTheme.typography.labelLarge,
             color = Teal40.copy(alpha = 0.7f),
             fontWeight = FontWeight.Medium,
-            modifier = Modifier.semantics { contentDescription = "Hint: ${matchingHint.removePrefix("👆 ")}" }
+            modifier = Modifier.semantics { contentDescription = "Hint: $matchingHint" }
         )
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -131,6 +131,6 @@ fun MatchingPairsRenderer(
 
         Text("Matched: ${matchedLeft.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
             modifier = Modifier.semantics { contentDescription = "${matchedLeft.size} of $n matched" })
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(24.dp))
     }
 }

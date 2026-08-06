@@ -248,7 +248,12 @@ fun HotspotImageRenderer(
                 ) {
                     Text(
                         text = if (isVisited) "✓" else "${index + 1}",
-                        color = White,
+                        color = when {
+                            result == true && isTapped -> OnSuccess
+                            result == false && isTapped -> OnError
+                            isVisited -> OnGold
+                            else -> White
+                        },
                         style = MaterialTheme.typography.labelLarge
                     )
                 }

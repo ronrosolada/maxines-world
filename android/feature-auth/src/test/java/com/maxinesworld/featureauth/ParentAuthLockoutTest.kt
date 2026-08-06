@@ -106,12 +106,12 @@ class ParentAuthLockoutTest {
         coEvery { authManager.getFailedAttempts() } answers { attempts }
         viewModel = createViewModel()
         enterPin(viewModel, "000000")
-        advanceUntilIdle()
+        runCurrent()
 
         val state = viewModel.state.value
         assertEquals(5, state.failedAttempts)
         assertTrue(state.lockedUntilEpochMillis > now)
-        assertTrue(state.pinError!!.contains("Too many attempts"))
+        assertTrue(state.lockRemainingSeconds in 29..31)
         coVerify(exactly = 1) { authManager.recordFailedAttempt(any()) }
     }
 
@@ -122,10 +122,10 @@ class ParentAuthLockoutTest {
         viewModel = createViewModel()
 
         enterPin(viewModel, "123456")
-        advanceUntilIdle()
+        runCurrent()
 
         assertFalse(viewModel.state.value.isAuthenticated)
-        assertTrue(viewModel.state.value.pinError!!.contains("Too many attempts"))
+        assertTrue(viewModel.state.value.lockRemainingSeconds in 59..61)
         coVerify(exactly = 0) { authManager.verifyPin(any()) }
         coVerify(exactly = 0) { authManager.resetFailedAttempts() }
     }
@@ -160,6 +160,13 @@ class ParentAuthLockoutTest {
         assertEquals(60_000L, durationFor(10))
         assertEquals(120_000L, durationFor(15))
         assertEquals(300_000L, durationFor(40))
+    }
+
+    @Test
+    fun `remaining lockout seconds round up and reach zero at the deadline`() {
+        assertEquals(30, lockRemainingSeconds(130_000L, 100_001L))
+        assertEquals(1, lockRemainingSeconds(130_000L, 129_999L))
+        assertEquals(0, lockRemainingSeconds(130_000L, 130_000L))
     }
 
     @Test

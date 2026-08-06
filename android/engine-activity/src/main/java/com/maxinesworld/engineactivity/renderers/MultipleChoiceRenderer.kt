@@ -104,7 +104,7 @@ fun MultipleChoiceRenderer(
                 else
                     step.feedback?.incorrect ?: "Let's try again! 💪",
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (feedbackState == true) SuccessGreen else ErrorRed,
+                color = if (feedbackState == true) SuccessGreenText else ReviewText,
                 modifier = Modifier.semantics {
                     contentDescription = if (feedbackState == true) "Correct answer" else "Incorrect, try again"
                 }
@@ -120,7 +120,7 @@ fun MultipleChoiceRenderer(
             )
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -135,6 +135,7 @@ fun MultipleChoiceRenderer(
                     },
                     text = "Hint",
                     containerColor = SunshineGold,
+                    contentColor = OnGold,
                     enabled = !submitted,
                     modifier = Modifier
                         .weight(1f)
