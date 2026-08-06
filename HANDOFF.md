@@ -90,6 +90,12 @@ Release signing is read from the user-only file
 
 ## Release gates
 
+Latest local verification on 2026-08-06:
+
+- Gradle `check assembleRelease`, content audit, duplicate-title audit, and 89 Python tooling tests passed.
+- API 35 emulator: 26 Room, 21 app, 11 child-home, and 1 auth connected test passed.
+- Fresh-install flow reached Playroom, a lesson, completion reward, the 29-game library, and 2048; leaving the game preserved the remaining break time.
+
 Before tagging `v0.22.0`:
 
 1. Run `./gradlew check assembleRelease` with the release signing properties.
