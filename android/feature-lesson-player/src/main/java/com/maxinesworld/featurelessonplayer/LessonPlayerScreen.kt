@@ -491,7 +491,10 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(Modifier.padding(24.dp)) {
-            LessonVisual(step)
+            LessonVisual(
+                step = step,
+                fallback = { LessonConceptVisual(step) },
+            )
             Spacer(Modifier.height(16.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -512,8 +515,6 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
                     },
                 )
             }
-            Spacer(Modifier.height(16.dp))
-            LessonConceptVisual(step)
             Spacer(Modifier.height(16.dp))
 
             if (ttsUnavailable) {

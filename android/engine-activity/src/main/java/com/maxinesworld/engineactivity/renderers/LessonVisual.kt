@@ -29,8 +29,13 @@ internal fun lessonVisualAssetId(step: ActivityStep): String? =
 fun LessonVisual(
     step: ActivityStep,
     modifier: Modifier = Modifier,
+    fallback: (@Composable () -> Unit)? = null,
 ) {
-    val assetId = lessonVisualAssetId(step) ?: return
+    val assetId = lessonVisualAssetId(step)
+    if (assetId == null) {
+        fallback?.invoke()
+        return
+    }
 
     Box(
         modifier = modifier.fillMaxWidth(),

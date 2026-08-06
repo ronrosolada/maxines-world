@@ -140,12 +140,12 @@ fun HotspotImageRenderer(
             modifier = Modifier.semantics { contentDescription = "Hotspot: ${step.question}" }
         )
 
-        // The authored SVG is optional; the hotspot controls remain usable when
-        // the asset is absent or unavailable.
-        LessonVisual(step)
-        // Give the learner a static concept model before asking them to inspect examples.
-        // It is decorative/supportive only: all answer information remains in text.
-        LessonConceptVisual(step, motionAllowed = false)
+        // Prefer authored artwork; the answer-neutral motif is only a visual
+        // fallback. The hotspot controls remain usable in either case.
+        LessonVisual(
+            step = step,
+            fallback = { LessonConceptVisual(step, motionAllowed = false) },
+        )
         // Responsive example board with hotspot controls. The content pack's
         // example strings are the accessible/text interaction layer, so never
         // leave the activity without usable controls if an image is unavailable.
