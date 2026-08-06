@@ -246,6 +246,7 @@ private fun RewardBreakFlowHost(
                 gameDurationMillis = durationMillis
                 route = RewardBreakTestRoute.CAT_CAFE
             },
+            onOpenSourceGames = {},
             onReturnToVillage = { route = RewardBreakTestRoute.VILLAGE },
         )
 

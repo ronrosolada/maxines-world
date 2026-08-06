@@ -30,6 +30,7 @@ fun RewardHubScreen(
     onPlayCatCafe: (Long) -> Unit,
     onPlayParkour: (Long) -> Unit,
     onPlayKittenMatch: (Long) -> Unit,
+    onOpenSourceGames: () -> Unit,
     onReturnToVillage: () -> Unit,
     viewModel: RewardBreakViewModel = hiltViewModel(),
 ) {
@@ -130,6 +131,14 @@ fun RewardHubScreen(
                         description = "Find animal friends hiding in pairs!",
                         enabled = !breakExpired && !starting,
                         onClick = { beginGame(onPlayKittenMatch) },
+                    )
+                    GameCard(
+                        title = "More Mini-Games",
+                        icon = Icons.Default.SportsEsports,
+                        color = StoryPurple,
+                        description = "Try puzzles, words, and arcade games!",
+                        enabled = !breakExpired && !starting,
+                        onClick = onOpenSourceGames,
                     )
                 }
 

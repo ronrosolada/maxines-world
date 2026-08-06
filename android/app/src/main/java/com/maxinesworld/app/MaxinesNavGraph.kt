@@ -290,12 +290,84 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayKittenMatch = { durationMillis ->
                     navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
+                onOpenSourceGames = {
+                    navController.navigate(MiniGameRoutes.sourceLibrary(childId, breakId))
+                },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
                         popUpTo(0) { inclusive = true }
                     }
                 }
             )
+        }
+
+        composable(
+            route = MiniGameRoutes.SOURCE_LIBRARY,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType },
+            ),
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            MiniGameLibraryScreen(
+                childId = childId,
+                rewardBreakId = breakId,
+                onPlay = { gameSlug, durationMillis ->
+                    navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
+                },
+                onBack = { navController.popBackStack() },
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
+            )
+        }
+
+        composable(
+            route = MiniGameRoutes.SOURCE_WEB_GAME,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType },
+                navArgument("durationMillis") { type = NavType.LongType },
+                navArgument("gameSlug") { type = NavType.StringType },
+            ),
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            val routeDuration = backStackEntry.arguments?.getLong("durationMillis") ?: return@composable
+            val gameSlug = backStackEntry.arguments?.getString("gameSlug") ?: return@composable
+            val sessionViewModel: RewardBreakViewModel = hiltViewModel(backStackEntry)
+            val scope = rememberCoroutineScope()
+            RewardBreakRouteGuard(
+                childId = childId,
+                rewardBreakId = breakId,
+                viewModel = sessionViewModel,
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
+            ) { remainingMillis ->
+                MiniGameWebScreen(
+                    childId = childId,
+                    rewardBreakId = breakId,
+                    gameSlug = gameSlug,
+                    durationMillis = minOf(routeDuration, remainingMillis),
+                    onExit = { result ->
+                        scope.launch {
+                            sessionViewModel.saveResult(result)
+                            if (!navController.popBackStack()) {
+                                navController.navigate(Routes.childHome(childId)) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                        }
+                    },
+                    onBack = { navController.popBackStack() },
+                )
+            }
         }
 
         composable(
