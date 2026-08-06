@@ -598,7 +598,7 @@ def main(argv=None):
             for it in items
         ):
             broken.append(path.stem)
-        if not args.dry_run:
+        if not args.dry_run and not args.check and json.dumps(repaired) != before:
             path.write_text(json.dumps(repaired, ensure_ascii=False, indent=2) + "\n")
 
     print(f"lessons repaired: {len(changed)}")

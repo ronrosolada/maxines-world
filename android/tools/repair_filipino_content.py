@@ -595,7 +595,7 @@ def main(argv=None):
         repaired = repair_lesson(json.loads(json.dumps(lesson)))
         if repaired != lesson:
             changed += 1
-            if not args.dry_run:
+            if not args.dry_run and not getattr(args, "check", False):
                 path.write_text(json.dumps(repaired, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     # Global junk audit across all filipino lessons
