@@ -15,7 +15,6 @@ data class TreatShopItem(
     val id: String,
     val name: String,
     val description: String,
-    val emoji: String,
     val cost: Int,
 )
 
@@ -25,21 +24,18 @@ object TreatShopCatalog {
             id = "fish-treat-basket",
             name = "Fish Treat Basket",
             description = "A tasty snack for Milo.",
-            emoji = "🐟",
             cost = 5,
         ),
         TreatShopItem(
             id = "cozy-milo-cushion",
             name = "Cozy Milo Cushion",
             description = "A soft place for Milo to nap.",
-            emoji = "🛏️",
             cost = 8,
         ),
         TreatShopItem(
             id = "starry-food-bowl",
             name = "Starry Food Bowl",
             description = "A shiny bowl for a star learner.",
-            emoji = "🥣",
             cost = 12,
         ),
     )

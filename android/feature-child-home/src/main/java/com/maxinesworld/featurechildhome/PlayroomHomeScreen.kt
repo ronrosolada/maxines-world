@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -62,38 +63,39 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maxinesworld.coredesignsystem.theme.*
 import kotlin.math.roundToInt
 
 // ─── Option 3 palette (design.md §8.1) ───
 internal val PlayGoldTop = Color(0xFFFFD76E)
 internal val PlayGoldMid = Color(0xFFFFB84D)
-internal val PlayCoralBottom = Color(0xFFF47C6B)
-internal val PlayTeal = Color(0xFF087F83)
+internal val PlayCoralBottom = Coral
+internal val PlayTeal = VillageTeal
 internal val PlayTealPressed = Color(0xFF06676A)
-internal val PlayInk = Color(0xFF183B4A)
-internal val PlayInkDark = Color(0xFF0B2A36)
-internal val PlayCream = Color(0xFFFFF7E8)
-internal val PlayWhite = Color(0xFFFFFFFF)
-internal val PlaySunshine = Color(0xFFF5B82E)
-internal val PlayCoral = Color(0xFFF47C6B)
-internal val PlaySuccess = Color(0xFF2F9E62)
-internal val PlayError = Color(0xFFB3261E)
+internal val PlayInk = Ink
+internal val PlayInkDark = DeepNight
+internal val PlayCream = Cream
+internal val PlayWhite = White
+internal val PlaySunshine = SunshineGold
+internal val PlayCoral = Coral
+internal val PlaySuccess = SuccessGreen
+internal val PlayError = OnError
 internal val PlayMuted = Color(0xFF4E5F66)
 
 internal val SubjectAccent = mapOf(
-    "mathematics" to Color(0xFF218CC8),
-    "english" to Color(0xFF7653B5),
-    "science" to Color(0xFF57943B),
+    "mathematics" to SubjectColors.Mathematics.primary,
+    "english" to SubjectColors.English.primary,
+    "science" to SubjectColors.Science.primary,
     "filipino" to Color(0xFFD96555),
-    "araling_panlipunan" to Color(0xFFB87916),
+    "araling_panlipunan" to HeritageGold,
     "makabansa" to Color(0xFF8B5E34),
-    "gmrc" to Color(0xFF26A69A),
+    "gmrc" to KindnessTeal,
 )
 
 internal val SubjectPale = mapOf(
-    "mathematics" to Color(0xFFE7F4FC),
-    "english" to Color(0xFFF1EBFA),
-    "science" to Color(0xFFEDF7E8),
+    "mathematics" to SubjectColors.Mathematics.surface,
+    "english" to SubjectColors.English.surface,
+    "science" to SubjectColors.Science.surface,
     "filipino" to Color(0xFFFCEBE7),
     "araling_panlipunan" to Color(0xFFFFF3D7),
     "makabansa" to Color(0xFFF4EBDD),
@@ -156,7 +158,6 @@ fun PlayroomHomeScreen(
     ) {
         val widthClass = widthClassFor(maxWidth)
         val columns = maxColumns(widthClass, maxWidth)
-        val scrollable = maxHeight < 720.dp
         val fontScale = LocalDensity.current.fontScale
         val fullWidth = maxWidth
         val showRailBeside = widthClass == HomeWidthClass.Wide
@@ -164,38 +165,47 @@ fun PlayroomHomeScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .then(if (scrollable) Modifier.verticalScroll(rememberScrollState()) else Modifier)
                 .padding(horizontal = if (fullWidth >= 600.dp) 24.dp else 16.dp, vertical = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            // Header (kept visible in every state)
-            PlayroomHeader(
-                childName = (state as? PlayroomHomeUiState.Content)?.childName.orEmpty(),
-                offline = (state as? PlayroomHomeUiState.Content)?.offline == true,
-                wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
-                starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
-                coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
-                onTreatShopClick = onTreatShopClick,
-            )
+            // The subject catalogue can be much taller than the viewport (and
+            // becomes taller still with Android text scaling). Keep the nav
+            // outside this scroll region so it remains reachable and visible.
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                PlayroomHeader(
+                    childName = (state as? PlayroomHomeUiState.Content)?.childName.orEmpty(),
+                    offline = (state as? PlayroomHomeUiState.Content)?.offline == true,
+                    wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
+                    starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
+                    coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
+                    onTreatShopClick = onTreatShopClick,
+                )
 
-            when (state) {
-                is PlayroomHomeUiState.Loading -> LoadingPlaceholders(columns = columns)
-                is PlayroomHomeUiState.Error -> ErrorCard(
-                    message = state.message,
-                    canRetry = state.canRetry,
-                    onRetry = onRetry,
-                    onBack = onBack,
-                )
-                is PlayroomHomeUiState.Content -> ContentLayout(
-                    content = state,
-                    columns = columns,
-                    railBeside = showRailBeside,
-                    onSubjectClick = onSubjectClick,
-                    onQuestAction = onQuestAction,
-                    onOpenCollection = onOpenCollection,
-                )
+                when (state) {
+                    is PlayroomHomeUiState.Loading -> LoadingPlaceholders(columns = columns)
+                    is PlayroomHomeUiState.Error -> ErrorCard(
+                        message = state.message,
+                        canRetry = state.canRetry,
+                        onRetry = onRetry,
+                        onBack = onBack,
+                    )
+                    is PlayroomHomeUiState.Content -> ContentLayout(
+                        content = state,
+                        columns = columns,
+                        railBeside = showRailBeside,
+                        onSubjectClick = onSubjectClick,
+                        onQuestAction = onQuestAction,
+                        onOpenCollection = onOpenCollection,
+                    )
+                }
             }
 
+            Spacer(Modifier.height(16.dp))
             PlayroomBottomNav(
                 onHomeClick = onHomeClick,
                 onCollectionClick = onCollectionClick,
@@ -385,7 +395,7 @@ private fun BrandBlock(modifier: Modifier = Modifier) {
                 color = PlayInk,
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 20.sp, lineHeight = 24.sp,
-                maxLines = 1, overflow = TextOverflow.Clip,
+                maxLines = 1, overflow = TextOverflow.Ellipsis,
             )
             Text(
                 "PLAYROOM",
@@ -427,14 +437,14 @@ private fun GreetingBlock(childName: String, modifier: Modifier = Modifier) {
             color = PlayInk,
             fontWeight = FontWeight.ExtraBold,
             fontSize = 26.sp, lineHeight = 32.sp,
-            maxLines = 1, overflow = TextOverflow.Clip,
+            maxLines = 1, overflow = TextOverflow.Ellipsis,
         )
         Text(
             stringResource(R.string.home_encouragement),
             color = Color(0xFF5C2E00),
             fontWeight = FontWeight.SemiBold,
             fontSize = 15.sp, lineHeight = 21.sp,
-            maxLines = 1, overflow = TextOverflow.Clip,
+            maxLines = 1, overflow = TextOverflow.Ellipsis,
         )
     }
 }
@@ -583,7 +593,7 @@ private fun SubjectCard(
                             color = PlayInk,
                             fontWeight = FontWeight.ExtraBold,
                             fontSize = 17.sp, lineHeight = 22.sp,
-                            maxLines = 2, overflow = TextOverflow.Clip, // never ellipsize formal name
+                            maxLines = 2, overflow = TextOverflow.Ellipsis, // never ellipsize formal name
                         )
                         Spacer(Modifier.height(2.dp))
                         Text(
@@ -594,7 +604,7 @@ private fun SubjectCard(
                             color = PlayInk,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp, lineHeight = 20.sp,
-                            maxLines = 1, overflow = TextOverflow.Clip,
+                            maxLines = 1, overflow = TextOverflow.Ellipsis,
                         )
                     }
                 }
@@ -663,7 +673,7 @@ private fun SubjectCard(
                         subject.lockReason ?: stringResource(R.string.home_locked),
                         fontSize = 14.sp, fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
-                        maxLines = 2, overflow = TextOverflow.Clip,
+                        maxLines = 2, overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -720,7 +730,7 @@ private fun TodayQuestCard(
                         color = Color.White,
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 21.sp, lineHeight = 28.sp,
-                        maxLines = 1, overflow = TextOverflow.Clip,
+                        maxLines = 1, overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -745,7 +755,7 @@ private fun TodayQuestCard(
                             color = PlayInk,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp, lineHeight = 23.sp,
-                            maxLines = 3, overflow = TextOverflow.Clip,
+                            maxLines = 3, overflow = TextOverflow.Ellipsis,
                         )
                         Spacer(Modifier.height(6.dp))
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -776,7 +786,7 @@ private fun TodayQuestCard(
                     contentColor = Color.White,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp)
+                        .heightIn(min = 56.dp)
                         .semantics { role = Role.Button }
                         .clickable(role = Role.Button, onClick = { onQuestAction(quest.buttonAction) }),
                 ) {
@@ -787,7 +797,7 @@ private fun TodayQuestCard(
                             fontWeight = FontWeight.ExtraBold,
                             fontSize = 17.sp, lineHeight = 22.sp,
                             textAlign = TextAlign.Center,
-                            maxLines = 1, overflow = TextOverflow.Clip,
+                            maxLines = 1, overflow = TextOverflow.Ellipsis,
                         )
                     }
                 }
@@ -877,12 +887,12 @@ private fun StickerSlot(sticker: StickerUi) {
             )
             .border(2.dp, if (sticker.won) PlaySunshine else Color(0xFFD9C48F), RoundedCornerShape(10.dp))
             .semantics {
-                contentDescription = if (sticker.won) sticker.emoji ?: sticker.id else mystery
+                contentDescription = if (sticker.won) "${sticker.id} collected sticker" else mystery
             },
         contentAlignment = Alignment.Center,
     ) {
         if (sticker.won) {
-            Text(sticker.emoji ?: "★", fontSize = 20.sp)
+            Icon(Icons.Default.Pets, contentDescription = null, tint = PlayTeal, modifier = Modifier.size(24.dp))
         } else {
             Text("?", color = Color(0xFF8A6A3A), fontWeight = FontWeight.Black, fontSize = 16.sp)
         }

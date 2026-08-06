@@ -10,7 +10,6 @@ data class CollectibleBadge(
     val name: String,
     val title: String,
     val funFact: String,
-    val emoji: String,
     val isCollected: Boolean = false,
     val collectedAtEpochMillis: Long = 0L
 )

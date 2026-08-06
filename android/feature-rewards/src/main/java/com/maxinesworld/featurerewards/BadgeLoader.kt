@@ -13,7 +13,7 @@ import kotlinx.serialization.json.*
 @Serializable
 private data class BadgeJson(
     val id: String, val biome: String, val name: String,
-    val title: String, val fun_fact: String, val emoji: String
+    val title: String, val fun_fact: String
 )
 
 class BadgeLoader @Inject constructor(
@@ -30,7 +30,7 @@ class BadgeLoader @Inject constructor(
             badges.map { b ->
                 CollectibleBadge(
                     id = b.id, biome = b.biome, name = b.name,
-                    title = b.title, funFact = b.fun_fact, emoji = b.emoji
+                    title = b.title, funFact = b.fun_fact,
                 )
             }.also { cache = it }
         }

@@ -16,6 +16,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.VocabTerm
+import com.maxinesworld.coredesignsystem.components.AnswerCardState
+import com.maxinesworld.coredesignsystem.components.MaxinesAnswerCard
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
@@ -334,6 +337,11 @@ private fun AssessmentStepCard(
     }
     val options = optionOrder.map { step.options[it] }
     val displayedCorrectIndex = optionOrder.indexOf(step.correctIndex)
+    var selectedIndex by rememberSaveable(step.id) { mutableStateOf<Int?>(null) }
+
+    LaunchedEffect(answered) {
+        if (!answered) selectedIndex = null
+    }
 
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Cream),
@@ -343,28 +351,50 @@ private fun AssessmentStepCard(
                 lineHeight = 30.sp, color = Ink)
             Spacer(Modifier.height(16.dp))
             options.forEachIndexed { index, option ->
-                Surface(
-                    onClick = {
-                        if (!answered) onResult(
-                            ActivityResult(step.id, index == displayedCorrectIndex, 1, 0, 0, scored = true)
-                        )
-                    },
-                    shape = RoundedCornerShape(14.dp),
-                    color = White,
-                    border = androidx.compose.foundation.BorderStroke(1.dp, VillageTeal.copy(alpha = 0.35f)),
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                MaxinesAnswerCard(
+                    state = assessmentOptionState(
+                        index = index,
+                        selectedIndex = selectedIndex,
+                        answered = answered,
+                        correctIndex = displayedCorrectIndex,
+                    ),
+                    onClick = { if (!answered) selectedIndex = index },
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                 ) {
                     Text(option, modifier = Modifier.padding(16.dp),
                         style = MaterialTheme.typography.bodyLarge, fontSize = 17.sp, color = Ink)
                 }
             }
+            Spacer(Modifier.height(12.dp))
+            MaxinesPrimaryButton(
+                onClick = {
+                    val index = selectedIndex ?: return@MaxinesPrimaryButton
+                    onResult(ActivityResult(step.id, index == displayedCorrectIndex, 1, 0, 0, scored = true))
+                },
+                text = uiText(language, "Check answer", "Suriin ang sagot"),
+                enabled = selectedIndex != null && !answered,
+                modifier = Modifier.fillMaxWidth(),
+            )
             Spacer(Modifier.height(4.dp))
             Text(
-                uiText(language, "Pick the best answer.", "Piliin ang pinakamagandang sagot."),
+                uiText(language, "Choose an answer, then check it.", "Pumili ng sagot, pagkatapos suriin."),
                 fontSize = 13.sp, color = Ink.copy(alpha = 0.5f)
             )
         }
     }
+}
+
+internal fun assessmentOptionState(
+    index: Int,
+    selectedIndex: Int?,
+    answered: Boolean,
+    correctIndex: Int,
+): AnswerCardState = when {
+    answered && index == selectedIndex && index == correctIndex -> AnswerCardState.CORRECT
+    answered && index == selectedIndex -> AnswerCardState.INCORRECT
+    answered -> AnswerCardState.DISABLED
+    index == selectedIndex -> AnswerCardState.SELECTED
+    else -> AnswerCardState.IDLE
 }
 
 // ─── Explanation Step (with TTS) ───
@@ -534,7 +564,7 @@ private fun AssessmentRetryCard(
                 Modifier.padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text("🌟", fontSize = 42.sp)
+                Icon(Icons.Default.Star, contentDescription = "Lesson complete", tint = SunshineGold, modifier = Modifier.size(42.dp))
                 Spacer(Modifier.height(12.dp))
                 Text(
                     uiText(language, "Let's try the knowledge check again", "Subukan natin muli ang pagsusulit"),
@@ -596,11 +626,24 @@ private fun FeedbackBanner(
 
 @Composable
 private fun CharacterGuide(character: String) {
-    val emoji = when (character.lowercase()) { "milo" -> "🧡"; "mira" -> "💜"; "niko" -> "🩶"; "lakan" -> "🇵🇭"; "duke" -> "💙"; else -> "🐱" }
+    val displayName = character.replaceFirstChar { it.uppercase() }
+    val avatarColor = when (character.lowercase()) {
+        "milo" -> Orange80
+        "mira" -> StoryPurple
+        "niko" -> SkyBlue
+        "lakan" -> SunshineGold
+        "duke" -> VillageTeal
+        else -> Teal40
+    }
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Box(Modifier.size(40.dp).clip(CircleShape).background(Orange80), contentAlignment = Alignment.Center) { Text(emoji, fontSize = 20.sp) }
+        Box(
+            Modifier.size(40.dp).clip(CircleShape).background(avatarColor),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(displayName.take(1), fontWeight = FontWeight.ExtraBold, color = White, fontSize = 20.sp)
+        }
         Spacer(Modifier.width(8.dp))
-        Text(character.replaceFirstChar { it.uppercase() }, fontWeight = FontWeight.Medium, color = Teal40)
+        Text(displayName, fontWeight = FontWeight.Medium, color = Teal40)
     }
 }
 

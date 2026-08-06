@@ -235,6 +235,6 @@ class PlayroomHomeViewModelTest {
 
     private fun badge(id: String, collected: Boolean) = com.maxinesworld.coremodel.CollectibleBadge(
         id = id, biome = "test", name = "Badge $id", title = "T", funFact = "F",
-        emoji = "★", isCollected = collected,
+        isCollected = collected,
     )
 }

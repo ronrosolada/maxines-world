@@ -16,15 +16,15 @@ Documented intentional divergences from `docs/design.md`.
 
 **Commit reference:** `e8047de` through `2a068fd` (isolation test series).
 
-## 2. Emoji as Placeholder Feedback Art
+## 2. Authored Emoji in Legacy Content
 
 **Requirement:** "Do NOT ship emoji as final character, subject, reward, or feedback artwork."
 
-**Deviation:** Some feedback text uses emoji placeholders (e.g., `"🎉 Badge earned!"`).
+**Deviation:** A small amount of bundled/authored lesson copy and the legacy badge catalog asset still contain emoji keys/placeholders; the runtime badge and sticker models no longer expose them.
 
 **Reason:** Production icon/raster assets for celebrations not yet produced. Emoji serves as a recognizable placeholder until the P0 asset manifest is fulfilled.
 
-**Impact:** Visual only. Functionality is correct. Emoji connotes meaning that native UI does not yet represent.
+**Impact:** Runtime reward, badge, sticker, character-guide, and renderer fallback UI now uses vector/icon treatments, but legacy content can still surface emoji in learner copy until the content asset pass is complete.
 
 **Follow-up:** Replace with production assets per the P0 asset manifest when available.
 
@@ -54,11 +54,11 @@ Documented intentional divergences from `docs/design.md`.
 
 **Requirement:** "GMRC MUST receive its own palette, subject-world definition, icon, location art, and lesson-screen examples."
 
-**Deviation:** GMRC has no dedicated palette or location art.
+**Status:** Resolved for curriculum behavior. GMRC has its own subject token and routes to real bundled GMRC lessons from the first session. Dedicated location art remains an asset follow-up.
 
-**Reason:** GMRC content packages exist on the NAS but no dedicated assets have been produced. The app maps GMRC to English lesson content as fallback.
+**Reason:** The app now uses bundled GMRC content; the remaining gap is visual production rather than curriculum availability.
 
-**Impact:** GMRC subject uses generic styling. No GMRC-specific village location.
+**Impact:** GMRC still needs dedicated location art and lesson-screen examples to fully satisfy the visual requirement.
 
 **Follow-up:** Add when P0 asset manifest includes GMRC location + icon.
 
@@ -66,10 +66,10 @@ Documented intentional divergences from `docs/design.md`.
 
 **Requirement:** "Do NOT claim completion when a required state is represented by a TODO or no-op callback."
 
-**Deviation:** Profile and Backpack navigation items have default `{}` callbacks.
+**Status:** Resolved in the current child navigation. Profile and Backpack are not shipped as tappable bottom-bar items; the current bar exposes Home, Collection, and Parents only.
 
-**Reason:** These destinations are not yet implemented. Bottom bar items remain for layout consistency but trigger no navigation.
+**Reason:** Unimplemented destinations were removed rather than left as dead controls.
 
-**Impact:** Tapping Profile or Backpack produces no visible response. Learners may be confused.
+**Impact:** No child-facing dead tap remains for these reserved destinations.
 
-**Follow-up:** Implement Profile and Backpack screens, or replace disabled items with grayed-out indicators.
+**Follow-up:** Add these destinations only with complete screens and navigation tests.

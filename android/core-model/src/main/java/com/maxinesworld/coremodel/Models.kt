@@ -84,8 +84,8 @@ data class MatchPair(
 
 @Serializable
 data class ActivityFeedback(
-    val correct: String = "Great job! 🎉",
-    val incorrect: String = "Let's try again! 💪"
+    val correct: String = "Great job!",
+    val incorrect: String = "Let's try again!"
 )
 
 @Serializable

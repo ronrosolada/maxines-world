@@ -23,6 +23,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Pets
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
@@ -188,7 +190,12 @@ private fun TreatShopItemCard(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(item.emoji, fontSize = 40.sp, modifier = Modifier.size(56.dp))
+            androidx.compose.material3.Icon(
+                imageVector = Icons.Default.Pets,
+                contentDescription = item.name,
+                tint = VillageTeal,
+                modifier = Modifier.size(56.dp),
+            )
             Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(item.name, fontWeight = FontWeight.ExtraBold, color = TreatShopInk)
                 Text(item.description, style = MaterialTheme.typography.bodyMedium, color = TreatShopInk)

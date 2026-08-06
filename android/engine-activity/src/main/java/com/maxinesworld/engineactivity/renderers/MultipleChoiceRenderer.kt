@@ -100,9 +100,9 @@ fun MultipleChoiceRenderer(
         if (submitted && feedbackState != null) {
             Text(
                 text = if (feedbackState == true)
-                    step.feedback?.correct ?: "Great job! 🎉"
+                    step.feedback?.correct ?: "Great job!"
                 else
-                    step.feedback?.incorrect ?: "Let's try again! 💪",
+                    step.feedback?.incorrect ?: "Let's try again!",
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (feedbackState == true) SuccessGreenText else ReviewText,
                 modifier = Modifier.semantics {

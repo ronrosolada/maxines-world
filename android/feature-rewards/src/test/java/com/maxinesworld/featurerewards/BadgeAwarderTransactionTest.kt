@@ -23,7 +23,7 @@ class BadgeAwarderTransactionTest {
         CollectibleBadge(
             id = "badge_%02d".format(i),
             biome = if (i <= 5) "forest_friends" else "sky_scouts",
-            name = "Badge $i", title = "Title $i", funFact = "Fact $i", emoji = "🌟",
+            name = "Badge $i", title = "Title $i", funFact = "Fact $i",
         )
     }
 

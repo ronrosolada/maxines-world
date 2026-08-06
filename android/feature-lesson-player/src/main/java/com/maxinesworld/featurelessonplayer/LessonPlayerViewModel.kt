@@ -280,8 +280,8 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
         options = optionTexts,
         correctIndex = correctIndex,
         feedback = ActivityFeedback(
-            correct = item.explanation.ifBlank { "Great job! 🎉" },
-            incorrect = item.explanation.ifBlank { "Let's try again! 💪" },
+            correct = item.explanation.ifBlank { "Great job!" },
+            incorrect = item.explanation.ifBlank { "Let's try again!" },
         ),
     )
 }
@@ -350,6 +350,9 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
                 } else {
                     listOf("Fits", "Does not fit")
                 }
+                val sortInstruction = sortInstructionWithCategories(childFacingInstruction, sortCategories)
+                question = sortInstruction
+                narration = sortInstruction
                 sortItems = (fits.map { SortItem(it, 0) } + doesNotFit.map { SortItem(it, 1) })
                     .shuffled(java.util.Random(act.activityId.hashCode().toLong()))
             }
@@ -426,4 +429,13 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         completionTargetCount = act.completionRule?.targetCount ?: 0,
         hintText = hintText
     )
+}
+
+/** Keep the sort prompt and its visible category labels in the same vocabulary. */
+internal fun sortInstructionWithCategories(instruction: String, categories: List<String>): String {
+    if (categories.size < 2) return instruction
+
+    return instruction
+        .replace("true", categories[0], ignoreCase = true)
+        .replace("false", categories[1], ignoreCase = true)
 }
