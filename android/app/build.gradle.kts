@@ -26,17 +26,19 @@ android {
     signingConfigs {
         // Release keystore, configured via USER-LEVEL properties file
         // (~/.gradle/maxines-world-signing.properties) — never committed.
-        // Absent file → signingConfig stays null → unsigned release build,
-        // so CI/contributor builds keep working without a keystore.
-        create("release") {
-            val props = Properties().apply {
-                val f = File(System.getProperty("user.home"), ".gradle/maxines-world-signing.properties")
-                if (f.isFile) f.inputStream().use { load(it) }
+        // Absent file → no release signing config is registered, so CI and
+        // contributor builds produce an unsigned release candidate.
+        val signingFile = File(System.getProperty("user.home"), ".gradle/maxines-world-signing.properties")
+        if (signingFile.isFile) {
+            create("release") {
+                val props = Properties().apply {
+                    signingFile.inputStream().use { load(it) }
+                }
+                storeFile = props.getProperty("MW_KEYSTORE_PATH")?.let { File(it) }
+                storePassword = props.getProperty("MW_KEYSTORE_PASS")
+                keyAlias = props.getProperty("MW_KEY_ALIAS")
+                keyPassword = props.getProperty("MW_KEY_PASS")
             }
-            storeFile = props.getProperty("MW_KEYSTORE_PATH")?.let { File(it) }
-            storePassword = props.getProperty("MW_KEYSTORE_PASS")
-            keyAlias = props.getProperty("MW_KEY_ALIAS")
-            keyPassword = props.getProperty("MW_KEY_PASS")
         }
     }
 
