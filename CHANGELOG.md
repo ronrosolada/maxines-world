@@ -9,6 +9,9 @@ Android `versionName`.
 ### Features
 - Added 29 fully bundled, offline reward-break mini-games with child-safe WebView isolation.
 - Added the Playroom mini-game library with categories and honest entitlement states.
+- Preserved an earned reward break when a child leaves before choosing a game.
+- Added an offline PIN-reset explanation and a retry path for transient lesson-load errors.
+- Removed the last unused external repository URL from the production catalog.
 - Added answer-neutral lesson concept visuals so illustrations support learning without revealing answers.
 
 ### Privacy, accessibility & reliability

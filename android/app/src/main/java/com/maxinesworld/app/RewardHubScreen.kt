@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.DirectionsRun
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -55,6 +56,12 @@ fun RewardHubScreen(
 
     fun finishBreak() {
         if (returning) return
+        // A CREATED entitlement is still waiting for the child. Leaving the hub
+        // must not silently delete a reward that was never started.
+        if ((state as? RewardBreakUiState.Ready)?.started != true) {
+            onReturnToVillage()
+            return
+        }
         returning = true
         scope.launch {
             viewModel.consume(childId, rewardBreakId)
@@ -118,7 +125,7 @@ fun RewardHubScreen(
                     )
                     GameCard(
                         title = "Pawprint Parkour",
-                        icon = Icons.Default.DirectionsRun,
+                        icon = Icons.AutoMirrored.Filled.DirectionsRun,
                         color = SkyBlue,
                         description = "Jump and run with Milo!",
                         enabled = !breakExpired && !starting,

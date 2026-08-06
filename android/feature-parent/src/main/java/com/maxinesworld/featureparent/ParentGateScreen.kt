@@ -270,6 +270,14 @@ fun ParentGateScreen(
                 Spacer(Modifier.height(8.dp))
                 Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
             }
+
+            Spacer(Modifier.height(20.dp))
+            Text(
+                "Forgot your PIN? Ask a parent to reset Maxine's World in Android Settings. Resetting the app deletes profiles and learning progress.",
+                color = Ink.copy(alpha = 0.65f),
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
+            )
         }
     }
 }

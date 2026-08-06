@@ -210,7 +210,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onLessonClick = { lessonId ->
                     navController.navigate(Routes.lessonPlayer(childId, lessonId))
                 },
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onRetry = viewModel::retry,
             )
         }
 

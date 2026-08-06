@@ -10,8 +10,8 @@ name: Release gate
 #   3. Commit + push
 #   4. Push the release tag — this workflow must pass first
 #
-# This job does NOT build/upload the APK; it is the quality gate that must
-# be green before a release is considered shippable.
+# This job does not sign or upload the APK; it validates the release build
+# path and content gate before a release is considered shippable.
 
 on:
   push:
@@ -49,4 +49,8 @@ jobs:
 
       - name: Verify all playable lessons are educator-reviewed
         run: ./gradlew :app:verifyPlayableContent --stacktrace
+        working-directory: android
+
+      - name: Assemble unsigned release candidate
+        run: ./gradlew :app:assembleRelease --stacktrace
         working-directory: android

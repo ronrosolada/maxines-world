@@ -70,6 +70,7 @@ class LessonPlayerViewModel @Inject constructor(
 
     fun loadLesson(lessonId: String, childId: String = "") {
         this.childId = childId
+        progressSaved = false
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             val lesson = withContext(Dispatchers.IO) {

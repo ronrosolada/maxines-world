@@ -50,6 +50,7 @@ fun ModuleLessonsScreen(
     state: ModuleLessonsState,
     onLessonClick: (String) -> Unit,
     onBack: () -> Unit,
+    onRetry: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -65,10 +66,13 @@ fun ModuleLessonsScreen(
         Box(Modifier.fillMaxSize().padding(padding)) {
             when {
                 state.isLoading -> CircularProgressIndicator(Modifier.align(Alignment.Center), color = VillageTeal)
-                state.error != null -> Text(
-                    state.error, Modifier.align(Alignment.Center).padding(24.dp),
-                    color = Ink, fontSize = 16.sp
-                )
+                state.error != null -> Column(
+                    modifier = Modifier.align(Alignment.Center).padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text(state.error, color = Ink, fontSize = 16.sp)
+                    androidx.compose.material3.TextButton(onClick = onRetry) { Text("Retry") }
+                }
                 else -> LazyColumn(
                     Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(16.dp),

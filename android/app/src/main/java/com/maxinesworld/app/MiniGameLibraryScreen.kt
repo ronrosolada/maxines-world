@@ -199,7 +199,11 @@ private fun LibraryHeader(durationMillis: Long, breakExpired: Boolean) {
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            if (breakExpired) "This reward break has finished." else "Everything here is bundled for offline play.",
+            if (breakExpired) {
+                "This reward break has finished."
+            } else {
+                "Bundled for offline play. These games are fun-only and do not award stickers or tokens."
+            },
             style = MaterialTheme.typography.bodyMedium,
             color = if (breakExpired) Coral else Ink.copy(alpha = 0.7f),
             textAlign = TextAlign.Center,

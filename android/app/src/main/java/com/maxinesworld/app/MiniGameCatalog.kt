@@ -24,7 +24,6 @@ data class EmbeddedMiniGame(
 }
 
 object MiniGameCatalog {
-    const val SOURCE_REPOSITORY = "https://github.com/mazipan/mini-games"
     const val SOURCE_COMMIT = "a9421318e6f4644c5f144df78576114db60de8a6"
     const val ASSET_ROOT = "mini-games/games"
 
