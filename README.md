@@ -18,20 +18,20 @@ curious rather than distract from understanding.
 - Kotlin + Jetpack Compose + Material 3
 - Room + DataStore
 - Hilt DI
-- WorkManager
-- Modular architecture (16 Gradle modules)
+- Modular architecture (19 Gradle modules)
+- Bundled HTML reward-break games with CSP-isolated WebViews
 
 ## Project Structure
 ```
 android/
 ├── app/                          # Application shell
 ├── core-model/                   # Domain models
-├── core-network/                 # API client
+├── core-network/                 # Retained API client placeholder (unused offline)
 ├── core-database/                # Room database
 ├── core-design-system/           # Theme and shared composables
 ├── core-content/                 # JSON lesson loader
 ├── feature-auth/                 # Parent PIN + child profile
-├── feature-child-home/           # Village home screen
+├── feature-child-home/           # Playroom home screen
 ├── feature-lesson-player/        # Lesson activity player
 ├── feature-progress/             # Progress tracking
 ├── feature-parent/               # Parent dashboard
@@ -39,7 +39,10 @@ android/
 ├── engine-activity/              # Reusable activity composables
 ├── engine-assessment/            # Scoring and thresholds
 ├── engine-mastery/               # Mastery state machine
-└── engine-sync/                  # WorkManager sync (progress reporting)
+├── engine-minigame/              # Reward-break entitlement engine
+├── game-cat-cafe/                # Native cat-cafe reward game
+├── game-pawprint-parkour/        # Native pawprint parkour game
+└── game-kitten-match/            # Native kitten-match reward game
 ```
 
 ## Build
@@ -47,6 +50,19 @@ android/
 cd android
 ./gradlew assembleDebug
 ```
+
+The release build is intentionally offline-only. It must pass both the
+educator-content gate and the bundled mini-game isolation gate:
+
+```bash
+./gradlew check assembleRelease
+python3 tools/content_quality_audit.py --check
+python3 tools/dedupe_lesson_titles.py --check
+```
+
+Release signing is configured through the user-level
+`~/.gradle/maxines-world-signing.properties` file; signing secrets are never
+stored in this repository.
 
 ## Independent educator review
 

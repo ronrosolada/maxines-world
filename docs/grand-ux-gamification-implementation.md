@@ -1,7 +1,8 @@
 # Grand UX, UI, and Gamification Review — Implementation Status
 
-**Review baseline:** 3 August 2026
-**Implementation branch:** `fix/grand-ux-gamification-review`
+**Review baseline:** 6 August 2026
+**Implementation branch:** `feat/lesson-concept-visuals`
+**Release candidate:** `0.22.0`
 
 This note records the implemented child-facing policy and the remaining visual/product follow-up. Passing tests do not replace a human review of the experience, but the core reward loop is now persistent and replay-safe.
 
@@ -44,11 +45,22 @@ This note records the implemented child-facing policy and the remaining visual/p
 - Badge reveal animation is skipped when Android's animator duration scale is zero.
 - The CI emulator disables animations and uses a fresh headless AVD to reduce false failures.
 
-## Remaining follow-up
+### Reward breaks and concept support
 
-1. Add a real cosmetic Kindness Garden reward at the existing level milestone; curriculum access remains independent of it.
-2. Perform screenshot/accessibility review at compact phone, tablet, and approximately 1.3x font scale.
-3. Verify the full lesson → reward → Field Guide → Back flow manually on the target child device.
+- The reward hub now exposes 29 bundled HTML games plus native reward games.
+- Mini-games are bounded by the local entitlement policy and are isolated from
+  network access through CSP and WebView request filtering.
+- Lesson concept visuals are answer-neutral and remain subordinate to the
+  activity prompt and response controls.
+
+## Remaining follow-up (post-release enhancements)
+
+1. Add a real cosmetic Kindness Garden reward at the existing level milestone;
+   curriculum access remains independent of it.
+2. Continue screenshot/accessibility review at compact phone, tablet, and
+   approximately 1.3x font scale as new screens are added.
+3. Obtain independent human curriculum review; automated metadata and tests are
+   release gates, not a substitute for educator sign-off.
 
 ## Verification
 

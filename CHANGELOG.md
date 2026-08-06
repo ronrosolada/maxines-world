@@ -4,6 +4,24 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
+## [0.22.0] - 2026-08-06
+
+### Features
+- Added 29 fully bundled, offline reward-break mini-games with child-safe WebView isolation.
+- Added the Playroom mini-game library with categories and honest entitlement states.
+- Added answer-neutral lesson concept visuals so illustrations support learning without revealing answers.
+
+### Privacy, accessibility & reliability
+- Kept the release APK offline-only: no `INTERNET` permission and no runtime content downloads.
+- Enforced CSP, page count, external-URL, and browser-network-API checks for every bundled mini-game.
+- Explicit target-SDK-35 edge-to-edge configuration with safe system-bar insets in parent authentication.
+- Hardened SVG and mini-game WebViews against HTTP(S), mixed-content, and unsafe file-origin loading.
+- Fixed PIN setup keyboard overlap and added IME regression coverage.
+
+### Release gates
+- All 358 bundled lessons carry the required educator approval metadata.
+- Release verification now runs both educator-content and offline-mini-game gates.
+
 ## [0.21.1] - 2026-08-06
 
 ### Lesson reliability

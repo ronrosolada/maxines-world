@@ -58,12 +58,18 @@ fun ParentAuthScreen(
         }
     }
 
-    when (state.currentScreen) {
-        AuthScreen.LOADING -> LoadingScreen()
-        AuthScreen.PIN_SETUP -> PinSetupScreen(state, viewModel)
-        AuthScreen.PIN_LOGIN -> PinLoginScreen(state, viewModel)
-        AuthScreen.CHILD_SELECT -> ChildSelectScreen(state, viewModel, onChildSelected)
-        AuthScreen.CREATE_PROFILE -> CreateChildScreen(state, viewModel)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing),
+    ) {
+        when (state.currentScreen) {
+            AuthScreen.LOADING -> LoadingScreen()
+            AuthScreen.PIN_SETUP -> PinSetupScreen(state, viewModel)
+            AuthScreen.PIN_LOGIN -> PinLoginScreen(state, viewModel)
+            AuthScreen.CHILD_SELECT -> ChildSelectScreen(state, viewModel, onChildSelected)
+            AuthScreen.CREATE_PROFILE -> CreateChildScreen(state, viewModel)
+        }
     }
 }
 
@@ -75,14 +81,38 @@ private fun LoadingScreen() {
 }
 
 @Composable
-private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
+internal fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
+    PinSetupContent(
+        state = state,
+        onUpdateName = viewModel::onUpdateName,
+        onPinDigit = viewModel::onPinDigit,
+        onPinDelete = viewModel::onPinDelete,
+        onSetupPin = viewModel::onSetupPin,
+        onPinPadInteraction = {
+            keyboardController?.hide()
+            focusManager.clearFocus(force = true)
+        },
+    )
+}
+
+@Composable
+internal fun PinSetupContent(
+    state: AuthUiState,
+    onUpdateName: (String) -> Unit,
+    onPinDigit: (String) -> Unit,
+    onPinDelete: () -> Unit,
+    onSetupPin: () -> Unit,
+    onPinPadInteraction: () -> Unit,
+) {
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .imePadding()
             .verticalScroll(rememberScrollState())
+            .imePadding()
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -106,7 +136,7 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
 
         OutlinedTextField(
             value = state.displayName,
-            onValueChange = viewModel::onUpdateName,
+            onValueChange = onUpdateName,
             label = { Text("Your name") },
             leadingIcon = { Icon(Icons.Default.Person, "Name") },
             modifier = Modifier.fillMaxWidth(),
@@ -133,13 +163,15 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         )
         Spacer(Modifier.height(16.dp))
 
-        PinPad { digit -> viewModel.onPinDigit(digit) }
+        PinPad(
+            onInteraction = onPinPadInteraction,
+        ) { digit -> onPinDigit(digit) }
         Spacer(Modifier.height(12.dp))
 
         // Delete/backspace — a mis-tapped digit must be correctable without
         // restarting the app (adversarial UX review #31).
         TextButton(
-            onClick = viewModel::onPinDelete,
+            onClick = onPinDelete,
             enabled = state.pinInput.isNotEmpty()
         ) {
             Text("Delete")
@@ -151,7 +183,7 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         }
 
         Button(
-            onClick = viewModel::onSetupPin,
+            onClick = onSetupPin,
             enabled = state.pinInput.length == 6,
             modifier = Modifier.fillMaxWidth().height(56.dp),
             shape = RoundedCornerShape(16.dp),
@@ -304,8 +336,8 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .imePadding()
             .verticalScroll(rememberScrollState())
+            .imePadding()
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -377,7 +409,11 @@ fun PinDots(length: Int, maxLength: Int = 6) {
 }
 
 @Composable
-fun PinPad(enabled: Boolean = true, onDigit: (String) -> Unit) {
+fun PinPad(
+    enabled: Boolean = true,
+    onInteraction: () -> Unit = {},
+    onDigit: (String) -> Unit,
+) {
     val digits = listOf(
         listOf("1", "2", "3"),
         listOf("4", "5", "6"),
@@ -397,7 +433,10 @@ fun PinPad(enabled: Boolean = true, onDigit: (String) -> Unit) {
                                 .size(72.dp)
                                 .clip(CircleShape)
                                 .background(Teal90)
-                                .clickable(enabled = enabled, role = Role.Button) { onDigit(digit) }
+                                .clickable(enabled = enabled, role = Role.Button) {
+                                    onInteraction()
+                                    onDigit(digit)
+                                }
                                 .semantics {
                                     contentDescription = "Digit $digit"
                                     role = Role.Button

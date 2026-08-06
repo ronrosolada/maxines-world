@@ -223,6 +223,8 @@ private fun MiniGameWebView(
                 settings.domStorageEnabled = true
                 settings.allowContentAccess = false
                 settings.allowFileAccess = false
+                settings.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW
+                settings.mediaPlaybackRequiresUserGesture = true
 
                 settings.javaScriptCanOpenWindowsAutomatically = false
                 settings.setSupportMultipleWindows(false)

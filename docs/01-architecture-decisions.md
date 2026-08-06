@@ -9,12 +9,12 @@
 android/
 ├── app/                          # Application shell, DI, NavGraph
 ├── core-model/                   # Domain models, use cases, repository interfaces
-├── core-network/                 # Retrofit/Ktor client, API definitions, sync
+├── core-network/                 # Retained API placeholder; no runtime network path
 ├── core-database/                # Room DB, DAOs, entities, migrations
 ├── core-design-system/           # Material 3 theme, tokens, shared composables
 ├── core-content/                 # Lesson JSON loader, content validation, asset paths
 ├── feature-auth/                 # Parent PIN/biometric, child profile CRUD
-├── feature-child-home/           # Village home, subject destinations, Daily Quest
+├── feature-child-home/           # Playroom home, subject destinations, Daily Quest
 ├── feature-lesson-player/        # Lesson activity rendering, narration, feedback
 ├── feature-progress/             # Progress event recording, mastery calculation
 ├── feature-parent/               # Dashboard, assignments, screen-time, reports
@@ -22,7 +22,10 @@ android/
 ├── engine-activity/              # Reusable activity engines (22 types)
 ├── engine-assessment/            # Scoring, hint tracking, response-time analysis
 ├── engine-mastery/               # Mastery state machine, spaced-repetition scheduler
-└── engine-sync/                  # WorkManager-based sync, idempotency, conflict resolution
+├── engine-minigame/              # Reward-break entitlement engine
+├── game-cat-cafe/                # Native reward game
+├── game-pawprint-parkour/        # Native reward game
+└── game-kitten-match/            # Native reward game
 ```
 
 **Rationale:**
@@ -57,7 +60,7 @@ core-design-system → (standalone)
 **Key theming decisions:**
 - Warm, inviting color palette (teal primary, amber secondary, soft backgrounds)
 - Large touch targets (minimum 48dp, often 56dp for child interactions)
-- Custom `VillageTopBar` and `VillageBottomBar` composables
+- Playroom-specific chrome and child-sized touch targets
 - Tablet-first with adaptive `WindowSizeClass` layouts
 - Reduced-motion theme variant controlled by parent setting
 
@@ -90,7 +93,7 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 ---
 
-## ADR-004: Offline-First — Bundled Content, Deferred Progress Sync
+## ADR-004: Offline-Only — Bundled Content, Local Progress
 
 **Decision:** The app works fully offline.
 
@@ -98,18 +101,16 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
   (`assets/content-pack/`); there is no content server, no package downloads,
   no content API. Content is authored in `ronrosolada/maxines-world-content`
   and converted into the playable pack at release time.
-- **Progress sync: deferred.** `ProgressEvent` rows are written locally with
-  `sync_status = PENDING`; a WorkManager sync path (15 min, connectivity
-  constraint) exists for a future parent dashboard but no server is configured
-  today.
+- **Progress sync: not part of the release.** Lesson completion, mastery,
+  rewards, and wildlife expedition state remain on-device. There is no
+  WorkManager upload path, runtime content download, telemetry endpoint, or
+  configured server.
 
 **Mechanism:**
 1. Lessons are bundled in the APK — installed, never downloaded
-2. `ProgressEvent` rows are written locally with `sync_status = PENDING`
-3. `WorkManager` periodic worker (15 min, with connectivity constraint) batches uploads **when a server is configured** (not currently)
-4. Server responds with idempotency-confirmed event IDs
-5. Mastery recomputed locally after confirmed sync
-6. Content package downloads: **removed** — no runtime content acquisition
+2. Lesson completion and reward rows are written to the local Room database
+3. Mastery and reward eligibility are recomputed locally
+4. Content package downloads: **removed** — no runtime content acquisition
 
 **Conflict resolution:**
 - Progress events are append-only — no update conflicts
@@ -181,7 +182,7 @@ content/
 **Decision:** Hilt (Dagger-based) for compile-time DI across all modules.
 
 **Scoping:**
-- `@Singleton`: Database, ContentLoader, SyncManager
+- `@Singleton`: Database and ContentLoader
 - `@ActivityRetainedScoped`: ViewModels that survive config changes
 - `@ViewModelScoped`: Per-screen state holders
 - `@FeatureScoped` (custom): Per-feature graph modules
@@ -314,7 +315,6 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
    - Room DAO queries
    - ContentLoader with real JSON files
    - ViewModel + fake repositories
-   - WorkManager sync chain
 
 3. **UI tests** (Compose testing):
    - Screen rendering with test data
@@ -341,7 +341,7 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
 - No child email, phone, precise location, or advertising ID
 - Room database in app-private storage (not external)
 - No logs containing child progress data in release builds
-- HTTPS for all network calls (when online)
+- No runtime network calls; the release APK has no INTERNET permission
 - Data export: JSON bundle, parent-authenticated, with 24h deletion after request
 
 ---
@@ -356,9 +356,9 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
 | DI | Hilt |
 | Local DB | Room (append-only progress) |
 | Navigation | Navigation Compose (type-safe routes) |
-| Networking | Retrofit + Kotlin Serialization |
-| Sync | WorkManager |
-| Content | Versioned external JSON packages |
+| Networking | Retained placeholder module; not used at runtime |
+| Sync | None in the offline release |
+| Content | Versioned JSON bundled in the APK |
 | Testing | JUnit5 + MockK + Compose testing |
 | Security | PBKDF2 PIN hash + BiometricPrompt |
 | Animation | Lottie (MVP placeholder) → Rive (long-term) |
