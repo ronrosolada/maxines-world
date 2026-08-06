@@ -167,7 +167,7 @@ fun SortAndClassifyRenderer(
             contentAlignment = Alignment.Center) {
             Text(
                 when {
-                    submitted && allCorrect -> "Great job! 🎉 Next →"
+                    submitted && allCorrect -> "Great job! Next →"
                     submitted && attempts >= 3 -> "Keep going →"
                     submitted -> "Try Again"
                     else -> "Submit"

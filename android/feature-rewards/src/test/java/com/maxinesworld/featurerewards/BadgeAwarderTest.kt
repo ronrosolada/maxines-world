@@ -22,10 +22,10 @@ import java.time.ZoneId
 class BadgeAwarderTest {
     private val childId = "child_test_1"
     private val badges = listOf(
-        CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You finished your first lesson!", "🌟"),
-        CollectibleBadge("badge_01", "forest_friends", "Tarsier", "Moon-Eyed", "Big eyes", "🐒"),
-        CollectibleBadge("badge_02", "forest_friends", "Tamaraw", "Mini Buffalo", "Rare", "🐃"),
-        CollectibleBadge("badge_03", "sky_scouts", "Eagle", "Forest King", "National bird", "🦅"),
+        CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You finished your first lesson!"),
+        CollectibleBadge("badge_01", "forest_friends", "Tarsier", "Moon-Eyed", "Big eyes"),
+        CollectibleBadge("badge_02", "forest_friends", "Tamaraw", "Mini Buffalo", "Rare"),
+        CollectibleBadge("badge_03", "sky_scouts", "Eagle", "Forest King", "National bird"),
     )
 
     private lateinit var expeditionDao: WildlifeExpeditionDao
@@ -103,7 +103,7 @@ class BadgeAwarderTest {
     fun `milestone sticker never leaks into the weekly expedition`() = runTest {
         // Add a milestone sticker to the catalog ahead of the wildlife badges.
         coEvery { badgeLoader.loadAll() } returns listOf(
-            CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You did it!", "🌟"),
+            CollectibleBadge("milestone_first_steps", "milestone", "First Steps", "Bright Beginning", "You did it!"),
         ) + badges
 
         awarder().recordLessonCompletion(childId, "english", "english-g3-lesson-01")

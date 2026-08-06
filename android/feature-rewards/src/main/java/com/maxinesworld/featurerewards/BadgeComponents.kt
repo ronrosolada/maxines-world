@@ -12,6 +12,10 @@ import androidx.compose.ui.draw.*
 import androidx.compose.ui.geometry.*
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
@@ -30,9 +34,15 @@ fun BadgeCard(
 ) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accentColor = Color(biome.colorHex)
+    val stateLabel = if (badge.isCollected) "Collected" else "Undiscovered"
 
     Card(
-        modifier.clickable { onClick() },
+        modifier
+            .clickable(enabled = badge.isCollected, onClick = onClick)
+            .semantics(mergeDescendants = true) {
+                contentDescription = "${badge.name}, $stateLabel"
+                if (badge.isCollected) role = Role.Button
+            },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
             containerColor = if (badge.isCollected) accentColor.copy(alpha = 0.1f)
@@ -49,7 +59,7 @@ fun BadgeCard(
                         drawCircle(accentColor.copy(alpha = 0.2f), radius = size.minDimension / 2)
                         drawCircle(accentColor.copy(alpha = 0.08f), radius = size.minDimension / 2.3f)
                     }
-                    Text(badge.emoji, fontSize = 32.sp)
+                    Icon(Icons.Default.Pets, null, tint = accentColor, modifier = Modifier.size(36.dp))
                 } else {
                     // Locked: dark silhouette token — no emoji
                     Canvas(Modifier.fillMaxSize()) {
@@ -102,7 +112,9 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
                 IconButton(onClick = onDismiss) { Icon(Icons.Default.Close, "Close", tint = Ink.copy(alpha = 0.5f)) }
             }
             Box(Modifier.size(100.dp).clip(CircleShape).background(accentColor.copy(alpha = 0.15f)), contentAlignment = Alignment.Center) {
-                if (badge.isCollected) Text(badge.emoji, fontSize = 48.sp)
+                if (badge.isCollected) {
+                    Icon(Icons.Default.Pets, "${badge.name} sticker", tint = accentColor, modifier = Modifier.size(52.dp))
+                }
                 else Icon(Icons.Default.Lock, "Locked", tint = Color.Black.copy(alpha = 0.2f), modifier = Modifier.size(36.dp))
             }
             Spacer(Modifier.height(16.dp))

@@ -84,7 +84,7 @@ fun ModuleLessonsScreen(
                                 "${state.lessons.size} lessons · tap one to play"
                             } else {
                                 "${state.completedCount} of ${state.lessons.size} complete" +
-                                    if (state.nextLessonId != null) " · keep going!" else " · module done! 🎉"
+                                    if (state.nextLessonId != null) " · keep going!" else " · module done!"
                             },
                             fontSize = 14.sp, color = Ink.copy(alpha = 0.6f)
                         )

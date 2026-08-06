@@ -280,8 +280,8 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
         options = optionTexts,
         correctIndex = correctIndex,
         feedback = ActivityFeedback(
-            correct = item.explanation.ifBlank { "Great job! 🎉" },
-            incorrect = item.explanation.ifBlank { "Let's try again! 💪" },
+            correct = item.explanation.ifBlank { "Great job!" },
+            incorrect = item.explanation.ifBlank { "Let's try again!" },
         ),
     )
 }

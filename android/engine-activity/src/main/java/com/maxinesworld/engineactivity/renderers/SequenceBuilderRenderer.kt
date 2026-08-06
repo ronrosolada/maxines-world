@@ -93,7 +93,7 @@ fun SequenceBuilderRenderer(
             }.semantics { contentDescription = if (submitted && !isCorrect) "Try again" else "Submit" },
             contentAlignment = Alignment.Center) {
             Text(when {
-                submitted && isCorrect -> "Great job! 🎉"
+                submitted && isCorrect -> "Great job!"
                 submitted && attempts >= 3 -> "Keep going →"
                 submitted -> "Try Again"
                 ordered.size < items.size -> "Select all (${ordered.size}/${items.size})"

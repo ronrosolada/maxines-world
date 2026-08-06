@@ -87,7 +87,7 @@ private fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("🐱", fontSize = 64.sp)
+        Icon(Icons.Default.Fingerprint, contentDescription = null, tint = Teal40, modifier = Modifier.size(64.dp))
         Spacer(Modifier.height(16.dp))
         Text(
             "Welcome to Maxine's World!",
@@ -270,7 +270,7 @@ private fun ChildSelectScreen(
                             .background(Teal90),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("😺", fontSize = 28.sp)
+                        Icon(Icons.Default.Person, contentDescription = null, tint = Teal40, modifier = Modifier.size(28.dp))
                     }
                     Spacer(Modifier.width(16.dp))
                     Column {
@@ -310,7 +310,7 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("🌟", fontSize = 64.sp)
+        Icon(Icons.Default.Lock, contentDescription = null, tint = SunshineGold, modifier = Modifier.size(64.dp))
         Spacer(Modifier.height(16.dp))
         Text(
             "Create Child Profile",
@@ -354,7 +354,7 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Teal40)
         ) {
-            Text("Start Learning! 🚀", fontSize = 18.sp)
+            Text("Start Learning!", fontSize = 18.sp)
         }
     }
 }

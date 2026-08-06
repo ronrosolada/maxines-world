@@ -172,7 +172,7 @@ class PlayroomHomeViewModel @Inject constructor(
             stickers = badges
                 .filter { it.isCollected }
                 .sortedByDescending { it.collectedAtEpochMillis }
-                .map { badge -> StickerUi(id = badge.id, won = true, emoji = badge.emoji) },
+                .map { badge -> StickerUi(id = badge.id, won = true) },
         )
 
         return PlayroomHomeUiState.Content(

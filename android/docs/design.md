@@ -452,16 +452,13 @@ Use a 12-column conceptual grid:
 
 ## 11. Child Navigation
 
-Primary navigation destinations:
+The current child-facing navigation is intentionally compact:
 
-* Village
-* Daily Quest
-* Backpack
-* Achievements
-* Profile
-* Parent Gate
+* **Home** — the Playroom village and subject islands
+* **Collection** — the Wildlife Field Guide and earned stickers
+* **Parents** — the protected Parent Gate/dashboard entry
 
-Subject locations should be entered through the village rather than a dense academic menu.
+The Daily Quest is a primary action on Home rather than a separate bottom-nav destination. Subject locations should be entered through the Playroom rather than a dense academic menu. Backpack, Achievements, and Profile are reserved destinations, not shipped navigation items; they must not appear as tappable no-op controls.
 
 ### Navigation rules
 

@@ -5,9 +5,11 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -18,12 +20,36 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
 import com.maxinesworld.coremodel.BadgeBiome
 import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coredesignsystem.theme.*
+
+private sealed interface FieldGuideItem {
+    val key: String
+
+    data class Header(val biome: BadgeBiome) : FieldGuideItem {
+        override val key: String = "header_${biome.name.lowercase()}"
+    }
+
+    data class BadgeRow(
+        val biome: BadgeBiome,
+        val rowIndex: Int,
+        val badges: List<CollectibleBadge>,
+    ) : FieldGuideItem {
+        override val key: String = "badges_${biome.name.lowercase()}_$rowIndex"
+    }
+
+    data class Spacer(val biome: BadgeBiome) : FieldGuideItem {
+        override val key: String = "spacer_${biome.name.lowercase()}"
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,6 +76,22 @@ fun WildlifeFieldGuideScreen(
         collectedFirst
     }
 
+    // Build the same keyed item list that LazyColumn emits. Scroll targets are
+    // resolved from this list instead of duplicating the row-count arithmetic
+    // used by the layout.
+    val fieldGuideItems = remember(allBadges, biomeOrder) {
+        buildList<FieldGuideItem> {
+            biomeOrder.forEach { biome ->
+                val badges = allBadges.filter { it.biome == biome.name.lowercase() }
+                add(FieldGuideItem.Header(biome))
+                badges.chunked(5).forEachIndexed { rowIndex, row ->
+                    add(FieldGuideItem.BadgeRow(biome, rowIndex, row))
+                }
+                add(FieldGuideItem.Spacer(biome))
+            }
+        }
+    }
+
     // Scroll to the newly earned sticker when arriving via the reveal screen.
     val listState = rememberLazyListState()
     LaunchedEffect(allBadges, initialBadgeId) {
@@ -57,13 +99,12 @@ fun WildlifeFieldGuideScreen(
             selectedBadge = allBadges.firstOrNull { it.id == initialBadgeId && it.isCollected }
             val targetBiome = allBadges.firstOrNull { it.id == initialBadgeId }?.biome
             if (targetBiome != null) {
-                var index = 0
-                for (biome in biomeOrder) {
-                    if (biome.name.lowercase() == targetBiome) break
-                    val count = allBadges.count { it.biome == biome.name.lowercase() }
-                    index += 1 + ((count + 4) / 5) + 1 // header + grid rows + spacer
+                val targetIndex = fieldGuideItems.indexOfFirst { item ->
+                    item is FieldGuideItem.BadgeRow &&
+                        item.biome.name.lowercase() == targetBiome &&
+                        item.badges.any { it.id == initialBadgeId }
                 }
-                listState.animateScrollToItem(index)
+                if (targetIndex >= 0) listState.animateScrollToItem(targetIndex)
             }
         }
     }
@@ -72,50 +113,48 @@ fun WildlifeFieldGuideScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Wildlife Field Guide", fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Back") } },
+                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") } },
                 actions = { Text("$totalCollected / ${allBadges.size}", Modifier.padding(end = 16.dp), fontWeight = FontWeight.Bold, color = VillageTeal) },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Cream)
             )
         }
     ) { padding ->
         LazyColumn(Modifier.padding(padding).fillMaxSize().background(Cream), state = listState) {
-            biomeOrder.forEach { biome ->
-                val key = biome.name.lowercase()
-                val biomeBadges = allBadges.filter { it.biome == key }
-                val biomeCollected = biomeBadges.count { it.isCollected }
-                val accent = Color(biome.colorHex)
-
-                item {
-                    Card(Modifier.fillMaxWidth().padding(16.dp, 12.dp, 16.dp, 4.dp), shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = accent.copy(alpha = 0.08f))) {
-                        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.Park, biome.displayName, tint = accent, modifier = Modifier.size(28.dp))
-                            Spacer(Modifier.width(12.dp))
-                            Column(Modifier.weight(1f)) {
-                                Text(biome.displayName, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = accent)
-                                Text(biome.description, fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
+            items(fieldGuideItems, key = { it.key }) { item ->
+                when (item) {
+                    is FieldGuideItem.Header -> {
+                        val biome = item.biome
+                        val biomeBadges = allBadges.filter { it.biome == biome.name.lowercase() }
+                        val biomeCollected = biomeBadges.count { it.isCollected }
+                        val accent = Color(biome.colorHex)
+                        Card(Modifier.fillMaxWidth().padding(16.dp, 12.dp, 16.dp, 4.dp), shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(containerColor = accent.copy(alpha = 0.08f))) {
+                            Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Default.Park, biome.displayName, tint = accent, modifier = Modifier.size(28.dp))
+                                Spacer(Modifier.width(12.dp))
+                                Column(Modifier.weight(1f)) {
+                                    Text(biome.displayName, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = accent)
+                                    Text(biome.description, fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
+                                }
+                                Text("$biomeCollected/${biomeBadges.size}", fontWeight = FontWeight.Bold, fontSize = 16.sp,
+                                    color = if (biomeCollected == biomeBadges.size) SunshineGold else accent)
                             }
-                            Text("$biomeCollected/${biomeBadges.size}", fontWeight = FontWeight.Bold, fontSize = 16.sp,
-                                color = if (biomeCollected == biomeBadges.size) SunshineGold else accent)
                         }
                     }
-                }
-
-                // Badge grid using rows of 5
-                biomeBadges.chunked(5).forEach { row ->
-                    item {
+                    is FieldGuideItem.BadgeRow -> {
+                        val accent = Color(item.biome.colorHex)
                         Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp),
                             horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                            row.forEach { badge ->
+                            item.badges.forEach { badge ->
                                 PokemonStyleBadgeSlot(badge, accent, Modifier.weight(1f).aspectRatio(1f)) {
-                                    if (badge.isCollected) selectedBadge = badge
+                                    selectedBadge = badge
                                 }
                             }
-                            repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
+                            repeat(5 - item.badges.size) { Spacer(Modifier.weight(1f)) }
                         }
                     }
+                    is FieldGuideItem.Spacer -> Spacer(Modifier.height(8.dp))
                 }
-                item { Spacer(Modifier.height(8.dp)) }
             }
         }
     }
@@ -134,8 +173,14 @@ private fun PokemonStyleBadgeSlot(
     modifier: Modifier,
     onClick: () -> Unit
 ) {
+    val stateLabel = if (badge.isCollected) "Collected" else "Undiscovered"
     Card(
-        modifier.clickable { onClick() },
+        modifier
+            .clickable(enabled = badge.isCollected, onClick = onClick)
+            .semantics(mergeDescendants = true) {
+                contentDescription = "${badge.name}, $stateLabel"
+                if (badge.isCollected) role = Role.Button
+            },
         shape = RoundedCornerShape(14.dp),
         colors = CardDefaults.cardColors(
             containerColor = if (badge.isCollected) accent.copy(alpha = 0.12f)
@@ -150,12 +195,12 @@ private fun PokemonStyleBadgeSlot(
                     drawCircle(accent.copy(alpha = 0.2f), radius = size.minDimension / 2)
                     drawCircle(accent.copy(alpha = 0.08f), radius = size.minDimension / 2.4f)
                 }
-                Text(badge.emoji, fontSize = 30.sp)
+                Icon(Icons.Default.Pets, contentDescription = null, tint = accent, modifier = Modifier.size(32.dp))
                 // Leaf checkmark
-                Icon(Icons.Default.Park, "Collected", tint = accent,
+                Icon(Icons.Default.Park, null, tint = accent,
                     modifier = Modifier.align(Alignment.BottomEnd).padding(4.dp).size(14.dp))
             } else {
-                // 🔒 Locked — pure silhouette, no colors, no emoji
+                // Locked — pure silhouette, no colors or decorative glyphs
                 Canvas(Modifier.fillMaxSize(0.7f)) {
                     val r = size.minDimension / 2
                     // Scalloped token outer ring
@@ -182,7 +227,7 @@ private fun PokemonStyleBadgeSlot(
                     drawCircle(Color.Black.copy(alpha = 0.15f), radius = r * 0.25f, center = center)
                 }
                 // Small lock indicator
-                Icon(Icons.Default.Lock, "Undiscovered", tint = Color.Black.copy(alpha = 0.2f),
+                Icon(Icons.Default.Lock, null, tint = Color.Black.copy(alpha = 0.2f),
                     modifier = Modifier.align(Alignment.BottomEnd).padding(6.dp).size(10.dp))
             }
         }
@@ -285,7 +330,7 @@ fun BadgeRevealScreen(
                             Text("You finished your very first lesson!", fontSize = 18.sp,
                                 color = Ink.copy(alpha = 0.7f), textAlign = TextAlign.Center)
                             Spacer(Modifier.height(8.dp))
-                            Text("Milo is cheering for you! 🐱🎉", fontSize = 16.sp,
+                            Text("Milo is cheering for you!", fontSize = 16.sp,
                                 color = VillageTeal, textAlign = TextAlign.Center)
                         } else {
                             Text("Wildlife Expedition Complete!", fontWeight = FontWeight.Bold, fontSize = 26.sp, color = VillageTeal, textAlign = TextAlign.Center)
@@ -318,15 +363,16 @@ fun BadgeRevealScreen(
                                 val rad = Math.toRadians((sparkleSpin + i * 60f).toDouble())
                                 val dx = with(density) { (orbitRadius * kotlin.math.cos(rad)).toFloat().toDp() }
                                 val dy = with(density) { (orbitRadius * kotlin.math.sin(rad)).toFloat().toDp() }
-                                Text("✨", fontSize = 18.sp,
-                                    modifier = Modifier.offset(x = dx, y = dy))
+                                Icon(Icons.Default.Star, contentDescription = null, tint = accent,
+                                    modifier = Modifier.offset(x = dx, y = dy).size(18.dp))
                             }
                             // Bouncy pop-in sticker token
                             Box(Modifier.size(150.dp)
                                 .graphicsLayer { scaleX = popScale; scaleY = popScale }
                                 .clip(CircleShape).background(accent.copy(alpha = 0.12f)),
                                 contentAlignment = Alignment.Center) {
-                                Text(badge.emoji, fontSize = 72.sp)
+                                Icon(Icons.Default.Pets, contentDescription = "${badge.name} sticker", tint = accent,
+                                    modifier = Modifier.size(72.dp))
                             }
                         }
                         Spacer(Modifier.height(16.dp))

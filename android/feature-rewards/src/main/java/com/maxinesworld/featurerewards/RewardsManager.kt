@@ -6,11 +6,17 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -98,15 +104,15 @@ fun RewardsScreen(
         modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("🏆", fontSize = 48.sp)
+        Icon(Icons.Default.Star, contentDescription = "Rewards", tint = SunshineGold, modifier = Modifier.size(48.dp))
         Text("My Rewards", fontWeight = FontWeight.Bold, fontSize = 24.sp, color = Teal40)
         Spacer(Modifier.height(16.dp))
 
         // Balance row
         Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
-            RewardBalance("⭐", state.totalStars, "Stars")
-            RewardBalance("🪙", state.totalCoins, "Coins")
-            RewardBalance("⚡", state.villageEnergy, "Energy")
+            RewardBalance(Icons.Default.Star, state.totalStars, "Stars")
+            RewardBalance(Icons.Default.Pets, state.totalCoins, "Coins")
+            RewardBalance(Icons.Default.Star, state.villageEnergy, "Energy")
         }
         Spacer(Modifier.height(20.dp))
 
@@ -127,10 +133,17 @@ fun RewardsScreen(
                         .background(if (index < 3) EnergyGold else EnergyGold.copy(alpha = 0.2f)),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        listOf("🐾", "📚", "⭐", "🔒", "🔒", "🔒", "🔒", "🔒")[index],
-                        fontSize = 24.sp
-                    )
+                    val icon = listOf(
+                        Icons.Default.Pets,
+                        Icons.Default.MenuBook,
+                        Icons.Default.Star,
+                        Icons.Default.Lock,
+                        Icons.Default.Lock,
+                        Icons.Default.Lock,
+                        Icons.Default.Lock,
+                        Icons.Default.Lock,
+                    )[index]
+                    Icon(icon, contentDescription = if (index < 3) "Collected badge" else "Locked badge", tint = Ink)
                 }
             }
         }
@@ -138,7 +151,7 @@ fun RewardsScreen(
 }
 
 @Composable
-private fun RewardBalance(emoji: String, amount: Int, label: String) {
+private fun RewardBalance(icon: ImageVector, amount: Int, label: String) {
     Card(
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = SurfaceContainer)
@@ -147,7 +160,7 @@ private fun RewardBalance(emoji: String, amount: Int, label: String) {
             Modifier.padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(emoji, fontSize = 28.sp)
+            Icon(icon, contentDescription = label, tint = VillageTeal, modifier = Modifier.size(28.dp))
             Text("$amount", fontWeight = FontWeight.Bold, fontSize = 20.sp)
             Text(label, style = MaterialTheme.typography.labelSmall)
         }

@@ -42,7 +42,6 @@ class BadgeLoaderTest {
         assertEquals("tarsier name", "Philippine tarsier", forestBadge.name)
         assertEquals("tarsier title", "Moon-Eyed Jumper", forestBadge.title)
         assertTrue("tarsier funFact non-empty", forestBadge.funFact.isNotBlank())
-        assertEquals("tarsier emoji", "🐒", forestBadge.emoji)
         assertFalse("not collected by default", forestBadge.isCollected)
 
         val eagleBadge = badges.first { it.id == "bird_eagle" }
@@ -149,7 +148,7 @@ class BadgeLoaderTest {
             assertTrue("badge[$index] name non-blank", badge.name.isNotBlank())
             assertTrue("badge[$index] title non-blank", badge.title.isNotBlank())
             assertTrue("badge[$index] funFact non-blank", badge.funFact.isNotBlank())
-            assertTrue("badge[$index] emoji non-blank", badge.emoji.isNotBlank())
+
         }
     }
 

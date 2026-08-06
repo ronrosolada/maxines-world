@@ -4,6 +4,7 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.AssessmentItem
 import com.maxinesworld.coremodel.Month1Activity
 import com.maxinesworld.coremodel.CompletionRule
+import com.maxinesworld.coredesignsystem.components.AnswerCardState
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import org.junit.Assert.assertEquals
@@ -264,8 +265,8 @@ class ActivityStepConversionTest {
     @Test
     fun `assessment item with blank explanation falls back to default feedback`() {
         val step = toAssessmentStep(assessmentItem(explanation = ""))
-        assertEquals("Great job! 🎉", step.feedback?.correct)
-        assertEquals("Let's try again! 💪", step.feedback?.incorrect)
+        assertEquals("Great job!", step.feedback?.correct)
+        assertEquals("Let's try again!", step.feedback?.incorrect)
     }
 
     @Test
@@ -289,5 +290,14 @@ class ActivityStepConversionTest {
             "INTERACTIVE_SPEC" to "INTERACTIVE_SPEC_V1"
         )
         expected.forEach { (raw, versioned) -> assertEquals(versioned, rendererType(raw)) }
+    }
+
+    @Test
+    fun `assessment answer state supports selection before submission`() {
+        assertEquals(AnswerCardState.SELECTED, assessmentOptionState(1, 1, false, 2))
+        assertEquals(AnswerCardState.IDLE, assessmentOptionState(0, 1, false, 2))
+        assertEquals(AnswerCardState.CORRECT, assessmentOptionState(1, 1, true, 1))
+        assertEquals(AnswerCardState.INCORRECT, assessmentOptionState(1, 1, true, 2))
+        assertEquals(AnswerCardState.DISABLED, assessmentOptionState(0, 1, true, 2))
     }
 }

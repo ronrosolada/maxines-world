@@ -50,7 +50,6 @@ enum class QuestAction { Continue, ChooseSubject, ViewReward }
 data class StickerUi(
     val id: String,
     val won: Boolean,
-    val emoji: String? = null,          // won stickers show subject art or emoji
     @DrawableRes val iconRes: Int? = null,
 )
 

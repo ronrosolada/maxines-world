@@ -91,7 +91,7 @@ fun InteractiveSpecRenderer(
         }
 
         if (result != null) Text(
-            if (result == true) step.feedback?.correct ?: "Correct! 🎉" else step.feedback?.incorrect ?: "Not quite!",
+            if (result == true) step.feedback?.correct ?: "Correct!" else step.feedback?.incorrect ?: "Not quite!",
             color = if (result == true) SuccessGreenText else ReviewText, style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.semantics { contentDescription = if (result == true) "Correct" else "Incorrect" })
     }

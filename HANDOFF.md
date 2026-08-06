@@ -31,19 +31,19 @@ cd android
 - `PlayroomHomeScreen.kt` (feature-child-home) is the wired home — see `MaxinesNavGraph.kt` → `PlayroomHomeScreen`.
 - 3×2 activity islands: Story Time (English), Number Fun (Mathematics), Kwentuhan (Filipino), Discovery (Science), Heritage (Araling Panlipunan), Kindness (GMRC).
 - `VillageChromeV16.kt` and `VillageHomeV17.kt` remain in the source tree but are **not wired** — legacy, do not restore as home.
-- Kindness island unlocks at **Level 4 = 12 distinct completed lessons** (`ChildLevelPolicy`). Replay-safe: repeated attempts don't inflate progress. Live locked/unlocked messaging on the Playroom home.
+- Kindness Garden at **Level 4 = 12 distinct completed lessons** is a cosmetic milestone only (`ChildLevelPolicy`). GMRC/Kindness lessons are available from the first session; replay-safe level calculation never gates curriculum.
 
 ### Lesson Model & Navigation
 - Typed `ActivityStep` model (`sortCategories`, `sortItems`, `matchPairs`, `sequenceSteps`, `hotspotExamples`) parsed in `LessonPlayerViewModel.toActivityStep()` — the old positional model is dead.
 - Island tap → `lessonIdForSubject(subject)` → `Routes.lessonPlayer(childId, lessonId)` in `MaxinesNavGraph.kt`.
 - Content: **bundled-only** — `ActiveContentIndex` scans `assets/content-pack/` (catalog v2); `LessonLoader` resolves lessons from bundled assets. No external content server; every lesson ships inside the APK.
 
-### Database: Room v7 (immutable)
-- `core-database/MaxinesDatabase.kt` → `version = 7`.
-- Additive migrations: **MIGRATION_3_7, MIGRATION_4_7, MIGRATION_6_7** — all tested (MigrationTestHelper + emulator, representative data).
+### Database: Room v8 (immutable)
+- `core-database/MaxinesDatabase.kt` → `version = 8`.
+- Additive migrations include the wildlife expedition tables and preserve all shipped v7 lineage — all tested (MigrationTestHelper + emulator, representative data).
 - Adopted v4/v6 lineage tables: `lesson_completions`, `reward_ledger`, `inventory`, `daily_quest_sets`, `daily_quest_completions`, `playground_unlock_receipts`, `content_packages`, `active_content_package`, `content_sync_runs` + `collected_badges` composite-index fix.
 - **Never** reduce the version, delete schema JSONs (4.json/6.json = shipped builds), or use destructive migration fallback for child data.
-- Known risk: schema files are immutable compatibility artifacts; any future fix ships as v8+ additive migration.
+- Known risk: schema files are immutable compatibility artifacts; any future fix ships as v9+ additive migration.
 
 ### App Metadata
 - `versionCode = 19`, `versionName = "0.19.0"` (versionCode was stuck at 1 until v0.19.0; keep monotonic).
@@ -64,7 +64,7 @@ app/
   MaxinesNavGraph.kt          — navigation, wired to PlayroomHomeScreen
 
 core-model/
-  ChildLevelPolicy.kt         — level = distinctLessons/4 + 1; Kindness at 12
+  ChildLevelPolicy.kt           — level = distinctLessons/4 + 1; Kindness Garden cosmetic milestone at 12
 
 core-content/
   ActiveContentIndex.kt       — catalog v2 (synced content index)

@@ -75,7 +75,7 @@ fun DailyTrailPanel(
                     Text("$completedCount of 5 subjects complete", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                 }
                 if (completedCount == 5) {
-                    Text("🎉", fontSize = 24.sp)
+                    Icon(Icons.Default.AutoAwesome, contentDescription = "Day complete", tint = SunshineGold, modifier = Modifier.size(24.dp))
                 }
             }
         }
