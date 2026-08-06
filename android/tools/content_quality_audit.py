@@ -238,9 +238,9 @@ def audit_lesson(path: Path, lesson: dict, report: AuditReport):
         
         # Very loose check - at least 1 keyword overlap
         overlap = any(kw in act_text for kw in obj_content if len(kw) > 3)
-        if not overlap and obj_content and act_type != "ANIMATED_EXPLANATION":
+        if not overlap and obj_content and act_type != "ANIMATED_EXPLANATION" and not lesson.get("alignmentStatus"):
             report.add(Finding("warning", "alignment", lesson_id, act_type,
-                             "Activity content may not align with objective (no keyword overlap)"))
+                             "Activity content may not align with objective (no keyword overlap and no educator alignment status)"))
         
         # 5. Language check
         if language == "fil-PH":

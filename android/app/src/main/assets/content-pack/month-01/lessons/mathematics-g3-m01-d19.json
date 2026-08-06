@@ -106,11 +106,11 @@
    "instruction": "12 shared equally among 3 groups gives",
    "content": {
     "options": [
-     "4 in each group",
      "9 in each group",
-     "3 total"
+     "3 total",
+     "4 in each group"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "12÷3=4",
-      "right": "shows the skill"
+      "right": "tamang division example"
      },
      {
       "left": "12 shared among 3 gives 4 each",
-      "right": "shows the skill"
+      "right": "evidence from the example: 12 shared among 3 gives 4 each"
      },
      {
       "left": "12 grouped by 4 makes 3 groups",
-      "right": "shows the skill"
+      "right": "evidence from the example: 12 grouped by 4 makes 3 groups"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Division Fact Families”?",
     "options": [
      {
-      "id": "a",
-      "text": "Division can share a total among known groups or find the number of groups of a known size."
-     },
-     {
       "id": "b",
       "text": "12÷3=9"
      },
      {
       "id": "c",
       "text": "Confuse group size and group count"
+     },
+     {
+      "id": "a",
+      "text": "Division can share a total among known groups or find the number of groups of a known size."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "mathematics-g3-m01-d19-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Division Fact Families”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
+      "id": "c",
+      "text": "12 shared among 3 gives 4 each"
+     },
+     {
       "id": "a",
       "text": "12÷3=9"
      },
      {
       "id": "b",
       "text": "12÷3=4"
-     },
-     {
-      "id": "c",
-      "text": "12 shared among 3 gives 4 each"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “12÷3=9” because it follows the skill explanation: Division can share a total among known groups or find the number of groups of a known size."
+    "explanation": "The correct response is “12÷3=9” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "mathematics-g3-m01-d19-q04",
@@ -266,16 +266,16 @@
     "prompt": "12 shared equally among 3 groups gives",
     "options": [
      {
-      "id": "a",
-      "text": "4 in each group"
-     },
-     {
       "id": "b",
       "text": "9 in each group"
      },
      {
       "id": "c",
       "text": "3 total"
+     },
+     {
+      "id": "a",
+      "text": "4 in each group"
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "mathematics-g3-m01-d19-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Connect multiplication with sharing and grouping division?",
     "options": [
      {
       "id": "a",

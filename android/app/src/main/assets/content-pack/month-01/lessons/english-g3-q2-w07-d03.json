@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A story entertains or tells events, instructions explain steps, and an informational text teaches facts. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ A story entertains or tells events, instructions explain steps, and an informational text teaches facts. Ready to explore? Try the skill with a sentence about a team project.",
  "vocabulary": [
   {
    "term": "story",
-   "definition": "a correct example"
+   "definition": "A word or phrase used to practice choose a text type that fits the writer's purpose."
   },
   {
    "term": "instructions",
-   "definition": "a related example"
+   "definition": "A word or phrase used to practice choose a text type that fits the writer's purpose."
   },
   {
    "term": "informational text",
-   "definition": "another example"
+   "definition": "A word or phrase used to practice choose a text type that fits the writer's purpose."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+   "instruction": "Learn this skill: Choose a text type that fits the writer's purpose. Try the skill with a sentence about a team project.",
+   "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts. Try the skill with a sentence about a team project.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+   "prompt": "Learn this skill: Choose a text type that fits the writer's purpose. Try the skill with a sentence about a team project.",
+   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts. Try the skill with a sentence about a team project.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts. Try the skill with a sentence about a team project."
   },
   {
    "activityId": "english-g3-q2-w07-d03-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Choose a text type that fits the writer's purpose.",
    "content": {
     "examples": [
      "story",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Choose a text type that fits the writer's purpose.",
    "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Choose a text type that fits the writer's purpose.",
    "content": {
     "fits": [
      "story",
@@ -98,10 +98,10 @@
      "personal response"
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "a story about an imaginary dragon",
+     "a shopping list",
+     "a greeting only",
+     "a personal dream"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Choose a text type that fits the writer's purpose.",
    "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which choice is an informational text that teaches facts?",
    "content": {
     "options": [
+     "a shopping list",
+     "a greeting only",
      "story",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "a story about an imaginary dragon"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which choice is an informational text that teaches facts?",
    "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Choose a text type that fits the writer's purpose.",
    "content": {
     "pairs": [
      {
       "left": "story",
-      "right": "a correct example"
+      "right": "example with a useful detail"
      },
      {
       "left": "instructions",
-      "right": "a related example"
+      "right": "example with a useful detail (2)"
      },
      {
       "left": "informational text",
-      "right": "another example"
+      "right": "example with a useful detail (3)"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Choose a text type that fits the writer's purpose.",
    "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Choose a text type that fits the writer's purpose.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Choose a text type that fits the writer's purpose.",
    "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q2-w07-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Fact Finders?",
+    "prompt": "Which choice is an informational text that teaches facts?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
       "id": "c",
-      "text": "topic: mangrove trees"
+      "text": "a shopping list"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "a greeting only"
+     },
+     {
+      "id": "a",
+      "text": "topic: mangrove trees"
+     },
+     {
+      "id": "b",
+      "text": "a story about an imaginary dragon"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: topic: mangrove trees"
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q2-w07-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Fact Finders?",
+    "prompt": "Which choice is an informational text that teaches facts?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
       "id": "b",
-      "text": "fact: roots hold soil"
+      "text": "a story about an imaginary dragon"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "a shopping list"
      },
      {
       "id": "d",
-      "text": "a detail not in the lesson"
+      "text": "a greeting only"
+     },
+     {
+      "id": "a",
+      "text": "fact: roots hold soil"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: fact: roots hold soil"
    },
@@ -281,7 +281,7 @@
     "itemId": "english-g3-q2-w07-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Fact Finders?",
+    "prompt": "Which choice is an informational text that teaches facts?",
     "options": [
      {
       "id": "a",
@@ -289,15 +289,15 @@
      },
      {
       "id": "b",
-      "text": "a detail not in the lesson"
+      "text": "a story about an imaginary dragon"
      },
      {
       "id": "c",
-      "text": "a different topic"
+      "text": "a shopping list"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "a greeting only"
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q2-w07-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Fact Finders?",
+    "prompt": "Which choice is an informational text that teaches facts?",
     "options": [
      {
+      "id": "d",
+      "text": "a greeting only"
+     },
+     {
       "id": "a",
-      "text": "a different topic"
+      "text": "detail from the text"
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "a story about an imaginary dragon"
      },
      {
       "id": "c",
-      "text": "a random symbol"
-     },
-     {
-      "id": "d",
-      "text": "detail from the text"
+      "text": "a shopping list"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: detail from the text"
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q2-w07-d03-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Fact Finders?",
+    "prompt": "Which choice is an informational text that teaches facts?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
       "id": "c",
-      "text": "topic: mangrove trees"
+      "text": "a shopping list"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "a greeting only"
+     },
+     {
+      "id": "a",
+      "text": "topic: mangrove trees"
+     },
+     {
+      "id": "b",
+      "text": "a story about an imaginary dragon"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: topic: mangrove trees"
    }

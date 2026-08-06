@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q3-w14-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 12,
-  "day": 1,
-  "subject": "english",
-  "title": "Story Clue Crew · Q3 W14 D01",
-  "objective": "Use details from a story to explain characters, events, and ideas.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "character",
-      "definition": "the person or animal in the story"
-    },
-    {
-      "term": "setting",
-      "definition": "where and when the story happens"
-    },
-    {
-      "term": "event",
-      "definition": "something that happens in the story"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q3-w14-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Study the idea and listen to Milo.",
-      "content": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Study the idea and listen to Milo.",
-      "narration": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky."
-    },
-    {
-      "activityId": "english-g3-q3-w14-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Explore each example and find the important detail.",
-      "content": {
-        "examples": [
-          "the character: Nina and the bird",
-          "the setting: the porch",
-          "the event: a little bird flew into the porch and Nina set it free",
-          "the clue: Nina opened the window so the bird could fly out."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example and find the important detail.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q3-w14-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Sort each example into the correct group.",
-      "content": {
-        "fits": [
-          "the character: Nina and the bird",
-          "the setting: the porch",
-          "the event: a little bird flew into the porch and Nina set it free",
-          "the clue: Nina opened the window so the bird could fly out."
-        ],
-        "doesNotFit": [
-          "Nina caught the bird in a cage.",
-          "The bird knocked with its beak.",
-          "Nina closed all the windows.",
-          "The bird slept in the porch."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each example into the correct group.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q3-w14-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Choose the best answer.",
-      "content": {
-        "options": [
-          "the character: Nina and the bird",
-          "Nina caught the bird in a cage.",
-          "The bird knocked with its beak.",
-          "Nina closed all the windows."
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q3-w14-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Match the ideas that belong together.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Nina and the bird",
-            "right": "character"
-          },
-          {
-            "left": "the porch",
-            "right": "setting"
-          },
-          {
-            "left": "a little bird flew into the porch and Nina set it free",
-            "right": "event"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match the ideas that belong together.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q3-w14-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Put the steps in the correct order.",
-      "content": {
-        "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in the correct order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q3-w14-d01-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Nina and the bird"
-          },
-          {
-            "id": "b",
-            "text": "the mailman"
-          },
-          {
-            "id": "c",
-            "text": "the teacher"
-          },
-          {
-            "id": "d",
-            "text": "the cook"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: Nina and the bird"
-      },
-      {
-        "itemId": "english-g3-q3-w14-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
-        "options": [
-          {
-            "id": "a",
-            "text": "the porch"
-          },
-          {
-            "id": "b",
-            "text": "the market"
-          },
-          {
-            "id": "c",
-            "text": "the beach"
-          },
-          {
-            "id": "d",
-            "text": "the school"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: the porch"
-      },
-      {
-        "itemId": "english-g3-q3-w14-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a little bird flew into the porch and Nina set it free"
-          },
-          {
-            "id": "b",
-            "text": "Nina caught the bird in a cage."
-          },
-          {
-            "id": "c",
-            "text": "The bird knocked with its beak."
-          },
-          {
-            "id": "d",
-            "text": "Nina closed all the windows."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: a little bird flew into the porch and Nina set it free"
-      },
-      {
-        "itemId": "english-g3-q3-w14-d01-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Nina opened the window so the bird could fly out."
-          },
-          {
-            "id": "b",
-            "text": "Nina caught the bird in a cage."
-          },
-          {
-            "id": "c",
-            "text": "The bird knocked with its beak."
-          },
-          {
-            "id": "d",
-            "text": "Nina closed all the windows."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: Nina opened the window so the bird could fly out."
-      },
-      {
-        "itemId": "english-g3-q3-w14-d01-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Nina feel at the end of the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "glad"
-          },
-          {
-            "id": "b",
-            "text": "angry"
-          },
-          {
-            "id": "c",
-            "text": "sleepy"
-          },
-          {
-            "id": "d",
-            "text": "hungry"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: glad"
-      }
-    ]
+ "lessonId": "english-g3-q3-w14-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 12,
+ "day": 1,
+ "subject": "english",
+ "title": "Story Clue Crew · Q3 W14 D01",
+ "objective": "Use details from a story to explain characters, events, and ideas.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "character",
+   "definition": "the person or animal in the story"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "setting",
+   "definition": "where and when the story happens"
+  },
+  {
+   "term": "event",
+   "definition": "something that happens in the story"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q3-w14-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
+   "content": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky."
+  },
+  {
+   "activityId": "english-g3-q3-w14-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Look closely at each example to practice: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "examples": [
+     "the character: Nina and the bird",
+     "the setting: the porch",
+     "the event: a little bird flew into the porch and Nina set it free",
+     "the clue: Nina opened the window so the bird could fly out."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Look closely at each example to practice: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q3-w14-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Sort each example while practicing: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "fits": [
+     "the character: Nina and the bird",
+     "the setting: the porch",
+     "the event: a little bird flew into the porch and Nina set it free",
+     "the clue: Nina opened the window so the bird could fly out."
+    ],
+    "doesNotFit": [
+     "Nina caught the bird in a cage.",
+     "The bird knocked with its beak.",
+     "Nina closed all the windows.",
+     "The bird slept in the porch."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort each example while practicing: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q3-w14-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Choose the answer that best shows this skill: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "options": [
+     "Nina caught the bird in a cage.",
+     "The bird knocked with its beak.",
+     "Nina closed all the windows.",
+     "the character: Nina and the bird"
+    ],
+    "correctIndex": 3
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q3-w14-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Match each example to the idea it shows about: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Nina and the bird",
+      "right": "character"
+     },
+     {
+      "left": "the porch",
+      "right": "setting"
+     },
+     {
+      "left": "a little bird flew into the porch and Nina set it free",
+      "right": "event"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match each example to the idea it shows about: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q3-w14-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w14-d01-visual",
+   "instruction": "Put the steps in order to practice: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "steps": [
+     "Read the story",
+     "Find the character",
+     "Find the setting",
+     "Look for what happened"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order to practice: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q3-w14-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Who is in the story?",
+    "options": [
+     {
+      "id": "b",
+      "text": "the mailman"
+     },
+     {
+      "id": "c",
+      "text": "the teacher"
+     },
+     {
+      "id": "d",
+      "text": "the cook"
+     },
+     {
+      "id": "a",
+      "text": "Nina and the bird"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Nina and the bird"
+   },
+   {
+    "itemId": "english-g3-q3-w14-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Where does the story happen?",
+    "options": [
+     {
+      "id": "a",
+      "text": "the porch"
+     },
+     {
+      "id": "b",
+      "text": "the market"
+     },
+     {
+      "id": "c",
+      "text": "the beach"
+     },
+     {
+      "id": "d",
+      "text": "the school"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: the porch"
+   },
+   {
+    "itemId": "english-g3-q3-w14-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What happened in the story?",
+    "options": [
+     {
+      "id": "d",
+      "text": "Nina closed all the windows."
+     },
+     {
+      "id": "a",
+      "text": "a little bird flew into the porch and Nina set it free"
+     },
+     {
+      "id": "b",
+      "text": "Nina caught the bird in a cage."
+     },
+     {
+      "id": "c",
+      "text": "The bird knocked with its beak."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: a little bird flew into the porch and Nina set it free"
+   },
+   {
+    "itemId": "english-g3-q3-w14-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which detail is TRUE from the story?",
+    "options": [
+     {
+      "id": "c",
+      "text": "The bird knocked with its beak."
+     },
+     {
+      "id": "d",
+      "text": "Nina closed all the windows."
+     },
+     {
+      "id": "a",
+      "text": "Nina opened the window so the bird could fly out."
+     },
+     {
+      "id": "b",
+      "text": "Nina caught the bird in a cage."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Nina opened the window so the bird could fly out."
+   },
+   {
+    "itemId": "english-g3-q3-w14-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "How did Nina feel at the end of the story?",
+    "options": [
+     {
+      "id": "b",
+      "text": "angry"
+     },
+     {
+      "id": "c",
+      "text": "sleepy"
+     },
+     {
+      "id": "d",
+      "text": "hungry"
+     },
+     {
+      "id": "a",
+      "text": "glad"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: glad"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

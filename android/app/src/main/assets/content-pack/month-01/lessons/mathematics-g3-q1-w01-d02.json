@@ -36,7 +36,7 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
+   "instruction": "Learn this skill: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "completionRule": {
     "type": "COMPLETE"
@@ -45,7 +45,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
+   "prompt": "Learn this skill: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": {
     "examples": [
      "4 × 3 = 12 square units",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": {
     "fits": [
      "4 × 3 = 12 square units",
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Choose the answer that best shows this skill: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": {
     "options": [
-     "the length of one side only",
-     "the number of corners",
      "4 × 3 = 12 square units",
-     "the distance around a shape"
+     "the distance around a shape",
+     "the length of one side only",
+     "the number of corners"
     ],
-    "correctIndex": 2
+    "correctIndex": 0
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Choose the answer that best shows this skill: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,7 +155,7 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": {
     "pairs": [
      {
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,13 +192,13 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Solve simple problems about the area of squares and rectangles using length × width.",
    "content": {
     "steps": [
-     "Read the question",
-     "Choose the operation or model",
-     "Solve carefully",
-     "Check whether the answer makes sense"
+     "Read the shape and its measurements",
+     "Choose area or perimeter as the question asks",
+     "Use the matching formula or count the units",
+     "Check the unit and whether the answer fits the shape"
     ]
    },
    "completionRule": {
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Solve simple problems about the area of squares and rectangles using length × width.",
    "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,16 +225,8 @@
     "itemId": "mathematics-g3-q1-w01-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Area Detectives?",
+    "prompt": "Which example best shows this skill: Solve simple problems about the area of squares and rectangles using length × width?",
     "options": [
-     {
-      "id": "a",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     },
      {
       "id": "c",
       "text": "4 × 3 = 12 square units"
@@ -242,6 +234,14 @@
      {
       "id": "d",
       "text": "the distance around a shape"
+     },
+     {
+      "id": "a",
+      "text": "the length of one side only"
+     },
+     {
+      "id": "b",
+      "text": "the number of corners"
      }
     ],
     "correctOptionIds": [
@@ -253,7 +253,7 @@
     "itemId": "mathematics-g3-q1-w01-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Area Detectives?",
+    "prompt": "Which choice applies this skill: Solve simple problems about the area of squares and rectangles using length × width?",
     "options": [
      {
       "id": "a",
@@ -281,16 +281,8 @@
     "itemId": "mathematics-g3-q1-w01-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Area Detectives?",
+    "prompt": "Which situation shows this skill: Solve simple problems about the area of squares and rectangles using length × width?",
     "options": [
-     {
-      "id": "a",
-      "text": "a square has equal side lengths"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     },
      {
       "id": "c",
       "text": "a measurement without square units"
@@ -298,6 +290,14 @@
      {
       "id": "d",
       "text": "the distance around a shape"
+     },
+     {
+      "id": "a",
+      "text": "a square has equal side lengths"
+     },
+     {
+      "id": "b",
+      "text": "the number of corners"
      }
     ],
     "correctOptionIds": [
@@ -309,7 +309,7 @@
     "itemId": "mathematics-g3-q1-w01-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Area Detectives?",
+    "prompt": "Which answer best uses this skill: Solve simple problems about the area of squares and rectangles using length × width?",
     "options": [
      {
       "id": "a",
@@ -337,16 +337,8 @@
     "itemId": "mathematics-g3-q1-w01-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Area Detectives?",
+    "prompt": "Which example gives evidence of this skill: Solve simple problems about the area of squares and rectangles using length × width?",
     "options": [
-     {
-      "id": "a",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     },
      {
       "id": "c",
       "text": "4 × 3 = 12 square units"
@@ -354,6 +346,14 @@
      {
       "id": "d",
       "text": "the distance around a shape"
+     },
+     {
+      "id": "a",
+      "text": "the length of one side only"
+     },
+     {
+      "id": "b",
+      "text": "the number of corners"
      }
     ],
     "correctOptionIds": [

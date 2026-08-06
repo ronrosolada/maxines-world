@@ -36,7 +36,7 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
+   "instruction": "Learn this skill: Read a single bar graph and answer questions using its data.",
    "content": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "completionRule": {
     "type": "COMPLETE"
@@ -45,7 +45,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
+   "prompt": "Learn this skill: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Read a single bar graph and answer questions using its data.",
    "content": {
     "examples": [
      "the tallest bar is greatest",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Read a single bar graph and answer questions using its data.",
    "content": {
     "fits": [
      "the tallest bar is greatest",
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Choose the answer that best shows this skill: Read a single bar graph and answer questions using its data.",
    "content": {
     "options": [
-     "the tallest bar is greatest",
-     "read the title as a data value",
      "change the scale before counting",
-     "choose a bar that is not shown"
+     "choose a bar that is not shown",
+     "the tallest bar is greatest",
+     "read the title as a data value"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Choose the answer that best shows this skill: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,7 +155,7 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Read a single bar graph and answer questions using its data.",
    "content": {
     "pairs": [
      {
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,13 +192,13 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q3-w05-d02-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Read a single bar graph and answer questions using its data.",
    "content": {
     "steps": [
-     "Read the question",
-     "Choose the operation or model",
-     "Solve carefully",
-     "Check whether the answer makes sense"
+     "Read the math question about read a single bar graph and answer questions using its data.",
+     "Choose the operation or model that matches the problem",
+     "Solve carefully using the given numbers",
+     "Check that the answer matches the question"
     ]
    },
    "completionRule": {
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Read a single bar graph and answer questions using its data.",
    "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,7 +225,7 @@
     "itemId": "mathematics-g3-q3-w05-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Bar-Graph Scouts?",
+    "prompt": "Which example best shows this skill: Read a single bar graph and answer questions using its data?",
     "options": [
      {
       "id": "a",
@@ -253,16 +253,8 @@
     "itemId": "mathematics-g3-q3-w05-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Bar-Graph Scouts?",
+    "prompt": "Which choice applies this skill: Read a single bar graph and answer questions using its data?",
     "options": [
-     {
-      "id": "a",
-      "text": "guess without comparing heights"
-     },
-     {
-      "id": "b",
-      "text": "the shortest bar is least"
-     },
      {
       "id": "c",
       "text": "change the scale before counting"
@@ -270,6 +262,14 @@
      {
       "id": "d",
       "text": "choose a bar that is not shown"
+     },
+     {
+      "id": "a",
+      "text": "guess without comparing heights"
+     },
+     {
+      "id": "b",
+      "text": "the shortest bar is least"
      }
     ],
     "correctOptionIds": [
@@ -281,7 +281,7 @@
     "itemId": "mathematics-g3-q3-w05-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Bar-Graph Scouts?",
+    "prompt": "Which situation shows this skill: Read a single bar graph and answer questions using its data?",
     "options": [
      {
       "id": "a",
@@ -309,16 +309,8 @@
     "itemId": "mathematics-g3-q3-w05-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Bar-Graph Scouts?",
+    "prompt": "Which answer best uses this skill: Read a single bar graph and answer questions using its data?",
     "options": [
-     {
-      "id": "a",
-      "text": "guess without comparing heights"
-     },
-     {
-      "id": "b",
-      "text": "read the title as a data value"
-     },
      {
       "id": "c",
       "text": "change the scale before counting"
@@ -326,6 +318,14 @@
      {
       "id": "d",
       "text": "read the scale"
+     },
+     {
+      "id": "a",
+      "text": "guess without comparing heights"
+     },
+     {
+      "id": "b",
+      "text": "read the title as a data value"
      }
     ],
     "correctOptionIds": [
@@ -337,7 +337,7 @@
     "itemId": "mathematics-g3-q3-w05-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Bar-Graph Scouts?",
+    "prompt": "Which example gives evidence of this skill: Read a single bar graph and answer questions using its data?",
     "options": [
      {
       "id": "a",

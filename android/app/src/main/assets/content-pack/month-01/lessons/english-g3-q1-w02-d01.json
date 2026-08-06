@@ -128,12 +128,12 @@
    "instruction": "Which is a proper noun?",
    "content": {
     "options": [
-     "Manila",
-     "city",
      "river",
-     "tree"
+     "tree",
+     "Manila",
+     "city"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What is the special name for a cat in our story?",
     "options": [
      {
+      "id": "d",
+      "text": "Mingming"
+     },
+     {
       "id": "a",
       "text": "Milo"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "Kitty"
-     },
-     {
-      "id": "d",
-      "text": "Mingming"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which is a proper noun?",
     "options": [
      {
-      "id": "a",
-      "text": "Palawan"
-     },
-     {
-      "id": "b",
-      "text": "island"
-     },
-     {
       "id": "c",
       "text": "beach"
      },
      {
       "id": "d",
       "text": "sand"
+     },
+     {
+      "id": "a",
+      "text": "Palawan"
+     },
+     {
+      "id": "b",
+      "text": "island"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "How do proper nouns start?",
     "options": [
      {
-      "id": "a",
-      "text": "With a capital letter"
-     },
-     {
       "id": "b",
       "text": "With a small letter"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "With a dot"
+     },
+     {
+      "id": "a",
+      "text": "With a capital letter"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What do nouns name?",
     "options": [
      {
+      "id": "d",
+      "text": "Only sounds"
+     },
+     {
       "id": "a",
       "text": "People, places, and things"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "Only numbers"
-     },
-     {
-      "id": "d",
-      "text": "Only sounds"
      }
     ],
     "correctOptionIds": [

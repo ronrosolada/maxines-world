@@ -128,12 +128,12 @@
    "instruction": "Which of these is a detail you can SEE in a picture?",
    "content": {
     "options": [
+     "a sad feeling",
      "a red flag",
      "a loud sound",
-     "a sweet smell",
-     "a sad feeling"
+     "a sweet smell"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What do detectives look for in a picture?",
     "options": [
      {
+      "id": "d",
+      "text": "Dreams"
+     },
+     {
       "id": "a",
       "text": "Details"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "Sweet smells"
-     },
-     {
-      "id": "d",
-      "text": "Dreams"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which of these can you SEE in a picture?",
     "options": [
      {
-      "id": "a",
-      "text": "Colors"
-     },
-     {
-      "id": "b",
-      "text": "Music"
-     },
-     {
       "id": "c",
       "text": "Perfume"
      },
      {
       "id": "d",
       "text": "Wind"
+     },
+     {
+      "id": "a",
+      "text": "Colors"
+     },
+     {
+      "id": "b",
+      "text": "Music"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "Where do you find the details in a story picture?",
     "options": [
      {
-      "id": "a",
-      "text": "Inside the picture"
-     },
-     {
       "id": "b",
       "text": "Under your bed"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "In the sky"
+     },
+     {
+      "id": "a",
+      "text": "Inside the picture"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "Who is the detective in our lesson?",
     "options": [
      {
+      "id": "d",
+      "text": "A fish"
+     },
+     {
       "id": "a",
       "text": "You!"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "A robot"
-     },
-     {
-      "id": "d",
-      "text": "A fish"
      }
     ],
     "correctOptionIds": [

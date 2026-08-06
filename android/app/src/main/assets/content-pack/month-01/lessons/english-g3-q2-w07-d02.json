@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q2-w07-d02",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 6,
-  "day": 2,
-  "subject": "english",
-  "title": "Story Clue Crew · Q2 W07 D02",
-  "objective": "Use details from a story to explain characters, events, and ideas.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "character",
-      "definition": "the person or animal in the story"
-    },
-    {
-      "term": "setting",
-      "definition": "where and when the story happens"
-    },
-    {
-      "term": "event",
-      "definition": "something that happens in the story"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q2-w07-d02-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Study the idea and listen to Milo.",
-      "content": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Study the idea and listen to Milo.",
-      "narration": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again."
-    },
-    {
-      "activityId": "english-g3-q2-w07-d02-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Explore each example and find the important detail.",
-      "content": {
-        "examples": [
-          "the character: Maxine",
-          "the setting: inside the house",
-          "the event: Maxine built a block tower and built it again after it fell",
-          "the clue: Maxine built a tall tower with blocks."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example and find the important detail.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w07-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Sort each example into the correct group.",
-      "content": {
-        "fits": [
-          "the character: Maxine",
-          "the setting: inside the house",
-          "the event: Maxine built a block tower and built it again after it fell",
-          "the clue: Maxine built a tall tower with blocks."
-        ],
-        "doesNotFit": [
-          "Maxine played outside in the rain.",
-          "She built a tower of pillows.",
-          "The tower was made of paper.",
-          "Maxine cried when the tower fell."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each example into the correct group.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w07-d02-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Choose the best answer.",
-      "content": {
-        "options": [
-          "Maxine played outside in the rain.",
-          "the character: Maxine",
-          "She built a tower of pillows.",
-          "The tower was made of paper."
-        ],
-        "correctIndex": 1
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w07-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Match the ideas that belong together.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Maxine",
-            "right": "character"
-          },
-          {
-            "left": "inside the house",
-            "right": "setting"
-          },
-          {
-            "left": "Maxine built a block tower and built it again after it fell",
-            "right": "event"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match the ideas that belong together.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w07-d02-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w07-d02-visual",
-      "instruction": "Put the steps in the correct order.",
-      "content": {
-        "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in the correct order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q2-w07-d02-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "the mailman"
-          },
-          {
-            "id": "b",
-            "text": "Maxine"
-          },
-          {
-            "id": "c",
-            "text": "the teacher"
-          },
-          {
-            "id": "d",
-            "text": "the cook"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: Maxine"
-      },
-      {
-        "itemId": "english-g3-q2-w07-d02-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
-        "options": [
-          {
-            "id": "a",
-            "text": "the market"
-          },
-          {
-            "id": "b",
-            "text": "inside the house"
-          },
-          {
-            "id": "c",
-            "text": "the beach"
-          },
-          {
-            "id": "d",
-            "text": "the school"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: inside the house"
-      },
-      {
-        "itemId": "english-g3-q2-w07-d02-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Maxine played outside in the rain."
-          },
-          {
-            "id": "b",
-            "text": "Maxine built a block tower and built it again after it fell"
-          },
-          {
-            "id": "c",
-            "text": "She built a tower of pillows."
-          },
-          {
-            "id": "d",
-            "text": "The tower was made of paper."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: Maxine built a block tower and built it again after it fell"
-      },
-      {
-        "itemId": "english-g3-q2-w07-d02-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Maxine played outside in the rain."
-          },
-          {
-            "id": "b",
-            "text": "Maxine built a tall tower with blocks."
-          },
-          {
-            "id": "c",
-            "text": "She built a tower of pillows."
-          },
-          {
-            "id": "d",
-            "text": "The tower was made of paper."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: Maxine built a tall tower with blocks."
-      },
-      {
-        "itemId": "english-g3-q2-w07-d02-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Maxine feel at the end of the story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "angry"
-          },
-          {
-            "id": "b",
-            "text": "happy"
-          },
-          {
-            "id": "c",
-            "text": "sleepy"
-          },
-          {
-            "id": "d",
-            "text": "hungry"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: happy"
-      }
-    ]
+ "lessonId": "english-g3-q2-w07-d02",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 6,
+ "day": 2,
+ "subject": "english",
+ "title": "Story Clue Crew · Q2 W07 D02",
+ "objective": "Use details from a story to explain characters, events, and ideas.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Readers use story clues—not guesses alone—to explain what happened and why. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "character",
+   "definition": "the person or animal in the story"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "setting",
+   "definition": "where and when the story happens"
+  },
+  {
+   "term": "event",
+   "definition": "something that happens in the story"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q2-w07-d02-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
+   "content": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
+   "narration": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "It rained all morning, so Maxine stayed inside. She built a tall tower with blocks. When the tower fell, she laughed and built it again."
+  },
+  {
+   "activityId": "english-g3-q2-w07-d02-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Look closely at each example to practice: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "examples": [
+     "the character: Maxine",
+     "the setting: inside the house",
+     "the event: Maxine built a block tower and built it again after it fell",
+     "the clue: Maxine built a tall tower with blocks."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Look closely at each example to practice: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q2-w07-d02-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Sort each example while practicing: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "fits": [
+     "the character: Maxine",
+     "the setting: inside the house",
+     "the event: Maxine built a block tower and built it again after it fell",
+     "the clue: Maxine built a tall tower with blocks."
+    ],
+    "doesNotFit": [
+     "Maxine played outside in the rain.",
+     "She built a tower of pillows.",
+     "The tower was made of paper.",
+     "Maxine cried when the tower fell."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort each example while practicing: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w07-d02-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Choose the answer that best shows this skill: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "options": [
+     "Maxine played outside in the rain.",
+     "the character: Maxine",
+     "She built a tower of pillows.",
+     "The tower was made of paper."
+    ],
+    "correctIndex": 1
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w07-d02-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Match each example to the idea it shows about: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Maxine",
+      "right": "character"
+     },
+     {
+      "left": "inside the house",
+      "right": "setting"
+     },
+     {
+      "left": "Maxine built a block tower and built it again after it fell",
+      "right": "event"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match each example to the idea it shows about: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w07-d02-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w07-d02-visual",
+   "instruction": "Put the steps in order to practice: Use details from a story to explain characters, events, and ideas.",
+   "content": {
+    "steps": [
+     "Read the story",
+     "Find the character",
+     "Find the setting",
+     "Look for what happened"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order to practice: Use details from a story to explain characters, events, and ideas.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q2-w07-d02-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Who is in the story?",
+    "options": [
+     {
+      "id": "a",
+      "text": "the mailman"
+     },
+     {
+      "id": "b",
+      "text": "Maxine"
+     },
+     {
+      "id": "c",
+      "text": "the teacher"
+     },
+     {
+      "id": "d",
+      "text": "the cook"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Maxine"
+   },
+   {
+    "itemId": "english-g3-q2-w07-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Where does the story happen?",
+    "options": [
+     {
+      "id": "d",
+      "text": "the school"
+     },
+     {
+      "id": "a",
+      "text": "the market"
+     },
+     {
+      "id": "b",
+      "text": "inside the house"
+     },
+     {
+      "id": "c",
+      "text": "the beach"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: inside the house"
+   },
+   {
+    "itemId": "english-g3-q2-w07-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What happened in the story?",
+    "options": [
+     {
+      "id": "c",
+      "text": "She built a tower of pillows."
+     },
+     {
+      "id": "d",
+      "text": "The tower was made of paper."
+     },
+     {
+      "id": "a",
+      "text": "Maxine played outside in the rain."
+     },
+     {
+      "id": "b",
+      "text": "Maxine built a block tower and built it again after it fell"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Maxine built a block tower and built it again after it fell"
+   },
+   {
+    "itemId": "english-g3-q2-w07-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which detail is TRUE from the story?",
+    "options": [
+     {
+      "id": "b",
+      "text": "Maxine built a tall tower with blocks."
+     },
+     {
+      "id": "c",
+      "text": "She built a tower of pillows."
+     },
+     {
+      "id": "d",
+      "text": "The tower was made of paper."
+     },
+     {
+      "id": "a",
+      "text": "Maxine played outside in the rain."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Maxine built a tall tower with blocks."
+   },
+   {
+    "itemId": "english-g3-q2-w07-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "How did Maxine feel at the end of the story?",
+    "options": [
+     {
+      "id": "a",
+      "text": "angry"
+     },
+     {
+      "id": "b",
+      "text": "happy"
+     },
+     {
+      "id": "c",
+      "text": "sleepy"
+     },
+     {
+      "id": "d",
+      "text": "hungry"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: happy"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

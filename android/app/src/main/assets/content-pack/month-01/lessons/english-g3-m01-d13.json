@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "flag begins with fl",
-      "right": "shows the skill"
+      "right": "example with a useful detail"
      },
      {
       "left": "stop begins with st",
-      "right": "shows the skill"
+      "right": "example with a useful detail (2)"
      },
      {
       "left": "nest ends with st",
-      "right": "shows the skill"
+      "right": "example with a useful detail (3)"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "english-g3-m01-d13-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which word begins with a consonant blend?",
     "options": [
+     {
+      "id": "c",
+      "text": "chair begins with a blend"
+     },
      {
       "id": "a",
       "text": "flag begins with fl"
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "ship begins with a blend"
-     },
-     {
-      "id": "c",
-      "text": "chair begins with a blend"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "ship begins with a blend"
-     },
-     {
       "id": "b",
       "text": "flag begins with fl"
      },
      {
       "id": "c",
       "text": "stop begins with st"
+     },
+     {
+      "id": "a",
+      "text": "ship begins with a blend"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “ship begins with a blend” because it follows the skill explanation: In a consonant blend, neighboring consonant sounds can still be heard."
+    "explanation": "The correct response is “ship begins with a blend” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d13-q04",
@@ -287,8 +287,12 @@
     "itemId": "english-g3-m01-d13-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Read taught consonant blends while keeping their component sounds perceptible?",
     "options": [
+     {
+      "id": "c",
+      "text": "ship begins with a blend"
+     },
      {
       "id": "a",
       "text": "nest ends with st"
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Ignoring one sound in flag"
-     },
-     {
-      "id": "c",
-      "text": "ship begins with a blend"
      }
     ],
     "correctOptionIds": [

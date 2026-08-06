@@ -741,7 +741,7 @@ def curate_lesson(original: dict[str, Any]) -> dict[str, Any]:
     lesson = copy.deepcopy(original)
     subject = canonical_subject(lesson.get("subject", ""))
     profile = profile_for(lesson)
-    rewrite = subject in {"filipino", "gmrc", "makabansa", "mathematics", "science"} or is_placeholder_lesson(lesson) or is_generic_assessment(lesson)
+    rewrite = bool(review_flags(lesson)) or is_placeholder_lesson(lesson) or is_generic_assessment(lesson)
     if rewrite:
         lesson["title"] = profile["title"]
         lesson["objective"] = profile["objective"]
@@ -756,15 +756,15 @@ def curate_lesson(original: dict[str, Any]) -> dict[str, Any]:
         ]
         lesson["activities"] = make_activities(profile, lesson["lessonId"])
         lesson["assessment"] = make_assessment(profile, lesson["lessonId"])
-    lesson["subject"] = subject
-    lesson["language"] = profile["language"]
-    lesson["alignmentStatus"] = "EDUCATOR_CURATED_TOPIC_REVIEW"
-    lesson["contentReview"] = {
-        "reviewer": "RonBot — seasoned educator pass",
-        "focus": ["factual accuracy", "Grade 3 appropriateness", "child safety", "engagement"],
-        "source": "competency/objective and local examples; no unsafe experiment required",
-        "rewritten": rewrite,
-    }
+        lesson["subject"] = subject
+        lesson["language"] = profile["language"]
+        lesson["alignmentStatus"] = "EDUCATOR_CURATED_TOPIC_REVIEW"
+        lesson["contentReview"] = {
+            "reviewer": "RonBot — seasoned educator pass",
+            "focus": ["factual accuracy", "Grade 3 appropriateness", "child safety", "engagement"],
+            "source": "competency/objective and local examples; no unsafe experiment required",
+            "rewritten": True,
+        }
     return lesson
 
 

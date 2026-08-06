@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims. Ready to explore? Try the skill with a sentence about sharing crayons.",
  "vocabulary": [
   {
    "term": "Are you ready?",
-   "definition": "a correct example"
+   "definition": "A question sentence that ends with a question mark."
   },
   {
    "term": "I am ready.",
-   "definition": "a related example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "What a surprise!",
-   "definition": "another example"
+   "definition": "An exclamation sentence that ends with an exclamation mark."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
+   "instruction": "Learn this skill: Use pitch and pauses to show the meaning of a sentence. Try the skill with a sentence about sharing crayons.",
+   "content": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims. Try the skill with a sentence about sharing crayons.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
+   "prompt": "Learn this skill: Use pitch and pauses to show the meaning of a sentence. Try the skill with a sentence about sharing crayons.",
+   "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims. Try the skill with a sentence about sharing crayons.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+   "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims. Try the skill with a sentence about sharing crayons."
   },
   {
    "activityId": "english-g3-q3-w10-d02-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Use pitch and pauses to show the meaning of a sentence.",
    "content": {
     "examples": [
      "Are you ready?",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Use pitch and pauses to show the meaning of a sentence.",
    "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Use pitch and pauses to show the meaning of a sentence.",
    "content": {
     "fits": [
      "Are you ready?",
@@ -98,10 +98,10 @@
      "Please listen."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "a question with a period",
+     "a telling sentence with a question mark",
+     "an exclamation with no punctuation",
+     "a pause in the wrong place"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Use pitch and pauses to show the meaning of a sentence.",
    "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,13 +125,13 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which sentence uses voice or punctuation to show its meaning?",
    "content": {
     "options": [
      "Are you ready?",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "a question with a period",
+     "a telling sentence with a question mark",
+     "an exclamation with no punctuation"
     ],
     "correctIndex": 0
    },
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which sentence uses voice or punctuation to show its meaning?",
    "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Use pitch and pauses to show the meaning of a sentence.",
    "content": {
     "pairs": [
      {
       "left": "Are you ready?",
-      "right": "a correct example"
+      "right": "question sentence"
      },
      {
       "left": "I am ready.",
-      "right": "a related example"
+      "right": "telling sentence"
      },
      {
       "left": "What a surprise!",
-      "right": "another example"
+      "right": "exclamation sentence"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Use pitch and pauses to show the meaning of a sentence.",
    "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d02-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Use pitch and pauses to show the meaning of a sentence.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Use pitch and pauses to show the meaning of a sentence.",
    "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q3-w10-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Voice Clues?",
+    "prompt": "Which sentence uses voice or punctuation to show its meaning?",
     "options": [
      {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "Are you ready?"
      },
      {
+      "id": "b",
+      "text": "a question with a period"
+     },
+     {
+      "id": "c",
+      "text": "a telling sentence with a question mark"
+     },
+     {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "an exclamation with no punctuation"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: Are you ready?"
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q3-w10-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Voice Clues?",
+    "prompt": "Which sentence uses voice or punctuation to show its meaning?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
+      "id": "d",
+      "text": "an exclamation with no punctuation"
      },
      {
-      "id": "b",
+      "id": "a",
       "text": "I am ready."
      },
      {
-      "id": "c",
-      "text": "a random symbol"
+      "id": "b",
+      "text": "a question with a period"
      },
      {
-      "id": "d",
-      "text": "a detail not in the lesson"
+      "id": "c",
+      "text": "a telling sentence with a question mark"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: I am ready."
    },
@@ -281,23 +281,23 @@
     "itemId": "english-g3-q3-w10-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Voice Clues?",
+    "prompt": "Which sentence uses voice or punctuation to show its meaning?",
     "options": [
+     {
+      "id": "c",
+      "text": "a telling sentence with a question mark"
+     },
+     {
+      "id": "d",
+      "text": "an exclamation with no punctuation"
+     },
      {
       "id": "a",
       "text": "What a surprise!"
      },
      {
       "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
-      "text": "a different topic"
-     },
-     {
-      "id": "d",
-      "text": "an unrelated guess"
+      "text": "a question with a period"
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q3-w10-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Voice Clues?",
+    "prompt": "Which sentence uses voice or punctuation to show its meaning?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "a question with a period"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "a telling sentence with a question mark"
      },
      {
       "id": "d",
+      "text": "an exclamation with no punctuation"
+     },
+     {
+      "id": "a",
       "text": "Please listen."
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: Please listen."
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q3-w10-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Voice Clues?",
+    "prompt": "Which sentence uses voice or punctuation to show its meaning?",
     "options": [
      {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "Are you ready?"
      },
      {
+      "id": "b",
+      "text": "a question with a period"
+     },
+     {
+      "id": "c",
+      "text": "a telling sentence with a question mark"
+     },
+     {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "an exclamation with no punctuation"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: Are you ready?"
    }

@@ -106,11 +106,11 @@
    "instruction": "Why does an animal need a habitat?",
    "content": {
     "options": [
-     "It provides needed resources.",
      "It gives the animal a school grade.",
-     "It changes every animal into a pet."
+     "It changes every animal into a pet.",
+     "It provides needed resources."
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "fish—water habitat",
-      "right": "shows the skill"
+      "right": "water habitat"
      },
      {
       "left": "bird—nesting area and food",
-      "right": "shows the skill"
+      "right": "nesting area and food"
      },
      {
       "left": "frog—moist habitat",
-      "right": "shows the skill"
+      "right": "moist habitat"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Animals Around Us”?",
     "options": [
      {
-      "id": "a",
-      "text": "Habitats provide resources such as food, water, shelter, and space."
-     },
-     {
       "id": "b",
       "text": "Every animal fits one habitat only"
      },
      {
       "id": "c",
       "text": "Take wildlife home"
+     },
+     {
+      "id": "a",
+      "text": "Habitats provide resources such as food, water, shelter, and space."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "science-g3-m01-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Animals Around Us”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
+      "id": "c",
+      "text": "bird—nesting area and food"
+     },
+     {
       "id": "a",
       "text": "Every animal fits one habitat only"
      },
      {
       "id": "b",
       "text": "fish—water habitat"
-     },
-     {
-      "id": "c",
-      "text": "bird—nesting area and food"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Every animal fits one habitat only” because it follows the skill explanation: Habitats provide resources such as food, water, shelter, and space."
+    "explanation": "The correct response is “Every animal fits one habitat only” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "science-g3-m01-d04-q04",
@@ -266,16 +266,16 @@
     "prompt": "Why does an animal need a habitat?",
     "options": [
      {
-      "id": "a",
-      "text": "It provides needed resources."
-     },
-     {
       "id": "b",
       "text": "It gives the animal a school grade."
      },
      {
       "id": "c",
       "text": "It changes every animal into a pet."
+     },
+     {
+      "id": "a",
+      "text": "It provides needed resources."
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "science-g3-m01-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Relate familiar animals to suitable habitats without disturbing wildlife?",
     "options": [
      {
       "id": "a",

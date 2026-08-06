@@ -1,373 +1,378 @@
 {
-  "lessonId": "filipino-g3-q2-w07-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 6,
-  "day": 1,
-  "subject": "filipino",
-  "title": "Munting Talata · Q2 W07 D01",
-  "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
-  "vocabulary": [
-    {
-      "term": "paksa",
-      "definition": "ang pinag-uusapan sa talata"
-    },
-    {
-      "term": "pangunahing ideya",
-      "definition": "ang pinakamahalagang mensahe ng talata"
-    },
-    {
-      "term": "detalye",
-      "definition": "dagdag na impormasyon tungkol sa paksa"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "content": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "narration": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-      "content": {
-        "examples": [
-          "ang maulan na Linggo",
-          "Malakas ang ulan noong Linggo.",
-          "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
-          "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
-      "content": {
-        "fits": [
-          "ang maulan na Linggo",
-          "Malakas ang ulan noong Linggo.",
-          "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
-          "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
-        ],
-        "doesNotFit": [
-          "Nagtatanim siya ng kamatis, talong, at sili.",
-          "Nililinis niya ang kanyang mesa araw-araw.",
-          "Mabilis at magaling mag-shoot si Marco.",
-          "Naglilinis ng kalye ang mga kabataan tuwing Sabado."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-      "content": {
-        "options": [
-          "Nagtatanim siya ng kamatis, talong, at sili.",
-          "Malakas ang ulan noong Linggo.",
-          "Nililinis niya ang kanyang mesa araw-araw.",
-          "Mabilis at magaling mag-shoot si Marco."
-        ],
-        "correctIndex": 1
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-      "content": {
-        "pairs": [
-          {
-            "left": "ang maulan na Linggo",
-            "right": "paksa"
-          },
-          {
-            "left": "Malakas ang ulan noong Linggo.",
-            "right": "pangunahing ideya"
-          },
-          {
-            "left": "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
-            "right": "detalye"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q2-w07-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q2-w07-d01-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-      "content": {
-        "steps": [
-          "Basahin ang talata",
-          "Hanapin ang paksa",
-          "Hanapin ang pangunahing ideya",
-          "Tukuyin ang mga detalye"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "sequence": 1,
-        "itemId": "filipino-g3-q2-w07-d01-q1",
-        "prompt": "Alin ang paksa ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "ang hardin ni Tito Ramon"
-          },
-          {
-            "id": "b",
-            "text": "ang maulan na Linggo"
-          },
-          {
-            "id": "c",
-            "text": "ang maingat na si Dina"
-          },
-          {
-            "id": "d",
-            "text": "ang laro ng basketball sa plasa"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: ang maulan na Linggo"
-      },
-      {
-        "sequence": 2,
-        "itemId": "filipino-g3-q2-w07-d01-q2",
-        "prompt": "Ano ang pangunahing ideya ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Mahilig magtanim si Tito Ramon sa hardin."
-          },
-          {
-            "id": "b",
-            "text": "Malakas ang ulan noong Linggo."
-          },
-          {
-            "id": "c",
-            "text": "Ang batang si Dina ay maingat sa kanyang mga gamit."
-          },
-          {
-            "id": "d",
-            "text": "Naglalaro ng basketball ang magkakaibigan sa plasa."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Malakas ang ulan noong Linggo."
-      },
-      {
-        "sequence": 3,
-        "itemId": "filipino-g3-q2-w07-d01-q3",
-        "prompt": "Aling detalye ang nasa talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Nagtatanim siya ng kamatis, talong, at sili."
-          },
-          {
-            "id": "b",
-            "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
-          },
-          {
-            "id": "c",
-            "text": "Nililinis niya ang kanyang mesa araw-araw."
-          },
-          {
-            "id": "d",
-            "text": "Mabilis at magaling mag-shoot si Marco."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Nagsuot ng kapote si Liza habang naglalakad pauwi."
-      },
-      {
-        "sequence": 4,
-        "itemId": "filipino-g3-q2-w07-d01-q4",
-        "prompt": "Aling pangungusap ang wakas ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Sariwang gulay ang handa tuwing hapunan."
-          },
-          {
-            "id": "b",
-            "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
-          },
-          {
-            "id": "c",
-            "text": "Wala siyang nawawalang lapis o papel."
-          },
-          {
-            "id": "d",
-            "text": "Nanalo ang kanilang koponan sa huling laro."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
-      },
-      {
-        "sequence": 5,
-        "itemId": "filipino-g3-q2-w07-d01-q5",
-        "prompt": "Tungkol saan ang talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "ang hardin ni Tito Ramon"
-          },
-          {
-            "id": "b",
-            "text": "ang maulan na Linggo"
-          },
-          {
-            "id": "c",
-            "text": "ang maingat na si Dina"
-          },
-          {
-            "id": "d",
-            "text": "ang laro ng basketball sa plasa"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: ang maulan na Linggo"
-      }
-    ]
+ "lessonId": "filipino-g3-q2-w07-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 6,
+ "day": 1,
+ "subject": "filipino",
+ "title": "Munting Talata · Q2 W07 D01",
+ "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "fil-PH",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
+ "vocabulary": [
+  {
+   "term": "paksa",
+   "definition": "ang pinag-uusapan sa talata"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "pangunahing ideya",
+   "definition": "ang pinakamahalagang mensahe ng talata"
+  },
+  {
+   "term": "detalye",
+   "definition": "dagdag na impormasyon tungkol sa paksa"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "content": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "narration": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Malakas ang ulan noong Linggo. Nagsuot ng kapote si Liza habang naglalakad pauwi. Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+   "content": {
+    "examples": [
+     "ang maulan na Linggo",
+     "Malakas ang ulan noong Linggo.",
+     "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
+     "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
+   "content": {
+    "fits": [
+     "ang maulan na Linggo",
+     "Malakas ang ulan noong Linggo.",
+     "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
+     "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
+    ],
+    "doesNotFit": [
+     "Nagtatanim siya ng kamatis, talong, at sili.",
+     "Nililinis niya ang kanyang mesa araw-araw.",
+     "Mabilis at magaling mag-shoot si Marco.",
+     "Naglilinis ng kalye ang mga kabataan tuwing Sabado."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+   "content": {
+    "options": [
+     "Malakas ang ulan noong Linggo.",
+     "Nililinis niya ang kanyang mesa araw-araw.",
+     "Mabilis at magaling mag-shoot si Marco.",
+     "Nagtatanim siya ng kamatis, talong, at sili."
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+   "content": {
+    "pairs": [
+     {
+      "left": "ang maulan na Linggo",
+      "right": "paksa"
+     },
+     {
+      "left": "Malakas ang ulan noong Linggo.",
+      "right": "pangunahing ideya"
+     },
+     {
+      "left": "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
+      "right": "detalye"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q2-w07-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "filipino-g3-q2-w07-d01-visual",
+   "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+   "content": {
+    "steps": [
+     "Basahin ang talata",
+     "Hanapin ang paksa",
+     "Hanapin ang pangunahing ideya",
+     "Tukuyin ang mga detalye"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "sequence": 1,
+    "itemId": "filipino-g3-q2-w07-d01-q1",
+    "prompt": "Alin ang paksa ng talata?",
+    "options": [
+     {
+      "id": "b",
+      "text": "ang maulan na Linggo"
+     },
+     {
+      "id": "c",
+      "text": "ang maingat na si Dina"
+     },
+     {
+      "id": "d",
+      "text": "ang laro ng basketball sa plasa"
+     },
+     {
+      "id": "a",
+      "text": "ang hardin ni Tito Ramon"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: ang maulan na Linggo",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 2,
+    "itemId": "filipino-g3-q2-w07-d01-q2",
+    "prompt": "Ano ang pangunahing ideya ng talata?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Mahilig magtanim si Tito Ramon sa hardin."
+     },
+     {
+      "id": "b",
+      "text": "Malakas ang ulan noong Linggo."
+     },
+     {
+      "id": "c",
+      "text": "Ang batang si Dina ay maingat sa kanyang mga gamit."
+     },
+     {
+      "id": "d",
+      "text": "Naglalaro ng basketball ang magkakaibigan sa plasa."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Malakas ang ulan noong Linggo.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 3,
+    "itemId": "filipino-g3-q2-w07-d01-q3",
+    "prompt": "Aling detalye ang nasa talata?",
+    "options": [
+     {
+      "id": "d",
+      "text": "Mabilis at magaling mag-shoot si Marco."
+     },
+     {
+      "id": "a",
+      "text": "Nagtatanim siya ng kamatis, talong, at sili."
+     },
+     {
+      "id": "b",
+      "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
+     },
+     {
+      "id": "c",
+      "text": "Nililinis niya ang kanyang mesa araw-araw."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Nagsuot ng kapote si Liza habang naglalakad pauwi.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 4,
+    "itemId": "filipino-g3-q2-w07-d01-q4",
+    "prompt": "Aling pangungusap ang wakas ng talata?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Wala siyang nawawalang lapis o papel."
+     },
+     {
+      "id": "d",
+      "text": "Nanalo ang kanilang koponan sa huling laro."
+     },
+     {
+      "id": "a",
+      "text": "Sariwang gulay ang handa tuwing hapunan."
+     },
+     {
+      "id": "b",
+      "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 5,
+    "itemId": "filipino-g3-q2-w07-d01-q5",
+    "prompt": "Tungkol saan ang talata?",
+    "options": [
+     {
+      "id": "b",
+      "text": "ang maulan na Linggo"
+     },
+     {
+      "id": "c",
+      "text": "ang maingat na si Dina"
+     },
+     {
+      "id": "d",
+      "text": "ang laro ng basketball sa plasa"
+     },
+     {
+      "id": "a",
+      "text": "ang hardin ni Tito Ramon"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: ang maulan na Linggo",
+    "type": "MULTIPLE_CHOICE"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective at local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

@@ -130,12 +130,12 @@
    "instruction": "Which word has the short /a/ sound?",
    "content": {
     "options": [
+     "egg",
      "cat",
      "dog",
-     "sun",
-     "egg"
+     "sun"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -234,6 +234,10 @@
     "prompt": "What are the five vowels?",
     "options": [
      {
+      "id": "d",
+      "text": "x, y, z, w, v"
+     },
+     {
       "id": "a",
       "text": "a, e, i, o, u"
      },
@@ -244,10 +248,6 @@
      {
       "id": "c",
       "text": "1, 2, 3, 4, 5"
-     },
-     {
-      "id": "d",
-      "text": "x, y, z, w, v"
      }
     ],
     "correctOptionIds": [
@@ -262,20 +262,20 @@
     "prompt": "Which word has the short /a/ sound?",
     "options": [
      {
-      "id": "a",
-      "text": "cat"
-     },
-     {
-      "id": "b",
-      "text": "dog"
-     },
-     {
       "id": "c",
       "text": "sun"
      },
      {
       "id": "d",
       "text": "bee"
+     },
+     {
+      "id": "a",
+      "text": "cat"
+     },
+     {
+      "id": "b",
+      "text": "dog"
      }
     ],
     "correctOptionIds": [
@@ -290,10 +290,6 @@
     "prompt": "What sound does 'u' make in umbrella?",
     "options": [
      {
-      "id": "a",
-      "text": "/u/"
-     },
-     {
       "id": "b",
       "text": "/a/"
      },
@@ -304,6 +300,10 @@
      {
       "id": "d",
       "text": "/o/"
+     },
+     {
+      "id": "a",
+      "text": "/u/"
      }
     ],
     "correctOptionIds": [
@@ -346,6 +346,10 @@
     "prompt": "Who is the sound scientist?",
     "options": [
      {
+      "id": "d",
+      "text": "Lola"
+     },
+     {
       "id": "a",
       "text": "Milo"
      },
@@ -356,10 +360,6 @@
      {
       "id": "c",
       "text": "Ana"
-     },
-     {
-      "id": "d",
-      "text": "Lola"
      }
     ],
     "correctOptionIds": [

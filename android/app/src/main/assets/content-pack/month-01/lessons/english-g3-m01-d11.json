@@ -106,11 +106,11 @@
    "instruction": "Choose the correct sentence.",
    "content": {
     "options": [
+     "They am helpful.",
      "They are helpful.",
-     "They is helpful.",
-     "They am helpful."
+     "They is helpful."
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "I am ready.",
-      "right": "shows the skill"
+      "right": "telling sentence"
      },
      {
       "left": "They are reading.",
-      "right": "shows the skill"
+      "right": "telling sentence (2)"
      },
      {
       "left": "She was here yesterday.",
-      "right": "shows the skill"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Be-Verb Team”?",
     "options": [
      {
+      "id": "c",
+      "text": "They am reading."
+     },
+     {
       "id": "a",
       "text": "Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject."
      },
      {
       "id": "b",
       "text": "I is ready."
-     },
-     {
-      "id": "c",
-      "text": "They am reading."
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "english-g3-m01-d11-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which sentence uses am, is, or are correctly?",
     "options": [
-     {
-      "id": "a",
-      "text": "I am ready."
-     },
      {
       "id": "b",
       "text": "I is ready."
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "They am reading."
+     },
+     {
+      "id": "a",
+      "text": "I am ready."
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “I is ready.” because it follows the skill explanation: Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject."
+    "explanation": "The correct response is “I is ready.” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d11-q04",
@@ -266,16 +266,16 @@
     "prompt": "Choose the correct sentence.",
     "options": [
      {
+      "id": "c",
+      "text": "They am helpful."
+     },
+     {
       "id": "a",
       "text": "They are helpful."
      },
      {
       "id": "b",
       "text": "They is helpful."
-     },
-     {
-      "id": "c",
-      "text": "They am helpful."
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "english-g3-m01-d11-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Choose am, is, are, was, or were to agree with the subject and time?",
     "options": [
-     {
-      "id": "a",
-      "text": "She was here yesterday."
-     },
      {
       "id": "b",
       "text": "We was here."
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "I is ready."
+     },
+     {
+      "id": "a",
+      "text": "She was here yesterday."
      }
     ],
     "correctOptionIds": [

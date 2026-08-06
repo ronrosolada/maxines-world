@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Synonyms have similar meanings; antonyms have opposite meanings. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ Synonyms have similar meanings; antonyms have opposite meanings. Ready to explore? Try the skill with a fact about a garden plant.",
  "vocabulary": [
   {
    "term": "happy — glad",
-   "definition": "a correct example"
+   "definition": "The example shows glad."
   },
   {
    "term": "begin — start",
-   "definition": "a related example"
+   "definition": "The example shows start."
   },
   {
    "term": "hot — cold",
-   "definition": "another example"
+   "definition": "The example shows cold."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "instruction": "Learn this skill: Identify synonyms and antonyms by comparing word meanings. Try the skill with a fact about a garden plant.",
+   "content": "Synonyms have similar meanings; antonyms have opposite meanings. Try the skill with a fact about a garden plant.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "prompt": "Learn this skill: Identify synonyms and antonyms by comparing word meanings. Try the skill with a fact about a garden plant.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings. Try the skill with a fact about a garden plant.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings. Try the skill with a fact about a garden plant."
   },
   {
    "activityId": "english-g3-q3-w08-d04-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Identify synonyms and antonyms by comparing word meanings.",
    "content": {
     "examples": [
      "happy — glad",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Identify synonyms and antonyms by comparing word meanings.",
    "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Identify synonyms and antonyms by comparing word meanings.",
    "content": {
     "fits": [
      "happy — glad",
@@ -98,10 +98,10 @@
      "early — late"
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "hot — table",
+     "begin — window",
+     "early — chair",
+     "happy — river"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Identify synonyms and antonyms by comparing word meanings.",
    "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which pair has the matching or opposite meanings asked for?",
    "content": {
     "options": [
+     "early — chair",
      "happy — glad",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "hot — table",
+     "begin — window"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which pair has the matching or opposite meanings asked for?",
    "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Identify synonyms and antonyms by comparing word meanings.",
    "content": {
     "pairs": [
      {
       "left": "happy — glad",
-      "right": "a correct example"
+      "right": "glad"
      },
      {
       "left": "begin — start",
-      "right": "a related example"
+      "right": "start"
      },
      {
       "left": "hot — cold",
-      "right": "another example"
+      "right": "cold"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Identify synonyms and antonyms by comparing word meanings.",
    "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w08-d04-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Identify synonyms and antonyms by comparing word meanings.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Identify synonyms and antonyms by comparing word meanings.",
    "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q3-w08-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Word Twins?",
+    "prompt": "Which pair has the matching or opposite meanings asked for?",
     "options": [
      {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "happy — glad"
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: happy — glad"
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q3-w08-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Word Twins?",
+    "prompt": "Which pair has the matching or opposite meanings asked for?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
-      "id": "b",
-      "text": "begin — start"
-     },
-     {
       "id": "c",
-      "text": "a random symbol"
+      "text": "begin — window"
      },
      {
       "id": "d",
-      "text": "a detail not in the lesson"
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "begin — start"
+     },
+     {
+      "id": "b",
+      "text": "hot — table"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: begin — start"
    },
@@ -281,23 +281,23 @@
     "itemId": "english-g3-q3-w08-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Word Twins?",
+    "prompt": "Which pair has the matching or opposite meanings asked for?",
     "options": [
      {
-      "id": "a",
-      "text": "hot — cold"
-     },
-     {
       "id": "b",
-      "text": "a detail not in the lesson"
+      "text": "hot — table"
      },
      {
       "id": "c",
-      "text": "a different topic"
+      "text": "begin — window"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "hot — cold"
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q3-w08-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Word Twins?",
+    "prompt": "Which pair has the matching or opposite meanings asked for?",
     "options": [
      {
       "id": "a",
-      "text": "a different topic"
+      "text": "early — late"
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "hot — table"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "begin — window"
      },
      {
       "id": "d",
-      "text": "early — late"
+      "text": "early — chair"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: early — late"
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q3-w08-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Word Twins?",
+    "prompt": "Which pair has the matching or opposite meanings asked for?",
     "options": [
      {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "happy — glad"
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: happy — glad"
    }

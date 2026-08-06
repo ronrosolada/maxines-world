@@ -128,12 +128,12 @@
    "instruction": "Because it rained, ___. What is the effect?",
    "content": {
     "options": [
+     "the moon fell",
      "the plants grew",
      "the plants shrank",
-     "the sun disappeared",
-     "the moon fell"
+     "the sun disappeared"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What is a cause?",
     "options": [
      {
+      "id": "d",
+      "text": "A shape"
+     },
+     {
       "id": "a",
       "text": "Why something happens"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "A color"
-     },
-     {
-      "id": "d",
-      "text": "A shape"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Because it rained, ___",
     "options": [
      {
-      "id": "a",
-      "text": "the plants grew"
-     },
-     {
-      "id": "b",
-      "text": "the plants flew"
-     },
-     {
       "id": "c",
       "text": "the plants sang"
      },
      {
       "id": "d",
       "text": "the plants slept"
+     },
+     {
+      "id": "a",
+      "text": "the plants grew"
+     },
+     {
+      "id": "b",
+      "text": "the plants flew"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "What is the effect of watering a seed?",
     "options": [
      {
-      "id": "a",
-      "text": "A flower grows"
-     },
-     {
       "id": "b",
       "text": "A rock grows"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "Nothing"
+     },
+     {
+      "id": "a",
+      "text": "A flower grows"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What grew in Milo's garden?",
     "options": [
      {
+      "id": "d",
+      "text": "A mountain"
+     },
+     {
       "id": "a",
       "text": "A flower"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "A boat"
-     },
-     {
-      "id": "d",
-      "text": "A mountain"
      }
     ],
     "correctOptionIds": [

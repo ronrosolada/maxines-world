@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "cat → cats",
-      "right": "shows the skill"
+      "right": "example with a useful detail"
      },
      {
       "left": "box → boxes",
-      "right": "shows the skill"
+      "right": "example with a useful detail (2)"
      },
      {
       "left": "dish → dishes",
-      "right": "shows the skill"
+      "right": "example with a useful detail (3)"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "english-g3-m01-d07-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which ending follows the events of the story?",
     "options": [
+     {
+      "id": "c",
+      "text": "mouse → mouses"
+     },
      {
       "id": "a",
       "text": "cat → cats"
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "child → childs"
-     },
-     {
-      "id": "c",
-      "text": "mouse → mouses"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "child → childs"
-     },
-     {
       "id": "b",
       "text": "cat → cats"
      },
      {
       "id": "c",
       "text": "box → boxes"
+     },
+     {
+      "id": "a",
+      "text": "child → childs"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “child → childs” because it follows the skill explanation: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    "explanation": "The correct response is “child → childs” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d07-q04",
@@ -287,8 +287,12 @@
     "itemId": "english-g3-m01-d07-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Form regular plurals with -s or -es in taught examples?",
     "options": [
+     {
+      "id": "c",
+      "text": "child → childs"
+     },
      {
       "id": "a",
       "text": "dish → dishes"
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "foot → foots"
-     },
-     {
-      "id": "c",
-      "text": "child → childs"
      }
     ],
     "correctOptionIds": [

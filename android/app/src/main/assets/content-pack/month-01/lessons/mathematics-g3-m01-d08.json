@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "₱5.00 is five pesos",
-      "right": "shows the skill"
+      "right": "evidence from the example: ₱5.00 is five pesos"
      },
      {
       "left": "100 centavos = ₱1.00",
-      "right": "shows the skill"
+      "right": "tamang subtraction or estimate"
      },
      {
       "left": "₱12.50 > ₱12.05",
-      "right": "shows the skill"
+      "right": "evidence from the example: ₱12.50 > ₱12.05"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "mathematics-g3-m01-d08-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Philippine Money Market”?",
     "options": [
+     {
+      "id": "c",
+      "text": "Ignore decimal places"
+     },
      {
       "id": "a",
       "text": "₱5.00 is five pesos"
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "50 centavos = ₱50"
-     },
-     {
-      "id": "c",
-      "text": "Ignore decimal places"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "50 centavos = ₱50"
-     },
-     {
       "id": "b",
       "text": "₱5.00 is five pesos"
      },
      {
       "id": "c",
       "text": "100 centavos = ₱1.00"
+     },
+     {
+      "id": "a",
+      "text": "50 centavos = ₱50"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “50 centavos = ₱50” because it follows the skill explanation: One peso equals 100 centavos. Use original tokens, not reproduced banknotes."
+    "explanation": "The correct response is “50 centavos = ₱50” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "mathematics-g3-m01-d08-q04",
@@ -287,8 +287,12 @@
     "itemId": "mathematics-g3-m01-d08-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Read and compare schematic peso and centavo amounts?",
     "options": [
+     {
+      "id": "c",
+      "text": "50 centavos = ₱50"
+     },
      {
       "id": "a",
       "text": "₱12.50 > ₱12.05"
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Use real-looking counterfeit notes"
-     },
-     {
-      "id": "c",
-      "text": "50 centavos = ₱50"
      }
     ],
     "correctOptionIds": [

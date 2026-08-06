@@ -106,11 +106,11 @@
    "instruction": "What is the plural of child?",
    "content": {
     "options": [
+     "childes",
      "children",
-     "childs",
-     "childes"
+     "childs"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "child → children",
-      "right": "shows the skill"
+      "right": "example with a useful detail"
      },
      {
       "left": "foot → feet",
-      "right": "shows the skill"
+      "right": "example with a useful detail (2)"
      },
      {
       "left": "mouse → mice",
-      "right": "shows the skill"
+      "right": "example with a useful detail (3)"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Plural Word Changers”?",
     "options": [
      {
+      "id": "c",
+      "text": "tooth → tooths"
+     },
+     {
       "id": "a",
       "text": "Some nouns change in special ways and must be learned in context."
      },
      {
       "id": "b",
       "text": "child → childs"
-     },
-     {
-      "id": "c",
-      "text": "tooth → tooths"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "english-g3-m01-d08-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which plural noun correctly adds -s?",
     "options": [
-     {
-      "id": "a",
-      "text": "child → children"
-     },
      {
       "id": "b",
       "text": "child → childs"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "tooth → tooths"
+     },
+     {
+      "id": "a",
+      "text": "child → children"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “child → childs” because it follows the skill explanation: Some nouns change in special ways and must be learned in context."
+    "explanation": "The correct response is “child → childs” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d08-q04",
@@ -266,16 +266,16 @@
     "prompt": "What is the plural of child?",
     "options": [
      {
+      "id": "c",
+      "text": "childes"
+     },
+     {
       "id": "a",
       "text": "children"
      },
      {
       "id": "b",
       "text": "childs"
-     },
-     {
-      "id": "c",
-      "text": "childes"
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "english-g3-m01-d08-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Use common irregular plural nouns?",
     "options": [
-     {
-      "id": "a",
-      "text": "mouse → mice"
-     },
      {
       "id": "b",
       "text": "person → personses"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "child → childs"
+     },
+     {
+      "id": "a",
+      "text": "mouse → mice"
      }
     ],
     "correctOptionIds": [

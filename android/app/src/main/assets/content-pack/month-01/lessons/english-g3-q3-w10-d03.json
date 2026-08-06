@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Sequence words such as first, next, then, and finally help readers follow an order. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ Sequence words such as first, next, then, and finally help readers follow an order. Ready to explore? Try the skill with a clue in a picture book. Try the skill with a question during reading time.",
  "vocabulary": [
   {
    "term": "First, wash the fruit.",
-   "definition": "a correct example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Next, cut it safely.",
-   "definition": "a related example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Then, share it.",
-   "definition": "another example"
+   "definition": "A telling sentence that gives information and ends with a period."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "instruction": "Learn this skill: Use sequence words to show the order of events or ideas. Try the skill with a clue in a picture book. Try the skill with a question during reading time.",
+   "content": "Sequence words such as first, next, then, and finally help readers follow an order. Try the skill with a clue in a picture book. Try the skill with a question during reading time.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+   "prompt": "Learn this skill: Use sequence words to show the order of events or ideas. Try the skill with a clue in a picture book. Try the skill with a question during reading time.",
+   "narration": "Sequence words such as first, next, then, and finally help readers follow an order. Try the skill with a clue in a picture book. Try the skill with a question during reading time.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order. Try the skill with a clue in a picture book. Try the skill with a question during reading time."
   },
   {
    "activityId": "english-g3-q3-w10-d03-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Use sequence words to show the order of events or ideas.",
    "content": {
     "examples": [
      "First, wash the fruit.",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Use sequence words to show the order of events or ideas.",
    "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Use sequence words to show the order of events or ideas.",
    "content": {
     "fits": [
      "First, wash the fruit.",
@@ -98,10 +98,10 @@
      "Finally, clean up."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "a title only",
+     "a final event placed first",
+     "an unrelated detail",
+     "a sentence with no time clue"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Use sequence words to show the order of events or ideas.",
    "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which choice shows events in the correct order?",
    "content": {
     "options": [
+     "an unrelated detail",
      "First, wash the fruit.",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "a title only",
+     "a final event placed first"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which choice shows events in the correct order?",
    "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Use sequence words to show the order of events or ideas.",
    "content": {
     "pairs": [
      {
       "left": "First, wash the fruit.",
-      "right": "a correct example"
+      "right": "telling sentence"
      },
      {
       "left": "Next, cut it safely.",
-      "right": "a related example"
+      "right": "telling sentence (2)"
      },
      {
       "left": "Then, share it.",
-      "right": "another example"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Use sequence words to show the order of events or ideas.",
    "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d03-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Use sequence words to show the order of events or ideas.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Use sequence words to show the order of events or ideas.",
    "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q3-w10-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Sentence Order?",
+    "prompt": "Which choice shows events in the correct order?",
     "options": [
      {
+      "id": "d",
+      "text": "an unrelated detail"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "First, wash the fruit."
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "a title only"
+     },
+     {
+      "id": "c",
+      "text": "a final event placed first"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: First, wash the fruit."
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q3-w10-d03-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Sentence Order?",
+    "prompt": "Which choice shows events in the correct order?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
-      "id": "b",
-      "text": "Next, cut it safely."
-     },
-     {
       "id": "c",
-      "text": "a random symbol"
+      "text": "a final event placed first"
      },
      {
       "id": "d",
-      "text": "a detail not in the lesson"
+      "text": "an unrelated detail"
+     },
+     {
+      "id": "a",
+      "text": "Next, cut it safely."
+     },
+     {
+      "id": "b",
+      "text": "a title only"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: Next, cut it safely."
    },
@@ -281,23 +281,23 @@
     "itemId": "english-g3-q3-w10-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Sentence Order?",
+    "prompt": "Which choice shows events in the correct order?",
     "options": [
      {
-      "id": "a",
-      "text": "Then, share it."
-     },
-     {
       "id": "b",
-      "text": "a detail not in the lesson"
+      "text": "a title only"
      },
      {
       "id": "c",
-      "text": "a different topic"
+      "text": "a final event placed first"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "an unrelated detail"
+     },
+     {
+      "id": "a",
+      "text": "Then, share it."
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q3-w10-d03-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Sentence Order?",
+    "prompt": "Which choice shows events in the correct order?",
     "options": [
      {
       "id": "a",
-      "text": "a different topic"
+      "text": "Finally, clean up."
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "a title only"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "a final event placed first"
      },
      {
       "id": "d",
-      "text": "Finally, clean up."
+      "text": "an unrelated detail"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: Finally, clean up."
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q3-w10-d03-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Sentence Order?",
+    "prompt": "Which choice shows events in the correct order?",
     "options": [
      {
+      "id": "d",
+      "text": "an unrelated detail"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "First, wash the fruit."
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "a title only"
+     },
+     {
+      "id": "c",
+      "text": "a final event placed first"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: First, wash the fruit."
    }

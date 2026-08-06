@@ -128,12 +128,12 @@
    "instruction": "Which word has the 'ch' digraph?",
    "content": {
     "options": [
-     "chair",
-     "ship",
      "phone",
-     "thumb"
+     "thumb",
+     "chair",
+     "ship"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "Which word has sh?",
     "options": [
      {
+      "id": "d",
+      "text": "dog"
+     },
+     {
       "id": "a",
       "text": "ship"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "sun"
-     },
-     {
-      "id": "d",
-      "text": "dog"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which word has ch?",
     "options": [
      {
-      "id": "a",
-      "text": "chair"
-     },
-     {
-      "id": "b",
-      "text": "fish"
-     },
-     {
       "id": "c",
       "text": "moon"
      },
      {
       "id": "d",
       "text": "star"
+     },
+     {
+      "id": "a",
+      "text": "chair"
+     },
+     {
+      "id": "b",
+      "text": "fish"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "What is a digraph?",
     "options": [
      {
-      "id": "a",
-      "text": "Two letters, one sound"
-     },
-     {
       "id": "b",
       "text": "One letter, two sounds"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "A number"
+     },
+     {
+      "id": "a",
+      "text": "Two letters, one sound"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What did Milo whisper?",
     "options": [
      {
+      "id": "d",
+      "text": "zz as in buzz"
+     },
+     {
       "id": "a",
       "text": "sh as in ship"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "xy as in box"
-     },
-     {
-      "id": "d",
-      "text": "zz as in buzz"
      }
     ],
     "correctOptionIds": [

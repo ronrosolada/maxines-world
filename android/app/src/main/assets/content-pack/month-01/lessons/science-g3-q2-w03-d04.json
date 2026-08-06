@@ -1,377 +1,377 @@
 {
-  "lessonId": "science-g3-q2-w03-d04",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 4,
-  "subject": "science",
-  "title": "Life Around Us · Q2 W03 D04",
-  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
-    },
-    {
-      "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
-    },
-    {
-      "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "science-g3-q2-w03-d04-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
-      "content": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
-      "narration": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d04-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Explore each example. an ant and a duck are living, but a chair is not.",
-      "content": {
-        "examples": [
-          "an ant — living",
-          "a duck — living",
-          "a bird uses wings to fly",
-          "a chair — non-living"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example. an ant and a duck are living, but a chair is not.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d04-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Sort the examples: an ant and a duck are living things.",
-      "content": {
-        "fits": [
-          "an ant — living",
-          "a duck — living",
-          "a bird uses wings to fly"
-        ],
-        "doesNotFit": [
-          "a chair — non-living",
-          "a rock",
-          "water",
-          "a pencil"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort the examples: an ant and a duck are living things.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d04-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "content": {
-        "options": [
-          "a rock",
-          "water",
-          "a pencil",
-          "an ant"
-        ],
-        "correctIndex": 3
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d04-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Match an ant, a duck, and a chair with their groups.",
-      "content": {
-        "pairs": [
-          {
-            "left": "an ant",
-            "right": "living thing"
-          },
-          {
-            "left": "a chair",
-            "right": "non-living thing"
-          },
-          {
-            "left": "a bird uses wings to fly",
-            "right": "a plant part"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match an ant, a duck, and a chair with their groups.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d04-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "content": {
-        "steps": [
-          "Observe the example: an ant",
-          "Ask: does it grow?",
-          "Check what it needs",
-          "Sort it as living or not"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "science-g3-q2-w03-d04-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a rock"
-          },
-          {
-            "id": "b",
-            "text": "water"
-          },
-          {
-            "id": "c",
-            "text": "a pencil"
-          },
-          {
-            "id": "d",
-            "text": "an ant"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The best answer is: an ant"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d04-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "an ant"
-          },
-          {
-            "id": "b",
-            "text": "a duck"
-          },
-          {
-            "id": "c",
-            "text": "a rock"
-          },
-          {
-            "id": "d",
-            "text": "a chair"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The best answer is: a chair"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d04-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a battery"
-          },
-          {
-            "id": "b",
-            "text": "a plastic cover"
-          },
-          {
-            "id": "c",
-            "text": "a quiet shelf"
-          },
-          {
-            "id": "d",
-            "text": "food and water"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The best answer is: food and water"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d04-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What do birds use to fly?",
-        "options": [
-          {
-            "id": "a",
-            "text": "gills"
-          },
-          {
-            "id": "b",
-            "text": "roots"
-          },
-          {
-            "id": "c",
-            "text": "scales"
-          },
-          {
-            "id": "d",
-            "text": "wings"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The best answer is: wings"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d04-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a chair"
-          },
-          {
-            "id": "b",
-            "text": "water"
-          },
-          {
-            "id": "c",
-            "text": "a pencil"
-          },
-          {
-            "id": "d",
-            "text": "a duck"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The best answer is: a duck"
-      }
-    ]
+ "lessonId": "science-g3-q2-w03-d04",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 4,
+ "subject": "science",
+ "title": "Life Around Us · Q2 W03 D04",
+ "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "living thing",
+   "definition": "something that grows, needs food and water, and can respond"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "non-living thing",
+   "definition": "something that does not grow or need food and water"
+  },
+  {
+   "term": "basic need",
+   "definition": "something a living thing must have to live, like food and water"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "science-g3-q2-w03-d04-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+   "content": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+   "narration": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d04-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Explore each example. an ant and a duck are living, but a chair is not.",
+   "content": {
+    "examples": [
+     "an ant — living",
+     "a duck — living",
+     "a bird uses wings to fly",
+     "a chair — non-living"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Explore each example. an ant and a duck are living, but a chair is not.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "science-g3-q2-w03-d04-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Sort the examples: an ant and a duck are living things.",
+   "content": {
+    "fits": [
+     "an ant — living",
+     "a duck — living",
+     "a bird uses wings to fly"
+    ],
+    "doesNotFit": [
+     "a chair — non-living",
+     "a rock",
+     "water",
+     "a pencil"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort the examples: an ant and a duck are living things.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d04-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "content": {
+    "options": [
+     "a rock",
+     "water",
+     "a pencil",
+     "an ant"
+    ],
+    "correctIndex": 3
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d04-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Match an ant, a duck, and a chair with their groups.",
+   "content": {
+    "pairs": [
+     {
+      "left": "an ant",
+      "right": "evidence from the example: an ant"
+     },
+     {
+      "left": "a chair",
+      "right": "evidence from the example: a chair"
+     },
+     {
+      "left": "a bird uses wings to fly",
+      "right": "evidence from the example: a bird uses wings to fly"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match an ant, a duck, and a chair with their groups.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d04-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d04-visual",
+   "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "content": {
+    "steps": [
+     "Observe the example: an ant",
+     "Ask: does it grow?",
+     "Check what it needs",
+     "Sort it as living or not"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "science-g3-q2-w03-d04-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a rock"
+     },
+     {
+      "id": "b",
+      "text": "water"
+     },
+     {
+      "id": "c",
+      "text": "a pencil"
+     },
+     {
+      "id": "d",
+      "text": "an ant"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: an ant"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d04-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is NOT a living thing?",
+    "options": [
+     {
+      "id": "d",
+      "text": "a chair"
+     },
+     {
+      "id": "a",
+      "text": "an ant"
+     },
+     {
+      "id": "b",
+      "text": "a duck"
+     },
+     {
+      "id": "c",
+      "text": "a rock"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The correct response is “a chair” because it does not follow the lesson skill. The other choices show the skill."
+   },
+   {
+    "itemId": "science-g3-q2-w03-d04-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What do all living things need to grow?",
+    "options": [
+     {
+      "id": "c",
+      "text": "a quiet shelf"
+     },
+     {
+      "id": "d",
+      "text": "food and water"
+     },
+     {
+      "id": "a",
+      "text": "a battery"
+     },
+     {
+      "id": "b",
+      "text": "a plastic cover"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: food and water"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What do birds use to fly?",
+    "options": [
+     {
+      "id": "b",
+      "text": "roots"
+     },
+     {
+      "id": "c",
+      "text": "scales"
+     },
+     {
+      "id": "d",
+      "text": "wings"
+     },
+     {
+      "id": "a",
+      "text": "gills"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: wings"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d04-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example shows a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a chair"
+     },
+     {
+      "id": "b",
+      "text": "water"
+     },
+     {
+      "id": "c",
+      "text": "a pencil"
+     },
+     {
+      "id": "d",
+      "text": "a duck"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: a duck"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

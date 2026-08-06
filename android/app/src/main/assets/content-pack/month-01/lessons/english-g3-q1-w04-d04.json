@@ -126,12 +126,12 @@
    "instruction": "What happened FIRST in the story?",
    "content": {
     "options": [
-     "The kite flew away",
      "A man got it down",
      "Ana hugged her kite",
-     "Everyone cheered"
+     "Everyone cheered",
+     "The kite flew away"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -230,6 +230,10 @@
     "prompt": "What does retell mean?",
     "options": [
      {
+      "id": "d",
+      "text": "Burn the book"
+     },
+     {
       "id": "a",
       "text": "Tell the story again"
      },
@@ -240,10 +244,6 @@
      {
       "id": "c",
       "text": "Draw the story"
-     },
-     {
-      "id": "d",
-      "text": "Burn the book"
      }
     ],
     "correctOptionIds": [
@@ -258,20 +258,20 @@
     "prompt": "What happened first in the story?",
     "options": [
      {
-      "id": "a",
-      "text": "The kite flew away"
-     },
-     {
-      "id": "b",
-      "text": "A man got it down"
-     },
-     {
       "id": "c",
       "text": "Ana hugged it"
      },
      {
       "id": "d",
       "text": "Everyone cheered"
+     },
+     {
+      "id": "a",
+      "text": "The kite flew away"
+     },
+     {
+      "id": "b",
+      "text": "A man got it down"
      }
     ],
     "correctOptionIds": [
@@ -286,10 +286,6 @@
     "prompt": "Which word means 'at the start'?",
     "options": [
      {
-      "id": "a",
-      "text": "First"
-     },
-     {
       "id": "b",
       "text": "Last"
      },
@@ -300,6 +296,10 @@
      {
       "id": "d",
       "text": "The end"
+     },
+     {
+      "id": "a",
+      "text": "First"
      }
     ],
     "correctOptionIds": [
@@ -342,6 +342,10 @@
     "prompt": "Who helped get the kite down?",
     "options": [
      {
+      "id": "d",
+      "text": "A cloud"
+     },
+     {
       "id": "a",
       "text": "A kind man"
      },
@@ -352,10 +356,6 @@
      {
       "id": "c",
       "text": "A bird"
-     },
-     {
-      "id": "d",
-      "text": "A cloud"
      }
     ],
     "correctOptionIds": [

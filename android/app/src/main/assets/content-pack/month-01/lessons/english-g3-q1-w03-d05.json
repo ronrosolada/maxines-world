@@ -128,12 +128,12 @@
    "instruction": "Which is a sight word?",
    "content": {
     "options": [
-     "friend",
      "xylophone",
      "giraffe",
-     "avocado"
+     "avocado",
+     "friend"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What is a sight word?",
     "options": [
      {
+      "id": "d",
+      "text": "A made-up word"
+     },
+     {
       "id": "a",
       "text": "A word you read instantly"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "A word in another language"
-     },
-     {
-      "id": "d",
-      "text": "A made-up word"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which is a sight word?",
     "options": [
      {
-      "id": "a",
-      "text": "because"
-     },
-     {
-      "id": "b",
-      "text": "xylophone"
-     },
-     {
       "id": "c",
       "text": "giraffe"
      },
      {
       "id": "d",
       "text": "avocado"
+     },
+     {
+      "id": "a",
+      "text": "because"
+     },
+     {
+      "id": "b",
+      "text": "xylophone"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "How should we read sight words?",
     "options": [
      {
-      "id": "a",
-      "text": "Instantly"
-     },
-     {
       "id": "b",
       "text": "Very slowly"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "Only at night"
+     },
+     {
+      "id": "a",
+      "text": "Instantly"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What did Milo lay on the path?",
     "options": [
      {
+      "id": "d",
+      "text": "Rocks only"
+     },
+     {
       "id": "a",
       "text": "Word stones"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "Leaves"
-     },
-     {
-      "id": "d",
-      "text": "Rocks only"
      }
     ],
     "correctOptionIds": [

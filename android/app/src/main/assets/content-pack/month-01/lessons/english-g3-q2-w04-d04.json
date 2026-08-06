@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore? Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time.",
  "vocabulary": [
   {
    "term": "Milo reads.",
-   "definition": "a correct example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Where is the book?",
-   "definition": "a related example"
+   "definition": "A question sentence that ends with a question mark."
   },
   {
    "term": "Look out!",
-   "definition": "another example"
+   "definition": "An exclamation sentence that ends with an exclamation mark."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "instruction": "Learn this skill: Use a capital letter and correct end punctuation in a simple sentence. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time.",
+   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "prompt": "Learn this skill: Use a capital letter and correct end punctuation in a simple sentence. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor. Try the skill with a question during reading time."
   },
   {
    "activityId": "english-g3-q2-w04-d04-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Use a capital letter and correct end punctuation in a simple sentence.",
    "content": {
     "examples": [
      "Milo reads.",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Use a capital letter and correct end punctuation in a simple sentence.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Use a capital letter and correct end punctuation in a simple sentence.",
    "content": {
     "fits": [
      "Milo reads.",
@@ -98,10 +98,10 @@
      "We are ready."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "milo reads.",
+     "where is the book",
+     "look out",
+     "we are ready"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Use a capital letter and correct end punctuation in a simple sentence.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,13 +125,13 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which choice uses a capital letter and the correct end mark?",
    "content": {
     "options": [
      "Milo reads.",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "milo reads.",
+     "where is the book",
+     "look out"
     ],
     "correctIndex": 0
    },
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which choice uses a capital letter and the correct end mark?",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Use a capital letter and correct end punctuation in a simple sentence.",
    "content": {
     "pairs": [
      {
       "left": "Milo reads.",
-      "right": "a correct example"
+      "right": "telling sentence"
      },
      {
       "left": "Where is the book?",
-      "right": "a related example"
+      "right": "question sentence"
      },
      {
       "left": "Look out!",
-      "right": "another example"
+      "right": "exclamation sentence"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Use a capital letter and correct end punctuation in a simple sentence.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w04-d04-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Use a capital letter and correct end punctuation in a simple sentence.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Use a capital letter and correct end punctuation in a simple sentence.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q2-w04-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Sentence Polishing?",
+    "prompt": "Which choice uses a capital letter and the correct end mark?",
     "options": [
      {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "Milo reads."
      },
      {
+      "id": "b",
+      "text": "milo reads."
+     },
+     {
+      "id": "c",
+      "text": "where is the book"
+     },
+     {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "look out"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: Milo reads."
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q2-w04-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Sentence Polishing?",
+    "prompt": "Which choice uses a capital letter and the correct end mark?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
+      "id": "d",
+      "text": "look out"
      },
      {
-      "id": "b",
+      "id": "a",
       "text": "Where is the book?"
      },
      {
-      "id": "c",
-      "text": "a random symbol"
+      "id": "b",
+      "text": "milo reads."
      },
      {
-      "id": "d",
-      "text": "a detail not in the lesson"
+      "id": "c",
+      "text": "where is the book"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: Where is the book?"
    },
@@ -281,23 +281,23 @@
     "itemId": "english-g3-q2-w04-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Sentence Polishing?",
+    "prompt": "Which choice uses a capital letter and the correct end mark?",
     "options": [
+     {
+      "id": "c",
+      "text": "where is the book"
+     },
+     {
+      "id": "d",
+      "text": "look out"
+     },
      {
       "id": "a",
       "text": "Look out!"
      },
      {
       "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
-      "text": "a different topic"
-     },
-     {
-      "id": "d",
-      "text": "an unrelated guess"
+      "text": "milo reads."
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q2-w04-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Sentence Polishing?",
+    "prompt": "Which choice uses a capital letter and the correct end mark?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "milo reads."
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "where is the book"
      },
      {
       "id": "d",
+      "text": "look out"
+     },
+     {
+      "id": "a",
       "text": "We are ready."
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: We are ready."
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q2-w04-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Sentence Polishing?",
+    "prompt": "Which choice uses a capital letter and the correct end mark?",
     "options": [
      {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "Milo reads."
      },
      {
+      "id": "b",
+      "text": "milo reads."
+     },
+     {
+      "id": "c",
+      "text": "where is the book"
+     },
+     {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "look out"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: Milo reads."
    }

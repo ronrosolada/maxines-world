@@ -68,7 +68,7 @@
     "retry": "Buksan ang natitirang halimbawa."
    },
    "assetId": "araling-panlipunan-g3-m01-d02-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa para sa keyboard at screen reader."
+   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d02-a03",
@@ -106,11 +106,11 @@
    "instruction": "Kung ang A ay nasa itaas ng B at ang N ay pataas, nasaan ang A?",
    "content": {
     "options": [
-     "hilaga ng B",
      "timog ng B",
-     "kanluran ng B"
+     "kanluran ng B",
+     "hilaga ng B"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -118,10 +118,10 @@
    },
    "feedback": {
     "correct": "Tama: hilaga ng B",
-    "retry": "Basahin muli ang tuntunin ng aralin. timog ng B and kanluran ng B ay hindi angkop."
+    "retry": "Basahin muli ang tuntunin ng aralin. timog ng B at kanluran ng B ay hindi angkop."
    },
    "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d02-a05",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Bayan A ay hilaga ng Bayan B",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: Bayan A ay hilaga ng Bayan B"
      },
      {
       "left": "Ilog ay nasa pagitan ng dalawang bayan",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: Ilog ay nasa pagitan ng dalawang bayan"
      },
      {
       "left": "Baybayin ay silangan ayon sa compass",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: Baybayin ay silangan ayon sa compass"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Aling pahayag ang pinakaangkop sa “Where Is the Province?”?",
     "options": [
      {
-      "id": "a",
-      "text": "Ang direksiyon ay nakabatay sa orientation cue ng mapa."
-     },
-     {
       "id": "b",
       "text": "Walang compass ngunit tiyak ang hilaga"
      },
      {
       "id": "c",
       "text": "Gamitin ang sariling address"
+     },
+     {
+      "id": "a",
+      "text": "Ang direksiyon ay nakabatay sa orientation cue ng mapa."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "araling-panlipunan-g3-m01-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong halimbawa?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Where Is the Province?”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
     "options": [
      {
+      "id": "c",
+      "text": "Ilog ay nasa pagitan ng dalawang bayan"
+     },
+     {
       "id": "a",
       "text": "Walang compass ngunit tiyak ang hilaga"
      },
      {
       "id": "b",
       "text": "Bayan A ay hilaga ng Bayan B"
-     },
-     {
-      "id": "c",
-      "text": "Ilog ay nasa pagitan ng dalawang bayan"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Walang compass ngunit tiyak ang hilaga” dahil sumusunod ito sa paliwanag ng aralin: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    "explanation": "Ang tamang sagot ay “Walang compass ngunit tiyak ang hilaga” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d02-q04",
@@ -266,16 +266,16 @@
     "prompt": "Kung ang A ay nasa itaas ng B at ang N ay pataas, nasaan ang A?",
     "options": [
      {
-      "id": "a",
-      "text": "hilaga ng B"
-     },
-     {
       "id": "b",
       "text": "timog ng B"
      },
      {
       "id": "c",
       "text": "kanluran ng B"
+     },
+     {
+      "id": "a",
+      "text": "hilaga ng B"
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "araling-panlipunan-g3-m01-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Where Is the Province?”?",
     "options": [
      {
       "id": "a",
@@ -314,7 +314,7 @@
    "assetId": "araling-panlipunan-g3-m01-d02-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/araling-panlipunan-g3-m01-d02-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Where Is the Province?; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Where Is the Province?; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
    "contentDescription": "Five connected learning tokens for exploring examples in Where Is the Province?.",
    "decorative": false
   }
@@ -324,13 +324,13 @@
   {
    "sourceTitle": "DepEd MATATAG Curriculum resources",
    "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   },
   {
    "sourceTitle": "NAMRIA Map Awareness",
    "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],

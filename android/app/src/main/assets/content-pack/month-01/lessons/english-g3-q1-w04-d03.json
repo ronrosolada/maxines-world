@@ -128,12 +128,12 @@
    "instruction": "What is the MAIN IDEA?",
    "content": {
     "options": [
-     "Mangoes are sweet fruit",
-     "Dogs are furry",
      "The sky is blue",
-     "Shoes have laces"
+     "Shoes have laces",
+     "Mangoes are sweet fruit",
+     "Dogs are furry"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What is the main idea?",
     "options": [
      {
+      "id": "d",
+      "text": "The page number"
+     },
+     {
       "id": "a",
       "text": "What the text is mostly about"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "A color"
-     },
-     {
-      "id": "d",
-      "text": "The page number"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which is a detail about mangoes?",
     "options": [
      {
-      "id": "a",
-      "text": "They grow on trees"
-     },
-     {
-      "id": "b",
-      "text": "They bark"
-     },
-     {
       "id": "c",
       "text": "They swim"
      },
      {
       "id": "d",
       "text": "They fly"
+     },
+     {
+      "id": "a",
+      "text": "They grow on trees"
+     },
+     {
+      "id": "b",
+      "text": "They bark"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "What did Milo read about?",
     "options": [
      {
-      "id": "a",
-      "text": "Mangoes"
-     },
-     {
       "id": "b",
       "text": "Dogs"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "Clouds"
+     },
+     {
+      "id": "a",
+      "text": "Mangoes"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "Where did Milo read?",
     "options": [
      {
+      "id": "d",
+      "text": "In a cave"
+     },
+     {
       "id": "a",
       "text": "In the Reading Nook"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "On a roof"
-     },
-     {
-      "id": "d",
-      "text": "In a cave"
      }
     ],
     "correctOptionIds": [

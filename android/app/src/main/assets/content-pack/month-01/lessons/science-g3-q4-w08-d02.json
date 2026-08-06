@@ -1,377 +1,377 @@
 {
-  "lessonId": "science-g3-q4-w08-d02",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 14,
-  "day": 2,
-  "subject": "science",
-  "title": "Life Around Us · Q4 W08 D02",
-  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
-    },
-    {
-      "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
-    },
-    {
-      "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "science-g3-q4-w08-d02-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
-      "content": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
-      "narration": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow."
-    },
-    {
-      "activityId": "science-g3-q4-w08-d02-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Explore each example. a horse and a rose are living, but a key is not.",
-      "content": {
-        "examples": [
-          "a horse — living",
-          "a rose — living",
-          "a fish needs water to live",
-          "a key — non-living"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example. a horse and a rose are living, but a key is not.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q4-w08-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Sort the examples: a horse and a rose are living things.",
-      "content": {
-        "fits": [
-          "a horse — living",
-          "a rose — living",
-          "a fish needs water to live"
-        ],
-        "doesNotFit": [
-          "a key — non-living",
-          "a rock",
-          "water",
-          "a pencil"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort the examples: a horse and a rose are living things.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q4-w08-d02-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "content": {
-        "options": [
-          "a rock",
-          "a horse",
-          "water",
-          "a pencil"
-        ],
-        "correctIndex": 1
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q4-w08-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Match a horse, a rose, and a key with their groups.",
-      "content": {
-        "pairs": [
-          {
-            "left": "a horse",
-            "right": "living thing"
-          },
-          {
-            "left": "a key",
-            "right": "non-living thing"
-          },
-          {
-            "left": "a fish needs water to live",
-            "right": "a plant part"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match a horse, a rose, and a key with their groups.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q4-w08-d02-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "science-g3-q4-w08-d02-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "content": {
-        "steps": [
-          "Observe the example: a horse",
-          "Ask: does it grow?",
-          "Check what it needs",
-          "Sort it as living or not"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "science-g3-q4-w08-d02-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a rock"
-          },
-          {
-            "id": "b",
-            "text": "a horse"
-          },
-          {
-            "id": "c",
-            "text": "water"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: a horse"
-      },
-      {
-        "itemId": "science-g3-q4-w08-d02-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a horse"
-          },
-          {
-            "id": "b",
-            "text": "a key"
-          },
-          {
-            "id": "c",
-            "text": "a rose"
-          },
-          {
-            "id": "d",
-            "text": "a rock"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: a key"
-      },
-      {
-        "itemId": "science-g3-q4-w08-d02-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a battery"
-          },
-          {
-            "id": "b",
-            "text": "food and water"
-          },
-          {
-            "id": "c",
-            "text": "a plastic cover"
-          },
-          {
-            "id": "d",
-            "text": "a quiet shelf"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: food and water"
-      },
-      {
-        "itemId": "science-g3-q4-w08-d02-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What does a fish need to live?",
-        "options": [
-          {
-            "id": "a",
-            "text": "sand"
-          },
-          {
-            "id": "b",
-            "text": "water"
-          },
-          {
-            "id": "c",
-            "text": "a blanket"
-          },
-          {
-            "id": "d",
-            "text": "a toy"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: water"
-      },
-      {
-        "itemId": "science-g3-q4-w08-d02-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a key"
-          },
-          {
-            "id": "b",
-            "text": "a rose"
-          },
-          {
-            "id": "c",
-            "text": "water"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The best answer is: a rose"
-      }
-    ]
+ "lessonId": "science-g3-q4-w08-d02",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 14,
+ "day": 2,
+ "subject": "science",
+ "title": "Life Around Us · Q4 W08 D02",
+ "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "living thing",
+   "definition": "something that grows, needs food and water, and can respond"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "non-living thing",
+   "definition": "something that does not grow or need food and water"
+  },
+  {
+   "term": "basic need",
+   "definition": "something a living thing must have to live, like food and water"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "science-g3-q4-w08-d02-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+   "content": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+   "narration": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "a horse is a living thing: it grows and needs food and water. a key is non-living, so it does not grow."
+  },
+  {
+   "activityId": "science-g3-q4-w08-d02-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Explore each example. a horse and a rose are living, but a key is not.",
+   "content": {
+    "examples": [
+     "a horse — living",
+     "a rose — living",
+     "a fish needs water to live",
+     "a key — non-living"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Explore each example. a horse and a rose are living, but a key is not.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "science-g3-q4-w08-d02-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Sort the examples: a horse and a rose are living things.",
+   "content": {
+    "fits": [
+     "a horse — living",
+     "a rose — living",
+     "a fish needs water to live"
+    ],
+    "doesNotFit": [
+     "a key — non-living",
+     "a rock",
+     "water",
+     "a pencil"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort the examples: a horse and a rose are living things.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q4-w08-d02-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "content": {
+    "options": [
+     "a horse",
+     "water",
+     "a pencil",
+     "a rock"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q4-w08-d02-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Match a horse, a rose, and a key with their groups.",
+   "content": {
+    "pairs": [
+     {
+      "left": "a horse",
+      "right": "evidence from the example: a horse"
+     },
+     {
+      "left": "a key",
+      "right": "evidence from the example: a key"
+     },
+     {
+      "left": "a fish needs water to live",
+      "right": "evidence from the example: a fish needs water to live"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match a horse, a rose, and a key with their groups.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q4-w08-d02-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "science-g3-q4-w08-d02-visual",
+   "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "content": {
+    "steps": [
+     "Observe the example: a horse",
+     "Ask: does it grow?",
+     "Check what it needs",
+     "Sort it as living or not"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "science-g3-q4-w08-d02-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is a living thing?",
+    "options": [
+     {
+      "id": "b",
+      "text": "a horse"
+     },
+     {
+      "id": "c",
+      "text": "water"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     },
+     {
+      "id": "a",
+      "text": "a rock"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: a horse"
+   },
+   {
+    "itemId": "science-g3-q4-w08-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is NOT a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a horse"
+     },
+     {
+      "id": "b",
+      "text": "a key"
+     },
+     {
+      "id": "c",
+      "text": "a rose"
+     },
+     {
+      "id": "d",
+      "text": "a rock"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The correct response is “a key” because it does not follow the lesson skill. The other choices show the skill."
+   },
+   {
+    "itemId": "science-g3-q4-w08-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What do all living things need to grow?",
+    "options": [
+     {
+      "id": "d",
+      "text": "a quiet shelf"
+     },
+     {
+      "id": "a",
+      "text": "a battery"
+     },
+     {
+      "id": "b",
+      "text": "food and water"
+     },
+     {
+      "id": "c",
+      "text": "a plastic cover"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: food and water"
+   },
+   {
+    "itemId": "science-g3-q4-w08-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What does a fish need to live?",
+    "options": [
+     {
+      "id": "c",
+      "text": "a blanket"
+     },
+     {
+      "id": "d",
+      "text": "a toy"
+     },
+     {
+      "id": "a",
+      "text": "sand"
+     },
+     {
+      "id": "b",
+      "text": "water"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: water"
+   },
+   {
+    "itemId": "science-g3-q4-w08-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example shows a living thing?",
+    "options": [
+     {
+      "id": "b",
+      "text": "a rose"
+     },
+     {
+      "id": "c",
+      "text": "water"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     },
+     {
+      "id": "a",
+      "text": "a key"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: a rose"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

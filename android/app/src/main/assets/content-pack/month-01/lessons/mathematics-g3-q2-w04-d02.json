@@ -36,7 +36,7 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
+   "instruction": "Learn this skill: Subtract numbers below 10,000 with or without regrouping.",
    "content": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "completionRule": {
     "type": "COMPLETE"
@@ -45,7 +45,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
+   "prompt": "Learn this skill: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Subtract numbers below 10,000 with or without regrouping.",
    "content": {
     "examples": [
      "458 − 123 = 335",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Subtract numbers below 10,000 with or without regrouping.",
    "content": {
     "fits": [
      "458 − 123 = 335",
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Choose the answer that best shows this skill: Subtract numbers below 10,000 with or without regrouping.",
    "content": {
     "options": [
-     "multiply the numbers",
-     "compare without finding a difference",
      "458 − 123 = 335",
-     "add the numbers"
+     "add the numbers",
+     "multiply the numbers",
+     "compare without finding a difference"
     ],
-    "correctIndex": 2
+    "correctIndex": 0
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Choose the answer that best shows this skill: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,7 +155,7 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Subtract numbers below 10,000 with or without regrouping.",
    "content": {
     "pairs": [
      {
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,13 +192,13 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "mathematics-g3-q2-w04-d02-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Subtract numbers below 10,000 with or without regrouping.",
    "content": {
     "steps": [
-     "Read the question",
-     "Choose the operation or model",
-     "Solve carefully",
-     "Check whether the answer makes sense"
+     "Read the math question about subtract numbers below 10,000 with or without regrouping.",
+     "Choose the operation or model that matches the problem",
+     "Solve carefully using the given numbers",
+     "Check that the answer matches the question"
     ]
    },
    "completionRule": {
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Subtract numbers below 10,000 with or without regrouping.",
    "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,16 +225,8 @@
     "itemId": "mathematics-g3-q2-w04-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Take-Away Trail?",
+    "prompt": "Which example best shows this skill: Subtract numbers below 10,000 with or without regrouping?",
     "options": [
-     {
-      "id": "a",
-      "text": "multiply the numbers"
-     },
-     {
-      "id": "b",
-      "text": "compare without finding a difference"
-     },
      {
       "id": "c",
       "text": "458 − 123 = 335"
@@ -242,6 +234,14 @@
      {
       "id": "d",
       "text": "add the numbers"
+     },
+     {
+      "id": "a",
+      "text": "multiply the numbers"
+     },
+     {
+      "id": "b",
+      "text": "compare without finding a difference"
      }
     ],
     "correctOptionIds": [
@@ -253,7 +253,7 @@
     "itemId": "mathematics-g3-q2-w04-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Take-Away Trail?",
+    "prompt": "Which choice applies this skill: Subtract numbers below 10,000 with or without regrouping?",
     "options": [
      {
       "id": "a",
@@ -281,16 +281,8 @@
     "itemId": "mathematics-g3-q2-w04-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Take-Away Trail?",
+    "prompt": "Which situation shows this skill: Subtract numbers below 10,000 with or without regrouping?",
     "options": [
-     {
-      "id": "a",
-      "text": "regroup one hundred as ten tens"
-     },
-     {
-      "id": "b",
-      "text": "compare without finding a difference"
-     },
      {
       "id": "c",
       "text": "write the starting number as the answer"
@@ -298,6 +290,14 @@
      {
       "id": "d",
       "text": "add the numbers"
+     },
+     {
+      "id": "a",
+      "text": "regroup one hundred as ten tens"
+     },
+     {
+      "id": "b",
+      "text": "compare without finding a difference"
      }
     ],
     "correctOptionIds": [
@@ -309,7 +309,7 @@
     "itemId": "mathematics-g3-q2-w04-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Take-Away Trail?",
+    "prompt": "Which answer best uses this skill: Subtract numbers below 10,000 with or without regrouping?",
     "options": [
      {
       "id": "a",
@@ -337,16 +337,8 @@
     "itemId": "mathematics-g3-q2-w04-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Take-Away Trail?",
+    "prompt": "Which example gives evidence of this skill: Subtract numbers below 10,000 with or without regrouping?",
     "options": [
-     {
-      "id": "a",
-      "text": "multiply the numbers"
-     },
-     {
-      "id": "b",
-      "text": "compare without finding a difference"
-     },
      {
       "id": "c",
       "text": "458 − 123 = 335"
@@ -354,6 +346,14 @@
      {
       "id": "d",
       "text": "add the numbers"
+     },
+     {
+      "id": "a",
+      "text": "multiply the numbers"
+     },
+     {
+      "id": "b",
+      "text": "compare without finding a difference"
      }
     ],
     "correctOptionIds": [

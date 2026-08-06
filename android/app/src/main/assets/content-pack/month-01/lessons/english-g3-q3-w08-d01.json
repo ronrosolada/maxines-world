@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q3-w08-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 10,
-  "day": 1,
-  "subject": "english",
-  "title": "Word Explorer · Q3 W08 D01",
-  "objective": "Use high-frequency and content-specific words in context.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Context clues and the topic help readers understand and use new words accurately. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "bright",
-      "definition": "full of light or very smart"
-    },
-    {
-      "term": "careful",
-      "definition": "giving attention so nothing gets hurt"
-    },
-    {
-      "term": "honest",
-      "definition": "telling the truth"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q3-w08-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Study the idea and listen to Milo.",
-      "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Study the idea and listen to Milo.",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
-    },
-    {
-      "activityId": "english-g3-q3-w08-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Explore each example and find the important detail.",
-      "content": {
-        "examples": [
-          "The sun is bright this morning.",
-          "Be careful when you carry the glass.",
-          "An honest child returns the lost wallet.",
-          "The strong man lifted the heavy sack."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example and find the important detail.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-    },
-    {
-      "activityId": "english-g3-q3-w08-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Sort each example into the correct group.",
-      "content": {
-        "fits": [
-          "The sun is bright this morning.",
-          "Be careful when you carry the glass.",
-          "An honest child returns the lost wallet.",
-          "The strong man lifted the heavy sack."
-        ],
-        "doesNotFit": [
-          "The market is busy on Sunday.",
-          "The cheerful girl sings on her way to school.",
-          "The well is very deep.",
-          "The pillow is soft and fluffy."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each example into the correct group.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-    },
-    {
-      "activityId": "english-g3-q3-w08-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Choose the best answer.",
-      "content": {
-        "options": [
-          "The sun is bright this morning.",
-          "The market is busy on Sunday.",
-          "The cheerful girl sings on her way to school.",
-          "The well is very deep."
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-    },
-    {
-      "activityId": "english-g3-q3-w08-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Match the ideas that belong together.",
-      "content": {
-        "pairs": [
-          {
-            "left": "bright",
-            "right": "full of light or very smart"
-          },
-          {
-            "left": "careful",
-            "right": "giving attention so nothing gets hurt"
-          },
-          {
-            "left": "honest",
-            "right": "telling the truth"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match the ideas that belong together.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-    },
-    {
-      "activityId": "english-g3-q3-w08-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Put the steps in the correct order.",
-      "content": {
-        "steps": [
-          "Read the sentence",
-          "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in the correct order.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q3-w08-d01-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'bright' mean?",
-        "options": [
-          {
-            "id": "a",
-            "text": "full of light or very smart"
-          },
-          {
-            "id": "b",
-            "text": "giving attention so nothing gets hurt"
-          },
-          {
-            "id": "c",
-            "text": "telling the truth"
-          },
-          {
-            "id": "d",
-            "text": "having power or force"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: full of light or very smart"
-      },
-      {
-        "itemId": "english-g3-q3-w08-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'giving attention so nothing gets hurt'?",
-        "options": [
-          {
-            "id": "a",
-            "text": "careful"
-          },
-          {
-            "id": "b",
-            "text": "bright"
-          },
-          {
-            "id": "c",
-            "text": "honest"
-          },
-          {
-            "id": "d",
-            "text": "strong"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: careful"
-      },
-      {
-        "itemId": "english-g3-q3-w08-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'honest'?",
-        "options": [
-          {
-            "id": "a",
-            "text": "An honest child returns the lost wallet."
-          },
-          {
-            "id": "b",
-            "text": "The sun is bright this morning."
-          },
-          {
-            "id": "c",
-            "text": "Be careful when you carry the glass."
-          },
-          {
-            "id": "d",
-            "text": "The strong man lifted the heavy sack."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: An honest child returns the lost wallet."
-      },
-      {
-        "itemId": "english-g3-q3-w08-d01-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'The ___ light hurt my eyes.'",
-        "options": [
-          {
-            "id": "a",
-            "text": "bright"
-          },
-          {
-            "id": "b",
-            "text": "careful"
-          },
-          {
-            "id": "c",
-            "text": "honest"
-          },
-          {
-            "id": "d",
-            "text": "strong"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: bright"
-      },
-      {
-        "itemId": "english-g3-q3-w08-d01-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'having power or force'.",
-        "options": [
-          {
-            "id": "a",
-            "text": "strong"
-          },
-          {
-            "id": "b",
-            "text": "bright"
-          },
-          {
-            "id": "c",
-            "text": "careful"
-          },
-          {
-            "id": "d",
-            "text": "honest"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: strong"
-      }
-    ]
+ "lessonId": "english-g3-q3-w08-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 10,
+ "day": 1,
+ "subject": "english",
+ "title": "Word Explorer · Q3 W08 D01",
+ "objective": "Use high-frequency and content-specific words in context.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Context clues and the topic help readers understand and use new words accurately. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "bright",
+   "definition": "full of light or very smart"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "careful",
+   "definition": "giving attention so nothing gets hurt"
+  },
+  {
+   "term": "honest",
+   "definition": "telling the truth"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q3-w08-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Learn this skill: Use high-frequency and content-specific words in context.",
+   "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
+   "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+  },
+  {
+   "activityId": "english-g3-q3-w08-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
+   "content": {
+    "examples": [
+     "The sun is bright this morning.",
+     "Be careful when you carry the glass.",
+     "An honest child returns the lost wallet.",
+     "The strong man lifted the heavy sack."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q3-w08-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
+   "content": {
+    "fits": [
+     "The sun is bright this morning.",
+     "Be careful when you carry the glass.",
+     "An honest child returns the lost wallet.",
+     "The strong man lifted the heavy sack."
+    ],
+    "doesNotFit": [
+     "The market is busy on Sunday.",
+     "The cheerful girl sings on her way to school.",
+     "The well is very deep.",
+     "The pillow is soft and fluffy."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+  },
+  {
+   "activityId": "english-g3-q3-w08-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Choose the answer that best shows this skill: Use high-frequency and content-specific words in context.",
+   "content": {
+    "options": [
+     "The cheerful girl sings on her way to school.",
+     "The well is very deep.",
+     "The sun is bright this morning.",
+     "The market is busy on Sunday."
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Use high-frequency and content-specific words in context.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+  },
+  {
+   "activityId": "english-g3-q3-w08-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Match each example to the idea it shows about: Use high-frequency and content-specific words in context.",
+   "content": {
+    "pairs": [
+     {
+      "left": "bright",
+      "right": "full of light or very smart"
+     },
+     {
+      "left": "careful",
+      "right": "giving attention so nothing gets hurt"
+     },
+     {
+      "left": "honest",
+      "right": "telling the truth"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match each example to the idea it shows about: Use high-frequency and content-specific words in context.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+  },
+  {
+   "activityId": "english-g3-q3-w08-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w08-d01-visual",
+   "instruction": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
+   "content": {
+    "steps": [
+     "Read the sentence",
+     "Find the new word",
+     "Look for clues",
+     "Choose the meaning"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
+   "narration": "Context clues and the topic help readers understand and use new words accurately.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q3-w08-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What does 'bright' mean?",
+    "options": [
+     {
+      "id": "c",
+      "text": "telling the truth"
+     },
+     {
+      "id": "d",
+      "text": "having power or force"
+     },
+     {
+      "id": "a",
+      "text": "full of light or very smart"
+     },
+     {
+      "id": "b",
+      "text": "giving attention so nothing gets hurt"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: full of light or very smart"
+   },
+   {
+    "itemId": "english-g3-q3-w08-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which word means 'giving attention so nothing gets hurt'?",
+    "options": [
+     {
+      "id": "b",
+      "text": "bright"
+     },
+     {
+      "id": "c",
+      "text": "honest"
+     },
+     {
+      "id": "d",
+      "text": "strong"
+     },
+     {
+      "id": "a",
+      "text": "careful"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: careful"
+   },
+   {
+    "itemId": "english-g3-q3-w08-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence uses the word 'honest'?",
+    "options": [
+     {
+      "id": "a",
+      "text": "An honest child returns the lost wallet."
+     },
+     {
+      "id": "b",
+      "text": "The sun is bright this morning."
+     },
+     {
+      "id": "c",
+      "text": "Be careful when you carry the glass."
+     },
+     {
+      "id": "d",
+      "text": "The strong man lifted the heavy sack."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: An honest child returns the lost wallet."
+   },
+   {
+    "itemId": "english-g3-q3-w08-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which word fits in this sentence: 'The ___ light hurt my eyes.'",
+    "options": [
+     {
+      "id": "d",
+      "text": "strong"
+     },
+     {
+      "id": "a",
+      "text": "bright"
+     },
+     {
+      "id": "b",
+      "text": "careful"
+     },
+     {
+      "id": "c",
+      "text": "honest"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: bright"
+   },
+   {
+    "itemId": "english-g3-q3-w08-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Find the word that means 'having power or force'.",
+    "options": [
+     {
+      "id": "c",
+      "text": "careful"
+     },
+     {
+      "id": "d",
+      "text": "honest"
+     },
+     {
+      "id": "a",
+      "text": "strong"
+     },
+     {
+      "id": "b",
+      "text": "bright"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: strong"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

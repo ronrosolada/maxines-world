@@ -128,12 +128,12 @@
    "instruction": "Which word starts with the 'gr' blend?",
    "content": {
     "options": [
+     "tree",
      "grapes",
      "star",
-     "blue",
-     "tree"
+     "blue"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "Which word starts with bl?",
     "options": [
      {
+      "id": "d",
+      "text": "clock"
+     },
+     {
       "id": "a",
       "text": "blue"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "tree"
-     },
-     {
-      "id": "d",
-      "text": "clock"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which word starts with st?",
     "options": [
      {
-      "id": "a",
-      "text": "star"
-     },
-     {
-      "id": "b",
-      "text": "grapes"
-     },
-     {
       "id": "c",
       "text": "blue"
      },
      {
       "id": "d",
       "text": "clock"
+     },
+     {
+      "id": "a",
+      "text": "star"
+     },
+     {
+      "id": "b",
+      "text": "grapes"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "What is a blend?",
     "options": [
      {
-      "id": "a",
-      "text": "Two consonants together"
-     },
-     {
       "id": "b",
       "text": "One vowel"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "A shape"
+     },
+     {
+      "id": "a",
+      "text": "Two consonants together"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What did Milo do with the letters?",
     "options": [
      {
+      "id": "d",
+      "text": "Burned them"
+     },
+     {
       "id": "a",
       "text": "Blended them"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "Hid them"
-     },
-     {
-      "id": "d",
-      "text": "Burned them"
      }
     ],
     "correctOptionIds": [

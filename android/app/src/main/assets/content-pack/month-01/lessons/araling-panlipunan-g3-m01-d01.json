@@ -68,7 +68,7 @@
     "retry": "Buksan ang natitirang halimbawa."
    },
    "assetId": "araling-panlipunan-g3-m01-d01-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa para sa keyboard at screen reader."
+   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d01-a03",
@@ -106,11 +106,11 @@
    "instruction": "Saan titingin upang malaman ang kahulugan ng simbolo?",
    "content": {
     "options": [
+     "sa pangalan ng bata",
      "sa legend",
-     "sa laki ng screen",
-     "sa pangalan ng bata"
+     "sa laki ng screen"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -118,10 +118,10 @@
    },
    "feedback": {
     "correct": "Tama: sa legend",
-    "retry": "Basahin muli ang tuntunin ng aralin. sa laki ng screen and sa pangalan ng bata ay hindi angkop."
+    "retry": "Basahin muli ang tuntunin ng aralin. sa laki ng screen at sa pangalan ng bata ay hindi angkop."
    },
    "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d01-a05",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "asul na guhit—ilog ayon sa legend",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "ilog na ipinakikita ng legend"
      },
      {
       "left": "bituin—paaralan ayon sa legend",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "paaralang ipinakikita ng legend"
      },
      {
       "left": "N—hilaga",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "hilaga"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Aling pahayag ang pinakaangkop sa “Map Symbols Detective”?",
     "options": [
      {
+      "id": "c",
+      "text": "Ibahagi ang eksaktong tirahan"
+     },
+     {
       "id": "a",
       "text": "Ang mapa ay dapat may pamagat, legend, palatandaan ng direksiyon, at malinaw na label; maaaring magkaiba ang simbolo sa ibang mapa."
      },
      {
       "id": "b",
       "text": "Hulaan ang simbolo nang di binabasa ang legend"
-     },
-     {
-      "id": "c",
-      "text": "Ibahagi ang eksaktong tirahan"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "araling-panlipunan-g3-m01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong halimbawa?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Map Symbols Detective”?",
     "options": [
-     {
-      "id": "a",
-      "text": "asul na guhit—ilog ayon sa legend"
-     },
      {
       "id": "b",
       "text": "Hulaan ang simbolo nang di binabasa ang legend"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "Ibahagi ang eksaktong tirahan"
+     },
+     {
+      "id": "a",
+      "text": "asul na guhit—ilog ayon sa legend"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Hulaan ang simbolo nang di binabasa ang legend” dahil sumusunod ito sa paliwanag ng aralin: Ang mapa ay dapat may pamagat, legend, palatandaan ng direksiyon, at malinaw na label; maaaring magkaiba ang simbolo sa ibang mapa."
+    "explanation": "Ang tamang sagot ay “Hulaan ang simbolo nang di binabasa ang legend” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d01-q04",
@@ -266,16 +266,16 @@
     "prompt": "Saan titingin upang malaman ang kahulugan ng simbolo?",
     "options": [
      {
+      "id": "c",
+      "text": "sa pangalan ng bata"
+     },
+     {
       "id": "a",
       "text": "sa legend"
      },
      {
       "id": "b",
       "text": "sa laki ng screen"
-     },
-     {
-      "id": "c",
-      "text": "sa pangalan ng bata"
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "araling-panlipunan-g3-m01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Map Symbols Detective”?",
     "options": [
-     {
-      "id": "a",
-      "text": "N—hilaga"
-     },
      {
       "id": "b",
       "text": "Ipagpalagay na pareho lahat ng simbolo"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "Hulaan ang simbolo nang di binabasa ang legend"
+     },
+     {
+      "id": "a",
+      "text": "N—hilaga"
      }
     ],
     "correctOptionIds": [
@@ -314,7 +314,7 @@
    "assetId": "araling-panlipunan-g3-m01-d01-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/araling-panlipunan-g3-m01-d01-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Map Symbols Detective; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Map Symbols Detective; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
    "contentDescription": "Five connected learning tokens for exploring examples in Map Symbols Detective.",
    "decorative": false
   }
@@ -324,13 +324,13 @@
   {
    "sourceTitle": "DepEd MATATAG Curriculum resources",
    "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   },
   {
    "sourceTitle": "NAMRIA Map Awareness",
    "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],

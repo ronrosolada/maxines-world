@@ -68,7 +68,7 @@
     "retry": "Buksan ang natitirang halimbawa."
    },
    "assetId": "filipino-g3-m01-d06-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa para sa keyboard at screen reader."
+   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
   },
   {
    "activityId": "filipino-g3-m01-d06-a03",
@@ -118,10 +118,10 @@
    },
    "feedback": {
     "correct": "Tama: Basahin o pakinggan ang buong panuto.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Gawin agad ang huling hakbang. and Isara ang gawain. ay hindi angkop."
+    "retry": "Basahin muli ang tuntunin ng aralin. Gawin agad ang huling hakbang. at Isara ang gawain. ay hindi angkop."
    },
    "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
   },
   {
    "activityId": "filipino-g3-m01-d06-a05",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Una: kunin ang papel.",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "unang hakbang"
      },
      {
       "left": "Ikalawa: gumuhit ng bilog.",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "ikalawang hakbang"
      },
      {
       "left": "Huli: kulayan ang bilog.",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "huling hakbang"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "filipino-g3-m01-d06-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong halimbawa?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Sundin ang Panuto”?",
     "options": [
+     {
+      "id": "c",
+      "text": "Laktawan ang hakbang nang walang dahilan"
+     },
      {
       "id": "a",
       "text": "Una: kunin ang papel."
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "Unahin ang huling hakbang"
-     },
-     {
-      "id": "c",
-      "text": "Laktawan ang hakbang nang walang dahilan"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
     "options": [
      {
-      "id": "a",
-      "text": "Unahin ang huling hakbang"
-     },
-     {
       "id": "b",
       "text": "Una: kunin ang papel."
      },
      {
       "id": "c",
       "text": "Ikalawa: gumuhit ng bilog."
+     },
+     {
+      "id": "a",
+      "text": "Unahin ang huling hakbang"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Unahin ang huling hakbang” dahil sumusunod ito sa paliwanag ng aralin: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
+    "explanation": "Ang tamang sagot ay “Unahin ang huling hakbang” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
    },
    {
     "itemId": "filipino-g3-m01-d06-q04",
@@ -287,8 +287,12 @@
     "itemId": "filipino-g3-m01-d06-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Sundin ang Panuto”?",
     "options": [
+     {
+      "id": "c",
+      "text": "Unahin ang huling hakbang"
+     },
      {
       "id": "a",
       "text": "Huli: kulayan ang bilog."
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Hulaan ang panuto"
-     },
-     {
-      "id": "c",
-      "text": "Unahin ang huling hakbang"
      }
     ],
     "correctOptionIds": [
@@ -314,7 +314,7 @@
    "assetId": "filipino-g3-m01-d06-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/filipino-g3-m01-d06-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Sundin ang Panuto; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Sundin ang Panuto; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
    "contentDescription": "Five connected learning tokens for exploring examples in Sundin ang Panuto.",
    "decorative": false
   }
@@ -322,9 +322,9 @@
  "safetyNotes": [],
  "sourceRecords": [
   {
-   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+   "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
    "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],
