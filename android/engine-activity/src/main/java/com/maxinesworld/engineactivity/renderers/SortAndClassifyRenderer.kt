@@ -152,7 +152,8 @@ fun SortAndClassifyRenderer(
                         if (attempts >= 3) {
                             onResult(ActivityResult(step.id, false, attempts, 0, System.currentTimeMillis() - startTime))
                         } else {
-                            classified = mutableMapOf(); submitted = false
+                            classified = retainCorrectSortPlacements(classified, correctMapping)
+                            submitted = false
                         }
                     }
                     !submitted && classified.size == items.size -> {
@@ -182,3 +183,12 @@ fun SortAndClassifyRenderer(
         }
     }
 }
+
+/** Keep correct placements visible when a learner retries an imperfect sort. */
+internal fun retainCorrectSortPlacements(
+    classified: Map<Int, Int>,
+    correctMapping: Map<Int, Int>,
+): MutableMap<Int, Int> =
+    classified.filterTo(mutableMapOf()) { (itemIndex, categoryIndex) ->
+        correctMapping[itemIndex] == categoryIndex
+    }

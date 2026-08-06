@@ -82,6 +82,22 @@ class ActivityStepConversionTest {
     }
 
     @Test
+    fun `sort prompt uses the same vocabulary as its category labels`() {
+        val step = toActivityStep(
+            activity(
+                "SORT_AND_CLASSIFY",
+                """{"fits":["f1"],"doesNotFit":["d1"]}""",
+                instruction = "Sort each card into “shows the skill” or “does not show the skill.”"
+            )
+        )
+
+        assertEquals("Sort each card into “Fits” or “Does not fit.”", step.question)
+        assertEquals(step.question, step.narrationText)
+        assertTrue(step.question.contains(step.sortCategories[0]))
+        assertTrue(step.question.contains(step.sortCategories[1]))
+    }
+
+    @Test
     fun `sort shuffle is stable for the same activity id`() {
         val json = """{"fits":["f1","f2","f3"],"doesNotFit":["d1","d2","d3"]}"""
         val a = toActivityStep(activity("SORT_AND_CLASSIFY", json, id = "same-id"))

@@ -9,6 +9,7 @@ import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
 import com.maxinesworld.engineactivity.renderers.lessonVisualAssetId
 import com.maxinesworld.engineactivity.renderers.matchingTargetLabel
 import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
+import com.maxinesworld.engineactivity.renderers.retainCorrectSortPlacements
 import org.junit.Assert.assertEquals
 import androidx.compose.ui.unit.dp
 import org.junit.Assert.assertTrue
@@ -51,6 +52,16 @@ class RendererContractTest {
         assertEquals(2, step.sortCategories.size)
         assertEquals(3, mapping.values.count { it == 0 })
         assertEquals(3, mapping.values.count { it == 1 })
+    }
+
+    @Test
+    fun `retry keeps correct sort placements and clears incorrect ones`() {
+        val retained = retainCorrectSortPlacements(
+            classified = mapOf(0 to 0, 1 to 1, 2 to 0),
+            correctMapping = mapOf(0 to 0, 1 to 0, 2 to 0),
+        )
+
+        assertEquals(mapOf(0 to 0, 2 to 0), retained)
     }
 
     @Test
