@@ -119,7 +119,7 @@ jobs:
         run: PYTHONPATH=android:android/tools python3 -m unittest discover -s android/tools -p 'test_*.py' -v
 
   content-educator:
-    name: Educator approval metadata
+    name: Educator approval metadata consistency
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -138,8 +138,8 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: android
 
-      - name: Verify educator approval metadata
-        run: ./gradlew :app:verifyPlayableContent --stacktrace
+      - name: Verify educator approval metadata (drafts allowed on PR)
+        run: ./gradlew :app:verifyPlayableContent -PallowUnreviewedContent=true --stacktrace
         working-directory: android
 
   workflow-lint:

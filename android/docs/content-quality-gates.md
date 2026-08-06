@@ -7,12 +7,12 @@ or assets.
 ## Baseline snapshot
 
 `tools/content_pack_baseline.json` records the approved Month 01 shape at the
-pinned Phase 0 commit:
+baseline commit before the Filipino Q1 extension:
 
-- 349 lesson files
+- 358 lesson files (349 existing lessons plus 9 new Filipino Q1 lessons; 6 overlapping IDs were retained)
 - six activities per lesson in canonical renderer order
 - five assessment items per lesson
-- `passingCorrectCount=4`
+- `passingCorrectCount` is an authored threshold of `3` or `4`
 
 A deliberate corpus or shape change must update the snapshot in the same
 change as the content and explain why. The validator will reject silent count
@@ -34,8 +34,11 @@ the Phase 0 pack this currently exposes 315 assessment items missing an
 explicit `type` field. That cleanup is deliberately not hidden by this
  tooling-only change.
 
-`--require-released` is the explicit educator-approval policy check. The
-release metadata gate remains separate from schema and semantic checks.
+`--require-released` is the explicit educator-approval policy check. The PR
+metadata task runs `:app:verifyPlayableContent -PallowUnreviewedContent=true`
+so new lessons may remain explicitly review-gated while their schema and
+semantics are validated. The tag-based release workflow omits that property
+and therefore still requires every playable lesson to be educator-approved.
 
 ## Failure-safe staging
 
@@ -57,7 +60,7 @@ Pull requests run separate checks for:
 - schema and declared vector-asset references;
 - semantic audit and near-duplicate reporting;
 - Python content-tooling regression tests;
-- educator approval metadata; and
+- educator approval metadata consistency (review-gated drafts allowed on PRs); and
 - GitHub Actions workflow syntax via the versioned `rhysd/actionlint` Docker image.
 
 The semantic audit is report-only until the existing baseline findings have

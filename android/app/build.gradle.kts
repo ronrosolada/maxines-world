@@ -145,39 +145,66 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit4)
 }
 
-// ─── Release gate: no unreviewed lesson may ship ─────────────────────────
-// Fails the build if any playable lesson in the bundled pack is not
+// ─── Educator metadata gate ────────────────────────────────────────────────
+// By default, fails if any playable lesson in the bundled pack is not
 // educator-approved (educatorValidated=true AND releaseStatus=RELEASED).
+// PR CI may explicitly allow review-gated drafts so content can be validated
+// before human approval. The tag-based release workflow never sets this flag.
 // Approval is performed deliberately via tools/mark_lessons_reviewed.py
-// after a human curriculum review — the gate exists so a release can never
-// accidentally ship draft curriculum to a child.
+// after a human curriculum review — the strict release gate exists so a
+// release can never accidentally ship draft curriculum to a child.
+val allowUnreviewedContent = providers.gradleProperty("allowUnreviewedContent")
+    .map { it.toBoolean() }
+    .orElse(false)
+
 val verifyPlayableContent by tasks.registering {
     group = "verification"
-    description = "Fail if any playable lesson is not educator-reviewed"
+    description = "Validate educator metadata and enforce release approval"
     val packDir = project.layout.projectDirectory.dir("src/main/assets/content-pack/month-01/lessons")
     doLast {
         val slurper = groovy.json.JsonSlurper()
         var total = 0
         var unreviewed = 0
         val bad = mutableListOf<String>()
+        val invalidMetadata = mutableListOf<String>()
         packDir.asFileTree.matching { include("*.json") }.forEach { file ->
             total++
             @Suppress("UNCHECKED_CAST")
             val lesson = slurper.parse(file) as Map<String, Any?>
             val validated = lesson["educatorValidated"] as? Boolean ?: false
-            val released = lesson["releaseStatus"] == "RELEASED"
+            val releaseStatus = lesson["releaseStatus"] as? String
+            val released = validated && releaseStatus == "RELEASED"
+            val metadataConsistent = released ||
+                (!validated && releaseStatus == "REQUIRES_EDUCATOR_REVIEW")
+            if (!metadataConsistent) {
+                invalidMetadata += file.name
+            }
             if (!(validated && released)) {
                 unreviewed++
                 bad += file.name
             }
         }
-        if (unreviewed > 0) {
+        if (invalidMetadata.isNotEmpty()) {
+            throw GradleException(
+                "Educator metadata INVALID for ${invalidMetadata.size}/$total lessons " +
+                    "(e.g. ${invalidMetadata.take(5)}). Use educatorValidated=false " +
+                    "with REQUIRES_EDUCATOR_REVIEW, or educatorValidated=true with RELEASED."
+            )
+        }
+        if (unreviewed > 0 && !allowUnreviewedContent.get()) {
             throw GradleException(
                 "Release gate FAILED: $unreviewed/$total playable lessons are not " +
                     "educator-reviewed (e.g. ${bad.take(5)}). " +
                     "Run tools/mark_lessons_reviewed.py after a human curriculum review."
             )
         }
-        println("Release gate OK: $total playable lessons are educator-reviewed.")
+        if (unreviewed > 0) {
+            println(
+                "Educator metadata OK: $total playable lessons parsed; " +
+                    "$unreviewed remain explicitly gated for human review."
+            )
+        } else {
+            println("Release gate OK: $total playable lessons are educator-reviewed.")
+        }
     }
 }
