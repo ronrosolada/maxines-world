@@ -22,6 +22,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -32,6 +34,7 @@ import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.engineactivity.renderers.ActivityRenderer
+import com.maxinesworld.engineactivity.renderers.LessonVisual
 import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
@@ -134,6 +137,10 @@ fun LessonPlayerScreen(
                         }
                     }
                 }
+                state.assessmentFailed -> AssessmentRetryCard(
+                    language = state.lesson?.languageOfInstruction,
+                    onRetry = viewModel::retryAssessment,
+                )
                 else -> LessonContent(state, viewModel)
             }
         }
@@ -154,8 +161,22 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         .firstOrNull { it.type == "ANIMATED_EXPLANATION_V1" }?.narrationText
         ?.takeIf { it.isNotBlank() }
     var showReview by remember { mutableStateOf(false) }
+    var feedbackHeightPx by remember { mutableIntStateOf(0) }
+    val density = LocalDensity.current
+    val feedbackBottomPadding = if (state.showFeedback && feedbackHeightPx > 0) {
+        with(density) { feedbackHeightPx.toDp() + 16.dp }
+    } else {
+        LessonFeedbackLayout.bottomContentPaddingDp(state.showFeedback).dp
+    }
 
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
+    Box(Modifier.fillMaxSize()) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
+                .padding(bottom = feedbackBottomPadding)
+        ) {
         // New Words — vocabulary preview on the first step only (review: it was
         // repeated above every step; show once, not continuously)
         if (state.currentStep == 0 && lesson.vocabulary.isNotEmpty()) {
@@ -263,9 +284,15 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             )
         }
 
+        }
+
         if (state.showFeedback) {
-            Spacer(Modifier.height(12.dp))
             FeedbackBanner(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(16.dp)
+                    .onSizeChanged { feedbackHeightPx = it.height }
+                    .navigationBarsPadding(),
                 text = state.feedbackText,
                 correct = state.feedbackCorrect,
                 language = lang,
@@ -433,6 +460,9 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(Modifier.padding(24.dp)) {
+            LessonVisual(step)
+            Spacer(Modifier.height(16.dp))
+
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.MenuBook, "Story", modifier = Modifier.size(32.dp), tint = Teal40)
                 Spacer(Modifier.width(12.dp))
@@ -487,7 +517,53 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
 // ─── Feedback, Character, Error, Completion ───
 
 @Composable
+private fun AssessmentRetryCard(
+    language: String?,
+    onRetry: () -> Unit,
+) {
+    Box(
+        Modifier.fillMaxSize().padding(24.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Card(
+            Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(20.dp),
+            colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.14f)),
+        ) {
+            Column(
+                Modifier.padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text("🌟", fontSize = 42.sp)
+                Spacer(Modifier.height(12.dp))
+                Text(
+                    uiText(language, "Let's try the knowledge check again", "Subukan natin muli ang pagsusulit"),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    color = Ink,
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    uiText(language, "You can review the lesson and try again.", "Maaari mong balikan ang aralin at subukan muli."),
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center,
+                    color = Ink.copy(alpha = 0.75f),
+                )
+                Spacer(Modifier.height(20.dp))
+                MaxinesPrimaryButton(
+                    onClick = onRetry,
+                    text = uiText(language, "Try again", "Subukan muli"),
+                    containerColor = Teal40,
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun FeedbackBanner(
+    modifier: Modifier = Modifier,
     text: String,
     correct: Boolean,
     language: String?,
@@ -495,7 +571,7 @@ private fun FeedbackBanner(
     onNext: () -> Unit,
     onReview: (() -> Unit)? = null,
 ) {
-    Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f))) {
+    Card(modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f))) {
         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(if (correct) Icons.Default.CheckCircle else Icons.Default.Info, null, tint = if (correct) SuccessGreen else ErrorRed)
             Spacer(Modifier.width(12.dp))
@@ -592,7 +668,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             val lang = state.lesson?.languageOfInstruction
             Text(uiText(lang, "Lesson Complete!", "Tapos na ang Aralin!"), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Teal40)
             Text(uiText(lang, "You got $correct out of $total correct!", "Nakuha mo ang $correct sa $total!"), style = MaterialTheme.typography.bodyLarge)
-            Text("${(accuracy * 100).toInt()}%", fontWeight = FontWeight.Bold, fontSize = 48.sp, color = if (accuracy >= 0.8f) SuccessGreen else Amber40)
+            Text("${(accuracy * 100).toInt()}%", fontWeight = FontWeight.Bold, fontSize = 48.sp, color = if (accuracy >= 0.8f) SuccessGreenText else HeritageGold)
 
             Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
                 Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(24.dp)) {
@@ -609,7 +685,10 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                     onClick = onPlayGames,
                     modifier = Modifier.fillMaxWidth().height(56.dp),
                     shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = SunshineGold),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = SunshineGold,
+                        contentColor = OnGold,
+                    ),
                 ) {
                     Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
                     Spacer(Modifier.width(8.dp))

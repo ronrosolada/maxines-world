@@ -106,11 +106,11 @@
    "instruction": "Using nearest hundreds, 503 - 198 is about",
    "content": {
     "options": [
+     "30",
      "300",
-     "700",
-     "30"
+     "700"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "503-198 ≈ 500-200=300",
-      "right": "shows the skill"
+      "right": "tamang subtraction or estimate"
      },
      {
       "left": "70-29=41",
-      "right": "shows the skill"
+      "right": "tamang subtraction or estimate (2)"
      },
      {
       "left": "1,000-498=502",
-      "right": "shows the skill"
+      "right": "tamang subtraction or estimate (3)"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Quick Differences”?",
     "options": [
      {
+      "id": "c",
+      "text": "Subtract in wrong order"
+     },
+     {
       "id": "a",
       "text": "Rounding and counting up can check whether an exact difference is reasonable."
      },
      {
       "id": "b",
       "text": "Call estimate exact"
-     },
-     {
-      "id": "c",
-      "text": "Subtract in wrong order"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "mathematics-g3-m01-d12-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Quick Differences”?",
     "options": [
-     {
-      "id": "a",
-      "text": "503-198 ≈ 500-200=300"
-     },
      {
       "id": "b",
       "text": "Call estimate exact"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "Subtract in wrong order"
+     },
+     {
+      "id": "a",
+      "text": "503-198 ≈ 500-200=300"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Call estimate exact” because it follows the skill explanation: Rounding and counting up can check whether an exact difference is reasonable."
+    "explanation": "The correct response is “Call estimate exact” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "mathematics-g3-m01-d12-q04",
@@ -266,16 +266,16 @@
     "prompt": "Using nearest hundreds, 503 - 198 is about",
     "options": [
      {
+      "id": "c",
+      "text": "30"
+     },
+     {
       "id": "a",
       "text": "300"
      },
      {
       "id": "b",
       "text": "700"
-     },
-     {
-      "id": "c",
-      "text": "30"
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "mathematics-g3-m01-d12-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Estimate differences and use mental strategies?",
     "options": [
-     {
-      "id": "a",
-      "text": "1,000-498=502"
-     },
      {
       "id": "b",
       "text": "Ignore specified rounding"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "Call estimate exact"
+     },
+     {
+      "id": "a",
+      "text": "1,000-498=502"
      }
     ],
     "correctOptionIds": [

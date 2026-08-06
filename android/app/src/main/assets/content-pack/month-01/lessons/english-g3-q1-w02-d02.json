@@ -128,12 +128,12 @@
    "instruction": "Which word means more than one cat?",
    "content": {
     "options": [
-     "cats",
      "cat",
      "catt",
-     "ca"
+     "ca",
+     "cats"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What do we add to make most nouns plural?",
     "options": [
      {
+      "id": "d",
+      "text": "-z"
+     },
+     {
       "id": "a",
       "text": "-s"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "-p"
-     },
-     {
-      "id": "d",
-      "text": "-z"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "One apple, two ___?",
     "options": [
      {
-      "id": "a",
-      "text": "apples"
-     },
-     {
-      "id": "b",
-      "text": "apple"
-     },
-     {
       "id": "c",
       "text": "appli"
      },
      {
       "id": "d",
       "text": "applo"
+     },
+     {
+      "id": "a",
+      "text": "apples"
+     },
+     {
+      "id": "b",
+      "text": "apple"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "Which word is plural?",
     "options": [
      {
-      "id": "a",
-      "text": "cats"
-     },
-     {
       "id": "b",
       "text": "cat"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "cut"
+     },
+     {
+      "id": "a",
+      "text": "cats"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What did Milo hold in the fruit stand?",
     "options": [
      {
+      "id": "d",
+      "text": "balls"
+     },
+     {
       "id": "a",
       "text": "apples"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "hats"
-     },
-     {
-      "id": "d",
-      "text": "balls"
      }
     ],
     "correctOptionIds": [

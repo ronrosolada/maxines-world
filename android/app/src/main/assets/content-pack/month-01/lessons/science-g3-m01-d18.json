@@ -106,11 +106,11 @@
    "instruction": "Why can we see a book in a lit room?",
    "content": {
     "options": [
+     "Eyes send a beam into it.",
      "Light reflects from it into our eyes.",
-     "The book makes sunlight.",
-     "Eyes send a beam into it."
+     "The book makes sunlight."
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "lamp—source",
-      "right": "shows the skill"
+      "right": "source"
      },
      {
       "left": "Moon—reflector",
-      "right": "shows the skill"
+      "right": "reflector"
      },
      {
       "left": "book—seen by reflected light",
-      "right": "shows the skill"
+      "right": "seen by reflected light"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Light Lets Us See”?",
     "options": [
      {
+      "id": "c",
+      "text": "Look at the Sun"
+     },
+     {
       "id": "a",
       "text": "We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
      },
      {
       "id": "b",
       "text": "Moon makes its own visible light"
-     },
-     {
-      "id": "c",
-      "text": "Look at the Sun"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "science-g3-m01-d18-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Light Lets Us See”?",
     "options": [
-     {
-      "id": "a",
-      "text": "lamp—source"
-     },
      {
       "id": "b",
       "text": "Moon makes its own visible light"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "Look at the Sun"
+     },
+     {
+      "id": "a",
+      "text": "lamp—source"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Moon makes its own visible light” because it follows the skill explanation: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
+    "explanation": "The correct response is “Moon makes its own visible light” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "science-g3-m01-d18-q04",
@@ -266,16 +266,16 @@
     "prompt": "Why can we see a book in a lit room?",
     "options": [
      {
+      "id": "c",
+      "text": "Eyes send a beam into it."
+     },
+     {
       "id": "a",
       "text": "Light reflects from it into our eyes."
      },
      {
       "id": "b",
       "text": "The book makes sunlight."
-     },
-     {
-      "id": "c",
-      "text": "Eyes send a beam into it."
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "science-g3-m01-d18-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Distinguish sources and reflectors and explain safe seeing?",
     "options": [
-     {
-      "id": "a",
-      "text": "book—seen by reflected light"
-     },
      {
       "id": "b",
       "text": "Darkness is a material"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "Moon makes its own visible light"
+     },
+     {
+      "id": "a",
+      "text": "book—seen by reflected light"
      }
     ],
     "correctOptionIds": [

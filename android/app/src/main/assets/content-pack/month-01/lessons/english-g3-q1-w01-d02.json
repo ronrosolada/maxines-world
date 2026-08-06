@@ -128,12 +128,12 @@
    "instruction": "Who is a character in the story?",
    "content": {
     "options": [
-     "the grumpy cat",
-     "the mango tree",
      "the stone fence",
-     "the blue sky"
+     "the blue sky",
+     "the grumpy cat",
+     "the mango tree"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -232,6 +232,10 @@
     "prompt": "What are the people or animals in a story called?",
     "options": [
      {
+      "id": "d",
+      "text": "Shapes"
+     },
+     {
       "id": "a",
       "text": "Characters"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "Numbers"
-     },
-     {
-      "id": "d",
-      "text": "Shapes"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which one is a character?",
     "options": [
      {
-      "id": "a",
-      "text": "The brown dog"
-     },
-     {
-      "id": "b",
-      "text": "The mango tree"
-     },
-     {
       "id": "c",
       "text": "The stone fence"
      },
      {
       "id": "d",
       "text": "The blue sky"
+     },
+     {
+      "id": "a",
+      "text": "The brown dog"
+     },
+     {
+      "id": "b",
+      "text": "The mango tree"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "Can animals be characters in a story?",
     "options": [
      {
-      "id": "a",
-      "text": "Yes"
-     },
-     {
       "id": "b",
       "text": "No"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "Only in winter"
+     },
+     {
+      "id": "a",
+      "text": "Yes"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "Who is telling us about characters today?",
     "options": [
      {
+      "id": "d",
+      "text": "A shoe"
+     },
+     {
       "id": "a",
       "text": "Milo the Cat"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "A cloud"
-     },
-     {
-      "id": "d",
-      "text": "A shoe"
      }
     ],
     "correctOptionIds": [

@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A compound sentence joins two complete ideas with a word such as and, but, or so. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ A compound sentence joins two complete ideas with a word such as and, but, or so. Ready to explore? Try the skill with a clue in an animal story.",
  "vocabulary": [
   {
-   "term": "I read, and Milo listens.",
-   "definition": "a correct example"
+   "term": "compound sentence",
+   "definition": "A sentence that joins two complete ideas."
   },
   {
-   "term": "It rained, so we stayed inside.",
-   "definition": "a related example"
+   "term": "joining word",
+   "definition": "A word such as and, but, or so that connects ideas."
   },
   {
-   "term": "I wanted to play, but I had homework.",
-   "definition": "another example"
+   "term": "complete idea",
+   "definition": "A group of words that tells who or what and what happened."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "instruction": "Learn this skill: Identify two complete ideas joined in a compound sentence. Try the skill with a clue in an animal story.",
+   "content": "A compound sentence joins two complete ideas with a word such as and, but, or so. Try the skill with a clue in an animal story.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
+   "prompt": "Learn this skill: Identify two complete ideas joined in a compound sentence. Try the skill with a clue in an animal story.",
+   "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so. Try the skill with a clue in an animal story.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so."
+   "accessibilityAlternative": "A compound sentence joins two complete ideas with a word such as and, but, or so. Try the skill with a clue in an animal story."
   },
   {
    "activityId": "english-g3-q3-w11-d02-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Identify two complete ideas joined in a compound sentence.",
    "content": {
     "examples": [
      "I read, and Milo listens.",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Identify two complete ideas joined in a compound sentence.",
    "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Identify two complete ideas joined in a compound sentence.",
    "content": {
     "fits": [
      "I read, and Milo listens.",
@@ -98,10 +98,10 @@
      "Ana sings, and Ben claps."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "under the table",
+     "blue and shiny",
+     "after school",
+     "the hungry cat"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Identify two complete ideas joined in a compound sentence.",
    "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which group of words expresses a complete idea?",
    "content": {
     "options": [
+     "after school",
      "I read, and Milo listens.",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "under the table",
+     "blue and shiny"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which group of words expresses a complete idea?",
    "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Identify two complete ideas joined in a compound sentence.",
    "content": {
     "pairs": [
      {
       "left": "I read, and Milo listens.",
-      "right": "a correct example"
+      "right": "telling sentence"
      },
      {
       "left": "It rained, so we stayed inside.",
-      "right": "a related example"
+      "right": "telling sentence (2)"
      },
      {
       "left": "I wanted to play, but I had homework.",
-      "right": "another example"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Identify two complete ideas joined in a compound sentence.",
    "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d02-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Identify two complete ideas joined in a compound sentence.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Identify two complete ideas joined in a compound sentence.",
    "narration": "A compound sentence joins two complete ideas with a word such as and, but, or so.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q3-w11-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Compound Sentence Crew?",
+    "prompt": "Which group of words expresses a complete idea?",
     "options": [
      {
+      "id": "d",
+      "text": "after school"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "I read, and Milo listens."
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "under the table"
+     },
+     {
+      "id": "c",
+      "text": "blue and shiny"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: I read, and Milo listens."
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q3-w11-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Compound Sentence Crew?",
+    "prompt": "Which group of words expresses a complete idea?",
     "options": [
      {
-      "id": "a",
-      "text": "a different topic"
-     },
-     {
-      "id": "b",
-      "text": "It rained, so we stayed inside."
-     },
-     {
       "id": "c",
-      "text": "a random symbol"
+      "text": "blue and shiny"
      },
      {
       "id": "d",
-      "text": "a detail not in the lesson"
+      "text": "after school"
+     },
+     {
+      "id": "a",
+      "text": "It rained, so we stayed inside."
+     },
+     {
+      "id": "b",
+      "text": "under the table"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: It rained, so we stayed inside."
    },
@@ -281,23 +281,23 @@
     "itemId": "english-g3-q3-w11-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Compound Sentence Crew?",
+    "prompt": "Which group of words expresses a complete idea?",
     "options": [
      {
-      "id": "a",
-      "text": "I wanted to play, but I had homework."
-     },
-     {
       "id": "b",
-      "text": "a detail not in the lesson"
+      "text": "under the table"
      },
      {
       "id": "c",
-      "text": "a different topic"
+      "text": "blue and shiny"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "after school"
+     },
+     {
+      "id": "a",
+      "text": "I wanted to play, but I had homework."
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q3-w11-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Compound Sentence Crew?",
+    "prompt": "Which group of words expresses a complete idea?",
     "options": [
      {
       "id": "a",
-      "text": "a different topic"
+      "text": "Ana sings, and Ben claps."
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "under the table"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "blue and shiny"
      },
      {
       "id": "d",
-      "text": "Ana sings, and Ben claps."
+      "text": "after school"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: Ana sings, and Ben claps."
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q3-w11-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Compound Sentence Crew?",
+    "prompt": "Which group of words expresses a complete idea?",
     "options": [
      {
+      "id": "d",
+      "text": "after school"
+     },
+     {
       "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a detail not in the lesson"
-     },
-     {
-      "id": "c",
       "text": "I read, and Milo listens."
      },
      {
-      "id": "d",
-      "text": "an unrelated guess"
+      "id": "b",
+      "text": "under the table"
+     },
+     {
+      "id": "c",
+      "text": "blue and shiny"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: I read, and Milo listens."
    }

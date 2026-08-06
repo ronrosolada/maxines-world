@@ -499,7 +499,7 @@ def main(argv=None):
             ids = [o["id"] for o in it["options"]]
             if len(ids) != len(set(ids)) or any(i not in ids for i in it["correctOptionIds"]):
                 broken.append(path.stem)
-        if not args.dry_run:
+        if not args.dry_run and not args.check and after != before:
             path.write_text(json.dumps(repaired, ensure_ascii=False, indent=2) + "\n")
 
     print(f"skills repaired: {len(changed)} lessons")

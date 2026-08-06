@@ -521,15 +521,11 @@ private fun SubjectCard(
     }
     val spoken = buildString {
         append(subject.formalName).append(", ").append(subject.playfulName)
-        append(". ")
-        when {
-            subject.availability == SubjectAvailability.Locked -> {
-                append(stringResource(R.string.home_locked)).append(".")
-                subject.lockReason?.let { append(" ").append(it).append(".") }
-            }
-            progress == null -> append(stringResource(R.string.home_not_started)).append(".")
-            progress >= 100 -> append(stringResource(R.string.home_complete)).append(".")
-            else -> append("$progress percent complete.")
+        // Progress is announced via stateDescription below — not repeated here
+        // (design.md §10.4 / audit AC18, 2026-08-06).
+        if (subject.availability == SubjectAvailability.Locked) {
+            append(". ").append(stringResource(R.string.home_locked)).append(".")
+            subject.lockReason?.let { append(" ").append(it).append(".") }
         }
     }
 
@@ -592,7 +588,10 @@ private fun SubjectCard(
                         Spacer(Modifier.height(2.dp))
                         Text(
                             subject.playfulName,
-                            color = accent,
+                            // Ink, not the subject accent: 5 of 6 accent colors
+                            // fail 4.5:1 on white at 15sp (audit AC22,
+                            // 2026-08-06); accents stay on icon/progress/arrow.
+                            color = PlayInk,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp, lineHeight = 20.sp,
                             maxLines = 1, overflow = TextOverflow.Clip,
@@ -627,7 +626,7 @@ private fun SubjectCard(
                                 progressLabel,
                                 color = PlayMuted,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 13.sp, lineHeight = 18.sp,
+                                fontSize = 14.sp, lineHeight = 18.sp,
                                 maxLines = 1,
                             )
                         }
@@ -662,7 +661,7 @@ private fun SubjectCard(
                 ) {
                     Text(
                         subject.lockReason ?: stringResource(R.string.home_locked),
-                        fontSize = 9.5.sp, fontWeight = FontWeight.Black,
+                        fontSize = 14.sp, fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                         maxLines = 2, overflow = TextOverflow.Clip,
                     )
@@ -677,7 +676,7 @@ private fun SubjectCard(
                 ) {
                     Text(
                         stringResource(R.string.home_start_here),
-                        fontSize = 10.sp,
+                        fontSize = 14.sp,
                         fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                     )
@@ -825,14 +824,24 @@ private fun WildlifeStickersPreview(
                     stringResource(R.string.home_collected, wildlifeStickers.collectedCount, wildlifeStickers.totalCount),
                     color = PlayMuted,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 13.sp, lineHeight = 18.sp,
+                    fontSize = 14.sp, lineHeight = 18.sp,
                     maxLines = 1,
                 )
             }
             Spacer(Modifier.height(12.dp))
-            val previewStickers = wildlifeStickers.stickers.filter { it.won }.take(3)
+            // Show won stickers plus locked "mystery" placeholders, capped at
+            // 7 visible slots (design.md §12.2 / audit gap 12, 2026-08-06).
+            val wonStickers = wildlifeStickers.stickers.filter { it.won }
+            val previewSlots: List<StickerUi> = if (wonStickers.isEmpty() && wildlifeStickers.totalCount == 0) {
+                emptyList()
+            } else {
+                val shown = wonStickers.take(7)
+                shown + List((7 - shown.size).coerceAtLeast(0)) { i ->
+                    StickerUi(id = "mystery-$i", won = false)
+                }
+            }
             Row(verticalAlignment = Alignment.CenterVertically) {
-                if (previewStickers.isEmpty()) {
+                if (previewSlots.isEmpty()) {
                     Text(
                         stringResource(R.string.home_no_stickers),
                         color = PlayMuted,
@@ -845,7 +854,7 @@ private fun WildlifeStickersPreview(
                         modifier = Modifier.weight(1f),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
-                        items(previewStickers) { sticker -> StickerSlot(sticker) }
+                        items(previewSlots) { sticker -> StickerSlot(sticker) }
                     }
                 }
                 TextButton(onClick = onOpenCollection) {
@@ -956,7 +965,7 @@ private fun RowScope.NavItem(
             label,
             color = if (isSelected) PlayTeal else if (enabled) PlayMuted else PlayMuted.copy(alpha = 0.5f),
             fontWeight = FontWeight.Bold,
-            fontSize = if (compact) 12.sp else 14.sp,
+            fontSize = 14.sp, // never below 14sp even compact (design.md §13.2)
             lineHeight = 18.sp,
             maxLines = 1,
         )
@@ -965,7 +974,7 @@ private fun RowScope.NavItem(
                 stringResource(R.string.home_coming_soon),
                 color = PlayMuted.copy(alpha = 0.7f),
                 fontWeight = FontWeight.Medium,
-                fontSize = 10.sp, lineHeight = 14.sp,
+                fontSize = 14.sp, lineHeight = 18.sp,
                 maxLines = 1,
             )
         }

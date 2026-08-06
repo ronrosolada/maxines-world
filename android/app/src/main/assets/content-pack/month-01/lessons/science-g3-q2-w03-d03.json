@@ -1,377 +1,377 @@
 {
-  "lessonId": "science-g3-q2-w03-d03",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 3,
-  "subject": "science",
-  "title": "Life Around Us · Q2 W03 D03",
-  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
-    },
-    {
-      "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
-    },
-    {
-      "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "science-g3-q2-w03-d03-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
-      "content": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
-      "narration": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d03-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Explore each example. a cat and a banana plant are living, but a spoon is not.",
-      "content": {
-        "examples": [
-          "a cat — living",
-          "a banana plant — living",
-          "leaves make food for the plant",
-          "a spoon — non-living"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example. a cat and a banana plant are living, but a spoon is not.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d03-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Sort the examples: a cat and a banana plant are living things.",
-      "content": {
-        "fits": [
-          "a cat — living",
-          "a banana plant — living",
-          "leaves make food for the plant"
-        ],
-        "doesNotFit": [
-          "a spoon — non-living",
-          "a rock",
-          "water",
-          "a pencil"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort the examples: a cat and a banana plant are living things.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d03-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "content": {
-        "options": [
-          "a rock",
-          "water",
-          "a cat",
-          "a pencil"
-        ],
-        "correctIndex": 2
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d03-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Match a cat, a banana plant, and a spoon with their groups.",
-      "content": {
-        "pairs": [
-          {
-            "left": "a cat",
-            "right": "living thing"
-          },
-          {
-            "left": "a spoon",
-            "right": "non-living thing"
-          },
-          {
-            "left": "leaves make food for the plant",
-            "right": "a plant part"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match a cat, a banana plant, and a spoon with their groups.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d03-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d03-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "content": {
-        "steps": [
-          "Observe the example: a cat",
-          "Ask: does it grow?",
-          "Check what it needs",
-          "Sort it as living or not"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "science-g3-q2-w03-d03-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a rock"
-          },
-          {
-            "id": "b",
-            "text": "water"
-          },
-          {
-            "id": "c",
-            "text": "a cat"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The best answer is: a cat"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d03-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a cat"
-          },
-          {
-            "id": "b",
-            "text": "a banana plant"
-          },
-          {
-            "id": "c",
-            "text": "a spoon"
-          },
-          {
-            "id": "d",
-            "text": "a rock"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The best answer is: a spoon"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d03-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a battery"
-          },
-          {
-            "id": "b",
-            "text": "a plastic cover"
-          },
-          {
-            "id": "c",
-            "text": "food and water"
-          },
-          {
-            "id": "d",
-            "text": "a quiet shelf"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The best answer is: food and water"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d03-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which part makes food for the plant?",
-        "options": [
-          {
-            "id": "a",
-            "text": "roots"
-          },
-          {
-            "id": "b",
-            "text": "fur"
-          },
-          {
-            "id": "c",
-            "text": "leaves"
-          },
-          {
-            "id": "d",
-            "text": "wheels"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The best answer is: leaves"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d03-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a spoon"
-          },
-          {
-            "id": "b",
-            "text": "water"
-          },
-          {
-            "id": "c",
-            "text": "a banana plant"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The best answer is: a banana plant"
-      }
-    ]
+ "lessonId": "science-g3-q2-w03-d03",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 3,
+ "subject": "science",
+ "title": "Life Around Us · Q2 W03 D03",
+ "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "living thing",
+   "definition": "something that grows, needs food and water, and can respond"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "non-living thing",
+   "definition": "something that does not grow or need food and water"
+  },
+  {
+   "term": "basic need",
+   "definition": "something a living thing must have to live, like food and water"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "science-g3-q2-w03-d03-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+   "content": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+   "narration": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "a cat is a living thing: it grows and needs food and water. a spoon is non-living, so it does not grow."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d03-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Explore each example. a cat and a banana plant are living, but a spoon is not.",
+   "content": {
+    "examples": [
+     "a cat — living",
+     "a banana plant — living",
+     "leaves make food for the plant",
+     "a spoon — non-living"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Explore each example. a cat and a banana plant are living, but a spoon is not.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "science-g3-q2-w03-d03-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Sort the examples: a cat and a banana plant are living things.",
+   "content": {
+    "fits": [
+     "a cat — living",
+     "a banana plant — living",
+     "leaves make food for the plant"
+    ],
+    "doesNotFit": [
+     "a spoon — non-living",
+     "a rock",
+     "water",
+     "a pencil"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort the examples: a cat and a banana plant are living things.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d03-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "content": {
+    "options": [
+     "a rock",
+     "water",
+     "a cat",
+     "a pencil"
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d03-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Match a cat, a banana plant, and a spoon with their groups.",
+   "content": {
+    "pairs": [
+     {
+      "left": "a cat",
+      "right": "evidence from the example: a cat"
+     },
+     {
+      "left": "a spoon",
+      "right": "evidence from the example: a spoon"
+     },
+     {
+      "left": "leaves make food for the plant",
+      "right": "evidence from the example: leaves make food for the plant"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match a cat, a banana plant, and a spoon with their groups.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d03-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d03-visual",
+   "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "content": {
+    "steps": [
+     "Observe the example: a cat",
+     "Ask: does it grow?",
+     "Check what it needs",
+     "Sort it as living or not"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "science-g3-q2-w03-d03-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a rock"
+     },
+     {
+      "id": "b",
+      "text": "water"
+     },
+     {
+      "id": "c",
+      "text": "a cat"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: a cat"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d03-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is NOT a living thing?",
+    "options": [
+     {
+      "id": "d",
+      "text": "a rock"
+     },
+     {
+      "id": "a",
+      "text": "a cat"
+     },
+     {
+      "id": "b",
+      "text": "a banana plant"
+     },
+     {
+      "id": "c",
+      "text": "a spoon"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The correct response is “a spoon” because it does not follow the lesson skill. The other choices show the skill."
+   },
+   {
+    "itemId": "science-g3-q2-w03-d03-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What do all living things need to grow?",
+    "options": [
+     {
+      "id": "c",
+      "text": "food and water"
+     },
+     {
+      "id": "d",
+      "text": "a quiet shelf"
+     },
+     {
+      "id": "a",
+      "text": "a battery"
+     },
+     {
+      "id": "b",
+      "text": "a plastic cover"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: food and water"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d03-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which part makes food for the plant?",
+    "options": [
+     {
+      "id": "b",
+      "text": "fur"
+     },
+     {
+      "id": "c",
+      "text": "leaves"
+     },
+     {
+      "id": "d",
+      "text": "wheels"
+     },
+     {
+      "id": "a",
+      "text": "roots"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: leaves"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example shows a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a spoon"
+     },
+     {
+      "id": "b",
+      "text": "water"
+     },
+     {
+      "id": "c",
+      "text": "a banana plant"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: a banana plant"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

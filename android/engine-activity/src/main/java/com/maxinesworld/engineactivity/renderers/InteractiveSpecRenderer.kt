@@ -38,6 +38,8 @@ fun InteractiveSpecRenderer(
     val positions = listOf(Alignment.TopCenter, Alignment.BottomCenter, Alignment.CenterStart, Alignment.CenterEnd)
 
     Column(modifier = modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        LessonVisual(step)
+
         Text(step.question.ifEmpty { "Tap the correct label" }, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Diagram: ${step.question}" })
 
@@ -67,7 +69,12 @@ fun InteractiveSpecRenderer(
                     }.semantics { contentDescription = "Label $label${if (i in revealed) " — revealed" else ""}" },
                     contentAlignment = Alignment.Center) {
                     Text(if (result == true && selected == i) "✓" else label.take(12),
-                        color = if (result == true && selected == i) White else Ink,
+                        color = when {
+                            result == true && selected == i -> OnSuccess
+                            result == false && selected == i -> OnError
+                            selected == i -> OnGold
+                            else -> Ink
+                        },
                         style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(4.dp))
                 }
             }
@@ -85,7 +92,7 @@ fun InteractiveSpecRenderer(
 
         if (result != null) Text(
             if (result == true) step.feedback?.correct ?: "Correct! 🎉" else step.feedback?.incorrect ?: "Not quite!",
-            color = if (result == true) SuccessGreen else ErrorRed, style = MaterialTheme.typography.bodyMedium,
+            color = if (result == true) SuccessGreenText else ReviewText, style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.semantics { contentDescription = if (result == true) "Correct" else "Incorrect" })
     }
 }

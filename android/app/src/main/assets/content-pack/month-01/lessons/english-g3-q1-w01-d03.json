@@ -124,12 +124,12 @@
    "instruction": "Which is a good ending for the little duck?",
    "content": {
     "options": [
-     "The duck finds its mother and quacks happily",
      "The duck forgets how to swim",
      "The story has no duck",
-     "The duck never goes home"
+     "The duck never goes home",
+     "The duck finds its mother and quacks happily"
     ],
-    "correctIndex": 0
+    "correctIndex": 3
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -168,7 +168,7 @@
      },
      {
       "left": "Everyone lived happily",
-      "right": "ending"
+      "right": "example with a useful detail"
      }
     ]
    },
@@ -228,6 +228,10 @@
     "prompt": "What is the last part of a story called?",
     "options": [
      {
+      "id": "d",
+      "text": "The page number"
+     },
+     {
       "id": "a",
       "text": "The ending"
      },
@@ -238,10 +242,6 @@
      {
       "id": "c",
       "text": "The title"
-     },
-     {
-      "id": "d",
-      "text": "The page number"
      }
     ],
     "correctOptionIds": [
@@ -256,20 +256,20 @@
     "prompt": "Which is a good ending?",
     "options": [
      {
-      "id": "a",
-      "text": "The duck is home safe"
-     },
-     {
-      "id": "b",
-      "text": "The duck disappears"
-     },
-     {
       "id": "c",
       "text": "The duck turns into a cloud"
      },
      {
       "id": "d",
       "text": "The story stops mid-air"
+     },
+     {
+      "id": "a",
+      "text": "The duck is home safe"
+     },
+     {
+      "id": "b",
+      "text": "The duck disappears"
      }
     ],
     "correctOptionIds": [
@@ -284,10 +284,6 @@
     "prompt": "What comes first in a story?",
     "options": [
      {
-      "id": "a",
-      "text": "The beginning"
-     },
-     {
       "id": "b",
       "text": "The ending"
      },
@@ -298,6 +294,10 @@
      {
       "id": "d",
       "text": "The epilogue"
+     },
+     {
+      "id": "a",
+      "text": "The beginning"
      }
     ],
     "correctOptionIds": [
@@ -340,6 +340,10 @@
     "prompt": "Who was lost in Milo's story?",
     "options": [
      {
+      "id": "d",
+      "text": "The red kite"
+     },
+     {
       "id": "a",
       "text": "The little duck"
      },
@@ -350,10 +354,6 @@
      {
       "id": "c",
       "text": "The tall tree"
-     },
-     {
-      "id": "d",
-      "text": "The red kite"
      }
     ],
     "correctOptionIds": [

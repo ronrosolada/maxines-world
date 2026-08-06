@@ -34,6 +34,8 @@ fun AnimatedExplanationRenderer(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        LessonVisual(step)
+
         Text(
             text = step.narrationText.ifEmpty { step.question },
             style = MaterialTheme.typography.bodyLarge,
@@ -42,7 +44,7 @@ fun AnimatedExplanationRenderer(
             }
         )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(24.dp))
 
         MaxinesPrimaryButton(
             onClick = {

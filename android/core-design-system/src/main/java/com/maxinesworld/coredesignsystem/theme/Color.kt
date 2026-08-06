@@ -34,6 +34,18 @@ val HeritageGold = Color(0xFFB87916)
 val KindnessTeal = Color(0xFF26A69A)
 val Molasses = Color(0xFF2B2100)     // onSecondary / dark text on gold
 
+// ─── Accessible on-colors ───
+// Saturated brand fills are retained; these dark companions keep text and
+// status glyphs readable without changing the visual identity of the app.
+val OnGold = Molasses
+val OnCoral = Color(0xFF3D1109)
+val OnLeafGreen = Color(0xFF12240A)
+val OnSkyBlue = Color(0xFF06243A)
+val OnSuccess = Color(0xFF06240F)
+val OnError = Color(0xFF2B0000)
+val SuccessGreenText = Color(0xFF1E6B41)
+val ReviewText = Color(0xFFB03A36)
+
 // ─── Village v2 scrim tokens ───
 val DeepNight = Color(0xFF0B2A36)
 

@@ -128,12 +128,12 @@
    "instruction": "Which is a telling sentence?",
    "content": {
     "options": [
+     "Sun?",
      "The sun is bright.",
      "Is the sun bright?",
-     "Wow, the sun!",
-     "Sun?"
+     "Wow, the sun!"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -164,15 +164,15 @@
      },
      {
       "left": "The sky is blue",
-      "right": "."
+      "right": "example with a useful detail"
      },
      {
       "left": "Milo is a cat",
-      "right": "."
+      "right": "example with a useful detail (3)"
      },
      {
       "left": "Rice grows in fields",
-      "right": "."
+      "right": "example with a useful detail (4)"
      }
     ]
    },
@@ -232,6 +232,10 @@
     "prompt": "What mark ends a telling sentence?",
     "options": [
      {
+      "id": "d",
+      "text": "A comma (,)"
+     },
+     {
       "id": "a",
       "text": "A period (.)"
      },
@@ -242,10 +246,6 @@
      {
       "id": "c",
       "text": "An exclamation point (!)"
-     },
-     {
-      "id": "d",
-      "text": "A comma (,)"
      }
     ],
     "correctOptionIds": [
@@ -260,20 +260,20 @@
     "prompt": "Which is a telling sentence?",
     "options": [
      {
-      "id": "a",
-      "text": "Milo is a cat."
-     },
-     {
-      "id": "b",
-      "text": "Is Milo a cat?"
-     },
-     {
       "id": "c",
       "text": "Milo!"
      },
      {
       "id": "d",
       "text": "Cat?"
+     },
+     {
+      "id": "a",
+      "text": "Milo is a cat."
+     },
+     {
+      "id": "b",
+      "text": "Is Milo a cat?"
      }
     ],
     "correctOptionIds": [
@@ -288,10 +288,6 @@
     "prompt": "What does a telling sentence do?",
     "options": [
      {
-      "id": "a",
-      "text": "It tells something"
-     },
-     {
       "id": "b",
       "text": "It asks a question"
      },
@@ -302,6 +298,10 @@
      {
       "id": "d",
       "text": "It whispers secrets"
+     },
+     {
+      "id": "a",
+      "text": "It tells something"
      }
     ],
     "correctOptionIds": [
@@ -344,6 +344,10 @@
     "prompt": "What does Maxine like?",
     "options": [
      {
+      "id": "d",
+      "text": "Rain"
+     },
+     {
       "id": "a",
       "text": "Mangoes"
      },
@@ -354,10 +358,6 @@
      {
       "id": "c",
       "text": "Brooms"
-     },
-     {
-      "id": "d",
-      "text": "Rain"
      }
     ],
     "correctOptionIds": [

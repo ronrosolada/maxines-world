@@ -485,8 +485,25 @@ def repair_lesson(lesson):
 
     # Apply to activities
     for a in lesson["activities"]:
-        t = a["type"]
+        t = a.get("type")
         content = a.get("content")
+        # Already-repaired activities are preserved verbatim (true
+        # idempotency): the pack may have since evolved (diversified
+        # distractors, topic-specific instructions, rebalanced positions —
+        # educator pass 2026-08-06) and repair must be a no-op for them.
+        # Only genuinely broken activities (missing/blank fields) are rebuilt.
+        well_formed = (
+            bool(t)
+            and bool((a.get("instruction") or "").strip())
+            and bool((a.get("prompt") or "").strip())
+            and (
+                (isinstance(content, str) and content.strip())
+                or (isinstance(content, dict) and any(str(v).strip() for v in content.values()))
+                or (isinstance(content, list) and len(content) > 0)
+            )
+        )
+        if well_formed:
+            continue
         shell = SHELLS[skill].get(t)
         if t == "ANIMATED_EXPLANATION" and isinstance(content, str):
             a["content"] = animated
@@ -511,13 +528,40 @@ def repair_lesson(lesson):
             a["instruction"] = shell.format(**c)
             a["prompt"] = shell.format(**c)
 
-    lesson["vocabulary"] = [{"term": t, "definition": d} for t, d in vocab]
+    existing_vocab = lesson.get("vocabulary")
+    vocab_well_formed = existing_vocab and all(
+        isinstance(v, dict) and str(v.get("term") or "").strip() and str(v.get("definition") or "").strip()
+        for v in existing_vocab
+    )
+    if not vocab_well_formed:
+        # Rebuild only when vocabulary is missing/blank; preserve evolved
+        # definitions (educator pass 2026-08-06 rewrote them).
+        lesson["vocabulary"] = [{"term": t, "definition": d} for t, d in vocab]
 
     # Assessment
     correct_at = day
+    existing_by_seq = {
+        item.get("sequence"): item
+        for item in (lesson.get("assessment") or {}).get("items", [])
+    }
     built, _ = build_items(skill, idx, {"lid": lid})
     new_items = []
     for seq, (prompt, options, correct_text) in enumerate(built, start=1):
+        existing = existing_by_seq.get(seq)
+        # Already-repaired items are preserved verbatim (true idempotency):
+        # the pack may have since evolved (e.g. rebalanced answer positions,
+        # typed assessment items) and repair must be a no-op for them —
+        # see test_repair_changes_every_lesson (2026-08-06).
+        if (
+            existing is not None
+            and existing.get("itemId") == f"{lid}-q{seq}"
+            and existing.get("prompt") == prompt
+            and isinstance(existing.get("options"), list)
+            and len(existing["options"]) == 4
+            and len(existing.get("correctOptionIds") or []) == 1
+        ):
+            new_items.append(existing)
+            continue
         rest = [o for o in options if o != correct_text]
         if len(rest) != 3:
             raise ValueError(f"{lid}: item {seq} has {len(rest)} distractors")
@@ -526,6 +570,7 @@ def repair_lesson(lesson):
         new_items.append({
             "sequence": seq,
             "itemId": f"{lid}-q{seq}",
+            "type": "MULTIPLE_CHOICE",  # current schema: all assessment items typed
             "prompt": prompt,
             "options": [{"id": ids[i], "text": display[i]} for i in range(4)],
             "correctOptionIds": [ids[display.index(correct_text)]],
@@ -550,7 +595,7 @@ def main(argv=None):
         repaired = repair_lesson(json.loads(json.dumps(lesson)))
         if repaired != lesson:
             changed += 1
-            if not args.dry_run:
+            if not args.dry_run and not getattr(args, "check", False):
                 path.write_text(json.dumps(repaired, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     # Global junk audit across all filipino lessons

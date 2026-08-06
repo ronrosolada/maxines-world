@@ -106,11 +106,11 @@
    "instruction": "Which familiar material is a liquid?",
    "content": {
     "options": [
-     "water",
      "stone",
-     "air"
+     "air",
+     "water"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "stone—solid",
-      "right": "shows the skill"
+      "right": "solid"
      },
      {
       "left": "water—liquid",
-      "right": "shows the skill"
+      "right": "liquid"
      },
      {
       "left": "air—gas",
-      "right": "shows the skill"
+      "right": "gas"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Material Detectives”?",
     "options": [
      {
-      "id": "a",
-      "text": "Solids keep a shape, liquids flow and take a container’s shape, and gases spread to fill available space; these are three common states, not the only states."
-     },
-     {
       "id": "b",
       "text": "Smoke is simply a gas"
      },
      {
       "id": "c",
       "text": "All matter is visible"
+     },
+     {
+      "id": "a",
+      "text": "Solids keep a shape, liquids flow and take a container’s shape, and gases spread to fill available space; these are three common states, not the only states."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "science-g3-m01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Material Detectives”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
+      "id": "c",
+      "text": "water—liquid"
+     },
+     {
       "id": "a",
       "text": "Smoke is simply a gas"
      },
      {
       "id": "b",
       "text": "stone—solid"
-     },
-     {
-      "id": "c",
-      "text": "water—liquid"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Smoke is simply a gas” because it follows the skill explanation: Solids keep a shape, liquids flow and take a container’s shape, and gases spread to fill available space; these are three common states, not the only states."
+    "explanation": "The correct response is “Smoke is simply a gas” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "science-g3-m01-d01-q04",
@@ -266,16 +266,16 @@
     "prompt": "Which familiar material is a liquid?",
     "options": [
      {
-      "id": "a",
-      "text": "water"
-     },
-     {
       "id": "b",
       "text": "stone"
      },
      {
       "id": "c",
       "text": "air"
+     },
+     {
+      "id": "a",
+      "text": "water"
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "science-g3-m01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Classify familiar examples as solid, liquid, or gas using observable properties?",
     "options": [
      {
       "id": "a",

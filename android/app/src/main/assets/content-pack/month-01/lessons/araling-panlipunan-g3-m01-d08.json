@@ -68,7 +68,7 @@
     "retry": "Buksan ang natitirang halimbawa."
    },
    "assetId": "araling-panlipunan-g3-m01-d08-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa para sa keyboard at screen reader."
+   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d08-a03",
@@ -106,11 +106,11 @@
    "instruction": "Alin ang responsableng gawain?",
    "content": {
     "options": [
-     "Magtipid ng tubig.",
      "Magtapon sa ilog.",
-     "Sirain ang pugad."
+     "Sirain ang pugad.",
+     "Magtipid ng tubig."
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -118,10 +118,10 @@
    },
    "feedback": {
     "correct": "Tama: Magtipid ng tubig.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Magtapon sa ilog. and Sirain ang pugad. ay hindi angkop."
+    "retry": "Basahin muli ang tuntunin ng aralin. Magtapon sa ilog. at Sirain ang pugad. ay hindi angkop."
    },
    "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d08-a05",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "magtipid ng tubig",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: magtipid ng tubig"
      },
      {
       "left": "wastong segregasyon",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: wastong segregasyon"
      },
      {
       "left": "protektahan ang habitat",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: protektahan ang habitat"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Aling pahayag ang pinakaangkop sa “Caring for Natural Resources”?",
     "options": [
      {
-      "id": "a",
-      "text": "Ang pangangalaga ay maaaring kabilang ang wastong pagtatapon, pagtitipid, pagpapanumbalik, at pagsunod sa batas."
-     },
-     {
       "id": "b",
       "text": "magtapon sa ilog"
      },
      {
       "id": "c",
       "text": "kumuha ng protected wildlife"
+     },
+     {
+      "id": "a",
+      "text": "Ang pangangalaga ay maaaring kabilang ang wastong pagtatapon, pagtitipid, pagpapanumbalik, at pagsunod sa batas."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "araling-panlipunan-g3-m01-d08-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong halimbawa?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Caring for Natural Resources”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
     "options": [
      {
+      "id": "c",
+      "text": "wastong segregasyon"
+     },
+     {
       "id": "a",
       "text": "magtapon sa ilog"
      },
      {
       "id": "b",
       "text": "magtipid ng tubig"
-     },
-     {
-      "id": "c",
-      "text": "wastong segregasyon"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “magtapon sa ilog” dahil sumusunod ito sa paliwanag ng aralin: Ang pangangalaga ay maaaring kabilang ang wastong pagtatapon, pagtitipid, pagpapanumbalik, at pagsunod sa batas."
+    "explanation": "Ang tamang sagot ay “magtapon sa ilog” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d08-q04",
@@ -266,16 +266,16 @@
     "prompt": "Alin ang responsableng gawain?",
     "options": [
      {
-      "id": "a",
-      "text": "Magtipid ng tubig."
-     },
-     {
       "id": "b",
       "text": "Magtapon sa ilog."
      },
      {
       "id": "c",
       "text": "Sirain ang pugad."
+     },
+     {
+      "id": "a",
+      "text": "Magtipid ng tubig."
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "araling-panlipunan-g3-m01-d08-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Caring for Natural Resources”?",
     "options": [
      {
       "id": "a",
@@ -314,7 +314,7 @@
    "assetId": "araling-panlipunan-g3-m01-d08-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/araling-panlipunan-g3-m01-d08-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Caring for Natural Resources; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Caring for Natural Resources; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
    "contentDescription": "Five connected learning tokens for exploring examples in Caring for Natural Resources.",
    "decorative": false
   }
@@ -324,13 +324,13 @@
   {
    "sourceTitle": "DepEd MATATAG Curriculum resources",
    "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   },
   {
    "sourceTitle": "NAMRIA Map Awareness",
    "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],

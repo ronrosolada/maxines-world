@@ -106,11 +106,11 @@
    "instruction": "Which expanded form equals 4,352?",
    "content": {
     "options": [
-     "4,000 + 300 + 50 + 2",
      "400 + 30 + 5 + 2",
-     "4,000 + 30 + 52"
+     "4,000 + 30 + 52",
+     "4,000 + 300 + 50 + 2"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "4,000+300+50+2",
-      "right": "shows the skill"
+      "right": "tamang addition example"
      },
      {
       "left": "2,406 has 2 thousands",
-      "right": "shows the skill"
+      "right": "evidence from the example: 2,406 has 2 thousands"
      },
      {
       "left": "10,000 is ten thousands",
-      "right": "shows the skill"
+      "right": "evidence from the example: 10,000 is ten thousands"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Building Numbers to 10,000”?",
     "options": [
      {
-      "id": "a",
-      "text": "In 4,352 there are 4 thousands, 3 hundreds, 5 tens, and 2 ones."
-     },
-     {
       "id": "b",
       "text": "4,352 means 4 hundreds"
      },
      {
       "id": "c",
       "text": "In 4,352 there are 5 thousands"
+     },
+     {
+      "id": "a",
+      "text": "In 4,352 there are 4 thousands, 3 hundreds, 5 tens, and 2 ones."
      }
     ],
     "correctOptionIds": [
@@ -215,7 +215,7 @@
     "itemId": "mathematics-g3-m01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Building Numbers to 10,000”?",
     "options": [
      {
       "id": "a",
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
+      "id": "c",
+      "text": "2,406 has 2 thousands"
+     },
+     {
       "id": "a",
       "text": "4,352 means 4 hundreds"
      },
      {
       "id": "b",
       "text": "4,000+300+50+2"
-     },
-     {
-      "id": "c",
-      "text": "2,406 has 2 thousands"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “4,352 means 4 hundreds” because it follows the skill explanation: In 4,352 there are 4 thousands, 3 hundreds, 5 tens, and 2 ones."
+    "explanation": "The correct response is “4,352 means 4 hundreds” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "mathematics-g3-m01-d01-q04",
@@ -266,16 +266,16 @@
     "prompt": "Which expanded form equals 4,352?",
     "options": [
      {
-      "id": "a",
-      "text": "4,000 + 300 + 50 + 2"
-     },
-     {
       "id": "b",
       "text": "400 + 30 + 5 + 2"
      },
      {
       "id": "c",
       "text": "4,000 + 30 + 52"
+     },
+     {
+      "id": "a",
+      "text": "4,000 + 300 + 50 + 2"
      }
     ],
     "correctOptionIds": [
@@ -287,7 +287,7 @@
     "itemId": "mathematics-g3-m01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Build and read numbers using thousands, hundreds, tens, and ones?",
     "options": [
      {
       "id": "a",

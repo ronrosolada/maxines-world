@@ -79,13 +79,19 @@ class PlayroomHomeViewModel @Inject constructor(
         }
     }
 
-    fun onSubjectSelected(subjectId: String) {
-        if (openingSubjectId != null) return
-        val current = _state.value as? PlayroomHomeUiState.Content ?: return
-        val subject = current.subjects.firstOrNull { it.id == subjectId } ?: return
-        if (!subject.isAvailable) return
+    /**
+     * @return true when navigation should proceed. The route must only
+     * navigate on true — the guard here prevents rapid double-taps from
+     * stacking duplicate module screens (audit AC12, 2026-08-06).
+     */
+    fun onSubjectSelected(subjectId: String): Boolean {
+        if (openingSubjectId != null) return false
+        val current = _state.value as? PlayroomHomeUiState.Content ?: return false
+        val subject = current.subjects.firstOrNull { it.id == subjectId } ?: return false
+        if (!subject.isAvailable) return false
         openingSubjectId = subjectId
         _state.value = current.copy(openingSubjectId = subjectId)
+        return true
     }
 
     fun onOpenFinished() {
@@ -110,11 +116,16 @@ class PlayroomHomeViewModel @Inject constructor(
         val completed = lessonIds.toSet()
 
         // Per-subject progress: completed in subject ÷ total in catalog.
+        // Makabansa's collection includes the legacy AP lessons, so its
+        // progress counts both lesson prefixes (audit A1, 2026-08-06).
         val subjects = canonicalSubjects.map { subject ->
             val total = runCatching {
                 catalog.modulesFor(subject.destination).sumOf { it.lessons.size }
             }.getOrDefault(0)
-            val done = completed.count { it.startsWith("${subject.destination}-g3-") }
+            val done = completed.count {
+                it.startsWith("${subject.destination}-g3-") ||
+                    (subject.id == "makabansa" && it.startsWith("araling-panlipunan-g3-"))
+            }
             val progress = if (total > 0) (done * 100 / total) else null
             subject.copy(
                 progressPercent = if (progress == 0) null else progress,
@@ -126,6 +137,9 @@ class PlayroomHomeViewModel @Inject constructor(
         val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val availableFirst = subjects.firstOrNull { it.isAvailable }
+        // No available subject → honest "Choose a subject" fallback that moves
+        // focus to the grid instead of a dead Continue (audit AC28, 2026-08-06).
+        val noSubjectFallback = availableFirst == null
         val questUi = if (dailyQuest.isComplete) {
             QuestUi(
                 task = "Today's quest complete — your wildlife friend is waiting!",
@@ -142,10 +156,12 @@ class PlayroomHomeViewModel @Inject constructor(
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
-                // A fresh quest with no progress should invite a start, not
-                // pretend there is something to continue (#33).
-                buttonLabel = if (completedCount == 0) "Start" else "Continue",
-                buttonAction = QuestAction.Continue,
+                buttonLabel = when {
+                    noSubjectFallback -> "Choose a subject"
+                    completedCount == 0 -> "Start"
+                    else -> "Continue"
+                },
+                buttonAction = if (noSubjectFallback) QuestAction.ChooseSubject else QuestAction.Continue,
             )
         }
 

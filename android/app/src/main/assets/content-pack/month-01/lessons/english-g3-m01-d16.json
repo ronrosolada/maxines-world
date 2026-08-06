@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "The red bag is mine.",
-      "right": "shows the skill"
+      "right": "telling sentence"
      },
      {
       "left": "That desk is ours.",
-      "right": "shows the skill"
+      "right": "telling sentence (2)"
      },
      {
       "left": "The blue hats are theirs.",
-      "right": "shows the skill"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "english-g3-m01-d16-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which phrase shows who owns or is connected to something?",
     "options": [
+     {
+      "id": "c",
+      "text": "That pencil is her when standing alone"
+     },
      {
       "id": "a",
       "text": "The red bag is mine."
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "This is mine bag."
-     },
-     {
-      "id": "c",
-      "text": "That pencil is her when standing alone"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "This is mine bag."
-     },
-     {
       "id": "b",
       "text": "The red bag is mine."
      },
      {
       "id": "c",
       "text": "That desk is ours."
+     },
+     {
+      "id": "a",
+      "text": "This is mine bag."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “This is mine bag.” because it follows the skill explanation: Mine, yours, his, hers, ours, and theirs can stand alone and replace a possessive noun phrase."
+    "explanation": "The correct response is “This is mine bag.” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d16-q04",
@@ -287,8 +287,12 @@
     "itemId": "english-g3-m01-d16-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Use possessive pronouns to show ownership?",
     "options": [
+     {
+      "id": "c",
+      "text": "This is mine bag."
+     },
      {
       "id": "a",
       "text": "The blue hats are theirs."
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Ours classroom"
-     },
-     {
-      "id": "c",
-      "text": "This is mine bag."
      }
     ],
     "correctOptionIds": [

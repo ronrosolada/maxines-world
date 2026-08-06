@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ The subject tells who or what. The predicate tells what the subject does or is. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ The subject tells who or what. The predicate tells what the subject does or is. Ready to explore? Try the skill with a sentence about a team project.",
  "vocabulary": [
   {
    "term": "Milo / reads.",
-   "definition": "a correct example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "The plants / grow.",
-   "definition": "a related example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Maxine / draws.",
-   "definition": "another example"
+   "definition": "A telling sentence that gives information and ends with a period."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "The subject tells who or what. The predicate tells what the subject does or is.",
+   "instruction": "Learn this skill: Identify who or what the sentence is about and what that subject does or is. Try the skill with a sentence about a team project.",
+   "content": "The subject tells who or what. The predicate tells what the subject does or is. Try the skill with a sentence about a team project.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
+   "prompt": "Learn this skill: Identify who or what the sentence is about and what that subject does or is. Try the skill with a sentence about a team project.",
+   "narration": "The subject tells who or what. The predicate tells what the subject does or is. Try the skill with a sentence about a team project.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "The subject tells who or what. The predicate tells what the subject does or is."
+   "accessibilityAlternative": "The subject tells who or what. The predicate tells what the subject does or is. Try the skill with a sentence about a team project."
   },
   {
    "activityId": "english-g3-q3-w10-d04-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Identify who or what the sentence is about and what that subject does or is.",
    "content": {
     "examples": [
      "Milo / reads.",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Identify who or what the sentence is about and what that subject does or is.",
    "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Identify who or what the sentence is about and what that subject does or is.",
    "content": {
     "fits": [
      "Milo / reads.",
@@ -98,10 +98,10 @@
      "The bell / rings."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "under the table",
+     "running quickly",
+     "blue and shiny",
+     "after school"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Identify who or what the sentence is about and what that subject does or is.",
    "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which sentence shows who or what acts and what it does?",
    "content": {
     "options": [
+     "running quickly",
+     "blue and shiny",
      "Milo / reads.",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "under the table"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which sentence shows who or what acts and what it does?",
    "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Identify who or what the sentence is about and what that subject does or is.",
    "content": {
     "pairs": [
      {
       "left": "Milo / reads.",
-      "right": "a correct example"
+      "right": "telling sentence"
      },
      {
       "left": "The plants / grow.",
-      "right": "a related example"
+      "right": "telling sentence (2)"
      },
      {
       "left": "Maxine / draws.",
-      "right": "another example"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Identify who or what the sentence is about and what that subject does or is.",
    "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w10-d04-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Identify who or what the sentence is about and what that subject does or is.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Identify who or what the sentence is about and what that subject does or is.",
    "narration": "The subject tells who or what. The predicate tells what the subject does or is.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q3-w10-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Sentence Parts?",
+    "prompt": "Which sentence shows who or what acts and what it does?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a different topic"
-     },
-     {
       "id": "c",
-      "text": "a clear example"
+      "text": "running quickly"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "blue and shiny"
+     },
+     {
+      "id": "a",
+      "text": "a clear example"
+     },
+     {
+      "id": "b",
+      "text": "under the table"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: a clear example"
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q3-w10-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Sentence Parts?",
+    "prompt": "Which sentence shows who or what acts and what it does?",
     "options": [
      {
-      "id": "a",
-      "text": "an unsupported claim"
-     },
-     {
       "id": "b",
-      "text": "a second example"
+      "text": "under the table"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "running quickly"
      },
      {
       "id": "d",
-      "text": "a different topic"
+      "text": "blue and shiny"
+     },
+     {
+      "id": "a",
+      "text": "a second example"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: a second example"
    },
@@ -281,7 +281,7 @@
     "itemId": "english-g3-q3-w10-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Sentence Parts?",
+    "prompt": "Which sentence shows who or what acts and what it does?",
     "options": [
      {
       "id": "a",
@@ -289,15 +289,15 @@
      },
      {
       "id": "b",
-      "text": "a different topic"
+      "text": "under the table"
      },
      {
       "id": "c",
-      "text": "an unsupported claim"
+      "text": "running quickly"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "blue and shiny"
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q3-w10-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Sentence Parts?",
+    "prompt": "Which sentence shows who or what acts and what it does?",
     "options": [
      {
+      "id": "d",
+      "text": "blue and shiny"
+     },
+     {
       "id": "a",
-      "text": "an unsupported claim"
+      "text": "a reason"
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "under the table"
      },
      {
       "id": "c",
-      "text": "a random symbol"
-     },
-     {
-      "id": "d",
-      "text": "a reason"
+      "text": "running quickly"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: a reason"
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q3-w10-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Sentence Parts?",
+    "prompt": "Which sentence shows who or what acts and what it does?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a different topic"
-     },
-     {
       "id": "c",
-      "text": "a clear example"
+      "text": "running quickly"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "blue and shiny"
+     },
+     {
+      "id": "a",
+      "text": "a clear example"
+     },
+     {
+      "id": "b",
+      "text": "under the table"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: a clear example"
    }

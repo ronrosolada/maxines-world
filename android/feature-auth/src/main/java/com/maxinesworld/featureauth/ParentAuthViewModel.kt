@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
@@ -32,6 +35,8 @@ data class AuthUiState(
     val failedAttempts: Int = 0,
     /** Epoch millis until PIN entry unlocks; 0 when not locked. */
     val lockedUntilEpochMillis: Long = 0L,
+    /** Live whole seconds remaining in the current lockout. */
+    val lockRemainingSeconds: Int = 0,
 )
 
 enum class AuthScreen {
@@ -47,12 +52,24 @@ class ParentAuthViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(AuthUiState())
     val state: StateFlow<AuthUiState> = _state.asStateFlow()
+    private var lockCountdownJob: Job? = null
 
     init {
         viewModelScope.launch {
             val pinHash = authManager.getPinHash()
             val parent = parentAccountDao.getParent()
             val children = parent?.let { childProfileDao.getByParent(it.id) } ?: emptyList()
+
+            val lockedUntil = authManager.getLockedUntilEpochMillis()
+            if (lockedUntil > System.currentTimeMillis()) {
+                _state.update {
+                    it.copy(
+                        lockedUntilEpochMillis = lockedUntil,
+                        lockRemainingSeconds = lockRemainingSeconds(lockedUntil, System.currentTimeMillis()),
+                    )
+                }
+                startLockCountdown(lockedUntil)
+            }
 
             authManager.displayName.collect { name ->
                 _state.update {
@@ -73,6 +90,7 @@ class ParentAuthViewModel @Inject constructor(
     }
 
     fun onPinDigit(digit: String) {
+        if (_state.value.lockRemainingSeconds > 0) return
         _state.update {
             val newInput = (it.pinInput + digit).take(6)
             it.copy(pinInput = newInput, pinError = null)
@@ -84,6 +102,7 @@ class ParentAuthViewModel @Inject constructor(
     }
 
     fun onPinDelete() {
+        if (_state.value.lockRemainingSeconds > 0) return
         _state.update { it.copy(pinInput = it.pinInput.dropLast(1), pinError = null) }
     }
 
@@ -101,13 +120,15 @@ class ParentAuthViewModel @Inject constructor(
 
                 if (lockedUntil > now) {
                     // Lockout still active: reject even a correct PIN.
-                    val remainingSec = ((lockedUntil - now) / 1000) + 1
                     _state.update {
                         it.copy(
                             pinInput = "",
-                            pinError = "Too many attempts. Try again in ${remainingSec}s."
+                            lockedUntilEpochMillis = lockedUntil,
+                            lockRemainingSeconds = lockRemainingSeconds(lockedUntil, now),
+                            pinError = "Too many attempts."
                         )
                     }
+                    startLockCountdown(lockedUntil)
                     return@launch
                 }
 
@@ -120,12 +141,12 @@ class ParentAuthViewModel @Inject constructor(
                     val attempts = authManager.getFailedAttempts()
                     _state.update {
                         if (newLockedUntil > 0) {
-                            val remainingSec = ((newLockedUntil - System.currentTimeMillis()) / 1000) + 1
                             it.copy(
                                 pinInput = "",
                                 failedAttempts = attempts,
                                 lockedUntilEpochMillis = newLockedUntil,
-                                pinError = "Too many attempts. Try again in ${remainingSec}s."
+                                lockRemainingSeconds = lockRemainingSeconds(newLockedUntil, now),
+                                pinError = "Too many attempts."
                             )
                         } else {
                             val left = ParentAuthManager.MAX_ATTEMPTS_BEFORE_LOCK - attempts
@@ -136,11 +157,52 @@ class ParentAuthViewModel @Inject constructor(
                             )
                         }
                     }
+                    if (newLockedUntil > 0) startLockCountdown(newLockedUntil)
                 }
             } finally {
                 verificationInFlight = false
             }
         }
+    }
+
+    private fun startLockCountdown(lockedUntilEpochMillis: Long) {
+        lockCountdownJob?.cancel()
+        _state.update {
+            it.copy(
+                lockedUntilEpochMillis = lockedUntilEpochMillis,
+                lockRemainingSeconds = lockRemainingSeconds(lockedUntilEpochMillis, System.currentTimeMillis()),
+            )
+        }
+        lockCountdownJob = viewModelScope.launch {
+            while (isActive) {
+                val remaining = lockRemainingSeconds(
+                    lockedUntilEpochMillis,
+                    System.currentTimeMillis(),
+                )
+                if (remaining == 0) {
+                    _state.update {
+                        it.copy(
+                            lockedUntilEpochMillis = 0L,
+                            lockRemainingSeconds = 0,
+                            pinError = null,
+                        )
+                    }
+                    return@launch
+                }
+                _state.update {
+                    it.copy(
+                        lockedUntilEpochMillis = lockedUntilEpochMillis,
+                        lockRemainingSeconds = remaining,
+                    )
+                }
+                delay(500)
+            }
+        }
+    }
+
+    override fun onCleared() {
+        lockCountdownJob?.cancel()
+        super.onCleared()
     }
 
     fun onSetupPin() {
@@ -153,8 +215,14 @@ class ParentAuthViewModel @Inject constructor(
             val name = _state.value.displayName.ifBlank { "Parent" }
             authManager.setPin(pin, name)
 
+            // Single-row invariant (audit F1, 2026-08-06): a fresh UUID here
+            // could INSERT a second parent row while DataStore was temporarily
+            // empty, leaving child data bound to the old row. Reuse the
+            // existing row's id when present (REPLACE upserts it), otherwise
+            // the constant "parent" id makes REPLACE a true single-row upsert.
+            val existing = parentAccountDao.getParent()
             val parent = ParentAccountEntity(
-                id = UUID.randomUUID().toString(),
+                id = existing?.id ?: "parent",
                 displayName = name,
                 pinHash = "" // no longer stored in Room — DataStore is the single source
             )
@@ -250,3 +318,10 @@ class ParentAuthViewModel @Inject constructor(
         }
     }
 }
+
+internal fun lockRemainingSeconds(lockedUntilEpochMillis: Long, nowEpochMillis: Long): Int =
+    if (lockedUntilEpochMillis <= nowEpochMillis) {
+        0
+    } else {
+        ((lockedUntilEpochMillis - nowEpochMillis) / 1_000L + 1L).toInt()
+    }

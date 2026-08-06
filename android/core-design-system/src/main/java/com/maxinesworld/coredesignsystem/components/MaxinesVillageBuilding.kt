@@ -1,6 +1,7 @@
 package com.maxinesworld.coredesignsystem.components
 
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -70,6 +71,7 @@ fun MaxinesVillageBuilding(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     val cardElevation by animateDpAsState(
         targetValue = when {
@@ -77,12 +79,12 @@ fun MaxinesVillageBuilding(
             building.isToday -> 18.dp   // Today's focus: raised
             else -> 2.dp                // Default: lightly raised
         },
-        animationSpec = spring(dampingRatio = 0.6f, stiffness = 300f)
+        animationSpec = if (animationsDisabled) snap() else spring(dampingRatio = 0.6f, stiffness = 300f)
     )
 
     val pressLift by animateDpAsState(
         targetValue = if (isPressed) (-4).dp else 0.dp,
-        animationSpec = spring(dampingRatio = 0.6f, stiffness = 400f)
+        animationSpec = if (animationsDisabled) snap() else spring(dampingRatio = 0.6f, stiffness = 400f)
     )
 
     Card(

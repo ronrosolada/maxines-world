@@ -55,6 +55,10 @@ class LessonLoader @Inject constructor(
     private fun deriveSubjectPath(lessonId: String): String? {
         val parts = lessonId.split("-")
         if (parts.size < 4) return null
+        // Only legacy {subject}-g3-mNN-lNN IDs have a derived path; SLM
+        // quarter/week IDs ({subject}-g3-qN-wNN-dNN) must not be mangled into
+        // garbage "module-q1/lesson-w01" lookups (audit B2, 2026-08-06).
+        if (!parts[2].startsWith("m") || !parts[3].startsWith("l")) return null
 
         val subjectCode = parts[0]
         val moduleNum = parts[2].removePrefix("m")  // "m01" → "01"

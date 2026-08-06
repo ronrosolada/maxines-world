@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "ice melts",
-      "right": "shows the skill"
+      "right": "evidence from the example: ice melts"
      },
      {
       "left": "water freezes",
-      "right": "shows the skill"
+      "right": "evidence from the example: water freezes"
      },
      {
       "left": "wax softens when warmed",
-      "right": "shows the skill"
+      "right": "evidence from the example: wax softens when warmed"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "science-g3-m01-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Materials Can Change”?",
     "options": [
+     {
+      "id": "c",
+      "text": "Every change reverses"
+     },
      {
       "id": "a",
       "text": "ice melts"
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "Every material melts"
-     },
-     {
-      "id": "c",
-      "text": "Every change reverses"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "Every material melts"
-     },
-     {
       "id": "b",
       "text": "ice melts"
      },
      {
       "id": "c",
       "text": "water freezes"
+     },
+     {
+      "id": "a",
+      "text": "Every material melts"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Every material melts” because it follows the skill explanation: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    "explanation": "The correct response is “Every material melts” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "science-g3-m01-d02-q04",
@@ -287,8 +287,12 @@
     "itemId": "science-g3-m01-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Observe safe examples of changes from heating or cooling?",
     "options": [
+     {
+      "id": "c",
+      "text": "Every material melts"
+     },
      {
       "id": "a",
       "text": "wax softens when warmed"
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Touch hot materials"
-     },
-     {
-      "id": "c",
-      "text": "Every material melts"
      }
     ],
     "correctOptionIds": [

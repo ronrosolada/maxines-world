@@ -140,9 +140,12 @@ fun HotspotImageRenderer(
             modifier = Modifier.semantics { contentDescription = "Hotspot: ${step.question}" }
         )
 
-        // Responsive example board with hotspot overlay. The content pack's
-        // example strings are the accessible/text fallback for the optional
-        // artwork asset, so never leave the board visually empty.
+        // The authored SVG is optional; the hotspot controls remain usable when
+        // the asset is absent or unavailable.
+        LessonVisual(step)
+        // Responsive example board with hotspot controls. The content pack's
+        // example strings are the accessible/text interaction layer, so never
+        // leave the activity without usable controls if an image is unavailable.
         BoxWithConstraints(
             modifier = Modifier
                 .fillMaxWidth()
@@ -202,7 +205,6 @@ fun HotspotImageRenderer(
             }
 
             hotspots.forEachIndexed { index, label ->
-                val isTarget = index == targetIndex
                 val isVisited = index in hotspotProgress.visited
                 val isTapped = if (allTargetsRequired) isVisited else tappedRegion == index
                 val bgColor by animateColorAsState(
@@ -246,7 +248,12 @@ fun HotspotImageRenderer(
                 ) {
                     Text(
                         text = if (isVisited) "✓" else "${index + 1}",
-                        color = White,
+                        color = when {
+                            result == true && isTapped -> OnSuccess
+                            result == false && isTapped -> OnError
+                            isVisited -> OnGold
+                            else -> White
+                        },
                         style = MaterialTheme.typography.labelLarge
                     )
                 }

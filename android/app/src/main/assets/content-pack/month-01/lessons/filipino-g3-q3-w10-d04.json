@@ -1,372 +1,377 @@
 {
-  "lessonId": "filipino-g3-q3-w10-d04",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 11,
-  "day": 4,
-  "subject": "filipino",
-  "title": "Maikling Buod · Q3 W10 D04",
-  "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
-  "vocabulary": [
-    {
-      "term": "tauhan",
-      "definition": "ang mga tao o hayop sa kuwento"
-    },
-    {
-      "term": "suliranin",
-      "definition": "ang problema sa kuwento"
-    },
-    {
-      "term": "buod",
-      "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "content": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "narration": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli."
-    },
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
-      "content": {
-        "examples": [
-          "Aling Rosa at Nena",
-          "Nabasag ang paso ng halaman ni Aling Rosa.",
-          "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
-          "Natuwa si Aling Rosa sa kabaitan ni Nena."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
-      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-    },
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
-      "content": {
-        "fits": [
-          "Aling Rosa at Nena",
-          "Nabasag ang paso ng halaman ni Aling Rosa.",
-          "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
-          "Natuwa si Aling Rosa sa kabaitan ni Nena."
-        ],
-        "doesNotFit": [
-          "Ibinalot ni Marco ang kanyang jacket sa matanda.",
-          "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
-          "Naghintay siya hanggang hapon."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
-      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-    },
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
-      "content": {
-        "options": [
-          "Aling Rosa at Nena",
-          "Marco at isang matanda",
-          "Lola Rosa, Milo, at Ana",
-          "Ben"
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
-      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-    },
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Aling Rosa at Nena",
-            "right": "tauhan"
-          },
-          {
-            "left": "Nabasag ang paso ng halaman ni Aling Rosa.",
-            "right": "suliranin"
-          },
-          {
-            "left": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
-            "right": "mahalagang pangyayari"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
-      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-    },
-    {
-      "activityId": "filipino-g3-q3-w10-d04-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w10-d04-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
-      "content": {
-        "steps": [
-          "Basahin ang kuwento",
-          "Tukuyin ang tauhan",
-          "Hanapin ang suliranin at pangyayari",
-          "Isulat ang maikling buod"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
-      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "sequence": 1,
-        "itemId": "filipino-g3-q3-w10-d04-q1",
-        "prompt": "Sino ang tauhan sa kuwento?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Aling Rosa at Nena"
-          },
-          {
-            "id": "b",
-            "text": "Marco at isang matanda"
-          },
-          {
-            "id": "c",
-            "text": "Lola Rosa, Milo, at Ana"
-          },
-          {
-            "id": "d",
-            "text": "Umuulan nang malakas."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Aling Rosa at Nena"
-      },
-      {
-        "sequence": 2,
-        "itemId": "filipino-g3-q3-w10-d04-q2",
-        "prompt": "Ano ang suliranin sa kuwento?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Nabasag ang paso ng halaman ni Aling Rosa."
-          },
-          {
-            "id": "b",
-            "text": "Umuulan nang malakas."
-          },
-          {
-            "id": "c",
-            "text": "Nawala ang alampay ni Lola Rosa."
-          },
-          {
-            "id": "d",
-            "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Nabasag ang paso ng halaman ni Aling Rosa."
-      },
-      {
-        "sequence": 3,
-        "itemId": "filipino-g3-q3-w10-d04-q3",
-        "prompt": "Ano ang mahalagang pangyayari sa kuwento?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
-          },
-          {
-            "id": "b",
-            "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
-          },
-          {
-            "id": "c",
-            "text": "Hinanap ito nina Milo at Ana sa sala at sa kusina."
-          },
-          {
-            "id": "d",
-            "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
-      },
-      {
-        "sequence": 4,
-        "itemId": "filipino-g3-q3-w10-d04-q4",
-        "prompt": "Paano natapos ang kuwento?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
-          },
-          {
-            "id": "b",
-            "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
-          },
-          {
-            "id": "c",
-            "text": "Natagpuan nila ito sa ilalim ng unan."
-          },
-          {
-            "id": "d",
-            "text": "Marco at isang matanda"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Natuwa si Aling Rosa sa kabaitan ni Nena."
-      },
-      {
-        "sequence": 5,
-        "itemId": "filipino-g3-q3-w10-d04-q5",
-        "prompt": "Alin ang maikling buod ng kuwento?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
-          },
-          {
-            "id": "b",
-            "text": "Malakas ang ulan, at tinulungan ni Marco ang matandang walang payong upang makauwi nang ligtas."
-          },
-          {
-            "id": "c",
-            "text": "Nawala ang alampay ni Lola Rosa, at natagpuan ito nina Milo at Ana sa ilalim ng unan."
-          },
-          {
-            "id": "d",
-            "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
-      }
-    ]
+ "lessonId": "filipino-g3-q3-w10-d04",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 11,
+ "day": 4,
+ "subject": "filipino",
+ "title": "Maikling Buod · Q3 W10 D04",
+ "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "fil-PH",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
+ "vocabulary": [
+  {
+   "term": "tauhan",
+   "definition": "ang mga tao o hayop sa kuwento"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "suliranin",
+   "definition": "ang problema sa kuwento"
+  },
+  {
+   "term": "buod",
+   "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "content": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "narration": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Nabasag ang paso ng halaman ni Aling Rosa. Hindi sinasadya ito ni Nena. Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman. Natuwa si Aling Rosa sa kabaitan ni Nena. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli."
+  },
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+   "content": {
+    "examples": [
+     "Aling Rosa at Nena",
+     "Nabasag ang paso ng halaman ni Aling Rosa.",
+     "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+     "Natuwa si Aling Rosa sa kabaitan ni Nena."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
+   "content": {
+    "fits": [
+     "Aling Rosa at Nena",
+     "Nabasag ang paso ng halaman ni Aling Rosa.",
+     "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+     "Natuwa si Aling Rosa sa kabaitan ni Nena."
+    ],
+    "doesNotFit": [
+     "Ibinalot ni Marco ang kanyang jacket sa matanda.",
+     "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
+     "Naghintay siya hanggang hapon."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng kuwentong ito.",
+   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+  },
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+   "content": {
+    "options": [
+     "Lola Rosa, Milo, at Ana",
+     "Ben",
+     "Aling Rosa at Nena",
+     "Marco at isang matanda"
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+  },
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Aling Rosa at Nena",
+      "right": "tauhan"
+     },
+     {
+      "left": "Nabasag ang paso ng halaman ni Aling Rosa.",
+      "right": "suliranin"
+     },
+     {
+      "left": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+      "right": "mahalagang pangyayari"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+  },
+  {
+   "activityId": "filipino-g3-q3-w10-d04-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w10-d04-visual",
+   "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+   "content": {
+    "steps": [
+     "Basahin ang kuwento",
+     "Tukuyin ang tauhan",
+     "Hanapin ang suliranin at pangyayari",
+     "Isulat ang maikling buod"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "sequence": 1,
+    "itemId": "filipino-g3-q3-w10-d04-q1",
+    "prompt": "Sino ang tauhan sa kuwento?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Lola Rosa, Milo, at Ana"
+     },
+     {
+      "id": "d",
+      "text": "Umuulan nang malakas."
+     },
+     {
+      "id": "a",
+      "text": "Aling Rosa at Nena"
+     },
+     {
+      "id": "b",
+      "text": "Marco at isang matanda"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Aling Rosa at Nena",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 2,
+    "itemId": "filipino-g3-q3-w10-d04-q2",
+    "prompt": "Ano ang suliranin sa kuwento?",
+    "options": [
+     {
+      "id": "b",
+      "text": "Umuulan nang malakas."
+     },
+     {
+      "id": "c",
+      "text": "Nawala ang alampay ni Lola Rosa."
+     },
+     {
+      "id": "d",
+      "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
+     },
+     {
+      "id": "a",
+      "text": "Nabasag ang paso ng halaman ni Aling Rosa."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Nabasag ang paso ng halaman ni Aling Rosa.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 3,
+    "itemId": "filipino-g3-q3-w10-d04-q3",
+    "prompt": "Ano ang mahalagang pangyayari sa kuwento?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+     },
+     {
+      "id": "b",
+      "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
+     },
+     {
+      "id": "c",
+      "text": "Hinanap ito nina Milo at Ana sa sala at sa kusina."
+     },
+     {
+      "id": "d",
+      "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 4,
+    "itemId": "filipino-g3-q3-w10-d04-q4",
+    "prompt": "Paano natapos ang kuwento?",
+    "options": [
+     {
+      "id": "d",
+      "text": "Marco at isang matanda"
+     },
+     {
+      "id": "a",
+      "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
+     },
+     {
+      "id": "b",
+      "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+     },
+     {
+      "id": "c",
+      "text": "Natagpuan nila ito sa ilalim ng unan."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Natuwa si Aling Rosa sa kabaitan ni Nena.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 5,
+    "itemId": "filipino-g3-q3-w10-d04-q5",
+    "prompt": "Alin ang maikling buod ng kuwento?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Nawala ang alampay ni Lola Rosa, at natagpuan ito nina Milo at Ana sa ilalim ng unan."
+     },
+     {
+      "id": "d",
+      "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
+     },
+     {
+      "id": "a",
+      "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
+     },
+     {
+      "id": "b",
+      "text": "Malakas ang ulan, at tinulungan ni Marco ang matandang walang payong upang makauwi nang ligtas."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago.",
+    "type": "MULTIPLE_CHOICE"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective at local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

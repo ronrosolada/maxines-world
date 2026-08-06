@@ -5,9 +5,13 @@ import androidx.annotation.DrawableRes
 /**
  * Option 3 Playroom Collections homepage state (design.md §14).
  *
- * The screen renders exactly seven canonical subject cards in the order below.
+ * The screen renders exactly six canonical subject cards in the order below.
  * Remote/DB data may update progress, lock state, and availability, but must
  * never rename, remove, duplicate, or reorder these definitions.
+ *
+ * Araling Panlipunan content ships under the Makabansa card: Makabansa is the
+ * Matatag-curriculum successor of AP (product decision 2026-08-06, audit A1),
+ * so the 20 legacy AP lessons appear inside the Makabansa collection.
  */
 enum class SubjectAvailability {
     Available,
@@ -84,7 +88,7 @@ sealed interface PlayroomHomeUiState {
     ) : PlayroomHomeUiState
 }
 
-/** The seven canonical subjects in fixed order (design.md §10.1). */
+/** The six canonical subjects in fixed order (design.md §10.1). */
 val canonicalSubjects: List<SubjectCardUi> = listOf(
     SubjectCardUi(
         id = "mathematics", formalName = "Mathematics", playfulName = "Number Fun",
@@ -106,14 +110,11 @@ val canonicalSubjects: List<SubjectCardUi> = listOf(
         illustrationRes = R.drawable.mw_subject_filipino_kwentuhan,
         progressPercent = null, destination = "filipino",
     ),
-    SubjectCardUi(
-        id = "araling_panlipunan", formalName = "Araling Panlipunan", playfulName = "Heritage",
-        illustrationRes = R.drawable.mw_subject_ap_heritage,
-        progressPercent = null, destination = "araling-panlipunan",
-    ),
+    // Makabansa (Matatag successor of Araling Panlipunan) — the legacy AP
+    // lessons are folded into this collection; see ModuleCatalog.
     SubjectCardUi(
         id = "makabansa", formalName = "Makabansa", playfulName = "Bayan at Kultura",
-        illustrationRes = R.drawable.ic_subject_history,
+        illustrationRes = R.drawable.mw_subject_ap_heritage,
         progressPercent = null, destination = "makabansa",
     ),
     SubjectCardUi(

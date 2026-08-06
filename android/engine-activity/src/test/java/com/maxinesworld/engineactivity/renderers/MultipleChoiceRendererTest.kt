@@ -20,4 +20,18 @@ class MultipleChoiceRendererTest {
         }
         assertTrue("correct answer must not stay in one fixed position: $positions", positions.toSet().size > 1)
     }
+
+    @Test
+    fun `result preserves the number of hints used`() {
+        val result = multipleChoiceResult(
+            activityId = "lesson-a01",
+            correct = true,
+            attempts = 2,
+            hintsUsed = 1,
+            responseTimeMs = 500L,
+        )
+
+        assertEquals(1, result.hintsUsed)
+        assertEquals(2, result.attempts)
+    }
 }

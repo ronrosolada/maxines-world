@@ -38,7 +38,10 @@ class QuarterlyAssetGeneratorTest(unittest.TestCase):
             asset = assets / f"{lesson['lessonId']}-visual.svg"
             self.assertTrue(asset.exists(), asset)
             root = ET.parse(asset).getroot()
-            self.assertIn(root.attrib.get("viewBox"), {"0 0 640 360", "0 0 1200 675"})
+            # Shipped visuals span generator generations: bespoke topic
+            # scenes are 800×450, Filipino Q1 W04–W08 (PR #55) are 1200×675,
+            # and legacy boards remain 640×360 (2026-08-06).
+            self.assertIn(root.attrib.get("viewBox"), {"0 0 640 360", "0 0 800 450", "0 0 1200 675"})
 
 
 if __name__ == "__main__":

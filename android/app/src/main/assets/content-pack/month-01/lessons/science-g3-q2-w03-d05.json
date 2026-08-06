@@ -1,377 +1,377 @@
 {
-  "lessonId": "science-g3-q2-w03-d05",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 5,
-  "subject": "science",
-  "title": "Life Around Us · Q2 W03 D05",
-  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
-  "vocabulary": [
-    {
-      "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
-    },
-    {
-      "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
-    },
-    {
-      "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "science-g3-q2-w03-d05-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
-      "content": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
-      "narration": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d05-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Explore each example. a butterfly and a cow are living, but a stone is not.",
-      "content": {
-        "examples": [
-          "a butterfly — living",
-          "a cow — living",
-          "a dog needs food and water to live",
-          "a stone — non-living"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Explore each example. a butterfly and a cow are living, but a stone is not.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d05-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Sort the examples: a butterfly and a cow are living things.",
-      "content": {
-        "fits": [
-          "a butterfly — living",
-          "a cow — living",
-          "a dog needs food and water to live"
-        ],
-        "doesNotFit": [
-          "a stone — non-living",
-          "a rock",
-          "water",
-          "a pencil"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort the examples: a butterfly and a cow are living things.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d05-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "content": {
-        "options": [
-          "a butterfly",
-          "a rock",
-          "water",
-          "a pencil"
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Choose the best answer. Ask: does it grow, and does it need food and water?",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d05-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Match a butterfly, a cow, and a stone with their groups.",
-      "content": {
-        "pairs": [
-          {
-            "left": "a butterfly",
-            "right": "living thing"
-          },
-          {
-            "left": "a stone",
-            "right": "non-living thing"
-          },
-          {
-            "left": "a dog needs food and water to live",
-            "right": "a plant part"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match a butterfly, a cow, and a stone with their groups.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    },
-    {
-      "activityId": "science-g3-q2-w03-d05-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "science-g3-q2-w03-d05-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "content": {
-        "steps": [
-          "Observe the example: a butterfly",
-          "Ask: does it grow?",
-          "Check what it needs",
-          "Sort it as living or not"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! You found the key idea. 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
-      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "science-g3-q2-w03-d05-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a butterfly"
-          },
-          {
-            "id": "b",
-            "text": "a rock"
-          },
-          {
-            "id": "c",
-            "text": "water"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: a butterfly"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d05-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a stone"
-          },
-          {
-            "id": "b",
-            "text": "a butterfly"
-          },
-          {
-            "id": "c",
-            "text": "a cow"
-          },
-          {
-            "id": "d",
-            "text": "a rock"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: a stone"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d05-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
-        "options": [
-          {
-            "id": "a",
-            "text": "food and water"
-          },
-          {
-            "id": "b",
-            "text": "a battery"
-          },
-          {
-            "id": "c",
-            "text": "a plastic cover"
-          },
-          {
-            "id": "d",
-            "text": "a quiet shelf"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: food and water"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d05-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What does a dog need to live?",
-        "options": [
-          {
-            "id": "a",
-            "text": "food and water"
-          },
-          {
-            "id": "b",
-            "text": "a battery"
-          },
-          {
-            "id": "c",
-            "text": "a plastic bag"
-          },
-          {
-            "id": "d",
-            "text": "a remote control"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: food and water"
-      },
-      {
-        "itemId": "science-g3-q2-w03-d05-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
-        "options": [
-          {
-            "id": "a",
-            "text": "a cow"
-          },
-          {
-            "id": "b",
-            "text": "a stone"
-          },
-          {
-            "id": "c",
-            "text": "water"
-          },
-          {
-            "id": "d",
-            "text": "a pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The best answer is: a cow"
-      }
-    ]
+ "lessonId": "science-g3-q2-w03-d05",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 5,
+ "subject": "science",
+ "title": "Life Around Us · Q2 W03 D05",
+ "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "living thing",
+   "definition": "something that grows, needs food and water, and can respond"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "non-living thing",
+   "definition": "something that does not grow or need food and water"
+  },
+  {
+   "term": "basic need",
+   "definition": "something a living thing must have to live, like food and water"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "science-g3-q2-w03-d05-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+   "content": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+   "narration": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "a butterfly is a living thing: it grows and needs food and water. a stone is non-living, so it does not grow."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d05-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Explore each example. a butterfly and a cow are living, but a stone is not.",
+   "content": {
+    "examples": [
+     "a butterfly — living",
+     "a cow — living",
+     "a dog needs food and water to live",
+     "a stone — non-living"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Explore each example. a butterfly and a cow are living, but a stone is not.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "science-g3-q2-w03-d05-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Sort the examples: a butterfly and a cow are living things.",
+   "content": {
+    "fits": [
+     "a butterfly — living",
+     "a cow — living",
+     "a dog needs food and water to live"
+    ],
+    "doesNotFit": [
+     "a stone — non-living",
+     "a rock",
+     "water",
+     "a pencil"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Sort the examples: a butterfly and a cow are living things.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d05-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "content": {
+    "options": [
+     "a butterfly",
+     "a rock",
+     "water",
+     "a pencil"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Choose the answer that best shows this skill: Classify familiar examples as living or non-living and describe basic needs or body parts.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d05-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Match a butterfly, a cow, and a stone with their groups.",
+   "content": {
+    "pairs": [
+     {
+      "left": "a butterfly",
+      "right": "evidence from the example: a butterfly"
+     },
+     {
+      "left": "a stone",
+      "right": "evidence from the example: a stone"
+     },
+     {
+      "left": "a dog needs food and water to live",
+      "right": "evidence from the example: a dog needs food and water to live"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Match a butterfly, a cow, and a stone with their groups.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  },
+  {
+   "activityId": "science-g3-q2-w03-d05-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "science-g3-q2-w03-d05-visual",
+   "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "content": {
+    "steps": [
+     "Observe the example: a butterfly",
+     "Ask: does it grow?",
+     "Check what it needs",
+     "Sort it as living or not"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! You found the key idea. 🎉",
+    "retry": "Look at the example again and try once more. 💪"
+   },
+   "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "science-g3-q2-w03-d05-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a butterfly"
+     },
+     {
+      "id": "b",
+      "text": "a rock"
+     },
+     {
+      "id": "c",
+      "text": "water"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: a butterfly"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d05-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which is NOT a living thing?",
+    "options": [
+     {
+      "id": "d",
+      "text": "a rock"
+     },
+     {
+      "id": "a",
+      "text": "a stone"
+     },
+     {
+      "id": "b",
+      "text": "a butterfly"
+     },
+     {
+      "id": "c",
+      "text": "a cow"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The correct response is “a stone” because it does not follow the lesson skill. The other choices show the skill."
+   },
+   {
+    "itemId": "science-g3-q2-w03-d05-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What do all living things need to grow?",
+    "options": [
+     {
+      "id": "c",
+      "text": "a plastic cover"
+     },
+     {
+      "id": "d",
+      "text": "a quiet shelf"
+     },
+     {
+      "id": "a",
+      "text": "food and water"
+     },
+     {
+      "id": "b",
+      "text": "a battery"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: food and water"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d05-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What does a dog need to live?",
+    "options": [
+     {
+      "id": "b",
+      "text": "a battery"
+     },
+     {
+      "id": "c",
+      "text": "a plastic bag"
+     },
+     {
+      "id": "d",
+      "text": "a remote control"
+     },
+     {
+      "id": "a",
+      "text": "food and water"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: food and water"
+   },
+   {
+    "itemId": "science-g3-q2-w03-d05-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example shows a living thing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a cow"
+     },
+     {
+      "id": "b",
+      "text": "a stone"
+     },
+     {
+      "id": "c",
+      "text": "water"
+     },
+     {
+      "id": "d",
+      "text": "a pencil"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: a cow"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

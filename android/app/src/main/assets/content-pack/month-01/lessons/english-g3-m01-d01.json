@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "The child holds a red kite.",
-      "right": "shows the skill"
+      "right": "telling sentence"
      },
      {
       "left": "Two birds sit in the tree.",
-      "right": "shows the skill"
+      "right": "telling sentence (2)"
      },
      {
       "left": "A dog runs beside the bench.",
-      "right": "shows the skill"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -215,8 +215,12 @@
     "itemId": "english-g3-m01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which detail can you see in the picture?",
     "options": [
+     {
+      "id": "c",
+      "text": "Naming a color that is not shown"
+     },
      {
       "id": "a",
       "text": "The child holds a red kite."
@@ -224,10 +228,6 @@
      {
       "id": "b",
       "text": "Guessing what is outside the picture"
-     },
-     {
-      "id": "c",
-      "text": "Naming a color that is not shown"
      }
     ],
     "correctOptionIds": [
@@ -242,22 +242,22 @@
     "prompt": "Which choice does not follow the lesson idea?",
     "options": [
      {
-      "id": "a",
-      "text": "Guessing what is outside the picture"
-     },
-     {
       "id": "b",
       "text": "The child holds a red kite."
      },
      {
       "id": "c",
       "text": "Two birds sit in the tree."
+     },
+     {
+      "id": "a",
+      "text": "Guessing what is outside the picture"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Guessing what is outside the picture” because it follows the skill explanation: A good description names what is visible and uses a complete sentence."
+    "explanation": "The correct response is “Guessing what is outside the picture” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "english-g3-m01-d01-q04",
@@ -287,8 +287,12 @@
     "itemId": "english-g3-m01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Describe people, places, objects, and actions using evidence from a picture?",
     "options": [
+     {
+      "id": "c",
+      "text": "Guessing what is outside the picture"
+     },
      {
       "id": "a",
       "text": "A dog runs beside the bench."
@@ -296,10 +300,6 @@
      {
       "id": "b",
       "text": "Writing only “running”"
-     },
-     {
-      "id": "c",
-      "text": "Guessing what is outside the picture"
      }
     ],
     "correctOptionIds": [

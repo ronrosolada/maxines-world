@@ -74,13 +74,15 @@ fun SortAndClassifyRenderer(
         modifier = modifier.fillMaxWidth().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+        LessonVisual(step)
+
         Text(step.question, style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Sort: ${step.question}" })
 
         // Interaction hint — the tap-tap model is not discoverable by itself
         // and the natural drag gesture is not supported (#28).
         Text(
-            "👆 Tap a card, then tap a box",
+            "Tap a card, then tap a box",
             style = MaterialTheme.typography.labelLarge,
             color = Teal40.copy(alpha = 0.7f),
             fontWeight = FontWeight.Medium,
@@ -130,7 +132,7 @@ fun SortAndClassifyRenderer(
             )
         }
 
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(24.dp))
         // Success state: the celebration banner IS the next-step button.
         // Tapping it advances the lesson — a full-width green button that
         // does nothing was the #29 complaint; it must not happen again.
@@ -169,7 +171,14 @@ fun SortAndClassifyRenderer(
                     submitted -> "Try Again"
                     else -> "Submit"
                 },
-                color = if (!submitEnabled) Teal40 else White, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(14.dp))
+                color = when {
+                    submitted && allCorrect -> OnSuccess
+                    !submitEnabled -> Teal40
+                    else -> White
+                },
+                style = MaterialTheme.typography.labelLarge,
+                modifier = Modifier.padding(14.dp),
+            )
         }
     }
 }

@@ -20,7 +20,8 @@ class ActivityStepConversionTest {
         contentJson: String,
         id: String = "a-01",
         completionRule: CompletionRule? = null,
-        instruction: String = "Do the thing."
+        instruction: String = "Do the thing.",
+        assetId: String? = null,
     ) =
         Month1Activity(
             activityId = id,
@@ -28,18 +29,20 @@ class ActivityStepConversionTest {
             type = type,
             instruction = instruction,
             content = parse(contentJson),
-            completionRule = completionRule
+            completionRule = completionRule,
+            assetId = assetId,
         )
 
     @Test
     fun `multiple choice options and answer key are parsed`() {
         val step = toActivityStep(
-            activity("MULTIPLE_CHOICE", """{"options":["A","B","C"],"correctIndex":0}""")
+            activity("MULTIPLE_CHOICE", """{"options":["A","B","C"],"correctIndex":0,"hint":"Look for the key idea."}""")
         )
         assertEquals("MULTIPLE_CHOICE_V1", step.type)
         assertEquals(listOf("A", "B", "C"), step.options)
         assertEquals(0, step.correctIndex)
         assertEquals("Do the thing.", step.question)
+        assertEquals("Look for the key idea.", step.hintText)
     }
 
     @Test
@@ -66,13 +69,16 @@ class ActivityStepConversionTest {
         val step = toActivityStep(
             activity(
                 "SORT_AND_CLASSIFY",
-                """{"fits":["f1","f2","f3"],"doesNotFit":["d1","d2","d3"]}"""
+                """{"fits":["f1","f2","f3"],"doesNotFit":["d1","d2","d3"]}""",
+                id = "filipino-g3-q1-w01-d01-a03"
             )
         )
         assertEquals(2, step.sortCategories.size)
+        assertEquals(listOf("Angkop", "Hindi angkop"), step.sortCategories)
         assertEquals(6, step.sortItems.size)
         assertEquals(3, step.sortItems.count { it.categoryIndex == 0 })
         assertEquals(3, step.sortItems.count { it.categoryIndex == 1 })
+        assertTrue(step.feedback?.incorrect?.contains("maling kahon") == true)
     }
 
     @Test
@@ -123,6 +129,19 @@ class ActivityStepConversionTest {
             activity("HOTSPOT_IMAGE", """{"examples":["e1","e2"]}""")
         )
         assertEquals(listOf("e1", "e2"), step.hotspotExamples)
+    }
+
+    @Test
+    fun `activity asset id is carried into the renderer step`() {
+        val step = toActivityStep(
+            activity(
+                "HOTSPOT_IMAGE",
+                """{"examples":["a red flag"]}""",
+                assetId = "english-g3-q1-w01-d01-visual",
+            )
+        )
+
+        assertEquals(listOf("english-g3-q1-w01-d01-visual"), step.imageAssets)
     }
 
     @Test

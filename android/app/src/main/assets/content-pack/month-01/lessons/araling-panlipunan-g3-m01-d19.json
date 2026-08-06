@@ -68,7 +68,7 @@
     "retry": "Buksan ang natitirang halimbawa."
    },
    "assetId": "araling-panlipunan-g3-m01-d19-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa para sa keyboard at screen reader."
+   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d19-a03",
@@ -106,11 +106,11 @@
    "instruction": "Ano ang mahalagang itanong sa source?",
    "content": {
     "options": [
+     "Ilang badge ang meron?",
      "Sino ang gumawa at kailan?",
-     "Anong paboritong kulay ko?",
-     "Ilang badge ang meron?"
+     "Anong paboritong kulay ko?"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -118,10 +118,10 @@
    },
    "feedback": {
     "correct": "Tama: Sino ang gumawa at kailan?",
-    "retry": "Basahin muli ang tuntunin ng aralin. Anong paboritong kulay ko? and Ilang badge ang meron? ay hindi angkop."
+    "retry": "Basahin muli ang tuntunin ng aralin. Anong paboritong kulay ko? at Ilang badge ang meron? ay hindi angkop."
    },
    "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d19-a05",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "dated photograph",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: dated photograph"
      },
      {
       "left": "map with source",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: map with source"
      },
      {
       "left": "oral account with speaker",
-      "right": "kaugnay ng ideya ng aralin"
+      "right": "halimbawang nagpapakita ng kasanayan: oral account with speaker"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Aling pahayag ang pinakaangkop sa “Historical Places as Evidence”?",
     "options": [
      {
+      "id": "c",
+      "text": "Gumawa ng tunay na claim mula sa fiction"
+     },
+     {
       "id": "a",
       "text": "Paghambingin ang source, creator, date, purpose, at limitasyon."
      },
      {
       "id": "b",
       "text": "Larawan na walang context ay buong katotohanan"
-     },
-     {
-      "id": "c",
-      "text": "Gumawa ng tunay na claim mula sa fiction"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "araling-panlipunan-g3-m01-d19-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong halimbawa?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Historical Places as Evidence”?",
     "options": [
-     {
-      "id": "a",
-      "text": "dated photograph"
-     },
      {
       "id": "b",
       "text": "Larawan na walang context ay buong katotohanan"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "Gumawa ng tunay na claim mula sa fiction"
+     },
+     {
+      "id": "a",
+      "text": "dated photograph"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Larawan na walang context ay buong katotohanan” dahil sumusunod ito sa paliwanag ng aralin: Paghambingin ang source, creator, date, purpose, at limitasyon."
+    "explanation": "Ang tamang sagot ay “Larawan na walang context ay buong katotohanan” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d19-q04",
@@ -266,16 +266,16 @@
     "prompt": "Ano ang mahalagang itanong sa source?",
     "options": [
      {
+      "id": "c",
+      "text": "Ilang badge ang meron?"
+     },
+     {
       "id": "a",
       "text": "Sino ang gumawa at kailan?"
      },
      {
       "id": "b",
       "text": "Anong paboritong kulay ko?"
-     },
-     {
-      "id": "c",
-      "text": "Ilang badge ang meron?"
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "araling-panlipunan-g3-m01-d19-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang dapat gamitin sa huling balik-aral?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kasanayang “Historical Places as Evidence”?",
     "options": [
-     {
-      "id": "a",
-      "text": "oral account with speaker"
-     },
      {
       "id": "b",
       "text": "Ibahagi ang eksaktong bahay"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "Larawan na walang context ay buong katotohanan"
+     },
+     {
+      "id": "a",
+      "text": "oral account with speaker"
      }
     ],
     "correctOptionIds": [
@@ -314,7 +314,7 @@
    "assetId": "araling-panlipunan-g3-m01-d19-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/araling-panlipunan-g3-m01-d19-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Historical Places as Evidence; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Historical Places as Evidence; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
    "contentDescription": "Five connected learning tokens for exploring examples in Historical Places as Evidence.",
    "decorative": false
   }
@@ -324,13 +324,13 @@
   {
    "sourceTitle": "DepEd MATATAG Curriculum resources",
    "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   },
   {
    "sourceTitle": "NAMRIA Map Awareness",
    "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum and subject-matter review reference",
+   "claimScope": "Curriculum at subject-matter review reference",
    "reviewStatus": "PENDING_HUMAN_REVIEW"
   }
  ],

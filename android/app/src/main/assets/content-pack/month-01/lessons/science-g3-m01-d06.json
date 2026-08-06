@@ -106,11 +106,11 @@
    "instruction": "Which rule uses an observable trait?",
    "content": {
     "options": [
+     "is lucky or unlucky",
      "has feathers or no feathers",
-     "is nice or not nice",
-     "is lucky or unlucky"
+     "is nice or not nice"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "required": true,
    "completionRule": {
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "feathers/no feathers",
-      "right": "shows the skill"
+      "right": "evidence from the example: feathers/no feathers"
      },
      {
       "left": "moves by swimming/walking",
-      "right": "shows the skill"
+      "right": "evidence from the example: moves by swimming/walking"
      },
      {
       "left": "has scales/no scales",
-      "right": "shows the skill"
+      "right": "evidence from the example: has scales/no scales"
      }
     ]
    },
@@ -194,16 +194,16 @@
     "prompt": "Which statement best matches “Classify the Animals”?",
     "options": [
      {
+      "id": "c",
+      "text": "Call the groups scientific species"
+     },
+     {
       "id": "a",
       "text": "A learner-made group is an observation tool, not formal biological taxonomy."
      },
      {
       "id": "b",
       "text": "Group by favorite color"
-     },
-     {
-      "id": "c",
-      "text": "Call the groups scientific species"
      }
     ],
     "correctOptionIds": [
@@ -215,12 +215,8 @@
     "itemId": "science-g3-m01-d06-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a correct example?",
+    "prompt": "Which example shows the skill “Classify the Animals”?",
     "options": [
-     {
-      "id": "a",
-      "text": "feathers/no feathers"
-     },
      {
       "id": "b",
       "text": "Group by favorite color"
@@ -228,6 +224,10 @@
      {
       "id": "c",
       "text": "Call the groups scientific species"
+     },
+     {
+      "id": "a",
+      "text": "feathers/no feathers"
      }
     ],
     "correctOptionIds": [
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Group by favorite color” because it follows the skill explanation: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "The correct response is “Group by favorite color” because it does not follow the lesson skill. The other choices show the skill."
    },
    {
     "itemId": "science-g3-m01-d06-q04",
@@ -266,16 +266,16 @@
     "prompt": "Which rule uses an observable trait?",
     "options": [
      {
+      "id": "c",
+      "text": "is lucky or unlucky"
+     },
+     {
       "id": "a",
       "text": "has feathers or no feathers"
      },
      {
       "id": "b",
       "text": "is nice or not nice"
-     },
-     {
-      "id": "c",
-      "text": "is lucky or unlucky"
      }
     ],
     "correctOptionIds": [
@@ -287,12 +287,8 @@
     "itemId": "science-g3-m01-d06-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example should be used in the final review?",
+    "prompt": "Which example gives evidence of this skill: Classify animals by observable traits and explain the chosen rule?",
     "options": [
-     {
-      "id": "a",
-      "text": "has scales/no scales"
-     },
      {
       "id": "b",
       "text": "Use an invisible trait"
@@ -300,6 +296,10 @@
      {
       "id": "c",
       "text": "Group by favorite color"
+     },
+     {
+      "id": "a",
+      "text": "has scales/no scales"
      }
     ],
     "correctOptionIds": [

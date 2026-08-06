@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A greeting and polite expression should fit the person, time, and situation. Ready to explore?",
+ "introduction": "Milo has a new mission! 🐱✨ A greeting and polite expression should fit the person, time, and situation. Ready to explore? Try the skill with a line from a diary entry.",
  "vocabulary": [
   {
    "term": "Good morning.",
-   "definition": "a correct example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Please help me.",
-   "definition": "a related example"
+   "definition": "A telling sentence that gives information and ends with a period."
   },
   {
    "term": "Thank you.",
-   "definition": "another example"
+   "definition": "A telling sentence that gives information and ends with a period."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Study the idea and listen to Milo.",
-   "content": "A greeting and polite expression should fit the person, time, and situation.",
+   "instruction": "Learn this skill: Choose a polite expression that fits the situation. Try the skill with a line from a diary entry.",
+   "content": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Study the idea and listen to Milo.",
-   "narration": "A greeting and polite expression should fit the person, time, and situation.",
+   "prompt": "Learn this skill: Choose a polite expression that fits the situation. Try the skill with a line from a diary entry.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry."
   },
   {
    "activityId": "english-g3-q2-w06-d04-a02",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Explore each example and find the important detail.",
+   "instruction": "Look closely at each example to practice: Choose a polite expression that fits the situation.",
    "content": {
     "examples": [
      "Good morning.",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Explore each example and find the important detail.",
+   "prompt": "Look closely at each example to practice: Choose a polite expression that fits the situation.",
    "narration": "A greeting and polite expression should fit the person, time, and situation.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Sort each example into the correct group.",
+   "instruction": "Sort each example while practicing: Choose a polite expression that fits the situation.",
    "content": {
     "fits": [
      "Good morning.",
@@ -98,10 +98,10 @@
      "Excuse me."
     ],
     "doesNotFit": [
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson",
-     "a different topic"
+     "Umalis ka na!",
+     "Bilisan mo!",
+     "Wala akong pakialam!",
+     "Bigyan mo ako ngayon!"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example into the correct group.",
+   "prompt": "Sort each example while practicing: Choose a polite expression that fits the situation.",
    "narration": "A greeting and polite expression should fit the person, time, and situation.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Choose the best answer.",
+   "instruction": "Which expression fits the situation politely?",
    "content": {
     "options": [
+     "Bilisan mo!",
+     "Wala akong pakialam!",
      "Good morning.",
-     "an unrelated guess",
-     "a random symbol",
-     "a detail not in the lesson"
+     "Umalis ka na!"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Choose the best answer.",
+   "prompt": "Which expression fits the situation politely?",
    "narration": "A greeting and polite expression should fit the person, time, and situation.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Match the ideas that belong together.",
+   "instruction": "Match each example to the idea it shows about: Choose a polite expression that fits the situation.",
    "content": {
     "pairs": [
      {
       "left": "Good morning.",
-      "right": "a correct example"
+      "right": "telling sentence"
      },
      {
       "left": "Please help me.",
-      "right": "a related example"
+      "right": "telling sentence (2)"
      },
      {
       "left": "Thank you.",
-      "right": "another example"
+      "right": "telling sentence (3)"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the ideas that belong together.",
+   "prompt": "Match each example to the idea it shows about: Choose a polite expression that fits the situation.",
    "narration": "A greeting and polite expression should fit the person, time, and situation.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Put the steps in the correct order.",
+   "instruction": "Put the steps in order to practice: Choose a polite expression that fits the situation.",
    "content": {
     "steps": [
      "Read the example",
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in the correct order.",
+   "prompt": "Put the steps in order to practice: Choose a polite expression that fits the situation.",
    "narration": "A greeting and polite expression should fit the person, time, and situation.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,27 +225,27 @@
     "itemId": "english-g3-q2-w06-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example belongs to Kind Words, Right Place?",
+    "prompt": "Which expression fits the situation politely?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a different topic"
-     },
-     {
       "id": "c",
-      "text": "a clear example"
+      "text": "Bilisan mo!"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "a",
+      "text": "a clear example"
+     },
+     {
+      "id": "b",
+      "text": "Umalis ka na!"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: a clear example"
    },
@@ -253,27 +253,27 @@
     "itemId": "english-g3-q2-w06-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the skill in Kind Words, Right Place?",
+    "prompt": "Which expression fits the situation politely?",
     "options": [
      {
-      "id": "a",
-      "text": "an unsupported claim"
-     },
-     {
       "id": "b",
-      "text": "a second example"
+      "text": "Umalis ka na!"
      },
      {
       "id": "c",
-      "text": "a random symbol"
+      "text": "Bilisan mo!"
      },
      {
       "id": "d",
-      "text": "a different topic"
+      "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "a",
+      "text": "a second example"
      }
     ],
     "correctOptionIds": [
-     "b"
+     "a"
     ],
     "explanation": "The best answer is: a second example"
    },
@@ -281,7 +281,7 @@
     "itemId": "english-g3-q2-w06-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "What is one example from Kind Words, Right Place?",
+    "prompt": "Which expression fits the situation politely?",
     "options": [
      {
       "id": "a",
@@ -289,15 +289,15 @@
      },
      {
       "id": "b",
-      "text": "a different topic"
+      "text": "Umalis ka na!"
      },
      {
       "id": "c",
-      "text": "an unsupported claim"
+      "text": "Bilisan mo!"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "Wala akong pakialam!"
      }
     ],
     "correctOptionIds": [
@@ -309,27 +309,27 @@
     "itemId": "english-g3-q2-w06-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation matches Kind Words, Right Place?",
+    "prompt": "Which expression fits the situation politely?",
     "options": [
      {
+      "id": "d",
+      "text": "Wala akong pakialam!"
+     },
+     {
       "id": "a",
-      "text": "an unsupported claim"
+      "text": "a reason"
      },
      {
       "id": "b",
-      "text": "an unrelated guess"
+      "text": "Umalis ka na!"
      },
      {
       "id": "c",
-      "text": "a random symbol"
-     },
-     {
-      "id": "d",
-      "text": "a reason"
+      "text": "Bilisan mo!"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "a"
     ],
     "explanation": "The best answer is: a reason"
    },
@@ -337,27 +337,27 @@
     "itemId": "english-g3-q2-w06-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer demonstrates Kind Words, Right Place?",
+    "prompt": "Which expression fits the situation politely?",
     "options": [
      {
-      "id": "a",
-      "text": "a random symbol"
-     },
-     {
-      "id": "b",
-      "text": "a different topic"
-     },
-     {
       "id": "c",
-      "text": "a clear example"
+      "text": "Bilisan mo!"
      },
      {
       "id": "d",
-      "text": "an unrelated guess"
+      "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "a",
+      "text": "a clear example"
+     },
+     {
+      "id": "b",
+      "text": "Umalis ka na!"
      }
     ],
     "correctOptionIds": [
-     "c"
+     "a"
     ],
     "explanation": "The best answer is: a clear example"
    }

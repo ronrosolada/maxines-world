@@ -1,373 +1,378 @@
 {
-  "lessonId": "filipino-g3-q4-w14-d03",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 16,
-  "day": 3,
-  "subject": "filipino",
-  "title": "Munting Talata · Q4 W14 D03",
-  "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
-  "vocabulary": [
-    {
-      "term": "paksa",
-      "definition": "ang pinag-uusapan sa talata"
-    },
-    {
-      "term": "pangunahing ideya",
-      "definition": "ang pinakamahalagang mensahe ng talata"
-    },
-    {
-      "term": "detalye",
-      "definition": "dagdag na impormasyon tungkol sa paksa"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "content": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "narration": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-      "content": {
-        "examples": [
-          "ang palengke",
-          "Ang palengke ay puno ng tao tuwing umaga.",
-          "May nagtitinda ng gulay, isda, at prutas.",
-          "Busy pero masaya ang mga mamimili."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
-      "content": {
-        "fits": [
-          "ang palengke",
-          "Ang palengke ay puno ng tao tuwing umaga.",
-          "May nagtitinda ng gulay, isda, at prutas.",
-          "Busy pero masaya ang mga mamimili."
-        ],
-        "doesNotFit": [
-          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
-          "Mahilig siyang matulog sa ilalim ng mesa.",
-          "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
-          "Maraming puno sa paligid nito."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-      "content": {
-        "options": [
-          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
-          "Mahilig siyang matulog sa ilalim ng mesa.",
-          "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
-          "Ang palengke ay puno ng tao tuwing umaga."
-        ],
-        "correctIndex": 3
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-      "content": {
-        "pairs": [
-          {
-            "left": "ang palengke",
-            "right": "paksa"
-          },
-          {
-            "left": "Ang palengke ay puno ng tao tuwing umaga.",
-            "right": "pangunahing ideya"
-          },
-          {
-            "left": "May nagtitinda ng gulay, isda, at prutas.",
-            "right": "detalye"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    },
-    {
-      "activityId": "filipino-g3-q4-w14-d03-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q4-w14-d03-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-      "content": {
-        "steps": [
-          "Basahin ang talata",
-          "Hanapin ang paksa",
-          "Hanapin ang pangunahing ideya",
-          "Tukuyin ang mga detalye"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "sequence": 1,
-        "itemId": "filipino-g3-q4-w14-d03-q1",
-        "prompt": "Alin ang paksa ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "si Jose"
-          },
-          {
-            "id": "b",
-            "text": "ang aking pusa"
-          },
-          {
-            "id": "c",
-            "text": "ang Sabado ng pamilya ni Ana"
-          },
-          {
-            "id": "d",
-            "text": "ang palengke"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: ang palengke"
-      },
-      {
-        "sequence": 2,
-        "itemId": "filipino-g3-q4-w14-d03-q2",
-        "prompt": "Ano ang pangunahing ideya ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Maaga gumigising si Jose para mag-ehersisyo."
-          },
-          {
-            "id": "b",
-            "text": "Ang aking pusa ay maputi at makapal ang balahibo."
-          },
-          {
-            "id": "c",
-            "text": "Masaya ang pamilya ni Ana sa Sabado."
-          },
-          {
-            "id": "d",
-            "text": "Ang palengke ay puno ng tao tuwing umaga."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Ang palengke ay puno ng tao tuwing umaga."
-      },
-      {
-        "sequence": 3,
-        "itemId": "filipino-g3-q4-w14-d03-q3",
-        "prompt": "Aling detalye ang nasa talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Tumatakbo siya sa parke kasama ang kanyang kuya."
-          },
-          {
-            "id": "b",
-            "text": "Mahilig siyang matulog sa ilalim ng mesa."
-          },
-          {
-            "id": "c",
-            "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
-          },
-          {
-            "id": "d",
-            "text": "May nagtitinda ng gulay, isda, at prutas."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: May nagtitinda ng gulay, isda, at prutas."
-      },
-      {
-        "sequence": 4,
-        "itemId": "filipino-g3-q4-w14-d03-q4",
-        "prompt": "Aling pangungusap ang wakas ng talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Malusog at masigla siya araw-araw."
-          },
-          {
-            "id": "b",
-            "text": "Mahal na mahal ko ang aking pusa."
-          },
-          {
-            "id": "c",
-            "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
-          },
-          {
-            "id": "d",
-            "text": "Busy pero masaya ang mga mamimili."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Busy pero masaya ang mga mamimili."
-      },
-      {
-        "sequence": 5,
-        "itemId": "filipino-g3-q4-w14-d03-q5",
-        "prompt": "Tungkol saan ang talata?",
-        "options": [
-          {
-            "id": "a",
-            "text": "si Jose"
-          },
-          {
-            "id": "b",
-            "text": "ang aking pusa"
-          },
-          {
-            "id": "c",
-            "text": "ang Sabado ng pamilya ni Ana"
-          },
-          {
-            "id": "d",
-            "text": "ang palengke"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: ang palengke"
-      }
-    ]
+ "lessonId": "filipino-g3-q4-w14-d03",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 16,
+ "day": 3,
+ "subject": "filipino",
+ "title": "Munting Talata · Q4 W14 D03",
+ "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "fil-PH",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
+ "vocabulary": [
+  {
+   "term": "paksa",
+   "definition": "ang pinag-uusapan sa talata"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "pangunahing ideya",
+   "definition": "ang pinakamahalagang mensahe ng talata"
+  },
+  {
+   "term": "detalye",
+   "definition": "dagdag na impormasyon tungkol sa paksa"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "content": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "narration": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang palengke ay puno ng tao tuwing umaga. May nagtitinda ng gulay, isda, at prutas. Busy pero masaya ang mga mamimili. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+   "content": {
+    "examples": [
+     "ang palengke",
+     "Ang palengke ay puno ng tao tuwing umaga.",
+     "May nagtitinda ng gulay, isda, at prutas.",
+     "Busy pero masaya ang mga mamimili."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
+   "content": {
+    "fits": [
+     "ang palengke",
+     "Ang palengke ay puno ng tao tuwing umaga.",
+     "May nagtitinda ng gulay, isda, at prutas.",
+     "Busy pero masaya ang mga mamimili."
+    ],
+    "doesNotFit": [
+     "Tumatakbo siya sa parke kasama ang kanyang kuya.",
+     "Mahilig siyang matulog sa ilalim ng mesa.",
+     "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
+     "Maraming puno sa paligid nito."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga bahagi ng talatang ito.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+   "content": {
+    "options": [
+     "Mahilig siyang matulog sa ilalim ng mesa.",
+     "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
+     "Ang palengke ay puno ng tao tuwing umaga.",
+     "Tumatakbo siya sa parke kasama ang kanyang kuya."
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+   "content": {
+    "pairs": [
+     {
+      "left": "ang palengke",
+      "right": "paksa"
+     },
+     {
+      "left": "Ang palengke ay puno ng tao tuwing umaga.",
+      "right": "pangunahing ideya"
+     },
+     {
+      "left": "May nagtitinda ng gulay, isda, at prutas.",
+      "right": "detalye"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  },
+  {
+   "activityId": "filipino-g3-q4-w14-d03-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "filipino-g3-q4-w14-d03-visual",
+   "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+   "content": {
+    "steps": [
+     "Basahin ang talata",
+     "Hanapin ang paksa",
+     "Hanapin ang pangunahing ideya",
+     "Tukuyin ang mga detalye"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "sequence": 1,
+    "itemId": "filipino-g3-q4-w14-d03-q1",
+    "prompt": "Alin ang paksa ng talata?",
+    "options": [
+     {
+      "id": "b",
+      "text": "ang aking pusa"
+     },
+     {
+      "id": "c",
+      "text": "ang Sabado ng pamilya ni Ana"
+     },
+     {
+      "id": "d",
+      "text": "ang palengke"
+     },
+     {
+      "id": "a",
+      "text": "si Jose"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: ang palengke",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 2,
+    "itemId": "filipino-g3-q4-w14-d03-q2",
+    "prompt": "Ano ang pangunahing ideya ng talata?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Maaga gumigising si Jose para mag-ehersisyo."
+     },
+     {
+      "id": "b",
+      "text": "Ang aking pusa ay maputi at makapal ang balahibo."
+     },
+     {
+      "id": "c",
+      "text": "Masaya ang pamilya ni Ana sa Sabado."
+     },
+     {
+      "id": "d",
+      "text": "Ang palengke ay puno ng tao tuwing umaga."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Ang palengke ay puno ng tao tuwing umaga.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 3,
+    "itemId": "filipino-g3-q4-w14-d03-q3",
+    "prompt": "Aling detalye ang nasa talata?",
+    "options": [
+     {
+      "id": "d",
+      "text": "May nagtitinda ng gulay, isda, at prutas."
+     },
+     {
+      "id": "a",
+      "text": "Tumatakbo siya sa parke kasama ang kanyang kuya."
+     },
+     {
+      "id": "b",
+      "text": "Mahilig siyang matulog sa ilalim ng mesa."
+     },
+     {
+      "id": "c",
+      "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: May nagtitinda ng gulay, isda, at prutas.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 4,
+    "itemId": "filipino-g3-q4-w14-d03-q4",
+    "prompt": "Aling pangungusap ang wakas ng talata?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
+     },
+     {
+      "id": "d",
+      "text": "Busy pero masaya ang mga mamimili."
+     },
+     {
+      "id": "a",
+      "text": "Malusog at masigla siya araw-araw."
+     },
+     {
+      "id": "b",
+      "text": "Mahal na mahal ko ang aking pusa."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: Busy pero masaya ang mga mamimili.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 5,
+    "itemId": "filipino-g3-q4-w14-d03-q5",
+    "prompt": "Tungkol saan ang talata?",
+    "options": [
+     {
+      "id": "b",
+      "text": "ang aking pusa"
+     },
+     {
+      "id": "c",
+      "text": "ang Sabado ng pamilya ni Ana"
+     },
+     {
+      "id": "d",
+      "text": "ang palengke"
+     },
+     {
+      "id": "a",
+      "text": "si Jose"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamabuting sagot ay: ang palengke",
+    "type": "MULTIPLE_CHOICE"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective at local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

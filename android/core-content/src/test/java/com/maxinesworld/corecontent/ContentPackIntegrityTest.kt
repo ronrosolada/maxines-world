@@ -65,8 +65,9 @@ class ContentPackIntegrityTest {
         // Legacy hand-authored month-01 pack: 5 subjects × 20 days = 100
         assertEquals(100, names.count { "-g3-m01-d" in it })
         // Converted SLM lessons: 249 across 6 subjects (q-format IDs)
-        assertEquals(249, names.count { "-g3-q" in it })
-        assertEquals(349, names.size)
+        // + 9 Filipino Q1 W04–W08 lessons (PR #55) = 258 q-format
+        assertEquals(258, names.count { "-g3-q" in it })
+        assertEquals(358, names.size)
     }
 
     @Test
