@@ -109,6 +109,17 @@ class ContentPackValidationTests(unittest.TestCase):
         self.assertEqual(0, report.error_count)
         self.assertEqual(1, report.lesson_count)
 
+    def test_allowed_passing_count_set_preserves_authored_threshold(self):
+        lesson = valid_lesson()
+        lesson["assessment"]["passingCorrectCount"] = 3
+        snapshot = {**SNAPSHOT, "assessment_passing_correct_count": [3, 4]}
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp)
+            write_lesson(pack, lesson)
+            report = validate_pack(pack, snapshot=snapshot)
+
+        self.assertEqual([], report.errors)
+
     def test_malformed_json_is_an_error_and_does_not_abort_scan(self):
         with tempfile.TemporaryDirectory() as tmp:
             pack = Path(tmp)

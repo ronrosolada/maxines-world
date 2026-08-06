@@ -14,8 +14,8 @@ class QuarterlyAssetGeneratorTest(unittest.TestCase):
     def test_quarterly_inventory_has_one_lesson_per_visual_reference(self):
         lessons = quarterly_lessons()
         asset_ids = {f"{lesson['lessonId']}-visual" for lesson in lessons}
-        self.assertEqual(len(lessons), 249)
-        self.assertEqual(len(asset_ids), 249)
+        self.assertEqual(len(lessons), 258)
+        self.assertEqual(len(asset_ids), 258)
 
     def test_generated_board_is_valid_svg_with_accessible_metadata(self):
         lesson = next(
@@ -38,10 +38,10 @@ class QuarterlyAssetGeneratorTest(unittest.TestCase):
             asset = assets / f"{lesson['lessonId']}-visual.svg"
             self.assertTrue(asset.exists(), asset)
             root = ET.parse(asset).getroot()
-            # Shipped visuals are topic-specific bespoke scenes (800×450);
-            # the legacy 640×360 board template is no longer emitted
-            # (bespoke_lesson_assets.py, 2026-08-06).
-            self.assertEqual(root.attrib.get("viewBox"), "0 0 800 450")
+            # Shipped visuals span generator generations: bespoke topic
+            # scenes are 800×450, Filipino Q1 W04–W08 (PR #55) are 1200×675,
+            # and legacy boards remain 640×360 (2026-08-06).
+            self.assertIn(root.attrib.get("viewBox"), {"0 0 640 360", "0 0 800 450", "0 0 1200 675"})
 
 
 if __name__ == "__main__":

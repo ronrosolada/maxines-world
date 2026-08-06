@@ -150,7 +150,7 @@ def _validate_assessment(
     lesson_path: Path,
     assessment: Any,
     expected_item_count: int | None,
-    expected_passing_count: int | None,
+    expected_passing_count: int | list[int] | None,
     strict: bool,
 ) -> None:
     if not isinstance(assessment, dict):
@@ -167,13 +167,16 @@ def _validate_assessment(
     passing = assessment.get("passingCorrectCount")
     if not isinstance(passing, int) or isinstance(passing, bool) or not 0 <= passing <= len(items):
         report.add("error", "assessment_shape", lesson_path, "passingCorrectCount is outside the item range")
-    elif expected_passing_count is not None and passing != expected_passing_count:
-        report.add(
-            "error",
-            "assessment_shape",
-            lesson_path,
-            f"expected passingCorrectCount={expected_passing_count}, found {passing}",
-        )
+    elif expected_passing_count is not None:
+        allowed_passing = expected_passing_count if isinstance(expected_passing_count, list) else [expected_passing_count]
+        if passing not in allowed_passing:
+            expected_label = allowed_passing[0] if len(allowed_passing) == 1 else "one of " + ", ".join(str(value) for value in allowed_passing)
+            report.add(
+                "error",
+                "assessment_shape",
+                lesson_path,
+                f"expected passingCorrectCount={expected_label}, found {passing}",
+            )
 
     for index, item in enumerate(items, start=1):
         prefix = f"{lesson_path.name}: assessment item {index}"
