@@ -17,8 +17,8 @@ android {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 20
-        versionName = "0.20.0"
+        versionCode = 21
+        versionName = "0.21.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -207,4 +207,14 @@ val verifyPlayableContent by tasks.registering {
             println("Release gate OK: $total playable lessons are educator-reviewed.")
         }
     }
+}
+
+// The educator gate must run on every verification pass AND on the
+// release build itself — a release can never ship draft curriculum.
+// (2026-08-06: previously registered but never wired into any task.)
+tasks.named("check") { dependsOn(verifyPlayableContent) }
+// assembleRelease is created by AGP after project evaluation, so hook
+// via matching/configureEach rather than named().
+tasks.matching { it.name == "assembleRelease" }.configureEach {
+    dependsOn(verifyPlayableContent)
 }

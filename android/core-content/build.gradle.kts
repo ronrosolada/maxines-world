@@ -27,3 +27,12 @@ dependencies {
     testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.test.runner)
 }
+
+// ContentPackIntegrityTest reads the bundled lesson pack via relative
+// paths; declaring it as a task input makes the test re-run whenever the
+// pack changes, so Gradle's build cache can never serve a stale pass.
+tasks.withType<Test>().configureEach {
+    inputs.dir(rootProject.file("app/src/main/assets/content-pack/month-01/lessons"))
+        .withPropertyName("bundledLessonPack")
+        .withPathSensitivity(PathSensitivity.RELATIVE)
+}
