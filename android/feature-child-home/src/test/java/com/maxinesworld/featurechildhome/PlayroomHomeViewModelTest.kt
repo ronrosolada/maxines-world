@@ -50,8 +50,10 @@ class PlayroomHomeViewModelTest {
     fun `six canonical subjects stay in fixed order`() = runTest(dispatcher) {
         val vm = buildViewModel()
         advanceUntilIdle()
+        // Makabansa replaces the old separate Araling Panlipunan card — the
+        // legacy AP lessons are folded into its collection (2026-08-06 merge).
         assertEquals(
-            listOf("mathematics", "english", "science", "filipino", "araling_panlipunan", "makabansa", "gmrc"),
+            listOf("mathematics", "english", "science", "filipino", "makabansa", "gmrc"),
             content(vm).subjects.map { it.id },
         )
         assertTrue(content(vm).subjects.all { it.isAvailable })

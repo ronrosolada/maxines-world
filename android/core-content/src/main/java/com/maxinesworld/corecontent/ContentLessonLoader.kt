@@ -94,12 +94,24 @@ class ContentLessonLoader(
     fun getAssetPath(assetId: String): String =
         "content-pack/month-01/assets/vectors/$assetId.svg"
 
+    /**
+     * Manifest subject → app subject key.
+     *
+     * Araling Panlipunan deliberately maps to MAKABANSA: Makabansa is the
+     * Matatag-curriculum successor of AP, and the 20 legacy AP lessons ship
+     * under the Makabansa collection on the Playroom home (product decision
+     * 2026-08-06; audit A1). Both uppercase (legacy m01 pack) and lowercase
+     * (SLM packs) forms are folded in so credit, badges, and progress all
+     * land on the same subject regardless of authoring format.
+     */
     val subjectMapping = mapOf(
         "ENGLISH" to "english",
         "FILIPINO" to "filipino",
         "MATHEMATICS" to "mathematics",
         "SCIENCE" to "science",
-        "ARALING_PANLIPUNAN" to "makabansa"
+        "ARALING_PANLIPUNAN" to "makabansa",
+        "araling_panlipunan" to "makabansa",
+        "MAKABANSA" to "makabansa",
     )
 
     fun toAppSubject(apiSubject: String): String = subjectMapping[apiSubject] ?: apiSubject.lowercase()

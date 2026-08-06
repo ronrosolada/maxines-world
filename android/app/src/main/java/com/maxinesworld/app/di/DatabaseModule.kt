@@ -1,6 +1,7 @@
 package com.maxinesworld.app.di
 
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import androidx.room.Room
 import com.maxinesworld.coredatabase.*
 import dagger.Module
@@ -8,16 +9,48 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import java.io.File
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
+    private const val DB_NAME = "maxines_world.db"
+
+    /**
+     * Corruption guard (audit F2, 2026-08-06): before Room opens the DB,
+     * run `PRAGMA quick_check(1)` on the raw file. If the database is
+     * corrupt, quarantine it (rename to *.corrupt-<ts> for support) instead
+     * of crash-looping on open — Room then recreates a fresh database and
+     * the app stays usable for the child.
+     */
+    private fun quarantineCorruptDatabaseIfNeeded(context: Context) {
+        val dbFile = context.getDatabasePath(DB_NAME)
+        if (!dbFile.exists()) return
+        val healthy = runCatching {
+            SQLiteDatabase.openDatabase(
+                dbFile.path, null, SQLiteDatabase.OPEN_READONLY
+            ).use { db ->
+                db.rawQuery("PRAGMA quick_check(1)", null).use { cursor ->
+                    cursor.moveToFirst() &&
+                        cursor.getString(0).equals("ok", ignoreCase = true)
+                }
+            }
+        }.getOrDefault(false)
+        if (healthy) return
+        val stamp = System.currentTimeMillis()
+        listOf("", "-wal", "-shm").forEach { suffix ->
+            val f = File(dbFile.path + suffix)
+            if (f.exists()) f.renameTo(File(f.path + ".corrupt-$stamp"))
+        }
+    }
+
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
-        return Room.databaseBuilder(context, MaxinesDatabase::class.java, "maxines_world.db")
+        quarantineCorruptDatabaseIfNeeded(context)
+        return Room.databaseBuilder(context, MaxinesDatabase::class.java, DB_NAME)
             .addMigrations(
                 MaxinesMigrations.MIGRATION_1_2,
                 MaxinesMigrations.MIGRATION_2_3,
@@ -26,6 +59,11 @@ object DatabaseModule {
                 MaxinesMigrations.MIGRATION_6_7,
                 MaxinesMigrations.MIGRATION_7_8,
             )
+            // Last-resort crash prevention: if an unknown schema version ever
+            // appears (e.g. a build that shipped and was later rolled back),
+            // reset the database rather than permanently bricking the app.
+            // Progress loss is preferable to a child being unable to open it.
+            .fallbackToDestructiveMigration()
             .build()
     }
 

@@ -1,9 +1,12 @@
-# DB v7 Uniqueness Invariants (audit 2026-08-01)
+# DB v7 Uniqueness Invariants (audit 2026-08-01) + v8 delta (2026-08-06)
 
-**Status:** Audited ✅ — no schema correction needed. No v8 required.
-**Scope:** `core-database` Room v7 schema (`MaxinesDatabase.kt`, schemas/7.json)
-**Audit trigger:** Implementation handoff Phase 4 — verify intended product cardinality,
-especially badge ownership.
+**Status:** Audited ✅ — no schema correction needed.
+**Scope:** `core-database` Room schema. v7 audited 2026-08-01; **v8 added on
+`feat/lesson-visuals-and-player`** (`wildlife_expeditions`, `MIGRATION_7_8`)
+for the Wildlife Expedition feature — additive, one new table, no v7 table
+modified. Main still ships v7 until PR #58 merges.
+**Audit trigger:** Implementation handoff Phase 4 — verify intended product
+cardinality, especially badge ownership.
 
 ## Verdict
 
@@ -25,11 +28,12 @@ composite index fix shipped in `b0831fb` is the right design:
 | `daily_quest_completions` | `(childId, dayKey, questId)` | One completion per quest per child/day |
 | `playground_unlock_receipts` | `(childId, dayKey)` | One unlock receipt per child/day (prevents re-lock) |
 | `lesson_completions` | `(childId, lessonId, attemptId)` | Attempt idempotency — replay-safe progress |
-| `reward_ledger` | `(sourceKey)` | One ledger entry per source event |
+| `reward_ledger` | `(sourceKey)` | One ledger entry per source event — **dead code as of 2026-08-06: no production writer; `rewards` is the real currency ledger** (audit F4) |
 | `mini_game_results` | `(idempotencyKey)` | No duplicate minigame submissions |
 | `daily_challenges` | `(childId, challengeDate)` | One challenge per child per day |
 | `reward_break_entitlements` | `(dailyQuestCompletionId)` | One break per quest completion |
 | `content_packages` | `(packageId, version)` | One row per package version |
+| `wildlife_expeditions` | `(childId, weekKey)` | One expedition row per child per week (v8) |
 
 ## Enforcement semantics
 
@@ -38,6 +42,18 @@ composite index fix shipped in `b0831fb` is the right design:
   first-write-wins.
 - `REPLACE` used only for idempotent upserts (parent accounts, screen-time
   limits, content package registry) where last-write-wins is the contract.
+
+## 2026-08-06 reliability additions (audit F1/F2)
+
+- **Single parent row:** `ParentAuthViewModel` now reuses the existing parent
+  row's id (or the constant `"parent"` on fresh installs) instead of a fresh
+  UUID, and `ParentAccountDao.getParent()` orders by `createdAt ASC` — a second
+  PIN setup can no longer strand child data under an orphaned parent id.
+- **Corruption guard:** `DatabaseModule` runs `PRAGMA quick_check(1)` on the
+  raw DB file before Room opens; a corrupt database is quarantined
+  (`*.corrupt-<ts>` rename) so Room recreates fresh instead of crash-looping.
+  `fallbackToDestructiveMigration()` is enabled as a last-resort crash
+  prevention for unknown schema versions.
 
 ## Test coverage
 
@@ -50,9 +66,13 @@ composite index fix shipped in `b0831fb` is the right design:
 5. `lessonCompletionUniquePerChildLessonAttempt` — attempt idempotency, original
    row preserved, distinct count unaffected
 
+Plus `MigrationTest`: 1→2→3, 3→7, 4→7, 6→7, 7→8 (v5 never shipped to main —
+no v5 migration needed; see audit F6).
+
 ## Rules going forward
 
-- **Never edit the released v7 schema in place.** Any future schema change ships
-  as v8+ with an additive migration tested from v7 (see `MigrationTest`).
+- **Never edit a released schema in place.** Any future schema change ships
+  as a new version with an additive migration tested from every shipped
+  predecessor (see `MigrationTest`).
 - Any new table's uniqueness must map to a documented product invariant before
   merge.

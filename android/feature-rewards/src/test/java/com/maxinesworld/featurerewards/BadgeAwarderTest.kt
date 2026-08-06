@@ -144,12 +144,13 @@ class BadgeAwarderTest {
     }
 
     @Test
-    fun `araling panlipunan is normalized and unknown subjects are ignored`() = runTest {
+    fun `araling panlipunan and history are normalized and unknown subjects are ignored`() = runTest {
         val awarder = awarder()
         awarder.recordLessonCompletion(childId, "araling-panlipunan", "ap-1")
         val result = awarder.recordLessonCompletion(childId, "history", "history-1")
 
-        assertEquals(1, result.completedCount)
+        // history/hist are legacy aliases for Makabansa (audit A3, 2026-08-06)
+        assertEquals(2, result.completedCount)
         assertEquals(1, result.subjectCount)
         assertTrue(result.makabansa)
         assertFalse(result.english)

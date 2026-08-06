@@ -67,10 +67,16 @@ class ModuleCatalog @Inject constructor(
         data class LessonMeta(val lessonId: String, val title: String, val day: Int, val minutes: Int)
 
         val byModule = mutableMapOf<String, MutableList<LessonMeta>>()
+        // Makabansa's collection also includes the legacy Araling Panlipunan
+        // lessons (Matatag successor; product decision 2026-08-06, audit A1).
+        val matchesSubject = { lessonId: String ->
+            lessonId.startsWith("$subject-g3-") ||
+                (subject == "makabansa" && lessonId.startsWith("araling-panlipunan-g3-"))
+        }
         for (fileName in raw) {
             if (!fileName.endsWith(".json")) continue
             val lessonId = fileName.removeSuffix(".json")
-            if (!lessonId.startsWith("$subject-g3-")) continue
+            if (!matchesSubject(lessonId)) continue
 
             val moduleKey = ModuleIdRules.moduleKeyFor(lessonId) ?: continue
             val meta = runCatching {

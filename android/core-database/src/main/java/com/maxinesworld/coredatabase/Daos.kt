@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ParentAccountDao {
-    @Query("SELECT * FROM parent_accounts LIMIT 1")
+    @Query("SELECT * FROM parent_accounts ORDER BY createdAt ASC LIMIT 1")
     suspend fun getParent(): ParentAccountEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

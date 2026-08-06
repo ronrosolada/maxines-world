@@ -215,8 +215,14 @@ class ParentAuthViewModel @Inject constructor(
             val name = _state.value.displayName.ifBlank { "Parent" }
             authManager.setPin(pin, name)
 
+            // Single-row invariant (audit F1, 2026-08-06): a fresh UUID here
+            // could INSERT a second parent row while DataStore was temporarily
+            // empty, leaving child data bound to the old row. Reuse the
+            // existing row's id when present (REPLACE upserts it), otherwise
+            // the constant "parent" id makes REPLACE a true single-row upsert.
+            val existing = parentAccountDao.getParent()
             val parent = ParentAccountEntity(
-                id = UUID.randomUUID().toString(),
+                id = existing?.id ?: "parent",
                 displayName = name,
                 pinHash = "" // no longer stored in Room — DataStore is the single source
             )

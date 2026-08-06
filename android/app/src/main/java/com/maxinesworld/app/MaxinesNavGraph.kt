@@ -120,8 +120,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 state = homeState,
                 onSubjectClick = { subjectId ->
                     val subject = subjectForPack(subjectId)
-                    if (subject != null) {
-                        homeViewModel.onSubjectSelected(subjectId)
+                    if (subject != null && homeViewModel.onSubjectSelected(subjectId)) {
                         navController.navigate(Routes.subjectModules(childId, subject))
                         homeViewModel.onOpenFinished()
                     }

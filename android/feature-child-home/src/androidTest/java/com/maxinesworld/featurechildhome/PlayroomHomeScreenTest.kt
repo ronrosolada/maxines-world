@@ -66,7 +66,9 @@ class PlayroomHomeScreenTest {
     @Test
     fun allSixCanonicalSubjectsRender() {
         setHome(stateFor())
-        listOf("Mathematics", "English", "Science", "Filipino", "Araling Panlipunan", "GMRC")
+        // Makabansa is the Matatag successor of Araling Panlipunan — legacy
+        // AP lessons ship inside the Makabansa collection (2026-08-06 merge).
+        listOf("Mathematics", "English", "Science", "Filipino", "Makabansa", "GMRC")
             .forEach { composeRule.onNodeWithText(it).assertIsDisplayed() }
     }
 

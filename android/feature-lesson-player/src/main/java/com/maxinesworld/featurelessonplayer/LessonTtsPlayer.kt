@@ -54,9 +54,15 @@ class LessonTtsPlayer(context: Context) {
         onDone = onComplete
         isSpeaking = true
 
-        // Set locale based on language
-        when (language) {
-            "filipino" -> {
+        // Set locale based on language. Lessons carry BCP-47 tags
+        // ("fil-PH" / "en-PH"); match by prefix so legacy literal values
+        // ("filipino" / "english") keep working. Anything else is surfaced
+        // as an explicit unavailability instead of silently speaking the
+        // wrong language (review 2026-08-06: Filipino lessons were being
+        // narrated with an English voice because the literal match never
+        // fired for "fil-PH").
+        when {
+            language.startsWith("fil") -> {
                 val filLocale = Locale.Builder()
                     .setLanguage("fil")
                     .setRegion("PH")
@@ -70,7 +76,18 @@ class LessonTtsPlayer(context: Context) {
                     return
                 }
             }
-            else -> engine.language = Locale.US
+            language.startsWith("en") -> {
+                val enPh = Locale.Builder().setLanguage("en").setRegion("PH").build()
+                engine.language =
+                    if (engine.isLanguageAvailable(enPh) >= TextToSpeech.LANG_AVAILABLE) enPh
+                    else Locale.US
+            }
+            else -> {
+                isSpeaking = false
+                onDone = null
+                onUnavailable?.invoke()
+                return
+            }
         }
 
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
