@@ -38,7 +38,10 @@ class QuarterlyAssetGeneratorTest(unittest.TestCase):
             asset = assets / f"{lesson['lessonId']}-visual.svg"
             self.assertTrue(asset.exists(), asset)
             root = ET.parse(asset).getroot()
-            self.assertEqual(root.attrib.get("viewBox"), "0 0 640 360")
+            # Shipped visuals are topic-specific bespoke scenes (800×450);
+            # the legacy 640×360 board template is no longer emitted
+            # (bespoke_lesson_assets.py, 2026-08-06).
+            self.assertEqual(root.attrib.get("viewBox"), "0 0 800 450")
 
 
 if __name__ == "__main__":
