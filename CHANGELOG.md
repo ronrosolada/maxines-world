@@ -4,6 +4,20 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
+## [Unreleased]
+
+### Content & visuals
+- Integrated the revised editorial visual set: 358 month-01 lesson visuals plus 5 new Grade 3 pilot visuals (363 assets, checksum-verified).
+- Kept the pre-revision `english-g3-q1-w01-d01` visual: the revised art dropped curriculum clues (red flag, parade, lanterns) required by the picture-detective activity.
+- Regenerated child-facing feedback copy across 161 lessons so authored correct/explanation text no longer exposes curriculum jargon.
+
+### Child-facing feedback
+- Extended copy sanitization to success feedback and assessment explanations (core model, lesson player, and content tooling share the same replacement table).
+- Applied the feedback guard to Interactive Spec and Multiple Choice guidance copy.
+
+### Testing
+- Added UI-level regression coverage proving the Sequence CTA is a no-op until complete and submits the authored order as correct (#65).
+
 ## [0.22.0] - 2026-08-06
 
 ### Features
