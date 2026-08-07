@@ -82,10 +82,62 @@ data class MatchPair(
     val right: String
 )
 
+const val DEFAULT_INCORRECT_FEEDBACK = "Look at the example again and try once more. 💪"
+
+private val GENERIC_INCORRECT_FEEDBACK = setOf(
+    "Let's try again!",
+    "Try again!",
+    "Incorrect. Try again.",
+)
+
+/** Replace opaque curriculum language before it reaches a child-facing surface. */
+private fun sanitizeLearnerFeedbackText(text: String): String = text
+    .replace("does not follow the lesson skill", "does not match what we learned", ignoreCase = true)
+    .replace("do not follow the lesson skill", "do not match what we learned", ignoreCase = true)
+    .replace("follows the lesson skill", "matches what we learned", ignoreCase = true)
+    .replace("follow the lesson skill", "match what we learned", ignoreCase = true)
+    .replace("follows the skill explanation", "matches what we learned", ignoreCase = true)
+    .replace("follow the skill explanation", "match what we learned", ignoreCase = true)
+    .replace("follows the lesson explanation", "matches what we learned", ignoreCase = true)
+    .replace("follow the lesson explanation", "match what we learned", ignoreCase = true)
+    .replace("applies the lesson skill", "uses what we learned", ignoreCase = true)
+    .replace("apply the lesson skill", "use what we learned", ignoreCase = true)
+    .replace("applies the skill", "uses what we learned", ignoreCase = true)
+    .replace("apply the skill", "use what we learned", ignoreCase = true)
+    .replace("uses the lesson skill", "uses what we learned", ignoreCase = true)
+    .replace("use the lesson skill", "use what we learned", ignoreCase = true)
+    .replace("follow the skill rule", "match what we learned", ignoreCase = true)
+    .replace("does not show the skill", "does not match the lesson idea", ignoreCase = true)
+    .replace("do not show the skill", "do not match the lesson idea", ignoreCase = true)
+    .replace("shows the skill", "matches the lesson idea", ignoreCase = true)
+    .replace("show the skill", "match the lesson idea", ignoreCase = true)
+    .replace("The other choices show the skill", "The other choices match what we learned", ignoreCase = true)
+
+/** Keep curriculum copy understandable to a Grade 3 learner at the moment of retry. */
+fun sanitizeIncorrectFeedback(raw: String?): String? {
+    val text = raw?.trim()?.takeIf { it.isNotEmpty() } ?: return null
+    if (text in GENERIC_INCORRECT_FEEDBACK) return null
+    return sanitizeLearnerFeedbackText(text)
+}
+
+fun childFacingIncorrectFeedback(
+    raw: String?,
+    fallback: String = DEFAULT_INCORRECT_FEEDBACK,
+): String = sanitizeIncorrectFeedback(raw) ?: fallback
+
+/** Apply the same child-facing copy guard to success/explanation feedback. */
+fun sanitizeCorrectFeedback(raw: String?): String? =
+    raw?.trim()?.takeIf { it.isNotEmpty() }?.let(::sanitizeLearnerFeedbackText)
+
+fun childFacingCorrectFeedback(
+    raw: String?,
+    fallback: String = "Great job!",
+): String = sanitizeCorrectFeedback(raw) ?: fallback
+
 @Serializable
 data class ActivityFeedback(
     val correct: String = "Great job!",
-    val incorrect: String = "Let's try again!"
+    val incorrect: String = DEFAULT_INCORRECT_FEEDBACK
 )
 
 @Serializable

@@ -11,6 +11,8 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coremodel.childFacingCorrectFeedback
+import com.maxinesworld.coremodel.childFacingIncorrectFeedback
 import com.maxinesworld.coredesignsystem.components.AnswerCardState
 import com.maxinesworld.coredesignsystem.components.MaxinesAnswerCard
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
@@ -102,9 +104,9 @@ fun MultipleChoiceRenderer(
         if (submitted && feedbackState != null) {
             Text(
                 text = if (feedbackState == true)
-                    step.feedback?.correct ?: "Great job!"
+                    childFacingCorrectFeedback(step.feedback?.correct)
                 else
-                    step.feedback?.incorrect ?: "Let's try again!",
+                    childFacingIncorrectFeedback(step.feedback?.incorrect),
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (feedbackState == true) SuccessGreenText else ReviewText,
                 modifier = Modifier.semantics {
@@ -134,7 +136,7 @@ fun MultipleChoiceRenderer(
                         )
                     }
                     val guidance = step.hintText.ifBlank {
-                        step.feedback?.incorrect.orEmpty()
+                        childFacingIncorrectFeedback(step.feedback?.incorrect)
                     }
                     if (guidance.isNotBlank()) {
                         Text(

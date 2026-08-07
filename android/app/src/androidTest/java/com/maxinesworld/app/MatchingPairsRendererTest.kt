@@ -1,6 +1,7 @@
 package com.maxinesworld.app
 
 import androidx.activity.compose.setContent
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
@@ -54,5 +55,42 @@ class MatchingPairsRendererTest {
         composeRule
             .onNodeWithContentDescription("Left: L1 — matched", useUnmergedTree = true)
             .assertIsNotEnabled()
+    }
+
+    @Test
+    fun wrong_pair_exposes_child_facing_correction() {
+        val step = ActivityStep(
+            id = "matching-feedback",
+            type = "MATCHING_PAIRS_V1",
+            question = "Match each example.",
+            matchPairs = listOf(
+                MatchPair("L1", "R1"),
+                MatchPair("L2", "R2"),
+            ),
+        )
+
+        composeRule.activityRule.scenario.onActivity { activity ->
+            activity.setContent {
+                MaxinesWorldTheme {
+                    MatchingPairsRenderer(step = step, onResult = {}, onHint = {})
+                }
+            }
+        }
+        composeRule.waitForIdle()
+
+        composeRule
+            .onNodeWithContentDescription("Left: L1", useUnmergedTree = true)
+            .performClick()
+        composeRule
+            .onNodeWithContentDescription("Right: R2", useUnmergedTree = true)
+            .performClick()
+        composeRule.waitForIdle()
+
+        composeRule
+            .onNodeWithContentDescription(
+                "Not this pair yet. Compare the two ideas and try again.",
+                useUnmergedTree = true,
+            )
+            .assertIsDisplayed()
     }
 }

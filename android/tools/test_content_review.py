@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -68,7 +69,39 @@ class ContentReviewTest(unittest.TestCase):
         self.assertNotIn("fits the lesson idea", str(curated))
         self.assertEqual(curated, sanitize_legacy_lesson(curated))
 
-    def test_curated_lesson_is_idempotent(self):
+    def test_legacy_retry_feedback_replaces_curriculum_jargon(self):
+        lesson = {
+            "lessonId": "english-g3-m01-d02",
+            "subject": "ENGLISH",
+            "activities": [{
+                "feedback": {
+                    "retry": "Read the skill rule again. Square and Yesterday do not show the skill."
+                }
+            }],
+        }
+
+        repaired = sanitize_legacy_lesson(lesson)
+        retry = repaired["activities"][0]["feedback"]["retry"]
+        self.assertNotIn("show the skill", retry.lower())
+        self.assertIn("match the lesson idea", retry.lower())
+        self.assertEqual(repaired, sanitize_legacy_lesson(repaired))
+
+    def test_place_value_feedback_names_place_and_value(self):
+        lesson_path = (
+            Path(__file__).resolve().parents[1]
+            / "app/src/main/assets/content-pack/month-01/lessons/mathematics-g3-m01-d02.json"
+        )
+        lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+        activities = {activity["activityId"]: activity for activity in lesson["activities"]}
+
+        sort_feedback = activities["mathematics-g3-m01-d02-a03"]["feedback"]
+        mcq_feedback = activities["mathematics-g3-m01-d02-a04"]["feedback"]
+        for text in (sort_feedback["correct"], sort_feedback["retry"], mcq_feedback["retry"]):
+            self.assertNotIn("skill rule", text.lower())
+        self.assertIn("hundreds place", mcq_feedback["retry"].lower())
+        self.assertIn("300", mcq_feedback["retry"])
+        self.assertIn("not 30 or 3", mcq_feedback["retry"].lower())
+
         lesson = {
             "lessonId": "makabansa-g3-q4-w07-d04",
             "subject": "makabansa",
