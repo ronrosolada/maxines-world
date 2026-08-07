@@ -46,6 +46,21 @@ data class SubjectProgress(
     val accuracy: Float
 )
 
+/** One feed row per completed lesson, never one row per assessment question. */
+internal fun recentActivityLabels(
+    completions: List<LessonCompletionEntity>,
+    titleForLesson: (String) -> String,
+): List<String> = completions
+    .sortedWith(
+        compareByDescending<LessonCompletionEntity> { it.completedAtEpochMillis }
+            .thenByDescending { it.id },
+    )
+    .distinctBy { it.lessonId }
+    .take(5)
+    .map { completion ->
+        "${titleForLesson(completion.lessonId)} — ${(completion.accuracy * 100).toInt()}%"
+    }
+
 /** Resolve both current full subject IDs and legacy abbreviated IDs. */
 internal fun subjectKeyForLessonId(lessonId: String): String? {
     val prefix = lessonId.substringBefore("-")
@@ -73,6 +88,7 @@ class ParentDashboardViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val progressEventDao: ProgressEventDao,
+    private val lessonCompletionDao: LessonCompletionDao,
     private val moduleCatalog: ModuleCatalog,
 ) : androidx.lifecycle.ViewModel() {
 
@@ -86,6 +102,7 @@ class ParentDashboardViewModel @Inject constructor(
             val coinsTotal = rewardDao.getTotalByType(childId, "COIN") ?: 0
             val mastery = masteryRecordDao.getByChild(childId)
             val progress = progressEventDao.getByChild(childId)
+            val completions = lessonCompletionDao.getRecentByChild(childId, limit = 5)
 
             // Subject progress
             val bySubject = progress.groupBy { event ->
@@ -127,10 +144,13 @@ class ParentDashboardViewModel @Inject constructor(
                 titleByLessonId[lessonId] = title
                 return title
             }
-            val recentActivity = progress.takeLast(5).map { event ->
-                val accuracy = (event.accuracy * 100).toInt()
-                "${friendlyTitle(event.lessonId)} — $accuracy%"
-            }.reversed()
+            completions
+                .map { it.lessonId }
+                .distinct()
+                .forEach { lessonId -> friendlyTitle(lessonId) }
+            val recentActivity = recentActivityLabels(completions) { lessonId ->
+                titleByLessonId[lessonId] ?: "Lesson"
+            }
 
             _state.value = ParentDashboardState(
                 childName = child?.name ?: "Learner",

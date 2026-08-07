@@ -126,6 +126,23 @@ class ContentPackIntegrityTest {
     }
 
     @Test
+    fun `math building-numbers feedback teaches place value`() {
+        val lesson = json.decodeFromString<Month1Lesson>(
+            lessonsDir().resolve("mathematics-g3-m01-d01.json").readText(),
+        )
+        val sort = lesson.activities.first { it.type == "SORT_AND_CLASSIFY" }
+        val multipleChoice = lesson.activities.first { it.type == "MULTIPLE_CHOICE" }
+        val sortFeedback = requireNotNull(sort.feedback)
+        val choiceFeedback = requireNotNull(multipleChoice.feedback)
+
+        assertTrue(sortFeedback.correct.contains("thousands", ignoreCase = true))
+        assertTrue(sortFeedback.retry.contains("hundreds", ignoreCase = true))
+        assertTrue(choiceFeedback.retry.contains("hundreds place", ignoreCase = true))
+        assertTrue(!sortFeedback.correct.contains("skill rule", ignoreCase = true))
+        assertTrue(!choiceFeedback.retry.contains("skill rule", ignoreCase = true))
+    }
+
+    @Test
     fun `every lesson id matches its filename`() {
         val failures = mutableListOf<String>()
         for (file in allLessonFiles()) {

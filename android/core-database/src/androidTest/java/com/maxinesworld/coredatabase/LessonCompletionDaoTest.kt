@@ -87,6 +87,18 @@ class LessonCompletionDaoTest {
     }
 
     @Test
+    fun recentCompletionsReturnLatestAttemptOncePerLesson() = runBlocking {
+        dao.insertIgnoring(completion("child_1", "lesson-a", "att_old", accuracy = 0.6).copy(completedAtEpochMillis = 100L))
+        dao.insertIgnoring(completion("child_1", "lesson-a", "att_new", accuracy = 0.9).copy(completedAtEpochMillis = 300L))
+        dao.insertIgnoring(completion("child_1", "lesson-b", "att_new", accuracy = 1.0).copy(completedAtEpochMillis = 200L))
+
+        val recent = dao.getRecentByChild("child_1", limit = 5)
+
+        assertEquals(listOf("lesson-a", "lesson-b"), recent.map { it.lessonId })
+        assertEquals(0.9, recent.first().accuracy, 0.0)
+    }
+
+    @Test
     fun duplicateAttemptIdIsIgnoredNotDoubleCounted() = runBlocking {
         // Same (childId, lessonId, attemptId) — unique index → IGNORE, no new row
         dao.insertIgnoring(completion("child_1", "english-g3-m01-d01", "att_1"))

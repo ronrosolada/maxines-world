@@ -49,6 +49,16 @@ private sealed interface FieldGuideItem {
     }
 }
 
+internal fun orderBiomesWithCollectedFirst(
+    allBadges: List<CollectibleBadge>,
+): List<BadgeBiome> = BadgeBiome.entries.sortedWith(
+    compareByDescending<BadgeBiome> { biome ->
+        allBadges.count { badge ->
+            badge.isCollected && BadgeBiome.fromId(badge.biome) == biome
+        }
+    }.thenBy { it.ordinal },
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WildlifeFieldGuideScreen(
@@ -63,15 +73,11 @@ fun WildlifeFieldGuideScreen(
     val totalCollected = allBadges.count { it.isCollected }
     var selectedBadge by remember { mutableStateOf<CollectibleBadge?>(null) }
 
-    // #32: order biomes so ones with collected stickers come first — the
-    // milestone sticker was unreachable at the bottom of five empty sections.
-    // Stable sort: collected-first by count desc, then natural biome order.
+    // #32: collected biomes come first so a newly earned sticker is visible
+    // without scrolling past empty locked sections. The pure ordering helper
+    // also keeps the milestone path covered by a JVM regression test.
     val biomeOrder = remember(allBadges) {
-        val collectedFirst = BadgeBiome.entries.sortedByDescending { biome ->
-            allBadges.count { it.biome == biome.name.lowercase() && it.isCollected }
-        }
-        // Keep uncollected biomes in their canonical order after any with stickers.
-        collectedFirst
+        orderBiomesWithCollectedFirst(allBadges)
     }
 
     // Build the same keyed item list that LazyColumn emits. Scroll targets are

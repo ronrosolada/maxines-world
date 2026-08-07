@@ -7,11 +7,17 @@ import com.maxinesworld.engineactivity.renderers.HotspotProgress
 import com.maxinesworld.engineactivity.renderers.hotspotBadgeOffset
 import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
 import com.maxinesworld.engineactivity.renderers.lessonVisualAssetId
+import com.maxinesworld.engineactivity.renderers.MATCHING_MISMATCH_MESSAGE
+import com.maxinesworld.engineactivity.renderers.matchingPairIsCorrect
 import com.maxinesworld.engineactivity.renderers.matchingTargetLabel
 import com.maxinesworld.engineactivity.renderers.recordHotspotTargetTap
 import com.maxinesworld.engineactivity.renderers.retainCorrectSortPlacements
+import com.maxinesworld.engineactivity.renderers.sequenceActionDescription
+import com.maxinesworld.engineactivity.renderers.sequenceActionEnabled
+import com.maxinesworld.engineactivity.renderers.sequenceActionLabel
 import org.junit.Assert.assertEquals
 import androidx.compose.ui.unit.dp
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -87,6 +93,49 @@ class RendererContractTest {
         val a = (0 until 3).shuffled(java.util.Random(id.hashCode().toLong()))
         val b = (0 until 3).shuffled(java.util.Random(id.hashCode().toLong()))
         assertEquals(a, b)
+    }
+
+    @Test
+    fun `incomplete sequence action is disabled and names the missing cards`() {
+        assertFalse(sequenceActionEnabled(0, 3, submitted = false))
+        assertEquals(
+            "Place all cards (0/3)",
+            sequenceActionLabel(0, 3, submitted = false, isCorrect = false, attempts = 0),
+        )
+        assertEquals(
+            "Place all cards (0/3)",
+            sequenceActionDescription(0, 3, submitted = false, isCorrect = false, attempts = 0),
+        )
+    }
+
+    @Test
+    fun `sequence accessibility label stays identical to the visual action`() {
+        assertEquals(
+            sequenceActionLabel(3, 3, submitted = true, isCorrect = true, attempts = 1),
+            sequenceActionDescription(3, 3, submitted = true, isCorrect = true, attempts = 1),
+        )
+        assertEquals(
+            sequenceActionLabel(3, 3, submitted = true, isCorrect = false, attempts = 1),
+            sequenceActionDescription(3, 3, submitted = true, isCorrect = false, attempts = 1),
+        )
+    }
+
+    @Test
+    fun `complete sequence action exposes submit`() {
+        assertTrue(sequenceActionEnabled(3, 3, submitted = false))
+        assertEquals(
+            "Submit",
+            sequenceActionLabel(3, 3, submitted = false, isCorrect = false, attempts = 0),
+        )
+        assertEquals("Submit", sequenceActionDescription(3, 3, submitted = false, isCorrect = false, attempts = 0))
+    }
+
+    @Test
+    fun `wrong matching pair is rejected with a child-facing correction`() {
+        val right = listOf("thousands", "hundreds", "ones")
+        assertFalse(matchingPairIsCorrect(right, selectedLeft = 0, selectedRight = 1))
+        assertTrue(matchingPairIsCorrect(right, selectedLeft = 1, selectedRight = 1))
+        assertTrue(MATCHING_MISMATCH_MESSAGE.contains("try again", ignoreCase = true))
     }
 
     @Test

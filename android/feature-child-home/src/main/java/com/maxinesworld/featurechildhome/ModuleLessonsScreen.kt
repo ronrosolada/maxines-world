@@ -34,8 +34,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.corecontent.ContentModuleLesson
 import com.maxinesworld.coredesignsystem.theme.Ink
+import com.maxinesworld.coredesignsystem.theme.OnGold
+import com.maxinesworld.coredesignsystem.theme.OnSkyBlue
 import com.maxinesworld.coredesignsystem.theme.SkyBlue
 import com.maxinesworld.coredesignsystem.theme.SuccessGreen
+import com.maxinesworld.coredesignsystem.theme.SuccessGreenText
 import com.maxinesworld.coredesignsystem.theme.SunshineGold
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 
@@ -55,9 +58,9 @@ fun ModuleLessonsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(moduleTitle, fontWeight = FontWeight.Bold, color = Color.White, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                title = { Text(moduleTitle, fontWeight = FontWeight.Bold, color = OnSkyBlue, maxLines = 1, overflow = TextOverflow.Ellipsis) },
                 navigationIcon = {
-                    IconButton(onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White) }
+                    IconButton(onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = OnSkyBlue) }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = SkyBlue)
             )
@@ -149,8 +152,8 @@ private fun LessonRow(
                     fontWeight = FontWeight.Black,
                     fontSize = 12.sp,
                     color = when {
-                        isCompleted -> SuccessGreen
-                        isNext -> SunshineGold
+                        isCompleted -> SuccessGreenText
+                        isNext -> OnGold
                         else -> VillageTeal
                     }
                 )
@@ -171,7 +174,7 @@ private fun LessonRow(
             Icon(
                 if (isCompleted) Icons.Default.CheckCircle else Icons.Default.PlayArrow,
                 contentDescription = null,
-                tint = if (isCompleted) SuccessGreen else SkyBlue
+                tint = if (isCompleted) SuccessGreen else OnSkyBlue
             )
         }
     }

@@ -112,7 +112,11 @@ internal fun PinSetupContent(
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    Column(Modifier.fillMaxSize()) {
+    // Apply IME insets to the whole screen, not only the footer. When the
+    // name field opens the software keyboard, the scrollable content and the
+    // action footer must share the reduced viewport; padding only the footer
+    // can push that footer below the IME on large tablet layouts.
+    Column(Modifier.fillMaxSize().imePadding()) {
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -142,7 +146,7 @@ internal fun PinSetupContent(
             OutlinedTextField(
                 value = state.displayName,
                 onValueChange = onUpdateName,
-                label = { Text("Your name") },
+                label = { Text("Parent or guardian name (optional)") },
                 leadingIcon = { Icon(Icons.Default.Person, "Name") },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
@@ -186,7 +190,6 @@ internal fun PinSetupContent(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .imePadding()
                 .padding(horizontal = 32.dp, vertical = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
