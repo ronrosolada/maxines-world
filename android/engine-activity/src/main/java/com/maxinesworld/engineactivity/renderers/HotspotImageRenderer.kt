@@ -255,7 +255,7 @@ fun HotspotImageRenderer(
                             result == true && isTapped -> OnSuccess
                             result == false && isTapped -> OnError
                             isVisited -> OnGold
-                            else -> White
+                            else -> OnSkyBlue
                         },
                         style = MaterialTheme.typography.labelLarge
                     )

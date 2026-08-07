@@ -80,7 +80,7 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("This Week's Quest").assertIsDisplayed()
         composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertIsDisplayed()
-        composeRule.onNodeWithText("Open Field Guide").assertIsDisplayed()
+        composeRule.onNodeWithText("Continue").assertIsDisplayed()
     }
 
     @Test

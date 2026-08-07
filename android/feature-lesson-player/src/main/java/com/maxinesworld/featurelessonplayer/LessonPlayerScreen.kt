@@ -26,6 +26,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -514,7 +515,12 @@ private fun ExplanationStep(
     Card(
         Modifier
             .fillMaxWidth()
-            .clickable(enabled = narrationEnabled, onClick = { playNarration() }),
+            .clickable(
+                enabled = narrationEnabled,
+                role = Role.Button,
+                onClickLabel = uiText(language, "Replay narration", "Ulitin ang pagbasa"),
+                onClick = { playNarration() },
+            ),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Cream),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
@@ -668,12 +674,18 @@ private fun CharacterGuide(character: String) {
         "duke" -> VillageTeal
         else -> Teal40
     }
+    val avatarTextColor = when (character.lowercase()) {
+        "milo" -> OnCoral
+        "niko" -> OnSkyBlue
+        "lakan" -> OnGold
+        else -> White
+    }
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
             Modifier.size(40.dp).clip(CircleShape).background(avatarColor),
             contentAlignment = Alignment.Center,
         ) {
-            Text(displayName.take(1), fontWeight = FontWeight.ExtraBold, color = White, fontSize = 20.sp)
+            Text(displayName.take(1), fontWeight = FontWeight.ExtraBold, color = avatarTextColor, fontSize = 20.sp)
         }
         Spacer(Modifier.width(8.dp))
         Text(displayName, fontWeight = FontWeight.Medium, color = Teal40)

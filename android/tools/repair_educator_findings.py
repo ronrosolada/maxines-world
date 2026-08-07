@@ -965,7 +965,7 @@ def main() -> int:
         fixed, did_change = repair_lesson(lesson)
         if did_change:
             changed += 1
-            if not args.dry_run:
+            if not args.dry_run and not args.check:
                 path.write_text(json.dumps(fixed, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         found = remaining_defects(fixed)
         if found:

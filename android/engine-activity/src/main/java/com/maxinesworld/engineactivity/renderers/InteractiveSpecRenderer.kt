@@ -73,7 +73,7 @@ fun InteractiveSpecRenderer(
                             result == true && selected == i -> OnSuccess
                             result == false && selected == i -> OnError
                             selected == i -> OnGold
-                            else -> Ink
+                            else -> OnSkyBlue
                         },
                         style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(4.dp))
                 }

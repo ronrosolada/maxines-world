@@ -12,11 +12,37 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
+
+internal fun sequenceActionEnabled(orderedCount: Int, itemCount: Int, submitted: Boolean): Boolean =
+    submitted || orderedCount == itemCount
+
+internal fun sequenceActionLabel(
+    orderedCount: Int,
+    itemCount: Int,
+    submitted: Boolean,
+    isCorrect: Boolean,
+    attempts: Int,
+): String = when {
+    submitted && isCorrect -> "Great job!"
+    submitted && attempts >= 3 -> "Keep going →"
+    submitted -> "Try Again"
+    orderedCount < itemCount -> "Place all cards ($orderedCount/$itemCount)"
+    else -> "Submit"
+}
+
+internal fun sequenceActionDescription(
+    orderedCount: Int,
+    itemCount: Int,
+    submitted: Boolean,
+    isCorrect: Boolean,
+    attempts: Int,
+): String = sequenceActionLabel(orderedCount, itemCount, submitted, isCorrect, attempts)
 
 @Composable
 fun SequenceBuilderRenderer(
@@ -78,9 +104,18 @@ fun SequenceBuilderRenderer(
         ActivityHint(step = step, onHint = onHint)
 
         Spacer(Modifier.height(24.dp))
+        val actionEnabled = sequenceActionEnabled(ordered.size, items.size, submitted)
+        val actionLabel = sequenceActionLabel(ordered.size, items.size, submitted, isCorrect, attempts)
+        val actionDescription = sequenceActionDescription(ordered.size, items.size, submitted, isCorrect, attempts)
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
-            .background(if (submitted && isCorrect) SuccessGreen else VillageTeal)
-            .clickable {
+            .background(
+                when {
+                    submitted && isCorrect -> SuccessGreen
+                    !actionEnabled -> SurfaceContainer
+                    else -> VillageTeal
+                }
+            )
+            .clickable(enabled = actionEnabled) {
                 if (submitted && !isCorrect) {
                     // Third failure: advance anyway so the child is never trapped.
                     if (attempts >= 3) {
@@ -92,16 +127,18 @@ fun SequenceBuilderRenderer(
                     attempts++; isCorrect = ordered == items.indices.toList(); submitted = true
                     if (isCorrect) onResult(ActivityResult(step.id, true, attempts, 0, System.currentTimeMillis() - startTime))
                 }
-            }.semantics { contentDescription = if (submitted && !isCorrect) "Try again" else "Submit" },
-            contentAlignment = Alignment.Center) {
-            Text(when {
-                submitted && isCorrect -> "Great job!"
-                submitted && attempts >= 3 -> "Keep going →"
-                submitted -> "Try Again"
-                ordered.size < items.size -> "Select all (${ordered.size}/${items.size})"
-                else -> "Submit"
+            }.semantics {
+                contentDescription = actionDescription
+                if (!actionEnabled) disabled()
             },
-                color = if (submitted && isCorrect) OnSuccess else White,
+            contentAlignment = Alignment.Center) {
+            Text(
+                actionLabel,
+                color = when {
+                    submitted && isCorrect -> OnSuccess
+                    !actionEnabled -> Teal40
+                    else -> White
+                },
                 style = MaterialTheme.typography.labelLarge,
                 modifier = Modifier.padding(14.dp),
             )

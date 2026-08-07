@@ -162,6 +162,31 @@ interface LessonCompletionDao {
     @Query("SELECT * FROM lesson_completions WHERE childId = :childId AND lessonId = :lessonId AND attemptId = :attemptId")
     suspend fun getByAttempt(childId: String, lessonId: String, attemptId: String): LessonCompletionEntity?
 
+    @Query(
+        """
+        SELECT current.*
+        FROM lesson_completions AS current
+        WHERE current.childId = :childId
+          AND length(trim(current.lessonId)) > 0
+          AND NOT EXISTS (
+              SELECT 1
+              FROM lesson_completions AS newer
+              WHERE newer.childId = current.childId
+                AND newer.lessonId = current.lessonId
+                AND (
+                    newer.completedAtEpochMillis > current.completedAtEpochMillis
+                    OR (
+                        newer.completedAtEpochMillis = current.completedAtEpochMillis
+                        AND newer.id > current.id
+                    )
+                )
+          )
+        ORDER BY current.completedAtEpochMillis DESC, current.id DESC
+        LIMIT :limit
+        """
+    )
+    suspend fun getRecentByChild(childId: String, limit: Int): List<LessonCompletionEntity>
+
     @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonCount(childId: String): Flow<Int>
 

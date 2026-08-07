@@ -1,5 +1,6 @@
 package com.maxinesworld.featureparent
 
+import com.maxinesworld.coredatabase.LessonCompletionEntity
 import java.time.Instant
 import java.time.ZoneId
 import org.junit.Assert.assertEquals
@@ -61,6 +62,37 @@ class StreakTest {
     fun `malformed dates are ignored`() {
         assertEquals(0, longestStreak(setOf("not-a-date", "2026-13-99")))
         assertEquals(1, longestStreak(setOf("2026-08-01", "garbage")))
+    }
+
+    @Test
+    fun `recent activity uses one row per completed lesson`() {
+        val completions = listOf(
+            LessonCompletionEntity("old", "child", "lesson-old", "attempt-old", 0.8, 100L),
+            LessonCompletionEntity("new", "child", "lesson-new", "attempt-new", 1.0, 200L),
+        )
+
+        assertEquals(
+            listOf("New lesson — 100%", "Old lesson — 80%"),
+            recentActivityLabels(completions) { lessonId ->
+                if (lessonId == "lesson-new") "New lesson" else "Old lesson"
+            },
+        )
+    }
+
+    @Test
+    fun `recent activity keeps only the latest attempt for each lesson`() {
+        val completions = listOf(
+            LessonCompletionEntity("lesson-a:old", "child", "lesson-a", "old", 0.6, 100L),
+            LessonCompletionEntity("lesson-a:new", "child", "lesson-a", "new", 0.9, 300L),
+            LessonCompletionEntity("lesson-b:new", "child", "lesson-b", "new", 1.0, 200L),
+        )
+
+        assertEquals(
+            listOf("Lesson A — 90%", "Lesson B — 100%"),
+            recentActivityLabels(completions) { lessonId ->
+                if (lessonId == "lesson-a") "Lesson A" else "Lesson B"
+            },
+        )
     }
 
     @Test

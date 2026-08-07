@@ -45,6 +45,24 @@ class AuthImeLayoutTest {
     }
 
     @Test
+    fun pinSetupIdentifiesParentName() {
+        composeRule.setContent {
+            MaxinesWorldTheme {
+                PinSetupContent(
+                    state = AuthUiState(isLoading = false, currentScreen = AuthScreen.PIN_SETUP),
+                    onUpdateName = {},
+                    onPinDigit = {},
+                    onPinDelete = {},
+                    onSetupPin = {},
+                    onPinPadInteraction = {},
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Parent or guardian name (optional)").assertIsDisplayed()
+    }
+
+    @Test
     fun pinDotsAnnounceEnteredDigitCount() {
         composeRule.setContent {
             MaxinesWorldTheme { PinDots(length = 3) }

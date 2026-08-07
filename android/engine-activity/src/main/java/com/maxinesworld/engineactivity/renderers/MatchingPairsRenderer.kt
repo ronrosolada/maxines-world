@@ -12,6 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -23,6 +25,17 @@ import com.maxinesworld.engineactivity.ActivityResult
 /** Friendly labels for the shared-category targets used by legacy match activities. */
 internal fun matchingTargetLabel(index: Int, authoredLabel: String, sharedLabel: Boolean): String =
     if (sharedLabel) "Milo says yes ${index + 1}" else authoredLabel
+
+internal const val MATCHING_MISMATCH_MESSAGE =
+    "Not this pair yet. Compare the two ideas and try again."
+
+internal fun matchingPairIsCorrect(
+    right: List<String>,
+    selectedLeft: Int,
+    selectedRight: Int,
+): Boolean = selectedLeft in right.indices &&
+    selectedRight in right.indices &&
+    right[selectedRight] == right[selectedLeft]
 
 @Composable
 fun MatchingPairsRenderer(
@@ -109,7 +122,7 @@ fun MatchingPairsRenderer(
                             // therefore accept any pairing — a classification
                             // rendered as matching. (RendererContractTest
                             // pins this semantic.)
-                            val isMatch = right[i] == right[selectedLeft]
+                            val isMatch = matchingPairIsCorrect(right, selectedLeft, i)
                             if (isMatch) {
                                 matchedLeft = matchedLeft + selectedLeft
                                 matchedRight = matchedRight + i
@@ -127,6 +140,18 @@ fun MatchingPairsRenderer(
                     }
                 } }
             }
+        }
+
+        mismatch?.let {
+            Text(
+                MATCHING_MISMATCH_MESSAGE,
+                color = OnCoral,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.semantics {
+                    contentDescription = MATCHING_MISMATCH_MESSAGE
+                    liveRegion = LiveRegionMode.Polite
+                },
+            )
         }
 
         ActivityHint(step = step, onHint = onHint)
