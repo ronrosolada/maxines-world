@@ -18,6 +18,24 @@ Android `versionName`.
 - Extended copy sanitization to success feedback and assessment explanations (core model, lesson player, and content tooling share the same replacement table).
 - Applied the feedback guard to Interactive Spec and Multiple Choice guidance copy.
 
+### Educator review round 2 (2026-08-07)
+- Re-keyed 10 Science "Material Detectives" lessons: anchor objects were marked correct for
+  flexible/absorbs/hard all at once; keys now point to the true property holders, with
+  property-based explanations (findings in `docs/educator-content-review-2026-08-07-r2.md`).
+- Fixed 6 inverted English odd-one-out keys, rebuilt the 2 broken sequencing assessments,
+  replaced 25 placeholder keyed answers and 21 placeholder vocabulary entries with real content,
+  rebuilt the mangrove informational-text lesson's assessment, and de-duplicated the
+  `q2-w04-d02`/`q3-w11-d03` clone.
+- Purged generator jargon pack-wide: "Subukan ang kasanayan sa…" → teaching lead-ins (138×),
+  "shows the skill"/"the lesson skill"/"Try the skill" (0 remaining), "evidence from the
+  example" labels (26×), 84 "evidence of this skill: <objective>" meta-prompts → skill
+  questions, "number skills"/"about reading and writing" → true domain labels.
+- Translated Araling Panlipunan English bleed to Filipino (223+ strings) and fixed the
+  "kasanayang kasanayan" doubling artifact (55×) plus 15 circular GMRC vocabulary definitions.
+- Fixed 2 pre-existing unit-test drifts found during verification: `StreakTest` positional
+  args vs the v9 `LessonCompletionEntity` constructor, and the stale ModuleStructureTest
+  assertion on the removed ph-matatag manifest tree.
+
 ### Testing
 - Added UI-level regression coverage proving the Sequence CTA is a no-op until complete and submits the authored order as correct (#65).
 

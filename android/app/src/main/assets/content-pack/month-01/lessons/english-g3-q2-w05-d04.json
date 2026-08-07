@@ -26,6 +26,10 @@
   {
    "term": "fact: trees provide shelter",
    "definition": "A fact explaining that trees can provide shelter for living things."
+  },
+  {
+   "term": "fact: mangroves grow near the sea",
+   "definition": "A fact explaining that mangroves grow in salty water near the sea."
   }
  ],
  "activities": [
@@ -36,8 +40,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Listen to the explanation about reading and writing.",
-   "content": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try the skill with a sentence about sharing crayons.",
+   "instruction": "Listen to the explanation about informational texts.",
+   "content": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try it with a text about mangrove trees.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +49,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Listen to the explanation about reading and writing.",
-   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try the skill with a sentence about sharing crayons.",
+   "prompt": "Listen to the explanation about informational texts.",
+   "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try it with a sentence about sharing crayons.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try the skill with a sentence about sharing crayons."
+   "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it. Try it with a sentence about sharing crayons."
   },
   {
    "activityId": "english-g3-q2-w05-d04-a02",
@@ -58,13 +62,13 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Find examples of reading and writing.",
+   "instruction": "Find the topic and the facts.",
    "content": {
     "examples": [
      "topic: mangrove trees",
      "fact: roots hold soil",
      "fact: trees provide shelter",
-     "detail from the text"
+     "fact: mangroves grow near the sea"
     ],
     "visualScene": "🐱🔎✨"
    },
@@ -76,7 +80,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Find examples of reading and writing.",
+   "prompt": "Find examples of informational texts.",
    "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,19 +93,19 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Sort the examples of reading and writing.",
+   "instruction": "Sort each card: is it in the text about mangroves?",
    "content": {
     "fits": [
      "topic: mangrove trees",
      "fact: roots hold soil",
      "fact: trees provide shelter",
-     "detail from the text"
+     "fact: mangroves grow near the sea"
     ],
     "doesNotFit": [
-     "cat — dog",
-     "book — read",
-     "tree — leaf",
-     "water — drink"
+     "topic: how kites fly",
+     "fact: cats have whiskers",
+     "opinion: mangroves are boring",
+     "detail: kites need wind"
     ]
    },
    "completionRule": {
@@ -112,7 +116,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort the examples of reading and writing.",
+   "prompt": "Sort the examples of informational texts.",
    "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -128,12 +132,13 @@
    "instruction": "Which pair shows a base word and a related word?",
    "content": {
     "options": [
-     "tree — leaf",
-     "topic: mangrove trees",
-     "cat — dog",
-     "book — read"
+     "mangrove trees",
+     "cats and whiskers",
+     "how kites fly",
+     "seasons of the year"
     ],
-    "correctIndex": 1
+    "correctIndex": 0,
+    "instruction": "What is the topic of the text?"
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -155,20 +160,24 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Match the examples about reading and writing.",
+   "instruction": "Match each card: is it the topic or a fact?",
    "content": {
     "pairs": [
      {
       "left": "topic: mangrove trees",
-      "right": "example with a useful detail"
+      "right": "the topic"
      },
      {
       "left": "fact: roots hold soil",
-      "right": "example with a useful detail (2)"
+      "right": "a fact"
      },
      {
       "left": "fact: trees provide shelter",
-      "right": "example with a useful detail (3)"
+      "right": "a fact"
+     },
+     {
+      "left": "fact: mangroves grow near the sea",
+      "right": "a fact"
      }
     ]
    },
@@ -179,7 +188,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match the examples about reading and writing.",
+   "prompt": "Match the examples about informational texts.",
    "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,23 +201,24 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w05-d04-visual",
-   "instruction": "Put the reading and writing steps in order.",
+   "instruction": "Follow the steps for finding the topic.",
    "content": {
     "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
+     "Read the text about mangrove trees.",
+     "Find the topic.",
+     "Find two facts in the text.",
+     "Say why each fact belongs to the topic."
     ]
    },
    "completionRule": {
-    "type": "COMPLETE"
+    "type": "COMPLETE",
+    "stepCount": 4
    },
    "feedback": {
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the reading and writing steps in order.",
+   "prompt": "Put the review steps in order.",
    "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,141 +235,141 @@
     "itemId": "english-g3-q2-w05-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair shows a base word and its related word?",
+    "prompt": "What is the topic of the text?",
     "options": [
      {
-      "id": "d",
-      "text": "tree — leaf"
+      "id": "`",
+      "text": "how kites fly"
      },
      {
       "id": "a",
-      "text": "play — played"
+      "text": "cats and whiskers"
      },
      {
       "id": "b",
-      "text": "cat — dog"
+      "text": "seasons of the year"
      },
      {
       "id": "c",
-      "text": "book — read"
+      "text": "mangrove trees"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “play — played.” It uses what we learned about reading and writing."
+    "explanation": "The text is about mangrove trees: that is the topic."
    },
    {
     "itemId": "english-g3-q2-w05-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair connects words with matching or opposite meanings?",
+    "prompt": "Which is a fact from the text?",
     "options": [
      {
-      "id": "c",
-      "text": "book — read"
-     },
-     {
-      "id": "d",
-      "text": "tree — leaf"
+      "id": "`",
+      "text": "Cats have whiskers."
      },
      {
       "id": "a",
-      "text": "help — helpful"
+      "text": "Kites need wind."
      },
      {
       "id": "b",
-      "text": "cat — dog"
+      "text": "Mangrove roots hold soil."
+     },
+     {
+      "id": "c",
+      "text": "Summer is the hottest season."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The answer is “help — helpful.” It uses what we learned about reading and writing."
+    "explanation": "The text says mangrove roots hold soil in place."
    },
    {
     "itemId": "english-g3-q2-w05-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which two words belong together by meaning?",
+    "prompt": "Which detail is NOT in the text?",
     "options": [
      {
-      "id": "b",
-      "text": "cat — dog"
-     },
-     {
-      "id": "c",
-      "text": "book — read"
-     },
-     {
-      "id": "d",
-      "text": "tree — leaf"
+      "id": "`",
+      "text": "Mangroves grow near the sea."
      },
      {
       "id": "a",
-      "text": "teach — teacher"
+      "text": "Mangroves can fly."
+     },
+     {
+      "id": "b",
+      "text": "Mangrove roots hold soil."
+     },
+     {
+      "id": "c",
+      "text": "Trees provide shelter."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “teach — teacher.” It uses what we learned about reading and writing."
+    "explanation": "The text never says mangroves can fly; it is not a detail from the text."
    },
    {
     "itemId": "english-g3-q2-w05-d04-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair shows the word relationship in this lesson?",
+    "prompt": "Which statement is an opinion, not a fact?",
     "options": [
      {
+      "id": "`",
+      "text": "Mangroves are boring."
+     },
+     {
       "id": "a",
-      "text": "kind — kindness"
+      "text": "Mangrove roots hold soil."
      },
      {
       "id": "b",
-      "text": "cat — dog"
+      "text": "Trees provide shelter."
      },
      {
       "id": "c",
-      "text": "book — read"
-     },
-     {
-      "id": "d",
-      "text": "tree — leaf"
+      "text": "Mangroves grow near the sea."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "`"
     ],
-    "explanation": "The answer is “kind — kindness.” It uses what we learned about reading and writing."
+    "explanation": "An opinion tells how someone feels; \"boring\" is a feeling, not a fact."
    },
    {
     "itemId": "english-g3-q2-w05-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice best compares the two word meanings?",
+    "prompt": "Which sentence belongs in a text about mangroves?",
     "options": [
      {
-      "id": "d",
-      "text": "tree — leaf"
+      "id": "`",
+      "text": "My kite is red."
      },
      {
       "id": "a",
-      "text": "play — played"
+      "text": "Cats like milk."
      },
      {
       "id": "b",
-      "text": "cat — dog"
+      "text": "The ball is round."
      },
      {
       "id": "c",
-      "text": "book — read"
+      "text": "Mangroves help protect the shore."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “play — played.” It uses what we learned about reading and writing."
+    "explanation": "The other sentences are about kites, cats, and balls — not about mangroves."
    }
   ]
  },

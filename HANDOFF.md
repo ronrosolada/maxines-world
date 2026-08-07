@@ -31,6 +31,19 @@ The most recent full verification (2026-08-07) is recorded in
 `docs/release-review-2026-08-07.md`, which is the recommended starting point
 for an independent review of the current main branch.
 
+## Educator review round 2 (2026-08-07)
+
+Authorized by Ron (owner) as the educator-style review + content re-author pass.
+Three subject reviews (EN 93 / FIL+MKB+GMRC 142 / MATH+SCI+AP 123) plus a
+mechanical sweep were consolidated; every countable CRITICAL and the mechanical
+MAJORs were re-authored in place (287 files). See
+`docs/educator-content-review-2026-08-07-r2.md` for the full findings table,
+verdicts, and the deferred list (GMRC C4/C5, Makabansa C6, m01-Filipino C8,
+feedback-engine M7). Verdicts: EN/MATH/SCI/AP approvable; FIL/MKB/GMRC
+conditional (deferred items are follow-up work, not blockers for the owner to
+ship). No `mark_lessons_reviewed.py` run was performed in this round; all 358
+lessons retain their prior metadata.
+
 ## Current product surface
 
 ### Child experience

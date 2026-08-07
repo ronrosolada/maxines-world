@@ -37,7 +37,7 @@
    "required": true,
    "assetId": "english-g3-q3-w11-d03-visual",
    "instruction": "Listen to the explanation about capital letters and punctuation.",
-   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a note about the school library.",
+   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try it with a classmate's name. Try it with a note about the school library.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -46,10 +46,10 @@
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Listen to the explanation about capital letters and punctuation.",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a note about the school library.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try it with a classmate's name. Try it with a note about the school library.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a note about the school library."
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try it with a classmate's name. Try it with a note about the school library."
   },
   {
    "activityId": "english-g3-q3-w11-d03-a02",
@@ -228,26 +228,26 @@
     "prompt": "Which sentence starts with a capital letter and ends correctly?",
     "options": [
      {
-      "id": "c",
-      "text": "where is the book"
-     },
-     {
-      "id": "d",
-      "text": "look out"
+      "id": "`",
+      "text": "maxine plays."
      },
      {
       "id": "a",
-      "text": "Milo reads."
+      "text": "the dog ran"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "watch out"
+     },
+     {
+      "id": "c",
+      "text": "Maxine plays."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “Milo reads.” It begins with the correct capital letter and ends with punctuation that fits the meaning."
+    "explanation": "Sentences start with a capital letter and end with a period."
    },
    {
     "itemId": "english-g3-q3-w11-d03-q02",
@@ -256,26 +256,26 @@
     "prompt": "Which choice shows the right capital and end mark?",
     "options": [
      {
-      "id": "b",
-      "text": "milo reads."
-     },
-     {
-      "id": "c",
-      "text": "where is the book"
-     },
-     {
-      "id": "d",
-      "text": "look out"
+      "id": "`",
+      "text": "maxine plays."
      },
      {
       "id": "a",
-      "text": "Where is the book?"
+      "text": "the dog ran"
+     },
+     {
+      "id": "b",
+      "text": "Are you ready?"
+     },
+     {
+      "id": "c",
+      "text": "watch out"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The answer is “Where is the book?” It begins with the correct capital letter and ends with punctuation that fits the meaning."
+    "explanation": "A question ends with a question mark and starts with a capital letter."
    },
    {
     "itemId": "english-g3-q3-w11-d03-q03",
@@ -284,26 +284,26 @@
     "prompt": "Which sentence is written with the correct capital and punctuation?",
     "options": [
      {
+      "id": "`",
+      "text": "the dog ran"
+     },
+     {
       "id": "a",
-      "text": "Look out!"
+      "text": "Watch out!"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "maxine plays."
      },
      {
       "id": "c",
-      "text": "where is the book"
-     },
-     {
-      "id": "d",
-      "text": "look out"
+      "text": "are you ready"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “Look out!” It begins with the correct capital letter and ends with punctuation that fits the meaning."
+    "explanation": "A warning can end with an exclamation mark and starts with a capital letter."
    },
    {
     "itemId": "english-g3-q3-w11-d03-q04",
@@ -312,26 +312,30 @@
     "prompt": "Which example follows both sentence-mark rules?",
     "options": [
      {
-      "id": "d",
-      "text": "look out"
+      "id": "`",
+      "text": "The dog ran."
      },
      {
       "id": "a",
-      "text": "We are ready."
+      "text": "watch out"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "the dog ran"
      },
      {
       "id": "c",
-      "text": "where is the book"
+      "text": "maxine plays."
+     },
+     {
+      "id": "d",
+      "text": "are you ready"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "`"
     ],
-    "explanation": "The answer is “We are ready.” It begins with the correct capital letter and ends with punctuation that fits the meaning."
+    "explanation": "It starts with a capital letter and ends with a period."
    },
    {
     "itemId": "english-g3-q3-w11-d03-q05",
@@ -340,26 +344,26 @@
     "prompt": "Which choice is ready for a polished sentence?",
     "options": [
      {
-      "id": "c",
-      "text": "where is the book"
-     },
-     {
-      "id": "d",
-      "text": "look out"
+      "id": "`",
+      "text": "watch out"
      },
      {
       "id": "a",
-      "text": "Milo reads."
+      "text": "are you ready"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "the dog ran"
+     },
+     {
+      "id": "c",
+      "text": "We won!"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “Milo reads.” It begins with the correct capital letter and ends with punctuation that fits the meaning."
+    "explanation": "It starts with a capital letter and ends with the right mark."
    }
   ]
  },

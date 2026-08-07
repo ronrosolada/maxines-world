@@ -67,8 +67,8 @@ class StreakTest {
     @Test
     fun `recent activity uses one row per completed lesson`() {
         val completions = listOf(
-            LessonCompletionEntity("old", "child", "lesson-old", "attempt-old", 0.8, 100L),
-            LessonCompletionEntity("new", "child", "lesson-new", "attempt-new", 1.0, 200L),
+            LessonCompletionEntity("old", "child", "lesson-old", "attempt-old", 0.8, completedAtEpochMillis = 100L),
+            LessonCompletionEntity("new", "child", "lesson-new", "attempt-new", 1.0, completedAtEpochMillis = 200L),
         )
 
         assertEquals(
@@ -82,9 +82,9 @@ class StreakTest {
     @Test
     fun `recent activity keeps only the latest attempt for each lesson`() {
         val completions = listOf(
-            LessonCompletionEntity("lesson-a:old", "child", "lesson-a", "old", 0.6, 100L),
-            LessonCompletionEntity("lesson-a:new", "child", "lesson-a", "new", 0.9, 300L),
-            LessonCompletionEntity("lesson-b:new", "child", "lesson-b", "new", 1.0, 200L),
+            LessonCompletionEntity("lesson-a:old", "child", "lesson-a", "old", 0.6, completedAtEpochMillis = 100L),
+            LessonCompletionEntity("lesson-a:new", "child", "lesson-a", "new", 0.9, completedAtEpochMillis = 300L),
+            LessonCompletionEntity("lesson-b:new", "child", "lesson-b", "new", 1.0, completedAtEpochMillis = 200L),
         )
 
         assertEquals(

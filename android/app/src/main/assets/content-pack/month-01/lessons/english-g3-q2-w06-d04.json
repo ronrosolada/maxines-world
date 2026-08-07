@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A greeting and polite expression should fit the person, time, and situation. Ready to explore? Try the skill with a line from a diary entry.",
+ "introduction": "Milo has a new mission! 🐱✨ A greeting and polite expression should fit the person, time, and situation. Ready to explore? Try it with a line from a diary entry.",
  "vocabulary": [
   {
    "term": "Good morning.",
-   "definition": "An example that practices Good morning.."
+   "definition": "A greeting used in the morning."
   },
   {
    "term": "Please help me.",
-   "definition": "An example that practices Please help me.."
+   "definition": "A polite way to ask for help."
   },
   {
    "term": "Thank you.",
-   "definition": "An example that practices Thank you.."
+   "definition": "A polite way to show you are grateful."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w06-d04-visual",
-   "instruction": "Listen to the explanation about reading and writing.",
-   "content": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry.",
+   "instruction": "Listen to the explanation about polite expressions.",
+   "content": "A greeting and polite expression should fit the person, time, and situation. Try it with a line from a diary entry.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,11 +45,11 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Listen to the explanation about reading and writing.",
-   "narration": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry.",
+   "prompt": "Listen to the explanation about polite expressions.",
+   "narration": "A greeting and polite expression should fit the person, time, and situation. Try it with a line from a diary entry.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
-   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation. Try the skill with a line from a diary entry."
+   "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation. Try it with a line from a diary entry."
   },
   {
    "activityId": "english-g3-q2-w06-d04-a02",
@@ -228,26 +228,26 @@
     "prompt": "Which words fit the situation politely?",
     "options": [
      {
-      "id": "c",
-      "text": "Bilisan mo!"
-     },
-     {
-      "id": "d",
-      "text": "Wala akong pakialam!"
+      "id": "`",
+      "text": "Umalis ka na!"
      },
      {
       "id": "a",
-      "text": "a clear example"
+      "text": "Bilisan mo!"
      },
      {
       "id": "b",
-      "text": "Umalis ka na!"
+      "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "c",
+      "text": "Good morning."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “a clear example.” It uses what we learned about reading and writing."
+    "explanation": "\"Good morning\" is a polite greeting."
    },
    {
     "itemId": "english-g3-q2-w06-d04-q02",
@@ -256,54 +256,54 @@
     "prompt": "Which choice shows respect for the person speaking?",
     "options": [
      {
-      "id": "b",
+      "id": "`",
       "text": "Umalis ka na!"
      },
      {
-      "id": "c",
+      "id": "a",
       "text": "Bilisan mo!"
      },
      {
-      "id": "d",
-      "text": "Wala akong pakialam!"
+      "id": "b",
+      "text": "Thank you."
      },
      {
-      "id": "a",
-      "text": "a second example"
+      "id": "c",
+      "text": "Wala akong pakialam!"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The answer is “a second example.” It uses what we learned about reading and writing."
+    "explanation": "Saying \"thank you\" shows you are grateful and respectful."
    },
    {
     "itemId": "english-g3-q2-w06-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence is a kind way to respond?",
+    "prompt": "Which sentence politely asks for help?",
     "options": [
      {
-      "id": "a",
-      "text": "a real-life connection"
-     },
-     {
-      "id": "b",
-      "text": "Umalis ka na!"
-     },
-     {
-      "id": "c",
+      "id": "`",
       "text": "Bilisan mo!"
      },
      {
-      "id": "d",
+      "id": "a",
+      "text": "Please help me."
+     },
+     {
+      "id": "b",
       "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "c",
+      "text": "Umalis ka na!"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “a real-life connection.” It uses what we learned about reading and writing."
+    "explanation": "\"Please help me\" is a polite way to ask for help."
    },
    {
     "itemId": "english-g3-q2-w06-d04-q04",
@@ -312,26 +312,26 @@
     "prompt": "Which example uses a polite expression?",
     "options": [
      {
-      "id": "d",
-      "text": "Wala akong pakialam!"
+      "id": "`",
+      "text": "Please help me."
      },
      {
       "id": "a",
-      "text": "a reason"
+      "text": "Bilisan mo!"
      },
      {
       "id": "b",
-      "text": "Umalis ka na!"
+      "text": "Wala akong pakialam!"
      },
      {
       "id": "c",
-      "text": "Bilisan mo!"
+      "text": "Umalis ka na!"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "`"
     ],
-    "explanation": "The answer is “a reason.” It uses what we learned about reading and writing."
+    "explanation": "\"Please help me\" uses the polite word \"please\"."
    },
    {
     "itemId": "english-g3-q2-w06-d04-q05",
@@ -340,26 +340,26 @@
     "prompt": "Which choice would sound respectful?",
     "options": [
      {
-      "id": "c",
+      "id": "`",
       "text": "Bilisan mo!"
      },
      {
-      "id": "d",
-      "text": "Wala akong pakialam!"
-     },
-     {
       "id": "a",
-      "text": "a clear example"
+      "text": "Umalis ka na!"
      },
      {
       "id": "b",
-      "text": "Umalis ka na!"
+      "text": "Wala akong pakialam!"
+     },
+     {
+      "id": "c",
+      "text": "Thank you."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The answer is “a clear example.” It uses what we learned about reading and writing."
+    "explanation": "Saying \"thank you\" sounds respectful; the other choices are rude."
    }
   ]
  },

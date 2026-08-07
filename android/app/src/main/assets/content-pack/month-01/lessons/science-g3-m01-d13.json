@@ -74,7 +74,7 @@
    "activityId": "science-g3-m01-d13-a03",
    "sequence": 3,
    "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card into “shows the skill” or “does not show the skill.”",
+   "instruction": "Sort each card: is the environment match correct?",
    "content": {
     "fits": [
      "pond for tadpole",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "pond for tadpole",
-      "right": "evidence from the example: pond for tadpole"
+      "right": "pond"
      },
      {
       "left": "tree canopy for some birds",
-      "right": "evidence from the example: tree canopy for some birds"
+      "right": "tree canopy"
      },
      {
       "left": "soil for earthworm",
-      "right": "evidence from the example: soil for earthworm"
+      "right": "soil"
      }
     ]
    },
@@ -163,9 +163,9 @@
    "instruction": "Follow the guided review in order.",
    "content": {
     "steps": [
-     "State the lesson idea.",
-     "Study one example.",
-     "Explain why it fits."
+     "Meet the organism.",
+     "Think about where it lives.",
+     "Match it to its environment."
     ]
    },
    "required": true,
@@ -215,7 +215,7 @@
     "itemId": "science-g3-m01-d13-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows the skill “Homes That Meet Needs”?",
+    "prompt": "Which one matches the lesson idea?",
     "options": [
      {
       "id": "a",
@@ -287,7 +287,7 @@
     "itemId": "science-g3-m01-d13-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example gives evidence of this skill: Explain how environments supply resources?",
+    "prompt": "Which environment matches the organism?",
     "options": [
      {
       "id": "a",
