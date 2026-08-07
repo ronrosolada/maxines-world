@@ -92,7 +92,8 @@ class AuthImeLayoutTest {
         }
 
         composeRule.onNode(hasSetTextAction()).performClick()
-        val fakeImeBottom = 640
+        composeRule.waitForIdle()
+        val fakeImeBottom = composeRule.activity.window.decorView.height / 3
         composeRule.runOnIdle {
             val fakeImeInsets = WindowInsets.Builder()
                 .setInsets(
@@ -106,15 +107,23 @@ class AuthImeLayoutTest {
         composeRule.waitForIdle()
         val imeTop = composeRule.activity.window.decorView.height - fakeImeBottom
 
-        composeRule.onNodeWithContentDescription("Digit 0").assertIsDisplayed()
+        fun assertAboveIme(nodeDescription: String) {
+            val node = composeRule.onNodeWithContentDescription(nodeDescription)
+            node.assertIsDisplayed()
+            assertTrue(
+                "$nodeDescription bottom=${node.fetchSemanticsNode().boundsInRoot.bottom} " +
+                    "must be above IME top=$imeTop",
+                node.fetchSemanticsNode().boundsInRoot.bottom <= imeTop.toFloat(),
+            )
+        }
+
+        assertAboveIme("Digit 0")
         composeRule.onNodeWithText("Delete").assertIsDisplayed()
         val setPin = composeRule.onNodeWithText("Set PIN")
         setPin.assertIsDisplayed()
-
-        val setPinBottom = setPin.fetchSemanticsNode().boundsInRoot.bottom
         assertTrue(
-            "Set PIN bottom=$setPinBottom must be above IME top=$imeTop",
-            setPinBottom <= imeTop.toFloat(),
+            "Set PIN bottom=${setPin.fetchSemanticsNode().boundsInRoot.bottom} must be above IME top=$imeTop",
+            setPin.fetchSemanticsNode().boundsInRoot.bottom <= imeTop.toFloat(),
         )
     }
 }
