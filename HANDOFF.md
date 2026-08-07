@@ -60,7 +60,12 @@ for an independent review of the current main branch.
 - The APK bundles **358 playable lesson JSON files** under
   `android/app/src/main/assets/content-pack/month-01/lessons/`.
 - All 358 currently carry `educatorValidated=true` and
-  `releaseStatus=RELEASED`; `:app:verifyPlayableContent` enforces this metadata.
+  `releaseStatus=RELEASED`; `:app:verifyPlayableContent` enforces this metadata
+  across **every** lesson-bearing asset directory, and `LessonLoader`/
+  `ContentLessonLoader` reject any non-`RELEASED` lesson at parse time
+  (spec CH-02). The legacy ph-matatag fallback tree, the retired
+  `ActiveContentIndex` sync path, and the unapproved pilot pack were removed
+  on 2026-08-07 (external review C3).
 - Lesson visuals: **358 bundled SVG assets** (month-01 vectors, one per
   lesson). A pilot pack (`content-packs/ph-grade3-v1/`) was removed from the
   APK on 2026-08-07 because it had no educator approval metadata — see the
@@ -89,6 +94,24 @@ for an independent review of the current main branch.
 - The project currently contains 19 Gradle modules: app, five core modules,
   six feature modules, four engine modules, and three native reward-game modules.
 - The network module is a retained placeholder and is not used to fetch data.
+
+## Assessment policy
+
+- A lesson **passes when at least 80% of assessment items are correct on
+  first scoring** (4/5 on the standard five-item check; `0.8` matches the
+  accuracy tiers used for stars). Enforced two ways: `content_pack_validation.py`
+  errors on any lesson whose `passingCorrectCount / itemCount < 0.8`, and the
+  player has no silent default — a malformed (zero-item) assessment fails
+  closed.
+- **Only the authored assessment contributes to accuracy and mastery.**
+  Every practice activity step is `scored = false` by contract
+  (`ActivityStep.scored`, enforced in `LessonPlayerViewModel.onActivityResult`);
+  `saveProgress()`, the lesson-complete screen, and `Scorer.evaluateAssessment`
+  all consume only scored (assessment) results. Passive exploration and
+  practice answers cannot inflate the mastery signal.
+- **First-attempt passes are recorded distinctly** from post-retry passes:
+  `lesson_completions.passedOnFirstAttempt` (DB v9). A child who fails and
+  retries is not recorded identically to a first-pass child.
 
 ## Security and privacy posture
 

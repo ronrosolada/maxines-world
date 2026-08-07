@@ -79,6 +79,15 @@ object MaxinesMigrations {
         }
     }
 
+    val MIGRATION_8_9 = object : Migration(8, 9) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // Record whether a completion was a first-attempt pass (spec CH-04).
+            // Additive; existing rows default to first-attempt (the historical
+            // behaviour was a single completion row regardless of retries).
+            db.execSQL("ALTER TABLE `lesson_completions` ADD COLUMN `passedOnFirstAttempt` INTEGER NOT NULL DEFAULT 1")
+        }
+    }
+
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {
         db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_badgeId`")
         db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_childId`")

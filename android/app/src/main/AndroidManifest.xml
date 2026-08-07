@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <!-- No INTERNET permission: the app is fully offline by design. -->
+    <!-- No USE_BIOMETRIC: biometric auth is not implemented (audit #13);
+         re-add the permission together with BiometricPrompt when shipped. -->
 
     <application
         android:name=".MaxinesWorldApp"

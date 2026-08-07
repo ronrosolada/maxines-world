@@ -420,4 +420,40 @@ class MigrationTest {
         expedition.close()
         dbV8.close()
     }
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate8to9_addsPassedOnFirstAttemptColumn() = runTest {
+        helper.createDatabase(TEST_DB, 8).apply {
+            execSQL(
+                "INSERT INTO lesson_completions (id, childId, lessonId, attemptId, accuracy, completedAtEpochMillis) " +
+                    "VALUES ('c1', 'child_1', 'lesson-1', 'c1', 0.8, 1700000000000)"
+            )
+            close()
+        }
+
+        val dbV9 = helper.runMigrationsAndValidate(
+            TEST_DB,
+            9,
+            true,
+            MaxinesMigrations.MIGRATION_8_9,
+        )
+        val existing = dbV9.query("SELECT * FROM lesson_completions WHERE id = 'c1'")
+        assertTrue("completion row preserved across v9 migration", existing.moveToFirst())
+        assertEquals(
+            "existing rows default to first-attempt",
+            1,
+            existing.getInt(existing.getColumnIndexOrThrow("passedOnFirstAttempt")),
+        )
+        existing.close()
+        dbV9.execSQL(
+            "INSERT INTO lesson_completions (id, childId, lessonId, attemptId, accuracy, passedOnFirstAttempt, completedAtEpochMillis) " +
+                "VALUES ('c2', 'child_1', 'lesson-2', 'c2', 0.8, 0, 1700000000000)"
+        )
+        val retried = dbV9.query("SELECT * FROM lesson_completions WHERE id = 'c2'")
+        assertTrue(retried.moveToFirst())
+        assertEquals(0, retried.getInt(retried.getColumnIndexOrThrow("passedOnFirstAttempt")))
+        retried.close()
+        dbV9.close()
+    }
 }

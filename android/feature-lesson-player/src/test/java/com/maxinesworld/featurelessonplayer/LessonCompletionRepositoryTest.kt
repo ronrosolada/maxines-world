@@ -1,6 +1,7 @@
 package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
@@ -84,6 +85,25 @@ class LessonCompletionRepositoryTest {
             replay.expeditionProgress,
         )
         coVerify(exactly = 1) { completionDao.insertIgnoring(any()) }
+    }
+
+    @Test
+    fun `first-attempt pass and post-retry pass are recorded distinctly`() = runTest {
+        val completionDao = mockk<LessonCompletionDao>()
+        coEvery { completionDao.exists(any(), any()) } returns false
+        coEvery { completionDao.countDistinctLessons(any()) } returns 0
+        val captured = mutableListOf<LessonCompletionEntity>()
+        coEvery { completionDao.insertIgnoring(any()) } answers {
+            captured += firstArg<LessonCompletionEntity>()
+            1L
+        }
+        val repository = repository(completionDao)
+
+        repository.complete("child-1", lesson(), listOf(result("a1")), passedOnFirstAttempt = true)
+        repository.complete("child-2", lesson(), listOf(result("a1")), passedOnFirstAttempt = false)
+
+        assertEquals(true, captured[0].passedOnFirstAttempt)
+        assertEquals(false, captured[1].passedOnFirstAttempt)
     }
 
     @Test

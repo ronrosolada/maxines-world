@@ -2,9 +2,7 @@ package com.maxinesworld.app
 
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
-import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.coremodel.Month1Lesson
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
@@ -36,16 +34,15 @@ class OfflineLessonLoadTest {
 
     @Test
     fun everyPlayroomSubjectLoadsOffline() = runBlocking {
-        val activeIndex = ActiveContentIndex(context)
-        val contentLoader = ContentLessonLoader(context, activeIndex)
-        val legacyLoader = LessonLoader(context, activeIndex)
+        // Single bundled resolution path; the legacy loader and active-content
+        // index were removed (spec CH-02).
+        val contentLoader = ContentLessonLoader(context)
 
         val failures = supportedSubjects.mapNotNull { subject ->
             val lessonId = lessonIdForSubject(subject)
             if (lessonId == null) return@mapNotNull "no lessonId for '$subject'"
             val viaContent = contentLoader.loadLesson(lessonId)
-            val viaLegacy = legacyLoader.loadLesson(lessonId)
-            if (viaContent == null && viaLegacy == null) "$subject ($lessonId)" else null
+            if (viaContent == null) "$subject ($lessonId)" else null
         }
 
         assertTrue(
@@ -82,16 +79,13 @@ class OfflineLessonLoadTest {
     fun gmrcMapsToRealGmrcLesson() = runBlocking {
         // GMRC content converted from DepEd SLM source — the Kindness island
         // must open a REAL gmrc lesson (not an AP placeholder, not English).
-        val activeIndex = ActiveContentIndex(context)
-        val contentLoader = ContentLessonLoader(context, activeIndex)
-        val legacyLoader = LessonLoader(context, activeIndex)
+        val contentLoader = ContentLessonLoader(context)
 
         val lessonId = lessonIdForSubject("gmrc")!!
         assertTrue("gmrc must map to gmrc content, got: $lessonId", lessonId.startsWith("gmrc"))
 
         val viaContent = contentLoader.loadLesson(lessonId)
-        val viaLegacy = legacyLoader.loadLesson(lessonId)
-        assertTrue("gmrc lesson must load offline", viaContent != null || viaLegacy != null)
+        assertTrue("gmrc lesson must load offline", viaContent != null)
     }
 
     /**
@@ -103,8 +97,7 @@ class OfflineLessonLoadTest {
      */
     @Test
     fun everyPlayroomSubjectAssessmentIsConvertible() = runBlocking {
-        val activeIndex = ActiveContentIndex(context)
-        val contentLoader = ContentLessonLoader(context, activeIndex)
+        val contentLoader = ContentLessonLoader(context)
 
         val failures = supportedSubjects.mapNotNull { subject ->
             val lessonId = lessonIdForSubject(subject) ?: return@mapNotNull null

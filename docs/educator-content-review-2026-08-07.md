@@ -1,5 +1,7 @@
 # Educator Content Review — 2026-08-07
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 ## Scope and decision
 
 Review date: 2026-08-07 09:06:58 +08:00

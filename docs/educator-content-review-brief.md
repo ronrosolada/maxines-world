@@ -1,5 +1,7 @@
 # Maxine's World — Independent Educator Content Review Brief
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 **Purpose:** Give a separate LLM or human educator enough context to review the bundled Grade 3 lesson content without relying on chat history.
 
 **Review baseline:** branch `content/educator-review`, commit `d2a3a86c79183c19554d60e32e598c76e78c8ae2`  

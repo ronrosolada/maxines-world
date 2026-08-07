@@ -1,5 +1,7 @@
 # Maxine's World — Review Validation Handoff
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 **Created:** 2026-08-03 17:52 Asia/Singapore  
 **Purpose:** Preserve the current conversation context for continuation in a fresh thread.
 

@@ -11,9 +11,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
-import com.maxinesworld.corecontent.LessonLoader
 import com.maxinesworld.corecontent.friendlyLessonTitleOf
 import com.maxinesworld.coredatabase.RewardBreakDao
 import com.maxinesworld.coredatabase.RewardBreakPolicy
@@ -45,6 +43,8 @@ data class LessonUiState(
     val feedbackCorrect: Boolean = false,
     val isComplete: Boolean = false,
     val assessmentFailed: Boolean = false,
+    /** True once retryAssessment() has run; first-attempt passes are recorded distinctly. */
+    val assessmentRetried: Boolean = false,
     val error: String? = null,
     val results: List<ActivityResult> = emptyList(),
     val badgeAwarded: CollectibleBadge? = null,
@@ -65,14 +65,12 @@ internal fun upsertActivityResult(
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
     application: Application,
-    private val lessonLoader: LessonLoader,
     private val scorer: Scorer,
-    private val activeContentIndex: ActiveContentIndex,
     private val lessonCompletionRepository: LessonCompletionRepository,
     private val rewardBreakDao: RewardBreakDao,
 ) : AndroidViewModel(application) {
 
-    private val contentLessonLoader = ContentLessonLoader(application, activeContentIndex)
+    private val contentLessonLoader = ContentLessonLoader(application)
     private val _state = MutableStateFlow(LessonUiState())
     val state: StateFlow<LessonUiState> = _state.asStateFlow()
     private var childId: String = ""
@@ -84,18 +82,9 @@ class LessonPlayerViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             val lesson = withContext(Dispatchers.IO) {
-                try {
-                    val m1 = contentLessonLoader.loadLesson(lessonId)
-                    if (m1 != null) {
-                        val manifest = convertToLessonManifest(m1)
-                        manifest
-                    } else {
-                        val fallback = lessonLoader.loadLesson(lessonId)
-                        fallback
-                    }
-                } catch (e: Exception) {
-                    lessonLoader.loadLesson(lessonId)
-                }
+                // Single bundled resolution path; loadLesson already rejects
+                // any non-RELEASED lesson (spec CH-02).
+                contentLessonLoader.loadLesson(lessonId)?.let(::convertToLessonManifest)
             }
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
@@ -154,6 +143,7 @@ class LessonPlayerViewModel @Inject constructor(
                 currentStep = assessmentStart,
                 results = it.results.filterNot { result -> result.activityId in assessmentIds },
                 assessmentFailed = false,
+                assessmentRetried = true,
                 showFeedback = false,
             )
         }
@@ -163,12 +153,20 @@ class LessonPlayerViewModel @Inject constructor(
         if (progressSaved) return
         progressSaved = true
         val lesson = _state.value.lesson ?: return
+        // Only scored steps (the authored assessment) contribute to accuracy
+        // and mastery; exploratory and practice steps are unscored by contract
+        // (spec CH-04).
         val scoredResults = _state.value.results.filter { it.scored }
         if (childId.isBlank() || scoredResults.isEmpty()) return
 
         viewModelScope.launch {
             runCatching {
-                lessonCompletionRepository.complete(childId, lesson, scoredResults)
+                lessonCompletionRepository.complete(
+                    childId,
+                    lesson,
+                    scoredResults,
+                    passedOnFirstAttempt = !_state.value.assessmentRetried,
+                )
             }.onSuccess { result ->
                 _state.update {
                     it.copy(
@@ -211,10 +209,14 @@ class LessonPlayerViewModel @Inject constructor(
     fun onActivityResult(result: ActivityResult) {
         val lesson = _state.value.lesson
         val step = lesson?.steps?.getOrNull(_state.value.currentStep)
+        // Normalize the scored flag from the step contract: practice steps are
+        // unscored, assessment steps are scored. Renderers cannot be trusted to
+        // set it consistently, so the single source of truth is the step (CH-04).
+        val normalized = if (step != null) result.copy(scored = step.scored) else result
         _state.update { current ->
-            current.copy(results = upsertActivityResult(current.results, result))
+            current.copy(results = upsertActivityResult(current.results, normalized))
         }
-        if (!result.scored) onNextStep()
+        if (!normalized.scored) onNextStep()
         else _state.update {
             it.copy(showFeedback = true,
                 feedbackText = if (result.correct) childFacingCorrectFeedback(step?.feedback?.correct)
@@ -240,7 +242,11 @@ class LessonPlayerViewModel @Inject constructor(
             vocabulary = m1.vocabulary,
             assessment = m1.assessment?.let { a ->
                 AssessmentBlock(
-                    passThreshold = if (a.itemCount > 0) a.passingCorrectCount.toDouble() / a.itemCount else 0.8,
+                    // Assessment policy: minimum 80% of items correct counts as
+                    // a pass (4/5 on a five-item check; see HANDOFF "Assessment
+                    // policy"). No silent default: a zero-item assessment is
+                    // malformed and fails closed — the content gate rejects it.
+                    passThreshold = if (a.itemCount > 0) a.passingCorrectCount.toDouble() / a.itemCount else 1.0,
                     minQuestions = a.itemCount,
                     items = assessmentSteps,
                 )
@@ -287,6 +293,7 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
         question = item.prompt,
         options = optionTexts,
         correctIndex = correctIndex,
+        scored = true,
         feedback = ActivityFeedback(
             correct = childFacingCorrectFeedback(explanation),
             incorrect = childFacingIncorrectFeedback(explanation),
@@ -422,6 +429,9 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         options = options,
         correctIndex = correctIndex,
         imageAssets = listOfNotNull(act.assetId?.takeIf { it.isNotBlank() }),
+        // Practice activities are never scored: only the authored assessment
+        // contributes to accuracy and mastery (spec CH-04).
+        scored = false,
         feedback = ActivityFeedback(
             correct = childFacingCorrectFeedback(act.feedback?.correct),
             incorrect = incorrectFeedback,

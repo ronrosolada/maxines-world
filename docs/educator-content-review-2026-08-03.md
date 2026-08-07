@@ -1,5 +1,7 @@
 # Educator Content Review — Maxine's World Grade 3 / Primary 3
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 **Review Date:** 2026-08-03  
 **Repository Commit:** `3ea2545` (main)  
 **Scope:** 349 bundled lessons in `android/app/src/main/assets/content-pack/month-01/lessons/`  

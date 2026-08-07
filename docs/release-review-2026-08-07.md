@@ -1,5 +1,7 @@
 # Maxine's World — Release Review Brief (2026-08-07)
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 **Scope:** Independent review of `main` after PR #71
 (`6dc51f0`, squash-merged 2026-08-07: "fix: child feedback and keyboard-safe PIN setup").
 This brief records what changed, what was verified, and what an independent
@@ -136,6 +138,20 @@ are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
   (accuracy from the final attempt); the record does not distinguish
   first-pass from retry-pass. **Decision**: acceptable for the parent dashboard
   today; if "effort" metrics are wanted, add an attempts column (v9 migration).
+
+### Assessment semantics (spec CH-03/CH-04) — DONE
+- Pass policy pinned at **80%** (4/5): validation errors below it, no silent
+  runtime default (fail-closed on malformed), baseline `[4]`.
+- **Practice excluded from accuracy**: `ActivityStep.scored` contract —
+  practice steps unscored, assessment scored; enforced at the single
+  `onActivityResult` normalization point; `saveProgress`, completion screen,
+  and `Scorer` consume scored results only.
+- **Retry recorded distinctly**: `lesson_completions.passedOnFirstAttempt`
+  (DB v9 + migration test); first-attempt and post-retry passes are
+  distinguishable persisted records.
+- Loader hardening (CH-02): legacy `LessonLoader` and `ActiveContentIndex`
+  deleted; single bundled path; `parseBundledLesson` rejects non-`RELEASED`
+  lessons (unit-tested).
 
 ### Other review findings — status
 

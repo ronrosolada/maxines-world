@@ -11,6 +11,8 @@ Android `versionName`.
 - Kept the pre-revision `english-g3-q1-w01-d01` visual: the revised art dropped curriculum clues (red flag, parade, lanterns) required by the picture-detective activity.
 - Regenerated child-facing feedback copy across 161 lessons so authored correct/explanation text no longer exposes curriculum jargon.
 - Removed all unreviewed lesson content from the APK (legacy `content/ph-matatag` fallback + pilot pack) and extended the release gate to cover every lesson-bearing asset directory (external review C3).
+- Pinned the assessment pass policy at 80% (4/5), removed the silent runtime default, and enforced it in content validation (CH-03).
+- Excluded practice activities from accuracy and mastery (`ActivityStep.scored` contract), recorded first-attempt vs retry passes distinctly (DB v9), and removed the legacy loaders/active-content path so only `RELEASED` bundled lessons can load (CH-04, CH-02).
 
 ### Child-facing feedback
 - Extended copy sanitization to success feedback and assessment explanations (core model, lesson player, and content tooling share the same replacement table).

@@ -177,6 +177,15 @@ def _validate_assessment(
                 lesson_path,
                 f"expected passingCorrectCount={expected_label}, found {passing}",
             )
+    if len(items) > 0 and isinstance(passing, int) and not isinstance(passing, bool):
+        ratio = passing / len(items)
+        if ratio < 0.8:
+            report.add(
+                "error",
+                "assessment_threshold",
+                lesson_path,
+                f"passingCorrectCount {passing}/{len(items)} = {ratio:.2f} is below the 0.8 assessment pass policy (spec CH-03)",
+            )
 
     for index, item in enumerate(items, start=1):
         prefix = f"{lesson_path.name}: assessment item {index}"

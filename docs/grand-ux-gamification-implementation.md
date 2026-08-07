@@ -1,5 +1,7 @@
 # Grand UX, UI, and Gamification Review — Implementation Status
 
+**Status: Historical — superseded by `HANDOFF.md` (canonical).** Describes DB v8 and the wildlife expedition as current; its follow-up list overlaps with newer briefs. Kept for the record (spec CH-13).
+
 **Review baseline:** 6 August 2026
 **Implementation branch:** `feat/lesson-concept-visuals`
 **Release candidate:** `0.22.0`

@@ -58,6 +58,7 @@ class LessonCompletionRepository @Inject constructor(
         childId: String,
         lesson: LessonManifest,
         scoredResults: List<ActivityResult>,
+        passedOnFirstAttempt: Boolean = true,
     ): LessonCompletionPersistenceResult {
         require(childId.isNotBlank()) { "childId must not be blank" }
         require(scoredResults.isNotEmpty()) { "a completion needs scored results" }
@@ -89,6 +90,7 @@ class LessonCompletionRepository @Inject constructor(
                     lessonId = lesson.id,
                     attemptId = completionKey,
                     accuracy = accuracy,
+                    passedOnFirstAttempt = passedOnFirstAttempt,
                     completedAtEpochMillis = System.currentTimeMillis(),
                 )
             )

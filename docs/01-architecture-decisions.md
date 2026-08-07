@@ -1,5 +1,7 @@
 # Maxine's World — Architecture Decisions
 
+**Status: Historical — superseded by `HANDOFF.md` (canonical).** Several ADRs below describe superseded designs; they are kept for the record. Read code over these docs (verified 2026-08-07, spec CH-13).
+
 ## ADR-001: Modular Gradle Architecture
 
 **Decision:** Use a multi-module Gradle project with clear separation between core, feature, and engine modules.
@@ -122,7 +124,15 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 ## ADR-005: Versioned External JSON Lessons
 
-**Decision:** All curriculum structure, lesson definitions, questions, and activity parameters live in versioned JSON files outside the APK.
+**Status: SUPERSEDED by ADR-004 (2026-08-07).** Lessons ship bundled inside the
+APK under `android/app/src/main/assets/content-pack/month-01/lessons/`; there
+is no download path, no `filesDir/content/` runtime tree, and no content
+server. The `content/ph-matatag/` fallback tree this ADR describes was removed
+from the APK on 2026-08-07 (external review C3). The single loader is
+`ContentLessonLoader`; it rejects any lesson whose `releaseStatus` is not
+`RELEASED` (spec CH-02).
+
+**Decision (original, kept for the record):** All curriculum structure, lesson definitions, questions, and activity parameters live in versioned JSON files outside the APK.
 
 **Package structure:**
 ```

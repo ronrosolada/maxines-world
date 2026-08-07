@@ -111,14 +111,28 @@ class ContentPackValidationTests(unittest.TestCase):
 
     def test_allowed_passing_count_set_preserves_authored_threshold(self):
         lesson = valid_lesson()
-        lesson["assessment"]["passingCorrectCount"] = 3
-        snapshot = {**SNAPSHOT, "assessment_passing_correct_count": [3, 4]}
+        lesson["assessment"]["passingCorrectCount"] = 4
+        snapshot = {**SNAPSHOT, "assessment_passing_correct_count": [4]}
         with tempfile.TemporaryDirectory() as tmp:
             pack = Path(tmp)
             write_lesson(pack, lesson)
             report = validate_pack(pack, snapshot=snapshot)
 
         self.assertEqual([], report.errors)
+
+    def test_below_policy_threshold_is_an_error_even_when_in_allowed_set(self):
+        # CH-03: 3/5 = 0.6 is below the 0.8 assessment pass policy. Even if the
+        # snapshot's allowed set permits it, validation must reject it.
+        lesson = valid_lesson()
+        lesson["assessment"]["passingCorrectCount"] = 3
+        snapshot = {**SNAPSHOT, "assessment_passing_correct_count": [3]}
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp)
+            write_lesson(pack, lesson)
+            report = validate_pack(pack, snapshot=snapshot)
+
+        self.assertTrue(any(f.category == "assessment_threshold" for f in report.errors))
+        self.assertEqual(0, report.warning_count)
 
     def test_malformed_json_is_an_error_and_does_not_abort_scan(self):
         with tempfile.TemporaryDirectory() as tmp:

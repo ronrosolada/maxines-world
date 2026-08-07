@@ -124,6 +124,8 @@ class ActivityStepConversionTest {
         assertEquals(3, step.sortItems.count { it.categoryIndex == 0 })
         assertEquals(3, step.sortItems.count { it.categoryIndex == 1 })
         assertTrue(step.feedback?.incorrect?.contains("maling kahon") == true)
+        // Practice activities are never scored; only assessment counts (CH-04).
+        assertEquals(false, step.scored)
     }
 
     @Test
@@ -279,6 +281,8 @@ class ActivityStepConversionTest {
         assertEquals(0, step.correctIndex)
         assertEquals("Ang simuno ay si Ana.", step.feedback?.correct)
         assertEquals("Ang simuno ay si Ana.", step.feedback?.incorrect)
+        // Only authored assessment steps are scored (spec CH-04).
+        assertEquals(true, step.scored)
     }
 
     @Test

@@ -67,7 +67,14 @@ data class ActivityStep(
     val completionRule: String = "",
     val completionTargetCount: Int = 0,
     /** Authored hint text. Empty means this activity has no hint affordance. */
-    val hintText: String = ""
+    val hintText: String = "",
+    /**
+     * Whether this step contributes to accuracy and mastery. Practice and
+     * exploratory steps are unscored (`false`); authored assessment steps are
+     * scored (`true`). Single source of truth enforced in
+     * LessonPlayerViewModel.onActivityResult (spec CH-04).
+     */
+    val scored: Boolean = true,
 )
 
 @Serializable

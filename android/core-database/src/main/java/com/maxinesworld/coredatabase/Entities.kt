@@ -181,6 +181,9 @@ data class LessonCompletionEntity(
     val lessonId: String,
     val attemptId: String,
     val accuracy: Double,
+    /** False when the child passed only after retryAssessment(); first-attempt
+     *  and post-retry passes are recorded distinctly (spec CH-04). */
+    val passedOnFirstAttempt: Boolean = true,
     val completedAtEpochMillis: Long = System.currentTimeMillis()
 )
 

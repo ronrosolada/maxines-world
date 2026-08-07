@@ -1,5 +1,7 @@
 # Maxine's World — Implementation Milestones & Risks
 
+**Status: Historical — superseded by `HANDOFF.md` (canonical).** M3's five-subject village home, Lottie animations, and WorkManager download-on-demand are superseded (Playroom replaced the village home; content is bundled-only). R8's download mitigation contradicts the bundled-only decision (ADR-004). Kept for the record; do not implement from this file without checking code (spec CH-13).
+
 ## Milestones
 
 ### M1: Project Scaffold & Build System

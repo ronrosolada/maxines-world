@@ -1,5 +1,7 @@
 # External LLM Review — Adversarial Educational Content Review (2026-08-03)
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 **Received:** 2026-08-03 (evening), delivered to the project as a standalone adversarial review.
 **Reviewed state:** current public `main` branch at the time of writing.
 **Reviewer:** External LLM (adversarial educational-content review role).

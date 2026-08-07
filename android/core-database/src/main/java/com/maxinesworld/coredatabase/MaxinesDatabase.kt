@@ -29,7 +29,7 @@ import androidx.room.RoomDatabase
         ActiveContentPackageEntity::class,
         ContentSyncRunEntity::class
     ],
-    version = 8,
+    version = 9,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {

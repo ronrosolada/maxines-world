@@ -209,7 +209,7 @@ class BadgeAwarder @Inject constructor(
         "mathematics", "math" -> "mathematics"
         "science" -> "science"
         // Makabansa is the Matatag successor of Araling Panlipunan; legacy
-        // AP and "history"/"hist" aliases (see ActiveContentIndex) all fold
+        // AP and "history"/"hist" aliases (see ContentLessonLoader.subjectMapping) all fold
         // into the same expedition (audit A3, 2026-08-06).
         "makabansa", "araling_panlipunan", "araling-panlipunan", "history", "hist" -> SUBJECT_MAKABANSA
         "gmrc" -> "gmrc"

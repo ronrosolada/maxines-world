@@ -1,5 +1,7 @@
 # Educator Content Review — 2026-08-06
 
+**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+
 ## Baseline
 
 - **Repository:** `/home/ron/workspace/maxines-world/repo`

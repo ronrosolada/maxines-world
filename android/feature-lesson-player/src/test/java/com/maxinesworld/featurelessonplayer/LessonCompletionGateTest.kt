@@ -4,7 +4,9 @@ import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.AssessmentBlock
 import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.engineactivity.ActivityResult
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -102,6 +104,36 @@ class LessonCompletionGateTest {
         )
 
         assertTrue(evaluateLessonCompletion(lesson, results, nextStep = lesson.steps.size).complete)
+    }
+
+    @Test
+    fun `practice results are excluded from the assessment verdict`() {
+        val results = listOf(
+            result("practice-1", correct = false).copy(scored = false),
+            result("assessment-q1", correct = true).copy(scored = true),
+            result("assessment-q2", correct = true).copy(scored = true),
+            result("assessment-q3", correct = true).copy(scored = true),
+            result("assessment-q4", correct = false).copy(scored = true),
+        )
+
+        // 3/4 = 0.75 is exactly at the authored threshold; the incorrect
+        // practice answer must not drag the verdict down (spec CH-04).
+        val decision = evaluateLessonCompletion(lesson, results, nextStep = lesson.steps.size)
+        assertTrue(decision.complete)
+        assertEquals(0.75, decision.assessment?.accuracy ?: -1.0, 0.001)
+    }
+
+    @Test
+    fun `practice results alone yield no assessment accuracy or mastery`() {
+        val results = listOf(
+            result("practice-1", correct = true).copy(scored = false),
+        )
+        val decision = evaluateLessonCompletion(lesson, results, nextStep = lesson.steps.size)
+        // Practice-only results can never complete a lesson: there is no
+        // assessment verdict at all, so no accuracy and no mastery signal
+        // can be derived (spec CH-04).
+        assertFalse(decision.complete)
+        assertNull(decision.assessment)
     }
 
     @Test
