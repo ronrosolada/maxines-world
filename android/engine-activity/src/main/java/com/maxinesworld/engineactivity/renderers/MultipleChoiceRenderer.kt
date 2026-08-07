@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -17,7 +19,7 @@ import com.maxinesworld.engineactivity.ActivityResult
 
 /**
  * Multiple-choice question with correct/incorrect feedback and retry support.
- * Minimum 48dp touch targets, TalkBack content descriptions, reduced-motion aware.
+ * Minimum 48dp touch targets, TalkBack content descriptions, and retry support.
  */
 @Composable
 fun MultipleChoiceRenderer(
@@ -111,6 +113,41 @@ fun MultipleChoiceRenderer(
             )
         }
 
+        if (shouldShowCorrection(submitted, feedbackState, attempts)) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = SunshineGold.copy(alpha = 0.16f),
+                ),
+            ) {
+                Column(Modifier.padding(16.dp)) {
+                    Text(
+                        "Let's look at this together",
+                        style = MaterialTheme.typography.titleSmall,
+                        color = Ink,
+                    )
+                    options.getOrNull(displayedCorrectIndex)?.let { answer ->
+                        Text(
+                            "Correct answer: $answer",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Ink,
+                        )
+                    }
+                    val guidance = step.hintText.ifBlank {
+                        step.feedback?.incorrect.orEmpty()
+                    }
+                    if (guidance.isNotBlank()) {
+                        Text(
+                            guidance,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Ink,
+                            modifier = Modifier.padding(top = 8.dp),
+                        )
+                    }
+                }
+            }
+        }
+
         if (hintVisible) {
             Text(
                 text = "Hint: ${step.hintText}",
@@ -136,7 +173,7 @@ fun MultipleChoiceRenderer(
                     text = "Hint",
                     containerColor = SunshineGold,
                     contentColor = OnGold,
-                    enabled = !submitted,
+                    enabled = !submitted || feedbackState == false,
                     modifier = Modifier
                         .weight(1f)
                         .sizeIn(minHeight = 48.dp)
@@ -174,6 +211,7 @@ fun MultipleChoiceRenderer(
                     else -> "Submit"
                 },
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
+                contentColor = if (submitted && feedbackState == false) OnCoral else White,
                 enabled = selectedIndex >= 0 || (submitted && feedbackState == false),
                 modifier = Modifier
                     .weight(1f)
@@ -199,6 +237,12 @@ internal fun multipleChoiceResult(
     hintsUsed = hintsUsed,
     responseTimeMs = responseTimeMs,
 )
+
+internal fun shouldShowCorrection(
+    submitted: Boolean,
+    feedbackState: Boolean?,
+    attempts: Int,
+): Boolean = submitted && feedbackState == false && attempts >= 2
 
 /**
  * Return a deterministic permutation for one lesson's option cards.

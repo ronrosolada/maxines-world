@@ -1,6 +1,5 @@
 package com.maxinesworld.featurerewards
 
-import android.provider.Settings
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -18,7 +17,6 @@ import androidx.compose.ui.draw.*
 import androidx.compose.ui.geometry.*
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -246,16 +244,7 @@ fun BadgeRevealScreen(
 ) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accent = Color(biome.colorHex)
-    val context = LocalContext.current
-    val reduceMotion = remember {
-        !badgeRevealAnimationEnabled(
-            Settings.Global.getFloat(
-                context.contentResolver,
-                Settings.Global.ANIMATOR_DURATION_SCALE,
-                1f,
-            )
-        )
-    }
+    val reduceMotion = LocalAnimationsDisabled.current
     val isMilestone = badge.biome == BadgeAwarder.MILESTONE_BIOME
     var step by remember { mutableIntStateOf(if (reduceMotion) 2 else 0) }
 
@@ -339,8 +328,16 @@ fun BadgeRevealScreen(
                         }
                     }
                     1 -> {
-                        val pulse by rememberInfiniteTransition().animateFloat(0.85f, 1.15f,
-                            animationSpec = infiniteRepeatable(tween(500), RepeatMode.Reverse))
+                        val pulse = if (reduceMotion) {
+                            1f
+                        } else {
+                            rememberInfiniteTransition(label = "mysteryPulse").animateFloat(
+                                0.85f,
+                                1.15f,
+                                animationSpec = infiniteRepeatable(tween(500), RepeatMode.Reverse),
+                                label = "pulse",
+                            ).value
+                        }
                         Box(Modifier.size(150.dp).scale(pulse)) {
                             Canvas(Modifier.fillMaxSize()) {
                                 val r = size.minDimension / 2

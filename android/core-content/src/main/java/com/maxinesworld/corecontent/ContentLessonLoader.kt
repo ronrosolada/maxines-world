@@ -42,8 +42,6 @@ class ContentLessonLoader(
 
         val result = runCatching {
             json.decodeFromString<Month1Lesson>(raw)
-        }.onFailure {
-            android.util.Log.e("ContentLoader", "JSON parse failed: ${it.message}", it)
         }.getOrNull()
         if (result != null) lessonCache[lessonId] = result
         result
@@ -54,13 +52,10 @@ class ContentLessonLoader(
         // Format 1: Month-based (month-01) — english-g3-m01-d01
         try {
             val path = "content-pack/month-01/lessons/$lessonId.json"
-            android.util.Log.d("ContentLoader", "Trying: $path")
             val text = context.assets.open(path)
                 .bufferedReader().use { it.readText() }
-            android.util.Log.d("ContentLoader", "Found! ${text.length} chars")
             return text
-        } catch (e: Exception) {
-            android.util.Log.d("ContentLoader", "Not found at month-01: ${e.message}")
+        } catch (_: Exception) {
         }
 
         // Format 2: Quarter-week-based — e.g., english-g3-q2-w01-d01

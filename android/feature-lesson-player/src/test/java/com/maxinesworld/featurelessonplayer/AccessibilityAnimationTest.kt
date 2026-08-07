@@ -15,4 +15,10 @@ class AccessibilityAnimationTest {
         assertTrue(confettiAnimationEnabled(1f))
         assertTrue(confettiAnimationEnabled(0.5f))
     }
+
+    @Test
+    fun `tts fallback is localized for Filipino lessons`() {
+        assertTrue(ttsUnavailableMessage("fil-PH").startsWith("Walang boses"))
+        assertTrue(ttsUnavailableMessage("en-US").startsWith("Voice not available"))
+    }
 }

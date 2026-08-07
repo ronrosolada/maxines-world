@@ -94,5 +94,7 @@ fun InteractiveSpecRenderer(
             if (result == true) step.feedback?.correct ?: "Correct!" else step.feedback?.incorrect ?: "Not quite!",
             color = if (result == true) SuccessGreenText else ReviewText, style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.semantics { contentDescription = if (result == true) "Correct" else "Incorrect" })
+
+        ActivityHint(step = step, onHint = onHint)
     }
 }

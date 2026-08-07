@@ -76,18 +76,14 @@ class LessonPlayerViewModel @Inject constructor(
             val lesson = withContext(Dispatchers.IO) {
                 try {
                     val m1 = contentLessonLoader.loadLesson(lessonId)
-                    android.util.Log.d("LessonVM", "loadLesson result: $lessonId → m1=${m1 != null}")
                     if (m1 != null) {
                         val manifest = convertToLessonManifest(m1)
-                        android.util.Log.d("LessonVM", "Converted: ${manifest.steps.size} steps, subject=${manifest.subject}")
                         manifest
                     } else {
                         val fallback = lessonLoader.loadLesson(lessonId)
-                        android.util.Log.d("LessonVM", "Fallback lesson: ${fallback != null}")
                         fallback
                     }
                 } catch (e: Exception) {
-                    android.util.Log.e("LessonVM", "Load error: ${e.message}", e)
                     lessonLoader.loadLesson(lessonId)
                 }
             }
@@ -381,8 +377,6 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
                 sequenceSteps = obj?.stringList("steps") ?: emptyList()
             }
         }
-    }.onFailure {
-        android.util.Log.e("LessonVM", "content parse failed for ${act.activityId}: ${it.message}", it)
     }
 
     // Hints may be authored either as a top-level activity field or inside

@@ -1,6 +1,5 @@
 package com.maxinesworld.featurelessonplayer
 
-import android.provider.Settings
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -52,6 +51,14 @@ import kotlinx.coroutines.launch
 /** Minimal lesson-chrome localization: fil-PH lessons get Filipino chrome. */
 private fun uiText(language: String?, en: String, fil: String): String =
     if (language?.lowercase()?.startsWith("fil") == true) fil else en
+
+/** Returns the localized fallback message shown when a lesson voice is unavailable. */
+internal fun ttsUnavailableMessage(language: String?): String =
+    uiText(
+        language,
+        "Voice not available on this device — please read along instead.",
+        "Walang boses sa device na ito — basahin na lang natin ang teksto.",
+    )
 
 /** Returns true only when narration adds context beyond the activity instruction. */
 internal fun shouldShowNarrationCard(step: ActivityStep): Boolean =
@@ -165,6 +172,13 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
     val lesson = state.lesson ?: return
     val step = lesson.steps.getOrNull(state.currentStep) ?: return
     val lang = lesson.languageOfInstruction
+    // Keep one TTS engine for the lesson. Recreating it for every explanation
+    // step can drop queued speech and repeatedly initialize the Android engine.
+    val context = LocalContext.current
+    val ttsPlayer = remember { LessonTtsPlayer(context) }
+    DisposableEffect(ttsPlayer) {
+        onDispose { ttsPlayer.shutdown() }
+    }
     val practiceStepCount = (state.totalSteps - state.assessmentStepCount).coerceAtLeast(1)
     val inAssessment = state.currentStep >= practiceStepCount
     val assessmentIndex = (state.currentStep - practiceStepCount).coerceAtLeast(0)
@@ -281,13 +295,18 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 onResult = { result -> viewModel.onActivityResult(result) },
             )
 
-            step.type == "ANIMATED_EXPLANATION_V1" -> ExplanationStep(step, lesson.languageOfInstruction ?: "english") {
+            step.type == "ANIMATED_EXPLANATION_V1" -> ExplanationStep(
+                step = step,
+                language = lesson.languageOfInstruction ?: "english",
+                ttsPlayer = ttsPlayer,
+            ) {
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
 
             else -> ActivityRenderer(
                 step = step,
                 onResult = { result -> viewModel.onActivityResult(result) },
+                onHint = { ttsPlayer.speak(step.hintText, lang ?: "english") },
                 modifier = Modifier.fillMaxWidth(),
                 // #29: the success banner is the primary CTA — make it advance
                 // the lesson instead of sitting there looking clickable.
@@ -443,14 +462,17 @@ fun NarrationControlRow(
 }
 
 @Composable
-private fun ExplanationStep(step: ActivityStep, language: String = "english", onContinue: () -> Unit) {
+private fun ExplanationStep(
+    step: ActivityStep,
+    language: String = "english",
+    ttsPlayer: LessonTtsPlayer,
+    onContinue: () -> Unit,
+) {
     val context = LocalContext.current
-    val ttsPlayer = remember { LessonTtsPlayer(context) }
     val narrationEnabled by NarrationPreferences.enabled(context).collectAsState(initial = true)
     val preferenceScope = rememberCoroutineScope()
     var ttsSpeaking by remember { mutableStateOf(false) }
     var ttsUnavailable by remember { mutableStateOf(false) }
-    DisposableEffect(Unit) { onDispose { ttsPlayer.shutdown() } }
 
     fun playNarration() {
         if (!narrationEnabled) return
@@ -529,7 +551,7 @@ private fun ExplanationStep(step: ActivityStep, language: String = "english", on
                     Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.Info, "Info", tint = SunshineGold, modifier = Modifier.size(20.dp))
                         Spacer(Modifier.width(8.dp))
-                        Text("Filipino voice not available on this device — please read along instead.",
+                        Text(ttsUnavailableMessage(language),
                             fontSize = 14.sp, color = Ink.copy(alpha = 0.7f))
                     }
                 }
@@ -702,11 +724,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
     // Confetti — respect reduced motion (ANIMATOR_DURATION_SCALE == 0 on
     // Android disables system animations; children with this preference get
     // a static celebration screen instead of falling confetti).
-    val context = LocalContext.current
-    val animationScale = remember {
-        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
-    }
-    val reducedMotion = !confettiAnimationEnabled(animationScale)
+    val reducedMotion = LocalAnimationsDisabled.current
     val confettiColors = if (!reducedMotion) listOf(Coral, SunshineGold, SkyBlue, StoryPurple, LeafGreen, VillageTeal) else emptyList()
     val particles = remember { List(if (reducedMotion) 0 else 40) { Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat()) } }
     val confettiAnim = rememberConfettiProgress(enabled = !reducedMotion)

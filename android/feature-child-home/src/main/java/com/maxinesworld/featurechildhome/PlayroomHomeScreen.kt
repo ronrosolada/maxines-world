@@ -325,7 +325,13 @@ private fun PlayroomHeader(
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-        TextButton(onClick = onTreatShopClick) {
+        TextButton(
+            onClick = onTreatShopClick,
+            modifier = Modifier.semantics(mergeDescendants = true) {
+                contentDescription = "Treat Shop"
+                role = Role.Button
+            },
+        ) {
             Text("Treat Shop", fontWeight = FontWeight.ExtraBold)
         }
     }
@@ -952,7 +958,8 @@ private fun RowScope.NavItem(
             .heightIn(min = 56.dp)
             .clip(RoundedCornerShape(20.dp))
             .background(if (isSelected) PlayTeal.copy(alpha = 0.14f) else Color.Transparent)
-            .semantics {
+            .semantics(mergeDescendants = true) {
+                contentDescription = label
                 role = Role.Button
                 if (isSelected) selected = true
                 if (!enabled) disabled()

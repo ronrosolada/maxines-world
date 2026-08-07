@@ -67,7 +67,7 @@ fun MatchingPairsRenderer(
         Text(
             matchingHint,
             style = MaterialTheme.typography.labelLarge,
-            color = Teal40.copy(alpha = 0.7f),
+            color = VillageTeal,
             fontWeight = FontWeight.Medium,
             modifier = Modifier.semantics { contentDescription = "Hint: $matchingHint" }
         )
@@ -128,6 +128,8 @@ fun MatchingPairsRenderer(
                 } }
             }
         }
+
+        ActivityHint(step = step, onHint = onHint)
 
         Text("Matched: ${matchedLeft.size} / $n", style = MaterialTheme.typography.labelMedium, color = VillageTeal,
             modifier = Modifier.semantics { contentDescription = "${matchedLeft.size} of $n matched" })

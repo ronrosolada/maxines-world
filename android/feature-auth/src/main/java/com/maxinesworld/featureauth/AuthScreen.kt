@@ -1,6 +1,7 @@
 package com.maxinesworld.featureauth
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
@@ -20,9 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -108,88 +111,99 @@ internal fun PinSetupContent(
 ) {
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .imePadding()
-            .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Icon(Icons.Default.Fingerprint, contentDescription = null, tint = Teal40, modifier = Modifier.size(64.dp))
-        Spacer(Modifier.height(16.dp))
-        Text(
-            "Welcome to Maxine's World!",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            color = Teal40
-        )
-        Spacer(Modifier.height(8.dp))
-        Text(
-            "Set up a PIN to keep the parent area secure.",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center
-        )
-        Spacer(Modifier.height(32.dp))
 
-        OutlinedTextField(
-            value = state.displayName,
-            onValueChange = onUpdateName,
-            label = { Text("Your name") },
-            leadingIcon = { Icon(Icons.Default.Person, "Name") },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp),
-            singleLine = true,
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text,
-                imeAction = ImeAction.Done,
-            ),
-            keyboardActions = KeyboardActions(onDone = {
-                keyboardController?.hide()
-                focusManager.clearFocus(force = true)
-            }),
-        )
-        Spacer(Modifier.height(16.dp))
-
-        Text("Choose a 6-digit PIN", fontWeight = FontWeight.Medium)
-        Spacer(Modifier.height(12.dp))
-        PinDots(length = state.pinInput.length)
-        Text(
-            "${state.pinInput.length} of 6 digits",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.height(16.dp))
-
-        PinPad(
-            onInteraction = onPinPadInteraction,
-        ) { digit -> onPinDigit(digit) }
-        Spacer(Modifier.height(12.dp))
-
-        // Delete/backspace — a mis-tapped digit must be correctable without
-        // restarting the app (adversarial UX review #31).
-        TextButton(
-            onClick = onPinDelete,
-            enabled = state.pinInput.isNotEmpty()
+    Column(Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 32.dp)
+                .padding(top = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
         ) {
-            Text("Delete")
-        }
-
-        state.pinError?.let {
-            Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
+            Icon(Icons.Default.Fingerprint, contentDescription = null, tint = Teal40, modifier = Modifier.size(64.dp))
+            Spacer(Modifier.height(16.dp))
+            Text(
+                "Welcome to Maxine's World!",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                color = Teal40,
+            )
             Spacer(Modifier.height(8.dp))
+            Text(
+                "Set up a PIN to keep the parent area secure.",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(Modifier.height(32.dp))
+
+            OutlinedTextField(
+                value = state.displayName,
+                onValueChange = onUpdateName,
+                label = { Text("Your name") },
+                leadingIcon = { Icon(Icons.Default.Person, "Name") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done,
+                ),
+                keyboardActions = KeyboardActions(onDone = {
+                    keyboardController?.hide()
+                    focusManager.clearFocus(force = true)
+                }),
+            )
+            Spacer(Modifier.height(16.dp))
+
+            Text("Choose a 6-digit PIN", fontWeight = FontWeight.Medium)
+            Spacer(Modifier.height(12.dp))
+            PinDots(length = state.pinInput.length)
+            Text(
+                "${state.pinInput.length} of 6 digits",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(16.dp))
+
+            PinPad(
+                onInteraction = onPinPadInteraction,
+            ) { digit -> onPinDigit(digit) }
+            Spacer(Modifier.height(12.dp))
+
+            // Delete/backspace — a mis-tapped digit must be correctable without
+            // restarting the app (adversarial UX review #31).
+            TextButton(
+                onClick = onPinDelete,
+                enabled = state.pinInput.isNotEmpty(),
+            ) {
+                Text("Delete")
+            }
         }
 
-        Button(
-            onClick = onSetupPin,
-            enabled = state.pinInput.length == 6,
-            modifier = Modifier.fillMaxWidth().height(56.dp),
-            shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Teal40)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .imePadding()
+                .padding(horizontal = 32.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text("Set PIN", fontSize = 18.sp)
+            state.pinError?.let {
+                Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
+                Spacer(Modifier.height(8.dp))
+            }
+
+            Button(
+                onClick = onSetupPin,
+                enabled = state.pinInput.length == 6,
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Teal40),
+            ) {
+                Text("Set PIN", fontSize = 18.sp)
+            }
         }
     }
 }
@@ -226,6 +240,11 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         Spacer(Modifier.height(32.dp))
 
         PinDots(length = state.pinInput.length)
+        Text(
+            "${state.pinInput.length} of 6 digits",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         Spacer(Modifier.height(24.dp))
 
         PinPad(enabled = !locked) { digit -> viewModel.onPinDigit(digit) }
@@ -393,7 +412,13 @@ private fun CreateChildScreen(state: AuthUiState, viewModel: ParentAuthViewModel
 
 @Composable
 fun PinDots(length: Int, maxLength: Int = 6) {
-    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = Modifier.semantics {
+            contentDescription = "$length of $maxLength digits entered"
+            liveRegion = LiveRegionMode.Polite
+        },
+    ) {
         repeat(maxLength) { index ->
             Box(
                 Modifier
@@ -402,6 +427,13 @@ fun PinDots(length: Int, maxLength: Int = 6) {
                     .background(
                         if (index < length) Teal40
                         else MaterialTheme.colorScheme.surfaceVariant
+                    )
+                    .then(
+                        if (index >= length) {
+                            Modifier.border(1.dp, Teal40.copy(alpha = 0.4f), CircleShape)
+                        } else {
+                            Modifier
+                        }
                     )
             )
         }

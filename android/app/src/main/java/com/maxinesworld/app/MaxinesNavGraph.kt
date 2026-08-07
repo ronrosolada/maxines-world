@@ -1,5 +1,13 @@
 package com.maxinesworld.app
 
+import android.net.Uri
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -52,15 +60,20 @@ object Routes {
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
 
-    fun childHome(childId: String) = "child_home/$childId"
-    fun treatShop(childId: String) = "treat_shop/$childId"
-    fun subjectModules(childId: String, subject: String) = "subject_modules/$childId/$subject"
-    fun moduleLessons(childId: String, subject: String, moduleKey: String) = "module_lessons/$childId/$subject/$moduleKey"
-    fun lessonPlayer(childId: String, lessonId: String) = "lesson_player/$childId/$lessonId"
-    fun parentDashboard(childId: String) = "parent_dashboard/$childId"
-    fun parentGate(childId: String) = "parent_gate/$childId"
+    private fun segment(value: String): String = Uri.encode(value)
+
+    fun childHome(childId: String) = "child_home/${segment(childId)}"
+    fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
+    fun subjectModules(childId: String, subject: String) =
+        "subject_modules/${segment(childId)}/${segment(subject)}"
+    fun moduleLessons(childId: String, subject: String, moduleKey: String) =
+        "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
+    fun lessonPlayer(childId: String, lessonId: String) =
+        "lesson_player/${segment(childId)}/${segment(lessonId)}"
+    fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
+    fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
-        "wildlife_field_guide/$childId?badgeId=${badgeId.orEmpty()}"
+        "wildlife_field_guide/${segment(childId)}?badgeId=${segment(badgeId.orEmpty())}"
 }
 
 @Composable
@@ -92,7 +105,20 @@ fun MaxinesNavGraph(navController: NavHostController) {
         }
     }
 
-    if (startDest == null) return // Still loading
+    if (startDest == null) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background,
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator()
+            }
+        }
+        return
+    }
 
     NavHost(
         navController = navController,
