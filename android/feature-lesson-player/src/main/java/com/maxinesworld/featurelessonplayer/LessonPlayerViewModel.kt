@@ -52,6 +52,16 @@ data class LessonUiState(
     val rewardBreakId: String? = null,
 )
 
+/** Replace a previous retry result when the child later completes that activity. */
+internal fun upsertActivityResult(
+    results: List<ActivityResult>,
+    result: ActivityResult,
+): List<ActivityResult> {
+    val existingIndex = results.indexOfFirst { it.activityId == result.activityId }
+    if (existingIndex < 0) return results + result
+    return results.toMutableList().apply { set(existingIndex, result) }
+}
+
 @HiltViewModel
 class LessonPlayerViewModel @Inject constructor(
     application: Application,
@@ -199,16 +209,16 @@ class LessonPlayerViewModel @Inject constructor(
     }
 
     fun onActivityResult(result: ActivityResult) {
-        // Prevent duplicate results for the same activity
-        if (_state.value.results.any { it.activityId == result.activityId }) return
         val lesson = _state.value.lesson
         val step = lesson?.steps?.getOrNull(_state.value.currentStep)
-        _state.update { it.copy(results = it.results + result) }
+        _state.update { current ->
+            current.copy(results = upsertActivityResult(current.results, result))
+        }
         if (!result.scored) onNextStep()
         else _state.update {
             it.copy(showFeedback = true,
                 feedbackText = if (result.correct) step?.feedback?.correct ?: "Great job!"
-                    else step?.feedback?.incorrect ?: "Let's try again!",
+                    else childFacingIncorrectFeedback(step?.feedback?.incorrect),
                 feedbackCorrect = result.correct)
         }
     }
@@ -270,6 +280,7 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
     } ?: emptyList()
     val key = item.correctOptionIds.firstOrNull()
     val correctIndex = if (key != null) optionIds.indexOf(key) else -1
+    val explanation = item.explanation.trim().takeIf { it.isNotEmpty() }
     return ActivityStep(
         id = "assessment-${item.itemId.ifBlank { "q${item.sequence}" }}",
         type = "ASSESSMENT_V1",
@@ -277,8 +288,8 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
         options = optionTexts,
         correctIndex = correctIndex,
         feedback = ActivityFeedback(
-            correct = item.explanation.ifBlank { "Great job!" },
-            incorrect = item.explanation.ifBlank { "Let's try again!" },
+            correct = explanation ?: "Great job!",
+            incorrect = childFacingIncorrectFeedback(explanation),
         ),
     )
 }
@@ -389,14 +400,14 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
     val filipino = language?.startsWith("fil", ignoreCase = true) == true ||
         act.activityId.startsWith("filipino-", ignoreCase = true) ||
         act.instruction.contains("angkop", ignoreCase = true)
-    val defaultIncorrect = if (type == "SORT_AND_CLASSIFY_V1") {
-        if (filipino) "May ilang card sa maling kahon. Ilipat at subukan muli."
-        else "Some cards are in the wrong box. Move them and try again."
-    } else {
-        "Let's try again!"
+    val defaultIncorrect = when {
+        type == "SORT_AND_CLASSIFY_V1" && filipino -> "May ilang card sa maling kahon. Ilipat at subukan muli."
+        type == "SORT_AND_CLASSIFY_V1" -> "Some cards are in the wrong box. Move them and try again."
+        filipino -> "Balikan ang halimbawa at subukan muli. 💪"
+        else -> DEFAULT_INCORRECT_FEEDBACK
     }
 
-    val authoredIncorrect = act.feedback?.retry?.takeIf { it.isNotBlank() }
+    val authoredIncorrect = sanitizeIncorrectFeedback(act.feedback?.retry)
     val incorrectFeedback = if (type == "SORT_AND_CLASSIFY_V1") {
         listOfNotNull(authoredIncorrect, defaultIncorrect).joinToString(" ")
     } else {

@@ -1,9 +1,12 @@
 package com.maxinesworld.featureauth
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.layout.*
@@ -19,6 +22,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.semantics.LiveRegionMode
@@ -100,6 +104,7 @@ internal fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) 
     )
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun PinSetupContent(
     state: AuthUiState,
@@ -111,6 +116,18 @@ internal fun PinSetupContent(
 ) {
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
+    val density = LocalDensity.current
+    val imeVisible = WindowInsets.ime.getBottom(density) > 0
+    val scrollState = rememberScrollState()
+    val deleteRequester = remember { BringIntoViewRequester() }
+
+    // When the name field opens the keyboard, Compose keeps focus on that field
+    // and the scroll position near the top. The keypad's last row is then under
+    // the IME. Bring the bottom control into the reduced viewport so the 0 key,
+    // Delete, and the fixed Set PIN action remain reachable together.
+    LaunchedEffect(imeVisible) {
+        if (imeVisible) deleteRequester.bringIntoView()
+    }
 
     // Apply IME insets to the whole screen, not only the footer. When the
     // name field opens the software keyboard, the scrollable content and the
@@ -120,11 +137,11 @@ internal fun PinSetupContent(
         Column(
             modifier = Modifier
                 .weight(1f)
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(scrollState)
                 .padding(horizontal = 32.dp)
                 .padding(top = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = if (imeVisible) Arrangement.Top else Arrangement.Center,
         ) {
             Icon(Icons.Default.Fingerprint, contentDescription = null, tint = Teal40, modifier = Modifier.size(64.dp))
             Spacer(Modifier.height(16.dp))
@@ -182,6 +199,7 @@ internal fun PinSetupContent(
             TextButton(
                 onClick = onPinDelete,
                 enabled = state.pinInput.isNotEmpty(),
+                modifier = Modifier.bringIntoViewRequester(deleteRequester),
             ) {
                 Text("Delete")
             }

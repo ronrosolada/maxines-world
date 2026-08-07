@@ -692,6 +692,36 @@ def _replace_strings(value: Any, replacements: dict[str, str]) -> Any:
     return value
 
 
+def _child_facing_retry(text: str, filipino: bool) -> str:
+    """Replace opaque curriculum jargon in authored retry copy only."""
+    if not isinstance(text, str):
+        return text
+    if filipino:
+        return text
+    match = re.match(
+        r"^Read the (?:skill|lesson) rule again\.\s*(.+?)\s+do not show the skill\.$",
+        text.strip(),
+        flags=re.IGNORECASE,
+    )
+    if match:
+        return (
+            f"Look at the example again. {match.group(1).strip()} "
+            "do not match the lesson idea. Choose the answer that fits. 💪"
+        )
+    text = re.sub(r"shows the skill", "matches the lesson idea", text, flags=re.IGNORECASE)
+    text = re.sub(r"show the skill", "match the lesson idea", text, flags=re.IGNORECASE)
+    return text
+
+
+def _sanitize_activity_retry_feedback(lesson: dict[str, Any]) -> None:
+    subject = canonical_subject(lesson.get("subject", ""))
+    filipino = subject in {"filipino", "araling-panlipunan"}
+    for activity in lesson.get("activities", []):
+        feedback = activity.get("feedback")
+        if isinstance(feedback, dict) and isinstance(feedback.get("retry"), str):
+            feedback["retry"] = _child_facing_retry(feedback["retry"], filipino)
+
+
 def sanitize_legacy_lesson(original: dict[str, Any]) -> dict[str, Any]:
     """Repair generated shell copy while preserving legacy lesson examples."""
     lesson = copy.deepcopy(original)
@@ -723,10 +753,11 @@ def sanitize_legacy_lesson(original: dict[str, Any]) -> dict[str, Any]:
         "Up and down buttons provide an alternative to dragging.": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag." if filipino else "Up and down buttons provide an alternative to dragging.",
         "Text alternative: ": "Alternatibong teksto: " if filipino else "Text alternative: ",
         "Correct: ": "Tama: " if filipino else "Correct: ",
-        "Read the lesson rule again.": "Basahin muli ang tuntunin ng aralin." if filipino else "Read the skill rule again.",
-        " do not fit.": " ay hindi angkop." if filipino else " do not show the skill.",
+        "Read the lesson rule again.": "Basahin muli ang tuntunin ng aralin." if filipino else "Read the explanation again and look for the clue.",
+        " do not fit.": " ay hindi angkop." if filipino else " do not match the lesson idea.",
     }
     lesson = _replace_strings(lesson, replacements)
+    _sanitize_activity_retry_feedback(lesson)
     lesson["contentReview"] = {
         "reviewer": "RonBot — seasoned educator pass",
         "focus": ["factual accuracy", "Grade 3 appropriateness", "child safety", "engagement"],

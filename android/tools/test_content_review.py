@@ -68,6 +68,23 @@ class ContentReviewTest(unittest.TestCase):
         self.assertNotIn("fits the lesson idea", str(curated))
         self.assertEqual(curated, sanitize_legacy_lesson(curated))
 
+    def test_legacy_retry_feedback_replaces_curriculum_jargon(self):
+        lesson = {
+            "lessonId": "english-g3-m01-d02",
+            "subject": "ENGLISH",
+            "activities": [{
+                "feedback": {
+                    "retry": "Read the skill rule again. Square and Yesterday do not show the skill."
+                }
+            }],
+        }
+
+        repaired = sanitize_legacy_lesson(lesson)
+        retry = repaired["activities"][0]["feedback"]["retry"]
+        self.assertNotIn("show the skill", retry.lower())
+        self.assertIn("match the lesson idea", retry.lower())
+        self.assertEqual(repaired, sanitize_legacy_lesson(repaired))
+
     def test_curated_lesson_is_idempotent(self):
         lesson = {
             "lessonId": "makabansa-g3-q4-w07-d04",

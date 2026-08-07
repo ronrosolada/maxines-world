@@ -82,10 +82,35 @@ data class MatchPair(
     val right: String
 )
 
+const val DEFAULT_INCORRECT_FEEDBACK = "Look at the example again and try once more. 💪"
+
+private val GENERIC_INCORRECT_FEEDBACK = setOf(
+    "Let's try again!",
+    "Try again!",
+    "Incorrect. Try again.",
+)
+
+/** Keep curriculum copy understandable to a Grade 3 learner at the moment of retry. */
+fun sanitizeIncorrectFeedback(raw: String?): String? {
+    val text = raw?.trim()?.takeIf { it.isNotEmpty() } ?: return null
+    if (text in GENERIC_INCORRECT_FEEDBACK) return null
+    return text
+        .replace("does not show the skill", "does not match the lesson idea", ignoreCase = true)
+        .replace("do not show the skill", "do not match the lesson idea", ignoreCase = true)
+        .replace("shows the skill", "matches the lesson idea", ignoreCase = true)
+        .replace("Read the skill rule again.", "Read the explanation again and look for the clue.", ignoreCase = true)
+        .replace("Read the lesson rule again.", "Read the explanation again and look for the clue.", ignoreCase = true)
+}
+
+fun childFacingIncorrectFeedback(
+    raw: String?,
+    fallback: String = DEFAULT_INCORRECT_FEEDBACK,
+): String = sanitizeIncorrectFeedback(raw) ?: fallback
+
 @Serializable
 data class ActivityFeedback(
     val correct: String = "Great job!",
-    val incorrect: String = "Let's try again!"
+    val incorrect: String = DEFAULT_INCORRECT_FEEDBACK
 )
 
 @Serializable

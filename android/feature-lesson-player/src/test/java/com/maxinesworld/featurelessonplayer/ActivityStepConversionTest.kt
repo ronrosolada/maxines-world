@@ -2,8 +2,10 @@ package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.AssessmentItem
-import com.maxinesworld.coremodel.Month1Activity
 import com.maxinesworld.coremodel.CompletionRule
+import com.maxinesworld.coremodel.DEFAULT_INCORRECT_FEEDBACK
+import com.maxinesworld.coremodel.Month1Activity
+import com.maxinesworld.coremodel.Month1ActivityFeedback
 import com.maxinesworld.coredesignsystem.components.AnswerCardState
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
@@ -23,6 +25,7 @@ class ActivityStepConversionTest {
         completionRule: CompletionRule? = null,
         instruction: String = "Do the thing.",
         assetId: String? = null,
+        feedback: Month1ActivityFeedback? = null,
     ) =
         Month1Activity(
             activityId = id,
@@ -31,6 +34,7 @@ class ActivityStepConversionTest {
             instruction = instruction,
             content = parse(contentJson),
             completionRule = completionRule,
+            feedback = feedback,
             assetId = assetId,
         )
 
@@ -63,6 +67,31 @@ class ActivityStepConversionTest {
             activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":7}""")
         )
         assertEquals(-1, step.correctIndex)
+    }
+
+    @Test
+    fun `authored jargon retry is sanitized into child-facing feedback`() {
+        val step = toActivityStep(
+            activity(
+                "MULTIPLE_CHOICE",
+                """{"options":["A","B"],"correctIndex":0}""",
+                feedback = Month1ActivityFeedback(
+                    retry = "Read the skill rule again. B and C do not show the skill."
+                ),
+            )
+        )
+
+        assertFalse(step.feedback!!.incorrect.contains("show the skill", ignoreCase = true))
+        assertTrue(step.feedback!!.incorrect.contains("match the lesson idea", ignoreCase = true))
+    }
+
+    @Test
+    fun `missing authored retry uses corrective default instead of generic prompt`() {
+        val step = toActivityStep(
+            activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":0}""")
+        )
+
+        assertEquals(DEFAULT_INCORRECT_FEEDBACK, step.feedback?.incorrect)
     }
 
     @Test
@@ -266,7 +295,7 @@ class ActivityStepConversionTest {
     fun `assessment item with blank explanation falls back to default feedback`() {
         val step = toAssessmentStep(assessmentItem(explanation = ""))
         assertEquals("Great job!", step.feedback?.correct)
-        assertEquals("Let's try again!", step.feedback?.incorrect)
+        assertEquals(DEFAULT_INCORRECT_FEEDBACK, step.feedback?.incorrect)
     }
 
     @Test
