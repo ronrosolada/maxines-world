@@ -217,7 +217,7 @@ class LessonPlayerViewModel @Inject constructor(
         if (!result.scored) onNextStep()
         else _state.update {
             it.copy(showFeedback = true,
-                feedbackText = if (result.correct) step?.feedback?.correct ?: "Great job!"
+                feedbackText = if (result.correct) childFacingCorrectFeedback(step?.feedback?.correct)
                     else childFacingIncorrectFeedback(step?.feedback?.incorrect),
                 feedbackCorrect = result.correct)
         }
@@ -288,7 +288,7 @@ internal fun toAssessmentStep(item: AssessmentItem): ActivityStep {
         options = optionTexts,
         correctIndex = correctIndex,
         feedback = ActivityFeedback(
-            correct = explanation ?: "Great job!",
+            correct = childFacingCorrectFeedback(explanation),
             incorrect = childFacingIncorrectFeedback(explanation),
         ),
     )
@@ -423,7 +423,7 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         correctIndex = correctIndex,
         imageAssets = listOfNotNull(act.assetId?.takeIf { it.isNotBlank() }),
         feedback = ActivityFeedback(
-            correct = act.feedback?.correct?.takeIf { it.isNotBlank() } ?: "Great job!",
+            correct = childFacingCorrectFeedback(act.feedback?.correct),
             incorrect = incorrectFeedback,
         ),
         sortCategories = sortCategories,

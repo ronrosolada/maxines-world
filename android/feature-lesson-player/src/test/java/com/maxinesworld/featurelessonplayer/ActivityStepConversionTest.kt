@@ -95,6 +95,21 @@ class ActivityStepConversionTest {
     }
 
     @Test
+    fun `authored jargon success feedback is sanitized before rendering`() {
+        val step = toActivityStep(
+            activity(
+                "SORT_AND_CLASSIFY",
+                """{"fits":["A"],"doesNotFit":["B"]}""",
+                feedback = Month1ActivityFeedback(
+                    correct = "Your groups follow the skill rule."
+                ),
+            )
+        )
+
+        assertEquals("Your groups match what we learned.", step.feedback?.correct)
+    }
+
+    @Test
     fun `sort activity yields two categories and all items`() {
         val step = toActivityStep(
             activity(
