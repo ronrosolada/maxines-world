@@ -713,13 +713,58 @@ def _child_facing_retry(text: str, filipino: bool) -> str:
     return text
 
 
-def _sanitize_activity_retry_feedback(lesson: dict[str, Any]) -> None:
+def _child_facing_correct(text: str, filipino: bool) -> str:
+    """Replace opaque curriculum jargon in authored success/explanation copy."""
+    if not isinstance(text, str) or filipino:
+        return text
+    replacements = (
+        (r"does not follow the lesson skill", "does not match what we learned"),
+        (r"do not follow the lesson skill", "do not match what we learned"),
+        (r"follows the lesson skill", "matches what we learned"),
+        (r"follow the lesson skill", "match what we learned"),
+        (r"follows the skill explanation", "matches what we learned"),
+        (r"follow the skill explanation", "match what we learned"),
+        (r"follows the lesson explanation", "matches what we learned"),
+        (r"follow the lesson explanation", "match what we learned"),
+        (r"applies the lesson skill", "uses what we learned"),
+        (r"apply the lesson skill", "use what we learned"),
+        (r"applies the skill", "uses what we learned"),
+        (r"apply the skill", "use what we learned"),
+        (r"uses the lesson skill", "uses what we learned"),
+        (r"use the lesson skill", "use what we learned"),
+        (r"follow(?:s)? the skill rule", "match what we learned"),
+        (r"does not show the skill", "does not match the lesson idea"),
+        (r"do not show the skill", "do not match the lesson idea"),
+        (r"shows the skill", "matches the lesson idea"),
+        (r"show the skill", "match the lesson idea"),
+    )
+    for pattern, replacement in replacements:
+        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+    return text
+
+
+def _sanitize_activity_feedback(lesson: dict[str, Any]) -> None:
     subject = canonical_subject(lesson.get("subject", ""))
     filipino = subject in {"filipino", "araling-panlipunan"}
     for activity in lesson.get("activities", []):
         feedback = activity.get("feedback")
-        if isinstance(feedback, dict) and isinstance(feedback.get("retry"), str):
+        if not isinstance(feedback, dict):
+            continue
+        if isinstance(feedback.get("correct"), str):
+            feedback["correct"] = _child_facing_correct(feedback["correct"], filipino)
+        if isinstance(feedback.get("retry"), str):
             feedback["retry"] = _child_facing_retry(feedback["retry"], filipino)
+
+
+def _sanitize_assessment_explanations(lesson: dict[str, Any]) -> None:
+    subject = canonical_subject(lesson.get("subject", ""))
+    filipino = subject in {"filipino", "araling-panlipunan"}
+    assessment = lesson.get("assessment")
+    if not isinstance(assessment, dict):
+        return
+    for item in assessment.get("items", []):
+        if isinstance(item, dict) and isinstance(item.get("explanation"), str):
+            item["explanation"] = _child_facing_correct(item["explanation"], filipino)
 
 
 def sanitize_legacy_lesson(original: dict[str, Any]) -> dict[str, Any]:
@@ -757,7 +802,8 @@ def sanitize_legacy_lesson(original: dict[str, Any]) -> dict[str, Any]:
         " do not fit.": " ay hindi angkop." if filipino else " do not match the lesson idea.",
     }
     lesson = _replace_strings(lesson, replacements)
-    _sanitize_activity_retry_feedback(lesson)
+    _sanitize_activity_feedback(lesson)
+    _sanitize_assessment_explanations(lesson)
     lesson["contentReview"] = {
         "reviewer": "RonBot — seasoned educator pass",
         "focus": ["factual accuracy", "Grade 3 appropriateness", "child safety", "engagement"],
@@ -796,6 +842,8 @@ def curate_lesson(original: dict[str, Any]) -> dict[str, Any]:
             "source": "competency/objective and local examples; no unsafe experiment required",
             "rewritten": True,
         }
+    _sanitize_activity_feedback(lesson)
+    _sanitize_assessment_explanations(lesson)
     return lesson
 
 
