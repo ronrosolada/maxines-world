@@ -61,9 +61,11 @@ for an independent review of the current main branch.
   `android/app/src/main/assets/content-pack/month-01/lessons/`.
 - All 358 currently carry `educatorValidated=true` and
   `releaseStatus=RELEASED`; `:app:verifyPlayableContent` enforces this metadata.
-- Lesson visuals: **363 bundled SVG assets** — 358 month-01 vectors plus 5
-  Grade 3 pilot visuals under `content-packs/ph-grade3-v1/` (checksum-verified
-  via `checksums.sha256`).
+- Lesson visuals: **358 bundled SVG assets** (month-01 vectors, one per
+  lesson). A pilot pack (`content-packs/ph-grade3-v1/`) was removed from the
+  APK on 2026-08-07 because it had no educator approval metadata — see the
+  C3 remediation in `docs/release-review-2026-08-07.md`. The pilot content
+  remains in git history for the future educator-review cycle.
 - One deliberate exception: `english-g3-q1-w01-d01` keeps the pre-revision
   visual because the revised art dropped 3 of 7 curriculum clues (red flag,
   parade, lanterns) required by its picture-detective activity.

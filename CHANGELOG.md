@@ -7,9 +7,10 @@ Android `versionName`.
 ## [Unreleased]
 
 ### Content & visuals
-- Integrated the revised editorial visual set: 358 month-01 lesson visuals plus 5 new Grade 3 pilot visuals (363 assets, checksum-verified).
+- Integrated the revised editorial visual set: 358 month-01 lesson visuals (checksum-verified).
 - Kept the pre-revision `english-g3-q1-w01-d01` visual: the revised art dropped curriculum clues (red flag, parade, lanterns) required by the picture-detective activity.
 - Regenerated child-facing feedback copy across 161 lessons so authored correct/explanation text no longer exposes curriculum jargon.
+- Removed all unreviewed lesson content from the APK (legacy `content/ph-matatag` fallback + pilot pack) and extended the release gate to cover every lesson-bearing asset directory (external review C3).
 
 ### Child-facing feedback
 - Extended copy sanitization to success feedback and assessment explanations (core model, lesson player, and content tooling share the same replacement table).

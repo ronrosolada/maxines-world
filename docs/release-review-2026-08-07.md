@@ -81,3 +81,73 @@ results) from **flags** (open items, judgment calls).
 - Editorial pipeline: restore `<title>`/`<desc>` in revised SVGs.
 - Independent human educator review of the 358 lessons.
 - Physical-device validation with a real child session.
+
+## 6. Post-review remediation (2026-08-07, same day)
+
+An external LLM review (Opus 5.0) confirmed four findings; remediation status:
+
+### C3 — unreviewed content shipping in the APK — RESOLVED
+
+The review verified (and this session re-verified) that the release APK bundled
+**254 unreviewed lessons**: 249 legacy `assets/content/ph-matatag/grade-3/`
+fallback lessons (`educatorValidated=false`, `REQUIRES_EDUCATOR_REVIEW`,
+explicitly BLOCKED by the 2026-08-07 educator review) **plus 5 pilot lessons**
+in `content-packs/ph-grade3-v1/` (no approval metadata at all — manifest
+self-declares `"educatorValidated": false`). The release gate only scanned
+`content-pack/month-01/lessons`, and `LessonLoader` resolves paths in the
+unreviewed trees.
+
+Fix (commit `[pending]`):
+
+1. **Removed all unreviewed lesson content from the APK** — 263 files deleted
+   from `src/main/assets` (ph-matatag tree, pilot lessons, pilot manifest/
+   modules/checksums, and the 5 pilot SVGs that were only referenced by the
+   removed lessons). Everything remains recoverable in git history.
+2. **Extended `verifyPlayableContent`** to walk the entire `src/main/assets`
+   tree and fail the release build if ANY lesson-shaped JSON (has an
+   `activities` list) lacks `educatorValidated=true` + `releaseStatus=RELEASED`.
+   The "release gate" now means what it says.
+3. **Added `ContentPackIntegrityTest` coverage**: `every lesson JSON shipped in
+   app assets is educator-reviewed` — a JVM test that walks all app assets and
+   asserts exactly 358 lessons, all approved. Runs in CI without an emulator.
+4. Because no unreviewed lesson can now exist in the APK, `LessonLoader`
+   cannot resolve one (its legacy paths miss); the loader itself needs no
+   release-status check.
+
+Verified: `:app:verifyPlayableContent` → "Release gate OK: 358 playable lessons
+are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
+`ph-matatag` or `ph-grade3-v1` entries.
+
+### C2 — assessment semantics — VERIFIED, decisions documented
+
+- **Pass threshold**: `passThreshold = passingCorrectCount / itemCount` (authored
+  per lesson; baseline allows 3/5 = 60%) with 0.8 fallback when itemCount is 0.
+  `Scorer.evaluateAssessment` requires all items answered + accuracy ≥ threshold,
+  and fails closed on invalid answer keys. **Decision**: keep authored
+  thresholds (3/5 is a deliberate generator default for lessons with weaker
+  distractors) but treat 3/5 as the floor to revisit when `misconceptions[]`
+  (review C4) lands; documented here so it is a decision, not an artifact.
+- **Practice contamination**: none. `saveProgress()` filters `it.scored`
+  (exploration activities are never scored), and `Scorer.evaluateAssessment`
+  filters `it.scored && it.activityId in assessmentIds` — only authored
+  assessment items count toward the assessment verdict.
+- **Retry honesty**: `retryAssessment()` restarts only the assessment and
+  replaces prior assessment results. A retry-pass child is persisted as a pass
+  (accuracy from the final attempt); the record does not distinguish
+  first-pass from retry-pass. **Decision**: acceptable for the parent dashboard
+  today; if "effort" metrics are wanted, add an attempts column (v9 migration).
+
+### Other review findings — status
+
+- **C1** (6-activity shell is CI-enforced; pedagogy ceiling): acknowledged,
+  confirmed (`ContentPackIntegrityTest` asserts the literal type sequence).
+  Phase-model redesign is a P1 product decision for Ron; not started.
+- **C4** (distractor/misconception schema): acknowledged; requires content
+  schema work. Not started.
+- **S1** (docs drift): partially addressed by this doc and HANDOFF refresh;
+  ADR-005 supersede marker + `03-combined-audit` status columns remain TODO.
+- **S2** (Filipino strings unlocalized): acknowledged; `values-fil` move is a
+  P1 follow-up.
+- **S3** (SVG a11y): already documented non-blocking flag.
+- **S4** (physical device): external; needs Maxine.
+- **S5**: noted (core-network deletion, badge audit, vestigial sync tables).

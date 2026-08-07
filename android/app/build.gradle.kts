@@ -161,15 +161,30 @@ val allowUnreviewedContent = providers.gradleProperty("allowUnreviewedContent")
 
 val verifyPlayableContent by tasks.registering {
     group = "verification"
-    description = "Validate educator metadata and enforce release approval"
-    val packDir = project.layout.projectDirectory.dir("src/main/assets/content-pack/month-01/lessons")
+    description = "Validate educator metadata and enforce release approval across EVERY lesson-bearing asset directory"
+    // Scan the whole assets tree, not just content-pack/month-01: any JSON that
+    // has the lesson shape (an `activities` list) is playable content, and no
+    // unreviewed lesson may ship in the APK (external review finding C3).
+    val assetsDir = project.layout.projectDirectory.dir("src/main/assets")
     doLast {
         val slurper = groovy.json.JsonSlurper()
         var total = 0
         var unreviewed = 0
         val bad = mutableListOf<String>()
         val invalidMetadata = mutableListOf<String>()
-        packDir.asFileTree.matching { include("*.json") }.forEach { file ->
+        val files = assetsDir.asFileTree.matching {
+            include("**/*.json")
+            exclude("**/mini-games/**")
+        }.files.filter { file ->
+            // Lesson-like shape only: parse is cheap relative to a false positive
+            // on non-lesson JSON (badge_catalog, mini-game configs, manifests).
+            runCatching {
+                @Suppress("UNCHECKED_CAST")
+                val candidate = slurper.parse(file) as Map<String, Any?>
+                candidate["activities"] is List<*>
+            }.getOrDefault(false)
+        }
+        files.forEach { file ->
             total++
             @Suppress("UNCHECKED_CAST")
             val lesson = slurper.parse(file) as Map<String, Any?>
@@ -179,11 +194,11 @@ val verifyPlayableContent by tasks.registering {
             val metadataConsistent = released ||
                 (!validated && releaseStatus == "REQUIRES_EDUCATOR_REVIEW")
             if (!metadataConsistent) {
-                invalidMetadata += file.name
+                invalidMetadata += file.relativeTo(assetsDir.asFile).path
             }
             if (!(validated && released)) {
                 unreviewed++
-                bad += file.name
+                bad += file.relativeTo(assetsDir.asFile).path
             }
         }
         if (invalidMetadata.isNotEmpty()) {

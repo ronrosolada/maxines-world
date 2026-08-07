@@ -115,6 +115,41 @@ class ContentPackIntegrityTest {
     }
 
     @Test
+    fun `every lesson JSON shipped in app assets is educator-reviewed`() {
+        // Walk the WHOLE app assets tree, not just content-pack/month-01:
+        // any JSON that parses as a lesson is playable content and must carry
+        // release metadata. External review finding C3: 254 unreviewed lessons
+        // (legacy ph-matatag fallback + pilot pack) were shipping inside the
+        // APK while the release gate only scanned the month-01 directory.
+        val assetsCandidates = listOf(
+            File("../app/src/main/assets"),
+            File("app/src/main/assets"),
+            File("android/app/src/main/assets")
+        )
+        val assetsRoot = assetsCandidates.firstOrNull { it.isDirectory }
+        requireNotNull(assetsRoot) {
+            "Could not locate app assets. Tried: " +
+                assetsCandidates.joinToString { it.absolutePath }
+        }
+        var lessonCount = 0
+        val unapproved = mutableListOf<String>()
+        assetsRoot.walkTopDown().forEach { f ->
+            if (!f.isFile || f.extension != "json" || f.path.contains("mini-games")) return@forEach
+            val lesson = runCatching { json.decodeFromString<Month1Lesson>(f.readText()) }
+                .getOrNull() ?: return@forEach // not a lesson-shaped JSON
+            lessonCount++
+            if (!(lesson.educatorValidated && lesson.releaseStatus == "RELEASED")) {
+                unapproved += f.relativeTo(assetsRoot).path
+            }
+        }
+        assertEquals("canonical pack size", 358, lessonCount)
+        assertTrue(
+            "Unreviewed lessons ship in app assets:\n" + unapproved.joinToString("\n"),
+            unapproved.isEmpty(),
+        )
+    }
+
+    @Test
     fun `every activity id is unique within its lesson`() {
         val failures = mutableListOf<String>()
         for (file in allLessonFiles()) {
