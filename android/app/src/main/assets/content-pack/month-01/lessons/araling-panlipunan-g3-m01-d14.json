@@ -6,14 +6,14 @@
  "day": 14,
  "subject": "ARALING_PANLIPUNAN",
  "title": "Hymns at Arts of Place",
- "objective": "Tuklasin ang orihinal na spoken chant at sining nang walang kinopyang liriko o sagradong disenyo.",
+ "objective": "Tuklasin ang orihinal na binibigkas na awit at sining nang walang kinopyang liriko o sagradong disenyo.",
  "estimatedMinutes": 12,
  "educatorValidated": true,
  "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "fil-PH",
- "introduction": "Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
+ "introduction": "Gumamit lamang ng bagong sulat na teksto at orihinal na mga disenyo para sa prototipo. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
  "vocabulary": [
   {
    "term": "awit",
@@ -34,7 +34,7 @@
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
    "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo.",
+   "content": "Gumamit lamang ng bagong sulat na teksto at orihinal na mga disenyo para sa prototipo.",
    "required": true,
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -44,7 +44,7 @@
     "retry": "Basahin muli ang paliwanag."
    },
    "assetId": "araling-panlipunan-g3-m01-d14-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+   "accessibilityAlternative": "Alternatibong teksto: Gumamit lamang ng bagong sulat na teksto at orihinal na mga disenyo para sa prototipo."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d14-a02",
@@ -53,8 +53,8 @@
    "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
    "content": {
     "examples": [
-     "original spoken chant",
-     "original geometric pattern",
+     "orihinal na binibigkas na awit",
+     "orihinal na heometrikong disenyo",
      "attribution sa pinagmulan"
     ]
    },
@@ -77,8 +77,8 @@
    "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
    "content": {
     "fits": [
-     "original spoken chant",
-     "original geometric pattern",
+     "orihinal na binibigkas na awit",
+     "orihinal na heometrikong disenyo",
      "attribution sa pinagmulan"
     ],
     "doesNotFit": [
@@ -108,7 +108,7 @@
     "options": [
      "kinopyang copyrighted song",
      "ginayang sagradong pattern",
-     "bagong likhang spoken chant"
+     "bagong likhang binibigkas na awit"
     ],
     "correctIndex": 2
    },
@@ -117,7 +117,7 @@
     "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Tama: bagong likhang spoken chant",
+    "correct": "Tama: bagong likhang binibigkas na awit",
     "retry": "Basahin muli ang tuntunin ng aralin. kinopyang copyrighted song at ginayang sagradong pattern ay hindi angkop."
    },
    "assetId": null,
@@ -131,16 +131,16 @@
    "content": {
     "pairs": [
      {
-      "left": "orihinal spoken chant",
-      "right": "halimbawang nagpapakita ng kasanayan: orihinal spoken chant"
+      "left": "orihinal binibigkas na awit",
+      "right": "orihinal binibigkas na awit"
      },
      {
-      "left": "orihinal geometric pattern",
-      "right": "halimbawang nagpapakita ng kasanayan: orihinal geometric pattern"
+      "left": "orihinal na heometrikong disenyo",
+      "right": "orihinal na heometrikong disenyo"
      },
      {
       "left": "pagkilala sa pinagmulan",
-      "right": "halimbawang nagpapakita ng kasanayan: pagkilala sa pinagmulan"
+      "right": "pagkilala sa pinagmulan"
      }
     ]
    },
@@ -191,121 +191,141 @@
     "itemId": "araling-panlipunan-g3-m01-d14-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Hymns at Arts of Place”?",
+    "prompt": "Ano ang ibig sabihin ng pagkilala sa pinagmulan?",
     "options": [
      {
+      "id": "a",
+      "text": "pagtatago ng gawa"
+     },
+     {
       "id": "b",
-      "text": "Kopyang awit"
+      "text": "pagsasabi kung kanino galing ang ideya o gawa"
      },
      {
       "id": "c",
-      "text": "Gayahin ang sagradong disenyo"
+      "text": "pagsisinungaling"
      },
      {
-      "id": "a",
-      "text": "Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+      "id": "d",
+      "text": "pagkopya nang tahimik"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo.” dahil sumusunod ito sa paliwanag ng aralin: Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+    "explanation": "Ang pagkilala sa pinagmulan ay pagsasabi ng totoong pinagmulan ng isang gawa."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d14-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Hymns at Arts of Place”?",
+    "prompt": "Bakit kailangang orihinal ang awit o sining na gagawin?",
     "options": [
      {
       "id": "a",
-      "text": "orihinal spoken chant"
+      "text": "upang malakas ang awit"
      },
      {
       "id": "b",
-      "text": "Kopyang awit"
+      "text": "upang mabilis matapos"
      },
      {
       "id": "c",
-      "text": "Gayahin ang sagradong disenyo"
+      "text": "upang hindi kopyahin ang gawa ng iba"
+     },
+     {
+      "id": "d",
+      "text": "upang mahaba ang awit"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “orihinal spoken chant” dahil sumusunod ito sa paliwanag ng aralin: Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+    "explanation": "Ang orihinal na gawa ay paggalang sa gawa ng iba at pagpapakita ng sariling likha."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d14-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Bakit mahalaga ang paggalang sa sagradong bagay ng komunidad?",
     "options": [
      {
-      "id": "c",
-      "text": "orihinal geometric pattern"
-     },
-     {
       "id": "a",
-      "text": "Kopyang awit"
+      "text": "dahil bago ito"
      },
      {
       "id": "b",
-      "text": "orihinal spoken chant"
+      "text": "dahil maganda ito"
+     },
+     {
+      "id": "c",
+      "text": "dahil mahal ito"
+     },
+     {
+      "id": "d",
+      "text": "dahil ito ay sagrado at may kahulugan sa kanila"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Kopyang awit” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang sagradong bagay ay may espesyal na kahulugan sa komunidad — dapat igalang."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d14-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang maaari sa prototipo?",
+    "prompt": "Alin ang halimbawa ng orihinal na gawa?",
     "options": [
      {
+      "id": "a",
+      "text": "kinopyang awit ng iba"
+     },
+     {
       "id": "b",
-      "text": "kinopyang copyrighted song"
+      "text": "guhit na kapareho ng libro"
      },
      {
       "id": "c",
-      "text": "ginayang sagradong pattern"
+      "text": "kopya ng sagradong disenyo"
      },
      {
-      "id": "a",
-      "text": "bagong likhang spoken chant"
+      "id": "d",
+      "text": "sariling awit na may sariling liriko"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “bagong likhang spoken chant” dahil sumusunod ito sa paliwanag ng aralin: Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+    "explanation": "Ang sariling awit na may sariling liriko ay orihinal na gawa."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d14-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Hymns at Arts of Place”?",
+    "prompt": "Alin ang dapat mong iwasan sa paggawa ng sining?",
     "options": [
      {
       "id": "a",
-      "text": "pagkilala sa pinagmulan"
+      "text": "pagguhit ng sariling pattern"
      },
      {
       "id": "b",
-      "text": "Sabihing tradisyonal ang imbento"
+      "text": "paggamit ng sariling ideya"
      },
      {
       "id": "c",
-      "text": "Kopyang awit"
+      "text": "pagsulat ng sariling awit"
+     },
+     {
+      "id": "d",
+      "text": "pagkopya ng sagradong disenyo"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “pagkilala sa pinagmulan” dahil sumusunod ito sa paliwanag ng aralin: Gumamit lamang ng bagong sulat na teksto at orihinal visual motifs para sa prototipo."
+    "explanation": "Ang mga sagradong disenyo ay hindi dapat kopyahin."
    }
   ]
  },

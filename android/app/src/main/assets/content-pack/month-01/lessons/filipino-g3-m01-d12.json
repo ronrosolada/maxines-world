@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Una, tinupi ang dahon.",
-      "right": "halimbawang nagpapakita ng kasanayan: Una, tinupi ang dahon."
+      "right": "Una, tinupi ang dahon."
      },
      {
       "left": "Sumunod, inilagay sa tubig.",
-      "right": "halimbawang nagpapakita ng kasanayan: Sumunod, inilagay sa tubig."
+      "right": "Sumunod, inilagay sa tubig."
      },
      {
       "left": "Sa huli, lumutang ang bangka.",
-      "right": "halimbawang nagpapakita ng kasanayan: Sa huli, lumutang ang bangka."
+      "right": "Sa huli, lumutang ang bangka."
      }
     ]
    },
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d12-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Muling Pagsasalaysay”?",
+    "prompt": "Alin ang wastong ayos ng pagsasalaysay muli: (1) Nagising si Lina, (2) Kumain siya ng almusal, (3) Tumulong siya sa nanay?",
     "options": [
      {
       "id": "a",
-      "text": "Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+      "text": "3, 2, 1"
      },
      {
       "id": "b",
-      "text": "Kopyahin bawat pangungusap"
+      "text": "1, 3, 2"
      },
      {
       "id": "c",
-      "text": "Magdagdag ng di-nangyari"
+      "text": "2, 1, 3"
+     },
+     {
+      "id": "d",
+      "text": "1, 2, 3"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli.” dahil sumusunod ito sa paliwanag ng aralin: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+    "explanation": "Sinusunod ang pagkakasunod-sunod ng mga pangyayari: gumising, kumain, tumulong."
    },
    {
     "itemId": "filipino-g3-m01-d12-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Muling Pagsasalaysay”?",
+    "prompt": "Aling salita ang karaniwang hudyat ng simula ng kuwento?",
     "options": [
      {
-      "id": "c",
-      "text": "Magdagdag ng di-nangyari"
-     },
-     {
       "id": "a",
-      "text": "Una, tinupi ang dahon."
+      "text": "Pagkatapos"
      },
      {
       "id": "b",
-      "text": "Kopyahin bawat pangungusap"
+      "text": "Samantala"
+     },
+     {
+      "id": "c",
+      "text": "Noong unang panahon"
+     },
+     {
+      "id": "d",
+      "text": "Sa huli"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Una, tinupi ang dahon.” dahil sumusunod ito sa paliwanag ng aralin: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+    "explanation": "Ang “Noong unang panahon” ay karaniwang panimula ng kuwento."
    },
    {
     "itemId": "filipino-g3-m01-d12-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Sa muling pagsasalaysay, ano ang dapat mong isama?",
     "options": [
      {
+      "id": "a",
+      "text": "ang mahahalagang pangyayari sa tamang ayos"
+     },
+     {
       "id": "b",
-      "text": "Una, tinupi ang dahon."
+      "text": "ang lahat ng salita nang paulit-ulit"
      },
      {
       "id": "c",
-      "text": "Sumunod, inilagay sa tubig."
+      "text": "ang mga pangalan ng mga hindi kasama"
      },
      {
-      "id": "a",
-      "text": "Kopyahin bawat pangungusap"
+      "id": "d",
+      "text": "ang mga hindi nangyari"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Kopyahin bawat pangungusap” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang muling pagsasalaysay ay pag-uulit ng mahahalagang pangyayari sa tamang ayos."
    },
    {
     "itemId": "filipino-g3-m01-d12-q04",
@@ -267,19 +279,19 @@
     "options": [
      {
       "id": "a",
-      "text": "Sa huli"
-     },
-     {
-      "id": "b",
       "text": "Una"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Bago"
+     },
+     {
+      "id": "c",
+      "text": "Sa huli"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
     "explanation": "Ang tamang sagot ay “Sa huli” dahil sumusunod ito sa paliwanag ng aralin: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
    },
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d12-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Muling Pagsasalaysay”?",
+    "prompt": "Alin ang angkop na simula ng pagsasalaysay muli ng “Ang Langgam at ang Tipaklong”?",
     "options": [
      {
-      "id": "c",
-      "text": "Kopyahin bawat pangungusap"
-     },
-     {
       "id": "a",
-      "text": "Sa huli, lumutang ang bangka."
+      "text": "At doon natapos ang kuwento."
      },
      {
       "id": "b",
-      "text": "Baligtarin ang ayos nang walang paliwanag"
+      "text": "Isang tag-araw, nag-ipon ng pagkain ang langgam."
+     },
+     {
+      "id": "c",
+      "text": "Kaya natuto na ang tipaklong."
+     },
+     {
+      "id": "d",
+      "text": "Samantala, sa bahay naman."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Sa huli, lumutang ang bangka.” dahil sumusunod ito sa paliwanag ng aralin: Piliin ang mahahalagang pangyayari at gumamit ng una, sumunod, at sa huli."
+    "explanation": "Ang simula ng pagsasalaysay ay ang unang pangyayari sa kuwento."
    }
   ]
  },

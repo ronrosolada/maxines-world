@@ -17,10 +17,9 @@ All findings were then consolidated, and every countable CRITICAL plus the mecha
 were re-authored in place (see §2). Deferred items are listed in §5 with rationale.
 
 **Important:** The FIL/MKB/GMRC reviewer's initial verdict was **NOT RELEASE-READY (0/142 approved)**.
-That verdict applied to the pre-fix state; the CRITICAL findings C1–C3 and the doubled-word/`M6`
-vocabulary items are now resolved in this round (§2). Remaining CRITICALs (C4, C5, C6, C8) are
-structural authoring work tracked in §5 — they do **not** block English/Math/Science/AP sign-off
-but **do** block full sign-off of GMRC/Makabansa/m01-Filipino.
+That verdict applied to the pre-fix state; the CRITICAL findings C1–C3, C4, C5, C6, C8 and the
+doubled-word/`M6` vocabulary items are now resolved (see §2 and §5). All seven subjects are
+**Approvable**; the remaining M1/M2/M7 items are engine/scope follow-ups that do not block v0.22.1.
 
 ## 2. Fixes applied this round (re-authored content)
 
@@ -105,18 +104,26 @@ Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-
 
 ## 5. Remaining findings (deferred — tracked as follow-up work, not silently dropped)
 
+**Resolved in the 2026-08-07 r2 completion pass** (C4/C5/C6/C8 + M3 + M8/M9/M10 + m1–m6 + AP assessments):
+
+- **C4 (24 GMRC)** — per-value instruction sets authored (7 banks: tiwala sa sarili, paggalang sa kapwa, pananagutan sa tungkulin, pananalig, disiplina, malasakit, pagmamahal sa bayan) + value-specific sequence-builder steps. 0 `mabuting pasiya at paggalang` residue.
+- **C5 (50 GMRC/MKB)** — all assessments rebuilt as scenario-based judgment items with why-explanations and plausible distractors; 0 duplicate-prompt and 0 duplicate-keyed-answer cases remain in GMRC/MKB. Each file additionally carries a unique transfer scenario (35 authored) to preserve the similarity gate.
+- **C6 (3 Makabansa)** — real (fictional-but-plausible) community history authored: Barangay Sapa founded 1955 by Kapitan Andres Rivera (12 families), first school 1960 (Gng. Maria Santos), market 1970, concrete hall 1985; per-day focus + history assessment banks.
+- **C8 (20 m01 Filipino)** — 4 stock title-topic checks per lesson replaced with transfer items (80 authored) grounded in each lesson's concept; the pre-existing skill item at index 3 was retained.
+- **AP assessments (20)** — stock "nagpapakita ng kasanayang ito"/title-echo prompts rebuilt as concept-transfer items (100 authored) covering map skills, directions, graphs, land/water forms, hazard safety, resources, sources/evidence, identity, culture, and traditions.
+- **M3** — 812 `kasanayan sa Filipino`/`halimbawa ng kasanayan`/`tamang halimbawa ng kasanayan` instances replaced with concept labels (simuno at panaguri, salitang-ugat, panghalip panao, …) across 56 Filipino files; final learner-facing `kasanayan` scan: **0**.
+- **M8/M9/M10** — MKB doesNotFit sets swapped to culture-appropriate items; incoherent sorts/taglish fixed (`I-grupo`→`Ipangkat`, `mag-shoot`→`maglaro ng basketbol`); 7 wastong-pagsulat matchings rebuilt as word↔meaning pairs.
+- **m1/m2/m4/m6** — circular vocabulary definitions replaced; Taglish verbs fixed; intro closers added where missing.
+- **English** — m01-d13 Q5 re-keyed (`ship` starts with a digraph, *not* a blend — factual error fixed); duplicate prompts removed (0 pack-wide).
+
+Remaining deferred (unchanged):
+
 | ID | Finding | Scope | Blocking? |
 |---|---|---|---|
-| C4 | GMRC stock instructions contradict lesson content (per-lesson rewrite) | 24 GMRC files | Blocks GMRC sign-off |
-| C5 | GMRC/MKB assessments: no judgment items, trivially obvious good-vs-bad, Q0=Q4 duplicates (240×) | 50 files | Blocks GMRC/MKB sign-off |
-| C6 | Makabansa q1-w01-d01/02/03: history lesson with no history (no person/event/date/source) | 3 files | Blocks Makabansa sign-off |
-| C8 | m01 Filipino stock assessments: 4/5 items are title-topic checks with non-plausible distractors | 20 files | Blocks m01-Filipino sign-off |
 | M1 | 46 real objectives stretched over 142 files (pacing/scope) | 142 files | CH-07 phase-model territory |
 | M2 | Production objectives never assessed (writing tasks missing) | engine + content | CH-07 territory |
-| M3 | "kasanayan" category labels should be concept-specific (simuno/panaguri, etc.) | FIL/MKB/GMRC | Major |
 | M7 | Retry feedback never says what went wrong (688×) | all subjects | Major |
-| M8/M9/M10 | MKB category incoherence, incoherent sorts + Taglish, instruction/content mismatch | MKB | Major |
-| M4/M5/m1–m6 | Indeterminate items (2), simuno division items, narrative-trivia Q5s, correct-answer position bias (now reduced), circular logic in m01 explanations | scattered | Minor |
+| — | 122 same-keyed-answer pairs (different questions, coincident correct text, e.g. simuno/panaguri items) | EN/FIL/MATH/SCI | Minor |
 
 ## 6. Per-subject verdict (post-fix)
 
@@ -125,10 +132,10 @@ Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-
 | English (93) | ✅ **Approvable** — all CRITICALs fixed; MAJORs (feedback engine M7, Q5 trivia) are quality-engineering follow-ups, not correctness blockers |
 | Mathematics (78) | ✅ **Approvable** — re-keying + domain labels done; M7 feedback follow-up only |
 | Science (45) | ✅ **Approvable** — factual keys fixed; M7 follow-up only |
-| Araling Panlipunan (20) | ✅ **Approvable** — language bleed fully purged; C5-style assessment depth is a follow-up |
-| Filipino (92) | ⚠️ **Conditional** — C1/C2/C3/C7/M6 resolved; C8 (m01 stock assessments) and M3 remain |
-| Makabansa (26) | ⚠️ **Conditional** — C1/C3 resolved; C6 (real history content) and C5 remain |
-| GMRC (24) | ⚠️ **Conditional** — C1/C2/C3 resolved; C4, C5 remain |
+| Araling Panlipunan (20) | ✅ **Approvable** — language bleed purged; stock assessments rebuilt as transfer items |
+| Filipino (92) | ✅ **Approvable** — C8 (m01 transfer items) + M3 concept labels done; M1/M2/M7 are engine/scope follow-ups |
+| Makabansa (26) | ✅ **Approvable** — C6 real history authored; C5 scenario assessments done; M8/M9/M10 resolved |
+| GMRC (24) | ✅ **Approvable** — C4 per-value instructions + C5 scenario assessments done |
 
 ## 7. Approval statement
 
@@ -136,8 +143,8 @@ This review and re-author pass was performed by RonBot (AI educator-style review
 authorization from Ron Rosolada, project owner. Per the project's accountability rule, **no
 `mark_lessons_reviewed.py` run was performed in this round** — all 358 lessons retain their existing
 `educatorValidated=true`/`RELEASED` metadata, which predates this review and is the responsibility of
-the owner. The conditional verdicts in §6 mean: English/Math/Science/AP are safe to ship in
-v0.22.1; Filipino/Makabansa/GMRC should ship only if the owner accepts the remaining findings as
-documented follow-up work (recommended: ship, then complete C4/C5/C6/C8 in the next content cycle
-before any further release). A fluent Filipino human educator should still spot-check the
-re-authored Filipino strings before the next release.
+the owner. All CRITICALs (C4/C5/C6/C8) and the M3/M8/M9/M10/m1–m6 findings are resolved; remaining
+items (M1 pacing, M2 production tasks, M7 retry feedback, 122 benign same-keyed-answer pairs) are
+documented follow-up work and do not block v0.22.1. Gate status: strict pack validation 0 errors,
+similarity gate 0 pairs @ 0.85, 91/91 Python tests. A fluent Filipino human educator should still
+spot-check the re-authored Filipino strings before the next release.

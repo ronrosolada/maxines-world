@@ -17,7 +17,7 @@
  "vocabulary": [
   {
    "term": "pangngalan",
-   "definition": "Salitang tumutukoy sa tao, bagay, lugar, o hayop."
+   "definition": "Salitang tumutukoy sa tao, hayop, bagay, lugar, o pangyayari."
   },
   {
    "term": "salita",
@@ -25,7 +25,7 @@
   },
   {
    "term": "bagay",
-   "definition": "Anumang bagay o gamit sa ating paligid."
+   "definition": "Anumang bagay o gamit na nakikita o nahahawakan sa ating paligid."
   }
  ],
  "activities": [
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Pangngalan sa Ating Mundo”?",
+    "prompt": "Alin ang pangngalang tumutukoy sa pangyayari?",
     "options": [
      {
-      "id": "c",
-      "text": "tumakbo"
-     },
-     {
       "id": "a",
-      "text": "Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+      "text": "mesa"
      },
      {
       "id": "b",
-      "text": "mabilis"
+      "text": "ilog"
+     },
+     {
+      "id": "c",
+      "text": "pista"
+     },
+     {
+      "id": "d",
+      "text": "guro"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari.” dahil sumusunod ito sa paliwanag ng aralin: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+    "explanation": "Ang pista ay isang pangyayari; ang mesa ay bagay, ang guro ay tao, at ang ilog ay lugar."
    },
    {
     "itemId": "filipino-g3-m01-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Pangngalan sa Ating Mundo”?",
+    "prompt": "Alin ang pangngalang tumutukoy sa tao?",
     "options": [
      {
+      "id": "a",
+      "text": "ulan"
+     },
+     {
       "id": "b",
-      "text": "mabilis"
+      "text": "pusa"
+     },
+     {
+      "id": "c",
+      "text": "bahay"
+     },
+     {
+      "id": "d",
+      "text": "doktor"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang doktor ay tao; ang pusa ay hayop, ang bahay ay bagay, at ang ulan ay pangyayari."
+   },
+   {
+    "itemId": "filipino-g3-m01-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Sa pangungusap na “Tumakbo ang bata sa parke.”, alin ang pangngalang tumutukoy sa lugar?",
+    "options": [
+     {
+      "id": "a",
+      "text": "parke"
+     },
+     {
+      "id": "b",
+      "text": "sa"
      },
      {
       "id": "c",
       "text": "tumakbo"
      },
      {
-      "id": "a",
-      "text": "guro—tao"
+      "id": "d",
+      "text": "bata"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “guro—tao” dahil sumusunod ito sa paliwanag ng aralin: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
-   },
-   {
-    "itemId": "filipino-g3-m01-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mabilis"
-     },
-     {
-      "id": "b",
-      "text": "guro—tao"
-     },
-     {
-      "id": "c",
-      "text": "kalabaw—hayop"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang tamang sagot ay “mabilis” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang parke ay isang lugar; ang bata ay tao, at ang tumakbo ay kilos."
    },
    {
     "itemId": "filipino-g3-m01-d01-q04",
@@ -266,16 +278,16 @@
     "prompt": "Alin ang pangngalan na tumutukoy sa lugar?",
     "options": [
      {
-      "id": "c",
-      "text": "tumakbo"
-     },
-     {
       "id": "a",
       "text": "paaralan"
      },
      {
       "id": "b",
       "text": "mabilis"
+     },
+     {
+      "id": "c",
+      "text": "tumakbo"
      }
     ],
     "correctOptionIds": [
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Pangngalan sa Ating Mundo”?",
+    "prompt": "Alin ang pangkat ng mga pangngalang tumutukoy sa bagay?",
     "options": [
      {
+      "id": "a",
+      "text": "ilog, bundok, dagat"
+     },
+     {
       "id": "b",
-      "text": "masaya"
+      "text": "nanay, tatay, ate"
      },
      {
       "id": "c",
-      "text": "mabilis"
+      "text": "pista, handaan, kaarawan"
      },
      {
-      "id": "a",
-      "text": "paaralan—lugar"
+      "id": "d",
+      "text": "mesa, libro, lapis"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “paaralan—lugar” dahil sumusunod ito sa paliwanag ng aralin: Ang pangngalan ay ngalan ng tao, hayop, bagay, lugar, o pangyayari."
+    "explanation": "Ang mesa, libro, at lapis ay mga bagay; ang ibang pangkat ay tao, lugar, at pangyayari."
    }
   ]
  },

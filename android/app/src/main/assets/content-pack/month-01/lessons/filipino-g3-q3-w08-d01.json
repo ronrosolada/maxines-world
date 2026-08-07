@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w08-d01-visual",
-   "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga salitang may wastong baybay.",
+   "instruction": "Piliin ang mga salitang may wastong baybay.",
    "content": {
     "fits": [
      "pangarap",
@@ -112,7 +112,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga salitang may wastong baybay.",
+   "prompt": "Piliin ang mga salitang may wastong baybay.",
    "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w08-d01-visual",
-   "instruction": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
+   "instruction": "Itugma ang bawat salita sa kahulugan nito.",
    "content": {
     "pairs": [
      {
       "left": "pangarap",
-      "right": "halimbawang nagpapakita ng kasanayan: pangarap"
+      "right": "nais na makamit sa hinaharap"
      },
      {
       "left": "kaarawan",
-      "right": "halimbawang nagpapakita ng kasanayan: kaarawan"
+      "right": "araw ng kapanganakan"
      },
      {
       "left": "palengke",
-      "right": "halimbawang nagpapakita ng kasanayan: palengke"
+      "right": "lugar na may mga tindahan"
      }
     ]
    },
@@ -246,7 +246,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “pangarap.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “pangarap.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -274,7 +274,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “kaarawan.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “kaarawan.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -302,7 +302,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “araw ng kapanganakan.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “araw ng kapanganakan.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -330,7 +330,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “palengke.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “palengke.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -358,7 +358,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “pangarap.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “pangarap.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    }
   ]

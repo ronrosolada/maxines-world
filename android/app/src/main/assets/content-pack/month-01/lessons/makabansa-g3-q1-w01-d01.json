@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok?",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Noong 1955, itinatag ang Barangay Sapa. Labindalawang pamilya ang unang nanirahan sa tabi ng sapa sa pamumuno ni Kapitan Andres Rivera. Itinayo nila ang unang barangay hall na gawa sa kawayan at nipa. Handa ka na bang sumubok?",
  "vocabulary": [
   {
    "term": "barangay hall",
@@ -37,7 +37,7 @@
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
    "instruction": "Pakinggan ang paliwanag tungkol sa kasaysayan ng komunidad.",
-   "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, sa isang pangkat na nagtutulungan. Gayundin, sa isang bukirin malapit sa ilog.",
+   "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, ang Barangay Sapa ay itinatag noong 1955. Labindalawang pamilya ang unang nanirahan sa tabi ng sapa, at si Kapitan Andres Rivera ang kanilang pinuno. Itinayo nila ang unang barangay hall — isang kubo na gawa sa kawayan at nipa — kung saan nagpupulong ang mga mamamayan. Ang kuwento ng pagtatag na ito ay bahagi ng kasaysayan ng komunidad.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -61,10 +61,10 @@
    "instruction": "Tuklasin ang mga halimbawa ng kasaysayan ng komunidad.",
    "content": {
     "examples": [
-     "barangay hall",
-     "pamilihan",
-     "paaralan",
-     "mga kuwento ng nakatatanda"
+     "unang barangay hall",
+     "sapa",
+     "mga unang kubo",
+     "pulong ng mga mamamayan"
     ],
     "visualScene": "🐱🔎✨"
    },
@@ -92,16 +92,16 @@
    "instruction": "Pagbukud-bukurin ang mga halimbawa ng kasaysayan ng komunidad.",
    "content": {
     "fits": [
-     "barangay hall",
-     "pamilihan",
-     "paaralan",
-     "mga kuwento ng nakatatanda"
+     "itinatag noong 1955",
+     "unang kapitan na si Andres Rivera",
+     "kubo na barangay hall",
+     "labindalawang unang pamilya"
     ],
     "doesNotFit": [
      "presyo ng meryenda",
-     "laro sa palaruan",
      "kulay ng paboritong bag",
-     "kuwento tungkol sa ibang planeta"
+     "kuwento tungkol sa ibang planeta",
+     "pangalan ng paboritong artista"
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Piliin ang tamang halimbawa ng kasaysayan ng komunidad.",
    "content": {
     "options": [
-     "presyo ng meryenda",
-     "laro sa palaruan",
-     "barangay hall",
-     "kulay ng paboritong bag"
+     "itinatag ito noong 1955 sa tabi ng sapa",
+     "itinatag ito noong 2001 sa tabi ng palengke",
+     "walang kasaysayan ang barangay",
+     "ang mga pusa ang unang nanirahan"
     ],
-    "correctIndex": 2
+    "correctIndex": 0
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -159,16 +159,16 @@
    "content": {
     "pairs": [
      {
-      "left": "barangay hall",
-      "right": "serbisyong ibinibigay ng barangay"
+      "left": "1955",
+      "right": "pagtatag ng Barangay Sapa"
      },
      {
-      "left": "pamilihan",
-      "right": "lugar ng bilihan at bentahan"
+      "left": "Kapitan Andres Rivera",
+      "right": "unang kapitan"
      },
      {
-      "left": "paaralan",
-      "right": "lugar ng pagkatuto"
+      "left": "kubo na kawayan",
+      "right": "unang barangay hall"
      }
     ]
    },
@@ -195,10 +195,10 @@
    "instruction": "Ayusin ang mga hakbang sa kasaysayan ng komunidad.",
    "content": {
     "steps": [
-     "Tingnan ang halimbawa",
-     "Tukuyin ang mahalagang ideya",
-     "Iugnay sa komunidad",
-     "Ipaliwanag ang sagot"
+     "Itinatag ang Barangay Sapa noong 1955",
+     "Nanirahan ang labindalawang pamilya sa tabi ng sapa",
+     "Itinayo ang kubo na barangay hall",
+     "Nagpulong ang mga mamamayan sa barangay hall"
     ]
    },
    "completionRule": {
@@ -225,141 +225,141 @@
     "itemId": "makabansa-g3-q1-w01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng kasanayang ito: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad?",
-    "options": [
-     {
-      "id": "c",
-      "text": "presyo ng meryenda"
-     },
-     {
-      "id": "d",
-      "text": "laro sa palaruan"
-     },
-     {
-      "id": "a",
-      "text": "barangay hall"
-     },
-     {
-      "id": "b",
-      "text": "kulay ng paboritong bag"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: barangay hall"
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pagpipilian ang gumagamit ng kasanayang ito: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad?",
+    "prompt": "Kailan itinatag ang Barangay Sapa?",
     "options": [
      {
       "id": "a",
-      "text": "presyo ng meryenda"
+      "text": "1985"
      },
      {
       "id": "b",
-      "text": "laro sa palaruan"
+      "text": "1955"
      },
      {
       "id": "c",
-      "text": "kulay ng paboritong bag"
+      "text": "1970"
      },
      {
       "id": "d",
-      "text": "pamilihan"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: pamilihan"
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sitwasyon ang nagpapakita ng kasanayang ito: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad?",
-    "options": [
-     {
-      "id": "c",
-      "text": "paaralan"
-     },
-     {
-      "id": "d",
-      "text": "presyo ng meryenda"
-     },
-     {
-      "id": "a",
-      "text": "laro sa palaruan"
-     },
-     {
-      "id": "b",
-      "text": "kulay ng paboritong bag"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: paaralan"
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sagot ang wastong gumagamit ng kasanayang ito: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "presyo ng meryenda"
-     },
-     {
-      "id": "b",
-      "text": "mga kuwento ng nakatatanda"
-     },
-     {
-      "id": "c",
-      "text": "laro sa palaruan"
-     },
-     {
-      "id": "d",
-      "text": "kulay ng paboritong bag"
+      "text": "1960"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang pinakamainam na sagot ay: mga kuwento ng nakatatanda"
+    "explanation": "Ayon sa mga tala at sa kuwento ng mga nakatatanda, itinatag ang Barangay Sapa noong 1955."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Sino ang unang kapitan ng Barangay Sapa?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Kapitan Jose Cruz"
+     },
+     {
+      "id": "b",
+      "text": "Kapitan Andres Rivera"
+     },
+     {
+      "id": "c",
+      "text": "Aling Rosa"
+     },
+     {
+      "id": "d",
+      "text": "Gng. Maria Santos"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Si Kapitan Andres Rivera ang namuno sa labindalawang pamilyang unang nanirahan sa tabi ng sapa."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ano ang unang gusaling itinayo sa Barangay Sapa?",
+    "options": [
+     {
+      "id": "a",
+      "text": "ang malaking paaralan"
+     },
+     {
+      "id": "b",
+      "text": "ang palaruan"
+     },
+     {
+      "id": "c",
+      "text": "ang barangay hall na kubo"
+     },
+     {
+      "id": "d",
+      "text": "ang pamilihan"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Itinayo ang unang barangay hall na kubo na gawa sa kawayan at nipa noong itinatag ang barangay."
+   },
+   {
+    "itemId": "makabansa-g3-q1-w01-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Bakit mahalaga ang unang barangay hall sa kasaysayan ng komunidad?",
+    "options": [
+     {
+      "id": "a",
+      "text": "dito naglalaro ang mga bata"
+     },
+     {
+      "id": "b",
+      "text": "dito nagbebenta ng pagkain"
+     },
+     {
+      "id": "c",
+      "text": "dito natutulog ang mga bisita"
+     },
+     {
+      "id": "d",
+      "text": "dito nagpupulong at nagtutulungan ang mga unang mamamayan"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang barangay hall ang naging tagpuan ng mga unang mamamayan upang magpulong at magtulungan."
    },
    {
     "itemId": "makabansa-g3-q1-w01-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang nagbibigay ng patunay sa kasanayang ito: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad?",
+    "prompt": "Ilang pamilya ang unang nanirahan sa Barangay Sapa?",
     "options": [
      {
-      "id": "c",
-      "text": "presyo ng meryenda"
-     },
-     {
-      "id": "d",
-      "text": "laro sa palaruan"
-     },
-     {
       "id": "a",
-      "text": "barangay hall"
+      "text": "limang daan"
      },
      {
       "id": "b",
-      "text": "kulay ng paboritong bag"
+      "text": "tatlo"
+     },
+     {
+      "id": "c",
+      "text": "isang daan"
+     },
+     {
+      "id": "d",
+      "text": "labindalawa"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang pinakamainam na sagot ay: barangay hall"
+    "explanation": "Labindalawang pamilya ang unang nanirahan sa tabi ng sapa noong 1955."
    }
   ]
  },

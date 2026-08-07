@@ -7,6 +7,13 @@ Android `versionName`.
 ## [Unreleased]
 
 ### Content & visuals
+- Completed the educator-review re-author round (2026-08-07 r2 completion): C4/C5/C6/C8 + M3/M8/M9/M10 + m1–m6, all seven subjects now Approvable.
+- GMRC: per-value instructions + sequence steps across all 24 files; all assessments rebuilt as scenario-based judgment items with why-explanations (35 unique transfer scenarios authored).
+- Makabansa: authored real community history for q1-w01-d01/02/03 (Barangay Sapa, founded 1955; school 1960; market 1970); all assessments rebuilt as judgment items.
+- Filipino m01: 4 stock title-topic checks per lesson replaced with transfer items (80 authored); AP m01: stock "kasanayang ito" assessments replaced with concept-transfer items (100 authored).
+- M3 sweep: 812 "kasanayan" jargon instances replaced with concept labels (simuno at panaguri, salitang-ugat, …) across 56 Filipino files; learner-facing "kasanayan" now 0 pack-wide.
+- Fixed Taglish/legacy artifacts: `mag-shoot`→`maglaro ng basketbol`, `I-grupo`→`Ipangkat`, MKB doesNotFit culture swaps, 7 wastong-pagsulat word↔meaning matchings, circular vocab definitions.
+- English m01-d13 Q5 re-keyed (ship = digraph, not blend); duplicate assessment prompts eliminated pack-wide (0).
 - Integrated the revised editorial visual set: 358 month-01 lesson visuals (checksum-verified).
 - Kept the pre-revision `english-g3-q1-w01-d01` visual: the revised art dropped curriculum clues (red flag, parade, lanterns) required by the picture-detective activity.
 - Regenerated child-facing feedback copy across 161 lessons so authored correct/explanation text no longer exposes curriculum jargon.

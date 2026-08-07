@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Parehong bilog ang dalawang plato.",
-      "right": "halimbawang nagpapakita ng kasanayan: Parehong bilog ang dalawang plato."
+      "right": "Parehong bilog ang dalawang plato."
      },
      {
       "left": "Mas mahaba ang pulang laso kaysa asul.",
-      "right": "halimbawang nagpapakita ng kasanayan: Mas mahaba ang pulang laso kaysa asul."
+      "right": "Mas mahaba ang pulang laso kaysa asul."
      },
      {
       "left": "Kapwa may dahon ang halaman.",
-      "right": "halimbawang nagpapakita ng kasanayan: Kapwa may dahon ang halaman."
+      "right": "Kapwa may dahon ang halaman."
      }
     ]
    },
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d17-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Paghahambing”?",
+    "prompt": "Alin ang wastong paghahambing ng puno at bata?",
     "options": [
      {
+      "id": "a",
+      "text": "Ang bata ay pinakamataas sa puno."
+     },
+     {
       "id": "b",
-      "text": "Ihambing ang taong may mapanlait na salita"
+      "text": "Mas mataas ang puno kaysa sa bata."
      },
      {
       "id": "c",
-      "text": "Sabihing mas magaling nang walang batayan"
+      "text": "Mas mataas ang bata kaysa sa puno."
      },
      {
-      "id": "a",
-      "text": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+      "id": "d",
+      "text": "Ang puno ay mas maliit kaysa sa bata."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+    "explanation": "Ang puno ay karaniwang mas mataas kaysa sa bata."
    },
    {
     "itemId": "filipino-g3-m01-d17-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Paghahambing”?",
+    "prompt": "Alin ang wastong paghahambing ng saging at mangga?",
     "options": [
      {
       "id": "a",
-      "text": "Parehong bilog ang dalawang plato."
+      "text": "Ang saging ay pinakamahaba sa lahat."
      },
      {
       "id": "b",
-      "text": "Ihambing ang taong may mapanlait na salita"
+      "text": "Ang mangga ay mas mahaba kaysa sa saging."
      },
      {
       "id": "c",
-      "text": "Sabihing mas magaling nang walang batayan"
+      "text": "Ang saging ay mas mahaba kaysa sa mangga."
+     },
+     {
+      "id": "d",
+      "text": "Ang saging at mangga ay parehong haba."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Parehong bilog ang dalawang plato.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+    "explanation": "Ang saging ay karaniwang mas mahaba kaysa sa mangga."
    },
    {
     "itemId": "filipino-g3-m01-d17-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Alin ang wastong gamit ng “pinaka”?",
     "options": [
      {
-      "id": "c",
-      "text": "Mas mahaba ang pulang laso kaysa asul."
-     },
-     {
       "id": "a",
-      "text": "Ihambing ang taong may mapanlait na salita"
+      "text": "Si Lina ang pinakamabait sa kanilang magkakapatid."
      },
      {
       "id": "b",
-      "text": "Parehong bilog ang dalawang plato."
+      "text": "Si Lina ay mabait sa pinaka."
+     },
+     {
+      "id": "c",
+      "text": "Si Lina ay mas mabait kaysa sa kanilang magkakapatid."
+     },
+     {
+      "id": "d",
+      "text": "Pinaka si Lina sa mabait."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Ihambing ang taong may mapanlait na salita” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang “pinaka” ay ginagamit sa paghahambing ng tatlo o higit pang bagay o tao."
    },
    {
     "itemId": "filipino-g3-m01-d17-q04",
@@ -266,20 +278,20 @@
     "prompt": "Alin ang wastong paghahambing?",
     "options": [
      {
-      "id": "b",
+      "id": "a",
       "text": "Mas mahaba ang 7 cm kaysa 10 cm."
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Pareho ang 7 cm at 10 cm."
      },
      {
-      "id": "a",
+      "id": "c",
       "text": "Mas mahaba ang 10 cm kaysa 7 cm."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
     "explanation": "Ang tamang sagot ay “Mas mahaba ang 10 cm kaysa 7 cm.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
    },
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d17-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Paghahambing”?",
+    "prompt": "Alin ang wastong paghahambing ng magkapareho ang haba?",
     "options": [
      {
       "id": "a",
-      "text": "Kapwa may dahon ang halaman."
+      "text": "Mas haba ang lapis kaysa sa panulat."
      },
      {
       "id": "b",
-      "text": "Paghaluin ang yunit ng sukat"
+      "text": "Ang panulat ay pinakahaba."
      },
      {
       "id": "c",
-      "text": "Ihambing ang taong may mapanlait na salita"
+      "text": "Ang lapis ay haba sa panulat."
+     },
+     {
+      "id": "d",
+      "text": "Magkasinhaba ang lapis at ang panulat."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Kapwa may dahon ang halaman.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+    "explanation": "Kapag magkapareho ang haba ng dalawa, sinasabing magkasinhaba ang mga ito."
    }
   ]
  },

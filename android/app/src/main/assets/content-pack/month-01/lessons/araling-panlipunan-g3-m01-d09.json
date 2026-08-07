@@ -6,7 +6,7 @@
  "day": 9,
  "subject": "ARALING_PANLIPUNAN",
  "title": "Environmental Map Investigator",
- "objective": "Pagsamahin ang terrain, tubig, yaman, populasyon, at hazard patong ng kathang-isip na mapa.",
+ "objective": "Pagsamahin ang anyong-lupa, anyong-tubig, yaman, populasyon, at patong ng panganib ng kathang-isip na mapa.",
  "estimatedMinutes": 12,
  "educatorValidated": true,
  "releaseStatus": "RELEASED",
@@ -53,8 +53,8 @@
    "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
    "content": {
     "examples": [
-     "ilog at settlement layer",
-     "elevation at hazard layer",
+     "ilog at patong ng paninirahan",
+     "patong ng elebasyon at panganib",
      "source/date note"
     ]
    },
@@ -77,8 +77,8 @@
    "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
    "content": {
     "fits": [
-     "ilog at settlement layer",
-     "elevation at hazard layer",
+     "ilog at patong ng paninirahan",
+     "patong ng elebasyon at panganib",
      "source/date note"
     ],
     "doesNotFit": [
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "ilog at patong ng paninirahan",
-      "right": "halimbawang nagpapakita ng kasanayan: ilog at patong ng paninirahan"
+      "right": "ilog at patong ng paninirahan"
      },
      {
       "left": "patong ng elevasyon at panganib",
-      "right": "halimbawang nagpapakita ng kasanayan: patong ng elevasyon at panganib"
+      "right": "patong ng elevasyon at panganib"
      },
      {
       "left": "tala ng pinagmulan at petsa",
-      "right": "halimbawang nagpapakita ng kasanayan: tala ng pinagmulan at petsa"
+      "right": "tala ng pinagmulan at petsa"
      }
     ]
    },
@@ -191,121 +191,141 @@
     "itemId": "araling-panlipunan-g3-m01-d09-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Environmental Map Investigator”?",
+    "prompt": "Ano ang ipinapakita ng patong ng bilang ng tao?",
     "options": [
      {
       "id": "a",
-      "text": "Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong."
+      "text": "kung anong edad ang tao"
      },
      {
       "id": "b",
-      "text": "Isang patong lang para sa lahat ng desisyon"
+      "text": "kung gaano karami ang tao sa bawat lugar"
      },
      {
       "id": "c",
-      "text": "Walang susi"
+      "text": "kung saan nagtatrabaho ang tao"
+     },
+     {
+      "id": "d",
+      "text": "kung ano ang pangalan ng tao"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong.” dahil sumusunod ito sa paliwanag ng aralin: Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong."
+    "explanation": "Ang patong ng bilang ng tao ay nagpapakita kung gaano karami ang nakatira sa lugar."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d09-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Environmental Map Investigator”?",
+    "prompt": "Alin ang dapat isaalang-alang sa pagpili ng lugar na tatayuan ng bahay?",
     "options": [
      {
-      "id": "c",
-      "text": "Walang susi"
-     },
-     {
       "id": "a",
-      "text": "ilog at patong ng paninirahan"
+      "text": "kung malapit sa mall"
      },
      {
       "id": "b",
-      "text": "Isang patong lang para sa lahat ng desisyon"
+      "text": "kung tahimik ang lugar"
+     },
+     {
+      "id": "c",
+      "text": "kung ligtas ito sa panganib tulad ng baha"
+     },
+     {
+      "id": "d",
+      "text": "kung maganda ang tanawin"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “ilog at patong ng paninirahan” dahil sumusunod ito sa paliwanag ng aralin: Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong."
+    "explanation": "Ang kaligtasan sa panganib ang pinakamahalaga sa pagpili ng lugar."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d09-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Bakit mahalagang pagsamahin ang mga patong ng mapa?",
     "options": [
      {
+      "id": "a",
+      "text": "upang makita ang buong larawan ng lugar at ang mga kaugnayan nito"
+     },
+     {
       "id": "b",
-      "text": "ilog at patong ng paninirahan"
+      "text": "upang mahaba ang mapa"
      },
      {
       "id": "c",
-      "text": "patong ng elevasyon at panganib"
+      "text": "upang maganda ang kulay"
      },
      {
-      "id": "a",
-      "text": "Isang patong lang para sa lahat ng desisyon"
+      "id": "d",
+      "text": "upang mahirap basahin"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Isang patong lang para sa lahat ng desisyon” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang pagsasama ng mga patong ay nagpapakita ng kabuuang larawan ng lugar."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d09-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang dapat tingnan bago paghambingin ang map patongs?",
+    "prompt": "Ano ang ipinapakita ng patong ng anyong-tubig sa mapa?",
     "options": [
      {
       "id": "a",
-      "text": "susi, pinagmulan, at petsa"
+      "text": "kung saan may mga kalsada"
      },
      {
       "id": "b",
-      "text": "paboritong kulay"
+      "text": "kung saan may ilog, lawa, at dagat"
      },
      {
       "id": "c",
-      "text": "pangalan ng manlalaro"
+      "text": "kung saan may mga bahay"
+     },
+     {
+      "id": "d",
+      "text": "kung saan may mga puno"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “susi, pinagmulan, at petsa” dahil sumusunod ito sa paliwanag ng aralin: Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong."
+    "explanation": "Ang patong ng anyong-tubig ay nagpapakita ng mga ilog, lawa, at dagat."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d09-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Environmental Map Investigator”?",
+    "prompt": "Kung ang mapa ay nagpapakita ng malaking bilang ng tao malapit sa ilog, ano ang posibleng dahilan?",
     "options": [
      {
-      "id": "c",
-      "text": "Isang patong lang para sa lahat ng desisyon"
-     },
-     {
       "id": "a",
-      "text": "tala ng pinagmulan at petsa"
+      "text": "dahil walang trabaho sa ilog"
      },
      {
       "id": "b",
-      "text": "Tunay na personal address"
+      "text": "dahil tahimik sa ilog"
+     },
+     {
+      "id": "c",
+      "text": "dahil ang ilog ay pinagkukunan ng tubig at isda"
+     },
+     {
+      "id": "d",
+      "text": "dahil maganda ang ilog"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “tala ng pinagmulan at petsa” dahil sumusunod ito sa paliwanag ng aralin: Bawat patong ay may sariling susi, pinagmulan, at petsa; ang interpretasyon ay dapat nakabatay sa higit sa isang patong."
+    "explanation": "Ang mga tao ay madalas naninirahan malapit sa pinagkukunan ng tubig at pagkain."
    }
   ]
  },

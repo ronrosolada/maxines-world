@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Pakiabot po.",
-      "right": "halimbawang nagpapakita ng kasanayan: Pakiabot po."
+      "right": "Pakiabot po."
      },
      {
       "left": "Maraming salamat.",
-      "right": "halimbawang nagpapakita ng kasanayan: Maraming salamat."
+      "right": "Maraming salamat."
      },
      {
       "left": "Paumanhin po.",
-      "right": "halimbawang nagpapakita ng kasanayan: Paumanhin po."
+      "right": "Paumanhin po."
      }
     ]
    },
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d10-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Magagalang na Salita”?",
+    "prompt": "May kailangan kang itanong sa guro. Alin ang magalang na paraan?",
     "options": [
      {
-      "id": "c",
-      "text": "Putulin ang pagsasalita"
-     },
-     {
       "id": "a",
-      "text": "Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo."
+      "text": "“Teka, sagutin mo ako!”"
      },
      {
       "id": "b",
-      "text": "Sigawan ang kausap"
+      "text": "“Akin na ang oras mo!”"
+     },
+     {
+      "id": "c",
+      "text": "“Sandali, may itatanong ako!”"
+     },
+     {
+      "id": "d",
+      "text": "“Puwede ko po bang magtanong?”"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo.” dahil sumusunod ito sa paliwanag ng aralin: Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo."
+    "explanation": "Ang paggamit ng “po” at paghingi ng pahintulot ay magalang na pananalita."
    },
    {
     "itemId": "filipino-g3-m01-d10-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Magagalang na Salita”?",
+    "prompt": "Binigyan ka ng kaibigan ng kendi. Ano ang sasabihin mo?",
     "options": [
      {
+      "id": "a",
+      "text": "“Salamat sa iyo!”"
+     },
+     {
       "id": "b",
-      "text": "Sigawan ang kausap"
+      "text": "“Kunin ko lahat.”"
      },
      {
       "id": "c",
-      "text": "Putulin ang pagsasalita"
+      "text": "“Ayoko nito.”"
      },
      {
-      "id": "a",
-      "text": "Pakiabot po."
+      "id": "d",
+      "text": "“Bakit kendi lang?”"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Pakiabot po.” dahil sumusunod ito sa paliwanag ng aralin: Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo."
+    "explanation": "Ang pasasalamat ay magalang na tugon sa kabutihan ng iba."
    },
    {
     "itemId": "filipino-g3-m01-d10-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Nakatapak ka ng paa ng katabi mo. Ano ang dapat mong sabihin?",
     "options": [
      {
       "id": "a",
-      "text": "Sigawan ang kausap"
+      "text": "“Pasensiya na.”"
      },
      {
       "id": "b",
-      "text": "Pakiabot po."
+      "text": "“Hindi ko kasalanan.”"
      },
      {
       "id": "c",
-      "text": "Maraming salamat."
+      "text": "“Tama lang iyan.”"
+     },
+     {
+      "id": "d",
+      "text": "“Sino ba ang naglagay ng paa roon?”"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Sigawan ang kausap” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang paghingi ng paumanhin ay tanda ng paggalang sa kapwa."
    },
    {
     "itemId": "filipino-g3-m01-d10-q04",
@@ -266,20 +278,20 @@
     "prompt": "Alin ang magalang na pakiusap?",
     "options": [
      {
-      "id": "c",
-      "text": "Hoy, bilis!"
-     },
-     {
       "id": "a",
-      "text": "Pakiabot po ng aklat."
+      "text": "Ibigay mo iyan ngayon!"
      },
      {
       "id": "b",
-      "text": "Ibigay mo iyan ngayon!"
+      "text": "Pakiabot po ng aklat."
+     },
+     {
+      "id": "c",
+      "text": "Hoy, bilis!"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
     "explanation": "Ang tamang sagot ay “Pakiabot po ng aklat.” dahil sumusunod ito sa paliwanag ng aralin: Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo."
    },
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d10-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Magagalang na Salita”?",
+    "prompt": "Alin ang magalang na pagsagot kapag tinawag ka ng guro?",
     "options": [
      {
+      "id": "a",
+      "text": "“Opo, guro?”"
+     },
+     {
       "id": "b",
-      "text": "Gamitin ang po ngunit mapanlait ang tono"
+      "text": "“Sandali lang.”"
      },
      {
       "id": "c",
-      "text": "Sigawan ang kausap"
+      "text": "“Ano?”"
      },
      {
-      "id": "a",
-      "text": "Paumanhin po."
+      "id": "d",
+      "text": "“Bakit?”"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Paumanhin po.” dahil sumusunod ito sa paliwanag ng aralin: Naipapakita ang paggalang sa maayos na tono, pakikinig, pakiusap, pasasalamat, paghingi ng paumanhin, at angkop na po o opo."
+    "explanation": "Ang pagsagot ng “opo” ay magalang na tugon sa nakatatanda."
    }
   ]
  },

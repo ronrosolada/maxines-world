@@ -53,7 +53,7 @@
    "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
    "content": {
     "examples": [
-     "original motif",
+     "orihinal na disenyo",
      "source note",
      "fictional place label"
     ]
@@ -77,7 +77,7 @@
    "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
    "content": {
     "fits": [
-     "original motif",
+     "orihinal na disenyo",
      "source note",
      "fictional place label"
     ],
@@ -108,7 +108,7 @@
     "options": [
      "Kopyahin ang sagradong disenyo.",
      "Sabihing opisyal ang prototype.",
-     "Gumamit ng original motif at malinaw na source note."
+     "Gumamit ng orihinal na disenyo at malinaw na source note."
     ],
     "correctIndex": 2
    },
@@ -131,16 +131,16 @@
    "content": {
     "pairs": [
      {
-      "left": "orihinal motif",
-      "right": "halimbawang nagpapakita ng kasanayan: orihinal motif"
+      "left": "orihinal na disenyo",
+      "right": "orihinal na disenyo"
      },
      {
       "left": "tala ng pinagmulan",
-      "right": "halimbawang nagpapakita ng kasanayan: tala ng pinagmulan"
+      "right": "tala ng pinagmulan"
      },
      {
       "left": "label ng kathang-isip na lugar",
-      "right": "halimbawang nagpapakita ng kasanayan: label ng kathang-isip na lugar"
+      "right": "label ng kathang-isip na lugar"
      }
     ]
    },
@@ -191,121 +191,141 @@
     "itemId": "araling-panlipunan-g3-m01-d20-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Local Art Cultural Map Finale”?",
+    "prompt": "Alin ang dapat mong iwasan sa paggawa ng cultural map?",
     "options": [
      {
+      "id": "a",
+      "text": "paggamit ng sariling disenyo"
+     },
+     {
       "id": "b",
-      "text": "Kopyahin sacred pattern"
+      "text": "paggamit ng ebidensya"
      },
      {
       "id": "c",
-      "text": "Tanggalin ang pagkilala sa pinagmulan"
+      "text": "pagsulat ng pinagmulan"
      },
      {
-      "id": "a",
-      "text": "Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+      "id": "d",
+      "text": "paggamit ng sagradong disenyo nang walang pahintulot"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon.” dahil sumusunod ito sa paliwanag ng aralin: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+    "explanation": "Ang sagradong disenyo ay hindi dapat gamitin nang walang pahintulot."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d20-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Local Art Cultural Map Finale”?",
+    "prompt": "Alin ang kumpletong bahagi ng isang ebidensya?",
     "options": [
      {
       "id": "a",
-      "text": "orihinal motif"
+      "text": "larawan lamang"
      },
      {
       "id": "b",
-      "text": "Kopyahin sacred pattern"
+      "text": "haka-haka"
      },
      {
       "id": "c",
-      "text": "Tanggalin ang pagkilala sa pinagmulan"
+      "text": "pangalan lamang"
+     },
+     {
+      "id": "d",
+      "text": "tala ng pinagmulan at petsa"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “orihinal motif” dahil sumusunod ito sa paliwanag ng aralin: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+    "explanation": "Ang kumpletong ebidensya ay may pinagmulan at petsa."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d20-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Ano ang cultural map?",
     "options": [
      {
-      "id": "c",
-      "text": "tala ng pinagmulan"
-     },
-     {
       "id": "a",
-      "text": "Kopyahin sacred pattern"
+      "text": "mapang nagpapakita ng edad ng tao"
      },
      {
       "id": "b",
-      "text": "orihinal motif"
+      "text": "mapang nagpapakita ng mga kalsada lamang"
+     },
+     {
+      "id": "c",
+      "text": "mapang nagpapakita ng mga lugar at gawaing pangkultura ng komunidad"
+     },
+     {
+      "id": "d",
+      "text": "mapang nagpapakita ng presyo ng bahay"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Kopyahin sacred pattern” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang cultural map ay nagpapakita ng mga lugar at gawaing pangkultura."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d20-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang tamang hakbang?",
+    "prompt": "Bakit kailangang orihinal ang mga likha sa cultural map?",
     "options": [
      {
+      "id": "a",
+      "text": "upang mahaba ang mapa"
+     },
+     {
       "id": "b",
-      "text": "Kopyahin ang sagradong disenyo."
+      "text": "upang maganda ang kulay"
      },
      {
       "id": "c",
-      "text": "Sabihing opisyal ang prototipo."
+      "text": "upang igalang ang gawa ng iba at maging totoo ang mapa"
      },
      {
-      "id": "a",
-      "text": "Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan."
+      "id": "d",
+      "text": "upang mabilis matapos"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan.” dahil sumusunod ito sa paliwanag ng aralin: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+    "explanation": "Ang orihinal na likha ay tanda ng paggalang at katotohanan."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d20-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Local Art Cultural Map Finale”?",
+    "prompt": "Ano ang dapat na nasa bawat elemento ng cultural map?",
     "options": [
      {
       "id": "a",
-      "text": "label ng kathang-isip na lugar"
+      "text": "pangalan lamang"
      },
      {
       "id": "b",
-      "text": "Sabihing authentic ang AI invention"
+      "text": "ebidensya at pinagmulan"
      },
      {
       "id": "c",
-      "text": "Kopyahin sacred pattern"
+      "text": "haka-haka"
+     },
+     {
+      "id": "d",
+      "text": "pangarap"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “label ng kathang-isip na lugar” dahil sumusunod ito sa paliwanag ng aralin: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+    "explanation": "Ang bawat elemento ay dapat may ebidensya at pinagmulan."
    }
   ]
  },

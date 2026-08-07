@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Bayan A ay hilaga ng Bayan B",
-      "right": "halimbawang nagpapakita ng kasanayan: Bayan A ay hilaga ng Bayan B"
+      "right": "Bayan A ay hilaga ng Bayan B"
      },
      {
       "left": "Ilog ay nasa pagitan ng dalawang bayan",
-      "right": "halimbawang nagpapakita ng kasanayan: Ilog ay nasa pagitan ng dalawang bayan"
+      "right": "Ilog ay nasa pagitan ng dalawang bayan"
      },
      {
       "left": "Baybayin ay silangan ayon sa compass",
-      "right": "halimbawang nagpapakita ng kasanayan: Baybayin ay silangan ayon sa compass"
+      "right": "Baybayin ay silangan ayon sa compass"
      }
     ]
    },
@@ -191,121 +191,141 @@
     "itemId": "araling-panlipunan-g3-m01-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Where Is the Province?”?",
+    "prompt": "Ang palengke ay nasa PAGITAN ng paaralan at simbahan. Alin ang nasa gitna?",
     "options": [
      {
+      "id": "a",
+      "text": "ang lahat ng lugar"
+     },
+     {
       "id": "b",
-      "text": "Walang compass ngunit tiyak ang hilaga"
+      "text": "ang paaralan"
      },
      {
       "id": "c",
-      "text": "Gamitin ang sariling address"
+      "text": "ang simbahan"
      },
      {
-      "id": "a",
-      "text": "Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+      "id": "d",
+      "text": "ang palengke"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Ang direksiyon ay nakabatay sa orientation cue ng mapa.” dahil sumusunod ito sa paliwanag ng aralin: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    "explanation": "Ang nasa pagitan ay ang lugar na nasa gitna ng dalawang lugar — ang palengke."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Where Is the Province?”?",
+    "prompt": "Tumingin ka sa mapa: ang ilog ay nasa silangan ng bahay. Aling direksiyon ang ilog mula sa bahay?",
     "options": [
      {
       "id": "a",
-      "text": "Bayan A ay hilaga ng Bayan B"
+      "text": "hilaga"
      },
      {
       "id": "b",
-      "text": "Walang compass ngunit tiyak ang hilaga"
+      "text": "kanluran"
      },
      {
       "id": "c",
-      "text": "Gamitin ang sariling address"
+      "text": "timog"
+     },
+     {
+      "id": "d",
+      "text": "silangan"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Bayan A ay hilaga ng Bayan B” dahil sumusunod ito sa paliwanag ng aralin: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    "explanation": "Ayon sa mapa, ang ilog ay nasa silangan ng bahay."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Ang bayan ng Sapa ay nasa TIMOG ng bundok. Saan ang bundok kung mula sa Sapa?",
     "options": [
      {
-      "id": "c",
-      "text": "Ilog ay nasa pagitan ng dalawang bayan"
-     },
-     {
       "id": "a",
-      "text": "Walang compass ngunit tiyak ang hilaga"
+      "text": "sa timog"
      },
      {
       "id": "b",
-      "text": "Bayan A ay hilaga ng Bayan B"
+      "text": "sa hilaga"
+     },
+     {
+      "id": "c",
+      "text": "sa silangan"
+     },
+     {
+      "id": "d",
+      "text": "sa kanluran"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Walang compass ngunit tiyak ang hilaga” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Magkasalungat ang hilaga at timog: kung ang Sapa ay nasa timog ng bundok, ang bundok ay nasa hilaga ng Sapa."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Kung ang A ay nasa itaas ng B at ang N ay pataas, nasaan ang A?",
+    "prompt": "Ang paaralan ay nasa KANLURAN ng simbahan. Saan ang simbahan kung mula sa paaralan?",
     "options": [
      {
+      "id": "a",
+      "text": "sa silangan"
+     },
+     {
       "id": "b",
-      "text": "timog ng B"
+      "text": "sa hilaga"
      },
      {
       "id": "c",
-      "text": "kanluran ng B"
+      "text": "sa kanluran"
      },
      {
-      "id": "a",
-      "text": "hilaga ng B"
+      "id": "d",
+      "text": "sa timog"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “hilaga ng B” dahil sumusunod ito sa paliwanag ng aralin: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    "explanation": "Ang kanluran at silangan ay magkasalungat na direksiyon."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Where Is the Province?”?",
+    "prompt": "Ano ang ibig sabihin ng “katabi” sa mapa?",
     "options": [
      {
       "id": "a",
-      "text": "Baybayin ay silangan ayon sa compass"
+      "text": "nasa tabi mismo ng isang lugar"
      },
      {
       "id": "b",
-      "text": "Baligtarin ang mapa nang di pansin"
+      "text": "nasa ibaba ng lugar"
      },
      {
       "id": "c",
-      "text": "Walang compass ngunit tiyak ang hilaga"
+      "text": "malayo sa lugar"
+     },
+     {
+      "id": "d",
+      "text": "nasa itaas ng lugar"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Baybayin ay silangan ayon sa compass” dahil sumusunod ito sa paliwanag ng aralin: Ang direksiyon ay nakabatay sa orientation cue ng mapa."
+    "explanation": "Ang katabi ay lugar na nasa tabi mismo ng isa pang lugar."
    }
   ]
  },

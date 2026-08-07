@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Si Mara ay nagbasa. Siya ay tahimik.",
-      "right": "halimbawang nagpapakita ng kasanayan: Si Mara ay nagbasa. Siya ay tahimik."
+      "right": "Si Mara ay nagbasa. Siya ay tahimik."
      },
      {
       "left": "Ang mga bata ay dumating. Sila ay masaya.",
-      "right": "halimbawang nagpapakita ng kasanayan: Ang mga bata ay dumating. Sila ay masaya."
+      "right": "Ang mga bata ay dumating. Sila ay masaya."
      },
      {
       "left": "Hawak ko ang aklat. Ito ay bago.",
-      "right": "halimbawang nagpapakita ng kasanayan: Hawak ko ang aklat. Ito ay bago."
+      "right": "Hawak ko ang aklat. Ito ay bago."
      }
     ]
    },
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d09-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Panghalip na Pamalit”?",
+    "prompt": "“Si Ben ay nagbibisikleta. ___ ay mabilis.” Alin ang tamang panghalip?",
     "options": [
      {
       "id": "a",
-      "text": "Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+      "text": "Kami"
      },
      {
       "id": "b",
-      "text": "Panghalip na walang malinaw na tinutukoy"
+      "text": "Siya"
      },
      {
       "id": "c",
-      "text": "Siya para sa maraming tao"
+      "text": "Ikaw"
+     },
+     {
+      "id": "d",
+      "text": "Sila"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy.” dahil sumusunod ito sa paliwanag ng aralin: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+    "explanation": "Si Ben ay isang tao lamang at pinag-uusapan, kaya siya ang tamang panghalip."
    },
    {
     "itemId": "filipino-g3-m01-d09-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Panghalip na Pamalit”?",
+    "prompt": "“Ang mga bata ay naglalaro. ___ ay masaya.” Alin ang tamang panghalip?",
     "options": [
      {
-      "id": "c",
-      "text": "Siya para sa maraming tao"
-     },
-     {
       "id": "a",
-      "text": "Si Mara ay nagbasa. Siya ay tahimik."
+      "text": "Ako"
      },
      {
       "id": "b",
-      "text": "Panghalip na walang malinaw na tinutukoy"
+      "text": "Ito"
+     },
+     {
+      "id": "c",
+      "text": "Siya"
+     },
+     {
+      "id": "d",
+      "text": "Sila"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Si Mara ay nagbasa. Siya ay tahimik.” dahil sumusunod ito sa paliwanag ng aralin: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+    "explanation": "Ang mga bata ay marami at pinag-uusapan, kaya sila ang tamang panghalip."
    },
    {
     "itemId": "filipino-g3-m01-d09-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "“Ang bulaklak ay maganda. ___ ay pula.” Alin ang tamang panghalip?",
     "options": [
      {
+      "id": "a",
+      "text": "Ito"
+     },
+     {
       "id": "b",
-      "text": "Si Mara ay nagbasa. Siya ay tahimik."
+      "text": "Siya"
      },
      {
       "id": "c",
-      "text": "Ang mga bata ay dumating. Sila ay masaya."
+      "text": "Sila"
      },
      {
-      "id": "a",
-      "text": "Panghalip na walang malinaw na tinutukoy"
+      "id": "d",
+      "text": "Kayo"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Panghalip na walang malinaw na tinutukoy” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang bulaklak ay bagay na pinag-uusapan, kaya ito ang tamang panghalip."
    },
    {
     "itemId": "filipino-g3-m01-d09-q04",
@@ -267,19 +279,19 @@
     "options": [
      {
       "id": "a",
-      "text": "Siya"
+      "text": "Iyon"
      },
      {
       "id": "b",
-      "text": "Sila"
+      "text": "Siya"
      },
      {
       "id": "c",
-      "text": "Iyon"
+      "text": "Sila"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
     "explanation": "Ang tamang sagot ay “Siya” dahil sumusunod ito sa paliwanag ng aralin: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
    },
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d09-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Panghalip na Pamalit”?",
+    "prompt": "Alin ang panghalip na pamalit kay “nanay at ako”?",
     "options": [
      {
-      "id": "c",
-      "text": "Panghalip na walang malinaw na tinutukoy"
-     },
-     {
       "id": "a",
-      "text": "Hawak ko ang aklat. Ito ay bago."
+      "text": "Siya"
      },
      {
       "id": "b",
-      "text": "Sila para sa isang lapis"
+      "text": "Kami"
+     },
+     {
+      "id": "c",
+      "text": "Sila"
+     },
+     {
+      "id": "d",
+      "text": "Ito"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Hawak ko ang aklat. Ito ay bago.” dahil sumusunod ito sa paliwanag ng aralin: Ang siya, sila, ito, iyan, at iyon ay pamalit sa pangngalan; dapat malinaw kung sino o ano ang tinutukoy."
+    "explanation": "Ang nanay at ako ay magkasamang nagsasalita, kaya kami ang tamang panghalip."
    }
   ]
  },

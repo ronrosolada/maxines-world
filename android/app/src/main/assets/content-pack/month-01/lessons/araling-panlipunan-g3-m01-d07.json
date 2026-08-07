@@ -5,15 +5,15 @@
  "month": 1,
  "day": 7,
  "subject": "ARALING_PANLIPUNAN",
- "title": "Reading Hazard-Sensitive Locations",
- "objective": "Basahin ang child-safe hazard overlay at sundin ang opisyal na gabay.",
+ "title": "Pagbasa ng Mapa ng mga Panganib",
+ "objective": "Basahin ang overlay ng mga panganib na ligtas para sa bata at sundin ang opisyal na gabay.",
  "estimatedMinutes": 12,
  "educatorValidated": true,
  "releaseStatus": "RELEASED",
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "fil-PH",
- "introduction": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability.",
+ "introduction": "Ang pagkakalantad sa panganib ay hindi kapareho ng kabuuang panganib; mahalaga rin ang gusali, ang paghahanda, at ang kahinaan ng lugar.",
  "vocabulary": [
   {
    "term": "panganib",
@@ -34,7 +34,7 @@
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
    "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability.",
+   "content": "Ang pagkakalantad sa panganib ay hindi kapareho ng kabuuang panganib; mahalaga rin ang gusali, ang paghahanda, at ang kahinaan ng lugar.",
    "required": true,
    "completionRule": {
     "type": "VIEW_AND_ACKNOWLEDGE"
@@ -44,7 +44,7 @@
     "retry": "Basahin muli ang paliwanag."
    },
    "assetId": "araling-panlipunan-g3-m01-d07-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+   "accessibilityAlternative": "Alternatibong teksto: Ang pagkakalantad sa panganib ay hindi kapareho ng kabuuang panganib; mahalaga rin ang gusali, ang paghahanda, at ang kahinaan ng lugar."
   },
   {
    "activityId": "araling-panlipunan-g3-m01-d07-a02",
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "bahang overlay",
-      "right": "halimbawang nagpapakita ng kasanayan: bahang overlay"
+      "right": "bahang overlay"
      },
      {
       "left": "evacuation point ayon sa opisyal na mapa",
-      "right": "halimbawang nagpapakita ng kasanayan: evacuation point ayon sa opisyal na mapa"
+      "right": "evacuation point ayon sa opisyal na mapa"
      },
      {
       "left": "makinig sa adult at awtoridad",
-      "right": "halimbawang nagpapakita ng kasanayan: makinig sa adult at awtoridad"
+      "right": "makinig sa adult at awtoridad"
      }
     ]
    },
@@ -191,121 +191,141 @@
     "itemId": "araling-panlipunan-g3-m01-d07-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Reading Hazard-Sensitive Locations”?",
+    "prompt": "Alin ang ligtas na kilos kapag may lindol?",
     "options": [
      {
-      "id": "c",
-      "text": "Gamitin ang app bilang emergency authority"
-     },
-     {
       "id": "a",
-      "text": "Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+      "text": "sumakay sa elevator"
      },
      {
       "id": "b",
-      "text": "Tawaging tiyak na ligtas ang lugar"
+      "text": "tumakip sa ilalim ng matibay na mesa"
+     },
+     {
+      "id": "c",
+      "text": "tumayo sa bintana"
+     },
+     {
+      "id": "d",
+      "text": "tumakbo papasok sa gusali"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability.” dahil sumusunod ito sa paliwanag ng aralin: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+    "explanation": "Ang pagtago sa ilalim ng matibay na mesa ay ligtas na kilos sa lindol."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d07-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Reading Hazard-Sensitive Locations”?",
+    "prompt": "Ano ang overlay sa mapa ng panganib?",
     "options": [
      {
+      "id": "a",
+      "text": "dagdag na patong na nagpapakita ng panganib sa lugar"
+     },
+     {
       "id": "b",
-      "text": "Tawaging tiyak na ligtas ang lugar"
+      "text": "kulay ng bahay"
      },
      {
       "id": "c",
-      "text": "Gamitin ang app bilang emergency authority"
+      "text": "tanda ng tindahan"
      },
      {
-      "id": "a",
-      "text": "bahang overlay"
+      "id": "d",
+      "text": "pangalan ng lugar"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “bahang overlay” dahil sumusunod ito sa paliwanag ng aralin: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+    "explanation": "Ang overlay ay patong sa mapa na nagpapakita ng panganib."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d07-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Kung ang iyong bahay ay nasa lugar na madalas bahain, ano ang dapat mong tandaan?",
     "options": [
      {
       "id": "a",
-      "text": "Tawaging tiyak na ligtas ang lugar"
+      "text": "matulog sa ibaba"
      },
      {
       "id": "b",
-      "text": "bahang overlay"
+      "text": "iwan ang mga gamit sa sahig"
      },
      {
       "id": "c",
-      "text": "evacuation point ayon sa opisyal na mapa"
+      "text": "maglaro sa labas tuwing umuulan"
+     },
+     {
+      "id": "d",
+      "text": "sumunod sa gabay ng nakatatanda kapag may babala"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “Tawaging tiyak na ligtas ang lugar” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Ang pagsunod sa gabay ng nakatatanda ay nakapagliligtas ng buhay."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d07-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang dapat sundin sa aktuwal na emergency?",
+    "prompt": "Bakit mahalagang basahin ang mapa ng mga panganib?",
     "options": [
      {
-      "id": "c",
-      "text": "hula lamang"
-     },
-     {
       "id": "a",
-      "text": "responsableng adult at opisyal na awtoridad"
+      "text": "upang maganda ang silid-aralan"
      },
      {
       "id": "b",
-      "text": "random na laro"
+      "text": "upang malaman ang presyo ng bahay"
+     },
+     {
+      "id": "c",
+      "text": "upang may gawin sa paaralan"
+     },
+     {
+      "id": "d",
+      "text": "upang malaman ang ligtas na lugar at maiwasan ang panganib"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "Ang tamang sagot ay “responsableng adult at opisyal na awtoridad” dahil sumusunod ito sa paliwanag ng aralin: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+    "explanation": "Ang pag-alam sa mapanganib na lugar ay nakakatulong sa kaligtasan."
    },
    {
     "itemId": "araling-panlipunan-g3-m01-d07-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Reading Hazard-Sensitive Locations”?",
+    "prompt": "Ano ang ipinapakita ng mapa ng mga panganib?",
     "options": [
      {
+      "id": "a",
+      "text": "kung saan maaaring magkaroon ng baha, lindol, o pagguho"
+     },
+     {
       "id": "b",
-      "text": "Ibahagi ang bahay ng bata"
+      "text": "kung saan tahimik ang lugar"
      },
      {
       "id": "c",
-      "text": "Tawaging tiyak na ligtas ang lugar"
+      "text": "kung saan may mga tindahan"
      },
      {
-      "id": "a",
-      "text": "makinig sa adult at awtoridad"
+      "id": "d",
+      "text": "kung saan maganda ang tanawin"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “makinig sa adult at awtoridad” dahil sumusunod ito sa paliwanag ng aralin: Ang hazard exposure ay hindi kapareho ng buong risk; mahalaga rin ang gusali, paghahanda, at vulnerability."
+    "explanation": "Ang mapa ng panganib ay nagpapakita ng mga lugar na maaaring maapektuhan ng kalamidad."
    }
   ]
  },
@@ -314,8 +334,8 @@
    "assetId": "araling-panlipunan-g3-m01-d07-visual",
    "type": "INTERACTIVE_SPEC",
    "path": "assets/vectors/araling-panlipunan-g3-m01-d07-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Reading Hazard-Sensitive Locations; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Reading Hazard-Sensitive Locations.",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Pagbasa ng Mapa ng mga Panganib; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
+   "contentDescription": "Five connected learning tokens for exploring examples in Pagbasa ng Mapa ng mga Panganib.",
    "decorative": false
   }
  ],

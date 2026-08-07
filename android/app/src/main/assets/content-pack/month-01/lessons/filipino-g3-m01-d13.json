@@ -25,7 +25,7 @@
   },
   {
    "term": "simula",
-   "definition": "Ang unang bahagi ng kuwento."
+   "definition": "Ang unang titik ng pangungusap, na laging malaking titik."
   }
  ],
  "activities": [
@@ -132,15 +132,15 @@
     "pairs": [
      {
       "left": "Masaya si Lino.",
-      "right": "halimbawang nagpapakita ng kasanayan: Masaya si Lino."
+      "right": "Masaya si Lino."
      },
      {
       "left": "Nasaan ang aklat?",
-      "right": "halimbawang nagpapakita ng kasanayan: Nasaan ang aklat?"
+      "right": "Nasaan ang aklat?"
      },
      {
       "left": "Naku! Nahulog ang bola!",
-      "right": "halimbawang nagpapakita ng kasanayan: Naku! Nahulog ang bola!"
+      "right": "Naku! Nahulog ang bola!"
      }
     ]
    },
@@ -191,73 +191,85 @@
     "itemId": "filipino-g3-m01-d13-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang pinakaangkop sa “Malaki, Maliit, at Bantas”?",
+    "prompt": "Alin ang may wastong bantas?",
     "options": [
      {
-      "id": "c",
-      "text": "Nasaan ang aklat."
-     },
-     {
       "id": "a",
-      "text": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+      "text": "Umuulan na"
      },
      {
       "id": "b",
-      "text": "masaya si Lino."
+      "text": "Umuulan na."
+     },
+     {
+      "id": "c",
+      "text": "umuulan na"
+     },
+     {
+      "id": "d",
+      "text": "umuulan na?"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "Ang tamang sagot ay “Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+    "explanation": "Ang wastong pangungusap ay nagsisimula sa malaking titik at nagtatapos sa tamang bantas."
    },
    {
     "itemId": "filipino-g3-m01-d13-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng “Malaki, Maliit, at Bantas”?",
+    "prompt": "Alin ang wastong pangungusap na nagtatanong?",
     "options": [
      {
+      "id": "a",
+      "text": "Saan ka pupunta"
+     },
+     {
       "id": "b",
-      "text": "masaya si Lino."
+      "text": "saan ka pupunta?"
      },
      {
       "id": "c",
-      "text": "Nasaan ang aklat."
+      "text": "Saan ka pupunta?"
      },
      {
-      "id": "a",
-      "text": "Masaya si Lino."
+      "id": "d",
+      "text": "saan ka pupunta."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "Ang tamang sagot ay “Masaya si Lino.” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+    "explanation": "Ang pangungusap na nagtatanong ay nagtatapos sa tandang pananong."
    },
    {
     "itemId": "filipino-g3-m01-d13-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang hindi sumusunod sa ideya ng aralin?",
+    "prompt": "Alin ang dapat laging nasa malaking titik?",
     "options": [
      {
       "id": "a",
-      "text": "masaya si Lino."
+      "text": "unang titik ng pangungusap at pangalan ng tao"
      },
      {
       "id": "b",
-      "text": "Masaya si Lino."
+      "text": "mga titik na nasa gitna ng salita"
      },
      {
       "id": "c",
-      "text": "Nasaan ang aklat?"
+      "text": "lahat ng titik ng salita"
+     },
+     {
+      "id": "d",
+      "text": "unang titik ng bawat salita"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “masaya si Lino.” dahil hindi ito sumusunod sa kasanayan ng aralin. Ang ibang pagpipilian ay nagpapakita ng kasanayang ito."
+    "explanation": "Nagsisimula sa malaking titik ang pangungusap at ang pangalan ng tao, lugar, o bagay."
    },
    {
     "itemId": "filipino-g3-m01-d13-q04",
@@ -266,15 +278,15 @@
     "prompt": "Alin ang wastong pangungusap?",
     "options": [
      {
-      "id": "c",
-      "text": "Masaya si Lino"
-     },
-     {
       "id": "a",
       "text": "Masaya si Lino."
      },
      {
       "id": "b",
+      "text": "Masaya si Lino"
+     },
+     {
+      "id": "c",
       "text": "masaya si lino"
      }
     ],
@@ -287,25 +299,29 @@
     "itemId": "filipino-g3-m01-d13-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pahayag ang naglalarawan ng “Malaki, Maliit, at Bantas”?",
+    "prompt": "Alin ang wastong pagkakasulat ng pangalan?",
     "options": [
      {
+      "id": "a",
+      "text": "Maria Santos"
+     },
+     {
       "id": "b",
-      "text": "Naku nahulog ang bola"
+      "text": "Maria santos"
      },
      {
       "id": "c",
-      "text": "masaya si Lino."
+      "text": "maria santos"
      },
      {
-      "id": "a",
-      "text": "Naku! Nahulog ang bola!"
+      "id": "d",
+      "text": "maria Santos"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "Ang tamang sagot ay “Naku! Nahulog ang bola!” dahil sumusunod ito sa paliwanag ng aralin: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
+    "explanation": "Ang bawat bahagi ng pangalan ng tao ay nagsisimula sa malaking titik."
    }
   ]
  },

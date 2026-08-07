@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Ayusin ang mga halimbawa. Panatilihin ang mga salitang may wastong baybay.",
+   "instruction": "Piliin ang mga salitang may wastong baybay.",
    "content": {
     "fits": [
      "pagkain",
@@ -112,7 +112,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ayusin ang mga halimbawa. Panatilihin ang mga salitang may wastong baybay.",
+   "prompt": "Piliin ang mga salitang may wastong baybay.",
    "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
+   "instruction": "Itugma ang bawat salita sa kahulugan nito.",
    "content": {
     "pairs": [
      {
       "left": "pagkain",
-      "right": "halimbawang nagpapakita ng kasanayan: pagkain"
+      "right": "kinakain upang lumakas"
      },
      {
       "left": "inumin",
-      "right": "halimbawang nagpapakita ng kasanayan: inumin"
+      "right": "iniinom upang hindi mauhaw"
      },
      {
       "left": "tulong",
-      "right": "halimbawang nagpapakita ng kasanayan: tulong"
+      "right": "gawaing pangkabutihan para sa iba"
      }
     ]
    },
@@ -246,7 +246,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “pagkain.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “pagkain.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -274,7 +274,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “inumin.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “inumin.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -302,7 +302,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “iniinom upang hindi mauhaw.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “iniinom upang hindi mauhaw.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -330,7 +330,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “tulong.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “tulong.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    },
    {
@@ -358,7 +358,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang tamang sagot ay “pagkain.” Tama dahil inilalapat nito ang kasanayan sa Filipino.",
+    "explanation": "Ang tamang sagot ay “pagkain.” Tama dahil inilalapat nito ang wastong pagsulat ng mga salita.",
     "type": "MULTIPLE_CHOICE"
    }
   ]
