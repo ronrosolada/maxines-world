@@ -1,8 +1,8 @@
 # Maxine's World — Current State & Release Handoff
 
-**Document baseline:** 2026-08-06
-**Release candidate:** `0.22.0` (`versionCode = 23`)
-**Working branch:** `feat/lesson-concept-visuals`
+**Document baseline:** 2026-08-07
+**Release candidate:** `0.22.0` (`versionCode = 23`) — next release bump pending review
+**Working branch:** `main` (PR #71 squash-merged 2026-08-07 as `6dc51f0`)
 **Repository:** `ronrosolada/maxines-world` (public)
 
 ## Product goal
@@ -20,11 +20,16 @@ cd android
 ./gradlew assembleRelease --stacktrace
 python3 tools/content_quality_audit.py --check
 python3 tools/dedupe_lesson_titles.py --check
+python3 tools/content_pack_validation.py --strict
+python3 tools/test_content_review.py
 ```
 
 `check` includes the educator-content gate and the offline mini-game gate.
 Release signing is read from the user-only file
 `~/.gradle/maxines-world-signing.properties`; no signing secret belongs in git.
+The most recent full verification (2026-08-07) is recorded in
+`docs/release-review-2026-08-07.md`, which is the recommended starting point
+for an independent review of the current main branch.
 
 ## Current product surface
 
@@ -56,6 +61,15 @@ Release signing is read from the user-only file
   `android/app/src/main/assets/content-pack/month-01/lessons/`.
 - All 358 currently carry `educatorValidated=true` and
   `releaseStatus=RELEASED`; `:app:verifyPlayableContent` enforces this metadata.
+- Lesson visuals: **363 bundled SVG assets** — 358 month-01 vectors plus 5
+  Grade 3 pilot visuals under `content-packs/ph-grade3-v1/` (checksum-verified
+  via `checksums.sha256`).
+- One deliberate exception: `english-g3-q1-w01-d01` keeps the pre-revision
+  visual because the revised art dropped 3 of 7 curriculum clues (red flag,
+  parade, lanterns) required by its picture-detective activity.
+- Known editorial flag (non-blocking): the 357 revised month-01 SVGs ship
+  without `<title>`/`<desc>` accessibility metadata; the old asset contract
+  included it.
 - `tools/content_quality_audit.py --check` and
   `tools/dedupe_lesson_titles.py --check` are read-only and must remain clean.
 - English Q4 remains intentionally deferred until source curriculum is
@@ -90,19 +104,26 @@ Release signing is read from the user-only file
 
 ## Release gates
 
-Latest local verification on 2026-08-06:
+Latest local verification on 2026-08-07 (see `docs/release-review-2026-08-07.md`):
 
-- Gradle `check assembleRelease`, content audit, duplicate-title audit, and 89 Python tooling tests passed.
-- API 35 emulator: 26 Room, 21 app, 11 child-home, and 1 auth connected test passed.
-- Fresh-install flow reached Playroom, a lesson, completion reward, the 29-game library, and 2048; leaving the game preserved the remaining break time.
+- Gradle `check assembleRelease`, lint, content audits, and 89+ Python tooling
+  tests passed.
+- API 35 emulator: **26/26 app connected tests** (incl. the new Sequence CTA
+  contract tests) and 4/4 auth connected tests passed.
+- Content pack validation: 358 lessons, 0 errors, 0 warnings.
+- Release APK inspected: `0.22.0` (code 23), minSdk 26 / target 35, no
+  `INTERNET` permission, 363 SVG assets, release signature present.
+- Fresh-install walkthrough on a clean API 35 emulator reached PIN setup,
+  opened the real IME, and confirmed Digit 0 / Delete / Set PIN stay above the
+  keyboard (#64).
 
-Before tagging `v0.22.0`:
+Before tagging the next release (`0.23.0` pending review):
 
 1. Run `./gradlew check assembleRelease` with the release signing properties.
 2. Run the content tooling checks from the Quick verification section.
 3. Inspect the final APK with `apkanalyzer`/`aapt`:
    - package `com.maxinesworld.app`;
-   - version `0.22.0`, code `23`;
+   - version `0.23.0`, code `24` (after the version bump commit);
    - no INTERNET permission;
    - release signature present;
    - minification enabled.
@@ -118,8 +139,13 @@ Before tagging `v0.22.0`:
 - English Q4 is deferred as documented above.
 - Coins are displayed honestly, but a cosmetic coin-spend surface is future
   work; no fake purchase flow is exposed.
+- The 357 revised month-01 SVGs ship without `<title>`/`<desc>` accessibility
+  metadata (flagged to the editorial pipeline; no runtime impact today).
 - Independent human educator review remains valuable even though the release
   metadata gate is green.
+- The app has not yet been exercised on a physical device with a real child
+  session; emulator coverage is complete but this remains the final product
+  validation.
 
 Historical implementation notes remain available through git history; this
 file intentionally describes only the current release candidate so it does not
