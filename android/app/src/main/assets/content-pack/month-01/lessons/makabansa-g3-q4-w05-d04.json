@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Handa ka na bang sumubok? Subukan din ito sa bahay. Subukan ang kasanayan sa isang lokal na pagkain. Subukan ang kasanayan sa isang disenyo mula sa lokal na sining. Subukan ang kasanayan sa isang makasaysayang lugar. Tingnan kung paano naaapektuhan ng klima ang anyo ng tahanan.",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Sa mababang lugar at baybayin, umaayon ang pagkain at tahanan sa klima at likas na yaman. Handa ka na bang sumubok?",
  "vocabulary": [
   {
    "term": "pangingisda sa baybayin",
-   "definition": "A word or phrase used to practice naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad."
+   "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
   },
   {
    "term": "pagsasaka sa kapatagan",
-   "definition": "A word or phrase used to practice naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad."
+   "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
   },
   {
    "term": "disenyong angkop sa klima",
-   "definition": "A word or phrase used to practice naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad."
+   "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
   }
  ],
  "activities": [
@@ -36,7 +36,7 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Pag-aralan ang kasanayan: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad. Subukan din ito sa bahay. Subukan ang kasanayan sa isang lokal na pagkain. Subukan ang kasanayan sa isang disenyo mula sa lokal na sining. Subukan ang kasanayan sa isang makasaysayang lugar.",
+   "instruction": "Pakinggan ang paliwanag tungkol sa community life.",
    "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Subukan din ito sa bahay. Subukan ang kasanayan sa isang lokal na pagkain. Subukan ang kasanayan sa isang disenyo mula sa lokal na sining. Subukan ang kasanayan sa isang makasaysayang lugar.",
    "completionRule": {
     "type": "COMPLETE"
@@ -45,7 +45,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Pag-aralan ang kasanayan: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad. Subukan din ito sa bahay. Subukan ang kasanayan sa isang lokal na pagkain. Subukan ang kasanayan sa isang disenyo mula sa lokal na sining. Subukan ang kasanayan sa isang makasaysayang lugar.",
+   "prompt": "Pakinggan ang paliwanag tungkol sa community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Subukan din ito sa bahay. Subukan ang kasanayan sa isang lokal na pagkain. Subukan ang kasanayan sa isang disenyo mula sa lokal na sining. Subukan ang kasanayan sa isang makasaysayang lugar.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -58,13 +58,13 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Suriin ang bawat halimbawa upang maisagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "instruction": "Tuklasin ang mga halimbawa ng community life.",
    "content": {
     "examples": [
      "pangingisda sa baybayin",
-     "pagsasaka sa kapatagan",
-     "disenyong angkop sa klima",
-     "pagkain mula sa lokal na ani"
+     "pagkain mula sa ani ng palay",
+     "bahay na may maluwang na bintana sa mainit na lugar",
+     "bangkang ginagamit sa paglalakbay sa ilog"
     ],
     "visualScene": "🐱🔎✨"
    },
@@ -76,7 +76,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Suriin ang bawat halimbawa upang maisagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "prompt": "Tuklasin ang mga halimbawa ng community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -89,19 +89,19 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Ilagay ang bawat halimbawa sa pangkat habang isinasagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "instruction": "Pagbukud-bukurin ang mga halimbawa ng community life.",
    "content": {
     "fits": [
      "pangingisda sa baybayin",
-     "pagsasaka sa kapatagan",
-     "disenyong angkop sa klima",
-     "pagkain mula sa lokal na ani"
+     "pagkain mula sa ani ng palay",
+     "bahay na may maluwang na bintana sa mainit na lugar",
+     "bangkang ginagamit sa paglalakbay sa ilog"
     ],
     "doesNotFit": [
-     "hula na walang batayan",
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura",
-     "gawaing nakapipinsala sa kapwa"
+     "pagbibilang ng lapis sa silid-aralan",
+     "pagpili ng paboritong kulay",
+     "pagsulat ng lihim na password",
+     "paglalaro ng board game sa bahay"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ilagay ang bawat halimbawa sa pangkat habang isinasagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "prompt": "Pagbukud-bukurin ang mga halimbawa ng community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -125,15 +125,15 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Piliin ang sagot na pinakamalinaw na nagpapakita ng: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "instruction": "Piliin ang tamang halimbawa ng community life.",
    "content": {
     "options": [
+     "pagbibilang ng lapis sa silid-aralan",
      "pangingisda sa baybayin",
-     "hula na walang batayan",
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura"
+     "pagpili ng paboritong kulay",
+     "pagsulat ng lihim na password"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -142,7 +142,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Piliin ang sagot na pinakamalinaw na nagpapakita ng: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "prompt": "Piliin ang tamang halimbawa ng community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Itugma ang bawat halimbawa sa ideyang kaugnay ng: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "instruction": "Itapat ang mga halimbawa ng community life.",
    "content": {
     "pairs": [
      {
       "left": "pangingisda sa baybayin",
-      "right": "kabuhayan sa baybayin"
+      "right": "kabuhayan mula sa dagat"
      },
      {
-      "left": "pagsasaka sa kapatagan",
-      "right": "kabuhayan sa kapatagan"
+      "left": "pagkain mula sa ani ng palay",
+      "right": "pagkaing mula sa ani sa kapatagan"
      },
      {
-      "left": "disenyong angkop sa klima",
-      "right": "disenyong tumutugon sa klima"
+      "left": "bahay na may maluwang na bintana sa mainit na lugar",
+      "right": "disenyong nagpapalamig sa bahay"
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Itugma ang bawat halimbawa sa ideyang kaugnay ng: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "prompt": "Itapat ang mga halimbawa ng community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -192,13 +192,13 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "makabansa-g3-q4-w05-d04-visual",
-   "instruction": "Ayusin ang mga hakbang upang maisagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "instruction": "Ayusin ang mga hakbang sa community life.",
    "content": {
     "steps": [
-     "Tingnan ang halimbawa",
-     "Tukuyin ang mahalagang ideya",
-     "Iugnay sa komunidad",
-     "Ipaliwanag ang sagot"
+     "Tingnan ang anyong lupa o tubig",
+     "Hanapin ang likas na yaman",
+     "Iugnay ito sa pagkain o tahanan",
+     "Ipaliwanag ang ugnayan sa kultura"
     ]
    },
    "completionRule": {
@@ -208,7 +208,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ayusin ang mga hakbang upang maisagawa ang: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+   "prompt": "Ayusin ang mga hakbang sa community life.",
    "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -225,7 +225,7 @@
     "itemId": "makabansa-g3-q4-w05-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang pinakamalinaw na nagpapakita ng kasanayang ito: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad?",
+    "prompt": "Aling halimbawa ang nagpapakita ng kulturang naaangkop sa baybayin?",
     "options": [
      {
       "id": "a",
@@ -233,15 +233,15 @@
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "pagpili ng paboritong kulay"
      },
      {
       "id": "c",
-      "text": "impormasyong walang kaugnayan"
+      "text": "pagsulat ng lihim na password"
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
+      "text": "paglalaro ng board game sa bahay"
      }
     ],
     "correctOptionIds": [
@@ -253,91 +253,91 @@
     "itemId": "makabansa-g3-q4-w05-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling pagpipilian ang gumagamit ng kasanayang ito: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad?",
-    "options": [
-     {
-      "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "pagsasaka sa kapatagan"
-     },
-     {
-      "id": "a",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "b",
-      "text": "pang-aalipusta sa kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: pagsasaka sa kapatagan"
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sitwasyon ang nagpapakita ng kasanayang ito: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad?",
+    "prompt": "Aling gawain ang naiimpluwensiyahan ng lugar na tinitirhan?",
     "options": [
      {
       "id": "a",
-      "text": "gawaing nakapipinsala sa kapwa"
+      "text": "pagbibilang ng lapis sa silid-aralan"
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "pagkain mula sa ani ng palay"
      },
      {
       "id": "c",
-      "text": "disenyong angkop sa klima"
+      "text": "pagsulat ng lihim na password"
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pinakamainam na sagot ay: disenyong angkop sa klima"
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling sagot ang wastong gumagamit ng kasanayang ito: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad?",
-    "options": [
-     {
-      "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "hula na walang batayan"
-     },
-     {
-      "id": "a",
-      "text": "impormasyong walang kaugnayan"
-     },
-     {
-      "id": "b",
-      "text": "pagkain mula sa lokal na ani"
+      "text": "paglalaro ng board game sa bahay"
      }
     ],
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "Ang pinakamainam na sagot ay: pagkain mula sa lokal na ani"
+    "explanation": "Ang pinakamainam na sagot ay: pagkain mula sa ani ng palay"
+   },
+   {
+    "itemId": "makabansa-g3-q4-w05-d04-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling tahanan ang idinisenyo ayon sa mainit na klima?",
+    "options": [
+     {
+      "id": "a",
+      "text": "pagbibilang ng lapis sa silid-aralan"
+     },
+     {
+      "id": "b",
+      "text": "pagpili ng paboritong kulay"
+     },
+     {
+      "id": "c",
+      "text": "bahay na may maluwang na bintana sa mainit na lugar"
+     },
+     {
+      "id": "d",
+      "text": "paglalaro ng board game sa bahay"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: bahay na may maluwang na bintana sa mainit na lugar"
+   },
+   {
+    "itemId": "makabansa-g3-q4-w05-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aling pagkain ang maaaring magmula sa ani ng kapatagan?",
+    "options": [
+     {
+      "id": "a",
+      "text": "pagbibilang ng lapis sa silid-aralan"
+     },
+     {
+      "id": "b",
+      "text": "pagpili ng paboritong kulay"
+     },
+     {
+      "id": "c",
+      "text": "pagsulat ng lihim na password"
+     },
+     {
+      "id": "d",
+      "text": "bangkang ginagamit sa paglalakbay sa ilog"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Ang pinakamainam na sagot ay: bangkang ginagamit sa paglalakbay sa ilog"
    },
    {
     "itemId": "makabansa-g3-q4-w05-d04-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Aling halimbawa ang nagbibigay ng patunay sa kasanayang ito: Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad?",
+    "prompt": "Aling halimbawa ang nag-uugnay sa kapaligiran at kultura?",
     "options": [
      {
       "id": "a",
@@ -345,15 +345,15 @@
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "pagpili ng paboritong kulay"
      },
      {
       "id": "c",
-      "text": "impormasyong walang kaugnayan"
+      "text": "pagsulat ng lihim na password"
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
+      "text": "paglalaro ng board game sa bahay"
      }
     ],
     "correctOptionIds": [

@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok? Subukan ang kasanayan sa isang pangkat na nagtutulungan. Subukan ang kasanayan sa isang bukirin malapit sa ilog.",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Handa ka na bang sumubok?",
  "vocabulary": [
   {
    "term": "barangay hall",
-   "definition": "may mahalagang papel sa komunidad"
+   "definition": "Isang gusali kung saan nagbibigay ng serbisyo ang barangay."
   },
   {
    "term": "pamilihan",
-   "definition": "bahagi ng pamumuhay"
+   "definition": "Isang lugar kung saan bumibili at nagbebenta ng mga kailangan."
   },
   {
    "term": "paaralan",
-   "definition": "lugar ng pagkatuto"
+   "definition": "Lugar kung saan nag-aaral at natututo ang mga bata."
   }
  ],
  "activities": [
@@ -36,7 +36,7 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Pag-aralan ang kasanayan: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad. Subukan ang kasanayan sa isang pangkat na nagtutulungan. Subukan ang kasanayan sa isang bukirin malapit sa ilog.",
+   "instruction": "Pakinggan ang paliwanag tungkol sa community history.",
    "content": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Subukan ang kasanayan sa isang pangkat na nagtutulungan. Subukan ang kasanayan sa isang bukirin malapit sa ilog.",
    "completionRule": {
     "type": "COMPLETE"
@@ -45,7 +45,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Pag-aralan ang kasanayan: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad. Subukan ang kasanayan sa isang pangkat na nagtutulungan. Subukan ang kasanayan sa isang bukirin malapit sa ilog.",
+   "prompt": "Pakinggan ang paliwanag tungkol sa community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Subukan ang kasanayan sa isang pangkat na nagtutulungan. Subukan ang kasanayan sa isang bukirin malapit sa ilog.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Suriin ang bawat halimbawa upang maisagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "instruction": "Tuklasin ang mga halimbawa ng community history.",
    "content": {
     "examples": [
      "barangay hall",
@@ -76,7 +76,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Suriin ang bawat halimbawa upang maisagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "prompt": "Tuklasin ang mga halimbawa ng community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Ilagay ang bawat halimbawa sa pangkat habang isinasagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "instruction": "Pagbukud-bukurin ang mga halimbawa ng community history.",
    "content": {
     "fits": [
      "barangay hall",
@@ -98,10 +98,10 @@
      "mga kuwento ng nakatatanda"
     ],
     "doesNotFit": [
-     "hula na walang batayan",
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura",
-     "gawaing nakapipinsala sa kapwa"
+     "presyo ng meryenda",
+     "laro sa palaruan",
+     "kulay ng paboritong bag",
+     "kuwento tungkol sa ibang planeta"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ilagay ang bawat halimbawa sa pangkat habang isinasagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "prompt": "Pagbukud-bukurin ang mga halimbawa ng community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -125,13 +125,13 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Piliin ang sagot na pinakamalinaw na nagpapakita ng: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "instruction": "Piliin ang tamang halimbawa ng community history.",
    "content": {
     "options": [
-     "impormasyong walang kaugnayan",
-     "pang-aalipusta sa kultura",
+     "presyo ng meryenda",
+     "laro sa palaruan",
      "barangay hall",
-     "hula na walang batayan"
+     "kulay ng paboritong bag"
     ],
     "correctIndex": 2
    },
@@ -142,7 +142,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Piliin ang sagot na pinakamalinaw na nagpapakita ng: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "prompt": "Piliin ang tamang halimbawa ng community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -155,16 +155,16 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Itugma ang bawat halimbawa sa ideyang kaugnay ng: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "instruction": "Itapat ang mga halimbawa ng community history.",
    "content": {
     "pairs": [
      {
       "left": "barangay hall",
-      "right": "may mahalagang papel sa komunidad"
+      "right": "serbisyong ibinibigay ng barangay"
      },
      {
       "left": "pamilihan",
-      "right": "bahagi ng pamumuhay"
+      "right": "lugar ng bilihan at bentahan"
      },
      {
       "left": "paaralan",
@@ -179,7 +179,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Itugma ang bawat halimbawa sa ideyang kaugnay ng: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "prompt": "Itapat ang mga halimbawa ng community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "makabansa-g3-q1-w01-d01-visual",
-   "instruction": "Ayusin ang mga hakbang upang maisagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "instruction": "Ayusin ang mga hakbang sa community history.",
    "content": {
     "steps": [
      "Tingnan ang halimbawa",
@@ -208,7 +208,7 @@
     "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
     "retry": "Balikan ang halimbawa at subukan muli. 💪"
    },
-   "prompt": "Ayusin ang mga hakbang upang maisagawa ang: Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+   "prompt": "Ayusin ang mga hakbang sa community history.",
    "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
    "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
    "nextLabel": "Susunod →",
@@ -229,11 +229,11 @@
     "options": [
      {
       "id": "c",
-      "text": "impormasyong walang kaugnayan"
+      "text": "presyo ng meryenda"
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
+      "text": "laro sa palaruan"
      },
      {
       "id": "a",
@@ -241,7 +241,7 @@
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "kulay ng paboritong bag"
      }
     ],
     "correctOptionIds": [
@@ -257,15 +257,15 @@
     "options": [
      {
       "id": "a",
-      "text": "impormasyong walang kaugnayan"
+      "text": "presyo ng meryenda"
      },
      {
       "id": "b",
-      "text": "pang-aalipusta sa kultura"
+      "text": "laro sa palaruan"
      },
      {
       "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
+      "text": "kulay ng paboritong bag"
      },
      {
       "id": "d",
@@ -289,15 +289,15 @@
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
+      "text": "presyo ng meryenda"
      },
      {
       "id": "a",
-      "text": "gawaing nakapipinsala sa kapwa"
+      "text": "laro sa palaruan"
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "kulay ng paboritong bag"
      }
     ],
     "correctOptionIds": [
@@ -313,7 +313,7 @@
     "options": [
      {
       "id": "a",
-      "text": "impormasyong walang kaugnayan"
+      "text": "presyo ng meryenda"
      },
      {
       "id": "b",
@@ -321,11 +321,11 @@
      },
      {
       "id": "c",
-      "text": "gawaing nakapipinsala sa kapwa"
+      "text": "laro sa palaruan"
      },
      {
       "id": "d",
-      "text": "hula na walang batayan"
+      "text": "kulay ng paboritong bag"
      }
     ],
     "correctOptionIds": [
@@ -341,11 +341,11 @@
     "options": [
      {
       "id": "c",
-      "text": "impormasyong walang kaugnayan"
+      "text": "presyo ng meryenda"
      },
      {
       "id": "d",
-      "text": "pang-aalipusta sa kultura"
+      "text": "laro sa palaruan"
      },
      {
       "id": "a",
@@ -353,7 +353,7 @@
      },
      {
       "id": "b",
-      "text": "hula na walang batayan"
+      "text": "kulay ng paboritong bag"
      }
     ],
     "correctOptionIds": [

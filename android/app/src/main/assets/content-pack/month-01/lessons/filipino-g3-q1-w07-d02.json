@@ -1,393 +1,393 @@
 {
-  "lessonId": "filipino-g3-q1-w07-d02",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 1,
-  "day": 2,
-  "subject": "filipino",
-  "title": "Panghalip na Pamatlig (Ito, Iyan, Iyon)",
-  "objective": "Nakagagamit ng panghalip na pamatlig — ito, iyan, at iyon — bilang pamalit sa pangngalan.",
-  "estimatedMinutes": 15,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "reviewedAt": "2026-08-05T01:30:34Z",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
-  "language": "fil-PH",
-  "introduction": "Magandang araw! Ako si Milo. Ngayon, matututo tayong gumamit ng panghalip na pamatlig — ang ito, iyan, at iyon. Depende ito kung gaano kalapit o kalayo ang bagay na tinutukoy. Handa ka na ba?",
-  "vocabulary": [
-    {
-      "term": "Ito",
-      "definition": "Ginagamit kapag hawak o napakalapit ng bagay sa nagsasalita."
-    },
-    {
-      "term": "Iyan",
-      "definition": "Ginagamit kapag malapit sa kausap ang bagay na tinutukoy."
-    },
-    {
-      "term": "Iyon",
-      "definition": "Ginagamit kapag malayo sa nagsasalita at sa kausap ang bagay na tinutukoy."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa ito, iyan, at iyon.",
-      "content": "Ang panghalip na pamatlig ay ginagamit bilang pamalit sa pangngalan upang ituro ang layo o lapit ng bagay. May tatlong panghalip na pamatlig: ITO, IYAN, at IYON. ITO ay ginagamit kung malapit o hawak ng nagsasalita ang bagay na tinutukoy. Halimbawa: Ito ang paborito kong laruan. (Hawak ko ang laruan.) IYAN ay ginagamit kung malapit sa kausap ngunit hindi hawak ng nagsasalita ang bagay. Halimbawa: Iyan ang bagong aklat sa tabi mo. IYON ay ginagamit kung malayo sa nagsasalita at sa kausap ang bagay. Halimbawa: Iyon ang pinakamataas na bundok sa ating lugar. Tandaan: Ito = malapit sa nagsasalita, Iyan = malapit sa kausap, Iyon = malayo sa nagsasalita at sa kausap!",
-      "completionRule": {
-        "type": "VIEW_AND_ACKNOWLEDGE"
-      },
-      "feedback": {
-        "correct": "Mahusay!",
-        "retry": "Pakinggan muli."
-      },
-      "prompt": "Pakinggan ang aralin tungkol sa ito, iyan, at iyon!",
-      "narration": "Ngayon, alamin natin ang pagkakaiba ng ito, iyan, at iyon. Ang bawat isa ay may tamang gamit ayon sa layo ng bagay.",
-      "guideHint": "Tandaan: Ito = hawak mo. Iyan = katabi mo. Iyon = malayo sa iyo.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Paliwanag: Ito para sa hawak, Iyan para sa malapit, Iyon para sa malayo."
-    },
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig.",
-      "content": {
-        "examples": [
-          "Hawak mo ang lapis",
-          "Nasa tabi mo ang bag",
-          "Nasa malayong puno ang ibon",
-          "Bitbit mo ang tsokolate",
-          "Nasa kabilang kalsada ang aso"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 5
-      },
-      "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Panghalip na Pamatlig.",
-      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Panghalip na Pamatlig.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig."
-    },
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Pagbukud-bukurin kung ang sitwasyon ay nangangailangan ng ITO, IYAN, o IYON.",
-      "content": {
-        "fits": [
-          "Hawak ang bola — ITO",
-          "Katabi ang payong — IYAN",
-          "Malayo ang eroplano — IYON",
-          "Hawak ang aklat — ITO",
-          "Nasa kabilang bundok ang bahay — IYON"
-        ],
-        "doesNotFit": [
-          "Hindi panghalip — Sila",
-          "Hindi panghalip — Kami"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 7
-      },
-      "feedback": {
-        "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
-        "retry": "May item na hindi tama ang pagkakabukod. Subukan muli."
-      },
-      "prompt": "Anong panghalip ang gagamitin? Ilagay sa tamang grupo!",
-      "narration": "Tingnan natin kung kaya mo nang pumili ng tamang panghalip sa bawat sitwasyon.",
-      "guideHint": "Basahin ang unang salita: Hawak=Ito, Katabi=Iyan, Malayo=Iyon.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pagbukud-bukurin ang mga sitwasyon kung ito ay gumagamit ng Ito, Iyan, o Iyon."
-    },
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Piliin ang tamang panghalip na pamatlig para sa sitwasyon.",
-      "content": {
-        "options": [
-          "Ito ang regalo ko para sa iyo. (hawak mo ang regalo)",
-          "Ito ang bahay namin sa kabila ng ilog. (malayo ang bahay)",
-          "Ito ang bag na nasa ibabaw ng kabinet. (malayo ang bag)",
-          "Ito ang ibon na lumilipad sa himpapawid. (malayo ang ibon)"
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Tama! Hawak mo ang regalo kaya Ito ang dapat gamitin.",
-        "retry": "Tandaan: Kung hawak mo, Ito ang gamit."
-      },
-      "prompt": "Alin ang tamang gamit ng Ito?",
-      "narration": "Ngayon, subukan mo kung nauunawaan mo na ang gamit ng Ito. Piliin mo ang tamang sagot.",
-      "guideHint": "Basahin ang nasa loob ng panaklong. Tama ba ang Ito sa sitwasyong iyon?",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pumili ng tamang pangungusap na gumagamit ng Ito para sa hawak na bagay."
-    },
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Itapat ang bawat sitwasyon sa tamang panghalip na pamatlig.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Hawak mo ang lapis",
-            "right": "Ito"
-          },
-          {
-            "left": "Nasa tabi mo ang bag",
-            "right": "Iyan"
-          },
-          {
-            "left": "Nasa malayong puno ang ibon",
-            "right": "Iyon"
-          },
-          {
-            "left": "Bitbit mo ang tsokolate",
-            "right": "Ito"
-          },
-          {
-            "left": "Nasa kabilang kalsada ang aso",
-            "right": "Iyon"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_PAIRS_MATCHED"
-      },
-      "feedback": {
-        "correct": "Tama ang lahat ng pagtatapat!",
-        "retry": "Subukan muli."
-      },
-      "prompt": "Anong panghalip ang gagamitin sa bawat sitwasyon? Itapat!",
-      "narration": "Ngayon, itapat mo ang bawat sitwasyon sa tamang panghalip na pamatlig. Tandaan ang layo ng bagay.",
-      "guideHint": "Hawak=Ito, Katabi=Iyan, Malayo=Iyon. Basahing mabuti ang bawat sitwasyon.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Itapat ang limang sitwasyon sa tamang panghalip na pamatlig."
-    },
-    {
-      "activityId": "filipino-g3-q1-w07-d02-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q1-w07-d02-visual",
-      "instruction": "Ayusin ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo.",
-      "content": {
-        "steps": [
-          "Ito — hawak ng nagsasalita (pinakamalapit)",
-          "Iyan — katabi o malapit sa nagsasalita",
-          "Iyon — malayo sa nagsasalita (pinakamalayo)"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED"
-      },
-      "feedback": {
-        "correct": "Tama ang pagkakasunod-sunod!",
-        "retry": "Ayusin muli."
-      },
-      "prompt": "Ayusin mula pinakamalapit hanggang pinakamalayo!",
-      "narration": "Panghuli, ayusin mo ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo. Kaya mo iyan!",
-      "guideHint": "Simulan mo sa pinakamalapit — iyong hawak mo.",
-      "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Tatlong panghalip na pamatlig mula sa pinakamalapit hanggang pinakamalayo."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "sequence": 1,
-        "itemId": "filipino-g3-q1-w07-d02-q1",
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Hawak mo ang isang lapis. Anong panghalip ang gagamitin mo?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Ito"
-          },
-          {
-            "id": "b",
-            "text": "Iyan"
-          },
-          {
-            "id": "c",
-            "text": "Iyon"
-          },
-          {
-            "id": "d",
-            "text": "Sila"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Ito"
-      },
-      {
-        "sequence": 2,
-        "itemId": "filipino-g3-q1-w07-d02-q2",
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Nasa tabi mo ang isang aklat. Anong panghalip ang gagamitin mo?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Iyan"
-          },
-          {
-            "id": "b",
-            "text": "Ito"
-          },
-          {
-            "id": "c",
-            "text": "Iyon"
-          },
-          {
-            "id": "d",
-            "text": "Kami"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Iyan"
-      },
-      {
-        "sequence": 3,
-        "itemId": "filipino-g3-q1-w07-d02-q3",
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Malayo sa iyo ang isang bundok. Anong panghalip ang gagamitin mo?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Iyon"
-          },
-          {
-            "id": "b",
-            "text": "Ito"
-          },
-          {
-            "id": "c",
-            "text": "Iyan"
-          },
-          {
-            "id": "d",
-            "text": "Tayo"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Iyon"
-      },
-      {
-        "sequence": 4,
-        "itemId": "filipino-g3-q1-w07-d02-q4",
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Kailan ginagamit ang panghalip na \"ito\"?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Kapag hawak o napakalapit ng bagay sa nagsasalita"
-          },
-          {
-            "id": "b",
-            "text": "Kapag malayo ang bagay sa nagsasalita"
-          },
-          {
-            "id": "c",
-            "text": "Kapag nasa kabilang baryo ang bagay"
-          },
-          {
-            "id": "d",
-            "text": "Sa lahat ng oras"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Kapag hawak o napakalapit ng bagay sa nagsasalita"
-      },
-      {
-        "sequence": 5,
-        "itemId": "filipino-g3-q1-w07-d02-q5",
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin sa sumusunod ang tamang gamit ng \"iyon\"?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Iyon ang pinakamalayong bituin sa kalangitan."
-          },
-          {
-            "id": "b",
-            "text": "Iyon hawak ko ngayon."
-          },
-          {
-            "id": "c",
-            "text": "Iyon nasa tabi mo."
-          },
-          {
-            "id": "d",
-            "text": "Iyon ang binabasa kong aklat sa aking mga kamay."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pinakamabuting sagot ay: Iyon ang pinakamalayong bituin sa kalangitan."
-      }
-    ]
+ "lessonId": "filipino-g3-q1-w07-d02",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 2,
+ "subject": "filipino",
+ "title": "Panghalip na Pamatlig (Ito, Iyan, Iyon)",
+ "objective": "Nakagagamit ng panghalip na pamatlig — ito, iyan, at iyon — bilang pamalit sa pangngalan.",
+ "estimatedMinutes": 15,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "reviewedAt": "2026-08-05T01:30:34Z",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
+ "language": "fil-PH",
+ "introduction": "Magandang araw! Ako si Milo. Ngayon, matututo tayong gumamit ng panghalip na pamatlig — ang ito, iyan, at iyon. Depende ito kung gaano kalapit o kalayo ang bagay na tinutukoy.",
+ "vocabulary": [
+  {
+   "term": "Ito",
+   "definition": "Ginagamit kapag hawak o napakalapit ng bagay sa nagsasalita."
   },
-  "contentReview": {
-    "reviewer": "Pending owner/educator review",
-    "source": "ph-matatag-g3-filipino-q1-slm-v2.zip",
-    "rewritten": true,
-    "derivedActivityTypes": [
-      "HOTSPOT_IMAGE"
-    ]
+  {
+   "term": "Iyan",
+   "definition": "Ginagamit kapag malapit sa kausap ang bagay na tinutukoy."
   },
-  "storyIntro": "Nais mo bang matutong tumukoy ng mga bagay nang hindi inuulit ang pangalan nito? May mga salitang pamalit tayong ginagamit — ito, iyan, at iyon. Ang mga ito ay tinatawag na panghalip na pamatlig! Alamin natin kung kailan ginagamit ang bawat isa.",
-  "scene": {
-    "character": "Milo",
-    "setting": "Sa loob ng isang palengke, maraming paninda na malapit at malalayo kay Milo."
-  },
-  "accessibility": {
-    "narrationAvailable": true,
-    "captionsAvailable": true,
-    "reducedMotionSupported": true,
-    "dragAlternativeAvailable": true,
-    "colorIndependent": true
+  {
+   "term": "Iyon",
+   "definition": "Ginagamit kapag malayo sa nagsasalita at sa kausap ang bagay na tinutukoy."
   }
+ ],
+ "activities": [
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa ito, iyan, at iyon.",
+   "content": "Ang panghalip na pamatlig ay ginagamit bilang pamalit sa pangngalan upang ituro ang layo o lapit ng bagay. May tatlong panghalip na pamatlig: ITO, IYAN, at IYON. ITO ay ginagamit kung malapit o hawak ng nagsasalita ang bagay na tinutukoy. Halimbawa: Ito ang paborito kong laruan. (Hawak ko ang laruan.) IYAN ay ginagamit kung malapit sa kausap ngunit hindi hawak ng nagsasalita ang bagay. Halimbawa: Iyan ang bagong aklat sa tabi mo. IYON ay ginagamit kung malayo sa nagsasalita at sa kausap ang bagay. Halimbawa: Iyon ang pinakamataas na bundok sa ating lugar. Tandaan: Ito = malapit sa nagsasalita, Iyan = malapit sa kausap, Iyon = malayo sa nagsasalita at sa kausap!",
+   "completionRule": {
+    "type": "VIEW_AND_ACKNOWLEDGE"
+   },
+   "feedback": {
+    "correct": "Mahusay!",
+    "retry": "Pakinggan muli."
+   },
+   "prompt": "Pakinggan ang aralin tungkol sa ito, iyan, at iyon!",
+   "narration": "Ngayon, alamin natin ang pagkakaiba ng ito, iyan, at iyon. Ang bawat isa ay may tamang gamit ayon sa layo ng bagay.",
+   "guideHint": "Tandaan: Ito = hawak mo. Iyan = katabi mo. Iyon = malayo sa iyo.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Paliwanag: Ito para sa hawak, Iyan para sa malapit, Iyon para sa malayo."
+  },
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig.",
+   "content": {
+    "examples": [
+     "Hawak mo ang lapis",
+     "Nasa tabi mo ang bag",
+     "Nasa malayong puno ang ibon",
+     "Bitbit mo ang tsokolate",
+     "Nasa kabilang kalsada ang aso"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 5
+   },
+   "feedback": {
+    "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang halimbawa at subukan muli. 💪"
+   },
+   "prompt": "Pindutin ang bawat halimbawang kaugnay ng Panghalip na Pamatlig.",
+   "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Panghalip na Pamatlig.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Panghalip na Pamatlig."
+  },
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Pagbukud-bukurin kung ang sitwasyon ay nangangailangan ng ITO, IYAN, o IYON.",
+   "content": {
+    "fits": [
+     "Hawak ang bola — ITO",
+     "Katabi ang payong — IYAN",
+     "Malayo ang eroplano — IYON",
+     "Hawak ang aklat — ITO",
+     "Nasa kabilang bundok ang bahay — IYON"
+    ],
+    "doesNotFit": [
+     "Hindi panghalip — Sila",
+     "Hindi panghalip — Kami"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 7
+   },
+   "feedback": {
+    "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
+    "retry": "May item na hindi tama ang pagkakabukod. Subukan muli."
+   },
+   "prompt": "Anong panghalip ang gagamitin? Ilagay sa tamang grupo!",
+   "narration": "Tingnan natin kung kaya mo nang pumili ng tamang panghalip sa bawat sitwasyon.",
+   "guideHint": "Basahin ang unang salita: Hawak=Ito, Katabi=Iyan, Malayo=Iyon.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Pagbukud-bukurin ang mga sitwasyon kung ito ay gumagamit ng Ito, Iyan, o Iyon."
+  },
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Piliin ang tamang panghalip na pamatlig para sa sitwasyon.",
+   "content": {
+    "options": [
+     "Ito ang regalo ko para sa iyo. (hawak mo ang regalo)",
+     "Ito ang bahay namin sa kabila ng ilog. (malayo ang bahay)",
+     "Ito ang bag na nasa ibabaw ng kabinet. (malayo ang bag)",
+     "Ito ang ibon na lumilipad sa himpapawid. (malayo ang ibon)"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Tama! Hawak mo ang regalo kaya Ito ang dapat gamitin.",
+    "retry": "Tandaan: Kung hawak mo, Ito ang gamit."
+   },
+   "prompt": "Alin ang tamang gamit ng Ito?",
+   "narration": "Ngayon, subukan mo kung nauunawaan mo na ang gamit ng Ito. Piliin mo ang tamang sagot.",
+   "guideHint": "Basahin ang nasa loob ng panaklong. Tama ba ang Ito sa sitwasyong iyon?",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Pumili ng tamang pangungusap na gumagamit ng Ito para sa hawak na bagay."
+  },
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Itapat ang bawat sitwasyon sa tamang panghalip na pamatlig.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Hawak mo ang lapis",
+      "right": "Ito — hawak o malapit sa iyo"
+     },
+     {
+      "left": "Nasa tabi mo ang bag",
+      "right": "Iyan — malapit sa kausap"
+     },
+     {
+      "left": "Nasa malayong puno ang ibon",
+      "right": "Iyon — malayo sa inyong dalawa"
+     },
+     {
+      "left": "Bitbit mo ang tsokolate",
+      "right": "Ito — hawak mo ngayon"
+     },
+     {
+      "left": "Nasa kabilang kalsada ang aso",
+      "right": "Iyon — nasa malayong lugar"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_PAIRS_MATCHED"
+   },
+   "feedback": {
+    "correct": "Tama ang lahat ng pagtatapat!",
+    "retry": "Subukan muli."
+   },
+   "prompt": "Anong panghalip ang gagamitin sa bawat sitwasyon? Itapat!",
+   "narration": "Ngayon, itapat mo ang bawat sitwasyon sa tamang panghalip na pamatlig. Tandaan ang layo ng bagay.",
+   "guideHint": "Hawak=Ito, Katabi=Iyan, Malayo=Iyon. Basahing mabuti ang bawat sitwasyon.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Itapat ang limang sitwasyon sa tamang panghalip na pamatlig."
+  },
+  {
+   "activityId": "filipino-g3-q1-w07-d02-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "filipino-g3-q1-w07-d02-visual",
+   "instruction": "Ayusin ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo.",
+   "content": {
+    "steps": [
+     "Ito — hawak ng nagsasalita (pinakamalapit)",
+     "Iyan — katabi o malapit sa nagsasalita",
+     "Iyon — malayo sa nagsasalita (pinakamalayo)"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_STEPS_COMPLETED"
+   },
+   "feedback": {
+    "correct": "Tama ang pagkakasunod-sunod!",
+    "retry": "Ayusin muli."
+   },
+   "prompt": "Ayusin mula pinakamalapit hanggang pinakamalayo!",
+   "narration": "Panghuli, ayusin mo ang mga panghalip na pamatlig mula sa pinakamalapit hanggang sa pinakamalayo. Kaya mo iyan!",
+   "guideHint": "Simulan mo sa pinakamalapit — iyong hawak mo.",
+   "nextLabel": "Tapos na!",
+   "accessibilityAlternative": "Tatlong panghalip na pamatlig mula sa pinakamalapit hanggang pinakamalayo."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "sequence": 1,
+    "itemId": "filipino-g3-q1-w07-d02-q1",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Hawak mo ang isang lapis. Anong panghalip ang gagamitin mo?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Ito"
+     },
+     {
+      "id": "b",
+      "text": "Iyan"
+     },
+     {
+      "id": "c",
+      "text": "Iyon"
+     },
+     {
+      "id": "d",
+      "text": "Sila"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang tamang sagot ay “Ito.” Tama dahil ginagamit ang panghalip bilang pamalit sa pangngalan."
+   },
+   {
+    "sequence": 2,
+    "itemId": "filipino-g3-q1-w07-d02-q2",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Nasa tabi mo ang isang aklat. Anong panghalip ang gagamitin mo?",
+    "options": [
+     {
+      "id": "d",
+      "text": "Kami"
+     },
+     {
+      "id": "a",
+      "text": "Iyan"
+     },
+     {
+      "id": "b",
+      "text": "Ito"
+     },
+     {
+      "id": "c",
+      "text": "Iyon"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang tamang sagot ay “Iyan.” Tama dahil ginagamit ang panghalip bilang pamalit sa pangngalan."
+   },
+   {
+    "sequence": 3,
+    "itemId": "filipino-g3-q1-w07-d02-q3",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Malayo sa iyo ang isang bundok. Anong panghalip ang gagamitin mo?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Iyan"
+     },
+     {
+      "id": "d",
+      "text": "Tayo"
+     },
+     {
+      "id": "a",
+      "text": "Iyon"
+     },
+     {
+      "id": "b",
+      "text": "Ito"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang tamang sagot ay “Iyon.” Tama dahil ginagamit ang panghalip bilang pamalit sa pangngalan."
+   },
+   {
+    "sequence": 4,
+    "itemId": "filipino-g3-q1-w07-d02-q4",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Kailan ginagamit ang panghalip na \"ito\"?",
+    "options": [
+     {
+      "id": "b",
+      "text": "Kapag malayo ang bagay sa nagsasalita"
+     },
+     {
+      "id": "c",
+      "text": "Kapag nasa kabilang baryo ang bagay"
+     },
+     {
+      "id": "d",
+      "text": "Sa lahat ng oras"
+     },
+     {
+      "id": "a",
+      "text": "Kapag hawak o napakalapit ng bagay sa nagsasalita"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang tamang sagot ay “Kapag hawak o napakalapit ng bagay sa nagsasalita.” Tama dahil ginagamit ang panghalip bilang pamalit sa pangngalan."
+   },
+   {
+    "sequence": 5,
+    "itemId": "filipino-g3-q1-w07-d02-q5",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Alin sa sumusunod ang tamang gamit ng \"iyon\"?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Iyon ang pinakamalayong bituin sa kalangitan."
+     },
+     {
+      "id": "b",
+      "text": "Iyon hawak ko ngayon."
+     },
+     {
+      "id": "c",
+      "text": "Iyon nasa tabi mo."
+     },
+     {
+      "id": "d",
+      "text": "Iyon ang binabasa kong aklat sa aking mga kamay."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang tamang sagot ay “Iyon ang pinakamalayong bituin sa kalangitan.” Tama dahil ginagamit ang panghalip bilang pamalit sa pangngalan."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "Pending owner/educator review",
+  "source": "ph-matatag-g3-filipino-q1-slm-v2.zip",
+  "rewritten": true,
+  "derivedActivityTypes": [
+   "HOTSPOT_IMAGE"
+  ]
+ },
+ "storyIntro": "Nais mo bang matutong tumukoy ng mga bagay nang hindi inuulit ang pangalan nito? May mga salitang pamalit tayong ginagamit — ito, iyan, at iyon. Ang mga ito ay tinatawag na panghalip na pamatlig! Alamin natin kung kailan ginagamit ang bawat isa.",
+ "scene": {
+  "character": "Milo",
+  "setting": "Sa loob ng isang palengke, maraming paninda na malapit at malalayo kay Milo."
+ },
+ "accessibility": {
+  "narrationAvailable": true,
+  "captionsAvailable": true,
+  "reducedMotionSupported": true,
+  "dragAlternativeAvailable": true,
+  "colorIndependent": true
+ }
 }

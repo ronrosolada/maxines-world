@@ -117,6 +117,18 @@ ENGLISH_PROMPTS = {
     "intonation": "Which sentence uses voice or punctuation to show its meaning?",
 }
 
+MATH_EQUAL_GROUPS = {
+    "mathematics-g3-q3-w05-d04": (3, 4),
+    "mathematics-g3-q3-w06-d01": (4, 3),
+    "mathematics-g3-q3-w06-d03": (2, 6),
+    "mathematics-g3-q3-w07-d01": (5, 3),
+    "mathematics-g3-q3-w07-d02": (3, 7),
+    "mathematics-g3-q4-w08-d01": (4, 5),
+    "mathematics-g3-q4-w08-d02": (2, 9),
+    "mathematics-g3-q4-w08-d03": (5, 6),
+    "mathematics-g3-q4-w09-d01": (3, 8),
+}
+
 FILIPINO_PAIR_LABELS = {
     "guro—tao": "tao",
     "kalabaw—hayop": "hayop",
@@ -469,8 +481,8 @@ def repair_assessment_and_language(lesson: dict[str, Any]) -> bool:
                     changed = True
                 return new
             return value
-        repaired = replace(lesson)
-        lesson.clear(); lesson.update(repaired)
+        repaired_lesson = replace(lesson)
+        lesson.clear(); lesson.update(repaired_lesson)
     # Unsafe distractor: remove it even when it is intentionally incorrect.
     def scrub(value: Any) -> Any:
         nonlocal changed
@@ -480,8 +492,137 @@ def repair_assessment_and_language(lesson: dict[str, Any]) -> bool:
             changed = True
             return "name a color in the room"
         return value
-    repaired = scrub(lesson)
-    lesson.clear(); lesson.update(repaired)
+    repaired_lesson = scrub(lesson)
+    lesson.clear(); lesson.update(repaired_lesson)
+    return changed
+
+
+def english_milo_reason(lesson: dict[str, Any]) -> str:
+    text = (str(lesson.get("objective", "")) + " " + str(lesson.get("title", ""))).lower()
+    if "picture" in text or "detail" in text:
+        return "It identifies a detail that can be seen or found in the picture."
+    if "character" in text:
+        return "It identifies a person or animal who takes part in the story."
+    if "ending" in text:
+        return "It describes a possible event after the earlier parts of the story."
+    if "first-person" in text or "diary" in text:
+        return "It uses first-person words to tell about the writer's day."
+    if "telling sentence" in text:
+        return "It states information and uses a period to finish the telling sentence."
+    if "proper" in text or "common" in text:
+        return "It shows whether the noun is a special name or a general name."
+    if "plural" in text and ("-es" in text or "-ies" in text):
+        return "It applies the spelling change used to make this plural noun."
+    if "plural" in text:
+        return "It adds the ending used to name more than one."
+    if "vowel" in text:
+        return "It identifies the vowel or short vowel sound named in the question."
+    if "syllable" in text:
+        return "It counts the spoken parts of the word."
+    if "past" in text or "present" in text or "future" in text:
+        return "It matches the action word to the time clue."
+    if "blend" in text:
+        return "It contains the consonant blend named in the lesson."
+    if "digraph" in text:
+        return "It contains the two-letter sound pattern named in the lesson."
+    if "sight word" in text:
+        return "It is a common word that readers learn to recognize quickly."
+    if "possessive" in text:
+        return "It shows who owns or is connected to something."
+    if "cause" in text and "effect" in text:
+        return "It connects the event with its cause or effect."
+    if "main idea" in text or "detail" in text:
+        return "It gives the main idea or a detail that supports it."
+    if "retell" in text or "order" in text:
+        return "It follows the events in the order they happened."
+    if "graph" in text:
+        return "It uses the graph's pictures or key to read the information."
+    return "It applies the English skill practiced in this lesson."
+
+
+def repair_early_english_feedback_and_ids(lesson: dict[str, Any]) -> bool:
+    if str(lesson.get("subject", "")).lower() != "english":
+        return False
+    changed = False
+    lid = str(lesson.get("lessonId", ""))
+    for index, item in enumerate((lesson.get("assessment") or {}).get("items", [])):
+        expected_id = f"{lid}-q{index + 1:02d}"
+        if item.get("itemId") != expected_id:
+            item["itemId"] = expected_id
+            changed = True
+        explanation = str(item.get("explanation", ""))
+        if explanation.lower().startswith("milo asks:"):
+            correct = next(
+                (o.get("text", "") for o in item.get("options", [])
+                 if o.get("id") in set(item.get("correctOptionIds", []))),
+                "",
+            )
+            new_explanation = f"The keyed choice is “{correct}”. {english_milo_reason(lesson)}"
+            if explanation != new_explanation:
+                item["explanation"] = new_explanation
+                changed = True
+    return changed
+
+
+def repair_equal_groups_math(lesson: dict[str, Any]) -> bool:
+    lid = str(lesson.get("lessonId", ""))
+    if str(lesson.get("subject", "")).lower() != "mathematics" or lid not in MATH_EQUAL_GROUPS:
+        return False
+    groups, per_group = MATH_EQUAL_GROUPS[lid]
+    total = groups * per_group
+    changed = False
+    for item in (lesson.get("assessment") or {}).get("items", []):
+        if "which multiplication sentence is correct" not in str(item.get("prompt", "")).lower():
+            continue
+        options = list(item.get("options", []))
+        if len(options) != 4:
+            continue
+        option_ids = [str(option.get("id")) for option in options]
+        correct_id = next((str(value) for value in item.get("correctOptionIds", []) if str(value) in option_ids), option_ids[0])
+        correct_index = option_ids.index(correct_id)
+        wrong_products = [
+            (groups, per_group + 1),
+            (groups + 1, per_group),
+            (max(1, groups - 1), per_group),
+        ]
+        texts = [f"{a} × {b} = {a * b}" for a, b in wrong_products]
+        correct_text = f"{groups} × {per_group} = {total}"
+        replacement_texts = [correct_text if i == correct_index else texts.pop(0) for i in range(4)]
+        new_options = [
+            {"id": option_id, "text": text}
+            for option_id, text in zip(option_ids, replacement_texts)
+        ]
+        if options != new_options or item.get("correctOptionIds") != [correct_id]:
+            item["options"] = new_options
+            item["correctOptionIds"] = [correct_id]
+            changed = True
+    return changed
+
+
+def repair_spelling_ambiguity(lesson: dict[str, Any]) -> bool:
+    replacements = {
+        "filipino-g3-q1-w01-d04": {1: {"paggalang": "paggalanng"}, 3: {"paaralan": "paaralann"}},
+        "filipino-g3-q2-w04-d01": {1: {"kalayaan": "kalayann"}, 3: {"aklatan": "aklatann"}},
+        "filipino-g3-q2-w05-d01": {1: {"sasakyan": "sasakyaan"}, 3: {"bintana": "bintanna"}},
+        "filipino-g3-q3-w08-d01": {1: {"palengke": "palengkee"}, 3: {"pangarap": "pangarapp"}},
+        "filipino-g3-q3-w08-d05": {1: {"tulong": "tulogg"}, 3: {"pagkain": "pagkaain"}},
+        "filipino-g3-q4-w11-d02": {1: {"halaman": "halamann"}, 3: {"ilog": "ilogg"}},
+        "filipino-g3-q4-w12-d02": {1: {"payong": "payongg"}, 3: {"suklay": "suklaay"}},
+    }
+    lesson_replacements = replacements.get(str(lesson.get("lessonId")))
+    if not lesson_replacements:
+        return False
+    changed = False
+    items = (lesson.get("assessment") or {}).get("items", [])
+    for index, text_replacements in lesson_replacements.items():
+        if index >= len(items):
+            continue
+        for option in items[index].get("options", []):
+            old_text = option.get("text")
+            new_text = text_replacements.get(old_text)
+            if new_text and new_text != old_text:
+                option["text"] = new_text
+                changed = True
     return changed
 
 
@@ -619,14 +760,173 @@ def repair_live_mc_bias(lesson: dict[str, Any]) -> bool:
     return changed
 
 
+def repair_english_similarity(lesson: dict[str, Any]) -> bool:
+    if str(lesson.get("subject", "")).lower() != "english":
+        return False
+    variants = {
+        "english-g3-q2-w06-d03": {
+            "intro": "Write about a rainy-day walk. Notice what happened, where you were, how you felt, and what you learned.",
+            "scene": "🌧️☂️🏠",
+            "fits": [
+                "The rain began after school.",
+                "I walked home with my yellow umbrella.",
+                "I felt glad when Dad met me.",
+                "I learned to check the sky before leaving.",
+            ],
+            "wrong": ["The moon is bright.", "A cat sleeps on the mat.", "Pencils are in the box.", "The window is open."],
+            "pairs": [
+                {"left": "what happened", "right": "The rain began after school."},
+                {"left": "where it happened", "right": "I walked home from school."},
+                {"left": "how I felt", "right": "I felt glad when Dad met me."},
+            ],
+            "steps": ["Tell what happened", "Add where it happened", "Share a feeling or detail", "Say what you learned"],
+            "prompts": [
+                "Which sentence tells what happened?",
+                "Which detail tells where the experience happened?",
+                "Which sentence shows a feeling?",
+                "Which sentence tells what was learned?",
+                "Which choice gives a detail from the experience?",
+            ],
+        },
+        "english-g3-q3-w13-d01": {
+            "intro": "Tell about a visit to the school garden. Use details about the event, place, feeling, and learning.",
+            "scene": "🌱🏫🪴",
+            "fits": [
+                "I planted a seed in the garden.",
+                "The garden was beside our classroom.",
+                "I felt excited when a leaf appeared.",
+                "I learned that plants need care.",
+            ],
+            "wrong": ["The bus is blue.", "A spoon is on the table.", "The bell is loud.", "My shoes are clean."],
+            "pairs": [
+                {"left": "what happened", "right": "I planted a seed in the garden."},
+                {"left": "where it happened", "right": "The garden was beside our classroom."},
+                {"left": "what I learned", "right": "I learned that plants need care."},
+            ],
+            "steps": ["Choose the garden event", "Name the place", "Add a feeling or observation", "Tell the lesson learned"],
+            "prompts": [
+                "Which sentence tells about the garden event?",
+                "Which detail names the place?",
+                "Which sentence shares a feeling?",
+                "Which sentence tells the lesson learned?",
+                "Which choice adds a useful experience detail?",
+            ],
+        },
+        "english-g3-q3-w13-d02": {
+            "intro": "Tell about helping a lost puppy. Put the event, place, feeling, and lesson into clear sentences.",
+            "scene": "🐶🚪🧑‍🧒",
+            "fits": [
+                "A small puppy wandered near the gate.",
+                "I found it beside the playground.",
+                "I felt calm when the owner arrived.",
+                "I learned to ask an adult for help.",
+            ],
+            "wrong": ["The moon is round.", "A red crayon is on the desk.", "The fan is turning.", "My lunch box is closed."],
+            "pairs": [
+                {"left": "what happened", "right": "A small puppy wandered near the gate."},
+                {"left": "where it happened", "right": "I found it beside the playground."},
+                {"left": "what I learned", "right": "I learned to ask an adult for help."},
+            ],
+            "steps": ["Notice the puppy event", "Name the place", "Describe the feeling", "Tell the safe lesson"],
+            "prompts": [
+                "Which sentence tells what happened to the puppy?",
+                "Which detail tells where the puppy was?",
+                "Which sentence shows the writer's feeling?",
+                "Which sentence tells the safe lesson?",
+                "Which choice adds a detail from the experience?",
+            ],
+        },
+        "english-g3-q2-w04-d04": {
+            "intro": "Polish sentences from our classroom. Check the first capital letter and choose an end mark that fits the meaning.",
+            "scene": "📚✏️🏫",
+            "fits": ["Milo reads a book.", "Where is the pencil?", "Look out for the wet floor!", "We are ready to learn."],
+            "wrong": ["milo reads a book", "where is the pencil", "look out for the wet floor", "we are ready to learn"],
+            "pairs": [
+                {"left": "Milo reads a book.", "right": "telling sentence"},
+                {"left": "Where is the pencil?", "right": "question sentence"},
+                {"left": "Look out for the wet floor!", "right": "exclamation sentence"},
+            ],
+            "steps": ["Read the whole sentence", "Check the first letter", "Choose the fitting end mark", "Read it aloud to check"],
+            "prompts": [
+                "Which sentence begins with a capital and ends with a period?",
+                "Which sentence asks a question correctly?",
+                "Which sentence gives a warning correctly?",
+                "Which telling sentence is written correctly?",
+                "Which choice shows both rules?",
+            ],
+        },
+        "english-g3-q3-w11-d01": {
+            "intro": "Polish sentences about our neighborhood. Use a capital letter and punctuation that tells the reader how to read each sentence.",
+            "scene": "🏘️🌼📝",
+            "fits": ["Ana helps her neighbor.", "Can you pass the ball?", "Please watch the step!", "Our class plants seeds."],
+            "wrong": ["ana helps her neighbor", "can you pass the ball", "please watch the step", "our class plants seeds"],
+            "pairs": [
+                {"left": "Ana helps her neighbor.", "right": "telling sentence"},
+                {"left": "Can you pass the ball?", "right": "question sentence"},
+                {"left": "Please watch the step!", "right": "exclamation sentence"},
+            ],
+            "steps": ["Read the neighborhood sentence", "Find the capital letter", "Match the end mark to meaning", "Read the polished sentence"],
+            "prompts": [
+                "Which neighborhood sentence is a correct telling sentence?",
+                "Which sentence asks for something with a question mark?",
+                "Which sentence gives a warning with an exclamation mark?",
+                "Which sentence tells what the class does?",
+                "Which choice uses a capital and fitting punctuation?",
+            ],
+        },
+    }
+    variant = variants.get(str(lesson.get("lessonId")))
+    if not variant or len(lesson.get("activities", [])) < 6:
+        return False
+    changed = False
+    if lesson.get("introduction") != variant["intro"]:
+        lesson["introduction"] = variant["intro"]
+        changed = True
+    activities = lesson["activities"]
+    activity_content = [
+        variant["intro"],
+        {"examples": list(variant["fits"]), "visualScene": variant["scene"]},
+        {"fits": list(variant["fits"]), "doesNotFit": list(variant["wrong"])},
+        {"options": [variant["wrong"][0], variant["fits"][0], variant["wrong"][1], variant["wrong"][2]], "correctIndex": 1},
+        {"pairs": copy.deepcopy(variant["pairs"])},
+        {"steps": list(variant["steps"])},
+    ]
+    for activity, content in zip(activities, activity_content):
+        if activity.get("content") != content:
+            activity["content"] = content
+            changed = True
+    items = lesson.get("assessment", {}).get("items", [])
+    for index, item in enumerate(items[:5]):
+        correct = variant["fits"][index % len(variant["fits"])]
+        wrong = [value for value in variant["wrong"] if value != correct]
+        correct_position = [0, 1, 2, 3, 0][index]
+        texts = list(wrong)
+        option_texts = [correct if position == correct_position else texts.pop(0) for position in range(4)]
+        options = [{"id": chr(ord("a") + position), "text": text} for position, text in enumerate(option_texts)]
+        correct_id = chr(ord("a") + correct_position)
+        explanation = f"The answer is “{correct}”. It uses the lesson skill with a clear, useful example."
+        if str(lesson.get("lessonId", "")).startswith("english-g3-q2-w04") or str(lesson.get("lessonId", "")).startswith("english-g3-q3-w11"):
+            explanation = f"The answer is “{correct}”. It begins with a capital letter and ends with punctuation that fits the meaning."
+        updates = {"prompt": variant["prompts"][index], "options": options, "correctOptionIds": [correct_id], "explanation": explanation}
+        for key, value in updates.items():
+            if item.get(key) != value:
+                item[key] = value
+                changed = True
+    return changed
+
+
 def repair_lesson(lesson: dict[str, Any]) -> tuple[dict[str, Any], bool]:
     original = copy.deepcopy(lesson)
     repair_english_stock(lesson)
     repair_matching_and_vocab(lesson)
     repair_generic_shell_copy(lesson)
     repair_math_sequence_and_vocab(lesson)
+    repair_early_english_feedback_and_ids(lesson)
     repair_assessment_and_language(lesson)
+    repair_equal_groups_math(lesson)
+    repair_spelling_ambiguity(lesson)
     repair_live_mc_bias(lesson)
+    repair_english_similarity(lesson)
     return lesson, lesson != original
 
 
