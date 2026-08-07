@@ -59,4 +59,16 @@ class MiniGameRoutesTest {
             MiniGameRoutes.kittenMatch(childId, breakId, durationMillis),
         )
     }
+
+    @Test
+    fun `builders encode dynamic path segments`() {
+        assertEquals(
+            "reward/child%2Fwith%20space/break%3F1",
+            MiniGameRoutes.hub("child/with space", "break?1"),
+        )
+        assertEquals(
+            "reward/source-game/child%2F1/break%2F1/30000/word%20search",
+            MiniGameRoutes.sourceWebGame("child/1", "break/1", 30_000L, "word search"),
+        )
+    }
 }

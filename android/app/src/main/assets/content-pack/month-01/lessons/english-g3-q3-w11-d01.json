@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore? Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor.",
+ "introduction": "Polish sentences about our neighborhood. Use a capital letter and punctuation that tells the reader how to read each sentence.",
  "vocabulary": [
   {
    "term": "Milo reads.",
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Learn this skill: Use a capital letter and correct end punctuation in a simple sentence. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor.",
-   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor.",
+   "instruction": "Listen to the explanation about capital letters and punctuation.",
+   "content": "Polish sentences about our neighborhood. Use a capital letter and punctuation that tells the reader how to read each sentence.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,7 +45,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Learn this skill: Use a capital letter and correct end punctuation in a simple sentence. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor.",
+   "prompt": "Listen to the explanation about capital letters and punctuation.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Try the skill with a classmate's name. Try the skill with a sentence about a helpful neighbor.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -58,15 +58,15 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Look closely at each example to practice: Use a capital letter and correct end punctuation in a simple sentence.",
+   "instruction": "Find examples of capital letters and punctuation.",
    "content": {
     "examples": [
-     "Milo reads.",
-     "Where is the book?",
-     "Look out!",
-     "We are ready."
+     "Ana helps her neighbor.",
+     "Can you pass the ball?",
+     "Please watch the step!",
+     "Our class plants seeds."
     ],
-    "visualScene": "🐱🔎✨"
+    "visualScene": "🏘️🌼📝"
    },
    "completionRule": {
     "type": "ALL_TARGETS_VISITED",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Look closely at each example to practice: Use a capital letter and correct end punctuation in a simple sentence.",
+   "prompt": "Find examples of capital letters and punctuation.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -89,19 +89,19 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Sort each example while practicing: Use a capital letter and correct end punctuation in a simple sentence.",
+   "instruction": "Sort the examples of capital letters and punctuation.",
    "content": {
     "fits": [
-     "Milo reads.",
-     "Where is the book?",
-     "Look out!",
-     "We are ready."
+     "Ana helps her neighbor.",
+     "Can you pass the ball?",
+     "Please watch the step!",
+     "Our class plants seeds."
     ],
     "doesNotFit": [
-     "milo reads.",
-     "where is the book",
-     "look out",
-     "we are ready"
+     "ana helps her neighbor",
+     "can you pass the ball",
+     "please watch the step",
+     "our class plants seeds"
     ]
    },
    "completionRule": {
@@ -112,7 +112,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Sort each example while practicing: Use a capital letter and correct end punctuation in a simple sentence.",
+   "prompt": "Sort the examples of capital letters and punctuation.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -128,12 +128,12 @@
    "instruction": "Which choice uses a capital letter and the correct end mark?",
    "content": {
     "options": [
-     "Milo reads.",
-     "milo reads.",
-     "where is the book",
-     "look out"
+     "ana helps her neighbor",
+     "Ana helps her neighbor.",
+     "can you pass the ball",
+     "please watch the step"
     ],
-    "correctIndex": 0
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -155,19 +155,19 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Match each example to the idea it shows about: Use a capital letter and correct end punctuation in a simple sentence.",
+   "instruction": "Match the examples about capital letters and punctuation.",
    "content": {
     "pairs": [
      {
-      "left": "Milo reads.",
+      "left": "Ana helps her neighbor.",
       "right": "telling sentence"
      },
      {
-      "left": "Where is the book?",
+      "left": "Can you pass the ball?",
       "right": "question sentence"
      },
      {
-      "left": "Look out!",
+      "left": "Please watch the step!",
       "right": "exclamation sentence"
      }
     ]
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match each example to the idea it shows about: Use a capital letter and correct end punctuation in a simple sentence.",
+   "prompt": "Match the examples about capital letters and punctuation.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -192,13 +192,13 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Put the steps in order to practice: Use a capital letter and correct end punctuation in a simple sentence.",
+   "instruction": "Put the capital letters and punctuation steps in order.",
    "content": {
     "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
+     "Read the neighborhood sentence",
+     "Find the capital letter",
+     "Match the end mark to meaning",
+     "Read the polished sentence"
     ]
    },
    "completionRule": {
@@ -208,7 +208,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Put the steps in order to practice: Use a capital letter and correct end punctuation in a simple sentence.",
+   "prompt": "Put the capital letters and punctuation steps in order.",
    "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -225,141 +225,141 @@
     "itemId": "english-g3-q3-w11-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital letter and the correct end mark?",
+    "prompt": "Which neighborhood sentence is a correct telling sentence?",
     "options": [
      {
       "id": "a",
-      "text": "Milo reads."
+      "text": "Ana helps her neighbor."
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "ana helps her neighbor"
      },
      {
       "id": "c",
-      "text": "where is the book"
+      "text": "can you pass the ball"
      },
      {
       "id": "d",
-      "text": "look out"
+      "text": "please watch the step"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The best answer is: Milo reads."
+    "explanation": "The answer is “Ana helps her neighbor.”. It begins with a capital letter and ends with punctuation that fits the meaning."
    },
    {
     "itemId": "english-g3-q3-w11-d01-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital letter and the correct end mark?",
+    "prompt": "Which sentence asks for something with a question mark?",
     "options": [
      {
-      "id": "d",
-      "text": "look out"
-     },
-     {
       "id": "a",
-      "text": "Where is the book?"
+      "text": "ana helps her neighbor"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "Can you pass the ball?"
      },
      {
       "id": "c",
-      "text": "where is the book"
+      "text": "can you pass the ball"
+     },
+     {
+      "id": "d",
+      "text": "please watch the step"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The best answer is: Where is the book?"
+    "explanation": "The answer is “Can you pass the ball?”. It begins with a capital letter and ends with punctuation that fits the meaning."
    },
    {
     "itemId": "english-g3-q3-w11-d01-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital letter and the correct end mark?",
+    "prompt": "Which sentence gives a warning with an exclamation mark?",
     "options": [
      {
-      "id": "c",
-      "text": "where is the book"
-     },
-     {
-      "id": "d",
-      "text": "look out"
-     },
-     {
       "id": "a",
-      "text": "Look out!"
+      "text": "ana helps her neighbor"
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "can you pass the ball"
+     },
+     {
+      "id": "c",
+      "text": "Please watch the step!"
+     },
+     {
+      "id": "d",
+      "text": "please watch the step"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The best answer is: Look out!"
+    "explanation": "The answer is “Please watch the step!”. It begins with a capital letter and ends with punctuation that fits the meaning."
    },
    {
     "itemId": "english-g3-q3-w11-d01-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital letter and the correct end mark?",
+    "prompt": "Which sentence tells what the class does?",
     "options": [
      {
+      "id": "a",
+      "text": "ana helps her neighbor"
+     },
+     {
       "id": "b",
-      "text": "milo reads."
+      "text": "can you pass the ball"
      },
      {
       "id": "c",
-      "text": "where is the book"
+      "text": "please watch the step"
      },
      {
       "id": "d",
-      "text": "look out"
-     },
-     {
-      "id": "a",
-      "text": "We are ready."
+      "text": "Our class plants seeds."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "The best answer is: We are ready."
+    "explanation": "The answer is “Our class plants seeds.”. It begins with a capital letter and ends with punctuation that fits the meaning."
    },
    {
     "itemId": "english-g3-q3-w11-d01-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital letter and the correct end mark?",
+    "prompt": "Which choice uses a capital and fitting punctuation?",
     "options": [
      {
       "id": "a",
-      "text": "Milo reads."
+      "text": "Ana helps her neighbor."
      },
      {
       "id": "b",
-      "text": "milo reads."
+      "text": "ana helps her neighbor"
      },
      {
       "id": "c",
-      "text": "where is the book"
+      "text": "can you pass the ball"
      },
      {
       "id": "d",
-      "text": "look out"
+      "text": "please watch the step"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The best answer is: Milo reads."
+    "explanation": "The answer is “Ana helps her neighbor.”. It begins with a capital letter and ends with punctuation that fits the meaning."
    }
   ]
  },

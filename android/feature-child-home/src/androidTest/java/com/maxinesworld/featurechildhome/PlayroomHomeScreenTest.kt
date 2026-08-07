@@ -1,10 +1,12 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import org.junit.Assert.assertEquals
@@ -93,6 +95,14 @@ class PlayroomHomeScreenTest {
         setHome(stateFor(), onTreatShopClick = { opens++ })
         composeRule.onNodeWithText("Treat Shop").assertIsEnabled().performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
+    }
+
+    @Test
+    fun primaryActionsHaveTalkBackLabels() {
+        setHome(stateFor())
+        listOf("Treat Shop", "Collection", "Parents").forEach { label ->
+            composeRule.onNodeWithContentDescription(label, useUnmergedTree = true).assertHasClickAction()
+        }
     }
 
     @Test

@@ -84,7 +84,7 @@ fun SortAndClassifyRenderer(
         Text(
             "Tap a card, then tap a box",
             style = MaterialTheme.typography.labelLarge,
-            color = Teal40.copy(alpha = 0.7f),
+            color = VillageTeal,
             fontWeight = FontWeight.Medium,
             modifier = Modifier.semantics { contentDescription = "Hint: tap a card, then tap a box" }
         )
@@ -119,9 +119,11 @@ fun SortAndClassifyRenderer(
                 .semantics { contentDescription = if (placed) "$label — sorted" else "Item: $label" },
                 verticalAlignment = Alignment.CenterVertically) {
                 Text(label, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
-                if (placed && !submitted) Text("✓", color = VillageTeal)
+                if (placed && !submitted) Text("✓", color = OnLeafGreen)
             }
         }
+
+        ActivityHint(step = step, onHint = onHint)
 
         if (!submitted) {
             Text(

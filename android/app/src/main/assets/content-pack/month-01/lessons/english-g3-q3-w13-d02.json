@@ -13,19 +13,19 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A clear personal account tells what happened and may include a feeling, reason, or detail. Ready to explore? Try the skill with a clue in a picture book.",
+ "introduction": "Tell about helping a lost puppy. Put the event, place, feeling, and lesson into clear sentences.",
  "vocabulary": [
   {
    "term": "what happened",
-   "definition": "A word or phrase used to practice express an idea about a personal experience in clear sentences."
+   "definition": "The event that took place in a personal experience."
   },
   {
    "term": "where it happened",
-   "definition": "A word or phrase used to practice express an idea about a personal experience in clear sentences."
+   "definition": "The place where a personal experience took place."
   },
   {
    "term": "how I felt",
-   "definition": "A word or phrase used to practice express an idea about a personal experience in clear sentences."
+   "definition": "The feeling a writer experienced during an event."
   }
  ],
  "activities": [
@@ -36,8 +36,8 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d02-visual",
-   "instruction": "Learn this skill: Express an idea about a personal experience in clear sentences. Try the skill with a clue in a picture book.",
-   "content": "A clear personal account tells what happened and may include a feeling, reason, or detail. Try the skill with a clue in a picture book.",
+   "instruction": "Listen to the explanation about complete sentences.",
+   "content": "Tell about helping a lost puppy. Put the event, place, feeling, and lesson into clear sentences.",
    "completionRule": {
     "type": "COMPLETE"
    },
@@ -45,7 +45,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Learn this skill: Express an idea about a personal experience in clear sentences. Try the skill with a clue in a picture book.",
+   "prompt": "Listen to the explanation about complete sentences.",
    "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail. Try the skill with a clue in a picture book.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -58,15 +58,15 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d02-visual",
-   "instruction": "Look closely at each example to practice: Express an idea about a personal experience in clear sentences.",
+   "instruction": "Find examples of complete sentences.",
    "content": {
     "examples": [
-     "what happened",
-     "where it happened",
-     "how I felt",
-     "what I learned"
+     "A small puppy wandered near the gate.",
+     "I found it beside the playground.",
+     "I felt calm when the owner arrived.",
+     "I learned to ask an adult for help."
     ],
-    "visualScene": "🐱🔎✨"
+    "visualScene": "🐶🚪🧑‍🧒"
    },
    "completionRule": {
     "type": "ALL_TARGETS_VISITED",
@@ -76,7 +76,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Look closely at each example to practice: Express an idea about a personal experience in clear sentences.",
+   "prompt": "Find examples of complete sentences.",
    "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -92,16 +92,16 @@
    "instruction": "Sort each example while practicing: Express an idea about a personal experience in clear sentences.",
    "content": {
     "fits": [
-     "what happened",
-     "where it happened",
-     "how I felt",
-     "what I learned"
+     "A small puppy wandered near the gate.",
+     "I found it beside the playground.",
+     "I felt calm when the owner arrived.",
+     "I learned to ask an adult for help."
     ],
     "doesNotFit": [
-     "Ana plays outside.",
-     "The dog ran home.",
-     "The sun is bright.",
-     "Birds fly."
+     "The moon is round.",
+     "A red crayon is on the desk.",
+     "The fan is turning.",
+     "My lunch box is closed."
     ]
    },
    "completionRule": {
@@ -128,12 +128,12 @@
    "instruction": "Which sentence tells about a personal experience?",
    "content": {
     "options": [
-     "Ana plays outside.",
-     "The dog ran home.",
-     "The sun is bright.",
-     "what happened"
+     "The moon is round.",
+     "A small puppy wandered near the gate.",
+     "A red crayon is on the desk.",
+     "The fan is turning."
     ],
-    "correctIndex": 3
+    "correctIndex": 1
    },
    "completionRule": {
     "type": "CORRECT_RESPONSE"
@@ -155,20 +155,20 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q3-w13-d02-visual",
-   "instruction": "Match each example to the idea it shows about: Express an idea about a personal experience in clear sentences.",
+   "instruction": "Match the examples about complete sentences.",
    "content": {
     "pairs": [
      {
       "left": "what happened",
-      "right": "example with a useful detail"
+      "right": "A small puppy wandered near the gate."
      },
      {
       "left": "where it happened",
-      "right": "example with a useful detail (2)"
+      "right": "I found it beside the playground."
      },
      {
-      "left": "how I felt",
-      "right": "example with a useful detail (3)"
+      "left": "what I learned",
+      "right": "I learned to ask an adult for help."
      }
     ]
    },
@@ -179,7 +179,7 @@
     "correct": "Great thinking! You found the key idea. 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
-   "prompt": "Match each example to the idea it shows about: Express an idea about a personal experience in clear sentences.",
+   "prompt": "Match the examples about complete sentences.",
    "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
    "guideHint": "Need a hint? Read the example again.",
    "nextLabel": "Next →",
@@ -195,10 +195,10 @@
    "instruction": "Put the steps in order to practice: Express an idea about a personal experience in clear sentences.",
    "content": {
     "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
+     "Notice the puppy event",
+     "Name the place",
+     "Describe the feeling",
+     "Tell the safe lesson"
     ]
    },
    "completionRule": {
@@ -225,141 +225,141 @@
     "itemId": "english-g3-q3-w13-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells about a personal experience?",
+    "prompt": "Which sentence tells what happened to the puppy?",
     "options": [
      {
+      "id": "a",
+      "text": "A small puppy wandered near the gate."
+     },
+     {
       "id": "b",
-      "text": "Ana plays outside."
+      "text": "The moon is round."
      },
      {
       "id": "c",
-      "text": "The dog ran home."
+      "text": "A red crayon is on the desk."
      },
      {
       "id": "d",
-      "text": "The sun is bright."
-     },
-     {
-      "id": "a",
-      "text": "what happened"
+      "text": "The fan is turning."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The best answer is: what happened"
+    "explanation": "The answer is “A small puppy wandered near the gate.”. It uses the lesson skill with a clear, useful example."
    },
    {
     "itemId": "english-g3-q3-w13-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells about a personal experience?",
+    "prompt": "Which detail tells where the puppy was?",
     "options": [
      {
       "id": "a",
-      "text": "where it happened"
+      "text": "The moon is round."
      },
      {
       "id": "b",
-      "text": "Ana plays outside."
+      "text": "I found it beside the playground."
      },
      {
       "id": "c",
-      "text": "The dog ran home."
+      "text": "A red crayon is on the desk."
      },
      {
       "id": "d",
-      "text": "The sun is bright."
+      "text": "The fan is turning."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The best answer is: where it happened"
+    "explanation": "The answer is “I found it beside the playground.”. It uses the lesson skill with a clear, useful example."
    },
    {
     "itemId": "english-g3-q3-w13-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells about a personal experience?",
+    "prompt": "Which sentence shows the writer's feeling?",
     "options": [
      {
-      "id": "d",
-      "text": "The sun is bright."
-     },
-     {
       "id": "a",
-      "text": "how I felt"
+      "text": "The moon is round."
      },
      {
       "id": "b",
-      "text": "Ana plays outside."
+      "text": "A red crayon is on the desk."
      },
      {
       "id": "c",
-      "text": "The dog ran home."
+      "text": "I felt calm when the owner arrived."
+     },
+     {
+      "id": "d",
+      "text": "The fan is turning."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The best answer is: how I felt"
+    "explanation": "The answer is “I felt calm when the owner arrived.”. It uses the lesson skill with a clear, useful example."
    },
    {
     "itemId": "english-g3-q3-w13-d02-q04",
     "sequence": 4,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells about a personal experience?",
+    "prompt": "Which sentence tells the safe lesson?",
     "options": [
      {
-      "id": "c",
-      "text": "The dog ran home."
-     },
-     {
-      "id": "d",
-      "text": "The sun is bright."
-     },
-     {
       "id": "a",
-      "text": "what I learned"
+      "text": "The moon is round."
      },
      {
       "id": "b",
-      "text": "Ana plays outside."
+      "text": "A red crayon is on the desk."
+     },
+     {
+      "id": "c",
+      "text": "The fan is turning."
+     },
+     {
+      "id": "d",
+      "text": "I learned to ask an adult for help."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
-    "explanation": "The best answer is: what I learned"
+    "explanation": "The answer is “I learned to ask an adult for help.”. It uses the lesson skill with a clear, useful example."
    },
    {
     "itemId": "english-g3-q3-w13-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells about a personal experience?",
+    "prompt": "Which choice adds a detail from the experience?",
     "options": [
      {
+      "id": "a",
+      "text": "A small puppy wandered near the gate."
+     },
+     {
       "id": "b",
-      "text": "Ana plays outside."
+      "text": "The moon is round."
      },
      {
       "id": "c",
-      "text": "The dog ran home."
+      "text": "A red crayon is on the desk."
      },
      {
       "id": "d",
-      "text": "The sun is bright."
-     },
-     {
-      "id": "a",
-      "text": "what happened"
+      "text": "The fan is turning."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The best answer is: what happened"
+    "explanation": "The answer is “A small puppy wandered near the gate.”. It uses the lesson skill with a clear, useful example."
    }
   ]
  },

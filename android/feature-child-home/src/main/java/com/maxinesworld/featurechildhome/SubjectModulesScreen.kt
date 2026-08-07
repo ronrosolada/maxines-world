@@ -125,7 +125,7 @@ private fun ModuleCard(
                 }
                 Text(module.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = Ink)
                 Text(
-                    "${module.lessonCount} lessons · ${module.lessons.firstOrNull()?.title ?: ""}",
+                    moduleCardSubtitle(module),
                     fontSize = 13.sp, color = Ink.copy(alpha = 0.6f),
                     maxLines = 1, overflow = TextOverflow.Ellipsis
                 )
@@ -134,6 +134,10 @@ private fun ModuleCard(
         }
     }
 }
+
+/** Keep the module card descriptor stable when lesson skill names recur by design. */
+internal fun moduleCardSubtitle(module: ContentModule): String =
+    "${module.lessonCount} lessons"
 
 /** Island/subject ID → friendly display name. */
 fun subjectDisplayName(subject: String): String = when (subject) {

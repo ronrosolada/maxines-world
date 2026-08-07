@@ -263,5 +263,6 @@ fun HotspotImageRenderer(
             }
         }
 
+        ActivityHint(step = step, onHint = onHint)
     }
 }

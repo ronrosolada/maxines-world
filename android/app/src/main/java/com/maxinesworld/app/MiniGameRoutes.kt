@@ -8,15 +8,42 @@ object MiniGameRoutes {
     const val PARKOUR = "reward/parkour/{childId}/{rewardBreakId}/{durationMillis}"
     const val KITTEN_MATCH = "reward/kitten-match/{childId}/{rewardBreakId}/{durationMillis}"
 
-    fun hub(childId: String, breakId: String) = "reward/$childId/$breakId"
+    private fun segment(value: String): String = buildString {
+        value.toByteArray(Charsets.UTF_8).forEach { byte ->
+            val code = byte.toInt() and 0xFF
+            val character = code.toChar()
+            if (
+                code in 'A'.code..'Z'.code ||
+                code in 'a'.code..'z'.code ||
+                code in '0'.code..'9'.code ||
+                character in "-_.!~*'()"
+            ) {
+                append(character)
+            } else {
+                append('%')
+                append(HEX_DIGITS[code ushr 4])
+                append(HEX_DIGITS[code and 0x0F])
+            }
+        }
+    }
+
+    private const val HEX_DIGITS = "0123456789ABCDEF"
+
+    fun hub(childId: String, breakId: String) =
+        "reward/${segment(childId)}/${segment(breakId)}"
+
     fun sourceLibrary(childId: String, breakId: String) =
-        "reward/source-games/$childId/$breakId"
+        "reward/source-games/${segment(childId)}/${segment(breakId)}"
+
     fun sourceWebGame(childId: String, breakId: String, durationMillis: Long, gameSlug: String) =
-        "reward/source-game/$childId/$breakId/$durationMillis/$gameSlug"
+        "reward/source-game/${segment(childId)}/${segment(breakId)}/$durationMillis/${segment(gameSlug)}"
+
     fun catCafe(childId: String, breakId: String, durationMillis: Long) =
-        "reward/cat-cafe/$childId/$breakId/$durationMillis"
+        "reward/cat-cafe/${segment(childId)}/${segment(breakId)}/$durationMillis"
+
     fun parkour(childId: String, breakId: String, durationMillis: Long) =
-        "reward/parkour/$childId/$breakId/$durationMillis"
+        "reward/parkour/${segment(childId)}/${segment(breakId)}/$durationMillis"
+
     fun kittenMatch(childId: String, breakId: String, durationMillis: Long) =
-        "reward/kitten-match/$childId/$breakId/$durationMillis"
+        "reward/kitten-match/${segment(childId)}/${segment(breakId)}/$durationMillis"
 }

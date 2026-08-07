@@ -5,10 +5,13 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.maxinesworld.corecontent.ActiveContentIndex
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.LessonLoader
+import com.maxinesworld.coremodel.Month1Lesson
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -23,6 +26,7 @@ import org.junit.runner.RunWith
 class OfflineLessonLoadTest {
 
     private val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+    private val contentJson = Json { ignoreUnknownKeys = true }
 
     // All subjects reachable from the Playroom home islands.
     private val supportedSubjects = listOf(
@@ -48,6 +52,30 @@ class OfflineLessonLoadTest {
             "Subjects with NO loadable lesson offline: $failures",
             failures.isEmpty()
         )
+    }
+
+    @Test
+    fun pictureDetectiveVisualContainsAuthoredFiestaClues() {
+        val assetPath = "content-pack/month-01/assets/vectors/english-g3-q1-w01-d01-visual.svg"
+        val svg = context.assets.open(assetPath).bufferedReader().use { it.readText() }
+
+        assertTrue("picture detective visual must be an SVG", svg.trimStart().startsWith("<svg"))
+        listOf("fiesta", "red flag", "dancing", "food", "streamers", "parade", "lanterns")
+            .forEach { clue ->
+                assertTrue("picture detective visual is missing clue '$clue'", svg.contains(clue, ignoreCase = true))
+            }
+    }
+
+    @Test
+    fun pictureDetectiveHotspotRequiresEveryDetail() {
+        val raw = context.assets.open(
+            "content-pack/month-01/lessons/english-g3-q1-w01-d01.json"
+        ).bufferedReader().use { it.readText() }
+        val lesson = contentJson.decodeFromString<Month1Lesson>(raw)
+        val hotspot = lesson.activities.first { it.activityId.endsWith("-a02") }
+
+        assertEquals("ALL_TARGETS_VISITED", hotspot.completionRule?.type)
+        assertEquals(8, hotspot.completionRule?.targetCount)
     }
 
     @Test

@@ -34,4 +34,13 @@ class MultipleChoiceRendererTest {
         assertEquals(1, result.hintsUsed)
         assertEquals(2, result.attempts)
     }
+
+    @Test
+    fun `correction appears after the second incorrect attempt`() {
+        assertTrue(shouldShowCorrection(submitted = true, feedbackState = false, attempts = 2))
+        assertTrue(shouldShowCorrection(submitted = true, feedbackState = false, attempts = 3))
+        assertTrue(!shouldShowCorrection(submitted = true, feedbackState = false, attempts = 1))
+        assertTrue(!shouldShowCorrection(submitted = true, feedbackState = true, attempts = 2))
+        assertTrue(!shouldShowCorrection(submitted = false, feedbackState = false, attempts = 2))
+    }
 }

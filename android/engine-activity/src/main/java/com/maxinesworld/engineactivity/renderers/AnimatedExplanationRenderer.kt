@@ -44,6 +44,8 @@ fun AnimatedExplanationRenderer(
             }
         )
 
+        ActivityHint(step = step, onHint = onHint)
+
         Spacer(modifier = Modifier.height(24.dp))
 
         MaxinesPrimaryButton(

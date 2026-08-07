@@ -27,7 +27,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -119,7 +118,6 @@ fun MaxinesPrimaryButton(
     ) {
         Text(
             text,
-            fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp
         )
@@ -194,28 +192,6 @@ fun MaxinesAnswerCard(
     }
 }
 
-/**
- * Backward-compatible overload accepting the old Boolean-based params.
- * Maps to [AnswerCardState] and delegates to the primary signature.
- */
-@Composable
-@Deprecated("Use AnswerCardState overload instead", ReplaceWith("MaxinesAnswerCard(state = AnswerCardState.IDLE, onClick = onClick, modifier = modifier) { content() }"))
-fun MaxinesAnswerCard(
-    selected: Boolean,
-    correct: Boolean? = null,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
-) {
-    val state = when {
-        correct == true -> AnswerCardState.CORRECT
-        correct == false -> AnswerCardState.INCORRECT
-        selected -> AnswerCardState.SELECTED
-        else -> AnswerCardState.IDLE
-    }
-    MaxinesAnswerCard(state = state, onClick = onClick, modifier = modifier, content = content)
-}
-
 // ─── Daily Quest Compact Banner (§7.4) ───
 
 /**
@@ -273,7 +249,6 @@ fun MaxinesQuestCard(
             Column(Modifier.weight(1f)) {
                 Text(
                     text = questText,
-                    fontFamily = FontFamily.Default,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,
                     color = Ink,
@@ -294,7 +269,6 @@ fun MaxinesQuestCard(
                     Spacer(Modifier.width(8.dp))
                     Text(
                         text = "$completed/$total",
-                        fontFamily = FontFamily.Default,
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
                         color = Ink.copy(alpha = 0.6f)

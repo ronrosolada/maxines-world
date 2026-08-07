@@ -57,7 +57,7 @@ fun SequenceBuilderRenderer(
             }
         }
 
-        Text("Your order:", style = MaterialTheme.typography.labelLarge, color = SunshineGold)
+        Text("Your order:", style = MaterialTheme.typography.labelLarge, color = OnGold)
         ordered.forEachIndexed { pos, idx ->
             val bg by animateColorAsState(when {
                 submitted && isCorrect -> SuccessGreen.copy(alpha = 0.15f)
@@ -71,9 +71,11 @@ fun SequenceBuilderRenderer(
                 verticalAlignment = Alignment.CenterVertically) {
                 Text("${pos + 1}. ${items[idx]}", style = MaterialTheme.typography.bodyMedium)
                 Spacer(Modifier.weight(1f))
-                if (!submitted) Text("✕", color = Coral, style = MaterialTheme.typography.labelSmall)
+                if (!submitted) Text("✕", color = OnCoral, style = MaterialTheme.typography.labelSmall)
             }
         }
+
+        ActivityHint(step = step, onHint = onHint)
 
         Spacer(Modifier.height(24.dp))
         Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(16.dp))
