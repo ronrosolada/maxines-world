@@ -132,6 +132,15 @@ fun SortAndClassifyRenderer(
                 color = if (submitEnabled) VillageTeal else Teal40,
                 modifier = Modifier.semantics { contentDescription = progressDescription },
             )
+            if (items.size > 4 && placedCount < items.size) {
+                Text(
+                    "Scroll down to place all cards and check your work",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Teal40,
+                    modifier = Modifier.padding(top = 4.dp)
+                        .semantics { contentDescription = "Scroll down to place all cards and check your work" }
+                )
+            }
         }
 
         Spacer(Modifier.height(24.dp))

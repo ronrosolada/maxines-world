@@ -57,6 +57,7 @@ fun MultipleChoiceRenderer(
     val hasHint = step.hintText.isNotBlank()
     var hintVisible by remember(step.id) { mutableStateOf(false) }
     var hintsUsed by remember(step.id) { mutableIntStateOf(0) }
+    var showNoSelectionHint by remember(step.id) { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -159,6 +160,15 @@ fun MultipleChoiceRenderer(
             )
         }
 
+        if (showNoSelectionHint && !submitted && selectedIndex < 0) {
+            Text(
+                text = "Pick one answer to check",
+                style = MaterialTheme.typography.bodyMedium,
+                color = ReviewText,
+                modifier = Modifier.semantics { contentDescription = "Pick one answer to check" }
+            )
+        }
+
         Spacer(modifier = Modifier.height(24.dp))
 
         Row(
@@ -195,16 +205,20 @@ fun MultipleChoiceRenderer(
                             submitted = false
                             selectedIndex = -1
                             feedbackState = null
+                            showNoSelectionHint = false
                         }
                     } else if (selectedIndex >= 0) {
                         attempts++
                         val correct = selectedIndex == displayedCorrectIndex
                         feedbackState = correct
                         submitted = true
+                        showNoSelectionHint = false
                         if (correct) {
                             onResult(multipleChoiceResult(step.id, true, attempts, hintsUsed,
                                 System.currentTimeMillis() - startTime))
                         }
+                    } else {
+                        showNoSelectionHint = true
                     }
                 },
                 text = when {
@@ -214,7 +228,7 @@ fun MultipleChoiceRenderer(
                 },
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
                 contentColor = if (submitted && feedbackState == false) OnCoral else White,
-                enabled = selectedIndex >= 0 || (submitted && feedbackState == false),
+                enabled = true, // keep tappable so empty-tap can nudge the child (audit: silent no-op)
                 modifier = Modifier
                     .weight(1f)
                     .sizeIn(minHeight = 48.dp)

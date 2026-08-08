@@ -147,9 +147,16 @@ class PlayroomHomeViewModel @Inject constructor(
         val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val availableFirst = subjects.firstOrNull { it.isAvailable }
+        val targets = QuestTargetResolver.resolve(
+            assigned = dailyQuest.assignedQuestIds,
+            completed = completed,
+            catalog = catalog,
+        )
+        val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
+            ?: targets.firstOrNull()?.lessonId
         // No available subject → honest "Choose a subject" fallback that moves
         // focus to the grid instead of a dead Continue (audit AC28, 2026-08-06).
-        val noSubjectFallback = availableFirst == null
+        val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
         val questUi = if (dailyQuest.isComplete) {
             QuestUi(
                 task = "Today's quest complete — your wildlife friend is waiting!",
@@ -159,8 +166,11 @@ class PlayroomHomeViewModel @Inject constructor(
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = "Open Field Guide",
                 buttonAction = QuestAction.ViewReward,
+                targets = targets,
+                nextLessonId = nextLessonId,
             )
         } else {
+            val hasQuestTarget = nextLessonId != null
             QuestUi(
                 task = "Complete $questTotal learning adventures today.",
                 pawPrintsCompleted = completedCount,
@@ -168,10 +178,18 @@ class PlayroomHomeViewModel @Inject constructor(
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = when {
                     noSubjectFallback -> "Choose a subject"
+                    hasQuestTarget && completedCount == 0 -> "Start quest"
+                    hasQuestTarget -> "Continue quest"
                     completedCount == 0 -> "Start"
                     else -> "Continue"
                 },
-                buttonAction = if (noSubjectFallback) QuestAction.ChooseSubject else QuestAction.Continue,
+                buttonAction = when {
+                    noSubjectFallback -> QuestAction.ChooseSubject
+                    hasQuestTarget -> QuestAction.OpenLesson
+                    else -> QuestAction.Continue
+                },
+                targets = targets,
+                nextLessonId = nextLessonId,
             )
         }
 

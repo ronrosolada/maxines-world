@@ -153,6 +153,19 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onQuestAction = { action ->
                     when (action) {
+                        QuestAction.OpenLesson -> {
+                            val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
+                            val lessonId = quest?.nextLessonId
+                                ?: quest?.targets?.firstOrNull { !it.isCompleted }?.lessonId
+                                ?: quest?.targets?.firstOrNull()?.lessonId
+                            if (lessonId != null) {
+                                navController.navigate(Routes.lessonPlayer(childId, lessonId))
+                            } else {
+                                val fallback = (homeState as? PlayroomHomeUiState.Content)
+                                    ?.quest?.recommendedSubjectId?.let(::subjectForPack)
+                                if (fallback != null) navController.navigate(Routes.subjectModules(childId, fallback))
+                            }
+                        }
                         QuestAction.Continue -> {
                             val target = (homeState as? PlayroomHomeUiState.Content)
                                 ?.quest?.recommendedSubjectId
