@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q2-w06-d02",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 6,
-  "day": 2,
-  "subject": "english",
-  "title": "Story Clue Crew · Q2 W06 D02",
-  "objective": "Use details from a story to explain characters, events, and ideas.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Ana lost her red pencil in the classroom! Use the story clues to tell who is there, where it happened, and why.",
-  "vocabulary": [
-    {
-      "term": "character",
-      "definition": "the person or animal in the story"
-    },
-    {
-      "term": "setting",
-      "definition": "where and when the story happens"
-    },
-    {
-      "term": "event",
-      "definition": "something that happens in the story"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q2-w06-d02-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Hear how story clues tell who, where, and what happened!",
-      "content": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Hear how story clues tell who, where, and what happened!",
-      "narration": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue."
-    },
-    {
-      "activityId": "english-g3-q2-w06-d02-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Tap the clues that tell about the story!",
-      "content": {
-        "examples": [
-          "the character: Ana",
-          "the setting: the classroom",
-          "the event: Ana lost her red pencil and found it under her desk",
-          "the clue: Ana found the pencil under her desk."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Tap the clues that tell about the story!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w06-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Sort the story clues from the made-up ones!",
-      "content": {
-        "fits": [
-          "the character: Ana",
-          "the setting: the classroom",
-          "the event: Ana lost her red pencil and found it under her desk",
-          "the clue: Ana found the pencil under her desk."
-        ],
-        "doesNotFit": [
-          "Ana found the pencil in her bag.",
-          "Ana lost her blue crayon.",
-          "The pencil was on the teacher's table.",
-          "Ana stopped drawing."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort the story clues from the made-up ones!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w06-d02-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Who is in the story?",
-      "content": {
-        "options": [
-          "Ana",
-          "Ana lost her blue crayon.",
-          "The pencil was on the teacher's table.",
-          "Ana found the pencil in her bag."
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Who is in the story?",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w06-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Match each story clue to what it tells!",
-      "content": {
-        "pairs": [
-          {
-            "left": "Ana",
-            "right": "character"
-          },
-          {
-            "left": "the classroom",
-            "right": "setting"
-          },
-          {
-            "left": "Ana lost her red pencil and found it under her desk",
-            "right": "event"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match each story clue to what it tells!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    },
-    {
-      "activityId": "english-g3-q2-w06-d02-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w06-d02-visual",
-      "instruction": "Put the steps for using story clues in order.",
-      "content": {
-        "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps for using story clues in order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q2-w06-d02-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
-        "options": [
-          {
-            "id": "b",
-            "text": "Ana"
-          },
-          {
-            "id": "c",
-            "text": "the teacher"
-          },
-          {
-            "id": "d",
-            "text": "the cook"
-          },
-          {
-            "id": "a",
-            "text": "the mailman"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The story is about Ana, so she is the character."
-      },
-      {
-        "itemId": "english-g3-q2-w06-d02-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
-        "options": [
-          {
-            "id": "a",
-            "text": "the market"
-          },
-          {
-            "id": "b",
-            "text": "the classroom"
-          },
-          {
-            "id": "c",
-            "text": "the beach"
-          },
-          {
-            "id": "d",
-            "text": "the school"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The story happens in Ana's classroom, so that is the setting."
-      },
-      {
-        "itemId": "english-g3-q2-w06-d02-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
-        "options": [
-          {
-            "id": "d",
-            "text": "The pencil was on the teacher's table."
-          },
-          {
-            "id": "a",
-            "text": "Ana found the pencil in her bag."
-          },
-          {
-            "id": "b",
-            "text": "Ana lost her red pencil and found it under her desk"
-          },
-          {
-            "id": "c",
-            "text": "Ana lost her blue crayon."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The story tells that Ana lost her red pencil and found it under her desk — that is the main event."
-      },
-      {
-        "itemId": "english-g3-q2-w06-d02-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
-        "options": [
-          {
-            "id": "c",
-            "text": "Ana lost her blue crayon."
-          },
-          {
-            "id": "d",
-            "text": "The pencil was on the teacher's table."
-          },
-          {
-            "id": "a",
-            "text": "Ana found the pencil in her bag."
-          },
-          {
-            "id": "b",
-            "text": "Ana found the pencil under her desk."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The story says Ana found the pencil under her desk, so that detail is true."
-      },
-      {
-        "itemId": "english-g3-q2-w06-d02-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Ana feel at the end of the story?",
-        "options": [
-          {
-            "id": "b",
-            "text": "glad"
-          },
-          {
-            "id": "c",
-            "text": "sleepy"
-          },
-          {
-            "id": "d",
-            "text": "hungry"
-          },
-          {
-            "id": "a",
-            "text": "angry"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ana found her pencil again, so she felt glad at the end."
-      }
-    ]
+ "lessonId": "english-g3-q2-w06-d02",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 6,
+ "day": 2,
+ "subject": "english",
+ "title": "Story Clue Crew · Q2 W06 D02",
+ "objective": "Use details from a story to explain characters, events, and ideas.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Ana lost her red pencil in the classroom! Use the story clues to tell who is there, where it happened, and why.",
+ "vocabulary": [
+  {
+   "term": "character",
+   "definition": "the person or animal in the story"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "setting",
+   "definition": "where and when the story happens"
+  },
+  {
+   "term": "event",
+   "definition": "something that happens in the story"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q2-w06-d02-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Hear how story clues tell who, where, and what happened!",
+   "content": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Find the clue in Detail Tracker again. 💪"
+   },
+   "prompt": "Hear how story clues tell who, where, and what happened!",
+   "narration": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue."
+  },
+  {
+   "activityId": "english-g3-q2-w06-d02-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Tap the clues that tell about the story!",
+   "content": {
+    "examples": [
+     "the character: Ana",
+     "the setting: the classroom",
+     "the event: Ana lost her red pencil and found it under her desk",
+     "the clue: Ana found the pencil under her desk."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Look at each Detail Tracker example again. 💪"
+   },
+   "prompt": "Tap the clues that tell about the story!",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q2-w06-d02-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Sort the story clues from the made-up ones!",
+   "content": {
+    "fits": [
+     "the character: Ana",
+     "the setting: the classroom",
+     "the event: Ana lost her red pencil and found it under her desk",
+     "the clue: Ana found the pencil under her desk."
+    ],
+    "doesNotFit": [
+     "Ana found the pencil in her bag.",
+     "Ana lost her blue crayon.",
+     "The pencil was on the teacher's table.",
+     "Ana stopped drawing."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Read the Detail Tracker rule before sorting again. 💪"
+   },
+   "prompt": "Sort the story clues from the made-up ones!",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w06-d02-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Who is in the story?",
+   "content": {
+    "options": [
+     "Ana",
+     "Ana lost her blue crayon.",
+     "The pencil was on the teacher's table.",
+     "Ana found the pencil in her bag."
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Find the clue in the Detail Tracker question. 💪"
+   },
+   "prompt": "Who is in the story?",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w06-d02-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Match each story clue to what it tells!",
+   "content": {
+    "pairs": [
+     {
+      "left": "Ana",
+      "right": "character"
+     },
+     {
+      "left": "the classroom",
+      "right": "setting"
+     },
+     {
+      "left": "Ana lost her red pencil and found it under her desk",
+      "right": "event"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Read both sides of each Detail Tracker pair again. 💪"
+   },
+   "prompt": "Match each story clue to what it tells!",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  },
+  {
+   "activityId": "english-g3-q2-w06-d02-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w06-d02-visual",
+   "instruction": "Put the steps for using story clues in order.",
+   "content": {
+    "steps": [
+     "Read the story",
+     "Find the character",
+     "Find the setting",
+     "Look for what happened"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Nice detective work! The clues told you all about Ana's story! 📚",
+    "retry": "Find the first, next, and last Detail Tracker steps. 💪"
+   },
+   "prompt": "Put the steps for using story clues in order.",
+   "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q2-w06-d02-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Who is in the story?",
+    "options": [
+     {
+      "id": "b",
+      "text": "Ana"
+     },
+     {
+      "id": "c",
+      "text": "the teacher"
+     },
+     {
+      "id": "d",
+      "text": "the cook"
+     },
+     {
+      "id": "a",
+      "text": "the mailman"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The story is about Ana, so she is the character."
+   },
+   {
+    "itemId": "english-g3-q2-w06-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Where does the story happen?",
+    "options": [
+     {
+      "id": "a",
+      "text": "the market"
+     },
+     {
+      "id": "b",
+      "text": "the classroom"
+     },
+     {
+      "id": "c",
+      "text": "the beach"
+     },
+     {
+      "id": "d",
+      "text": "the school"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The story happens in Ana's classroom, so that is the setting."
+   },
+   {
+    "itemId": "english-g3-q2-w06-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What happened in the story?",
+    "options": [
+     {
+      "id": "d",
+      "text": "The pencil was on the teacher's table."
+     },
+     {
+      "id": "a",
+      "text": "Ana found the pencil in her bag."
+     },
+     {
+      "id": "b",
+      "text": "Ana lost her red pencil and found it under her desk"
+     },
+     {
+      "id": "c",
+      "text": "Ana lost her blue crayon."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The story tells that Ana lost her red pencil and found it under her desk — that is the main event."
+   },
+   {
+    "itemId": "english-g3-q2-w06-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which detail is TRUE from the story?",
+    "options": [
+     {
+      "id": "c",
+      "text": "Ana lost her blue crayon."
+     },
+     {
+      "id": "d",
+      "text": "The pencil was on the teacher's table."
+     },
+     {
+      "id": "a",
+      "text": "Ana found the pencil in her bag."
+     },
+     {
+      "id": "b",
+      "text": "Ana found the pencil under her desk."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The story says Ana found the pencil under her desk, so that detail is true."
+   },
+   {
+    "itemId": "english-g3-q2-w06-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "How did Ana feel at the end of the story?",
+    "options": [
+     {
+      "id": "b",
+      "text": "glad"
+     },
+     {
+      "id": "c",
+      "text": "sleepy"
+     },
+     {
+      "id": "d",
+      "text": "hungry"
+     },
+     {
+      "id": "a",
+      "text": "angry"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ana found her pencil again, so she felt glad at the end."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

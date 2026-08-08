@@ -1,344 +1,344 @@
 {
-  "lessonId": "english-g3-m01-d20",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 1,
-  "day": 20,
-  "subject": "ENGLISH",
-  "title": "Read the Picture Graph · M01 D20",
-  "objective": "Interpret a pictograph using its title, categories, symbols, and key.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
-  "language": "en-PH",
-  "introduction": "Pictures can tell how many! Read the key first, then count the icons to answer the picture graph.",
-  "vocabulary": [
-    {
-      "term": "title",
-      "definition": "The name of a graph; it tells what the graph is about."
-    },
-    {
-      "term": "picture",
-      "definition": "An icon on a graph that stands for a number."
-    },
-    {
-      "term": "picture graph",
-      "definition": "A graph that uses pictures to show numbers."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-m01-d20-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "instruction": "See how pictures stand for numbers on a graph!",
-      "content": "A pictograph uses symbols to represent data. Always read the key before counting values.",
-      "required": true,
-      "completionRule": {
-        "type": "VIEW_AND_ACKNOWLEDGE"
-      },
-      "feedback": {
-        "correct": "Nice work. Continue to the next step.",
-        "retry": "Read the explanation once more."
-      },
-      "assetId": "english-g3-m01-d20-visual",
-      "accessibilityAlternative": "Text alternative: A pictograph uses symbols to represent data. Always read the key before counting values."
-    },
-    {
-      "activityId": "english-g3-m01-d20-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each graph part and read what it tells you.",
-      "content": {
-        "examples": [
-          "Key: one fruit icon = two votes",
-          "Three icons represent six votes",
-          "Compare categories using the same key"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining example."
-      },
-      "assetId": "english-g3-m01-d20-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "english-g3-m01-d20-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: does it read the pictograph correctly?",
-      "content": {
-        "fits": [
-          "Key: one fruit icon = two votes",
-          "Three icons represent six votes",
-          "Compare categories using the same key"
-        ],
-        "doesNotFit": [
-          "Assuming one icon always equals one",
-          "Ignoring the key",
-          "Comparing icon size instead of value"
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups match what we learned.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "english-g3-m01-d20-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "english-g3-m01-d20-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "instruction": "If one icon means 2 votes, what do 3 icons mean?",
-      "content": {
-        "options": [
-          "5 votes",
-          "6 votes",
-          "3 votes"
-        ],
-        "correctIndex": 1
-      },
-      "required": true,
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Correct: 6 votes",
-        "retry": "One icon is 2 votes, so 3 icons are 3 × 2 = 6 votes."
-      },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-    },
-    {
-      "activityId": "english-g3-m01-d20-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "instruction": "Match each graph part to its job.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Key: one fruit icon = two votes",
-            "right": "reading the key"
-          },
-          {
-            "left": "Three icons represent six votes",
-            "right": "counting by the key"
-          },
-          {
-            "left": "Compare categories using the same key",
-            "right": "comparing fairly"
-          }
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
-      },
-      "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
-      },
-      "assetId": "english-g3-m01-d20-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-    },
-    {
-      "activityId": "english-g3-m01-d20-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the graph-reading steps in order.",
-      "content": {
-        "steps": [
-          "Read the title.",
-          "Read the key.",
-          "Count the icons using the key."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
-      },
-      "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Finish each review step."
-      },
-      "assetId": "english-g3-m01-d20-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-m01-d20-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "In a picture graph, what does the key tell you?",
-        "options": [
-          {
-            "id": "a",
-            "text": "How many each picture stands for"
-          },
-          {
-            "id": "b",
-            "text": "The name of the graph"
-          },
-          {
-            "id": "c",
-            "text": "The color of the pictures"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The key is the rule of the graph: it tells how many each picture stands for. The title is the name, and color is not part of counting."
-      },
-      {
-        "itemId": "english-g3-m01-d20-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "The key says one fruit icon = 2 votes. How many votes are 4 icons?",
-        "options": [
-          {
-            "id": "a",
-            "text": "8 votes"
-          },
-          {
-            "id": "b",
-            "text": "4 votes"
-          },
-          {
-            "id": "c",
-            "text": "2 votes"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Each icon is 2 votes, so 4 icons are 4 × 2 = 8 votes."
-      },
-      {
-        "itemId": "english-g3-m01-d20-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "The key says one icon = 2 votes. How many votes do 5 icons show?",
-        "options": [
-          {
-            "id": "a",
-            "text": "10 votes"
-          },
-          {
-            "id": "b",
-            "text": "5 votes"
-          },
-          {
-            "id": "c",
-            "text": "7 votes"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "5 icons × 2 votes each = 10 votes. Count by twos: 2, 4, 6, 8, 10."
-      },
-      {
-        "itemId": "english-g3-m01-d20-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "If one icon means 2 votes, what do 3 icons mean?",
-        "options": [
-          {
-            "id": "c",
-            "text": "5 votes"
-          },
-          {
-            "id": "a",
-            "text": "6 votes"
-          },
-          {
-            "id": "b",
-            "text": "3 votes"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "3 icons × 2 votes each = 6 votes. Count by twos: 2, 4, 6."
-      },
-      {
-        "itemId": "english-g3-m01-d20-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "One icon = 2 pets. The graph shows 4 cat icons and 6 dog icons. How many more dogs than cats?",
-        "options": [
-          {
-            "id": "a",
-            "text": "4 pets"
-          },
-          {
-            "id": "b",
-            "text": "2 pets"
-          },
-          {
-            "id": "c",
-            "text": "6 pets"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Cats: 4 × 2 = 8. Dogs: 6 × 2 = 12. 12 − 8 = 4, so there are 4 more dogs than cats."
-      }
+ "lessonId": "english-g3-m01-d20",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 20,
+ "subject": "ENGLISH",
+ "title": "Read the Picture Graph · M01 D20",
+ "objective": "Interpret a pictograph using its title, categories, symbols, and key.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+ "language": "en-PH",
+ "introduction": "Pictures can tell how many! Read the key first, then count the icons to answer the picture graph.",
+ "vocabulary": [
+  {
+   "term": "title",
+   "definition": "The name of a graph; it tells what the graph is about."
+  },
+  {
+   "term": "picture",
+   "definition": "An icon on a graph that stands for a number."
+  },
+  {
+   "term": "picture graph",
+   "definition": "A graph that uses pictures to show numbers."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-m01-d20-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "instruction": "See how pictures stand for numbers on a graph!",
+   "content": "A pictograph uses symbols to represent data. Always read the key before counting values.",
+   "required": true,
+   "completionRule": {
+    "type": "VIEW_AND_ACKNOWLEDGE"
+   },
+   "feedback": {
+    "correct": "Nice work. Continue to the next step.",
+    "retry": "Find the clue in Read the Picture Graph again. 💪"
+   },
+   "assetId": "english-g3-m01-d20-visual",
+   "accessibilityAlternative": "Text alternative: A pictograph uses symbols to represent data. Always read the key before counting values."
+  },
+  {
+   "activityId": "english-g3-m01-d20-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "instruction": "Tap each graph part and read what it tells you.",
+   "content": {
+    "examples": [
+     "Key: one fruit icon = two votes",
+     "Three icons represent six votes",
+     "Compare categories using the same key"
     ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Read the Picture Graph. 🔎",
+    "retry": "Look at each Read the Picture Graph example again. 💪"
+   },
+   "assetId": "english-g3-m01-d20-visual",
+   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
   },
-  "assetSpecs": [
-    {
-      "assetId": "english-g3-m01-d20-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/english-g3-m01-d20-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Read the Picture Graph; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Read the Picture Graph.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "858c7964531370c662e65afdbd5331851d9c89c5da91266081a75ce749291a6f",
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "activityId": "english-g3-m01-d20-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "instruction": "Sort each card: does it read the pictograph correctly?",
+   "content": {
+    "fits": [
+     "Key: one fruit icon = two votes",
+     "Three icons represent six votes",
+     "Compare categories using the same key"
     ],
-    "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-    "rewritten": false
+    "doesNotFit": [
+     "Assuming one icon always equals one",
+     "Ignoring the key",
+     "Comparing icon size instead of value"
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 6
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Read the Picture Graph clue. 🎉",
+    "retry": "Use the explanation, not color or position."
+   },
+   "assetId": "english-g3-m01-d20-visual",
+   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-m01-d20-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "instruction": "If one icon means 2 votes, what do 3 icons mean?",
+   "content": {
+    "options": [
+     "5 votes",
+     "6 votes",
+     "3 votes"
+    ],
+    "correctIndex": 1
+   },
+   "required": true,
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Correct: 6 votes",
+    "retry": "One icon is 2 votes, so 3 icons are 3 × 2 = 6 votes."
+   },
+   "assetId": null,
+   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+  },
+  {
+   "activityId": "english-g3-m01-d20-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "instruction": "Match each graph part to its job.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Key: one fruit icon = two votes",
+      "right": "reading the key"
+     },
+     {
+      "left": "Three icons represent six votes",
+      "right": "counting by the key"
+     },
+     {
+      "left": "Compare categories using the same key",
+      "right": "comparing fairly"
+     }
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_PAIRS_MATCHED",
+    "pairCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Read the Picture Graph explanation. 🔗",
+    "retry": "Read both sides of each Read the Picture Graph pair again. 💪"
+   },
+   "assetId": "english-g3-m01-d20-visual",
+   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+  },
+  {
+   "activityId": "english-g3-m01-d20-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "instruction": "Put the graph-reading steps in order.",
+   "content": {
+    "steps": [
+     "Read the title.",
+     "Read the key.",
+     "Count the icons using the key."
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_STEPS_COMPLETED",
+    "stepCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You put the Read the Picture Graph steps in order. 🎉",
+    "retry": "Find the first, next, and last Read the Picture Graph steps. 💪"
+   },
+   "assetId": "english-g3-m01-d20-visual",
+   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-m01-d20-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "In a picture graph, what does the key tell you?",
+    "options": [
+     {
+      "id": "a",
+      "text": "How many each picture stands for"
+     },
+     {
+      "id": "b",
+      "text": "The name of the graph"
+     },
+     {
+      "id": "c",
+      "text": "The color of the pictures"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The key is the rule of the graph: it tells how many each picture stands for. The title is the name, and color is not part of counting."
+   },
+   {
+    "itemId": "english-g3-m01-d20-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "The key says one fruit icon = 2 votes. How many votes are 4 icons?",
+    "options": [
+     {
+      "id": "a",
+      "text": "8 votes"
+     },
+     {
+      "id": "b",
+      "text": "4 votes"
+     },
+     {
+      "id": "c",
+      "text": "2 votes"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Each icon is 2 votes, so 4 icons are 4 × 2 = 8 votes."
+   },
+   {
+    "itemId": "english-g3-m01-d20-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "The key says one icon = 2 votes. How many votes do 5 icons show?",
+    "options": [
+     {
+      "id": "a",
+      "text": "10 votes"
+     },
+     {
+      "id": "b",
+      "text": "5 votes"
+     },
+     {
+      "id": "c",
+      "text": "7 votes"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "5 icons × 2 votes each = 10 votes. Count by twos: 2, 4, 6, 8, 10."
+   },
+   {
+    "itemId": "english-g3-m01-d20-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "If one icon means 2 votes, what do 3 icons mean?",
+    "options": [
+     {
+      "id": "c",
+      "text": "5 votes"
+     },
+     {
+      "id": "a",
+      "text": "6 votes"
+     },
+     {
+      "id": "b",
+      "text": "3 votes"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "3 icons × 2 votes each = 6 votes. Count by twos: 2, 4, 6."
+   },
+   {
+    "itemId": "english-g3-m01-d20-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "One icon = 2 pets. The graph shows 4 cat icons and 6 dog icons. How many more dogs than cats?",
+    "options": [
+     {
+      "id": "a",
+      "text": "4 pets"
+     },
+     {
+      "id": "b",
+      "text": "2 pets"
+     },
+     {
+      "id": "c",
+      "text": "6 pets"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Cats: 4 × 2 = 8. Dogs: 6 × 2 = 12. 12 − 8 = 4, so there are 4 more dogs than cats."
+   }
+  ]
+ },
+ "assetSpecs": [
+  {
+   "assetId": "english-g3-m01-d20-visual",
+   "type": "INTERACTIVE_SPEC",
+   "path": "assets/vectors/english-g3-m01-d20-visual.svg",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Read the Picture Graph; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "contentDescription": "Five connected learning tokens for exploring examples in Read the Picture Graph.",
+   "decorative": false
+  }
+ ],
+ "safetyNotes": [],
+ "sourceRecords": [
+  {
+   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+   "claimScope": "Curriculum and subject-matter review reference",
+   "reviewStatus": "PENDING_HUMAN_REVIEW"
+  }
+ ],
+ "contentHash": "858c7964531370c662e65afdbd5331851d9c89c5da91266081a75ce749291a6f",
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

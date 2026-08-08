@@ -1,378 +1,378 @@
 {
-  "lessonId": "gmrc-g3-q1-w01-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 1,
-  "day": 1,
-  "subject": "gmrc",
-  "title": "Tiwala sa Sarili",
-  "objective": "Naipakikita ang tiwala sa sarili habang kinikilala ang sariling lakas at limitasyon.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan. Handa ka na bang sumubok?",
-  "vocabulary": [
-    {
-      "term": "sumubok ng bagong gawain",
-      "definition": "Isang paraan ng pagkilala sa sariling lakas habang natututo."
-    },
-    {
-      "term": "nagsanay",
-      "definition": "Paulit-ulit na pagsisikap upang mapaunlad ang kakayahan."
-    },
-    {
-      "term": "humingi ng gabay",
-      "definition": "Paghingi ng tulong upang matuto nang ligtas at maayos."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Pakinggan ang paliwanag tungkol sa tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    },
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng tiwala sa sarili.",
-      "content": {
-        "examples": [
-          "sumubok ng bagong gawain",
-          "nagsanay",
-          "humingi ng gabay",
-          "pinahalagahan ang sariling progreso"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Tuklasin ang mga halimbawa ng tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    },
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng tiwala sa sarili.",
-      "content": {
-        "fits": [
-          "sumubok ng bagong gawain",
-          "nagsanay",
-          "humingi ng gabay",
-          "pinahalagahan ang sariling progreso"
-        ],
-        "doesNotFit": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "hindi nakikinig"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    },
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Piliin ang tamang sagot.",
-      "content": {
-        "options": [
-          "sumubok ng bagong gawain",
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin"
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang tamang halimbawa ng tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    },
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng tiwala sa sarili.",
-      "content": {
-        "pairs": [
-          {
-            "left": "sumubok ng bagong gawain",
-            "right": "patunay ng tiwala sa sarili"
-          },
-          {
-            "left": "nagsanay",
-            "right": "patunay ng tiwala sa sarili"
-          },
-          {
-            "left": "humingi ng gabay",
-            "right": "patunay ng kahandaan sa pagkatuto"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Itapat ang mga halimbawa ng tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    },
-    {
-      "activityId": "gmrc-g3-q1-w01-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "gmrc-g3-q1-w01-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
-      "content": {
-        "steps": [
-          "Kilalanin ang kaya mong gawin",
-          "Subukan nang may tapang",
-          "Pansinin ang iyong nagawa",
-          "Ipagpatuloy ang pagsasanay"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga hakbang sa tiwala sa sarili.",
-      "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "gmrc-g3-q1-w01-d01-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Ikaw ang napiling kumanta sa harap ng klase at nanginginig ang iyong mga tuhod. Ano ang pinakamabuting gawin?",
-        "options": [
-          {
-            "id": "a",
-            "text": "tumakbo sa banyo at magtago"
-          },
-          {
-            "id": "b",
-            "text": "umiyak at tumangging kumanta"
-          },
-          {
-            "id": "c",
-            "text": "sabihin na nagkamali ang guro sa pagpili"
-          },
-          {
-            "id": "d",
-            "text": "huminga nang malalim at kantahin ito nang buong puso"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Kahit kinakabahan, ang pagsubok pa rin ay tanda ng tiwala sa sarili; ang pagtakas ay hindi nagpapaunlad nito."
-      },
-      {
-        "itemId": "gmrc-g3-q1-w01-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "May mali sa iyong iginuhit na larawan. Ano ang dapat mong gawin?",
-        "options": [
-          {
-            "id": "a",
-            "text": "kilalanin ang mali at itama ito"
-          },
-          {
-            "id": "b",
-            "text": "punitin ang papel at sumigaw"
-          },
-          {
-            "id": "c",
-            "text": "itago ang drawing upang walang makakita"
-          },
-          {
-            "id": "d",
-            "text": "sisihin ang lapis na ginamit"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pagkilala sa sariling pagkakamali at pagtama nito ay bahagi ng tiwala sa sarili."
-      },
-      {
-        "itemId": "gmrc-g3-q1-w01-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "May bagong laro ang iyong mga kaklase at hindi mo pa ito nasusubukan. Ano ang pinakamabuting gawin?",
-        "options": [
-          {
-            "id": "a",
-            "text": "subukan ito nang may tiwala, kahit mahirap sa una"
-          },
-          {
-            "id": "b",
-            "text": "umupo sa sulok at huwag sumali"
-          },
-          {
-            "id": "c",
-            "text": "sabihin sa lahat na pangit ang laro"
-          },
-          {
-            "id": "d",
-            "text": "manood na lamang sa gilid"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Ang pagsubok kahit mahirap ay nagpapakita ng tiwala sa sarili; ang pag-iwas at pamimintas ay hindi nagpapaunlad nito."
-      },
-      {
-        "itemId": "gmrc-g3-q1-w01-d01-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "May isang aytem sa pagsusulit na hindi mo masagot. Ano ang dapat mong gawin?",
-        "options": [
-          {
-            "id": "a",
-            "text": "isisi sa guro ang kahirapan ng tanong"
-          },
-          {
-            "id": "b",
-            "text": "alalahanin ang mga kaya mong sagutin at subukang muli"
-          },
-          {
-            "id": "c",
-            "text": "humingi ng sagot sa kaklase"
-          },
-          {
-            "id": "d",
-            "text": "sumilip sa papel ng katabi"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tiwala sa sarili ay pagkilala sa sariling kakayahan at pagsubok pa rin, hindi ang mangopya o magsisisi."
-      },
-      {
-        "itemId": "gmrc-g3-q1-w01-d01-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Sinabi ng kaibigan mo na hindi mo kaya ang sumali sa paligsahan sa pagtakbo. Ano ang gagawin mo?",
-        "options": [
-          {
-            "id": "a",
-            "text": "maniwala agad at huwag sumali"
-          },
-          {
-            "id": "b",
-            "text": "umiyak sa harap ng klase"
-          },
-          {
-            "id": "c",
-            "text": "mag-ensayo at sumali nang may tiwala"
-          },
-          {
-            "id": "d",
-            "text": "magalit sa kaibigan"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "Hindi dapat agad maniwala sa pamimintas; ang pag-ensayo at pagsali ay nagpapakita ng tiwala sa sarili."
-      }
-    ]
+ "lessonId": "gmrc-g3-q1-w01-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 1,
+ "subject": "gmrc",
+ "title": "Tiwala sa Sarili",
+ "objective": "Naipakikita ang tiwala sa sarili habang kinikilala ang sariling lakas at limitasyon.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "fil-PH",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan. Handa ka na bang sumubok?",
+ "vocabulary": [
+  {
+   "term": "sumubok ng bagong gawain",
+   "definition": "Isang paraan ng pagkilala sa sariling lakas habang natututo."
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "nagsanay",
+   "definition": "Paulit-ulit na pagsisikap upang mapaunlad ang kakayahan."
+  },
+  {
+   "term": "humingi ng gabay",
+   "definition": "Paghingi ng tulong upang matuto nang ligtas at maayos."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Pakinggan ang paliwanag ni Milo.",
+   "content": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang pahiwatig sa Tiwala sa Sarili. 💪"
+   },
+   "prompt": "Pakinggan ang paliwanag tungkol sa tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
+  },
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Hanapin sa larawan ang mga halimbawa ng tiwala sa sarili.",
+   "content": {
+    "examples": [
+     "sumubok ng bagong gawain",
+     "nagsanay",
+     "humingi ng gabay",
+     "pinahalagahan ang sariling progreso"
     ],
-    "source": "competency/objective at local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Suriing muli ang halimbawa ng Tiwala sa Sarili. 💪"
+   },
+   "prompt": "Tuklasin ang mga halimbawa ng tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Pangkatin ang mga halimbawa ng tiwala sa sarili.",
+   "content": {
+    "fits": [
+     "sumubok ng bagong gawain",
+     "nagsanay",
+     "humingi ng gabay",
+     "pinahalagahan ang sariling progreso"
+    ],
+    "doesNotFit": [
+     "nanunukso sa kapwa",
+     "kumukuha ng hindi kanya",
+     "sumusuway sa ligtas na tuntunin",
+     "hindi nakikinig"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Basahin ang pamantayan ng Tiwala sa Sarili bago magpangkat muli. 💪"
+   },
+   "prompt": "Pagbukud-bukurin ang mga halimbawa ng tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
+  },
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Piliin ang tamang sagot.",
+   "content": {
+    "options": [
+     "sumubok ng bagong gawain",
+     "nanunukso sa kapwa",
+     "kumukuha ng hindi kanya",
+     "sumusuway sa ligtas na tuntunin"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Tiwala sa Sarili. 💪"
+   },
+   "prompt": "Piliin ang tamang halimbawa ng tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
+  },
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Itugma ang mga halimbawa ng tiwala sa sarili.",
+   "content": {
+    "pairs": [
+     {
+      "left": "sumubok ng bagong gawain",
+      "right": "patunay ng tiwala sa sarili"
+     },
+     {
+      "left": "nagsanay",
+      "right": "patunay ng tiwala sa sarili"
+     },
+     {
+      "left": "humingi ng gabay",
+      "right": "patunay ng kahandaan sa pagkatuto"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Tiwala sa Sarili. 💪"
+   },
+   "prompt": "Itapat ang mga halimbawa ng tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
+  },
+  {
+   "activityId": "gmrc-g3-q1-w01-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "gmrc-g3-q1-w01-d01-visual",
+   "instruction": "Ayusin ang mga hakbang nang tama.",
+   "content": {
+    "steps": [
+     "Kilalanin ang kaya mong gawin",
+     "Subukan nang may tapang",
+     "Pansinin ang iyong nagawa",
+     "Ipagpatuloy ang pagsasanay"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Tiwala sa Sarili. 💪"
+   },
+   "prompt": "Ayusin ang mga hakbang sa tiwala sa sarili.",
+   "narration": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang tiwala sa sarili ay pagsubok nang buong tapang, pagtanggap sa pagkakamali, at paghingi ng tulong kung kailangan."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "gmrc-g3-q1-w01-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ikaw ang napiling kumanta sa harap ng klase at nanginginig ang iyong mga tuhod. Ano ang pinakamabuting gawin?",
+    "options": [
+     {
+      "id": "a",
+      "text": "tumakbo sa banyo at magtago"
+     },
+     {
+      "id": "b",
+      "text": "umiyak at tumangging kumanta"
+     },
+     {
+      "id": "c",
+      "text": "sabihin na nagkamali ang guro sa pagpili"
+     },
+     {
+      "id": "d",
+      "text": "huminga nang malalim at kantahin ito nang buong puso"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "Kahit kinakabahan, ang pagsubok pa rin ay tanda ng tiwala sa sarili; ang pagtakas ay hindi nagpapaunlad nito."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "May mali sa iyong iginuhit na larawan. Ano ang dapat mong gawin?",
+    "options": [
+     {
+      "id": "a",
+      "text": "kilalanin ang mali at itama ito"
+     },
+     {
+      "id": "b",
+      "text": "punitin ang papel at sumigaw"
+     },
+     {
+      "id": "c",
+      "text": "itago ang drawing upang walang makakita"
+     },
+     {
+      "id": "d",
+      "text": "sisihin ang lapis na ginamit"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pagkilala sa sariling pagkakamali at pagtama nito ay bahagi ng tiwala sa sarili."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "May bagong laro ang iyong mga kaklase at hindi mo pa ito nasusubukan. Ano ang pinakamabuting gawin?",
+    "options": [
+     {
+      "id": "a",
+      "text": "subukan ito nang may tiwala, kahit mahirap sa una"
+     },
+     {
+      "id": "b",
+      "text": "umupo sa sulok at huwag sumali"
+     },
+     {
+      "id": "c",
+      "text": "sabihin sa lahat na pangit ang laro"
+     },
+     {
+      "id": "d",
+      "text": "manood na lamang sa gilid"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Ang pagsubok kahit mahirap ay nagpapakita ng tiwala sa sarili; ang pag-iwas at pamimintas ay hindi nagpapaunlad nito."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "May isang aytem sa pagsusulit na hindi mo masagot. Ano ang dapat mong gawin?",
+    "options": [
+     {
+      "id": "a",
+      "text": "isisi sa guro ang kahirapan ng tanong"
+     },
+     {
+      "id": "b",
+      "text": "alalahanin ang mga kaya mong sagutin at subukang muli"
+     },
+     {
+      "id": "c",
+      "text": "humingi ng sagot sa kaklase"
+     },
+     {
+      "id": "d",
+      "text": "sumilip sa papel ng katabi"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tiwala sa sarili ay pagkilala sa sariling kakayahan at pagsubok pa rin, hindi ang mangopya o magsisisi."
+   },
+   {
+    "itemId": "gmrc-g3-q1-w01-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Sinabi ng kaibigan mo na hindi mo kaya ang sumali sa paligsahan sa pagtakbo. Ano ang gagawin mo?",
+    "options": [
+     {
+      "id": "a",
+      "text": "maniwala agad at huwag sumali"
+     },
+     {
+      "id": "b",
+      "text": "umiyak sa harap ng klase"
+     },
+     {
+      "id": "c",
+      "text": "mag-ensayo at sumali nang may tiwala"
+     },
+     {
+      "id": "d",
+      "text": "magalit sa kaibigan"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Hindi dapat agad maniwala sa pamimintas; ang pag-ensayo at pagsali ay nagpapakita ng tiwala sa sarili."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective at local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

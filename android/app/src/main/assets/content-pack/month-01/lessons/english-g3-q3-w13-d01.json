@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q3-w13-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 12,
-  "day": 1,
-  "subject": "english",
-  "title": "My Experience · Q3 W13 D01",
-  "objective": "Express an idea about a personal experience in clear sentences.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo visited the school garden! 🌱 Tell what happened, where it was, how you felt, and what you learned.",
-  "vocabulary": [
-    {
-      "term": "what happened",
-      "definition": "The event that took place in a personal experience."
-    },
-    {
-      "term": "where it happened",
-      "definition": "The place where a personal experience took place."
-    },
-    {
-      "term": "how I felt",
-      "definition": "The feeling a writer experienced during an event."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q3-w13-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Listen and learn how to tell about your visit!",
-      "content": "Tell about a visit to the school garden. Use details about the event, place, feeling, and learning.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to the explanation about complete sentences.",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    },
-    {
-      "activityId": "english-g3-q3-w13-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Tap each sentence about the garden visit!",
-      "content": {
-        "examples": [
-          "I planted a seed in the garden.",
-          "The garden was beside our classroom.",
-          "I felt excited when a leaf appeared.",
-          "I learned that plants need care."
-        ],
-        "visualScene": "🌱🏫🪴"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Find examples of complete sentences.",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    },
-    {
-      "activityId": "english-g3-q3-w13-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Sort the garden-visit sentences into the box!",
-      "content": {
-        "fits": [
-          "I planted a seed in the garden.",
-          "The garden was beside our classroom.",
-          "I felt excited when a leaf appeared.",
-          "I learned that plants need care."
-        ],
-        "doesNotFit": [
-          "The bus is blue.",
-          "A spoon is on the table.",
-          "The bell is loud.",
-          "My shoes are clean."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each example while practicing: Express an idea about a personal experience in clear sentences.",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    },
-    {
-      "activityId": "english-g3-q3-w13-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Which sentence tells about a personal experience?",
-      "content": {
-        "options": [
-          "The bus is blue.",
-          "I planted a seed in the garden.",
-          "A spoon is on the table.",
-          "The bell is loud."
-        ],
-        "correctIndex": 1
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Which sentence tells about a personal experience?",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    },
-    {
-      "activityId": "english-g3-q3-w13-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Match each story part to its sentence!",
-      "content": {
-        "pairs": [
-          {
-            "left": "what happened",
-            "right": "I planted a seed in the garden."
-          },
-          {
-            "left": "where it happened",
-            "right": "The garden was beside our classroom."
-          },
-          {
-            "left": "what I learned",
-            "right": "I learned that plants need care."
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match the examples about complete sentences.",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    },
-    {
-      "activityId": "english-g3-q3-w13-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w13-d01-visual",
-      "instruction": "Put the story-writing steps in order.",
-      "content": {
-        "steps": [
-          "Choose the garden event",
-          "Name the place",
-          "Add a feeling or observation",
-          "Tell the lesson learned"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order to practice: Express an idea about a personal experience in clear sentences.",
-      "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q3-w13-d01-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence tells about the garden event?",
-        "options": [
-          {
-            "id": "a",
-            "text": "I planted a seed in the garden."
-          },
-          {
-            "id": "b",
-            "text": "The bus is blue."
-          },
-          {
-            "id": "c",
-            "text": "A spoon is on the table."
-          },
-          {
-            "id": "d",
-            "text": "The bell is loud."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The sentence tells something you did during the visit — you planted a seed. The bus, the spoon, and the bell are not part of the garden visit."
-      },
-      {
-        "itemId": "english-g3-q3-w13-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail names the place?",
-        "options": [
-          {
-            "id": "a",
-            "text": "The bus is blue."
-          },
-          {
-            "id": "b",
-            "text": "The garden was beside our classroom."
-          },
-          {
-            "id": "c",
-            "text": "A spoon is on the table."
-          },
-          {
-            "id": "d",
-            "text": "The bell is loud."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "The sentence names the place — the garden beside the classroom. The other sentences do not tell where the visit happened."
-      },
-      {
-        "itemId": "english-g3-q3-w13-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence shares a feeling?",
-        "options": [
-          {
-            "id": "a",
-            "text": "The bus is blue."
-          },
-          {
-            "id": "b",
-            "text": "A spoon is on the table."
-          },
-          {
-            "id": "c",
-            "text": "I felt excited when a leaf appeared."
-          },
-          {
-            "id": "d",
-            "text": "The bell is loud."
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "The sentence tells a feeling — excited — when a leaf appeared. The other sentences tell about the bus, a spoon, and the bell, not about feelings."
-      },
-      {
-        "itemId": "english-g3-q3-w13-d01-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence tells the lesson learned?",
-        "options": [
-          {
-            "id": "a",
-            "text": "The bus is blue."
-          },
-          {
-            "id": "b",
-            "text": "A spoon is on the table."
-          },
-          {
-            "id": "c",
-            "text": "The bell is loud."
-          },
-          {
-            "id": "d",
-            "text": "I learned that plants need care."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "The sentence tells what you learned — that plants need care. The other sentences do not tell a lesson from the visit."
-      },
-      {
-        "itemId": "english-g3-q3-w13-d01-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence is a good detail for your garden story?",
-        "options": [
-          {
-            "id": "a",
-            "text": "I planted a seed in the garden."
-          },
-          {
-            "id": "b",
-            "text": "The bus is blue."
-          },
-          {
-            "id": "c",
-            "text": "A spoon is on the table."
-          },
-          {
-            "id": "d",
-            "text": "The bell is loud."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "It tells what you did during the visit, so it belongs in your garden story. The bus, the spoon, and the bell have nothing to do with the garden."
-      }
-    ]
+ "lessonId": "english-g3-q3-w13-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 12,
+ "day": 1,
+ "subject": "english",
+ "title": "My Experience · Q3 W13 D01",
+ "objective": "Express an idea about a personal experience in clear sentences.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo visited the school garden! 🌱 Tell what happened, where it was, how you felt, and what you learned.",
+ "vocabulary": [
+  {
+   "term": "what happened",
+   "definition": "The event that took place in a personal experience."
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "where it happened",
+   "definition": "The place where a personal experience took place."
+  },
+  {
+   "term": "how I felt",
+   "definition": "The feeling a writer experienced during an event."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q3-w13-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Listen and learn how to tell about your visit!",
+   "content": "Tell about a visit to the school garden. Use details about the event, place, feeling, and learning.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the clue in My Experience again. 💪"
+   },
+   "prompt": "Listen to the explanation about complete sentences.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
+  },
+  {
+   "activityId": "english-g3-q3-w13-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Tap each sentence about the garden visit!",
+   "content": {
+    "examples": [
+     "I planted a seed in the garden.",
+     "The garden was beside our classroom.",
+     "I felt excited when a leaf appeared.",
+     "I learned that plants need care."
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🌱🏫🪴"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Look at each My Experience example again. 💪"
+   },
+   "prompt": "Find examples of complete sentences.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q3-w13-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Sort the garden-visit sentences into the box!",
+   "content": {
+    "fits": [
+     "I planted a seed in the garden.",
+     "The garden was beside our classroom.",
+     "I felt excited when a leaf appeared.",
+     "I learned that plants need care."
+    ],
+    "doesNotFit": [
+     "The bus is blue.",
+     "A spoon is on the table.",
+     "The bell is loud.",
+     "My shoes are clean."
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Read the My Experience rule before sorting again. 💪"
+   },
+   "prompt": "Sort each example while practicing: Express an idea about a personal experience in clear sentences.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
+  },
+  {
+   "activityId": "english-g3-q3-w13-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Which sentence tells about a personal experience?",
+   "content": {
+    "options": [
+     "The bus is blue.",
+     "I planted a seed in the garden.",
+     "A spoon is on the table.",
+     "The bell is loud."
+    ],
+    "correctIndex": 1
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the clue in the My Experience question. 💪"
+   },
+   "prompt": "Which sentence tells about a personal experience?",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
+  },
+  {
+   "activityId": "english-g3-q3-w13-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Match each story part to its sentence!",
+   "content": {
+    "pairs": [
+     {
+      "left": "what happened",
+      "right": "I planted a seed in the garden."
+     },
+     {
+      "left": "where it happened",
+      "right": "The garden was beside our classroom."
+     },
+     {
+      "left": "what I learned",
+      "right": "I learned that plants need care."
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Read both sides of each My Experience pair again. 💪"
+   },
+   "prompt": "Match the examples about complete sentences.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
+  },
+  {
+   "activityId": "english-g3-q3-w13-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w13-d01-visual",
+   "instruction": "Put the story-writing steps in order.",
+   "content": {
+    "steps": [
+     "Choose the garden event",
+     "Name the place",
+     "Add a feeling or observation",
+     "Tell the lesson learned"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the first, next, and last My Experience steps. 💪"
+   },
+   "prompt": "Put the steps in order to practice: Express an idea about a personal experience in clear sentences.",
+   "narration": "A clear personal account tells what happened and may include a feeling, reason, or detail.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A clear personal account tells what happened and may include a feeling, reason, or detail."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q3-w13-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence tells about the garden event?",
+    "options": [
+     {
+      "id": "a",
+      "text": "I planted a seed in the garden."
+     },
+     {
+      "id": "b",
+      "text": "The bus is blue."
+     },
+     {
+      "id": "c",
+      "text": "A spoon is on the table."
+     },
+     {
+      "id": "d",
+      "text": "The bell is loud."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The sentence tells something you did during the visit — you planted a seed. The bus, the spoon, and the bell are not part of the garden visit."
+   },
+   {
+    "itemId": "english-g3-q3-w13-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which detail names the place?",
+    "options": [
+     {
+      "id": "a",
+      "text": "The bus is blue."
+     },
+     {
+      "id": "b",
+      "text": "The garden was beside our classroom."
+     },
+     {
+      "id": "c",
+      "text": "A spoon is on the table."
+     },
+     {
+      "id": "d",
+      "text": "The bell is loud."
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The sentence names the place — the garden beside the classroom. The other sentences do not tell where the visit happened."
+   },
+   {
+    "itemId": "english-g3-q3-w13-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence shares a feeling?",
+    "options": [
+     {
+      "id": "a",
+      "text": "The bus is blue."
+     },
+     {
+      "id": "b",
+      "text": "A spoon is on the table."
+     },
+     {
+      "id": "c",
+      "text": "I felt excited when a leaf appeared."
+     },
+     {
+      "id": "d",
+      "text": "The bell is loud."
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The sentence tells a feeling — excited — when a leaf appeared. The other sentences tell about the bus, a spoon, and the bell, not about feelings."
+   },
+   {
+    "itemId": "english-g3-q3-w13-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence tells the lesson learned?",
+    "options": [
+     {
+      "id": "a",
+      "text": "The bus is blue."
+     },
+     {
+      "id": "b",
+      "text": "A spoon is on the table."
+     },
+     {
+      "id": "c",
+      "text": "The bell is loud."
+     },
+     {
+      "id": "d",
+      "text": "I learned that plants need care."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The sentence tells what you learned — that plants need care. The other sentences do not tell a lesson from the visit."
+   },
+   {
+    "itemId": "english-g3-q3-w13-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence is a good detail for your garden story?",
+    "options": [
+     {
+      "id": "a",
+      "text": "I planted a seed in the garden."
+     },
+     {
+      "id": "b",
+      "text": "The bus is blue."
+     },
+     {
+      "id": "c",
+      "text": "A spoon is on the table."
+     },
+     {
+      "id": "d",
+      "text": "The bell is loud."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "It tells what you did during the visit, so it belongs in your garden story. The bus, the spoon, and the bell have nothing to do with the garden."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

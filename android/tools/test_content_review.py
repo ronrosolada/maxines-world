@@ -83,7 +83,7 @@ class ContentReviewTest(unittest.TestCase):
         repaired = sanitize_legacy_lesson(lesson)
         retry = repaired["activities"][0]["feedback"]["retry"]
         self.assertNotIn("show the skill", retry.lower())
-        self.assertIn("match what we learned", retry.lower())
+        self.assertIn("do not fit the example", retry.lower())
         self.assertEqual(repaired, sanitize_legacy_lesson(repaired))
 
     def test_place_value_feedback_names_place_and_value(self):

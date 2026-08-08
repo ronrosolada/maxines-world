@@ -1,378 +1,378 @@
 {
-  "lessonId": "english-g3-q2-w02-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 1,
-  "subject": "english",
-  "title": "Word Twins · Q2 W02 D01",
-  "objective": "Identify synonyms and antonyms by comparing word meanings.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Happy and glad are word twins — but hot and cold are opposites! 🐱✨ Help Milo sort them.",
-  "vocabulary": [
-    {
-      "term": "happy — glad",
-      "definition": "Two words with almost the same meaning."
-    },
-    {
-      "term": "begin — start",
-      "definition": "Two words that both mean to start something."
-    },
-    {
-      "term": "hot — cold",
-      "definition": "Two words with opposite meanings."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q2-w02-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Hear how word twins match or oppose!",
-      "content": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Listen to the explanation about word meanings.",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    },
-    {
-      "activityId": "english-g3-q2-w02-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Tap the pairs of word twins!",
-      "content": {
-        "examples": [
-          "happy — glad",
-          "begin — start",
-          "hot — cold",
-          "early — late"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Look closely at each example to practice: Identify synonyms and antonyms by comparing word meanings.",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    },
-    {
-      "activityId": "english-g3-q2-w02-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Sort the pairs: word twins or not!",
-      "content": {
-        "fits": [
-          "happy — glad",
-          "begin — start",
-          "hot — cold",
-          "early — late"
-        ],
-        "doesNotFit": [
-          "hot — table",
-          "begin — window",
-          "early — chair",
-          "happy — river"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each example while practicing: Identify synonyms and antonyms by comparing word meanings.",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    },
-    {
-      "activityId": "english-g3-q2-w02-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Tap the pair of words with similar meanings!",
-      "content": {
-        "options": [
-          "hot — table",
-          "begin — window",
-          "early — chair",
-          "happy — glad"
-        ],
-        "correctIndex": 3
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Which pair has the matching or opposite meanings asked for?",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    },
-    {
-      "activityId": "english-g3-q2-w02-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Match each pair to its matching word!",
-      "content": {
-        "pairs": [
-          {
-            "left": "happy — glad",
-            "right": "glad"
-          },
-          {
-            "left": "begin — start",
-            "right": "start"
-          },
-          {
-            "left": "hot — cold",
-            "right": "cold"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match the examples about word meanings.",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    },
-    {
-      "activityId": "english-g3-q2-w02-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w02-d01-visual",
-      "instruction": "Tap the steps for comparing words in order!",
-      "content": {
-        "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "You matched the word twins! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the steps in order to practice: Identify synonyms and antonyms by comparing word meanings.",
-      "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q2-w02-d01-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair has words with similar meanings?",
-        "options": [
-          {
-            "id": "b",
-            "text": "hot — table"
-          },
-          {
-            "id": "c",
-            "text": "begin — window"
-          },
-          {
-            "id": "d",
-            "text": "early — chair"
-          },
-          {
-            "id": "a",
-            "text": "happy — glad"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Happy and glad both mean feeling good, so they have similar meanings."
-      },
-      {
-        "itemId": "english-g3-q2-w02-d01-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair has words with matching meanings?",
-        "options": [
-          {
-            "id": "a",
-            "text": "begin — start"
-          },
-          {
-            "id": "b",
-            "text": "hot — table"
-          },
-          {
-            "id": "c",
-            "text": "begin — window"
-          },
-          {
-            "id": "d",
-            "text": "early — chair"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Begin and start both mean to get something going, so their meanings match."
-      },
-      {
-        "itemId": "english-g3-q2-w02-d01-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair has words with opposite meanings?",
-        "options": [
-          {
-            "id": "d",
-            "text": "early — chair"
-          },
-          {
-            "id": "a",
-            "text": "hot — cold"
-          },
-          {
-            "id": "b",
-            "text": "hot — table"
-          },
-          {
-            "id": "c",
-            "text": "begin — window"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Hot and cold are opposites — one is warm and the other is chilly."
-      },
-      {
-        "itemId": "english-g3-q2-w02-d01-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair has words with opposite meanings?",
-        "options": [
-          {
-            "id": "c",
-            "text": "begin — window"
-          },
-          {
-            "id": "d",
-            "text": "early — chair"
-          },
-          {
-            "id": "a",
-            "text": "early — late"
-          },
-          {
-            "id": "b",
-            "text": "hot — table"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Early means before the time, and late means after it — opposite meanings."
-      },
-      {
-        "itemId": "english-g3-q2-w02-d01-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair has words with similar meanings?",
-        "options": [
-          {
-            "id": "b",
-            "text": "hot — table"
-          },
-          {
-            "id": "c",
-            "text": "begin — window"
-          },
-          {
-            "id": "d",
-            "text": "early — chair"
-          },
-          {
-            "id": "a",
-            "text": "happy — glad"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Happy and glad are synonyms because they mean almost the same thing."
-      }
-    ]
+ "lessonId": "english-g3-q2-w02-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 1,
+ "subject": "english",
+ "title": "Word Twins · Q2 W02 D01",
+ "objective": "Identify synonyms and antonyms by comparing word meanings.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Happy and glad are word twins — but hot and cold are opposites! 🐱✨ Help Milo sort them.",
+ "vocabulary": [
+  {
+   "term": "happy — glad",
+   "definition": "Two words with almost the same meaning."
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "begin — start",
+   "definition": "Two words that both mean to start something."
+  },
+  {
+   "term": "hot — cold",
+   "definition": "Two words with opposite meanings."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q2-w02-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Hear how word twins match or oppose!",
+   "content": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Find the clue in Word Twins again. 💪"
+   },
+   "prompt": "Listen to the explanation about word meanings.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+  },
+  {
+   "activityId": "english-g3-q2-w02-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Tap the pairs of word twins!",
+   "content": {
+    "examples": [
+     "happy — glad",
+     "begin — start",
+     "hot — cold",
+     "early — late"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Look at each Word Twins example again. 💪"
+   },
+   "prompt": "Look closely at each example to practice: Identify synonyms and antonyms by comparing word meanings.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-q2-w02-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Sort the pairs: word twins or not!",
+   "content": {
+    "fits": [
+     "happy — glad",
+     "begin — start",
+     "hot — cold",
+     "early — late"
+    ],
+    "doesNotFit": [
+     "hot — table",
+     "begin — window",
+     "early — chair",
+     "happy — river"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Read the Word Twins rule before sorting again. 💪"
+   },
+   "prompt": "Sort each example while practicing: Identify synonyms and antonyms by comparing word meanings.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+  },
+  {
+   "activityId": "english-g3-q2-w02-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Tap the pair of words with similar meanings!",
+   "content": {
+    "options": [
+     "hot — table",
+     "begin — window",
+     "early — chair",
+     "happy — glad"
+    ],
+    "correctIndex": 3
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Find the clue in the Word Twins question. 💪"
+   },
+   "prompt": "Which pair has the matching or opposite meanings asked for?",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+  },
+  {
+   "activityId": "english-g3-q2-w02-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Match each pair to its matching word!",
+   "content": {
+    "pairs": [
+     {
+      "left": "happy — glad",
+      "right": "glad"
+     },
+     {
+      "left": "begin — start",
+      "right": "start"
+     },
+     {
+      "left": "hot — cold",
+      "right": "cold"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Read both sides of each Word Twins pair again. 💪"
+   },
+   "prompt": "Match the examples about word meanings.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+  },
+  {
+   "activityId": "english-g3-q2-w02-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w02-d01-visual",
+   "instruction": "Tap the steps for comparing words in order!",
+   "content": {
+    "steps": [
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "You matched the word twins! 🎉",
+    "retry": "Find the first, next, and last Word Twins steps. 💪"
+   },
+   "prompt": "Put the steps in order to practice: Identify synonyms and antonyms by comparing word meanings.",
+   "narration": "Synonyms have similar meanings; antonyms have opposite meanings.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q2-w02-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which pair has words with similar meanings?",
+    "options": [
+     {
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
+     },
+     {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "happy — glad"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Happy and glad both mean feeling good, so they have similar meanings."
+   },
+   {
+    "itemId": "english-g3-q2-w02-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which pair has words with matching meanings?",
+    "options": [
+     {
+      "id": "a",
+      "text": "begin — start"
+     },
+     {
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
+     },
+     {
+      "id": "d",
+      "text": "early — chair"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Begin and start both mean to get something going, so their meanings match."
+   },
+   {
+    "itemId": "english-g3-q2-w02-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which pair has words with opposite meanings?",
+    "options": [
+     {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "hot — cold"
+     },
+     {
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Hot and cold are opposites — one is warm and the other is chilly."
+   },
+   {
+    "itemId": "english-g3-q2-w02-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which pair has words with opposite meanings?",
+    "options": [
+     {
+      "id": "c",
+      "text": "begin — window"
+     },
+     {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "early — late"
+     },
+     {
+      "id": "b",
+      "text": "hot — table"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Early means before the time, and late means after it — opposite meanings."
+   },
+   {
+    "itemId": "english-g3-q2-w02-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which pair has words with similar meanings?",
+    "options": [
+     {
+      "id": "b",
+      "text": "hot — table"
+     },
+     {
+      "id": "c",
+      "text": "begin — window"
+     },
+     {
+      "id": "d",
+      "text": "early — chair"
+     },
+     {
+      "id": "a",
+      "text": "happy — glad"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "Happy and glad are synonyms because they mean almost the same thing."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
