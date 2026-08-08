@@ -2,6 +2,7 @@ package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.ProgressEventEntity
 import com.maxinesworld.coredatabase.RewardDao
@@ -12,6 +13,8 @@ import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.TreatPerks
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -50,6 +53,7 @@ class LessonCompletionRepository @Inject constructor(
     private val transactionRunner: RoomTransactionRunner,
     private val progressEventDao: ProgressEventDao,
     private val rewardDao: RewardDao,
+    private val inventoryDao: InventoryDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
     private val failureInjector: CompletionWriteFailureInjector,
@@ -126,26 +130,52 @@ class LessonCompletionRepository @Inject constructor(
                 (if (accuracy >= 0.8) 1 else 0) +
                 (if (accuracy >= 0.95) 1 else 0)).coerceIn(1, 3)
             var coinsEarned = 0
+            if (accuracy >= 0.8) {
+                coinsEarned = 10
+            }
+
+            // Treat Shop perks: owned keepsakes change what this lesson grants.
+            // The Fish Treat Basket's once-per-day doubling is consumed by
+            // inserting a deterministic PERK ledger row — insertIgnoring
+            // returns -1 when it already exists (same single-winner pattern
+            // as lesson completions), so the whole check is atomic inside the
+            // transaction.
+            val owned = inventoryDao.getOwnedItemIds(childId).toSet()
+            val basketRowId = "perk:fish-treat-basket:$childId:${LocalDate.now()}"
+            val basketUsedToday = if (TreatPerks.BASKET_ID in owned) {
+                rewardDao.insertIgnoring(
+                    RewardEntity(
+                        id = basketRowId,
+                        childId = childId,
+                        type = "PERK",
+                        amount = 0,
+                        metadata = TreatPerks.BASKET_ID,
+                    )
+                ) == -1L
+            } else {
+                true
+            }
+            val applied = TreatPerks.applyTo(starsEarned, coinsEarned, owned, basketUsedToday)
+
             rewardDao.insertIgnoring(
                 RewardEntity(
                     id = "$rewardKey:STAR",
                     childId = childId,
                     type = "STAR",
                     subject = lesson.subject,
-                    amount = starsEarned,
+                    amount = applied.stars,
                     metadata = rewardKey,
                 )
             )
             failureInjector.after(CompletionWriteStage.STARS_INSERTED)
-            if (accuracy >= 0.8) {
-                coinsEarned = 10
+            if (applied.coins > 0) {
                 rewardDao.insertIgnoring(
                     RewardEntity(
                         id = "$rewardKey:COIN",
                         childId = childId,
                         type = "COIN",
                         subject = lesson.subject,
-                        amount = coinsEarned,
+                        amount = applied.coins,
                         metadata = rewardKey,
                     )
                 )
@@ -170,8 +200,8 @@ class LessonCompletionRepository @Inject constructor(
 
             LessonCompletionPersistenceResult(
                 completionInserted = true,
-                starsEarned = starsEarned,
-                coinsEarned = coinsEarned,
+                starsEarned = applied.stars,
+                coinsEarned = applied.coins,
                 expeditionProgress = expedition,
                 badgeAwarded = firstStepsSticker ?: expedition.newlyAwardedBadge,
             )

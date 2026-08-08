@@ -22,6 +22,8 @@ data class TreatShopItem(
     val description: String,
     val cost: Int,
     val emoji: String,
+    /** Kid-readable perk line — what owning this item does for lessons. */
+    val perk: String,
 )
 
 object TreatShopCatalog {
@@ -32,6 +34,7 @@ object TreatShopCatalog {
             description = "A tasty snack for Milo.",
             cost = 5,
             emoji = "🧺",
+            perk = "Perk: double stars on your first lesson each day!",
         ),
         TreatShopItem(
             id = "cozy-milo-cushion",
@@ -39,6 +42,7 @@ object TreatShopCatalog {
             description = "A soft place for Milo to nap.",
             cost = 8,
             emoji = "🛋️",
+            perk = "Perk: every lesson gives 1 extra star",
         ),
         TreatShopItem(
             id = "starry-food-bowl",
@@ -46,6 +50,7 @@ object TreatShopCatalog {
             description = "A shiny bowl for a star learner.",
             cost = 12,
             emoji = "🥣",
+            perk = "Perk: every lesson fills the bowl with 1 coin",
         ),
     )
 

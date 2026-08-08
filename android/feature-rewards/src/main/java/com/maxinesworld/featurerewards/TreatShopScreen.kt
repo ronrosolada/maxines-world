@@ -200,7 +200,8 @@ private fun TreatShopItemCard(
             Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(item.name, fontWeight = FontWeight.ExtraBold, color = TreatShopInk)
                 Text(item.description, style = MaterialTheme.typography.bodyMedium, color = TreatShopInk)
-                Text("${item.cost} coins", color = VillageTeal, fontWeight = FontWeight.Bold)
+                Text(item.perk, fontSize = 12.sp, fontWeight = FontWeight.Bold, color = VillageTeal)
+                Text("${item.cost} coins", color = TreatShopInk, fontWeight = FontWeight.Bold, fontSize = 13.sp)
             }
             Button(
                 onClick = onPurchase,
