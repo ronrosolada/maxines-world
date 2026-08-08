@@ -6,6 +6,27 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.24.0] - 2026-08-08
+
+### Changed (child-development content review, all 358 lessons)
+
+- Re-authored learner-facing content in 196 lesson files against the product
+  goal (factual, age-appropriate, learning-first, encouraging, fun for an
+  8-year-old): concrete kid questions replace objective-pasted assessment
+  stems; abstract distractors replaced with plausible options; reasoning-based
+  explanations replace "uses what we learned" phrasing; topic-specific hooks
+  and activity instructions; encouraging feedback rotation replaces
+  "You found the key idea" placeholders.
+- Fixed scrambled assessment keys (english q3-w13-d03/d04), ambiguous keys
+  (science living/non-living), clone assessments (math q1-w01-d01/d04), and
+  Filipino simuno stem-leak items (32 lessons regenerated).
+- Localized AP titles to fil-PH; simplified Filipino instruction verbs.
+- Tooling hardened so generators/sanitizers cannot reintroduce the patterns:
+  `repair_educator_findings.py`, `content_review.py`, `Models.kt`
+  (FeedbackSanitizationTest, ActivityStepConversionTest), and
+  `repair_filipino_content.py` (idempotency restored, 14/14 tool tests).
+- Metadata untouched: 358/358 lessons educator-reviewed and RELEASED.
+
 ## [0.23.0] - 2026-08-08
 
 ### Content & visuals
