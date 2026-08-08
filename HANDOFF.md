@@ -1,7 +1,7 @@
 # Maxine's World — Current State & Release Handoff
 
 **Document baseline:** 2026-08-07
-**Release candidate:** `0.22.0` (`versionCode = 23`) — next release bump pending review
+**Release candidate:** `0.23.0` (`versionCode = 24`) — tagged 2026-08-08
 **Working branch:** `main` (PR #71 squash-merged 2026-08-07 as `6dc51f0`)
 **Repository:** `ronrosolada/maxines-world` (public)
 

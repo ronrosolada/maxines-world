@@ -6,6 +6,8 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.23.0] - 2026-08-08
+
 ### Content & visuals
 - Completed the educator-review re-author round (2026-08-07 r2 completion): C4/C5/C6/C8 + M3/M8/M9/M10 + m1–m6, all seven subjects now Approvable.
 - GMRC: per-value instructions + sequence steps across all 24 files; all assessments rebuilt as scenario-based judgment items with why-explanations (35 unique transfer scenarios authored).
