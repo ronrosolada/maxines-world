@@ -34,17 +34,29 @@ data class SubjectCardUi(
 )
 
 @androidx.compose.runtime.Immutable
+data class QuestTargetUi(
+    val lessonId: String,
+    val title: String,
+    val subject: String,
+    val displaySubject: String,
+    val moduleKey: String?,
+    val isCompleted: Boolean,
+)
+
+@androidx.compose.runtime.Immutable
 data class QuestUi(
     val task: String,
     val pawPrintsCompleted: Int,
     val pawPrintTotal: Int,
     val isComplete: Boolean = false,
-    val recommendedSubjectId: String? = null, // null → “Choose a subject”
+    val recommendedSubjectId: String? = null, // null → "Choose a subject"
     val buttonLabel: String = "",             // Continue / Choose a subject / View reward
     val buttonAction: QuestAction = QuestAction.Continue,
+    val targets: List<QuestTargetUi> = emptyList(),
+    val nextLessonId: String? = null,
 )
 
-enum class QuestAction { Continue, ChooseSubject, ViewReward }
+enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson }
 
 @androidx.compose.runtime.Immutable
 data class StickerUi(

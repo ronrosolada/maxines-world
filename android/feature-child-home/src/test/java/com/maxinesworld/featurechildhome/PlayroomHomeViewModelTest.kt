@@ -81,7 +81,7 @@ class PlayroomHomeViewModelTest {
         assertEquals(2, quest.pawPrintsCompleted)
         assertEquals(3, quest.pawPrintTotal)
         assertFalse(quest.isComplete)
-        assertEquals("Continue", quest.buttonLabel)
+        assertEquals("Continue quest", quest.buttonLabel)
         assertTrue(quest.task.contains("today"))
     }
 

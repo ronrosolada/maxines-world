@@ -832,7 +832,46 @@ private fun TodayQuestCard(
                     }
                 }
 
-                Spacer(Modifier.height(16.dp))
+                if (quest.targets.isNotEmpty()) {
+                    Spacer(Modifier.height(4.dp))
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        quest.targets.forEach { target ->
+                            val targetDone = target.isCompleted
+                            val targetCd = if (targetDone) "Quest target done: ${target.title}" else "Quest target: ${target.displaySubject}: ${target.title}"
+                            Row(
+                                modifier = Modifier.fillMaxWidth()
+                                    .clip(RoundedCornerShape(14.dp))
+                                    .background(Color.White.copy(alpha = 0.72f))
+                                    .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenLesson) })
+                                    .semantics { contentDescription = targetCd }
+                                    .padding(horizontal = 10.dp, vertical = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
+                                    Modifier.size(28.dp).clip(CircleShape)
+                                        .background(if (targetDone) PlaySunshine else PlayInk.copy(alpha = 0.14f), CircleShape),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    if (targetDone) Text("✓", fontWeight = FontWeight.Black, color = PlayInkDark, fontSize = 14.sp)
+                                    else Text(target.displaySubject.first().toString().uppercase(), fontWeight = FontWeight.Black, color = PlayMuted, fontSize = 12.sp)
+                                }
+                                Spacer(Modifier.width(10.dp))
+                                Column(Modifier.weight(1f)) {
+                                    Text(target.displaySubject, fontSize = 11.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
+                                    Text(target.title, fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                }
+                                if (targetDone) {
+                                    Box(Modifier.size(22.dp).clip(CircleShape).background(PlaySunshine.copy(alpha = 0.9f)), contentAlignment = Alignment.Center) {
+                                        Text("✓", fontSize = 12.sp, fontWeight = FontWeight.Black, color = PlayInkDark)
+                                    }
+                                } else {
+                                    Text("›", fontSize = 18.sp, fontWeight = FontWeight.Black, color = PlayTeal)
+                                }
+                            }
+                        }
+                    }
+                    Spacer(Modifier.height(14.dp))
+                }
 
                 Surface(
                     shape = RoundedCornerShape(18.dp),
