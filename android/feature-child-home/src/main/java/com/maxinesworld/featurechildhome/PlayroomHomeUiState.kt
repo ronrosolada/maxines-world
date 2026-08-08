@@ -54,6 +54,13 @@ data class StickerUi(
 )
 
 @androidx.compose.runtime.Immutable
+data class KeepsakeUi(
+    val itemId: String,
+    val emoji: String,
+    val name: String,
+)
+
+@androidx.compose.runtime.Immutable
 data class WildlifeStickersUi(
     val collectedCount: Int,
     val totalCount: Int,
@@ -79,6 +86,9 @@ sealed interface PlayroomHomeUiState {
          *  counted by the kid, not just the Parent Dashboard (#35). */
         val starBalance: Int = 0,
         val coinBalance: Int = 0,
+        /** Treat Shop keepsakes this child owns — rendered on the home so a
+         *  purchase always produces something visible. */
+        val ownedKeepsakes: List<KeepsakeUi> = emptyList(),
     ) : PlayroomHomeUiState
 
     data class Error(

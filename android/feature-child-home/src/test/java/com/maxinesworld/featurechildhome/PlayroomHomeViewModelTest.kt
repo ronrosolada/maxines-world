@@ -6,6 +6,7 @@ import com.maxinesworld.corecontent.ContentModuleLesson
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
+import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -185,6 +186,8 @@ class PlayroomHomeViewModelTest {
         coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
         coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
         val dailyQuestManager = mockk<DailyQuestManager>()
+        val inventoryDao = mockk<InventoryDao>()
+        coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()
         val assignedQuestIds = (0 until 3).map { "daily-quest-$it" }
         val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
         coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
@@ -198,6 +201,7 @@ class PlayroomHomeViewModelTest {
             lessonCompletionDao = completionDao,
             badgeAwarder = awarder,
             rewardDao = rewardDao,
+            inventoryDao = inventoryDao,
             dailyQuestManager = dailyQuestManager,
         )
     }

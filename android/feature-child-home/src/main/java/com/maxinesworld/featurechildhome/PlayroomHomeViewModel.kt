@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -36,6 +38,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
+    private val inventoryDao: InventoryDao,
     private val dailyQuestManager: DailyQuestManager,
 ) : ViewModel() {
 
@@ -67,7 +70,13 @@ class PlayroomHomeViewModel @Inject constructor(
                         val badges = badgeAwarder.getCollectedBadges(childId)
                         val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
                         val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
-                        _state.value = buildContent(profile?.name, lessonIds, dailyQuest, badges, stars, coins)
+                        val keepsakes = inventoryDao.getOwnedItemIds(childId)
+                            .mapNotNull { id -> TreatShopCatalog.byId(id) }
+                            .map { item -> KeepsakeUi(item.id, item.emoji, item.name) }
+                        _state.value = buildContent(
+                            profile?.name, lessonIds, dailyQuest, badges,
+                            stars, coins, keepsakes,
+                        )
                     }
             } catch (cancelled: CancellationException) {
                 throw cancelled
@@ -112,6 +121,7 @@ class PlayroomHomeViewModel @Inject constructor(
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
         starBalance: Int,
         coinBalance: Int,
+        keepsakes: List<KeepsakeUi>,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -183,6 +193,7 @@ class PlayroomHomeViewModel @Inject constructor(
             offline = false,
             starBalance = starBalance,
             coinBalance = coinBalance,
+            ownedKeepsakes = keepsakes,
         )
     }
 }

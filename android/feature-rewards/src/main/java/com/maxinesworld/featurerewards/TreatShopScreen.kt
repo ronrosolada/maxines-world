@@ -23,8 +23,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Pets
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
@@ -81,7 +79,7 @@ class TreatShopViewModel @Inject constructor(
             val coins = repository.coinBalance(childId)
             val owned = repository.ownedItemIds(childId)
             val message = when (result) {
-                PurchaseResult.Purchased -> "${item.name} is yours! Milo is happy."
+                PurchaseResult.Purchased -> "🎉 ${item.name} is yours! Milo is happy. 🐾"
                 PurchaseResult.AlreadyOwned -> "You already have ${item.name}."
                 PurchaseResult.NotEnoughCoins -> "You need more coins for ${item.name}."
             }
@@ -190,11 +188,14 @@ private fun TreatShopItemCard(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            androidx.compose.material3.Icon(
-                imageVector = Icons.Default.Pets,
-                contentDescription = item.name,
-                tint = VillageTeal,
-                modifier = Modifier.size(56.dp),
+            Text(
+                item.emoji,
+                fontSize = 44.sp,
+                modifier = Modifier
+                    .size(56.dp)
+                    .semantics {
+                        contentDescription = item.name
+                    },
             )
             Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(item.name, fontWeight = FontWeight.ExtraBold, color = TreatShopInk)

@@ -98,6 +98,26 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun ownedKeepsakesAreVisibleOnHome() {
+        setHome(
+            stateFor().copy(
+                ownedKeepsakes = listOf(
+                    KeepsakeUi(itemId = "fish-treat-basket", emoji = "🧺", name = "Fish Treat Basket"),
+                ),
+            )
+        )
+        composeRule.onNodeWithText("Milo's keepsakes").assertIsDisplayed()
+        composeRule.onNodeWithText("Fish Treat Basket").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("Milo's keepsake: Fish Treat Basket").assertIsDisplayed()
+    }
+
+    @Test
+    fun noKeepsakesMeansNoStrip() {
+        setHome(stateFor())
+        composeRule.onNodeWithText("Milo's keepsakes").assertDoesNotExist()
+    }
+
+    @Test
     fun primaryActionsHaveTalkBackLabels() {
         setHome(stateFor())
         listOf("Treat Shop", "Collection", "Parents").forEach { label ->

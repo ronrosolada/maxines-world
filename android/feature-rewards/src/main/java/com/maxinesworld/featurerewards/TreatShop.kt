@@ -10,12 +10,18 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import java.util.UUID
 import javax.inject.Inject
 
-/** Small, permanent keepsakes that make lesson-earned coins useful to a child. */
+/**
+ * Small, permanent keepsakes that make lesson-earned coins useful to a child.
+ * Each item has its own emoji artwork (rendered large in the shop and as a
+ * keepsake chip on the Playroom home), so buying something always changes
+ * what the child sees.
+ */
 data class TreatShopItem(
     val id: String,
     val name: String,
     val description: String,
     val cost: Int,
+    val emoji: String,
 )
 
 object TreatShopCatalog {
@@ -25,20 +31,25 @@ object TreatShopCatalog {
             name = "Fish Treat Basket",
             description = "A tasty snack for Milo.",
             cost = 5,
+            emoji = "🧺",
         ),
         TreatShopItem(
             id = "cozy-milo-cushion",
             name = "Cozy Milo Cushion",
             description = "A soft place for Milo to nap.",
             cost = 8,
+            emoji = "🛋️",
         ),
         TreatShopItem(
             id = "starry-food-bowl",
             name = "Starry Food Bowl",
             description = "A shiny bowl for a star learner.",
             cost = 12,
+            emoji = "🥣",
         ),
     )
+
+    fun byId(id: String): TreatShopItem? = items.firstOrNull { it.id == id }
 }
 
 enum class PurchaseResult {

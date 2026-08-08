@@ -36,4 +36,43 @@ class TreatShopScreenTest {
         composeRule.onAllNodesWithText("Get it")[0].performClick()
         composeRule.runOnIdle { assertTrue(purchased) }
     }
+
+    @Test
+    fun shopShowsDistinctArtworkPerItem() {
+        composeRule.activityRule.scenario.onActivity { activity ->
+            activity.setContent {
+                TreatShopContent(
+                    state = TreatShopUiState(coins = 20),
+                    onBack = {},
+                    onPurchase = {},
+                )
+            }
+        }
+        composeRule.waitForIdle()
+
+        // Every item has its own emoji artwork — never the same generic icon.
+        composeRule.onNodeWithText("🧺").assertIsDisplayed()   // Fish Treat Basket
+        composeRule.onNodeWithText("🛋️").assertIsDisplayed()  // Cozy Milo Cushion
+        composeRule.onNodeWithText("🥣").assertIsDisplayed()   // Starry Food Bowl
+    }
+
+    @Test
+    fun purchaseRevealShowsCelebration() {
+        composeRule.activityRule.scenario.onActivity { activity ->
+            activity.setContent {
+                TreatShopContent(
+                    state = TreatShopUiState(
+                        coins = 10,
+                        message = "🎉 Fish Treat Basket is yours! Milo is happy. 🐾",
+                    ),
+                    onBack = {},
+                    onPurchase = {},
+                )
+            }
+        }
+        composeRule.waitForIdle()
+
+        composeRule.onNodeWithText("🎉 Fish Treat Basket is yours! Milo is happy. 🐾")
+            .assertIsDisplayed()
+    }
 }

@@ -183,6 +183,7 @@ fun PlayroomHomeScreen(
                     wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
                     starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
                     coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
+                    keepsakes = (state as? PlayroomHomeUiState.Content)?.ownedKeepsakes.orEmpty(),
                     onTreatShopClick = onTreatShopClick,
                 )
 
@@ -307,6 +308,7 @@ private fun PlayroomHeader(
     wide: Boolean,
     starBalance: Int = 0,
     coinBalance: Int = 0,
+    keepsakes: List<KeepsakeUi> = emptyList(),
     onTreatShopClick: () -> Unit = {},
 ) {
     if (wide) {
@@ -335,6 +337,7 @@ private fun PlayroomHeader(
             Text("Treat Shop", fontWeight = FontWeight.ExtraBold)
         }
     }
+    KeepsakesStrip(keepsakes)
     if (offline) {
         Surface(
             shape = RoundedCornerShape(99.dp),
@@ -356,6 +359,51 @@ private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) 
     Row(modifier, horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
         BalanceChip("stars", "★", stars, PlaySunshine)
         BalanceChip("coins", "●", coins, PlayTeal)
+    }
+}
+
+/**
+ * Owned Treat Shop keepsakes — the visible payoff for spending coins. Hidden
+ * entirely until the child owns at least one item; every purchase then shows
+ * up on the home so the reward loop always ends in something to see.
+ */
+@Composable
+private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
+    if (keepsakes.isEmpty()) return
+    Column(Modifier.fillMaxWidth()) {
+        Text(
+            "Milo's keepsakes",
+            fontSize = 12.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = Color(0xFF5C2E00),
+        )
+        Spacer(Modifier.height(6.dp))
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            items(keepsakes, key = { it.itemId }) { keepsake ->
+                Surface(
+                    shape = RoundedCornerShape(99.dp),
+                    color = Color.White.copy(alpha = 0.85f),
+                    shadowElevation = 1.dp,
+                    modifier = Modifier.semantics(mergeDescendants = true) {
+                        contentDescription = "Milo's keepsake: ${keepsake.name}"
+                    },
+                ) {
+                    Row(
+                        Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    ) {
+                        Text(keepsake.emoji, fontSize = 18.sp)
+                        Text(
+                            keepsake.name,
+                            color = PlayInk,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 
