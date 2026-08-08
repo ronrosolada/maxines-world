@@ -1,8 +1,8 @@
 # Maxine's World — Current State & Release Handoff
 
-**Document baseline:** 2026-08-07
-**Release candidate:** `0.24.0` (`versionCode = 25`) — tagged 2026-08-08
-**Working branch:** `main` (PR #71 squash-merged 2026-08-07 as `6dc51f0`)
+**Document baseline:** 2026-08-08
+**Release candidate:** `0.25.0` (`versionCode = 26`) — pending tag 2026-08-08
+**Working branch:** `main` (PR #73 squash-merged 2026-08-08 as `9c54d09`)
 **Repository:** `ronrosolada/maxines-world` (public)
 
 ## Product goal
@@ -155,7 +155,7 @@ Latest local verification on 2026-08-07 (see `docs/release-review-2026-08-07.md`
   opened the real IME, and confirmed Digit 0 / Delete / Set PIN stay above the
   keyboard (#64).
 
-Before tagging the next release (`0.24.0` pending review):
+Before tagging the next release (`0.25.0` pending review):
 
 1. Run `./gradlew check assembleRelease` with the release signing properties.
 2. Run the content tooling checks from the Quick verification section.

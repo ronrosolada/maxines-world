@@ -6,6 +6,30 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.25.0] - 2026-08-08
+
+### Quest
+
+- Today's Quest now shows its 3 deterministic lesson targets (subject + friendly title, ✓/○ completion, accessible) so Maxine sees what counts toward the badge.
+- Quest CTA routes to the next incomplete target (`lesson_player/{questLessonId}` — Start/Continue quest) instead of a placeholder.
+- Covers the 100% bug where finishing a non-quest lesson made the badge look stuck.
+
+### Child-facing polish
+
+- Sort & Classify: scroll hint when cards exceed the fold; MCQ now nudges on empty Submit (`Pick one answer to check`).
+- Place-value fix: `mathematics-g3-m01-d01` corrections rebuilt around the teaching example (`hundreds` / `hundreds place` line preserved, `ten thousands` → `ten thousand`).
+
+### Content
+
+- Replaced generic activity feedback (`Look at the example again` / `Great thinking! You found the key idea`) with topic-grounded, language-aware lines (e.g. `Find the clue in Picture Detective again`, `Great! You found the examples for …`) — 347 lessons.
+- Fixed `english-g3-q3-w11-d03` (Sentence Polishing) — 5 title-substituted assessment prompts replaced with real capitalization/punctuation checks.
+- Language hygiene: `en-PH` lessons now carry English feedback only (`Mahusay` 0 in `en-PH`).
+
+### Tooling
+
+- `content_review.py`: topic-grounded `make_activities` feedback table, generic-key replacement guard (`_GENERIC_FEEDBACK_KEYS`), language-aware sanitizers.
+- Gates: `content_review --include-legacy --dry-run` 0/358/0, `content_quality_audit --check` 0 findings, `content_similarity_gate` 0 @0.85, `content_pack_validation --strict` 358/358 0/0, tooling 91 tests (358 subtests), `core-content` + app unit tests, `verifyPlayableContent` 358 educator-reviewed.
+
 ## [0.24.0] - 2026-08-08
 
 ### Changed (child-development content review, all 358 lessons)
