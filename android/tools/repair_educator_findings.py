@@ -633,14 +633,19 @@ def repair_generic_shell_copy(lesson: dict[str, Any]) -> bool:
     objective = str(lesson.get("objective", "")).strip().rstrip(".")
     if not objective:
         return False
-    is_fil = language == "fil-PH"
+    is_fil = lesson.get("language") == "fil-PH"
+    try:
+        import content_review  # type: ignore
+        topic = str(content_review.profile_for(lesson).get("title") or clean_title(lesson)).strip()[:30]
+    except Exception:
+        topic = (clean_title(lesson) or "the lesson").strip()[:30]
     prompts = {
-        "ANIMATED_EXPLANATION": (f"Pag-aralan ang kasanayan: {objective}.", f"Learn this skill: {objective}."),
-        "HOTSPOT_IMAGE": (f"Suriin ang bawat halimbawa upang maisagawa ang: {objective}.", f"Look closely at each example to practice: {objective}."),
-        "SORT_AND_CLASSIFY": (f"Ilagay ang bawat halimbawa sa pangkat habang isinasagawa ang: {objective}.", f"Sort each example while practicing: {objective}."),
-        "MULTIPLE_CHOICE": (f"Piliin ang sagot na pinakamalinaw na nagpapakita ng: {objective}.", f"Choose the answer that best shows this skill: {objective}."),
-        "MATCHING_PAIRS": (f"Itugma ang bawat halimbawa sa ideyang kaugnay ng: {objective}.", f"Match each example to the idea it shows about: {objective}."),
-        "SEQUENCE_BUILDER": (f"Ayusin ang mga hakbang upang maisagawa ang: {objective}.", f"Put the steps in order to practice: {objective}."),
+        "ANIMATED_EXPLANATION": (f"Pakinggan kung paano ginagamit ang {topic}.", f"Listen for the clue in {topic}."),
+        "HOTSPOT_IMAGE": (f"Hanapin ang mga halimbawang tungkol sa {topic}.", f"Find the examples for {topic}."),
+        "SORT_AND_CLASSIFY": (f"Pangkatin ang mga halimbawa ayon sa {topic}.", f"Sort the examples by the {topic} clue."),
+        "MULTIPLE_CHOICE": (f"Piliin ang sagot na tama para sa {topic}.", f"Choose the answer that fits {topic}."),
+        "MATCHING_PAIRS": (f"Itugma ang halimbawa sa paliwanag tungkol sa {topic}.", f"Match each example with its {topic} explanation."),
+        "SEQUENCE_BUILDER": (f"Ayusin ang mga hakbang sa {topic}.", f"Put the {topic} steps in order."),
     }
     markers = (
         "Study the idea and listen to Milo", "Explore each example and find the important detail",
@@ -669,18 +674,18 @@ def repair_generic_shell_copy(lesson: dict[str, Any]) -> bool:
         "Aling halimbawa ang dapat gamitin sa huling balik-aral",
     )
     en_variants = (
-        "Which answer shows what we learned?",
-        "Which choice shows what we learned?",
-        "Which example shows what we learned?",
-        "Which answer best shows what we learned?",
-        "Which example gives evidence of what we learned?",
+        f"Which example fits {topic}?",
+        f"Which choice belongs with {topic}?",
+        f"Which situation matches {topic}?",
+        f"Which answer uses {topic}?",
+        f"Which one follows the rule for {topic}?",
     )
     fil_variants = (
-        "Aling sagot ang nagpapakita ng ating natutuhan?",
-        "Aling pagpipilian ang gumagamit ng ating natutuhan?",
-        "Aling sitwasyon ang nagpapakita ng ating natutuhan?",
-        "Aling sagot ang wastong gumagamit ng ating natutuhan?",
-        "Aling halimbawa ang nagbibigay ng patunay sa ating natutuhan?",
+        f"Aling halimbawa ang angkop sa {topic}?",
+        f"Aling pagpipilian ang kabilang sa {topic}?",
+        f"Aling sitwasyon ang tumutugma sa {topic}?",
+        f"Aling sagot ang gumagamit ng {topic}?",
+        f"Alin ang sumusunod sa tuntunin ng {topic}?",
     )
     variants = fil_variants if is_fil else en_variants
     for i, item in enumerate((lesson.get("assessment") or {}).get("items", [])):

@@ -1,378 +1,378 @@
 {
-  "lessonId": "mathematics-g3-q1-w02-d03",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 1,
-  "day": 3,
-  "subject": "mathematics",
-  "title": "Number Face-Off",
-  "objective": "Compare numbers up to 10,000 using =, >, and <.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo is comparing mango baskets! Help him use >, <, and = to tell which is greater.",
-  "vocabulary": [
-    {
-      "term": "4,205 > 4,025",
-      "definition": "shows the greater number"
-    },
-    {
-      "term": "3,100 < 3,900",
-      "definition": "shows the smaller number"
-    },
-    {
-      "term": "6,450 = 6,450",
-      "definition": "shows equal amounts"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Watch how the > and < signs compare numbers.",
-      "content": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Watch how the > and < signs compare numbers.",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    },
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Tap each example and read the comparison.",
-      "content": {
-        "examples": [
-          "4,205 > 4,025",
-          "3,100 < 3,900",
-          "6,450 = 6,450",
-          "8,001 > 7,999"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Tap each example and read the comparison.",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    },
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Sort each card: is the comparison true?",
-      "content": {
-        "fits": [
-          "4,205 > 4,025",
-          "3,100 < 3,900",
-          "6,450 = 6,450",
-          "8,001 > 7,999"
-        ],
-        "doesNotFit": [
-          "the number with fewer digits is always greater",
-          "compare only the ones digit",
-          "use + instead of a comparison symbol",
-          "ignore the thousands digit"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Sort each card: is the comparison true?",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    },
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Tap the true comparison.",
-      "content": {
-        "options": [
-          "4,025 > 4,205",
-          "4,205 + 4,025 = 8,230",
-          "4,205 > 4,025",
-          "4,205 = 4,025"
-        ],
-        "correctIndex": 2
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Tap the true comparison.",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    },
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Match each pair to its symbol: >, <, or =.",
-      "content": {
-        "pairs": [
-          {
-            "left": "4,205 > 4,025",
-            "right": "shows the greater number"
-          },
-          {
-            "left": "3,100 < 3,900",
-            "right": "shows the smaller number"
-          },
-          {
-            "left": "6,450 = 6,450",
-            "right": "shows equal amounts"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Match each pair to its symbol: >, <, or =.",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    },
-    {
-      "activityId": "mathematics-g3-q1-w02-d03-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "mathematics-g3-q1-w02-d03-visual",
-      "instruction": "Put the comparing steps in order.",
-      "content": {
-        "steps": [
-          "Read the math question about compare numbers up to 10,000 using =, >, and <.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great thinking! 🎉",
-        "retry": "Look at the example again and try once more. 💪"
-      },
-      "prompt": "Put the comparing steps in order.",
-      "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "mathematics-g3-q1-w02-d03-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which comparison is true?",
-        "options": [
-          {
-            "id": "a",
-            "text": "4,025 > 4,205"
-          },
-          {
-            "id": "b",
-            "text": "4,205 + 4,025 = 8,230"
-          },
-          {
-            "id": "c",
-            "text": "4,205 > 4,025"
-          },
-          {
-            "id": "d",
-            "text": "4,205 < 4,025"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "Both have 4 thousands. Compare hundreds: 2 is greater than 0, so 4,205 > 4,025."
-      },
-      {
-        "itemId": "mathematics-g3-q1-w02-d03-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which comparison is true?",
-        "options": [
-          {
-            "id": "c",
-            "text": "3,900 < 3,100"
-          },
-          {
-            "id": "d",
-            "text": "3,100 + 3,900 = 7,000"
-          },
-          {
-            "id": "a",
-            "text": "3,100 > 3,900"
-          },
-          {
-            "id": "b",
-            "text": "3,100 < 3,900"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Both start with 3 thousands. Compare hundreds: 1 is less than 9, so 3,100 < 3,900."
-      },
-      {
-        "itemId": "mathematics-g3-q1-w02-d03-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which comparison is true?",
-        "options": [
-          {
-            "id": "a",
-            "text": "6,450 = 6,450"
-          },
-          {
-            "id": "b",
-            "text": "6,450 + 6,450 = 12,900"
-          },
-          {
-            "id": "c",
-            "text": "6,450 > 6,450"
-          },
-          {
-            "id": "d",
-            "text": "6,450 < 6,450"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "6,450 and 6,450 have the same digits in every place, so they are equal: 6,450 = 6,450."
-      },
-      {
-        "itemId": "mathematics-g3-q1-w02-d03-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which comparison is true?",
-        "options": [
-          {
-            "id": "c",
-            "text": "8,001 < 7,999"
-          },
-          {
-            "id": "d",
-            "text": "8,001 > 7,999"
-          },
-          {
-            "id": "a",
-            "text": "7,999 > 8,001"
-          },
-          {
-            "id": "b",
-            "text": "8,001 = 7,999"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "8,001 has 8 thousands and 7,999 has 7 thousands. 8 > 7, so 8,001 > 7,999."
-      },
-      {
-        "itemId": "mathematics-g3-q1-w02-d03-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which comparison is true?",
-        "options": [
-          {
-            "id": "a",
-            "text": "4,205 < 4,025"
-          },
-          {
-            "id": "b",
-            "text": "4,205 = 4,025"
-          },
-          {
-            "id": "c",
-            "text": "4,205 > 4,025"
-          },
-          {
-            "id": "d",
-            "text": "4,025 > 4,205"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "Compare from the greatest place: both have 4 thousands, but 4,205 has 2 hundreds while 4,025 has 0, so 4,205 > 4,025."
-      }
-    ]
+ "lessonId": "mathematics-g3-q1-w02-d03",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 3,
+ "subject": "mathematics",
+ "title": "Number Face-Off",
+ "objective": "Compare numbers up to 10,000 using =, >, and <.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo is comparing mango baskets! Help him use >, <, and = to tell which is greater.",
+ "vocabulary": [
+  {
+   "term": "4,205 > 4,025",
+   "definition": "shows the greater number"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "3,100 < 3,900",
+   "definition": "shows the smaller number"
+  },
+  {
+   "term": "6,450 = 6,450",
+   "definition": "shows equal amounts"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Watch how the > and < signs compare numbers.",
+   "content": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the clue in Number Face-Off again. 💪"
+   },
+   "prompt": "Watch how the > and < signs compare numbers.",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
+  },
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Tap each example and read the comparison.",
+   "content": {
+    "examples": [
+     "4,205 > 4,025",
+     "3,100 < 3,900",
+     "6,450 = 6,450",
+     "8,001 > 7,999"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Look at each Number Face-Off example again. 💪"
+   },
+   "prompt": "Tap each example and read the comparison.",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Sort each card: is the comparison true?",
+   "content": {
+    "fits": [
+     "4,205 > 4,025",
+     "3,100 < 3,900",
+     "6,450 = 6,450",
+     "8,001 > 7,999"
+    ],
+    "doesNotFit": [
+     "the number with fewer digits is always greater",
+     "compare only the ones digit",
+     "use + instead of a comparison symbol",
+     "ignore the thousands digit"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Read the Number Face-Off rule before sorting again. 💪"
+   },
+   "prompt": "Sort each card: is the comparison true?",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
+  },
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Tap the true comparison.",
+   "content": {
+    "options": [
+     "4,025 > 4,205",
+     "4,205 + 4,025 = 8,230",
+     "4,205 > 4,025",
+     "4,205 = 4,025"
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the clue in the Number Face-Off question. 💪"
+   },
+   "prompt": "Tap the true comparison.",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
+  },
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Match each pair to its symbol: >, <, or =.",
+   "content": {
+    "pairs": [
+     {
+      "left": "4,205 > 4,025",
+      "right": "shows the greater number"
+     },
+     {
+      "left": "3,100 < 3,900",
+      "right": "shows the smaller number"
+     },
+     {
+      "left": "6,450 = 6,450",
+      "right": "shows equal amounts"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Read both sides of each Number Face-Off pair again. 💪"
+   },
+   "prompt": "Match each pair to its symbol: >, <, or =.",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
+  },
+  {
+   "activityId": "mathematics-g3-q1-w02-d03-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "mathematics-g3-q1-w02-d03-visual",
+   "instruction": "Put the comparing steps in order.",
+   "content": {
+    "steps": [
+     "Read the math question about compare numbers up to 10,000 using =, >, and <.",
+     "Choose the operation or model that matches the problem",
+     "Solve carefully using the given numbers",
+     "Check that the answer matches the question"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great thinking! 🎉",
+    "retry": "Find the first, next, and last Number Face-Off steps. 💪"
+   },
+   "prompt": "Put the comparing steps in order.",
+   "narration": "Compare digits from the greatest place value first. The symbol opens toward the greater number.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Compare digits from the greatest place value first. The symbol opens toward the greater number."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "mathematics-g3-q1-w02-d03-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which comparison is true?",
+    "options": [
+     {
+      "id": "a",
+      "text": "4,025 > 4,205"
+     },
+     {
+      "id": "b",
+      "text": "4,205 + 4,025 = 8,230"
+     },
+     {
+      "id": "c",
+      "text": "4,205 > 4,025"
+     },
+     {
+      "id": "d",
+      "text": "4,205 < 4,025"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Both have 4 thousands. Compare hundreds: 2 is greater than 0, so 4,205 > 4,025."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w02-d03-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which comparison is true?",
+    "options": [
+     {
+      "id": "c",
+      "text": "3,900 < 3,100"
+     },
+     {
+      "id": "d",
+      "text": "3,100 + 3,900 = 7,000"
+     },
+     {
+      "id": "a",
+      "text": "3,100 > 3,900"
+     },
+     {
+      "id": "b",
+      "text": "3,100 < 3,900"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Both start with 3 thousands. Compare hundreds: 1 is less than 9, so 3,100 < 3,900."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w02-d03-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which comparison is true?",
+    "options": [
+     {
+      "id": "a",
+      "text": "6,450 = 6,450"
+     },
+     {
+      "id": "b",
+      "text": "6,450 + 6,450 = 12,900"
+     },
+     {
+      "id": "c",
+      "text": "6,450 > 6,450"
+     },
+     {
+      "id": "d",
+      "text": "6,450 < 6,450"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "6,450 and 6,450 have the same digits in every place, so they are equal: 6,450 = 6,450."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w02-d03-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which comparison is true?",
+    "options": [
+     {
+      "id": "c",
+      "text": "8,001 < 7,999"
+     },
+     {
+      "id": "d",
+      "text": "8,001 > 7,999"
+     },
+     {
+      "id": "a",
+      "text": "7,999 > 8,001"
+     },
+     {
+      "id": "b",
+      "text": "8,001 = 7,999"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "8,001 has 8 thousands and 7,999 has 7 thousands. 8 > 7, so 8,001 > 7,999."
+   },
+   {
+    "itemId": "mathematics-g3-q1-w02-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which comparison is true?",
+    "options": [
+     {
+      "id": "a",
+      "text": "4,205 < 4,025"
+     },
+     {
+      "id": "b",
+      "text": "4,205 = 4,025"
+     },
+     {
+      "id": "c",
+      "text": "4,205 > 4,025"
+     },
+     {
+      "id": "d",
+      "text": "4,025 > 4,205"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "Compare from the greatest place: both have 4 thousands, but 4,205 has 2 hundreds while 4,025 has 0, so 4,205 > 4,025."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

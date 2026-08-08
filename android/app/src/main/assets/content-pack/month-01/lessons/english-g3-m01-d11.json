@@ -1,344 +1,344 @@
 {
-  "lessonId": "english-g3-m01-d11",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 1,
-  "day": 11,
-  "subject": "ENGLISH",
-  "title": "Be-Verb Team · M01 D11",
-  "objective": "Choose am, is, are, was, or were to agree with the subject and time.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo says, \"I am ready!\" Can you say it right too? Pick am, is, are, was, or were to match the subject and the time.",
-  "vocabulary": [
-    {
-      "term": "verb",
-      "definition": "An action or being word; am, is, are, was, and were are be-verbs."
-    },
-    {
-      "term": "subject",
-      "definition": "The part of a sentence that tells who or what."
-    },
-    {
-      "term": "past",
-      "definition": "The time that has already happened."
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-m01-d11-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "instruction": "Meet the be-verb team: am, is, are, was, were!",
-      "content": "Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject.",
-      "required": true,
-      "completionRule": {
-        "type": "VIEW_AND_ACKNOWLEDGE"
-      },
-      "feedback": {
-        "correct": "Nice work. Continue to the next step.",
-        "retry": "Read the explanation once more."
-      },
-      "assetId": "english-g3-m01-d11-visual",
-      "accessibilityAlternative": "Text alternative: Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject."
-    },
-    {
-      "activityId": "english-g3-m01-d11-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each sentence and say the be-verb out loud.",
-      "content": {
-        "examples": [
-          "I am ready.",
-          "They are reading.",
-          "She was here yesterday."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 3
-      },
-      "feedback": {
-        "correct": "You explored every example.",
-        "retry": "Open each remaining example."
-      },
-      "assetId": "english-g3-m01-d11-visual",
-      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-    },
-    {
-      "activityId": "english-g3-m01-d11-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: does the verb agree with the subject?",
-      "content": {
-        "fits": [
-          "I am ready.",
-          "They are reading.",
-          "She was here yesterday."
-        ],
-        "doesNotFit": [
-          "I is ready.",
-          "They am reading.",
-          "We was here."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 6
-      },
-      "feedback": {
-        "correct": "Your groups match what we learned.",
-        "retry": "Use the explanation, not color or position."
-      },
-      "assetId": "english-g3-m01-d11-visual",
-      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-    },
-    {
-      "activityId": "english-g3-m01-d11-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "instruction": "Pick the sentence that uses the be-verb right.",
-      "content": {
-        "options": [
-          "They am helpful.",
-          "They are helpful.",
-          "They is helpful."
-        ],
-        "correctIndex": 1
-      },
-      "required": true,
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Correct: They are helpful.",
-        "retry": "They goes with are, not is or am. Pick the pair that sounds right: They are helpful. 💪"
-      },
-      "assetId": null,
-      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-    },
-    {
-      "activityId": "english-g3-m01-d11-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "instruction": "Match each sentence to its be-verb.",
-      "content": {
-        "pairs": [
-          {
-            "left": "I am ready.",
-            "right": "am"
-          },
-          {
-            "left": "They are reading.",
-            "right": "are"
-          },
-          {
-            "left": "She was here yesterday.",
-            "right": "was"
-          }
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_PAIRS_MATCHED",
-        "pairCount": 3
-      },
-      "feedback": {
-        "correct": "All examples are matched.",
-        "retry": "Return to the explanation and compare one pair at a time."
-      },
-      "assetId": "english-g3-m01-d11-visual",
-      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-    },
-    {
-      "activityId": "english-g3-m01-d11-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the be-verb steps in order.",
-      "content": {
-        "steps": [
-          "Find the subject.",
-          "Check the time of the sentence.",
-          "Choose am, is, are, was, or were."
-        ]
-      },
-      "required": true,
-      "completionRule": {
-        "type": "ALL_STEPS_COMPLETED",
-        "stepCount": 3
-      },
-      "feedback": {
-        "correct": "You are ready for the five-question check.",
-        "retry": "Finish each review step."
-      },
-      "assetId": "english-g3-m01-d11-visual",
-      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-m01-d11-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the be-verb correctly?",
-        "options": [
-          {
-            "id": "c",
-            "text": "They am reading."
-          },
-          {
-            "id": "a",
-            "text": "They are reading."
-          },
-          {
-            "id": "b",
-            "text": "I is ready."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "They goes with are: you, we, and they take are. “They am reading” and “I is ready” mix the wrong pairs."
-      },
-      {
-        "itemId": "english-g3-m01-d11-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses am, is, or are correctly?",
-        "options": [
-          {
-            "id": "b",
-            "text": "I is ready."
-          },
-          {
-            "id": "c",
-            "text": "They am reading."
-          },
-          {
-            "id": "a",
-            "text": "I am ready."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "I takes am, so “I am ready” is right. “I is ready” and “They am reading” pair the wrong words."
-      },
-      {
-        "itemId": "english-g3-m01-d11-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence is wrong?",
-        "options": [
-          {
-            "id": "a",
-            "text": "I is ready."
-          },
-          {
-            "id": "b",
-            "text": "I am ready."
-          },
-          {
-            "id": "c",
-            "text": "They are reading."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "“I is ready” is wrong because I takes am. “I am ready” and “They are reading” match their subjects."
-      },
-      {
-        "itemId": "english-g3-m01-d11-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence sounds right?",
-        "options": [
-          {
-            "id": "c",
-            "text": "They am helpful."
-          },
-          {
-            "id": "a",
-            "text": "They are helpful."
-          },
-          {
-            "id": "b",
-            "text": "They is helpful."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "They takes are, so “They are helpful” is right. “They am” and “They is” are wrong pairs."
-      },
-      {
-        "itemId": "english-g3-m01-d11-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the verb correctly?",
-        "options": [
-          {
-            "id": "b",
-            "text": "We was here."
-          },
-          {
-            "id": "c",
-            "text": "I is ready."
-          },
-          {
-            "id": "a",
-            "text": "She was here yesterday."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "“She was here yesterday” is right because she takes was for the past. “We was here” and “I is ready” mix the wrong pairs."
-      }
+ "lessonId": "english-g3-m01-d11",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 1,
+ "day": 11,
+ "subject": "ENGLISH",
+ "title": "Be-Verb Team · M01 D11",
+ "objective": "Choose am, is, are, was, or were to agree with the subject and time.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo says, \"I am ready!\" Can you say it right too? Pick am, is, are, was, or were to match the subject and the time.",
+ "vocabulary": [
+  {
+   "term": "verb",
+   "definition": "An action or being word; am, is, are, was, and were are be-verbs."
+  },
+  {
+   "term": "subject",
+   "definition": "The part of a sentence that tells who or what."
+  },
+  {
+   "term": "past",
+   "definition": "The time that has already happened."
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-m01-d11-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "instruction": "Meet the be-verb team: am, is, are, was, were!",
+   "content": "Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject.",
+   "required": true,
+   "completionRule": {
+    "type": "VIEW_AND_ACKNOWLEDGE"
+   },
+   "feedback": {
+    "correct": "Nice work. Continue to the next step.",
+    "retry": "Find the clue in Be-Verb Team again. 💪"
+   },
+   "assetId": "english-g3-m01-d11-visual",
+   "accessibilityAlternative": "Text alternative: Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject."
+  },
+  {
+   "activityId": "english-g3-m01-d11-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "instruction": "Tap each sentence and say the be-verb out loud.",
+   "content": {
+    "examples": [
+     "I am ready.",
+     "They are reading.",
+     "She was here yesterday."
     ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Be-Verb Team. 🔎",
+    "retry": "Look at each Be-Verb Team example again. 💪"
+   },
+   "assetId": "english-g3-m01-d11-visual",
+   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
   },
-  "assetSpecs": [
-    {
-      "assetId": "english-g3-m01-d11-visual",
-      "type": "INTERACTIVE_SPEC",
-      "path": "assets/vectors/english-g3-m01-d11-visual.svg",
-      "prompt": "Friendly Grade 3 cartoon storybook concept board for Be-Verb Team; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-      "contentDescription": "Five connected learning tokens for exploring examples in Be-Verb Team.",
-      "decorative": false
-    }
-  ],
-  "safetyNotes": [],
-  "sourceRecords": [
-    {
-      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-      "claimScope": "Curriculum and subject-matter review reference",
-      "reviewStatus": "PENDING_HUMAN_REVIEW"
-    }
-  ],
-  "contentHash": "44da4d6754ee5bbd561e0b62682d96af125b33bbe42f1e9e07a0224d06bb187e",
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "activityId": "english-g3-m01-d11-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "instruction": "Sort each card: does the verb agree with the subject?",
+   "content": {
+    "fits": [
+     "I am ready.",
+     "They are reading.",
+     "She was here yesterday."
     ],
-    "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-    "rewritten": false
+    "doesNotFit": [
+     "I is ready.",
+     "They am reading.",
+     "We was here."
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 6
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Be-Verb Team clue. 🎉",
+    "retry": "Use the explanation, not color or position."
+   },
+   "assetId": "english-g3-m01-d11-visual",
+   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "english-g3-m01-d11-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "instruction": "Pick the sentence that uses the be-verb right.",
+   "content": {
+    "options": [
+     "They am helpful.",
+     "They are helpful.",
+     "They is helpful."
+    ],
+    "correctIndex": 1
+   },
+   "required": true,
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Correct: They are helpful.",
+    "retry": "They goes with are, not is or am. Pick the pair that sounds right: They are helpful. 💪"
+   },
+   "assetId": null,
+   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+  },
+  {
+   "activityId": "english-g3-m01-d11-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "instruction": "Match each sentence to its be-verb.",
+   "content": {
+    "pairs": [
+     {
+      "left": "I am ready.",
+      "right": "am"
+     },
+     {
+      "left": "They are reading.",
+      "right": "are"
+     },
+     {
+      "left": "She was here yesterday.",
+      "right": "was"
+     }
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_PAIRS_MATCHED",
+    "pairCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Be-Verb Team explanation. 🔗",
+    "retry": "Read both sides of each Be-Verb Team pair again. 💪"
+   },
+   "assetId": "english-g3-m01-d11-visual",
+   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+  },
+  {
+   "activityId": "english-g3-m01-d11-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "instruction": "Put the be-verb steps in order.",
+   "content": {
+    "steps": [
+     "Find the subject.",
+     "Check the time of the sentence.",
+     "Choose am, is, are, was, or were."
+    ]
+   },
+   "required": true,
+   "completionRule": {
+    "type": "ALL_STEPS_COMPLETED",
+    "stepCount": 3
+   },
+   "feedback": {
+    "correct": "Great! You put the Be-Verb Team steps in order. 🎉",
+    "retry": "Find the first, next, and last Be-Verb Team steps. 💪"
+   },
+   "assetId": "english-g3-m01-d11-visual",
+   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-m01-d11-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence uses the be-verb correctly?",
+    "options": [
+     {
+      "id": "c",
+      "text": "They am reading."
+     },
+     {
+      "id": "a",
+      "text": "They are reading."
+     },
+     {
+      "id": "b",
+      "text": "I is ready."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "They goes with are: you, we, and they take are. “They am reading” and “I is ready” mix the wrong pairs."
+   },
+   {
+    "itemId": "english-g3-m01-d11-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence uses am, is, or are correctly?",
+    "options": [
+     {
+      "id": "b",
+      "text": "I is ready."
+     },
+     {
+      "id": "c",
+      "text": "They am reading."
+     },
+     {
+      "id": "a",
+      "text": "I am ready."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "I takes am, so “I am ready” is right. “I is ready” and “They am reading” pair the wrong words."
+   },
+   {
+    "itemId": "english-g3-m01-d11-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence is wrong?",
+    "options": [
+     {
+      "id": "a",
+      "text": "I is ready."
+     },
+     {
+      "id": "b",
+      "text": "I am ready."
+     },
+     {
+      "id": "c",
+      "text": "They are reading."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "“I is ready” is wrong because I takes am. “I am ready” and “They are reading” match their subjects."
+   },
+   {
+    "itemId": "english-g3-m01-d11-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence sounds right?",
+    "options": [
+     {
+      "id": "c",
+      "text": "They am helpful."
+     },
+     {
+      "id": "a",
+      "text": "They are helpful."
+     },
+     {
+      "id": "b",
+      "text": "They is helpful."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "They takes are, so “They are helpful” is right. “They am” and “They is” are wrong pairs."
+   },
+   {
+    "itemId": "english-g3-m01-d11-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which sentence uses the verb correctly?",
+    "options": [
+     {
+      "id": "b",
+      "text": "We was here."
+     },
+     {
+      "id": "c",
+      "text": "I is ready."
+     },
+     {
+      "id": "a",
+      "text": "She was here yesterday."
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "“She was here yesterday” is right because she takes was for the past. “We was here” and “I is ready” mix the wrong pairs."
+   }
+  ]
+ },
+ "assetSpecs": [
+  {
+   "assetId": "english-g3-m01-d11-visual",
+   "type": "INTERACTIVE_SPEC",
+   "path": "assets/vectors/english-g3-m01-d11-visual.svg",
+   "prompt": "Friendly Grade 3 cartoon storybook concept board for Be-Verb Team; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+   "contentDescription": "Five connected learning tokens for exploring examples in Be-Verb Team.",
+   "decorative": false
+  }
+ ],
+ "safetyNotes": [],
+ "sourceRecords": [
+  {
+   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+   "claimScope": "Curriculum and subject-matter review reference",
+   "reviewStatus": "PENDING_HUMAN_REVIEW"
+  }
+ ],
+ "contentHash": "44da4d6754ee5bbd561e0b62682d96af125b33bbe42f1e9e07a0224d06bb187e",
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
+  "rewritten": false
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

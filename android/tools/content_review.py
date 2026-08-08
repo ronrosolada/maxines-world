@@ -622,16 +622,24 @@ def make_assessment(profile: dict[str, Any], lesson_id: str) -> dict[str, Any]:
 def make_activities(profile: dict[str, Any], lesson_id: str) -> list[dict[str, Any]]:
     subject = profile["subject"]
     filipino = subject in {"filipino", "gmrc", "makabansa", "araling-panlipunan"}
+    topic = str(profile.get("title", "the lesson")).strip()[:30]
     labels = {
-        "animated": "Pag-aralan ang ideya at pakinggan ang paliwanag." if filipino else "Study the idea and listen to Milo.",
-        "hotspot": "Suriin ang bawat halimbawa at hanapin ang mahalagang detalye." if filipino else "Explore each example and find the important detail.",
-        "sort": "Ilagay ang bawat halimbawa sa tamang pangkat." if filipino else "Sort each example into the correct group.",
-        "mc": "Piliin ang pinakamainam na sagot." if filipino else "Choose the best answer.",
-        "match": "Itugma ang magkakaugnay na ideya." if filipino else "Match the ideas that belong together.",
-        "sequence": "Ayusin ang mga hakbang ayon sa tamang pagkakasunod." if filipino else "Put the steps in the correct order.",
+        # Keep each line short, but name the actual topic so a child knows what
+        # to look for.  The previous labels were identical across hundreds of
+        # lessons and taught interface navigation rather than the skill.
+        "animated": (f"Pakinggan kung paano ginagamit ang {topic}." if filipino
+                      else f"Listen for the clue in {topic}."),
+        "hotspot": (f"Hanapin ang mga halimbawang tungkol sa {topic}." if filipino
+                    else f"Find the examples for {topic}."),
+        "sort": (f"Pangkatin ang mga halimbawa ayon sa {topic}." if filipino
+                 else f"Sort the examples by the {topic} clue."),
+        "mc": (f"Piliin ang sagot na tama para sa {topic}." if filipino
+               else f"Choose the answer that fits {topic}."),
+        "match": (f"Itugma ang halimbawa sa paliwanag tungkol sa {topic}." if filipino
+                  else f"Match each example with its {topic} explanation."),
+        "sequence": (f"Ayusin ang mga hakbang sa {topic}." if filipino
+                     else f"Put the {topic} steps in order."),
     }
-    correct = "Mahusay! Nakita mo ang mahalagang ideya. 🎉" if filipino else "Great thinking! You found the key idea. 🎉"
-    retry = "Balikan ang halimbawa at subukan muli. 💪" if filipino else "Look at the example again and try once more. 💪"
     examples = profile["examples"]
     fits = profile["fits"]
     wrong = profile["wrong"]
@@ -660,6 +668,60 @@ def make_activities(profile: dict[str, Any], lesson_id: str) -> list[dict[str, A
             completion = {"type": "CORRECT_RESPONSE"}
         else:
             completion = {"type": "COMPLETE"}
+        if filipino:
+            feedback = {
+                "ANIMATED_EXPLANATION": {
+                    "correct": f"Mahusay! Nahanap mo ang pahiwatig sa {topic}. 🎉",
+                    "retry": f"Balikan ang pahiwatig sa {topic}. 💪",
+                },
+                "HOTSPOT_IMAGE": {
+                    "correct": f"Mahusay! Nahanap mo ang mga halimbawa ng {topic}. 🔎",
+                    "retry": f"Suriing muli ang halimbawa ng {topic}. 💪",
+                },
+                "SORT_AND_CLASSIFY": {
+                    "correct": f"Mahusay! Naipangkat mo ang mga halimbawa ng {topic}. 🎉",
+                    "retry": f"Basahin ang pamantayan ng {topic} bago magpangkat muli. 💪",
+                },
+                "MULTIPLE_CHOICE": {
+                    "correct": f"Mahusay! Pinili mo ang sagot na tama para sa {topic}. 🎉",
+                    "retry": f"Hanapin ang pahiwatig sa tanong tungkol sa {topic}. 💪",
+                },
+                "MATCHING_PAIRS": {
+                    "correct": f"Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng {topic}. 🔗",
+                    "retry": f"Basahin ang dalawang panig ng bawat pares tungkol sa {topic}. 💪",
+                },
+                "SEQUENCE_BUILDER": {
+                    "correct": f"Mahusay! Inayos mo ang mga hakbang sa {topic}. 🎉",
+                    "retry": f"Hanapin ang una, kasunod, at huling hakbang sa {topic}. 💪",
+                },
+            }[atype]
+        else:
+            feedback = {
+                "ANIMATED_EXPLANATION": {
+                    "correct": f"Great! You noticed the clue in {topic}. 🎉",
+                    "retry": f"Find the clue in {topic} again. 💪",
+                },
+                "HOTSPOT_IMAGE": {
+                    "correct": f"Great! You found the examples for {topic}. 🔎",
+                    "retry": f"Look at each {topic} example again. 💪",
+                },
+                "SORT_AND_CLASSIFY": {
+                    "correct": f"Great! You sorted the examples using the {topic} clue. 🎉",
+                    "retry": f"Read the {topic} rule before sorting again. 💪",
+                },
+                "MULTIPLE_CHOICE": {
+                    "correct": f"Great! You chose an answer that fits {topic}. 🎉",
+                    "retry": f"Find the clue in the {topic} question. 💪",
+                },
+                "MATCHING_PAIRS": {
+                    "correct": f"Great! You matched each example with its {topic} explanation. 🔗",
+                    "retry": f"Read both sides of each {topic} pair again. 💪",
+                },
+                "SEQUENCE_BUILDER": {
+                    "correct": f"Great! You put the {topic} steps in order. 🎉",
+                    "retry": f"Find the first, next, and last {topic} steps. 💪",
+                },
+            }[atype]
         output.append({
             "activityId": f"{lesson_id}-a{seq:02d}",
             "sequence": seq,
@@ -670,7 +732,7 @@ def make_activities(profile: dict[str, Any], lesson_id: str) -> list[dict[str, A
             "instruction": instruction,
             "content": content,
             "completionRule": completion,
-            "feedback": {"correct": correct, "retry": retry},
+            "feedback": feedback,
             "prompt": instruction,
             "narration": profile["explain"],
             "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa." if filipino else "Need a hint? Read the example again.",
@@ -705,11 +767,11 @@ def _child_facing_retry(text: str, filipino: bool) -> str:
     )
     if match:
         return (
-            f"Look at the example again. {match.group(1).strip()} "
-            "do not match what we learned. Choose the answer that fits. 💪"
+            f"Read the example again. {match.group(1).strip()} "
+            "do not fit the example. Check the clue and choose again. 💪"
         )
-    text = re.sub(r"shows the skill", "shows what we learned", text, flags=re.IGNORECASE)
-    text = re.sub(r"show the skill", "show what we learned", text, flags=re.IGNORECASE)
+    text = re.sub(r"shows the skill", "fits the example", text, flags=re.IGNORECASE)
+    text = re.sub(r"show the skill", "fits the example", text, flags=re.IGNORECASE)
     return text
 
 
@@ -718,47 +780,99 @@ def _child_facing_correct(text: str, filipino: bool) -> str:
     if not isinstance(text, str) or filipino:
         return text
     replacements = (
-        (r"does not follow the lesson skill", "does not match what we learned"),
-        (r"do not follow the lesson skill", "do not match what we learned"),
-        (r"follows the lesson skill", "matches what we learned"),
-        (r"follow the lesson skill", "match what we learned"),
-        (r"follows the skill explanation", "matches what we learned"),
-        (r"follow the skill explanation", "match what we learned"),
-        (r"follows the lesson explanation", "matches what we learned"),
-        (r"follow the lesson explanation", "match what we learned"),
-        (r"applies the lesson skill", "uses what we learned"),
-        (r"apply the lesson skill", "use what we learned"),
-        (r"applies the skill", "uses what we learned"),
-        (r"apply the skill", "use what we learned"),
-        (r"uses the lesson skill", "uses what we learned"),
-        (r"use the lesson skill", "use what we learned"),
-        (r"follow(?:s)? the skill rule", "match what we learned"),
-        (r"does not show the skill", "does not match the lesson idea"),
-        (r"do not show the skill", "do not match the lesson idea"),
-        (r"shows the skill", "matches the lesson idea"),
-        (r"show the skill", "match the lesson idea"),
+        (r"does not follow the lesson skill", "does not fit the example"),
+        (r"do not follow the lesson skill", "do not fit the example"),
+        (r"follows the lesson skill", "fits the example"),
+        (r"follow the lesson skill", "fit the example"),
+        (r"follows the skill explanation", "fits the example"),
+        (r"follow the skill explanation", "fit the example"),
+        (r"follows the lesson explanation", "fits the example"),
+        (r"follow the lesson explanation", "fit the example"),
+        (r"applies the lesson skill", "uses the example"),
+        (r"apply the lesson skill", "use the example"),
+        (r"applies the skill", "uses the example"),
+        (r"apply the skill", "use the example"),
+        (r"uses the lesson skill", "uses the example"),
+        (r"use the lesson skill", "use the example"),
+        (r"follow(?:s)? the skill rule", "fit the example"),
+        (r"does not show the skill", "does not fit the example"),
+        (r"do not show the skill", "do not fit the example"),
+        (r"shows the skill", "fits the example"),
+        (r"show the skill", "fit the example"),
     )
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
     return text
 
 
+def _feedback_key(text: Any) -> str:
+    if not isinstance(text, str):
+        return ""
+    return re.sub(r"[^\w\s]+", " ", text.casefold()).strip()
+
+
+_GENERIC_FEEDBACK_KEYS = {
+    "look at the example again and try once more",
+    "balikan ang halimbawa at subukan muli",
+    "great thinking you found the key idea",
+    "mahusay nakita mo ang mahalagang ideya",
+    "nice work continue to the next step",
+    "you explored every example",
+    "your groups match what we learned",
+    "great sorting your groups are correct",
+    "all examples are matched",
+    "you are ready for the five question check",
+    "mahusay ituloy ang susunod na hakbang",
+    "nasuri mo ang lahat ng halimbawa",
+    "tama ang pagkakahanay ng mga pangkat",
+    "naitambal mo ang lahat ng halimbawa",
+    "handa ka na sa limang tanong",
+    "read the explanation once more",
+    "open each remaining example",
+    "use the explanation not color or position",
+    "return to the explanation and compare one pair at a time",
+    "finish each review step",
+    "basahin muli ang paliwanag",
+    "buksan ang natitirang halimbawa",
+    "gamitin ang paliwanag hindi ang kulay o posisyon",
+    "balikan ang paliwanag at paghambingin ang isang pares sa bawat pagkakataon",
+    "tapusin ang bawat hakbang sa pagbabalik aral",
+    "what do we do first",
+    "pakinggan muli",
+    "subukan muli",
+    "subukan muli ang pagtatapat",
+    "may mali sa pagkakabukod bukod subukan muli",
+    "may item na hindi tama ang pagkakabukod bukod subukan muli",
+}
+
+
 def _sanitize_activity_feedback(lesson: dict[str, Any]) -> None:
     subject = canonical_subject(lesson.get("subject", ""))
-    filipino = subject in {"filipino", "araling-panlipunan"}
+    filipino = subject in {"filipino", "gmrc", "makabansa", "araling-panlipunan"}
+    generated = {
+        activity["type"]: activity.get("feedback", {})
+        for activity in make_activities(profile_for(lesson), str(lesson.get("lessonId", "lesson")))
+    }
     for activity in lesson.get("activities", []):
         feedback = activity.get("feedback")
         if not isinstance(feedback, dict):
             continue
-        if isinstance(feedback.get("correct"), str):
-            feedback["correct"] = _child_facing_correct(feedback["correct"], filipino)
-        if isinstance(feedback.get("retry"), str):
-            feedback["retry"] = _child_facing_retry(feedback["retry"], filipino)
+        replacement = generated.get(activity.get("type"), {})
+        for key in ("correct", "retry"):
+            if _feedback_key(feedback.get(key)) in _GENERIC_FEEDBACK_KEYS:
+                if isinstance(replacement.get(key), str):
+                    feedback[key] = replacement[key]
+            elif isinstance(feedback.get(key), str):
+                if key == "correct":
+                    feedback[key] = _child_facing_correct(feedback[key], filipino)
+                else:
+                    feedback[key] = _child_facing_retry(feedback[key], filipino)
+
 
 
 def _sanitize_assessment_explanations(lesson: dict[str, Any]) -> None:
     subject = canonical_subject(lesson.get("subject", ""))
-    filipino = subject in {"filipino", "araling-panlipunan"}
+    filipino = subject in {"filipino", "gmrc", "makabansa", "araling-panlipunan"}
     assessment = lesson.get("assessment")
     if not isinstance(assessment, dict):
         return
@@ -771,11 +885,11 @@ def sanitize_legacy_lesson(original: dict[str, Any]) -> dict[str, Any]:
     """Repair generated shell copy while preserving legacy lesson examples."""
     lesson = copy.deepcopy(original)
     subject = canonical_subject(lesson.get("subject", ""))
-    filipino = subject in {"filipino", "araling-panlipunan"}
+    filipino = subject in {"filipino", "gmrc", "makabansa", "araling-panlipunan"}
     replacements = {
-        "fits the lesson idea": "kaugnay ng ideya ng aralin" if filipino else "shows the skill",
-        "fits the lesson": "nagpapakita ng kasanayan" if filipino else "shows the skill",
-        "does not fit": "hindi nagpapakita ng kasanayan" if filipino else "does not show the skill",
+        "fits the lesson idea": "kaugnay ng halimbawa" if filipino else "fits the example",
+        "fits the lesson": "kaugnay ng halimbawa" if filipino else "fits the example",
+        "does not fit": "hindi angkop sa halimbawa" if filipino else "does not fit the example",
         "Complete the guided review in order.": "Sundin nang maayos ang gabay na balik-aral." if filipino else "Follow the guided review in order.",
         "Complete each review step.": "Tapusin ang bawat hakbang sa pagbabalik-aral." if filipino else "Finish each review step.",
         "Ready for the next step.": "Mahusay! Ituloy ang susunod na hakbang." if filipino else "Nice work. Continue to the next step.",

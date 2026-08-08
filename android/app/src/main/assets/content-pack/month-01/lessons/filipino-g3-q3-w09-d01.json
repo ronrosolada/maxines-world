@@ -1,378 +1,378 @@
 {
-  "lessonId": "filipino-g3-q3-w09-d01",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 11,
-  "day": 1,
-  "subject": "filipino",
-  "title": "Salitang-Ugat · Q3 W09 D01",
-  "objective": "Natutukoy ang salitang-ugat ng mga karaniwang salita.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita. Handa ka na bang sumubok?",
-  "vocabulary": [
-    {
-      "term": "salitang-ugat",
-      "definition": "ang payak na anyo ng salita"
-    },
-    {
-      "term": "panlapi",
-      "definition": "idinadagdag sa salitang-ugat upang bumuo ng bagong salita"
-    },
-    {
-      "term": "bagong salita",
-      "definition": "salitang nabuo mula sa ugat at panlapi"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "content": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "narration": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'."
-    },
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
-      "content": {
-        "examples": [
-          "tulog → natulog",
-          "sayaw → sumayaw",
-          "bili → bumili",
-          "lakad → naglalakad"
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
-      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-    },
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Piliin ang pares ng salitang-ugat at bagong salita.",
-      "content": {
-        "fits": [
-          "tulog → natulog",
-          "sayaw → sumayaw",
-          "bili → bumili",
-          "lakad → naglalakad"
-        ],
-        "doesNotFit": [
-          "sulat → kumain",
-          "laro → tumakbo",
-          "basa → nagtanim",
-          "tanim → bumasa"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang mga pares ng salitang-ugat at bagong salita.",
-      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-    },
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Piliin ang pinakamabuting sagot.",
-      "content": {
-        "options": [
-          "kain → kumain",
-          "takbo → tumatakbo",
-          "tanim → nagtanim",
-          "tulog → natulog"
-        ],
-        "correctIndex": 3
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Piliin ang pinakamabuting sagot. Hanapin ang payak na anyo ng salita.",
-      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-    },
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Itugma ang bawat halimbawa sa wastong pangkat.",
-      "content": {
-        "pairs": [
-          {
-            "left": "tulog",
-            "right": "salitang-ugat"
-          },
-          {
-            "left": "natulog",
-            "right": "bagong salita"
-          },
-          {
-            "left": "tulog → natulog",
-            "right": "pares ng ugat at bagong salita"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Itugma ang bawat halimbawa sa wastong pangkat: ugat, bagong salita, o pares.",
-      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-    },
-    {
-      "activityId": "filipino-g3-q3-w09-d01-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "filipino-g3-q3-w09-d01-visual",
-      "instruction": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
-      "content": {
-        "steps": [
-          "Basahin ang salita",
-          "Alisin ang panlapi",
-          "Hanapin ang payak na anyo",
-          "Sabihin ang salitang-ugat"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang halimbawa at subukan muli. 💪"
-      },
-      "prompt": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
-      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-      "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "sequence": 1,
-        "itemId": "filipino-g3-q3-w09-d01-q1",
-        "prompt": "Alin ang salitang-ugat ng 'natulog'?",
-        "options": [
-          {
-            "id": "c",
-            "text": "sumayaw"
-          },
-          {
-            "id": "d",
-            "text": "bili"
-          },
-          {
-            "id": "a",
-            "text": "sayaw"
-          },
-          {
-            "id": "b",
-            "text": "tulog"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tamang sagot ay “tulog.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
-        "type": "MULTIPLE_CHOICE"
-      },
-      {
-        "sequence": 2,
-        "itemId": "filipino-g3-q3-w09-d01-q2",
-        "prompt": "Aling pares ang may salitang-ugat at bagong salita?",
-        "options": [
-          {
-            "id": "b",
-            "text": "tulog → natulog"
-          },
-          {
-            "id": "c",
-            "text": "kain → kumain"
-          },
-          {
-            "id": "d",
-            "text": "takbo → tumatakbo"
-          },
-          {
-            "id": "a",
-            "text": "tanim → nagtanim"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tamang sagot ay “tulog → natulog.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
-        "type": "MULTIPLE_CHOICE"
-      },
-      {
-        "sequence": 3,
-        "itemId": "filipino-g3-q3-w09-d01-q3",
-        "prompt": "Ang salitang-ugat ng 'bumili' ay ___.",
-        "options": [
-          {
-            "id": "a",
-            "text": "tulog"
-          },
-          {
-            "id": "b",
-            "text": "bili"
-          },
-          {
-            "id": "c",
-            "text": "natulog"
-          },
-          {
-            "id": "d",
-            "text": "sayaw"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tamang sagot ay “bili.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
-        "type": "MULTIPLE_CHOICE"
-      },
-      {
-        "sequence": 4,
-        "itemId": "filipino-g3-q3-w09-d01-q4",
-        "prompt": "Ano ang salitang-ugat ng 'naglalakad'?",
-        "options": [
-          {
-            "id": "d",
-            "text": "sayaw"
-          },
-          {
-            "id": "a",
-            "text": "tulog"
-          },
-          {
-            "id": "b",
-            "text": "lakad"
-          },
-          {
-            "id": "c",
-            "text": "natulog"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tamang sagot ay “lakad.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
-        "type": "MULTIPLE_CHOICE"
-      },
-      {
-        "sequence": 5,
-        "itemId": "filipino-g3-q3-w09-d01-q5",
-        "prompt": "Aling salita ang HINDI galing sa ugat na 'tulog'?",
-        "options": [
-          {
-            "id": "c",
-            "text": "bumili"
-          },
-          {
-            "id": "d",
-            "text": "naglalakad"
-          },
-          {
-            "id": "a",
-            "text": "sumayaw"
-          },
-          {
-            "id": "b",
-            "text": "nagluto"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ang tamang sagot ay “nagluto.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
-        "type": "MULTIPLE_CHOICE"
-      }
-    ]
+ "lessonId": "filipino-g3-q3-w09-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 11,
+ "day": 1,
+ "subject": "filipino",
+ "title": "Salitang-Ugat · Q3 W09 D01",
+ "objective": "Natutukoy ang salitang-ugat ng mga karaniwang salita.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "fil-PH",
+ "introduction": "May bagong misyon si Milo! 🐱✨ Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita. Handa ka na bang sumubok?",
+ "vocabulary": [
+  {
+   "term": "salitang-ugat",
+   "definition": "ang payak na anyo ng salita"
   },
-  "contentReview": {
-    "reviewer": "RonBot — seasoned educator pass",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement"
+  {
+   "term": "panlapi",
+   "definition": "idinadagdag sa salitang-ugat upang bumuo ng bagong salita"
+  },
+  {
+   "term": "bagong salita",
+   "definition": "salitang nabuo mula sa ugat at panlapi"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "content": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Balikan ang pahiwatig sa Salitang-Ugat. 💪"
+   },
+   "prompt": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "narration": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo. Sa 'tulog → natulog', ang ugat ay 'tulog'."
+  },
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
+   "content": {
+    "examples": [
+     "tulog → natulog",
+     "sayaw → sumayaw",
+     "bili → bumili",
+     "lakad → naglalakad"
     ],
-    "source": "competency/objective at local examples; no unsafe experiment required",
-    "rewritten": true
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Suriing muli ang halimbawa ng Salitang-Ugat. 💪"
+   },
+   "prompt": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
   },
-  "reviewedAt": "2026-08-02T16:32:07+00:00"
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Piliin ang pares ng salitang-ugat at bagong salita.",
+   "content": {
+    "fits": [
+     "tulog → natulog",
+     "sayaw → sumayaw",
+     "bili → bumili",
+     "lakad → naglalakad"
+    ],
+    "doesNotFit": [
+     "sulat → kumain",
+     "laro → tumakbo",
+     "basa → nagtanim",
+     "tanim → bumasa"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Basahin ang pamantayan ng Salitang-Ugat bago magpangkat muli. 💪"
+   },
+   "prompt": "Piliin ang mga pares ng salitang-ugat at bagong salita.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+  },
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Piliin ang pinakamabuting sagot.",
+   "content": {
+    "options": [
+     "kain → kumain",
+     "takbo → tumatakbo",
+     "tanim → nagtanim",
+     "tulog → natulog"
+    ],
+    "correctIndex": 3
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Salitang-Ugat. 💪"
+   },
+   "prompt": "Piliin ang pinakamabuting sagot. Hanapin ang payak na anyo ng salita.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+  },
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Itugma ang bawat halimbawa sa wastong pangkat.",
+   "content": {
+    "pairs": [
+     {
+      "left": "tulog",
+      "right": "salitang-ugat"
+     },
+     {
+      "left": "natulog",
+      "right": "bagong salita"
+     },
+     {
+      "left": "tulog → natulog",
+      "right": "pares ng ugat at bagong salita"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Salitang-Ugat. 💪"
+   },
+   "prompt": "Itugma ang bawat halimbawa sa wastong pangkat: ugat, bagong salita, o pares.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+  },
+  {
+   "activityId": "filipino-g3-q3-w09-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "filipino-g3-q3-w09-d01-visual",
+   "instruction": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
+   "content": {
+    "steps": [
+     "Basahin ang salita",
+     "Alisin ang panlapi",
+     "Hanapin ang payak na anyo",
+     "Sabihin ang salitang-ugat"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Salitang-Ugat. 💪"
+   },
+   "prompt": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
+   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+   "nextLabel": "Susunod →",
+   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "sequence": 1,
+    "itemId": "filipino-g3-q3-w09-d01-q1",
+    "prompt": "Alin ang salitang-ugat ng 'natulog'?",
+    "options": [
+     {
+      "id": "c",
+      "text": "sumayaw"
+     },
+     {
+      "id": "d",
+      "text": "bili"
+     },
+     {
+      "id": "a",
+      "text": "sayaw"
+     },
+     {
+      "id": "b",
+      "text": "tulog"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tamang sagot ay “tulog.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 2,
+    "itemId": "filipino-g3-q3-w09-d01-q2",
+    "prompt": "Aling pares ang may salitang-ugat at bagong salita?",
+    "options": [
+     {
+      "id": "b",
+      "text": "tulog → natulog"
+     },
+     {
+      "id": "c",
+      "text": "kain → kumain"
+     },
+     {
+      "id": "d",
+      "text": "takbo → tumatakbo"
+     },
+     {
+      "id": "a",
+      "text": "tanim → nagtanim"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tamang sagot ay “tulog → natulog.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 3,
+    "itemId": "filipino-g3-q3-w09-d01-q3",
+    "prompt": "Ang salitang-ugat ng 'bumili' ay ___.",
+    "options": [
+     {
+      "id": "a",
+      "text": "tulog"
+     },
+     {
+      "id": "b",
+      "text": "bili"
+     },
+     {
+      "id": "c",
+      "text": "natulog"
+     },
+     {
+      "id": "d",
+      "text": "sayaw"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tamang sagot ay “bili.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 4,
+    "itemId": "filipino-g3-q3-w09-d01-q4",
+    "prompt": "Ano ang salitang-ugat ng 'naglalakad'?",
+    "options": [
+     {
+      "id": "d",
+      "text": "sayaw"
+     },
+     {
+      "id": "a",
+      "text": "tulog"
+     },
+     {
+      "id": "b",
+      "text": "lakad"
+     },
+     {
+      "id": "c",
+      "text": "natulog"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tamang sagot ay “lakad.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
+    "type": "MULTIPLE_CHOICE"
+   },
+   {
+    "sequence": 5,
+    "itemId": "filipino-g3-q3-w09-d01-q5",
+    "prompt": "Aling salita ang HINDI galing sa ugat na 'tulog'?",
+    "options": [
+     {
+      "id": "c",
+      "text": "bumili"
+     },
+     {
+      "id": "d",
+      "text": "naglalakad"
+     },
+     {
+      "id": "a",
+      "text": "sumayaw"
+     },
+     {
+      "id": "b",
+      "text": "nagluto"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "Ang tamang sagot ay “nagluto.” Tama dahil ipinapakita nito ang salitang-ugat o wastong anyo nito.",
+    "type": "MULTIPLE_CHOICE"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective at local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-02T16:32:07+00:00"
 }
