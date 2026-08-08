@@ -13,15 +13,15 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Compare digits from the greatest place to the ones place. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo is weighing two baskets of santol! Help him compare 4,210 and 4,201.",
  "vocabulary": [
   {
    "term": "compare",
-   "definition": "To look at how things are the same or different."
+   "definition": "To look at two numbers and tell which is greater, less, or equal."
   },
   {
    "term": "number",
-   "definition": "A symbol or word that tells how many."
+   "definition": "A symbol or word that tells how many, like 4,210."
   },
   {
    "term": "place value",
@@ -33,7 +33,7 @@
    "activityId": "mathematics-g3-m01-d04-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how comparing digits from the left finds the greater number.",
    "content": "Compare digits from the greatest place to the ones place.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "mathematics-g3-m01-d04-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read the comparison.",
    "content": {
     "examples": [
      "4,210 > 4,201",
@@ -127,7 +127,7 @@
    "activityId": "mathematics-g3-m01-d04-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each pair to >, <, or =.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "mathematics-g3-m01-d04-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the comparing steps in order.",
    "content": {
     "steps": [
      "Line up the numbers by place value.",
@@ -191,7 +191,7 @@
     "itemId": "mathematics-g3-m01-d04-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Greater, Less, or Equal”?",
+    "prompt": "Which statement about comparing numbers is true?",
     "options": [
      {
       "id": "b",
@@ -209,13 +209,13 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Compare digits from the greatest place to the ones place.” because it matches what we learned: Compare digits from the greatest place to the ones place."
+    "explanation": "Start at the greatest place and compare each digit until one is different, then continue to the next place if they are the same."
    },
    {
     "itemId": "mathematics-g3-m01-d04-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which comparison is true?",
     "options": [
      {
       "id": "a",
@@ -223,23 +223,23 @@
      },
      {
       "id": "b",
-      "text": "Compare only the last digit"
+      "text": "4,210 < 4,201"
      },
      {
       "id": "c",
-      "text": "Use digit color"
+      "text": "4,210 = 4,201"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “4,210 > 4,201” because it matches what we learned: Compare digits from the greatest place to the ones place."
+    "explanation": "Both numbers have 4 thousands and 2 hundreds. Compare tens: 1 is greater than 0, so 4,210 > 4,201."
    },
    {
     "itemId": "mathematics-g3-m01-d04-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which is NOT a good way to compare numbers?",
     "options": [
      {
       "id": "c",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Compare only the last digit” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Looking only at the ones digit can trick you: 4,210 > 4,201 even though 0 < 1. Compare from the greatest place."
    },
    {
     "itemId": "mathematics-g3-m01-d04-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “4,210 > 4,201” because it matches what we learned: Compare digits from the greatest place to the ones place."
+    "explanation": "Compare from the left: 4,210 and 4,201 both have 4 thousands and 2 hundreds, but 1 ten is greater than 0 tens, so 4,210 > 4,201."
    },
    {
     "itemId": "mathematics-g3-m01-d04-q05",
@@ -295,17 +295,17 @@
      },
      {
       "id": "b",
-      "text": "Assume the wider text is greater"
+      "text": "3,000 < 2,999"
      },
      {
       "id": "c",
-      "text": "Compare only the last digit"
+      "text": "2,999 > 3,000"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “2,999 < 3,000” because it matches what we learned: Compare digits from the greatest place to the ones place."
+    "explanation": "2,999 has 2 thousands and 3,000 has 3 thousands, and 2 < 3, so 2,999 < 3,000."
    }
   ]
  },

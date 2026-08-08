@@ -13,11 +13,11 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A logical ending follows from the characters, problem, and events already shown. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Ana's seedling is dry! Help her choose an ending that really follows the story.",
  "vocabulary": [
   {
    "term": "ending",
-   "definition": "The last part of a story or word."
+   "definition": "The last part of a story that follows what happened."
   },
   {
    "term": "story",
@@ -33,7 +33,7 @@
    "activityId": "english-g3-m01-d03-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how a good ending follows the story!",
    "content": "A logical ending follows from the characters, problem, and events already shown.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d03-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read the ending!",
    "content": {
     "examples": [
      "A watered plant stands upright later.",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: The seedling looks healthier later.",
-    "retry": "Look at the example again. The school becomes a spaceship. and Ana forgets what water is. do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again! Ana watered the dry seedling, so the ending must be about the plant. 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "english-g3-m01-d03-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each ending to the action that came before!",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d03-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps for choosing an ending in order!",
    "content": {
     "steps": [
      "Read the story problem.",
@@ -191,25 +191,25 @@
     "itemId": "english-g3-m01-d03-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Choose an Ending”?",
+    "prompt": "Lito's bike has a flat tire and he fixes it. Which ending fits?",
     "options": [
      {
+      "id": "a",
+      "text": "Lito rides his bike home."
+     },
+     {
       "id": "b",
-      "text": "Adding an unrelated dragon"
+      "text": "The bike turns into a boat."
      },
      {
       "id": "c",
-      "text": "Changing every character without explanation"
-     },
-     {
-      "id": "a",
-      "text": "A logical ending follows from the characters, problem, and events already shown."
+      "text": "Lito forgets how to ride."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A logical ending follows from the characters, problem, and events already shown.” because it matches what we learned: A logical ending follows from the characters, problem, and events already shown."
+    "explanation": "After the tire is fixed, the bike works again, so Lito can ride it home. The other endings do not follow from fixing a flat tire."
    },
    {
     "itemId": "english-g3-m01-d03-q02",
@@ -223,41 +223,41 @@
      },
      {
       "id": "b",
-      "text": "Adding an unrelated dragon"
+      "text": "The plant flies away."
      },
      {
       "id": "c",
-      "text": "Changing every character without explanation"
+      "text": "The soil becomes candy."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A watered plant stands upright later.” because it matches what we learned: A logical ending follows from the characters, problem, and events already shown."
+    "explanation": "Water makes a dry plant healthy again, so it stands upright later. The other endings do not follow from watering a plant."
    },
    {
     "itemId": "english-g3-m01-d03-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "The cart's wheel was repaired. Which ending does NOT fit?",
     "options": [
      {
-      "id": "c",
-      "text": "A returned book goes back on its shelf."
-     },
-     {
       "id": "a",
-      "text": "Adding an unrelated dragon"
+      "text": "The cart moves again."
      },
      {
       "id": "b",
-      "text": "A watered plant stands upright later."
+      "text": "The cart is easy to push."
+     },
+     {
+      "id": "c",
+      "text": "A dragon flies the cart away."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Adding an unrelated dragon” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "A repaired wheel lets the cart move again, so the first two endings fit. A dragon flying the cart away does not follow from fixing a wheel."
    },
    {
     "itemId": "english-g3-m01-d03-q04",
@@ -266,22 +266,22 @@
     "prompt": "A seedling is dry and Ana waters it. Which ending fits?",
     "options": [
      {
+      "id": "a",
+      "text": "The seedling looks healthier later."
+     },
+     {
       "id": "b",
       "text": "The school becomes a spaceship."
      },
      {
       "id": "c",
       "text": "Ana forgets what water is."
-     },
-     {
-      "id": "a",
-      "text": "The seedling looks healthier later."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “The seedling looks healthier later.” because it matches what we learned: A logical ending follows from the characters, problem, and events already shown."
+    "explanation": "Water helps a dry seedling grow, so it looks healthier later. The other endings do not follow from the story."
    },
    {
     "itemId": "english-g3-m01-d03-q05",
@@ -295,17 +295,17 @@
      },
      {
       "id": "b",
-      "text": "Ignoring the story problem"
+      "text": "The story problem is ignored."
      },
      {
       "id": "c",
-      "text": "Adding an unrelated dragon"
+      "text": "A dragon appears for no reason."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A repaired wheel lets the cart move.” because it matches what we learned: A logical ending follows from the characters, problem, and events already shown."
+    "explanation": "Fixing the wheel solves the problem, so the cart can move again. Ignoring the problem or adding a dragon does not make a logical ending."
    }
   ]
  },

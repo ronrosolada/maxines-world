@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Context clues and the topic help readers understand and use new words accurately. Ready to explore?",
+ "introduction": "Milo is hunting for new words! 🐱✨ Brave, huge, and whisper are hiding in sentences. Can you help him find them?",
  "vocabulary": [
   {
    "term": "brave",
@@ -36,13 +36,13 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Learn this skill: Use high-frequency and content-specific words in context.",
+   "instruction": "Hear how new words fit in sentences!",
    "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
+   "instruction": "Tap the sentences that use today's words!",
    "content": {
     "examples": [
      "The brave dog saved the kitten from the rain.",
@@ -73,7 +73,7 @@
     "targetCount": 4
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
+   "instruction": "Sort the sentences: new word or not!",
    "content": {
     "fits": [
      "The brave dog saved the kitten from the rain.",
@@ -109,7 +109,7 @@
     "itemCount": 8
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
@@ -125,7 +125,7 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Choose the example of words in context.",
+   "instruction": "Tap the sentence that uses 'brave'!",
    "content": {
     "options": [
      "The clever fox found a way to reach the grapes.",
@@ -139,7 +139,7 @@
     "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Choose the example of words in context.",
@@ -155,7 +155,7 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Match the examples about words in context.",
+   "instruction": "Match each word with its meaning!",
    "content": {
     "pairs": [
      {
@@ -176,7 +176,7 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Match the examples about words in context.",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
+   "instruction": "Tap the word-hunting steps in order!",
    "content": {
     "steps": [
      "Read the sentence",
@@ -205,7 +205,7 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You found the word that fits just right! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
@@ -247,7 +247,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “showing courage when something is hard or scary.” It uses what we learned about words in context."
+    "explanation": "Brave means showing courage when something is hard or scary — like a dog that saves a kitten."
    },
    {
     "itemId": "english-g3-q2-w01-d01-q02",
@@ -275,7 +275,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “huge.” It uses what we learned about words in context."
+    "explanation": "Huge means very, very big, so a huge thing is bigger than a small one."
    },
    {
     "itemId": "english-g3-q2-w01-d01-q03",
@@ -303,7 +303,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “I whisper to my friend in the library.” It uses what we learned about words in context."
+    "explanation": "Whisper means to speak very softly, so it belongs in a quiet library."
    },
    {
     "itemId": "english-g3-q2-w01-d01-q04",
@@ -331,7 +331,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “brave.” It uses what we learned about words in context."
+    "explanation": "A firefighter who climbs a tree to save a cat shows courage, so brave fits best."
    },
    {
     "itemId": "english-g3-q2-w01-d01-q05",
@@ -359,7 +359,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The answer is “shiny.” It uses what we learned about words in context."
+    "explanation": "Shiny means bright and reflects light — that is why a new coin looks shiny."
    }
   ]
  },

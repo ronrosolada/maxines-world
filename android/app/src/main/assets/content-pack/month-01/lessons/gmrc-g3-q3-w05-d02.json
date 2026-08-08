@@ -1,378 +1,378 @@
 {
- "lessonId": "gmrc-g3-q3-w05-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 10,
- "day": 2,
- "subject": "gmrc",
- "title": "Pagmamalasakit",
- "objective": "Naipakikita ang malasakit sa pamamagitan ng ligtas at kusang pagtulong.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "tumutulong sa kaklase",
-   "definition": "Pagtulong sa kamag-aral kapag nahihirapan ito, tulad ng pagpapaliwanag ng gawain."
-  },
-  {
-   "term": "nagbabahagi ng gamit nang maayos",
-   "definition": "Paggamit nang salitan ng mga gamit at pagbabalik nito nang maayos."
-  },
-  {
-   "term": "nagtatanong kung ayos lang ang kaibigan",
-   "definition": "Pag-aalala sa kaibigan sa paraang ligtas at kusang-loob."
-  }
- ],
- "activities": [
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Pag-aralan natin ang aralin tungkol sa malasakit sa kapwa.",
-   "content": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": " Naipakikita ang malasakit sa pamamagitan ng ligtas at kusang pagtulong.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  },
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Tuklasin ang mga halimbawa ng malasakit sa kapwa.",
-   "content": {
-    "examples": [
-     "tumutulong sa kaklase",
-     "nagbabahagi ng gamit nang maayos",
-     "nagtatanong kung ayos lang ang kaibigan",
-     "nag-aalaga sa kapaligiran"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng malasakit sa kapwa.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  },
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Pagbukud-bukurin ang mga halimbawa ng malasakit sa kapwa.",
-   "content": {
-    "fits": [
-     "tumutulong sa kaklase",
-     "nagbabahagi ng gamit nang maayos",
-     "nagtatanong kung ayos lang ang kaibigan",
-     "nag-aalaga sa kapaligiran"
-    ],
-    "doesNotFit": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "hindi nakikinig"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng malasakit sa kapwa.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  },
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Piliin ang tamang halimbawa ng malasakit sa kapwa.",
-   "content": {
-    "options": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "tumutulong sa kaklase"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng malasakit sa kapwa.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  },
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Itapat ang mga halimbawa ng malasakit sa kapwa.",
-   "content": {
-    "pairs": [
-     {
-      "left": "tumutulong sa kaklase",
-      "right": "pagmamalasakit sa iba"
-     },
-     {
-      "left": "nagbabahagi ng gamit nang maayos",
-      "right": "pakikibahagi sa grupo"
-     },
-     {
-      "left": "nagtatanong kung ayos lang ang kaibigan",
-      "right": "kilos ng pagmamalasakit"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng malasakit sa kapwa.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  },
-  {
-   "activityId": "gmrc-g3-q3-w05-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q3-w05-d02-visual",
-   "instruction": "Ayusin ang mga hakbang sa malasakit sa kapwa.",
-   "content": {
-    "steps": [
-     "Pansinin ang nangangailangan",
-     "Mag-isip ng ligtas na tulong",
-     "Kumilos nang may pahintulot",
-     "Alamin kung nakatulong ka"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang halimbawa at subukan muli. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa malasakit sa kapwa.",
-   "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "gmrc-g3-q3-w05-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May bagong kaklase kang mahiyain. Ano ang dapat mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "iwan siyang mag-isa"
-     },
-     {
-      "id": "b",
-      "text": "iwasan siya sa buong linggo"
-     },
-     {
-      "id": "c",
-      "text": "pagtawanan ang kaniyang hiya"
-     },
-     {
-      "id": "d",
-      "text": "kamustahin siya at yayain maglaro"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pagiging kaibigan sa bagong kaklase ay malasakit at kabaitan."
-   },
-   {
-    "itemId": "gmrc-g3-q3-w05-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May kaibigan kang walang baon ngayong araw. Ano ang maaari mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ibahagi ang pagkain mo kung marami ka"
-     },
-     {
-      "id": "b",
-      "text": "kainin ang lahat sa harap niya"
-     },
-     {
-      "id": "c",
-      "text": "huwag siyang pansinin"
-     },
-     {
-      "id": "d",
-      "text": "sabihin sa lahat na wala siyang baon"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pagbabahagi ng pagkain sa nangangailangan ay malasakit sa kapwa."
-   },
-   {
-    "itemId": "gmrc-g3-q3-w05-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May matandang nangangailangan ng tulong sa pagtawid sa kalsada. Ano ang gagawin mo?",
-    "options": [
-     {
-      "id": "a",
-      "text": "hayaan siyang mag-isa"
-     },
-     {
-      "id": "b",
-      "text": "magtago at magkunwari"
-     },
-     {
-      "id": "c",
-      "text": "takbuhin siya"
-     },
-     {
-      "id": "d",
-      "text": "tawagin ang isang nakatatanda upang siya ang tumulong"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang malasakit ay may tamang paraan: tumawag ng may sapat na gulang para sa ligtas na pagtulong."
-   },
-   {
-    "itemId": "gmrc-g3-q3-w05-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May kaklase kang nahulog at nasaktan. Ano ang dapat mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "kunin ang kaniyang gamit"
-     },
-     {
-      "id": "b",
-      "text": "ipagpatuloy ang laro"
-     },
-     {
-      "id": "c",
-      "text": "tawagin ang guro at tulungan nang ligtas"
-     },
-     {
-      "id": "d",
-      "text": "pagtawanan siya"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang malasakit ay pagtulong nang ligtas — tawagin ang nakatatanda upang masigurong ligtas ang lahat."
-   },
-   {
-    "itemId": "gmrc-g3-q3-w05-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Naglilinis ang mga magulang mo sa bahay. Ano ang gagawin mo?",
-    "options": [
-     {
-      "id": "a",
-      "text": "maghintay hanggang utusan"
-     },
-     {
-      "id": "b",
-      "text": "maglaro at iwan sila"
-     },
-     {
-      "id": "c",
-      "text": "manood na lamang ng TV"
-     },
-     {
-      "id": "d",
-      "text": "mag-alok ng tulong sa mga kaya mong gawain"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang kusang pagtulong sa gawaing-bahay ay malasakit sa pamilya."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "gmrc-g3-q3-w05-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 2,
+  "subject": "gmrc",
+  "title": "Pagmamalasakit",
+  "objective": "Naipakikita ang malasakit sa pamamagitan ng ligtas at kusang pagtulong.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "tumutulong sa kaklase",
+      "definition": "Pagtulong sa kamag-aral kapag nahihirapan ito, tulad ng pagpapaliwanag ng gawain."
+    },
+    {
+      "term": "nagbabahagi ng gamit nang maayos",
+      "definition": "Paggamit nang salitan ng mga gamit at pagbabalik nito nang maayos."
+    },
+    {
+      "term": "nagtatanong kung ayos lang ang kaibigan",
+      "definition": "Pag-aalala sa kaibigan sa paraang ligtas at kusang-loob."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Pag-aralan natin ang aralin tungkol sa malasakit sa kapwa.",
+      "content": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": " Naipakikita ang malasakit sa pamamagitan ng ligtas at kusang pagtulong.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng malasakit sa kapwa.",
+      "content": {
+        "examples": [
+          "tumutulong sa kaklase",
+          "nagbabahagi ng gamit nang maayos",
+          "nagtatanong kung ayos lang ang kaibigan",
+          "nag-aalaga sa kapaligiran"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng malasakit sa kapwa.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng malasakit sa kapwa.",
+      "content": {
+        "fits": [
+          "tumutulong sa kaklase",
+          "nagbabahagi ng gamit nang maayos",
+          "nagtatanong kung ayos lang ang kaibigan",
+          "nag-aalaga sa kapaligiran"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "hindi nakikinig"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng malasakit sa kapwa.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "tumutulong sa kaklase"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng malasakit sa kapwa.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Itugma ang mga halimbawa ng malasakit sa kapwa.",
+      "content": {
+        "pairs": [
+          {
+            "left": "tumutulong sa kaklase",
+            "right": "pagmamalasakit sa iba"
+          },
+          {
+            "left": "nagbabahagi ng gamit nang maayos",
+            "right": "pakikibahagi sa grupo"
+          },
+          {
+            "left": "nagtatanong kung ayos lang ang kaibigan",
+            "right": "kilos ng pagmamalasakit"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng malasakit sa kapwa.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d02-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Pansinin ang nangangailangan",
+          "Mag-isip ng ligtas na tulong",
+          "Kumilos nang may pahintulot",
+          "Alamin kung nakatulong ka"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang halimbawa at subukan muli. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa malasakit sa kapwa.",
+      "narration": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang malasakit ay pag-unawa sa pangangailangan ng iba at pagtulong sa paraang ligtas at may pahintulot."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q3-w05-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bagong kaklase kang mahiyain. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "iwan siyang mag-isa"
+          },
+          {
+            "id": "b",
+            "text": "iwasan siya sa buong linggo"
+          },
+          {
+            "id": "c",
+            "text": "pagtawanan ang kaniyang hiya"
+          },
+          {
+            "id": "d",
+            "text": "kamustahin siya at yayain maglaro"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagiging kaibigan sa bagong kaklase ay malasakit at kabaitan."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May kaibigan kang walang baon ngayong araw. Ano ang maaari mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ibahagi ang pagkain mo kung marami ka"
+          },
+          {
+            "id": "b",
+            "text": "kainin ang lahat sa harap niya"
+          },
+          {
+            "id": "c",
+            "text": "huwag siyang pansinin"
+          },
+          {
+            "id": "d",
+            "text": "sabihin sa lahat na wala siyang baon"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pagbabahagi ng pagkain sa nangangailangan ay malasakit sa kapwa."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May matandang nangangailangan ng tulong sa pagtawid sa kalsada. Ano ang gagawin mo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hayaan siyang mag-isa"
+          },
+          {
+            "id": "b",
+            "text": "magtago at magkunwari"
+          },
+          {
+            "id": "c",
+            "text": "takbuhin siya"
+          },
+          {
+            "id": "d",
+            "text": "tawagin ang isang nakatatanda upang siya ang tumulong"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang malasakit ay may tamang paraan: tumawag ng may sapat na gulang para sa ligtas na pagtulong."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May kaklase kang nahulog at nasaktan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kunin ang kaniyang gamit"
+          },
+          {
+            "id": "b",
+            "text": "ipagpatuloy ang laro"
+          },
+          {
+            "id": "c",
+            "text": "tawagin ang guro at tulungan nang ligtas"
+          },
+          {
+            "id": "d",
+            "text": "pagtawanan siya"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang malasakit ay pagtulong nang ligtas — tawagin ang nakatatanda upang masigurong ligtas ang lahat."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Naglilinis ang mga magulang mo sa bahay. Ano ang gagawin mo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "maghintay hanggang utusan"
+          },
+          {
+            "id": "b",
+            "text": "maglaro at iwan sila"
+          },
+          {
+            "id": "c",
+            "text": "manood na lamang ng TV"
+          },
+          {
+            "id": "d",
+            "text": "mag-alok ng tulong sa mga kaya mong gawain"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang kusang pagtulong sa gawaing-bahay ay malasakit sa pamilya."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective at local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

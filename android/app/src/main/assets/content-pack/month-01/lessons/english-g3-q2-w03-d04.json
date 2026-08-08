@@ -1,378 +1,378 @@
 {
- "lessonId": "english-g3-q2-w03-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 5,
- "day": 4,
- "subject": "english",
- "title": "Sentence Order · Q2 W03 D04",
- "objective": "Use sequence words to show the order of events or ideas.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Sequence words such as first, next, then, and finally help readers follow an order. Ready to explore?",
- "vocabulary": [
-  {
-   "term": "First, wash the fruit.",
-   "definition": "The first step: wash the fruit before cutting it."
-  },
-  {
-   "term": "Next, cut it safely.",
-   "definition": "The second step: cut the fruit with care."
-  },
-  {
-   "term": "Then, share it.",
-   "definition": "The third step: share the fruit with others."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q2-w03-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Listen to the explanation about event order.",
-   "content": "Sequence words such as first, next, then, and finally help readers follow an order. Try it with a sentence about a pet. Try it with a sentence about a team project.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Listen to the explanation about event order.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order. Try it with a sentence about a pet. Try it with a sentence about a team project.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order. Try it with a sentence about a pet. Try it with a sentence about a team project."
-  },
-  {
-   "activityId": "english-g3-q2-w03-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Look closely at each example to practice: Use sequence words to show the order of events or ideas.",
-   "content": {
-    "examples": [
-     "First, wash the fruit.",
-     "Next, cut it safely.",
-     "Then, share it.",
-     "Finally, clean up."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Look closely at each example to practice: Use sequence words to show the order of events or ideas.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
-  },
-  {
-   "activityId": "english-g3-q2-w03-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Sort each example while practicing: Use sequence words to show the order of events or ideas.",
-   "content": {
-    "fits": [
-     "First, wash the fruit.",
-     "Next, cut it safely.",
-     "Then, share it.",
-     "Finally, clean up."
-    ],
-    "doesNotFit": [
-     "a title only",
-     "a final event placed first",
-     "an unrelated detail",
-     "a sentence with no time clue"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Sort each example while practicing: Use sequence words to show the order of events or ideas.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
-  },
-  {
-   "activityId": "english-g3-q2-w03-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Which choice shows events in the correct order?",
-   "content": {
-    "options": [
-     "a title only",
-     "a final event placed first",
-     "an unrelated detail",
-     "First, wash the fruit."
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Which choice shows events in the correct order?",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
-  },
-  {
-   "activityId": "english-g3-q2-w03-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Match the examples about event order.",
-   "content": {
-    "pairs": [
-     {
-      "left": "First, wash the fruit.",
-      "right": "telling sentence"
-     },
-     {
-      "left": "Next, cut it safely.",
-      "right": "telling sentence (2)"
-     },
-     {
-      "left": "Then, share it.",
-      "right": "telling sentence (3)"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Match the examples about event order.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
-  },
-  {
-   "activityId": "english-g3-q2-w03-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w03-d04-visual",
-   "instruction": "Put the steps in order to practice: Use sequence words to show the order of events or ideas.",
-   "content": {
-    "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Put the steps in order to practice: Use sequence words to show the order of events or ideas.",
-   "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q2-w03-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which step should happen FIRST?",
-    "options": [
-     {
-      "id": "`",
-      "text": "First, wash the fruit."
-     },
-     {
-      "id": "a",
-      "text": "Next, cut it safely."
-     },
-     {
-      "id": "b",
-      "text": "Then, share it."
-     },
-     {
-      "id": "c",
-      "text": "Finally, clean up."
-     }
-    ],
-    "correctOptionIds": [
-     "`"
-    ],
-    "explanation": "Washing comes first so the fruit is clean before it is cut."
-   },
-   {
-    "itemId": "english-g3-q2-w03-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "After washing the fruit, which step comes NEXT?",
-    "options": [
-     {
-      "id": "`",
-      "text": "Finally, clean up."
-     },
-     {
-      "id": "a",
-      "text": "Then, share it."
-     },
-     {
-      "id": "b",
-      "text": "Next, cut it safely."
-     },
-     {
-      "id": "c",
-      "text": "First, wash the fruit."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "After washing, the next step is cutting the fruit safely."
-   },
-   {
-    "itemId": "english-g3-q2-w03-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which step comes AFTER cutting the fruit?",
-    "options": [
-     {
-      "id": "`",
-      "text": "Then, share it."
-     },
-     {
-      "id": "a",
-      "text": "Finally, clean up."
-     },
-     {
-      "id": "b",
-      "text": "First, wash the fruit."
-     },
-     {
-      "id": "c",
-      "text": "Next, cut it safely."
-     }
-    ],
-    "correctOptionIds": [
-     "`"
-    ],
-    "explanation": "Sharing comes after cutting, so \"Then, share it\" is the next step."
-   },
-   {
-    "itemId": "english-g3-q2-w03-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the LAST step?",
-    "options": [
-     {
-      "id": "`",
-      "text": "Next, cut it safely."
-     },
-     {
-      "id": "a",
-      "text": "Finally, clean up."
-     },
-     {
-      "id": "b",
-      "text": "First, wash the fruit."
-     },
-     {
-      "id": "c",
-      "text": "Then, share it."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Cleaning up is the last step, after the fruit is shared."
-   },
-   {
-    "itemId": "english-g3-q2-w03-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice shows the correct order?",
-    "options": [
-     {
-      "id": "`",
-      "text": "First, wash the fruit. Next, cut it safely. Then, share it. Finally, clean up."
-     },
-     {
-      "id": "a",
-      "text": "First, wash the fruit. Then, share it. Next, cut it safely. Finally, clean up."
-     },
-     {
-      "id": "b",
-      "text": "Finally, clean up. Then, share it. Next, cut it safely. First, wash the fruit."
-     },
-     {
-      "id": "c",
-      "text": "Next, cut it safely. First, wash the fruit. Then, share it. Finally, clean up."
-     }
-    ],
-    "correctOptionIds": [
-     "`"
-    ],
-    "explanation": "The correct order is wash, cut, share, clean — each step uses a sequence word."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q2-w03-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 4,
+  "subject": "english",
+  "title": "Sentence Order · Q2 W03 D04",
+  "objective": "Use sequence words to show the order of events or ideas.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "First, next, then, finally — order words! 🐱✨ Help Milo put the fruit snack steps in order.",
+  "vocabulary": [
+    {
+      "term": "First, wash the fruit.",
+      "definition": "The first step: wash the fruit before cutting it."
+    },
+    {
+      "term": "Next, cut it safely.",
+      "definition": "The second step: cut the fruit with care."
+    },
+    {
+      "term": "Then, share it.",
+      "definition": "The third step: share the fruit with others."
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w03-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Hear how order words keep steps straight!",
+      "content": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Listen to the explanation about event order.",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Tap the steps in the right order!",
+      "content": {
+        "examples": [
+          "First, wash the fruit.",
+          "Next, cut it safely.",
+          "Then, share it.",
+          "Finally, clean up."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Look closely at each example to practice: Use sequence words to show the order of events or ideas.",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Sort the cards: step or not!",
+      "content": {
+        "fits": [
+          "First, wash the fruit.",
+          "Next, cut it safely.",
+          "Then, share it.",
+          "Finally, clean up."
+        ],
+        "doesNotFit": [
+          "I like mangoes.",
+          "The kite flew high.",
+          "Milo slept on the mat.",
+          "We ate lunch."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Sort each example while practicing: Use sequence words to show the order of events or ideas.",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Tap the fruit-snack steps in the right order!",
+      "content": {
+        "options": [
+          "Finally, clean up. First, wash the fruit. Next, cut it safely. Then, share it.",
+          "Then, share it. Next, cut it safely. First, wash the fruit. Finally, clean up.",
+          "First, wash the fruit. Finally, clean up. Next, cut it safely. Then, share it.",
+          "First, wash the fruit. Next, cut it safely. Then, share it. Finally, clean up."
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Which choice shows events in the correct order?",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Match each step to its place in order!",
+      "content": {
+        "pairs": [
+          {
+            "left": "First, wash the fruit.",
+            "right": "the first step"
+          },
+          {
+            "left": "Next, cut it safely.",
+            "right": "the next step"
+          },
+          {
+            "left": "Then, share it.",
+            "right": "the third step"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Match the examples about event order.",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d04-visual",
+      "instruction": "Tap the snack steps in order!",
+      "content": {
+        "steps": [
+          "Read the example",
+          "Find the clue",
+          "Choose the idea",
+          "Explain your answer"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You put the steps in the right order! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Put the steps in order to practice: Use sequence words to show the order of events or ideas.",
+      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w03-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which step should happen FIRST?",
+        "options": [
+          {
+            "id": "e",
+            "text": "First, wash the fruit."
+          },
+          {
+            "id": "a",
+            "text": "Next, cut it safely."
+          },
+          {
+            "id": "b",
+            "text": "Then, share it."
+          },
+          {
+            "id": "c",
+            "text": "Finally, clean up."
+          }
+        ],
+        "correctOptionIds": [
+          "e"
+        ],
+        "explanation": "Washing comes first so the fruit is clean before it is cut."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After washing the fruit, which step comes NEXT?",
+        "options": [
+          {
+            "id": "e",
+            "text": "Finally, clean up."
+          },
+          {
+            "id": "a",
+            "text": "Then, share it."
+          },
+          {
+            "id": "b",
+            "text": "Next, cut it safely."
+          },
+          {
+            "id": "c",
+            "text": "First, wash the fruit."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "After washing, the next step is cutting the fruit safely."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which step comes AFTER cutting the fruit?",
+        "options": [
+          {
+            "id": "e",
+            "text": "Then, share it."
+          },
+          {
+            "id": "a",
+            "text": "Finally, clean up."
+          },
+          {
+            "id": "b",
+            "text": "First, wash the fruit."
+          },
+          {
+            "id": "c",
+            "text": "Next, cut it safely."
+          }
+        ],
+        "correctOptionIds": [
+          "e"
+        ],
+        "explanation": "Sharing comes after cutting, so \"Then, share it\" is the next step."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is the LAST step?",
+        "options": [
+          {
+            "id": "e",
+            "text": "Next, cut it safely."
+          },
+          {
+            "id": "a",
+            "text": "Finally, clean up."
+          },
+          {
+            "id": "b",
+            "text": "First, wash the fruit."
+          },
+          {
+            "id": "c",
+            "text": "Then, share it."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Cleaning up is the last step, after the fruit is shared."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice shows the correct order?",
+        "options": [
+          {
+            "id": "e",
+            "text": "First, wash the fruit. Next, cut it safely. Then, share it. Finally, clean up."
+          },
+          {
+            "id": "a",
+            "text": "First, wash the fruit. Then, share it. Next, cut it safely. Finally, clean up."
+          },
+          {
+            "id": "b",
+            "text": "Finally, clean up. Then, share it. Next, cut it safely. First, wash the fruit."
+          },
+          {
+            "id": "c",
+            "text": "Next, cut it safely. First, wash the fruit. Then, share it. Finally, clean up."
+          }
+        ],
+        "correctOptionIds": [
+          "e"
+        ],
+        "explanation": "The correct order is wash, cut, share, clean — each step uses a sequence word."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": false
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

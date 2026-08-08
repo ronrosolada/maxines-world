@@ -13,15 +13,15 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Rounding and counting up can check whether an exact difference is reasonable. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo is counting change at the sari-sari store! Help him estimate differences.",
  "vocabulary": [
   {
    "term": "estimate",
-   "definition": "A careful guess about a number or size."
+   "definition": "A close guess, like 500 − 200 = 300 for 503 − 198."
   },
   {
    "term": "round",
-   "definition": "To find a number close to a friendly number like 10."
+   "definition": "To change a number to a nearby friendly number, like 503 to 500."
   },
   {
    "term": "difference",
@@ -33,7 +33,7 @@
    "activityId": "mathematics-g3-m01-d12-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how 503 − 198 is about 500 − 200 = 300.",
    "content": "Rounding and counting up can check whether an exact difference is reasonable.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "mathematics-g3-m01-d12-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read the estimate.",
    "content": {
     "examples": [
      "503-198 ≈ 500-200=300",
@@ -127,7 +127,7 @@
    "activityId": "mathematics-g3-m01-d12-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each estimate to its strategy.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "mathematics-g3-m01-d12-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the estimating steps in order.",
    "content": {
     "steps": [
      "Round the numbers.",
@@ -191,7 +191,7 @@
     "itemId": "mathematics-g3-m01-d12-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Quick Differences”?",
+    "prompt": "Which statement about estimating differences is true?",
     "options": [
      {
       "id": "c",
@@ -209,21 +209,21 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Rounding and counting up can check whether an exact difference is reasonable.” because it matches what we learned: Rounding and counting up can check whether an exact difference is reasonable."
+    "explanation": "Round both numbers, subtract, then compare the estimate with the exact answer to see if it makes sense."
    },
    {
     "itemId": "mathematics-g3-m01-d12-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which estimate is correct?",
     "options": [
      {
       "id": "b",
-      "text": "Call estimate exact"
+      "text": "503 − 198 ≈ 500 − 100 = 400"
      },
      {
       "id": "c",
-      "text": "Subtract in wrong order"
+      "text": "503 − 198 ≈ 200 − 500 = −300"
      },
      {
       "id": "a",
@@ -233,13 +233,13 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “503-198 ≈ 500-200=300” because it matches what we learned: Rounding and counting up can check whether an exact difference is reasonable."
+    "explanation": "503 rounds to 500 and 198 rounds to 200, so 500 − 200 = 300."
    },
    {
     "itemId": "mathematics-g3-m01-d12-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which is NOT true about estimating?",
     "options": [
      {
       "id": "a",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Call estimate exact” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "An estimate is close but not exact, so do not call it the exact answer."
    },
    {
     "itemId": "mathematics-g3-m01-d12-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “300” because it matches what we learned: Rounding and counting up can check whether an exact difference is reasonable."
+    "explanation": "503 rounds to 500 and 198 rounds to 200, so 500 − 200 = 300."
    },
    {
     "itemId": "mathematics-g3-m01-d12-q05",
@@ -291,11 +291,11 @@
     "options": [
      {
       "id": "b",
-      "text": "Ignore specified rounding"
+      "text": "1,000 − 498 ≈ 100"
      },
      {
       "id": "c",
-      "text": "Call estimate exact"
+      "text": "1,000 − 498 = 500 exactly"
      },
      {
       "id": "a",
@@ -305,7 +305,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “1,000-498=502” because it matches what we learned: Rounding and counting up can check whether an exact difference is reasonable."
+    "explanation": "498 is 2 less than 500, so 1,000 − 498 is 2 more than 500: 502."
    }
   ]
  },

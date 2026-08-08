@@ -300,6 +300,27 @@ def rotated(seq, idx, n):
     return [seq[(idx + 1 + k) % len(seq)] for k in range(n)]
 
 
+def simuno_splits(s, p):
+    """Return (correct_split, [3 wrong splits]) for the sentence 's p'.
+
+    Wrong splits cut the sentence at a different word boundary, so the child
+    must find the true simuno/panaguri division instead of matching the stem.
+    """
+    full = f"{s} {p}".strip()
+    correct = f"{s} / {p}"
+    words = full.split()
+    wrongs = []
+    for i in range(1, len(words)):
+        cand = f"{' '.join(words[:i])} / {' '.join(words[i:])}"
+        if cand != correct:
+            wrongs.append(cand)
+    if len(wrongs) < 3:
+        # Short sentences: add the 'whole sentence / period' split.
+        stem = full[:-1] if full.endswith('.') else full
+        wrongs.append(f"{stem} / .")
+    return correct, wrongs[:3]
+
+
 def build_items(skill, idx, data):
     """Return list of (prompt, options, correct_text) — options are distractors, correct separate."""
     day = int(data["lid"].rsplit("d", 1)[1]) % 4
@@ -318,12 +339,14 @@ def build_items(skill, idx, data):
         s4, p4 = block[3]
         items.append((f"Alin ang simuno sa '{sents[0]}'?", [s2, s3, s4], s1))
         items.append((f"Alin ang panaguri sa '{sents[0]}'?", [p2, p3, p4], p1))
-        items.append((f"Aling paghahati ang tama: '{sents[1]}'?",
-                      [sents[0], sents[2], sents[3]], sents[1]))
+        ok2, wrong2 = simuno_splits(*block[1])
+        items.append((f"Paano wastong hatiin ang pangungusap na '{s2} {p2}'?",
+                      wrong2, ok2))
         items.append((f"Kung ang simuno ay '{s1}', alin ang maaaring panaguri?",
                       [p2, p3, p4], p1))
-        items.append((f"Aling tamang paghahati: '{sents[2]}'?",
-                      [sents[0], sents[1], sents[3]], sents[2]))
+        ok3, wrong3 = simuno_splits(*block[2])
+        items.append((f"Paano wastong hatiin ang pangungusap na '{s3} {p3}'?",
+                      wrong3, ok3))
     elif skill == "talata":
         para, paksa, ideya, detalye, wakas = TALATA_SETS[idx % len(TALATA_SETS)]
         other = rotated(TALATA_SETS, idx, len(TALATA_SETS) - 1)

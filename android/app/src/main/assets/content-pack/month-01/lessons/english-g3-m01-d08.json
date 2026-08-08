@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Some nouns change in special ways and must be learned in context. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "One mouse, two mice! Help Milo learn plurals that change in special ways.",
  "vocabulary": [
   {
    "term": "plural",
@@ -25,7 +25,7 @@
   },
   {
    "term": "word",
-   "definition": "A group of letters with a meaning."
+   "definition": "A word like child or mouse that changes in a special way when there are many."
   }
  ],
  "activities": [
@@ -33,7 +33,7 @@
    "activityId": "english-g3-m01-d08-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how some plurals change the whole word!",
    "content": "Some nouns change in special ways and must be learned in context.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d08-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each word pair and say the special plural!",
    "content": {
     "examples": [
      "child → children",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: children",
-    "retry": "Look at the example again. childs and childes do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again! Child is a special word — its plural is children. Which one is that? 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "english-g3-m01-d08-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each singular word to its special plural!",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d08-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps for saying special plurals in order!",
    "content": {
     "steps": [
      "Read the singular word.",
@@ -191,32 +191,36 @@
     "itemId": "english-g3-m01-d08-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Plural Word Changers”?",
+    "prompt": "What is the plural of foot?",
     "options": [
      {
-      "id": "c",
-      "text": "tooth → tooths"
-     },
-     {
       "id": "a",
-      "text": "Some nouns change in special ways and must be learned in context."
+      "text": "feet"
      },
      {
       "id": "b",
-      "text": "child → childs"
+      "text": "foots"
+     },
+     {
+      "id": "c",
+      "text": "feets"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Some nouns change in special ways and must be learned in context.” because it matches what we learned: Some nouns change in special ways and must be learned in context."
+    "explanation": "Foot changes to feet — the middle letters change. Foots and feets do not follow the special way foot becomes plural."
    },
    {
     "itemId": "english-g3-m01-d08-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which plural noun correctly adds -s?",
+    "prompt": "Which irregular plural is correct?",
     "options": [
+     {
+      "id": "a",
+      "text": "child → children"
+     },
      {
       "id": "b",
       "text": "child → childs"
@@ -224,22 +228,18 @@
      {
       "id": "c",
       "text": "tooth → tooths"
-     },
-     {
-      "id": "a",
-      "text": "child → children"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “child → children” because it matches what we learned: Some nouns change in special ways and must be learned in context."
+    "explanation": "Child is a special word: one child, two children. Childs and tooths are not correct because these words change in a special way."
    },
    {
     "itemId": "english-g3-m01-d08-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which plural is WRONG?",
     "options": [
      {
       "id": "a",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “child → childs” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Child becomes children, so childs is wrong. Children and feet are the correct special plurals."
    },
    {
     "itemId": "english-g3-m01-d08-q04",
@@ -266,22 +266,22 @@
     "prompt": "What is the plural of child?",
     "options": [
      {
-      "id": "c",
-      "text": "childes"
-     },
-     {
       "id": "a",
       "text": "children"
      },
      {
       "id": "b",
       "text": "childs"
+     },
+     {
+      "id": "c",
+      "text": "childes"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “children” because it matches what we learned: Some nouns change in special ways and must be learned in context."
+    "explanation": "One child, two children — child changes in a special way. Childs and childes do not follow the rule."
    },
    {
     "itemId": "english-g3-m01-d08-q05",
@@ -290,22 +290,22 @@
     "prompt": "Which irregular plural is correct?",
     "options": [
      {
+      "id": "a",
+      "text": "mouse → mice"
+     },
+     {
       "id": "b",
       "text": "person → personses"
      },
      {
       "id": "c",
       "text": "child → childs"
-     },
-     {
-      "id": "a",
-      "text": "mouse → mice"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “mouse → mice” because it matches what we learned: Some nouns change in special ways and must be learned in context."
+    "explanation": "Mouse changes to mice — the word changes inside. Personses and childs are not correct plurals."
    }
   ]
  },

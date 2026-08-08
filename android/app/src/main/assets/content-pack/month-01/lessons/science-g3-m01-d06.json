@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A learner-made group is an observation tool, not formal biological taxonomy. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo sorts animals into groups. Can you sort them by what you can see, like feathers or no feathers?",
  "vocabulary": [
   {
    "term": "classify",
@@ -33,7 +33,7 @@
    "activityId": "science-g3-m01-d06-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch and listen — Milo shows how to sort animals by what you see.",
    "content": "A learner-made group is an observation tool, not formal biological taxonomy.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d06-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what it shows.",
    "content": {
     "examples": [
      "feathers/no feathers",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups match what we learned.",
+    "correct": "Great sorting! Your groups are correct.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d06-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: has feathers or no feathers",
-    "retry": "Look at the example again. is nice or not nice and is lucky or unlucky do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again — luck and niceness are not observable. Tap the trait you can see! 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "science-g3-m01-d06-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each trait to its group.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d06-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps in order: pick a trait, sort, say the rule.",
    "content": {
     "steps": [
      "Pick a visible trait.",
@@ -191,7 +191,7 @@
     "itemId": "science-g3-m01-d06-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Classify the Animals”?",
+    "prompt": "Which statement about grouping animals is true?",
     "options": [
      {
       "id": "c",
@@ -199,47 +199,47 @@
      },
      {
       "id": "a",
-      "text": "A learner-made group is an observation tool, not formal biological taxonomy."
+      "text": "Group by favorite color"
      },
      {
       "id": "b",
-      "text": "Group by favorite color"
+      "text": "Sorting animals by what you see is a way to observe, not a scientist's official name."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The correct response is “A learner-made group is an observation tool, not formal biological taxonomy.” because it matches what we learned: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "Groups you make from what you see help you observe animals. They are not official scientific names, and grouping by your favorite color is not about the animal."
    },
    {
     "itemId": "science-g3-m01-d06-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which grouping rule uses a trait you can see?",
     "options": [
      {
       "id": "b",
-      "text": "Group by favorite color"
+      "text": "feathers/no feathers"
      },
      {
       "id": "c",
-      "text": "Call the groups scientific species"
+      "text": "is lucky or unlucky"
      },
      {
       "id": "a",
-      "text": "feathers/no feathers"
+      "text": "is nice or not nice"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The correct response is “feathers/no feathers” because it matches what we learned: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "You can see whether an animal has feathers, so that rule uses an observable trait. Luck and niceness cannot be seen."
    },
    {
     "itemId": "science-g3-m01-d06-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which grouping rule is NOT about the animal?",
     "options": [
      {
       "id": "a",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Group by favorite color” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Grouping by your favorite color is about your likes, not the animal. Feathers and how an animal moves are traits you can observe."
    },
    {
     "itemId": "science-g3-m01-d06-q04",
@@ -281,31 +281,31 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “has feathers or no feathers” because it matches what we learned: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "You can see feathers, so it is an observable trait. Luck and niceness cannot be seen on an animal."
    },
    {
     "itemId": "science-g3-m01-d06-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which grouping follows the rule?",
+    "prompt": "Which rule groups animals by something you can see?",
     "options": [
      {
       "id": "b",
-      "text": "Use an invisible trait"
+      "text": "has scales/no scales"
      },
      {
       "id": "c",
-      "text": "Group by favorite color"
+      "text": "Use an invisible trait"
      },
      {
       "id": "a",
-      "text": "has scales/no scales"
+      "text": "Group by favorite color"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "b"
     ],
-    "explanation": "The correct response is “has scales/no scales” because it matches what we learned: A learner-made group is an observation tool, not formal biological taxonomy."
+    "explanation": "Scales are visible, so it is an observable trait. Invisible traits and favorite colors cannot be seen on the animal."
    }
   ]
  },

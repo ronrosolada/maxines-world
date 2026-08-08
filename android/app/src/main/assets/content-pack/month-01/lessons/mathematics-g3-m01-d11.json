@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Regroup one unit of a larger place as ten of the next smaller place while preserving total value. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo is sharing out pandesal! Help him subtract 742 − 318 with regrouping.",
  "vocabulary": [
   {
    "term": "regroup",
@@ -25,7 +25,7 @@
   },
   {
    "term": "one",
-   "definition": "The number that comes first when counting."
+   "definition": "A single item, like one pandesal left after subtracting."
   }
  ],
  "activities": [
@@ -33,7 +33,7 @@
    "activityId": "mathematics-g3-m01-d11-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how 742 − 318 borrows from the tens.",
    "content": "Regroup one unit of a larger place as ten of the next smaller place while preserving total value.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "mathematics-g3-m01-d11-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read the difference.",
    "content": {
     "examples": [
      "5,000-1=4,999",
@@ -127,7 +127,7 @@
    "activityId": "mathematics-g3-m01-d11-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each subtraction to its difference.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "mathematics-g3-m01-d11-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the subtracting steps in order.",
    "content": {
     "steps": [
      "Subtract the ones.",
@@ -191,7 +191,7 @@
     "itemId": "mathematics-g3-m01-d11-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Subtraction Workshop”?",
+    "prompt": "Which statement about subtracting with regrouping is true?",
     "options": [
      {
       "id": "a",
@@ -209,17 +209,17 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Regroup one unit of a larger place as ten of the next smaller place while preserving total value.” because it matches what we learned: Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+    "explanation": "To subtract, trade one ten for ten ones (or one hundred for ten tens) so the top digit is big enough."
    },
    {
     "itemId": "mathematics-g3-m01-d11-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which difference is correct?",
     "options": [
      {
       "id": "c",
-      "text": "Lose value during regrouping"
+      "text": "5,000 − 1 = 5,001"
      },
      {
       "id": "a",
@@ -227,19 +227,19 @@
      },
      {
       "id": "b",
-      "text": "Subtract smaller top digit only"
+      "text": "5,000 − 1 = 4,000"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “5,000-1=4,999” because it matches what we learned: Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+    "explanation": "Regroup 5,000 as 4 thousands, 9 hundreds, 9 tens, and 10 ones, then take away 1: 4,999."
    },
    {
     "itemId": "mathematics-g3-m01-d11-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which is NOT a correct way to subtract?",
     "options": [
      {
       "id": "b",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Subtract smaller top digit only” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "When the top digit is too small, regroup — never just subtract the smaller top digit."
    },
    {
     "itemId": "mathematics-g3-m01-d11-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “424” because it matches what we learned: Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+    "explanation": "Regroup: 12 − 8 = 4 ones, 3 − 1 = 2 tens, 7 − 3 = 4 hundreds, so 742 − 318 = 424."
    },
    {
     "itemId": "mathematics-g3-m01-d11-q05",
@@ -291,7 +291,7 @@
     "options": [
      {
       "id": "c",
-      "text": "Subtract smaller top digit only"
+      "text": "900 − 250 = 750"
      },
      {
       "id": "a",
@@ -299,13 +299,13 @@
      },
      {
       "id": "b",
-      "text": "Ignore zeros"
+      "text": "900 − 250 = 850"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “900-250=650” because it matches what we learned: Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+    "explanation": "0 − 0 = 0; regroup a hundred, then 10 − 5 = 5 and 8 − 2 = 6, so 900 − 250 = 650."
    }
   ]
  },

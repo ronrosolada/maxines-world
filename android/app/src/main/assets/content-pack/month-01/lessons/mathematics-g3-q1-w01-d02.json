@@ -1,378 +1,378 @@
 {
- "lessonId": "mathematics-g3-q1-w01-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 2,
- "subject": "mathematics",
- "title": "Area Detectives",
- "objective": "Solve simple problems about the area of squares and rectangles using length × width.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units. Ready to explore?",
- "vocabulary": [
-  {
-   "term": "4 × 3 = 12 square units",
-   "definition": "space inside a shape"
-  },
-  {
-   "term": "a 5 by 2 rectangle has 10 square units",
-   "definition": "length times width"
-  },
-  {
-   "term": "a square has equal side lengths",
-   "definition": "measured in square units"
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Listen to the explanation about area.",
-   "content": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Listen to the explanation about area.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Find examples of area.",
-   "content": {
-    "examples": [
-     "4 × 3 = 12 square units",
-     "a 5 by 2 rectangle has 10 square units",
-     "a square has equal side lengths",
-     "counting unit squares checks the answer"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Find examples of area.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Sort the examples of area.",
-   "content": {
-    "fits": [
-     "4 × 3 = 12 square units",
-     "a 5 by 2 rectangle has 10 square units",
-     "a square has equal side lengths",
-     "counting unit squares checks the answer"
-    ],
-    "doesNotFit": [
-     "the distance around a shape",
-     "the length of one side only",
-     "the number of corners",
-     "a measurement without square units"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Sort the examples of area.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Choose the example of area.",
-   "content": {
-    "options": [
-     "4 × 3 = 12 square units",
-     "the distance around a shape",
-     "the length of one side only",
-     "the number of corners"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Choose the example of area.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Match the examples about area.",
-   "content": {
-    "pairs": [
-     {
-      "left": "4 × 3 = 12 square units",
-      "right": "space inside a shape"
-     },
-     {
-      "left": "a 5 by 2 rectangle has 10 square units",
-      "right": "length times width"
-     },
-     {
-      "left": "a square has equal side lengths",
-      "right": "measured in square units"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Match the examples about area.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w01-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w01-d02-visual",
-   "instruction": "Put the area steps in order.",
-   "content": {
-    "steps": [
-     "Read the shape and its measurements",
-     "Choose area or perimeter as the question asks",
-     "Use the matching formula or count the units",
-     "Check the unit and whether the answer fits the shape"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Put the area steps in order.",
-   "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-q1-w01-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example best shows this skill: Solve simple problems about the area of squares and rectangles using length × width?",
-    "options": [
-     {
-      "id": "c",
-      "text": "4 × 3 = 12 square units"
-     },
-     {
-      "id": "d",
-      "text": "the distance around a shape"
-     },
-     {
-      "id": "a",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The answer is “4 × 3 = 12 square units.” It uses what we learned about area."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w01-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice applies this skill: Solve simple problems about the area of squares and rectangles using length × width?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a measurement without square units"
-     },
-     {
-      "id": "b",
-      "text": "a 5 by 2 rectangle has 10 square units"
-     },
-     {
-      "id": "c",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "d",
-      "text": "the number of corners"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "The answer is “a 5 by 2 rectangle has 10 square units.” It uses what we learned about area."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w01-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which situation shows this skill: Solve simple problems about the area of squares and rectangles using length × width?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a measurement without square units"
-     },
-     {
-      "id": "d",
-      "text": "the distance around a shape"
-     },
-     {
-      "id": "a",
-      "text": "a square has equal side lengths"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The answer is “a square has equal side lengths.” It uses what we learned about area."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w01-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer best uses this skill: Solve simple problems about the area of squares and rectangles using length × width?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a measurement without square units"
-     },
-     {
-      "id": "b",
-      "text": "the distance around a shape"
-     },
-     {
-      "id": "c",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "d",
-      "text": "counting unit squares checks the answer"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "The answer is “counting unit squares checks the answer.” It uses what we learned about area."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w01-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer fits the problem?",
-    "options": [
-     {
-      "id": "c",
-      "text": "4 × 3 = 12 square units"
-     },
-     {
-      "id": "d",
-      "text": "the distance around a shape"
-     },
-     {
-      "id": "a",
-      "text": "the length of one side only"
-     },
-     {
-      "id": "b",
-      "text": "the number of corners"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The answer is “4 × 3 = 12 square units.” It uses what we learned about area."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-q1-w01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "mathematics",
+  "title": "Area Detectives",
+  "objective": "Solve simple problems about the area of squares and rectangles using length × width.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is planting a 4 by 3 garden! Help him find its area in square units.",
+  "vocabulary": [
+    {
+      "term": "4 × 3 = 12 square units",
+      "definition": "space inside a shape"
+    },
+    {
+      "term": "a 5 by 2 rectangle has 10 square units",
+      "definition": "length times width"
+    },
+    {
+      "term": "a square has equal side lengths",
+      "definition": "measured in square units"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Watch how 4 × 3 = 12 finds the area of a rectangle.",
+      "content": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Watch how 4 × 3 = 12 finds the area of a rectangle.",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Tap each example and read the area fact.",
+      "content": {
+        "examples": [
+          "4 × 3 = 12 square units",
+          "a 5 by 2 rectangle has 10 square units",
+          "a square has equal side lengths",
+          "counting unit squares checks the answer"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Tap each example and read the area fact.",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Sort each card: is it about area or about something else?",
+      "content": {
+        "fits": [
+          "4 × 3 = 12 square units",
+          "a 5 by 2 rectangle has 10 square units",
+          "a square has equal side lengths",
+          "counting unit squares checks the answer"
+        ],
+        "doesNotFit": [
+          "the distance around a shape",
+          "the length of one side only",
+          "the number of corners",
+          "a measurement without square units"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Sort each card: is it about area or about something else?",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Tap the example that shows area.",
+      "content": {
+        "options": [
+          "4 × 3 = 12 square units",
+          "the distance around a shape",
+          "the length of one side only",
+          "the number of corners"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Tap the example that shows area.",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Match each area fact to its meaning.",
+      "content": {
+        "pairs": [
+          {
+            "left": "4 × 3 = 12 square units",
+            "right": "space inside a shape"
+          },
+          {
+            "left": "a 5 by 2 rectangle has 10 square units",
+            "right": "length times width"
+          },
+          {
+            "left": "a square has equal side lengths",
+            "right": "measured in square units"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Match each area fact to its meaning.",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d02-visual",
+      "instruction": "Put the steps for finding area in order.",
+      "content": {
+        "steps": [
+          "Read the shape and its measurements",
+          "Choose area or perimeter as the question asks",
+          "Use the matching formula or count the units",
+          "Check the unit and whether the answer fits the shape"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Put the steps for finding area in order.",
+      "narration": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Area measures the space inside a shape. For a rectangle, multiply its length by its width and write square units."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q1-w01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A rectangle is 4 cm long and 3 cm wide. What is its area?",
+        "options": [
+          {
+            "id": "c",
+            "text": "4 × 3 = 12 square units"
+          },
+          {
+            "id": "d",
+            "text": "the distance around the rectangle"
+          },
+          {
+            "id": "a",
+            "text": "4 cm"
+          },
+          {
+            "id": "b",
+            "text": "4 corners"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Area = length × width = 4 × 3 = 12 square units. The distance around is perimeter, and 4 cm is only one side."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A rectangle is 5 cm long and 2 cm wide. What is its area?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5 + 2 = 7 square units"
+          },
+          {
+            "id": "b",
+            "text": "a 5 by 2 rectangle has 10 square units"
+          },
+          {
+            "id": "c",
+            "text": "5 square units"
+          },
+          {
+            "id": "d",
+            "text": "4 corners"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Area = length × width = 5 × 2 = 10 square units."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A square has sides of 3 cm. Why is its area 9 square units?",
+        "options": [
+          {
+            "id": "c",
+            "text": "because 3 + 3 = 6"
+          },
+          {
+            "id": "d",
+            "text": "because 3 × 4 = 12"
+          },
+          {
+            "id": "a",
+            "text": "a square has equal side lengths"
+          },
+          {
+            "id": "b",
+            "text": "because a square has 4 corners"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A square has equal sides, so area = side × side = 3 × 3 = 9 square units."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "How can you check that a 4 by 3 rectangle has area 12?",
+        "options": [
+          {
+            "id": "a",
+            "text": "count only the corners"
+          },
+          {
+            "id": "b",
+            "text": "measure around the outside"
+          },
+          {
+            "id": "c",
+            "text": "measure only one side"
+          },
+          {
+            "id": "d",
+            "text": "counting unit squares checks the answer"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Count the unit squares inside: 4 rows of 3 squares is 12 squares, which checks length × width."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A rectangle is 4 m long and 3 m wide. What is its area?",
+        "options": [
+          {
+            "id": "c",
+            "text": "4 × 3 = 12 square units"
+          },
+          {
+            "id": "d",
+            "text": "the distance around the rectangle"
+          },
+          {
+            "id": "a",
+            "text": "4 m"
+          },
+          {
+            "id": "b",
+            "text": "4 corners"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Area = 4 × 3 = 12 square meters."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

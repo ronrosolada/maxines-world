@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter.",
+ "introduction": "Maxine is going to Cebu City! Sort general names from special names that start with a big letter.",
  "vocabulary": [
   {
    "term": "noun",
@@ -21,7 +21,7 @@
   },
   {
    "term": "animal",
-   "definition": "A living thing that can move and needs food."
+   "definition": "An animal is a living thing, like a dog, and its name can be a common noun or a proper noun."
   },
   {
    "term": "common noun",
@@ -33,7 +33,7 @@
    "activityId": "english-g3-m01-d06-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how common nouns and proper nouns are different!",
    "content": "A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d06-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each pair and read the general name and the special name!",
    "content": {
     "examples": [
      "city / Cebu City",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: Palawan",
-    "retry": "Look at the example again. island and teacher do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again! Proper nouns name ONE special thing, like Palawan. Which one is a special name? 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "english-g3-m01-d06-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each proper noun to its common noun!",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d06-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps for finding a proper noun in order!",
    "content": {
     "steps": [
      "Name a common noun.",
@@ -191,31 +191,31 @@
     "itemId": "english-g3-m01-d06-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Common or Proper?”?",
+    "prompt": "Which word is a proper noun?",
     "options": [
      {
+      "id": "a",
+      "text": "Cebu City"
+     },
+     {
       "id": "b",
-      "text": "Writing every common noun with a capital"
+      "text": "city"
      },
      {
       "id": "c",
-      "text": "Leaving Maxine lowercase"
-     },
-     {
-      "id": "a",
-      "text": "A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
+      "text": "island"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter.” because it matches what we learned: A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
+    "explanation": "Cebu City names one special city, so it is a proper noun with capital letters. City and island are general names for any place."
    },
    {
     "itemId": "english-g3-m01-d06-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice is a common or proper noun?",
+    "prompt": "Which pair shows the proper noun for the common noun \"city\"?",
     "options": [
      {
       "id": "a",
@@ -223,41 +223,41 @@
      },
      {
       "id": "b",
-      "text": "Writing every common noun with a capital"
+      "text": "city / pasig river"
      },
      {
       "id": "c",
-      "text": "Leaving Maxine lowercase"
+      "text": "river / Pasig River"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “city / Cebu City” because it matches what we learned: A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
+    "explanation": "Cebu City is the special name for the city, with a capital C. Pasig River is a river, not a city, and lowercase letters make a proper noun wrong."
    },
    {
     "itemId": "english-g3-m01-d06-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which word is written the WRONG way?",
     "options": [
      {
-      "id": "c",
-      "text": "girl / Maxine"
-     },
-     {
       "id": "a",
-      "text": "Writing every common noun with a capital"
+      "text": "maxine"
      },
      {
       "id": "b",
-      "text": "city / Cebu City"
+      "text": "Cebu City"
+     },
+     {
+      "id": "c",
+      "text": "Palawan"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Writing every common noun with a capital” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Maxine is a special name, so it must start with a capital letter: Maxine. Cebu City and Palawan are already written correctly."
    },
    {
     "itemId": "english-g3-m01-d06-q04",
@@ -266,22 +266,22 @@
     "prompt": "Which is a proper noun?",
     "options": [
      {
+      "id": "a",
+      "text": "Palawan"
+     },
+     {
       "id": "b",
       "text": "island"
      },
      {
       "id": "c",
       "text": "teacher"
-     },
-     {
-      "id": "a",
-      "text": "Palawan"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Palawan” because it matches what we learned: A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
+    "explanation": "Palawan names one special island, so it is a proper noun with a capital P. Island and teacher are general names for any place or person."
    },
    {
     "itemId": "english-g3-m01-d06-q05",
@@ -295,17 +295,17 @@
      },
      {
       "id": "b",
-      "text": "Calling “happy” a noun in every sentence"
+      "text": "Writing every common noun with a capital"
      },
      {
       "id": "c",
-      "text": "Writing every common noun with a capital"
+      "text": "Calling \"happy\" a noun"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “river / Pasig River” because it matches what we learned: A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
+    "explanation": "Pasig River is the special name for the river, so the pair matches. The other choices are not pairs of a common noun and its proper noun."
    }
   ]
  },

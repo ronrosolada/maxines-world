@@ -1,377 +1,377 @@
 {
- "lessonId": "science-g3-q2-w04-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 5,
- "day": 1,
- "subject": "science",
- "title": "Life Around Us · Q2 W04 D01",
- "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live. Ready to explore?",
- "vocabulary": [
-  {
-   "term": "living thing",
-   "definition": "something that grows, needs food and water, and can respond"
-  },
-  {
-   "term": "non-living thing",
-   "definition": "something that does not grow or need food and water"
-  },
-  {
-   "term": "basic need",
-   "definition": "something a living thing must have to live, like food and water"
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-q2-w04-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
-   "content": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
-   "narration": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow."
-  },
-  {
-   "activityId": "science-g3-q2-w04-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Explore each example. a frog and a bamboo are living, but a cup is not.",
-   "content": {
-    "examples": [
-     "a frog — living",
-     "a bamboo — living",
-     "roots hold the plant in the ground",
-     "a cup — non-living"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Explore each example. a frog and a bamboo are living, but a cup is not.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q2-w04-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Sort the examples: a frog and a bamboo are living things.",
-   "content": {
-    "fits": [
-     "a frog — living",
-     "a bamboo — living",
-     "roots hold the plant in the ground"
-    ],
-    "doesNotFit": [
-     "a cup — non-living",
-     "a rock",
-     "water",
-     "a pencil"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Sort the examples: a frog and a bamboo are living things.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q2-w04-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Choose the example of living things.",
-   "content": {
-    "options": [
-     "a pencil",
-     "a frog",
-     "a rock",
-     "water"
-    ],
-    "correctIndex": 1
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Choose the example of living things.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q2-w04-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Match each card to the right group.",
-   "content": {
-    "pairs": [
-     {
-      "left": "a frog",
-      "right": "living thing"
-     },
-     {
-      "left": "a cup",
-      "right": "non-living thing"
-     },
-     {
-      "left": "roots hold the plant in the ground",
-      "right": "a fact about living things"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Match a frog, a bamboo, and a cup with their groups.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  },
-  {
-   "activityId": "science-g3-q2-w04-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "science-g3-q2-w04-d01-visual",
-   "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
-   "content": {
-    "steps": [
-     "Observe the example: a frog",
-     "Ask: does it grow?",
-     "Check what it needs",
-     "Sort it as living or not"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
-    "retry": "Look at the example again and try once more. 💪"
-   },
-   "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
-   "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-q2-w04-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a living thing?",
-    "options": [
-     {
-      "id": "d",
-      "text": "a pencil"
-     },
-     {
-      "id": "a",
-      "text": "a frog"
-     },
-     {
-      "id": "b",
-      "text": "a rock"
-     },
-     {
-      "id": "c",
-      "text": "water"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The answer is “a frog.” It uses what we learned about living things."
-   },
-   {
-    "itemId": "science-g3-q2-w04-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is NOT a living thing?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a bamboo"
-     },
-     {
-      "id": "d",
-      "text": "a rock"
-     },
-     {
-      "id": "a",
-      "text": "a cup"
-     },
-     {
-      "id": "b",
-      "text": "a frog"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The correct response is “a cup” because it does not match what we learned. The other choices match the lesson idea."
-   },
-   {
-    "itemId": "science-g3-q2-w04-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What do all living things need to grow?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a battery"
-     },
-     {
-      "id": "c",
-      "text": "a plastic cover"
-     },
-     {
-      "id": "d",
-      "text": "a quiet shelf"
-     },
-     {
-      "id": "a",
-      "text": "food and water"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The answer is “food and water.” It uses what we learned about living things."
-   },
-   {
-    "itemId": "science-g3-q2-w04-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What holds a plant in the ground?",
-    "options": [
-     {
-      "id": "a",
-      "text": "roots"
-     },
-     {
-      "id": "b",
-      "text": "leaves"
-     },
-     {
-      "id": "c",
-      "text": "wings"
-     },
-     {
-      "id": "d",
-      "text": "scales"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The answer is “roots.” It uses what we learned about living things."
-   },
-   {
-    "itemId": "science-g3-q2-w04-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows a living thing?",
-    "options": [
-     {
-      "id": "d",
-      "text": "a pencil"
-     },
-     {
-      "id": "a",
-      "text": "a bamboo"
-     },
-     {
-      "id": "b",
-      "text": "a cup"
-     },
-     {
-      "id": "c",
-      "text": "water"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "The answer is “a bamboo.” It uses what we learned about living things."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-q2-w04-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 1,
+  "subject": "science",
+  "title": "Life Around Us · Q2 W04 D01",
+  "objective": "Classify familiar examples as living or non-living and describe basic needs or body parts.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "A frog hops near a bamboo plant. The cup on the table just sits there — is it living?",
+  "vocabulary": [
+    {
+      "term": "living thing",
+      "definition": "something that grows, needs food and water, and can respond"
+    },
+    {
+      "term": "non-living thing",
+      "definition": "something that does not grow or need food and water"
+    },
+    {
+      "term": "basic need",
+      "definition": "something a living thing must have to live, like food and water"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "science-g3-q2-w04-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+      "content": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
+      "narration": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "a frog is a living thing: it grows and needs food and water. a cup is non-living, so it does not grow."
+    },
+    {
+      "activityId": "science-g3-q2-w04-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Explore each example. a frog and a bamboo are living, but a cup is not.",
+      "content": {
+        "examples": [
+          "a frog — living",
+          "a bamboo — living",
+          "roots hold the plant in the ground",
+          "a cup — non-living"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Explore each example. a frog and a bamboo are living, but a cup is not.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q2-w04-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Sort the examples: a frog and a bamboo are living things.",
+      "content": {
+        "fits": [
+          "a frog — living",
+          "a bamboo — living",
+          "roots hold the plant in the ground"
+        ],
+        "doesNotFit": [
+          "a cup — non-living",
+          "a rock",
+          "water",
+          "a pencil"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Sort the examples: a frog and a bamboo are living things.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q2-w04-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Tap the living thing!",
+      "content": {
+        "options": [
+          "a pencil",
+          "a frog",
+          "a rock",
+          "water"
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Choose the example of living things.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q2-w04-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Match each card to living or non-living.",
+      "content": {
+        "pairs": [
+          {
+            "left": "a frog",
+            "right": "living thing"
+          },
+          {
+            "left": "a cup",
+            "right": "non-living thing"
+          },
+          {
+            "left": "roots hold the plant in the ground",
+            "right": "a fact about living things"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Match a frog, a bamboo, and a cup with their groups.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    },
+    {
+      "activityId": "science-g3-q2-w04-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q2-w04-d01-visual",
+      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "content": {
+        "steps": [
+          "Observe the example: a frog",
+          "Ask: does it grow?",
+          "Check what it needs",
+          "Sort it as living or not"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great thinking! 🎉",
+        "retry": "Look at the example again and try once more. 💪"
+      },
+      "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q2-w04-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a living thing?",
+        "options": [
+          {
+            "id": "d",
+            "text": "a pencil"
+          },
+          {
+            "id": "a",
+            "text": "a frog"
+          },
+          {
+            "id": "b",
+            "text": "a rock"
+          },
+          {
+            "id": "c",
+            "text": "water"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A frog grows, eats, drinks, and hops, so it is living. A pencil, a rock, and water do not grow."
+      },
+      {
+        "itemId": "science-g3-q2-w04-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is NOT a living thing?",
+        "options": [
+          {
+            "id": "c",
+            "text": "a bamboo"
+          },
+          {
+            "id": "d",
+            "text": "a goat"
+          },
+          {
+            "id": "a",
+            "text": "a cup"
+          },
+          {
+            "id": "b",
+            "text": "a frog"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A cup does not grow and does not need food or water, so it is not living. The goat, the bamboo, and the frog are living."
+      },
+      {
+        "itemId": "science-g3-q2-w04-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What do all living things need to grow?",
+        "options": [
+          {
+            "id": "b",
+            "text": "a battery"
+          },
+          {
+            "id": "c",
+            "text": "a plastic cover"
+          },
+          {
+            "id": "d",
+            "text": "a quiet shelf"
+          },
+          {
+            "id": "a",
+            "text": "food and water"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Living things need food and water to grow and stay alive. Batteries, covers, and shelves are not food or water."
+      },
+      {
+        "itemId": "science-g3-q2-w04-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What holds a plant in the ground?",
+        "options": [
+          {
+            "id": "a",
+            "text": "roots"
+          },
+          {
+            "id": "b",
+            "text": "leaves"
+          },
+          {
+            "id": "c",
+            "text": "wings"
+          },
+          {
+            "id": "d",
+            "text": "scales"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Roots grow into the soil and hold the plant in place. Leaves, wings, and scales do not anchor a plant."
+      },
+      {
+        "itemId": "science-g3-q2-w04-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example shows a living thing?",
+        "options": [
+          {
+            "id": "d",
+            "text": "a pencil"
+          },
+          {
+            "id": "a",
+            "text": "a bamboo"
+          },
+          {
+            "id": "b",
+            "text": "a cup"
+          },
+          {
+            "id": "c",
+            "text": "water"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A bamboo plant grows, needs water, and makes food in its leaves, so it is living. A pencil, a cup, and water are not."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "competency/objective and local examples; no unsafe experiment required",
+    "rewritten": true
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

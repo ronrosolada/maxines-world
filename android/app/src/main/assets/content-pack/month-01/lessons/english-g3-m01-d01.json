@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "A good description names what is visible and uses a complete sentence. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo is a picture detective today! Look at the picture and name only what you can really see.",
  "vocabulary": [
   {
    "term": "sentence",
@@ -21,7 +21,7 @@
   },
   {
    "term": "picture",
-   "definition": "An image or drawing that shows something."
+   "definition": "A picture is an image you can describe using the details you see."
   },
   {
    "term": "detective",
@@ -33,7 +33,7 @@
    "activityId": "english-g3-m01-d01-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how detectives name what they see in a picture!",
    "content": "A good description names what is visible and uses a complete sentence.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d01-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what you can see!",
    "content": {
     "examples": [
      "The child holds a red kite.",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: The child",
-    "retry": "Look at the example again. The dog and The tree do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again! The kite string is in the child's hand. Choose the one holding the kite. 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "english-g3-m01-d01-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each sentence to who or what it is about!",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d01-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps for describing a picture in order!",
    "content": {
     "steps": [
      "Look at the picture.",
@@ -191,25 +191,25 @@
     "itemId": "english-g3-m01-d01-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Picture Detective”?",
+    "prompt": "Which one is a complete sentence about the picture?",
     "options": [
      {
       "id": "a",
-      "text": "A good description names what is visible and uses a complete sentence."
+      "text": "The child holds a red kite."
      },
      {
       "id": "b",
-      "text": "Guessing what is outside the picture"
+      "text": "Under the big tree"
      },
      {
       "id": "c",
-      "text": "Naming a color that is not shown"
+      "text": "A red kite"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A good description names what is visible and uses a complete sentence.” because it matches what we learned: A good description names what is visible and uses a complete sentence."
+    "explanation": "“The child holds a red kite.” names who does something, so it is a complete sentence. The other choices are only pieces of a sentence."
    },
    {
     "itemId": "english-g3-m01-d01-q02",
@@ -218,46 +218,46 @@
     "prompt": "Which detail can you see in the picture?",
     "options": [
      {
-      "id": "c",
-      "text": "Naming a color that is not shown"
-     },
-     {
       "id": "a",
       "text": "The child holds a red kite."
      },
      {
       "id": "b",
-      "text": "Guessing what is outside the picture"
+      "text": "A puppy sleeps in a basket."
+     },
+     {
+      "id": "c",
+      "text": "Rain falls on the bench."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “The child holds a red kite.” because it matches what we learned: A good description names what is visible and uses a complete sentence."
+    "explanation": "The child with the red kite is in the picture, so you can see it. The puppy and the rain are not shown, so name only what is visible."
    },
    {
     "itemId": "english-g3-m01-d01-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which is NOT something you can see in the picture?",
     "options": [
      {
-      "id": "b",
-      "text": "The child holds a red kite."
-     },
-     {
-      "id": "c",
+      "id": "a",
       "text": "Two birds sit in the tree."
      },
      {
-      "id": "a",
-      "text": "Guessing what is outside the picture"
+      "id": "b",
+      "text": "A dog runs beside the bench."
+     },
+     {
+      "id": "c",
+      "text": "A tiger sleeps in the school."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Guessing what is outside the picture” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Two birds and a dog are in the picture, but there is no tiger in school. A good description names only what the picture really shows."
    },
    {
     "itemId": "english-g3-m01-d01-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “The child” because it matches what we learned: A good description names what is visible and uses a complete sentence."
+    "explanation": "The kite string is in the child's hand, so the child is holding the kite. Dogs and trees cannot hold a kite."
    },
    {
     "itemId": "english-g3-m01-d01-q05",
@@ -290,22 +290,22 @@
     "prompt": "Which sentence describes the picture using evidence?",
     "options": [
      {
-      "id": "c",
-      "text": "Guessing what is outside the picture"
-     },
-     {
       "id": "a",
       "text": "A dog runs beside the bench."
      },
      {
       "id": "b",
-      "text": "Writing only “running”"
+      "text": "The kite is green."
+     },
+     {
+      "id": "c",
+      "text": "The child feels sad today."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “A dog runs beside the bench.” because it matches what we learned: A good description names what is visible and uses a complete sentence."
+    "explanation": "“A dog runs beside the bench.” uses a detail you can see. The kite is red, not green, and feelings like sadness are not visible in the picture."
    }
   ]
  },

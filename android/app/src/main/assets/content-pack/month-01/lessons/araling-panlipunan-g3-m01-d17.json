@@ -1,370 +1,370 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d17",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 17,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Cultural Practices in Daily Life",
- "objective": "Ihambing ang gawi nang may paggalang at walang pagraranggo.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat.",
- "vocabulary": [
-  {
-   "term": "kultura",
-   "definition": "Ang mga tradisyon, pagkain, musika, at pamumuhay ng isang lugar."
-  },
-  {
-   "term": "gawi",
-   "definition": "Ang nakagawiang gawain o paraan ng pamumuhay."
-  },
-  {
-   "term": "tradisyon",
-   "definition": "Ang mga kaugaliang ipinamana ng mga matatanda sa mga bata."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Basahin muli ang paliwanag."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "iba’t ibang pagbati",
-     "iba’t ibang pagkain",
-     "iba’t ibang wika"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Nasuri mo ang lahat ng halimbawa.",
-    "retry": "Buksan ang natitirang halimbawa."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "iba’t ibang pagbati",
-     "iba’t ibang pagkain",
-     "iba’t ibang wika"
-    ],
-    "doesNotFit": [
-     "Tawaging kakaiba bilang insulto",
-     "Sabihing lahat ay pareho",
-     "Magsalita para sa grupong di kinonsulta"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Tama ang pagkakahanay ng mga pangkat.",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang magalang na pahayag?",
-   "content": {
-    "options": [
-     "Mali ang kanilang paraan.",
-     "Lahat sila ay pareho.",
-     "May iba’t ibang paraan ng pagbati."
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: May iba’t ibang paraan ng pagbati.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Mali ang kanilang paraan. at Lahat sila ay pareho. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "iba’t ibang pagbati",
-      "right": "iba’t ibang pagbati"
-     },
-     {
-      "left": "iba’t ibang pagkain",
-      "right": "iba’t ibang pagkain"
-     },
-     {
-      "left": "iba’t ibang wika",
-      "right": "iba’t ibang wika"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Naitambal mo ang lahat ng halimbawa.",
-    "retry": "Balikan ang paliwanag at paghambingin ang isang pares sa bawat pagkakataon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d17-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Handa ka na sa limang tanong.",
-    "retry": "Tapusin ang bawat hakbang sa pagbabalik-aral."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d17-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng gawi nang may paggalang?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagsasabi ng “po” at “opo” sa nakatatanda"
-     },
-     {
-      "id": "b",
-      "text": "pagsingit sa usapan"
-     },
-     {
-      "id": "c",
-      "text": "pagtawa sa iba"
-     },
-     {
-      "id": "d",
-      "text": "pag-uutos sa kapwa"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang paggamit ng “po” at “opo” ay paggalang sa nakatatanda."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d17-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalagang igalang ang gawi ng ibang komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang magkaaway"
-     },
-     {
-      "id": "b",
-      "text": "upang maging sikat"
-     },
-     {
-      "id": "c",
-      "text": "upang magkaisa at magtulungan ang lahat"
-     },
-     {
-      "id": "d",
-      "text": "upang may pag-usapan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang paggalang sa gawi ng iba ay nagbubuklod sa komunidad."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d17-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang tamang paraan ng paghahambing ng kultura?",
-    "options": [
-     {
-      "id": "a",
-      "text": "paghahambing nang may paggalang at pag-unawa"
-     },
-     {
-      "id": "b",
-      "text": "paghahambing upang mag-away"
-     },
-     {
-      "id": "c",
-      "text": "paghahambing upang malaman kung alin ang mas mahusay"
-     },
-     {
-      "id": "d",
-      "text": "paghahambing upang pintasan ang iba"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang paghahambing ay dapat may paggalang at pag-unawa, hindi upang magranggo."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d17-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang pagpapakita ng paggalang sa kultura ng iba?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagbabawal sa kanilang pista"
-     },
-     {
-      "id": "b",
-      "text": "pamimintas sa kanilang gawi"
-     },
-     {
-      "id": "c",
-      "text": "pakikinig at pag-unawa sa kanilang kaugalian"
-     },
-     {
-      "id": "d",
-      "text": "pagtatawanan ang kanilang tradisyon"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pakikinig at pag-unawa ay paggalang sa kultura ng iba."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d17-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang ibig sabihin ng walang pagraranggo ng kultura?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang kultura ay parehong-pareho"
-     },
-     {
-      "id": "b",
-      "text": "ang kultura ay nabibili"
-     },
-     {
-      "id": "c",
-      "text": "walang kultura na mas mataas o mas mababa kaysa iba"
-     },
-     {
-      "id": "d",
-      "text": "ang kultura ay nauubos"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Bawat kultura ay pantay-pantay — walang mas mataas."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d17-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d17-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Cultural Practices in Daily Life; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Cultural Practices in Daily Life.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "f454fa3ca226a24ee9442cd1fd667616c09f38fc2d17afe8a3c53eb7cb87bc5d",
- "contentReview": {
-  "reviewer": "RonBot — seasoned educator pass",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Kultura sa Araw-araw na Pamumuhay",
+  "objective": "Ihambing ang gawi nang may paggalang at walang pagraranggo.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat.",
+  "vocabulary": [
+    {
+      "term": "kultura",
+      "definition": "Ang mga tradisyon, pagkain, musika, at pamumuhay ng isang lugar."
+    },
+    {
+      "term": "gawi",
+      "definition": "Ang nakagawiang gawain o paraan ng pamumuhay."
+    },
+    {
+      "term": "tradisyon",
+      "definition": "Ang mga kaugaliang ipinamana ng mga matatanda sa mga bata."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-02T16:32:07+00:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Basahin muli ang paliwanag."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Ilarawan kung ano ang napansin, tukuyin ang pinagmulan, at iwasang gawing pangkalahatan sa lahat."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
+      "content": {
+        "examples": [
+          "iba’t ibang pagbati",
+          "iba’t ibang pagkain",
+          "iba’t ibang wika"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Nasuri mo ang lahat ng halimbawa.",
+        "retry": "Buksan ang natitirang halimbawa."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "iba’t ibang pagbati",
+          "iba’t ibang pagkain",
+          "iba’t ibang wika"
+        ],
+        "doesNotFit": [
+          "Tawaging kakaiba bilang insulto",
+          "Sabihing lahat ay pareho",
+          "Magsalita para sa grupong di kinonsulta"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Tama ang pagkakahanay ng mga pangkat.",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang magalang na pahayag?",
+      "content": {
+        "options": [
+          "Mali ang kanilang paraan.",
+          "Lahat sila ay pareho.",
+          "May iba’t ibang paraan ng pagbati."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: May iba’t ibang paraan ng pagbati.",
+        "retry": "Basahin muli ang tuntunin ng aralin. Mali ang kanilang paraan. at Lahat sila ay pareho. ay hindi angkop."
+      },
+      "assetId": null,
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "iba’t ibang pagbati",
+            "right": "iba’t ibang pagbati"
+          },
+          {
+            "left": "iba’t ibang pagkain",
+            "right": "iba’t ibang pagkain"
+          },
+          {
+            "left": "iba’t ibang wika",
+            "right": "iba’t ibang wika"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Naitambal mo ang lahat ng halimbawa.",
+        "retry": "Balikan ang paliwanag at paghambingin ang isang pares sa bawat pagkakataon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Handa ka na sa limang tanong.",
+        "retry": "Tapusin ang bawat hakbang sa pagbabalik-aral."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang halimbawa ng gawi nang may paggalang?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsasabi ng “po” at “opo” sa nakatatanda"
+          },
+          {
+            "id": "b",
+            "text": "pagsingit sa usapan"
+          },
+          {
+            "id": "c",
+            "text": "pagtawa sa iba"
+          },
+          {
+            "id": "d",
+            "text": "pag-uutos sa kapwa"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang paggamit ng “po” at “opo” ay paggalang sa nakatatanda."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalagang igalang ang gawi ng ibang komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang magkaaway"
+          },
+          {
+            "id": "b",
+            "text": "upang maging sikat"
+          },
+          {
+            "id": "c",
+            "text": "upang magkaisa at magtulungan ang lahat"
+          },
+          {
+            "id": "d",
+            "text": "upang may pag-usapan"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paggalang sa gawi ng iba ay nagbubuklod sa komunidad."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang paraan ng paghahambing ng kultura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paghahambing nang may paggalang at pag-unawa"
+          },
+          {
+            "id": "b",
+            "text": "paghahambing upang mag-away"
+          },
+          {
+            "id": "c",
+            "text": "paghahambing upang malaman kung alin ang mas mahusay"
+          },
+          {
+            "id": "d",
+            "text": "paghahambing upang pintasan ang iba"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang paghahambing ay dapat may paggalang at pag-unawa, hindi upang magranggo."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pagpapakita ng paggalang sa kultura ng iba?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagbabawal sa kanilang pista"
+          },
+          {
+            "id": "b",
+            "text": "pamimintas sa kanilang gawi"
+          },
+          {
+            "id": "c",
+            "text": "pakikinig at pag-unawa sa kanilang kaugalian"
+          },
+          {
+            "id": "d",
+            "text": "pagtatawanan ang kanilang tradisyon"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pakikinig at pag-unawa ay paggalang sa kultura ng iba."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang ibig sabihin ng walang pagraranggo ng kultura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang kultura ay parehong-pareho"
+          },
+          {
+            "id": "b",
+            "text": "ang kultura ay nabibili"
+          },
+          {
+            "id": "c",
+            "text": "walang kultura na mas mataas o mas mababa kaysa iba"
+          },
+          {
+            "id": "d",
+            "text": "ang kultura ay nauubos"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Bawat kultura ay pantay-pantay — walang mas mataas."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Cultural Practices in Daily Life; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Cultural Practices in Daily Life.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f454fa3ca226a24ee9442cd1fd667616c09f38fc2d17afe8a3c53eb7cb87bc5d",
+  "contentReview": {
+    "reviewer": "RonBot — seasoned educator pass",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement"
+    ],
+    "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
+    "rewritten": false
+  },
+  "reviewedAt": "2026-08-02T16:32:07+00:00"
 }

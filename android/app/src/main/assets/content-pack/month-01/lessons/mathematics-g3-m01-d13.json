@@ -13,11 +13,11 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Identify what is known, choose operations, solve, and check the result against the situation. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo's shelf has 120 books and gets 80 more! Help him plan, solve, and check.",
  "vocabulary": [
   {
    "term": "one",
-   "definition": "The number that comes first when counting."
+   "definition": "A single thing, like one book on a shelf."
   },
   {
    "term": "addition",
@@ -33,7 +33,7 @@
    "activityId": "mathematics-g3-m01-d13-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how adding 120 and 80 solves the shelf problem.",
    "content": "Identify what is known, choose operations, solve, and check the result against the situation.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "mathematics-g3-m01-d13-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read the plan.",
    "content": {
     "examples": [
      "120+80=200",
@@ -127,7 +127,7 @@
    "activityId": "mathematics-g3-m01-d13-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each problem step to its job.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "mathematics-g3-m01-d13-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the plan-solve-check steps in order.",
    "content": {
     "steps": [
      "Read the problem twice.",
@@ -191,7 +191,7 @@
     "itemId": "mathematics-g3-m01-d13-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Plan, Solve, Check”?",
+    "prompt": "Which statement about solving word problems is true?",
     "options": [
      {
       "id": "b",
@@ -209,13 +209,13 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Identify what is known, choose operations, solve, and check the result against the situation.” because it matches what we learned: Identify what is known, choose operations, solve, and check the result against the situation."
+    "explanation": "Read the problem, find what is known, pick the operation, solve, and check that the answer fits the story."
    },
    {
     "itemId": "mathematics-g3-m01-d13-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "A shelf has 120 books and gets 80 more. Which number sentence solves it?",
     "options": [
      {
       "id": "a",
@@ -223,23 +223,23 @@
      },
      {
       "id": "b",
-      "text": "Use every number without meaning"
+      "text": "120 − 80 = 40"
      },
      {
       "id": "c",
-      "text": "Skip units"
+      "text": "120 × 80 = 9,600"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “120+80=200” because it matches what we learned: Identify what is known, choose operations, solve, and check the result against the situation."
+    "explanation": "The shelf gains 80 books, so add: 120 + 80 = 200."
    },
    {
     "itemId": "mathematics-g3-m01-d13-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which is NOT a good problem-solving step?",
     "options": [
      {
       "id": "c",
@@ -257,7 +257,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Use every number without meaning” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Only use numbers that matter for the question. Using every number blindly can give a wrong answer."
    },
    {
     "itemId": "mathematics-g3-m01-d13-q04",
@@ -281,13 +281,13 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “200” because it matches what we learned: Identify what is known, choose operations, solve, and check the result against the situation."
+    "explanation": "120 + 80 = 200 books."
    },
    {
     "itemId": "mathematics-g3-m01-d13-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which answer fits the problem?",
+    "prompt": "Which is a good way to check your answer?",
     "options": [
      {
       "id": "a",
@@ -295,17 +295,17 @@
      },
      {
       "id": "b",
-      "text": "Accept negative objects in an unsuitable context"
+      "text": "Use any operation that gives a big number"
      },
      {
       "id": "c",
-      "text": "Use every number without meaning"
+      "text": "Use every number in the problem"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Estimate to check reasonableness” because it matches what we learned: Identify what is known, choose operations, solve, and check the result against the situation."
+    "explanation": "After solving, check with an estimate: 200 − 35 is about 160, so the answer should be near 160."
    }
   ]
  },

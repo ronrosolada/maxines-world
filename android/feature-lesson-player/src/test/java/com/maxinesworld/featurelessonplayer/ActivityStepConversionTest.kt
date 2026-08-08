@@ -82,7 +82,7 @@ class ActivityStepConversionTest {
         )
 
         assertFalse(step.feedback!!.incorrect.contains("show the skill", ignoreCase = true))
-        assertTrue(step.feedback!!.incorrect.contains("match the lesson idea", ignoreCase = true))
+        assertTrue(step.feedback!!.incorrect.contains("show what we learned", ignoreCase = true))
     }
 
     @Test

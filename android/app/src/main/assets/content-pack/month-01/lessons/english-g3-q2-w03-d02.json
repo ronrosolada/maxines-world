@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
  "language": "en-PH",
- "introduction": "Milo has a new mission! 🐱✨ A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation. Ready to explore?",
+ "introduction": "Is it a sentence or just a word group? 🐱✨ Help Milo check for a doer and an action.",
  "vocabulary": [
   {
    "term": "sentence",
@@ -36,13 +36,13 @@
    "capability": "ANIMATED_EXPLANATION_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Learn this skill: Tell whether a group of words expresses a complete idea.",
+   "instruction": "Hear what makes a complete sentence!",
    "content": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
    "completionRule": {
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Learn this skill: Tell whether a group of words expresses a complete idea.",
@@ -58,7 +58,7 @@
    "capability": "HOTSPOT_IMAGE_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Look closely at each example to practice: Tell whether a group of words expresses a complete idea.",
+   "instruction": "Tap the complete sentences!",
    "content": {
     "examples": [
      "The sun shines.",
@@ -73,7 +73,7 @@
     "targetCount": 4
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Look closely at each example to practice: Tell whether a group of words expresses a complete idea.",
@@ -89,7 +89,7 @@
    "capability": "SORT_AND_CLASSIFY_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Sort each example while practicing: Tell whether a group of words expresses a complete idea.",
+   "instruction": "Sort the cards: sentence or not!",
    "content": {
     "fits": [
      "The sun shines.",
@@ -109,7 +109,7 @@
     "itemCount": 8
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Sort each example while practicing: Tell whether a group of words expresses a complete idea.",
@@ -125,7 +125,7 @@
    "capability": "MULTIPLE_CHOICE_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Choose the example of complete sentences.",
+   "instruction": "Tap the group of words that is a sentence!",
    "content": {
     "options": [
      "on the roof",
@@ -139,7 +139,7 @@
     "type": "CORRECT_RESPONSE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Choose the example of complete sentences.",
@@ -155,7 +155,7 @@
    "capability": "MATCHING_PAIRS_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Match the examples about complete sentences.",
+   "instruction": "Match each group to what it shows!",
    "content": {
     "pairs": [
      {
@@ -176,7 +176,7 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Match the examples about complete sentences.",
@@ -192,7 +192,7 @@
    "capability": "SEQUENCE_BUILDER_V1",
    "required": true,
    "assetId": "english-g3-q2-w03-d02-visual",
-   "instruction": "Put the steps in order to practice: Tell whether a group of words expresses a complete idea.",
+   "instruction": "Tap the sentence-checking steps in order!",
    "content": {
     "steps": [
      "Read the group of words",
@@ -205,7 +205,7 @@
     "type": "COMPLETE"
    },
    "feedback": {
-    "correct": "Great thinking! You found the key idea. 🎉",
+    "correct": "You sorted sentences from word groups! 🎉",
     "retry": "Look at the example again and try once more. 💪"
    },
    "prompt": "Put the steps in order to practice: Tell whether a group of words expresses a complete idea.",
@@ -247,7 +247,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "The answer is “The sun shines.” It uses what we learned about complete sentences."
+    "explanation": "“The sun shines” tells who (the sun) and what it does (shines), so it is a complete sentence."
    },
    {
     "itemId": "english-g3-q2-w03-d02-q02",
@@ -275,7 +275,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "The answer is “on the roof.” It uses what we learned about complete sentences."
+    "explanation": "“On the roof” names a place but no doer or action, so it is not a complete sentence."
    },
    {
     "itemId": "english-g3-q2-w03-d02-q03",
@@ -303,7 +303,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "The answer is “who or what is doing the action.” It uses what we learned about complete sentences."
+    "explanation": "“Green and leafy” only describes, so it is missing who or what is doing the action."
    },
    {
     "itemId": "english-g3-q2-w03-d02-q04",
@@ -331,7 +331,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "The answer is “Ben rides his bike.” It uses what we learned about complete sentences."
+    "explanation": "“Ben” is who, and “rides his bike” is what he does — that is a complete idea."
    },
    {
     "itemId": "english-g3-q2-w03-d02-q05",
@@ -359,7 +359,7 @@
     "correctOptionIds": [
      "b"
     ],
-    "explanation": "The answer is “The fish swims.” It uses what we learned about complete sentences."
+    "explanation": "“The fish” is who, and “swims” is what it does — a complete sentence."
    }
   ]
  },

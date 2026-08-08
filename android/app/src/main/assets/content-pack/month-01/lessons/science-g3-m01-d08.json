@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage.",
+ "introduction": "Roots, stems, leaves, and flowers — every part of a plant has a job. Can you match each part to its job?",
  "vocabulary": [
   {
    "term": "plant",
@@ -33,7 +33,7 @@
    "activityId": "science-g3-m01-d08-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch and listen — Milo shows the parts of a plant and their jobs.",
    "content": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d08-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what it shows.",
    "content": {
     "examples": [
      "roots absorb water and anchor",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups match what we learned.",
+    "correct": "Great sorting! Your groups are correct.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d08-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: roots",
-    "retry": "Look at the example again. flower and fruit do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again — flowers and fruit do not anchor a plant. Tap the part that grows in soil! 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "science-g3-m01-d08-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each plant part to its job.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d08-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps in order: part, job, match.",
    "content": {
     "steps": [
      "Look at the plant part.",
@@ -191,55 +191,55 @@
     "itemId": "science-g3-m01-d08-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Plant Parts and Jobs”?",
+    "prompt": "Which statement about plant parts is true?",
     "options": [
      {
       "id": "a",
-      "text": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
-     },
-     {
-      "id": "b",
       "text": "Soil is plant food"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Every plant always has flowers"
+     },
+     {
+      "id": "c",
+      "text": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage.” because it matches what we learned: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+    "explanation": "Most flowering plants have roots, stems, leaves, and more, but plants differ — not every plant has every part all the time. Soil is not plant food, and not every plant flowers."
    },
    {
     "itemId": "science-g3-m01-d08-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which pair matches a plant part to its job?",
     "options": [
      {
       "id": "c",
-      "text": "Every plant always has flowers"
-     },
-     {
-      "id": "a",
       "text": "roots absorb water and anchor"
      },
      {
+      "id": "a",
+      "text": "leaves hold the plant in the soil"
+     },
+     {
       "id": "b",
-      "text": "Soil is plant food"
+      "text": "stems make food from sunlight"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “roots absorb water and anchor” because it matches what we learned: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+    "explanation": "Roots soak up water and hold the plant in place. Leaves make food, and stems carry water up — they do not do roots' jobs."
    },
    {
     "itemId": "science-g3-m01-d08-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which statement is not true?",
     "options": [
      {
       "id": "b",
@@ -247,17 +247,17 @@
      },
      {
       "id": "c",
-      "text": "stems support and transport"
+      "text": "Soil is plant food"
      },
      {
       "id": "a",
-      "text": "Soil is plant food"
+      "text": "stems support and transport"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Soil is plant food” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Plants make their own food in their leaves using light. Soil holds water and nutrients, but it is not food."
    },
    {
     "itemId": "science-g3-m01-d08-q04",
@@ -281,31 +281,31 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “roots” because it matches what we learned: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+    "explanation": "Roots grow into the soil and hold the plant in place. Flowers and fruits do not anchor the plant."
    },
    {
     "itemId": "science-g3-m01-d08-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which plant part matches its job?",
+    "prompt": "Which pair matches a plant part to its job?",
     "options": [
      {
       "id": "c",
-      "text": "Soil is plant food"
-     },
-     {
-      "id": "a",
       "text": "leaves often photosynthesize"
      },
      {
+      "id": "a",
+      "text": "roots make food from sunlight"
+     },
+     {
       "id": "b",
-      "text": "Roots drink with mouths"
+      "text": "flowers soak up water from soil"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “leaves often photosynthesize” because it matches what we learned: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+    "explanation": "Leaves make food for the plant using light. Roots take in water and hold the plant, and flowers make seeds."
    }
   ]
  },

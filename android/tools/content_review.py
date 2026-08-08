@@ -706,10 +706,10 @@ def _child_facing_retry(text: str, filipino: bool) -> str:
     if match:
         return (
             f"Look at the example again. {match.group(1).strip()} "
-            "do not match the lesson idea. Choose the answer that fits. 💪"
+            "do not match what we learned. Choose the answer that fits. 💪"
         )
-    text = re.sub(r"shows the skill", "matches the lesson idea", text, flags=re.IGNORECASE)
-    text = re.sub(r"show the skill", "match the lesson idea", text, flags=re.IGNORECASE)
+    text = re.sub(r"shows the skill", "shows what we learned", text, flags=re.IGNORECASE)
+    text = re.sub(r"show the skill", "show what we learned", text, flags=re.IGNORECASE)
     return text
 
 

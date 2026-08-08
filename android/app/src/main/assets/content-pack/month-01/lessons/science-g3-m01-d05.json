@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "The same kind of part may have different functions across species. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "A fish swims with fins, but a bird flies with wings. How do animal parts help animals live?",
  "vocabulary": [
   {
    "term": "animal",
@@ -33,7 +33,7 @@
    "activityId": "science-g3-m01-d05-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch and listen — Milo shows how animal parts help animals.",
    "content": "The same kind of part may have different functions across species.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d05-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what it shows.",
    "content": {
     "examples": [
      "fins can help swimming",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups match what we learned.",
+    "correct": "Great sorting! Your groups are correct.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d05-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: fins",
-    "retry": "Look at the example again. fur and antlers do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again — fur and antlers do not help fish swim. Tap the part that pushes water! 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "science-g3-m01-d05-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each body part to its job.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d05-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps in order: part, job, match.",
    "content": {
     "steps": [
      "Look at the animal body part.",
@@ -191,55 +191,55 @@
     "itemId": "science-g3-m01-d05-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Animal Parts at Work”?",
+    "prompt": "Which statement about animal body parts is true?",
     "options": [
      {
       "id": "a",
-      "text": "The same kind of part may have different functions across species."
-     },
-     {
-      "id": "b",
       "text": "Every tail has one function"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Every winged animal flies"
+     },
+     {
+      "id": "c",
+      "text": "The same kind of part may have different functions across species."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “The same kind of part may have different functions across species.” because it matches what we learned: The same kind of part may have different functions across species."
+    "explanation": "The same part can do different jobs in different animals — a tail may help balance or send signals. Not every tail does the same thing, and not every winged animal flies."
    },
    {
     "itemId": "science-g3-m01-d05-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which pair matches a body part to its job?",
     "options": [
      {
       "id": "c",
-      "text": "Every winged animal flies"
-     },
-     {
-      "id": "a",
       "text": "fins can help swimming"
      },
      {
+      "id": "a",
+      "text": "fins can help flying"
+     },
+     {
       "id": "b",
-      "text": "Every tail has one function"
+      "text": "wings can help digging"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “fins can help swimming” because it matches what we learned: The same kind of part may have different functions across species."
+    "explanation": "Fins push against water so fish can swim. Fins do not help flying, and wings do not help digging."
    },
    {
     "itemId": "science-g3-m01-d05-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which statement is not true?",
     "options": [
      {
       "id": "b",
@@ -247,17 +247,17 @@
      },
      {
       "id": "c",
-      "text": "wings can help flight"
+      "text": "Every tail has one function"
      },
      {
       "id": "a",
-      "text": "Every tail has one function"
+      "text": "wings can help flight"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Every tail has one function” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Tails do many jobs — balance, steering, and even signaling — so they do not have just one function. Fins help swimming, and wings help flight."
    },
    {
     "itemId": "science-g3-m01-d05-q04",
@@ -281,31 +281,31 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “fins” because it matches what we learned: The same kind of part may have different functions across species."
+    "explanation": "Fins push against the water to move a fish forward. Fur and antlers do not help fish swim."
    },
    {
     "itemId": "science-g3-m01-d05-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which body part matches its function?",
+    "prompt": "Which pair matches a body part to its job?",
     "options": [
      {
       "id": "c",
-      "text": "Every tail has one function"
-     },
-     {
-      "id": "a",
       "text": "tails may aid balance or communication"
      },
      {
+      "id": "a",
+      "text": "wings may aid swimming"
+     },
+     {
       "id": "b",
-      "text": "All beaks eat the same food"
+      "text": "fins may aid flying"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “tails may aid balance or communication” because it matches what we learned: The same kind of part may have different functions across species."
+    "explanation": "Some tails help animals balance or send signals. Wings do not help swimming, and fins do not help flying."
    }
   ]
  },

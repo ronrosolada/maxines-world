@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns. Explore examples, sort cards, practice, and answer five questions.",
+ "introduction": "Milo found one cat, then many cats! Help him add -s and -es to make plurals.",
  "vocabulary": [
   {
    "term": "noun",
@@ -21,7 +21,7 @@
   },
   {
    "term": "ending",
-   "definition": "The last part of a story or word."
+   "definition": "The last letters of a word, like the -x in box or the -sh in dish."
   },
   {
    "term": "plural",
@@ -33,7 +33,7 @@
    "activityId": "english-g3-m01-d07-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch how nouns grow from one to many!",
    "content": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "english-g3-m01-d07-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each word pair and say the plural!",
    "content": {
     "examples": [
      "cat → cats",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: boxes",
-    "retry": "Look at the example again. boxs and boxen do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again! Box ends with -x, so it takes -es. Which one is boxes? 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "english-g3-m01-d07-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each singular word to its plural!",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "english-g3-m01-d07-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the plural-making steps in order!",
    "content": {
     "steps": [
      "Read the singular word.",
@@ -191,36 +191,32 @@
     "itemId": "english-g3-m01-d07-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “More Than One”?",
+    "prompt": "What is the plural of cat?",
     "options": [
      {
       "id": "a",
-      "text": "Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+      "text": "cats"
      },
      {
       "id": "b",
-      "text": "child → childs"
+      "text": "cates"
      },
      {
       "id": "c",
-      "text": "mouse → mouses"
+      "text": "caties"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns.” because it matches what we learned: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    "explanation": "Cat just adds -s to mean more than one: one cat, two cats. Cates and caties add extra letters that are not part of the rule."
    },
    {
     "itemId": "english-g3-m01-d07-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which ending follows the events of the story?",
+    "prompt": "Which pair shows the plural made with -s?",
     "options": [
-     {
-      "id": "c",
-      "text": "mouse → mouses"
-     },
      {
       "id": "a",
       "text": "cat → cats"
@@ -228,19 +224,27 @@
      {
       "id": "b",
       "text": "child → childs"
+     },
+     {
+      "id": "c",
+      "text": "mouse → mouses"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “cat → cats” because it matches what we learned: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    "explanation": "Cat adds plain -s to become cats. Child and mouse are special words — childs and mouses are not correct plurals."
    },
    {
     "itemId": "english-g3-m01-d07-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which plural is WRONG?",
     "options": [
+     {
+      "id": "a",
+      "text": "child → childs"
+     },
      {
       "id": "b",
       "text": "cat → cats"
@@ -248,16 +252,12 @@
      {
       "id": "c",
       "text": "box → boxes"
-     },
-     {
-      "id": "a",
-      "text": "child → childs"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “child → childs” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Child is a special word — its plural is children, not childs. Cats and boxes follow the -s and -es rules."
    },
    {
     "itemId": "english-g3-m01-d07-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “boxes” because it matches what we learned: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    "explanation": "Box ends with -x, so it takes -es: boxes. Boxs and boxen do not follow the rule."
    },
    {
     "itemId": "english-g3-m01-d07-q05",
@@ -290,22 +290,22 @@
     "prompt": "Which plural is formed correctly?",
     "options": [
      {
-      "id": "c",
-      "text": "child → childs"
-     },
-     {
       "id": "a",
       "text": "dish → dishes"
      },
      {
       "id": "b",
       "text": "foot → foots"
+     },
+     {
+      "id": "c",
+      "text": "child → childs"
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “dish → dishes” because it matches what we learned: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
+    "explanation": "Dish ends with -sh, so its plural is dishes. Foot and child change in a special way — their plurals are feet and children."
    }
   ]
  },

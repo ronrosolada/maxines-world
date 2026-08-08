@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.",
+ "introduction": "Milo watches an ice cube melt in a warm room. What happens to materials when they get hot or cold?",
  "vocabulary": [
   {
    "term": "material",
@@ -33,7 +33,7 @@
    "activityId": "science-g3-m01-d02-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch and listen — Milo shows how heating and cooling change materials.",
    "content": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d02-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what it shows.",
    "content": {
     "examples": [
      "ice melts",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups match what we learned.",
+    "correct": "Great sorting! Your groups are correct.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d02-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: It can melt.",
-    "retry": "Look at the example again. It becomes metal. and It disappears from matter. do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again — metal and turning into fire are not what ice does. Tap what ice does in a warm room! 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "science-g3-m01-d02-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each change to its cause.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d02-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps in order: look at the material, decide the cause, describe the change.",
    "content": {
     "steps": [
      "Look at the material.",
@@ -191,55 +191,55 @@
     "itemId": "science-g3-m01-d02-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Materials Can Change”?",
+    "prompt": "Which statement about heating and cooling is true?",
     "options": [
      {
       "id": "a",
-      "text": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
-     },
-     {
-      "id": "b",
       "text": "Every material melts"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Every change reverses"
+     },
+     {
+      "id": "c",
+      "text": "Heating or cooling can cause physical changes; some are reversible and others are not."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.” because it matches what we learned: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    "explanation": "Heating or cooling can change materials, but not every material melts and not every change can be undone — some changes are reversible and others are not."
    },
    {
     "itemId": "science-g3-m01-d02-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which example shows a change caused by heat?",
     "options": [
      {
       "id": "c",
-      "text": "Every change reverses"
-     },
-     {
-      "id": "a",
       "text": "ice melts"
      },
      {
+      "id": "a",
+      "text": "water freezes"
+     },
+     {
       "id": "b",
-      "text": "Every material melts"
+      "text": "juice turns into ice pops in the freezer"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “ice melts” because it matches what we learned: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    "explanation": "Ice melts when it gets warm, so heat causes the change. Freezing happens when things get cold."
    },
    {
     "itemId": "science-g3-m01-d02-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which statement is not true?",
     "options": [
      {
       "id": "b",
@@ -247,17 +247,17 @@
      },
      {
       "id": "c",
-      "text": "water freezes"
+      "text": "Every material melts"
      },
      {
       "id": "a",
-      "text": "Every material melts"
+      "text": "water freezes"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Every material melts” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Not every material melts — some burn, break, or stay the same. Ice melting and water freezing are real changes."
    },
    {
     "itemId": "science-g3-m01-d02-q04",
@@ -275,19 +275,19 @@
      },
      {
       "id": "c",
-      "text": "It disappears from matter."
+      "text": "It turns into fire."
      }
     ],
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “It can melt.” because it matches what we learned: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    "explanation": "A warm room adds heat, so the ice melts into water. Ice does not become metal or turn into fire."
    },
    {
     "itemId": "science-g3-m01-d02-q05",
     "sequence": 5,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which change is correct and safe?",
+    "prompt": "Which change is safe and correct?",
     "options": [
      {
       "id": "c",
@@ -305,7 +305,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “wax softens when warmed” because it matches what we learned: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
+    "explanation": "Wax softening when warmed is a safe change you can watch. Not every material melts, and touching hot things is unsafe."
    }
   ]
  },

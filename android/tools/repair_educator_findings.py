@@ -669,18 +669,18 @@ def repair_generic_shell_copy(lesson: dict[str, Any]) -> bool:
         "Aling halimbawa ang dapat gamitin sa huling balik-aral",
     )
     en_variants = (
-        f"Which example best shows this skill: {objective}?",
-        f"Which choice applies this skill: {objective}?",
-        f"Which situation shows this skill: {objective}?",
-        f"Which answer best uses this skill: {objective}?",
-        f"Which example gives evidence of this skill: {objective}?",
+        "Which answer shows what we learned?",
+        "Which choice shows what we learned?",
+        "Which example shows what we learned?",
+        "Which answer best shows what we learned?",
+        "Which example gives evidence of what we learned?",
     )
     fil_variants = (
-        f"Aling halimbawa ang pinakamalinaw na nagpapakita ng kasanayang ito: {objective}?",
-        f"Aling pagpipilian ang gumagamit ng kasanayang ito: {objective}?",
-        f"Aling sitwasyon ang nagpapakita ng kasanayang ito: {objective}?",
-        f"Aling sagot ang wastong gumagamit ng kasanayang ito: {objective}?",
-        f"Aling halimbawa ang nagbibigay ng patunay sa kasanayang ito: {objective}?",
+        "Aling sagot ang nagpapakita ng ating natutuhan?",
+        "Aling pagpipilian ang gumagamit ng ating natutuhan?",
+        "Aling sitwasyon ang nagpapakita ng ating natutuhan?",
+        "Aling sagot ang wastong gumagamit ng ating natutuhan?",
+        "Aling halimbawa ang nagbibigay ng patunay sa ating natutuhan?",
     )
     variants = fil_variants if is_fil else en_variants
     for i, item in enumerate((lesson.get("assessment") or {}).get("items", [])):

@@ -24,7 +24,7 @@ class FeedbackSanitizationTest {
     @Test
     fun `correct feedback rewrites assessment explanation language`() {
         assertEquals(
-            "The correct response does not match what we learned. Other choices match the lesson idea.",
+            "The correct response does not match what we learned. Other choices show what we learned.",
             childFacingCorrectFeedback(
                 "The correct response does not follow the lesson skill. Other choices show the skill."
             ),
@@ -34,7 +34,7 @@ class FeedbackSanitizationTest {
     @Test
     fun `incorrect feedback replaces curriculum jargon and keeps a useful fallback`() {
         val sanitized = childFacingIncorrectFeedback("B and C do not show the skill.")
-        assertTrue(sanitized.contains("match the lesson idea", ignoreCase = true))
+        assertTrue(sanitized.contains("show what we learned", ignoreCase = true))
         assertEquals(DEFAULT_INCORRECT_FEEDBACK, childFacingIncorrectFeedback("Try again!"))
     }
 }

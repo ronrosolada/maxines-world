@@ -13,7 +13,7 @@
  "qualifiesForDailyBadge": true,
  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
  "language": "en-PH",
- "introduction": "Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries.",
+ "introduction": "The Sun warms your skin, and a lamp lights the room. How do heat and electricity help us — and how do we stay safe?",
  "vocabulary": [
   {
    "term": "heat",
@@ -33,7 +33,7 @@
    "activityId": "science-g3-m01-d20-a01",
    "sequence": 1,
    "type": "ANIMATED_EXPLANATION",
-   "instruction": "Study the idea and listen to the narration.",
+   "instruction": "Watch and listen — Milo shows safe heat and electricity.",
    "content": "Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries.",
    "required": true,
    "completionRule": {
@@ -50,7 +50,7 @@
    "activityId": "science-g3-m01-d20-a02",
    "sequence": 2,
    "type": "HOTSPOT_IMAGE",
-   "instruction": "Explore each example, then read the examples.",
+   "instruction": "Tap each example and read what it shows.",
    "content": {
     "examples": [
      "sunlight can warm surfaces",
@@ -93,7 +93,7 @@
     "itemCount": 6
    },
    "feedback": {
-    "correct": "Your groups match what we learned.",
+    "correct": "Great sorting! Your groups are correct.",
     "retry": "Use the explanation, not color or position."
    },
    "assetId": "science-g3-m01-d20-visual",
@@ -118,7 +118,7 @@
    },
    "feedback": {
     "correct": "Correct: Tell a responsible adult and do not touch it.",
-    "retry": "Look at the example again. Repair it while plugged in. and Put it in water. do not match the lesson idea. Choose the answer that fits. 💪"
+    "retry": "Look again — repairing cords and wet cords are unsafe. Tap what a child should do! 💪"
    },
    "assetId": null,
    "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
    "activityId": "science-g3-m01-d20-a05",
    "sequence": 5,
    "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the lesson idea.",
+   "instruction": "Match each example to its safe energy use.",
    "content": {
     "pairs": [
      {
@@ -160,7 +160,7 @@
    "activityId": "science-g3-m01-d20-a06",
    "sequence": 6,
    "type": "SEQUENCE_BUILDER",
-   "instruction": "Follow the guided review in order.",
+   "instruction": "Put the steps in order: look at the source, decide, ask an adult.",
    "content": {
     "steps": [
      "Look at the energy source.",
@@ -191,55 +191,55 @@
     "itemId": "science-g3-m01-d20-q01",
     "sequence": 1,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement best matches “Heat and Electricity”?",
+    "prompt": "Which statement about heat and electricity is true?",
     "options": [
      {
       "id": "a",
-      "text": "Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
-     },
-     {
-      "id": "b",
       "text": "Insert object in outlet"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "Touch hot pan"
+     },
+     {
+      "id": "c",
+      "text": "Heat is energy transfer related to temperature differences; electricity involves electric charge."
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries.” because it matches what we learned: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
+    "explanation": "Heat moves from warmer to cooler things, and electricity is energy that flows. Poking outlets and touching hot pans are unsafe."
    },
    {
     "itemId": "science-g3-m01-d20-q02",
     "sequence": 2,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which one matches the lesson idea?",
+    "prompt": "Which example shows a safe use of energy?",
     "options": [
      {
       "id": "c",
-      "text": "Touch hot pan"
-     },
-     {
-      "id": "a",
       "text": "sunlight can warm surfaces"
      },
      {
+      "id": "a",
+      "text": "touch a hot pan with bare hands"
+     },
+     {
       "id": "b",
-      "text": "Insert object in outlet"
+      "text": "insert a fork into an outlet"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “sunlight can warm surfaces” because it matches what we learned: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
+    "explanation": "Sunlight warming a surface is a safe, everyday use of energy. Touching hot pans and poking outlets are dangerous."
    },
    {
     "itemId": "science-g3-m01-d20-q03",
     "sequence": 3,
     "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice does not follow the lesson idea?",
+    "prompt": "Which action is NOT safe?",
     "options": [
      {
       "id": "b",
@@ -247,17 +247,17 @@
      },
      {
       "id": "c",
-      "text": "battery powers a safe device"
+      "text": "Insert object in outlet"
      },
      {
       "id": "a",
-      "text": "Insert object in outlet"
+      "text": "battery powers a safe device"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "c"
     ],
-    "explanation": "The correct response is “Insert object in outlet” because it does not match what we learned. The other choices match the lesson idea."
+    "explanation": "Putting anything into an outlet can give a dangerous shock. Sunlight warming things and batteries powering safe devices are fine with adult care."
    },
    {
     "itemId": "science-g3-m01-d20-q04",
@@ -281,7 +281,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “Tell a responsible adult and do not touch it.” because it matches what we learned: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
+    "explanation": "A damaged cord can be dangerous, so tell an adult and do not touch it. Repairing it while plugged in or putting it in water is unsafe."
    },
    {
     "itemId": "science-g3-m01-d20-q05",
@@ -305,7 +305,7 @@
     "correctOptionIds": [
      "a"
     ],
-    "explanation": "The correct response is “adult handles damaged cord” because it matches what we learned: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
+    "explanation": "An adult can safely handle a damaged cord. Poking objects into outlets and short-circuiting batteries are dangerous."
    }
   ]
  },

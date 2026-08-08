@@ -114,10 +114,10 @@ private fun sanitizeLearnerFeedbackText(text: String): String = text
     .replace("uses the lesson skill", "uses what we learned", ignoreCase = true)
     .replace("use the lesson skill", "use what we learned", ignoreCase = true)
     .replace("follow the skill rule", "match what we learned", ignoreCase = true)
-    .replace("does not show the skill", "does not match the lesson idea", ignoreCase = true)
-    .replace("do not show the skill", "do not match the lesson idea", ignoreCase = true)
-    .replace("shows the skill", "matches the lesson idea", ignoreCase = true)
-    .replace("show the skill", "match the lesson idea", ignoreCase = true)
+    .replace("does not show the skill", "does not show what we learned", ignoreCase = true)
+    .replace("do not show the skill", "do not show what we learned", ignoreCase = true)
+    .replace("shows the skill", "shows what we learned", ignoreCase = true)
+    .replace("show the skill", "show what we learned", ignoreCase = true)
     .replace("The other choices show the skill", "The other choices match what we learned", ignoreCase = true)
 
 /** Keep curriculum copy understandable to a Grade 3 learner at the moment of retry. */
