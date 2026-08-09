@@ -152,7 +152,8 @@ class RewardBreakFlowTest {
         // The hub loads the CREATED entitlement and starts it only on game choice.
         waitForText("Choose a game for your 5-minute reward break.")
         waitForText("Maxine's World games")
-        waitForText("Puzzle & classic games")
+        // The second section is below the fold on the CI 320x640 emulator;
+        // scrolling to the game is the reliable readiness check.
         scrollToGame("2048")
         scrollToGame("Cat Café Dash")
         val created = getBreak()
@@ -188,7 +189,8 @@ class RewardBreakFlowTest {
         onText("Play a Reward Game").performClick()
         waitForText("Choose a game for your 5-minute reward break.")
         waitForText("Maxine's World games")
-        waitForText("Puzzle & classic games")
+        // The second section is below the fold on the CI 320x640 emulator;
+        // scrolling to the game is the reliable readiness check.
         scrollToGame("2048")
         assertEquals(RewardBreakPolicy.CREATED, getBreak()?.state)
 
