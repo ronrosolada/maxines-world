@@ -134,6 +134,7 @@ private fun MediaStatusCard(
     }
 }
 
+@androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 @Composable
 internal fun OfflineVideoPlayer(file: File) {
     val context = LocalContext.current
