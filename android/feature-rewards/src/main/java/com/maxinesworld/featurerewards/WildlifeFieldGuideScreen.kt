@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -446,7 +447,7 @@ internal fun badgeRevealAnimationEnabled(animatorDurationScale: Float): Boolean 
 @Composable
 fun WildlifeExpeditionProgressRow(progress: ChallengeProgress) {
     val subjects = listOf(
-        Triple("English", progress.english, Icons.Default.MenuBook),
+        Triple("English", progress.english, Icons.AutoMirrored.Filled.MenuBook),
         Triple("Filipino", progress.filipino, Icons.Default.AutoStories),
         Triple("Math", progress.mathematics, Icons.Default.Calculate),
         Triple("Science", progress.science, Icons.Default.Science),

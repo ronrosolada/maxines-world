@@ -2,10 +2,13 @@ package com.maxinesworld.app
 
 import androidx.activity.compose.setContent
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasContentDescription
+import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performClick
 import com.maxinesworld.featurerewards.TreatShopContent
 import com.maxinesworld.featurerewards.TreatShopUiState
@@ -52,9 +55,10 @@ class TreatShopScreenTest {
         composeRule.waitForIdle()
 
         // Every item exposes its own accessible, non-emoji artwork.
-        composeRule.onNodeWithContentDescription("Fish Treat Basket").assertIsDisplayed()
-        composeRule.onNodeWithContentDescription("Cozy Milo Cushion").assertIsDisplayed()
-        composeRule.onNodeWithContentDescription("Starry Food Bowl").assertIsDisplayed()
+        listOf("Fish Treat Basket", "Cozy Milo Cushion", "Starry Food Bowl").forEach { item ->
+            composeRule.onNode(hasScrollAction()).performScrollToNode(hasContentDescription(item))
+            composeRule.onNodeWithContentDescription(item).assertIsDisplayed()
+        }
     }
 
     @Test

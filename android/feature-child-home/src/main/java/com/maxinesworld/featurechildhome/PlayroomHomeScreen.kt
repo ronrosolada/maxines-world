@@ -56,6 +56,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.liveRegion
+
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
@@ -92,7 +93,7 @@ internal val SubjectAccent = mapOf(
     "filipino" to Color(0xFFD96555),
     "araling_panlipunan" to HeritageGold,
     "makabansa" to Color(0xFF8B5E34),
-    "gmrc" to KindnessTeal,
+    "gmrc" to KindnessTealText,
 )
 
 internal val SubjectPale = mapOf(
@@ -146,6 +147,7 @@ fun PlayroomHomeScreen(
     onQuestAction: (QuestAction) -> Unit,
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
+    onResumeLearning: (String) -> Unit = {},
     onTreatShopClick: () -> Unit = {},
     onVideosClick: () -> Unit = {},
     onParentsClick: () -> Unit,
@@ -204,6 +206,7 @@ fun PlayroomHomeScreen(
                         columns = columns,
                         railBeside = showRailBeside,
                         onSubjectClick = onSubjectClick,
+                        onResumeLearning = onResumeLearning,
                         onQuestAction = onQuestAction,
                         onOpenCollection = onOpenCollection,
                         onVideosClick = onVideosClick,
@@ -230,6 +233,7 @@ private fun ContentLayout(
     columns: Int,
     railBeside: Boolean,
     onSubjectClick: (String) -> Unit,
+    onResumeLearning: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
     onOpenCollection: () -> Unit,
     onVideosClick: () -> Unit,
@@ -274,6 +278,9 @@ private fun ContentLayout(
                 modifier = Modifier.weight(0.66f),
             )
             Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                content.resumeLesson?.let { resume ->
+                    LearningResumeCard(resume, onResumeLearning)
+                }
                 VideoLibraryCard(onClick = onVideosClick)
                 TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
                 SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
@@ -286,6 +293,9 @@ private fun ContentLayout(
         }
     } else {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            content.resumeLesson?.let { resume ->
+                LearningResumeCard(resume, onResumeLearning)
+            }
             VideoLibraryCard(onClick = onVideosClick)
             // Quest moves above the grid for medium/narrow widths (§7.1)
             TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
@@ -305,6 +315,54 @@ private fun ContentLayout(
                 onSubjectClick = onSubjectClick,
                 modifier = Modifier.fillMaxWidth(),
             )
+        }
+    }
+}
+
+@Composable
+private fun LearningResumeCard(
+    resume: LearningResumeUi,
+    onResumeLearning: (String) -> Unit,
+) {
+    val heading = if (resume.isFirstLesson) "Start your first adventure" else "Pick up where you left off"
+    val action = if (resume.isFirstLesson) "Start" else "Continue"
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onResumeLearning(resume.lessonId) }
+            .semantics(mergeDescendants = true) {
+                contentDescription = "$heading. ${resume.title}. ${resume.subjectName}. $action lesson."
+                role = Role.Button
+            },
+        shape = RoundedCornerShape(20.dp),
+        color = PlayCream,
+        contentColor = PlayInk,
+        border = BorderStroke(2.dp, PlayTeal.copy(alpha = 0.35f)),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                Modifier.size(44.dp).clip(CircleShape).background(PlayTeal),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(Icons.Default.PlayCircle, contentDescription = null, tint = PlayWhite, modifier = Modifier.size(28.dp))
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(heading, fontWeight = FontWeight.ExtraBold, color = PlayTeal, fontSize = 14.sp)
+                Text(resume.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(
+                    "${resume.subjectName} · ${resume.estimatedMinutes} minutes",
+                    color = PlayMuted,
+                    fontSize = 13.sp,
+                )
+            }
+            Spacer(Modifier.width(8.dp))
+            Surface(shape = RoundedCornerShape(99.dp), color = PlaySunshine, contentColor = PlayInkDark) {
+                Text(action, fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp))
+            }
         }
     }
 }

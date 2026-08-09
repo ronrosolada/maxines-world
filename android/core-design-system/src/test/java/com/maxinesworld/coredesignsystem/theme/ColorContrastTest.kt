@@ -14,6 +14,7 @@ class ColorContrastTest {
         assertAa("sky blue", OnSkyBlue, SkyBlue)
         assertAa("success", OnSuccess, SuccessGreen)
         assertAa("error", OnError, ErrorRed)
+        assertAa("kindness teal text", KindnessTealText, Cream)
     }
 
     @Test

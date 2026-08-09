@@ -59,6 +59,16 @@ data class QuestUi(
 enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson }
 
 @androidx.compose.runtime.Immutable
+data class LearningResumeUi(
+    val lessonId: String,
+    val title: String,
+    val subjectId: String,
+    val subjectName: String,
+    val estimatedMinutes: Int,
+    val isFirstLesson: Boolean,
+)
+
+@androidx.compose.runtime.Immutable
 data class StickerUi(
     val id: String,
     val won: Boolean,
@@ -119,6 +129,8 @@ sealed interface PlayroomHomeUiState {
         val ownedKeepsakes: List<KeepsakeUi> = emptyList(),
         /** Daily Quest rewards build a persistent, child-visible sanctuary. */
         val sanctuary: SanctuaryUi = SanctuaryUi(),
+        /** The most useful next lesson for a first visit or a returning learner. */
+        val resumeLesson: LearningResumeUi? = null,
     ) : PlayroomHomeUiState
 
     data class Error(

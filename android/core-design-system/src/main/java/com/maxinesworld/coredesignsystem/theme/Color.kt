@@ -32,6 +32,7 @@ data class SubjectPalette(val primary: Color, val surface: Color)
 // ─── Subject Color Tokens (package-level) ───
 val HeritageGold = Color(0xFFB87916)
 val KindnessTeal = Color(0xFF26A69A)
+val KindnessTealText = Color(0xFF00685F)
 val Molasses = Color(0xFF2B2100)     // onSecondary / dark text on gold
 
 // ─── Accessible on-colors ───

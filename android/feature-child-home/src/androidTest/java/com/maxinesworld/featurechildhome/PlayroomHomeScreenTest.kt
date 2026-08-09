@@ -44,6 +44,7 @@ class PlayroomHomeScreenTest {
     private fun setHome(
         state: PlayroomHomeUiState,
         onSubjectClick: (String) -> Unit = {},
+        onResumeLearning: (String) -> Unit = {},
         onCollectionClick: () -> Unit = {},
         onTreatShopClick: () -> Unit = {},
     ) {
@@ -54,6 +55,7 @@ class PlayroomHomeScreenTest {
                 onQuestAction = {},
                 onHomeClick = {},
                 onCollectionClick = onCollectionClick,
+                onResumeLearning = onResumeLearning,
                 onTreatShopClick = onTreatShopClick,
                 onParentsClick = {},
             )
@@ -167,5 +169,48 @@ class PlayroomHomeScreenTest {
     fun greetingUsesChildName() {
         setHome(stateFor())
         composeRule.onNodeWithText("Hi, Maxine!").assertIsDisplayed()
+    }
+
+    @Test
+    fun firstSessionOffersAStartHereLearningAction() {
+        var openedLesson = ""
+        setHome(
+            stateFor().copy(
+                resumeLesson = LearningResumeUi(
+                    lessonId = "math-g3-q1-w01-d01",
+                    title = "Shape Trail",
+                    subjectId = "mathematics",
+                    subjectName = "Number Fun",
+                    estimatedMinutes = 10,
+                    isFirstLesson = true,
+                ),
+            ),
+            onResumeLearning = { openedLesson = it },
+        )
+
+        composeRule
+            .onNodeWithContentDescription("Start your first adventure. Shape Trail. Number Fun. Start lesson.")
+            .assertHasClickAction()
+            .performClick()
+        composeRule.runOnIdle { assertEquals("math-g3-q1-w01-d01", openedLesson) }
+    }
+
+    @Test
+    fun returningLearnerSeesWhereToPickUp() {
+        setHome(
+            stateFor().copy(
+                resumeLesson = LearningResumeUi(
+                    lessonId = "science-g3-q1-w01-d02",
+                    title = "Plant Detectives",
+                    subjectId = "science",
+                    subjectName = "Discovery",
+                    estimatedMinutes = 12,
+                    isFirstLesson = false,
+                ),
+            ),
+        )
+
+        composeRule.onNodeWithText("Pick up where you left off").assertIsDisplayed()
+        composeRule.onNodeWithText("Plant Detectives").assertIsDisplayed()
     }
 }

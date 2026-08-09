@@ -165,14 +165,14 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         }
 
-        val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
-        val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val availableFirst = subjects.firstOrNull { it.isAvailable }
         val targets = QuestTargetResolver.resolve(
             assigned = dailyQuest.assignedQuestIds,
             completed = completed,
             catalog = catalog,
         )
+        val questTotal = targets.size.coerceAtLeast(1)
+        val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
             ?: targets.firstOrNull()?.lessonId
         // No available subject → honest "Choose a subject" fallback that moves
@@ -214,6 +214,29 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         }
 
+        // Keep the next useful lesson one tap away. Prefer the active quest
+        // target so returning to the app preserves context; otherwise choose
+        // the first incomplete lesson in the fixed curriculum order.
+        val orderedLessons = subjects.flatMap { subject ->
+            catalog.modulesFor(subject.destination).flatMap { module ->
+                module.lessons.map { lesson -> subject to lesson }
+            }
+        }
+        val preferredLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
+        val selectedLesson = orderedLessons.firstOrNull { (_, lesson) ->
+            lesson.lessonId == preferredLessonId
+        } ?: orderedLessons.firstOrNull { (_, lesson) -> lesson.lessonId !in completed }
+        val resumeLesson = selectedLesson?.let { (subject, lesson) ->
+            LearningResumeUi(
+                lessonId = lesson.lessonId,
+                title = lesson.title,
+                subjectId = subject.id,
+                subjectName = subjectDisplayName(subject.id),
+                estimatedMinutes = lesson.estimatedMinutes,
+                isFirstLesson = lessonIds.isEmpty(),
+            )
+        }
+
         val collected = badges.count { it.isCollected }
         val wildlifeStickers = WildlifeStickersUi(
             collectedCount = collected,
@@ -234,6 +257,7 @@ class PlayroomHomeViewModel @Inject constructor(
             coinBalance = coinBalance,
             ownedKeepsakes = keepsakes,
             sanctuary = sanctuary,
+            resumeLesson = resumeLesson,
         )
     }
 }

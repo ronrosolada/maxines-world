@@ -62,6 +62,28 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `first session exposes the first incomplete lesson as a starting point`() = runTest(dispatcher) {
+        val vm = buildViewModel(catalog = catalogWithTotals(mapOf("mathematics" to 1)))
+        advanceUntilIdle()
+
+        assertEquals("mathematics-g3-m01-d01", content(vm).resumeLesson?.lessonId)
+        assertTrue(content(vm).resumeLesson?.isFirstLesson == true)
+    }
+
+    @Test
+    fun `returning learner resumes the next incomplete lesson`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = listOf("mathematics-g3-m01-d01"),
+            catalog = catalogWithTotals(mapOf("mathematics" to 2)),
+        )
+        advanceUntilIdle()
+
+        assertEquals("mathematics-g3-m01-d02", content(vm).resumeLesson?.lessonId)
+        assertEquals("Number Fun", content(vm).resumeLesson?.subjectName)
+        assertFalse(content(vm).resumeLesson?.isFirstLesson == true)
+    }
+
+    @Test
     fun `per-subject progress divides completed lessons by catalog total`() = runTest(dispatcher) {
         val completed = (1..3).map { "mathematics-g3-m01-d%02d".format(it) }
         val vm = buildViewModel(

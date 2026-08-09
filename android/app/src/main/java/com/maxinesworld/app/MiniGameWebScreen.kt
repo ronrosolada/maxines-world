@@ -151,7 +151,7 @@ fun MiniGameWebScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("${game.icon} ${game.title}") },
+                title = { Text(game.title) },
                 navigationIcon = {
                     IconButton(onClick = { showExitConfirmation = true }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Leave game")

@@ -24,11 +24,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Extension
-import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.SportsEsports
-import androidx.compose.material.icons.filled.TextFields
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -53,11 +50,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -237,7 +234,6 @@ fun MiniGameLibraryScreen(
                         MenuSectionHeader(
                             title = "Maxine's World games",
                             subtitle = "Friendly games made for your reward break",
-                            accent = VillageTeal,
                         )
                     }
                     items(BuiltInMiniGames, key = { "built-in-${it.id}" }) { game ->
@@ -264,7 +260,6 @@ fun MiniGameLibraryScreen(
                         MenuSectionHeader(
                             title = "Puzzle & classic games",
                             subtitle = "${MiniGameCatalog.games.size} more games, bundled for offline play",
-                            accent = StoryPurple,
                         )
                     }
                     items(MiniGameCatalog.games, key = EmbeddedMiniGame::slug) { game ->
@@ -274,13 +269,11 @@ fun MiniGameLibraryScreen(
                             category = game.category.label,
                             description = game.description,
                             accent = accent,
+                            titleColor = categoryTextColor(game.category),
                             enabled = !breakExpired && !starting,
                             onClick = { beginGame { duration -> onPlay(game.slug, duration) } },
                         ) {
-                            PatternThumbnail(
-                                accent = accent,
-                                icon = thumbnailIcon(game),
-                            )
+                            ArtworkThumbnail(game.thumbnailRes, accent)
                         }
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
@@ -323,10 +316,10 @@ private fun LibraryHeader(durationMillis: Long, breakExpired: Boolean) {
 }
 
 @Composable
-private fun MenuSectionHeader(title: String, subtitle: String, accent: Color) {
+private fun MenuSectionHeader(title: String, subtitle: String) {
     Column(Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 2.dp)) {
-        Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.ExtraBold, color = accent)
-        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = Ink.copy(alpha = 0.7f))
+        Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.ExtraBold, color = Ink)
+        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = Ink)
     }
 }
 
@@ -336,6 +329,7 @@ private fun MiniGameChoiceCard(
     category: String,
     description: String,
     accent: Color,
+    titleColor: Color = Ink,
     enabled: Boolean,
     onClick: () -> Unit,
     thumbnail: @Composable () -> Unit,
@@ -347,6 +341,7 @@ private fun MiniGameChoiceCard(
             .semantics(mergeDescendants = true) {
                 contentDescription = "$title. $description"
                 role = Role.Button
+                if (!enabled) disabled()
             },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = accent.copy(alpha = 0.1f)),
@@ -368,16 +363,16 @@ private fun MiniGameChoiceCard(
                     title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = accent,
+                    color = titleColor,
                     maxLines = 2,
                 )
                 Spacer(Modifier.height(3.dp))
-                Text(category, style = MaterialTheme.typography.labelMedium, color = Ink.copy(alpha = 0.65f))
+                Text(category, style = MaterialTheme.typography.labelMedium, color = Ink)
                 Spacer(Modifier.height(4.dp))
                 Text(
                     description,
                     style = MaterialTheme.typography.bodySmall,
-                    color = Ink.copy(alpha = 0.8f),
+                    color = Ink,
                     maxLines = 3,
                 )
             }
@@ -413,37 +408,6 @@ private fun ArtworkThumbnail(@DrawableRes imageRes: Int, accent: Color) {
     }
 }
 
-@Composable
-private fun PatternThumbnail(accent: Color, icon: ImageVector) {
-    Box(
-        Modifier
-            .fillMaxSize()
-            .background(Brush.linearGradient(listOf(accent.copy(alpha = 0.95f), accent.copy(alpha = 0.52f)))),
-        contentAlignment = Alignment.Center,
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Icon(icon, contentDescription = null, tint = White, modifier = Modifier.size(44.dp))
-            Spacer(Modifier.height(8.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                repeat(3) {
-                    Box(
-                        Modifier
-                            .size(20.dp)
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(White.copy(alpha = 0.3f)),
-                    )
-                }
-            }
-        }
-    }
-}
-
-private fun thumbnailIcon(game: EmbeddedMiniGame): ImageVector = when (game.category) {
-    EmbeddedMiniGameCategory.ARCADE -> Icons.Default.SportsEsports
-    EmbeddedMiniGameCategory.PUZZLE -> Icons.Default.Extension
-    EmbeddedMiniGameCategory.BOARD -> Icons.Default.GridView
-    EmbeddedMiniGameCategory.WORD -> Icons.Default.TextFields
-}
 
 @Composable
 private fun AttributionCard() {
@@ -474,6 +438,13 @@ private fun categoryAccent(category: EmbeddedMiniGameCategory): Color = when (ca
     EmbeddedMiniGameCategory.PUZZLE -> LeafGreen
     EmbeddedMiniGameCategory.BOARD -> SunshineGold
     EmbeddedMiniGameCategory.WORD -> SkyBlue
+}
+
+private fun categoryTextColor(category: EmbeddedMiniGameCategory): Color = when (category) {
+    EmbeddedMiniGameCategory.ARCADE -> com.maxinesworld.coredesignsystem.theme.OnCoral
+    EmbeddedMiniGameCategory.PUZZLE -> com.maxinesworld.coredesignsystem.theme.OnLeafGreen
+    EmbeddedMiniGameCategory.BOARD -> com.maxinesworld.coredesignsystem.theme.OnGold
+    EmbeddedMiniGameCategory.WORD -> com.maxinesworld.coredesignsystem.theme.OnSkyBlue
 }
 
 @Composable

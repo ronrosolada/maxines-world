@@ -32,7 +32,7 @@ object QuestTargetResolver {
                 }
             }
         }
-        return assigned.map { id ->
+        return uniqueAssignedLessonIds(assigned).map { id ->
             val subject = subjectForLessonId(id) ?: lessonSubjectFromId(id)
             val display = subjectDisplayName(subject)
             val rawTitle = titleIndex[id]
@@ -50,6 +50,8 @@ object QuestTargetResolver {
             )
         }
     }
+
+    internal fun uniqueAssignedLessonIds(assigned: List<String>): List<String> = assigned.distinct()
 
     /**
      * Derive the pack subject from a lesson id: `{subject}-g3-…`.

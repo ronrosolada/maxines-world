@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
@@ -34,6 +37,7 @@ fun InteractiveSpecRenderer(
     var selected by remember { mutableIntStateOf(-1) }
     var result by remember { mutableStateOf<Boolean?>(null) }
     var revealed by remember { mutableStateOf(setOf<Int>()) }
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     val labels = step.options.ifEmpty { listOf("Part A", "Part B", "Part C", "Part D") }
     val target = if (step.correctIndex in labels.indices) step.correctIndex else 0
@@ -61,10 +65,10 @@ fun InteractiveSpecRenderer(
                     selected == i -> SunshineGold
                     i in revealed -> VillageTeal.copy(alpha = 0.15f)
                     else -> VillageTeal.copy(alpha = 0.7f)
-                }, label = "spec$i")
+                }, animationSpec = if (animationsDisabled) snap() else tween(180), label = "spec$i")
                 Box(Modifier.align(positions.getOrElse(i) { Alignment.Center }).padding(6.dp)
                     .sizeIn(minWidth = 48.dp, minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
-                    .clickable(enabled = result == null) {
+                    .clickable(enabled = result == null, role = Role.Button) {
                         selected = i; revealed = revealed + i; attempts++
                         val ok = i == target; result = ok
                         onResult(ActivityResult(step.id, ok, attempts, 0, System.currentTimeMillis() - startTime))
