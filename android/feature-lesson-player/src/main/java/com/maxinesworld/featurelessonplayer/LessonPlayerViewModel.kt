@@ -13,9 +13,9 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import com.maxinesworld.corecontent.ContentLessonLoader
 import com.maxinesworld.corecontent.friendlyLessonTitleOf
-import com.maxinesworld.coredatabase.RewardBreakDao
-import com.maxinesworld.coredatabase.RewardBreakPolicy
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.engineassessment.Scorer
+import com.maxinesworld.featurerewards.ActivityRewardWriter
 import com.maxinesworld.featurerewards.ChallengeProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -25,9 +25,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.time.LocalDate
-import java.time.ZoneId
-import java.util.UUID
 import javax.inject.Inject
 
 data class LessonUiState(
@@ -50,6 +47,18 @@ data class LessonUiState(
     val badgeAwarded: CollectibleBadge? = null,
     val expeditionProgress: ChallengeProgress = ChallengeProgress(),
     val rewardBreakId: String? = null,
+    val starsEarned: Int = 0,
+    val coinsEarned: Int = 0,
+    val dailyQuestCompleted: Boolean = false,
+    val sanctuaryPieceId: String? = null,
+    val activityPawPrintsEarned: Int = 0,
+    val mediaDownloads: Map<String, MediaDownloadUiState> = emptyMap(),
+)
+
+data class MediaDownloadUiState(
+    val isDownloading: Boolean = false,
+    val filePath: String? = null,
+    val error: String? = null,
 )
 
 /** Replace a previous retry result when the child later completes that activity. */
@@ -67,7 +76,8 @@ class LessonPlayerViewModel @Inject constructor(
     application: Application,
     private val scorer: Scorer,
     private val lessonCompletionRepository: LessonCompletionRepository,
-    private val rewardBreakDao: RewardBreakDao,
+    private val mediaLibrary: MediaLibrary,
+    private val activityRewardWriter: ActivityRewardWriter,
 ) : AndroidViewModel(application) {
 
     private val contentLessonLoader = ContentLessonLoader(application)
@@ -94,8 +104,57 @@ class LessonPlayerViewModel @Inject constructor(
                     // reward-break entitlement into the new run.
                     badgeAwarded = null,
                     rewardBreakId = null,
+                    starsEarned = 0,
+                    coinsEarned = 0,
+                    dailyQuestCompleted = false,
+                    sanctuaryPieceId = null,
+                    activityPawPrintsEarned = 0,
+                    mediaDownloads = emptyMap(),
                     error = if (lesson == null) "Could not load lesson." else null)
             }
+        }
+    }
+
+    /** Download an optional video only after the child explicitly asks for it. */
+    fun checkLocalMedia(mediaId: String) {
+        val current = _state.value.mediaDownloads[mediaId]
+        if (current?.isDownloading == true || current?.filePath != null) return
+        mediaLibrary.localFile(mediaId)?.let { file ->
+            _state.update {
+                it.copy(
+                    mediaDownloads = it.mediaDownloads +
+                        (mediaId to MediaDownloadUiState(filePath = file.absolutePath)),
+                )
+            }
+        }
+    }
+
+    fun downloadMedia(mediaId: String) {
+        val current = _state.value.mediaDownloads[mediaId]
+        if (current?.isDownloading == true || current?.filePath != null) return
+        _state.update {
+            it.copy(
+                mediaDownloads = it.mediaDownloads + (mediaId to MediaDownloadUiState(isDownloading = true)),
+            )
+        }
+        viewModelScope.launch {
+            runCatching { mediaLibrary.download(mediaId) }
+                .onSuccess { file ->
+                    _state.update {
+                        it.copy(
+                            mediaDownloads = it.mediaDownloads +
+                                (mediaId to MediaDownloadUiState(filePath = file.absolutePath)),
+                        )
+                    }
+                }
+                .onFailure { error ->
+                    _state.update {
+                        it.copy(
+                            mediaDownloads = it.mediaDownloads +
+                                (mediaId to MediaDownloadUiState(error = error.message ?: "Could not download video.")),
+                        )
+                    }
+                }
         }
     }
 
@@ -172,32 +231,13 @@ class LessonPlayerViewModel @Inject constructor(
                     it.copy(
                         expeditionProgress = result.expeditionProgress,
                         badgeAwarded = result.badgeAwarded,
+                        rewardBreakId = result.rewardBreakId,
+                        starsEarned = result.starsEarned,
+                        coinsEarned = result.coinsEarned,
+                        dailyQuestCompleted = result.dailyQuestCompleted,
+                        sanctuaryPieceId = result.sanctuaryPieceId,
                     )
                 }
-                // One idempotent reward break entitlement per child and local day.
-                // Creation starts in CREATED; the hub starts the clock only when
-                // the child chooses a game.
-                val now = System.currentTimeMillis()
-                val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
-                val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey)
-                val existingBreak = rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
-                val rewardBreak = if (existingBreak == null) {
-                    val created = RewardBreakPolicy.newEntitlement(
-                        id = UUID.randomUUID().toString(),
-                        childId = childId,
-                        dailyQuestCompletionId = dailyQuestCompletionId,
-                        nowEpochMillis = now,
-                    )
-                    rewardBreakDao.insertIgnoring(created)
-                    rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
-                } else {
-                    existingBreak
-                }
-                val usableBreakId = rewardBreak
-                    ?.takeIf { RewardBreakPolicy.canUse(it, now) }
-                    ?.id
-
-                _state.update { it.copy(rewardBreakId = usableBreakId) }
             }.onFailure { error ->
                 // Allow a process/UI retry after a rolled-back transaction.
                 progressSaved = false
@@ -215,6 +255,17 @@ class LessonPlayerViewModel @Inject constructor(
         val normalized = if (step != null) result.copy(scored = step.scored) else result
         _state.update { current ->
             current.copy(results = upsertActivityResult(current.results, normalized))
+        }
+        val currentChildId = childId
+        val currentLessonId = lesson?.id
+        if (currentChildId.isNotBlank() && !currentLessonId.isNullOrBlank()) {
+            viewModelScope.launch(Dispatchers.IO) {
+                if (activityRewardWriter.award(currentChildId, currentLessonId, normalized.activityId)) {
+                    _state.update { current ->
+                        current.copy(activityPawPrintsEarned = current.activityPawPrintsEarned + 1)
+                    }
+                }
+            }
         }
         if (!normalized.scored) onNextStep()
         else _state.update {
@@ -265,6 +316,7 @@ internal fun rendererType(rawType: String): String = when (rawType) {
     "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
     "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
     "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
+    "VIDEO" -> "VIDEO_V1"
     else -> "ANIMATED_EXPLANATION_V1"
 }
 
@@ -332,6 +384,7 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
     var sequenceSteps: List<String> = emptyList()
     var hotspotExamples: List<String> = emptyList()
     var narration = childFacingInstruction
+    var mediaId = act.mediaId ?: obj?.get("mediaId")?.jsonPrimitive?.contentOrNull()
 
     // Curriculum jargon in authored instructions ("shows the skill") is
     // opaque to a 7-year-old. The same child-facing wording is used for
@@ -394,6 +447,13 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
             "SEQUENCE_BUILDER" -> {
                 sequenceSteps = obj?.stringList("steps") ?: emptyList()
             }
+
+            "VIDEO" -> {
+                // A video is an optional, unscored learning step. Keep the
+                // authored instruction as the sole child-facing prompt.
+                question = childFacingInstruction
+                narration = childFacingInstruction
+            }
         }
     }
 
@@ -429,6 +489,7 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         options = options,
         correctIndex = correctIndex,
         imageAssets = listOfNotNull(act.assetId?.takeIf { it.isNotBlank() }),
+        mediaId = mediaId?.takeIf { it.isNotBlank() },
         // Practice activities are never scored: only the authored assessment
         // contributes to accuracy and mastery (spec CH-04).
         scored = false,

@@ -1,6 +1,5 @@
 package com.maxinesworld.featurelessonplayer
 
-import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
@@ -10,7 +9,8 @@ import com.maxinesworld.coredatabase.RoomTransactionRunner
 import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.featurerewards.BadgeAwarder
-import com.maxinesworld.featurerewards.TreatPerks
+import com.maxinesworld.featurerewards.DailyQuestRewardResult
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -48,7 +48,6 @@ class LessonCompletionRepositoryTest {
     private fun repository(
         completionDao: LessonCompletionDao,
         failureInjector: CompletionWriteFailureInjector = CompletionWriteFailureInjector(),
-        ownedItems: List<String> = emptyList(),
         rewardInserts: MutableList<com.maxinesworld.coredatabase.RewardEntity>? = null,
     ): LessonCompletionRepository {
         val badgeAwarder = mockk<BadgeAwarder>()
@@ -67,15 +66,15 @@ class LessonCompletionRepositoryTest {
                 1L
             }
         }
-        val inventoryDao = mockk<InventoryDao>(relaxed = true)
-        coEvery { inventoryDao.getOwnedItemIds(any()) } returns ownedItems
+        val dailyQuestRewardWriter = mockk<DailyQuestRewardWriter>(relaxed = true)
+        coEvery { dailyQuestRewardWriter.reconcileInTransaction(any(), any(), any()) } returns DailyQuestRewardResult()
         return LessonCompletionRepository(
             transactionRunner = ImmediateRunner(),
             progressEventDao = progressDao,
             rewardDao = rewardDao,
-            inventoryDao = inventoryDao,
             lessonCompletionDao = completionDao,
             badgeAwarder = badgeAwarder,
+            dailyQuestRewardWriter = dailyQuestRewardWriter,
             failureInjector = failureInjector,
         )
     }
@@ -144,49 +143,36 @@ class LessonCompletionRepositoryTest {
     }
 
     @Test
-    fun `fish basket doubles stars and consumes the daily perk`() = runTest {
+    fun `every completed lesson receives a base reward even at zero accuracy`() = runTest {
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.exists(any(), any()) } returns false
         coEvery { completionDao.countDistinctLessons(any()) } returns 0
         coEvery { completionDao.insertIgnoring(any()) } returns 1L
         val rewardInserts = mutableListOf<com.maxinesworld.coredatabase.RewardEntity>()
-        val repository = repository(
-            completionDao,
-            ownedItems = listOf(TreatPerks.BASKET_ID),
-            rewardInserts = rewardInserts,
-        )
+        val repository = repository(completionDao, rewardInserts = rewardInserts)
 
-        val out = repository.complete("child-1", lesson(), listOf(result("a1")))
+        val out = repository.complete("child-1", lesson(), listOf(result("a1", correct = false)))
 
-        // 100% accuracy → 3 base stars, doubled to 6; coins unchanged (10).
-        assertEquals(6, out.starsEarned)
-        assertEquals(10, out.coinsEarned)
-        // Once-per-day PERK ledger row written.
-        assertTrue(
-            rewardInserts.any { it.type == "PERK" && it.metadata == TreatPerks.BASKET_ID }
-        )
-        assertEquals(6, rewardInserts.first { it.type == "STAR" }.amount)
+        assertEquals(1, out.starsEarned)
+        assertEquals(1, out.coinsEarned)
+        assertEquals(1, rewardInserts.first { it.type == "STAR" }.amount)
+        assertEquals(1, rewardInserts.first { it.type == "COIN" }.amount)
     }
 
     @Test
-    fun `cushion and bowl add stars and coins on every lesson`() = runTest {
+    fun `cosmetic ownership cannot change mastery reward`() = runTest {
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.exists(any(), any()) } returns false
         coEvery { completionDao.countDistinctLessons(any()) } returns 0
         coEvery { completionDao.insertIgnoring(any()) } returns 1L
         val rewardInserts = mutableListOf<com.maxinesworld.coredatabase.RewardEntity>()
-        val repository = repository(
-            completionDao,
-            ownedItems = listOf(TreatPerks.CUSHION_ID, TreatPerks.BOWL_ID),
-            rewardInserts = rewardInserts,
-        )
+        val repository = repository(completionDao, rewardInserts = rewardInserts)
 
         val out = repository.complete("child-1", lesson(), listOf(result("a1")))
 
-        // 3 base stars + 1 cushion = 4; 10 coins + 1 bowl = 11.
-        assertEquals(4, out.starsEarned)
-        assertEquals(11, out.coinsEarned)
-        // No PERK row for passive perks — they are always-on.
+        // 100% accuracy earns the fixed mastery bonus, not a shop multiplier.
+        assertEquals(3, out.starsEarned)
+        assertEquals(2, out.coinsEarned)
         assertTrue(rewardInserts.none { it.type == "PERK" })
     }
 }

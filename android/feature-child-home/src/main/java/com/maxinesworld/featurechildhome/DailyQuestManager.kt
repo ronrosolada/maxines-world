@@ -6,6 +6,7 @@ import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetDao
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import dagger.hilt.android.scopes.ViewModelScoped
 import java.time.LocalDate
 import kotlin.math.abs
@@ -48,6 +49,7 @@ class DailyQuestManager @Inject constructor(
     private val lessonCompletionDao: LessonCompletionDao,
     private val dailyQuestSetDao: DailyQuestSetDao,
     private val dailyQuestCompletionDao: DailyQuestCompletionDao,
+    private val dailyQuestRewardWriter: DailyQuestRewardWriter,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -72,6 +74,9 @@ class DailyQuestManager @Inject constructor(
                 )
             )
         }
+        // Repair rewards after a process death or when the child completed a
+        // target before the home screen reconciled today's quest.
+        dailyQuestRewardWriter.reconcile(childId, dayKey)
         val completedQuestIds = dailyQuestCompletionDao.getCompletedQuestIds(childId, dayKey)
         return DailyQuestProgress(dayKey, assigned, completedQuestIds)
     }

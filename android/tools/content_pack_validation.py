@@ -5,6 +5,8 @@ Audit mode reports known soft issues (currently, missing assessment ``type``
 fields) as warnings. ``--strict`` promotes those soft issues to errors. Both
 modes fail on malformed JSON, broken lesson shape, invalid assessment answer
 references, activity-order violations, and missing referenced vector assets.
+An optional ``VIDEO`` activity may be appended after the canonical six activity
+steps when it contains a valid mediaId.
 """
 
 from __future__ import annotations
@@ -30,6 +32,7 @@ CANONICAL_ACTIVITY_TYPES = (
     "MATCHING_PAIRS",
     "SEQUENCE_BUILDER",
 )
+OPTIONAL_ACTIVITY_TYPES = ("VIDEO",)
 
 
 @dataclass(frozen=True)
@@ -132,6 +135,9 @@ def _validate_activity(
     elif activity_type == "SEQUENCE_BUILDER":
         if not isinstance(content, dict) or not isinstance(content.get("steps"), list) or not content["steps"]:
             report.add("error", "activity_payload", lesson_path, f"{prefix} needs non-empty steps")
+    elif activity_type == "VIDEO":
+        if not isinstance(activity.get("mediaId"), str) or not activity["mediaId"].strip():
+            report.add("error", "activity_payload", lesson_path, f"{prefix} needs a non-empty mediaId")
 
     if expected_asset_dir is not None:
         asset_id = activity.get("assetId")
@@ -280,11 +286,26 @@ def validate_pack(
         if not isinstance(activities, list):
             report.add("error", "activity_shape", path, "activities must be a list")
         else:
-            if len(activities) != expected_activities:
-                report.add("error", "activity_shape", path, f"expected {expected_activities} activities, found {len(activities)}")
             actual_types = [activity.get("type") if isinstance(activity, dict) else None for activity in activities]
-            if tuple(actual_types) != expected_types:
-                report.add("error", "activity_shape", path, f"activity type order differs from {list(expected_types)}")
+            canonical_prefix = tuple(actual_types[:len(expected_types)]) == expected_types
+            optional_suffix = tuple(actual_types[len(expected_types):]) if canonical_prefix else ()
+            optional_shape = (
+                canonical_prefix
+                and len(activities) >= expected_activities
+                and len(activities) - expected_activities <= len(OPTIONAL_ACTIVITY_TYPES)
+                and all(activity_type in OPTIONAL_ACTIVITY_TYPES for activity_type in optional_suffix)
+            )
+            if not optional_shape:
+                if len(activities) != expected_activities:
+                    report.add("error", "activity_shape", path, f"expected {expected_activities} activities, found {len(activities)}")
+                if tuple(actual_types) != expected_types:
+                    report.add(
+                        "error",
+                        "activity_shape",
+                        path,
+                        f"activity type order differs from {list(expected_types)}"
+                        " (optional VIDEO may be appended)",
+                    )
             for index, activity in enumerate(activities):
                 if isinstance(activity, dict) and activity.get("sequence") != index + 1:
                     report.add("error", "activity_shape", path, f"activity {index + 1} sequence must be {index + 1}")

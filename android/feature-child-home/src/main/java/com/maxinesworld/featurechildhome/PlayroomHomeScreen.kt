@@ -21,7 +21,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -144,6 +147,7 @@ fun PlayroomHomeScreen(
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
     onTreatShopClick: () -> Unit = {},
+    onVideosClick: () -> Unit = {},
     onParentsClick: () -> Unit,
     onOpenCollection: () -> Unit = onCollectionClick,
     onRetry: () -> Unit = {},
@@ -202,6 +206,7 @@ fun PlayroomHomeScreen(
                         onSubjectClick = onSubjectClick,
                         onQuestAction = onQuestAction,
                         onOpenCollection = onOpenCollection,
+                        onVideosClick = onVideosClick,
                     )
                 }
             }
@@ -227,6 +232,7 @@ private fun ContentLayout(
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
     onOpenCollection: () -> Unit,
+    onVideosClick: () -> Unit,
 ) {
     // “Choose a subject” moves focus to the first available card (§11.4)
     val firstAvailableId = content.subjects.firstOrNull { it.isAvailable }?.id
@@ -268,7 +274,9 @@ private fun ContentLayout(
                 modifier = Modifier.weight(0.66f),
             )
             Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                VideoLibraryCard(onClick = onVideosClick)
                 TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+                SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
                 WildlifeStickersPreview(
                     wildlifeStickers = content.wildlifeStickers,
                     onOpenCollection = onOpenCollection,
@@ -278,8 +286,10 @@ private fun ContentLayout(
         }
     } else {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            VideoLibraryCard(onClick = onVideosClick)
             // Quest moves above the grid for medium/narrow widths (§7.1)
             TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+            SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
             WildlifeStickersPreview(
                 wildlifeStickers = content.wildlifeStickers,
                 onOpenCollection = onOpenCollection,
@@ -295,6 +305,45 @@ private fun ContentLayout(
                 onSubjectClick = onSubjectClick,
                 modifier = Modifier.fillMaxWidth(),
             )
+        }
+    }
+}
+
+@Composable
+private fun VideoLibraryCard(onClick: () -> Unit) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .semantics {
+                contentDescription = "Tagalog video library. Open videos to download and watch offline."
+                role = Role.Button
+            },
+        shape = RoundedCornerShape(18.dp),
+        color = PlayCream,
+        contentColor = PlayInk,
+        border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.35f)),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 13.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.Default.PlayCircle,
+                contentDescription = null,
+                tint = PlayTeal,
+                modifier = Modifier.size(34.dp),
+            )
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text("Tagalog videos", fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
+                Text(
+                    "Download and watch optional lessons offline",
+                    color = PlayMuted,
+                    fontSize = 13.sp,
+                )
+            }
+            Text("Open", color = PlayTeal, fontWeight = FontWeight.ExtraBold)
         }
     }
 }
@@ -330,11 +379,11 @@ private fun PlayroomHeader(
         TextButton(
             onClick = onTreatShopClick,
             modifier = Modifier.semantics(mergeDescendants = true) {
-                contentDescription = "Treat Shop"
+                contentDescription = "Sanctuary Workshop"
                 role = Role.Button
             },
         ) {
-            Text("Treat Shop", fontWeight = FontWeight.ExtraBold)
+            Text("Sanctuary Workshop", fontWeight = FontWeight.ExtraBold)
         }
     }
     KeepsakesStrip(keepsakes)
@@ -353,12 +402,12 @@ private fun PlayroomHeader(
     }
 }
 
-/** Child-visible star/coin balances (#35) — the kid must see what she earned. */
+/** Child-visible learning stars and sanctuary tokens — earned work stays visible. */
 @Composable
 private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) {
     Row(modifier, horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
         BalanceChip("stars", "★", stars, PlaySunshine)
-        BalanceChip("coins", "●", coins, PlayTeal)
+        BalanceChip("sanctuary tokens", "●", coins, PlayTeal)
     }
 }
 
@@ -372,7 +421,7 @@ private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
     if (keepsakes.isEmpty()) return
     Column(Modifier.fillMaxWidth()) {
         Text(
-            "Milo's keepsakes",
+            "Milo's decorations",
             fontSize = 12.sp,
             fontWeight = FontWeight.ExtraBold,
             color = Color(0xFF5C2E00),
@@ -393,7 +442,12 @@ private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(6.dp),
                     ) {
-                        Text(keepsake.emoji, fontSize = 18.sp)
+                        Icon(
+                            imageVector = keepsakeIcon(keepsake.iconKey),
+                            contentDescription = null,
+                            tint = PlayTeal,
+                            modifier = Modifier.size(18.dp),
+                        )
                         Text(
                             keepsake.name,
                             color = PlayInk,
@@ -832,6 +886,44 @@ private fun TodayQuestCard(
                     }
                 }
 
+                Surface(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .semantics {
+                            contentDescription = if (quest.isComplete) {
+                                "Reward earned: sanctuary piece and five minute play break"
+                            } else {
+                                "Quest reward: one sanctuary piece and five minute play break"
+                            }
+                        },
+                    color = if (quest.isComplete) PlaySunshine.copy(alpha = 0.28f) else PlayTeal.copy(alpha = 0.08f),
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Icon(
+                            Icons.Default.CardGiftcard,
+                            contentDescription = null,
+                            tint = if (quest.isComplete) PlayInkDark else PlayTeal,
+                            modifier = Modifier.size(22.dp),
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            if (quest.isComplete) {
+                                "Reward earned: a sanctuary piece + 5-minute play break"
+                            } else {
+                                "Reward at 3/3: a sanctuary piece + 5-minute play break"
+                            },
+                            color = PlayInk,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                            lineHeight = 18.sp,
+                        )
+                    }
+                }
+
                 if (quest.targets.isNotEmpty()) {
                     Spacer(Modifier.height(4.dp))
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -897,6 +989,89 @@ private fun TodayQuestCard(
             }
         }
     }
+}
+
+// ─── Milo's Wildlife Sanctuary ───────────────────────────────────────
+
+@Composable
+private fun SanctuaryPreview(
+    sanctuary: SanctuaryUi,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F6EE)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Column(Modifier.fillMaxWidth().padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.Park, contentDescription = null, tint = PlayTeal, modifier = Modifier.size(28.dp))
+                Spacer(Modifier.width(10.dp))
+                Text(
+                    "Milo's Wildlife Sanctuary",
+                    color = PlayInk,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 17.sp,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    "${sanctuary.earnedPieces}/${sanctuary.totalPieces}",
+                    color = PlayTeal,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 14.sp,
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Text(
+                sanctuary.nextPiece?.let { "Next: ${it.name}" }
+                    ?: "The sanctuary is full of wonderful discoveries!",
+                color = PlayMuted,
+                fontSize = 14.sp,
+                lineHeight = 20.sp,
+            )
+            if (sanctuary.visiblePieces.isNotEmpty()) {
+                Spacer(Modifier.height(10.dp))
+                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items(sanctuary.visiblePieces.takeLast(5), key = { it.id }) { piece ->
+                        Surface(
+                            shape = RoundedCornerShape(14.dp),
+                            color = Color.White.copy(alpha = 0.78f),
+                            modifier = Modifier.semantics(mergeDescendants = true) {
+                                contentDescription = "Sanctuary piece: ${piece.name}. ${piece.description}"
+                            },
+                        ) {
+                            Row(
+                                Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                            ) {
+                                Icon(sanctuaryIcon(piece.iconKey), contentDescription = null, tint = PlayTeal, modifier = Modifier.size(18.dp))
+                                Text(piece.name, color = PlayInk, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                            }
+                        }
+                    }
+                }
+            } else {
+                Text(
+                    "Complete today's learning adventures to grow it.",
+                    color = PlayTeal,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.sp,
+                )
+            }
+        }
+    }
+}
+
+private fun sanctuaryIcon(iconKey: String): ImageVector = when (iconKey) {
+    "tree", "garden", "meadow", "flower" -> Icons.Default.Park
+    else -> Icons.Default.Pets
+}
+
+private fun keepsakeIcon(iconKey: String): ImageVector = when (iconKey) {
+    "tree", "garden", "meadow", "flower", "park" -> Icons.Default.Park
+    else -> Icons.Default.Pets
 }
 
 // ─── Wildlife stickers preview (design.md §12) ───────────────────────

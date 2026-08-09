@@ -4,6 +4,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.maxinesworld.featurerewards.TreatShopContent
@@ -29,10 +30,10 @@ class TreatShopScreenTest {
         }
         composeRule.waitForIdle()
 
-        composeRule.onNodeWithText("Milo's Treat Shop").assertIsDisplayed()
-        composeRule.onNodeWithText("10 coins").assertIsDisplayed()
+        composeRule.onNodeWithText("Milo's Sanctuary Workshop").assertIsDisplayed()
+        composeRule.onNodeWithText("10 sanctuary tokens").assertIsDisplayed()
         composeRule.onNodeWithText("Fish Treat Basket").assertIsDisplayed()
-        composeRule.onNodeWithText("5 coins").assertIsDisplayed()
+        composeRule.onNodeWithText("5 tokens").assertIsDisplayed()
         composeRule.onAllNodesWithText("Get it")[0].performClick()
         composeRule.runOnIdle { assertTrue(purchased) }
     }
@@ -50,10 +51,10 @@ class TreatShopScreenTest {
         }
         composeRule.waitForIdle()
 
-        // Every item has its own emoji artwork — never the same generic icon.
-        composeRule.onNodeWithText("🧺").assertIsDisplayed()   // Fish Treat Basket
-        composeRule.onNodeWithText("🛋️").assertIsDisplayed()  // Cozy Milo Cushion
-        composeRule.onNodeWithText("🥣").assertIsDisplayed()   // Starry Food Bowl
+        // Every item exposes its own accessible, non-emoji artwork.
+        composeRule.onNodeWithContentDescription("Fish Treat Basket").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("Cozy Milo Cushion").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("Starry Food Bowl").assertIsDisplayed()
     }
 
     @Test
@@ -63,7 +64,7 @@ class TreatShopScreenTest {
                 TreatShopContent(
                     state = TreatShopUiState(
                         coins = 10,
-                        message = "🎉 Fish Treat Basket is yours! Milo is happy. 🐾",
+                        message = "Fish Treat Basket is now part of Milo's sanctuary.",
                     ),
                     onBack = {},
                     onPurchase = {},
@@ -72,7 +73,7 @@ class TreatShopScreenTest {
         }
         composeRule.waitForIdle()
 
-        composeRule.onNodeWithText("🎉 Fish Treat Basket is yours! Milo is happy. 🐾")
+        composeRule.onNodeWithText("Fish Treat Basket is now part of Milo's sanctuary.")
             .assertIsDisplayed()
     }
 }

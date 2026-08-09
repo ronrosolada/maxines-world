@@ -54,6 +54,8 @@ data class ActivityStep(
     val options: List<String> = emptyList(),
     val correctIndex: Int = -1,
     val imageAssets: List<String> = emptyList(),
+    /** Stable id for an optional offline media asset referenced by this step. */
+    val mediaId: String? = null,
     val feedback: ActivityFeedback? = null,
     // ─── Typed activity payloads (added for the activity pipeline repair) ───
     // Populated by LessonPlayerViewModel.convertToLessonManifest from the

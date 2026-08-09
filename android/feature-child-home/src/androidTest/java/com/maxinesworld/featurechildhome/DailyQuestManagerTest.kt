@@ -6,6 +6,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -65,5 +66,12 @@ class DailyQuestManagerTest {
         lessonCompletionDao = database.lessonCompletionDao(),
         dailyQuestSetDao = database.dailyQuestSetDao(),
         dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
+        dailyQuestRewardWriter = DailyQuestRewardWriter(
+            database = database,
+            dailyQuestSetDao = database.dailyQuestSetDao(),
+            dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
+            rewardDao = database.rewardDao(),
+            rewardBreakDao = database.rewardBreakDao(),
+        ),
     )
 }

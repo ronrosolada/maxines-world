@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Optional personal-use media is served by DreamNAS on the trusted LAN.
+         All other cleartext traffic remains blocked. Replace this with HTTPS
+         before exposing the endpoint outside the home network. -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.10.10.33</domain>
+    </domain-config>
+</network-security-config>

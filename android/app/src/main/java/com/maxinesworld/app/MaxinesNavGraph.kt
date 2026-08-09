@@ -36,6 +36,8 @@ import com.maxinesworld.featurechildhome.ModuleLessonsScreen
 import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
 import com.maxinesworld.featurechildhome.subjectForPack
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
+import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
+import com.maxinesworld.featurelessonplayer.VideoLibraryViewModel
 import com.maxinesworld.featureparent.ParentDashboardScreen
 import com.maxinesworld.featureparent.ParentGateScreen
 import com.maxinesworld.featurerewards.WildlifeFieldGuideScreen
@@ -56,6 +58,7 @@ object Routes {
     const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
     const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
+    const val VIDEO_LIBRARY = "video_library/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
@@ -70,6 +73,7 @@ object Routes {
         "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
     fun lessonPlayer(childId: String, lessonId: String) =
         "lesson_player/${segment(childId)}/${segment(lessonId)}"
+    fun videoLibrary(childId: String) = "video_library/${segment(childId)}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
     fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
@@ -176,7 +180,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         }
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {
-                            navController.navigate(Routes.wildlifeFieldGuide(childId))
+                            navController.navigate(Routes.treatShop(childId))
                         }
                     }
                 },
@@ -187,6 +191,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onTreatShopClick = {
                     navController.navigate(Routes.treatShop(childId))
                 },
+                onVideosClick = {
+                    navController.navigate(Routes.videoLibrary(childId))
+                },
                 onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
@@ -195,6 +202,22 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onRetry = homeViewModel::retry,
                 onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(
+            route = Routes.VIDEO_LIBRARY,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType }),
+        ) { backStackEntry ->
+            val viewModel: VideoLibraryViewModel = hiltViewModel(backStackEntry)
+            val state by viewModel.state.collectAsStateWithLifecycle()
+            VideoLibraryScreen(
+                state = state,
+                onBack = { navController.popBackStack() },
+                onRetry = viewModel::refresh,
+                onDownload = viewModel::download,
+                onPlay = viewModel::play,
+                onStopPlaying = viewModel::stopPlaying,
             )
         }
 

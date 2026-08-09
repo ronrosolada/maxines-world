@@ -155,6 +155,25 @@ class ContentPackValidationTests(unittest.TestCase):
         self.assertTrue(any(f.category == "assessment_type" for f in audit.warnings))
         self.assertTrue(any(f.category == "assessment_type" for f in strict.errors))
 
+    def test_optional_video_activity_may_follow_canonical_steps(self):
+        lesson = valid_lesson()
+        lesson["activities"].append(
+            {
+                "activityId": f"{lesson['lessonId']}-a07",
+                "sequence": 7,
+                "type": "VIDEO",
+                "instruction": "Watch the optional video.",
+                "required": False,
+                "mediaId": "kids-tagalog-01-introductions",
+            }
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp)
+            write_lesson(pack, lesson)
+            report = validate_pack(pack, snapshot=SNAPSHOT, strict=True)
+
+        self.assertEqual([], report.errors)
+
     def test_invalid_correct_option_is_always_an_error(self):
         lesson = valid_lesson()
         lesson["assessment"]["items"][0]["correctOptionIds"] = ["missing"]

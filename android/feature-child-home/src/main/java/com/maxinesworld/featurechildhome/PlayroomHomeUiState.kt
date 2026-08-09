@@ -68,8 +68,24 @@ data class StickerUi(
 @androidx.compose.runtime.Immutable
 data class KeepsakeUi(
     val itemId: String,
-    val emoji: String,
     val name: String,
+    val iconKey: String = "keepsake",
+)
+
+@androidx.compose.runtime.Immutable
+data class SanctuaryPieceUi(
+    val id: String,
+    val name: String,
+    val description: String,
+    val iconKey: String,
+)
+
+@androidx.compose.runtime.Immutable
+data class SanctuaryUi(
+    val earnedPieces: Int = 0,
+    val visiblePieces: List<SanctuaryPieceUi> = emptyList(),
+    val nextPiece: SanctuaryPieceUi? = null,
+    val totalPieces: Int = 12,
 )
 
 @androidx.compose.runtime.Immutable
@@ -101,6 +117,8 @@ sealed interface PlayroomHomeUiState {
         /** Treat Shop keepsakes this child owns — rendered on the home so a
          *  purchase always produces something visible. */
         val ownedKeepsakes: List<KeepsakeUi> = emptyList(),
+        /** Daily Quest rewards build a persistent, child-visible sanctuary. */
+        val sanctuary: SanctuaryUi = SanctuaryUi(),
     ) : PlayroomHomeUiState
 
     data class Error(

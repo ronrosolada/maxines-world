@@ -1,0 +1,165 @@
+package com.maxinesworld.featurelessonplayer
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.net.toUri
+import androidx.media3.common.MediaItem
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.ui.PlayerView
+import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
+import com.maxinesworld.coredesignsystem.theme.Cream
+import com.maxinesworld.coredesignsystem.theme.Ink
+import com.maxinesworld.coredesignsystem.theme.Teal40
+import com.maxinesworld.coremodel.ActivityStep
+import java.io.File
+
+@Composable
+internal fun VideoStep(
+    step: ActivityStep,
+    mediaState: MediaDownloadUiState,
+    onDownload: () -> Unit,
+    onContinue: () -> Unit,
+) {
+    val mediaId = step.mediaId
+    val localFile = mediaState.filePath
+        ?.let(::File)
+        ?.takeIf { it.isFile && it.length() > 0L }
+
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Text(
+            text = step.question,
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = Ink,
+        )
+
+        when {
+            mediaId.isNullOrBlank() -> {
+                MediaStatusCard(
+                    icon = { Icon(Icons.Default.PlayCircle, contentDescription = null, tint = Teal40) },
+                    message = "This video is not configured yet.",
+                )
+            }
+
+            localFile != null -> OfflineVideoPlayer(localFile)
+
+            else -> {
+                MediaStatusCard(
+                    icon = { Icon(Icons.Default.CloudDownload, contentDescription = null, tint = Teal40) },
+                    message = when {
+                        mediaState.isDownloading -> "Downloading this video for offline play…"
+                        mediaState.error != null -> "The video could not be downloaded. Check the home Wi-Fi and try again."
+                        else -> "Download this short video once, then watch it offline."
+                    },
+                )
+                if (mediaState.isDownloading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        color = Teal40,
+                    )
+                } else {
+                    MaxinesPrimaryButton(
+                        onClick = onDownload,
+                        text = if (mediaState.error == null) "Download video" else "Try again",
+                        modifier = Modifier.fillMaxWidth(),
+                        enabled = mediaId.isNotBlank(),
+                    )
+                }
+            }
+        }
+
+        if (localFile == null && !mediaId.isNullOrBlank()) {
+            Text(
+                text = "You can skip this optional video and continue the lesson.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = Ink.copy(alpha = 0.70f),
+            )
+        }
+
+        MaxinesPrimaryButton(
+            onClick = onContinue,
+            text = if (localFile == null) "Skip for now" else "Continue",
+            modifier = Modifier.fillMaxWidth(),
+            containerColor = if (localFile == null) Teal40.copy(alpha = 0.82f) else Teal40,
+        )
+    }
+}
+
+@Composable
+private fun MediaStatusCard(
+    icon: @Composable () -> Unit,
+    message: String,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Cream),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            icon()
+            Spacer(Modifier.width(8.dp))
+            Text(message, color = Ink, style = MaterialTheme.typography.bodyLarge)
+        }
+    }
+}
+
+@Composable
+internal fun OfflineVideoPlayer(file: File) {
+    val context = LocalContext.current
+    val player = remember(file.absolutePath) {
+        ExoPlayer.Builder(context).build().apply {
+            setMediaItem(MediaItem.fromUri(file.toUri()))
+            playWhenReady = false
+            prepare()
+        }
+    }
+    DisposableEffect(player) {
+        onDispose { player.release() }
+    }
+
+    AndroidView(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(16f / 9f)
+            .clip(RoundedCornerShape(16.dp)),
+        factory = { viewContext ->
+            PlayerView(viewContext).apply {
+                this.player = player
+                contentDescription = "Offline lesson video player"
+                setShowNextButton(false)
+                setShowPreviousButton(false)
+            }
+        },
+        update = { it.player = player },
+    )
+}

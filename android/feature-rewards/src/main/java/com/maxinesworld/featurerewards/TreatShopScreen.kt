@@ -17,6 +17,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -30,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
@@ -40,6 +42,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Park
+import androidx.compose.material.icons.filled.Pets
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -79,9 +84,9 @@ class TreatShopViewModel @Inject constructor(
             val coins = repository.coinBalance(childId)
             val owned = repository.ownedItemIds(childId)
             val message = when (result) {
-                PurchaseResult.Purchased -> "🎉 ${item.name} is yours! Milo is happy. 🐾"
+                PurchaseResult.Purchased -> "${item.name} is now part of Milo's sanctuary."
                 PurchaseResult.AlreadyOwned -> "You already have ${item.name}."
-                PurchaseResult.NotEnoughCoins -> "You need more coins for ${item.name}."
+                PurchaseResult.NotEnoughCoins -> "You need more tokens for ${item.name}."
             }
             _state.value = TreatShopUiState(coins, owned, message)
         }
@@ -115,7 +120,7 @@ fun TreatShopContent(
         containerColor = TreatShopCream,
         topBar = {
             TopAppBar(
-                title = { Text("Milo's Treat Shop") },
+                title = { Text("Milo's Sanctuary Workshop") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Text("‹", fontSize = 32.sp, color = TreatShopInk)
@@ -129,18 +134,18 @@ fun TreatShopContent(
             modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 16.dp),
         ) {
             Text(
-                "Use coins from your lessons to choose a little surprise for Milo.",
+                "Use tokens from your lessons to add a decoration to Milo's sanctuary.",
                 style = MaterialTheme.typography.bodyLarge,
                 color = TreatShopInk,
             )
             Spacer(Modifier.height(12.dp))
             Text(
-                "${state.coins} coins",
+                "${state.coins} sanctuary tokens",
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 22.sp,
                 color = VillageTeal,
                 modifier = Modifier.semantics {
-                    contentDescription = "${state.coins} coins available"
+                    contentDescription = "${state.coins} sanctuary tokens available"
                 },
             )
             state.message?.let { message ->
@@ -188,20 +193,17 @@ private fun TreatShopItemCard(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(
-                item.emoji,
-                fontSize = 44.sp,
-                modifier = Modifier
-                    .size(56.dp)
-                    .semantics {
-                        contentDescription = item.name
-                    },
+            Icon(
+                imageVector = treatIcon(item.iconKey),
+                contentDescription = item.name,
+                tint = VillageTeal,
+                modifier = Modifier.size(56.dp),
             )
             Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(item.name, fontWeight = FontWeight.ExtraBold, color = TreatShopInk)
                 Text(item.description, style = MaterialTheme.typography.bodyMedium, color = TreatShopInk)
                 Text(item.perk, fontSize = 12.sp, fontWeight = FontWeight.Bold, color = VillageTeal)
-                Text("${item.cost} coins", color = TreatShopInk, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                Text("${item.cost} tokens", color = TreatShopInk, fontWeight = FontWeight.Bold, fontSize = 13.sp)
             }
             Button(
                 onClick = onPurchase,
@@ -212,4 +214,9 @@ private fun TreatShopItemCard(
             }
         }
     }
+}
+
+private fun treatIcon(iconKey: String): ImageVector = when (iconKey) {
+    "basket", "cushion", "bowl" -> Icons.Default.Pets
+    else -> Icons.Default.Park
 }

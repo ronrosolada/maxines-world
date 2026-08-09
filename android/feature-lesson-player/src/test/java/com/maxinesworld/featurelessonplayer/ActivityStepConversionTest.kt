@@ -62,6 +62,22 @@ class ActivityStepConversionTest {
     }
 
     @Test
+    fun `video activity carries its media id and remains unscored`() {
+        val step = toActivityStep(
+            activity(
+                "VIDEO",
+                """{"mediaId":"kids-tagalog-07-colors"}""",
+                instruction = "Watch the colors lesson.",
+            )
+        )
+
+        assertEquals("VIDEO_V1", step.type)
+        assertEquals("kids-tagalog-07-colors", step.mediaId)
+        assertEquals("Watch the colors lesson.", step.question)
+        assertFalse(step.scored)
+    }
+
+    @Test
     fun `out of range correct index is rejected`() {
         val step = toActivityStep(
             activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":7}""")

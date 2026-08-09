@@ -31,6 +31,14 @@ class PlayroomHomeScreenTest {
                 buttonLabel = "Continue",
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
+            sanctuary = SanctuaryUi(
+                nextPiece = SanctuaryPieceUi(
+                    id = "sunny-meadow",
+                    name = "Sunny Meadow",
+                    description = "A bright place for Milo's friends.",
+                    iconKey = "meadow",
+                ),
+            ),
         )
 
     private fun setHome(
@@ -84,6 +92,16 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun dailyQuestShowsItsRewardBeforeCompletionAndSanctuaryProgress() {
+        setHome(stateFor())
+        composeRule.onNodeWithText("Reward at 3/3: a sanctuary piece + 5-minute play break").assertExists()
+        composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and five minute play break").assertExists()
+        composeRule.onNodeWithText("Milo's Wildlife Sanctuary").assertExists()
+        composeRule.onNodeWithText("0/12").assertExists()
+        composeRule.onNodeWithText("Next: Sunny Meadow").assertExists()
+    }
+
+    @Test
     fun recommendedSubjectShowsStartHereBadge() {
         setHome(stateFor())
         composeRule.onNodeWithText("Start here!").assertIsDisplayed()
@@ -93,7 +111,7 @@ class PlayroomHomeScreenTest {
     fun treatShopEntryPointInvokesCallback() {
         var opens = 0
         setHome(stateFor(), onTreatShopClick = { opens++ })
-        composeRule.onNodeWithText("Treat Shop").assertIsEnabled().performClick()
+        composeRule.onNodeWithText("Sanctuary Workshop").assertIsEnabled().performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
     }
 
@@ -102,11 +120,11 @@ class PlayroomHomeScreenTest {
         setHome(
             stateFor().copy(
                 ownedKeepsakes = listOf(
-                    KeepsakeUi(itemId = "fish-treat-basket", emoji = "🧺", name = "Fish Treat Basket"),
+                    KeepsakeUi(itemId = "fish-treat-basket", name = "Fish Treat Basket", iconKey = "basket"),
                 ),
             )
         )
-        composeRule.onNodeWithText("Milo's keepsakes").assertIsDisplayed()
+        composeRule.onNodeWithText("Milo's decorations").assertIsDisplayed()
         composeRule.onNodeWithText("Fish Treat Basket").assertIsDisplayed()
         composeRule.onNodeWithContentDescription("Milo's keepsake: Fish Treat Basket").assertIsDisplayed()
     }
@@ -114,13 +132,13 @@ class PlayroomHomeScreenTest {
     @Test
     fun noKeepsakesMeansNoStrip() {
         setHome(stateFor())
-        composeRule.onNodeWithText("Milo's keepsakes").assertDoesNotExist()
+        composeRule.onNodeWithText("Milo's decorations").assertDoesNotExist()
     }
 
     @Test
     fun primaryActionsHaveTalkBackLabels() {
         setHome(stateFor())
-        listOf("Treat Shop", "Collection", "Parents").forEach { label ->
+        listOf("Sanctuary Workshop", "Collection", "Parents").forEach { label ->
             composeRule.onNodeWithContentDescription(label, useUnmergedTree = true).assertHasClickAction()
         }
     }

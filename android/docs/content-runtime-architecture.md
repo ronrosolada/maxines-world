@@ -29,9 +29,9 @@ Bundled assets → ActiveContentIndex (catalog v2) → LessonLoader
 |---|---|
 | schemaVersion | 1 |
 | Minimum app version | v0.9.x |
-| Capabilities | ANIMATED_EXPLANATION_V1, MULTIPLE_CHOICE_V1, SORT_AND_CLASSIFY_V1, HOTSPOT_IMAGE_V1, MATCHING_PAIRS_V1, SEQUENCE_BUILDER_V1, INTERACTIVE_SPEC_V1 |
+| Capabilities | ANIMATED_EXPLANATION_V1, MULTIPLE_CHOICE_V1, SORT_AND_CLASSIFY_V1, HOTSPOT_IMAGE_V1, MATCHING_PAIRS_V1, SEQUENCE_BUILDER_V1, INTERACTIVE_SPEC_V1, VIDEO_V1 |
 | Assessment model | 5 items, 4/5 pass threshold |
-| Activity model | 6 activities per lesson, stable IDs |
+| Activity model | Stable IDs; optional VIDEO steps are supplementary and never required for completion |
 | Badge model | 5 subjects/day → 1 badge, 50 badges total |
 
 ## Package Lifecycle (bundled)
@@ -52,9 +52,14 @@ APK build bundles the pack → release signed APK → install/upgrade replaces c
 | Database schema change | Android release with migration |
 | Reward rule change | Android release only |
 
-## Server — RETIRED
+## Lesson server — RETIRED; optional media endpoint
 
-There is no content server. DreamNAS (10.10.10.33) is no longer a content
-source; the app never contacts it. Authoring lives in
-`ronrosolada/maxines-world-content`; the APK bundles the playable pack.
-See `content-sync-and-rollback.md` for the full bundled-only decision.
+The lesson content server remains retired. DreamNAS (10.10.10.33) is used only
+as a read-only source for optional `VIDEO_V1` media assets. Core lessons never
+require the network: the APK bundles the playable lesson pack, while the child
+can skip a video if the media endpoint is unavailable. Media files are verified
+against `media/catalog.json` before local playback.
+
+Authoring lives in `ronrosolada/maxines-world-content`; lesson changes still
+require an APK release. See `optional-video-media.md` for the media deployment
+and integrity contract.

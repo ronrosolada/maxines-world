@@ -2,7 +2,6 @@ package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
-import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.ProgressEventEntity
 import com.maxinesworld.coredatabase.RewardDao
@@ -13,8 +12,10 @@ import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
-import com.maxinesworld.featurerewards.TreatPerks
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featurerewards.LessonRewardPolicy
 import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,6 +27,7 @@ enum class CompletionWriteStage {
     COINS_INSERTED,
     EXPEDITION_WRITTEN,
     BADGE_INSERTED,
+    DAILY_QUEST_WRITTEN,
 }
 
 /** No-op in production; replace in tests to exercise rollback paths. */
@@ -41,6 +43,9 @@ data class LessonCompletionPersistenceResult(
     val coinsEarned: Int = 0,
     val expeditionProgress: ChallengeProgress = ChallengeProgress(),
     val badgeAwarded: CollectibleBadge? = null,
+    val dailyQuestCompleted: Boolean = false,
+    val sanctuaryPieceId: String? = null,
+    val rewardBreakId: String? = null,
 )
 
 /**
@@ -53,9 +58,9 @@ class LessonCompletionRepository @Inject constructor(
     private val transactionRunner: RoomTransactionRunner,
     private val progressEventDao: ProgressEventDao,
     private val rewardDao: RewardDao,
-    private val inventoryDao: InventoryDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
+    private val dailyQuestRewardWriter: DailyQuestRewardWriter,
     private val failureInjector: CompletionWriteFailureInjector,
 ) {
     suspend fun complete(
@@ -126,36 +131,7 @@ class LessonCompletionRepository @Inject constructor(
             failureInjector.after(CompletionWriteStage.PROGRESS_EVENTS_INSERTED)
 
             val rewardKey = "lesson-first:$childId:${lesson.id}"
-            val starsEarned = (1 +
-                (if (accuracy >= 0.8) 1 else 0) +
-                (if (accuracy >= 0.95) 1 else 0)).coerceIn(1, 3)
-            var coinsEarned = 0
-            if (accuracy >= 0.8) {
-                coinsEarned = 10
-            }
-
-            // Treat Shop perks: owned keepsakes change what this lesson grants.
-            // The Fish Treat Basket's once-per-day doubling is consumed by
-            // inserting a deterministic PERK ledger row — insertIgnoring
-            // returns -1 when it already exists (same single-winner pattern
-            // as lesson completions), so the whole check is atomic inside the
-            // transaction.
-            val owned = inventoryDao.getOwnedItemIds(childId).toSet()
-            val basketRowId = "perk:fish-treat-basket:$childId:${LocalDate.now()}"
-            val basketUsedToday = if (TreatPerks.BASKET_ID in owned) {
-                rewardDao.insertIgnoring(
-                    RewardEntity(
-                        id = basketRowId,
-                        childId = childId,
-                        type = "PERK",
-                        amount = 0,
-                        metadata = TreatPerks.BASKET_ID,
-                    )
-                ) == -1L
-            } else {
-                true
-            }
-            val applied = TreatPerks.applyTo(starsEarned, coinsEarned, owned, basketUsedToday)
+            val lessonReward = LessonRewardPolicy.forAccuracy(accuracy)
 
             rewardDao.insertIgnoring(
                 RewardEntity(
@@ -163,24 +139,22 @@ class LessonCompletionRepository @Inject constructor(
                     childId = childId,
                     type = "STAR",
                     subject = lesson.subject,
-                    amount = applied.stars,
+                    amount = lessonReward.stars,
                     metadata = rewardKey,
                 )
             )
             failureInjector.after(CompletionWriteStage.STARS_INSERTED)
-            if (applied.coins > 0) {
-                rewardDao.insertIgnoring(
-                    RewardEntity(
-                        id = "$rewardKey:COIN",
-                        childId = childId,
-                        type = "COIN",
-                        subject = lesson.subject,
-                        amount = applied.coins,
-                        metadata = rewardKey,
-                    )
+            rewardDao.insertIgnoring(
+                RewardEntity(
+                    id = "$rewardKey:COIN",
+                    childId = childId,
+                    type = "COIN",
+                    subject = lesson.subject,
+                    amount = lessonReward.coins,
+                    metadata = rewardKey,
                 )
-                failureInjector.after(CompletionWriteStage.COINS_INSERTED)
-            }
+            )
+            failureInjector.after(CompletionWriteStage.COINS_INSERTED)
 
             val expedition = badgeAwarder.recordLessonCompletion(
                 childId = childId,
@@ -198,12 +172,22 @@ class LessonCompletionRepository @Inject constructor(
                 failureInjector.after(CompletionWriteStage.BADGE_INSERTED)
             }
 
+            val dailyQuestReward = dailyQuestRewardWriter.reconcileInTransaction(
+                childId = childId,
+                dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
+                completedLessonId = lesson.id,
+            )
+            failureInjector.after(CompletionWriteStage.DAILY_QUEST_WRITTEN)
+
             LessonCompletionPersistenceResult(
                 completionInserted = true,
-                starsEarned = applied.stars,
-                coinsEarned = applied.coins,
+                starsEarned = lessonReward.stars,
+                coinsEarned = lessonReward.coins,
                 expeditionProgress = expedition,
                 badgeAwarded = firstStepsSticker ?: expedition.newlyAwardedBadge,
+                dailyQuestCompleted = dailyQuestReward.questComplete,
+                sanctuaryPieceId = dailyQuestReward.sanctuaryPieceId,
+                rewardBreakId = dailyQuestReward.rewardBreakId,
             )
         }
     }

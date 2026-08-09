@@ -17,8 +17,8 @@ android {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 26
-        versionName = "0.25.0"
+        versionCode = 27
+        versionName = "0.26.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,6 +81,7 @@ dependencies {
     implementation(project(":feature-lesson-player"))
     implementation(project(":feature-progress"))
     implementation(project(":feature-parent"))
+    implementation(libs.okhttp)
     implementation(project(":feature-rewards"))
     implementation(project(":engine-activity"))
     implementation(project(":engine-assessment"))

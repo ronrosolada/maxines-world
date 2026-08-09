@@ -11,6 +11,7 @@ import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -96,7 +97,7 @@ class PlayroomHomeViewModelTest {
         advanceUntilIdle()
         val quest = content(vm).quest
         assertTrue(quest.isComplete)
-        assertEquals("Open Field Guide", quest.buttonLabel)
+        assertEquals("Open Sanctuary", quest.buttonLabel)
         assertEquals(QuestAction.ViewReward, quest.buttonAction)
     }
 
@@ -185,6 +186,7 @@ class PlayroomHomeViewModelTest {
         val rewardDao = mockk<RewardDao>()
         coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
         coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
+        coEvery { rewardDao.getByChildAndType("child_1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) } returns emptyList()
         val dailyQuestManager = mockk<DailyQuestManager>()
         val inventoryDao = mockk<InventoryDao>()
         coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()

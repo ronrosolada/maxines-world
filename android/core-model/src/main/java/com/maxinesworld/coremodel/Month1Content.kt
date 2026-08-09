@@ -39,6 +39,7 @@ data class Month1Activity(
     val completionRule: CompletionRule? = null,
     val feedback: Month1ActivityFeedback? = null,
     val assetId: String? = null,
+    val mediaId: String? = null,
     @SerialName("accessibilityAlternative") val accessibilityAlternative: String? = null,
     val hint: String? = null
 )

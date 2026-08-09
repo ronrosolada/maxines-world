@@ -39,6 +39,8 @@ class ContentPackIntegrityTest {
         "SEQUENCE_BUILDER"
     )
 
+    private val optionalActivityTypes = setOf("VIDEO")
+
     private fun lessonsDir(): File {
         // core-content/ -> android/ -> app/src/main/assets/...
         val candidates = listOf(
@@ -107,8 +109,10 @@ class ContentPackIntegrityTest {
         for (file in allLessonFiles()) {
             val lesson = json.decodeFromString<Month1Lesson>(file.readText())
             val types = lesson.activities.map { it.type }
-            if (types != expectedTypeSequence) {
-                failures += "${file.name}: expected $expectedTypeSequence but was $types"
+            val hasCanonicalPrefix = types.take(expectedTypeSequence.size) == expectedTypeSequence
+            val optionalSuffix = types.drop(expectedTypeSequence.size)
+            if (!hasCanonicalPrefix || optionalSuffix.size > 1 || optionalSuffix.any { it !in optionalActivityTypes }) {
+                failures += "${file.name}: expected $expectedTypeSequence with an optional VIDEO suffix but was $types"
             }
         }
         assertTrue("Activity sequence drift:\n" + failures.joinToString("\n"), failures.isEmpty())
@@ -199,6 +203,13 @@ class ContentPackIntegrityTest {
             for (activity in lesson.activities) {
                 val id = "${file.name}/${activity.activityId}"
                 val content = activity.content
+
+                if (activity.type == "VIDEO") {
+                    if (activity.mediaId.isNullOrBlank()) {
+                        failures += "$id: VIDEO requires a non-blank mediaId"
+                    }
+                    continue
+                }
 
                 if (content == null) {
                     failures += "$id: content is null"

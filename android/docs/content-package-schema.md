@@ -101,6 +101,7 @@ Frozen 2026-07-13. All content packages must conform to this schema.
 | SORT_AND_CLASSIFY | SORT_AND_CLASSIFY_V1 | ALL_ITEMS_SORTED |
 | SEQUENCE_BUILDER | SEQUENCE_BUILDER_V1 | ALL_STEPS_COMPLETED |
 | INTERACTIVE_SPEC | INTERACTIVE_SPEC_V1 | VIEW_AND_ACKNOWLEDGE |
+| VIDEO | VIDEO_V1 | VIEW_AND_ACKNOWLEDGE (optional; local media required to play) |
 
 ## Validation Rules
 

@@ -10,6 +10,8 @@ import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
@@ -70,12 +72,30 @@ class PlayroomHomeViewModel @Inject constructor(
                         val badges = badgeAwarder.getCollectedBadges(childId)
                         val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
                         val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
+                        val sanctuaryRewards = rewardDao.getByChildAndType(
+                            childId,
+                            DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE,
+                        )
+                        val sanctuaryPieces = sanctuaryRewards
+                            .mapNotNull { reward -> SanctuaryCatalog.byId(reward.metadata) }
+                            .distinctBy { piece -> piece.id }
+                        val sanctuaryCount = sanctuaryRewards.sumOf { reward -> reward.amount }.coerceAtLeast(0)
+                        val sanctuary = SanctuaryUi(
+                            earnedPieces = sanctuaryCount,
+                            visiblePieces = sanctuaryPieces.map { piece ->
+                                SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey)
+                            },
+                            nextPiece = SanctuaryCatalog.pieces
+                                .getOrNull(sanctuaryCount)
+                                ?.let { piece -> SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey) },
+                            totalPieces = SanctuaryCatalog.pieces.size,
+                        )
                         val keepsakes = inventoryDao.getOwnedItemIds(childId)
                             .mapNotNull { id -> TreatShopCatalog.byId(id) }
-                            .map { item -> KeepsakeUi(item.id, item.emoji, item.name) }
+                            .map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
                         _state.value = buildContent(
                             profile?.name, lessonIds, dailyQuest, badges,
-                            stars, coins, keepsakes,
+                            stars, coins, keepsakes, sanctuary,
                         )
                     }
             } catch (cancelled: CancellationException) {
@@ -122,6 +142,7 @@ class PlayroomHomeViewModel @Inject constructor(
         starBalance: Int,
         coinBalance: Int,
         keepsakes: List<KeepsakeUi>,
+        sanctuary: SanctuaryUi,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -159,12 +180,12 @@ class PlayroomHomeViewModel @Inject constructor(
         val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
         val questUi = if (dailyQuest.isComplete) {
             QuestUi(
-                task = "Today's quest complete — your wildlife friend is waiting!",
+                task = "Today's quest complete — Milo's sanctuary is growing!",
                 pawPrintsCompleted = questTotal,
                 pawPrintTotal = questTotal,
                 isComplete = true,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "Open Field Guide",
+                buttonLabel = "Open Sanctuary",
                 buttonAction = QuestAction.ViewReward,
                 targets = targets,
                 nextLessonId = nextLessonId,
@@ -212,6 +233,7 @@ class PlayroomHomeViewModel @Inject constructor(
             starBalance = starBalance,
             coinBalance = coinBalance,
             ownedKeepsakes = keepsakes,
+            sanctuary = sanctuary,
         )
     }
 }

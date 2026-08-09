@@ -127,6 +127,12 @@ interface RewardDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(reward: RewardEntity): Long
 
+    @Query("SELECT * FROM rewards WHERE id = :id LIMIT 1")
+    suspend fun getById(id: String): RewardEntity?
+
+    @Query("SELECT * FROM rewards WHERE childId = :childId AND type = :type ORDER BY earnedAt ASC")
+    suspend fun getByChildAndType(childId: String, type: String): List<RewardEntity>
+
     @Query("SELECT SUM(amount) FROM rewards WHERE childId = :childId AND type = :type")
     suspend fun getTotalByType(childId: String, type: String): Int?
 }

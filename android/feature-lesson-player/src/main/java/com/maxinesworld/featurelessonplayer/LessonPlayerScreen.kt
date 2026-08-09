@@ -45,6 +45,8 @@ import com.maxinesworld.engineactivity.renderers.LessonVisual
 import com.maxinesworld.engineactivity.renderers.optionOrderFor
 import com.maxinesworld.featurerewards.BadgeRevealScreen
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.LessonRewardPolicy
+import com.maxinesworld.featurerewards.SanctuaryCatalog
 import kotlinx.coroutines.launch
 
 // ─── New Words card ───
@@ -173,6 +175,9 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
     val lesson = state.lesson ?: return
     val step = lesson.steps.getOrNull(state.currentStep) ?: return
     val lang = lesson.languageOfInstruction
+    LaunchedEffect(step.id, step.mediaId) {
+        step.mediaId?.let(viewModel::checkLocalMedia)
+    }
     // Keep one TTS engine for the lesson. Recreating it for every explanation
     // step can drop queued speech and repeatedly initialize the Android engine.
     val context = LocalContext.current
@@ -294,6 +299,15 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 language = lang,
                 answered = state.results.any { it.activityId == step.id },
                 onResult = { result -> viewModel.onActivityResult(result) },
+            )
+
+            step.type == "VIDEO_V1" -> VideoStep(
+                step = step,
+                mediaState = step.mediaId?.let { state.mediaDownloads[it] } ?: MediaDownloadUiState(),
+                onDownload = { step.mediaId?.let(viewModel::downloadMedia) },
+                onContinue = {
+                    viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
+                },
             )
 
             step.type == "ANIMATED_EXPLANATION_V1" -> ExplanationStep(
@@ -728,10 +742,12 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
     val correct = scored.count { it.correct }
     val total = scored.size
     val accuracy = if (total > 0) correct.toFloat() / total else 0f
-    val starsEarned = 1 +
-        (if (accuracy >= 0.8f) 1 else 0) +
-        (if (accuracy >= 0.95f) 1 else 0)
-    val coinsEarned = if (accuracy >= 0.8f) 10 else 0
+    val calculatedReward = LessonRewardPolicy.forAccuracy(accuracy.toDouble())
+    // The persistence result is authoritative once the transaction completes;
+    // the policy fallback prevents a brief zero-reward flash while the save is
+    // finishing after the final assessment answer.
+    val starsEarned = state.starsEarned.takeIf { it > 0 } ?: calculatedReward.stars
+    val coinsEarned = state.coinsEarned.takeIf { it > 0 } ?: calculatedReward.coins
 
     // Confetti — respect reduced motion (ANIMATOR_DURATION_SCALE == 0 on
     // Android disables system animations; children with this preference get
@@ -760,8 +776,39 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
 
             Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
                 Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(24.dp)) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) { Icon(Icons.Default.Star, "Stars", tint = SunshineGold, modifier = Modifier.size(28.dp)); Text("+$starsEarned Stars", fontWeight = FontWeight.Bold, fontSize = 15.sp) }
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) { Icon(Icons.Default.Toll, "Coins", tint = SunshineGold, modifier = Modifier.size(28.dp)); Text(if (coinsEarned > 0) "+$coinsEarned Coins" else "0 Coins", fontWeight = FontWeight.Bold, fontSize = 15.sp) }
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) { Icon(Icons.Default.Star, "Stars", tint = SunshineGold, modifier = Modifier.size(28.dp)); Text("+$starsEarned Learning Stars", fontWeight = FontWeight.Bold, fontSize = 15.sp) }
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) { Icon(Icons.Default.Pets, "Sanctuary tokens", tint = VillageTeal, modifier = Modifier.size(28.dp)); Text("+$coinsEarned Tokens", fontWeight = FontWeight.Bold, fontSize = 15.sp) }
+                }
+            }
+
+            if (state.activityPawPrintsEarned > 0) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "You filled ${state.activityPawPrintsEarned} learning paw prints.",
+                    color = Teal40,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 14.sp,
+                )
+            }
+
+            if (state.dailyQuestCompleted) {
+                Spacer(Modifier.height(12.dp))
+                Card(
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = LeafGreen.copy(alpha = 0.16f)),
+                ) {
+                    Column(Modifier.padding(14.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("Daily Quest complete!", fontWeight = FontWeight.ExtraBold, color = Teal40)
+                        Text(
+                            state.sanctuaryPieceId
+                                ?.let { SanctuaryCatalog.byId(it)?.name }
+                                ?.let { "Milo's sanctuary gained: $it" }
+                                ?: "Milo's sanctuary gained a new piece.",
+                            textAlign = TextAlign.Center,
+                            color = Ink.copy(alpha = 0.78f),
+                            fontSize = 14.sp,
+                        )
+                    }
                 }
             }
 

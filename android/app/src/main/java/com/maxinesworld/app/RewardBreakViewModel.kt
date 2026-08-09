@@ -2,11 +2,16 @@ package com.maxinesworld.app
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.maxinesworld.coredatabase.InventoryDao
+import com.maxinesworld.coredatabase.InventoryEntity
 import com.maxinesworld.coredatabase.MiniGameResultDao
 import com.maxinesworld.coredatabase.MiniGameResultEntity
 import com.maxinesworld.coredatabase.RewardBreakDao
 import com.maxinesworld.coredatabase.RewardBreakEntitlementEntity
 import com.maxinesworld.coredatabase.RewardBreakPolicy
+import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.RewardEntity
+import com.maxinesworld.coredatabase.RoomTransactionRunner
 import com.maxinesworld.engineminigame.MiniGameResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -37,6 +42,9 @@ sealed interface RewardBreakUiState {
 class RewardBreakViewModel @Inject constructor(
     private val rewardBreakDao: RewardBreakDao,
     private val miniGameResultDao: MiniGameResultDao,
+    private val rewardDao: RewardDao,
+    private val inventoryDao: InventoryDao,
+    private val transactionRunner: RoomTransactionRunner,
 ) : ViewModel() {
     private val _state = MutableStateFlow<RewardBreakUiState>(RewardBreakUiState.Loading)
     val state: StateFlow<RewardBreakUiState> = _state.asStateFlow()
@@ -125,22 +133,53 @@ class RewardBreakViewModel @Inject constructor(
             return false
         }
 
-        miniGameResultDao.insert(
-            MiniGameResultEntity(
-                sessionId = result.sessionId,
-                idempotencyKey = result.idempotencyKey,
-                rewardBreakId = result.rewardBreakId,
-                childId = result.childId,
-                gameId = result.gameId,
-                startedAtEpochMillis = result.startedAtEpochMillis,
-                endedAtEpochMillis = result.endedAtEpochMillis,
-                roundsCompleted = result.roundsCompleted,
-                successfulActions = result.correctOrders,
-                pawTokensEarned = result.pawTokensEarned,
-                collectibleId = result.collectibleId,
+        return transactionRunner.run {
+            // The result row is the idempotency gate for all mini-game
+            // side-effects. A repeated navigation callback must not mint
+            // another token balance or collectible.
+            if (miniGameResultDao.getByIdempotencyKey(result.idempotencyKey) != null) {
+                return@run true
+            }
+            miniGameResultDao.insert(
+                MiniGameResultEntity(
+                    sessionId = result.sessionId,
+                    idempotencyKey = result.idempotencyKey,
+                    rewardBreakId = result.rewardBreakId,
+                    childId = result.childId,
+                    gameId = result.gameId,
+                    startedAtEpochMillis = result.startedAtEpochMillis,
+                    endedAtEpochMillis = result.endedAtEpochMillis,
+                    roundsCompleted = result.roundsCompleted,
+                    successfulActions = result.correctOrders,
+                    pawTokensEarned = result.pawTokensEarned.coerceAtLeast(0),
+                    collectibleId = result.collectibleId,
+                )
             )
-        )
-        return true
+            if (result.pawTokensEarned > 0) {
+                rewardDao.insertIgnoring(
+                    RewardEntity(
+                        id = "mini-game:${result.idempotencyKey}:tokens",
+                        childId = result.childId,
+                        type = "COIN",
+                        amount = result.pawTokensEarned,
+                        subject = "reward-break",
+                        metadata = "mini-game:${result.gameId}:${result.idempotencyKey}",
+                    )
+                )
+            }
+            result.collectibleId
+                ?.takeIf { it.isNotBlank() }
+                ?.let { collectibleId ->
+                    inventoryDao.insertIgnoring(
+                        InventoryEntity(
+                            id = "mini-game-collectible:${result.childId}:$collectibleId",
+                            childId = result.childId,
+                            itemId = collectibleId,
+                        )
+                    )
+                }
+            true
+        }
     }
 
     suspend fun consume(childId: String, rewardBreakId: String) {
