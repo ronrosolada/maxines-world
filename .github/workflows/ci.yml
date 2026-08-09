@@ -204,7 +204,10 @@ jobs:
     # Pin to 22.04: ubuntu-latest (24.04) runner images regressed KVM access,
     # which breaks the x86_64 emulator ("No compatible devices connected").
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
+    # A cold API 34 emulator plus the first multi-module Android test build
+    # can exceed 30 minutes. Keep a bounded job, but leave enough room for
+    # Gradle compilation after emulator startup.
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
@@ -247,7 +250,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: android
-          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace
+          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace --no-daemon --max-workers=1
 
       - name: Upload migration test report
         if: always()
