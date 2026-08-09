@@ -252,6 +252,9 @@ jobs:
           cores: 2
           ram-size: 2048M
           heap-size: 512M
+          # Prebuilding the test APKs consumes runner disk space; the tests do
+          # not need the action's default ~8 GB userdata partition.
+          disk-size: 4G
           force-avd-creation: true
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
