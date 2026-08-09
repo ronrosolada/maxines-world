@@ -199,7 +199,11 @@ private fun PokemonStyleBadgeSlot(
                     drawCircle(accent.copy(alpha = 0.2f), radius = size.minDimension / 2)
                     drawCircle(accent.copy(alpha = 0.08f), radius = size.minDimension / 2.4f)
                 }
-                Icon(Icons.Default.Pets, contentDescription = null, tint = accent, modifier = Modifier.size(32.dp))
+                BadgeArtwork(
+                    badge = badge,
+                    modifier = Modifier.size(56.dp),
+                    fallbackTint = accent,
+                )
                 // Leaf checkmark
                 Icon(Icons.Default.Park, null, tint = accent,
                     modifier = Modifier.align(Alignment.BottomEnd).padding(4.dp).size(14.dp))
@@ -374,8 +378,11 @@ fun BadgeRevealScreen(
                                 .graphicsLayer { scaleX = popScale; scaleY = popScale }
                                 .clip(CircleShape).background(accent.copy(alpha = 0.12f)),
                                 contentAlignment = Alignment.Center) {
-                                Icon(Icons.Default.Pets, contentDescription = "${badge.name} sticker", tint = accent,
-                                    modifier = Modifier.size(72.dp))
+                                BadgeArtwork(
+                                    badge = badge,
+                                    modifier = Modifier.size(112.dp),
+                                    fallbackTint = accent,
+                                )
                             }
                         }
                         Spacer(Modifier.height(16.dp))

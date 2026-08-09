@@ -59,7 +59,11 @@ fun BadgeCard(
                         drawCircle(accentColor.copy(alpha = 0.2f), radius = size.minDimension / 2)
                         drawCircle(accentColor.copy(alpha = 0.08f), radius = size.minDimension / 2.3f)
                     }
-                    Icon(Icons.Default.Pets, null, tint = accentColor, modifier = Modifier.size(36.dp))
+                    BadgeArtwork(
+                        badge = badge,
+                        modifier = Modifier.size(56.dp),
+                        fallbackTint = accentColor,
+                    )
                 } else {
                     // Locked: dark silhouette token — no emoji
                     Canvas(Modifier.fillMaxSize()) {
@@ -111,11 +115,29 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 IconButton(onClick = onDismiss) { Icon(Icons.Default.Close, "Close", tint = Ink.copy(alpha = 0.5f)) }
             }
-            Box(Modifier.size(100.dp).clip(CircleShape).background(accentColor.copy(alpha = 0.15f)), contentAlignment = Alignment.Center) {
-                if (badge.isCollected) {
-                    Icon(Icons.Default.Pets, "${badge.name} sticker", tint = accentColor, modifier = Modifier.size(52.dp))
+            if (badge.isCollected) {
+                BadgeFlipCard(
+                    badge = badge,
+                    accentColor = accentColor,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(330.dp),
+                )
+            } else {
+                Box(
+                    Modifier
+                        .size(100.dp)
+                        .clip(CircleShape)
+                        .background(accentColor.copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        Icons.Default.Lock,
+                        "Locked",
+                        tint = Color.Black.copy(alpha = 0.2f),
+                        modifier = Modifier.size(36.dp),
+                    )
                 }
-                else Icon(Icons.Default.Lock, "Locked", tint = Color.Black.copy(alpha = 0.2f), modifier = Modifier.size(36.dp))
             }
             Spacer(Modifier.height(16.dp))
             if (badge.isCollected) {
@@ -127,14 +149,12 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
             }
             Spacer(Modifier.height(12.dp))
             if (badge.isCollected) {
-                Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f))) {
-                    Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
-                        Icon(Icons.Default.Lightbulb, "Fun Fact", tint = SunshineGold, modifier = Modifier.size(20.dp))
-                        Spacer(Modifier.width(12.dp))
-                        Text(badge.funFact, fontSize = 15.sp, color = Ink.copy(alpha = 0.85f), lineHeight = 22.sp)
-                    }
-                }
+                Text(
+                    "Tap the card to flip it and meet the real animal.",
+                    fontSize = 13.sp,
+                    color = Ink.copy(alpha = 0.55f),
+                    textAlign = TextAlign.Center,
+                )
                 Spacer(Modifier.height(8.dp))
                 Text("${biome.displayName} • ${biome.description}", fontSize = 13.sp, color = Ink.copy(alpha = 0.5f))
                 Spacer(Modifier.height(12.dp))
