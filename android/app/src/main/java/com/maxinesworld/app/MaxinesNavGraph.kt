@@ -359,8 +359,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayKittenMatch = { durationMillis ->
                     navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
-                onOpenSourceGames = {
-                    navController.navigate(MiniGameRoutes.sourceLibrary(childId, breakId))
+                onPlaySourceGame = { gameSlug, durationMillis ->
+                    navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
                 },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
@@ -384,6 +384,15 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 rewardBreakId = breakId,
                 onPlay = { gameSlug, durationMillis ->
                     navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
+                },
+                onPlayCatCafe = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.catCafe(childId, breakId, durationMillis))
+                },
+                onPlayParkour = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.parkour(childId, breakId, durationMillis))
+                },
+                onPlayKittenMatch = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
                 onBack = { navController.popBackStack() },
                 onReturnToVillage = {

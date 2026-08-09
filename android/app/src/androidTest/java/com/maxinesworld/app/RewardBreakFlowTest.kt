@@ -146,7 +146,10 @@ class RewardBreakFlowTest {
         onText("Play a Reward Game").performClick()
 
         // The hub loads the CREATED entitlement and starts it only on game choice.
-        waitForText("Great work today!")
+        waitForText("Choose a game for your 5-minute reward break.")
+        waitForText("Maxine's World games")
+        waitForText("Puzzle & classic games")
+        waitForText("2048")
         waitForText("Cat Café Dash")
         val created = getBreak()
         assertEquals(RewardBreakPolicy.CREATED, created?.state)
@@ -179,7 +182,10 @@ class RewardBreakFlowTest {
     fun leavingRewardHubBeforeStartingGamePreservesCreatedBreak() {
         waitForText("Lesson Complete!")
         onText("Play a Reward Game").performClick()
-        waitForText("Great work today!")
+        waitForText("Choose a game for your 5-minute reward break.")
+        waitForText("Maxine's World games")
+        waitForText("Puzzle & classic games")
+        waitForText("2048")
         assertEquals(RewardBreakPolicy.CREATED, getBreak()?.state)
 
         scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
@@ -258,7 +264,7 @@ private fun RewardBreakFlowHost(
                 gameDurationMillis = durationMillis
                 route = RewardBreakTestRoute.CAT_CAFE
             },
-            onOpenSourceGames = {},
+            onPlaySourceGame = { _, _ -> },
             onReturnToVillage = { route = RewardBreakTestRoute.VILLAGE },
         )
 
