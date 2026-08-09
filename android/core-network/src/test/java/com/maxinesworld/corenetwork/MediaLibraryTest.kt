@@ -53,6 +53,60 @@ class MediaLibraryTest {
         assertEquals("/media/kids-tagalog-07-colors.mp4", server.takeRequest().path)
     }
 
+    @Test
+    fun `uses the persisted catalog when a later refresh cannot reach the server`() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(200).setBody(catalogJson()))
+        server.enqueue(MockResponse().setResponseCode(503))
+
+        val client = OkHttpClient()
+        val storage = MediaStorage(root)
+        val library = MediaLibrary(
+            catalogUrl = server.url("/media/catalog.json").toString(),
+            mediaBaseUrl = server.url("/").toString(),
+            catalogClient = MediaCatalogClient(client),
+            downloader = MediaDownloader(client, storage),
+            storage = storage,
+        )
+
+        assertEquals(1, library.refreshCatalog().size)
+        val cached = library.refreshCatalog()
+
+        assertEquals(listOf("kids-tagalog-07-colors"), cached.map { it.mediaId })
+        assertEquals("/media/catalog.json", server.takeRequest().path)
+        assertEquals("/media/catalog.json", server.takeRequest().path)
+    }
+
+    @Test
+    fun `uses the persisted catalog when a new library instance starts offline`() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(200).setBody(catalogJson()))
+        server.enqueue(MockResponse().setResponseCode(503))
+
+        val client = OkHttpClient()
+        val storage = MediaStorage(root)
+        val firstLibrary = MediaLibrary(
+            catalogUrl = server.url("/media/catalog.json").toString(),
+            mediaBaseUrl = server.url("/").toString(),
+            catalogClient = MediaCatalogClient(client),
+            downloader = MediaDownloader(client, storage),
+            storage = storage,
+        )
+        firstLibrary.refreshCatalog()
+
+        val restartedLibrary = MediaLibrary(
+            catalogUrl = server.url("/media/catalog.json").toString(),
+            mediaBaseUrl = server.url("/").toString(),
+            catalogClient = MediaCatalogClient(client),
+            downloader = MediaDownloader(client, storage),
+            storage = storage,
+        )
+
+        val cached = restartedLibrary.refreshCatalog()
+
+        assertEquals(listOf("kids-tagalog-07-colors"), cached.map { it.mediaId })
+        assertEquals("/media/catalog.json", server.takeRequest().path)
+        assertEquals("/media/catalog.json", server.takeRequest().path)
+    }
+
     private fun catalogJson(): String = """
         {
           "catalogVersion": 1,

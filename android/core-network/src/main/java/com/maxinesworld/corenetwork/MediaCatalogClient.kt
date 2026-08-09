@@ -12,14 +12,18 @@ class MediaCatalogClient(
     private val client: OkHttpClient,
     private val parser: MediaCatalogParser = MediaCatalogParser(),
 ) {
-    suspend fun fetch(url: String): MediaCatalog = withContext(Dispatchers.IO) {
+    suspend fun fetch(url: String): MediaCatalog = parse(fetchRaw(url))
+
+    suspend fun fetchRaw(url: String): String = withContext(Dispatchers.IO) {
         val request = Request.Builder().url(url).get().build()
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) {
                 throw IOException("Media catalog request failed: HTTP ${response.code}")
             }
             val body = response.body ?: throw IOException("Media catalog response had no body")
-            parser.parse(body.string())
+            body.string()
         }
     }
+
+    fun parse(raw: String): MediaCatalog = parser.parse(raw)
 }

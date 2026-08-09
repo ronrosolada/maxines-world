@@ -1,6 +1,7 @@
 package com.maxinesworld.corenetwork
 
 import com.maxinesworld.coremodel.MediaAsset
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.File
@@ -35,15 +36,28 @@ class MediaLibrary(
         storage.mediaFile(mediaId).takeIf { it.isFile && it.length() > 0L }
 
     suspend fun refreshCatalog(): List<MediaAsset> {
-        val fresh = catalogClient.fetch(catalogUrl).media
-        catalog = fresh
-        return fresh
+        val loaded = loadCatalogWithFallback()
+        catalog = loaded.media
+        return loaded.media
     }
 
     private suspend fun loadCatalog(): List<MediaAsset> {
         catalog?.let { return it }
         return catalogMutex.withLock {
-            catalog ?: catalogClient.fetch(catalogUrl).media.also { catalog = it }
+            catalog ?: loadCatalogWithFallback().media.also { catalog = it }
         }
+    }
+
+    private suspend fun loadCatalogWithFallback() = try {
+        val raw = catalogClient.fetchRaw(catalogUrl)
+        val fresh = catalogClient.parse(raw)
+        // A cache write must never make a healthy online catalog unusable.
+        runCatching { storage.writeCatalog(raw) }
+        fresh
+    } catch (error: Exception) {
+        if (error is CancellationException) throw error
+        val cached = storage.readCatalog()
+            ?.let { raw -> runCatching { catalogClient.parse(raw) }.getOrNull() }
+        cached ?: throw error
     }
 }

@@ -40,7 +40,8 @@ class ParentGateLockoutTest {
         val viewModel = ParentGateViewModel(authManager)
         runCurrent()
 
-        assertTrue(viewModel.state.value.lockRemainingSeconds in 29..30)
+        assertEquals(lockedUntil, viewModel.state.value.lockedUntilEpochMillis)
+        assertTrue(viewModel.state.value.lockRemainingSeconds > 0)
         viewModel.onPinDigit("1")
         assertEquals("", viewModel.state.value.pinInput)
     }

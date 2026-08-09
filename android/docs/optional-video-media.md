@@ -19,6 +19,13 @@ configuration permits cleartext traffic only to `10.10.10.33`; do not expose
 this endpoint outside the home network. Use an HTTPS Caddy route before any
 broader distribution.
 
+After a successful refresh, the app stores the raw catalog atomically at
+`filesDir/maxines-media/catalog.json`. A later refresh falls back to that
+validated catalog when DreamNAS is unavailable, so already-downloaded videos
+remain discoverable after navigation or an app restart. If no catalog has ever
+been cached, the screen shows a retry action instead of pretending that the
+library is empty.
+
 ## Catalog contract
 
 `media/catalog.json` is version 1 and contains individual assets, not a giant
@@ -86,9 +93,10 @@ Published assessment items contain only child-facing fields:
 
 Authoring evidence such as transcript timestamps and source quotes stays in the
 local review draft and is stripped by `build_media_catalog.py` before publish.
-The assessment is supplemental and never blocks a lesson or video download. The
-current `VideoLibraryScreen` exposes the assessment through `MediaAsset` data for
-future quiz consumers, but it does not yet render a child-facing quiz button.
+The assessment is supplemental and never blocks a lesson or video download. Once
+a video is downloaded, `VideoLibraryScreen` shows a child-facing `What do you
+remember?` check with one-question-at-a-time feedback, explanations, retry, and
+a final score. It does not award lesson rewards or claim mastery.
 
 ## Deployment rule
 
@@ -106,6 +114,11 @@ rsync -av --partial /home/ron/maxines-media-staging/*.mp4 \
 rsync -av --partial /home/ron/maxines-media-catalog.json \
   root@10.10.10.5:/mnt/user/appdata/maxines-world-content/server/content/media/catalog.json
 ```
+
+`app/src/main/assets/content-pack/media-assessments.json` is the tracked
+assessment source of truth. Always pass it to `build_media_catalog.py`; omitting
+`--assessments` produces a structurally valid catalog that silently drops all
+180 comprehension items.
 
 Verify after deployment with a bounded header request and a SHA-256 comparison
 against the local catalog. The app must be able to skip the video when the

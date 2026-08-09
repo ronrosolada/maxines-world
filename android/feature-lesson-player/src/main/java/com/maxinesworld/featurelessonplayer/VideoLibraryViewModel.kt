@@ -24,6 +24,7 @@ data class VideoLibraryUiState(
     val items: List<VideoLibraryItemUi> = emptyList(),
     val error: String? = null,
     val playingMediaId: String? = null,
+    val assessmentQuiz: MediaAssessmentQuizState? = null,
 )
 
 @HiltViewModel
@@ -113,5 +114,59 @@ class VideoLibraryViewModel @Inject constructor(
 
     fun stopPlaying() {
         _state.update { it.copy(playingMediaId = null) }
+    }
+
+    fun startAssessment(mediaId: String) {
+        val item = _state.value.items.firstOrNull { it.asset.mediaId == mediaId }
+        if (item?.localPath == null || item.asset.assessment == null) return
+        _state.update {
+            it.copy(
+                assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId),
+            )
+        }
+    }
+
+    fun selectAssessmentOption(optionId: String) {
+        _state.update { current ->
+            current.assessmentQuiz?.let { quiz ->
+                current.copy(assessmentQuiz = selectQuizOption(quiz, optionId))
+            } ?: current
+        }
+    }
+
+    fun submitAssessment() {
+        _state.update { current ->
+            val quiz = current.assessmentQuiz ?: return@update current
+            val assessment = current.items
+                .firstOrNull { it.asset.mediaId == quiz.mediaId }
+                ?.asset
+                ?.assessment
+                ?: return@update current
+            current.copy(assessmentQuiz = submitQuizAnswer(quiz, assessment))
+        }
+    }
+
+    fun nextAssessment() {
+        _state.update { current ->
+            val quiz = current.assessmentQuiz ?: return@update current
+            val assessment = current.items
+                .firstOrNull { it.asset.mediaId == quiz.mediaId }
+                ?.asset
+                ?.assessment
+                ?: return@update current
+            current.copy(assessmentQuiz = advanceQuiz(quiz, assessment))
+        }
+    }
+
+    fun restartAssessment() {
+        _state.update { current ->
+            current.assessmentQuiz?.let { quiz ->
+                current.copy(assessmentQuiz = restartQuiz(quiz))
+            } ?: current
+        }
+    }
+
+    fun closeAssessment() {
+        _state.update { it.copy(assessmentQuiz = null) }
     }
 }

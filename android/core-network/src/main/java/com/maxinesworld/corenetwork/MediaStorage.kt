@@ -40,6 +40,23 @@ class MediaStorage(
         return file.isFile && file.length() == asset.sizeBytes && sha256(file) == asset.sha256
     }
 
+    fun readCatalog(): String? {
+        return catalogFile().takeIf { it.isFile && it.length() > 0L }
+            ?.readText(Charsets.UTF_8)
+    }
+
+    fun writeCatalog(raw: String) {
+        require(raw.isNotBlank()) { "Media catalog must not be blank" }
+        val temporary = File(root, "catalog.json.part")
+        temporary.writeText(raw, Charsets.UTF_8)
+        try {
+            moveAtomically(temporary, catalogFile())
+        } catch (error: Exception) {
+            temporary.delete()
+            throw error
+        }
+    }
+
     fun installVerified(partial: File, asset: MediaAsset): File {
         require(partial.isFile) { "Media partial file does not exist: ${partial.absolutePath}" }
         require(partial.length() == asset.sizeBytes) {
@@ -50,21 +67,27 @@ class MediaStorage(
         }
 
         val destination = mediaFile(asset)
+        moveAtomically(partial, destination)
+        return destination
+    }
+
+    private fun catalogFile(): File = File(root, "catalog.json")
+
+    private fun moveAtomically(source: File, destination: File) {
         try {
             Files.move(
-                partial.toPath(),
+                source.toPath(),
                 destination.toPath(),
                 StandardCopyOption.ATOMIC_MOVE,
                 StandardCopyOption.REPLACE_EXISTING,
             )
         } catch (_: AtomicMoveNotSupportedException) {
             Files.move(
-                partial.toPath(),
+                source.toPath(),
                 destination.toPath(),
                 StandardCopyOption.REPLACE_EXISTING,
             )
         }
-        return destination
     }
 
     private fun sha256(file: File): String {

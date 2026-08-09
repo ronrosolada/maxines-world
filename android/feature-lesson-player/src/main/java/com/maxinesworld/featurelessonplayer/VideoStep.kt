@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -153,7 +154,8 @@ internal fun OfflineVideoPlayer(file: File) {
             .aspectRatio(16f / 9f)
             .clip(RoundedCornerShape(16.dp)),
         factory = { viewContext ->
-            PlayerView(viewContext).apply {
+            (LayoutInflater.from(viewContext)
+                .inflate(R.layout.view_offline_video_player, null, false) as PlayerView).apply {
                 this.player = player
                 contentDescription = "Offline lesson video player"
                 setShowNextButton(false)
