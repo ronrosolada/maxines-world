@@ -236,6 +236,13 @@ jobs:
           sudo chmod 666 /dev/kvm
           ls -l /dev/kvm
 
+      - name: Prebuild connected-test artifacts
+        # Build before booting the emulator. The first multi-module build can
+        # take 15+ minutes; leaving the emulator idle during that work caused
+        # API 34 to go offline before app tests started.
+        run: ./gradlew :core-database:assembleDebug :core-database:assembleDebugAndroidTest :app:assembleDebug :app:assembleDebugAndroidTest :feature-auth:assembleDebug :feature-auth:assembleDebugAndroidTest --stacktrace --no-daemon --max-workers=1
+        working-directory: android
+
       - name: Run migration tests on emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -257,5 +264,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: migration-test-report
-          path: android/core-database/build/reports/androidTests/
+          path: |
+            android/core-database/build/reports/androidTests/
+            android/app/build/reports/androidTests/
+            android/feature-auth/build/reports/androidTests/
           if-no-files-found: ignore
