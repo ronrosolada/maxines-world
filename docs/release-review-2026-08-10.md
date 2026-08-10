@@ -1,6 +1,6 @@
 # Maxine's World — Release Review Brief (`v0.27.0`)
 
-**Status:** Release candidate; pending commit, remote CI, and tag.
+**Status:** Release candidate; commit `b093370` pushed, pending remote CI and tag.
 
 **Branch:** `feat/optional-offline-video-pack`
 **Pull request:** #74
@@ -64,7 +64,7 @@ be verified by the next remote CI run before the release tag is created.
 - [x] Educator and mini-game gates pass locally.
 - [x] LAN permission/policy is documented and intentional.
 - [x] `git diff --check` passes.
-- [ ] Commit and push the complete release candidate.
+- [x] Commit and push the complete release candidate (`b093370`).
 - [ ] All PR checks pass, including API 34 migration tests.
 - [ ] Rebuild and inspect the exact APK from the clean release commit.
 - [ ] Create and push the `v0.27.0` tag.
