@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -84,6 +87,7 @@ fun HotspotImageRenderer(
     var tappedRegion by remember { mutableIntStateOf(-1) }
     var result by remember { mutableStateOf<Boolean?>(null) } // null = unanswered
     var hotspotProgress by remember { mutableStateOf(HotspotProgress()) }
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     val hotspots = step.hotspotExamples
         .ifEmpty { step.options }
@@ -189,7 +193,7 @@ fun HotspotImageRenderer(
                                     .clip(RoundedCornerShape(12.dp))
                                     .background(Cream.copy(alpha = 0.82f))
                                     .border(1.dp, VillageTeal.copy(alpha = 0.25f), RoundedCornerShape(12.dp))
-                                    .clickable(enabled = result == null && (!allTargetsRequired || index !in hotspotProgress.visited)) {
+                                    .clickable(enabled = result == null && (!allTargetsRequired || index !in hotspotProgress.visited), role = Role.Button) {
                                         handleHotspotTap(index)
                                     },
                                 contentAlignment = Alignment.Center
@@ -217,6 +221,7 @@ fun HotspotImageRenderer(
                         isVisited -> SunshineGold
                         else -> VillageTeal.copy(alpha = 0.6f)
                     },
+                    animationSpec = if (animationsDisabled) snap() else tween(180),
                     label = "hotspot$index"
                 )
 
@@ -236,7 +241,7 @@ fun HotspotImageRenderer(
                         .size(hotspotSize)
                         .clip(CircleShape)
                         .background(bgColor)
-                        .clickable(enabled = result == null && (!allTargetsRequired || !isVisited)) {
+                        .clickable(enabled = result == null && (!allTargetsRequired || !isVisited), role = Role.Button) {
                             handleHotspotTap(index)
                         }
                         .semantics {

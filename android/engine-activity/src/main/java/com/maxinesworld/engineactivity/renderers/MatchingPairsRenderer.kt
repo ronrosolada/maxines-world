@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -50,6 +53,7 @@ fun MatchingPairsRenderer(
     var matchedLeft by remember { mutableStateOf(setOf<Int>()) }
     var matchedRight by remember { mutableStateOf(setOf<Int>()) }
     var mismatch by remember { mutableStateOf<Pair<Int, Int>?>(null) }
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     val left: List<String> = if (step.matchPairs.isNotEmpty()) step.matchPairs.map { it.left }
         else step.options.filterIndexed { i, _ -> i % 2 == 0 }
@@ -93,9 +97,9 @@ fun MatchingPairsRenderer(
                         mismatch?.first == i -> ErrorRed.copy(alpha = 0.2f)
                         selectedLeft == i -> VillageTeal.copy(alpha = 0.15f)
                         else -> SurfaceContainer
-                    }, label = "L$i")
+                    }, animationSpec = if (animationsDisabled) snap() else tween(180), label = "L$i")
                     Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
-                        .clickable(enabled = i !in matchedLeft && mismatch == null) { selectedLeft = if (selectedLeft == i) -1 else i }
+                        .clickable(enabled = i !in matchedLeft && mismatch == null, role = Role.Button) { selectedLeft = if (selectedLeft == i) -1 else i }
                         .padding(10.dp).semantics { contentDescription = "Left: $label${if (i in matchedLeft) " — matched" else ""}" },
                         contentAlignment = Alignment.Center) {
                         Text(label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
@@ -109,9 +113,9 @@ fun MatchingPairsRenderer(
                         i in matchedRight -> SuccessGreen.copy(alpha = 0.2f)
                         mismatch?.second == i -> ErrorRed.copy(alpha = 0.2f)
                         else -> SurfaceContainer
-                    }, label = "R$i")
+                    }, animationSpec = if (animationsDisabled) snap() else tween(180), label = "R$i")
                     Box(Modifier.fillMaxWidth().sizeIn(minHeight = 48.dp).clip(RoundedCornerShape(12.dp)).background(bg)
-                        .clickable(enabled = i !in matchedRight && selectedLeft >= 0 && mismatch == null) {
+                        .clickable(enabled = i !in matchedRight && selectedLeft >= 0 && mismatch == null, role = Role.Button) {
                             attempts++
                             // Matching is positional: content authors write
                             // pairs[i] = (left[i], right[i]) and both columns

@@ -123,7 +123,8 @@ def main() -> int:
     parser.add_argument(
         "--assessments",
         type=Path,
-        help="Optional assessment source; exactly ten child-facing items per mediaId",
+        required=True,
+        help="Tracked assessment source; exactly ten child-facing items per mediaId",
     )
     args = parser.parse_args()
     assessments = load_assessments(args.assessments)

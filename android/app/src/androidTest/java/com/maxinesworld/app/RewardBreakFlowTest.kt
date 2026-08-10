@@ -9,11 +9,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.hasContentDescription
+import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performClick
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.test.core.app.ApplicationProvider
@@ -146,11 +150,15 @@ class RewardBreakFlowTest {
         onText("Play a Reward Game").performClick()
 
         // The hub loads the CREATED entitlement and starts it only on game choice.
-        waitForText("Great work today!")
-        waitForText("Cat Café Dash")
+        waitForText("Choose a game for your 5-minute reward break.")
+        waitForText("Maxine's World games")
+        // The second section is below the fold on the CI 320x640 emulator;
+        // scrolling to the game is the reliable readiness check.
+        scrollToGame("2048")
+        scrollToGame("Cat Café Dash")
         val created = getBreak()
         assertEquals(RewardBreakPolicy.CREATED, created?.state)
-        onText("Cat Café Dash").performClick()
+        game("Cat Café Dash").performClick()
 
         waitForDescription("Leave game")
         val active = getBreak()
@@ -179,7 +187,11 @@ class RewardBreakFlowTest {
     fun leavingRewardHubBeforeStartingGamePreservesCreatedBreak() {
         waitForText("Lesson Complete!")
         onText("Play a Reward Game").performClick()
-        waitForText("Great work today!")
+        waitForText("Choose a game for your 5-minute reward break.")
+        waitForText("Maxine's World games")
+        // The second section is below the fold on the CI 320x640 emulator;
+        // scrolling to the game is the reliable readiness check.
+        scrollToGame("2048")
         assertEquals(RewardBreakPolicy.CREATED, getBreak()?.state)
 
         scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
@@ -195,6 +207,16 @@ class RewardBreakFlowTest {
 
     private fun onDescription(description: String) =
         composeRule.onNodeWithContentDescription(description)
+
+    private fun game(title: String) =
+        composeRule.onNode(hasContentDescription(title, substring = true))
+
+    private fun scrollToGame(title: String) {
+        composeRule.onNode(hasScrollAction()).performScrollToNode(
+            hasContentDescription(title, substring = true),
+        )
+        game(title).assertIsDisplayed()
+    }
 
     private fun waitForText(text: String) {
         composeRule.waitUntil(20_000) {
@@ -258,7 +280,7 @@ private fun RewardBreakFlowHost(
                 gameDurationMillis = durationMillis
                 route = RewardBreakTestRoute.CAT_CAFE
             },
-            onOpenSourceGames = {},
+            onPlaySourceGame = { _, _ -> },
             onReturnToVillage = { route = RewardBreakTestRoute.VILLAGE },
         )
 

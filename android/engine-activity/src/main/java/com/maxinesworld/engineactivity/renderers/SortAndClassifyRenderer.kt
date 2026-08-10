@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -33,6 +36,7 @@ fun SortAndClassifyRenderer(
     var classified by remember { mutableStateOf(mutableMapOf<Int, Int>()) }
     var submitted by remember { mutableStateOf(false) }
     var allCorrect by remember { mutableStateOf(false) }
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     // Typed fields are authoritative. The positional fallback below exists only
     // for legacy ActivitySteps that predate the typed model.
@@ -67,6 +71,7 @@ fun SortAndClassifyRenderer(
     val bucketHighlight by animateColorAsState(
         targetValue = if (selectedItem >= 0 && !submitted) VillageTeal.copy(alpha = 0.18f)
         else SubjectColors.Science.surface,
+        animationSpec = if (animationsDisabled) snap() else tween(180),
         label = "bucketGlow",
     )
 
@@ -96,7 +101,7 @@ fun SortAndClassifyRenderer(
                 Box(Modifier.weight(1f).sizeIn(minHeight = 56.dp)
                     .clip(RoundedCornerShape(12.dp))
                     .background(if (enabled) bucketHighlight else SubjectColors.Science.surface)
-                    .clickable(enabled = enabled) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
+                    .clickable(enabled = enabled, role = Role.Button) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
                     .semantics { contentDescription = "Category $label ($n items)" },
                     contentAlignment = Alignment.Center) {
                     Text("$label ($n)", style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(8.dp))
@@ -114,7 +119,7 @@ fun SortAndClassifyRenderer(
                 else -> SurfaceContainer
             }
             Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(bg)
-                .clickable(enabled = !submitted && !placed) { selectedItem = ii }
+                .clickable(enabled = !submitted && !placed, role = Role.Button) { selectedItem = ii }
                 .padding(12.dp).sizeIn(minHeight = 48.dp)
                 .semantics { contentDescription = if (placed) "$label — sorted" else "Item: $label" },
                 verticalAlignment = Alignment.CenterVertically) {
@@ -155,7 +160,7 @@ fun SortAndClassifyRenderer(
                     else -> VillageTeal
                 }
             )
-            .clickable(enabled = submitEnabled) {
+            .clickable(enabled = submitEnabled, role = Role.Button) {
                 when {
                     submitted && allCorrect -> onAdvance()
                     submitted && !allCorrect -> {

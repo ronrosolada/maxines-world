@@ -1,6 +1,8 @@
 package com.maxinesworld.app
 
 import androidx.activity.compose.BackHandler
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,13 +20,13 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.SportsEsports
 import androidx.compose.material.icons.filled.Timer
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -45,10 +47,20 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.disabled
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.maxinesworld.coredesignsystem.theme.Coral
@@ -59,7 +71,44 @@ import com.maxinesworld.coredesignsystem.theme.SkyBlue
 import com.maxinesworld.coredesignsystem.theme.StoryPurple
 import com.maxinesworld.coredesignsystem.theme.SunshineGold
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
+import com.maxinesworld.coredesignsystem.theme.White
 import kotlinx.coroutines.launch
+
+private data class BuiltInMiniGame(
+    val id: String,
+    val title: String,
+    val description: String,
+    val category: String,
+    val accent: Color,
+    @DrawableRes val thumbnailRes: Int,
+)
+
+private val BuiltInMiniGames = listOf(
+    BuiltInMiniGame(
+        id = "cat-cafe",
+        title = "Cat Café Dash",
+        description = "Serve yummy food to animal friends!",
+        category = "Playful",
+        accent = Coral,
+        thumbnailRes = com.maxinesworld.gamecatcafe.R.drawable.cat_cafe_background,
+    ),
+    BuiltInMiniGame(
+        id = "pawprint-parkour",
+        title = "Pawprint Parkour",
+        description = "Jump and run with Milo!",
+        category = "Adventure",
+        accent = SkyBlue,
+        thumbnailRes = com.maxinesworld.gamepawprintparkour.R.drawable.parkour_background,
+    ),
+    BuiltInMiniGame(
+        id = "kitten-match",
+        title = "Kitten Match",
+        description = "Find animal friends hiding in pairs!",
+        category = "Memory",
+        accent = SunshineGold,
+        thumbnailRes = com.maxinesworld.gamekittenmatch.R.drawable.ic_milo,
+    ),
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -67,6 +116,10 @@ fun MiniGameLibraryScreen(
     childId: String,
     rewardBreakId: String,
     onPlay: (String, Long) -> Unit,
+    onPlayCatCafe: (Long) -> Unit = {},
+    onPlayParkour: (Long) -> Unit = {},
+    onPlayKittenMatch: (Long) -> Unit = {},
+    consumeOnBack: Boolean = false,
     onBack: () -> Unit,
     onReturnToVillage: () -> Unit,
     viewModel: RewardBreakViewModel = hiltViewModel(),
@@ -80,18 +133,22 @@ fun MiniGameLibraryScreen(
         viewModel.load(childId, rewardBreakId)
     }
 
-    fun beginGame(game: EmbeddedMiniGame) {
+    fun beginGame(launch: (Long) -> Unit) {
         if (starting) return
         starting = true
         scope.launch {
             val remaining = viewModel.begin(childId, rewardBreakId)
             starting = false
-            remaining?.let { onPlay(game.slug, it) }
+            remaining?.let(launch)
         }
     }
 
     fun finishBreak() {
         if (returning) return
+        if ((state as? RewardBreakUiState.Ready)?.started != true) {
+            onReturnToVillage()
+            return
+        }
         returning = true
         scope.launch {
             viewModel.consume(childId, rewardBreakId)
@@ -99,7 +156,9 @@ fun MiniGameLibraryScreen(
         }
     }
 
-    BackHandler(enabled = !returning) { onBack() }
+    BackHandler(enabled = !returning) {
+        if (consumeOnBack) finishBreak() else onBack()
+    }
 
     when (val current = state) {
         RewardBreakUiState.Loading -> MiniGameLibraryLoading()
@@ -114,10 +173,13 @@ fun MiniGameLibraryScreen(
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text("More mini-games") },
+                        title = { Text("Mini Games") },
                         navigationIcon = {
-                            IconButton(onClick = onBack) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back to games")
+                            IconButton(onClick = { if (consumeOnBack) finishBreak() else onBack() }) {
+                                Icon(
+                                    Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = if (consumeOnBack) "Return to Playroom" else "Back to reward break",
+                                )
                             }
                         },
                         actions = {
@@ -138,7 +200,7 @@ fun MiniGameLibraryScreen(
                 },
             ) { paddingValues ->
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = 170.dp),
+                    columns = GridCells.Adaptive(minSize = 190.dp),
                     modifier = Modifier
                         .fillMaxSize()
                         .background(Cream)
@@ -153,27 +215,69 @@ fun MiniGameLibraryScreen(
                             breakExpired = breakExpired,
                         )
                     }
-                    items(MiniGameCatalog.games, key = EmbeddedMiniGame::slug) { game ->
-                        MiniGameChoiceCard(
-                            game = game,
-                            enabled = !breakExpired && !starting,
-                            onClick = { beginGame(game) },
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End,
+                        ) {
+                            TextButton(
+                                onClick = ::finishBreak,
+                                enabled = !returning,
+                            ) {
+                                Icon(Icons.Default.Home, contentDescription = "Playroom")
+                                Spacer(Modifier.width(6.dp))
+                                Text("Return to Playroom")
+                            }
+                        }
+                    }
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        MenuSectionHeader(
+                            title = "Maxine's World games",
+                            subtitle = "Friendly games made for your reward break",
                         )
+                    }
+                    items(BuiltInMiniGames, key = { "built-in-${it.id}" }) { game ->
+                        MiniGameChoiceCard(
+                            title = game.title,
+                            category = game.category,
+                            description = game.description,
+                            accent = game.accent,
+                            enabled = !breakExpired && !starting,
+                            onClick = {
+                                beginGame { duration ->
+                                    when (game.id) {
+                                        "cat-cafe" -> onPlayCatCafe(duration)
+                                        "pawprint-parkour" -> onPlayParkour(duration)
+                                        "kitten-match" -> onPlayKittenMatch(duration)
+                                    }
+                                }
+                            },
+                        ) {
+                            ArtworkThumbnail(game.thumbnailRes, game.accent)
+                        }
+                    }
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        MenuSectionHeader(
+                            title = "Puzzle & classic games",
+                            subtitle = "${MiniGameCatalog.games.size} more games, bundled for offline play",
+                        )
+                    }
+                    items(MiniGameCatalog.games, key = EmbeddedMiniGame::slug) { game ->
+                        val accent = categoryAccent(game.category)
+                        MiniGameChoiceCard(
+                            title = game.title,
+                            category = game.category.label,
+                            description = game.description,
+                            accent = accent,
+                            titleColor = categoryTextColor(game.category),
+                            enabled = !breakExpired && !starting,
+                            onClick = { beginGame { duration -> onPlay(game.slug, duration) } },
+                        ) {
+                            ArtworkThumbnail(game.thumbnailRes, accent)
+                        }
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
                         AttributionCard()
-                    }
-                    item(span = { GridItemSpan(maxLineSpan) }) {
-                        Button(
-                            onClick = ::finishBreak,
-                            enabled = !returning,
-                            modifier = Modifier.fillMaxWidth().height(56.dp),
-                            shape = RoundedCornerShape(16.dp),
-                        ) {
-                            Icon(Icons.Default.Home, contentDescription = "Playroom")
-                            Spacer(Modifier.width(8.dp))
-                            Text("Return to Playroom")
-                        }
                     }
                 }
             }
@@ -202,7 +306,7 @@ private fun LibraryHeader(durationMillis: Long, breakExpired: Boolean) {
             if (breakExpired) {
                 "This reward break has finished."
             } else {
-                "Bundled for offline play. These games are fun-only and do not award stickers or tokens."
+                "All games work offline and are fun-only. They do not award stickers or tokens."
             },
             style = MaterialTheme.typography.bodyMedium,
             color = if (breakExpired) Coral else Ink.copy(alpha = 0.7f),
@@ -212,48 +316,98 @@ private fun LibraryHeader(durationMillis: Long, breakExpired: Boolean) {
 }
 
 @Composable
+private fun MenuSectionHeader(title: String, subtitle: String) {
+    Column(Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 2.dp)) {
+        Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.ExtraBold, color = Ink)
+        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = Ink)
+    }
+}
+
+@Composable
 private fun MiniGameChoiceCard(
-    game: EmbeddedMiniGame,
+    title: String,
+    category: String,
+    description: String,
+    accent: Color,
+    titleColor: Color = Ink,
     enabled: Boolean,
     onClick: () -> Unit,
+    thumbnail: @Composable () -> Unit,
 ) {
-    val accent = categoryAccent(game.category)
     Card(
-        modifier = Modifier.fillMaxWidth().height(190.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(248.dp)
+            .semantics(mergeDescendants = true) {
+                contentDescription = "$title. $description"
+                role = Role.Button
+                if (!enabled) disabled()
+            },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = accent.copy(alpha = 0.1f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         enabled = enabled,
         onClick = onClick,
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize().padding(16.dp),
-            verticalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Text(game.icon, style = MaterialTheme.typography.headlineMedium)
-            Column {
+        Column(Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(108.dp)
+                    .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)),
+            ) {
+                thumbnail()
+            }
+            Column(Modifier.padding(14.dp)) {
                 Text(
-                    game.title,
+                    title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = accent,
+                    color = titleColor,
+                    maxLines = 2,
                 )
+                Spacer(Modifier.height(3.dp))
+                Text(category, style = MaterialTheme.typography.labelMedium, color = Ink)
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    game.category.label,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = Ink.copy(alpha = 0.65f),
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    game.description,
+                    description,
                     style = MaterialTheme.typography.bodySmall,
-                    color = Ink.copy(alpha = 0.8f),
+                    color = Ink,
+                    maxLines = 3,
                 )
             }
         }
     }
 }
+
+@Composable
+private fun ArtworkThumbnail(@DrawableRes imageRes: Int, accent: Color) {
+    Box(Modifier.fillMaxSize().background(accent.copy(alpha = 0.2f))) {
+        Image(
+            painter = painterResource(imageRes),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+        Box(
+            Modifier
+                .fillMaxSize()
+                .background(Brush.verticalGradient(listOf(Color.Transparent, Ink.copy(alpha = 0.35f)))),
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(10.dp)
+                .size(36.dp)
+                .clip(CircleShape)
+                .background(White.copy(alpha = 0.9f)),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(Icons.Default.SportsEsports, contentDescription = null, tint = accent, modifier = Modifier.size(21.dp))
+        }
+    }
+}
+
 
 @Composable
 private fun AttributionCard() {
@@ -271,7 +425,7 @@ private fun AttributionCard() {
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                "Embedded from mazipan/mini-games at a pinned source version. MIT licensed. No account, analytics, or network access is used.",
+                "${BuiltInMiniGames.size + MiniGameCatalog.games.size} games are bundled locally. No account, analytics, or network access is used.",
                 style = MaterialTheme.typography.bodySmall,
                 color = Ink.copy(alpha = 0.75f),
             )
@@ -284,6 +438,13 @@ private fun categoryAccent(category: EmbeddedMiniGameCategory): Color = when (ca
     EmbeddedMiniGameCategory.PUZZLE -> LeafGreen
     EmbeddedMiniGameCategory.BOARD -> SunshineGold
     EmbeddedMiniGameCategory.WORD -> SkyBlue
+}
+
+private fun categoryTextColor(category: EmbeddedMiniGameCategory): Color = when (category) {
+    EmbeddedMiniGameCategory.ARCADE -> com.maxinesworld.coredesignsystem.theme.OnCoral
+    EmbeddedMiniGameCategory.PUZZLE -> com.maxinesworld.coredesignsystem.theme.OnLeafGreen
+    EmbeddedMiniGameCategory.BOARD -> com.maxinesworld.coredesignsystem.theme.OnGold
+    EmbeddedMiniGameCategory.WORD -> com.maxinesworld.coredesignsystem.theme.OnSkyBlue
 }
 
 @Composable

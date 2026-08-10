@@ -1,6 +1,8 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -56,6 +59,7 @@ fun SequenceBuilderRenderer(
     var ordered by remember { mutableStateOf(listOf<Int>()) }
     var submitted by remember { mutableStateOf(false) }
     var isCorrect by remember { mutableStateOf(false) }
+    val animationsDisabled = LocalAnimationsDisabled.current
 
     val items: List<String> = step.sequenceSteps.ifEmpty { step.options }
     // Present tiles in a stable shuffled order; the correct answer remains the
@@ -75,7 +79,7 @@ fun SequenceBuilderRenderer(
         available.forEach { idx ->
             Row(Modifier.fillMaxWidth().sizeIn(minHeight = 44.dp).clip(RoundedCornerShape(10.dp))
                 .background(SurfaceContainer)
-                .clickable(enabled = !submitted) { ordered = ordered + idx }
+                .clickable(enabled = !submitted, role = Role.Button) { ordered = ordered + idx }
                 .padding(horizontal = 12.dp, vertical = 10.dp)
                 .semantics { contentDescription = "Available: ${items[idx]} — tap to add" },
                 verticalAlignment = Alignment.CenterVertically) {
@@ -89,9 +93,9 @@ fun SequenceBuilderRenderer(
                 submitted && isCorrect -> SuccessGreen.copy(alpha = 0.15f)
                 submitted && !isCorrect && pos != idx -> ErrorRed.copy(alpha = 0.1f)
                 else -> SunshineGold.copy(alpha = 0.08f)
-            }, label = "ord$idx")
+            }, animationSpec = if (animationsDisabled) snap() else tween(180), label = "ord$idx")
             Row(Modifier.fillMaxWidth().sizeIn(minHeight = 44.dp).clip(RoundedCornerShape(10.dp)).background(bg)
-                .clickable(enabled = !submitted) { ordered = ordered.filter { it != idx } }
+                .clickable(enabled = !submitted, role = Role.Button) { ordered = ordered.filter { it != idx } }
                 .padding(horizontal = 12.dp, vertical = 10.dp)
                 .semantics { contentDescription = "Position ${pos + 1}: ${items[idx]} — tap to remove" },
                 verticalAlignment = Alignment.CenterVertically) {
@@ -115,7 +119,7 @@ fun SequenceBuilderRenderer(
                     else -> VillageTeal
                 }
             )
-            .clickable(enabled = actionEnabled) {
+            .clickable(enabled = actionEnabled, role = Role.Button) {
                 if (submitted && !isCorrect) {
                     // Third failure: advance anyway so the child is never trapped.
                     if (attempts >= 3) {

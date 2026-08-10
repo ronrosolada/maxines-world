@@ -29,6 +29,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -56,6 +57,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.liveRegion
+
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
@@ -92,7 +94,7 @@ internal val SubjectAccent = mapOf(
     "filipino" to Color(0xFFD96555),
     "araling_panlipunan" to HeritageGold,
     "makabansa" to Color(0xFF8B5E34),
-    "gmrc" to KindnessTeal,
+    "gmrc" to KindnessTealText,
 )
 
 internal val SubjectPale = mapOf(
@@ -146,6 +148,7 @@ fun PlayroomHomeScreen(
     onQuestAction: (QuestAction) -> Unit,
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
+    onResumeLearning: (String) -> Unit = {},
     onTreatShopClick: () -> Unit = {},
     onVideosClick: () -> Unit = {},
     onParentsClick: () -> Unit,
@@ -204,6 +207,7 @@ fun PlayroomHomeScreen(
                         columns = columns,
                         railBeside = showRailBeside,
                         onSubjectClick = onSubjectClick,
+                        onResumeLearning = onResumeLearning,
                         onQuestAction = onQuestAction,
                         onOpenCollection = onOpenCollection,
                         onVideosClick = onVideosClick,
@@ -230,6 +234,7 @@ private fun ContentLayout(
     columns: Int,
     railBeside: Boolean,
     onSubjectClick: (String) -> Unit,
+    onResumeLearning: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
     onOpenCollection: () -> Unit,
     onVideosClick: () -> Unit,
@@ -274,6 +279,9 @@ private fun ContentLayout(
                 modifier = Modifier.weight(0.66f),
             )
             Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                content.resumeLesson?.let { resume ->
+                    LearningResumeCard(resume, onResumeLearning)
+                }
                 VideoLibraryCard(onClick = onVideosClick)
                 TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
                 SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
@@ -286,6 +294,9 @@ private fun ContentLayout(
         }
     } else {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            content.resumeLesson?.let { resume ->
+                LearningResumeCard(resume, onResumeLearning)
+            }
             VideoLibraryCard(onClick = onVideosClick)
             // Quest moves above the grid for medium/narrow widths (§7.1)
             TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
@@ -305,6 +316,54 @@ private fun ContentLayout(
                 onSubjectClick = onSubjectClick,
                 modifier = Modifier.fillMaxWidth(),
             )
+        }
+    }
+}
+
+@Composable
+private fun LearningResumeCard(
+    resume: LearningResumeUi,
+    onResumeLearning: (String) -> Unit,
+) {
+    val heading = if (resume.isFirstLesson) "Start your first adventure" else "Pick up where you left off"
+    val action = if (resume.isFirstLesson) "Start" else "Continue"
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onResumeLearning(resume.lessonId) }
+            .semantics(mergeDescendants = true) {
+                contentDescription = "$heading. ${resume.title}. ${resume.subjectName}. $action lesson."
+                role = Role.Button
+            },
+        shape = RoundedCornerShape(20.dp),
+        color = PlayCream,
+        contentColor = PlayInk,
+        border = BorderStroke(2.dp, PlayTeal.copy(alpha = 0.35f)),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                Modifier.size(44.dp).clip(CircleShape).background(PlayTeal),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(Icons.Default.PlayCircle, contentDescription = null, tint = PlayWhite, modifier = Modifier.size(28.dp))
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(heading, fontWeight = FontWeight.ExtraBold, color = PlayTeal, fontSize = 14.sp)
+                Text(resume.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(
+                    "${resume.subjectName} · ${resume.estimatedMinutes} minutes",
+                    color = PlayMuted,
+                    fontSize = 13.sp,
+                )
+            }
+            Spacer(Modifier.width(8.dp))
+            Surface(shape = RoundedCornerShape(99.dp), color = PlaySunshine, contentColor = PlayInkDark) {
+                Text(action, fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp))
+            }
         }
     }
 }
@@ -363,7 +422,6 @@ private fun PlayroomHeader(
     if (wide) {
         Row(Modifier.fillMaxWidth().heightIn(min = 96.dp), verticalAlignment = Alignment.CenterVertically) {
             BrandBlock(Modifier.width(210.dp))
-            MascotAvatar(Modifier.size(88.dp))
             GreetingBlock(childName, Modifier.widthIn(min = 250.dp).padding(horizontal = 16.dp))
             BalanceChips(starBalance, coinBalance, Modifier.weight(1f))
         }
@@ -371,7 +429,6 @@ private fun PlayroomHeader(
         Row(verticalAlignment = Alignment.CenterVertically) {
             BrandBlock(Modifier.weight(1f))
             BalanceChips(starBalance, coinBalance)
-            MascotAvatar(Modifier.size(72.dp))
         }
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
@@ -515,24 +572,6 @@ private fun BrandBlock(modifier: Modifier = Modifier) {
 }
 
 private val PlayHeritageGold = Color(0xFFB87916)
-
-@Composable
-private fun MascotAvatar(modifier: Modifier = Modifier) {
-    Box(
-        modifier
-            .clip(CircleShape)
-            .background(Color.White, CircleShape)
-            .border(3.dp, Color.White, CircleShape),
-        contentAlignment = Alignment.Center,
-    ) {
-        Icon(
-            painterResource(R.drawable.mw_mascot_guide),
-            contentDescription = null, // decorative; greeting carries the meaning
-            tint = Color.Unspecified,
-            modifier = Modifier.fillMaxSize().padding(3.dp),
-        )
-    }
-}
 
 @Composable
 private fun GreetingBlock(childName: String, modifier: Modifier = Modifier) {
@@ -891,13 +930,15 @@ private fun TodayQuestCard(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(14.dp))
                         .semantics {
-                            contentDescription = if (quest.isComplete) {
+                            contentDescription = if (quest.godModeEnabled) {
+                                "Parent mode: Playground and all rewards unlocked"
+                            } else if (quest.isComplete) {
                                 "Reward earned: sanctuary piece and five minute play break"
                             } else {
                                 "Quest reward: one sanctuary piece and five minute play break"
                             }
                         },
-                    color = if (quest.isComplete) PlaySunshine.copy(alpha = 0.28f) else PlayTeal.copy(alpha = 0.08f),
+                    color = if (quest.godModeEnabled || quest.isComplete) PlaySunshine.copy(alpha = 0.28f) else PlayTeal.copy(alpha = 0.08f),
                 ) {
                     Row(
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
@@ -906,12 +947,14 @@ private fun TodayQuestCard(
                         Icon(
                             Icons.Default.CardGiftcard,
                             contentDescription = null,
-                            tint = if (quest.isComplete) PlayInkDark else PlayTeal,
+                            tint = if (quest.godModeEnabled || quest.isComplete) PlayInkDark else PlayTeal,
                             modifier = Modifier.size(22.dp),
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
-                            if (quest.isComplete) {
+                            if (quest.godModeEnabled) {
+                                "Parent mode: Playground + all stickers and rewards unlocked"
+                            } else if (quest.isComplete) {
                                 "Reward earned: a sanctuary piece + 5-minute play break"
                             } else {
                                 "Reward at 3/3: a sanctuary piece + 5-minute play break"
@@ -998,6 +1041,12 @@ private fun SanctuaryPreview(
     sanctuary: SanctuaryUi,
     modifier: Modifier = Modifier,
 ) {
+    val progress = if (sanctuary.totalPieces > 0) {
+        (sanctuary.earnedPieces.toFloat() / sanctuary.totalPieces).coerceIn(0f, 1f)
+    } else {
+        0f
+    }
+
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(22.dp),
@@ -1009,57 +1058,86 @@ private fun SanctuaryPreview(
                 Icon(Icons.Default.Park, contentDescription = null, tint = PlayTeal, modifier = Modifier.size(28.dp))
                 Spacer(Modifier.width(10.dp))
                 Text(
-                    "Milo's Wildlife Sanctuary",
+                    stringResource(R.string.home_sanctuary_title),
                     color = PlayInk,
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 17.sp,
                     modifier = Modifier.weight(1f),
                 )
                 Text(
-                    "${sanctuary.earnedPieces}/${sanctuary.totalPieces}",
+                    stringResource(
+                        R.string.home_sanctuary_piece_count,
+                        sanctuary.earnedPieces,
+                        sanctuary.totalPieces,
+                    ),
                     color = PlayTeal,
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 14.sp,
                 )
             }
-            Spacer(Modifier.height(8.dp))
-            Text(
-                sanctuary.nextPiece?.let { "Next: ${it.name}" }
-                    ?: "The sanctuary is full of wonderful discoveries!",
-                color = PlayMuted,
-                fontSize = 14.sp,
-                lineHeight = 20.sp,
+            Spacer(Modifier.height(10.dp))
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
+                color = PlayTeal,
+                trackColor = PlayTeal.copy(alpha = 0.15f),
             )
-            if (sanctuary.visiblePieces.isNotEmpty()) {
-                Spacer(Modifier.height(10.dp))
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    items(sanctuary.visiblePieces.takeLast(5), key = { it.id }) { piece ->
-                        Surface(
-                            shape = RoundedCornerShape(14.dp),
-                            color = Color.White.copy(alpha = 0.78f),
-                            modifier = Modifier.semantics(mergeDescendants = true) {
-                                contentDescription = "Sanctuary piece: ${piece.name}. ${piece.description}"
-                            },
-                        ) {
-                            Row(
-                                Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(5.dp),
-                            ) {
-                                Icon(sanctuaryIcon(piece.iconKey), contentDescription = null, tint = PlayTeal, modifier = Modifier.size(18.dp))
-                                Text(piece.name, color = PlayInk, fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                            }
+            Spacer(Modifier.height(12.dp))
+            val nextPiece = sanctuary.nextPiece
+            if (nextPiece != null) {
+                Surface(
+                    shape = RoundedCornerShape(16.dp),
+                    color = Color.White.copy(alpha = 0.78f),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Row(
+                        Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
+                        Icon(
+                            sanctuaryIcon(nextPiece.iconKey),
+                            contentDescription = null,
+                            tint = PlayTeal,
+                            modifier = Modifier.size(24.dp),
+                        )
+                        Column(Modifier.weight(1f)) {
+                            Text(
+                                stringResource(R.string.home_sanctuary_next_reward),
+                                color = PlayTeal,
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 12.sp,
+                            )
+                            Text(
+                                nextPiece.name,
+                                color = PlayInk,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 15.sp,
+                            )
+                            Text(
+                                nextPiece.description,
+                                color = PlayMuted,
+                                fontSize = 12.sp,
+                                lineHeight = 17.sp,
+                            )
                         }
                     }
                 }
             } else {
                 Text(
-                    "Complete today's learning adventures to grow it.",
-                    color = PlayTeal,
+                    stringResource(R.string.home_sanctuary_complete),
+                    color = PlayInk,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 13.sp,
+                    fontSize = 14.sp,
                 )
             }
+            Spacer(Modifier.height(9.dp))
+            Text(
+                stringResource(R.string.home_sanctuary_earn_hint),
+                color = PlayMuted,
+                fontSize = 13.sp,
+                lineHeight = 18.sp,
+            )
         }
     }
 }
@@ -1282,7 +1360,16 @@ private fun LoadingPlaceholders(columns: Int) {
             Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            MascotAvatar(Modifier.size(64.dp))
+            Box(
+                Modifier.size(64.dp).clip(CircleShape).background(PlayCream),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(26.dp),
+                    color = PlayTeal,
+                    strokeWidth = 3.dp,
+                )
+            }
             Spacer(Modifier.width(14.dp))
             Column {
                 Text(

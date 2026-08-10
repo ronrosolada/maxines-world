@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -199,7 +200,11 @@ private fun PokemonStyleBadgeSlot(
                     drawCircle(accent.copy(alpha = 0.2f), radius = size.minDimension / 2)
                     drawCircle(accent.copy(alpha = 0.08f), radius = size.minDimension / 2.4f)
                 }
-                Icon(Icons.Default.Pets, contentDescription = null, tint = accent, modifier = Modifier.size(32.dp))
+                BadgeArtwork(
+                    badge = badge,
+                    modifier = Modifier.size(56.dp),
+                    fallbackTint = accent,
+                )
                 // Leaf checkmark
                 Icon(Icons.Default.Park, null, tint = accent,
                     modifier = Modifier.align(Alignment.BottomEnd).padding(4.dp).size(14.dp))
@@ -374,8 +379,11 @@ fun BadgeRevealScreen(
                                 .graphicsLayer { scaleX = popScale; scaleY = popScale }
                                 .clip(CircleShape).background(accent.copy(alpha = 0.12f)),
                                 contentAlignment = Alignment.Center) {
-                                Icon(Icons.Default.Pets, contentDescription = "${badge.name} sticker", tint = accent,
-                                    modifier = Modifier.size(72.dp))
+                                BadgeArtwork(
+                                    badge = badge,
+                                    modifier = Modifier.size(112.dp),
+                                    fallbackTint = accent,
+                                )
                             }
                         }
                         Spacer(Modifier.height(16.dp))
@@ -439,7 +447,7 @@ internal fun badgeRevealAnimationEnabled(animatorDurationScale: Float): Boolean 
 @Composable
 fun WildlifeExpeditionProgressRow(progress: ChallengeProgress) {
     val subjects = listOf(
-        Triple("English", progress.english, Icons.Default.MenuBook),
+        Triple("English", progress.english, Icons.AutoMirrored.Filled.MenuBook),
         Triple("Filipino", progress.filipino, Icons.Default.AutoStories),
         Triple("Math", progress.mathematics, Icons.Default.Calculate),
         Triple("Science", progress.science, Icons.Default.Science),

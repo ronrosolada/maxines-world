@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import com.maxinesworld.corecontent.ContentModule
 import com.maxinesworld.corecontent.ContentModuleLesson
@@ -41,5 +42,28 @@ class SubjectModulesScreenTest {
         composeRule.onNodeWithText("Start here, or choose another module.").assertIsDisplayed()
         composeRule.onNodeWithText("Start here!").assertIsDisplayed()
         composeRule.onAllNodesWithText("Start here!").assertCountEquals(1)
+    }
+
+    @Test
+    fun gmrcUsesTheKindnessCornerLearningPlaceArtwork() {
+        composeRule.setContent {
+            SubjectModulesScreen(
+                subject = "gmrc",
+                state = SubjectModulesState(
+                    isLoading = false,
+                    modules = listOf(
+                        ContentModule(
+                            key = "q1-w1",
+                            title = "Quarter 1 · Week 1",
+                            lessons = listOf(ContentModuleLesson("gmrc-g3-q1-w01-d01", "Tiwala sa Sarili", 1)),
+                        ),
+                    ),
+                ),
+                onModuleClick = {},
+                onBack = {},
+            )
+        }
+
+        composeRule.onNodeWithContentDescription("Kindness Corner learning place").assertIsDisplayed()
     }
 }

@@ -204,7 +204,10 @@ jobs:
     # Pin to 22.04: ubuntu-latest (24.04) runner images regressed KVM access,
     # which breaks the x86_64 emulator ("No compatible devices connected").
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
+    # A cold API 34 emulator plus the first multi-module Android test build
+    # can exceed 30 minutes. Keep a bounded job, but leave enough room for
+    # Gradle compilation after emulator startup.
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
@@ -233,6 +236,13 @@ jobs:
           sudo chmod 666 /dev/kvm
           ls -l /dev/kvm
 
+      - name: Prebuild connected-test artifacts
+        # Build before booting the emulator. The first multi-module build can
+        # take 15+ minutes; leaving the emulator idle during that work caused
+        # API 34 to go offline before app tests started.
+        run: ./gradlew :core-database:assembleDebug :core-database:assembleDebugAndroidTest :app:assembleDebug :app:assembleDebugAndroidTest :feature-auth:assembleDebug :feature-auth:assembleDebugAndroidTest --stacktrace --no-daemon --max-workers=1
+        working-directory: android
+
       - name: Run migration tests on emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -242,17 +252,30 @@ jobs:
           cores: 2
           ram-size: 2048M
           heap-size: 512M
+          # The API 34 image needs about 9.83 GB for userdata after the
+          # prebuilt test APKs are present. The hosted runner has limited free
+          # space, so the pre-launch hook removes only disposable installer
+          # data and unrelated toolchains not used by Android CI.
+          disk-size: 8G
           force-avd-creation: true
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: android
-          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace
+          pre-emulator-launch-script: |
+            sudo rm -rf /usr/local/lib/android/sdk/.temp
+            rm -rf "${GRADLE_USER_HOME}/caches/build-cache-1"
+            sudo rm -rf /opt/ghc /usr/share/dotnet /usr/local/share/powershell /opt/hostedtoolcache/CodeQL
+            df -h /usr/local/lib/android/sdk "${HOME}"
+          script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace --no-daemon --max-workers=1
 
       - name: Upload migration test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: migration-test-report
-          path: android/core-database/build/reports/androidTests/
+          path: |
+            android/core-database/build/reports/androidTests/
+            android/app/build/reports/androidTests/
+            android/feature-auth/build/reports/androidTests/
           if-no-files-found: ignore

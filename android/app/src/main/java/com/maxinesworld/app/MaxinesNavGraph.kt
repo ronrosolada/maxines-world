@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
@@ -155,6 +156,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         homeViewModel.onOpenFinished()
                     }
                 },
+                onResumeLearning = { lessonId ->
+                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
+                },
                 onQuestAction = { action ->
                     when (action) {
                         QuestAction.OpenLesson -> {
@@ -181,6 +185,11 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {
                             navController.navigate(Routes.treatShop(childId))
+                        }
+                        QuestAction.OpenPlayground -> {
+                            navController.navigate(
+                                MiniGameRoutes.hub(childId, GodModeManager.GOD_MODE_REWARD_BREAK_ID)
+                            )
                         }
                     }
                 },
@@ -218,6 +227,12 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onDownload = viewModel::download,
                 onPlay = viewModel::play,
                 onStopPlaying = viewModel::stopPlaying,
+                onStartAssessment = viewModel::startAssessment,
+                onSelectAssessmentOption = viewModel::selectAssessmentOption,
+                onSubmitAssessment = viewModel::submitAssessment,
+                onNextAssessment = viewModel::nextAssessment,
+                onRestartAssessment = viewModel::restartAssessment,
+                onCloseAssessment = viewModel::closeAssessment,
             )
         }
 
@@ -353,8 +368,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayKittenMatch = { durationMillis ->
                     navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
-                onOpenSourceGames = {
-                    navController.navigate(MiniGameRoutes.sourceLibrary(childId, breakId))
+                onPlaySourceGame = { gameSlug, durationMillis ->
+                    navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
                 },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
@@ -378,6 +393,15 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 rewardBreakId = breakId,
                 onPlay = { gameSlug, durationMillis ->
                     navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
+                },
+                onPlayCatCafe = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.catCafe(childId, breakId, durationMillis))
+                },
+                onPlayParkour = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.parkour(childId, breakId, durationMillis))
+                },
+                onPlayKittenMatch = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
                 onBack = { navController.popBackStack() },
                 onReturnToVillage = {

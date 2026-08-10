@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,6 +38,7 @@ data class ParentDashboardState(
     val recentActivity: List<String> = emptyList(),
     /** Consecutive-day learning streak in the child's local timezone. */
     val streakDays: Int = 0,
+    val godModeEnabled: Boolean = false,
     val isLoading: Boolean = true
 )
 
@@ -90,6 +93,7 @@ class ParentDashboardViewModel @Inject constructor(
     private val progressEventDao: ProgressEventDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val moduleCatalog: ModuleCatalog,
+    private val godModeManager: GodModeManager,
 ) : androidx.lifecycle.ViewModel() {
 
     private val _state = MutableStateFlow(ParentDashboardState())
@@ -97,6 +101,7 @@ class ParentDashboardViewModel @Inject constructor(
 
     fun load(childId: String) {
         viewModelScope.launch {
+            val godModeEnabled = godModeManager.isEnabled()
             val child = childProfileDao.getById(childId)
             val starsTotal = rewardDao.getTotalByType(childId, "STAR") ?: 0
             val coinsTotal = rewardDao.getTotalByType(childId, "COIN") ?: 0
@@ -161,8 +166,16 @@ class ParentDashboardViewModel @Inject constructor(
                 masterySummary = MasterySummary(mastered, developing, needsReview),
                 recentActivity = recentActivity,
                 streakDays = longestStreak(localDatesFromEpochMillis(progress.map { it.timestamp })),
+                godModeEnabled = godModeEnabled,
                 isLoading = false
             )
+        }
+    }
+
+    fun setGodModeEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            godModeManager.setEnabled(enabled)
+            _state.update { it.copy(godModeEnabled = enabled) }
         }
     }
 }
@@ -272,6 +285,29 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                 Text("Keep learning every day to grow your Playroom", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                         }
+                    }
+                }
+
+                Card(colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.10f))) {
+                    Row(
+                        Modifier.fillMaxWidth().padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(Modifier.weight(1f)) {
+                            Text("God mode", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink)
+                            Text(
+                                "Unlock Playground, every sticker, and all sanctuary rewards for this child. Existing progress is not changed.",
+                                fontSize = 14.sp,
+                                color = Ink.copy(alpha = 0.65f),
+                            )
+                        }
+                        Switch(
+                            checked = state.godModeEnabled,
+                            onCheckedChange = viewModel::setGodModeEnabled,
+                            modifier = Modifier.semantics {
+                                contentDescription = if (state.godModeEnabled) "God mode enabled" else "God mode disabled"
+                            },
+                        )
                     }
                 }
 

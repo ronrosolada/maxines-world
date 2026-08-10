@@ -1,6 +1,7 @@
 package com.maxinesworld.featurerewards
 
 import androidx.room.withTransaction
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.InventoryEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
@@ -62,15 +63,23 @@ class TreatShopRepository @Inject constructor(
     private val database: MaxinesDatabase,
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
+    private val godModeManager: GodModeManager? = null,
 ) {
     suspend fun coinBalance(childId: String): Int =
         rewardDao.getTotalByType(childId, "COIN") ?: 0
 
     suspend fun ownedItemIds(childId: String): Set<String> =
-        inventoryDao.getOwnedItemIds(childId).toSet()
+        if (godModeManager?.isEnabled() == true) {
+            TreatShopCatalog.items.mapTo(mutableSetOf()) { it.id }
+        } else {
+            inventoryDao.getOwnedItemIds(childId).toSet()
+        }
 
     suspend fun purchase(childId: String, item: TreatShopItem): PurchaseResult =
         database.withTransaction {
+            if (godModeManager?.isEnabled() == true) {
+                return@withTransaction PurchaseResult.AlreadyOwned
+            }
             if (inventoryDao.owns(childId, item.id)) {
                 return@withTransaction PurchaseResult.AlreadyOwned
             }

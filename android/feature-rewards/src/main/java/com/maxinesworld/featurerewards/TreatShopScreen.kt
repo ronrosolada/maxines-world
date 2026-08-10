@@ -45,6 +45,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.SetMeal
+import androidx.compose.material.icons.filled.ShoppingBasket
+import androidx.compose.material.icons.filled.Weekend
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -217,6 +220,8 @@ private fun TreatShopItemCard(
 }
 
 private fun treatIcon(iconKey: String): ImageVector = when (iconKey) {
-    "basket", "cushion", "bowl" -> Icons.Default.Pets
+    "basket" -> Icons.Default.ShoppingBasket
+    "cushion" -> Icons.Default.Weekend
+    "bowl" -> Icons.Default.SetMeal
     else -> Icons.Default.Park
 }

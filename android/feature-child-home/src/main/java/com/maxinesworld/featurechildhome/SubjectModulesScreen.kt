@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -8,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -22,7 +23,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.text.font.FontWeight
@@ -31,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.corecontent.ContentModule
 import com.maxinesworld.coredesignsystem.theme.Ink
+import com.maxinesworld.coredesignsystem.theme.KindnessTealText
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 
 /**
@@ -48,6 +53,8 @@ fun SubjectModulesScreen(
     onBack: () -> Unit,
 ) {
     val displayName = subjectDisplayName(subject)
+    val headerColor = if (subject == "gmrc") KindnessTealText else VillageTeal
+    val heroRes = subjectHeroResource(subject)
     Scaffold(
         topBar = {
             TopAppBar(
@@ -55,7 +62,7 @@ fun SubjectModulesScreen(
                 navigationIcon = {
                     IconButton(onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White) }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = VillageTeal)
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = headerColor)
             )
         }
     ) { padding ->
@@ -74,13 +81,25 @@ fun SubjectModulesScreen(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         item {
+                            heroRes?.let { resource ->
+                                Image(
+                                    painter = painterResource(resource),
+                                    contentDescription = "Kindness Corner learning place",
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(156.dp)
+                                        .clip(RoundedCornerShape(24.dp)),
+                                    contentScale = ContentScale.Crop,
+                                )
+                                Spacer(Modifier.height(4.dp))
+                            }
                             Text(
                                 "Start here, or choose another module.",
                                 fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink
                             )
                             Text(
                                 "${state.modules.size} modules · pick one to start learning",
-                                fontSize = 14.sp, color = Ink.copy(alpha = 0.6f)
+                                fontSize = 14.sp, color = Ink
                             )
                         }
                         items(state.modules, key = { it.key }) { module ->
@@ -110,7 +129,7 @@ private fun ModuleCard(
     ) {
         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                Icons.Default.MenuBook, contentDescription = null,
+                Icons.AutoMirrored.Filled.MenuBook, contentDescription = null,
                 tint = VillageTeal, modifier = Modifier.size(32.dp)
             )
             Spacer(Modifier.width(14.dp))
@@ -126,7 +145,7 @@ private fun ModuleCard(
                 Text(module.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = Ink)
                 Text(
                     moduleCardSubtitle(module),
-                    fontSize = 13.sp, color = Ink.copy(alpha = 0.6f),
+                    fontSize = 13.sp, color = Ink,
                     maxLines = 1, overflow = TextOverflow.Ellipsis
                 )
             }
@@ -150,6 +169,11 @@ fun subjectDisplayName(subject: String): String = when (subject) {
     "araling-panlipunan" -> "Araling Panlipunan"
     "makabansa" -> "Makabansa"
     else -> subject.replaceFirstChar { it.uppercase() }
+}
+
+private fun subjectHeroResource(subject: String): Int? = when (subject) {
+    "gmrc" -> R.drawable.mw_location_kindness_corner
+    else -> null
 }
 
 /** Normalize an island ID to the pack subject used in lesson IDs. */

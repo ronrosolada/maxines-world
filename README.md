@@ -26,7 +26,7 @@ curious rather than distract from understanding.
 android/
 ├── app/                          # Application shell
 ├── core-model/                   # Domain models
-├── core-network/                 # Retained API client placeholder (unused offline)
+├── core-network/                 # Optional trusted-LAN media catalog/downloads
 ├── core-database/                # Room database
 ├── core-design-system/           # Theme and shared composables
 ├── core-content/                 # JSON lesson loader
@@ -51,7 +51,8 @@ cd android
 ./gradlew assembleDebug
 ```
 
-The release build is intentionally offline-only. It must pass both the
+The release is offline-first: lessons and reward-break games are bundled, with
+optional media available from the trusted home LAN. It must pass both the
 educator-content gate and the bundled mini-game isolation gate:
 
 ```bash
@@ -59,6 +60,10 @@ educator-content gate and the bundled mini-game isolation gate:
 python3 tools/content_quality_audit.py --check
 python3 tools/dedupe_lesson_titles.py --check
 ```
+
+The release manifest intentionally includes `android.permission.INTERNET` for
+the optional LAN media path. Cleartext traffic is restricted to the configured
+home-LAN media host; no cloud content sync or telemetry is included.
 
 Release signing is configured through the user-level
 `~/.gradle/maxines-world-signing.properties` file; signing secrets are never

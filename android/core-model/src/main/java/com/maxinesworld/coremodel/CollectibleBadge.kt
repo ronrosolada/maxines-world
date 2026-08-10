@@ -10,6 +10,11 @@ data class CollectibleBadge(
     val name: String,
     val title: String,
     val funFact: String,
+    val photoAsset: String? = null,
+    val photoCredit: String? = null,
+    val photoSourceUrl: String? = null,
+    val photoLicense: String? = null,
+    val photoKind: String? = null,
     val isCollected: Boolean = false,
     val collectedAtEpochMillis: Long = 0L
 )
