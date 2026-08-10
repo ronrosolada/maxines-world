@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredesignsystem.theme.*
+import com.maxinesworld.featurerewards.SanctuaryCatalog
 import kotlin.math.roundToInt
 
 // ─── Option 3 palette (design.md §8.1) ───
@@ -982,6 +983,10 @@ private fun SanctuaryPreview(
     } else {
         0f
     }
+    val orderedPieces = SanctuaryCatalog.pieces
+        .take(sanctuary.totalPieces.coerceAtLeast(0))
+        .map { piece -> SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey) }
+    val boardCells = sanctuaryBoardCells(sanctuary, orderedPieces)
 
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -1011,6 +1016,14 @@ private fun SanctuaryPreview(
                     fontSize = 14.sp,
                 )
             }
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.home_sanctuary_subtitle),
+                color = PlayInk,
+                fontWeight = FontWeight.Medium,
+                fontSize = 13.sp,
+                lineHeight = 18.sp,
+            )
             Spacer(Modifier.height(10.dp))
             SanctuaryScene(sanctuary = sanctuary)
             Spacer(Modifier.height(10.dp))
@@ -1021,11 +1034,39 @@ private fun SanctuaryPreview(
                 trackColor = PlayTeal.copy(alpha = 0.15f),
             )
             Spacer(Modifier.height(12.dp))
+            Surface(
+                shape = RoundedCornerShape(18.dp),
+                color = Color(0xFFBFE5CC),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics {
+                        contentDescription = "Milo's home board. ${sanctuary.earnedPieces} of ${sanctuary.totalPieces} places added."
+                    },
+            ) {
+                Column(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        stringResource(R.string.home_sanctuary_board_title),
+                        color = PlayInk,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 14.sp,
+                    )
+                    boardCells.chunked(3).forEach { rowCells ->
+                        Row(
+                            Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            rowCells.forEach { cell -> SanctuaryBoardCell(cell) }
+                            repeat(3 - rowCells.size) { Spacer(Modifier.weight(1f)) }
+                        }
+                    }
+                }
+            }
+            Spacer(Modifier.height(12.dp))
             val nextPiece = sanctuary.nextPiece
             if (nextPiece != null) {
                 Surface(
                     shape = RoundedCornerShape(16.dp),
-                    color = Color.White.copy(alpha = 0.78f),
+                    color = Color.White.copy(alpha = 0.86f),
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Row(
@@ -1075,6 +1116,64 @@ private fun SanctuaryPreview(
                 color = PlayMuted,
                 fontSize = 13.sp,
                 lineHeight = 18.sp,
+            )
+        }
+    }
+}
+
+@Composable
+private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
+    val background = when {
+        cell.isEarned -> Color.White.copy(alpha = 0.92f)
+        cell.isNext -> PlaySunshine.copy(alpha = 0.78f)
+        else -> Color.White.copy(alpha = 0.42f)
+    }
+    val borderColor = when {
+        cell.isNext -> PlayTeal
+        cell.isEarned -> PlayTeal.copy(alpha = 0.28f)
+        else -> PlayMuted.copy(alpha = 0.18f)
+    }
+    Surface(
+        modifier = Modifier
+            .weight(1f)
+            .heightIn(min = 78.dp)
+            .semantics {
+                contentDescription = when {
+                    cell.isEarned -> "${cell.piece.name}, added to Milo's home"
+                    cell.isNext -> "${cell.piece.name}, next place to add"
+                    else -> "Locked sanctuary place"
+                }
+                stateDescription = when {
+                    cell.isEarned -> "Added"
+                    cell.isNext -> "Next reward"
+                    else -> "Locked"
+                }
+            },
+        shape = RoundedCornerShape(14.dp),
+        color = background,
+        border = BorderStroke(if (cell.isNext) 2.dp else 1.dp, borderColor),
+    ) {
+        Column(
+            Modifier.fillMaxSize().padding(horizontal = 4.dp, vertical = 7.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            Icon(
+                if (cell.isEarned || cell.isNext) sanctuaryIcon(cell.piece.iconKey) else Icons.Default.Lock,
+                contentDescription = null,
+                tint = if (cell.isEarned || cell.isNext) PlayTeal else PlayMuted.copy(alpha = 0.58f),
+                modifier = Modifier.size(23.dp),
+            )
+            Spacer(Modifier.height(3.dp))
+            Text(
+                if (cell.isEarned || cell.isNext) cell.piece.name else stringResource(R.string.home_sanctuary_locked_place),
+                color = if (cell.isEarned || cell.isNext) PlayInk else PlayMuted,
+                fontWeight = FontWeight.Bold,
+                fontSize = 10.sp,
+                lineHeight = 12.sp,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }

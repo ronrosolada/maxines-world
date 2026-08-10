@@ -52,6 +52,7 @@ fun VideoLibraryScreen(
     onDownload: (String) -> Unit,
     onPlay: (String) -> Unit,
     onStopPlaying: () -> Unit,
+    onVideoCompleted: (String) -> Unit,
     onStartAssessment: (String) -> Unit,
     onSelectAssessmentOption: (String) -> Unit,
     onSubmitAssessment: () -> Unit,
@@ -128,7 +129,10 @@ fun VideoLibraryScreen(
                                 ) {
                                     Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                                         Text(playing.asset.title, color = Ink, fontWeight = FontWeight.ExtraBold)
-                                        OfflineVideoPlayer(File(playing.localPath))
+                                        OfflineVideoPlayer(
+                                            File(playing.localPath),
+                                            onCompleted = { onVideoCompleted(playing.asset.mediaId) },
+                                        )
                                         TextButton(onClick = onStopPlaying, modifier = Modifier.fillMaxWidth()) {
                                             Text("Close player")
                                         }
@@ -156,6 +160,8 @@ fun VideoLibraryScreen(
                                 onPlay = { onPlay(item.asset.mediaId) },
                                 onStartAssessment = { onStartAssessment(item.asset.mediaId) },
                                 assessmentOpen = assessment?.mediaId == item.asset.mediaId,
+                                assessmentUnlocked = canOpenMediaAssessment(item, state.watchedMediaIds),
+                                assessmentLocked = shouldHideMediaAssessment(item, state.watchedMediaIds),
                             )
                         }
                     }
@@ -172,6 +178,8 @@ private fun VideoLibraryItemCard(
     onPlay: () -> Unit,
     onStartAssessment: () -> Unit,
     assessmentOpen: Boolean,
+    assessmentUnlocked: Boolean,
+    assessmentLocked: Boolean,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -212,16 +220,25 @@ private fun VideoLibraryItemCard(
                 )
             }
             if (item.localPath != null && item.asset.assessment != null) {
-                TextButton(
-                    onClick = onStartAssessment,
-                    enabled = !assessmentOpen,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .semantics {
-                            role = Role.Button
-                        },
-                ) {
-                    Text(if (assessmentOpen) "Memory check is open" else "What do you remember?")
+                if (assessmentLocked) {
+                    Text(
+                        "Watch the full video to unlock the memory check.",
+                        color = Ink.copy(alpha = 0.70f),
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                    )
+                } else if (assessmentUnlocked) {
+                    TextButton(
+                        onClick = onStartAssessment,
+                        enabled = !assessmentOpen,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .semantics {
+                                role = Role.Button
+                            },
+                    ) {
+                        Text(if (assessmentOpen) "Memory check is open" else "What do you remember?")
+                    }
                 }
             }
         }

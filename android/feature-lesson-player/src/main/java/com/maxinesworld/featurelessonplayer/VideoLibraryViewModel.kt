@@ -25,6 +25,7 @@ data class VideoLibraryUiState(
     val error: String? = null,
     val playingMediaId: String? = null,
     val assessmentQuiz: MediaAssessmentQuizState? = null,
+    val watchedMediaIds: Set<String> = emptySet(),
 )
 
 @HiltViewModel
@@ -116,9 +117,19 @@ class VideoLibraryViewModel @Inject constructor(
         _state.update { it.copy(playingMediaId = null) }
     }
 
-    fun startAssessment(mediaId: String) {
+    /** Unlock a Tagalog video's memory check only after playback reaches the end. */
+    fun markVideoWatched(mediaId: String) {
         val item = _state.value.items.firstOrNull { it.asset.mediaId == mediaId }
-        if (item?.localPath == null || item.asset.assessment == null) return
+        if (item?.localPath == null) return
+        _state.update { current ->
+            current.copy(watchedMediaIds = current.watchedMediaIds + mediaId)
+        }
+    }
+
+    fun startAssessment(mediaId: String) {
+        val current = _state.value
+        val item = current.items.firstOrNull { it.asset.mediaId == mediaId }
+        if (item == null || !canOpenMediaAssessment(item, current.watchedMediaIds)) return
         _state.update {
             it.copy(
                 assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId),
