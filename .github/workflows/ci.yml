@@ -252,15 +252,22 @@ jobs:
           cores: 2
           ram-size: 2048M
           heap-size: 512M
-          # The API 34 image needs at least 7.37 GB for userdata after the
-          # prebuilt test APKs are present. Keep a small margin for aapt/Room
-          # test data instead of relying on the action default.
+          # The API 34 image needs about 9.83 GB for userdata after the
+          # prebuilt test APKs are present. The hosted runner has limited free
+          # space after sdkmanager downloads the image, so the pre-launch hook
+          # below removes only disposable installer/build-cache data.
           disk-size: 8G
           force-avd-creation: true
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: android
+          pre-emulator-launch-script: |
+            set -eu
+            SDK_ROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+            sudo rm -rf "${SDK_ROOT}/.temp"
+            rm -rf "${GRADLE_USER_HOME}/caches/build-cache-1"
+            df -h "${SDK_ROOT}" "${HOME}"
           script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace --no-daemon --max-workers=1
 
       - name: Upload migration test report
