@@ -2,6 +2,7 @@ package com.maxinesworld.featurerewards
 
 import com.maxinesworld.coredatabase.CollectedBadgeDao
 import com.maxinesworld.coredatabase.CollectedBadgeEntity
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.WildlifeExpeditionDao
 import com.maxinesworld.coredatabase.WildlifeExpeditionEntity
 import com.maxinesworld.coremodel.CollectibleBadge
@@ -193,6 +194,17 @@ class BadgeAwarderTest {
         assertTrue(result.first { it.id == "badge_01" }.isCollected)
         assertEquals(42L, result.first { it.id == "badge_01" }.collectedAtEpochMillis)
         assertFalse("milestone sticker stays uncollected here", result.first { it.id == "milestone_first_steps" }.isCollected)
+    }
+
+    @Test
+    fun `god mode projects the whole badge catalog as collected without writing rows`() = runTest {
+        val godMode = mockk<GodModeManager>()
+        coEvery { godMode.isEnabled() } returns true
+        val result = BadgeAwarder(expeditionDao, collectedBadgeDao, badgeLoader, godMode)
+            .getCollectedBadges(childId)
+
+        assertEquals(badges.size, result.count { it.isCollected })
+        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
     }
 
     private fun awarder() = BadgeAwarder(expeditionDao, collectedBadgeDao, badgeLoader)

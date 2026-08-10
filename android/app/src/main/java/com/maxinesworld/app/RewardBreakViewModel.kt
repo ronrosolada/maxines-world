@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.InventoryEntity
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.MiniGameResultDao
 import com.maxinesworld.coredatabase.MiniGameResultEntity
 import com.maxinesworld.coredatabase.RewardBreakDao
@@ -45,6 +46,7 @@ class RewardBreakViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
     private val transactionRunner: RoomTransactionRunner,
+    private val godModeManager: GodModeManager,
 ) : ViewModel() {
     private val _state = MutableStateFlow<RewardBreakUiState>(RewardBreakUiState.Loading)
     val state: StateFlow<RewardBreakUiState> = _state.asStateFlow()
@@ -55,6 +57,10 @@ class RewardBreakViewModel @Inject constructor(
         tickerJob?.cancel()
         _state.value = RewardBreakUiState.Loading
         viewModelScope.launch {
+            if (godModeManager.isEnabled()) {
+                publishGodModeReady()
+                return@launch
+            }
             val entitlement = rewardBreakDao.getById(rewardBreakId)
             if (entitlement == null || entitlement.childId != childId) {
                 unavailable("This reward break is not available.")
@@ -82,6 +88,10 @@ class RewardBreakViewModel @Inject constructor(
 
     /** Starts a CREATED entitlement, or resumes a still-active one. */
     suspend fun begin(childId: String, rewardBreakId: String): Long? {
+        if (godModeManager.isEnabled()) {
+            publishGodModeReady()
+            return RewardBreakPolicy.DEFAULT_DURATION_MILLIS
+        }
         val entitlement = rewardBreakDao.getById(rewardBreakId)
         if (entitlement == null || entitlement.childId != childId) {
             unavailable("This reward break is not available.")
@@ -118,6 +128,7 @@ class RewardBreakViewModel @Inject constructor(
     }
 
     suspend fun saveResult(result: MiniGameResult): Boolean {
+        if (godModeManager.isEnabled()) return true
         val entitlement = rewardBreakDao.getById(result.rewardBreakId)
         val now = System.currentTimeMillis()
         if (
@@ -183,6 +194,11 @@ class RewardBreakViewModel @Inject constructor(
     }
 
     suspend fun consume(childId: String, rewardBreakId: String) {
+        if (godModeManager.isEnabled()) {
+            tickerJob?.cancel()
+            unavailable("Playground complete.")
+            return
+        }
         val entitlement = rewardBreakDao.getById(rewardBreakId)
         if (entitlement?.childId == childId) {
             consumeIfOwned(entitlement, childId, System.currentTimeMillis())
@@ -197,6 +213,16 @@ class RewardBreakViewModel @Inject constructor(
             durationMillis = entitlement.durationMillis,
             remainingMillis = remaining,
             started = entitlement.state == RewardBreakPolicy.ACTIVE,
+        )
+    }
+
+    private fun publishGodModeReady() {
+        val duration = RewardBreakPolicy.DEFAULT_DURATION_MILLIS
+        _state.value = RewardBreakUiState.Ready(
+            entitlementId = GodModeManager.GOD_MODE_REWARD_BREAK_ID,
+            durationMillis = duration,
+            remainingMillis = duration,
+            started = true,
         )
     }
 

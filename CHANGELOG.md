@@ -6,6 +6,21 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.27.0] - 2026-08-10
+
+### Highlights
+
+- Added the unified Playroom home experience with separate sanctuary next-reward progress and Wildlife Sticker Book collection surfaces.
+- Added transparent mascot and subject artwork, animal-photo badge details, and child-facing home-screen polish.
+- Added reversible, PIN-gated parent god mode backed by DataStore for development and QA reward-flow verification.
+- Added the offline mini-game library and reward-break flow refinements, including safer entitlement and badge-award handling.
+- Added optional LAN-hosted media support for the approved home-network deployment.
+
+### Verification
+
+- 358/358 educator-reviewed lessons and 29/29 offline mini-games pass release gates.
+- Root JVM tests, connected child-home/rewards tests, signed release assembly, and APK v2 signature verification pass locally.
+
 ## [0.25.0] - 2026-08-08
 
 ### Quest

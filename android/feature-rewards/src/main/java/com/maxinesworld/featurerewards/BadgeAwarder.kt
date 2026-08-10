@@ -2,6 +2,7 @@ package com.maxinesworld.featurerewards
 
 import com.maxinesworld.coredatabase.CollectedBadgeDao
 import com.maxinesworld.coredatabase.CollectedBadgeEntity
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.WildlifeExpeditionDao
 import com.maxinesworld.coredatabase.WildlifeExpeditionEntity
 import com.maxinesworld.coremodel.CollectibleBadge
@@ -27,6 +28,7 @@ class BadgeAwarder @Inject constructor(
     private val wildlifeExpeditionDao: WildlifeExpeditionDao,
     private val collectedBadgeDao: CollectedBadgeDao,
     private val badgeLoader: BadgeLoader,
+    private val godModeManager: GodModeManager? = null,
 ) {
     private val awardMutex = Mutex()
 
@@ -166,10 +168,11 @@ class BadgeAwarder @Inject constructor(
     suspend fun getCollectedBadges(childId: String): List<CollectibleBadge> {
         val earned = collectedBadgeDao.getAllByChild(childId).associateBy { it.badgeId }
         val all = badgeLoader.loadAll()
+        val godMode = godModeManager?.isEnabled() == true
         return all.map { badge ->
             val record = earned[badge.id]
             badge.copy(
-                isCollected = record != null,
+                isCollected = godMode || record != null,
                 collectedAtEpochMillis = record?.earnedAtEpochMillis ?: 0L,
             )
         }

@@ -54,9 +54,10 @@ data class QuestUi(
     val buttonAction: QuestAction = QuestAction.Continue,
     val targets: List<QuestTargetUi> = emptyList(),
     val nextLessonId: String? = null,
+    val godModeEnabled: Boolean = false,
 )
 
-enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson }
+enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson, OpenPlayground }
 
 @androidx.compose.runtime.Immutable
 data class LearningResumeUi(

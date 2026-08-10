@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
@@ -42,6 +43,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
     private val dailyQuestManager: DailyQuestManager,
+    private val godModeManager: GodModeManager,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -63,13 +65,16 @@ class PlayroomHomeViewModel @Inject constructor(
 
         stateJob = viewModelScope.launch {
             try {
-                combine(profileFlow, lessonIdsFlow) { profile, ids -> profile to ids }
-                    .collect { (profile, lessonIds) ->
+                combine(profileFlow, lessonIdsFlow, godModeManager.enabled) { profile, ids, godModeEnabled ->
+                    Triple(profile, ids, godModeEnabled)
+                }.collect { (profile, lessonIds, godModeEnabled) ->
                         val dailyQuest = dailyQuestManager.ensureToday(
                             childId = childId,
                             completedLessonIds = lessonIds,
                         )
-                        val badges = badgeAwarder.getCollectedBadges(childId)
+                        val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
+                            if (godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded
+                        }
                         val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
                         val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
                         val sanctuaryRewards = rewardDao.getByChildAndType(
@@ -93,9 +98,14 @@ class PlayroomHomeViewModel @Inject constructor(
                         val keepsakes = inventoryDao.getOwnedItemIds(childId)
                             .mapNotNull { id -> TreatShopCatalog.byId(id) }
                             .map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
+                        val visibleKeepsakes = if (godModeEnabled) {
+                            TreatShopCatalog.items.map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
+                        } else {
+                            keepsakes
+                        }
                         _state.value = buildContent(
                             profile?.name, lessonIds, dailyQuest, badges,
-                            stars, coins, keepsakes, sanctuary,
+                            stars, coins, visibleKeepsakes, sanctuary, godModeEnabled,
                         )
                     }
             } catch (cancelled: CancellationException) {
@@ -143,6 +153,7 @@ class PlayroomHomeViewModel @Inject constructor(
         coinBalance: Int,
         keepsakes: List<KeepsakeUi>,
         sanctuary: SanctuaryUi,
+        godModeEnabled: Boolean,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -178,7 +189,20 @@ class PlayroomHomeViewModel @Inject constructor(
         // No available subject → honest "Choose a subject" fallback that moves
         // focus to the grid instead of a dead Continue (audit AC28, 2026-08-06).
         val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
-        val questUi = if (dailyQuest.isComplete) {
+        val questUi = if (godModeEnabled) {
+            QuestUi(
+                task = "Parent mode: the Playground and all rewards are unlocked!",
+                pawPrintsCompleted = completedCount,
+                pawPrintTotal = questTotal,
+                isComplete = dailyQuest.isComplete,
+                recommendedSubjectId = availableFirst?.id,
+                buttonLabel = "Open Playground",
+                buttonAction = QuestAction.OpenPlayground,
+                targets = targets,
+                nextLessonId = nextLessonId,
+                godModeEnabled = true,
+            )
+        } else if (dailyQuest.isComplete) {
             QuestUi(
                 task = "Today's quest complete — Milo's sanctuary is growing!",
                 pawPrintsCompleted = questTotal,
@@ -247,6 +271,19 @@ class PlayroomHomeViewModel @Inject constructor(
                 .map { badge -> StickerUi(id = badge.id, won = true) },
         )
 
+        val visibleSanctuary = if (godModeEnabled) {
+            SanctuaryUi(
+                earnedPieces = SanctuaryCatalog.pieces.size,
+                visiblePieces = SanctuaryCatalog.pieces.map { piece ->
+                    SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey)
+                },
+                nextPiece = null,
+                totalPieces = SanctuaryCatalog.pieces.size,
+            )
+        } else {
+            sanctuary
+        }
+
         return PlayroomHomeUiState.Content(
             childName = childName?.takeIf { it.isNotBlank() } ?: "",
             subjects = subjects,
@@ -256,7 +293,7 @@ class PlayroomHomeViewModel @Inject constructor(
             starBalance = starBalance,
             coinBalance = coinBalance,
             ownedKeepsakes = keepsakes,
-            sanctuary = sanctuary,
+            sanctuary = visibleSanctuary,
             resumeLesson = resumeLesson,
         )
     }

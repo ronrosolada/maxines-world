@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
@@ -184,6 +185,11 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {
                             navController.navigate(Routes.treatShop(childId))
+                        }
+                        QuestAction.OpenPlayground -> {
+                            navController.navigate(
+                                MiniGameRoutes.hub(childId, GodModeManager.GOD_MODE_REWARD_BREAK_ID)
+                            )
                         }
                     }
                 },

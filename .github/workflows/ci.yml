@@ -252,9 +252,10 @@ jobs:
           cores: 2
           ram-size: 2048M
           heap-size: 512M
-          # Prebuilding the test APKs consumes runner disk space; the tests do
-          # not need the action's default ~8 GB userdata partition.
-          disk-size: 4G
+          # The API 34 image needs at least 7.37 GB for userdata after the
+          # prebuilt test APKs are present. Keep a small margin for aapt/Room
+          # test data instead of relying on the action default.
+          disk-size: 8G
           force-avd-creation: true
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none

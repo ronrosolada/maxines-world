@@ -6,6 +6,7 @@ import com.maxinesworld.corecontent.ContentModuleLesson
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
@@ -135,6 +136,25 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `god mode exposes all reward components and the playground without changing lesson progress`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = listOf("english-g3-m01-d01"),
+            badges = listOf(badge("b1", true), badge("b2", false)),
+            catalog = catalogWithTotals(mapOf("english" to 1)),
+            godModeEnabled = true,
+        )
+        advanceUntilIdle()
+
+        val content = content(vm)
+        assertEquals(100, content.subjects.first { it.id == "english" }.progressPercent)
+        assertEquals(2, content.wildlifeStickers.collectedCount)
+        assertEquals(3, content.ownedKeepsakes.size)
+        assertEquals(12, content.sanctuary.earnedPieces)
+        assertEquals(QuestAction.OpenPlayground, content.quest.buttonAction)
+        assertEquals("Open Playground", content.quest.buttonLabel)
+    }
+
+    @Test
     fun `balances are loaded into the child home state`() = runTest(dispatcher) {
         val vm = buildViewModel(starBalance = 12, coinBalance = 37)
         advanceUntilIdle()
@@ -185,6 +205,7 @@ class PlayroomHomeViewModelTest {
         catalog: ModuleCatalog = emptyCatalog(),
         starBalance: Int = 0,
         coinBalance: Int = 0,
+        godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
@@ -218,6 +239,8 @@ class PlayroomHomeViewModelTest {
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
+        val godModeManager = mockk<GodModeManager>()
+        every { godModeManager.enabled } returns flowOf(godModeEnabled)
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
@@ -227,6 +250,7 @@ class PlayroomHomeViewModelTest {
             rewardDao = rewardDao,
             inventoryDao = inventoryDao,
             dailyQuestManager = dailyQuestManager,
+            godModeManager = godModeManager,
         )
     }
 

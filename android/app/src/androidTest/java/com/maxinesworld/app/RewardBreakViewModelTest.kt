@@ -4,6 +4,7 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.coredatabase.MaxinesDatabase
+import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.RewardBreakEntitlementEntity
 import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RoomTransactionRunner
@@ -20,6 +21,7 @@ import org.junit.runner.RunWith
 class RewardBreakViewModelTest {
     private lateinit var database: MaxinesDatabase
     private lateinit var viewModel: RewardBreakViewModel
+    private lateinit var godModeManager: GodModeManager
 
     @Before
     fun setUp() = runBlocking {
@@ -27,12 +29,15 @@ class RewardBreakViewModelTest {
         database = Room.inMemoryDatabaseBuilder(context, MaxinesDatabase::class.java)
             .allowMainThreadQueries()
             .build()
+        godModeManager = GodModeManager(context)
+        godModeManager.setEnabled(false)
         viewModel = RewardBreakViewModel(
             rewardBreakDao = database.rewardBreakDao(),
             miniGameResultDao = database.miniGameResultDao(),
             rewardDao = database.rewardDao(),
             inventoryDao = database.inventoryDao(),
             transactionRunner = RoomTransactionRunner(database),
+            godModeManager = godModeManager,
         )
         val now = System.currentTimeMillis()
         database.rewardBreakDao().insertIgnoring(
@@ -75,5 +80,17 @@ class RewardBreakViewModelTest {
         assertEquals(4, database.rewardDao().getTotalByType("child-1", "COIN"))
         assertTrue(database.inventoryDao().owns("child-1", "milo-blue-paw"))
         assertTrue(database.miniGameResultDao().getByIdempotencyKey(result.idempotencyKey) != null)
+    }
+
+    @Test
+    fun godModeOpensPlaygroundWithoutCreatingOrConsumingAnEntitlement() = runBlocking {
+        godModeManager.setEnabled(true)
+
+        val remaining = viewModel.begin("child-god", "missing-break")
+
+        assertEquals(RewardBreakPolicy.DEFAULT_DURATION_MILLIS, remaining)
+        val state = viewModel.state.value as RewardBreakUiState.Ready
+        assertTrue(state.started)
+        assertEquals(0, database.rewardBreakDao().getById("missing-break")?.remainingMillis ?: 0)
     }
 }
