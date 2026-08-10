@@ -263,11 +263,9 @@ jobs:
           disable-animations: true
           working-directory: android
           pre-emulator-launch-script: |
-            set -eu
-            SDK_ROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
-            sudo rm -rf "${SDK_ROOT}/.temp"
+            sudo rm -rf /usr/local/lib/android/sdk/.temp
             rm -rf "${GRADLE_USER_HOME}/caches/build-cache-1"
-            df -h "${SDK_ROOT}" "${HOME}"
+            df -h /usr/local/lib/android/sdk "${HOME}"
           script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace --no-daemon --max-workers=1
 
       - name: Upload migration test report
