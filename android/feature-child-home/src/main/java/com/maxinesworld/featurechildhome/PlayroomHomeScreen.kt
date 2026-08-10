@@ -1083,8 +1083,8 @@ private fun SanctuaryPreview(
                 trackColor = PlayTeal.copy(alpha = 0.15f),
             )
             Spacer(Modifier.height(12.dp))
-    val nextPiece = sanctuary.nextPiece
-    if (nextPiece != null) {
+            val nextPiece = sanctuary.nextPiece
+            if (nextPiece != null) {
                 Surface(
                     shape = RoundedCornerShape(16.dp),
                     color = Color.White.copy(alpha = 0.78f),

@@ -1,8 +1,8 @@
 # Maxine's World — Current State & Release Handoff
 
-**Document baseline:** 2026-08-08
-**Release candidate:** `0.25.0` (`versionCode = 26`) — pending tag 2026-08-08
-**Working branch:** `main` (PR #73 squash-merged 2026-08-08 as `9c54d09`)
+**Document baseline:** 2026-08-10
+**Release candidate:** `0.27.0` (`versionCode = 28`) — PR #74
+**Working branch:** `feat/optional-offline-video-pack`
 **Repository:** `ronrosolada/maxines-world` (public)
 
 ## Product goal
@@ -27,9 +27,9 @@ python3 tools/test_content_review.py
 `check` includes the educator-content gate and the offline mini-game gate.
 Release signing is read from the user-only file
 `~/.gradle/maxines-world-signing.properties`; no signing secret belongs in git.
-The most recent full verification (2026-08-07) is recorded in
-`docs/release-review-2026-08-07.md`, which is the recommended starting point
-for an independent review of the current main branch.
+The current release verification is recorded in
+`docs/release-review-2026-08-10.md`, which is the recommended starting point
+for an independent review of this release candidate.
 
 ## Educator review round 2 (2026-08-07)
 
@@ -106,7 +106,9 @@ lessons retain their prior metadata.
   database version; future changes require v9+ migrations.
 - The project currently contains 19 Gradle modules: app, five core modules,
   six feature modules, four engine modules, and three native reward-game modules.
-- The network module is a retained placeholder and is not used to fetch data.
+- Optional media is fetched from the trusted home LAN when configured. The
+  network path is not used for telemetry, cloud content sync, or lesson
+  delivery; the core lessons remain bundled.
 
 ## Assessment policy
 
@@ -128,9 +130,12 @@ lessons retain their prior metadata.
 
 ## Security and privacy posture
 
-- The release manifest has no `android.permission.INTERNET` permission.
+- The release manifest intentionally includes `android.permission.INTERNET`
+  for optional media served by the trusted home LAN. Cleartext is permitted
+  only for the configured LAN media host; it must be replaced with HTTPS before
+  exposing the endpoint outside the home network.
 - App backups/data extraction are disabled; child data stays on-device.
-- No runtime content or telemetry download is part of the release design.
+- No cloud content sync or telemetry download is part of the release design.
 - Mini-game HTML must contain the required restrictive CSP. The Gradle gate
   enforces 29/29 pages, CSP directives, no active external URLs, and no browser
   network APIs.
@@ -142,35 +147,35 @@ lessons retain their prior metadata.
 
 ## Release gates
 
-Latest local verification on 2026-08-07 (see `docs/release-review-2026-08-07.md`):
+Latest local verification on 2026-08-10 (see `docs/release-review-2026-08-10.md`):
 
-- Gradle `check assembleRelease`, lint, content audits, and 89+ Python tooling
-  tests passed.
-- API 35 emulator: **26/26 app connected tests** (incl. the new Sequence CTA
-  contract tests) and 4/4 auth connected tests passed.
+- Gradle `check`, lint, and `assembleRelease` passed; content audits and
+  tooling tests are clean.
+- API 35 emulator: **29/29 core-database**, **30/30 app**, **4/4 auth**,
+  **19/19 child-home**, and **5/5 rewards** connected tests passed.
 - Content pack validation: 358 lessons, 0 errors, 0 warnings.
-- Release APK inspected: `0.22.0` (code 23), minSdk 26 / target 35, no
-  `INTERNET` permission, 363 SVG assets, release signature present.
+- Release APK inspected: `0.27.0` (code 28), minSdk 26 / target 35, intentional
+  `INTERNET` permission for optional LAN media, release signature present.
 - Fresh-install walkthrough on a clean API 35 emulator reached PIN setup,
   opened the real IME, and confirmed Digit 0 / Delete / Set PIN stay above the
   keyboard (#64).
 
-Before tagging the next release (`0.25.0` pending review):
+Before tagging `v0.27.0`:
 
 1. Run `./gradlew check assembleRelease` with the release signing properties.
 2. Run the content tooling checks from the Quick verification section.
 3. Inspect the final APK with `apkanalyzer`/`aapt`:
    - package `com.maxinesworld.app`;
-   - version `0.23.0`, code `24` (after the version bump commit);
-   - no INTERNET permission;
+   - version `0.27.0`, code `28`;
+   - intentional INTERNET permission for optional LAN media;
    - release signature present;
    - minification enabled.
 4. Install the exact APK on a fresh API 35 emulator and walk through parent
    PIN setup, child creation/selection, Playroom, lesson launch, reward break,
    and back navigation.
 5. Run connected Android tests on the target emulator.
-6. Review `git diff --check`, require a clean tree, then tag and push only the
-   committed release source and exact APK.
+6. Review `git diff --check`, require a clean tree, confirm PR #74 checks are
+   green, then tag and push only the committed release source and exact APK.
 
 ## Known non-blocking scope boundaries
 

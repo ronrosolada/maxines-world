@@ -8,6 +8,35 @@ Android `versionName`.
 
 ## [0.27.0] - 2026-08-10
 
+### Playroom home
+
+- Refined the child home with transparent mascot and subject artwork assets.
+- Removed the decorative profile/avatar control from the header.
+- Made Milo's Wildlife Sanctuary a next-reward surface with progress and the
+  next unlock, while keeping Wildlife Stickers as the collection entry point.
+- Added regression coverage for the sanctuary/sticker distinction and the
+  updated child-facing copy.
+
+### Media and reward breaks
+
+- Added the optional LAN-hosted media catalog/download path. Bundled lessons and
+  bundled reward-break games remain available without network access.
+- Consolidated the mini-game library and preserved reward-break entitlement
+  lifecycle behavior.
+
+### Release verification
+
+- Educator gate: 358/358 playable lessons approved and released.
+- Offline mini-game gate: 29/29 pages validated.
+- Connected Android tests passed for child home and reward flows; full JVM
+  unit-test suite passed locally.
+- Release APK built and verified with APK Signature Scheme v2.
+
+The `INTERNET` permission is intentional for optional media served from the
+trusted home LAN; it is not used for telemetry or cloud content sync.
+
+## [0.25.0] - 2026-08-08
+
 ### Highlights
 
 - Added the unified Playroom home experience with separate sanctuary next-reward progress and Wildlife Sticker Book collection surfaces.
@@ -20,8 +49,6 @@ Android `versionName`.
 
 - 358/358 educator-reviewed lessons and 29/29 offline mini-games pass release gates.
 - Root JVM tests, connected child-home/rewards tests, signed release assembly, and APK v2 signature verification pass locally.
-
-## [0.25.0] - 2026-08-08
 
 ### Quest
 

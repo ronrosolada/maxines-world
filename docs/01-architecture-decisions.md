@@ -351,7 +351,8 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
 - No child email, phone, precise location, or advertising ID
 - Room database in app-private storage (not external)
 - No logs containing child progress data in release builds
-- No runtime network calls; the release APK has no INTERNET permission
+- Optional LAN media calls only; the release APK includes INTERNET for the
+  configured home-LAN media host, with no cloud sync or telemetry
 - Data export: JSON bundle, parent-authenticated, with 24h deletion after request
 
 ---
@@ -366,8 +367,8 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
 | DI | Hilt |
 | Local DB | Room (append-only progress) |
 | Navigation | Navigation Compose (type-safe routes) |
-| Networking | Retained placeholder module; not used at runtime |
-| Sync | None in the offline release |
+| Networking | Optional trusted-LAN media catalog and resumable downloads |
+| Sync | No cloud sync; lesson content remains bundled |
 | Content | Versioned JSON bundled in the APK |
 | Testing | JUnit5 + MockK + Compose testing |
 | Security | PBKDF2 PIN hash + BiometricPrompt |
