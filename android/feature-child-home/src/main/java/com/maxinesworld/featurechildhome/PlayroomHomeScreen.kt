@@ -969,10 +969,23 @@ private fun TodayQuestCard(
 
                 if (quest.targets.isNotEmpty()) {
                     Spacer(Modifier.height(4.dp))
+                    // When daily targets share the same title (e.g. three
+                    // sequential "Word Roots" lessons), an 8yo sees a dupe.
+                    // Only then, show the week/day distinguisher so titles feel
+                    // like Part 1/2/3 instead of a copy-paste bug.
+                    val titleCounts = quest.targets.groupingBy { it.title }.eachCount()
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         quest.targets.forEach { target ->
                             val targetDone = target.isCompleted
-                            val targetCd = if (targetDone) "Quest target done: ${target.title}" else "Quest target: ${target.displaySubject}: ${target.title}"
+                            val needsDisambiguation = (titleCounts[target.title] ?: 0) > 1
+                            val displayTitle = if (needsDisambiguation && target.moduleKey != null) {
+                                val suffix = com.maxinesworld.corecontent.questTargetDisambiguator(
+                                    target.moduleKey, target.lessonId,
+                                )
+                                if (suffix != null) "${target.title} · $suffix" else target.title
+                            } else target.title
+                            val targetCd = if (targetDone) "Quest target done: $displayTitle"
+                            else "Quest target: ${target.displaySubject}: $displayTitle"
                             Row(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
@@ -993,7 +1006,7 @@ private fun TodayQuestCard(
                                 Spacer(Modifier.width(10.dp))
                                 Column(Modifier.weight(1f)) {
                                     Text(target.displaySubject, fontSize = 11.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
-                                    Text(target.title, fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    Text(displayTitle, fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
                                 }
                                 if (targetDone) {
                                     Box(Modifier.size(22.dp).clip(CircleShape).background(PlaySunshine.copy(alpha = 0.9f)), contentAlignment = Alignment.Center) {

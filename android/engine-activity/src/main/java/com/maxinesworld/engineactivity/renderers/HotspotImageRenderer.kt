@@ -1,6 +1,10 @@
 package com.maxinesworld.engineactivity.renderers
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -15,6 +19,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
@@ -143,6 +148,14 @@ fun HotspotImageRenderer(
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Hotspot: ${step.question}" }
         )
+        if (allTargetsRequired) {
+            Text(
+                text = "${hotspotProgress.visited.size} of $targetCount explored",
+                style = MaterialTheme.typography.labelMedium,
+                color = VillageTeal,
+                modifier = Modifier.semantics { contentDescription = "${hotspotProgress.visited.size} of $targetCount explored" }
+            )
+        }
 
         // Prefer authored artwork; the answer-neutral motif is only a visual
         // fallback. The hotspot controls remain usable in either case.
@@ -232,6 +245,19 @@ fun HotspotImageRenderer(
                     cellWidth = cellWidth,
                     cellHeight = cellHeight,
                 )
+                // Gentle pulse on remaining tappable badges — only while motion
+                // is allowed and the badge is still unvisited/unfinished.
+                val isUnvisited = result == null && (!allTargetsRequired || index !in hotspotProgress.visited)
+                val pulseScale by rememberInfiniteTransition(label = "hotspotPulse$index")
+                    .animateFloat(
+                        initialValue = 1f,
+                        targetValue = if (isUnvisited && !animationsDisabled) 1.08f else 1f,
+                        animationSpec = infiniteRepeatable(
+                            animation = tween(durationMillis = 900),
+                            repeatMode = RepeatMode.Reverse
+                        ),
+                        label = "pulse$index"
+                    )
                 Box(
                     modifier = Modifier
                         .offset(
@@ -239,6 +265,7 @@ fun HotspotImageRenderer(
                             y = badgeY,
                         )
                         .size(hotspotSize)
+                        .scale(pulseScale)
                         .clip(CircleShape)
                         .background(bgColor)
                         .clickable(enabled = result == null && (!allTargetsRequired || !isVisited), role = Role.Button) {

@@ -215,3 +215,15 @@ internal object ModuleIdRules {
         return q * 100 + w
     }
 }
+
+/** Child-visible distinguisher for quest rows whose titles collide (e.g. three
+ *  "Word Roots" in one day). Shows the day within the module — small, 8yo-
+ *  friendly ("Day 1"), derived from the lessonId only. Null when undecodable.
+ */
+fun questTargetDisambiguator(moduleKey: String, lessonId: String): String? {
+    val day = ModuleIdRules.dayFor(lessonId).takeIf { it > 0 } ?: return null
+    val key = moduleKey.takeIf { it.isNotBlank() } ?: return "Day $day"
+    // "Day N" is enough — moduleKey already scopes the sequence; quarter/week
+    // would add jargon for an 8yo on the Playroom card.
+    return "Day $day"
+}

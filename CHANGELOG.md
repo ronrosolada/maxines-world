@@ -6,6 +6,29 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.28.0] - 2026-08-10
+
+### Playroom home — adversarial UX on a fresh install (8yo)
+
+- Today's Quest no longer looks duplicated on day-1: colliding titles in the
+  3-target set now carry a lightweight `· Day N` distinguisher
+  (`questTargetDisambiguator` off `lessonId`, via `ModuleCatalog`), so three
+  sequential "Word Roots" lessons read as `Word Roots · Day 1/2/3` instead of
+  three identical rows.
+
+### Lesson player — hotspot discoverability
+
+- `ALL_TARGETS_VISITED` boards now show `N of M explored` under the question so
+  an 8-year-old knows the goal is to visit every example.
+- Remaining tappable badges pulse gently (8%, `!animationsDisabled`), visited
+  badges stay still — draws the eye without competing with lesson art.
+
+### Verification
+
+- 358/358 educator-reviewed, 29/29 mini-games CSP/offline-clean.
+- `testDebugUnitTest` (450 tasks) and `assembleDebug` green; `verifyPlayableContent`
+  `Release gate OK`.
+
 ## [0.27.0] - 2026-08-10
 
 ### Playroom home
