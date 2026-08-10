@@ -254,8 +254,8 @@ jobs:
           heap-size: 512M
           # The API 34 image needs about 9.83 GB for userdata after the
           # prebuilt test APKs are present. The hosted runner has limited free
-          # space after sdkmanager downloads the image, so the pre-launch hook
-          # below removes only disposable installer/build-cache data.
+          # space, so the pre-launch hook removes only disposable installer
+          # data and unrelated toolchains not used by Android CI.
           disk-size: 8G
           force-avd-creation: true
           emulator-boot-timeout: 900
@@ -265,6 +265,7 @@ jobs:
           pre-emulator-launch-script: |
             sudo rm -rf /usr/local/lib/android/sdk/.temp
             rm -rf "${GRADLE_USER_HOME}/caches/build-cache-1"
+            sudo rm -rf /opt/ghc /usr/share/dotnet /usr/local/share/powershell /opt/hostedtoolcache/CodeQL
             df -h /usr/local/lib/android/sdk "${HOME}"
           script: ./gradlew :core-database:connectedDebugAndroidTest :app:connectedDebugAndroidTest :feature-auth:connectedDebugAndroidTest --stacktrace --no-daemon --max-workers=1
 
