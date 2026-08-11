@@ -3,7 +3,9 @@ package com.maxinesworld.featurelessonplayer
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -24,10 +26,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -694,12 +698,33 @@ private fun CharacterGuide(character: String) {
         "lakan" -> OnGold
         else -> White
     }
+    val avatarRes = when (character.lowercase()) {
+        "milo" -> R.drawable.character_milo
+        "mira" -> R.drawable.character_mira
+        "niko" -> R.drawable.character_niko
+        "lakan" -> R.drawable.character_lakan
+        "duke" -> R.drawable.character_duke
+        else -> null
+    }
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
-            Modifier.size(40.dp).clip(CircleShape).background(avatarColor),
+            Modifier
+                .size(44.dp)
+                .clip(CircleShape)
+                .background(avatarColor)
+                .border(2.dp, Color.White, CircleShape),
             contentAlignment = Alignment.Center,
         ) {
-            Text(displayName.take(1), fontWeight = FontWeight.ExtraBold, color = avatarTextColor, fontSize = 20.sp)
+            if (avatarRes != null) {
+                Image(
+                    painter = painterResource(avatarRes),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize().clip(CircleShape),
+                )
+            } else {
+                Text(displayName.take(1), fontWeight = FontWeight.ExtraBold, color = avatarTextColor, fontSize = 20.sp)
+            }
         }
         Spacer(Modifier.width(8.dp))
         Text(displayName, fontWeight = FontWeight.Medium, color = Teal40)

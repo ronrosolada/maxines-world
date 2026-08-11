@@ -6,6 +6,37 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.29.0] - 2026-08-11
+
+### Playroom — Milo's sanctuary becomes a place you can see
+
+- The home sanctuary card now renders a living meadow scene: every earned
+  sanctuary piece appears as a colored spot in the scene, the next piece
+  previews in a white outline slot, and Milo (real character art) stands
+  guard in front of the meadow.
+- Scene placement is a pure, tested model (`SanctuaryScene.kt`): all 12
+  catalog pieces have deterministic positions, so the daily-quest payoff is
+  visible progress instead of a progress bar.
+
+### Lesson player — real character avatars
+
+- `CharacterGuide` now shows the actual character artwork (Milo, Mira, Niko,
+  Lakan, Duke) in a circular avatar instead of a colored initial.
+
+### Reward breaks — kid-first game shelf
+
+- The mini-game library is curated: "Friendly favorites" (memory match,
+  whack-a-mole, match-three, piano tiles, snake, stack, breakout, flappy
+  bird, color connect, bolt sort, number merge, color block) lead the shelf;
+  the 17 classics (wordle, solitaire, sudoku, checkers, …) stay available
+  further down. Ordering is a pure tested function (`MiniGameShelf.kt`).
+
+### Video Lessons
+
+- Tagalog video library renamed "Video Lessons" for future multi-subject
+  support; 8 full-length Tagalog videos (19–26) with 10-question memory
+  checks (8/10 passing, `claimsMastery: false`) added to the catalog.
+
 ## [0.28.0] - 2026-08-10
 
 ### Playroom home — adversarial UX on a fresh install (8yo)

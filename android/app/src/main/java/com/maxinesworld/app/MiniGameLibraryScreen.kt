@@ -258,11 +258,37 @@ fun MiniGameLibraryScreen(
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
                         MenuSectionHeader(
+                            title = "Friendly favorites",
+                            subtitle = "Picked for Maxine — quick and playful",
+                        )
+                    }
+                    items(
+                        MiniGameShelf.shelfOrder(MiniGameCatalog.games).take(MiniGameShelf.kidFriendlyCount(MiniGameCatalog.games)),
+                        key = EmbeddedMiniGame::slug,
+                    ) { game ->
+                        val accent = categoryAccent(game.category)
+                        MiniGameChoiceCard(
+                            title = game.title,
+                            category = game.category.label,
+                            description = game.description,
+                            accent = accent,
+                            titleColor = categoryTextColor(game.category),
+                            enabled = !breakExpired && !starting,
+                            onClick = { beginGame { duration -> onPlay(game.slug, duration) } },
+                        ) {
+                            ArtworkThumbnail(game.thumbnailRes, accent)
+                        }
+                    }
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        MenuSectionHeader(
                             title = "Puzzle & classic games",
                             subtitle = "${MiniGameCatalog.games.size} more games, bundled for offline play",
                         )
                     }
-                    items(MiniGameCatalog.games, key = EmbeddedMiniGame::slug) { game ->
+                    items(
+                        MiniGameShelf.shelfOrder(MiniGameCatalog.games).drop(MiniGameShelf.kidFriendlyCount(MiniGameCatalog.games)),
+                        key = EmbeddedMiniGame::slug,
+                    ) { game ->
                         val accent = categoryAccent(game.category)
                         MiniGameChoiceCard(
                             title = game.title,

@@ -1089,6 +1089,8 @@ private fun SanctuaryPreview(
                 )
             }
             Spacer(Modifier.height(10.dp))
+            SanctuaryScene(sanctuary = sanctuary)
+            Spacer(Modifier.height(10.dp))
             LinearProgressIndicator(
                 progress = { progress },
                 modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
