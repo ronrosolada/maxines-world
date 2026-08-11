@@ -118,7 +118,8 @@ rsync -av --partial /home/ron/maxines-media-catalog.json \
 ```
 
 `app/src/main/assets/content-pack/media-assessments.json` is the tracked
-assessment source of truth. Always pass it to `build_media_catalog.py`; omitting
+assessment source of truth. The current 26-video pilot has ten memory-check
+items per video. Always pass this file to `build_media_catalog.py`; omitting
 `--assessments` produces a structurally valid catalog that silently drops all
 existing comprehension items. For an intentionally unassessed supplementary
 video, use `--allow-unassessed-media` while still passing the assessment source.
