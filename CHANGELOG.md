@@ -6,6 +6,14 @@ Android `versionName`.
 
 ## [Unreleased]
 
+### Playroom — one clear starting point
+
+- Removed the redundant homepage `Start here!` subject badge and the
+  duplicate `Start your first adventure` resume card.
+- The Daily Quest now owns the single explicit start action (`Start quest`;
+  `Continue quest` after progress), reducing first-screen choice overload for
+  children. Subject cards remain available as direct navigation.
+
 ## [0.29.0] - 2026-08-11
 
 ### Playroom — Milo's sanctuary becomes a place you can see

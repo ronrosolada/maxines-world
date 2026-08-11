@@ -238,29 +238,6 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         }
 
-        // Keep the next useful lesson one tap away. Prefer the active quest
-        // target so returning to the app preserves context; otherwise choose
-        // the first incomplete lesson in the fixed curriculum order.
-        val orderedLessons = subjects.flatMap { subject ->
-            catalog.modulesFor(subject.destination).flatMap { module ->
-                module.lessons.map { lesson -> subject to lesson }
-            }
-        }
-        val preferredLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
-        val selectedLesson = orderedLessons.firstOrNull { (_, lesson) ->
-            lesson.lessonId == preferredLessonId
-        } ?: orderedLessons.firstOrNull { (_, lesson) -> lesson.lessonId !in completed }
-        val resumeLesson = selectedLesson?.let { (subject, lesson) ->
-            LearningResumeUi(
-                lessonId = lesson.lessonId,
-                title = lesson.title,
-                subjectId = subject.id,
-                subjectName = subjectDisplayName(subject.id),
-                estimatedMinutes = lesson.estimatedMinutes,
-                isFirstLesson = lessonIds.isEmpty(),
-            )
-        }
-
         val collected = badges.count { it.isCollected }
         val wildlifeStickers = WildlifeStickersUi(
             collectedCount = collected,
@@ -294,7 +271,6 @@ class PlayroomHomeViewModel @Inject constructor(
             coinBalance = coinBalance,
             ownedKeepsakes = keepsakes,
             sanctuary = visibleSanctuary,
-            resumeLesson = resumeLesson,
         )
     }
 }

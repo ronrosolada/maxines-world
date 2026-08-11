@@ -156,9 +156,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         homeViewModel.onOpenFinished()
                     }
                 },
-                onResumeLearning = { lessonId ->
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                },
                 onQuestAction = { action ->
                     when (action) {
                         QuestAction.OpenLesson -> {
