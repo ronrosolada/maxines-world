@@ -65,7 +65,7 @@ fun VideoLibraryScreen(
         containerColor = Cream,
         topBar = {
             TopAppBar(
-                title = { Text("Tagalog videos", fontWeight = FontWeight.ExtraBold) },
+                title = { Text("Video Lessons", fontWeight = FontWeight.ExtraBold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back to home")

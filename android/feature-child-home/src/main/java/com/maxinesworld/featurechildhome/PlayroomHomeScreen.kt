@@ -375,7 +375,7 @@ private fun VideoLibraryCard(onClick: () -> Unit) {
             .fillMaxWidth()
             .clickable(onClick = onClick)
             .semantics {
-                contentDescription = "Tagalog video library. Open videos to download and watch offline."
+                contentDescription = "Video lesson library. Open videos to download and watch offline."
                 role = Role.Button
             },
         shape = RoundedCornerShape(18.dp),
@@ -395,7 +395,7 @@ private fun VideoLibraryCard(onClick: () -> Unit) {
             )
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
-                Text("Tagalog videos", fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
+                Text("Video Lessons", fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
                 Text(
                     "Download and watch optional lessons offline",
                     color = PlayMuted,

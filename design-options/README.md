@@ -10,7 +10,7 @@ Open the rendered review board at `index.html`, or use the direct sample:
 
 ## Active flow
 
-Greeting → resume learning → optional Tagalog videos → Today’s Quest → subjects → Milo’s Wildlife Sanctuary and sticker book → bottom navigation.
+Greeting → resume learning → optional video lessons → Today’s Quest → subjects → Milo’s Wildlife Sanctuary and sticker book → bottom navigation.
 
 ## Preserved
 
