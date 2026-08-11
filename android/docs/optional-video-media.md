@@ -6,8 +6,10 @@ played from private app storage.
 
 ## Current personal-use pilot
 
-- Source playlist: `Kids Tagalog Lessons` — `Tagalog Time with Pat`
-- Requested quality: best H.264/AAC format up to 480p
+- Source playlists:
+  - `Kids Tagalog Lessons` — `Tagalog Time with Pat` (media 01–18)
+  - `Full-Length Tagalog Lessons` — `Tagalog Time with Pat` (media 19–26)
+- Requested quality: best H.264/AAC format up to 480p (the new playlist's last four videos are source-limited to 640×360)
 - Media endpoint: `http://10.10.10.33/media/catalog.json`
 - Media root on DreamNAS: `/mnt/user/appdata/maxines-world-content/server/content/media/`
 - App storage: `filesDir/maxines-media/`
@@ -118,7 +120,8 @@ rsync -av --partial /home/ron/maxines-media-catalog.json \
 `app/src/main/assets/content-pack/media-assessments.json` is the tracked
 assessment source of truth. Always pass it to `build_media_catalog.py`; omitting
 `--assessments` produces a structurally valid catalog that silently drops all
-180 comprehension items.
+existing comprehension items. For an intentionally unassessed supplementary
+video, use `--allow-unassessed-media` while still passing the assessment source.
 
 Verify after deployment with a bounded header request and a SHA-256 comparison
 against the local catalog. The app must be able to skip the video when the

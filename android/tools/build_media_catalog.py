@@ -28,6 +28,14 @@ ENTRIES = [
     (16, "o1DBP9Dp5Xw", "kids-tagalog-16-pets-farm-animals"),
     (17, "nIi8lRSL0NQ", "kids-tagalog-17-weather"),
     (18, "Lk7BHIjadXc", "kids-tagalog-18-nature"),
+    (19, "SbGGTepS-6Y", "kids-tagalog-19-fundamentals"),
+    (20, "HSuFxLXnXDQ", "kids-tagalog-20-po"),
+    (21, "Q4yRe7Bk1Uo", "kids-tagalog-21-present-tense-conjugation"),
+    (22, "8UEHsTNLNhY", "kids-tagalog-22-past-future-tense"),
+    (23, "qWKMMvyizNI", "kids-tagalog-23-possessive-sentences"),
+    (24, "572ANDZPvOc", "kids-tagalog-24-questions-what-why-where"),
+    (25, "g1emK51OoKY", "kids-tagalog-25-questions-when-who-whose"),
+    (26, "HsERUKLAQWg", "kids-tagalog-26-questions-how-which"),
 ]
 
 
@@ -126,6 +134,11 @@ def main() -> int:
         required=True,
         help="Tracked assessment source; exactly ten child-facing items per mediaId",
     )
+    parser.add_argument(
+        "--allow-unassessed-media",
+        action="store_true",
+        help="Allow catalog entries without an assessment block while preserving all supplied assessments",
+    )
     args = parser.parse_args()
     assessments = load_assessments(args.assessments)
 
@@ -169,7 +182,7 @@ def main() -> int:
         expected_ids = {media_id for _, _, media_id in ENTRIES}
         missing_assessments = sorted(expected_ids - assessments.keys())
         extra_assessments = sorted(assessments.keys() - expected_ids)
-        if missing_assessments:
+        if missing_assessments and not args.allow_unassessed_media:
             failures.append(f"missing assessments: {', '.join(missing_assessments)}")
         if extra_assessments:
             failures.append(f"unknown assessment mediaIds: {', '.join(extra_assessments)}")
