@@ -6,6 +6,8 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.30.0] - 2026-08-11
+
 ### Playroom — one clear starting point
 
 - Removed the redundant homepage `Start here!` subject badge and the
