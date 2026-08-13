@@ -1,14 +1,18 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.ui.test.assertAny
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.hasScrollAction
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollToNode
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -60,6 +64,15 @@ class PlayroomHomeScreenTest {
         }
     }
 
+    /**
+     * The home is one scrollable column: on narrow layouts the quest card,
+     * sanctuary board, and subject grid sit below the fold. Scroll the
+     * container until [text] exists before visibility or click assertions.
+     */
+    private fun scrollTo(text: String) {
+        composeRule.onNode(hasScrollAction()).performScrollToNode(hasText(text))
+    }
+
     @Test
     fun loadingStateExplainsWhatMiloIsDoing() {
         setHome(PlayroomHomeUiState.Loading)
@@ -70,6 +83,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun gmrcIsDisplayedAndEnabledFromFirstSession() {
         setHome(stateFor())
+        scrollTo("GMRC")
         composeRule.onNodeWithText("GMRC").assertIsDisplayed().assertIsEnabled()
     }
 
@@ -78,13 +92,19 @@ class PlayroomHomeScreenTest {
         setHome(stateFor())
         // Makabansa is the Matatag successor of Araling Panlipunan — legacy
         // AP lessons ship inside the Makabansa collection (2026-08-06 merge).
+        // The grid is a plain Column: every card exists in the tree even when
+        // off-screen, so existence proves all six render; scroll to verify the
+        // bottom of the grid is actually reachable and displayed.
+        scrollTo("GMRC")
+        composeRule.onNodeWithText("GMRC").assertIsDisplayed()
         listOf("Mathematics", "English", "Science", "Filipino", "Makabansa", "GMRC")
-            .forEach { composeRule.onNodeWithText(it).assertIsDisplayed() }
+            .forEach { composeRule.onNodeWithText(it).assertExists() }
     }
 
     @Test
     fun weeklyExpeditionCopyRenders() {
         setHome(stateFor(2))
+        scrollTo("This Week’s Quest")
         composeRule.onNodeWithText("This Week’s Quest").assertIsDisplayed()
         composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertExists()
@@ -97,15 +117,17 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("Reward at 3/3: a sanctuary piece + 5-minute play break").assertExists()
         composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and five minute play break").assertExists()
         composeRule.onNodeWithText("Milo’s Wildlife Sanctuary").assertExists()
-        composeRule.onNodeWithText("0 / 12 pieces").assertExists()
-        composeRule.onNodeWithText("Next sanctuary reward").assertExists()
-        composeRule.onNodeWithText("Sunny Meadow").assertExists()
+        composeRule.onNodeWithText("0 / 12 places added").assertExists()
+        composeRule.onNodeWithText("Next place to add").assertExists()
+        // The next piece name renders both on the board cell and in the
+        // next-reward row — either is proof the preview surfaced it.
+        composeRule.onAllNodesWithText("Sunny Meadow").assertAny(hasText("Sunny Meadow"))
     }
 
     @Test
     fun sanctuaryExplainsItsNextRewardInsteadOfRepeatingStickerSlots() {
         setHome(stateFor())
-        composeRule.onNodeWithText("Complete Daily Quests to grow Milo’s home.").assertExists()
+        composeRule.onNodeWithText("Build Milo’s home by finishing today’s 3 lessons.").assertExists()
         composeRule.onAllNodesWithText("Complete today's learning adventures to grow it.").assertCountEquals(0)
         composeRule.onNodeWithText("Wildlife Stickers").assertExists()
         composeRule.onNodeWithText("Open Field Guide").assertHasClickAction()
@@ -169,6 +191,7 @@ class PlayroomHomeScreenTest {
     fun gmrcClickNavigates() {
         var clicks = 0
         setHome(stateFor(), onSubjectClick = { clicks++ })
+        scrollTo("GMRC")
         composeRule.onNodeWithText("GMRC").performClick()
         composeRule.waitForIdle()
         assertTrue(clicks > 0)
