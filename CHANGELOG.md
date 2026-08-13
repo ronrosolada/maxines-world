@@ -6,6 +6,16 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.31.1] - 2026-08-13
+
+### Fix
+
+- **Sanctuary complete state**: the earn hint ("Finish all 3 lessons in
+  Today's Quest to add this place.") no longer renders once the sanctuary is
+  complete (12/12 places, including parent god mode), where it contradicted
+  the "Milo's home is complete!" line directly above it. UI test added
+  (`completeSanctuaryShowsCompletionWithoutAnEarnHint`).
+
 ## [0.31.0] - 2026-08-13
 
 ### Quality, hygiene, and trust
