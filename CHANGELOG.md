@@ -6,6 +6,32 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.31.0] - 2026-08-13
+
+### Quality, hygiene, and trust
+
+- **Fail-closed rendering**: unknown activity types are dropped with a log
+  instead of silently rendering as an animated explanation; a lesson with no
+  playable steps fails to load instead of opening an empty player. Unit
+  tests cover both behaviors.
+- **CI connected-test coverage**: `feature-child-home`, `feature-rewards`,
+  and `feature-lesson-player` instrumented suites now run on the API 34
+  emulator (previously only `core-database`, `app`, and `feature-auth`).
+- **Dead code removed**: pre-Playroom screens (`VillageHomeScreen`,
+  `VillageHomeV17`, `VillageChromeV16`) and their unreferenced assets
+  deleted. Mascot + subject artwork converted PNG → WebP (≈9.7 MB smaller
+  APK).
+- **Content normalization**: 9 Filipino story lessons re-serialized with the
+  canonical top-level key order (values unchanged, gate verified).
+- **Dependency refresh**: AGP 8.9.2, Gradle 8.11.1, Kotlin 2.1.20, KSP
+  2.1.20-1.0.32, Compose BOM 2025.05.00, Room 2.7.1, Navigation Compose
+  2.9.0. Room 2.7's stricter SQL parser required renaming the
+  `lesson_completions` query alias from the reserved word `current`.
+- **Educator follow-ups tracked**: M1, M2, M7, and the 122 same-keyed-pair
+  finding are now GitHub issues (#76–#79).
+- **Docs**: HANDOFF.md reconciled to the current baseline (DB v9, SVG
+  accessibility status, issue links).
+
 ## [0.30.0] - 2026-08-11
 
 ### Playroom — one clear starting point
