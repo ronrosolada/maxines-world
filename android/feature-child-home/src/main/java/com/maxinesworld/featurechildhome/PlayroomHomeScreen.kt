@@ -1110,13 +1110,18 @@ private fun SanctuaryPreview(
                     fontSize = 14.sp,
                 )
             }
-            Spacer(Modifier.height(9.dp))
-            Text(
-                stringResource(R.string.home_sanctuary_earn_hint),
-                color = PlayMuted,
-                fontSize = 13.sp,
-                lineHeight = 18.sp,
-            )
+            // The earn hint describes how to add the NEXT place. Once the
+            // sanctuary is complete (or god mode shows it complete) there is
+            // nothing left to earn — showing both lines is contradictory.
+            if (nextPiece != null) {
+                Spacer(Modifier.height(9.dp))
+                Text(
+                    stringResource(R.string.home_sanctuary_earn_hint),
+                    color = PlayMuted,
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                )
+            }
         }
     }
 }

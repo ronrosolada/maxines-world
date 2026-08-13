@@ -134,6 +134,27 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun completeSanctuaryShowsCompletionWithoutAnEarnHint() {
+        // God mode (or genuinely finishing all 12 places) renders the same
+        // complete state: nextPiece is null and every place is earned. The
+        // earn hint must disappear — telling a child to "finish 3 lessons to
+        // add this place" under "your home is complete" is contradictory.
+        setHome(
+            stateFor().copy(
+                sanctuary = SanctuaryUi(
+                    earnedPieces = 12,
+                    visiblePieces = emptyList(),
+                    nextPiece = null,
+                    totalPieces = 12,
+                ),
+            )
+        )
+        composeRule.onNodeWithText("12 / 12 places added").assertExists()
+        composeRule.onNodeWithText("Milo’s home is complete! You built every place.").assertExists()
+        composeRule.onAllNodesWithText("Finish all 3 lessons in Today’s Quest to add this place.").assertCountEquals(0)
+    }
+
+    @Test
     fun homepageDoesNotDuplicateTheDailyQuestStartAction() {
         setHome(stateFor())
         composeRule.onAllNodesWithText("Start here!").assertCountEquals(0)
