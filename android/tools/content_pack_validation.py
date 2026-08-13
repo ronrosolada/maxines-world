@@ -256,6 +256,8 @@ def validate_pack(
     expected_types = tuple(_expected(snapshot, "activity_types", list(CANONICAL_ACTIVITY_TYPES)))
     expected_assessments = _expected(snapshot, "assessment_items_per_lesson", 5)
     expected_passing_count = _expected(snapshot, "assessment_passing_correct_count", None)
+    # Per-lesson overrides (e.g., production-coverage lessons with 6 items).
+    lesson_overrides = _expected(snapshot, "lesson_overrides", {}) or {}
 
     for path in files:
         try:
@@ -311,7 +313,10 @@ def validate_pack(
                     report.add("error", "activity_shape", path, f"activity {index + 1} sequence must be {index + 1}")
                 _validate_activity(report, path, lesson_id, activity, index, asset_dir)
 
-        _validate_assessment(report, path, lesson.get("assessment"), expected_assessments, expected_passing_count, strict)
+        lesson_override = lesson_overrides.get(lesson_id) or {}
+        lesson_assessments = lesson_override.get("assessment_items_per_lesson", expected_assessments)
+        lesson_passing = lesson_override.get("assessment_passing_correct_count", expected_passing_count)
+        _validate_assessment(report, path, lesson.get("assessment"), lesson_assessments, lesson_passing, strict)
 
         if require_released and not (lesson.get("educatorValidated") is True and lesson.get("releaseStatus") == "RELEASED"):
             report.add("error", "educator", path, "lesson is not educatorValidated=true and RELEASED")

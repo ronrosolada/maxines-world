@@ -228,15 +228,15 @@
     "prompt": "Which of these is a repeating pattern?",
     "options": [
      {
-      "id": "c",
-      "text": "red, blue, red, blue"
-     },
-     {
       "id": "a",
       "text": "5, 10, 15, 20"
      },
      {
       "id": "b",
+      "text": "red, blue, red, blue"
+     },
+     {
+      "id": "c",
       "text": "A, B, C, D"
      },
      {
@@ -245,7 +245,7 @@
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
     "explanation": "A repeating pattern cycles through the same group over and over. Red, blue, red, blue keeps repeating the red-blue group, so it is a repeating pattern."
    },
@@ -285,23 +285,23 @@
     "options": [
      {
       "id": "a",
-      "text": "triangle"
-     },
-     {
-      "id": "b",
       "text": "circle"
      },
      {
-      "id": "c",
+      "id": "b",
       "text": "square"
      },
      {
-      "id": "d",
+      "id": "c",
       "text": "star"
+     },
+     {
+      "id": "d",
+      "text": "triangle"
      }
     ],
     "correctOptionIds": [
-     "a"
+     "d"
     ],
     "explanation": "The pattern goes triangle, square, triangle, square, so after square comes triangle again."
    },
@@ -312,24 +312,24 @@
     "prompt": "Milo finds the pattern 3, 6, 9, 12. What does he need to tell to explain it?",
     "options": [
      {
-      "id": "d",
-      "text": "the rule: add 3 each time"
-     },
-     {
-      "id": "c",
+      "id": "a",
       "text": "the colors of the numbers"
      },
      {
-      "id": "a",
+      "id": "b",
       "text": "how many numbers are in the pattern"
      },
      {
-      "id": "b",
+      "id": "c",
+      "text": "the rule: add 3 each time"
+     },
+     {
+      "id": "d",
       "text": "the names of the numbers"
      }
     ],
     "correctOptionIds": [
-     "d"
+     "c"
     ],
     "explanation": "To explain a pattern, name its rule. 3, 6, 9, 12 grows by adding 3 each time, so the rule is add 3."
    },
@@ -340,15 +340,15 @@
     "prompt": "Which pattern shows a rule that repeats the same group?",
     "options": [
      {
-      "id": "c",
-      "text": "red, blue, red, blue"
-     },
-     {
       "id": "a",
       "text": "2, 4, 6, 8"
      },
      {
       "id": "b",
+      "text": "red, blue, red, blue"
+     },
+     {
+      "id": "c",
       "text": "10, 20, 30"
      },
      {
@@ -357,7 +357,7 @@
      }
     ],
     "correctOptionIds": [
-     "c"
+     "b"
     ],
     "explanation": "Red, blue, red, blue cycles the same group of colors over and over, so it is a repeating pattern. The others grow by a rule instead."
    }

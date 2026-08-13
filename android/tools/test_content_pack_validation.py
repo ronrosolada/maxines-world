@@ -134,6 +134,38 @@ class ContentPackValidationTests(unittest.TestCase):
         self.assertTrue(any(f.category == "assessment_threshold" for f in report.errors))
         self.assertEqual(0, report.warning_count)
 
+    def test_per_lesson_override_allows_six_item_production_assessment(self):
+        lesson = valid_lesson()
+        extra = dict(lesson["assessment"]["items"][0])
+        extra["itemId"] = f"{lesson['lessonId']}-q06"
+        extra["sequence"] = 6
+        lesson["assessment"]["items"].append(extra)
+        lesson["assessment"]["itemCount"] = 6
+        lesson["assessment"]["passingCorrectCount"] = 5
+
+        # Without an override the 6-item shape is a policy error.
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp)
+            write_lesson(pack, lesson)
+            report = validate_pack(pack, snapshot=SNAPSHOT, strict=True)
+        self.assertTrue(any(f.category == "assessment_shape" for f in report.errors))
+
+        # With a per-lesson override it passes and keeps the 0.8 threshold (5/6).
+        snapshot = {
+            **SNAPSHOT,
+            "lesson_overrides": {
+                lesson["lessonId"]: {
+                    "assessment_items_per_lesson": 6,
+                    "assessment_passing_correct_count": [5],
+                }
+            },
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp)
+            write_lesson(pack, lesson)
+            report = validate_pack(pack, snapshot=snapshot, strict=True)
+        self.assertEqual([], report.errors)
+
     def test_malformed_json_is_an_error_and_does_not_abort_scan(self):
         with tempfile.TemporaryDirectory() as tmp:
             pack = Path(tmp)
