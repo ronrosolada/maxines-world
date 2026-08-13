@@ -24,9 +24,12 @@ Android `versionName`.
 - **Content normalization**: 9 Filipino story lessons re-serialized with the
   canonical top-level key order (values unchanged, gate verified).
 - **Dependency refresh**: AGP 8.9.2, Gradle 8.11.1, Kotlin 2.1.20, KSP
-  2.1.20-1.0.32, Compose BOM 2025.05.00, Room 2.7.1, Navigation Compose
-  2.9.0. Room 2.7's stricter SQL parser required renaming the
-  `lesson_completions` query alias from the reserved word `current`.
+  2.1.20-1.0.32, Room 2.7.1. Room 2.7's stricter SQL parser required
+  renaming the `lesson_completions` query alias from the reserved word
+  `current`. Compose BOM stays on 2024.12.01: the 1.8 line changes IME
+  inset propagation, which broke the PIN keypad UI test (`AuthImeLayoutTest`)
+  under injected insets — a Compose bump must be validated on a physical
+  device first.
 - **Educator follow-ups tracked**: M1, M2, M7, and the 122 same-keyed-pair
   finding are now GitHub issues (#76–#79).
 - **Docs**: HANDOFF.md reconciled to the current baseline (DB v9, SVG

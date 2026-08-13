@@ -202,6 +202,9 @@ Before tagging `v0.31.0`:
 - English Q4 is deferred as documented above.
 - Coins are displayed honestly, but a cosmetic coin-spend surface is future
   work; no fake purchase flow is exposed.
+- Compose stays on the 1.7 line (BOM 2024.12.01): the 1.8 line changed IME
+  inset propagation and broke the PIN keypad UI test under injected insets.
+  Validate on a physical device before bumping.
 - Independent human educator review remains valuable even though the release
   metadata gate is green.
 - The app has not yet been exercised on a physical device with a real child

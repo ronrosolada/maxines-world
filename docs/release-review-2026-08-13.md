@@ -33,8 +33,11 @@ understanding.**
    unknown types; conversion drops the step with a log; a lesson with no
    playable steps fails to load. Unit tests added.
 5. **Dependency drift** — AGP 8.7.3→8.9.2, Gradle 8.9→8.11.1, Kotlin
-   2.1.0→2.1.21, KSP 2.1.21-1.0.29, Compose BOM 2024.12.01→2025.05.00, Room
-   2.6.1→2.7.1, Navigation Compose 2.8.5→2.9.0.
+   2.1.0→2.1.20, KSP 2.1.20-1.0.32, Room 2.6.1→2.7.1. The Compose BOM bump
+   was attempted and reverted: Compose 1.8 changes IME inset propagation and
+   broke the PIN keypad UI test under injected insets (reproduced on CI and
+   local emulator) — a Compose bump requires physical-device validation
+   first.
 6. **Dead code and APK bloat** — removed `VillageHomeScreen`, `VillageHomeV17`,
    `VillageChromeV16` and their unreferenced assets; mascot + subject artwork
    converted to WebP (≈9.7 MB smaller APK).
