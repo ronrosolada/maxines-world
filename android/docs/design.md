@@ -264,6 +264,16 @@ Incorrect response:
 | Active question | 1–3 |
 | Assessment | 1–2 |
 | Parent dashboard | 0–3 |
+
+> **Milestone note (CH-07, tracked):** the density targets describe the
+> full-illustration village pass. The shipped home is the card-based
+> Playroom: the subject guides (Mira, Milo, Niko, Lakan, Duke) appear as
+> subject illustrations and the quest/sanctuary mascot, not as 8–14
+> standing village animals. The layered village scenery that satisfies
+> this table is scheduled with the CH-07 phase model — see
+> `docs/phase-model-ch07.md`. The child-facing principle "animals must
+> not crowd controls or distract during reading and assessment" already
+> applies to every shipped screen.
 | Celebration | 4–10 |
 
 Keep only one animated focal character during reading or problem-solving.

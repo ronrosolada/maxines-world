@@ -102,12 +102,25 @@ class ActivityStepConversionTest {
     }
 
     @Test
-    fun `missing authored retry uses corrective default instead of generic prompt`() {
+    fun `missing authored retry names the correct answer instead of generic prompt`() {
         val step = toActivityStep(
             activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":0}""")
         )
 
-        assertEquals(DEFAULT_INCORRECT_FEEDBACK, step.feedback?.incorrect)
+        assertEquals("Not quite. The answer is \"A\".", step.feedback?.incorrect)
+    }
+
+    @Test
+    fun `missing authored retry for Filipino names the correct answer in Filipino`() {
+        val step = toActivityStep(
+            activity(
+                "MULTIPLE_CHOICE",
+                """{"options":["A","B"],"correctIndex":1}""",
+                id = "filipino-g3-q1-w01-d01-a04",
+            )
+        )
+
+        assertEquals("Hindi pa tama. Ang sagot ay \"B\".", step.feedback?.incorrect)
     }
 
     @Test
