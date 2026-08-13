@@ -351,9 +351,35 @@ class ActivityStepConversionTest {
             "HOTSPOT_IMAGE" to "HOTSPOT_IMAGE_V1",
             "MATCHING_PAIRS" to "MATCHING_PAIRS_V1",
             "SEQUENCE_BUILDER" to "SEQUENCE_BUILDER_V1",
-            "INTERACTIVE_SPEC" to "INTERACTIVE_SPEC_V1"
+            "INTERACTIVE_SPEC" to "INTERACTIVE_SPEC_V1",
+            "VIDEO" to "VIDEO_V1",
         )
         expected.forEach { (raw, versioned) -> assertEquals(versioned, rendererType(raw)) }
+    }
+
+    @Test
+    fun `unknown raw type fails closed instead of defaulting to explanation`() {
+        assertEquals(null, rendererType("MYSTERY_ACTIVITY"))
+        assertEquals(null, rendererType(""))
+    }
+
+    @Test
+    fun `activity with unknown type is dropped during conversion`() {
+        val steps = playableSteps(listOf(activity("MYSTERY_ACTIVITY", "\"body text\"")))
+        assertTrue(steps.isEmpty())
+    }
+
+    @Test
+    fun `mixed activities keep known types and drop unknown ones`() {
+        val steps = playableSteps(
+            listOf(
+                activity("MULTIPLE_CHOICE", """{"options":["A","B"],"correctIndex":0}""", id = "a-01"),
+                activity("MYSTERY_ACTIVITY", "\"body text\"", id = "a-02"),
+                activity("ANIMATED_EXPLANATION", "\"Some story body\"", id = "a-03"),
+            )
+        )
+        assertEquals(listOf("a-01", "a-03"), steps.map { it.id })
+        assertEquals(listOf("MULTIPLE_CHOICE_V1", "ANIMATED_EXPLANATION_V1"), steps.map { it.type })
     }
 
     @Test

@@ -170,24 +170,24 @@ interface LessonCompletionDao {
 
     @Query(
         """
-        SELECT current.*
-        FROM lesson_completions AS current
-        WHERE current.childId = :childId
-          AND length(trim(current.lessonId)) > 0
+        SELECT lc.*
+        FROM lesson_completions AS lc
+        WHERE lc.childId = :childId
+          AND length(trim(lc.lessonId)) > 0
           AND NOT EXISTS (
               SELECT 1
               FROM lesson_completions AS newer
-              WHERE newer.childId = current.childId
-                AND newer.lessonId = current.lessonId
+              WHERE newer.childId = lc.childId
+                AND newer.lessonId = lc.lessonId
                 AND (
-                    newer.completedAtEpochMillis > current.completedAtEpochMillis
+                    newer.completedAtEpochMillis > lc.completedAtEpochMillis
                     OR (
-                        newer.completedAtEpochMillis = current.completedAtEpochMillis
-                        AND newer.id > current.id
+                        newer.completedAtEpochMillis = lc.completedAtEpochMillis
+                        AND newer.id > lc.id
                     )
                 )
           )
-        ORDER BY current.completedAtEpochMillis DESC, current.id DESC
+        ORDER BY lc.completedAtEpochMillis DESC, lc.id DESC
         LIMIT :limit
         """
     )

@@ -1,6 +1,7 @@
 package com.maxinesworld.featurelessonplayer
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.engineactivity.ActivityResult
@@ -94,7 +95,11 @@ class LessonPlayerViewModel @Inject constructor(
             val lesson = withContext(Dispatchers.IO) {
                 // Single bundled resolution path; loadLesson already rejects
                 // any non-RELEASED lesson (spec CH-02).
-                contentLessonLoader.loadLesson(lessonId)?.let(::convertToLessonManifest)
+                contentLessonLoader.loadLesson(lessonId)
+                    ?.let(::convertToLessonManifest)
+                    // Fail closed: a lesson whose every activity has an unknown
+                    // type would render an empty player. Treat it as unloadable.
+                    ?.takeIf { it.steps.isNotEmpty() }
             }
             _state.update {
                 it.copy(isLoading = false, lesson = lesson,
@@ -302,13 +307,20 @@ class LessonPlayerViewModel @Inject constructor(
                     items = assessmentSteps,
                 )
             },
-            steps = m1.activities.map { act -> toActivityStep(act, m1.language) } + assessmentSteps
+            steps = playableSteps(m1.activities, m1.language) + assessmentSteps
         )
     }
 }
 
-/** Maps the on-disk activity type to the versioned renderer key. */
-internal fun rendererType(rawType: String): String = when (rawType) {
+private const val TAG = "LessonPlayer"
+
+/**
+ * Maps the on-disk activity type to the versioned renderer key.
+ * Unknown types return null so the step fails closed instead of being
+ * silently re-rendered as an explanation (the content gate whitelists
+ * types, but the player must not trust the payload).
+ */
+internal fun rendererType(rawType: String): String? = when (rawType) {
     "ANIMATED_EXPLANATION" -> "ANIMATED_EXPLANATION_V1"
     "MULTIPLE_CHOICE" -> "MULTIPLE_CHOICE_V1"
     "SORT_AND_CLASSIFY" -> "SORT_AND_CLASSIFY_V1"
@@ -317,7 +329,7 @@ internal fun rendererType(rawType: String): String = when (rawType) {
     "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
     "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
     "VIDEO" -> "VIDEO_V1"
-    else -> "ANIMATED_EXPLANATION_V1"
+    else -> null
 }
 
 /**
@@ -360,6 +372,25 @@ private fun JsonPrimitive.contentOrNull(): String? =
     this.content.takeIf { it.isNotBlank() }
 
 /**
+ * Converts authored activities into playable steps, dropping any whose
+ * on-disk type has no renderer. Unknown types are logged and skipped so a
+ * payload the content gate would reject can never silently play as a
+ * different activity.
+ */
+internal fun playableSteps(
+    activities: List<Month1Activity>,
+    language: String? = null,
+): List<ActivityStep> =
+    activities.mapNotNull { act ->
+        if (rendererType(act.type) == null) {
+            Log.w(TAG, "Skipping activity ${act.activityId}: unknown type ${act.type}")
+            null
+        } else {
+            toActivityStep(act, language)
+        }
+    }
+
+/**
  * Converts one Month1Activity into a renderer-ready ActivityStep, parsing the
  * loosely-typed `content` JSON into the typed fields each renderer needs.
  *
@@ -367,7 +398,10 @@ private fun JsonPrimitive.contentOrNull(): String? =
  * typed fields rather than throwing, so one bad lesson cannot crash the player.
  */
 internal fun toActivityStep(act: Month1Activity, language: String? = null): ActivityStep {
-    val type = rendererType(act.type)
+    // playableSteps() filters unknown types before conversion; this fallback
+    // keeps the converter total without ever throwing. A step carrying it can
+    // still never reach the renderer, which rejects unknown V1 keys.
+    val type = rendererType(act.type) ?: "UNKNOWN_V1"
     val content = act.content
     val obj = content as? JsonObject
 
