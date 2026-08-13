@@ -12,6 +12,7 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -165,7 +166,12 @@ class PlayroomHomeScreenTest {
     fun treatShopEntryPointInvokesCallback() {
         var opens = 0
         setHome(stateFor(), onTreatShopClick = { opens++ })
-        composeRule.onNodeWithText("Sanctuary Workshop").assertIsEnabled().performClick()
+        // The sanctuary card sits below the fold and its children report no
+        // bounds until scrolled into view. The workshop entry is the last
+        // child of that card, so scroll the stickers section (just below it)
+        // into view first — then the button is placed and clickable.
+        composeRule.onNodeWithText("Wildlife Stickers").performScrollTo()
+        composeRule.onNodeWithText("Sanctuary Workshop").assertIsDisplayed().performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
     }
 
