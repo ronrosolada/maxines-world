@@ -28,11 +28,11 @@ class PlayroomHomeScreenTest {
             childName = "Maxine",
             subjects = canonicalSubjects,
             quest = QuestUi(
-                task = "Complete 3 adventures across 2 learning areas this week.",
+                task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completed,
                 pawPrintTotal = 3,
                 recommendedSubjectId = canonicalSubjects.first().id,
-                buttonLabel = "Continue",
+                buttonLabel = QuestButtonLabel.Continue,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
             sanctuary = SanctuaryUi(
@@ -102,11 +102,11 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
-    fun weeklyExpeditionCopyRenders() {
+    fun todaysQuestCopyRenders() {
         setHome(stateFor(2))
-        scrollTo("This Week’s Quest")
-        composeRule.onNodeWithText("This Week’s Quest").assertIsDisplayed()
-        composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
+        scrollTo("Today’s Quest")
+        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Complete 3 learning adventures today.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertExists()
         composeRule.onNodeWithText("Continue").assertIsDisplayed()
     }
@@ -178,7 +178,7 @@ class PlayroomHomeScreenTest {
                 ),
             )
         )
-        composeRule.onNodeWithText("Milo's decorations").assertIsDisplayed()
+        composeRule.onNodeWithText("Milo’s decorations").assertIsDisplayed()
         composeRule.onNodeWithText("Fish Treat Basket").assertIsDisplayed()
         composeRule.onNodeWithContentDescription("Milo's keepsake: Fish Treat Basket").assertIsDisplayed()
     }
@@ -186,7 +186,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun noKeepsakesMeansNoStrip() {
         setHome(stateFor())
-        composeRule.onAllNodesWithText("Milo's decorations").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Milo’s decorations").assertCountEquals(0)
     }
 
     @Test

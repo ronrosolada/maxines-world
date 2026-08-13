@@ -43,14 +43,30 @@ data class QuestTargetUi(
     val isCompleted: Boolean,
 )
 
+enum class QuestTaskCopy {
+    ParentMode,
+    CompleteToday,
+    IncompleteToday,
+}
+
+enum class QuestButtonLabel {
+    OpenPlayground,
+    OpenSanctuary,
+    ChooseSubject,
+    StartQuest,
+    ContinueQuest,
+    Start,
+    Continue,
+}
+
 @androidx.compose.runtime.Immutable
 data class QuestUi(
-    val task: String,
+    val task: QuestTaskCopy,
     val pawPrintsCompleted: Int,
     val pawPrintTotal: Int,
     val isComplete: Boolean = false,
     val recommendedSubjectId: String? = null, // null → "Choose a subject"
-    val buttonLabel: String = "",             // Continue / Choose a subject / View reward
+    val buttonLabel: QuestButtonLabel = QuestButtonLabel.Continue,
     val buttonAction: QuestAction = QuestAction.Continue,
     val targets: List<QuestTargetUi> = emptyList(),
     val nextLessonId: String? = null,

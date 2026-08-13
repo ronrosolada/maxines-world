@@ -191,12 +191,12 @@ class PlayroomHomeViewModel @Inject constructor(
         val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
         val questUi = if (godModeEnabled) {
             QuestUi(
-                task = "Parent mode: the Playground and all rewards are unlocked!",
+                task = QuestTaskCopy.ParentMode,
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 isComplete = dailyQuest.isComplete,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "Open Playground",
+                buttonLabel = QuestButtonLabel.OpenPlayground,
                 buttonAction = QuestAction.OpenPlayground,
                 targets = targets,
                 nextLessonId = nextLessonId,
@@ -204,12 +204,12 @@ class PlayroomHomeViewModel @Inject constructor(
             )
         } else if (dailyQuest.isComplete) {
             QuestUi(
-                task = "Today's quest complete — Milo's sanctuary is growing!",
+                task = QuestTaskCopy.CompleteToday,
                 pawPrintsCompleted = questTotal,
                 pawPrintTotal = questTotal,
                 isComplete = true,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = "Open Sanctuary",
+                buttonLabel = QuestButtonLabel.OpenSanctuary,
                 buttonAction = QuestAction.ViewReward,
                 targets = targets,
                 nextLessonId = nextLessonId,
@@ -217,16 +217,16 @@ class PlayroomHomeViewModel @Inject constructor(
         } else {
             val hasQuestTarget = nextLessonId != null
             QuestUi(
-                task = "Complete $questTotal learning adventures today.",
+                task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = when {
-                    noSubjectFallback -> "Choose a subject"
-                    hasQuestTarget && completedCount == 0 -> "Start quest"
-                    hasQuestTarget -> "Continue quest"
-                    completedCount == 0 -> "Start"
-                    else -> "Continue"
+                    noSubjectFallback -> QuestButtonLabel.ChooseSubject
+                    hasQuestTarget && completedCount == 0 -> QuestButtonLabel.StartQuest
+                    hasQuestTarget -> QuestButtonLabel.ContinueQuest
+                    completedCount == 0 -> QuestButtonLabel.Start
+                    else -> QuestButtonLabel.Continue
                 },
                 buttonAction = when {
                     noSubjectFallback -> QuestAction.ChooseSubject

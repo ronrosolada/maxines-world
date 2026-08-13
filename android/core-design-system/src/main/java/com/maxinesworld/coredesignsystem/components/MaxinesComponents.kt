@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -24,6 +25,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -284,6 +286,58 @@ fun MaxinesQuestCard(
                 contentDescription = "Open quest",
                 tint = subjectColor,
                 modifier = Modifier.size(28.dp)
+            )
+        }
+    }
+}
+
+/** Shared surface for an expanded quest card with feature-owned body content. */
+@Composable
+fun MaxinesQuestCardSurface(
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Card(
+        modifier = modifier,
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = Cream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 2.dp),
+        content = content,
+    )
+}
+
+/** Shared branded header for expanded quest cards. */
+@Composable
+fun MaxinesQuestCardHeader(
+    title: String,
+    leadingContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier
+            .fillMaxWidth()
+            .background(Brush.horizontalGradient(listOf(VillageTeal, DeepNight)))
+            .padding(horizontal = 20.dp, vertical = 14.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(CircleShape)
+                    .background(White.copy(alpha = 0.16f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                leadingContent()
+            }
+            Spacer(Modifier.width(12.dp))
+            Text(
+                text = title,
+                color = White,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 21.sp,
+                lineHeight = 28.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
