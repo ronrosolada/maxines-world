@@ -50,17 +50,24 @@ understanding.**
 
 ## Verification results
 
-_(completed after the local + CI build runs)_
-
-- Local: `./gradlew check assembleRelease` + content tooling checks
-- CI: full pipeline on the `release/v0.31.0` PR, including connected tests on
-  the API 34 emulator for six modules
-- Release gate: `verifyPlayableContent` + release assemble on `v0.31.0` tag
-- APK inspection: package, version 0.31.0 (code 32), INTERNET permission for
-  optional LAN media only, release signature, minification
+- Local: `./gradlew check assembleRelease` green; content gates clean
+  (358 lessons, 0 errors, 0 dupes; 29/29 mini-games CSP-locked); connected
+  tests on the MwApi34 AVD: auth 4/4, child-home 17/17, rewards 5/5,
+  lesson-player 1/1.
+- CI on the `release/v0.31.0` PR and on `main`: all jobs green, including
+  connected tests on the API 34 emulator for six modules.
+- Release gate on `v0.31.0`: green (`verifyPlayableContent` 358/358 + release
+  assemble).
+- APK inspection: package `com.maxinesworld.app`, version 0.31.0 (code 32),
+  minSdk 26 / target 35, INTERNET permission for optional LAN media only,
+  release signature present (CN=Maxines World), SHA-256
+  `de81ea063edd7c208afc9c8f21b2b6fef344c0f8a35ec51e5399286109c205ff`.
+- GitHub release published with the signed APK attached.
 
 ## Remaining non-blocking boundaries
 
 - English Q4 deferred until source curriculum is available.
 - No physical-device child session yet (emulator coverage only).
+- Compose stays on the 1.7 line until IME behavior is validated on a
+  physical device (see finding 5).
 - Educator follow-ups #76–#79 remain open by design.
