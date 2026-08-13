@@ -224,6 +224,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onDownload = viewModel::download,
                 onPlay = viewModel::play,
                 onStopPlaying = viewModel::stopPlaying,
+                onVideoCompleted = viewModel::markVideoWatched,
                 onStartAssessment = viewModel::startAssessment,
                 onSelectAssessmentOption = viewModel::selectAssessmentOption,
                 onSubmitAssessment = viewModel::submitAssessment,

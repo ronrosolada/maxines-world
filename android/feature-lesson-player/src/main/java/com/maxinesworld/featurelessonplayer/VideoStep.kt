@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
 import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
@@ -136,8 +137,12 @@ private fun MediaStatusCard(
 
 @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 @Composable
-internal fun OfflineVideoPlayer(file: File) {
+internal fun OfflineVideoPlayer(
+    file: File,
+    onCompleted: () -> Unit = {},
+) {
     val context = LocalContext.current
+    val currentOnCompleted = androidx.compose.runtime.rememberUpdatedState(onCompleted)
     val player = remember(file.absolutePath) {
         ExoPlayer.Builder(context).build().apply {
             setMediaItem(MediaItem.fromUri(file.toUri()))
@@ -146,7 +151,16 @@ internal fun OfflineVideoPlayer(file: File) {
         }
     }
     DisposableEffect(player) {
-        onDispose { player.release() }
+        val listener = object : Player.Listener {
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                if (playbackState == Player.STATE_ENDED) currentOnCompleted.value()
+            }
+        }
+        player.addListener(listener)
+        onDispose {
+            player.removeListener(listener)
+            player.release()
+        }
     }
 
     AndroidView(
