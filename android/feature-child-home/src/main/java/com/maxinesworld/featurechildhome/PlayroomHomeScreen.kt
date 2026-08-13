@@ -68,16 +68,21 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
+import com.maxinesworld.coredesignsystem.components.MaxinesQuestCardHeader
+import com.maxinesworld.coredesignsystem.components.MaxinesQuestCardSurface
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import kotlin.math.roundToInt
 
-// ─── Option 3 palette (design.md §8.1) ───
-internal val PlayGoldTop = Color(0xFFFFD76E)
-internal val PlayGoldMid = Color(0xFFFFB84D)
+// ─── Playroom aliases ────────────────────────────────────────────────
+// Feature code uses the shared design-system tokens; these aliases preserve
+// the concise names used throughout this screen.
+internal val PlayGoldTop = PlayroomColors.GoldTop
+internal val PlayGoldMid = PlayroomColors.GoldMid
 internal val PlayCoralBottom = Coral
 internal val PlayTeal = VillageTeal
-internal val PlayTealPressed = Color(0xFF06676A)
+internal val PlayTealPressed = PlayroomColors.TealPressed
 internal val PlayInk = Ink
 internal val PlayInkDark = DeepNight
 internal val PlayCream = Cream
@@ -86,30 +91,13 @@ internal val PlaySunshine = SunshineGold
 internal val PlayCoral = Coral
 internal val PlaySuccess = SuccessGreen
 internal val PlayError = OnError
-internal val PlayMuted = Color(0xFF4E5F66)
+internal val PlayMuted = PlayroomColors.Muted
 
-internal val SubjectAccent = mapOf(
-    "mathematics" to SubjectColors.Mathematics.primary,
-    "english" to SubjectColors.English.primary,
-    "science" to SubjectColors.Science.primary,
-    "filipino" to Color(0xFFD96555),
-    "araling_panlipunan" to HeritageGold,
-    "makabansa" to Color(0xFF8B5E34),
-    "gmrc" to KindnessTealText,
-)
-
-internal val SubjectPale = mapOf(
-    "mathematics" to SubjectColors.Mathematics.surface,
-    "english" to SubjectColors.English.surface,
-    "science" to SubjectColors.Science.surface,
-    "filipino" to Color(0xFFFCEBE7),
-    "araling_panlipunan" to Color(0xFFFFF3D7),
-    "makabansa" to Color(0xFFF4EBDD),
-    "gmrc" to Color(0xFFE5F7F5),
-)
+internal val SubjectAccent = PlayroomColors.SubjectAccent
+internal val SubjectPale = PlayroomColors.SubjectPale
 
 private fun subjectAccent(id: String): Color = SubjectAccent[id] ?: PlayTeal
-private fun subjectPale(id: String): Color = SubjectPale[id] ?: Color(0xFFF2F2F0)
+private fun subjectPale(id: String): Color = SubjectPale[id] ?: PlayroomColors.FallbackSurface
 
 // ─── Width classes (design.md §7.1) ───
 private enum class HomeWidthClass { Wide, Medium, Narrow, Compact }
@@ -191,7 +179,6 @@ fun PlayroomHomeScreen(
                     starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
                     coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
                     keepsakes = (state as? PlayroomHomeUiState.Content)?.ownedKeepsakes.orEmpty(),
-                    onTreatShopClick = onTreatShopClick,
                 )
 
                 when (state) {
@@ -209,6 +196,7 @@ fun PlayroomHomeScreen(
                         onSubjectClick = onSubjectClick,
                         onQuestAction = onQuestAction,
                         onOpenCollection = onOpenCollection,
+                        onTreatShopClick = onTreatShopClick,
                         onVideosClick = onVideosClick,
                     )
                 }
@@ -235,6 +223,7 @@ private fun ContentLayout(
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
     onOpenCollection: () -> Unit,
+    onTreatShopClick: () -> Unit,
     onVideosClick: () -> Unit,
 ) {
     // “Choose a subject” moves focus to the first available card (§11.4)
@@ -258,45 +247,45 @@ private fun ContentLayout(
         ) {
             Text(
                 stringResource(R.string.home_stale_banner),
-                fontSize = 14.sp, fontWeight = FontWeight.Medium,
+                fontSize = 15.sp, fontWeight = FontWeight.Medium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
             )
         }
     }
 
-    if (railBeside) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            SubjectGrid(
-                subjects = content.subjects,
-                columns = columns,
-                openingSubjectId = content.openingSubjectId,
-                firstFocusId = firstAvailableId,
-                firstFocusRequester = focusRequester,
-                onSubjectClick = onSubjectClick,
-                modifier = Modifier.weight(0.66f),
-            )
-            Column(Modifier.weight(0.34f), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                VideoLibraryCard(onClick = onVideosClick)
-                TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
-                SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
-                WildlifeStickersPreview(
-                    wildlifeStickers = content.wildlifeStickers,
-                    onOpenCollection = onOpenCollection,
-                    modifier = Modifier.fillMaxWidth(),
+    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        // Reading order follows the child's learning loop: today's work first,
+        // then the rewards it earns, then the subject catalogue and optional
+        // videos.
+        TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+        SanctuaryPreview(
+            sanctuary = content.sanctuary,
+            questTotal = content.quest.pawPrintTotal,
+            onTreatShopClick = onTreatShopClick,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        WildlifeStickersPreview(
+            wildlifeStickers = content.wildlifeStickers,
+            onOpenCollection = onOpenCollection,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        if (railBeside) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                SubjectGrid(
+                    subjects = content.subjects,
+                    columns = columns,
+                    openingSubjectId = content.openingSubjectId,
+                    firstFocusId = firstAvailableId,
+                    firstFocusRequester = focusRequester,
+                    onSubjectClick = onSubjectClick,
+                    modifier = Modifier.weight(0.66f),
+                )
+                VideoLibraryCard(
+                    onClick = onVideosClick,
+                    modifier = Modifier.weight(0.34f),
                 )
             }
-        }
-    } else {
-        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            VideoLibraryCard(onClick = onVideosClick)
-            // Quest moves above the grid for medium/narrow widths (§7.1)
-            TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
-            SanctuaryPreview(content.sanctuary, Modifier.fillMaxWidth())
-            WildlifeStickersPreview(
-                wildlifeStickers = content.wildlifeStickers,
-                onOpenCollection = onOpenCollection,
-                modifier = Modifier.fillMaxWidth(),
-            )
+        } else {
             SubjectGrid(
                 subjects = content.subjects,
                 columns = columns,
@@ -306,14 +295,19 @@ private fun ContentLayout(
                 onSubjectClick = onSubjectClick,
                 modifier = Modifier.fillMaxWidth(),
             )
+            VideoLibraryCard(onClick = onVideosClick)
         }
     }
 }
 
 @Composable
-private fun VideoLibraryCard(onClick: () -> Unit) {
+private fun VideoLibraryCard(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Surface(
         modifier = Modifier
+            .then(modifier)
             .fillMaxWidth()
             .clickable(onClick = onClick)
             .semantics {
@@ -337,14 +331,18 @@ private fun VideoLibraryCard(onClick: () -> Unit) {
             )
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
-                Text("Video Lessons", fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
                 Text(
-                    "Download and watch optional lessons offline",
+                    stringResource(R.string.home_video_lessons),
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp,
+                )
+                Text(
+                    stringResource(R.string.home_video_lessons_description),
                     color = PlayMuted,
-                    fontSize = 13.sp,
+                    fontSize = 15.sp,
                 )
             }
-            Text("Open", color = PlayTeal, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.home_open), color = PlayTeal, fontWeight = FontWeight.ExtraBold)
         }
     }
 }
@@ -359,7 +357,6 @@ private fun PlayroomHeader(
     starBalance: Int = 0,
     coinBalance: Int = 0,
     keepsakes: List<KeepsakeUi> = emptyList(),
-    onTreatShopClick: () -> Unit = {},
 ) {
     if (wide) {
         Row(Modifier.fillMaxWidth().heightIn(min = 96.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -374,17 +371,6 @@ private fun PlayroomHeader(
         }
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-        TextButton(
-            onClick = onTreatShopClick,
-            modifier = Modifier.semantics(mergeDescendants = true) {
-                contentDescription = "Sanctuary Workshop"
-                role = Role.Button
-            },
-        ) {
-            Text("Sanctuary Workshop", fontWeight = FontWeight.ExtraBold)
-        }
-    }
     KeepsakesStrip(keepsakes)
     if (offline) {
         Surface(
@@ -394,7 +380,7 @@ private fun PlayroomHeader(
         ) {
             Text(
                 stringResource(R.string.home_offline_chip),
-                fontSize = 12.sp, fontWeight = FontWeight.Bold,
+                fontSize = 15.sp, fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
             )
         }
@@ -420,10 +406,10 @@ private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
     if (keepsakes.isEmpty()) return
     Column(Modifier.fillMaxWidth()) {
         Text(
-            "Milo's decorations",
-            fontSize = 12.sp,
+            stringResource(R.string.home_milo_decorations),
+            fontSize = 15.sp,
             fontWeight = FontWeight.ExtraBold,
-            color = Color(0xFF5C2E00),
+            color = PlayroomColors.KeepsakeHeading,
         )
         Spacer(Modifier.height(6.dp))
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -451,7 +437,7 @@ private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
                             keepsake.name,
                             color = PlayInk,
                             fontWeight = FontWeight.Bold,
-                            fontSize = 13.sp,
+                            fontSize = 15.sp,
                         )
                     }
                 }
@@ -505,15 +491,15 @@ private fun BrandBlock(modifier: Modifier = Modifier) {
                 maxLines = 1, overflow = TextOverflow.Ellipsis,
             )
             Text(
-                "PLAYROOM",
-                fontSize = 10.sp, fontWeight = FontWeight.Black,
-                letterSpacing = 2.sp, color = Color(0xFF7A3B00),
+                stringResource(R.string.home_playroom_label),
+                fontSize = 12.sp, fontWeight = FontWeight.Black,
+                letterSpacing = 2.sp, color = PlayroomColors.BrandLabel,
             )
         }
     }
 }
 
-private val PlayHeritageGold = Color(0xFFB87916)
+private val PlayHeritageGold = HeritageGold
 
 @Composable
 private fun GreetingBlock(childName: String, modifier: Modifier = Modifier) {
@@ -530,7 +516,7 @@ private fun GreetingBlock(childName: String, modifier: Modifier = Modifier) {
         )
         Text(
             stringResource(R.string.home_encouragement),
-            color = Color(0xFF5C2E00),
+            color = PlayroomColors.KeepsakeHeading,
             fontWeight = FontWeight.SemiBold,
             fontSize = 15.sp, lineHeight = 21.sp,
             maxLines = 1, overflow = TextOverflow.Ellipsis,
@@ -556,7 +542,7 @@ private fun MetricPill(
         Spacer(Modifier.width(8.dp))
         Column {
             Text(value, color = PlayInk, fontWeight = FontWeight.ExtraBold, fontSize = 20.sp, lineHeight = 24.sp)
-            Text(label, color = PlayMuted, fontWeight = FontWeight.Medium, fontSize = 12.sp, lineHeight = 16.sp)
+            Text(label, color = PlayMuted, fontWeight = FontWeight.Medium, fontSize = 15.sp, lineHeight = 18.sp)
         }
     }
 }
@@ -697,7 +683,7 @@ private fun SubjectCard(
 
                 // Bottom row: progress bar + arrow
                 Row(
-                    Modifier.fillMaxWidth().heightIn(min = 44.dp),
+                    Modifier.fillMaxWidth().heightIn(min = 48.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -722,7 +708,7 @@ private fun SubjectCard(
                                 progressLabel,
                                 color = PlayMuted,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 14.sp, lineHeight = 18.sp,
+                                fontSize = 15.sp, lineHeight = 18.sp,
                                 maxLines = 1,
                             )
                         }
@@ -752,12 +738,12 @@ private fun SubjectCard(
                 Surface(
                     shape = RoundedCornerShape(99.dp),
                     color = PlayInkDark,
-                    contentColor = Color(0xFFFFE9A8),
+                    contentColor = PlayroomColors.LockedSurfaceText,
                     modifier = Modifier.align(Alignment.TopEnd).padding(top = 10.dp, end = 10.dp),
                 ) {
                     Text(
                         subject.lockReason ?: stringResource(R.string.home_locked),
-                        fontSize = 14.sp, fontWeight = FontWeight.Black,
+                        fontSize = 15.sp, fontWeight = FontWeight.Black,
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                         maxLines = 2, overflow = TextOverflow.Ellipsis,
                     )
@@ -767,7 +753,7 @@ private fun SubjectCard(
     }
 }
 
-// ─── This Week's Quest (design.md §11) ────────────────────────────────
+// ─── Today's Quest (design.md §11) ───────────────────────────────────
 
 @Composable
 private fun TodayQuestCard(
@@ -775,36 +761,29 @@ private fun TodayQuestCard(
     onQuestAction: (QuestAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = PlayCream),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 2.dp),
-    ) {
+    val taskText = when (quest.task) {
+        QuestTaskCopy.ParentMode -> stringResource(R.string.home_quest_task_parent)
+        QuestTaskCopy.CompleteToday -> stringResource(R.string.home_quest_task_complete)
+        QuestTaskCopy.IncompleteToday -> stringResource(
+            R.string.home_quest_task_incomplete,
+            quest.pawPrintTotal,
+        )
+    }
+    val buttonText = when (quest.buttonLabel) {
+        QuestButtonLabel.OpenPlayground -> stringResource(R.string.home_quest_open_playground)
+        QuestButtonLabel.OpenSanctuary -> stringResource(R.string.home_quest_open_sanctuary)
+        QuestButtonLabel.ChooseSubject -> stringResource(R.string.home_choose_subject)
+        QuestButtonLabel.StartQuest -> stringResource(R.string.home_quest_start)
+        QuestButtonLabel.ContinueQuest -> stringResource(R.string.home_quest_continue)
+        QuestButtonLabel.Start -> stringResource(R.string.home_start)
+        QuestButtonLabel.Continue -> stringResource(R.string.home_continue)
+    }
+    MaxinesQuestCardSurface(modifier = modifier.fillMaxWidth()) {
         Column(Modifier.fillMaxWidth()) {
-            // Header: teal→ink dark gradient
-            Box(
-                Modifier.fillMaxWidth()
-                    .background(Brush.horizontalGradient(listOf(PlayTeal, PlayInkDark)))
-                    .padding(horizontal = 20.dp, vertical = 14.dp),
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Box(
-                        Modifier.size(36.dp).clip(CircleShape).background(Color.White.copy(alpha = 0.16f)),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        PawGlyph(Color(0xFFFFE9A8), size = 20.dp)
-                    }
-                    Spacer(Modifier.width(12.dp))
-                    Text(
-                        stringResource(R.string.home_today_quest),
-                        color = Color.White,
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 21.sp, lineHeight = 28.sp,
-                        maxLines = 1, overflow = TextOverflow.Ellipsis,
-                    )
-                }
-            }
+            MaxinesQuestCardHeader(
+                title = stringResource(R.string.home_today_quest),
+                leadingContent = { PawGlyph(PlayroomColors.LockedSurfaceText, size = 20.dp) },
+            )
 
             Column(Modifier.padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -822,7 +801,7 @@ private fun TodayQuestCard(
                     Spacer(Modifier.width(12.dp))
                     Column(Modifier.weight(1f)) {
                         Text(
-                            quest.task,
+                            taskText,
                             color = PlayInk,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp, lineHeight = 23.sp,
@@ -843,7 +822,7 @@ private fun TodayQuestCard(
                                 "${quest.pawPrintsCompleted} of ${quest.pawPrintTotal}",
                                 color = PlayMuted,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 14.sp, lineHeight = 18.sp,
+                                fontSize = 15.sp, lineHeight = 18.sp,
                             )
                         }
                     }
@@ -876,17 +855,18 @@ private fun TodayQuestCard(
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
-                            if (quest.godModeEnabled) {
-                                "Parent mode: Playground + all stickers and rewards unlocked"
-                            } else if (quest.isComplete) {
-                                "Reward earned: a sanctuary piece + 5-minute play break"
-                            } else {
-                                "Reward at 3/3: a sanctuary piece + 5-minute play break"
+                            when {
+                                quest.godModeEnabled -> stringResource(R.string.home_quest_reward_parent)
+                                quest.isComplete -> stringResource(R.string.home_quest_reward_earned)
+                                else -> stringResource(
+                                    R.string.home_quest_reward_pending,
+                                    quest.pawPrintTotal,
+                                )
                             },
                             color = PlayInk,
                             fontWeight = FontWeight.Bold,
-                            fontSize = 13.sp,
-                            lineHeight = 18.sp,
+                            fontSize = 15.sp,
+                            lineHeight = 20.sp,
                         )
                     }
                 }
@@ -916,6 +896,7 @@ private fun TodayQuestCard(
                                     .background(Color.White.copy(alpha = 0.72f))
                                     .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenLesson) })
                                     .semantics { contentDescription = targetCd }
+                                    .heightIn(min = 48.dp)
                                     .padding(horizontal = 10.dp, vertical = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
@@ -925,12 +906,12 @@ private fun TodayQuestCard(
                                     contentAlignment = Alignment.Center
                                 ) {
                                     if (targetDone) Text("✓", fontWeight = FontWeight.Black, color = PlayInkDark, fontSize = 14.sp)
-                                    else Text(target.displaySubject.first().toString().uppercase(), fontWeight = FontWeight.Black, color = PlayMuted, fontSize = 12.sp)
+                                    else Text(target.displaySubject.first().toString().uppercase(), fontWeight = FontWeight.Black, color = PlayMuted, fontSize = 15.sp)
                                 }
                                 Spacer(Modifier.width(10.dp))
                                 Column(Modifier.weight(1f)) {
-                                    Text(target.displaySubject, fontSize = 11.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
-                                    Text(displayTitle, fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    Text(target.displaySubject, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
+                                    Text(displayTitle, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
                                 }
                                 if (targetDone) {
                                     Box(Modifier.size(22.dp).clip(CircleShape).background(PlaySunshine.copy(alpha = 0.9f)), contentAlignment = Alignment.Center) {
@@ -945,27 +926,13 @@ private fun TodayQuestCard(
                     Spacer(Modifier.height(14.dp))
                 }
 
-                Surface(
-                    shape = RoundedCornerShape(18.dp),
-                    color = PlayTeal,
-                    contentColor = Color.White,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 56.dp)
-                        .semantics { role = Role.Button }
-                        .clickable(role = Role.Button, onClick = { onQuestAction(quest.buttonAction) }),
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Text(
-                            quest.buttonLabel,
-                            color = Color.White,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 17.sp, lineHeight = 22.sp,
-                            textAlign = TextAlign.Center,
-                            maxLines = 1, overflow = TextOverflow.Ellipsis,
-                        )
-                    }
-                }
+                MaxinesPrimaryButton(
+                    onClick = { onQuestAction(quest.buttonAction) },
+                    text = buttonText,
+                    modifier = Modifier.fillMaxWidth(),
+                    height = 56.dp,
+                    cornerRadius = 18.dp,
+                )
             }
         }
     }
@@ -976,6 +943,8 @@ private fun TodayQuestCard(
 @Composable
 private fun SanctuaryPreview(
     sanctuary: SanctuaryUi,
+    questTotal: Int,
+    onTreatShopClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val progress = if (sanctuary.totalPieces > 0) {
@@ -987,11 +956,12 @@ private fun SanctuaryPreview(
         .take(sanctuary.totalPieces.coerceAtLeast(0))
         .map { piece -> SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey) }
     val boardCells = sanctuaryBoardCells(sanctuary, orderedPieces)
+    val workshopLabel = stringResource(R.string.home_sanctuary_workshop)
 
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F6EE)),
+        colors = CardDefaults.cardColors(containerColor = PlayroomColors.SanctuarySurface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
     ) {
         Column(Modifier.fillMaxWidth().padding(16.dp)) {
@@ -1013,16 +983,16 @@ private fun SanctuaryPreview(
                     ),
                     color = PlayTeal,
                     fontWeight = FontWeight.ExtraBold,
-                    fontSize = 14.sp,
+                    fontSize = 15.sp,
                 )
             }
             Spacer(Modifier.height(6.dp))
             Text(
-                stringResource(R.string.home_sanctuary_subtitle),
+                stringResource(R.string.home_sanctuary_subtitle, questTotal),
                 color = PlayInk,
                 fontWeight = FontWeight.Medium,
-                fontSize = 13.sp,
-                lineHeight = 18.sp,
+                fontSize = 15.sp,
+                lineHeight = 20.sp,
             )
             Spacer(Modifier.height(10.dp))
             SanctuaryScene(sanctuary = sanctuary)
@@ -1036,7 +1006,7 @@ private fun SanctuaryPreview(
             Spacer(Modifier.height(12.dp))
             Surface(
                 shape = RoundedCornerShape(18.dp),
-                color = Color(0xFFBFE5CC),
+                color = PlayroomColors.SanctuaryBoardSurface,
                 modifier = Modifier
                     .fillMaxWidth()
                     .semantics {
@@ -1048,7 +1018,7 @@ private fun SanctuaryPreview(
                         stringResource(R.string.home_sanctuary_board_title),
                         color = PlayInk,
                         fontWeight = FontWeight.ExtraBold,
-                        fontSize = 14.sp,
+                        fontSize = 15.sp,
                     )
                     boardCells.chunked(3).forEach { rowCells ->
                         Row(
@@ -1085,7 +1055,7 @@ private fun SanctuaryPreview(
                                 stringResource(R.string.home_sanctuary_next_reward),
                                 color = PlayTeal,
                                 fontWeight = FontWeight.ExtraBold,
-                                fontSize = 12.sp,
+                                fontSize = 15.sp,
                             )
                             Text(
                                 nextPiece.name,
@@ -1096,8 +1066,8 @@ private fun SanctuaryPreview(
                             Text(
                                 nextPiece.description,
                                 color = PlayMuted,
-                                fontSize = 12.sp,
-                                lineHeight = 17.sp,
+                                fontSize = 15.sp,
+                                lineHeight = 18.sp,
                             )
                         }
                     }
@@ -1107,7 +1077,7 @@ private fun SanctuaryPreview(
                     stringResource(R.string.home_sanctuary_complete),
                     color = PlayInk,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
+                    fontSize = 15.sp,
                 )
             }
             // The earn hint describes how to add the NEXT place. Once the
@@ -1116,10 +1086,26 @@ private fun SanctuaryPreview(
             if (nextPiece != null) {
                 Spacer(Modifier.height(9.dp))
                 Text(
-                    stringResource(R.string.home_sanctuary_earn_hint),
+                    stringResource(R.string.home_sanctuary_earn_hint, questTotal),
                     color = PlayMuted,
-                    fontSize = 13.sp,
-                    lineHeight = 18.sp,
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp,
+                )
+            }
+            TextButton(
+                onClick = onTreatShopClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 48.dp)
+                    .semantics(mergeDescendants = true) {
+                        contentDescription = workshopLabel
+                        role = Role.Button
+                    },
+            ) {
+                Text(
+                    stringResource(R.string.home_sanctuary_workshop),
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 15.sp,
                 )
             }
         }
@@ -1141,7 +1127,7 @@ private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
     Surface(
         modifier = Modifier
             .weight(1f)
-            .heightIn(min = 78.dp)
+            .heightIn(min = 88.dp)
             .semantics {
                 contentDescription = when {
                     cell.isEarned -> "${cell.piece.name}, added to Milo's home"
@@ -1174,8 +1160,8 @@ private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
                 if (cell.isEarned || cell.isNext) cell.piece.name else stringResource(R.string.home_sanctuary_locked_place),
                 color = if (cell.isEarned || cell.isNext) PlayInk else PlayMuted,
                 fontWeight = FontWeight.Bold,
-                fontSize = 10.sp,
-                lineHeight = 12.sp,
+                fontSize = 15.sp,
+                lineHeight = 18.sp,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
@@ -1222,7 +1208,7 @@ private fun WildlifeStickersPreview(
                     stringResource(R.string.home_collected, wildlifeStickers.collectedCount, wildlifeStickers.totalCount),
                     color = PlayMuted,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp, lineHeight = 18.sp,
+                    fontSize = 15.sp, lineHeight = 18.sp,
                     maxLines = 1,
                 )
             }
@@ -1244,7 +1230,7 @@ private fun WildlifeStickersPreview(
                         stringResource(R.string.home_no_stickers),
                         color = PlayMuted,
                         fontWeight = FontWeight.Medium,
-                        fontSize = 14.sp, lineHeight = 20.sp,
+                        fontSize = 15.sp, lineHeight = 20.sp,
                         modifier = Modifier.weight(1f),
                     )
                 } else {
@@ -1269,11 +1255,19 @@ private fun StickerSlot(sticker: StickerUi) {
     Box(
         Modifier.size(44.dp).clip(RoundedCornerShape(10.dp))
             .background(
-                if (sticker.won) Brush.linearGradient(listOf(Color(0xFFFFF6D6), Color(0xFFFFE9A8)))
-                else Brush.linearGradient(listOf(Color(0xFFF3EFE2), Color(0xFFECE7D8))),
+                if (sticker.won) Brush.linearGradient(
+                    listOf(PlayroomColors.StickerWonStart, PlayroomColors.StickerWonEnd),
+                )
+                else Brush.linearGradient(
+                    listOf(PlayroomColors.StickerLockedStart, PlayroomColors.StickerLockedEnd),
+                ),
                 RoundedCornerShape(10.dp),
             )
-            .border(2.dp, if (sticker.won) PlaySunshine else Color(0xFFD9C48F), RoundedCornerShape(10.dp))
+            .border(
+                2.dp,
+                if (sticker.won) PlaySunshine else PlayroomColors.StickerLockedBorder,
+                RoundedCornerShape(10.dp),
+            )
             .semantics {
                 contentDescription = if (sticker.won) "${sticker.id} collected sticker" else mystery
             },
@@ -1282,7 +1276,7 @@ private fun StickerSlot(sticker: StickerUi) {
         if (sticker.won) {
             Icon(Icons.Default.Pets, contentDescription = null, tint = PlayTeal, modifier = Modifier.size(24.dp))
         } else {
-            Text("?", color = Color(0xFF8A6A3A), fontWeight = FontWeight.Black, fontSize = 16.sp)
+            Text("?", color = PlayroomColors.StickerLockedText, fontWeight = FontWeight.Black, fontSize = 16.sp)
         }
     }
 }
@@ -1425,8 +1419,8 @@ private fun LoadingPlaceholders(columns: Int) {
                     stringResource(R.string.home_loading_hint),
                     color = PlayMuted,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp,
-                    lineHeight = 19.sp,
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp,
                 )
             }
         }

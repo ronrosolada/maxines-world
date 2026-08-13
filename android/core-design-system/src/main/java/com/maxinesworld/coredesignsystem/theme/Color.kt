@@ -29,6 +29,46 @@ object SubjectColors {
 
 data class SubjectPalette(val primary: Color, val surface: Color)
 
+/** Shared tokens for the child Playroom surface. */
+object PlayroomColors {
+    val GoldTop = Color(0xFFFFD76E)
+    val GoldMid = Color(0xFFFFB84D)
+    val TealPressed = Color(0xFF06676A)
+    val Muted = Color(0xFF4E5F66)
+    val FallbackSurface = Color(0xFFF2F2F0)
+    val KeepsakeHeading = Color(0xFF5C2E00)
+    val BrandLabel = Color(0xFF7A3B00)
+    val LockedSurfaceText = Color(0xFFFFE9A8)
+    val SanctuarySurface = Color(0xFFE8F6EE)
+    val SanctuaryBoardSurface = Color(0xFFBFE5CC)
+    val StickerWonStart = Color(0xFFFFF6D6)
+    val StickerWonEnd = Color(0xFFFFE9A8)
+    val StickerLockedStart = Color(0xFFF3EFE2)
+    val StickerLockedEnd = Color(0xFFECE7D8)
+    val StickerLockedBorder = Color(0xFFD9C48F)
+    val StickerLockedText = Color(0xFF8A6A3A)
+
+    val SubjectAccent = mapOf(
+        "mathematics" to SubjectColors.Mathematics.primary,
+        "english" to SubjectColors.English.primary,
+        "science" to SubjectColors.Science.primary,
+        "filipino" to Color(0xFFD96555),
+        "araling_panlipunan" to HeritageGold,
+        "makabansa" to Color(0xFF8B5E34),
+        "gmrc" to KindnessTealText,
+    )
+
+    val SubjectPale = mapOf(
+        "mathematics" to SubjectColors.Mathematics.surface,
+        "english" to SubjectColors.English.surface,
+        "science" to SubjectColors.Science.surface,
+        "filipino" to Color(0xFFFCEBE7),
+        "araling_panlipunan" to Color(0xFFFFF3D7),
+        "makabansa" to Color(0xFFF4EBDD),
+        "gmrc" to Color(0xFFE5F7F5),
+    )
+}
+
 // ─── Subject Color Tokens (package-level) ───
 val HeritageGold = Color(0xFFB87916)
 val KindnessTeal = Color(0xFF26A69A)

@@ -121,7 +121,7 @@ The child experience uses illustrated environments, characters, and large contro
 
 ![Maxine’s World child home screen](assets/graphics/child-village-home.png)
 
-*Figure 2: Reference for the child village, subject destinations, Daily Quest, and layered animal scenery.*
+*Figure 2: Reference for the child village, subject destinations, Today’s Quest, and layered animal scenery.*
 
 ![Maxine’s World progression map](assets/graphics/learning-progression-map.png)
 
@@ -458,7 +458,7 @@ The current child-facing navigation is intentionally compact:
 * **Collection** — the Wildlife Field Guide and earned stickers
 * **Parents** — the protected Parent Gate/dashboard entry
 
-The Daily Quest is a primary action on Home rather than a separate bottom-nav destination. Subject locations should be entered through the Playroom rather than a dense academic menu. Backpack, Achievements, and Profile are reserved destinations, not shipped navigation items; they must not appear as tappable no-op controls.
+The Today’s Quest is a primary action on Home rather than a separate bottom-nav destination. Subject locations should be entered through the Playroom rather than a dense academic menu. Backpack, Achievements, and Profile are reserved destinations, not shipped navigation items; they must not appear as tappable no-op controls.
 
 ### Navigation rules
 
@@ -493,7 +493,7 @@ States:
 
 Incorrect selections remain readable while the clue appears.
 
-### Daily Quest card
+### Today’s Quest card
 
 Contains:
 
@@ -887,7 +887,7 @@ Create these assets first:
 4. Five subject icons
 5. Village home background layers
 6. Five subject-location illustrations
-7. Daily Quest card assets
+7. Today’s Quest card assets
 8. Answer-card states
 9. Hint, audio, pause, home, and parent icons
 10. Stars, paw coins, and five pilot badges
@@ -930,7 +930,7 @@ Both are open-license and android-shippable. Neither is on the house avoid-list.
 | Component (`core-design-system`) | Seen on |
 |---|---|
 | `MaxinesPrimaryButton` | Continue, Play, Check, Next lesson |
-| `MaxinesQuestCard` | Village Home Daily Quest |
+| `MaxinesQuestCard` | Village Home Today’s Quest |
 | `MaxinesSubjectDestination` | Village Home + World Map location pins (unlocked / current / locked states) |
 | `MaxinesProgressBar` | Level XP, subject progress, screen-time |
 | `MaxinesAnswerCard` | Math answer tiles, English detail cards (default / selected / correct) |

@@ -12,6 +12,7 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -28,11 +29,11 @@ class PlayroomHomeScreenTest {
             childName = "Maxine",
             subjects = canonicalSubjects,
             quest = QuestUi(
-                task = "Complete 3 adventures across 2 learning areas this week.",
+                task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completed,
                 pawPrintTotal = 3,
                 recommendedSubjectId = canonicalSubjects.first().id,
-                buttonLabel = "Continue",
+                buttonLabel = QuestButtonLabel.Continue,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
             sanctuary = SanctuaryUi(
@@ -102,11 +103,11 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
-    fun weeklyExpeditionCopyRenders() {
+    fun todaysQuestCopyRenders() {
         setHome(stateFor(2))
-        scrollTo("This Week’s Quest")
-        composeRule.onNodeWithText("This Week’s Quest").assertIsDisplayed()
-        composeRule.onNodeWithText("Complete 3 adventures across 2 learning areas this week.").assertIsDisplayed()
+        scrollTo("Today’s Quest")
+        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Complete 3 learning adventures today.").assertIsDisplayed()
         composeRule.onNodeWithText("Wildlife Stickers").assertExists()
         composeRule.onNodeWithText("Continue").assertIsDisplayed()
     }
@@ -165,7 +166,12 @@ class PlayroomHomeScreenTest {
     fun treatShopEntryPointInvokesCallback() {
         var opens = 0
         setHome(stateFor(), onTreatShopClick = { opens++ })
-        composeRule.onNodeWithText("Sanctuary Workshop").assertIsEnabled().performClick()
+        // The sanctuary card sits below the fold and its children report no
+        // bounds until scrolled into view. The workshop entry is the last
+        // child of that card, so scroll the stickers section (just below it)
+        // into view first — then the button is placed and clickable.
+        composeRule.onNodeWithText("Wildlife Stickers").performScrollTo()
+        composeRule.onNodeWithText("Sanctuary Workshop").assertIsDisplayed().performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
     }
 
@@ -178,7 +184,7 @@ class PlayroomHomeScreenTest {
                 ),
             )
         )
-        composeRule.onNodeWithText("Milo's decorations").assertIsDisplayed()
+        composeRule.onNodeWithText("Milo’s decorations").assertIsDisplayed()
         composeRule.onNodeWithText("Fish Treat Basket").assertIsDisplayed()
         composeRule.onNodeWithContentDescription("Milo's keepsake: Fish Treat Basket").assertIsDisplayed()
     }
@@ -186,7 +192,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun noKeepsakesMeansNoStrip() {
         setHome(stateFor())
-        composeRule.onAllNodesWithText("Milo's decorations").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Milo’s decorations").assertCountEquals(0)
     }
 
     @Test

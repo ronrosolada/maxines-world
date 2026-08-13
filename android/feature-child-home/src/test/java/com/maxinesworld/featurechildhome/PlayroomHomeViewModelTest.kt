@@ -84,8 +84,8 @@ class PlayroomHomeViewModelTest {
         assertEquals(2, quest.pawPrintsCompleted)
         assertEquals(3, quest.pawPrintTotal)
         assertFalse(quest.isComplete)
-        assertEquals("Continue quest", quest.buttonLabel)
-        assertTrue(quest.task.contains("today"))
+        assertEquals(QuestButtonLabel.ContinueQuest, quest.buttonLabel)
+        assertEquals(QuestTaskCopy.IncompleteToday, quest.task)
     }
 
     @Test
@@ -99,7 +99,7 @@ class PlayroomHomeViewModelTest {
         advanceUntilIdle()
         val quest = content(vm).quest
         assertTrue(quest.isComplete)
-        assertEquals("Open Sanctuary", quest.buttonLabel)
+        assertEquals(QuestButtonLabel.OpenSanctuary, quest.buttonLabel)
         assertEquals(QuestAction.ViewReward, quest.buttonAction)
     }
 
@@ -130,7 +130,7 @@ class PlayroomHomeViewModelTest {
         assertEquals(3, content.ownedKeepsakes.size)
         assertEquals(12, content.sanctuary.earnedPieces)
         assertEquals(QuestAction.OpenPlayground, content.quest.buttonAction)
-        assertEquals("Open Playground", content.quest.buttonLabel)
+        assertEquals(QuestButtonLabel.OpenPlayground, content.quest.buttonLabel)
     }
 
     @Test
