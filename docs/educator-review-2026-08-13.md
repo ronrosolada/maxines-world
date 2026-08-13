@@ -61,3 +61,19 @@ author as needed.
 - content_quality_audit: 0 findings
 - content_similarity_gate (0.85): 0 clusters
 - validator unit tests: 9/9
+
+## Status
+
+**Round 1 (semantic lanes):** math lane complete (290 items, 37 findings — all fixed).
+English lanes complete (466 items, 29 findings — all fixed).
+**Round 2:** science/AP/makabansa/gmrc lanes timed out with zero emissions; two
+recoverable P0s fixed (science q4-w08-d04 q02/q03 safety items).
+**Round 3:** persistence-mode lanes running — findings stream to
+/tmp/edu_*.jsonl so timeouts cannot lose work.
+
+## Duplicate assessments (verbatim re-issue)
+
+66 byte-identical assessment groups (165 items) found across lessons.
+6 English/math pairs re-authored with fresh scenarios (30 items); the
+science/gmrc/makabansa groups are queued behind the active review lanes
+(no file races while reviewers read).
