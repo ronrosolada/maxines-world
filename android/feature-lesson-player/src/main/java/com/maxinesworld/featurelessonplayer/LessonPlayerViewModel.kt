@@ -501,10 +501,15 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
     val filipino = language?.startsWith("fil", ignoreCase = true) == true ||
         act.activityId.startsWith("filipino-", ignoreCase = true) ||
         act.instruction.contains("angkop", ignoreCase = true)
+    val correctAnswerText = if (correctIndex >= 0) options.getOrNull(correctIndex) else null
     val defaultIncorrect = when {
         type == "SORT_AND_CLASSIFY_V1" && filipino -> "May ilang card sa maling kahon. Ilipat at subukan muli."
         type == "SORT_AND_CLASSIFY_V1" -> "Some cards are in the wrong box. Move them and try again."
-        filipino -> "Balikan ang halimbawa at subukan muli. 💪"
+        // M7: when no corrective retry copy is authored, name the right answer
+        // instead of falling back to generic encouragement (educator review r2).
+        filipino && correctAnswerText != null -> "Hindi pa tama. Ang sagot ay \"$correctAnswerText\"."
+        correctAnswerText != null -> "Not quite. The answer is \"$correctAnswerText\"."
+        filipino -> "Balikan ang halimbawa at subukan muli."
         else -> DEFAULT_INCORRECT_FEEDBACK
     }
 

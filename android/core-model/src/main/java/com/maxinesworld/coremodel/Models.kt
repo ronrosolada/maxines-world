@@ -91,7 +91,7 @@ data class MatchPair(
     val right: String
 )
 
-const val DEFAULT_INCORRECT_FEEDBACK = "Look at the example again and try once more. 💪"
+const val DEFAULT_INCORRECT_FEEDBACK = "Look at the example again and try once more."
 
 private val GENERIC_INCORRECT_FEEDBACK = setOf(
     "Let's try again!",
