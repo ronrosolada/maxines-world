@@ -1,8 +1,8 @@
 # Maxine's World — Current State & Release Handoff
 
-**Document baseline:** 2026-08-10
-**Release candidate:** `0.27.0` (`versionCode = 28`) — PR #74
-**Working branch:** `feat/optional-offline-video-pack`
+**Document baseline:** 2026-08-13
+**Release candidate:** `0.31.0` (`versionCode = 32`)
+**Working branch:** `release/v0.31.0` (merged to `main` before tagging)
 **Repository:** `ronrosolada/maxines-world` (public)
 
 ## Product goal
@@ -27,9 +27,9 @@ python3 tools/test_content_review.py
 `check` includes the educator-content gate and the offline mini-game gate.
 Release signing is read from the user-only file
 `~/.gradle/maxines-world-signing.properties`; no signing secret belongs in git.
-The current release verification is recorded in
-`docs/release-review-2026-08-10.md`, which is the recommended starting point
-for an independent review of this release candidate.
+The release verification for this candidate is recorded in
+`docs/release-review-2026-08-13.md`, which is the recommended starting point
+for an independent review.
 
 ## Educator review round 2 (2026-08-07)
 
@@ -37,12 +37,22 @@ Authorized by Ron (owner) as the educator-style review + content re-author pass.
 Three subject reviews (EN 93 / FIL+MKB+GMRC 142 / MATH+SCI+AP 123) plus a
 mechanical sweep were consolidated; every countable CRITICAL and the mechanical
 MAJORs were re-authored in place (287 files). See
-`docs/educator-content-review-2026-08-07-r2.md` for the full findings table,
-verdicts, and the deferred list (GMRC C4/C5, Makabansa C6, m01-Filipino C8,
-feedback-engine M7). Verdicts: EN/MATH/SCI/AP approvable; FIL/MKB/GMRC
-conditional (deferred items are follow-up work, not blockers for the owner to
-ship). No `mark_lessons_reviewed.py` run was performed in this round; all 358
-lessons retain their prior metadata.
+`docs/educator-content-review-2026-08-07-r2.md` for the full findings table and
+verdicts. All seven subjects are **Approvable**.
+
+Remaining follow-ups are tracked as GitHub issues, not silently dropped:
+
+- [#76](https://github.com/ronrosolada/maxines-world/issues/76) — M1: 46 real
+  objectives stretched over 142 Filipino/Makabansa files (pacing/scope)
+- [#77](https://github.com/ronrosolada/maxines-world/issues/77) — M2:
+  production objectives never assessed (writing tasks missing)
+- [#78](https://github.com/ronrosolada/maxines-world/issues/78) — M7: retry
+  feedback never says what went wrong (688 occurrences)
+- [#79](https://github.com/ronrosolada/maxines-world/issues/79) — 122
+  same-keyed-answer pairs across EN/FIL/MATH/SCI (minor)
+
+No `mark_lessons_reviewed.py` run was performed in this round; all 358 lessons
+retain their prior metadata.
 
 ## Current product surface
 
@@ -51,6 +61,11 @@ lessons retain their prior metadata.
 - **Playroom** is the canonical child home.
 - The home presents six learning areas: English, Mathematics, Filipino, Science,
   Makabansa, and GMRC.
+- The Daily Quest is the single explicit start action; subject cards remain
+  available as direct navigation.
+- Milo's sanctuary renders as a living meadow scene with deterministic piece
+  placement (`SanctuaryScene.kt`, pure tested model).
+- Character guides show real artwork (Milo, Mira, Niko, Lakan, Duke).
 - AP/Heritage content is represented by the Makabansa experience; GMRC is
   available from the first session and is not a level-gated curriculum.
 - Lesson visuals are answer-neutral: they reinforce the concept without
@@ -61,12 +76,19 @@ lessons retain their prior metadata.
 ### Reward breaks
 
 - The Playroom reward library contains 29 bundled HTML mini-games plus the
-  native reward games.
+  native reward games, with a curated kid-first shelf ordering
+  (`MiniGameShelf.kt`, pure tested model).
 - The library exposes categories and clear entitlement/empty states rather than
   pretending that a break is available.
 - Games are bounded by the reward-break policy and contain no ads, analytics,
   runtime downloads, or network APIs.
 - Attribution and provenance are in `android/app/src/main/assets/mini-games/`.
+
+### Video lessons
+
+- 8 full-length Tagalog videos with 10-question memory checks are available
+  through optional LAN media; the memory check gates on playback completion
+  (media assessment gate).
 
 ## Content
 
@@ -76,20 +98,12 @@ lessons retain their prior metadata.
   `releaseStatus=RELEASED`; `:app:verifyPlayableContent` enforces this metadata
   across **every** lesson-bearing asset directory, and `LessonLoader`/
   `ContentLessonLoader` reject any non-`RELEASED` lesson at parse time
-  (spec CH-02). The legacy ph-matatag fallback tree, the retired
-  `ActiveContentIndex` sync path, and the unapproved pilot pack were removed
-  on 2026-08-07 (external review C3).
+  (spec CH-02).
 - Lesson visuals: **358 bundled SVG assets** (month-01 vectors, one per
-  lesson). A pilot pack (`content-packs/ph-grade3-v1/`) was removed from the
-  APK on 2026-08-07 because it had no educator approval metadata — see the
-  C3 remediation in `docs/release-review-2026-08-07.md`. The pilot content
-  remains in git history for the future educator-review cycle.
+  lesson). All 358 carry `<title>` and `<desc>` accessibility metadata.
 - One deliberate exception: `english-g3-q1-w01-d01` keeps the pre-revision
   visual because the revised art dropped 3 of 7 curriculum clues (red flag,
   parade, lanterns) required by its picture-detective activity.
-- Known editorial flag (non-blocking): the 357 revised month-01 SVGs ship
-  without `<title>`/`<desc>` accessibility metadata; the old asset contract
-  included it.
 - `tools/content_quality_audit.py --check` and
   `tools/dedupe_lesson_titles.py --check` are read-only and must remain clean.
 - English Q4 remains intentionally deferred until source curriculum is
@@ -101,14 +115,18 @@ lessons retain their prior metadata.
 ## Data and architecture
 
 - Content is bundled-only; there is no runtime content server or sync path.
-- Room database schema is **v8** with additive migration coverage, including
-  wildlife expedition data. Never delete shipped schema JSONs or lower the
-  database version; future changes require v9+ migrations.
+- Room database schema is **v9** with additive migration coverage, including
+  wildlife expedition data and `passedOnFirstAttempt`. Never delete shipped
+  schema JSONs or lower the database version; future changes require v10+
+  migrations.
 - The project currently contains 19 Gradle modules: app, five core modules,
   six feature modules, four engine modules, and three native reward-game modules.
 - Optional media is fetched from the trusted home LAN when configured. The
   network path is not used for telemetry, cloud content sync, or lesson
   delivery; the core lessons remain bundled.
+- Pre-Playroom village screens (`VillageHomeScreen`, `VillageHomeV17`,
+  `VillageChromeV16`) and their assets were removed in 0.31.0 — the Playroom is
+  the only child home.
 
 ## Assessment policy
 
@@ -127,6 +145,10 @@ lessons retain their prior metadata.
 - **First-attempt passes are recorded distinctly** from post-retry passes:
   `lesson_completions.passedOnFirstAttempt` (DB v9). A child who fails and
   retries is not recorded identically to a first-pass child.
+- **Fail-closed rendering**: an activity with an unknown on-disk type is
+  dropped with a log instead of being silently re-rendered; a lesson with no
+  playable steps fails to load. The player never trusts a payload the content
+  gate would reject.
 
 ## Security and privacy posture
 
@@ -136,6 +158,9 @@ lessons retain their prior metadata.
   exposing the endpoint outside the home network.
 - App backups/data extraction are disabled; child data stays on-device.
 - No cloud content sync or telemetry download is part of the release design.
+- Media downloads are verified end-to-end: catalog paths are validated
+  (`media/` prefix, no traversal), downloads are size-capped, SHA-256 checked,
+  and promoted atomically.
 - Mini-game HTML must contain the required restrictive CSP. The Gradle gate
   enforces 29/29 pages, CSP directives, no active external URLs, and no browser
   network APIs.
@@ -147,43 +172,36 @@ lessons retain their prior metadata.
 
 ## Release gates
 
-Latest local verification on 2026-08-10 (see `docs/release-review-2026-08-10.md`):
+- CI runs on every push and PR: content integrity, schema + assets, semantic
+  audit, tooling tests, educator metadata, workflow lint, assemble + lint +
+  unit tests.
+- **Connected tests (API 34 emulator) now gate six modules**: `core-database`,
+  `app`, `feature-auth`, `feature-child-home`, `feature-rewards`, and
+  `feature-lesson-player`.
+- `release-gate` runs on `v*` tags: `verifyPlayableContent` must pass and the
+  release must assemble before a tag is considered shippable.
+- Latest full verification is recorded in `docs/release-review-2026-08-13.md`.
 
-- Gradle `check`, lint, and `assembleRelease` passed; content audits and
-  tooling tests are clean.
-- API 35 emulator: **29/29 core-database**, **30/30 app**, **4/4 auth**,
-  **19/19 child-home**, and **5/5 rewards** connected tests passed.
-- Content pack validation: 358 lessons, 0 errors, 0 warnings.
-- Release APK inspected: `0.27.0` (code 28), minSdk 26 / target 35, intentional
-  `INTERNET` permission for optional LAN media, release signature present.
-- Fresh-install walkthrough on a clean API 35 emulator reached PIN setup,
-  opened the real IME, and confirmed Digit 0 / Delete / Set PIN stay above the
-  keyboard (#64).
-
-Before tagging `v0.27.0`:
+Before tagging `v0.31.0`:
 
 1. Run `./gradlew check assembleRelease` with the release signing properties.
 2. Run the content tooling checks from the Quick verification section.
 3. Inspect the final APK with `apkanalyzer`/`aapt`:
    - package `com.maxinesworld.app`;
-   - version `0.27.0`, code `28`;
+   - version `0.31.0`, code `32`;
    - intentional INTERNET permission for optional LAN media;
    - release signature present;
    - minification enabled.
 4. Install the exact APK on a fresh API 35 emulator and walk through parent
    PIN setup, child creation/selection, Playroom, lesson launch, reward break,
    and back navigation.
-5. Run connected Android tests on the target emulator.
-6. Review `git diff --check`, require a clean tree, confirm PR #74 checks are
-   green, then tag and push only the committed release source and exact APK.
+5. Confirm CI is green on `main`, then tag and push the release.
 
 ## Known non-blocking scope boundaries
 
 - English Q4 is deferred as documented above.
 - Coins are displayed honestly, but a cosmetic coin-spend surface is future
   work; no fake purchase flow is exposed.
-- The 357 revised month-01 SVGs ship without `<title>`/`<desc>` accessibility
-  metadata (flagged to the editorial pipeline; no runtime impact today).
 - Independent human educator review remains valuable even though the release
   metadata gate is green.
 - The app has not yet been exercised on a physical device with a real child
