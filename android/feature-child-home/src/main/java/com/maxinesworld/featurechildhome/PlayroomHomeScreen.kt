@@ -763,7 +763,11 @@ private fun TodayQuestCard(
 ) {
     val taskText = when (quest.task) {
         QuestTaskCopy.ParentMode -> stringResource(R.string.home_quest_task_parent)
-        QuestTaskCopy.CompleteToday -> stringResource(R.string.home_quest_task_complete)
+        QuestTaskCopy.CompleteToday -> if (quest.sanctuaryComplete) {
+            stringResource(R.string.home_sanctuary_complete)
+        } else {
+            stringResource(R.string.home_quest_task_complete)
+        }
         QuestTaskCopy.IncompleteToday -> stringResource(
             R.string.home_quest_task_incomplete,
             quest.pawPrintTotal,
@@ -835,6 +839,8 @@ private fun TodayQuestCard(
                         .semantics {
                             contentDescription = if (quest.godModeEnabled) {
                                 "Parent mode: Playground and all rewards unlocked"
+                            } else if (quest.sanctuaryComplete) {
+                                "Reward: five minute play break; Milo's home is complete"
                             } else if (quest.isComplete) {
                                 "Reward earned: sanctuary piece and five minute play break"
                             } else {
@@ -857,6 +863,7 @@ private fun TodayQuestCard(
                         Text(
                             when {
                                 quest.godModeEnabled -> stringResource(R.string.home_quest_reward_parent)
+                                quest.sanctuaryComplete -> stringResource(R.string.home_quest_reward_sanctuary_complete)
                                 quest.isComplete -> stringResource(R.string.home_quest_reward_earned)
                                 else -> stringResource(
                                     R.string.home_quest_reward_pending,

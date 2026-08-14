@@ -184,6 +184,7 @@ class PlayroomHomeViewModel @Inject constructor(
         )
         val questTotal = targets.size.coerceAtLeast(1)
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
+        val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
         val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
             ?: targets.firstOrNull()?.lessonId
         // No available subject → honest "Choose a subject" fallback that moves
@@ -201,6 +202,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 targets = targets,
                 nextLessonId = nextLessonId,
                 godModeEnabled = true,
+                sanctuaryComplete = true,
             )
         } else if (dailyQuest.isComplete) {
             QuestUi(
@@ -213,6 +215,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonAction = QuestAction.ViewReward,
                 targets = targets,
                 nextLessonId = nextLessonId,
+                sanctuaryComplete = sanctuaryComplete,
             )
         } else {
             val hasQuestTarget = nextLessonId != null
@@ -235,6 +238,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 },
                 targets = targets,
                 nextLessonId = nextLessonId,
+                sanctuaryComplete = sanctuaryComplete,
             )
         }
 

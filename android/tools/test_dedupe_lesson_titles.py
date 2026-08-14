@@ -21,7 +21,9 @@ class LessonTitleDedupeTest(unittest.TestCase):
         lessons = dedupe.load_lessons()
         planned = dedupe.planned_titles(lessons)
         self.assertEqual({path: lesson["title"] for path, lesson in lessons}, planned)
-        self.assertIn(" · Q", planned[dedupe.LESSON_DIR / "filipino-g3-q1-w01-d01.json"])
+        self.assertNotIn(" · Q", planned[dedupe.LESSON_DIR / "filipino-g3-q1-w01-d01.json"])
+        # Legacy month-format lessons still retain their stable internal
+        # qualifier; the app strips it from child-facing display text.
         self.assertIn(" · M01 D01", planned[dedupe.LESSON_DIR / "english-g3-m01-d01.json"])
 
     def test_json_remains_parseable(self):

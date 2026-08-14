@@ -28,7 +28,8 @@ class QuarterlyAssetGeneratorTest(unittest.TestCase):
         title = root.find("{http://www.w3.org/2000/svg}title")
         desc = root.find("{http://www.w3.org/2000/svg}desc")
         self.assertIsNotNone(title)
-        self.assertIn("Shape Trail", title.text or "")
+        assert title is not None
+        self.assertIn(lesson["title"], title.text or "")
         self.assertIsNotNone(desc)
         self.assertIn("visual board", desc.text or "")
 
