@@ -37,7 +37,7 @@
       "required": true,
       "assetId": "filipino-g3-q3-w10-d02-visual",
       "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "content": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling maglaro ng basketbol si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "content": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling mag-shoot si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
       "completionRule": {
         "type": "COMPLETE"
       },
@@ -46,10 +46,10 @@
         "retry": "Balikan ang pahiwatig sa Munting Talata. 💪"
       },
       "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "narration": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling maglaro ng basketbol si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "narration": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling mag-shoot si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
       "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling maglaro ng basketbol si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+      "accessibilityAlternative": "Naglalaro ng basketball ang magkakaibigan sa plasa. Mabilis at magaling mag-shoot si Marco. Nanalo ang kanilang koponan sa huling laro. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
     },
     {
       "activityId": "filipino-g3-q3-w10-d02-a02",
@@ -63,7 +63,7 @@
         "examples": [
           "ang laro ng basketball sa plasa",
           "Naglalaro ng basketball ang magkakaibigan sa plasa.",
-          "Mabilis at magaling maglaro ng basketbol si Marco.",
+          "Mabilis at magaling mag-shoot si Marco.",
           "Nanalo ang kanilang koponan sa huling laro."
         ],
         "visualScene": "🐱🔎✨"
@@ -94,7 +94,7 @@
         "fits": [
           "ang laro ng basketball sa plasa",
           "Naglalaro ng basketball ang magkakaibigan sa plasa.",
-          "Mabilis at magaling maglaro ng basketbol si Marco.",
+          "Mabilis at magaling mag-shoot si Marco.",
           "Nanalo ang kanilang koponan sa huling laro."
         ],
         "doesNotFit": [
@@ -167,7 +167,7 @@
             "right": "pangunahing ideya"
           },
           {
-            "left": "Mabilis at magaling maglaro ng basketbol si Marco.",
+            "left": "Mabilis at magaling mag-shoot si Marco.",
             "right": "detalye"
           }
         ]
@@ -224,67 +224,68 @@
       {
         "sequence": 1,
         "itemId": "filipino-g3-q3-w10-d02-q1",
-        "prompt": "Subukan mo ito: Alin ang paksa ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang paksa ng talata?",
         "options": [
           {
             "id": "a",
-            "text": "si Lola Nena"
+            "text": "ang aming barangay"
           },
           {
             "id": "b",
-            "text": "ang laro ng basketball sa plasa"
-          },
-          {
-            "id": "c",
             "text": "ang aso ni Milo"
           },
           {
+            "id": "c",
+            "text": "ang laro ng basketball sa plasa"
+          },
+          {
             "id": "d",
-            "text": "ang aming barangay"
+            "text": "si Lola Nena"
           }
         ],
         "correctOptionIds": [
-          "b"
+          "c"
         ],
-        "explanation": "Ang paksa ay kung tungkol saan ang buong talata. ang laro ng basketball sa plasa ang paksa dahil ito ang tinalakay ng lahat ng pangungusap.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: ang laro ng basketball sa plasa"
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q3-w10-d02-q2",
-        "prompt": "Subukan mo ito: Ano ang pangunahing ideya ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pangunahing ideya ng talata?",
         "options": [
           {
             "id": "a",
-            "text": "Masarap magluto si Lola Nena."
-          },
-          {
-            "id": "b",
-            "text": "Naglalaro ng basketball ang magkakaibigan sa plasa."
-          },
-          {
-            "id": "c",
             "text": "Ang barangay namin ay malinis at maayos."
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "Ang aso ni Milo ay tapat at mapagmahal."
+          },
+          {
+            "id": "c",
+            "text": "Naglalaro ng basketball ang magkakaibigan sa plasa."
+          },
+          {
+            "id": "d",
+            "text": "Masarap magluto si Lola Nena."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "c"
         ],
-        "explanation": "Ang pangunahing ideya ay ang pinakamahalagang sinasabi ng talata. Naglalaro ng basketball ang magkakaibigan sa plasa. — ito ang pinag-uusapan ng lahat ng pangungusap.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Naglalaro ng basketball ang magkakaibigan sa plasa."
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q3-w10-d02-q3",
-        "prompt": "Subukan mo ito: Aling detalye ang nasa talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling detalye ang nasa talata?",
         "options": [
           {
             "id": "a",
-            "text": "Ang kanyang ginataan ay paborito ng buong pamilya."
+            "text": "Naglilinis ng kalye ang mga kabataan tuwing Sabado."
           },
           {
             "id": "b",
@@ -292,23 +293,23 @@
           },
           {
             "id": "c",
-            "text": "Naglilinis ng kalye ang mga kabataan tuwing Sabado."
+            "text": "Mabilis at magaling mag-shoot si Marco."
           },
           {
             "id": "d",
-            "text": "Mabilis at magaling maglaro ng basketbol si Marco."
+            "text": "Ang kanyang ginataan ay paborito ng buong pamilya."
           }
         ],
         "correctOptionIds": [
-          "d"
+          "c"
         ],
-        "explanation": "Ang detalye ay sumusuporta sa paksa ng talata. Mabilis at magaling maglaro ng basketbol si Marco. ang detalyeng nabanggit sa talata.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Mabilis at magaling mag-shoot si Marco."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q3-w10-d02-q4",
-        "prompt": "Subukan mo ito: Aling pangungusap ang wakas ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pangungusap ang wakas ng talata?",
         "options": [
           {
             "id": "a",
@@ -316,7 +317,7 @@
           },
           {
             "id": "b",
-            "text": "Tuwing may handaan, siya ang nagluluto."
+            "text": "Kaya naman lagi siyang masaya sa kanyang aso."
           },
           {
             "id": "c",
@@ -324,19 +325,19 @@
           },
           {
             "id": "d",
-            "text": "Kaya naman lagi siyang masaya sa kanyang aso."
+            "text": "Tuwing may handaan, siya ang nagluluto."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang wakas ng talata ay ang pangungusap na nagsasara sa paksa. Nanalo ang kanilang koponan sa huling laro. ang nagtatapos sa talata.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Nanalo ang kanilang koponan sa huling laro."
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q3-w10-d02-q5",
-        "prompt": "Subukan mo ito: Tungkol saan ang talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Tungkol saan ang talata?",
         "options": [
           {
             "id": "a",
@@ -358,8 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Pinagsasama ng mga pangungusap ang iisang paksa. Ang talata ay tungkol sa ang laro ng basketball sa plasa.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: ang laro ng basketball sa plasa"
       }
     ]
   },

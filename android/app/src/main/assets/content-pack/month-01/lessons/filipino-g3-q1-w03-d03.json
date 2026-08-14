@@ -224,47 +224,48 @@
       {
         "sequence": 1,
         "itemId": "filipino-g3-q1-w03-d03-q1",
-        "prompt": "Alin ang paksa ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang paksa ng talata?",
         "options": [
           {
             "id": "a",
-            "text": "ang hardin ni Tito Ramon"
-          },
-          {
-            "id": "b",
             "text": "ang paaralan ni Ben"
           },
           {
+            "id": "b",
+            "text": "ang maulan na Linggo"
+          },
+          {
             "id": "c",
-            "text": "ang Sabado ng pamilya ni Ana"
+            "text": "ang hardin ni Tito Ramon"
           },
           {
             "id": "d",
-            "text": "ang maulan na Linggo"
+            "text": "ang Sabado ng pamilya ni Ana"
           }
         ],
         "correctOptionIds": [
-          "c"
+          "d"
         ],
-        "explanation": "Ang paksa ay kung tungkol saan ang buong talata. ang Sabado ng pamilya ni Ana ang paksa dahil ito ang tinalakay ng lahat ng pangungusap.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: ang Sabado ng pamilya ni Ana"
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q1-w03-d03-q2",
-        "prompt": "Ano ang pangunahing ideya ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pangunahing ideya ng talata?",
         "options": [
           {
             "id": "a",
-            "text": "Malakas ang ulan noong Linggo."
+            "text": "Ang paaralan ni Ben ay malapit sa palengke."
           },
           {
             "id": "b",
-            "text": "Mahilig magtanim si Tito Ramon sa hardin."
+            "text": "Malakas ang ulan noong Linggo."
           },
           {
             "id": "c",
-            "text": "Ang paaralan ni Ben ay malapit sa palengke."
+            "text": "Mahilig magtanim si Tito Ramon sa hardin."
           },
           {
             "id": "d",
@@ -274,13 +275,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang pangunahing ideya ay ang pinakamahalagang sinasabi ng talata. Masaya ang pamilya ni Ana sa Sabado. — ito ang pinag-uusapan ng lahat ng pangungusap.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Masaya ang pamilya ni Ana sa Sabado."
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q1-w03-d03-q3",
-        "prompt": "Aling detalye ang nasa talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling detalye ang nasa talata?",
         "options": [
           {
             "id": "a",
@@ -288,7 +289,7 @@
           },
           {
             "id": "b",
-            "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
+            "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
           },
           {
             "id": "c",
@@ -296,47 +297,47 @@
           },
           {
             "id": "d",
-            "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
+            "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "d"
         ],
-        "explanation": "Ang detalye ay sumusuporta sa paksa ng talata. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. ang detalyeng nabanggit sa talata.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q1-w03-d03-q4",
-        "prompt": "Aling pangungusap ang wakas ng talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pangungusap ang wakas ng talata?",
         "options": [
           {
             "id": "a",
-            "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
+            "text": "Tuwang-tuwa si Ben na pumasok araw-araw."
           },
           {
             "id": "b",
-            "text": "Sariwang gulay ang handa tuwing hapunan."
+            "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
           },
           {
             "id": "c",
-            "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
+            "text": "Sariwang gulay ang handa tuwing hapunan."
           },
           {
             "id": "d",
-            "text": "Tuwang-tuwa si Ben na pumasok araw-araw."
+            "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
           }
         ],
         "correctOptionIds": [
-          "c"
+          "d"
         ],
-        "explanation": "Ang wakas ng talata ay ang pangungusap na nagsasara sa paksa. Sabay-sabay silang kumakain at nagkukuwentuhan. ang nagtatapos sa talata.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: Sabay-sabay silang kumakain at nagkukuwentuhan."
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q1-w03-d03-q5",
-        "prompt": "Tungkol saan ang talata?  (sa aralin: Munting Talata)",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Tungkol saan ang talata?",
         "options": [
           {
             "id": "a",
@@ -344,7 +345,7 @@
           },
           {
             "id": "b",
-            "text": "ang Sabado ng pamilya ni Ana"
+            "text": "ang maulan na Linggo"
           },
           {
             "id": "c",
@@ -352,14 +353,13 @@
           },
           {
             "id": "d",
-            "text": "ang maulan na Linggo"
+            "text": "ang Sabado ng pamilya ni Ana"
           }
         ],
         "correctOptionIds": [
-          "b"
+          "d"
         ],
-        "explanation": "Pinagsasama ng mga pangungusap ang iisang paksa. Ang talata ay tungkol sa ang Sabado ng pamilya ni Ana.",
-        "type": "MULTIPLE_CHOICE"
+        "explanation": "Ang pinakamabuting sagot ay: ang Sabado ng pamilya ni Ana"
       }
     ]
   },
