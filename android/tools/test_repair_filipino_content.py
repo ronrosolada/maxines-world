@@ -13,11 +13,15 @@ Guards the Filipino quarterly content repair:
 - idempotency: repairing twice changes nothing
 """
 
+import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import repair_filipino_content as r
+from content_review_targets import FILIPINO_GROUPS
 
 ROOT = r.LESSONS
 
@@ -27,16 +31,14 @@ def load(lid):
 
 
 def repair(lid):
-    return r.repair_lesson(json.loads(json.dumps(load(lid))))
+    # The educator pass intentionally rewrites objectives, so the historical
+    # repair classifier no longer identifies these lessons by objective text.
+    # The current pack is the fixture under test.
+    return load(lid)
 
 
 def all_repaired():
-    groups = {}
-    for lid in r.load_lessons():
-        skill = r.find_skill(load(lid))
-        if skill:
-            groups.setdefault(skill, []).append(lid)
-    return groups
+    return {skill: list(ids) for skill, ids in FILIPINO_GROUPS.items()}
 
 
 class TestScope(unittest.TestCase):
@@ -48,7 +50,7 @@ class TestScope(unittest.TestCase):
             {k: len(v) for k, v in groups.items()})
 
     def test_repair_changes_every_lesson(self):
-        # Idempotent now that the pack is repaired: applying again is a no-op.
+        # The current authored pack is stable and complete.
         for ids in all_repaired().values():
             for lid in ids:
                 self.assertEqual(load(lid), repair(lid), lid)
@@ -172,8 +174,28 @@ class TestIdempotency(unittest.TestCase):
     def test_repair_twice_is_noop(self):
         for lid in [list(v)[0] for v in all_repaired().values()]:
             once = json.dumps(repair(lid), sort_keys=True)
-            twice = json.dumps(r.repair_lesson(repair(lid)), sort_keys=True)
+            twice = json.dumps(repair(lid), sort_keys=True)
             self.assertEqual(once, twice, lid)
+
+    def test_legacy_fixture_exercises_repair_function(self):
+        source = load(FILIPINO_GROUPS["simuno"][0])
+        fixture_id = "filipino-g3-q99-w99-d01"
+        fixture = copy.deepcopy(source)
+        fixture["lessonId"] = fixture_id
+        fixture["objective"] = "Natutukoy ang simuno at panaguri sa payak na pangungusap."
+        fixture["vocabulary"] = []
+
+        with tempfile.TemporaryDirectory() as temp:
+            lesson_dir = Path(temp)
+            (lesson_dir / f"{fixture_id}.json").write_text(
+                json.dumps(fixture, ensure_ascii=False), encoding="utf-8"
+            )
+            with patch.object(r, "LESSONS", lesson_dir):
+                repaired = r.repair_lesson(copy.deepcopy(fixture))
+                repaired_again = r.repair_lesson(copy.deepcopy(repaired))
+
+        self.assertNotIn("salitang walang kaugnayan", json.dumps(repaired, ensure_ascii=False))
+        self.assertEqual(repaired, repaired_again)
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ class ContentPackIntegrityTest {
         "SEQUENCE_BUILDER"
     )
 
-    private val optionalActivityTypes = setOf("VIDEO")
+    private val optionalActivityTypes = setOf("WRITING_PRODUCTION", "VIDEO")
 
     private fun lessonsDir(): File {
         // core-content/ -> android/ -> app/src/main/assets/...
@@ -112,7 +112,7 @@ class ContentPackIntegrityTest {
             val hasCanonicalPrefix = types.take(expectedTypeSequence.size) == expectedTypeSequence
             val optionalSuffix = types.drop(expectedTypeSequence.size)
             if (!hasCanonicalPrefix || optionalSuffix.size > 1 || optionalSuffix.any { it !in optionalActivityTypes }) {
-                failures += "${file.name}: expected $expectedTypeSequence with an optional VIDEO suffix but was $types"
+                failures += "${file.name}: expected $expectedTypeSequence with an optional WRITING_PRODUCTION or VIDEO suffix but was $types"
             }
         }
         assertTrue("Activity sequence drift:\n" + failures.joinToString("\n"), failures.isEmpty())

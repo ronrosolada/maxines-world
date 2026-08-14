@@ -5,15 +5,15 @@
   "month": 11,
   "day": 3,
   "subject": "english",
-  "title": "Sentence Polishing",
-  "objective": "Use a capital letter and correct end punctuation in a simple sentence.",
+  "title": "Checking End Marks",
+  "objective": "Reinforce using capital letters and end marks in simple sentences.",
   "estimatedMinutes": 12,
   "educatorValidated": true,
   "releaseStatus": "RELEASED",
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore?",
+  "introduction": "Hi Maxine! 🔤 Let's practice again: every sentence needs a capital letter and the right end mark. Ready, reviewer?",
   "vocabulary": [
     {
       "term": "capital letter",
@@ -213,6 +213,42 @@
       "guideHint": "Need a hint? Read the example again.",
       "nextLabel": "Next →",
       "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d03-a07",
+      "sequence": 7,
+      "type": "WRITING_PRODUCTION",
+      "capability": "WRITING_PRODUCTION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d03-visual",
+      "instruction": "Build the sentence with the word tiles, then check your own writing.",
+      "content": {
+        "tiles": [
+          "Milo",
+          "reads",
+          "every",
+          "day",
+          "."
+        ],
+        "checklist": [
+          "My sentence starts with a capital letter.",
+          "My sentence ends with a period.",
+          "My sentence tells a whole idea."
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Great job! Your sentence is ready! 🎉",
+        "retry": "Check your sentence again. 💪"
+      },
+      "prompt": "Build the sentence with the word tiles, then check your own writing.",
+      "narration": "Build the sentence with the word tiles, then check your own writing.",
+      "guideHint": "Every sentence needs a capital letter and the right end mark.",
+      "hint": "Every sentence needs a capital letter and the right end mark.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Build the sentence 'Milo reads every day.' from word tiles, then check your own writing with the checklist."
     }
   ],
   "assessment": {
@@ -384,5 +420,6 @@
     "character": "Milo the Cat",
     "setting": "Milo's Learning World (English)",
     "visualScene": "📚📖🏰✨"
-  }
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
 }

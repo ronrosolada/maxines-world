@@ -68,6 +68,12 @@ data class ActivityStep(
     val hotspotExamples: List<String> = emptyList(),
     val completionRule: String = "",
     val completionTargetCount: Int = 0,
+    /** BCP-47-ish lesson language used for renderer chrome and accessibility text. */
+    val language: String = "english",
+    /** WRITING_PRODUCTION_V1: word tiles the child orders to build a sentence. */
+    val writingTiles: List<String> = emptyList(),
+    /** WRITING_PRODUCTION_V1: self-mark checklist prompts shown in order. */
+    val writingChecklist: List<String> = emptyList(),
     /** Authored hint text. Empty means this activity has no hint affordance. */
     val hintText: String = "",
     /**

@@ -79,11 +79,11 @@ class DailyQuestRewardWriter @Inject constructor(
         val now = System.currentTimeMillis()
         val rewardId = "daily-quest:$childId:$dayKey:sanctuary-piece"
         val existingReward = rewardDao.getById(rewardId)
-        val pieceId = existingReward?.metadata ?: run {
-            val previousPieces = rewardDao.getTotalByType(childId, SANCTUARY_PIECE_TYPE) ?: 0
-            SanctuaryCatalog.pieceAt(previousPieces).id
-        }
-        val inserted = if (existingReward == null) {
+        val nextPieceId = SanctuaryCatalog.pieces
+            .getOrNull(rewardDao.getTotalByType(childId, SANCTUARY_PIECE_TYPE) ?: 0)
+            ?.id
+        val pieceId = existingReward?.metadata ?: nextPieceId
+        val inserted = if (existingReward == null && nextPieceId != null) {
             rewardDao.insertIgnoring(
                 RewardEntity(
                     id = rewardId,
@@ -92,7 +92,7 @@ class DailyQuestRewardWriter @Inject constructor(
                     subject = "daily-quest",
                     amount = 1,
                     earnedAt = now,
-                    metadata = pieceId,
+                    metadata = nextPieceId,
                 )
             )
         } else {

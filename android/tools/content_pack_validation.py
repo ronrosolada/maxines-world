@@ -32,7 +32,7 @@ CANONICAL_ACTIVITY_TYPES = (
     "MATCHING_PAIRS",
     "SEQUENCE_BUILDER",
 )
-OPTIONAL_ACTIVITY_TYPES = ("VIDEO",)
+OPTIONAL_ACTIVITY_TYPES = ("WRITING_PRODUCTION", "VIDEO")
 
 
 @dataclass(frozen=True)
@@ -135,6 +135,13 @@ def _validate_activity(
     elif activity_type == "SEQUENCE_BUILDER":
         if not isinstance(content, dict) or not isinstance(content.get("steps"), list) or not content["steps"]:
             report.add("error", "activity_payload", lesson_path, f"{prefix} needs non-empty steps")
+    elif activity_type == "WRITING_PRODUCTION":
+        if not isinstance(content, dict):
+            report.add("error", "activity_payload", lesson_path, f"{prefix} needs a content object")
+        elif not isinstance(content.get("tiles"), list) or not content["tiles"]:
+            report.add("error", "activity_payload", lesson_path, f"{prefix} needs non-empty tiles")
+        elif not isinstance(content.get("checklist"), list) or not content["checklist"]:
+            report.add("error", "activity_payload", lesson_path, f"{prefix} needs non-empty checklist")
     elif activity_type == "VIDEO":
         if not isinstance(activity.get("mediaId"), str) or not activity["mediaId"].strip():
             report.add("error", "activity_payload", lesson_path, f"{prefix} needs a non-empty mediaId")

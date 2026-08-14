@@ -322,6 +322,14 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
                 viewModel.onActivityResult(ActivityResult(step.id, true, 1, 0, 0, scored = false))
             }
 
+            step.type == "WRITING_PRODUCTION_V1" -> ActivityRenderer(
+                step = step,
+                onResult = { result -> viewModel.onActivityResult(result) },
+                onHint = { ttsPlayer.speak(step.hintText, lang ?: "english") },
+                modifier = Modifier.fillMaxWidth(),
+                onAdvance = { viewModel.onNextStep() }
+            )
+
             else -> ActivityRenderer(
                 step = step,
                 onResult = { result -> viewModel.onActivityResult(result) },

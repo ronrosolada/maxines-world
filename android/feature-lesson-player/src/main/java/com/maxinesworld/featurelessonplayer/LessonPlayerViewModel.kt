@@ -328,6 +328,7 @@ internal fun rendererType(rawType: String): String? = when (rawType) {
     "MATCHING_PAIRS" -> "MATCHING_PAIRS_V1"
     "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
     "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
+    "WRITING_PRODUCTION" -> "WRITING_PRODUCTION_V1"
     "VIDEO" -> "VIDEO_V1"
     else -> null
 }
@@ -417,6 +418,8 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
     var matchPairs: List<MatchPair> = emptyList()
     var sequenceSteps: List<String> = emptyList()
     var hotspotExamples: List<String> = emptyList()
+    var writingTiles: List<String> = emptyList()
+    var writingChecklist: List<String> = emptyList()
     var narration = childFacingInstruction
     var mediaId = act.mediaId ?: obj?.get("mediaId")?.jsonPrimitive?.contentOrNull()
 
@@ -482,6 +485,14 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
                 sequenceSteps = obj?.stringList("steps") ?: emptyList()
             }
 
+            "WRITING_PRODUCTION" -> {
+                // CH-07 M2: sentence-builder tiles plus a self-mark checklist.
+                // No free-text grading — completion derives from the checklist
+                // the child self-marks with the guide.
+                writingTiles = obj?.stringList("tiles") ?: emptyList()
+                writingChecklist = obj?.stringList("checklist") ?: emptyList()
+            }
+
             "VIDEO" -> {
                 // A video is an optional, unscored learning step. Keep the
                 // authored instruction as the sole child-facing prompt.
@@ -541,8 +552,11 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         matchPairs = matchPairs,
         sequenceSteps = sequenceSteps,
         hotspotExamples = hotspotExamples,
+        writingTiles = writingTiles,
+        writingChecklist = writingChecklist,
         completionRule = act.completionRule?.type.orEmpty(),
         completionTargetCount = act.completionRule?.targetCount ?: 0,
+        language = language ?: "english",
         hintText = hintText
     )
 }

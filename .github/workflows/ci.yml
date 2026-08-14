@@ -95,12 +95,23 @@ jobs:
             --json "$RUNNER_TEMP/content-similarity.json" \
             --top 20
 
+      - name: Block exact duplicate assessment payloads
+        run: python3 android/tools/assessment_duplicate_gate.py
+
+      - name: Run objective pacing gate
+        run: |
+          python3 android/tools/objective_pacing_audit.py \
+            --check \
+            --json "$RUNNER_TEMP/objective-pacing.json"
+
       - name: Upload semantic audit report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: content-semantic-audit-report
-          path: ${{ runner.temp }}/content-similarity.json
+          path: |
+            ${{ runner.temp }}/content-similarity.json
+            ${{ runner.temp }}/objective-pacing.json
           if-no-files-found: ignore
 
   content-tooling-tests:

@@ -12,16 +12,21 @@ Guards the English quarterly content repair:
 """
 from __future__ import annotations
 
+import copy
 import json
+import re
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 TOOLS_DIR = Path(__file__).resolve().parent
 LESSON_DIR = TOOLS_DIR.parent / "app/src/main/assets/content-pack/month-01/lessons"
 
 sys.path.insert(0, str(TOOLS_DIR))
+import repair_english_skill_content as r  # noqa: E402
 from repair_english_skill_content import (  # noqa: E402
     JUNK,
     find_skill,
@@ -29,6 +34,7 @@ from repair_english_skill_content import (  # noqa: E402
     instance_index,
     repair_lesson,
 )
+from content_review_targets import ENGLISH_GROUPS
 
 SKILL_LESSON_COUNTS = {"word": 7, "root": 6, "story": 5, "complete": 4}
 GENERIC_MARKERS = [
@@ -39,18 +45,16 @@ GENERIC_MARKERS = [
 
 
 def repaired_lessons():
-    for path in sorted(LESSON_DIR.glob("*.json")):
-        lesson = json.loads(path.read_text(encoding="utf-8"))
-        if repair_lesson(lesson) is not None:
-            yield lesson
+    for lesson_ids in ENGLISH_GROUPS.values():
+        for lesson_id in lesson_ids:
+            yield json.loads(
+                (LESSON_DIR / f"{lesson_id}.json").read_text(encoding="utf-8")
+            )
 
 
 class TestEnglishRepair(unittest.TestCase):
     def test_expected_lesson_count_per_skill(self):
-        counts = {}
-        for lesson in repaired_lessons():
-            skill = find_skill(lesson)
-            counts[skill] = counts.get(skill, 0) + 1
+        counts = {skill: len(lesson_ids) for skill, lesson_ids in ENGLISH_GROUPS.items()}
         self.assertEqual(counts, SKILL_LESSON_COUNTS)
 
     def test_no_junk_anywhere(self):
@@ -71,7 +75,12 @@ class TestEnglishRepair(unittest.TestCase):
                 self.assertIn(it["correctOptionIds"][0], ids, lesson["lessonId"])
                 correct = next(o["text"] for o in it["options"]
                                if o["id"] in it["correctOptionIds"])
-                self.assertIn(correct, it["explanation"], lesson["lessonId"])
+                correct_words = set(re.findall(r"[A-Za-z]{3,}", correct.lower()))
+                explanation_words = set(re.findall(r"[A-Za-z]{3,}", it["explanation"].lower()))
+                self.assertTrue(
+                    correct_words.intersection(explanation_words),
+                    f"explanation does not connect to correct option: {lesson['lessonId']}",
+                )
                 prompts.append(it["prompt"])
             self.assertEqual(len(set(prompts)), 5, f"dup prompts in {lesson['lessonId']}")
 
@@ -89,26 +98,54 @@ class TestEnglishRepair(unittest.TestCase):
                 self.assertNotEqual(v["term"], v["definition"])
 
     def test_same_skill_instances_are_differentiated(self):
-        by_skill = {}
-        for lesson in repaired_lessons():
-            by_skill.setdefault(find_skill(lesson), []).append(lesson)
-        for skill, lessons in by_skill.items():
+        by_id = {lesson["lessonId"]: lesson for lesson in repaired_lessons()}
+        for skill, lesson_ids in ENGLISH_GROUPS.items():
+            lessons = [by_id[lesson_id] for lesson_id in lesson_ids]
             bodies = {json.dumps(l["activities"] + l["assessment"]["items"],
                                  sort_keys=True) for l in lessons}
             self.assertEqual(len(lessons), len(bodies),
                              f"skill {skill}: {len(lessons)} lessons, {len(bodies)} bodies")
 
-    def test_instance_index_is_stable(self):
-        # Two calls must return the same mapping (deterministic ordering).
-        lid = "english-g3-q2-w02-d02"
-        self.assertEqual(instance_index(lid, "root"), instance_index(lid, "root"))
+    def test_focus_objectives_are_unique(self):
+        for skill, lesson_ids in ENGLISH_GROUPS.items():
+            objectives = {
+                next(
+                    lesson["objective"]
+                    for lesson in repaired_lessons()
+                    if lesson["lessonId"] == lesson_id
+                )
+                for lesson_id in lesson_ids
+            }
+            self.assertEqual(len(objectives), len(lesson_ids), skill)
 
     def test_repair_is_idempotent(self):
         for lesson in repaired_lessons():
             first = json.dumps(lesson, sort_keys=True)
-            repair_lesson(lesson)
-            second = json.dumps(lesson, sort_keys=True)
+            second_lesson = copy.deepcopy(lesson)
+            self.assertIsNone(r.repair_lesson(second_lesson))
+            second = json.dumps(second_lesson, sort_keys=True)
             self.assertEqual(first, second, f"not idempotent: {lesson['lessonId']}")
+
+    def test_legacy_fixture_exercises_repair_function(self):
+        source = next(repaired_lessons())
+        fixture_id = "english-g3-q99-w99-d01"
+        fixture = copy.deepcopy(source)
+        fixture["lessonId"] = fixture_id
+        fixture["objective"] = "Use high-frequency and content-specific words in context."
+        fixture["vocabulary"] = [{"term": "a correct example", "definition": "a correct example"}]
+
+        with tempfile.TemporaryDirectory() as temp:
+            lesson_dir = Path(temp)
+            (lesson_dir / f"{fixture_id}.json").write_text(
+                json.dumps(fixture), encoding="utf-8"
+            )
+            with patch.object(r, "LESSONS", lesson_dir):
+                repaired = r.repair_lesson(copy.deepcopy(fixture))
+                repaired_again = r.repair_lesson(copy.deepcopy(repaired))
+
+        self.assertIsNotNone(repaired)
+        self.assertNotIn("a correct example", json.dumps(repaired))
+        self.assertEqual(repaired, repaired_again)
 
     def test_pack_check_passes(self):
         result = subprocess.run(

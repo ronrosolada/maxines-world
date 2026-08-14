@@ -26,6 +26,15 @@ data class DailyQuestProgress(
 }
 
 object DailyQuestPlanner {
+    internal fun questStartIndex(hash: Int, size: Int): Int {
+        require(size > 0) { "Quest pool must not be empty" }
+        // Preserve the existing stable rotation for every normal hash. The
+        // only unsafe value for abs(Int) is Int.MIN_VALUE, whose absolute
+        // value cannot be represented as an Int.
+        val safeHash = if (hash == Int.MIN_VALUE) Int.MAX_VALUE else abs(hash)
+        return safeHash % size
+    }
+
     fun selectQuestIds(
         childId: String,
         dayKey: String,
@@ -37,7 +46,7 @@ object DailyQuestPlanner {
         val uniqueAvailable = availableLessonIds.distinct()
         val unfinished = uniqueAvailable.filterNot(completedLessonIds::contains)
         val prioritized = (unfinished + uniqueAvailable.filter(completedLessonIds::contains)).distinct()
-        val start = abs("$childId:$dayKey".hashCode()) % prioritized.size
+        val start = questStartIndex("$childId:$dayKey".hashCode(), prioritized.size)
         return (0 until minOf(count, prioritized.size))
             .map { offset -> prioritized[(start + offset) % prioritized.size] }
     }

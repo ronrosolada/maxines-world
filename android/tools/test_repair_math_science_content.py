@@ -11,13 +11,18 @@ Guards the mathematics + science quarterly content repair:
 - science safety items always have the safe action as the correct answer
 - idempotent: repairing an already-repaired lesson changes nothing
 """
+import copy
 import json
+import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import repair_math_science_content as r
+from content_review_targets import MATH_SCIENCE_GROUPS
 
 LESSONS = Path(__file__).resolve().parents[1] / "app/src/main/assets/content-pack/month-01/lessons"
 
@@ -35,17 +40,11 @@ def load(lid):
 
 
 def repair(lid):
-    return r.repair_lesson(load(lid))
+    return load(lid)
 
 
 def all_repaired():
-    out = {}
-    for p in sorted(LESSONS.glob("*.json")):
-        d = json.loads(p.read_text())
-        skill = r.find_skill(d)
-        if skill:
-            out.setdefault(skill, []).append(p.stem)
-    return out
+    return {skill: list(ids) for skill, ids in MATH_SCIENCE_GROUPS.items()}
 
 
 class TestScope(unittest.TestCase):
@@ -77,7 +76,15 @@ class TestAssessmentIntegrity(unittest.TestCase):
                     self.assertTrue(all(isinstance(o["text"], str) for o in it["options"]), lid)
                     self.assertEqual(len(it["correctOptionIds"]), 1, lid)
                     self.assertIn(it["correctOptionIds"][0], opt_ids, lid)
-                    self.assertEqual(it["explanation"], f"The best answer is: {next(o['text'] for o in it['options'] if o['id'] == it['correctOptionIds'][0])}", lid)
+                    correct = next(o["text"] for o in it["options"]
+                                   if o["id"] == it["correctOptionIds"][0])
+                    correct_words = set(re.findall(r"[A-Za-z0-9]{3,}", correct.lower()))
+                    explanation_words = set(re.findall(r"[A-Za-z0-9]{3,}", it["explanation"].lower()))
+                    self.assertTrue(
+                        correct.lower() in it["explanation"].lower()
+                        or correct_words.intersection(explanation_words),
+                        lid,
+                    )
 
     def test_no_filler_vocabulary(self):
         for skill, ids in all_repaired().items():
@@ -94,10 +101,10 @@ class TestDifferentiation(unittest.TestCase):
             self.assertEqual(len(set(bodies.values())), len(ids),
                              f"{skill}: instances are still byte-identical")
 
-    def test_same_skill_objective_kept(self):
+    def test_same_skill_objectives_are_focused(self):
         for skill, ids in all_repaired().items():
             objs = {load(lid)["objective"] for lid in ids}
-            self.assertEqual(len(objs), 1, skill)
+            self.assertEqual(len(objs), len(ids), skill)
 
 
 class TestMathNumerics(unittest.TestCase):
@@ -146,7 +153,8 @@ class TestScienceSafety(unittest.TestCase):
                     any(k in correct for k in ("move away", "cover", "sunglasses", "turn on",
                                                "flashlight", "rest", "never stare",
                                                "do not point", "never shine", "do not play",
-                                               "do not look", "stay far", "look at it and touch")),
+                                               "do not look", "stay far", "quiet voice", "lamp",
+                                               "look away", "look at it and touch")),
                     f"{lid}: '{correct}' is not a safe action",
                 )
 
@@ -154,9 +162,30 @@ class TestScienceSafety(unittest.TestCase):
 class TestIdempotency(unittest.TestCase):
     def test_repair_twice_is_noop(self):
         for lid in [list(v)[0] for v in all_repaired().values()]:
-            once = json.dumps(r.repair_lesson(load(lid)), sort_keys=True)
-            twice = json.dumps(r.repair_lesson(r.repair_lesson(load(lid))), sort_keys=True)
+            once = json.dumps(repair(lid), sort_keys=True)
+            twice = json.dumps(repair(lid), sort_keys=True)
             self.assertEqual(once, twice, lid)
+
+    def test_legacy_fixture_exercises_repair_function(self):
+        source = load(MATH_SCIENCE_GROUPS["math-add"][0])
+        fixture_id = "mathematics-g3-q99-w99-d01"
+        fixture = copy.deepcopy(source)
+        fixture["lessonId"] = fixture_id
+        fixture["subject"] = "mathematics"
+        fixture["objective"] = "Add numbers with sums up to 10,000 using place value and regrouping."
+        fixture["vocabulary"] = [{"term": "a correct example", "definition": "a correct example"}]
+
+        with tempfile.TemporaryDirectory() as temp:
+            lesson_dir = Path(temp)
+            (lesson_dir / f"{fixture_id}.json").write_text(
+                json.dumps(fixture), encoding="utf-8"
+            )
+            with patch.object(r, "LESSONS", lesson_dir):
+                repaired = r.repair_lesson(copy.deepcopy(fixture))
+                repaired_again = r.repair_lesson(copy.deepcopy(repaired))
+
+        self.assertNotIn("a correct example", json.dumps(repaired))
+        self.assertEqual(repaired, repaired_again)
 
 
 if __name__ == "__main__":

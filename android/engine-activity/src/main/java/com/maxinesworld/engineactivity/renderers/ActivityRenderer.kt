@@ -32,6 +32,8 @@ fun ActivityRenderer(
             SequenceBuilderRenderer(step, onResult, onHint, modifier)
         "INTERACTIVE_SPEC_V1" ->
             InteractiveSpecRenderer(step, onResult, onHint, modifier)
+        "WRITING_PRODUCTION_V1" ->
+            WritingProductionRenderer(step, onResult, onHint, modifier, language = step.language)
         else -> throw UnsupportedActivityError(step.type)
     }
 }

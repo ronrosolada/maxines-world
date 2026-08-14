@@ -6,6 +6,29 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.34.0] - 2026-08-15
+
+### Educator Review, Writing, and Playful Progress
+
+- **Lesson pacing reauthored**: differentiated 168 over-repeated objective instances so each lesson has one clear focus while preserving deliberate spiral review.
+- **Child-facing copy cleaned**: removed leaked author metadata, repaired grammar defects, diversified repeated titles, and kept Filipino and English feedback language-matched.
+- **Writing production pilot**: added offline sentence-building activities with deterministic word tiles, self-check lists, accessible semantics, and a guided retry path instead of free-text grading.
+- **Quest reliability**: hardened deterministic daily-quest selection against the `Int.MIN_VALUE` hash edge case.
+- **Sanctuary completion**: stopped finite sanctuary rewards from wrapping into duplicate pieces; completed homes now continue to grant the play break without promising another piece.
+- **Wildlife photos**: added five verified real-life badge photos from the reviewed asset set. The Panay monitor remains on an honest photo-coming-soon fallback because the available Commons candidate was an illustration, not a photograph.
+- **CI pacing gate**: added objective fan-out validation to prevent future lesson pacing regressions.
+
+### Verification
+
+- 358/358 lessons: strict content validation, 0 errors, 0 warnings.
+- 331 distinct objectives; 0 objective groups over the three-lesson fan-out target.
+- 0 duplicate lesson title groups; 0 malformed or failed lesson visuals.
+- 0 content-quality findings; 0 generic retry-feedback findings.
+- Targeted Android unit tests pass for engine activity, child home, rewards, content, and lesson player.
+- Release educator gate: 358/358 playable lessons approved.
+- Offline mini-game gate: 29/29 bundled games pass CSP and network-isolation checks.
+
+
 ## [0.33.0] - 2026-08-14
 
 ### Educator Review & Curriculum Quality (358 lessons)

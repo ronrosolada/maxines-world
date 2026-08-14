@@ -71,6 +71,7 @@ data class QuestUi(
     val targets: List<QuestTargetUi> = emptyList(),
     val nextLessonId: String? = null,
     val godModeEnabled: Boolean = false,
+    val sanctuaryComplete: Boolean = false,
 )
 
 enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson, OpenPlayground }
