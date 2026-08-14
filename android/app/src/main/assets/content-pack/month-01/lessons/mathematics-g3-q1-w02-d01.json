@@ -1,378 +1,388 @@
 {
- "lessonId": "mathematics-g3-q1-w02-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 1,
- "subject": "mathematics",
- "title": "Place in Line",
- "objective": "Read and use ordinal numbers up to the 100th to show position.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Children are lining up for a game! Help Milo say who is first, second, and one hundredth.",
- "vocabulary": [
-  {
-   "term": "1st is first",
-   "definition": "shows position"
-  },
-  {
-   "term": "2nd is second",
-   "definition": "comes after first"
-  },
-  {
-   "term": "10th is tenth",
-   "definition": "names order in a line"
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Watch how 1st, 2nd, and 100th name positions in a line.",
-   "content": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in Place in Line again. 💪"
-   },
-   "prompt": "Watch how 1st, 2nd, and 100th name positions in a line.",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Tap each example and say what position it names.",
-   "content": {
-    "examples": [
-     "1st is first",
-     "2nd is second",
-     "10th is tenth",
-     "100th is one hundredth"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Look at each Place in Line example again. 💪"
-   },
-   "prompt": "Tap each example and say what position it names.",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Sort each card: does it name a position or a count?",
-   "content": {
-    "fits": [
-     "1st is first",
-     "2nd is second",
-     "10th is tenth",
-     "100th is one hundredth"
-    ],
-    "doesNotFit": [
-     "8 children in a group",
-     "the height of a plant",
-     "a rope 5 meters long",
-     "6 + 3 = 9"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read the Place in Line rule before sorting again. 💪"
-   },
-   "prompt": "Sort each card: does it name a position or a count?",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Tap the one that names a position.",
-   "content": {
-    "options": [
-     "1st is first",
-     "8 children in a group",
-     "the height of a plant",
-     "a rope 5 meters long"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in the Place in Line question. 💪"
-   },
-   "prompt": "Tap the one that names a position.",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Match each position word to its place in line.",
-   "content": {
-    "pairs": [
-     {
-      "left": "1st is first",
-      "right": "shows position"
-     },
-     {
-      "left": "2nd is second",
-      "right": "comes after first"
-     },
-     {
-      "left": "10th is tenth",
-      "right": "names order in a line"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read both sides of each Place in Line pair again. 💪"
-   },
-   "prompt": "Match each position word to its place in line.",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d01-visual",
-   "instruction": "Put the steps for finding a position in order.",
-   "content": {
-    "steps": [
-     "Read the math question about read and use ordinal numbers up to the 100th to show position.",
-     "Choose the operation or model that matches the problem",
-     "Solve carefully using the given numbers",
-     "Check that the answer matches the question"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the first, next, and last Place in Line steps. 💪"
-   },
-   "prompt": "Put the steps for finding a position in order.",
-   "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-q1-w02-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows the position of the first child in line?",
-    "options": [
-     {
-      "id": "c",
-      "text": "1st is first"
-     },
-     {
-      "id": "d",
-      "text": "8 children in a group"
-     },
-     {
-      "id": "a",
-      "text": "8th is eighth"
-     },
-     {
-      "id": "b",
-      "text": "1 is just a count"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "1st names the first position in line. 8th names the eighth position, and counts like '8 children' or '1' do not name a place in line."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows the position right after first?",
-    "options": [
-     {
-      "id": "a",
-      "text": "3rd is third"
-     },
-     {
-      "id": "b",
-      "text": "2nd is second"
-     },
-     {
-      "id": "c",
-      "text": "2 is just a count"
-     },
-     {
-      "id": "d",
-      "text": "5th is fifth"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "2nd (second) comes right after 1st (first). 3rd comes after 2nd, and a plain count of 2 is not a position."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows the position of the tenth child in line?",
-    "options": [
-     {
-      "id": "c",
-      "text": "9th is ninth"
-     },
-     {
-      "id": "d",
-      "text": "10 children in a group"
-     },
-     {
-      "id": "a",
-      "text": "10th is tenth"
-     },
-     {
-      "id": "b",
-      "text": "10 is just a count"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "10th names the tenth position in line. '10 children' or '10' alone is a count, not a position."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows the position of the 100th runner in a race?",
-    "options": [
-     {
-      "id": "a",
-      "text": "100 is just a count"
-     },
-     {
-      "id": "b",
-      "text": "100 children in a group"
-     },
-     {
-      "id": "c",
-      "text": "99th is ninety-ninth"
-     },
-     {
-      "id": "d",
-      "text": "100th is one hundredth"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "100th names the one-hundredth position in the race. 99th is a different position, and '100' is a count, not a place."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows an ordinal position?",
-    "options": [
-     {
-      "id": "c",
-      "text": "1st is first"
-     },
-     {
-      "id": "d",
-      "text": "12 children in a group"
-     },
-     {
-      "id": "a",
-      "text": "1 is just a count"
-     },
-     {
-      "id": "b",
-      "text": "4th is fourth"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "1st is an ordinal number: it names a position. 4th is also ordinal but names a different position; a count of 1 or 12 does not."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-q1-w02-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "mathematics",
+  "title": "Place in Line",
+  "objective": "Read and use ordinal numbers up to the 100th to show position.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Children are lining up for a game! Help Milo say who is first, second, and one hundredth.",
+  "vocabulary": [
+    {
+      "term": "1st is first",
+      "definition": "shows position"
+    },
+    {
+      "term": "2nd is second",
+      "definition": "comes after first"
+    },
+    {
+      "term": "10th is tenth",
+      "definition": "names order in a line"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Watch how 1st, 2nd, and 100th name positions in a line.",
+      "content": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in Place in Line again. 💪"
+      },
+      "prompt": "Watch how 1st, 2nd, and 100th name positions in a line.",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Tap each example and say what position it names.",
+      "content": {
+        "examples": [
+          "1st is first",
+          "2nd is second",
+          "10th is tenth",
+          "100th is one hundredth"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Look at each Place in Line example again. 💪"
+      },
+      "prompt": "Tap each example and say what position it names.",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Sort each card: does it name a position or a count?",
+      "content": {
+        "fits": [
+          "1st is first",
+          "2nd is second",
+          "10th is tenth",
+          "100th is one hundredth"
+        ],
+        "doesNotFit": [
+          "8 children in a group",
+          "the height of a plant",
+          "a rope 5 meters long",
+          "6 + 3 = 9"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read the Place in Line rule before sorting again. 💪"
+      },
+      "prompt": "Sort each card: does it name a position or a count?",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Tap the one that names a position.",
+      "content": {
+        "options": [
+          "1st is first",
+          "8 children in a group",
+          "the height of a plant",
+          "a rope 5 meters long"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in the Place in Line question. 💪"
+      },
+      "prompt": "Tap the one that names a position.",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Match each position word to its place in line.",
+      "content": {
+        "pairs": [
+          {
+            "left": "1st is first",
+            "right": "shows position"
+          },
+          {
+            "left": "2nd is second",
+            "right": "comes after first"
+          },
+          {
+            "left": "10th is tenth",
+            "right": "names order in a line"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read both sides of each Place in Line pair again. 💪"
+      },
+      "prompt": "Match each position word to its place in line.",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d01-visual",
+      "instruction": "Put the steps for finding a position in order.",
+      "content": {
+        "steps": [
+          "Read the math question about read and use ordinal numbers up to the 100th to show position.",
+          "Choose the operation or model that matches the problem",
+          "Solve carefully using the given numbers",
+          "Check that the answer matches the question"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the first, next, and last Place in Line steps. 💪"
+      },
+      "prompt": "Put the steps for finding a position in order.",
+      "narration": "Ordinal numbers show position, not how many: first, second, third, and 100th.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ordinal numbers show position, not how many: first, second, third, and 100th."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q1-w02-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows the position of the first child in line?",
+        "options": [
+          {
+            "id": "a",
+            "text": "1 is just a count"
+          },
+          {
+            "id": "b",
+            "text": "8 children in a group"
+          },
+          {
+            "id": "c",
+            "text": "8th is eighth"
+          },
+          {
+            "id": "d",
+            "text": "1st is first"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "1st names the first position in line. 8th names the eighth position, and counts like '8 children' or '1' do not name a place in line."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows the position right after first?",
+        "options": [
+          {
+            "id": "a",
+            "text": "2 is just a count"
+          },
+          {
+            "id": "b",
+            "text": "3rd is third"
+          },
+          {
+            "id": "c",
+            "text": "2nd is second"
+          },
+          {
+            "id": "d",
+            "text": "5th is fifth"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "2nd (second) comes right after 1st (first). 3rd comes after 2nd, and a plain count of 2 is not a position."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows the position of the tenth child in line?",
+        "options": [
+          {
+            "id": "a",
+            "text": "10 is just a count"
+          },
+          {
+            "id": "b",
+            "text": "9th is ninth"
+          },
+          {
+            "id": "c",
+            "text": "10 children in a group"
+          },
+          {
+            "id": "d",
+            "text": "10th is tenth"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "10th names the tenth position in line. '10 children' or '10' alone is a count, not a position."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows the position of the 100th runner in a race?",
+        "options": [
+          {
+            "id": "a",
+            "text": "100 is just a count"
+          },
+          {
+            "id": "b",
+            "text": "100th is one hundredth"
+          },
+          {
+            "id": "c",
+            "text": "100 children in a group"
+          },
+          {
+            "id": "d",
+            "text": "99th is ninety-ninth"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "100th names the one-hundredth position in the race. 99th is a different position, and '100' is a count, not a place."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows an ordinal position?  (in this lesson: Place in Line)",
+        "options": [
+          {
+            "id": "a",
+            "text": "1st is first"
+          },
+          {
+            "id": "b",
+            "text": "4th is fourth"
+          },
+          {
+            "id": "c",
+            "text": "12 children in a group"
+          },
+          {
+            "id": "d",
+            "text": "1 is just a count"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "1st is an ordinal number: it names a position. 4th is also ordinal but names a different position; a count of 1 or 12 does not."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

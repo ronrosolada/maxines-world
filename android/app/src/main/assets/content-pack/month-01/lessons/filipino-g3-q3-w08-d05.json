@@ -1,378 +1,389 @@
 {
- "lessonId": "filipino-g3-q3-w08-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 10,
- "day": 5,
- "subject": "filipino",
- "title": "Wastong Pagsulat · Q3 W08 D05",
- "objective": "Naisusulat nang maayos at wasto ang mga natutuhang salita.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Panibagong araw, panibagong aralin! 🌟 Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "baybay",
-   "definition": "pagkakasulat ng mga titik ng salita"
-  },
-  {
-   "term": "malaking titik",
-   "definition": "malaking letra sa simula ng pangungusap at pangalan"
-  },
-  {
-   "term": "bantas",
-   "definition": "markang tulad ng tuldok at kuwit"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
-   "content": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
-   "narration": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa."
-  },
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
-   "content": {
-    "examples": [
-     "pagkain",
-     "inumin",
-     "tulong",
-     "tula"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
-   },
-   "prompt": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Piliin ang mga salitang may wastong baybay.",
-   "content": {
-    "fits": [
-     "pagkain",
-     "inumin",
-     "tulong",
-     "tula"
-    ],
-    "doesNotFit": [
-     "pagkainn",
-     "inummn",
-     "tulogg",
-     "tulla"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Wastong Pagsulat bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga salitang may wastong baybay.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
-   "content": {
-    "options": [
-     "tulla",
-     "inummn",
-     "pagkain",
-     "tulogg"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Itugma ang bawat salita sa kahulugan nito.",
-   "content": {
-    "pairs": [
-     {
-      "left": "pagkain",
-      "right": "kinakain upang lumakas"
-     },
-     {
-      "left": "inumin",
-      "right": "iniinom upang hindi mauhaw"
-     },
-     {
-      "left": "tulong",
-      "right": "gawaing pangkabutihan para sa iba"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q3-w08-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w08-d05-visual",
-   "instruction": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
-   "content": {
-    "steps": [
-     "Basahin ang salita",
-     "Suriin ang baybay",
-     "Suriin ang malaking titik at bantas",
-     "Isulat ito nang maayos"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q3-w08-d05-q1",
-    "prompt": "Alin ang wastong baybay ng 'pagkain'?",
-    "options": [
-     {
-      "id": "d",
-      "text": "tula"
-     },
-     {
-      "id": "a",
-      "text": "pagkainn"
-     },
-     {
-      "id": "b",
-      "text": "pagkain"
-     },
-     {
-      "id": "c",
-      "text": "pakain"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang wastong baybay ng “pagkain” ay “pagkain” — tama ang ayos ng mga letra at pantig.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q3-w08-d05-q2",
-    "prompt": "Alin ang salitang may wastong baybay?",
-    "options": [
-     {
-      "id": "c",
-      "text": "inummin"
-     },
-     {
-      "id": "d",
-      "text": "tulogg"
-     },
-     {
-      "id": "a",
-      "text": "inummn"
-     },
-     {
-      "id": "b",
-      "text": "inumin"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“inumin” ang may wastong ayos ng mga letra at pantig.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q3-w08-d05-q3",
-    "prompt": "Ano ang kahulugan ng 'inumin'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "iniinom upang hindi mauhaw"
-     },
-     {
-      "id": "c",
-      "text": "pagtulong sa nangangailangan"
-     },
-     {
-      "id": "d",
-      "text": "may tugmaang mga salita"
-     },
-     {
-      "id": "a",
-      "text": "kinakain upang mabuhay"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “inumin” ay nangangahulugang iniinom upang hindi mauhaw.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q3-w08-d05-q4",
-    "prompt": "Alin sa mga sumusunod ang wastong pagkakasulat?",
-    "options": [
-     {
-      "id": "a",
-      "text": "tulogg"
-     },
-     {
-      "id": "b",
-      "text": "tulong"
-     },
-     {
-      "id": "c",
-      "text": "tuloong"
-     },
-     {
-      "id": "d",
-      "text": "pagkaain"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“tulong” ang wastong pagkakasulat — tama ang baybay at ang ayos ng mga letra.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q3-w08-d05-q5",
-    "prompt": "Kumpletuhin ang pangungusap: 'Huwag sayangin ang ___ sa mesa.'",
-    "options": [
-     {
-      "id": "d",
-      "text": "tula"
-     },
-     {
-      "id": "a",
-      "text": "inumin"
-     },
-     {
-      "id": "b",
-      "text": "pagkain"
-     },
-     {
-      "id": "c",
-      "text": "tulong"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “pagkain” ang angkop na pangtapos ng pangungusap — tama ang kahulugan nito sa pangungusap.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q3-w08-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 5,
+  "subject": "filipino",
+  "title": "Wastong Pagsulat · Q3 W08 D05",
+  "objective": "Naisusulat nang maayos at wasto ang mga natutuhang salita.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Wastong Pagsulat · Q3 W08 D05. Handa ka na bang matuto at maglaro?",
+  "vocabulary": [
+    {
+      "term": "baybay",
+      "definition": "pagkakasulat ng mga titik ng salita"
+    },
+    {
+      "term": "malaking titik",
+      "definition": "malaking letra sa simula ng pangungusap at pangalan"
+    },
+    {
+      "term": "bantas",
+      "definition": "markang tulad ng tuldok at kuwit"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
+      "content": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
+      "narration": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'pagkain' ay isang halimbawa."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
+      "content": {
+        "examples": [
+          "pagkain",
+          "inumin",
+          "tulong",
+          "tula"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
+      },
+      "prompt": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Piliin ang mga salitang may wastong baybay.",
+      "content": {
+        "fits": [
+          "pagkain",
+          "inumin",
+          "tulong",
+          "tula"
+        ],
+        "doesNotFit": [
+          "pagkainn",
+          "inummn",
+          "tulogg",
+          "tulla"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Wastong Pagsulat bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga salitang may wastong baybay.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
+      "content": {
+        "options": [
+          "tulla",
+          "inummn",
+          "pagkain",
+          "tulogg"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Itugma ang bawat salita sa kahulugan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pagkain",
+            "right": "kinakain upang lumakas"
+          },
+          {
+            "left": "inumin",
+            "right": "iniinom upang hindi mauhaw"
+          },
+          {
+            "left": "tulong",
+            "right": "gawaing pangkabutihan para sa iba"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d05-visual",
+      "instruction": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
+      "content": {
+        "steps": [
+          "Basahin ang salita",
+          "Suriin ang baybay",
+          "Suriin ang malaking titik at bantas",
+          "Isulat ito nang maayos"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q3-w08-d05-q1",
+        "prompt": "Alin ang wastong baybay ng 'pagkain'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagkainn"
+          },
+          {
+            "id": "b",
+            "text": "pakain"
+          },
+          {
+            "id": "c",
+            "text": "tula"
+          },
+          {
+            "id": "d",
+            "text": "pagkain"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang wastong baybay ng “pagkain” ay “pagkain” — tama ang ayos ng mga letra at pantig.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q3-w08-d05-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang salitang may wastong baybay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "inummn"
+          },
+          {
+            "id": "b",
+            "text": "inumin"
+          },
+          {
+            "id": "c",
+            "text": "inummin"
+          },
+          {
+            "id": "d",
+            "text": "tulong"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: inumin"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q3-w08-d05-q3",
+        "prompt": "Ano ang kahulugan ng 'inumin'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagtulong sa nangangailangan"
+          },
+          {
+            "id": "b",
+            "text": "iniinom upang hindi mauhaw"
+          },
+          {
+            "id": "c",
+            "text": "kinakain upang mabuhay"
+          },
+          {
+            "id": "d",
+            "text": "may tugmaang mga salita"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “inumin” ay nangangahulugang iniinom upang hindi mauhaw.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q3-w08-d05-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin sa mga sumusunod ang wastong pagkakasulat?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tulogg"
+          },
+          {
+            "id": "b",
+            "text": "tulong"
+          },
+          {
+            "id": "c",
+            "text": "tuloong"
+          },
+          {
+            "id": "d",
+            "text": "pagkain"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: tulong"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q3-w08-d05-q5",
+        "prompt": "Kumpletuhin ang pangungusap: 'Huwag sayangin ang ___ sa mesa.'",
+        "options": [
+          {
+            "id": "a",
+            "text": "tula"
+          },
+          {
+            "id": "b",
+            "text": "inumin"
+          },
+          {
+            "id": "c",
+            "text": "pagkain"
+          },
+          {
+            "id": "d",
+            "text": "tulong"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang “pagkain” ang angkop na pangtapos ng pangungusap — tama ang kahulugan nito sa pangungusap.",
+        "type": "MULTIPLE_CHOICE"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "storyIntro": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Wastong Pagsulat · Q3 W08 D05. Handa ka na bang matuto at maglaro?",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

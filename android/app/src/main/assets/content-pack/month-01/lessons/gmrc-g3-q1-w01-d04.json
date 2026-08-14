@@ -1,378 +1,388 @@
 {
- "lessonId": "gmrc-g3-q1-w01-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 4,
- "subject": "gmrc",
- "title": "Pananalig at Paggalang · Q1 W01 D04",
- "objective": "Naipakikita ang pananalig habang iginagalang ang sariling paniniwala at paniniwala ng iba.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Kumusta, kaibigan! 👋 Samahan mo si Milo ngayong araw. Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "nagpapasalamat",
-   "definition": "Pagpapahayag ng pasasalamat sa kabutihang ginawa ng iba, tulad ng pagsasabing “Salamat po.”"
-  },
-  {
-   "term": "gumagalang sa paniniwala ng iba",
-   "definition": "Pagrespeto sa sariling paniniwala at sa paniniwala ng iba."
-  },
-  {
-   "term": "humihingi ng gabay",
-   "definition": "Pagtatanong o paghingi ng tulong sa guro o nakatatanda bago gumawa ng isang bagay."
-  }
- ],
- "activities": [
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Pakinggan ang paliwanag ni Milo.",
-   "content": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Pananalig at Paggalang. 💪"
-   },
-   "prompt": "Pakinggan ang paliwanag tungkol sa pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "content": {
-    "examples": [
-     "nagpapasalamat",
-     "gumagalang sa paniniwala ng iba",
-     "humihingi ng gabay",
-     "gumagawa ng mabuti"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Pananalig at Paggalang. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "content": {
-    "fits": [
-     "nagpapasalamat",
-     "gumagalang sa paniniwala ng iba",
-     "humihingi ng gabay",
-     "gumagawa ng mabuti"
-    ],
-    "doesNotFit": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "hindi nakikinig"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Pananalig at Paggalang bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "nagpapasalamat"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Pananalig at Paggalang. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Itugma ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "content": {
-    "pairs": [
-     {
-      "left": "nagpapasalamat",
-      "right": "pagkilala sa kabutihan"
-     },
-     {
-      "left": "gumagalang sa paniniwala ng iba",
-      "right": "paggalang sa pagkakaiba"
-     },
-     {
-      "left": "humihingi ng gabay",
-      "right": "paghingi ng tulong"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pananalig at Paggalang. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d04-visual",
-   "instruction": "Ayusin ang mga hakbang nang tama.",
-   "content": {
-    "steps": [
-     "Kilalanin ang iyong paniniwala",
-     "Igalang ang paniniwala ng iba",
-     "Huwag pilitin ang iba",
-     "Maging mabuting halimbawa"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pananalig at Paggalang. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa pananalig at paggalang sa paniniwala.",
-   "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "gmrc-g3-q1-w01-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng pananalig at paggalang sa paniniwala?",
-    "options": [
-     {
-      "id": "a",
-      "text": "hindi nakikinig"
-     },
-     {
-      "id": "b",
-      "text": "gumagalang sa paniniwala ng iba"
-     },
-     {
-      "id": "c",
-      "text": "nanunukso sa kapwa"
-     },
-     {
-      "id": "d",
-      "text": "pagtawa sa pagsamba ng iba"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “gumagalang sa paniniwala ng iba” ay halimbawa ng pananalig at paggalang sa paniniwala."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang isa pang halimbawa ng pananalig at paggalang sa paniniwala?",
-    "options": [
-     {
-      "id": "a",
-      "text": "humihingi ng gabay"
-     },
-     {
-      "id": "b",
-      "text": "pamimintas sa paniniwala ng iba"
-     },
-     {
-      "id": "c",
-      "text": "pagpilit sa iba na magbago"
-     },
-     {
-      "id": "d",
-      "text": "pagbabawal sa panalangin"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang “humihingi ng gabay” ay halimbawa rin ng pananalig at paggalang sa paniniwala."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bago magsimula ang pagsusulit, ano ang maaari mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "guluhin ang katabi"
-     },
-     {
-      "id": "b",
-      "text": "mag-alala nang malakas"
-     },
-     {
-      "id": "c",
-      "text": "humingi ng sagot sa iba"
-     },
-     {
-      "id": "d",
-      "text": "manalangin nang tahimik ayon sa iyong paniniwala"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang tahimik na pananalangin ay pananalig nang hindi nakakaistorbo sa iba."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May kaklase kang nananalangin bago kumain. Ano ang dapat mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "guluhin siya"
-     },
-     {
-      "id": "b",
-      "text": "agawin ang kaniyang pagkain"
-     },
-     {
-      "id": "c",
-      "text": "igalang ang kaniyang pananalangin at hintayin siya"
-     },
-     {
-      "id": "d",
-      "text": "sabihing “Tigilan mo iyan!”"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang paggalang sa pananalangin ng iba ay paggalang sa kaniyang paniniwala."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang HINDI halimbawa ng pananalig at paggalang sa paniniwala?",
-    "options": [
-     {
-      "id": "a",
-      "text": "gumagalang sa paniniwala ng iba"
-     },
-     {
-      "id": "b",
-      "text": "hindi nakikinig"
-     },
-     {
-      "id": "c",
-      "text": "nakikinig sa pagpapaliwanag ng iba"
-     },
-     {
-      "id": "d",
-      "text": "iginagalang ang paraan ng pagsamba ng iba"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “hindi nakikinig” ay hindi halimbawa ng pananalig at paggalang sa paniniwala."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "gmrc-g3-q1-w01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "gmrc",
+  "title": "Pananalig at Paggalang · Q1 W01 D04",
+  "objective": "Naipakikita ang pananalig habang iginagalang ang sariling paniniwala at paniniwala ng iba.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Kumusta, kaibigan! 👋 Samahan mo si Milo ngayong araw. Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "nagpapasalamat",
+      "definition": "Pagpapahayag ng pasasalamat sa kabutihang ginawa ng iba, tulad ng pagsasabing “Salamat po.”"
+    },
+    {
+      "term": "gumagalang sa paniniwala ng iba",
+      "definition": "Pagrespeto sa sariling paniniwala at sa paniniwala ng iba."
+    },
+    {
+      "term": "humihingi ng gabay",
+      "definition": "Pagtatanong o paghingi ng tulong sa guro o nakatatanda bago gumawa ng isang bagay."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "content": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Pananalig at Paggalang. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag tungkol sa pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "content": {
+        "examples": [
+          "nagpapasalamat",
+          "gumagalang sa paniniwala ng iba",
+          "humihingi ng gabay",
+          "gumagawa ng mabuti"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Pananalig at Paggalang. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "content": {
+        "fits": [
+          "nagpapasalamat",
+          "gumagalang sa paniniwala ng iba",
+          "humihingi ng gabay",
+          "gumagawa ng mabuti"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "hindi nakikinig"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Pananalig at Paggalang bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "nagpapasalamat"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Pananalig at Paggalang. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Itugma ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nagpapasalamat",
+            "right": "pagkilala sa kabutihan"
+          },
+          {
+            "left": "gumagalang sa paniniwala ng iba",
+            "right": "paggalang sa pagkakaiba"
+          },
+          {
+            "left": "humihingi ng gabay",
+            "right": "paghingi ng tulong"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pananalig at Paggalang. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d04-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Kilalanin ang iyong paniniwala",
+          "Igalang ang paniniwala ng iba",
+          "Huwag pilitin ang iba",
+          "Maging mabuting halimbawa"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pananalig at Paggalang. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa pananalig at paggalang sa paniniwala.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q1-w01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang halimbawa ng pananalig at paggalang sa paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hindi nakikinig"
+          },
+          {
+            "id": "b",
+            "text": "pagtawa sa pagsamba ng iba"
+          },
+          {
+            "id": "c",
+            "text": "nanunukso sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "gumagalang sa paniniwala ng iba"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “gumagalang sa paniniwala ng iba” ay halimbawa ng pananalig at paggalang sa paniniwala."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang isa pang halimbawa ng pananalig at paggalang sa paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagpilit sa iba na magbago"
+          },
+          {
+            "id": "b",
+            "text": "pamimintas sa paniniwala ng iba"
+          },
+          {
+            "id": "c",
+            "text": "pagbabawal sa panalangin"
+          },
+          {
+            "id": "d",
+            "text": "humihingi ng gabay"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “humihingi ng gabay” ay halimbawa rin ng pananalig at paggalang sa paniniwala."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bago magsimula ang pagsusulit, ano ang maaari mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "manalangin nang tahimik ayon sa iyong paniniwala"
+          },
+          {
+            "id": "b",
+            "text": "mag-alala nang malakas"
+          },
+          {
+            "id": "c",
+            "text": "guluhin ang katabi"
+          },
+          {
+            "id": "d",
+            "text": "humingi ng sagot sa iba"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tahimik na pananalangin ay pananalig nang hindi nakakaistorbo sa iba."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May kaklase kang nananalangin bago kumain. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "agawin ang kaniyang pagkain"
+          },
+          {
+            "id": "b",
+            "text": "guluhin siya"
+          },
+          {
+            "id": "c",
+            "text": "igalang ang kaniyang pananalangin at hintayin siya"
+          },
+          {
+            "id": "d",
+            "text": "sabihing “Tigilan mo iyan!”"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paggalang sa pananalangin ng iba ay paggalang sa kaniyang paniniwala."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI halimbawa ng pananalig at paggalang sa paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "iginagalang ang paraan ng pagsamba ng iba"
+          },
+          {
+            "id": "b",
+            "text": "gumagalang sa paniniwala ng iba"
+          },
+          {
+            "id": "c",
+            "text": "hindi nakikinig"
+          },
+          {
+            "id": "d",
+            "text": "nakikinig sa pagpapaliwanag ng iba"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang “hindi nakikinig” ay hindi halimbawa ng pananalig at paggalang sa paniniwala."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  }
 }

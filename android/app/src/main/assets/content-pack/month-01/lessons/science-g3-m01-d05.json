@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 5,
- "subject": "SCIENCE",
- "title": "Animal Parts at Work",
- "objective": "Explain that animal body parts can support different functions.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "A fish swims with fins, but a bird flies with wings. How do animal parts help animals live?",
- "vocabulary": [
-  {
-   "term": "animal",
-   "definition": "A living thing that can move, like a dog or bird."
-  },
-  {
-   "term": "body",
-   "definition": "All the parts that make up a person or animal."
-  },
-  {
-   "term": "habitat",
-   "definition": "The natural home of a plant or animal."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows how animal parts help animals.",
-   "content": "The same kind of part may have different functions across species.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Life Around Us again. 💪"
-   },
-   "assetId": "science-g3-m01-d05-visual",
-   "accessibilityAlternative": "Text alternative: The same kind of part may have different functions across species."
-  },
-  {
-   "activityId": "science-g3-m01-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "fins can help swimming",
-     "wings can help flight",
-     "tails may aid balance or communication"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Life Around Us. 🔎",
-    "retry": "Look at each Life Around Us example again. 💪"
-   },
-   "assetId": "science-g3-m01-d05-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it match the body part to its function?",
-   "content": {
-    "fits": [
-     "fins can help swimming",
-     "wings can help flight",
-     "tails may aid balance or communication"
-    ],
-    "doesNotFit": [
-     "Every tail has one function",
-     "Every winged animal flies",
-     "All beaks eat the same food"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d05-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which part often helps a fish swim?",
-   "content": {
-    "options": [
-     "fins",
-     "fur",
-     "antlers"
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: fins",
-    "retry": "Look again — fur and antlers do not help fish swim. Tap the part that pushes water! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each body part to its job.",
-   "content": {
-    "pairs": [
-     {
-      "left": "fins can help swimming",
-      "right": "swimming"
-     },
-     {
-      "left": "wings can help flight",
-      "right": "flying"
-     },
-     {
-      "left": "tails may aid balance or communication",
-      "right": "balance"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Life Around Us explanation. 🔗",
-    "retry": "Read both sides of each Life Around Us pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d05-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: part, job, match.",
-   "content": {
-    "steps": [
-     "Look at the animal body part.",
-     "Think about what it can help with.",
-     "Match part to function."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Life Around Us steps in order. 🎉",
-    "retry": "Find the first, next, and last Life Around Us steps. 💪"
-   },
-   "assetId": "science-g3-m01-d05-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d05-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about animal body parts is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Every tail has one function"
-     },
-     {
-      "id": "b",
-      "text": "Every winged animal flies"
-     },
-     {
-      "id": "c",
-      "text": "The same kind of part may have different functions across species."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The same part can do different jobs in different animals — a tail may help balance or send signals. Not every tail does the same thing, and not every winged animal flies."
-   },
-   {
-    "itemId": "science-g3-m01-d05-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair matches a body part to its job?",
-    "options": [
-     {
-      "id": "c",
-      "text": "fins can help swimming"
-     },
-     {
-      "id": "a",
-      "text": "fins can help flying"
-     },
-     {
-      "id": "b",
-      "text": "wings can help digging"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Fins push against water so fish can swim. Fins do not help flying, and wings do not help digging."
-   },
-   {
-    "itemId": "science-g3-m01-d05-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement is not true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "fins can help swimming"
-     },
-     {
-      "id": "c",
-      "text": "Every tail has one function"
-     },
-     {
-      "id": "a",
-      "text": "wings can help flight"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Tails do many jobs — balance, steering, and even signaling — so they do not have just one function. Fins help swimming, and wings help flight."
-   },
-   {
-    "itemId": "science-g3-m01-d05-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which part often helps a fish swim?",
-    "options": [
-     {
-      "id": "a",
-      "text": "fins"
-     },
-     {
-      "id": "b",
-      "text": "fur"
-     },
-     {
-      "id": "c",
-      "text": "antlers"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Fins push against the water to move a fish forward. Fur and antlers do not help fish swim."
-   },
-   {
-    "itemId": "science-g3-m01-d05-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair matches a body part to its job?",
-    "options": [
-     {
-      "id": "c",
-      "text": "tails may aid balance or communication"
-     },
-     {
-      "id": "a",
-      "text": "wings may aid swimming"
-     },
-     {
-      "id": "b",
-      "text": "fins may aid flying"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Some tails help animals balance or send signals. Wings do not help swimming, and fins do not help flying."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d05-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d05-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Animal Parts at Work; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Animal Parts at Work.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "73c9f81e7a136e5a411ae09b28f8de2028d1ddb4616bc22f9557cfa74cc1b064",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 5,
+  "subject": "SCIENCE",
+  "title": "Animal Parts at Work",
+  "objective": "Explain that animal body parts can support different functions.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "A fish swims with fins, but a bird flies with wings. How do animal parts help animals live?",
+  "vocabulary": [
+    {
+      "term": "animal",
+      "definition": "A living thing that can move, like a dog or bird."
+    },
+    {
+      "term": "body",
+      "definition": "All the parts that make up a person or animal."
+    },
+    {
+      "term": "habitat",
+      "definition": "The natural home of a plant or animal."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows how animal parts help animals.",
+      "content": "The same kind of part may have different functions across species.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Animal Parts at Work again. 💪"
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "Text alternative: The same kind of part may have different functions across species."
+    },
+    {
+      "activityId": "science-g3-m01-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "fins can help swimming",
+          "wings can help flight",
+          "tails may aid balance or communication"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Animal Parts at Work. 🔎",
+        "retry": "Look at each Animal Parts at Work example again. 💪"
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it match the body part to its function?",
+      "content": {
+        "fits": [
+          "fins can help swimming",
+          "wings can help flight",
+          "tails may aid balance or communication"
+        ],
+        "doesNotFit": [
+          "Every tail has one function",
+          "Every winged animal flies",
+          "All beaks eat the same food"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which part often helps a fish swim?",
+      "content": {
+        "options": [
+          "fins",
+          "fur",
+          "antlers"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: fins",
+        "retry": "Look again — fur and antlers do not help fish swim. Tap the part that pushes water! 💪"
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each body part to its job.",
+      "content": {
+        "pairs": [
+          {
+            "left": "fins can help swimming",
+            "right": "swimming"
+          },
+          {
+            "left": "wings can help flight",
+            "right": "flying"
+          },
+          {
+            "left": "tails may aid balance or communication",
+            "right": "balance"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Animal Parts at Work explanation. 🔗",
+        "retry": "Read both sides of each Animal Parts at Work pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: part, job, match.",
+      "content": {
+        "steps": [
+          "Look at the animal body part.",
+          "Think about what it can help with.",
+          "Match part to function."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Animal Parts at Work steps in order. 🎉",
+        "retry": "Find the first, next, and last Animal Parts at Work steps. 💪"
+      },
+      "assetId": "science-g3-m01-d05-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d05-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about animal body parts is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The same kind of part may have different functions across species."
+          },
+          {
+            "id": "b",
+            "text": "Every tail has one function"
+          },
+          {
+            "id": "c",
+            "text": "Every winged animal flies"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The same part can do different jobs in different animals — a tail may help balance or send signals. Not every tail does the same thing, and not every winged animal flies."
+      },
+      {
+        "itemId": "science-g3-m01-d05-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which pair matches a body part to its job?",
+        "options": [
+          {
+            "id": "a",
+            "text": "fins can help swimming"
+          },
+          {
+            "id": "b",
+            "text": "fins can help flying"
+          },
+          {
+            "id": "c",
+            "text": "wings can help digging"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Fins push against water so fish can swim. Fins do not help flying, and wings do not help digging."
+      },
+      {
+        "itemId": "science-g3-m01-d05-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement is not true?  (in this lesson: Animal Parts at Work)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Every tail has one function"
+          },
+          {
+            "id": "b",
+            "text": "wings can help flight"
+          },
+          {
+            "id": "c",
+            "text": "fins can help swimming"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Tails do many jobs — balance, steering, and even signaling — so they do not have just one function. Fins help swimming, and wings help flight."
+      },
+      {
+        "itemId": "science-g3-m01-d05-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which part often helps a fish swim?",
+        "options": [
+          {
+            "id": "a",
+            "text": "antlers"
+          },
+          {
+            "id": "b",
+            "text": "fur"
+          },
+          {
+            "id": "c",
+            "text": "fins"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Fins push against the water to move a fish forward. Fur and antlers do not help fish swim."
+      },
+      {
+        "itemId": "science-g3-m01-d05-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which body part goes with the right job?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tails may aid balance or communication"
+          },
+          {
+            "id": "b",
+            "text": "fins may aid flying"
+          },
+          {
+            "id": "c",
+            "text": "wings may aid swimming"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Some tails help animals balance or send signals. Wings do not help swimming, and fins do not help flying."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d05-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d05-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Animal Parts at Work; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Animal Parts at Work.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "73c9f81e7a136e5a411ae09b28f8de2028d1ddb4616bc22f9557cfa74cc1b064",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

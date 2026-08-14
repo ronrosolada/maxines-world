@@ -1,378 +1,388 @@
 {
- "lessonId": "makabansa-g3-q1-w01-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 2,
- "subject": "makabansa",
- "title": "Kasaysayan ng Komunidad · Q1 W01 D02",
- "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Noong 1960, limang taon matapos itatag ang barangay, binuksan ang unang paaralan sa Barangay Sapa. Ang mga magulang mismo ang nagpatayo nito, at si Gng. Maria Santos ang unang guro. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "barangay hall",
-   "definition": "Isang gusali kung saan nagbibigay ng serbisyo ang barangay."
-  },
-  {
-   "term": "pamilihan",
-   "definition": "Isang lugar kung saan bumibili at nagbebenta ng mga kailangan."
-  },
-  {
-   "term": "paaralan",
-   "definition": "Lugar kung saan nag-aaral at natututo ang mga bata."
-  }
- ],
- "activities": [
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Pakinggan ang paliwanag ni Milo.",
-   "content": "Ang paaralan ay bahagi rin ng kasaysayan ng komunidad. Noong 1960, binuksan ang unang paaralan sa Barangay Sapa. Ang mga magulang at mamamayan mismo ang nagtulong-tulong sa pagtatayo nito. Si Gng. Maria Santos ang kauna-unahang guro, at dito natutong bumasa at sumulat ang mga bata ng barangay. Ang kuwentong ito ay isa sa mga kuwento ng mga nakatatanda na nagpapakita ng kasaysayan ng komunidad.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Kasaysayan ng Komunidad. 💪"
-   },
-   "prompt": "Pakinggan ang paliwanag tungkol sa kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, sa isang serbisyong kailangan ng bayan. Gayundin, sa isang komunidad sa baybayin.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, sa isang serbisyong kailangan ng bayan. Gayundin, sa isang komunidad sa baybayin."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng kasaysayan ng komunidad.",
-   "content": {
-    "examples": [
-     "unang paaralan",
-     "unang guro",
-     "mga batang nag-aaral",
-     "pagtutulungan ng mga magulang"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Kasaysayan ng Komunidad. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng kasaysayan ng komunidad.",
-   "content": {
-    "fits": [
-     "paaralang binuksan noong 1960",
-     "unang guro na si Gng. Santos",
-     "pagtatayo ng mga magulang",
-     "mga batang natutong bumasa"
-    ],
-    "doesNotFit": [
-     "presyo ng meryenda",
-     "kulay ng paboritong bag",
-     "kuwento tungkol sa ibang planeta",
-     "pangalan ng paboritong artista"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Kasaysayan ng Komunidad bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "Gng. Maria Santos",
-     "Kapitan Andres Rivera",
-     "ang tindera",
-     "ang mangingisda"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kasaysayan ng Komunidad. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Itugma ang mga halimbawa ng kasaysayan ng komunidad.",
-   "content": {
-    "pairs": [
-     {
-      "left": "1960",
-      "right": "pagbubukas ng unang paaralan"
-     },
-     {
-      "left": "Gng. Maria Santos",
-      "right": "unang guro"
-     },
-     {
-      "left": "mga magulang",
-      "right": "nagpatayo ng paaralan"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kasaysayan ng Komunidad. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  },
-  {
-   "activityId": "makabansa-g3-q1-w01-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q1-w01-d02-visual",
-   "instruction": "Ayusin ang mga hakbang nang tama.",
-   "content": {
-    "steps": [
-     "Binuksan ang paaralan noong 1960",
-     "Nagpatulong ang mga magulang",
-     "Nagturo si Gng. Maria Santos",
-     "Natutong bumasa ang mga bata"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kasaysayan ng Komunidad. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa kasaysayan ng komunidad.",
-   "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "makabansa-g3-q1-w01-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Kailan binuksan ang unang paaralan sa Barangay Sapa?",
-    "options": [
-     {
-      "id": "a",
-      "text": "1960"
-     },
-     {
-      "id": "b",
-      "text": "1985"
-     },
-     {
-      "id": "c",
-      "text": "1970"
-     },
-     {
-      "id": "d",
-      "text": "1955"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Binuksan ang unang paaralan noong 1960, limang taon matapos itatag ang barangay."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang unang guro ng Barangay Sapa?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang kapitbahay"
-     },
-     {
-      "id": "b",
-      "text": "Gng. Maria Santos"
-     },
-     {
-      "id": "c",
-      "text": "ang tindera"
-     },
-     {
-      "id": "d",
-      "text": "Kapitan Andres Rivera"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Si Gng. Maria Santos ang kauna-unahang guro na nagturo sa mga bata ng Barangay Sapa."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Sino ang tumulong sa pagtatayo ng unang paaralan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang mga mangangalakal ng ibang bayan"
-     },
-     {
-      "id": "b",
-      "text": "ang mga robot"
-     },
-     {
-      "id": "c",
-      "text": "ang mga magulang at mamamayan ng barangay"
-     },
-     {
-      "id": "d",
-      "text": "ang mga dayuhan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang mga magulang at mamamayan mismo ang nagtulong-tulong sa pagtatayo ng paaralan."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang paaralan sa kasaysayan ng komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "dito naglalaro ang mga pusa"
-     },
-     {
-      "id": "b",
-      "text": "dito nagbebenta ng gulay"
-     },
-     {
-      "id": "c",
-      "text": "dito natutong bumasa at sumulat ang mga bata ng barangay"
-     },
-     {
-      "id": "d",
-      "text": "dito nagpapahinga ang mga mangingisda"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Sa paaralan natuto ang mga bata — kaya malaking bahagi ito ng kasaysayan ng komunidad."
-   },
-   {
-    "itemId": "makabansa-g3-q1-w01-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang pinakaangkop na kuwento ng nakatatanda tungkol sa paaralan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "“Noong 1955, may tindahan na kami.”"
-     },
-     {
-      "id": "b",
-      "text": "“Ang pusa ko ay mahilig sa isda.”"
-     },
-     {
-      "id": "c",
-      "text": "“Bumili kami ng telebisyon noong 1985.”"
-     },
-     {
-      "id": "d",
-      "text": "“Noong 1960, kami mismo ng aking mga magulang ang nagtayo ng paaralan.”"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang kuwento ng nakatatanda tungkol sa pagtatayo ng paaralan ay totoong kasaysayan ng komunidad."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "makabansa-g3-q1-w01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "makabansa",
+  "title": "Kasaysayan ng Komunidad · Q1 W01 D02",
+  "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Noong 1960, limang taon matapos itatag ang barangay, binuksan ang unang paaralan sa Barangay Sapa. Ang mga magulang mismo ang nagpatayo nito, at si Gng. Maria Santos ang unang guro. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "barangay hall",
+      "definition": "Isang gusali kung saan nagbibigay ng serbisyo ang barangay."
+    },
+    {
+      "term": "pamilihan",
+      "definition": "Isang lugar kung saan bumibili at nagbebenta ng mga kailangan."
+    },
+    {
+      "term": "paaralan",
+      "definition": "Lugar kung saan nag-aaral at natututo ang mga bata."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "content": "Ang paaralan ay bahagi rin ng kasaysayan ng komunidad. Noong 1960, binuksan ang unang paaralan sa Barangay Sapa. Ang mga magulang at mamamayan mismo ang nagtulong-tulong sa pagtatayo nito. Si Gng. Maria Santos ang kauna-unahang guro, at dito natutong bumasa at sumulat ang mga bata ng barangay. Ang kuwentong ito ay isa sa mga kuwento ng mga nakatatanda na nagpapakita ng kasaysayan ng komunidad.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Kasaysayan ng Komunidad. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag tungkol sa kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, sa isang serbisyong kailangan ng bayan. Gayundin, sa isang komunidad sa baybayin.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan. Halimbawa, sa isang serbisyong kailangan ng bayan. Gayundin, sa isang komunidad sa baybayin."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng kasaysayan ng komunidad.",
+      "content": {
+        "examples": [
+          "unang paaralan",
+          "unang guro",
+          "mga batang nag-aaral",
+          "pagtutulungan ng mga magulang"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Kasaysayan ng Komunidad. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng kasaysayan ng komunidad.",
+      "content": {
+        "fits": [
+          "paaralang binuksan noong 1960",
+          "unang guro na si Gng. Santos",
+          "pagtatayo ng mga magulang",
+          "mga batang natutong bumasa"
+        ],
+        "doesNotFit": [
+          "presyo ng meryenda",
+          "kulay ng paboritong bag",
+          "kuwento tungkol sa ibang planeta",
+          "pangalan ng paboritong artista"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Kasaysayan ng Komunidad bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "Gng. Maria Santos",
+          "Kapitan Andres Rivera",
+          "ang tindera",
+          "ang mangingisda"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kasaysayan ng Komunidad. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Itugma ang mga halimbawa ng kasaysayan ng komunidad.",
+      "content": {
+        "pairs": [
+          {
+            "left": "1960",
+            "right": "pagbubukas ng unang paaralan"
+          },
+          {
+            "left": "Gng. Maria Santos",
+            "right": "unang guro"
+          },
+          {
+            "left": "mga magulang",
+            "right": "nagpatayo ng paaralan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kasaysayan ng Komunidad. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d02-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Binuksan ang paaralan noong 1960",
+          "Nagpatulong ang mga magulang",
+          "Nagturo si Gng. Maria Santos",
+          "Natutong bumasa ang mga bata"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kasaysayan ng Komunidad. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa kasaysayan ng komunidad.",
+      "narration": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang kasaysayan ng komunidad ay binubuo ng mga tao, lugar, at pangyayaring mahalaga sa mga mamamayan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q1-w01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Kailan binuksan ang unang paaralan sa Barangay Sapa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "1960"
+          },
+          {
+            "id": "b",
+            "text": "1985"
+          },
+          {
+            "id": "c",
+            "text": "1955"
+          },
+          {
+            "id": "d",
+            "text": "1970"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Binuksan ang unang paaralan noong 1960, limang taon matapos itatag ang barangay."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sino ang unang guro ng Barangay Sapa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Gng. Maria Santos"
+          },
+          {
+            "id": "b",
+            "text": "Kapitan Andres Rivera"
+          },
+          {
+            "id": "c",
+            "text": "ang kapitbahay"
+          },
+          {
+            "id": "d",
+            "text": "ang tindera"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Si Gng. Maria Santos ang kauna-unahang guro na nagturo sa mga bata ng Barangay Sapa."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sino ang tumulong sa pagtatayo ng unang paaralan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang mga magulang at mamamayan ng barangay"
+          },
+          {
+            "id": "b",
+            "text": "ang mga mangangalakal ng ibang bayan"
+          },
+          {
+            "id": "c",
+            "text": "ang mga dayuhan"
+          },
+          {
+            "id": "d",
+            "text": "ang mga robot"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang mga magulang at mamamayan mismo ang nagtulong-tulong sa pagtatayo ng paaralan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalaga ang paaralan sa kasaysayan ng komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "dito nagpapahinga ang mga mangingisda"
+          },
+          {
+            "id": "b",
+            "text": "dito naglalaro ang mga pusa"
+          },
+          {
+            "id": "c",
+            "text": "dito nagbebenta ng gulay"
+          },
+          {
+            "id": "d",
+            "text": "dito natutong bumasa at sumulat ang mga bata ng barangay"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Sa paaralan natuto ang mga bata — kaya malaking bahagi ito ng kasaysayan ng komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pinakaangkop na kuwento ng nakatatanda tungkol sa paaralan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "“Bumili kami ng telebisyon noong 1985.”"
+          },
+          {
+            "id": "b",
+            "text": "“Noong 1960, kami mismo ng aking mga magulang ang nagtayo ng paaralan.”"
+          },
+          {
+            "id": "c",
+            "text": "“Ang pusa ko ay mahilig sa isda.”"
+          },
+          {
+            "id": "d",
+            "text": "“Noong 1955, may tindahan na kami.”"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang kuwento ng nakatatanda tungkol sa pagtatayo ng paaralan ay totoong kasaysayan ng komunidad."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  }
 }

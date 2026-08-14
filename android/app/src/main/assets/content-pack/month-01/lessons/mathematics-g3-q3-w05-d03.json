@@ -1,378 +1,388 @@
 {
- "lessonId": "mathematics-g3-q3-w05-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 10,
- "day": 3,
- "subject": "mathematics",
- "title": "Chance Check · Q3 W05 D03",
- "objective": "Describe real-life outcomes as certain, likely, unlikely, or impossible.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo watches the clouds! ☁️ Help him say which events are certain, likely, unlikely, or impossible.",
- "vocabulary": [
-  {
-   "term": "a fair coin can land heads",
-   "definition": "A coin has two sides, so it can land on heads or tails."
-  },
-  {
-   "term": "a fish breathing on land is impossible",
-   "definition": "Fish breathe with gills, so breathing on land cannot happen."
-  },
-  {
-   "term": "rain may be likely with dark clouds",
-   "definition": "When the sky is full of dark clouds, rain is likely to come."
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Watch Milo explain certain, likely, unlikely, and impossible!",
-   "content": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in Chance Check again. 💪"
-   },
-   "prompt": "Listen to the explanation about likely and unlikely outcomes.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  },
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Tap the examples of chance in the picture!",
-   "content": {
-    "examples": [
-     "a fair coin can land heads",
-     "a fish breathing on land is impossible",
-     "rain may be likely with dark clouds",
-     "a fair die has six possible faces"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Look at each Chance Check example again. 💪"
-   },
-   "prompt": "Find examples of likely and unlikely outcomes.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  },
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Sort the chance statements from the false ones!",
-   "content": {
-    "fits": [
-     "a fair coin can land heads",
-     "a fish breathing on land is impossible",
-     "rain may be likely with dark clouds",
-     "a fair die has six possible faces"
-    ],
-    "doesNotFit": [
-     "a fish can breathe on land",
-     "a stone floats in air",
-     "a coin has seven sides",
-     "a die has seven faces"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read the Chance Check rule before sorting again. 💪"
-   },
-   "prompt": "Sort the examples of likely and unlikely outcomes.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  },
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Tap the true chance statement!",
-   "content": {
-    "options": [
-     "a fish can breathe on land",
-     "a stone floats in air",
-     "a die has seven faces",
-     "a fair coin can land heads"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in the Chance Check question. 💪"
-   },
-   "prompt": "Choose the example of likely and unlikely outcomes.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  },
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Match each outcome to its chance word!",
-   "content": {
-    "pairs": [
-     {
-      "left": "a fair coin can land heads",
-      "right": "describes a chance"
-     },
-     {
-      "left": "a fish breathing on land is impossible",
-      "right": "cannot happen in the situation"
-     },
-     {
-      "left": "rain may be likely with dark clouds",
-      "right": "compares possible outcomes"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read both sides of each Chance Check pair again. 💪"
-   },
-   "prompt": "Match the examples about likely and unlikely outcomes.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  },
-  {
-   "activityId": "mathematics-g3-q3-w05-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q3-w05-d03-visual",
-   "instruction": "Put the chance-checking steps in order!",
-   "content": {
-    "steps": [
-     "Read the math question about describe real-life outcomes as certain, likely, unlikely, or impossible.",
-     "Choose the operation or model that matches the problem",
-     "Solve carefully using the given numbers",
-     "Check that the answer matches the question"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the first, next, and last Chance Check steps. 💪"
-   },
-   "prompt": "Put the review steps in order.",
-   "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-q3-w05-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence about chance is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A fish can breathe on land — possible"
-     },
-     {
-      "id": "b",
-      "text": "A fair coin can land on heads or tails — possible"
-     },
-     {
-      "id": "c",
-      "text": "The sun will rise tomorrow — impossible"
-     },
-     {
-      "id": "d",
-      "text": "A stone floats in the air — certain"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "A coin has two faces, so landing on heads or tails is possible — a true chance statement. The others pair the wrong chance word with the event."
-   },
-   {
-    "itemId": "mathematics-g3-q3-w05-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence about chance is correct?",
-    "options": [
-     {
-      "id": "b",
-      "text": "A bird can fly — possible"
-     },
-     {
-      "id": "c",
-      "text": "A fair die has seven faces — certain"
-     },
-     {
-      "id": "d",
-      "text": "A fish can breathe on land — possible"
-     },
-     {
-      "id": "a",
-      "text": "The sun will rise tomorrow — impossible"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "A bird flying is possible — birds fly every day. The others misuse the chance words."
-   },
-   {
-    "itemId": "mathematics-g3-q3-w05-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence about chance is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A fair die has seven faces — certain"
-     },
-     {
-      "id": "b",
-      "text": "A fish can breathe on land — possible"
-     },
-     {
-      "id": "c",
-      "text": "A coin tossed once always lands on heads — certain"
-     },
-     {
-      "id": "d",
-      "text": "A turtle beating a rabbit in a race — unlikely"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "A rabbit is much faster, so a turtle winning the race is unlikely — the chance word fits."
-   },
-   {
-    "itemId": "mathematics-g3-q3-w05-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence about chance is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A car can run on water — possible"
-     },
-     {
-      "id": "b",
-      "text": "The moon will rise tonight — impossible"
-     },
-     {
-      "id": "c",
-      "text": "A fair die has six possible faces"
-     },
-     {
-      "id": "d",
-      "text": "A feather falls upward — likely"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A fair die has exactly six faces, so six possible faces is a true statement about chance."
-   },
-   {
-    "itemId": "mathematics-g3-q3-w05-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence about chance is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A pig can fly — certain"
-     },
-     {
-      "id": "b",
-      "text": "A fair coin can land on heads or tails"
-     },
-     {
-      "id": "c",
-      "text": "A coin has seven faces — possible"
-     },
-     {
-      "id": "d",
-      "text": "A dog can talk — likely"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "A coin has two faces, so heads or tails are the only possible results."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-q3-w05-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 3,
+  "subject": "mathematics",
+  "title": "Chance Check · Q3 W05 D03",
+  "objective": "Describe real-life outcomes as certain, likely, unlikely, or impossible.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo watches the clouds! ☁️ Help him say which events are certain, likely, unlikely, or impossible.",
+  "vocabulary": [
+    {
+      "term": "a fair coin can land heads",
+      "definition": "A coin has two sides, so it can land on heads or tails."
+    },
+    {
+      "term": "a fish breathing on land is impossible",
+      "definition": "Fish breathe with gills, so breathing on land cannot happen."
+    },
+    {
+      "term": "rain may be likely with dark clouds",
+      "definition": "When the sky is full of dark clouds, rain is likely to come."
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Watch Milo explain certain, likely, unlikely, and impossible!",
+      "content": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in Chance Check again. 💪"
+      },
+      "prompt": "Listen to the explanation about likely and unlikely outcomes.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    },
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Tap the examples of chance in the picture!",
+      "content": {
+        "examples": [
+          "a fair coin can land heads",
+          "a fish breathing on land is impossible",
+          "rain may be likely with dark clouds",
+          "a fair die has six possible faces"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Look at each Chance Check example again. 💪"
+      },
+      "prompt": "Find examples of likely and unlikely outcomes.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    },
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Sort the chance statements from the false ones!",
+      "content": {
+        "fits": [
+          "a fair coin can land heads",
+          "a fish breathing on land is impossible",
+          "rain may be likely with dark clouds",
+          "a fair die has six possible faces"
+        ],
+        "doesNotFit": [
+          "a fish can breathe on land",
+          "a stone floats in air",
+          "a coin has seven sides",
+          "a die has seven faces"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read the Chance Check rule before sorting again. 💪"
+      },
+      "prompt": "Sort the examples of likely and unlikely outcomes.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    },
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Tap the true chance statement!",
+      "content": {
+        "options": [
+          "a fish can breathe on land",
+          "a stone floats in air",
+          "a die has seven faces",
+          "a fair coin can land heads"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in the Chance Check question. 💪"
+      },
+      "prompt": "Choose the example of likely and unlikely outcomes.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    },
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Match each outcome to its chance word!",
+      "content": {
+        "pairs": [
+          {
+            "left": "a fair coin can land heads",
+            "right": "describes a chance"
+          },
+          {
+            "left": "a fish breathing on land is impossible",
+            "right": "cannot happen in the situation"
+          },
+          {
+            "left": "rain may be likely with dark clouds",
+            "right": "compares possible outcomes"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read both sides of each Chance Check pair again. 💪"
+      },
+      "prompt": "Match the examples about likely and unlikely outcomes.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    },
+    {
+      "activityId": "mathematics-g3-q3-w05-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q3-w05-d03-visual",
+      "instruction": "Put the chance-checking steps in order!",
+      "content": {
+        "steps": [
+          "Read the math question about describe real-life outcomes as certain, likely, unlikely, or impossible.",
+          "Choose the operation or model that matches the problem",
+          "Solve carefully using the given numbers",
+          "Check that the answer matches the question"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the first, next, and last Chance Check steps. 💪"
+      },
+      "prompt": "Put the review steps in order.",
+      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q3-w05-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence about chance is right?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A stone floats in the air — certain"
+          },
+          {
+            "id": "b",
+            "text": "A fish can breathe on land — possible"
+          },
+          {
+            "id": "c",
+            "text": "A fair coin can land on heads or tails — possible"
+          },
+          {
+            "id": "d",
+            "text": "The sun will rise tomorrow — impossible"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A coin has two faces, so landing on heads or tails is possible — a true chance statement. The others pair the wrong chance word with the event."
+      },
+      {
+        "itemId": "mathematics-g3-q3-w05-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which of these chance statements is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A bird can fly — possible"
+          },
+          {
+            "id": "b",
+            "text": "A fair die has seven faces — certain"
+          },
+          {
+            "id": "c",
+            "text": "A fish can breathe on land — possible"
+          },
+          {
+            "id": "d",
+            "text": "The sun will rise tomorrow — impossible"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A bird flying is possible — birds fly every day. The others misuse the chance words."
+      },
+      {
+        "itemId": "mathematics-g3-q3-w05-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which chance statement is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A turtle beating a rabbit in a race — unlikely"
+          },
+          {
+            "id": "b",
+            "text": "A fair die has seven faces — certain"
+          },
+          {
+            "id": "c",
+            "text": "A fish can breathe on land — possible"
+          },
+          {
+            "id": "d",
+            "text": "A coin tossed once always lands on heads — certain"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A rabbit is much faster, so a turtle winning the race is unlikely — the chance word fits."
+      },
+      {
+        "itemId": "mathematics-g3-q3-w05-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which one about chance is right?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A car can run on water — possible"
+          },
+          {
+            "id": "b",
+            "text": "A fair die has six possible faces"
+          },
+          {
+            "id": "c",
+            "text": "The moon will rise tonight — impossible"
+          },
+          {
+            "id": "d",
+            "text": "A feather falls upward — likely"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A fair die has exactly six faces, so six possible faces is a true statement about chance."
+      },
+      {
+        "itemId": "mathematics-g3-q3-w05-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence tells the chance correctly?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A coin has seven faces — possible"
+          },
+          {
+            "id": "b",
+            "text": "A fair coin can land on heads or tails"
+          },
+          {
+            "id": "c",
+            "text": "A pig can fly — certain"
+          },
+          {
+            "id": "d",
+            "text": "A dog can talk — likely"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A coin has two faces, so heads or tails are the only possible results."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

@@ -1,378 +1,388 @@
 {
- "lessonId": "science-g3-q4-w07-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 14,
- "day": 3,
- "subject": "science",
- "title": "Material Detectives · Q4 W07 D03",
- "objective": "Describe familiar materials by observable properties and choose safe uses or handling.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo stirs with a wooden spoon — it is hard! And bubble wrap goes pop-pop-pop. What properties can you find?",
- "vocabulary": [
-  {
-   "term": "property",
-   "definition": "how a material looks, feels, or behaves"
-  },
-  {
-   "term": "flexible",
-   "definition": "able to bend without breaking"
-  },
-  {
-   "term": "absorb",
-   "definition": "to soak up a liquid"
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-q4-w07-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
-   "content": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in Material Detectives again. 💪"
-   },
-   "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
-   "narration": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy."
-  },
-  {
-   "activityId": "science-g3-q4-w07-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Explore each example. wooden spoon is hard, and bubble wrap is soft and poppy.",
-   "content": {
-    "examples": [
-     "wooden spoon — hard",
-     "bubble wrap — soft and poppy",
-     "denim bag — tough",
-     "glass cup — see-through"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Look at each Material Detectives example again. 💪"
-   },
-   "prompt": "Explore each example. wooden spoon is hard, and bubble wrap is soft and poppy.",
-   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
-  },
-  {
-   "activityId": "science-g3-q4-w07-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Sort the examples. Keep the ones that describe a material's property.",
-   "content": {
-    "fits": [
-     "wooden spoon — hard",
-     "bubble wrap — soft and poppy",
-     "denim bag — tough",
-     "glass cup — see-through"
-    ],
-    "doesNotFit": [
-     "a loud sound",
-     "a happy feeling",
-     "a fast race",
-     "a tall mountain"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read the Material Detectives rule before sorting again. 💪"
-   },
-   "prompt": "Sort the examples. Keep the ones that describe a material's property.",
-   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
-  },
-  {
-   "activityId": "science-g3-q4-w07-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Tap the material that shows today's property!",
-   "content": {
-    "options": [
-     "wooden spoon",
-     "paper towel",
-     "metal spoon",
-     "rubber band"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in the Material Detectives question. 💪"
-   },
-   "prompt": "Choose the example of material properties.",
-   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
-  },
-  {
-   "activityId": "science-g3-q4-w07-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Match each material with the property it shows.",
-   "content": {
-    "pairs": [
-     {
-      "left": "wooden spoon — hard",
-      "right": "hard"
-     },
-     {
-      "left": "bubble wrap — soft and poppy",
-      "right": "soft and poppy"
-     },
-     {
-      "left": "denim bag — tough",
-      "right": "tough"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read both sides of each Material Detectives pair again. 💪"
-   },
-   "prompt": "Match each material with the property it shows.",
-   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
-  },
-  {
-   "activityId": "science-g3-q4-w07-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w07-d03-visual",
-   "instruction": "Put the steps in order. Observe the material safely, then name its property.",
-   "content": {
-    "steps": [
-     "Observe the material safely",
-     "Name its property",
-     "Compare with other materials",
-     "Choose the safe use"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the first, next, and last Material Detectives steps. 💪"
-   },
-   "prompt": "Put the steps in order. Observe the material safely, then name its property.",
-   "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-q4-w07-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which material is flexible?",
-    "options": [
-     {
-      "id": "c",
-      "text": "wooden spoon"
-     },
-     {
-      "id": "d",
-      "text": "stone"
-     },
-     {
-      "id": "a",
-      "text": "metal spoon"
-     },
-     {
-      "id": "b",
-      "text": "rubber band"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Rubber band bends easily, so it is flexible."
-   },
-   {
-    "itemId": "science-g3-q4-w07-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which material absorbs water?",
-    "options": [
-     {
-      "id": "b",
-      "text": "glass jar"
-     },
-     {
-      "id": "c",
-      "text": "wooden spoon"
-     },
-     {
-      "id": "d",
-      "text": "cotton cloth"
-     },
-     {
-      "id": "a",
-      "text": "wooden ruler"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Cotton cloth soaks up water, so it absorbs water."
-   },
-   {
-    "itemId": "science-g3-q4-w07-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which material is hard?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sponge"
-     },
-     {
-      "id": "b",
-      "text": "stone"
-     },
-     {
-      "id": "c",
-      "text": "rubber ball"
-     },
-     {
-      "id": "d",
-      "text": "aluminum foil"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Stone is firm and does not bend, so it is hard."
-   },
-   {
-    "itemId": "science-g3-q4-w07-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What property does a glass cup have?",
-    "options": [
-     {
-      "id": "d",
-      "text": "tough"
-     },
-     {
-      "id": "a",
-      "text": "hard"
-     },
-     {
-      "id": "b",
-      "text": "soft and poppy"
-     },
-     {
-      "id": "c",
-      "text": "see-through"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A glass cup lets light pass through, so it is see-through."
-   },
-   {
-    "itemId": "science-g3-q4-w07-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the SAFE way to learn about a material?",
-    "options": [
-     {
-      "id": "c",
-      "text": "look at it and touch it gently"
-     },
-     {
-      "id": "d",
-      "text": "hit it hard"
-     },
-     {
-      "id": "a",
-      "text": "taste it"
-     },
-     {
-      "id": "b",
-      "text": "throw it"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Looking at it and touching it gently is safe. Tasting, throwing, or hitting materials is not safe."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-q4-w07-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 3,
+  "subject": "science",
+  "title": "Material Detectives · Q4 W07 D03",
+  "objective": "Describe familiar materials by observable properties and choose safe uses or handling.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo stirs with a wooden spoon — it is hard! And bubble wrap goes pop-pop-pop. What properties can you find?",
+  "vocabulary": [
+    {
+      "term": "property",
+      "definition": "how a material looks, feels, or behaves"
+    },
+    {
+      "term": "flexible",
+      "definition": "able to bend without breaking"
+    },
+    {
+      "term": "absorb",
+      "definition": "to soak up a liquid"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-q4-w07-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "content": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in Material Detectives again. 💪"
+      },
+      "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "narration": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Materials have properties. wooden spoon is hard, and bubble wrap is soft and poppy."
+    },
+    {
+      "activityId": "science-g3-q4-w07-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Explore each example. wooden spoon is hard, and bubble wrap is soft and poppy.",
+      "content": {
+        "examples": [
+          "wooden spoon — hard",
+          "bubble wrap — soft and poppy",
+          "denim bag — tough",
+          "glass cup — see-through"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Look at each Material Detectives example again. 💪"
+      },
+      "prompt": "Explore each example. wooden spoon is hard, and bubble wrap is soft and poppy.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q4-w07-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Sort the examples. Keep the ones that describe a material's property.",
+      "content": {
+        "fits": [
+          "wooden spoon — hard",
+          "bubble wrap — soft and poppy",
+          "denim bag — tough",
+          "glass cup — see-through"
+        ],
+        "doesNotFit": [
+          "a loud sound",
+          "a happy feeling",
+          "a fast race",
+          "a tall mountain"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read the Material Detectives rule before sorting again. 💪"
+      },
+      "prompt": "Sort the examples. Keep the ones that describe a material's property.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q4-w07-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Tap the material that shows today's property!",
+      "content": {
+        "options": [
+          "wooden spoon",
+          "paper towel",
+          "metal spoon",
+          "rubber band"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in the Material Detectives question. 💪"
+      },
+      "prompt": "Choose the example of material properties.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q4-w07-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Match each material with the property it shows.",
+      "content": {
+        "pairs": [
+          {
+            "left": "wooden spoon",
+            "right": "hard"
+          },
+          {
+            "left": "bubble wrap",
+            "right": "soft and poppy"
+          },
+          {
+            "left": "denim bag",
+            "right": "tough"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read both sides of each Material Detectives pair again. 💪"
+      },
+      "prompt": "Match each material with the property it shows.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q4-w07-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w07-d03-visual",
+      "instruction": "Put the steps in order. Observe the material safely, then name its property.",
+      "content": {
+        "steps": [
+          "Observe the material safely",
+          "Name its property",
+          "Compare with other materials",
+          "Choose the safe use"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+      },
+      "prompt": "Put the steps in order. Observe the material safely, then name its property.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q4-w07-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Check this one: Which material is flexible?  (in this lesson: Material Detectives)",
+        "options": [
+          {
+            "id": "a",
+            "text": "rubber band"
+          },
+          {
+            "id": "b",
+            "text": "wooden spoon"
+          },
+          {
+            "id": "c",
+            "text": "metal spoon"
+          },
+          {
+            "id": "d",
+            "text": "stone"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Rubber band bends easily, so it is flexible."
+      },
+      {
+        "itemId": "science-g3-q4-w07-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Now answer this: Which material absorbs water?  (in this lesson: Material Detectives)",
+        "options": [
+          {
+            "id": "a",
+            "text": "cotton cloth"
+          },
+          {
+            "id": "b",
+            "text": "wooden spoon"
+          },
+          {
+            "id": "c",
+            "text": "glass jar"
+          },
+          {
+            "id": "d",
+            "text": "wooden ruler"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Cotton cloth soaks up water, so it absorbs water."
+      },
+      {
+        "itemId": "science-g3-q4-w07-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Now answer this: Which material is hard?  (in this lesson: Material Detectives)",
+        "options": [
+          {
+            "id": "a",
+            "text": "sponge"
+          },
+          {
+            "id": "b",
+            "text": "stone"
+          },
+          {
+            "id": "c",
+            "text": "aluminum foil"
+          },
+          {
+            "id": "d",
+            "text": "rubber ball"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Stone is firm and does not bend, so it is hard."
+      },
+      {
+        "itemId": "science-g3-q4-w07-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What property does a glass cup have?",
+        "options": [
+          {
+            "id": "a",
+            "text": "see-through"
+          },
+          {
+            "id": "b",
+            "text": "hard"
+          },
+          {
+            "id": "c",
+            "text": "soft and poppy"
+          },
+          {
+            "id": "d",
+            "text": "tough"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A glass cup lets light pass through, so it is see-through."
+      },
+      {
+        "itemId": "science-g3-q4-w07-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Now answer this: Which is the SAFE way to learn about a material?  (in this lesson: Material Detectives)",
+        "options": [
+          {
+            "id": "a",
+            "text": "throw it"
+          },
+          {
+            "id": "b",
+            "text": "look at it and touch it gently"
+          },
+          {
+            "id": "c",
+            "text": "hit it hard"
+          },
+          {
+            "id": "d",
+            "text": "taste it"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Looking at it and touching it gently is safe. Tasting, throwing, or hitting materials is not safe."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

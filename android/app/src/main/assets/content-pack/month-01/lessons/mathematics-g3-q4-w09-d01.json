@@ -1,378 +1,388 @@
 {
- "lessonId": "mathematics-g3-q4-w09-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 15,
- "day": 1,
- "subject": "mathematics",
- "title": "Multiplication Builders · Q4 W09 D01",
- "objective": "Multiply numbers by using place value, groups, and an accurate algorithm.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo's basket has 3 trays with 8 mangoes each! Help him find how many mangoes that is.",
- "vocabulary": [
-  {
-   "term": "factor",
-   "definition": "a number that is multiplied by another number"
-  },
-  {
-   "term": "product",
-   "definition": "the answer when you multiply"
-  },
-  {
-   "term": "equal groups",
-   "definition": "groups that all have the same number of items"
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "Tap play and watch Milo count equal groups!",
-   "content": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in Multiplication Builders again. 💪"
-   },
-   "prompt": "Tap play and watch Milo count equal groups!",
-   "narration": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product."
-  },
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "Tap each example and check the product!",
-   "content": {
-    "examples": [
-     "3 groups of 8 = 24",
-     "9 × 4 = 36",
-     "7 × 12 = 84",
-     "estimate before solving"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Look at each Multiplication Builders example again. 💪"
-   },
-   "prompt": "Tap each example and check the product!",
-   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
-  },
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "Sort the cards: multiplication sentences or not!",
-   "content": {
-    "fits": [
-     "3 groups of 8 = 24",
-     "9 × 4 = 36",
-     "7 × 12 = 84",
-     "estimate before solving"
-    ],
-    "doesNotFit": [
-     "subtract equal groups",
-     "add a different number of groups",
-     "compare symbols without finding a product",
-     "divide the factors before"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read the Multiplication Builders rule before sorting again. 💪"
-   },
-   "prompt": "Sort the cards: multiplication sentences or not!",
-   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
-  },
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "What is 9 × 4?",
-   "content": {
-    "options": [
-     "45",
-     "32",
-     "36",
-     "40"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in the Multiplication Builders question. 💪"
-   },
-   "prompt": "What is 9 × 4?",
-   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
-  },
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "Match each multiplication sentence to its words!",
-   "content": {
-    "pairs": [
-     {
-      "left": "3 groups of 8 = 24",
-      "right": "three equal groups of eight"
-     },
-     {
-      "left": "9 × 4 = 36",
-      "right": "nine times four"
-     },
-     {
-      "left": "7 × 12 = 84",
-      "right": "seven times twelve"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read both sides of each Multiplication Builders pair again. 💪"
-   },
-   "prompt": "Match each multiplication sentence to its words!",
-   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
-  },
-  {
-   "activityId": "mathematics-g3-q4-w09-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q4-w09-d01-visual",
-   "instruction": "Put the steps in order. Read the problem first, then find the equal groups.",
-   "content": {
-    "steps": [
-     "Read the problem: three groups of eight",
-     "Find the equal groups",
-     "Multiply carefully",
-     "Check the product"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the first, next, and last Multiplication Builders steps. 💪"
-   },
-   "prompt": "Put the steps in order. Read the problem first, then find the equal groups.",
-   "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-q4-w09-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is nine times four?",
-    "options": [
-     {
-      "id": "c",
-      "text": "45"
-     },
-     {
-      "id": "d",
-      "text": "32"
-     },
-     {
-      "id": "a",
-      "text": "36"
-     },
-     {
-      "id": "b",
-      "text": "40"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Nine groups of four: 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 = 36, so 9 × 4 = 36."
-   },
-   {
-    "itemId": "mathematics-g3-q4-w09-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Three groups of eight is the same as which product?",
-    "options": [
-     {
-      "id": "b",
-      "text": "32"
-     },
-     {
-      "id": "c",
-      "text": "27"
-     },
-     {
-      "id": "d",
-      "text": "16"
-     },
-     {
-      "id": "a",
-      "text": "24"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "3 groups of 8 is 8 + 8 + 8 = 24, so the product is 24. 32 is 4 × 8, 27 is 3 × 9, and 16 is 2 × 8."
-   },
-   {
-    "itemId": "mathematics-g3-q4-w09-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which multiplication sentence is correct for three groups of eight?",
-    "options": [
-     {
-      "id": "a",
-      "text": "3 × 8 = 24"
-     },
-     {
-      "id": "b",
-      "text": "3 × 9 = 27"
-     },
-     {
-      "id": "c",
-      "text": "4 × 8 = 32"
-     },
-     {
-      "id": "d",
-      "text": "2 × 8 = 16"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Three groups of eight means 3 × 8, and 8 + 8 + 8 = 24, so 3 × 8 = 24 is correct. The other sentences use the wrong number of groups or the wrong group size."
-   },
-   {
-    "itemId": "mathematics-g3-q4-w09-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Three groups of eight shows what?",
-    "options": [
-     {
-      "id": "d",
-      "text": "24 objects in one group"
-     },
-     {
-      "id": "a",
-      "text": "8 objects in each of 3 groups"
-     },
-     {
-      "id": "b",
-      "text": "3 objects in each of 8 groups"
-     },
-     {
-      "id": "c",
-      "text": "3 objects in one group"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Three groups of eight means 8 objects in each of 3 groups. The other choices change how many groups or how many objects are in each group."
-   },
-   {
-    "itemId": "mathematics-g3-q4-w09-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which problem uses equal groups?",
-    "options": [
-     {
-      "id": "c",
-      "text": "3 − 8"
-     },
-     {
-      "id": "d",
-      "text": "half of 3"
-     },
-     {
-      "id": "a",
-      "text": "3 groups of 8"
-     },
-     {
-      "id": "b",
-      "text": "3 + 8"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "3 groups of 8 uses equal groups because every group has the same number of objects, 8. Subtraction and addition do not make equal groups, and half of 3 splits one number."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-q4-w09-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 15,
+  "day": 1,
+  "subject": "mathematics",
+  "title": "Multiplication Builders · Q4 W09 D01",
+  "objective": "Multiply numbers by using place value, groups, and an accurate algorithm.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo's basket has 3 trays with 8 mangoes each! Help him find how many mangoes that is.",
+  "vocabulary": [
+    {
+      "term": "factor",
+      "definition": "a number that is multiplied by another number"
+    },
+    {
+      "term": "product",
+      "definition": "the answer when you multiply"
+    },
+    {
+      "term": "equal groups",
+      "definition": "groups that all have the same number of items"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "Tap play and watch Milo count equal groups!",
+      "content": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in Multiplication Builders again. 💪"
+      },
+      "prompt": "Tap play and watch Milo count equal groups!",
+      "narration": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication joins equal groups. three groups of eight equals twenty four. The multiplication sentence names the product."
+    },
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "Tap each example and check the product!",
+      "content": {
+        "examples": [
+          "3 groups of 8 = 24",
+          "9 × 4 = 36",
+          "7 × 12 = 84",
+          "estimate before solving"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at each Multiplication Builders example again. 💪"
+      },
+      "prompt": "Tap each example and check the product!",
+      "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
+    },
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "Sort the cards: multiplication sentences or not!",
+      "content": {
+        "fits": [
+          "3 groups of 8 = 24",
+          "9 × 4 = 36",
+          "7 × 12 = 84",
+          "estimate before solving"
+        ],
+        "doesNotFit": [
+          "subtract equal groups",
+          "add a different number of groups",
+          "compare symbols without finding a product",
+          "divide the factors before"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read the Multiplication Builders rule before sorting again. 💪"
+      },
+      "prompt": "Sort the cards: multiplication sentences or not!",
+      "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
+    },
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "What is 9 × 4?",
+      "content": {
+        "options": [
+          "45",
+          "32",
+          "36",
+          "40"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in the Multiplication Builders question. 💪"
+      },
+      "prompt": "What is 9 × 4?",
+      "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
+    },
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "Match each multiplication sentence to its words!",
+      "content": {
+        "pairs": [
+          {
+            "left": "3 groups of 8 = 24",
+            "right": "three equal groups of eight"
+          },
+          {
+            "left": "9 × 4 = 36",
+            "right": "nine times four"
+          },
+          {
+            "left": "7 × 12 = 84",
+            "right": "seven times twelve"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read both sides of each Multiplication Builders pair again. 💪"
+      },
+      "prompt": "Match each multiplication sentence to its words!",
+      "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
+    },
+    {
+      "activityId": "mathematics-g3-q4-w09-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q4-w09-d01-visual",
+      "instruction": "Put the steps in order. Read the problem first, then find the equal groups.",
+      "content": {
+        "steps": [
+          "Read the problem: three groups of eight",
+          "Find the equal groups",
+          "Multiply carefully",
+          "Check the product"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the first, next, and last Multiplication Builders steps. 💪"
+      },
+      "prompt": "Put the steps in order. Read the problem first, then find the equal groups.",
+      "narration": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Multiplication can show equal groups. Keep place values aligned and check the product with an estimate."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q4-w09-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is nine times four?",
+        "options": [
+          {
+            "id": "a",
+            "text": "40"
+          },
+          {
+            "id": "b",
+            "text": "32"
+          },
+          {
+            "id": "c",
+            "text": "36"
+          },
+          {
+            "id": "d",
+            "text": "45"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Nine groups of four: 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 = 36, so 9 × 4 = 36."
+      },
+      {
+        "itemId": "mathematics-g3-q4-w09-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Three groups of eight is the same as which product?",
+        "options": [
+          {
+            "id": "a",
+            "text": "32"
+          },
+          {
+            "id": "b",
+            "text": "16"
+          },
+          {
+            "id": "c",
+            "text": "24"
+          },
+          {
+            "id": "d",
+            "text": "27"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "3 groups of 8 is 8 + 8 + 8 = 24, so the product is 24. 32 is 4 × 8, 27 is 3 × 9, and 16 is 2 × 8."
+      },
+      {
+        "itemId": "mathematics-g3-q4-w09-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which multiplication sentence is correct for three groups of eight?",
+        "options": [
+          {
+            "id": "a",
+            "text": "4 × 8 = 32"
+          },
+          {
+            "id": "b",
+            "text": "2 × 8 = 16"
+          },
+          {
+            "id": "c",
+            "text": "3 × 8 = 24"
+          },
+          {
+            "id": "d",
+            "text": "3 × 9 = 27"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Three groups of eight means 3 × 8, and 8 + 8 + 8 = 24, so 3 × 8 = 24 is correct. The other sentences use the wrong number of groups or the wrong group size."
+      },
+      {
+        "itemId": "mathematics-g3-q4-w09-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Three groups of eight shows what?",
+        "options": [
+          {
+            "id": "a",
+            "text": "24 objects in one group"
+          },
+          {
+            "id": "b",
+            "text": "3 objects in one group"
+          },
+          {
+            "id": "c",
+            "text": "8 objects in each of 3 groups"
+          },
+          {
+            "id": "d",
+            "text": "3 objects in each of 8 groups"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Three groups of eight means 8 objects in each of 3 groups. The other choices change how many groups or how many objects are in each group."
+      },
+      {
+        "itemId": "mathematics-g3-q4-w09-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Check this one: Which problem uses equal groups?  (in this lesson: Multiplication Builders)",
+        "options": [
+          {
+            "id": "a",
+            "text": "3 groups of 8"
+          },
+          {
+            "id": "b",
+            "text": "3 + 8"
+          },
+          {
+            "id": "c",
+            "text": "half of 3"
+          },
+          {
+            "id": "d",
+            "text": "3 − 8"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "3 groups of 8 uses equal groups because every group has the same number of objects, 8. Subtraction and addition do not make equal groups, and half of 3 splits one number."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

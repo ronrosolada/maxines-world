@@ -1,360 +1,370 @@
 {
- "lessonId": "filipino-g3-m01-d17",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 17,
- "subject": "FILIPINO",
- "title": "Paghahambing",
- "objective": "Gumamit ng salitang naghahambing nang malinaw at patas.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
- "vocabulary": [
-  {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
-  },
-  {
-   "term": "pareho",
-   "definition": "Kaparehas o magkapantay ang dalawang bagay."
-  },
-  {
-   "term": "paghahambing",
-   "definition": "Ang paghahambing ng dalawang bagay o tao."
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-m01-d17-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Mga Salitang May Kahulugan. 💪"
-   },
-   "assetId": "filipino-g3-m01-d17-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
-  },
-  {
-   "activityId": "filipino-g3-m01-d17-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "Parehong bilog ang dalawang plato.",
-     "Mas mahaba ang pulang laso kaysa asul.",
-     "Kapwa may dahon ang halaman."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
-   },
-   "assetId": "filipino-g3-m01-d17-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "filipino-g3-m01-d17-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "Parehong bilog ang dalawang plato.",
-     "Mas mahaba ang pulang laso kaysa asul.",
-     "Kapwa may dahon ang halaman."
-    ],
-    "doesNotFit": [
-     "Ihambing ang taong may mapanlait na salita",
-     "Sabihing mas magaling nang walang batayan",
-     "Paghaluin ang yunit ng sukat"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "filipino-g3-m01-d17-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d17-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang wastong paghahambing?",
-   "content": {
-    "options": [
-     "Mas mahaba ang 7 cm kaysa 10 cm.",
-     "Pareho ang 7 cm at 10 cm.",
-     "Mas mahaba ang 10 cm kaysa 7 cm."
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: Mas mahaba ang 10 cm kaysa 7 cm.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Mas mahaba ang 7 cm kaysa 10 cm. at Pareho ang 7 cm at 10 cm. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "filipino-g3-m01-d17-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "Parehong bilog ang dalawang plato.",
-      "right": "Parehong bilog ang dalawang plato."
-     },
-     {
-      "left": "Mas mahaba ang pulang laso kaysa asul.",
-      "right": "Mas mahaba ang pulang laso kaysa asul."
-     },
-     {
-      "left": "Kapwa may dahon ang halaman.",
-      "right": "Kapwa may dahon ang halaman."
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Salitang May Kahulugan. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
-   },
-   "assetId": "filipino-g3-m01-d17-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d17-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Salitang May Kahulugan. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
-   },
-   "assetId": "filipino-g3-m01-d17-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "filipino-g3-m01-d17-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong paghahambing ng puno at bata?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang bata ay pinakamataas sa puno."
-     },
-     {
-      "id": "b",
-      "text": "Mas mataas ang puno kaysa sa bata."
-     },
-     {
-      "id": "c",
-      "text": "Mas mataas ang bata kaysa sa puno."
-     },
-     {
-      "id": "d",
-      "text": "Ang puno ay mas maliit kaysa sa bata."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang puno ay karaniwang mas mataas kaysa sa bata."
-   },
-   {
-    "itemId": "filipino-g3-m01-d17-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong paghahambing ng saging at mangga?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang saging ay pinakamahaba sa lahat."
-     },
-     {
-      "id": "b",
-      "text": "Ang mangga ay mas mahaba kaysa sa saging."
-     },
-     {
-      "id": "c",
-      "text": "Ang saging ay mas mahaba kaysa sa mangga."
-     },
-     {
-      "id": "d",
-      "text": "Ang saging at mangga ay parehong haba."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang saging ay karaniwang mas mahaba kaysa sa mangga."
-   },
-   {
-    "itemId": "filipino-g3-m01-d17-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong gamit ng “pinaka”?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Si Lina ang pinakamabait sa kanilang magkakapatid."
-     },
-     {
-      "id": "b",
-      "text": "Si Lina ay mabait sa pinaka."
-     },
-     {
-      "id": "c",
-      "text": "Si Lina ay mas mabait kaysa sa kanilang magkakapatid."
-     },
-     {
-      "id": "d",
-      "text": "Pinaka si Lina sa mabait."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang “pinaka” ay ginagamit sa paghahambing ng tatlo o higit pang bagay o tao."
-   },
-   {
-    "itemId": "filipino-g3-m01-d17-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong paghahambing?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Mas mahaba ang 7 cm kaysa 10 cm."
-     },
-     {
-      "id": "b",
-      "text": "Pareho ang 7 cm at 10 cm."
-     },
-     {
-      "id": "c",
-      "text": "Mas mahaba ang 10 cm kaysa 7 cm."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Gamitin ang wastong anyo ng paghahambing: Mas mahaba ang 10 cm kaysa 7 cm.."
-   },
-   {
-    "itemId": "filipino-g3-m01-d17-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong paghahambing ng magkapareho ang haba?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Mas haba ang lapis kaysa sa panulat."
-     },
-     {
-      "id": "b",
-      "text": "Ang panulat ay pinakahaba."
-     },
-     {
-      "id": "c",
-      "text": "Ang lapis ay haba sa panulat."
-     },
-     {
-      "id": "d",
-      "text": "Magkasinhaba ang lapis at ang panulat."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Kapag magkapareho ang haba ng dalawa, sinasabing magkasinhaba ang mga ito."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "filipino-g3-m01-d17-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/filipino-g3-m01-d17-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Paghahambing; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Paghahambing.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "9d5c487d66810a748accc2f5293da849b5e04232e890f7ab0a72d67f170679d1",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "FILIPINO",
+  "title": "Paghahambing",
+  "objective": "Gumamit ng salitang naghahambing nang malinaw at patas.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
+  "vocabulary": [
+    {
+      "term": "salita",
+      "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+    },
+    {
+      "term": "pareho",
+      "definition": "Kaparehas o magkapantay ang dalawang bagay."
+    },
+    {
+      "term": "paghahambing",
+      "definition": "Ang paghahambing ng dalawang bagay o tao."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Paghahambing. 💪"
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Gamitin ang pareho, kapwa, mas, kaysa, at ngunit ayon sa aktuwal na katangian."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "Parehong bilog ang dalawang plato.",
+          "Mas mahaba ang pulang laso kaysa asul.",
+          "Kapwa may dahon ang halaman."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Parehong bilog ang dalawang plato.",
+          "Mas mahaba ang pulang laso kaysa asul.",
+          "Kapwa may dahon ang halaman."
+        ],
+        "doesNotFit": [
+          "Ihambing ang taong may mapanlait na salita",
+          "Sabihing mas magaling nang walang batayan",
+          "Paghaluin ang yunit ng sukat"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang wastong paghahambing?",
+      "content": {
+        "options": [
+          "Mas mahaba ang 7 cm kaysa 10 cm.",
+          "Pareho ang 7 cm at 10 cm.",
+          "Mas mahaba ang 10 cm kaysa 7 cm."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Mas mahaba ang 10 cm kaysa 7 cm.",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Parehong bilog ang dalawang plato.",
+            "right": "pareho"
+          },
+          {
+            "left": "Mas mahaba ang pulang laso kaysa asul.",
+            "right": "mas"
+          },
+          {
+            "left": "Kapwa may dahon ang halaman.",
+            "right": "kapwa"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Salitang May Kahulugan. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Salitang May Kahulugan. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
+      },
+      "assetId": "filipino-g3-m01-d17-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong paghahambing ng puno at bata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mas mataas ang puno kaysa sa bata."
+          },
+          {
+            "id": "b",
+            "text": "Mas mataas ang bata kaysa sa puno."
+          },
+          {
+            "id": "c",
+            "text": "Ang bata ay pinakamataas sa puno."
+          },
+          {
+            "id": "d",
+            "text": "Ang puno ay mas maliit kaysa sa bata."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang puno ay karaniwang mas mataas kaysa sa bata."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong paghahambing ng saging at mangga?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang saging at mangga ay parehong haba."
+          },
+          {
+            "id": "b",
+            "text": "Ang mangga ay mas mahaba kaysa sa saging."
+          },
+          {
+            "id": "c",
+            "text": "Ang saging ay pinakamahaba sa lahat."
+          },
+          {
+            "id": "d",
+            "text": "Ang saging ay mas mahaba kaysa sa mangga."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang saging ay karaniwang mas mahaba kaysa sa mangga."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong gamit ng “pinaka”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pinaka si Lina sa mabait."
+          },
+          {
+            "id": "b",
+            "text": "Si Lina ang pinakamabait sa kanilang magkakapatid."
+          },
+          {
+            "id": "c",
+            "text": "Si Lina ay mabait sa pinaka."
+          },
+          {
+            "id": "d",
+            "text": "Si Lina ay mas mabait kaysa sa kanilang magkakapatid."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “pinaka” ay ginagamit sa paghahambing ng tatlo o higit pang bagay o tao."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong paghahambing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pareho ang 7 cm at 10 cm."
+          },
+          {
+            "id": "b",
+            "text": "Mas mahaba ang 7 cm kaysa 10 cm."
+          },
+          {
+            "id": "c",
+            "text": "Mas mahaba ang 10 cm kaysa 7 cm."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Gamitin ang wastong anyo ng paghahambing: Mas mahaba ang 10 cm kaysa 7 cm.."
+      },
+      {
+        "itemId": "filipino-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong paghahambing ng magkapareho ang haba?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang lapis ay haba sa panulat."
+          },
+          {
+            "id": "b",
+            "text": "Magkasinhaba ang lapis at ang panulat."
+          },
+          {
+            "id": "c",
+            "text": "Mas haba ang lapis kaysa sa panulat."
+          },
+          {
+            "id": "d",
+            "text": "Ang panulat ay pinakahaba."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Kapag magkapareho ang haba ng dalawa, sinasabing magkasinhaba ang mga ito."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Paghahambing; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Paghahambing.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "9d5c487d66810a748accc2f5293da849b5e04232e890f7ab0a72d67f170679d1",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

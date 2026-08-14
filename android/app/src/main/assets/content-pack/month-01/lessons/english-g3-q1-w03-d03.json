@@ -232,24 +232,24 @@
         "prompt": "Which word starts with bl?",
         "options": [
           {
-            "id": "d",
-            "text": "clock"
-          },
-          {
             "id": "a",
-            "text": "blue"
+            "text": "tree"
           },
           {
             "id": "b",
-            "text": "star"
+            "text": "blue"
           },
           {
             "id": "c",
-            "text": "tree"
+            "text": "star"
+          },
+          {
+            "id": "d",
+            "text": "clock"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "“Blue” starts with the bl blend — say b and l together."
       },
@@ -260,24 +260,24 @@
         "prompt": "Which word starts with st?",
         "options": [
           {
-            "id": "c",
-            "text": "blue"
-          },
-          {
-            "id": "d",
-            "text": "clock"
-          },
-          {
             "id": "a",
-            "text": "star"
+            "text": "clock"
           },
           {
             "id": "b",
             "text": "grapes"
+          },
+          {
+            "id": "c",
+            "text": "star"
+          },
+          {
+            "id": "d",
+            "text": "blue"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "“Star” starts with the st blend — say s and t together."
       },
@@ -288,24 +288,24 @@
         "prompt": "What is a blend?",
         "options": [
           {
-            "id": "b",
+            "id": "a",
             "text": "One vowel"
           },
           {
-            "id": "c",
+            "id": "b",
             "text": "A number"
+          },
+          {
+            "id": "c",
+            "text": "Two consonants together"
           },
           {
             "id": "d",
             "text": "A shape"
-          },
-          {
-            "id": "a",
-            "text": "Two consonants together"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "A blend is two consonants that blend together, like bl in blue."
       },
@@ -317,23 +317,23 @@
         "options": [
           {
             "id": "a",
-            "text": "grapes"
-          },
-          {
-            "id": "b",
-            "text": "stop"
-          },
-          {
-            "id": "c",
             "text": "train"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "stone"
+          },
+          {
+            "id": "c",
+            "text": "grapes"
+          },
+          {
+            "id": "d",
+            "text": "stop"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "“Grapes” starts with the gr blend — say g and r together."
       },
@@ -344,39 +344,49 @@
         "prompt": "What did Milo do with the letters?",
         "options": [
           {
-            "id": "d",
+            "id": "a",
             "text": "Mixed them up"
           },
           {
-            "id": "a",
-            "text": "Blended them"
-          },
-          {
             "id": "b",
-            "text": "Ate them"
+            "text": "Hid them"
           },
           {
             "id": "c",
-            "text": "Hid them"
+            "text": "Blended them"
+          },
+          {
+            "id": "d",
+            "text": "Ate them"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "Milo blended the letters together to build words with blends."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d06",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 6,
- "subject": "SCIENCE",
- "title": "Classify the Animals",
- "objective": "Classify animals by observable traits and explain the chosen rule.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Milo sorts animals into groups. Can you sort them by what you can see, like feathers or no feathers?",
- "vocabulary": [
-  {
-   "term": "classify",
-   "definition": "To sort things into groups that are alike."
-  },
-  {
-   "term": "animal",
-   "definition": "A living thing that can move and needs food."
-  },
-  {
-   "term": "trait",
-   "definition": "A feature or quality a living thing has."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d06-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows how to sort animals by what you see.",
-   "content": "A learner-made group is an observation tool, not formal biological taxonomy.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Life Around Us again. 💪"
-   },
-   "assetId": "science-g3-m01-d06-visual",
-   "accessibilityAlternative": "Text alternative: A learner-made group is an observation tool, not formal biological taxonomy."
-  },
-  {
-   "activityId": "science-g3-m01-d06-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "feathers/no feathers",
-     "moves by swimming/walking",
-     "has scales/no scales"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Life Around Us. 🔎",
-    "retry": "Look at each Life Around Us example again. 💪"
-   },
-   "assetId": "science-g3-m01-d06-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d06-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it follow the chosen grouping rule?",
-   "content": {
-    "fits": [
-     "feathers/no feathers",
-     "moves by swimming/walking",
-     "has scales/no scales"
-    ],
-    "doesNotFit": [
-     "Group by favorite color",
-     "Call the groups scientific species",
-     "Use an invisible trait"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d06-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d06-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which rule uses an observable trait?",
-   "content": {
-    "options": [
-     "is lucky or unlucky",
-     "has feathers or no feathers",
-     "is nice or not nice"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: has feathers or no feathers",
-    "retry": "Look again — luck and niceness are not observable. Tap the trait you can see! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d06-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each trait to its group.",
-   "content": {
-    "pairs": [
-     {
-      "left": "feathers/no feathers",
-      "right": "feathers or none"
-     },
-     {
-      "left": "moves by swimming/walking",
-      "right": "swimming or walking"
-     },
-     {
-      "left": "has scales/no scales",
-      "right": "scales or none"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Life Around Us explanation. 🔗",
-    "retry": "Read both sides of each Life Around Us pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d06-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d06-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: pick a trait, sort, say the rule.",
-   "content": {
-    "steps": [
-     "Pick a visible trait.",
-     "Sort the animals by it.",
-     "Say the rule you used."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Life Around Us steps in order. 🎉",
-    "retry": "Find the first, next, and last Life Around Us steps. 💪"
-   },
-   "assetId": "science-g3-m01-d06-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d06-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about grouping animals is true?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Call the groups scientific species"
-     },
-     {
-      "id": "a",
-      "text": "Group by favorite color"
-     },
-     {
-      "id": "b",
-      "text": "Sorting animals by what you see is a way to observe, not a scientist's official name."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Groups you make from what you see help you observe animals. They are not official scientific names, and grouping by your favorite color is not about the animal."
-   },
-   {
-    "itemId": "science-g3-m01-d06-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which grouping rule uses a trait you can see?",
-    "options": [
-     {
-      "id": "b",
-      "text": "feathers/no feathers"
-     },
-     {
-      "id": "c",
-      "text": "is lucky or unlucky"
-     },
-     {
-      "id": "a",
-      "text": "is nice or not nice"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "You can see whether an animal has feathers, so that rule uses an observable trait. Luck and niceness cannot be seen."
-   },
-   {
-    "itemId": "science-g3-m01-d06-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which grouping rule is NOT about the animal?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Group by favorite color"
-     },
-     {
-      "id": "b",
-      "text": "feathers/no feathers"
-     },
-     {
-      "id": "c",
-      "text": "moves by swimming/walking"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Grouping by your favorite color is about your likes, not the animal. Feathers and how an animal moves are traits you can observe."
-   },
-   {
-    "itemId": "science-g3-m01-d06-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which rule uses an observable trait?",
-    "options": [
-     {
-      "id": "c",
-      "text": "is lucky or unlucky"
-     },
-     {
-      "id": "a",
-      "text": "has feathers or no feathers"
-     },
-     {
-      "id": "b",
-      "text": "is nice or not nice"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "You can see feathers, so it is an observable trait. Luck and niceness cannot be seen on an animal."
-   },
-   {
-    "itemId": "science-g3-m01-d06-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which rule groups animals by something you can see?",
-    "options": [
-     {
-      "id": "b",
-      "text": "has scales/no scales"
-     },
-     {
-      "id": "c",
-      "text": "Use an invisible trait"
-     },
-     {
-      "id": "a",
-      "text": "Group by favorite color"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Scales are visible, so it is an observable trait. Invisible traits and favorite colors cannot be seen on the animal."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d06-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d06-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Classify the Animals; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Classify the Animals.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "8121ca04924555df6af758bc805e71b47619aa53bd5bfc87f847532c8dd07755",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d06",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 6,
+  "subject": "SCIENCE",
+  "title": "Classify the Animals",
+  "objective": "Classify animals by observable traits and explain the chosen rule.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo sorts animals into groups. Can you sort them by what you can see, like feathers or no feathers?",
+  "vocabulary": [
+    {
+      "term": "classify",
+      "definition": "To sort things into groups that are alike."
+    },
+    {
+      "term": "animal",
+      "definition": "A living thing that can move and needs food."
+    },
+    {
+      "term": "trait",
+      "definition": "A feature or quality a living thing has."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d06-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows how to sort animals by what you see.",
+      "content": "A learner-made group is an observation tool, not formal biological taxonomy.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Classify the Animals again. 💪"
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Text alternative: A learner-made group is an observation tool, not formal biological taxonomy."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "feathers/no feathers",
+          "moves by swimming/walking",
+          "has scales/no scales"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Classify the Animals. 🔎",
+        "retry": "Look at each Classify the Animals example again. 💪"
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it follow the chosen grouping rule?",
+      "content": {
+        "fits": [
+          "feathers/no feathers",
+          "moves by swimming/walking",
+          "has scales/no scales"
+        ],
+        "doesNotFit": [
+          "Group by favorite color",
+          "Call the groups scientific species",
+          "Use an invisible trait"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which rule uses an observable trait?",
+      "content": {
+        "options": [
+          "is lucky or unlucky",
+          "has feathers or no feathers",
+          "is nice or not nice"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: has feathers or no feathers",
+        "retry": "Look again — luck and niceness are not observable. Tap the trait you can see! 💪"
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each trait to its group.",
+      "content": {
+        "pairs": [
+          {
+            "left": "feathers/no feathers",
+            "right": "feathers or none"
+          },
+          {
+            "left": "moves by swimming/walking",
+            "right": "swimming or walking"
+          },
+          {
+            "left": "has scales/no scales",
+            "right": "scales or none"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Classify the Animals explanation. 🔗",
+        "retry": "Read both sides of each Classify the Animals pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d06-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: pick a trait, sort, say the rule.",
+      "content": {
+        "steps": [
+          "Pick a visible trait.",
+          "Sort the animals by it.",
+          "Say the rule you used."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Classify the Animals steps in order. 🎉",
+        "retry": "Find the first, next, and last Classify the Animals steps. 💪"
+      },
+      "assetId": "science-g3-m01-d06-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d06-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about grouping animals is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sorting animals by what you see is a way to observe, not a scientist's official name."
+          },
+          {
+            "id": "b",
+            "text": "Call the groups scientific species"
+          },
+          {
+            "id": "c",
+            "text": "Group by favorite color"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Groups you make from what you see help you observe animals. They are not official scientific names, and grouping by your favorite color is not about the animal."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which grouping rule uses a trait you can see?",
+        "options": [
+          {
+            "id": "a",
+            "text": "is nice or not nice"
+          },
+          {
+            "id": "b",
+            "text": "feathers/no feathers"
+          },
+          {
+            "id": "c",
+            "text": "is lucky or unlucky"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "You can see whether an animal has feathers, so that rule uses an observable trait. Luck and niceness cannot be seen."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which grouping rule is NOT about the animal?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Group by favorite color"
+          },
+          {
+            "id": "b",
+            "text": "feathers/no feathers"
+          },
+          {
+            "id": "c",
+            "text": "moves by swimming/walking"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Grouping by your favorite color is about your likes, not the animal. Feathers and how an animal moves are traits you can observe."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which rule uses an observable trait?",
+        "options": [
+          {
+            "id": "a",
+            "text": "is nice or not nice"
+          },
+          {
+            "id": "b",
+            "text": "is lucky or unlucky"
+          },
+          {
+            "id": "c",
+            "text": "has feathers or no feathers"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "You can see feathers, so it is an observable trait. Luck and niceness cannot be seen on an animal."
+      },
+      {
+        "itemId": "science-g3-m01-d06-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which rule groups animals by something you can see?",
+        "options": [
+          {
+            "id": "a",
+            "text": "has scales/no scales"
+          },
+          {
+            "id": "b",
+            "text": "Group by favorite color"
+          },
+          {
+            "id": "c",
+            "text": "Use an invisible trait"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Scales are visible, so it is an observable trait. Invisible traits and favorite colors cannot be seen on the animal."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d06-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d06-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Classify the Animals; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Classify the Animals.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "8121ca04924555df6af758bc805e71b47619aa53bd5bfc87f847532c8dd07755",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

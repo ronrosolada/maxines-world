@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q2-w01-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 5,
- "day": 3,
- "subject": "english",
- "title": "Word Explorer · Q2 W01 D03",
- "objective": "Use high-frequency and content-specific words in context.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Curious, proud, silent — words that tell how people feel and act! 🐱✨ Help Milo use them.",
- "vocabulary": [
-  {
-   "term": "curious",
-   "definition": "wanting to know or learn"
-  },
-  {
-   "term": "proud",
-   "definition": "feeling happy about something you did"
-  },
-  {
-   "term": "silent",
-   "definition": "very quiet, with no sound"
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q2-w01-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Hear how new words fit in sentences!",
-   "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Find the clue in Word Explorer again. 💪"
-   },
-   "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-   "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Tap the sentences that use today's words!",
-   "content": {
-    "examples": [
-     "The curious boy asked many questions.",
-     "Ana is proud of her neat handwriting.",
-     "The library is silent during reading time.",
-     "The tiny ant carried a big leaf."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Look at each Word Explorer example again. 💪"
-   },
-   "prompt": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Sort the sentences: new word or not!",
-   "content": {
-    "fits": [
-     "The curious boy asked many questions.",
-     "Ana is proud of her neat handwriting.",
-     "The library is silent during reading time.",
-     "The tiny ant carried a big leaf."
-    ],
-    "doesNotFit": [
-     "Mama cooks delicious adobo for us.",
-     "The children are eager to open their new books.",
-     "Fresh mangoes smell sweet.",
-     "The patient fisherman waited for a bite."
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Read the Word Explorer rule before sorting again. 💪"
-   },
-   "prompt": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Tap the sentence that uses 'curious'!",
-   "content": {
-    "options": [
-     "The curious boy asked many questions.",
-     "Fresh mangoes smell sweet.",
-     "Mama cooks delicious adobo for us.",
-     "The children are eager to open their new books."
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Find the clue in the Word Explorer question. 💪"
-   },
-   "prompt": "Choose the example of words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Match each word with its meaning!",
-   "content": {
-    "pairs": [
-     {
-      "left": "curious",
-      "right": "wanting to know or learn"
-     },
-     {
-      "left": "proud",
-      "right": "feeling happy about something you did"
-     },
-     {
-      "left": "silent",
-      "right": "very quiet, with no sound"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Read both sides of each Word Explorer pair again. 💪"
-   },
-   "prompt": "Match the examples about words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d03-visual",
-   "instruction": "Tap the word-hunting steps in order!",
-   "content": {
-    "steps": [
-     "Read the sentence",
-     "Find the new word",
-     "Look for clues",
-     "Choose the meaning"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You spotted the feeling words perfectly! 🎉",
-    "retry": "Find the first, next, and last Word Explorer steps. 💪"
-   },
-   "prompt": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q2-w01-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What does 'curious' mean?",
-    "options": [
-     {
-      "id": "c",
-      "text": "wanting to know or learn"
-     },
-     {
-      "id": "d",
-      "text": "very small"
-     },
-     {
-      "id": "a",
-      "text": "feeling happy about something you did"
-     },
-     {
-      "id": "b",
-      "text": "very quiet, with no sound"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Curious means wanting to know or learn — like asking many questions."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word means 'feeling happy about something you did'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "silent"
-     },
-     {
-      "id": "c",
-      "text": "proud"
-     },
-     {
-      "id": "d",
-      "text": "tiny"
-     },
-     {
-      "id": "a",
-      "text": "curious"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Proud means feeling happy about something you did, like neat handwriting."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence uses the word 'silent'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "The curious boy asked many questions."
-     },
-     {
-      "id": "b",
-      "text": "Ana is proud of her neat handwriting."
-     },
-     {
-      "id": "c",
-      "text": "The library is silent during reading time."
-     },
-     {
-      "id": "d",
-      "text": "The tiny ant carried a big leaf."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Silent means very quiet, so it fits a library during reading time."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word fits in this sentence: 'Milo is ___ about the box in the corner.'",
-    "options": [
-     {
-      "id": "d",
-      "text": "tiny"
-     },
-     {
-      "id": "a",
-      "text": "proud"
-     },
-     {
-      "id": "b",
-      "text": "silent"
-     },
-     {
-      "id": "c",
-      "text": "curious"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A box in the corner makes you wonder, so Milo feels curious about it."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Find the word that means 'very small'.",
-    "options": [
-     {
-      "id": "c",
-      "text": "tiny"
-     },
-     {
-      "id": "d",
-      "text": "silent"
-     },
-     {
-      "id": "a",
-      "text": "curious"
-     },
-     {
-      "id": "b",
-      "text": "proud"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Tiny means very small — an ant is a tiny creature."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q2-w01-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 3,
+  "subject": "english",
+  "title": "Word Explorer · Q2 W01 D03",
+  "objective": "Use high-frequency and content-specific words in context.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Curious, proud, silent — words that tell how people feel and act! 🐱✨ Help Milo use them.",
+  "vocabulary": [
+    {
+      "term": "curious",
+      "definition": "wanting to know or learn"
+    },
+    {
+      "term": "proud",
+      "definition": "feeling happy about something you did"
+    },
+    {
+      "term": "silent",
+      "definition": "very quiet, with no sound"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w01-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Hear how new words fit in sentences!",
+      "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Find the clue in Word Explorer again. 💪"
+      },
+      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
+      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Tap the sentences that use today's words!",
+      "content": {
+        "examples": [
+          "The curious boy asked many questions.",
+          "Ana is proud of her neat handwriting.",
+          "The library is silent during reading time.",
+          "The tiny ant carried a big leaf."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Look at each Word Explorer example again. 💪"
+      },
+      "prompt": "Look closely at each example",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Sort the sentences: new word or not!",
+      "content": {
+        "fits": [
+          "The curious boy asked many questions.",
+          "Ana is proud of her neat handwriting.",
+          "The library is silent during reading time.",
+          "The tiny ant carried a big leaf."
+        ],
+        "doesNotFit": [
+          "Mama cooks delicious adobo for us.",
+          "The children are eager to open their new books.",
+          "Fresh mangoes smell sweet.",
+          "The patient fisherman waited for a bite."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Read the Word Explorer rule before sorting again. 💪"
+      },
+      "prompt": "Sort each example",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Tap the sentence that uses 'curious'!",
+      "content": {
+        "options": [
+          "The curious boy asked many questions.",
+          "Fresh mangoes smell sweet.",
+          "Mama cooks delicious adobo for us.",
+          "The children are eager to open their new books."
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Find the clue in the Word Explorer question. 💪"
+      },
+      "prompt": "Choose the example of words in context.",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Match each word with its meaning!",
+      "content": {
+        "pairs": [
+          {
+            "left": "curious",
+            "right": "wanting to know or learn"
+          },
+          {
+            "left": "proud",
+            "right": "feeling happy about something you did"
+          },
+          {
+            "left": "silent",
+            "right": "very quiet, with no sound"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Read both sides of each Word Explorer pair again. 💪"
+      },
+      "prompt": "Match the examples about words in context.",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d03-visual",
+      "instruction": "Tap the word-hunting steps in order!",
+      "content": {
+        "steps": [
+          "Read the sentence",
+          "Find the new word",
+          "Look for clues",
+          "Choose the meaning"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You spotted the feeling words perfectly! 🎉",
+        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+      },
+      "prompt": "Put the steps in order",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w01-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What does 'curious' mean?",
+        "options": [
+          {
+            "id": "a",
+            "text": "wanting to know or learn"
+          },
+          {
+            "id": "b",
+            "text": "very small"
+          },
+          {
+            "id": "c",
+            "text": "very quiet, with no sound"
+          },
+          {
+            "id": "d",
+            "text": "feeling happy about something you did"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Curious means wanting to know or learn — like asking many questions."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word means 'feeling happy about something you did'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "proud"
+          },
+          {
+            "id": "b",
+            "text": "curious"
+          },
+          {
+            "id": "c",
+            "text": "silent"
+          },
+          {
+            "id": "d",
+            "text": "tiny"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Proud means feeling happy about something you did, like neat handwriting."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence uses the word 'silent'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The library is silent during reading time."
+          },
+          {
+            "id": "b",
+            "text": "The tiny ant carried a big leaf."
+          },
+          {
+            "id": "c",
+            "text": "Ana is proud of her neat handwriting."
+          },
+          {
+            "id": "d",
+            "text": "The curious boy asked many questions."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Silent means very quiet, so it fits a library during reading time."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word fits in this sentence: 'Milo is ___ about the box in the corner.'",
+        "options": [
+          {
+            "id": "a",
+            "text": "proud"
+          },
+          {
+            "id": "b",
+            "text": "curious"
+          },
+          {
+            "id": "c",
+            "text": "tiny"
+          },
+          {
+            "id": "d",
+            "text": "silent"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A box in the corner makes you wonder, so Milo feels curious about it."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Find the word that means 'very small'.",
+        "options": [
+          {
+            "id": "a",
+            "text": "proud"
+          },
+          {
+            "id": "b",
+            "text": "curious"
+          },
+          {
+            "id": "c",
+            "text": "tiny"
+          },
+          {
+            "id": "d",
+            "text": "silent"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Tiny means very small — an ant is a tiny creature."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

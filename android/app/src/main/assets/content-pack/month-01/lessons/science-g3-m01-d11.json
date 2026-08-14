@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d11",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 11,
- "subject": "SCIENCE",
- "title": "Family Traits",
- "objective": "Compare inherited traits using fictional organisms.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "A baby frog looks like its parents, but not exactly. Which traits do young ones get from their parents?",
- "vocabulary": [
-  {
-   "term": "environment",
-   "definition": "Everything around us — land, water, and air."
-  },
-  {
-   "term": "trait",
-   "definition": "A feature or quality a living thing has."
-  },
-  {
-   "term": "animal",
-   "definition": "A living thing that can move, like a dog or bird."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d11-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows how young ones get traits from parents.",
-   "content": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Life Around Us again. 💪"
-   },
-   "assetId": "science-g3-m01-d11-visual",
-   "accessibilityAlternative": "Text alternative: Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
-  },
-  {
-   "activityId": "science-g3-m01-d11-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "fictional beetle color patterns",
-     "leaf shape in imaginary plants",
-     "fur pattern in cartoon animals"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Life Around Us. 🔎",
-    "retry": "Look at each Life Around Us example again. 💪"
-   },
-   "assetId": "science-g3-m01-d11-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d11-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is it about an inherited trait?",
-   "content": {
-    "fits": [
-     "fictional beetle color patterns",
-     "leaf shape in imaginary plants",
-     "fur pattern in cartoon animals"
-    ],
-    "doesNotFit": [
-     "Ask about biological parentage",
-     "Rank skin colors",
-     "Claim one parent determines everything"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d11-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d11-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which is true?",
-   "content": {
-    "options": [
-     "Offspring may resemble parents without being exact copies.",
-     "Offspring are always exact copies.",
-     "Environment never matters."
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: Offspring may resemble parents without being exact copies.",
-    "retry": "Look again — exact copies are not how offspring work. Tap the true statement! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d11-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each fictional example to its group.",
-   "content": {
-    "pairs": [
-     {
-      "left": "fictional beetle color patterns",
-      "right": "beetles"
-     },
-     {
-      "left": "leaf shape in imaginary plants",
-      "right": "plants"
-     },
-     {
-      "left": "fur pattern in cartoon animals",
-      "right": "animals"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Life Around Us explanation. 🔗",
-    "retry": "Read both sides of each Life Around Us pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d11-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d11-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: look, name the trait, compare with parents.",
-   "content": {
-    "steps": [
-     "Look at the fictional organism.",
-     "Name a trait it was born with.",
-     "Compare it with its parents' traits."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Life Around Us steps in order. 🎉",
-    "retry": "Find the first, next, and last Life Around Us steps. 💪"
-   },
-   "assetId": "science-g3-m01-d11-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d11-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about inherited traits is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Offspring are always exact copies"
-     },
-     {
-      "id": "b",
-      "text": "Environment never matters"
-     },
-     {
-      "id": "c",
-      "text": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Young animals and plants get traits from their parents but are not exact copies — the environment can shape them too."
-   },
-   {
-    "itemId": "science-g3-m01-d11-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which trait could a young animal be born with?",
-    "options": [
-     {
-      "id": "c",
-      "text": "fictional beetle color patterns"
-     },
-     {
-      "id": "a",
-      "text": "a scar from a fall"
-     },
-     {
-      "id": "b",
-      "text": "a haircut from a barber"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The beetle's color pattern comes from its parents, so it is inherited. Scars and haircuts come from what happens to the animal, not from its parents."
-   },
-   {
-    "itemId": "science-g3-m01-d11-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about offspring is NOT true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Young ones are born with traits from their parents."
-     },
-     {
-      "id": "c",
-      "text": "Offspring are always exact copies of a parent."
-     },
-     {
-      "id": "a",
-      "text": "Traits can be shaped by the environment."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Young ones get traits from their parents but are not exact copies — each one is unique. They are born with traits, and the environment can shape them."
-   },
-   {
-    "itemId": "science-g3-m01-d11-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Offspring may resemble parents without being exact copies."
-     },
-     {
-      "id": "b",
-      "text": "Offspring are always exact copies."
-     },
-     {
-      "id": "c",
-      "text": "Environment never matters."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Young ones often look like their parents but are not exactly the same — each individual is unique."
-   },
-   {
-    "itemId": "science-g3-m01-d11-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which trait could an animal be born with?",
-    "options": [
-     {
-      "id": "c",
-      "text": "fur pattern in cartoon animals"
-     },
-     {
-      "id": "a",
-      "text": "a toy a cartoon animal plays with"
-     },
-     {
-      "id": "b",
-      "text": "a song a cartoon animal learned"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Fur pattern comes from the animal's parents, so it is inherited. Toys and learned songs are not born with the animal."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d11-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d11-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Family Traits; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Family Traits.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "50a52f2f4b414ecba1c27b29e311d06528461ed8c06784007b9ab417eca0e1c6",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d11",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 11,
+  "subject": "SCIENCE",
+  "title": "Family Traits",
+  "objective": "Compare inherited traits using fictional organisms.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "A baby frog looks like its parents, but not exactly. Which traits do young ones get from their parents?",
+  "vocabulary": [
+    {
+      "term": "environment",
+      "definition": "Everything around us — land, water, and air."
+    },
+    {
+      "term": "trait",
+      "definition": "A feature or quality a living thing has."
+    },
+    {
+      "term": "animal",
+      "definition": "A living thing that can move, like a dog or bird."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d11-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows how young ones get traits from parents.",
+      "content": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Family Traits again. 💪"
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "Text alternative: Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
+    },
+    {
+      "activityId": "science-g3-m01-d11-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "fictional beetle color patterns",
+          "leaf shape in imaginary plants",
+          "fur pattern in cartoon animals"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Family Traits. 🔎",
+        "retry": "Look at each Family Traits example again. 💪"
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d11-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is it about an inherited trait?",
+      "content": {
+        "fits": [
+          "fictional beetle color patterns",
+          "leaf shape in imaginary plants",
+          "fur pattern in cartoon animals"
+        ],
+        "doesNotFit": [
+          "Ask about biological parentage",
+          "Rank skin colors",
+          "Claim one parent determines everything"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d11-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which is true?",
+      "content": {
+        "options": [
+          "Offspring may resemble parents without being exact copies.",
+          "Offspring are always exact copies.",
+          "Environment never matters."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Offspring may resemble parents without being exact copies.",
+        "retry": "Look again — exact copies are not how offspring work. Tap the true statement! 💪"
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d11-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each fictional example to its group.",
+      "content": {
+        "pairs": [
+          {
+            "left": "fictional beetle color patterns",
+            "right": "beetles"
+          },
+          {
+            "left": "leaf shape in imaginary plants",
+            "right": "plants"
+          },
+          {
+            "left": "fur pattern in cartoon animals",
+            "right": "animals"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Family Traits explanation. 🔗",
+        "retry": "Read both sides of each Family Traits pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d11-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: look, name the trait, compare with parents.",
+      "content": {
+        "steps": [
+          "Look at the fictional organism.",
+          "Name a trait it was born with.",
+          "Compare it with its parents' traits."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Family Traits steps in order. 🎉",
+        "retry": "Find the first, next, and last Family Traits steps. 💪"
+      },
+      "assetId": "science-g3-m01-d11-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d11-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about inherited traits is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Offspring are always exact copies"
+          },
+          {
+            "id": "b",
+            "text": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
+          },
+          {
+            "id": "c",
+            "text": "Environment never matters"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Young animals and plants get traits from their parents but are not exact copies — the environment can shape them too."
+      },
+      {
+        "itemId": "science-g3-m01-d11-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which trait could a young animal be born with?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a haircut from a barber"
+          },
+          {
+            "id": "b",
+            "text": "a scar from a fall"
+          },
+          {
+            "id": "c",
+            "text": "fictional beetle color patterns"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "The beetle's color pattern comes from its parents, so it is inherited. Scars and haircuts come from what happens to the animal, not from its parents."
+      },
+      {
+        "itemId": "science-g3-m01-d11-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about offspring is NOT true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Young ones are born with traits from their parents."
+          },
+          {
+            "id": "b",
+            "text": "Traits can be shaped by the environment."
+          },
+          {
+            "id": "c",
+            "text": "Offspring are always exact copies of a parent."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Young ones get traits from their parents but are not exact copies — each one is unique. They are born with traits, and the environment can shape them."
+      },
+      {
+        "itemId": "science-g3-m01-d11-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is true?  (in this lesson: Family Traits)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Environment never matters."
+          },
+          {
+            "id": "b",
+            "text": "Offspring are always exact copies."
+          },
+          {
+            "id": "c",
+            "text": "Offspring may resemble parents without being exact copies."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Young ones often look like their parents but are not exactly the same — each individual is unique."
+      },
+      {
+        "itemId": "science-g3-m01-d11-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which trait could an animal be born with?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a song a cartoon animal learned"
+          },
+          {
+            "id": "b",
+            "text": "fur pattern in cartoon animals"
+          },
+          {
+            "id": "c",
+            "text": "a toy a cartoon animal plays with"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Fur pattern comes from the animal's parents, so it is inherited. Toys and learned songs are not born with the animal."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d11-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d11-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Family Traits; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Family Traits.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "50a52f2f4b414ecba1c27b29e311d06528461ed8c06784007b9ab417eca0e1c6",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

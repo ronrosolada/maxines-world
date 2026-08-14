@@ -1,378 +1,388 @@
 {
- "lessonId": "filipino-g3-q1-w03-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 3,
- "subject": "filipino",
- "title": "Munting Talata · Q1 W03 D03",
- "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "paksa",
-   "definition": "ang pinag-uusapan sa talata"
-  },
-  {
-   "term": "pangunahing ideya",
-   "definition": "ang pinakamahalagang mensahe ng talata"
-  },
-  {
-   "term": "detalye",
-   "definition": "dagdag na impormasyon tungkol sa paksa"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "content": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Munting Talata. 💪"
-   },
-   "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "narration": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-   "content": {
-    "examples": [
-     "ang Sabado ng pamilya ni Ana",
-     "Masaya ang pamilya ni Ana sa Sabado.",
-     "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
-     "Sabay-sabay silang kumakain at nagkukuwentuhan."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Munting Talata. 💪"
-   },
-   "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
-   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Piliin ang mga bahagi ng talatang ito.",
-   "content": {
-    "fits": [
-     "ang Sabado ng pamilya ni Ana",
-     "Masaya ang pamilya ni Ana sa Sabado.",
-     "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
-     "Sabay-sabay silang kumakain at nagkukuwentuhan."
-    ],
-    "doesNotFit": [
-     "Maraming puno sa paligid nito.",
-     "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
-     "Nagtatanim siya ng kamatis, talong, at sili.",
-     "Nililinis niya ang kanyang mesa araw-araw."
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Munting Talata bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga bahagi ng talatang ito.",
-   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-   "content": {
-    "options": [
-     "Nagtatanim siya ng kamatis, talong, at sili.",
-     "Masaya ang pamilya ni Ana sa Sabado.",
-     "Maraming puno sa paligid nito.",
-     "Nagsuot ng kapote si Liza habang naglalakad pauwi."
-    ],
-    "correctIndex": 1
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Munting Talata. 💪"
-   },
-   "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
-   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-   "content": {
-    "pairs": [
-     {
-      "left": "ang Sabado ng pamilya ni Ana",
-      "right": "paksa"
-     },
-     {
-      "left": "Masaya ang pamilya ni Ana sa Sabado.",
-      "right": "pangunahing ideya"
-     },
-     {
-      "left": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
-      "right": "detalye"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Munting Talata. 💪"
-   },
-   "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
-   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  },
-  {
-   "activityId": "filipino-g3-q1-w03-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w03-d03-visual",
-   "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-   "content": {
-    "steps": [
-     "Basahin ang talata",
-     "Hanapin ang paksa",
-     "Hanapin ang pangunahing ideya",
-     "Tukuyin ang mga detalye"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Munting Talata. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
-   "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q1-w03-d03-q1",
-    "prompt": "Alin ang paksa ng talata?",
-    "options": [
-     {
-      "id": "c",
-      "text": "ang hardin ni Tito Ramon"
-     },
-     {
-      "id": "d",
-      "text": "ang Sabado ng pamilya ni Ana"
-     },
-     {
-      "id": "a",
-      "text": "ang paaralan ni Ben"
-     },
-     {
-      "id": "b",
-      "text": "ang maulan na Linggo"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang paksa ay kung tungkol saan ang buong talata. ang Sabado ng pamilya ni Ana ang paksa dahil ito ang tinalakay ng lahat ng pangungusap.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q1-w03-d03-q2",
-    "prompt": "Ano ang pangunahing ideya ng talata?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Malakas ang ulan noong Linggo."
-     },
-     {
-      "id": "c",
-      "text": "Mahilig magtanim si Tito Ramon sa hardin."
-     },
-     {
-      "id": "d",
-      "text": "Masaya ang pamilya ni Ana sa Sabado."
-     },
-     {
-      "id": "a",
-      "text": "Ang paaralan ni Ben ay malapit sa palengke."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pangunahing ideya ay ang pinakamahalagang sinasabi ng talata. Masaya ang pamilya ni Ana sa Sabado. — ito ang pinag-uusapan ng lahat ng pangungusap.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q1-w03-d03-q3",
-    "prompt": "Aling detalye ang nasa talata?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Maraming puno sa paligid nito."
-     },
-     {
-      "id": "b",
-      "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
-     },
-     {
-      "id": "c",
-      "text": "Nagtatanim siya ng kamatis, talong, at sili."
-     },
-     {
-      "id": "d",
-      "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang detalye ay sumusuporta sa paksa ng talata. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. ang detalyeng nabanggit sa talata.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q1-w03-d03-q4",
-    "prompt": "Aling pangungusap ang wakas ng talata?",
-    "options": [
-     {
-      "id": "d",
-      "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
-     },
-     {
-      "id": "a",
-      "text": "Tuwang-tuwa si Ben na pumasok araw-araw."
-     },
-     {
-      "id": "b",
-      "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
-     },
-     {
-      "id": "c",
-      "text": "Sariwang gulay ang handa tuwing hapunan."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang wakas ng talata ay ang pangungusap na nagsasara sa paksa. Sabay-sabay silang kumakain at nagkukuwentuhan. ang nagtatapos sa talata.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q1-w03-d03-q5",
-    "prompt": "Tungkol saan ang talata?",
-    "options": [
-     {
-      "id": "c",
-      "text": "ang hardin ni Tito Ramon"
-     },
-     {
-      "id": "d",
-      "text": "ang Sabado ng pamilya ni Ana"
-     },
-     {
-      "id": "a",
-      "text": "ang paaralan ni Ben"
-     },
-     {
-      "id": "b",
-      "text": "ang maulan na Linggo"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Pinagsasama ng mga pangungusap ang iisang paksa. Ang talata ay tungkol sa ang Sabado ng pamilya ni Ana.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q1-w03-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "filipino",
+  "title": "Munting Talata · Q1 W03 D03",
+  "objective": "Nakabubuo ng maikling talata na malinaw ang paksa at mga detalye.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "paksa",
+      "definition": "ang pinag-uusapan sa talata"
+    },
+    {
+      "term": "pangunahing ideya",
+      "definition": "ang pinakamahalagang mensahe ng talata"
+    },
+    {
+      "term": "detalye",
+      "definition": "dagdag na impormasyon tungkol sa paksa"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "content": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Munting Talata. 💪"
+      },
+      "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "narration": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Masaya ang pamilya ni Ana sa Sabado. Nagluluto ng adobo si Nanay habang naglilinis si Tatay. Sabay-sabay silang kumakain at nagkukuwentuhan. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "content": {
+        "examples": [
+          "ang Sabado ng pamilya ni Ana",
+          "Masaya ang pamilya ni Ana sa Sabado.",
+          "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
+          "Sabay-sabay silang kumakain at nagkukuwentuhan."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Munting Talata. 💪"
+      },
+      "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Piliin ang mga bahagi ng talatang ito.",
+      "content": {
+        "fits": [
+          "ang Sabado ng pamilya ni Ana",
+          "Masaya ang pamilya ni Ana sa Sabado.",
+          "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
+          "Sabay-sabay silang kumakain at nagkukuwentuhan."
+        ],
+        "doesNotFit": [
+          "Maraming puno sa paligid nito.",
+          "Nagsuot ng kapote si Liza habang naglalakad pauwi.",
+          "Nagtatanim siya ng kamatis, talong, at sili.",
+          "Nililinis niya ang kanyang mesa araw-araw."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Munting Talata bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga bahagi ng talatang ito.",
+      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+      "content": {
+        "options": [
+          "Nagtatanim siya ng kamatis, talong, at sili.",
+          "Masaya ang pamilya ni Ana sa Sabado.",
+          "Maraming puno sa paligid nito.",
+          "Nagsuot ng kapote si Liza habang naglalakad pauwi."
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Munting Talata. 💪"
+      },
+      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+      "content": {
+        "pairs": [
+          {
+            "left": "ang Sabado ng pamilya ni Ana",
+            "right": "paksa"
+          },
+          {
+            "left": "Masaya ang pamilya ni Ana sa Sabado.",
+            "right": "pangunahing ideya"
+          },
+          {
+            "left": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay.",
+            "right": "detalye"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Munting Talata. 💪"
+      },
+      "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    },
+    {
+      "activityId": "filipino-g3-q1-w03-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w03-d03-visual",
+      "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+      "content": {
+        "steps": [
+          "Basahin ang talata",
+          "Hanapin ang paksa",
+          "Hanapin ang pangunahing ideya",
+          "Tukuyin ang mga detalye"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Munting Talata. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+      "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w03-d03-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang paksa ng talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang paaralan ni Ben"
+          },
+          {
+            "id": "b",
+            "text": "ang maulan na Linggo"
+          },
+          {
+            "id": "c",
+            "text": "ang hardin ni Tito Ramon"
+          },
+          {
+            "id": "d",
+            "text": "ang Sabado ng pamilya ni Ana"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: ang Sabado ng pamilya ni Ana"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w03-d03-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pangunahing ideya ng talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang paaralan ni Ben ay malapit sa palengke."
+          },
+          {
+            "id": "b",
+            "text": "Malakas ang ulan noong Linggo."
+          },
+          {
+            "id": "c",
+            "text": "Mahilig magtanim si Tito Ramon sa hardin."
+          },
+          {
+            "id": "d",
+            "text": "Masaya ang pamilya ni Ana sa Sabado."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Masaya ang pamilya ni Ana sa Sabado."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w03-d03-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling detalye ang nasa talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maraming puno sa paligid nito."
+          },
+          {
+            "id": "b",
+            "text": "Nagsuot ng kapote si Liza habang naglalakad pauwi."
+          },
+          {
+            "id": "c",
+            "text": "Nagtatanim siya ng kamatis, talong, at sili."
+          },
+          {
+            "id": "d",
+            "text": "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w03-d03-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Aling pangungusap ang wakas ng talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tuwang-tuwa si Ben na pumasok araw-araw."
+          },
+          {
+            "id": "b",
+            "text": "Nang makauwi siya, pinainom siya ng mainit na tsokolate ni Lola."
+          },
+          {
+            "id": "c",
+            "text": "Sariwang gulay ang handa tuwing hapunan."
+          },
+          {
+            "id": "d",
+            "text": "Sabay-sabay silang kumakain at nagkukuwentuhan."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Sabay-sabay silang kumakain at nagkukuwentuhan."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w03-d03-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Tungkol saan ang talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang paaralan ni Ben"
+          },
+          {
+            "id": "b",
+            "text": "ang maulan na Linggo"
+          },
+          {
+            "id": "c",
+            "text": "ang hardin ni Tito Ramon"
+          },
+          {
+            "id": "d",
+            "text": "ang Sabado ng pamilya ni Ana"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: ang Sabado ng pamilya ni Ana"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

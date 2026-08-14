@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q2-w07-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 6,
- "day": 3,
- "subject": "english",
- "title": "Text Type Toolbox · Q2 W07 D03",
- "objective": "Choose a text type that fits the writer's purpose.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has three books: a story, a recipe, and a fact book! Match each text to what the writer wants to do.",
- "vocabulary": [
-  {
-   "term": "story",
-   "definition": "A text that tells events with characters or a situation."
-  },
-  {
-   "term": "instructions",
-   "definition": "A text that gives steps for completing a task."
-  },
-  {
-   "term": "informational text",
-   "definition": "A text that gives facts about a topic."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q2-w07-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Listen to how stories, instructions, and facts differ!",
-   "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Find the clue in Fact Finders again. 💪"
-   },
-   "prompt": "Listen to how stories, instructions, and facts differ!",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  },
-  {
-   "activityId": "english-g3-q2-w07-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Tap the text type that fits what the writer wants!",
-   "content": {
-    "examples": [
-     "story",
-     "instructions",
-     "informational text",
-     "personal response"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Look at each Fact Finders example again. 💪"
-   },
-   "prompt": "Tap the text type that fits what the writer wants!",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  },
-  {
-   "activityId": "english-g3-q2-w07-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Sort the text type names from the other cards!",
-   "content": {
-    "fits": [
-     "story",
-     "instructions",
-     "informational text",
-     "personal response"
-    ],
-    "doesNotFit": [
-     "a story about an imaginary dragon",
-     "a shopping list",
-     "a greeting only",
-     "a personal dream"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Read the Fact Finders rule before sorting again. 💪"
-   },
-   "prompt": "Sort the text type names from the other cards!",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  },
-  {
-   "activityId": "english-g3-q2-w07-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Which choice is an informational text that teaches facts?",
-   "content": {
-    "options": [
-     "a shopping list",
-     "a greeting only",
-     "a fact page about mangrove trees",
-     "a story about an imaginary dragon"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Find the clue in the Fact Finders question. 💪"
-   },
-   "prompt": "Which choice is an informational text that teaches facts?",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  },
-  {
-   "activityId": "english-g3-q2-w07-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Match each text type to its job!",
-   "content": {
-    "pairs": [
-     {
-      "left": "story",
-      "right": "tells events with characters"
-     },
-     {
-      "left": "instructions",
-      "right": "gives steps for a task"
-     },
-     {
-      "left": "informational text",
-      "right": "teaches facts about a topic"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Read both sides of each Fact Finders pair again. 💪"
-   },
-   "prompt": "Match each text type to its job!",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  },
-  {
-   "activityId": "english-g3-q2-w07-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w07-d03-visual",
-   "instruction": "Put the steps for choosing a text type in order.",
-   "content": {
-    "steps": [
-     "Read the example",
-     "Find the clue",
-     "Choose the idea",
-     "Explain your answer"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! You matched each text to its job! 📚",
-    "retry": "Find the first, next, and last Fact Finders steps. 💪"
-   },
-   "prompt": "Put the steps for choosing a text type in order.",
-   "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q2-w07-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which text teaches facts about a real topic?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a shopping list"
-     },
-     {
-      "id": "d",
-      "text": "a greeting only"
-     },
-     {
-      "id": "a",
-      "text": "an encyclopedia page about frogs"
-     },
-     {
-      "id": "b",
-      "text": "a story about an imaginary dragon"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "An encyclopedia page gives real facts about frogs, so it teaches facts."
-   },
-   {
-    "itemId": "english-g3-q2-w07-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which text gives steps for doing a task?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a story about an imaginary dragon"
-     },
-     {
-      "id": "c",
-      "text": "a shopping list"
-     },
-     {
-      "id": "d",
-      "text": "a greeting only"
-     },
-     {
-      "id": "a",
-      "text": "a recipe with steps for baking cookies"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A recipe gives steps in order, so it is a set of instructions."
-   },
-   {
-    "itemId": "english-g3-q2-w07-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which text tells events with characters?",
-    "options": [
-     {
-      "id": "a",
-      "text": "a story about a lost kitten"
-     },
-     {
-      "id": "b",
-      "text": "a fact page about the sun"
-     },
-     {
-      "id": "c",
-      "text": "a shopping list"
-     },
-     {
-      "id": "d",
-      "text": "a greeting only"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A story tells events with characters, like the kitten and the child who finds it."
-   },
-   {
-    "itemId": "english-g3-q2-w07-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which text would a writer choose to teach facts about mangroves?",
-    "options": [
-     {
-      "id": "d",
-      "text": "a greeting only"
-     },
-     {
-      "id": "a",
-      "text": "an informational page about mangroves"
-     },
-     {
-      "id": "b",
-      "text": "a story about an imaginary dragon"
-     },
-     {
-      "id": "c",
-      "text": "a shopping list"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "An informational page gives facts, so it fits a writer who wants to teach."
-   },
-   {
-    "itemId": "english-g3-q2-w07-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice belongs in an information book?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a shopping list"
-     },
-     {
-      "id": "d",
-      "text": "a greeting only"
-     },
-     {
-      "id": "a",
-      "text": "a fact page about mangrove trees"
-     },
-     {
-      "id": "b",
-      "text": "a story about an imaginary dragon"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A fact page gives true information, so it belongs in an information book."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q2-w07-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 3,
+  "subject": "english",
+  "title": "Text Type Toolbox · Q2 W07 D03",
+  "objective": "Choose a text type that fits the writer's purpose.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has three books: a story, a recipe, and a fact book! Match each text to what the writer wants to do.",
+  "vocabulary": [
+    {
+      "term": "story",
+      "definition": "A text that tells events with characters or a situation."
+    },
+    {
+      "term": "instructions",
+      "definition": "A text that gives steps for completing a task."
+    },
+    {
+      "term": "informational text",
+      "definition": "A text that gives facts about a topic."
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w07-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Listen to how stories, instructions, and facts differ!",
+      "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Find the clue in Text Type Toolbox again. 💪"
+      },
+      "prompt": "Listen to how stories, instructions, and facts differ!",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q2-w07-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Tap the text type that fits what the writer wants!",
+      "content": {
+        "examples": [
+          "story",
+          "instructions",
+          "informational text",
+          "personal response"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Look at each Text Type Toolbox example again. 💪"
+      },
+      "prompt": "Tap the text type that fits what the writer wants!",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q2-w07-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Sort the text type names from the other cards!",
+      "content": {
+        "fits": [
+          "story",
+          "instructions",
+          "informational text",
+          "personal response"
+        ],
+        "doesNotFit": [
+          "a story about an imaginary dragon",
+          "a shopping list",
+          "a greeting only",
+          "a personal dream"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Read the Text Type Toolbox rule before sorting again. 💪"
+      },
+      "prompt": "Sort the text type names from the other cards!",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q2-w07-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Which choice is an informational text that teaches facts?",
+      "content": {
+        "options": [
+          "a shopping list",
+          "a greeting only",
+          "a fact page about mangrove trees",
+          "a story about an imaginary dragon"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Find the clue in the Text Type Toolbox question. 💪"
+      },
+      "prompt": "Which choice is an informational text that teaches facts?",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q2-w07-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Match each text type to its job!",
+      "content": {
+        "pairs": [
+          {
+            "left": "story",
+            "right": "tells events with characters"
+          },
+          {
+            "left": "instructions",
+            "right": "gives steps for a task"
+          },
+          {
+            "left": "informational text",
+            "right": "teaches facts about a topic"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Read both sides of each Text Type Toolbox pair again. 💪"
+      },
+      "prompt": "Match each text type to its job!",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q2-w07-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w07-d03-visual",
+      "instruction": "Put the steps for choosing a text type in order.",
+      "content": {
+        "steps": [
+          "Read the example",
+          "Find the clue",
+          "Choose the idea",
+          "Explain your answer"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! You matched each text to its job! 📚",
+        "retry": "Find the first, next, and last Text Type Toolbox steps. 💪"
+      },
+      "prompt": "Put the steps for choosing a text type in order.",
+      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w07-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which text teaches facts about a real topic?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a greeting only"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "an encyclopedia page about frogs"
+          },
+          {
+            "id": "d",
+            "text": "a story about an imaginary dragon"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "An encyclopedia page gives real facts about frogs, so it teaches facts."
+      },
+      {
+        "itemId": "english-g3-q2-w07-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which text gives steps for doing a task?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a recipe with steps for baking cookies"
+          },
+          {
+            "id": "b",
+            "text": "a greeting only"
+          },
+          {
+            "id": "c",
+            "text": "a shopping list"
+          },
+          {
+            "id": "d",
+            "text": "a story about an imaginary dragon"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A recipe gives steps in order, so it is a set of instructions."
+      },
+      {
+        "itemId": "english-g3-q2-w07-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which text tells events with characters?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a story about a lost kitten"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "a greeting only"
+          },
+          {
+            "id": "d",
+            "text": "a fact page about the sun"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A story tells events with characters, like the kitten and the child who finds it."
+      },
+      {
+        "itemId": "english-g3-q2-w07-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which text would a writer choose to teach facts about mangroves?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a greeting only"
+          },
+          {
+            "id": "b",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "c",
+            "text": "an informational page about mangroves"
+          },
+          {
+            "id": "d",
+            "text": "a shopping list"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "An informational page gives facts, so it fits a writer who wants to teach."
+      },
+      {
+        "itemId": "english-g3-q2-w07-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice belongs in an information book?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a shopping list"
+          },
+          {
+            "id": "b",
+            "text": "a greeting only"
+          },
+          {
+            "id": "c",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "d",
+            "text": "a fact page about mangrove trees"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "A fact page gives true information, so it belongs in an information book."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

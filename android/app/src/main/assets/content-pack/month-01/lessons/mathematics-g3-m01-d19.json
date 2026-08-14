@@ -1,350 +1,360 @@
 {
- "lessonId": "mathematics-g3-m01-d19",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 19,
- "subject": "MATHEMATICS",
- "title": "Division Fact Families",
- "objective": "Connect multiplication with sharing and grouping division.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Milo has 12 eggs to share into 3 baskets! Help him divide them equally.",
- "vocabulary": [
-  {
-   "term": "division",
-   "definition": "Sharing things into equal groups."
-  },
-  {
-   "term": "multiplication",
-   "definition": "Adding the same number again and again."
-  },
-  {
-   "term": "number",
-   "definition": "A symbol or word that tells how many, like 12."
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-m01-d19-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how 12 shared into 3 baskets gives 4 each.",
-   "content": "Division can share a total among known groups or find the number of groups of a known size.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Multiplication Builders again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "accessibilityAlternative": "Text alternative: Division can share a total among known groups or find the number of groups of a known size."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d19-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read the division.",
-   "content": {
-    "examples": [
-     "12÷3=4",
-     "12 shared among 3 gives 4 each",
-     "12 grouped by 4 makes 3 groups"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Multiplication Builders. 🔎",
-    "retry": "Look at each Multiplication Builders example again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d19-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it describe sharing or grouping correctly?",
-   "content": {
-    "fits": [
-     "12÷3=4",
-     "12 shared among 3 gives 4 each",
-     "12 grouped by 4 makes 3 groups"
-    ],
-    "doesNotFit": [
-     "12÷3=9",
-     "Confuse group size and group count",
-     "Use unequal shares when equal requested"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Multiplication Builders clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d19-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "12 shared equally among 3 groups gives",
-   "content": {
-    "options": [
-     "9 in each group",
-     "3 total",
-     "4 in each group"
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: 4 in each group",
-    "retry": "Look at the example again. 9 in each group and 3 total do not match the lesson idea. Choose the answer that fits. 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d19-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each division to its fact family.",
-   "content": {
-    "pairs": [
-     {
-      "left": "12÷3=4",
-      "right": "division fact"
-     },
-     {
-      "left": "12 shared among 3 gives 4 each",
-      "right": "sharing"
-     },
-     {
-      "left": "12 grouped by 4 makes 3 groups",
-      "right": "grouping"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Multiplication Builders explanation. 🔗",
-    "retry": "Read both sides of each Multiplication Builders pair again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d19-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the sharing steps in order.",
-   "content": {
-    "steps": [
-     "Start with 12 objects.",
-     "Share them equally.",
-     "Write the division sentence."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Multiplication Builders steps in order. 🎉",
-    "retry": "Find the first, next, and last Multiplication Builders steps. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-m01-d19-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about division is true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "12÷3=9"
-     },
-     {
-      "id": "c",
-      "text": "Confuse group size and group count"
-     },
-     {
-      "id": "a",
-      "text": "Division can share a total among known groups or find the number of groups of a known size."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Division splits a total into equal groups, either sharing among groups or grouping into sets."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d19-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which division is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "12÷3=4"
-     },
-     {
-      "id": "b",
-      "text": "12÷3=9"
-     },
-     {
-      "id": "c",
-      "text": "12 ÷ 3 = 3"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "12 shared into 3 groups gives 4 in each group, so 12 ÷ 3 = 4."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d19-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which division is NOT correct?",
-    "options": [
-     {
-      "id": "c",
-      "text": "12 shared among 3 gives 4 each"
-     },
-     {
-      "id": "a",
-      "text": "12÷3=9"
-     },
-     {
-      "id": "b",
-      "text": "12÷3=4"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "12 ÷ 3 = 4. Saying 9 would mean 3 × 9 = 27, not 12."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d19-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "12 shared equally among 3 groups gives",
-    "options": [
-     {
-      "id": "b",
-      "text": "9 in each group"
-     },
-     {
-      "id": "c",
-      "text": "3 total"
-     },
-     {
-      "id": "a",
-      "text": "4 in each group"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "4 + 4 + 4 = 12, so each of the 3 groups gets 4."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d19-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which division sentence is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "12 grouped by 4 makes 3 groups"
-     },
-     {
-      "id": "b",
-      "text": "12 grouped by 4 makes 4 groups"
-     },
-     {
-      "id": "c",
-      "text": "12 ÷ 3 = 9"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "12 ÷ 4 = 3: grouping 12 into sets of 4 makes 3 groups, because 4 × 3 = 12."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "mathematics-g3-m01-d19-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/mathematics-g3-m01-d19-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Division Fact Families; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Division Fact Families.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NCTM Principles and Standards",
-   "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "e8b8168243765a9f78ad08ccd98b1d033d764e33eb03fc783bebbfc49aa49a92",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-m01-d19",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 19,
+  "subject": "MATHEMATICS",
+  "title": "Division Fact Families",
+  "objective": "Connect multiplication with sharing and grouping division.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has 12 eggs to share into 3 baskets! Help him divide them equally.",
+  "vocabulary": [
+    {
+      "term": "division",
+      "definition": "Sharing things into equal groups."
+    },
+    {
+      "term": "multiplication",
+      "definition": "Adding the same number again and again."
+    },
+    {
+      "term": "number",
+      "definition": "A symbol or word that tells how many, like 12."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d19-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how 12 shared into 3 baskets gives 4 each.",
+      "content": "Division can share a total among known groups or find the number of groups of a known size.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Division Fact Families again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "Text alternative: Division can share a total among known groups or find the number of groups of a known size."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d19-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the division.",
+      "content": {
+        "examples": [
+          "12÷3=4",
+          "12 shared among 3 gives 4 each",
+          "12 grouped by 4 makes 3 groups"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Division Fact Families. 🔎",
+        "retry": "Look at each Division Fact Families example again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d19-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it describe sharing or grouping correctly?",
+      "content": {
+        "fits": [
+          "12÷3=4",
+          "12 shared among 3 gives 4 each",
+          "12 grouped by 4 makes 3 groups"
+        ],
+        "doesNotFit": [
+          "12÷3=9",
+          "Confuse group size and group count",
+          "Use unequal shares when equal requested"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Division Fact Families clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d19-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "12 shared equally among 3 groups gives",
+      "content": {
+        "options": [
+          "9 in each group",
+          "3 total",
+          "4 in each group"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 4 in each group",
+        "retry": "Look again: 9 in each group and 3 total do not fit here. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d19-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each division to its fact family.",
+      "content": {
+        "pairs": [
+          {
+            "left": "12÷3=4",
+            "right": "division fact"
+          },
+          {
+            "left": "12 shared among 3 gives 4 each",
+            "right": "sharing"
+          },
+          {
+            "left": "12 grouped by 4 makes 3 groups",
+            "right": "grouping"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Division Fact Families explanation. 🔗",
+        "retry": "Read both sides of each Division Fact Families pair again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d19-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the sharing steps in order.",
+      "content": {
+        "steps": [
+          "Start with 12 objects.",
+          "Share them equally.",
+          "Write the division sentence."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Division Fact Families steps in order. 🎉",
+        "retry": "Find the first, next, and last Division Fact Families steps. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d19-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about division is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Division can share a total among known groups or find the number of groups of a known size."
+          },
+          {
+            "id": "b",
+            "text": "12÷3=9"
+          },
+          {
+            "id": "c",
+            "text": "Confuse group size and group count"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Division splits a total into equal groups, either sharing among groups or grouping into sets."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d19-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which division is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "12 ÷ 3 = 3"
+          },
+          {
+            "id": "b",
+            "text": "12÷3=4"
+          },
+          {
+            "id": "c",
+            "text": "12÷3=9"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "12 shared into 3 groups gives 4 in each group, so 12 ÷ 3 = 4."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d19-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which division is NOT correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "12 shared among 3 gives 4 each"
+          },
+          {
+            "id": "b",
+            "text": "12÷3=9"
+          },
+          {
+            "id": "c",
+            "text": "12÷3=4"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "12 ÷ 3 = 4. Saying 9 would mean 3 × 9 = 27, not 12."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d19-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "12 shared equally among 3 groups gives",
+        "options": [
+          {
+            "id": "a",
+            "text": "4 in each group"
+          },
+          {
+            "id": "b",
+            "text": "3 total"
+          },
+          {
+            "id": "c",
+            "text": "9 in each group"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "4 + 4 + 4 = 12, so each of the 3 groups gets 4."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d19-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which division sentence is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "12 grouped by 4 makes 4 groups"
+          },
+          {
+            "id": "b",
+            "text": "12 ÷ 3 = 9"
+          },
+          {
+            "id": "c",
+            "text": "12 grouped by 4 makes 3 groups"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "12 ÷ 4 = 3: grouping 12 into sets of 4 makes 3 groups, because 4 × 3 = 12."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d19-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d19-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Division Fact Families; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Division Fact Families.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "e8b8168243765a9f78ad08ccd98b1d033d764e33eb03fc783bebbfc49aa49a92",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

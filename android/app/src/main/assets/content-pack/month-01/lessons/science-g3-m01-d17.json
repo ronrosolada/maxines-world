@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d17",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 17,
- "subject": "SCIENCE",
- "title": "Magnet Investigators",
- "objective": "Predict attraction and repulsion safely.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Milo's magnet pulls the iron nail but not the wooden spoon. What else can a magnet do?",
- "vocabulary": [
-  {
-   "term": "attract",
-   "definition": "To pull toward, like a magnet pulling metal."
-  },
-  {
-   "term": "magnet",
-   "definition": "A metal object that pulls iron and steel."
-  },
-  {
-   "term": "material",
-   "definition": "What something is made of, like wood or plastic."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d17-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows what magnets attract and how poles act.",
-   "content": "Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Material Detectives again. 💪"
-   },
-   "assetId": "science-g3-m01-d17-visual",
-   "accessibilityAlternative": "Text alternative: Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet."
-  },
-  {
-   "activityId": "science-g3-m01-d17-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "iron object may be attracted",
-     "like poles repel",
-     "unlike poles attract"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Material Detectives. 🔎",
-    "retry": "Look at each Material Detectives example again. 💪"
-   },
-   "assetId": "science-g3-m01-d17-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d17-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the magnet statement safe and correct?",
-   "content": {
-    "fits": [
-     "iron object may be attracted",
-     "like poles repel",
-     "unlike poles attract"
-    ],
-    "doesNotFit": [
-     "All metals are magnetic",
-     "Swallowable loose magnets",
-     "Magnets attract wood"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d17-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d17-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which is correct?",
-   "content": {
-    "options": [
-     "Like magnetic poles repel.",
-     "All metals are magnetic.",
-     "Magnets attract every object."
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: Like magnetic poles repel.",
-    "retry": "Look again — not all metals and not every object are attracted. Tap the true statement! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d17-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each magnet example to its group.",
-   "content": {
-    "pairs": [
-     {
-      "left": "iron object may be attracted",
-      "right": "iron"
-     },
-     {
-      "left": "like poles repel",
-      "right": "like poles"
-     },
-     {
-      "left": "unlike poles attract",
-      "right": "unlike poles"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Material Detectives explanation. 🔗",
-    "retry": "Read both sides of each Material Detectives pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d17-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d17-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: hold safely, test, predict.",
-   "content": {
-    "steps": [
-     "Hold the magnet safely.",
-     "Test which materials it attracts.",
-     "Predict what the poles do."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Material Detectives steps in order. 🎉",
-    "retry": "Find the first, next, and last Material Detectives steps. 💪"
-   },
-   "assetId": "science-g3-m01-d17-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d17-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about magnets is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "All metals are magnetic"
-     },
-     {
-      "id": "b",
-      "text": "Magnets attract every object"
-     },
-     {
-      "id": "c",
-      "text": "Magnets attract some materials, not all metals; poles can attract or repel."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A magnet pulls some materials, like iron, but not all metals or all objects. Its poles can pull together or push apart."
-   },
-   {
-    "itemId": "science-g3-m01-d17-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which object might a magnet pull?",
-    "options": [
-     {
-      "id": "c",
-      "text": "iron object may be attracted"
-     },
-     {
-      "id": "a",
-      "text": "plastic cup may be attracted"
-     },
-     {
-      "id": "b",
-      "text": "rubber ball may be attracted"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Iron is a material magnets pull strongly. Plastic and rubber are not attracted."
-   },
-   {
-    "itemId": "science-g3-m01-d17-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about magnets is NOT true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "iron object may be attracted"
-     },
-     {
-      "id": "c",
-      "text": "All metals are magnetic"
-     },
-     {
-      "id": "a",
-      "text": "like poles repel"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Magnets pull some metals, like iron, but not all metals. Iron objects can be attracted, and like poles repel."
-   },
-   {
-    "itemId": "science-g3-m01-d17-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Like magnetic poles repel."
-     },
-     {
-      "id": "b",
-      "text": "All metals are magnetic."
-     },
-     {
-      "id": "c",
-      "text": "Magnets attract every object."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Two north poles push each other away — like poles repel. Not all metals are magnetic, and magnets do not attract every object."
-   },
-   {
-    "itemId": "science-g3-m01-d17-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which magnet statement is true?",
-    "options": [
-     {
-      "id": "c",
-      "text": "All metals are magnetic"
-     },
-     {
-      "id": "a",
-      "text": "unlike poles attract"
-     },
-     {
-      "id": "b",
-      "text": "Magnets attract wood"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A north pole and a south pole pull together — unlike poles attract. Not all metals are magnetic, and wood is not attracted."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d17-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d17-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Magnet Investigators; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Magnet Investigators.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "f03bee5b9cce12cd5e56f82838a2f8d8e23e1d2c7355dca0dcd7883044d968f7",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "SCIENCE",
+  "title": "Magnet Investigators",
+  "objective": "Predict attraction and repulsion safely.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo's magnet pulls the iron nail but not the wooden spoon. What else can a magnet do?",
+  "vocabulary": [
+    {
+      "term": "attract",
+      "definition": "To pull toward, like a magnet pulling metal."
+    },
+    {
+      "term": "magnet",
+      "definition": "A metal object that pulls iron and steel."
+    },
+    {
+      "term": "material",
+      "definition": "What something is made of, like wood or plastic."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows what magnets attract and how poles act.",
+      "content": "Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Magnet Investigators again. 💪"
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "Text alternative: Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet."
+    },
+    {
+      "activityId": "science-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "iron object may be attracted",
+          "like poles repel",
+          "unlike poles attract"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Magnet Investigators. 🔎",
+        "retry": "Look at each Magnet Investigators example again. 💪"
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the magnet statement safe and correct?",
+      "content": {
+        "fits": [
+          "iron object may be attracted",
+          "like poles repel",
+          "unlike poles attract"
+        ],
+        "doesNotFit": [
+          "All metals are magnetic",
+          "Swallowable loose magnets",
+          "Magnets attract wood"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which is correct?",
+      "content": {
+        "options": [
+          "Like magnetic poles repel.",
+          "All metals are magnetic.",
+          "Magnets attract every object."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Like magnetic poles repel.",
+        "retry": "Look again — not all metals and not every object are attracted. Tap the true statement! 💪"
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each magnet example to its group.",
+      "content": {
+        "pairs": [
+          {
+            "left": "iron object may be attracted",
+            "right": "iron"
+          },
+          {
+            "left": "like poles repel",
+            "right": "like poles"
+          },
+          {
+            "left": "unlike poles attract",
+            "right": "unlike poles"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Magnet Investigators explanation. 🔗",
+        "retry": "Read both sides of each Magnet Investigators pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: hold safely, test, predict.",
+      "content": {
+        "steps": [
+          "Hold the magnet safely.",
+          "Test which materials it attracts.",
+          "Predict what the poles do."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Magnet Investigators steps in order. 🎉",
+        "retry": "Find the first, next, and last Magnet Investigators steps. 💪"
+      },
+      "assetId": "science-g3-m01-d17-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about magnets is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Magnets attract some materials, not all metals; poles can attract or repel."
+          },
+          {
+            "id": "b",
+            "text": "Magnets attract every object"
+          },
+          {
+            "id": "c",
+            "text": "All metals are magnetic"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A magnet pulls some materials, like iron, but not all metals or all objects. Its poles can pull together or push apart."
+      },
+      {
+        "itemId": "science-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which object might a magnet pull?",
+        "options": [
+          {
+            "id": "a",
+            "text": "rubber ball may be attracted"
+          },
+          {
+            "id": "b",
+            "text": "iron object may be attracted"
+          },
+          {
+            "id": "c",
+            "text": "plastic cup may be attracted"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Iron is a material magnets pull strongly. Plastic and rubber are not attracted."
+      },
+      {
+        "itemId": "science-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about magnets is NOT true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "All metals are magnetic"
+          },
+          {
+            "id": "b",
+            "text": "iron object may be attracted"
+          },
+          {
+            "id": "c",
+            "text": "like poles repel"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Magnets pull some metals, like iron, but not all metals. Iron objects can be attracted, and like poles repel."
+      },
+      {
+        "itemId": "science-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is correct?  (in this lesson: Magnet Investigators)",
+        "options": [
+          {
+            "id": "a",
+            "text": "All metals are magnetic."
+          },
+          {
+            "id": "b",
+            "text": "Magnets attract every object."
+          },
+          {
+            "id": "c",
+            "text": "Like magnetic poles repel."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Two north poles push each other away — like poles repel. Not all metals are magnetic, and magnets do not attract every object."
+      },
+      {
+        "itemId": "science-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which magnet statement is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "All metals are magnetic"
+          },
+          {
+            "id": "b",
+            "text": "unlike poles attract"
+          },
+          {
+            "id": "c",
+            "text": "Magnets attract wood"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A north pole and a south pole pull together — unlike poles attract. Not all metals are magnetic, and wood is not attracted."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Magnet Investigators; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Magnet Investigators.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f03bee5b9cce12cd5e56f82838a2f8d8e23e1d2c7355dca0dcd7883044d968f7",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

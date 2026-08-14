@@ -1,370 +1,380 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 5,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Koneksyon ng Lupa at Tubig",
- "objective": "Sundan ang karaniwang daloy ng tubig sa sistema ng daluyan ng tubig.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw.",
- "vocabulary": [
-  {
-   "term": "anyong lupa",
-   "definition": "Ang mga hugis ng lupa, tulad ng bundok at burol."
-  },
-  {
-   "term": "anyong tubig",
-   "definition": "Ang mga anyo ng tubig, tulad ng ilog, lawa, at dagat."
-  },
-  {
-   "term": "mapa",
-   "definition": "Ang guhit o larawang nagpapakita ng mga lugar."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Koneksyon ng Lupa at Tubig. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "ulan→sapa→ilog",
-     "tubig maaaring mapunta sa lawa",
-     "evaporation returns water vapor"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Koneksyon ng Lupa at Tubig. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Koneksyon ng Lupa at Tubig. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "ulan→sapa→ilog",
-     "tubig maaaring mapunta sa lawa",
-     "evaporation returns water vapor"
-    ],
-    "doesNotFit": [
-     "Lahat ng sapa direktang dagat",
-     "Tubig laging iisang landas",
-     "Balewalain ang groundwater"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Koneksyon ng Lupa at Tubig. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Bakit karaniwang dumadaloy pababa ang tubig?",
-   "content": {
-    "options": [
-     "dahil sa kulay",
-     "dahil sa pangalan ng ilog",
-     "dahil sa gravity"
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: dahil sa gravity",
-    "retry": "Basahin muli ang tuntunin ng aralin. dahil sa kulay at dahil sa pangalan ng ilog ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "ulan→sapa→ilog",
-      "right": "ulan→sapa→ilog"
-     },
-     {
-      "left": "tubig maaaring mapunta sa lawa",
-      "right": "tubig maaaring mapunta sa lawa"
-     },
-     {
-      "left": "Ang ebaporasyon ay nagpapabalik ng singaw ng tubig sa hangin.",
-      "right": "Ang ebaporasyon ay nagpapabalik ng singaw ng tubig sa hangin."
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Koneksyon ng Lupa at Tubig. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Koneksyon ng Lupa at Tubig. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Koneksyon ng Lupa at Tubig. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Koneksyon ng Lupa at Tubig. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d05-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalaga ang maayos na daluyan ng tubig?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang hindi bumaha sa mga tirahan"
-     },
-     {
-      "id": "b",
-      "text": "upang malamig ang hangin"
-     },
-     {
-      "id": "c",
-      "text": "upang marami ang isda"
-     },
-     {
-      "id": "d",
-      "text": "upang may magandang tanawin"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Kung maayos ang daluyan, mabilis na umaagos ang tubig at hindi bumabaha."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d05-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Saan napupunta ang tubig mula sa mga burol?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sa mga bahay lamang"
-     },
-     {
-      "id": "b",
-      "text": "nananatili sa burol"
-     },
-     {
-      "id": "c",
-      "text": "sa mga ilog, sapa, at dagat"
-     },
-     {
-      "id": "d",
-      "text": "sa mga puno lamang"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang tubig mula sa mataas na lugar ay dumadaloy sa mga sapa at ilog papunta sa dagat."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d05-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Saan karaniwang dumadaloy ang tubig pagkatapos ng ulan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pumapailanlang sa langit"
-     },
-     {
-      "id": "b",
-      "text": "mula sa mababang lupa papunta sa mataas"
-     },
-     {
-      "id": "c",
-      "text": "mula sa mataas na lupa papunta sa mababang lupa"
-     },
-     {
-      "id": "d",
-      "text": "nananatili sa kung saan umulan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang tubig ay dumadaloy mula sa mataas papunta sa mababang lugar."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d05-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang mangyayari kung barado ang kanal?",
-    "options": [
-     {
-      "id": "a",
-      "text": "lalakas ang hangin"
-     },
-     {
-      "id": "b",
-      "text": "tutubo ang mga puno"
-     },
-     {
-      "id": "c",
-      "text": "tutuyo ang ilog"
-     },
-     {
-      "id": "d",
-      "text": "bubaha ang paligid"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang baradong kanal ay hindi makapagdaloy ng tubig — kaya bumabaha."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d05-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang sistema ng daluyan ng tubig?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mga dala-dalahan ng sasakyan"
-     },
-     {
-      "id": "b",
-      "text": "mga taniman ng palay"
-     },
-     {
-      "id": "c",
-      "text": "mga daluyan ng tubig tulad ng kanal at ilog"
-     },
-     {
-      "id": "d",
-      "text": "mga lugar na pinaglalaruan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang sistema ng daluyan ng tubig ay ang mga daluyan kung saan dumadaloy ang tubig."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d05-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d05-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Koneksyon ng Lupa at Tubig; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Koneksyon ng Lupa at Tubig.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "d4ee26b13ca9345cce2aa17544487b0c498798121653bed86106e4fe5747d92d",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 5,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Koneksyon ng Lupa at Tubig",
+  "objective": "Sundan ang karaniwang daloy ng tubig sa sistema ng daluyan ng tubig.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw.",
+  "vocabulary": [
+    {
+      "term": "anyong lupa",
+      "definition": "Ang mga hugis ng lupa, tulad ng bundok at burol."
+    },
+    {
+      "term": "anyong tubig",
+      "definition": "Ang mga anyo ng tubig, tulad ng ilog, lawa, at dagat."
+    },
+    {
+      "term": "mapa",
+      "definition": "Ang guhit o larawang nagpapakita ng mga lugar."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Koneksyon ng Lupa at Tubig. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Karaniwang dumadaloy pababa ang tubig, ngunit maaari itong dumaan sa sapa, ilog, lawa, basang-lupa, groundwater, dam, o sumingaw."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "ulan→sapa→ilog",
+          "tubig maaaring mapunta sa lawa",
+          "evaporation returns water vapor"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Koneksyon ng Lupa at Tubig. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Koneksyon ng Lupa at Tubig. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "ulan→sapa→ilog",
+          "tubig maaaring mapunta sa lawa",
+          "evaporation returns water vapor"
+        ],
+        "doesNotFit": [
+          "Lahat ng sapa direktang dagat",
+          "Tubig laging iisang landas",
+          "Balewalain ang groundwater"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Koneksyon ng Lupa at Tubig. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Bakit karaniwang dumadaloy pababa ang tubig?",
+      "content": {
+        "options": [
+          "dahil sa kulay",
+          "dahil sa pangalan ng ilog",
+          "dahil sa gravity"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: dahil sa gravity",
+        "retry": "Basahin muli ang tuntunin ng aralin. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ulan",
+            "right": "bumubuo ng sapa at ilog"
+          },
+          {
+            "left": "Ilog",
+            "right": "maaaring umabot sa lawa"
+          },
+          {
+            "left": "Ebaporasyon",
+            "right": "nagpapabalik ng singaw ng tubig sa hangin"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Koneksyon ng Lupa at Tubig. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Koneksyon ng Lupa at Tubig. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Koneksyon ng Lupa at Tubig. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Koneksyon ng Lupa at Tubig. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d05-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalaga ang maayos na daluyan ng tubig?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang marami ang isda"
+          },
+          {
+            "id": "b",
+            "text": "upang hindi bumaha sa mga tirahan"
+          },
+          {
+            "id": "c",
+            "text": "upang malamig ang hangin"
+          },
+          {
+            "id": "d",
+            "text": "upang may magandang tanawin"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Kung maayos ang daluyan, mabilis na umaagos ang tubig at hindi bumabaha."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d05-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Saan napupunta ang tubig mula sa mga burol?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sa mga puno lamang"
+          },
+          {
+            "id": "b",
+            "text": "nananatili sa burol"
+          },
+          {
+            "id": "c",
+            "text": "sa mga ilog, sapa, at dagat"
+          },
+          {
+            "id": "d",
+            "text": "sa mga bahay lamang"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang tubig mula sa mataas na lugar ay dumadaloy sa mga sapa at ilog papunta sa dagat."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d05-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Saan karaniwang dumadaloy ang tubig pagkatapos ng ulan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mula sa mataas na lupa papunta sa mababang lupa"
+          },
+          {
+            "id": "b",
+            "text": "nananatili sa kung saan umulan"
+          },
+          {
+            "id": "c",
+            "text": "pumapailanlang sa langit"
+          },
+          {
+            "id": "d",
+            "text": "mula sa mababang lupa papunta sa mataas"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tubig ay dumadaloy mula sa mataas papunta sa mababang lugar."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d05-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang mangyayari kung barado ang kanal?",
+        "options": [
+          {
+            "id": "a",
+            "text": "lalakas ang hangin"
+          },
+          {
+            "id": "b",
+            "text": "tutuyo ang ilog"
+          },
+          {
+            "id": "c",
+            "text": "bubaha ang paligid"
+          },
+          {
+            "id": "d",
+            "text": "tutubo ang mga puno"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang baradong kanal ay hindi makapagdaloy ng tubig — kaya bumabaha."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d05-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang sistema ng daluyan ng tubig?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mga daluyan ng tubig tulad ng kanal at ilog"
+          },
+          {
+            "id": "b",
+            "text": "mga dala-dalahan ng sasakyan"
+          },
+          {
+            "id": "c",
+            "text": "mga lugar na pinaglalaruan"
+          },
+          {
+            "id": "d",
+            "text": "mga taniman ng palay"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang sistema ng daluyan ng tubig ay ang mga daluyan kung saan dumadaloy ang tubig."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d05-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d05-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Koneksyon ng Lupa at Tubig; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Koneksyon ng Lupa at Tubig.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "d4ee26b13ca9345cce2aa17544487b0c498798121653bed86106e4fe5747d92d",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
 }

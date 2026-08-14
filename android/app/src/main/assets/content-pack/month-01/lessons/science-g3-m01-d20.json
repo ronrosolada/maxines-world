@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d20",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 20,
- "subject": "SCIENCE",
- "title": "Heat and Electricity",
- "objective": "Identify safe everyday sources and uses through on-screen sorting only.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "The Sun warms your skin, and a lamp lights the room. How do heat and electricity help us — and how do we stay safe?",
- "vocabulary": [
-  {
-   "term": "heat",
-   "definition": "Energy that makes things warm."
-  },
-  {
-   "term": "electricity",
-   "definition": "Energy that makes lights and machines work."
-  },
-  {
-   "term": "energy",
-   "definition": "The power to do work, like light or heat."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d20-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows safe heat and electricity.",
-   "content": "Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Material Detectives again. 💪"
-   },
-   "assetId": "science-g3-m01-d20-visual",
-   "accessibilityAlternative": "Text alternative: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
-  },
-  {
-   "activityId": "science-g3-m01-d20-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "sunlight can warm surfaces",
-     "battery powers a safe device",
-     "adult handles damaged cord"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Material Detectives. 🔎",
-    "retry": "Look at each Material Detectives example again. 💪"
-   },
-   "assetId": "science-g3-m01-d20-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d20-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the energy use safe?",
-   "content": {
-    "fits": [
-     "sunlight can warm surfaces",
-     "battery powers a safe device",
-     "adult handles damaged cord"
-    ],
-    "doesNotFit": [
-     "Insert object in outlet",
-     "Touch hot pan",
-     "Short-circuit battery"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d20-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d20-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "What should a child do about a damaged cord?",
-   "content": {
-    "options": [
-     "Tell a responsible adult and do not touch it.",
-     "Repair it while plugged in.",
-     "Put it in water."
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: Tell a responsible adult and do not touch it.",
-    "retry": "Look again — repairing cords and wet cords are unsafe. Tap what a child should do! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d20-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to its safe energy use.",
-   "content": {
-    "pairs": [
-     {
-      "left": "sunlight can warm surfaces",
-      "right": "safe energy"
-     },
-     {
-      "left": "battery powers a safe device",
-      "right": "safe energy"
-     },
-     {
-      "left": "adult handles damaged cord",
-      "right": "adult help"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Material Detectives explanation. 🔗",
-    "retry": "Read both sides of each Material Detectives pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d20-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d20-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: look at the source, decide, ask an adult.",
-   "content": {
-    "steps": [
-     "Look at the energy source.",
-     "Decide if it is safe to use.",
-     "Ask an adult for anything unsafe."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Material Detectives steps in order. 🎉",
-    "retry": "Find the first, next, and last Material Detectives steps. 💪"
-   },
-   "assetId": "science-g3-m01-d20-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d20-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about heat and electricity is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Insert object in outlet"
-     },
-     {
-      "id": "b",
-      "text": "Touch hot pan"
-     },
-     {
-      "id": "c",
-      "text": "Heat is energy transfer related to temperature differences; electricity involves electric charge."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Heat moves from warmer to cooler things, and electricity is energy that flows. Poking outlets and touching hot pans are unsafe."
-   },
-   {
-    "itemId": "science-g3-m01-d20-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows a safe use of energy?",
-    "options": [
-     {
-      "id": "c",
-      "text": "sunlight can warm surfaces"
-     },
-     {
-      "id": "a",
-      "text": "touch a hot pan with bare hands"
-     },
-     {
-      "id": "b",
-      "text": "insert a fork into an outlet"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Sunlight warming a surface is a safe, everyday use of energy. Touching hot pans and poking outlets are dangerous."
-   },
-   {
-    "itemId": "science-g3-m01-d20-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which action is NOT safe?",
-    "options": [
-     {
-      "id": "b",
-      "text": "sunlight can warm surfaces"
-     },
-     {
-      "id": "c",
-      "text": "Insert object in outlet"
-     },
-     {
-      "id": "a",
-      "text": "battery powers a safe device"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Putting anything into an outlet can give a dangerous shock. Sunlight warming things and batteries powering safe devices are fine with adult care."
-   },
-   {
-    "itemId": "science-g3-m01-d20-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What should a child do about a damaged cord?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Tell a responsible adult and do not touch it."
-     },
-     {
-      "id": "b",
-      "text": "Repair it while plugged in."
-     },
-     {
-      "id": "c",
-      "text": "Put it in water."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A damaged cord can be dangerous, so tell an adult and do not touch it. Repairing it while plugged in or putting it in water is unsafe."
-   },
-   {
-    "itemId": "science-g3-m01-d20-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which energy use is safe?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Insert object in outlet"
-     },
-     {
-      "id": "a",
-      "text": "adult handles damaged cord"
-     },
-     {
-      "id": "b",
-      "text": "Short-circuit battery"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "An adult can safely handle a damaged cord. Poking objects into outlets and short-circuiting batteries are dangerous."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d20-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d20-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Heat and Electricity; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Heat and Electricity.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "c070b26669eac472adeff6d4412c313855d820bb6f509840256c685850d0bf49",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d20",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 20,
+  "subject": "SCIENCE",
+  "title": "Heat and Electricity",
+  "objective": "Identify safe everyday sources and uses through on-screen sorting only.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "The Sun warms your skin, and a lamp lights the room. How do heat and electricity help us — and how do we stay safe?",
+  "vocabulary": [
+    {
+      "term": "heat",
+      "definition": "Energy that makes things warm."
+    },
+    {
+      "term": "electricity",
+      "definition": "Energy that makes lights and machines work."
+    },
+    {
+      "term": "energy",
+      "definition": "The power to do work, like light or heat."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d20-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows safe heat and electricity.",
+      "content": "Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Heat and Electricity again. 💪"
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "Text alternative: Heat is energy transfer related to temperature differences; electricity involves electric charge. Do not touch hot objects, outlets, damaged cords, or loose batteries."
+    },
+    {
+      "activityId": "science-g3-m01-d20-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "sunlight can warm surfaces",
+          "battery powers a safe device",
+          "adult handles damaged cord"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Heat and Electricity. 🔎",
+        "retry": "Look at each Heat and Electricity example again. 💪"
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d20-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the energy use safe?",
+      "content": {
+        "fits": [
+          "sunlight can warm surfaces",
+          "battery powers a safe device",
+          "adult handles damaged cord"
+        ],
+        "doesNotFit": [
+          "Insert object in outlet",
+          "Touch hot pan",
+          "Short-circuit battery"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d20-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What should a child do about a damaged cord?",
+      "content": {
+        "options": [
+          "Tell a responsible adult and do not touch it.",
+          "Repair it while plugged in.",
+          "Put it in water."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: Tell a responsible adult and do not touch it.",
+        "retry": "Look again — repairing cords and wet cords are unsafe. Tap what a child should do! 💪"
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d20-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to its safe energy use.",
+      "content": {
+        "pairs": [
+          {
+            "left": "sunlight can warm surfaces",
+            "right": "safe heat energy"
+          },
+          {
+            "left": "battery powers a safe device",
+            "right": "safe electric energy"
+          },
+          {
+            "left": "adult handles damaged cord",
+            "right": "adult help"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Heat and Electricity explanation. 🔗",
+        "retry": "Read both sides of each Heat and Electricity pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d20-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: look at the source, decide, ask an adult.",
+      "content": {
+        "steps": [
+          "Look at the energy source.",
+          "Decide if it is safe to use.",
+          "Ask an adult for anything unsafe."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Heat and Electricity steps in order. 🎉",
+        "retry": "Find the first, next, and last Heat and Electricity steps. 💪"
+      },
+      "assetId": "science-g3-m01-d20-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d20-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about heat and electricity is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Touch hot pan"
+          },
+          {
+            "id": "b",
+            "text": "Insert object in outlet"
+          },
+          {
+            "id": "c",
+            "text": "Heat is energy transfer related to temperature differences; electricity involves electric charge."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Heat moves from warmer to cooler things, and electricity is energy that flows. Poking outlets and touching hot pans are unsafe."
+      },
+      {
+        "itemId": "science-g3-m01-d20-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example shows a safe use of energy?",
+        "options": [
+          {
+            "id": "a",
+            "text": "touch a hot pan with bare hands"
+          },
+          {
+            "id": "b",
+            "text": "sunlight can warm surfaces"
+          },
+          {
+            "id": "c",
+            "text": "insert a fork into an outlet"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Sunlight warming a surface is a safe, everyday use of energy. Touching hot pans and poking outlets are dangerous."
+      },
+      {
+        "itemId": "science-g3-m01-d20-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which action is NOT safe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sunlight can warm surfaces"
+          },
+          {
+            "id": "b",
+            "text": "Insert object in outlet"
+          },
+          {
+            "id": "c",
+            "text": "battery powers a safe device"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Putting anything into an outlet can give a dangerous shock. Sunlight warming things and batteries powering safe devices are fine with adult care."
+      },
+      {
+        "itemId": "science-g3-m01-d20-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What should a child do about a damaged cord?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repair it while plugged in."
+          },
+          {
+            "id": "b",
+            "text": "Put it in water."
+          },
+          {
+            "id": "c",
+            "text": "Tell a responsible adult and do not touch it."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A damaged cord can be dangerous, so tell an adult and do not touch it. Repairing it while plugged in or putting it in water is unsafe."
+      },
+      {
+        "itemId": "science-g3-m01-d20-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which energy use is safe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Short-circuit battery"
+          },
+          {
+            "id": "b",
+            "text": "adult handles damaged cord"
+          },
+          {
+            "id": "c",
+            "text": "Insert object in outlet"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "An adult can safely handle a damaged cord. Poking objects into outlets and short-circuiting batteries are dangerous."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d20-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d20-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Heat and Electricity; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Heat and Electricity.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "c070b26669eac472adeff6d4412c313855d820bb6f509840256c685850d0bf49",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

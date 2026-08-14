@@ -229,7 +229,7 @@
         "itemId": "english-g3-q1-w02-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What is the plural of box?",
+        "prompt": "What is the plural of box?  (in this lesson: Plural Word Changers)",
         "options": [
           {
             "id": "a",
@@ -260,19 +260,19 @@
         "prompt": "What is the plural of baby?",
         "options": [
           {
-            "id": "d",
-            "text": "babes"
-          },
-          {
             "id": "a",
             "text": "babies"
           },
           {
             "id": "b",
-            "text": "babys"
+            "text": "babes"
           },
           {
             "id": "c",
+            "text": "babys"
+          },
+          {
+            "id": "d",
             "text": "babyes"
           }
         ],
@@ -288,24 +288,24 @@
         "prompt": "What is the plural of dish?",
         "options": [
           {
-            "id": "c",
-            "text": "dishies"
-          },
-          {
-            "id": "d",
+            "id": "a",
             "text": "disheses"
           },
           {
-            "id": "a",
+            "id": "b",
             "text": "dishes"
           },
           {
-            "id": "b",
+            "id": "c",
             "text": "dishs"
+          },
+          {
+            "id": "d",
+            "text": "dishies"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Words ending in -sh add -es: dish becomes dishes."
       },
@@ -316,20 +316,20 @@
         "prompt": "What is the plural of city?",
         "options": [
           {
+            "id": "a",
+            "text": "cities"
+          },
+          {
             "id": "b",
             "text": "citys"
           },
           {
             "id": "c",
-            "text": "cityes"
-          },
-          {
-            "id": "d",
             "text": "citiez"
           },
           {
-            "id": "a",
-            "text": "cities"
+            "id": "d",
+            "text": "cityes"
           }
         ],
         "correctOptionIds": [
@@ -345,38 +345,48 @@
         "options": [
           {
             "id": "a",
-            "text": "watches"
+            "text": "stars"
           },
           {
             "id": "b",
-            "text": "cats"
-          },
-          {
-            "id": "c",
             "text": "apples"
           },
           {
+            "id": "c",
+            "text": "cats"
+          },
+          {
             "id": "d",
-            "text": "stars"
+            "text": "watches"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "“Watches” ends in -es. Cats, apples, and stars just end in -s."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

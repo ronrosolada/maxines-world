@@ -1,370 +1,380 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d16",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 16,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Pagbuo ng Pagkakakilanlan ng Rehiyon",
- "objective": "Ipaliwanag na ang pagkakakilanlan ay maaaring mabuo sa heograpiya, kasaysayan, wika, kabuhayan, sining, at karanasan.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
- "vocabulary": [
-  {
-   "term": "pagkakakilanlan",
-   "definition": "Kung sino tayo — ang ating pangalan, kultura, at bayan."
-  },
-  {
-   "term": "kasaysayan",
-   "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
-  },
-  {
-   "term": "rehiyon",
-   "definition": "Malaking bahagi ng bansa na may magkakatulad na kultura."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Pagbuo ng Pagkakakilanlan ng R. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "maraming wika",
-     "iba’t ibang gawain",
-     "magkakaibang kuwento"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "maraming wika",
-     "iba’t ibang gawain",
-     "magkakaibang kuwento"
-    ],
-    "doesNotFit": [
-     "Iisang ugali para sa lahat",
-     "I-rank ang kultura",
-     "Tanggalin ang minority voices"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang tama?",
-   "content": {
-    "options": [
-     "Hindi nagbabago ang identidad.",
-     "Maaaring magkakaiba ang identidad sa loob ng rehiyon.",
-     "Iisa ang ugali ng lahat."
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: Maaaring magkakaiba ang identidad sa loob ng rehiyon.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Iisa ang ugali ng lahat. at Hindi nagbabago ang identidad. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "maraming wika",
-      "right": "maraming wika"
-     },
-     {
-      "left": "iba’t ibang gawain",
-      "right": "iba’t ibang gawain"
-     },
-     {
-      "left": "magkakaibang kuwento",
-      "right": "magkakaibang kuwento"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Pagbuo ng Pagkakakilanlan ng R. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pagbuo ng Pagkakakilanlan ng R. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d16-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Pagbuo ng Pagkakakilanlan ng R. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pagbuo ng Pagkakakilanlan ng R. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d16-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano nakatutulong ang heograpiya sa pagkakakilanlan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang heograpiya ay nagpapabilis ng sasakyan"
-     },
-     {
-      "id": "b",
-      "text": "ang kapaligiran ay nagbibigay ng hanapbuhay at pagkain na nakilala sa lugar"
-     },
-     {
-      "id": "c",
-      "text": "ang heograpiya ay nagpapalamig ng bahay"
-     },
-     {
-      "id": "d",
-      "text": "ang heograpiya ay nagpapaganda ng larawan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang kapaligiran ay humuhubog sa pamumuhay ng mga tao sa lugar."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d16-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang bumubuo sa pagkakakilanlan ng isang lugar?",
-    "options": [
-     {
-      "id": "a",
-      "text": "kulay ng mga bahay"
-     },
-     {
-      "id": "b",
-      "text": "haba ng kalsada"
-     },
-     {
-      "id": "c",
-      "text": "bilang ng sasakyan"
-     },
-     {
-      "id": "d",
-      "text": "heograpiya, kasaysayan, at kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pagkakakilanlan ay nabubuo mula sa heograpiya, kasaysayan, at kultura."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d16-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang regional identity o pagkakakilanlang pampook?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang mga katangian at kultura na kilala sa isang lugar"
-     },
-     {
-      "id": "b",
-      "text": "ang pangalan ng lugar"
-     },
-     {
-      "id": "c",
-      "text": "ang edad ng lugar"
-     },
-     {
-      "id": "d",
-      "text": "ang laki ng lugar"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pagkakakilanlang pampook ay ang mga katangian at kultura ng isang lugar."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d16-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng pagkakakilanlang pampook?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang pangalan ng guro"
-     },
-     {
-      "id": "b",
-      "text": "ang kulay ng uniporme"
-     },
-     {
-      "id": "c",
-      "text": "ang pista at pagkain na kilala sa lugar"
-     },
-     {
-      "id": "d",
-      "text": "ang bilang ng mag-aaral"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang pista at natatanging pagkain ay bahagi ng pagkakakilanlan ng lugar."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d16-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit naiiba ang pagkakakilanlan ng bawat lugar?",
-    "options": [
-     {
-      "id": "a",
-      "text": "dahil iba ang kulay ng uniporme"
-     },
-     {
-      "id": "b",
-      "text": "dahil iba ang edad ng mga bata"
-     },
-     {
-      "id": "c",
-      "text": "dahil iba ang guro"
-     },
-     {
-      "id": "d",
-      "text": "dahil iba-iba ang kanilang heograpiya, kasaysayan, at kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pagkakaiba ng kapaligiran at kasaysayan ang nagpapakakaiba ng pagkakakilanlan."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d16-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d16-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Building Regional Identity; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Building Regional Identity.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "e605d1093cb919424d1397f0d953dd7a3c74ff69a5b10c722e89e187733615dc",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d16",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 16,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Pagbuo ng Pagkakakilanlan ng Rehiyon",
+  "objective": "Ipaliwanag na ang pagkakakilanlan ay maaaring mabuo sa heograpiya, kasaysayan, wika, kabuhayan, sining, at karanasan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
+  "vocabulary": [
+    {
+      "term": "pagkakakilanlan",
+      "definition": "Kung sino tayo — ang ating pangalan, kultura, at bayan."
+    },
+    {
+      "term": "kasaysayan",
+      "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
+    },
+    {
+      "term": "rehiyon",
+      "definition": "Malaking bahagi ng bansa na may magkakatulad na kultura."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Pagbuo ng Pagkakakilanlan ng Rehiyon. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Hindi iisa ang identidad ng lahat ng tao sa rehiyon at maaari itong magbago."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "maraming wika",
+          "iba’t ibang gawain",
+          "magkakaibang kuwento"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "maraming wika",
+          "iba’t ibang gawain",
+          "magkakaibang kuwento"
+        ],
+        "doesNotFit": [
+          "Iisang ugali para sa lahat",
+          "I-rank ang kultura",
+          "Tanggalin ang minority voices"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Pagbuo ng Pagkakakilanlan ng R. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang tama?",
+      "content": {
+        "options": [
+          "Hindi nagbabago ang identidad.",
+          "Maaaring magkakaiba ang identidad sa loob ng rehiyon.",
+          "Iisa ang ugali ng lahat."
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Maaaring magkakaiba ang identidad sa loob ng rehiyon.",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Maraming wika",
+            "right": "bahagi ng pagkakakilanlan"
+          },
+          {
+            "left": "Iba’t ibang gawain",
+            "right": "kabuhayan ng pamayanan"
+          },
+          {
+            "left": "Magkakaibang kuwento",
+            "right": "kasaysayan ng pamayanan"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Pagbuo ng Pagkakakilanlan ng R. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pagbuo ng Pagkakakilanlan ng R. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d16-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Pagbuo ng Pagkakakilanlan ng R. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pagbuo ng Pagkakakilanlan ng R. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d16-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano nakatutulong ang heograpiya sa pagkakakilanlan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang heograpiya ay nagpapalamig ng bahay"
+          },
+          {
+            "id": "b",
+            "text": "ang heograpiya ay nagpapaganda ng larawan"
+          },
+          {
+            "id": "c",
+            "text": "ang heograpiya ay nagpapabilis ng sasakyan"
+          },
+          {
+            "id": "d",
+            "text": "ang kapaligiran ay nagbibigay ng hanapbuhay at pagkain na nakilala sa lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang kapaligiran ay humuhubog sa pamumuhay ng mga tao sa lugar."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d16-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang bumubuo sa pagkakakilanlan ng isang lugar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kulay ng mga bahay"
+          },
+          {
+            "id": "b",
+            "text": "haba ng kalsada"
+          },
+          {
+            "id": "c",
+            "text": "bilang ng sasakyan"
+          },
+          {
+            "id": "d",
+            "text": "heograpiya, kasaysayan, at kultura"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagkakakilanlan ay nabubuo mula sa heograpiya, kasaysayan, at kultura."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d16-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang regional identity o pagkakakilanlang pampook?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang pangalan ng lugar"
+          },
+          {
+            "id": "b",
+            "text": "ang laki ng lugar"
+          },
+          {
+            "id": "c",
+            "text": "ang edad ng lugar"
+          },
+          {
+            "id": "d",
+            "text": "ang mga katangian at kultura na kilala sa isang lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagkakakilanlang pampook ay ang mga katangian at kultura ng isang lugar."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d16-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang halimbawa ng pagkakakilanlang pampook?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang kulay ng uniporme"
+          },
+          {
+            "id": "b",
+            "text": "ang pista at pagkain na kilala sa lugar"
+          },
+          {
+            "id": "c",
+            "text": "ang pangalan ng guro"
+          },
+          {
+            "id": "d",
+            "text": "ang bilang ng mag-aaral"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pista at natatanging pagkain ay bahagi ng pagkakakilanlan ng lugar."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d16-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit naiiba ang pagkakakilanlan ng bawat lugar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "dahil iba ang guro"
+          },
+          {
+            "id": "b",
+            "text": "dahil iba ang kulay ng uniporme"
+          },
+          {
+            "id": "c",
+            "text": "dahil iba-iba ang kanilang heograpiya, kasaysayan, at kultura"
+          },
+          {
+            "id": "d",
+            "text": "dahil iba ang edad ng mga bata"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagkakaiba ng kapaligiran at kasaysayan ang nagpapakakaiba ng pagkakakilanlan."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d16-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d16-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Building Regional Identity; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Building Regional Identity.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "e605d1093cb919424d1397f0d953dd7a3c74ff69a5b10c722e89e187733615dc",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
 }

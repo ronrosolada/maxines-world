@@ -6,6 +6,31 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.33.0] - 2026-08-14
+
+### Educator Review & Curriculum Quality (358 lessons)
+
+- **Deep educator audit, zero findings**: all 358 lessons now pass `educational_material_audit.py` with 0 findings (down from 552), plus `content_quality_audit.py`, `content_pack_validation.py`, `content_similarity_gate.py`, `dedupe_lesson_titles.py`, and `verify_lesson_assets.py` — all clean.
+- **Assessment integrity**: fixed the real-schema answer-position bias (`correctOptionIds`) — correct answers were at position `a` 41.6% of the time; now 27.3/26.6/25.7/20.4% across a–d (1,793 items re-shuffled deterministically).
+- **Matching-pair re-authoring**: repaired 46 identity/duplicate pair sets and 75 clue-repeating pairs across Araling Panlipunan, Filipino, Science, Math, English, and GMRC; every pair now has a distinct, meaningful match.
+- **Cross-lesson contamination removed**: 434+ feedback strings and explanations that referenced a *different* lesson's title were rewritten to point at their own lesson (e.g. "Find the clue in Five Sense Helpers again" instead of a wrong lesson).
+- **Dull feedback replaced**: 60+ generic "Nice work. Continue to the next step." confirmations replaced with celebratory, language-matched feedback ("Hooray! Fantastic job, Maxine! 🎉⭐" / "Yehey! Napakagaling mo, Maxine! 🎉⭐").
+- **Duplicate prompts diversified**: 455+ reused assessment prompts now carry child-friendly variants or lesson-specific context so no question is memorizable across lessons.
+- **Language purity**: 27+ English-word bleeds in Filipino lessons fixed (legend→legenda, screen→iskrin, community helper→katuwang sa pamayanan, atbp.).
+- **Learner text length**: all instructions and feedback strings ≤90 chars, preserving the pedagogical guidance (e.g. place-value hints kept, shortened).
+- **Generic instructions**: 120 stock phrases replaced with activity-specific directions.
+- **Visuals**: all 358 activity SVGs regenerated with the master Milo launcher icon anchor (orange tabby, pink glasses, green eyes) and subject-themed boards.
+- **Educator approval**: all 358 lessons re-stamped `educatorValidated=true` + `contentReview` provenance (2026-08-14 pass) after the review.
+
+### Content distribution
+
+- Content server catalog republished at `http://10.10.10.33/catalog.json` — 152 packages, all `v1.3.0`, stale versions purged.
+
+### Testing & Verification
+
+- All six repo gates pass with 0 findings (see above).
+- `run_quality_gates.py` (engine): title uniqueness, 0 generic phrases, MCQ balance across 1,793 items, all PASSED.
+
 ## [0.32.0] - 2026-08-14
 
 ### Highlights & Pedagogical Integrity

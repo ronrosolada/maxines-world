@@ -233,24 +233,24 @@
         "prompt": "What do detectives look for in a picture?",
         "options": [
           {
-            "id": "d",
+            "id": "a",
             "text": "Dreams"
           },
           {
-            "id": "a",
-            "text": "Details"
-          },
-          {
             "id": "b",
-            "text": "Loud sounds"
+            "text": "Sweet smells"
           },
           {
             "id": "c",
-            "text": "Sweet smells"
+            "text": "Loud sounds"
+          },
+          {
+            "id": "d",
+            "text": "Details"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "Detectives look for details — the small things they can see in a picture, like a red flag or people dancing."
       },
@@ -261,20 +261,20 @@
         "prompt": "Which of these can you SEE in a picture?",
         "options": [
           {
-            "id": "c",
-            "text": "Perfume"
-          },
-          {
-            "id": "d",
-            "text": "Wind"
-          },
-          {
             "id": "a",
             "text": "Colors"
           },
           {
             "id": "b",
+            "text": "Wind"
+          },
+          {
+            "id": "c",
             "text": "Music"
+          },
+          {
+            "id": "d",
+            "text": "Perfume"
           }
         ],
         "correctOptionIds": [
@@ -289,24 +289,24 @@
         "prompt": "Where do you find the details in a story picture?",
         "options": [
           {
-            "id": "b",
-            "text": "Under your bed"
-          },
-          {
-            "id": "c",
+            "id": "a",
             "text": "In your pocket"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "In the sky"
           },
           {
-            "id": "a",
+            "id": "c",
+            "text": "Under your bed"
+          },
+          {
+            "id": "d",
             "text": "Inside the picture"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "Details live inside the picture itself — look at the picture closely and you will see them."
       },
@@ -322,11 +322,11 @@
           },
           {
             "id": "b",
-            "text": "Close your eyes"
+            "text": "Count the colors"
           },
           {
             "id": "c",
-            "text": "Count the colors"
+            "text": "Close your eyes"
           },
           {
             "id": "d",
@@ -345,39 +345,49 @@
         "prompt": "What is a detail in a picture?",
         "options": [
           {
-            "id": "d",
-            "text": "A smell from the kitchen"
-          },
-          {
             "id": "a",
-            "text": "Something small you can see in it"
+            "text": "A sound you hear outside"
           },
           {
             "id": "b",
-            "text": "Something you imagine at night"
+            "text": "A smell from the kitchen"
           },
           {
             "id": "c",
-            "text": "A sound you hear outside"
+            "text": "Something you imagine at night"
+          },
+          {
+            "id": "d",
+            "text": "Something small you can see in it"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "A detail is something small you can SEE inside the picture, like a red flag or a child waving."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

@@ -232,10 +232,6 @@
         "prompt": "What is a cause?",
         "options": [
           {
-            "id": "d",
-            "text": "A shape"
-          },
-          {
             "id": "a",
             "text": "Why something happens"
           },
@@ -245,6 +241,10 @@
           },
           {
             "id": "c",
+            "text": "A shape"
+          },
+          {
+            "id": "d",
             "text": "A color"
           }
         ],
@@ -260,20 +260,20 @@
         "prompt": "Because it rained, ___",
         "options": [
           {
-            "id": "c",
-            "text": "the plants sang"
-          },
-          {
-            "id": "d",
-            "text": "the plants slept"
-          },
-          {
             "id": "a",
             "text": "the plants grew"
           },
           {
             "id": "b",
+            "text": "the plants sang"
+          },
+          {
+            "id": "c",
             "text": "the plants flew"
+          },
+          {
+            "id": "d",
+            "text": "the plants slept"
           }
         ],
         "correctOptionIds": [
@@ -288,24 +288,24 @@
         "prompt": "What is the effect of watering a seed?",
         "options": [
           {
-            "id": "b",
-            "text": "A rock grows"
-          },
-          {
-            "id": "c",
-            "text": "A shoe grows"
-          },
-          {
-            "id": "d",
+            "id": "a",
             "text": "Nothing"
           },
           {
-            "id": "a",
+            "id": "b",
             "text": "A flower grows"
+          },
+          {
+            "id": "c",
+            "text": "A rock grows"
+          },
+          {
+            "id": "d",
+            "text": "A shoe grows"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Water is the cause; a flower growing is the effect — what the water makes happen."
       },
@@ -317,23 +317,23 @@
         "options": [
           {
             "id": "a",
-            "text": "Why?"
+            "text": "Where?"
           },
           {
             "id": "b",
-            "text": "Who?"
+            "text": "Why?"
           },
           {
             "id": "c",
-            "text": "When?"
+            "text": "Who?"
           },
           {
             "id": "d",
-            "text": "Where?"
+            "text": "When?"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Ask “Why?” to find the cause — the reason something happened."
       },
@@ -344,39 +344,49 @@
         "prompt": "What grew in Milo's garden?",
         "options": [
           {
-            "id": "d",
-            "text": "A mountain"
-          },
-          {
             "id": "a",
-            "text": "A flower"
+            "text": "A house"
           },
           {
             "id": "b",
-            "text": "A house"
+            "text": "A mountain"
           },
           {
             "id": "c",
             "text": "A boat"
+          },
+          {
+            "id": "d",
+            "text": "A flower"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "A flower grew in Milo’s garden — the effect of watering the seed."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

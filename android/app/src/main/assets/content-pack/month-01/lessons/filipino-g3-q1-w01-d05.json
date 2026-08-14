@@ -1,378 +1,388 @@
 {
- "lessonId": "filipino-g3-q1-w01-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 5,
- "subject": "filipino",
- "title": "Salitang-Ugat · Q1 W01 D05",
- "objective": "Natutukoy ang salitang-ugat ng mga karaniwang salita.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Panibagong araw, panibagong aralin! 🌟 Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "salitang-ugat",
-   "definition": "ang payak na anyo ng salita"
-  },
-  {
-   "term": "panlapi",
-   "definition": "idinadagdag sa salitang-ugat upang bumuo ng bagong salita"
-  },
-  {
-   "term": "bagong salita",
-   "definition": "salitang nabuo mula sa ugat at panlapi"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "content": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Salitang-Ugat. 💪"
-   },
-   "prompt": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "narration": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'."
-  },
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
-   "content": {
-    "examples": [
-     "sulat → sumulat",
-     "laro → naglaro",
-     "basa → bumasa",
-     "tanim → nagtanim"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Salitang-Ugat. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
-   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-  },
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Piliin ang pares ng salitang-ugat at bagong salita.",
-   "content": {
-    "fits": [
-     "sulat → sumulat",
-     "laro → naglaro",
-     "basa → bumasa",
-     "tanim → nagtanim"
-    ],
-    "doesNotFit": [
-     "sulat → kumain",
-     "laro → tumakbo",
-     "basa → nagtanim",
-     "tanim → bumasa"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Salitang-Ugat bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga pares ng salitang-ugat at bagong salita.",
-   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-  },
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Piliin ang pinakamabuting sagot.",
-   "content": {
-    "options": [
-     "laro → naglaro",
-     "sulat → sumulat",
-     "basa → bumasa",
-     "tanim → nagtanim"
-    ],
-    "correctIndex": 1
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Salitang-Ugat. 💪"
-   },
-   "prompt": "Piliin ang pinakamabuting sagot. Hanapin ang payak na anyo ng salita.",
-   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-  },
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Itugma ang bawat halimbawa sa wastong pangkat.",
-   "content": {
-    "pairs": [
-     {
-      "left": "sulat",
-      "right": "salitang-ugat"
-     },
-     {
-      "left": "sumulat",
-      "right": "bagong salita"
-     },
-     {
-      "left": "sulat → sumulat",
-      "right": "pares ng ugat at bagong salita"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Salitang-Ugat. 💪"
-   },
-   "prompt": "Itugma ang bawat halimbawa sa wastong pangkat: ugat, bagong salita, o pares.",
-   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-  },
-  {
-   "activityId": "filipino-g3-q1-w01-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q1-w01-d05-visual",
-   "instruction": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
-   "content": {
-    "steps": [
-     "Basahin ang salita",
-     "Alisin ang panlapi",
-     "Hanapin ang payak na anyo",
-     "Sabihin ang salitang-ugat"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Salitang-Ugat. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
-   "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q1-w01-d05-q1",
-    "prompt": "Alin ang salitang-ugat ng 'sumulat'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "laro"
-     },
-     {
-      "id": "b",
-      "text": "sulat"
-     },
-     {
-      "id": "c",
-      "text": "naglaro"
-     },
-     {
-      "id": "d",
-      "text": "basa"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang salitang-ugat ay ang payak na anyo ng salita bago idagdag ang mga panlapi. Ang ugat ng “sumulat” ay “sulat”.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q1-w01-d05-q2",
-    "prompt": "Aling pares ang may salitang-ugat at bagong salita?",
-    "options": [
-     {
-      "id": "d",
-      "text": "tanim → nagtanim"
-     },
-     {
-      "id": "a",
-      "text": "laro → naglaro"
-     },
-     {
-      "id": "b",
-      "text": "sulat → sumulat"
-     },
-     {
-      "id": "c",
-      "text": "basa → bumasa"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pares na “sulat → sumulat” ang nagpapakita ng ugat at ng bagong salitang nabuo mula rito.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q1-w01-d05-q3",
-    "prompt": "Ang salitang-ugat ng 'bumasa' ay ___.",
-    "options": [
-     {
-      "id": "c",
-      "text": "sumulat"
-     },
-     {
-      "id": "d",
-      "text": "laro"
-     },
-     {
-      "id": "a",
-      "text": "sulat"
-     },
-     {
-      "id": "b",
-      "text": "basa"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang ugat ng “bumasa” ay “basa” — ito ang payak na anyo bago ang panlapi.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q1-w01-d05-q4",
-    "prompt": "Ano ang salitang-ugat ng 'nagtanim'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "tanim"
-     },
-     {
-      "id": "c",
-      "text": "sumulat"
-     },
-     {
-      "id": "d",
-      "text": "laro"
-     },
-     {
-      "id": "a",
-      "text": "sulat"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang salitang-ugat ay ang payak na anyo bago ang panlapi. Ang ugat ng “nagtanim” ay “tanim”.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q1-w01-d05-q5",
-    "prompt": "Aling salita ang HINDI galing sa ugat na 'sulat'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "naglaro"
-     },
-     {
-      "id": "b",
-      "text": "kumain"
-     },
-     {
-      "id": "c",
-      "text": "bumasa"
-     },
-     {
-      "id": "d",
-      "text": "nagtanim"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang ibang salita ay nabuo mula sa iisang ugat sa pamamagitan ng panlapi. Ang “kumain” ay hindi galing sa ugat na iyon.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q1-w01-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 5,
+  "subject": "filipino",
+  "title": "Salitang-Ugat · Q1 W01 D05",
+  "objective": "Natutukoy ang salitang-ugat ng mga karaniwang salita.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Panibagong araw, panibagong aralin! 🌟 Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "salitang-ugat",
+      "definition": "ang payak na anyo ng salita"
+    },
+    {
+      "term": "panlapi",
+      "definition": "idinadagdag sa salitang-ugat upang bumuo ng bagong salita"
+    },
+    {
+      "term": "bagong salita",
+      "definition": "salitang nabuo mula sa ugat at panlapi"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "content": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Salitang-Ugat. 💪"
+      },
+      "prompt": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "narration": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'."
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
+      "content": {
+        "examples": [
+          "sulat → sumulat",
+          "laro → naglaro",
+          "basa → bumasa",
+          "tanim → nagtanim"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Salitang-Ugat. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
+      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Piliin ang pares ng salitang-ugat at bagong salita.",
+      "content": {
+        "fits": [
+          "sulat → sumulat",
+          "laro → naglaro",
+          "basa → bumasa",
+          "tanim → nagtanim"
+        ],
+        "doesNotFit": [
+          "sulat → kumain",
+          "laro → tumakbo",
+          "basa → nagtanim",
+          "tanim → bumasa"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Salitang-Ugat bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga pares ng salitang-ugat at bagong salita.",
+      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Piliin ang pinakamabuting sagot.",
+      "content": {
+        "options": [
+          "laro → naglaro",
+          "sulat → sumulat",
+          "basa → bumasa",
+          "tanim → nagtanim"
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Salitang-Ugat. 💪"
+      },
+      "prompt": "Piliin ang pinakamabuting sagot. Hanapin ang payak na anyo ng salita.",
+      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Itugma ang bawat halimbawa sa wastong pangkat.",
+      "content": {
+        "pairs": [
+          {
+            "left": "sulat",
+            "right": "salitang-ugat"
+          },
+          {
+            "left": "sumulat",
+            "right": "bagong salita"
+          },
+          {
+            "left": "sulat → sumulat",
+            "right": "pares ng ugat at bagong salita"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Salitang-Ugat. 💪"
+      },
+      "prompt": "Itugma ang bawat halimbawa sa wastong pangkat: ugat, bagong salita, o pares.",
+      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+    },
+    {
+      "activityId": "filipino-g3-q1-w01-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w01-d05-visual",
+      "instruction": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
+      "content": {
+        "steps": [
+          "Basahin ang salita",
+          "Alisin ang panlapi",
+          "Hanapin ang payak na anyo",
+          "Sabihin ang salitang-ugat"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Salitang-Ugat. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
+      "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w01-d05-q1",
+        "prompt": "Alin ang salitang-ugat ng 'sumulat'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sulat"
+          },
+          {
+            "id": "b",
+            "text": "basa"
+          },
+          {
+            "id": "c",
+            "text": "laro"
+          },
+          {
+            "id": "d",
+            "text": "naglaro"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang salitang-ugat ay ang payak na anyo ng salita bago idagdag ang mga panlapi. Ang ugat ng “sumulat” ay “sulat”.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w01-d05-q2",
+        "prompt": "Aling pares ang may salitang-ugat at bagong salita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tanim → nagtanim"
+          },
+          {
+            "id": "b",
+            "text": "basa → bumasa"
+          },
+          {
+            "id": "c",
+            "text": "sulat → sumulat"
+          },
+          {
+            "id": "d",
+            "text": "laro → naglaro"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pares na “sulat → sumulat” ang nagpapakita ng ugat at ng bagong salitang nabuo mula rito.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w01-d05-q3",
+        "prompt": "Ang salitang-ugat ng 'bumasa' ay ___.",
+        "options": [
+          {
+            "id": "a",
+            "text": "sulat"
+          },
+          {
+            "id": "b",
+            "text": "laro"
+          },
+          {
+            "id": "c",
+            "text": "basa"
+          },
+          {
+            "id": "d",
+            "text": "sumulat"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang ugat ng “bumasa” ay “basa” — ito ang payak na anyo bago ang panlapi.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w01-d05-q4",
+        "prompt": "Ano ang salitang-ugat ng 'nagtanim'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "laro"
+          },
+          {
+            "id": "b",
+            "text": "tanim"
+          },
+          {
+            "id": "c",
+            "text": "sumulat"
+          },
+          {
+            "id": "d",
+            "text": "sulat"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang salitang-ugat ay ang payak na anyo bago ang panlapi. Ang ugat ng “nagtanim” ay “tanim”.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w01-d05-q5",
+        "prompt": "Aling salita ang HINDI galing sa ugat na 'sulat'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "naglaro"
+          },
+          {
+            "id": "b",
+            "text": "nagtanim"
+          },
+          {
+            "id": "c",
+            "text": "kumain"
+          },
+          {
+            "id": "d",
+            "text": "bumasa"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang ibang salita ay nabuo mula sa iisang ugat sa pamamagitan ng panlapi. Ang “kumain” ay hindi galing sa ugat na iyon.",
+        "type": "MULTIPLE_CHOICE"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

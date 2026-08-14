@@ -232,24 +232,24 @@
         "prompt": "Which word has sh?",
         "options": [
           {
-            "id": "c",
-            "text": "sun"
-          },
-          {
-            "id": "d",
-            "text": "dog"
-          },
-          {
             "id": "a",
-            "text": "ship"
+            "text": "sun"
           },
           {
             "id": "b",
             "text": "cat"
+          },
+          {
+            "id": "c",
+            "text": "ship"
+          },
+          {
+            "id": "d",
+            "text": "dog"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "“Ship” has the sh digraph — sh makes one new sound."
       },
@@ -260,20 +260,20 @@
         "prompt": "Which word has ch?",
         "options": [
           {
+            "id": "a",
+            "text": "chair"
+          },
+          {
             "id": "b",
-            "text": "fish"
-          },
-          {
-            "id": "c",
-            "text": "moon"
-          },
-          {
-            "id": "d",
             "text": "star"
           },
           {
-            "id": "a",
-            "text": "chair"
+            "id": "c",
+            "text": "fish"
+          },
+          {
+            "id": "d",
+            "text": "moon"
           }
         ],
         "correctOptionIds": [
@@ -289,11 +289,11 @@
         "options": [
           {
             "id": "a",
-            "text": "Two letters, one sound"
+            "text": "One letter, two sounds"
           },
           {
             "id": "b",
-            "text": "One letter, two sounds"
+            "text": "A number"
           },
           {
             "id": "c",
@@ -301,11 +301,11 @@
           },
           {
             "id": "d",
-            "text": "A number"
+            "text": "Two letters, one sound"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "A digraph is two letters that make one new sound, like sh in ship."
       },
@@ -316,20 +316,20 @@
         "prompt": "Which word has th?",
         "options": [
           {
-            "id": "d",
-            "text": "phone"
-          },
-          {
             "id": "a",
             "text": "thumb"
           },
           {
             "id": "b",
-            "text": "ship"
+            "text": "phone"
           },
           {
             "id": "c",
             "text": "whale"
+          },
+          {
+            "id": "d",
+            "text": "ship"
           }
         ],
         "correctOptionIds": [
@@ -344,39 +344,49 @@
         "prompt": "What did Milo whisper?",
         "options": [
           {
-            "id": "c",
+            "id": "a",
             "text": "xy as in box"
           },
           {
-            "id": "d",
-            "text": "zz as in buzz"
-          },
-          {
-            "id": "a",
+            "id": "b",
             "text": "sh as in ship"
           },
           {
-            "id": "b",
+            "id": "c",
+            "text": "zz as in buzz"
+          },
+          {
+            "id": "d",
             "text": "ab as in cab"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Milo whispered “sh as in ship” — the digraph that makes one new sound."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

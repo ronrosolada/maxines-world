@@ -1,377 +1,387 @@
 {
- "lessonId": "filipino-g3-q2-w07-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 6,
- "day": 3,
- "subject": "filipino",
- "title": "Maikling Buod · Q2 W07 D03",
- "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "tauhan",
-   "definition": "ang mga tao o hayop sa kuwento"
-  },
-  {
-   "term": "suliranin",
-   "definition": "ang problema sa kuwento"
-  },
-  {
-   "term": "buod",
-   "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "content": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Mga Salitang May Kahulugan. 💪"
-   },
-   "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "narration": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
-   "content": {
-    "examples": [
-     "Ben",
-     "Gustong maglaro ni Ben pero mainit ang araw.",
-     "Naghintay siya hanggang hapon.",
-     "Naglaro siya nang masaya sa labas."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
-   },
-   "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Piliin ang mga bahagi ng kuwentong ito.",
-   "content": {
-    "fits": [
-     "Ben",
-     "Gustong maglaro ni Ben pero mainit ang araw.",
-     "Naghintay siya hanggang hapon.",
-     "Naglaro siya nang masaya sa labas."
-    ],
-    "doesNotFit": [
-     "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
-     "Ibinalot ni Marco ang kanyang jacket sa matanda.",
-     "Hinanap ito nina Milo at Ana sa sala at sa kusina."
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Mga Salitang May Kahulugan bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga bahagi ng kuwentong ito.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
-   "content": {
-    "options": [
-     "Marco at isang matanda",
-     "Lola Rosa, Milo, at Ana",
-     "Ben",
-     "Aling Rosa at Nena"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Mga Salitang May Kahulugan. 💪"
-   },
-   "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
-   "content": {
-    "pairs": [
-     {
-      "left": "Ben",
-      "right": "tauhan"
-     },
-     {
-      "left": "Gustong maglaro ni Ben pero mainit ang araw.",
-      "right": "suliranin"
-     },
-     {
-      "left": "Naghintay siya hanggang hapon.",
-      "right": "mahalagang pangyayari"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
-   },
-   "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  },
-  {
-   "activityId": "filipino-g3-q2-w07-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w07-d03-visual",
-   "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
-   "content": {
-    "steps": [
-     "Basahin ang kuwento",
-     "Tukuyin ang tauhan",
-     "Hanapin ang suliranin at pangyayari",
-     "Isulat ang maikling buod"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
-   "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q2-w07-d03-q1",
-    "prompt": "Sino ang tauhan sa kuwento?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Marco at isang matanda"
-     },
-     {
-      "id": "c",
-      "text": "Nabasag ang paso ng halaman ni Aling Rosa."
-     },
-     {
-      "id": "d",
-      "text": "Ben"
-     },
-     {
-      "id": "a",
-      "text": "Aling Rosa at Nena"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang tauhan ay ang gumaganap sa kuwento. Dito, ang tauhan ay Ben.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q2-w07-d03-q2",
-    "prompt": "Ano ang suliranin sa kuwento?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Nabasag ang paso ng halaman ni Aling Rosa."
-     },
-     {
-      "id": "b",
-      "text": "Umuulan nang malakas."
-     },
-     {
-      "id": "c",
-      "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
-     },
-     {
-      "id": "d",
-      "text": "Gustong maglaro ni Ben pero mainit ang araw."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang suliranin ay ang problemang kailangang lutasin sa kuwento. Dito, Gustong maglaro ni Ben pero mainit ang araw..",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q2-w07-d03-q3",
-    "prompt": "Ano ang mahalagang pangyayari sa kuwento?",
-    "options": [
-     {
-      "id": "d",
-      "text": "Naghintay siya hanggang hapon."
-     },
-     {
-      "id": "a",
-      "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
-     },
-     {
-      "id": "b",
-      "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
-     },
-     {
-      "id": "c",
-      "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang mahalagang pangyayari ay ang nagpapausad sa kuwento patungo sa wakas. Dito, Naghintay siya hanggang hapon..",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q2-w07-d03-q4",
-    "prompt": "Paano natapos ang kuwento?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Aling Rosa at Nena"
-     },
-     {
-      "id": "d",
-      "text": "Naglaro siya nang masaya sa labas."
-     },
-     {
-      "id": "a",
-      "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
-     },
-     {
-      "id": "b",
-      "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang wakas ay nagsasaad kung paano nalutas ang suliranin. Dito, Naglaro siya nang masaya sa labas..",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q2-w07-d03-q5",
-    "prompt": "Alin ang maikling buod ng kuwento?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Malakas ang ulan, at tinulungan ni Marco ang matandang walang payong upang makauwi nang ligtas."
-     },
-     {
-      "id": "c",
-      "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
-     },
-     {
-      "id": "d",
-      "text": "Mainit noong tanghali, kaya naghintay si Ben hanggang hapon bago naglaro."
-     },
-     {
-      "id": "a",
-      "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Pinagsama ng buod ang simula, suliranin, pangyayari, at wakas nang maikli: mainit ang tanghali kaya naghintay si Ben, at nang hapon na ay nakapaglaro siya nang masaya.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q2-w07-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 3,
+  "subject": "filipino",
+  "title": "Maikling Buod · Q2 W07 D03",
+  "objective": "Nakabubuo ng maikling buod ng tekstong naratibo.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "tauhan",
+      "definition": "ang mga tao o hayop sa kuwento"
+    },
+    {
+      "term": "suliranin",
+      "definition": "ang problema sa kuwento"
+    },
+    {
+      "term": "buod",
+      "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "content": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Maikling Buod. 💪"
+      },
+      "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "narration": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sobrang init noong tanghali. Gustong maglaro ni Ben pero mainit ang araw. Naghintay siya hanggang hapon. Naglaro siya nang masaya sa labas. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+      "content": {
+        "examples": [
+          "Ben",
+          "Gustong maglaro ni Ben pero mainit ang araw.",
+          "Naghintay siya hanggang hapon.",
+          "Naglaro siya nang masaya sa labas."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+      },
+      "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Piliin ang mga bahagi ng kuwentong ito.",
+      "content": {
+        "fits": [
+          "Ben",
+          "Gustong maglaro ni Ben pero mainit ang araw.",
+          "Naghintay siya hanggang hapon.",
+          "Naglaro siya nang masaya sa labas."
+        ],
+        "doesNotFit": [
+          "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman.",
+          "Ibinalot ni Marco ang kanyang jacket sa matanda.",
+          "Hinanap ito nina Milo at Ana sa sala at sa kusina."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Mga Salitang May Kahulugan bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga bahagi ng kuwentong ito.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+      "content": {
+        "options": [
+          "Marco at isang matanda",
+          "Lola Rosa, Milo, at Ana",
+          "Ben",
+          "Aling Rosa at Nena"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Mga Salitang May Kahulugan. 💪"
+      },
+      "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ben",
+            "right": "tauhan"
+          },
+          {
+            "left": "Gustong maglaro ni Ben pero mainit ang araw.",
+            "right": "suliranin"
+          },
+          {
+            "left": "Naghintay siya hanggang hapon.",
+            "right": "mahalagang pangyayari"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+      },
+      "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q2-w07-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w07-d03-visual",
+      "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+      "content": {
+        "steps": [
+          "Basahin ang kuwento",
+          "Tukuyin ang tauhan",
+          "Hanapin ang suliranin at pangyayari",
+          "Isulat ang maikling buod"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+      "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q2-w07-d03-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sino ang tauhan sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aling Rosa at Nena"
+          },
+          {
+            "id": "b",
+            "text": "Marco at isang matanda"
+          },
+          {
+            "id": "c",
+            "text": "Nabasag ang paso ng halaman ni Aling Rosa."
+          },
+          {
+            "id": "d",
+            "text": "Ben"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Ben"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q2-w07-d03-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang suliranin sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nabasag ang paso ng halaman ni Aling Rosa."
+          },
+          {
+            "id": "b",
+            "text": "Umuulan nang malakas."
+          },
+          {
+            "id": "c",
+            "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+          },
+          {
+            "id": "d",
+            "text": "Gustong maglaro ni Ben pero mainit ang araw."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Gustong maglaro ni Ben pero mainit ang araw."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q2-w07-d03-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang mahalagang pangyayari sa kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+          },
+          {
+            "id": "b",
+            "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
+          },
+          {
+            "id": "c",
+            "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
+          },
+          {
+            "id": "d",
+            "text": "Naghintay siya hanggang hapon."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Naghintay siya hanggang hapon."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q2-w07-d03-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano natapos ang kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
+          },
+          {
+            "id": "b",
+            "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+          },
+          {
+            "id": "c",
+            "text": "Aling Rosa at Nena"
+          },
+          {
+            "id": "d",
+            "text": "Naglaro siya nang masaya sa labas."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Naglaro siya nang masaya sa labas."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q2-w07-d03-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang maikling buod ng kuwento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
+          },
+          {
+            "id": "b",
+            "text": "Malakas ang ulan, at tinulungan ni Marco ang matandang walang payong upang makauwi nang ligtas."
+          },
+          {
+            "id": "c",
+            "text": "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+          },
+          {
+            "id": "d",
+            "text": "Mainit noong tanghali, kaya naghintay si Ben hanggang hapon bago naglaro."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Mainit noong tanghali, kaya naghintay si Ben hanggang hapon bago naglaro."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }
