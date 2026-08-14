@@ -1,344 +1,354 @@
 {
- "lessonId": "english-g3-m01-d10",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 10,
- "subject": "ENGLISH",
- "title": "Clap the Syllables · M01 D10",
- "objective": "Count spoken syllables in familiar words.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Clap with Milo! Ta-ble, win-dow, ba-na-na — how many beats do you hear?",
- "vocabulary": [
-  {
-   "term": "syllable",
-   "definition": "A part of a word with one vowel sound."
-  },
-  {
-   "term": "vowel",
-   "definition": "The letters a, e, i, o, u."
-  },
-  {
-   "term": "sound",
-   "definition": "A sound is something you hear, like each beat you clap in a word."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-m01-d10-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how clapping helps you count the beats in a word!",
-   "content": "A syllable is a spoken beat with a vowel sound. Clapping helps hear beats but does not by itself determine spelling.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Short-Vowel Sound Lab again. 💪"
-   },
-   "assetId": "english-g3-m01-d10-visual",
-   "accessibilityAlternative": "Text alternative: A syllable is a spoken beat with a vowel sound. Clapping helps hear beats but does not by itself determine spelling."
-  },
-  {
-   "activityId": "english-g3-m01-d10-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each word, say it, and clap its beats!",
-   "content": {
-    "examples": [
-     "ta-ble has two beats",
-     "win-dow has two beats",
-     "ba-na-na has three beats"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Short-Vowel Sound Lab. 🔎",
-    "retry": "Look at each Short-Vowel Sound Lab example again. 💪"
-   },
-   "assetId": "english-g3-m01-d10-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "english-g3-m01-d10-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the syllable count correct?",
-   "content": {
-    "fits": [
-     "ta-ble has two beats",
-     "win-dow has two beats",
-     "ba-na-na has three beats"
-    ],
-    "doesNotFit": [
-     "Counting letters instead of beats",
-     "Assuming every vowel letter is a separate syllable",
-     "Using spelling alone"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Short-Vowel Sound Lab clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "english-g3-m01-d10-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "english-g3-m01-d10-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "How many spoken beats are in banana?",
-   "content": {
-    "options": [
-     "three",
-     "one",
-     "five"
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: three",
-    "retry": "Say ba-na-na slowly and clap! How many claps did you make? 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "english-g3-m01-d10-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each word to the number of beats you hear!",
-   "content": {
-    "pairs": [
-     {
-      "left": "ta-ble has two beats",
-      "right": "table"
-     },
-     {
-      "left": "win-dow has two beats",
-      "right": "window"
-     },
-     {
-      "left": "ba-na-na has three beats",
-      "right": "banana"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Short-Vowel Sound Lab explanation. 🔗",
-    "retry": "Read both sides of each Short-Vowel Sound Lab pair again. 💪"
-   },
-   "assetId": "english-g3-m01-d10-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "english-g3-m01-d10-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the beat-counting steps in order!",
-   "content": {
-    "steps": [
-     "Say the word.",
-     "Clap each beat.",
-     "Count the beats you heard."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Short-Vowel Sound Lab steps in order. 🎉",
-    "retry": "Find the first, next, and last Short-Vowel Sound Lab steps. 💪"
-   },
-   "assetId": "english-g3-m01-d10-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-m01-d10-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How many beats do you hear in \"table\"?",
-    "options": [
-     {
-      "id": "a",
-      "text": "one"
-     },
-     {
-      "id": "b",
-      "text": "two"
-     },
-     {
-      "id": "c",
-      "text": "four"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ta-ble has two beats: ta and ble. You say it with two claps, not one or four."
-   },
-   {
-    "itemId": "english-g3-m01-d10-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word has the right beat count?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ta-ble has two beats"
-     },
-     {
-      "id": "b",
-      "text": "ta-ble has four beats"
-     },
-     {
-      "id": "c",
-      "text": "ta-ble has one beat"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Table is said ta-ble, so it has two beats. One beat and four beats do not match how we say the word."
-   },
-   {
-    "itemId": "english-g3-m01-d10-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which way of counting syllables is WRONG?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Saying ta-ble and clapping twice"
-     },
-     {
-      "id": "b",
-      "text": "Saying ba-na-na and clapping three times"
-     },
-     {
-      "id": "c",
-      "text": "Counting letters instead of beats"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Letters are not beats — table has 5 letters but only 2 beats. Clapping as you say each part of the word is the right way."
-   },
-   {
-    "itemId": "english-g3-m01-d10-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "How many spoken beats are in banana?",
-    "options": [
-     {
-      "id": "a",
-      "text": "one"
-     },
-     {
-      "id": "b",
-      "text": "three"
-     },
-     {
-      "id": "c",
-      "text": "five"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ba-na-na has three beats: ba, na, na. Say it slowly and clap — you will make three claps."
-   },
-   {
-    "itemId": "english-g3-m01-d10-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word has the right number of beats?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ba-na-na has three beats"
-     },
-     {
-      "id": "b",
-      "text": "Counting letters instead of beats"
-     },
-     {
-      "id": "c",
-      "text": "Using spelling alone"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ba-na-na has three beats, so the count is right. Counting letters or using spelling alone gives the wrong answer."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "english-g3-m01-d10-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/english-g3-m01-d10-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Clap the Syllables; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Clap the Syllables.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "3296d71ce5562bb96ca5d06467825c67de3c77546a63e09a316b7f861f522a1e",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-m01-d10",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 10,
+  "subject": "ENGLISH",
+  "title": "Clap the Syllables · M01 D10",
+  "objective": "Count spoken syllables in familiar words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Clap with Milo! Ta-ble, win-dow, ba-na-na — how many beats do you hear?",
+  "vocabulary": [
+    {
+      "term": "syllable",
+      "definition": "A part of a word with one vowel sound."
+    },
+    {
+      "term": "vowel",
+      "definition": "The letters a, e, i, o, u."
+    },
+    {
+      "term": "sound",
+      "definition": "A sound is something you hear, like each beat you clap in a word."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d10-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how clapping helps you count the beats in a word!",
+      "content": "A syllable is a spoken beat with a vowel sound. Clapping helps hear beats but does not by itself determine spelling.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Clap the Syllables again. 💪"
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "Text alternative: A syllable is a spoken beat with a vowel sound. Clapping helps hear beats but does not by itself determine spelling."
+    },
+    {
+      "activityId": "english-g3-m01-d10-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each word, say it, and clap its beats!",
+      "content": {
+        "examples": [
+          "ta-ble has two beats",
+          "win-dow has two beats",
+          "ba-na-na has three beats"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Clap the Syllables. 🔎",
+        "retry": "Look at each Clap the Syllables example again. 💪"
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d10-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the syllable count correct?",
+      "content": {
+        "fits": [
+          "ta-ble has two beats",
+          "win-dow has two beats",
+          "ba-na-na has three beats"
+        ],
+        "doesNotFit": [
+          "Counting letters instead of beats",
+          "Assuming every vowel letter is a separate syllable",
+          "Using spelling alone"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Clap the Syllables clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d10-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "How many spoken beats are in banana?",
+      "content": {
+        "options": [
+          "three",
+          "one",
+          "five"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: three",
+        "retry": "Say ba-na-na slowly and clap! How many claps did you make? 💪"
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d10-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each word to the number of beats you hear!",
+      "content": {
+        "pairs": [
+          {
+            "left": "ta-ble has two beats",
+            "right": "table"
+          },
+          {
+            "left": "win-dow has two beats",
+            "right": "window"
+          },
+          {
+            "left": "ba-na-na has three beats",
+            "right": "banana"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Clap the Syllables explanation. 🔗",
+        "retry": "Read both sides of each Clap the Syllables pair again. 💪"
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d10-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the beat-counting steps in order!",
+      "content": {
+        "steps": [
+          "Say the word.",
+          "Clap each beat.",
+          "Count the beats you heard."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Clap the Syllables steps in order. 🎉",
+        "retry": "Find the first, next, and last Clap the Syllables steps. 💪"
+      },
+      "assetId": "english-g3-m01-d10-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d10-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "How many beats do you hear in \"table\"?",
+        "options": [
+          {
+            "id": "a",
+            "text": "four"
+          },
+          {
+            "id": "b",
+            "text": "one"
+          },
+          {
+            "id": "c",
+            "text": "two"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ta-ble has two beats: ta and ble. You say it with two claps, not one or four."
+      },
+      {
+        "itemId": "english-g3-m01-d10-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word has the right beat count?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ta-ble has one beat"
+          },
+          {
+            "id": "b",
+            "text": "ta-ble has four beats"
+          },
+          {
+            "id": "c",
+            "text": "ta-ble has two beats"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Table is said ta-ble, so it has two beats. One beat and four beats do not match how we say the word."
+      },
+      {
+        "itemId": "english-g3-m01-d10-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which way of counting syllables is WRONG?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Saying ba-na-na and clapping three times"
+          },
+          {
+            "id": "b",
+            "text": "Saying ta-ble and clapping twice"
+          },
+          {
+            "id": "c",
+            "text": "Counting letters instead of beats"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Letters are not beats — table has 5 letters but only 2 beats. Clapping as you say each part of the word is the right way."
+      },
+      {
+        "itemId": "english-g3-m01-d10-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "How many spoken beats are in banana?",
+        "options": [
+          {
+            "id": "a",
+            "text": "one"
+          },
+          {
+            "id": "b",
+            "text": "three"
+          },
+          {
+            "id": "c",
+            "text": "five"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ba-na-na has three beats: ba, na, na. Say it slowly and clap — you will make three claps."
+      },
+      {
+        "itemId": "english-g3-m01-d10-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word has the right number of beats?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ba-na-na has three beats"
+          },
+          {
+            "id": "b",
+            "text": "Counting letters instead of beats"
+          },
+          {
+            "id": "c",
+            "text": "Using spelling alone"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ba-na-na has three beats, so the count is right. Counting letters or using spelling alone gives the wrong answer."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d10-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d10-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Clap the Syllables; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Clap the Syllables.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "3296d71ce5562bb96ca5d06467825c67de3c77546a63e09a316b7f861f522a1e",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

@@ -1,388 +1,398 @@
 {
- "lessonId": "filipino-g3-m01-d07",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 7,
- "subject": "FILIPINO",
- "title": "Wastong Pagbabaybay",
- "objective": "Bumuo at baybayin nang wasto ang mga pamilyar na salita.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng anim na tanong.",
- "vocabulary": [
-  {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
-  },
-  {
-   "term": "pantig",
-   "definition": "Bahagi ng salita na may isang tunog ng patinig."
-  },
-  {
-   "term": "kahulugan",
-   "definition": "Ang ibig sabihin ng isang salita o pangungusap."
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-m01-d07-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
-   },
-   "assetId": "filipino-g3-m01-d07-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra."
-  },
-  {
-   "activityId": "filipino-g3-m01-d07-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "ba-hay—bahay",
-     "gu-ro—guro",
-     "ha-la-man—halaman"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Wastong Pagsulat. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
-   },
-   "assetId": "filipino-g3-m01-d07-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "filipino-g3-m01-d07-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "ba-hay—bahay",
-     "gu-ro—guro",
-     "ha-la-man—halaman"
-    ],
-    "doesNotFit": [
-     "bhy para sa bahay",
-     "gru para sa guro",
-     "hmaan para sa halaman"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Wastong Pagsulat. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "filipino-g3-m01-d07-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d07-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang wastong baybay?",
-   "content": {
-    "options": [
-     "hlmn",
-     "halaman",
-     "hamaanl"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: halaman",
-    "retry": "Basahin muli ang tuntunin ng aralin. hamaanl at hlmn ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "filipino-g3-m01-d07-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "ba-hay—bahay",
-      "right": "bahay"
-     },
-     {
-      "left": "gu-ro—guro",
-      "right": "guro"
-     },
-     {
-      "left": "ha-la-man—halaman",
-      "right": "halaman"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Wastong Pagsulat. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
-   },
-   "assetId": "filipino-g3-m01-d07-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d07-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Wastong Pagsulat. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
-   },
-   "assetId": "filipino-g3-m01-d07-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 6,
-  "passingCorrectCount": 5,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "filipino-g3-m01-d07-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong baybay ng salitang /sapatos/?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sapatus"
-     },
-     {
-      "id": "b",
-      "text": "sapatos"
-     },
-     {
-      "id": "c",
-      "text": "sapatoss"
-     },
-     {
-      "id": "d",
-      "text": "sapat-os"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang tamang baybay ng salita ay sapatos."
-   },
-   {
-    "itemId": "filipino-g3-m01-d07-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang may wastong baybay?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pa-aralan"
-     },
-     {
-      "id": "b",
-      "text": "paaralan"
-     },
-     {
-      "id": "c",
-      "text": "paara lan"
-     },
-     {
-      "id": "d",
-      "text": "pa aralan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang paaralan ay isinusulat nang magkakadikit at walang gitling o puwang."
-   },
-   {
-    "itemId": "filipino-g3-m01-d07-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong baybay ng salitang /kaibigan/?",
-    "options": [
-     {
-      "id": "a",
-      "text": "kaybigan"
-     },
-     {
-      "id": "b",
-      "text": "kaibigen"
-     },
-     {
-      "id": "c",
-      "text": "kaibigan"
-     },
-     {
-      "id": "d",
-      "text": "kaibeggan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang wastong baybay ng salita ay kaibigan."
-   },
-   {
-    "itemId": "filipino-g3-m01-d07-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang wastong baybay?",
-    "options": [
-     {
-      "id": "a",
-      "text": "halaman"
-     },
-     {
-      "id": "b",
-      "text": "hlmn"
-     },
-     {
-      "id": "c",
-      "text": "hamaanl"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang halaman ay binabaybay na h-a-l-a-m-a-n — wasto ang ayos ng mga letra at tunog."
-   },
-   {
-    "itemId": "filipino-g3-m01-d07-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit mahalagang baybayin nang wasto ang mga salita?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang mahaba ang sulat"
-     },
-     {
-      "id": "b",
-      "text": "upang malinaw na maunawaan ang isinulat"
-     },
-     {
-      "id": "c",
-      "text": "upang maganda ang sulat-kamay"
-     },
-     {
-      "id": "d",
-      "text": "upang marami ang salita"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang wastong baybay ay nagpapalinaw ng mensahe ng isinulat."
-   },
-   {
-    "itemId": "filipino-g3-m01-d07-q06",
-    "sequence": 6,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bubuo ka ng salitang paaralan mula sa mga pantig. Aling ayos ang wasto?",
-    "options": [
-     {
-      "id": "a",
-      "text": "lan–pa–a–ra"
-     },
-     {
-      "id": "b",
-      "text": "ra–lan–pa–a"
-     },
-     {
-      "id": "c",
-      "text": "pa–a–ra–lan"
-     },
-     {
-      "id": "d",
-      "text": "pa–ra–a–lan"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Isaayos ang mga pantig mula sa una hanggang huli: pa + a + ra + lan = paaralan."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "filipino-g3-m01-d07-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/filipino-g3-m01-d07-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Wastong Pagbabaybay; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Wastong Pagbabaybay.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "266fac362c82bafad5b4beb82dd8191a5a61ff3145fcd98a04b72ef5d7585910",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-m01-d07",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 7,
+  "subject": "FILIPINO",
+  "title": "Wastong Pagbabaybay",
+  "objective": "Bumuo at baybayin nang wasto ang mga pamilyar na salita.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng anim na tanong.",
+  "vocabulary": [
+    {
+      "term": "salita",
+      "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+    },
+    {
+      "term": "pantig",
+      "definition": "Bahagi ng salita na may isang tunog ng patinig."
+    },
+    {
+      "term": "kahulugan",
+      "definition": "Ang ibig sabihin ng isang salita o pangungusap."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d07-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Wastong Pagbabaybay. 💪"
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Iugnay ang tunog, pantig, kahulugan, at ayos ng mga letra."
+    },
+    {
+      "activityId": "filipino-g3-m01-d07-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "ba-hay—bahay",
+          "gu-ro—guro",
+          "ha-la-man—halaman"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Wastong Pagbabaybay. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Wastong Pagbabaybay. 💪"
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d07-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "ba-hay—bahay",
+          "gu-ro—guro",
+          "ha-la-man—halaman"
+        ],
+        "doesNotFit": [
+          "bhy para sa bahay",
+          "gru para sa guro",
+          "hmaan para sa halaman"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Wastong Pagbabaybay. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d07-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang wastong baybay?",
+      "content": {
+        "options": [
+          "hlmn",
+          "halaman",
+          "hamaanl"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: halaman",
+        "retry": "Basahin muli ang tuntunin ng aralin. hamaanl at hlmn ay hindi angkop."
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d07-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "ba-hay",
+            "right": "bahay"
+          },
+          {
+            "left": "gu-ro",
+            "right": "guro"
+          },
+          {
+            "left": "ha-la-man",
+            "right": "halaman"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Wastong Pagbabaybay. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagbabaybay. 💪"
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d07-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Wastong Pagbabaybay. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagbabaybay. 💪"
+      },
+      "assetId": "filipino-g3-m01-d07-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 6,
+    "passingCorrectCount": 5,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d07-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong baybay ng salitang /sapatos/?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sapatos"
+          },
+          {
+            "id": "b",
+            "text": "sapatoss"
+          },
+          {
+            "id": "c",
+            "text": "sapat-os"
+          },
+          {
+            "id": "d",
+            "text": "sapatus"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tamang baybay ng salita ay sapatos."
+      },
+      {
+        "itemId": "filipino-g3-m01-d07-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang may wastong baybay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pa aralan"
+          },
+          {
+            "id": "b",
+            "text": "paara lan"
+          },
+          {
+            "id": "c",
+            "text": "pa-aralan"
+          },
+          {
+            "id": "d",
+            "text": "paaralan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang paaralan ay isinusulat nang magkakadikit at walang gitling o puwang."
+      },
+      {
+        "itemId": "filipino-g3-m01-d07-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong baybay ng salitang /kaibigan/?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kaibigan"
+          },
+          {
+            "id": "b",
+            "text": "kaybigan"
+          },
+          {
+            "id": "c",
+            "text": "kaibigen"
+          },
+          {
+            "id": "d",
+            "text": "kaibeggan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang wastong baybay ng salita ay kaibigan."
+      },
+      {
+        "itemId": "filipino-g3-m01-d07-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong baybay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hamaanl"
+          },
+          {
+            "id": "b",
+            "text": "halaman"
+          },
+          {
+            "id": "c",
+            "text": "hlmn"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang halaman ay binabaybay na h-a-l-a-m-a-n — wasto ang ayos ng mga letra at tunog."
+      },
+      {
+        "itemId": "filipino-g3-m01-d07-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalagang baybayin nang wasto ang mga salita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang marami ang salita"
+          },
+          {
+            "id": "b",
+            "text": "upang mahaba ang sulat"
+          },
+          {
+            "id": "c",
+            "text": "upang maganda ang sulat-kamay"
+          },
+          {
+            "id": "d",
+            "text": "upang malinaw na maunawaan ang isinulat"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang wastong baybay ay nagpapalinaw ng mensahe ng isinulat."
+      },
+      {
+        "itemId": "filipino-g3-m01-d07-q06",
+        "sequence": 6,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bubuo ka ng salitang paaralan mula sa mga pantig. Aling ayos ang wasto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pa–a–ra–lan"
+          },
+          {
+            "id": "b",
+            "text": "pa–ra–a–lan"
+          },
+          {
+            "id": "c",
+            "text": "ra–lan–pa–a"
+          },
+          {
+            "id": "d",
+            "text": "lan–pa–a–ra"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Isaayos ang mga pantig mula sa una hanggang huli: pa + a + ra + lan = paaralan."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d07-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d07-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Wastong Pagbabaybay; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Wastong Pagbabaybay.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "266fac362c82bafad5b4beb82dd8191a5a61ff3145fcd98a04b72ef5d7585910",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

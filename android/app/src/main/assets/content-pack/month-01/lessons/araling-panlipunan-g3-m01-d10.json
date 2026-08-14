@@ -1,370 +1,380 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d10",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 10,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Paano Nagsimula ang mga Lalawigángan",
- "objective": "Ihiwalay ang tala, oral history, alamat, at di-beripikadong pahayag sa kathang-isip na pinagmulan.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
- "vocabulary": [
-  {
-   "term": "alamat",
-   "definition": "Kuwento tungkol sa pinagmulan ng mga bagay."
-  },
-  {
-   "term": "kasaysayan",
-   "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
-  },
-  {
-   "term": "kuwento",
-   "definition": "Isang salaysay tungkol sa mga tauhan at pangyayari."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Paano Nagsimula ang mga Lalawigán. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "dated record",
-     "oral account na may attribution",
-     "susi na malinaw ang label"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Paano Nagsimula ang mga Lalawigán. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Paano Nagsimula ang mga Lalawigán. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "dated record",
-     "oral account na may attribution",
-     "susi na malinaw ang label"
-    ],
-    "doesNotFit": [
-     "Imbentong kuwento bilang fact",
-     "Walang pinagmulan",
-     "Tiyak na claim mula sa isang hula"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Paano Nagsimula ang mga Lalawigán. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang dapat malinaw na lagyan ng label bilang kuwento o alamat?",
-   "content": {
-    "options": [
-     "iskala ng mapa",
-     "susi",
-     "may petsang opisyal na tala"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: alamat (kuwento)",
-    "retry": "Basahin muli ang tuntunin ng aralin. opisyal na tala na may petsa at sukatan ng mapa ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "naitalang may petsa",
-      "right": "naitalang may petsa"
-     },
-     {
-      "left": "pasalitang salaysay na may pinagmulan",
-      "right": "pasalitang salaysay na may pinagmulan"
-     },
-     {
-      "left": "alamat (kuwento) na malinaw ang label",
-      "right": "alamat (kuwento) na malinaw ang label"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Paano Nagsimula ang mga Lalawigán. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Paano Nagsimula ang mga Lalawigán. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d10-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Paano Nagsimula ang mga Lalawigán. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Paano Nagsimula ang mga Lalawigán. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d10-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang pinaka-maaasahang ebidensya ng kasaysayan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "haka-haka ng kaibigan"
-     },
-     {
-      "id": "b",
-      "text": "panaginip"
-     },
-     {
-      "id": "c",
-      "text": "bali-balita"
-     },
-     {
-      "id": "d",
-      "text": "lumang tala o dokumento"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang mga tala at dokumento ay mas maaasahang ebidensya kaysa haka-haka."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d10-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang oral history o kasaysayang pasalita?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mga bagong balita"
-     },
-     {
-      "id": "b",
-      "text": "mga kuwento ng mga nakatatanda tungkol sa nakaraan"
-     },
-     {
-      "id": "c",
-      "text": "mga lumang dokumento"
-     },
-     {
-      "id": "d",
-      "text": "mga larawan ngayon"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang oral history ay mga pasalitang kuwento ng nakaraan mula sa mga nakatatanda."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d10-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang alamat?",
-    "options": [
-     {
-      "id": "a",
-      "text": "larawang may petsa"
-     },
-     {
-      "id": "b",
-      "text": "balita sa radyo"
-     },
-     {
-      "id": "c",
-      "text": "kuwentong nagpapaliwanag ng pinagmulan ng isang bagay o lugar"
-     },
-     {
-      "id": "d",
-      "text": "tala ng gobyerno"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang alamat ay kuwento ng pinagmulan — maaaring hindi ito totoong tala."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d10-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang di-beripikadong pahayag?",
-    "options": [
-     {
-      "id": "a",
-      "text": "“Nakasaad sa lumang dokumento.”"
-     },
-     {
-      "id": "b",
-      "text": "“Ayon sa tala ng barangay, itinatag ito noong 1955.”"
-     },
-     {
-      "id": "c",
-      "text": "“Ayon sa sertipiko ng barangay.”"
-     },
-     {
-      "id": "d",
-      "text": "“Sabi raw ng kapitbahay, ganoon talaga.”"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang “sabi raw” na walang pinagmulan ay hindi pa beripikado."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d10-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit kailangang ihiwalay ang alamat sa totoong tala?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang mahaba ang aklat"
-     },
-     {
-      "id": "b",
-      "text": "upang maganda ang aralin"
-     },
-     {
-      "id": "c",
-      "text": "upang hindi magkahalo ang kuwento at ang katotohanan"
-     },
-     {
-      "id": "d",
-      "text": "upang mahirap sagutin"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang paghihiwalay ng alamat at tala ay nagpapakita ng maingat na pag-aaral ng kasaysayan."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d10-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d10-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Paano Nagsimula ang mga Lalawigángan; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Paano Nagsimula ang mga Lalawigángan.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "e4c3c437e39086e42fbbb0aaedae1b960b5101396f1f37a8d0eeeb7957322d33",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d10",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 10,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Paano Nagsimula ang mga Lalawigángan",
+  "objective": "Ihiwalay ang tala, kasaysayang pasalita, alamat, at di-beripikadong pahayag sa kathang-isip na pinagmulan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan. Susuri ka ng mga halimbawa, magpapangkat ng mga card, magsasanay, at sasagot ng limang tanong.",
+  "vocabulary": [
+    {
+      "term": "alamat",
+      "definition": "Kuwento tungkol sa pinagmulan ng mga bagay."
+    },
+    {
+      "term": "kasaysayan",
+      "definition": "Ang mga pangyayari sa nakaraan ng ating bayan."
+    },
+    {
+      "term": "kuwento",
+      "definition": "Isang salaysay tungkol sa mga tauhan at pangyayari."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Paano Nagsimula ang mga Lalawigángan. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Magkaiba ang uri ng ebidensya; ang alamat ay hindi awtomatikong tiyak na kasaysayan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "tala na may petsa",
+          "pasalitang salaysay",
+          "susi na malinaw ang label"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Paano Nagsimula ang mga Lalawigán. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Paano Nagsimula ang mga Lalawigán. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "tala na may petsa",
+          "pasalitang salaysay",
+          "susi na malinaw ang label"
+        ],
+        "doesNotFit": [
+          "Imbentong kuwento bilang fact",
+          "Walang pinagmulan",
+          "Tiyak na claim mula sa isang hula"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Paano Nagsimula ang mga Lalawigán. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang dapat malinaw na lagyan ng label bilang kuwento o alamat?",
+      "content": {
+        "options": [
+          "iskala ng mapa",
+          "susi",
+          "may petsang opisyal na tala"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: alamat (kuwento)",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Naitalang may petsa",
+            "right": "tiyak na tala ng nakaraan"
+          },
+          {
+            "left": "Pasalitang salaysay na may pinagmulan",
+            "right": "kasaysayang binigkas at naipasa"
+          },
+          {
+            "left": "Alamat na may malinaw na label",
+            "right": "kuwentong may aral at may label"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang bawat pares. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Paano Nagsimula ang mga Lalawigán. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d10-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Paano Nagsimula ang mga Lalawigán. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Paano Nagsimula ang mga Lalawigán. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d10-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pinaka-maaasahang ebidensya ng kasaysayan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bali-balita"
+          },
+          {
+            "id": "b",
+            "text": "lumang tala o dokumento"
+          },
+          {
+            "id": "c",
+            "text": "panaginip"
+          },
+          {
+            "id": "d",
+            "text": "haka-haka ng kaibigan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang mga tala at dokumento ay mas maaasahang ebidensya kaysa haka-haka."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d10-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang kasaysayang pasalita o kasaysayang pasalita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mga kuwento ng mga nakatatanda tungkol sa nakaraan"
+          },
+          {
+            "id": "b",
+            "text": "mga larawan ngayon"
+          },
+          {
+            "id": "c",
+            "text": "mga lumang dokumento"
+          },
+          {
+            "id": "d",
+            "text": "mga bagong balita"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang kasaysayang pasalita ay mga pasalitang kuwento ng nakaraan mula sa mga nakatatanda."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d10-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang alamat?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tala ng gobyerno"
+          },
+          {
+            "id": "b",
+            "text": "balita sa radyo"
+          },
+          {
+            "id": "c",
+            "text": "larawang may petsa"
+          },
+          {
+            "id": "d",
+            "text": "kuwentong nagpapaliwanag ng pinagmulan ng isang bagay o lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang alamat ay kuwento ng pinagmulan — maaaring hindi ito totoong tala."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d10-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang di-beripikadong pahayag?",
+        "options": [
+          {
+            "id": "a",
+            "text": "“Nakasaad sa lumang dokumento.”"
+          },
+          {
+            "id": "b",
+            "text": "“Ayon sa tala ng barangay, itinatag ito noong 1955.”"
+          },
+          {
+            "id": "c",
+            "text": "“Ayon sa sertipiko ng barangay.”"
+          },
+          {
+            "id": "d",
+            "text": "“Sabi raw ng kapitbahay, ganoon talaga.”"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “sabi raw” na walang pinagmulan ay hindi pa beripikado."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d10-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit kailangang ihiwalay ang alamat sa totoong tala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang mahaba ang aklat"
+          },
+          {
+            "id": "b",
+            "text": "upang hindi magkahalo ang kuwento at ang katotohanan"
+          },
+          {
+            "id": "c",
+            "text": "upang mahirap sagutin"
+          },
+          {
+            "id": "d",
+            "text": "upang maganda ang aralin"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang paghihiwalay ng alamat at tala ay nagpapakita ng maingat na pag-aaral ng kasaysayan."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d10-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d10-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Paano Nagsimula ang mga Lalawigángan; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Paano Nagsimula ang mga Lalawigángan.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "e4c3c437e39086e42fbbb0aaedae1b960b5101396f1f37a8d0eeeb7957322d33",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
 }

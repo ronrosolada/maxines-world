@@ -1,350 +1,360 @@
 {
- "lessonId": "mathematics-g3-m01-d07",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 7,
- "subject": "MATHEMATICS",
- "title": "The 100-Place Parade",
- "objective": "Identify ordinal positions through 100th from a stated start and direction.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Milo is watching a parade! Help him name each marcher's position: first, second, and all the way to one hundredth.",
- "vocabulary": [
-  {
-   "term": "number",
-   "definition": "A symbol or word that tells how many, like 25."
-  },
-  {
-   "term": "point",
-   "definition": "The position of a person or thing in a line-up."
-  },
-  {
-   "term": "line",
-   "definition": "A row of people or things counted from a starting point."
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-m01-d07-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how 24th and 25th name positions in a line.",
-   "content": "Ordinal numbers show position, and the starting point and direction must be clear.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Shape Trail again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "accessibilityAlternative": "Text alternative: Ordinal numbers show position, and the starting point and direction must be clear."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d07-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read the position word.",
-   "content": {
-    "examples": [
-     "1st",
-     "25th",
-     "100th"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Shape Trail. 🔎",
-    "retry": "Look at each Shape Trail example again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d07-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it show an ordinal position?",
-   "content": {
-    "fits": [
-     "1st",
-     "25th",
-     "100th"
-    ],
-    "doesNotFit": [
-     "25 as a count without position",
-     "Counting from an unstated side",
-     "Using 25th for 25 objects total"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Shape Trail clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d07-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "A line is counted left to right. What follows 24th?",
-   "content": {
-    "options": [
-     "23rd",
-     "34th",
-     "25th"
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: 25th",
-    "retry": "Look at the example again. 23rd and 34th do not match the lesson idea. Choose the answer that fits. 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d07-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each position to its ordinal name.",
-   "content": {
-    "pairs": [
-     {
-      "left": "1st",
-      "right": "first"
-     },
-     {
-      "left": "25th",
-      "right": "twenty-fifth"
-     },
-     {
-      "left": "100th",
-      "right": "one hundredth"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Shape Trail explanation. 🔗",
-    "retry": "Read both sides of each Shape Trail pair again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d07-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps for naming a position in order.",
-   "content": {
-    "steps": [
-     "Start from the stated place.",
-     "Count positions in the direction given.",
-     "Name the ordinal word."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Shape Trail steps in order. 🎉",
-    "retry": "Find the first, next, and last Shape Trail steps. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-m01-d07-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about ordinal numbers is true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "25 as a count without position"
-     },
-     {
-      "id": "c",
-      "text": "Counting from an unstated side"
-     },
-     {
-      "id": "a",
-      "text": "Ordinal numbers show position, and the starting point and direction must be clear."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ordinal numbers like 1st and 25th name a position. You also need to know where counting starts and which way it goes."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d07-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which names the position of the first child in line?",
-    "options": [
-     {
-      "id": "a",
-      "text": "1st"
-     },
-     {
-      "id": "b",
-      "text": "25 children"
-     },
-     {
-      "id": "c",
-      "text": "Counting from the middle of the line"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "1st names the first position. '25 children' is a count, not a position."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d07-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is NOT an ordinal number?",
-    "options": [
-     {
-      "id": "c",
-      "text": "25th"
-     },
-     {
-      "id": "a",
-      "text": "25 as a count without position"
-     },
-     {
-      "id": "b",
-      "text": "1st"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "25th and 1st name positions in a line. A plain 25 only tells how many, so it is not an ordinal number."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d07-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "A line is counted left to right. What follows 24th?",
-    "options": [
-     {
-      "id": "b",
-      "text": "23rd"
-     },
-     {
-      "id": "c",
-      "text": "34th"
-     },
-     {
-      "id": "a",
-      "text": "25th"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Counting left to right, the position right after 24th is 25th."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d07-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which shows an ordinal position?",
-    "options": [
-     {
-      "id": "a",
-      "text": "100th"
-     },
-     {
-      "id": "b",
-      "text": "25 objects counted one by one"
-     },
-     {
-      "id": "c",
-      "text": "25 as a count without position"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "100th names the one-hundredth position in a line, so it is an ordinal number."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "mathematics-g3-m01-d07-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/mathematics-g3-m01-d07-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for The 100-Place Parade; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in The 100-Place Parade.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NCTM Principles and Standards",
-   "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "69707db53a8aa53f5f01612935065a5e89b1a07acdf7aa48b0ca472469083ed2",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-m01-d07",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 7,
+  "subject": "MATHEMATICS",
+  "title": "The 100-Place Parade",
+  "objective": "Identify ordinal positions through 100th from a stated start and direction.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is watching a parade! Help him name each marcher's position: first, second, and all the way to one hundredth.",
+  "vocabulary": [
+    {
+      "term": "number",
+      "definition": "A symbol or word that tells how many, like 25."
+    },
+    {
+      "term": "point",
+      "definition": "The position of a person or thing in a line-up."
+    },
+    {
+      "term": "line",
+      "definition": "A row of people or things counted from a starting point."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d07-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how 24th and 25th name positions in a line.",
+      "content": "Ordinal numbers show position, and the starting point and direction must be clear.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in The 100-Place Parade again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "Text alternative: Ordinal numbers show position, and the starting point and direction must be clear."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d07-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the position word.",
+      "content": {
+        "examples": [
+          "1st",
+          "25th",
+          "100th"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for The 100-Place Parade. 🔎",
+        "retry": "Look at each The 100-Place Parade example again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d07-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it show an ordinal position?",
+      "content": {
+        "fits": [
+          "1st",
+          "25th",
+          "100th"
+        ],
+        "doesNotFit": [
+          "25 as a count without position",
+          "Counting from an unstated side",
+          "Using 25th for 25 objects total"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the The 100-Place Parade clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d07-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "A line is counted left to right. What follows 24th?",
+      "content": {
+        "options": [
+          "23rd",
+          "34th",
+          "25th"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 25th",
+        "retry": "Look again: 23rd and 34th do not fit here. Choose the answer that fits. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d07-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each position to its ordinal name.",
+      "content": {
+        "pairs": [
+          {
+            "left": "1st",
+            "right": "first"
+          },
+          {
+            "left": "25th",
+            "right": "twenty-fifth"
+          },
+          {
+            "left": "100th",
+            "right": "one hundredth"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its The 100-Place Parade explanation. 🔗",
+        "retry": "Read both sides of each The 100-Place Parade pair again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d07-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps for naming a position in order.",
+      "content": {
+        "steps": [
+          "Start from the stated place.",
+          "Count positions in the direction given.",
+          "Name the ordinal word."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the The 100-Place Parade steps in order. 🎉",
+        "retry": "Find the first, next, and last The 100-Place Parade steps. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d07-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about ordinal numbers is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Counting from an unstated side"
+          },
+          {
+            "id": "b",
+            "text": "25 as a count without position"
+          },
+          {
+            "id": "c",
+            "text": "Ordinal numbers show position, and the starting point and direction must be clear."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ordinal numbers like 1st and 25th name a position. You also need to know where counting starts and which way it goes."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d07-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which names the position of the first child in line?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Counting from the middle of the line"
+          },
+          {
+            "id": "b",
+            "text": "1st"
+          },
+          {
+            "id": "c",
+            "text": "25 children"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "1st names the first position. '25 children' is a count, not a position."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d07-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is NOT an ordinal number?",
+        "options": [
+          {
+            "id": "a",
+            "text": "25th"
+          },
+          {
+            "id": "b",
+            "text": "25 as a count without position"
+          },
+          {
+            "id": "c",
+            "text": "1st"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "25th and 1st name positions in a line. A plain 25 only tells how many, so it is not an ordinal number."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d07-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A line is counted left to right. What follows 24th?",
+        "options": [
+          {
+            "id": "a",
+            "text": "25th"
+          },
+          {
+            "id": "b",
+            "text": "34th"
+          },
+          {
+            "id": "c",
+            "text": "23rd"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Counting left to right, the position right after 24th is 25th."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d07-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which shows an ordinal position?",
+        "options": [
+          {
+            "id": "a",
+            "text": "100th"
+          },
+          {
+            "id": "b",
+            "text": "25 as a count without position"
+          },
+          {
+            "id": "c",
+            "text": "25 objects counted one by one"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "100th names the one-hundredth position in a line, so it is an ordinal number."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d07-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d07-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for The 100-Place Parade; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in The 100-Place Parade.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "69707db53a8aa53f5f01612935065a5e89b1a07acdf7aa48b0ca472469083ed2",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

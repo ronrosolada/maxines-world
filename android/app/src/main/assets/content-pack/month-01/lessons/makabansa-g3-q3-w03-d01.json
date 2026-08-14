@@ -1,378 +1,388 @@
 {
- "lessonId": "makabansa-g3-q3-w03-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 9,
- "day": 1,
- "subject": "makabansa",
- "title": "Pagkakakilanlang Pilipino · Q3 W03 D01",
- "objective": "Naiuugnay ang sariling katangian at karanasan sa pagiging Pilipino.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "paggalang sa kapwa",
-   "definition": "Pagpapakita ng maayos na pakikitungo sa ibang tao."
-  },
-  {
-   "term": "pag-aalaga sa komunidad",
-   "definition": "Pagkilos upang mapanatiling ligtas at maayos ang lugar."
-  },
-  {
-   "term": "pagpapahalaga sa wika",
-   "definition": "Paggamit at pag-iingat sa wikang bahagi ng kultura."
-  }
- ],
- "activities": [
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Pakinggan ang paliwanag ni Milo.",
-   "content": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Pagkakakilanlang Pilipino. 💪"
-   },
-   "prompt": "Pakinggan ang paliwanag tungkol sa kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid."
-  },
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "content": {
-    "examples": [
-     "paggalang sa kapwa",
-     "pag-aalaga sa komunidad",
-     "pagpapahalaga sa wika",
-     "pakikilahok sa kultura"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Pagkakakilanlang Pilipino. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
-  },
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "content": {
-    "fits": [
-     "paggalang sa kapwa",
-     "pag-aalaga sa komunidad",
-     "pagpapahalaga sa wika",
-     "pakikilahok sa kultura"
-    ],
-    "doesNotFit": [
-     "presyo ng isang laruan",
-     "pangalan ng isang planeta",
-     "numero sa isang resibo",
-     "kulay ng isang kuwaderno"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Pagkakakilanlang Pilipino bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
-  },
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "presyo ng isang laruan",
-     "pangalan ng isang planeta",
-     "paggalang sa kapwa",
-     "numero sa isang resibo"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Pagkakakilanlang Pilipino. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
-  },
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Itugma ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "content": {
-    "pairs": [
-     {
-      "left": "paggalang sa kapwa",
-      "right": "pagpapahalaga sa ugnayan"
-     },
-     {
-      "left": "pag-aalaga sa komunidad",
-      "right": "pagkilos para sa komunidad"
-     },
-     {
-      "left": "pagpapahalaga sa wika",
-      "right": "pagpapanatili ng wika"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pagkakakilanlang Pilipino. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
-  },
-  {
-   "activityId": "makabansa-g3-q3-w03-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q3-w03-d01-visual",
-   "instruction": "Ayusin ang mga hakbang nang tama.",
-   "content": {
-    "steps": [
-     "Tingnan ang halimbawa",
-     "Tukuyin ang mahalagang ideya",
-     "Iugnay sa komunidad",
-     "Ipaliwanag ang sagot"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pagkakakilanlang Pilipino. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa kultura at pagkakakilanlan.",
-   "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "makabansa-g3-q3-w03-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit kailangan nating malaman ang ating pagkakakilanlan bilang Pilipino?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagsasalita ng ibang wika palagi"
-     },
-     {
-      "id": "b",
-      "text": "paggamit ng Filipino at paggalang sa mga nakatatanda"
-     },
-     {
-      "id": "c",
-      "text": "pagsuot ng damit ng ibang bansa araw-araw"
-     },
-     {
-      "id": "d",
-      "text": "paglimot sa sariling kultura"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang wika at paggalang sa nakatatanda ay bahagi ng pagkakakilanlang Pilipino."
-   },
-   {
-    "itemId": "makabansa-g3-q3-w03-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit kailangang malaman ng bawat bata ang kaniyang pagkakakilanlang Pilipino?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang maging sikat tayo"
-     },
-     {
-      "id": "b",
-      "text": "upang magkaroon tayo ng maraming laruan"
-     },
-     {
-      "id": "c",
-      "text": "upang manalo tayo sa laro"
-     },
-     {
-      "id": "d",
-      "text": "upang malaman natin kung saan tayo nagmula at kung ano tayo bilang Pilipino"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pagkakakilanlan ay nagbibigay sa atin ng pagkakaisa at pagmamalaki sa sariling kultura."
-   },
-   {
-    "itemId": "makabansa-g3-q3-w03-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Nakatira ka sa Pilipinas. Alin ang bahagi ng iyong pagkakakilanlang Pilipino?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang tatak ng iyong sapatos"
-     },
-     {
-      "id": "b",
-      "text": "ang bilang ng iyong mga laruan"
-     },
-     {
-      "id": "c",
-      "text": "ang kulay ng iyong bag"
-     },
-     {
-      "id": "d",
-      "text": "ang iyong mga karanasan sa iyong komunidad"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang mga karanasan sa komunidad — pista, laro, at pakikisama — ay nag-uugnay sa iyo sa pagiging Pilipino."
-   },
-   {
-    "itemId": "makabansa-g3-q3-w03-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng pagiging Pilipino sa pang-araw-araw?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagsasabi ng “po” at “opo” sa nakatatanda"
-     },
-     {
-      "id": "b",
-      "text": "pagtapon ng basura sa daan"
-     },
-     {
-      "id": "c",
-      "text": "hindi pakikipaglaro sa kapitbahay"
-     },
-     {
-      "id": "d",
-      "text": "pagsigaw sa loob ng simbahan"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang paggamit ng “po” at “opo” ay kaugaliang Pilipino na nagpapakita ng paggalang."
-   },
-   {
-    "itemId": "makabansa-g3-q3-w03-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang maaaring ibahagi ng isang batang Pilipino tungkol sa kaniyang pagkakakilanlan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang kaniyang pamilya, wika, at mga kaugalian"
-     },
-     {
-      "id": "b",
-      "text": "ang gamit ng kaniyang kapatid"
-     },
-     {
-      "id": "c",
-      "text": "ang kaniyang password"
-     },
-     {
-      "id": "d",
-      "text": "ang sikreto ng kaibigan"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pamilya, wika, at kaugalian ang mga katangiang bumubuo ng pagkakakilanlan."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "makabansa-g3-q3-w03-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 9,
+  "day": 1,
+  "subject": "makabansa",
+  "title": "Pagkakakilanlang Pilipino · Q3 W03 D01",
+  "objective": "Naiuugnay ang sariling katangian at karanasan sa pagiging Pilipino.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "paggalang sa kapwa",
+      "definition": "Pagpapakita ng maayos na pakikitungo sa ibang tao."
+    },
+    {
+      "term": "pag-aalaga sa komunidad",
+      "definition": "Pagkilos upang mapanatiling ligtas at maayos ang lugar."
+    },
+    {
+      "term": "pagpapahalaga sa wika",
+      "definition": "Paggamit at pag-iingat sa wikang bahagi ng kultura."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "content": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Pagkakakilanlang Pilipino. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag tungkol sa kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan. Subukan din ito sa bahay. Halimbawa, sa isang mapa ng paligid."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "content": {
+        "examples": [
+          "paggalang sa kapwa",
+          "pag-aalaga sa komunidad",
+          "pagpapahalaga sa wika",
+          "pakikilahok sa kultura"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Pagkakakilanlang Pilipino. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "content": {
+        "fits": [
+          "paggalang sa kapwa",
+          "pag-aalaga sa komunidad",
+          "pagpapahalaga sa wika",
+          "pakikilahok sa kultura"
+        ],
+        "doesNotFit": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "numero sa isang resibo",
+          "kulay ng isang kuwaderno"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Pagkakakilanlang Pilipino bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "paggalang sa kapwa",
+          "numero sa isang resibo"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Pagkakakilanlang Pilipino. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Itugma ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "content": {
+        "pairs": [
+          {
+            "left": "paggalang sa kapwa",
+            "right": "pagpapahalaga sa ugnayan"
+          },
+          {
+            "left": "pag-aalaga sa komunidad",
+            "right": "pagkilos para sa komunidad"
+          },
+          {
+            "left": "pagpapahalaga sa wika",
+            "right": "pagpapanatili ng wika"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pagkakakilanlang Pilipino. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d01-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Tingnan ang halimbawa",
+          "Tukuyin ang mahalagang ideya",
+          "Iugnay sa komunidad",
+          "Ipaliwanag ang sagot"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pagkakakilanlang Pilipino. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa kultura at pagkakakilanlan.",
+      "narration": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagkakakilanlan ay nabubuo sa wika, kultura, ugnayan, pagpapahalaga, at mga karanasang pinagsasaluhan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q3-w03-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit kailangan nating malaman ang ating pagkakakilanlan bilang Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsuot ng damit ng ibang bansa araw-araw"
+          },
+          {
+            "id": "b",
+            "text": "paggamit ng Filipino at paggalang sa mga nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "pagsasalita ng ibang wika palagi"
+          },
+          {
+            "id": "d",
+            "text": "paglimot sa sariling kultura"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang wika at paggalang sa nakatatanda ay bahagi ng pagkakakilanlang Pilipino."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit kailangang malaman ng bawat bata ang kaniyang pagkakakilanlang Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang manalo tayo sa laro"
+          },
+          {
+            "id": "b",
+            "text": "upang magkaroon tayo ng maraming laruan"
+          },
+          {
+            "id": "c",
+            "text": "upang malaman natin kung saan tayo nagmula at kung ano tayo bilang Pilipino"
+          },
+          {
+            "id": "d",
+            "text": "upang maging sikat tayo"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagkakakilanlan ay nagbibigay sa atin ng pagkakaisa at pagmamalaki sa sariling kultura."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sagutin ito: Nakatira ka sa Pilipinas. Alin ang bahagi ng iyong pagkakakilanlang Pilipino?  (sa aralin: Pagkakakilanlang Pilipino)",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang iyong mga karanasan sa iyong komunidad"
+          },
+          {
+            "id": "b",
+            "text": "ang kulay ng iyong bag"
+          },
+          {
+            "id": "c",
+            "text": "ang bilang ng iyong mga laruan"
+          },
+          {
+            "id": "d",
+            "text": "ang tatak ng iyong sapatos"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang mga karanasan sa komunidad — pista, laro, at pakikisama — ay nag-uugnay sa iyo sa pagiging Pilipino."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sagutin ito: Alin ang halimbawa ng pagiging Pilipino sa pang-araw-araw?  (sa aralin: Pagkakakilanlang Pilipino)",
+        "options": [
+          {
+            "id": "a",
+            "text": "hindi pakikipaglaro sa kapitbahay"
+          },
+          {
+            "id": "b",
+            "text": "pagsasabi ng “po” at “opo” sa nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "pagsigaw sa loob ng simbahan"
+          },
+          {
+            "id": "d",
+            "text": "pagtapon ng basura sa daan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang paggamit ng “po” at “opo” ay kaugaliang Pilipino na nagpapakita ng paggalang."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sagutin ito: Ano ang maaaring ibahagi ng isang batang Pilipino tungkol sa kaniyang pagkakakilanlan?  (sa aralin: Pagkakakilanlang Pilipino)",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang kaniyang pamilya, wika, at mga kaugalian"
+          },
+          {
+            "id": "b",
+            "text": "ang sikreto ng kaibigan"
+          },
+          {
+            "id": "c",
+            "text": "ang kaniyang password"
+          },
+          {
+            "id": "d",
+            "text": "ang gamit ng kaniyang kapatid"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pamilya, wika, at kaugalian ang mga katangiang bumubuo ng pagkakakilanlan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  }
 }

@@ -1,378 +1,388 @@
 {
- "lessonId": "filipino-g3-q4-w13-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 16,
- "day": 4,
- "subject": "filipino",
- "title": "Bahagi ng Pangungusap · Q4 W13 D04",
- "objective": "Natutukoy ang simuno at panaguri sa payak na pangungusap.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "simuno",
-   "definition": "ang pinag-uusapan sa pangungusap"
-  },
-  {
-   "term": "panaguri",
-   "definition": "ang nagsasabi tungkol sa simuno"
-  },
-  {
-   "term": "payak na pangungusap",
-   "definition": "pangungusap na may isang simuno at isang panaguri"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
-   },
-   "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw."
-  },
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng simuno at panaguri.",
-   "content": {
-    "examples": [
-     "Si Hana / ay nagpapaaraw.",
-     "Ang palengke / ay maingay.",
-     "Si Ines / ay sumisigaw.",
-     "Ang tren / ay dumating."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng simuno at panaguri.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
-  },
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng simuno at panaguri.",
-   "content": {
-    "fits": [
-     "Si Hana / ay nagpapaaraw.",
-     "Ang palengke / ay maingay.",
-     "Si Ines / ay sumisigaw.",
-     "Ang tren / ay dumating."
-    ],
-    "doesNotFit": [
-     "ang matiyagang sumusulat",
-     "sa likod ng bahay",
-     "at nagmamadali tuwing gabi",
-     "kasi tuwang-tuwa ang lahat"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Bahagi ng Pangungusap bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
-  },
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "sa likod ng bahay",
-     "kasi tuwang-tuwa ang lahat",
-     "Si Hana / ay nagpapaaraw.",
-     "ang matiyagang sumusulat"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Bahagi ng Pangungusap. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
-  },
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Itugma ang mga halimbawa ng simuno at panaguri.",
-   "content": {
-    "pairs": [
-     {
-      "left": "Si Hana",
-      "right": "simuno"
-     },
-     {
-      "left": "ay nagpapaaraw.",
-      "right": "panaguri"
-     },
-     {
-      "left": "Si Hana / ay nagpapaaraw.",
-      "right": "buong pangungusap"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
-  },
-  {
-   "activityId": "filipino-g3-q4-w13-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q4-w13-d04-visual",
-   "instruction": "Ayusin ang mga hakbang.",
-   "content": {
-    "steps": [
-     "Basahin ang pangungusap",
-     "Hanapin kung sino o ano ang pinag-uusapan",
-     "Hanapin ang sinasabi tungkol dito",
-     "Sabihin: simuno at panaguri"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Hana / ay nagpapaaraw.'.",
-   "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q4-w13-d04-q1",
-    "prompt": "Alin ang simuno sa 'Si Hana / ay nagpapaaraw.'?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Si Ines"
-     },
-     {
-      "id": "d",
-      "text": "Ang tren"
-     },
-     {
-      "id": "a",
-      "text": "Si Hana"
-     },
-     {
-      "id": "b",
-      "text": "Ang palengke"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang simuno ay ang pinag-uusapan sa pangungusap. Sa “Si Hana / ay nagpapaaraw.”, Si Hana ang pinag-uusapan, kaya ito ang simuno.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q4-w13-d04-q2",
-    "prompt": "Alin ang panaguri sa 'Si Hana / ay nagpapaaraw.'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "ay maingay."
-     },
-     {
-      "id": "c",
-      "text": "ay sumisigaw."
-     },
-     {
-      "id": "d",
-      "text": "ay dumating."
-     },
-     {
-      "id": "a",
-      "text": "ay nagpapaaraw."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang panaguri ay nagsasabi kung ano ang ginagawa o kalagayan ng simuno. Sa “Si Hana / ay nagpapaaraw.”, ay nagpapaaraw. ang nagsasabi tungkol sa simuno.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q4-w13-d04-q3",
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano wastong hatiin ang pangungusap na 'Ang palengke ay maingay.'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ang palengke / ay maingay."
-     },
-     {
-      "id": "b",
-      "text": "Ang / palengke ay maingay."
-     },
-     {
-      "id": "c",
-      "text": "Ang palengke ay / maingay."
-     },
-     {
-      "id": "d",
-      "text": "Ang palengke ay maingay / ."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamabuting sagot ay: Ang palengke / ay maingay."
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q4-w13-d04-q4",
-    "prompt": "Kung ang simuno ay 'Si Hana', alin ang maaaring panaguri?",
-    "options": [
-     {
-      "id": "d",
-      "text": "ay dumating."
-     },
-     {
-      "id": "a",
-      "text": "ay nagpapaaraw."
-     },
-     {
-      "id": "b",
-      "text": "ay maingay."
-     },
-     {
-      "id": "c",
-      "text": "ay sumisigaw."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang panaguri ay dapat tungkol sa simuno. ay nagpapaaraw. ang nagsasabi ng ginagawa o kalagayan ng Si Hana, kaya ito ang maaaring panaguri.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q4-w13-d04-q5",
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano wastong hatiin ang pangungusap na 'Si Ines ay sumisigaw.'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Si Ines / ay sumisigaw."
-     },
-     {
-      "id": "b",
-      "text": "Si / Ines ay sumisigaw."
-     },
-     {
-      "id": "c",
-      "text": "Si Ines ay / sumisigaw."
-     },
-     {
-      "id": "d",
-      "text": "Si Ines ay sumisigaw / ."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang pinakamabuting sagot ay: Si Ines / ay sumisigaw."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q4-w13-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 16,
+  "day": 4,
+  "subject": "filipino",
+  "title": "Bahagi ng Pangungusap · Q4 W13 D04",
+  "objective": "Natutukoy ang simuno at panaguri sa payak na pangungusap.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "simuno",
+      "definition": "ang pinag-uusapan sa pangungusap"
+    },
+    {
+      "term": "panaguri",
+      "definition": "ang nagsasabi tungkol sa simuno"
+    },
+    {
+      "term": "payak na pangungusap",
+      "definition": "pangungusap na may isang simuno at isang panaguri"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "content": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
+      },
+      "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno. Si Hana / ay nagpapaaraw."
+    },
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng simuno at panaguri.",
+      "content": {
+        "examples": [
+          "Si Hana / ay nagpapaaraw.",
+          "Ang palengke / ay maingay.",
+          "Si Ines / ay sumisigaw.",
+          "Ang tren / ay dumating."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng simuno at panaguri.",
+      "content": {
+        "fits": [
+          "Si Hana / ay nagpapaaraw.",
+          "Ang palengke / ay maingay.",
+          "Si Ines / ay sumisigaw.",
+          "Ang tren / ay dumating."
+        ],
+        "doesNotFit": [
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "at nagmamadali tuwing gabi",
+          "kasi tuwang-tuwa ang lahat"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Bahagi ng Pangungusap bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "sa likod ng bahay",
+          "kasi tuwang-tuwa ang lahat",
+          "Si Hana / ay nagpapaaraw.",
+          "ang matiyagang sumusulat"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Bahagi ng Pangungusap. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Itugma ang mga halimbawa ng simuno at panaguri.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Si Hana",
+            "right": "simuno"
+          },
+          {
+            "left": "ay nagpapaaraw.",
+            "right": "panaguri"
+          },
+          {
+            "left": "Si Hana / ay nagpapaaraw.",
+            "right": "buong pangungusap"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q4-w13-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w13-d04-visual",
+      "instruction": "Ayusin ang mga hakbang.",
+      "content": {
+        "steps": [
+          "Basahin ang pangungusap",
+          "Hanapin kung sino o ano ang pinag-uusapan",
+          "Hanapin ang sinasabi tungkol dito",
+          "Sabihin: simuno at panaguri"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Hana / ay nagpapaaraw.'.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q4-w13-d04-q1",
+        "prompt": "Alin ang simuno sa 'Si Hana / ay nagpapaaraw.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si Hana"
+          },
+          {
+            "id": "b",
+            "text": "Si Ines"
+          },
+          {
+            "id": "c",
+            "text": "Ang tren"
+          },
+          {
+            "id": "d",
+            "text": "Ang palengke"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang simuno ay ang pinag-uusapan sa pangungusap. Sa “Si Hana / ay nagpapaaraw.”, Si Hana ang pinag-uusapan, kaya ito ang simuno.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q4-w13-d04-q2",
+        "prompt": "Alin ang panaguri sa 'Si Hana / ay nagpapaaraw.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay dumating."
+          },
+          {
+            "id": "b",
+            "text": "ay sumisigaw."
+          },
+          {
+            "id": "c",
+            "text": "ay nagpapaaraw."
+          },
+          {
+            "id": "d",
+            "text": "ay maingay."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang panaguri ay nagsasabi kung ano ang ginagawa o kalagayan ng simuno. Sa “Si Hana / ay nagpapaaraw.”, ay nagpapaaraw. ang nagsasabi tungkol sa simuno.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q4-w13-d04-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano wastong hatiin ang pangungusap na 'Ang palengke ay maingay.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang palengke ay maingay / ."
+          },
+          {
+            "id": "b",
+            "text": "Ang palengke / ay maingay."
+          },
+          {
+            "id": "c",
+            "text": "Ang / palengke ay maingay."
+          },
+          {
+            "id": "d",
+            "text": "Ang palengke ay / maingay."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Ang palengke / ay maingay."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q4-w13-d04-q4",
+        "prompt": "Kung ang simuno ay 'Si Hana', alin ang maaaring panaguri?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay maingay."
+          },
+          {
+            "id": "b",
+            "text": "ay sumisigaw."
+          },
+          {
+            "id": "c",
+            "text": "ay dumating."
+          },
+          {
+            "id": "d",
+            "text": "ay nagpapaaraw."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang panaguri ay dapat tungkol sa simuno. ay nagpapaaraw. ang nagsasabi ng ginagawa o kalagayan ng Si Hana, kaya ito ang maaaring panaguri.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q4-w13-d04-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano wastong hatiin ang pangungusap na 'Si Ines ay sumisigaw.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si Ines ay sumisigaw / ."
+          },
+          {
+            "id": "b",
+            "text": "Si / Ines ay sumisigaw."
+          },
+          {
+            "id": "c",
+            "text": "Si Ines ay / sumisigaw."
+          },
+          {
+            "id": "d",
+            "text": "Si Ines / ay sumisigaw."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pinakamabuting sagot ay: Si Ines / ay sumisigaw."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

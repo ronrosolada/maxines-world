@@ -1,378 +1,388 @@
 {
- "lessonId": "gmrc-g3-q1-w01-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 5,
- "subject": "gmrc",
- "title": "Disiplina sa Araw-araw",
- "objective": "Naipakikita ang disiplina sa pagsunod sa makatarungan at ligtas na tuntunin.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "May bagong misyon si Milo! 🐱✨ Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "pumipila",
-   "definition": "Paghihintay nang maayos sa tamang pagkakasunod-sunod, tulad ng pagpila sa kantina."
-  },
-  {
-   "term": "naghihintay ng turn",
-   "definition": "Paghihintay ng sariling pagkakataon bago magsalita o kumilos sa grupo."
-  },
-  {
-   "term": "naglalakad sa tamang lugar",
-   "definition": "Paglalakad sa itinakdang daanan, tulad ng sa gilid ng hagdan, para sa kaligtasan."
-  }
- ],
- "activities": [
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Pakinggan ang paliwanag ni Milo.",
-   "content": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Disiplina sa Araw-araw. 💪"
-   },
-   "prompt": "Pakinggan ang paliwanag tungkol sa disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "content": {
-    "examples": [
-     "pumipila",
-     "naghihintay ng turn",
-     "naglalakad sa tamang lugar",
-     "nagliligpit pagkatapos gamitin"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Disiplina sa Araw-araw. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "content": {
-    "fits": [
-     "pumipila",
-     "naghihintay ng turn",
-     "naglalakad sa tamang lugar",
-     "nagliligpit pagkatapos gamitin"
-    ],
-    "doesNotFit": [
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin",
-     "hindi nakikinig"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Disiplina sa Araw-araw bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "pumipila",
-     "nanunukso sa kapwa",
-     "kumukuha ng hindi kanya",
-     "sumusuway sa ligtas na tuntunin"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Disiplina sa Araw-araw. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Itugma ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "pumipila",
-      "right": "pagsunod sa tamang tuntunin"
-     },
-     {
-      "left": "naghihintay ng turn",
-      "right": "mahinahong paghihintay"
-     },
-     {
-      "left": "naglalakad sa tamang lugar",
-      "right": "kilos ng disiplina"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Disiplina sa Araw-araw. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  },
-  {
-   "activityId": "gmrc-g3-q1-w01-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "gmrc-g3-q1-w01-d05-visual",
-   "instruction": "Ayusin ang mga hakbang nang tama.",
-   "content": {
-    "steps": [
-     "Alamin ang tuntunin",
-     "Sundin ito nang kusa",
-     "Paalalahanan ang sarili",
-     "Maging halimbawa sa iba"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Disiplina sa Araw-araw. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa disiplina sa pagsunod sa tuntunin.",
-   "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "gmrc-g3-q1-w01-d05-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May tawiran ng mga bata sa harap ng paaralan. Ano ang dapat mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "tumakbo sa gitna ng kalsada"
-     },
-     {
-      "id": "b",
-      "text": "tumawid sa tawiran kasama ng gabay"
-     },
-     {
-      "id": "c",
-      "text": "sundan ang kaibigang tumatakbo"
-     },
-     {
-      "id": "d",
-      "text": "tumawid kahit saan walang sasakyan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pagsunod sa tawiran ay tuntunin para sa kaligtasan — iyan ang disiplina."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d05-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Pumila ka sa kantina at may sumisingit sa harap mo. Ano ang dapat mong gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sumingit din sa harap"
-     },
-     {
-      "id": "b",
-      "text": "sabihin nang magalang na pumila nang maayos"
-     },
-     {
-      "id": "c",
-      "text": "itulak ang sumingit"
-     },
-     {
-      "id": "d",
-      "text": "umiyak at magreklamo nang malakas"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pagpapaalala nang magalang ay mas mabuti kaysa gumanti; ang pila ay para sa lahat."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d05-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Naglalaro kayo sa palaruan at sumipol ang guro upang maglinya. Ano ang gagawin mo?",
-    "options": [
-     {
-      "id": "a",
-      "text": "magtago sa likod ng puno"
-     },
-     {
-      "id": "b",
-      "text": "ipagpatuloy ang laro"
-     },
-     {
-      "id": "c",
-      "text": "umuwi na lamang"
-     },
-     {
-      "id": "d",
-      "text": "ihinto ang laro at pumila agad"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang pagsunod agad sa senyas ng guro ay disiplina at paggalang sa tuntunin."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d05-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May tuntunin na bawal tumakbo sa hagdan. Ano ang gagawin mo?",
-    "options": [
-     {
-      "id": "a",
-      "text": "lumakad nang maayos sa hagdan"
-     },
-     {
-      "id": "b",
-      "text": "takbuhin pa rin ito"
-     },
-     {
-      "id": "c",
-      "text": "magpabuhat sa kaibigan"
-     },
-     {
-      "id": "d",
-      "text": "sumigaw habang bumababa"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang tuntunin sa hagdan ay para sa kaligtasan ng lahat; ang pagsunod dito ay disiplina."
-   },
-   {
-    "itemId": "gmrc-g3-q1-w01-d05-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Sasakay ka ng dyip papunta sa paaralan. Ano ang tamang gawin?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sumakay nang maayos at humawak nang mahigpit"
-     },
-     {
-      "id": "b",
-      "text": "tumalon habang umaandar"
-     },
-     {
-      "id": "c",
-      "text": "sumabit sa likod ng dyip"
-     },
-     {
-      "id": "d",
-      "text": "makipagsiksikan sa harap ng driver"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang ligtas na pagsakay ay pagsunod sa tuntunin ng kaligtasan sa daan."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "gmrc-g3-q1-w01-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 5,
+  "subject": "gmrc",
+  "title": "Disiplina sa Araw-araw",
+  "objective": "Naipakikita ang disiplina sa pagsunod sa makatarungan at ligtas na tuntunin.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May bagong misyon si Milo! 🐱✨ Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "pumipila",
+      "definition": "Paghihintay nang maayos sa tamang pagkakasunod-sunod, tulad ng pagpila sa kantina."
+    },
+    {
+      "term": "naghihintay ng turn",
+      "definition": "Paghihintay ng sariling pagkakataon bago magsalita o kumilos sa grupo."
+    },
+    {
+      "term": "naglalakad sa tamang lugar",
+      "definition": "Paglalakad sa itinakdang daanan, tulad ng sa gilid ng hagdan, para sa kaligtasan."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "content": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Disiplina sa Araw-araw. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag tungkol sa disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "content": {
+        "examples": [
+          "pumipila",
+          "naghihintay ng turn",
+          "naglalakad sa tamang lugar",
+          "nagliligpit pagkatapos gamitin"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Disiplina sa Araw-araw. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "content": {
+        "fits": [
+          "pumipila",
+          "naghihintay ng turn",
+          "naglalakad sa tamang lugar",
+          "nagliligpit pagkatapos gamitin"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "hindi nakikinig"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Disiplina sa Araw-araw bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "pumipila",
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Disiplina sa Araw-araw. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Itugma ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pumipila",
+            "right": "pagsunod sa tamang tuntunin"
+          },
+          {
+            "left": "naghihintay ng turn",
+            "right": "mahinahong paghihintay"
+          },
+          {
+            "left": "naglalakad sa tamang lugar",
+            "right": "kilos ng disiplina"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Disiplina sa Araw-araw. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    },
+    {
+      "activityId": "gmrc-g3-q1-w01-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q1-w01-d05-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Alamin ang tuntunin",
+          "Sundin ito nang kusa",
+          "Paalalahanan ang sarili",
+          "Maging halimbawa sa iba"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Disiplina sa Araw-araw. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa disiplina sa pagsunod sa tuntunin.",
+      "narration": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang disiplina ay pagpipigil sa sarili at pagsunod sa tuntuning tumutulong sa kaligtasan at kaayusan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q1-w01-d05-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May tawiran ng mga bata sa harap ng paaralan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tumawid sa tawiran kasama ng gabay"
+          },
+          {
+            "id": "b",
+            "text": "tumakbo sa gitna ng kalsada"
+          },
+          {
+            "id": "c",
+            "text": "sundan ang kaibigang tumatakbo"
+          },
+          {
+            "id": "d",
+            "text": "tumawid kahit saan walang sasakyan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pagsunod sa tawiran ay tuntunin para sa kaligtasan — iyan ang disiplina."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d05-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Pumila ka sa kantina at may sumisingit sa harap mo. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "itulak ang sumingit"
+          },
+          {
+            "id": "b",
+            "text": "umiyak at magreklamo nang malakas"
+          },
+          {
+            "id": "c",
+            "text": "sumingit din sa harap"
+          },
+          {
+            "id": "d",
+            "text": "sabihin nang magalang na pumila nang maayos"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagpapaalala nang magalang ay mas mabuti kaysa gumanti; ang pila ay para sa lahat."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d05-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Naglalaro kayo sa palaruan at sumipol ang guro upang maglinya. Ano ang gagawin mo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "magtago sa likod ng puno"
+          },
+          {
+            "id": "b",
+            "text": "umuwi na lamang"
+          },
+          {
+            "id": "c",
+            "text": "ipagpatuloy ang laro"
+          },
+          {
+            "id": "d",
+            "text": "ihinto ang laro at pumila agad"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagsunod agad sa senyas ng guro ay disiplina at paggalang sa tuntunin."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d05-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May tuntunin na bawal tumakbo sa hagdan. Ano ang gagawin mo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "magpabuhat sa kaibigan"
+          },
+          {
+            "id": "b",
+            "text": "takbuhin pa rin ito"
+          },
+          {
+            "id": "c",
+            "text": "sumigaw habang bumababa"
+          },
+          {
+            "id": "d",
+            "text": "lumakad nang maayos sa hagdan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang tuntunin sa hagdan ay para sa kaligtasan ng lahat; ang pagsunod dito ay disiplina."
+      },
+      {
+        "itemId": "gmrc-g3-q1-w01-d05-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sasakay ka ng dyip papunta sa paaralan. Ano ang tamang gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sumakay nang maayos at humawak nang mahigpit"
+          },
+          {
+            "id": "b",
+            "text": "sumabit sa likod ng dyip"
+          },
+          {
+            "id": "c",
+            "text": "tumalon habang umaandar"
+          },
+          {
+            "id": "d",
+            "text": "makipagsiksikan sa harap ng driver"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang ligtas na pagsakay ay pagsunod sa tuntunin ng kaligtasan sa daan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  }
 }

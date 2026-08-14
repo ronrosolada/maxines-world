@@ -1,350 +1,360 @@
 {
- "lessonId": "mathematics-g3-m01-d18",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 18,
- "subject": "MATHEMATICS",
- "title": "Tens, Hundreds, and Estimates",
- "objective": "Multiply by multiples of 10 or 100 and estimate products.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Milo is packing eggs in boxes of 30! Help him multiply by tens and hundreds.",
- "vocabulary": [
-  {
-   "term": "ten",
-   "definition": "A group of ten ones, like the 3 tens in 30."
-  },
-  {
-   "term": "hundred",
-   "definition": "Ten groups of ten — written as 100."
-  },
-  {
-   "term": "estimate",
-   "definition": "A close guess, like 50 × 6 = 300 for 48 × 6."
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-m01-d18-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how 30 × 4 means 3 tens × 4.",
-   "content": "Use place-value meaning rather than merely “adding zeros.”",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Multiplication Builders again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "accessibilityAlternative": "Text alternative: Use place-value meaning rather than merely “adding zeros.”"
-  },
-  {
-   "activityId": "mathematics-g3-m01-d18-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read the product.",
-   "content": {
-    "examples": [
-     "30×4=120",
-     "200×3=600",
-     "48×6 ≈ 50×6=300"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Multiplication Builders. 🔎",
-    "retry": "Look at each Multiplication Builders example again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d18-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the product or estimate correct?",
-   "content": {
-    "fits": [
-     "30×4=120",
-     "200×3=600",
-     "48×6 ≈ 50×6=300"
-    ],
-    "doesNotFit": [
-     "30×4=34",
-     "Treat estimate as exact",
-     "Add zeros without understanding place"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Multiplication Builders clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d18-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "200 × 3 =",
-   "content": {
-    "options": [
-     "60",
-     "600",
-     "203"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: 600",
-    "retry": "Look at the example again. 203 and 60 do not match the lesson idea. Choose the answer that fits. 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d18-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each product to its problem.",
-   "content": {
-    "pairs": [
-     {
-      "left": "30×4=120",
-      "right": "multiply by tens"
-     },
-     {
-      "left": "200×3=600",
-      "right": "multiply by hundreds"
-     },
-     {
-      "left": "48×6 ≈ 50×6=300",
-      "right": "estimate the product"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Multiplication Builders explanation. 🔗",
-    "retry": "Read both sides of each Multiplication Builders pair again. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "mathematics-g3-m01-d18-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the multiplying-by-tens steps in order.",
-   "content": {
-    "steps": [
-     "Multiply the basic fact.",
-     "Attach the zero placeholders.",
-     "Estimate to check."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Multiplication Builders steps in order. 🎉",
-    "retry": "Find the first, next, and last Multiplication Builders steps. 💪"
-   },
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-m01-d18-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about multiplying by tens and hundreds is true?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Treat estimate as exact"
-     },
-     {
-      "id": "a",
-      "text": "Use place-value meaning rather than merely “adding zeros.”"
-     },
-     {
-      "id": "b",
-      "text": "30×4=34"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "30 × 4 means 3 tens × 4 = 12 tens = 120. The zeros come from place value, not from 'adding zeros.'"
-   },
-   {
-    "itemId": "mathematics-g3-m01-d18-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which product is correct?",
-    "options": [
-     {
-      "id": "b",
-      "text": "30×4=34"
-     },
-     {
-      "id": "c",
-      "text": "30 × 4 = 12"
-     },
-     {
-      "id": "a",
-      "text": "30×4=120"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "3 × 4 = 12, and 30 is 3 tens, so 30 × 4 = 120."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d18-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which product is NOT correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "30×4=34"
-     },
-     {
-      "id": "b",
-      "text": "30×4=120"
-     },
-     {
-      "id": "c",
-      "text": "200×3=600"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "30 × 4 = 120, not 34. You cannot just join 30 and 4 together."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d18-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "200 × 3 =",
-    "options": [
-     {
-      "id": "c",
-      "text": "60"
-     },
-     {
-      "id": "a",
-      "text": "600"
-     },
-     {
-      "id": "b",
-      "text": "203"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "2 hundreds × 3 = 6 hundreds = 600."
-   },
-   {
-    "itemId": "mathematics-g3-m01-d18-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which product or estimate is correct?",
-    "options": [
-     {
-      "id": "b",
-      "text": "200 × 3 = 60"
-     },
-     {
-      "id": "c",
-      "text": "30 × 4 = 34"
-     },
-     {
-      "id": "a",
-      "text": "48×6 ≈ 50×6=300"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "48 rounds to 50, and 50 × 6 = 300, so 48 × 6 is about 300."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "mathematics-g3-m01-d18-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/mathematics-g3-m01-d18-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Tens, Hundreds, and Estimates; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Tens, Hundreds, and Estimates.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NCTM Principles and Standards",
-   "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "a3ca7c2e7e7ccbb1a3821a56be45c1415898831138a32b59743431b471c31d90",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-m01-d18",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 18,
+  "subject": "MATHEMATICS",
+  "title": "Tens, Hundreds, and Estimates",
+  "objective": "Multiply by multiples of 10 or 100 and estimate products.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is packing eggs in boxes of 30! Help him multiply by tens and hundreds.",
+  "vocabulary": [
+    {
+      "term": "ten",
+      "definition": "A group of ten ones, like the 3 tens in 30."
+    },
+    {
+      "term": "hundred",
+      "definition": "Ten groups of ten — written as 100."
+    },
+    {
+      "term": "estimate",
+      "definition": "A close guess, like 50 × 6 = 300 for 48 × 6."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d18-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how 30 × 4 means 3 tens × 4.",
+      "content": "Use place-value meaning rather than merely “adding zeros.”",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Tens, Hundreds, and Estimates again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "Text alternative: Use place-value meaning rather than merely “adding zeros.”"
+    },
+    {
+      "activityId": "mathematics-g3-m01-d18-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the product.",
+      "content": {
+        "examples": [
+          "30×4=120",
+          "200×3=600",
+          "48×6 ≈ 50×6=300"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Tens, Hundreds, and Estimates. 🔎",
+        "retry": "Look at each Tens, Hundreds, and Estimates example again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d18-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the product or estimate correct?",
+      "content": {
+        "fits": [
+          "30×4=120",
+          "200×3=600",
+          "48×6 ≈ 50×6=300"
+        ],
+        "doesNotFit": [
+          "30×4=34",
+          "Treat estimate as exact",
+          "Add zeros without understanding place"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Tens, Hundreds, and Estimates clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d18-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "200 × 3 =",
+      "content": {
+        "options": [
+          "60",
+          "600",
+          "203"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 600",
+        "retry": "Look at the example again."
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d18-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each product to its problem.",
+      "content": {
+        "pairs": [
+          {
+            "left": "30×4=120",
+            "right": "multiply by tens"
+          },
+          {
+            "left": "200×3=600",
+            "right": "multiply by hundreds"
+          },
+          {
+            "left": "48×6 ≈ 50×6=300",
+            "right": "estimate the product"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Tens, Hundreds, and Estimates explanation. 🔗",
+        "retry": "Read both sides of each Tens, Hundreds, and Estimates pair again. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d18-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the multiplying-by-tens steps in order.",
+      "content": {
+        "steps": [
+          "Multiply the basic fact.",
+          "Attach the zero placeholders.",
+          "Estimate to check."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Tens, Hundreds, and Estimates steps in order. 🎉",
+        "retry": "Find the first, next, and last Tens, Hundreds, and Estimates steps. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d18-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about multiplying by tens and hundreds is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Treat estimate as exact"
+          },
+          {
+            "id": "b",
+            "text": "30×4=34"
+          },
+          {
+            "id": "c",
+            "text": "Use place-value meaning rather than merely “adding zeros.”"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "30 × 4 means 3 tens × 4 = 12 tens = 120. The zeros come from place value, not from 'adding zeros.'"
+      },
+      {
+        "itemId": "mathematics-g3-m01-d18-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which product is correct?  (in this lesson: Tens, Hundreds, and Estimates)",
+        "options": [
+          {
+            "id": "a",
+            "text": "30 × 4 = 12"
+          },
+          {
+            "id": "b",
+            "text": "30×4=34"
+          },
+          {
+            "id": "c",
+            "text": "30×4=120"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "3 × 4 = 12, and 30 is 3 tens, so 30 × 4 = 120."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d18-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which product is NOT correct?  (in this lesson: Tens, Hundreds, and Estimates)",
+        "options": [
+          {
+            "id": "a",
+            "text": "30×4=120"
+          },
+          {
+            "id": "b",
+            "text": "200×3=600"
+          },
+          {
+            "id": "c",
+            "text": "30×4=34"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "30 × 4 = 120, not 34. You cannot just join 30 and 4 together."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d18-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "200 × 3 =",
+        "options": [
+          {
+            "id": "a",
+            "text": "203"
+          },
+          {
+            "id": "b",
+            "text": "600"
+          },
+          {
+            "id": "c",
+            "text": "60"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "2 hundreds × 3 = 6 hundreds = 600."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d18-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which product or estimate is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "48×6 ≈ 50×6=300"
+          },
+          {
+            "id": "b",
+            "text": "200 × 3 = 60"
+          },
+          {
+            "id": "c",
+            "text": "30 × 4 = 34"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "48 rounds to 50, and 50 × 6 = 300, so 48 × 6 is about 300."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d18-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d18-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Tens, Hundreds, and Estimates; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Tens, Hundreds, and Estimates.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "a3ca7c2e7e7ccbb1a3821a56be45c1415898831138a32b59743431b471c31d90",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

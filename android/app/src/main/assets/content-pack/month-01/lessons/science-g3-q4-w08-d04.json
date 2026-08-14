@@ -1,378 +1,388 @@
 {
- "lessonId": "science-g3-q4-w08-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 14,
- "day": 4,
- "subject": "science",
- "title": "Light and Sound Lab · Q4 W08 D04",
- "objective": "Describe how light and sound behave and identify safe ways to protect people.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo turns on the radio — music! And sunlight streams through the window. How do sound and light get around?",
- "vocabulary": [
-  {
-   "term": "sound",
-   "definition": "what you hear when something vibrates"
-  },
-  {
-   "term": "light",
-   "definition": "what helps us see"
-  },
-  {
-   "term": "vibrate",
-   "definition": "to move back and forth quickly"
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-q4-w08-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
-   "content": "a radio plays music. a window lets light through. Always use light and sound safely.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in Light and Sound Lab again. 💪"
-   },
-   "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
-   "narration": "a radio plays music. a window lets light through. Always use light and sound safely.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "a radio plays music. a window lets light through. Always use light and sound safely."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Explore each example. a radio plays music. a window lets light through.",
-   "content": {
-    "examples": [
-     "a radio plays music",
-     "a window lets light through",
-     "use a flashlight to walk in a dark place",
-     "do not play with fire near paper"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Look at each Light and Sound Lab example again. 💪"
-   },
-   "prompt": "Explore each example. a radio plays music. a window lets light through.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Sort the examples into ways we use light and sound safely.",
-   "content": {
-    "fits": [
-     "a radio plays music",
-     "a window lets light through",
-     "use a flashlight to walk in a dark place",
-     "do not play with fire near paper"
-    ],
-    "doesNotFit": [
-     "stare at the Sun",
-     "put a loud speaker next to your ear",
-     "point a laser at your eyes",
-     "play music at full volume all day"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
-   },
-   "prompt": "Sort the examples into ways we use light and sound safely.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Tap the example Milo showed today!",
-   "content": {
-    "options": [
-     "a wooden door",
-     "a metal box",
-     "a window",
-     "a brick wall"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in the Light and Sound Lab question. 💪"
-   },
-   "prompt": "Choose the example of light and sound safety.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
-   "content": {
-    "pairs": [
-     {
-      "left": "a radio plays music",
-      "right": "makes sound"
-     },
-     {
-      "left": "a window lets light through",
-      "right": "helps us see"
-     },
-     {
-      "left": "use a flashlight to walk in a dark place",
-      "right": "helps us see"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
-   },
-   "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d04-visual",
-   "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
-   "content": {
-    "steps": [
-     "Observe the light or sound",
-     "Think about how it behaves",
-     "Decide the safe action",
-     "Protect your eyes and ears"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
-   },
-   "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-q4-w08-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which lets light through?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a wooden door"
-     },
-     {
-      "id": "c",
-      "text": "a metal box"
-     },
-     {
-      "id": "d",
-      "text": "a window"
-     },
-     {
-      "id": "a",
-      "text": "a brick wall"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "A window is made of clear glass, so light passes through it. Wooden doors, metal boxes, and brick walls block light."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the SAFE way to use sound?",
-    "options": [
-     {
-      "id": "a",
-      "text": "shout right next to a baby's ear"
-     },
-     {
-      "id": "b",
-      "text": "turn the volume up very high"
-     },
-     {
-      "id": "c",
-      "text": "bang pots as loud as you can"
-     },
-     {
-      "id": "d",
-      "text": "use a quiet voice indoors"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Loud sounds near ears can hurt them, so a quiet voice indoors keeps ears safe."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the SAFE way to use light?",
-    "options": [
-     {
-      "id": "d",
-      "text": "look away when a light is too bright"
-     },
-     {
-      "id": "a",
-      "text": "stare straight at a very bright light"
-     },
-     {
-      "id": "b",
-      "text": "shine a flashlight into a friend's eyes"
-     },
-     {
-      "id": "c",
-      "text": "point a lamp at your eyes up close"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Staring at a bright light can hurt your eyes, so looking away keeps them safe. Pointing lights at eyes is never safe."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows how sound behaves?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a radio plays music"
-     },
-     {
-      "id": "d",
-      "text": "a window lets light through"
-     },
-     {
-      "id": "a",
-      "text": "a mirror reflects light"
-     },
-     {
-      "id": "b",
-      "text": "a lamp lights a dark room"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "The radio's speaker vibrates to make music, which is sound. Windows, mirrors, and lamps are about light."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows how light behaves?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a window lets light through"
-     },
-     {
-      "id": "c",
-      "text": "a radio plays music"
-     },
-     {
-      "id": "d",
-      "text": "a drum makes sound when struck"
-     },
-     {
-      "id": "a",
-      "text": "a whistle makes a high sound"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Clear glass lets light pass through, so the room is bright. Radios, drums, and whistles make sound."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-q4-w08-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 4,
+  "subject": "science",
+  "title": "Light and Sound Lab · Q4 W08 D04",
+  "objective": "Describe how light and sound behave and identify safe ways to protect people.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo turns on the radio — music! And sunlight streams through the window. How do sound and light get around?",
+  "vocabulary": [
+    {
+      "term": "sound",
+      "definition": "what you hear when something vibrates"
+    },
+    {
+      "term": "light",
+      "definition": "what helps us see"
+    },
+    {
+      "term": "vibrate",
+      "definition": "to move back and forth quickly"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-q4-w08-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "content": "a radio plays music. a window lets light through. Always use light and sound safely.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in Light and Sound Lab again. 💪"
+      },
+      "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "narration": "a radio plays music. a window lets light through. Always use light and sound safely.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "a radio plays music. a window lets light through. Always use light and sound safely."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Explore each example. a radio plays music. a window lets light through.",
+      "content": {
+        "examples": [
+          "a radio plays music",
+          "a window lets light through",
+          "use a flashlight to walk in a dark place",
+          "do not play with fire near paper"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Look at each Light and Sound Lab example again. 💪"
+      },
+      "prompt": "Explore each example. a radio plays music. a window lets light through.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "content": {
+        "fits": [
+          "a radio plays music",
+          "a window lets light through",
+          "use a flashlight to walk in a dark place",
+          "do not play with fire near paper"
+        ],
+        "doesNotFit": [
+          "stare at the Sun",
+          "put a loud speaker next to your ear",
+          "point a laser at your eyes",
+          "play music at full volume all day"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+      },
+      "prompt": "Sort the examples into ways we use light and sound safely.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Tap the example Milo showed today!",
+      "content": {
+        "options": [
+          "a wooden door",
+          "a metal box",
+          "a window",
+          "a brick wall"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+      },
+      "prompt": "Choose the example of light and sound safety.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "content": {
+        "pairs": [
+          {
+            "left": "a radio plays music",
+            "right": "makes sound"
+          },
+          {
+            "left": "a window lets light through",
+            "right": "light passes through it"
+          },
+          {
+            "left": "use a flashlight to walk in a dark place",
+            "right": "light helps us see"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+      },
+      "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d04-visual",
+      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "content": {
+        "steps": [
+          "Observe the light or sound",
+          "Think about how it behaves",
+          "Decide the safe action",
+          "Protect your eyes and ears"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+      },
+      "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q4-w08-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which lets light through?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a metal box"
+          },
+          {
+            "id": "b",
+            "text": "a window"
+          },
+          {
+            "id": "c",
+            "text": "a wooden door"
+          },
+          {
+            "id": "d",
+            "text": "a brick wall"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A window is made of clear glass, so light passes through it. Wooden doors, metal boxes, and brick walls block light."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "One more question: Which is the SAFE way to use sound?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "bang pots as loud as you can"
+          },
+          {
+            "id": "b",
+            "text": "turn the volume up very high"
+          },
+          {
+            "id": "c",
+            "text": "use a quiet voice indoors"
+          },
+          {
+            "id": "d",
+            "text": "shout right next to a baby's ear"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Loud sounds near ears can hurt them, so a quiet voice indoors keeps ears safe."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "One more question: Which is the SAFE way to use light?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "look away when a light is too bright"
+          },
+          {
+            "id": "b",
+            "text": "shine a flashlight into a friend's eyes"
+          },
+          {
+            "id": "c",
+            "text": "stare straight at a very bright light"
+          },
+          {
+            "id": "d",
+            "text": "point a lamp at your eyes up close"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Staring at a bright light can hurt your eyes, so looking away keeps them safe. Pointing lights at eyes is never safe."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "One more question: Which example shows how sound behaves?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "a lamp lights a dark room"
+          },
+          {
+            "id": "b",
+            "text": "a radio plays music"
+          },
+          {
+            "id": "c",
+            "text": "a window lets light through"
+          },
+          {
+            "id": "d",
+            "text": "a mirror reflects light"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The radio's speaker vibrates to make music, which is sound. Windows, mirrors, and lamps are about light."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "One more question: Which example shows how light behaves?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "a radio plays music"
+          },
+          {
+            "id": "b",
+            "text": "a window lets light through"
+          },
+          {
+            "id": "c",
+            "text": "a drum makes sound when struck"
+          },
+          {
+            "id": "d",
+            "text": "a whistle makes a high sound"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Clear glass lets light pass through, so the room is bright. Radios, drums, and whistles make sound."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

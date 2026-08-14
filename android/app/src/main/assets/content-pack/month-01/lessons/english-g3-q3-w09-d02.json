@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q3-w09-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 11,
- "day": 2,
- "subject": "english",
- "title": "Word Roots · Q3 W09 D02",
- "objective": "Identify a base word, or root, in common related words.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo found the base word work inside worked! 🐱✨ Look for the base word in related words.",
- "vocabulary": [
-  {
-   "term": "work",
-   "definition": "to do a job or task"
-  },
-  {
-   "term": "write",
-   "definition": "to form letters and words"
-  },
-  {
-   "term": "quick",
-   "definition": "done in a short time"
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q3-w09-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Watch how a base word stays the same in related words!",
-   "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in Word Roots again. 💪"
-   },
-   "prompt": "Watch how a base word stays the same in related words!",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q3-w09-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Tap each pair that shares a base word!",
-   "content": {
-    "examples": [
-     "work — worked",
-     "write — writer",
-     "quick — quickly",
-     "use — useful"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Look at each Word Roots example again. 💪"
-   },
-   "prompt": "Tap each pair that shares a base word!",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q3-w09-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Sort the word families from the unrelated pairs!",
-   "content": {
-    "fits": [
-     "work — worked",
-     "write — writer",
-     "quick — quickly",
-     "use — useful"
-    ],
-    "doesNotFit": [
-     "cat — dog",
-     "big — small",
-     "run — jump",
-     "apple — orange"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read the Word Roots rule before sorting again. 💪"
-   },
-   "prompt": "Sort the word families from the unrelated pairs!",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q3-w09-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Which pair shows a base word and a related word?",
-   "content": {
-    "options": [
-     "work — worked",
-     "big — small",
-     "run — jump",
-     "cat — dog"
-    ],
-    "correctIndex": 0
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the clue in the Word Roots question. 💪"
-   },
-   "prompt": "Which pair shows a base word and a related word?",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q3-w09-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Match each pair to its base word!",
-   "content": {
-    "pairs": [
-     {
-      "left": "work — worked",
-      "right": "base word: work"
-     },
-     {
-      "left": "write — writer",
-      "right": "base word: write"
-     },
-     {
-      "left": "quick — quickly",
-      "right": "base word: quick"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Read both sides of each Word Roots pair again. 💪"
-   },
-   "prompt": "Match each pair to its base word!",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q3-w09-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w09-d02-visual",
-   "instruction": "Put the steps for finding the base word in order!",
-   "content": {
-    "steps": [
-     "Read the word pair",
-     "Find the base word",
-     "Look at the word ending",
-     "Say the root word"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Super! ✨",
-    "retry": "Find the first, next, and last Word Roots steps. 💪"
-   },
-   "prompt": "Put the steps for finding the base word in order!",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q3-w09-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair shows a root word and a related word?",
-    "options": [
-     {
-      "id": "b",
-      "text": "work — worked"
-     },
-     {
-      "id": "c",
-      "text": "big — small"
-     },
-     {
-      "id": "d",
-      "text": "run — jump"
-     },
-     {
-      "id": "a",
-      "text": "cat — dog"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Work is the base word, and worked is made from it, so the pair shares a root."
-   },
-   {
-    "itemId": "english-g3-q3-w09-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the base word in 'worked'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "write"
-     },
-     {
-      "id": "b",
-      "text": "work"
-     },
-     {
-      "id": "c",
-      "text": "quick"
-     },
-     {
-      "id": "d",
-      "text": "cat"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Worked is work with -ed added, so work is the base word."
-   },
-   {
-    "itemId": "english-g3-q3-w09-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word was made from the root 'work'?",
-    "options": [
-     {
-      "id": "d",
-      "text": "water"
-     },
-     {
-      "id": "a",
-      "text": "writer"
-     },
-     {
-      "id": "b",
-      "text": "worked"
-     },
-     {
-      "id": "c",
-      "text": "desk"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Worked is made from the root work by adding -ed."
-   },
-   {
-    "itemId": "english-g3-q3-w09-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair does NOT belong with the others?",
-    "options": [
-     {
-      "id": "c",
-      "text": "use — useful"
-     },
-     {
-      "id": "d",
-      "text": "cat — dog"
-     },
-     {
-      "id": "a",
-      "text": "quick — quickly"
-     },
-     {
-      "id": "b",
-      "text": "write — writer"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "\"cat — dog\" names two animals, not a word family. The other pairs share a base word and a related word."
-   },
-   {
-    "itemId": "english-g3-q3-w09-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the root word of 'writer'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "write"
-     },
-     {
-      "id": "c",
-      "text": "quick"
-     },
-     {
-      "id": "d",
-      "text": "table"
-     },
-     {
-      "id": "a",
-      "text": "work"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Writer is write with -er added, so write is the base word."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q3-w09-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 2,
+  "subject": "english",
+  "title": "Word Roots · Q3 W09 D02",
+  "objective": "Identify a base word, or root, in common related words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo found the base word work inside worked! 🐱✨ Look for the base word in related words.",
+  "vocabulary": [
+    {
+      "term": "work",
+      "definition": "to do a job or task"
+    },
+    {
+      "term": "write",
+      "definition": "to form letters and words"
+    },
+    {
+      "term": "quick",
+      "definition": "done in a short time"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w09-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Watch how a base word stays the same in related words!",
+      "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in Word Roots again. 💪"
+      },
+      "prompt": "Watch how a base word stays the same in related words!",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Tap each pair that shares a base word!",
+      "content": {
+        "examples": [
+          "work — worked",
+          "write — writer",
+          "quick — quickly",
+          "use — useful"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Look at each Word Roots example again. 💪"
+      },
+      "prompt": "Tap each pair that shares a base word!",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Sort the word families from the unrelated pairs!",
+      "content": {
+        "fits": [
+          "work — worked",
+          "write — writer",
+          "quick — quickly",
+          "use — useful"
+        ],
+        "doesNotFit": [
+          "cat — dog",
+          "big — small",
+          "run — jump",
+          "apple — orange"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read the Word Roots rule before sorting again. 💪"
+      },
+      "prompt": "Sort the word families from the unrelated pairs!",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Which pair shows a base word and a related word?",
+      "content": {
+        "options": [
+          "work — worked",
+          "big — small",
+          "run — jump",
+          "cat — dog"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the clue in the Word Roots question. 💪"
+      },
+      "prompt": "Which pair shows a base word and a related word?",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Match each pair to its base word!",
+      "content": {
+        "pairs": [
+          {
+            "left": "work",
+            "right": "base word: work"
+          },
+          {
+            "left": "write",
+            "right": "base word: write"
+          },
+          {
+            "left": "quick",
+            "right": "base word: quick"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Read both sides of each Word Roots pair again. 💪"
+      },
+      "prompt": "Match each pair to its base word!",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d02-visual",
+      "instruction": "Put the steps for finding the base word in order!",
+      "content": {
+        "steps": [
+          "Read the word pair",
+          "Find the base word",
+          "Look at the word ending",
+          "Say the root word"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Find the first, next, and last Word Roots steps. 💪"
+      },
+      "prompt": "Put the steps for finding the base word in order!",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w09-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What do you think? Which pair shows a root word and a related word?  (in this lesson: Word Roots)",
+        "options": [
+          {
+            "id": "a",
+            "text": "cat — dog"
+          },
+          {
+            "id": "b",
+            "text": "big — small"
+          },
+          {
+            "id": "c",
+            "text": "work — worked"
+          },
+          {
+            "id": "d",
+            "text": "run — jump"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Work is the base word, and worked is made from it, so the pair shares a root."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is the base word in 'worked'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "write"
+          },
+          {
+            "id": "b",
+            "text": "work"
+          },
+          {
+            "id": "c",
+            "text": "cat"
+          },
+          {
+            "id": "d",
+            "text": "quick"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Worked is work with -ed added, so work is the base word."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word was made from the root 'work'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "writer"
+          },
+          {
+            "id": "b",
+            "text": "water"
+          },
+          {
+            "id": "c",
+            "text": "desk"
+          },
+          {
+            "id": "d",
+            "text": "worked"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Worked is made from the root work by adding -ed."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What do you think? Which pair does NOT belong with the others?  (in this lesson: Word Roots)",
+        "options": [
+          {
+            "id": "a",
+            "text": "write — writer"
+          },
+          {
+            "id": "b",
+            "text": "cat — dog"
+          },
+          {
+            "id": "c",
+            "text": "quick — quickly"
+          },
+          {
+            "id": "d",
+            "text": "use — useful"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "\"cat — dog\" names two animals, not a word family. The other pairs share a base word and a related word."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the root word of 'writer'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "quick"
+          },
+          {
+            "id": "b",
+            "text": "table"
+          },
+          {
+            "id": "c",
+            "text": "work"
+          },
+          {
+            "id": "d",
+            "text": "write"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Writer is write with -er added, so write is the base word."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

@@ -1,370 +1,380 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d15",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 15,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Mga Lokal na Bayani sa Paglilingkod",
- "objective": "Suriin ang ebidensya ng paglilingkod ng kathang-isip na community helper.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan.",
- "vocabulary": [
-  {
-   "term": "pagtulong",
-   "definition": "Ang pagbibigay ng tulong sa nangangailangan."
-  },
-  {
-   "term": "ebidensya",
-   "definition": "Ang mga bagay na nagpapatunay na totoo ang isang pangyayari."
-  },
-  {
-   "term": "paglilingkod",
-   "definition": "Ang gawaing pagtulong sa kapwa."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Mga Lokal na Bayani sa Paglili. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "guro nagbukas ng reading corner",
-     "nurse tumulong sa clinic",
-     "volunteer naglinis ng ilog"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Lokal na Bayani sa Paglili. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Mga Lokal na Bayani sa Paglili. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "guro nagbukas ng reading corner",
-     "nurse tumulong sa clinic",
-     "volunteer naglinis ng ilog"
-    ],
-    "doesNotFit": [
-     "Fame lang ang batayan",
-     "Imbentong tunay na pangalan",
-     "Walang ebidensya ng serbisyo"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Lokal na Bayani sa Paglili. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang ebidensya ng serbisyo?",
-   "content": {
-    "options": [
-     "Nag-organisa ng libreng reading corner.",
-     "Maraming likes.",
-     "May makintab na larawan."
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: Nag-organisa ng libreng reading corner.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Maraming likes. at May makintab na larawan. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "guro nagbukas ng reading corner",
-      "right": "guro nagbukas ng reading corner"
-     },
-     {
-      "left": "nurse tumulong sa clinic",
-      "right": "nurse tumulong sa clinic"
-     },
-     {
-      "left": "volunteer naglinis ng ilog",
-      "right": "volunteer naglinis ng ilog"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Lokal na Bayani sa Paglili. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Lokal na Bayani sa Paglili. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d15-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Lokal na Bayani sa Paglili. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Lokal na Bayani sa Paglili. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d15-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit natin pinararangalan ang mga community helper?",
-    "options": [
-     {
-      "id": "a",
-      "text": "dahil sikat sila"
-     },
-     {
-      "id": "b",
-      "text": "dahil matanda na sila"
-     },
-     {
-      "id": "c",
-      "text": "dahil mayaman sila"
-     },
-     {
-      "id": "d",
-      "text": "dahil sa kanilang paglilingkod sa kapwa"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang paglilingkod sa kapwa ang dahilan ng pagpupugay sa kanila."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d15-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng paglilingkod sa komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "paglalaro ng sports"
-     },
-     {
-      "id": "b",
-      "text": "pagtitipid ng laruan"
-     },
-     {
-      "id": "c",
-      "text": "pagtulong sa paglilinis ng barangay"
-     },
-     {
-      "id": "d",
-      "text": "pag-aaral ng mabuti"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang paglilingkod ay gawaing pangkabutihan ng komunidad, tulad ng paglilinis."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d15-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang ebidensya ng paglilingkod ng isang community helper?",
-    "options": [
-     {
-      "id": "a",
-      "text": "malaking bahay"
-     },
-     {
-      "id": "b",
-      "text": "magandang damit"
-     },
-     {
-      "id": "c",
-      "text": "mahabang buhok"
-     },
-     {
-      "id": "d",
-      "text": "mga tala at kuwento ng mga natulungan niya"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang ebidensya ay mga tala at kuwento ng paglilingkod."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d15-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang maaasahang ebidensya ng paglilingkod?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mga sulat at tala ng pasasalamat"
-     },
-     {
-      "id": "b",
-      "text": "mga pangarap"
-     },
-     {
-      "id": "c",
-      "text": "mga haka-haka"
-     },
-     {
-      "id": "d",
-      "text": "mga tsismis"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang mga sulat at tala ng pasasalamat ay ebidensya ng paglilingkod."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d15-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano ka makapaglilingkod sa iyong komunidad bilang bata?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sa pamamagitan ng pagtulong sa ligtas na gawain tulad ng paglilinis"
-     },
-     {
-      "id": "b",
-      "text": "sa pamamagitan ng pagiging tahimik"
-     },
-     {
-      "id": "c",
-      "text": "sa pamamagitan ng pag-aaway"
-     },
-     {
-      "id": "d",
-      "text": "sa pamamagitan ng pagtatago"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Kahit bata ay makapaglilingkod sa ligtas na gawain."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d15-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d15-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Local Heroes at Service; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Local Heroes at Service.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "5b7a189fe383653ce5468bd29deff0739259ed72a05d9a99c07db9cc1e008548",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d15",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 15,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Mga Lokal na Bayani sa Paglilingkod",
+  "objective": "Suriin ang ebidensya ng paglilingkod ng kathang-isip na katuwang sa pamayanan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan.",
+  "vocabulary": [
+    {
+      "term": "pagtulong",
+      "definition": "Ang pagbibigay ng tulong sa nangangailangan."
+    },
+    {
+      "term": "ebidensya",
+      "definition": "Ang mga bagay na nagpapatunay na totoo ang isang pangyayari."
+    },
+    {
+      "term": "paglilingkod",
+      "definition": "Ang gawaing pagtulong sa kapwa."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Mga Lokal na Bayani sa Paglilingkod. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Ang kabayanihan ay maaaring serbisyo, pangangalaga, pagtuturo, o pagtulong; hindi lamang kasikatan o labanan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "guro nagbukas ng reading corner",
+          "nurse tumulong sa clinic",
+          "volunteer naglinis ng ilog"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Lokal na Bayani sa Paglili. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Mga Lokal na Bayani sa Paglili. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "guro nagbukas ng reading corner",
+          "nurse tumulong sa clinic",
+          "volunteer naglinis ng ilog"
+        ],
+        "doesNotFit": [
+          "Fame lang ang batayan",
+          "Imbentong tunay na pangalan",
+          "Walang ebidensya ng serbisyo"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Lokal na Bayani sa Paglili. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang ebidensya ng serbisyo?",
+      "content": {
+        "options": [
+          "Nag-organisa ng libreng reading corner.",
+          "Maraming likes.",
+          "May makintab na larawan."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Nag-organisa ng libreng reading corner.",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Guro",
+            "right": "nagbukas ng sulok-pagbasa"
+          },
+          {
+            "left": "Nars",
+            "right": "tumulong sa klinika"
+          },
+          {
+            "left": "Boluntaryo",
+            "right": "naglinis ng ilog"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Lokal na Bayani sa Paglili. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Lokal na Bayani sa Paglili. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d15-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Lokal na Bayani sa Paglili. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Lokal na Bayani sa Paglili. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d15-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit natin pinararangalan ang mga katuwang sa pamayanan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "dahil mayaman sila"
+          },
+          {
+            "id": "b",
+            "text": "dahil matanda na sila"
+          },
+          {
+            "id": "c",
+            "text": "dahil sa kanilang paglilingkod sa kapwa"
+          },
+          {
+            "id": "d",
+            "text": "dahil sikat sila"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paglilingkod sa kapwa ang dahilan ng pagpupugay sa kanila."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d15-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang halimbawa ng paglilingkod sa komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagtitipid ng laruan"
+          },
+          {
+            "id": "b",
+            "text": "paglalaro ng sports"
+          },
+          {
+            "id": "c",
+            "text": "pagtulong sa paglilinis ng barangay"
+          },
+          {
+            "id": "d",
+            "text": "pag-aaral ng mabuti"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paglilingkod ay gawaing pangkabutihan ng komunidad, tulad ng paglilinis."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d15-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang ebidensya ng paglilingkod ng isang katuwang sa pamayanan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "magandang damit"
+          },
+          {
+            "id": "b",
+            "text": "mga tala at kuwento ng mga natulungan niya"
+          },
+          {
+            "id": "c",
+            "text": "malaking bahay"
+          },
+          {
+            "id": "d",
+            "text": "mahabang buhok"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang ebidensya ay mga tala at kuwento ng paglilingkod."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d15-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang maaasahang ebidensya ng paglilingkod?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mga pangarap"
+          },
+          {
+            "id": "b",
+            "text": "mga sulat at tala ng pasasalamat"
+          },
+          {
+            "id": "c",
+            "text": "mga haka-haka"
+          },
+          {
+            "id": "d",
+            "text": "mga tsismis"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang mga sulat at tala ng pasasalamat ay ebidensya ng paglilingkod."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d15-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano ka makapaglilingkod sa iyong komunidad bilang bata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sa pamamagitan ng pag-aaway"
+          },
+          {
+            "id": "b",
+            "text": "sa pamamagitan ng pagiging tahimik"
+          },
+          {
+            "id": "c",
+            "text": "sa pamamagitan ng pagtatago"
+          },
+          {
+            "id": "d",
+            "text": "sa pamamagitan ng pagtulong sa ligtas na gawain tulad ng paglilinis"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Kahit bata ay makapaglilingkod sa ligtas na gawain."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d15-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d15-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Local Heroes at Service; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Local Heroes at Service.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "5b7a189fe383653ce5468bd29deff0739259ed72a05d9a99c07db9cc1e008548",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
 }

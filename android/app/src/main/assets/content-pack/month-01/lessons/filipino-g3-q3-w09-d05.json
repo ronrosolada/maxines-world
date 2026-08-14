@@ -1,378 +1,388 @@
 {
- "lessonId": "filipino-g3-q3-w09-d05",
- "schemaVersion": 1,
- "grade": 3,
- "month": 11,
- "day": 5,
- "subject": "filipino",
- "title": "Magagalang na Pananalita · Q3 W09 D05",
- "objective": "Nagagamit ang magagalang na pagbati at pananalita ayon sa sitwasyon.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "pagbati",
-   "definition": "Magalang na pananalitang ginagamit sa pagbati sa ibang tao."
-  },
-  {
-   "term": "pananalita",
-   "definition": "Mga salitang ginagamit upang maipahayag ang iniisip o damdamin."
-  },
-  {
-   "term": "respeto",
-   "definition": "Paggalang sa kapwa at sa kanilang damdamin."
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "content": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Magagalang na Pananalita. 💪"
-   },
-   "prompt": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po."
-  },
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
-   "content": {
-    "examples": [
-     "Magandang gabi po.",
-     "Makikiraan po ba?",
-     "Maraming salamat po.",
-     "Pasensiya na po."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Magagalang na Pananalita. 💪"
-   },
-   "prompt": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
-  },
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Piliin ang mga magalang na pahayag.",
-   "content": {
-    "fits": [
-     "Magandang gabi po.",
-     "Makikiraan po ba?",
-     "Maraming salamat po.",
-     "Pasensiya na po."
-    ],
-    "doesNotFit": [
-     "Umalis ka na!",
-     "Bilisan mo!",
-     "Wala akong pakialam!",
-     "Bigyan mo ako!"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Magagalang na Pananalita bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga magalang na pahayag.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
-  },
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
-   "content": {
-    "options": [
-     "Magandang hapon po.",
-     "Puwede po bang magtanong?",
-     "Paumanhin po.",
-     "Magandang gabi po."
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Magagalang na Pananalita. 💪"
-   },
-   "prompt": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
-  },
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
-   "content": {
-    "pairs": [
-     {
-      "left": "Magandang gabi po.",
-      "right": "magalang na pagbati"
-     },
-     {
-      "left": "Makikiraan po ba?",
-      "right": "magalang na pakiusap"
-     },
-     {
-      "left": "Maraming salamat po.",
-      "right": "magalang na pasasalamat"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Magagalang na Pananalita. 💪"
-   },
-   "prompt": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
-  },
-  {
-   "activityId": "filipino-g3-q3-w09-d05-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q3-w09-d05-visual",
-   "instruction": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
-   "content": {
-    "steps": [
-     "Tingnan ang sitwasyon",
-     "Isipin kung sino ang kausap",
-     "Piliin ang magalang na pahayag",
-     "Sabihin ito nang may respeto"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Magagalang na Pananalita. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
-   "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q3-w09-d05-q1",
-    "prompt": "Alin ang magalang na pagbati sa gabi?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Maaari po bang pumunta?"
-     },
-     {
-      "id": "d",
-      "text": "Umalis ka na!"
-     },
-     {
-      "id": "a",
-      "text": "Tuloy po kayo."
-     },
-     {
-      "id": "b",
-      "text": "Magandang gabi po."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“Magandang gabi po.” — may “po” kaya magalang ang pagbati.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q3-w09-d05-q2",
-    "prompt": "Ano ang sasabihin mo kung may nagawan ka ng mali?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Pasensiya na po."
-     },
-     {
-      "id": "c",
-      "text": "Maaari po bang pumunta?"
-     },
-     {
-      "id": "d",
-      "text": "Bilisan mo!"
-     },
-     {
-      "id": "a",
-      "text": "Tuloy po kayo."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Kapag may nagawang mali, humingi ng paumanhin nang magalang. “Pasensiya na po.” ang angkop na sasabihin.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q3-w09-d05-q3",
-    "prompt": "Alin ang angkop na tugon sa 'Salamat po'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Tuloy po kayo."
-     },
-     {
-      "id": "b",
-      "text": "Maraming salamat po."
-     },
-     {
-      "id": "c",
-      "text": "Maaari po bang pumunta?"
-     },
-     {
-      "id": "d",
-      "text": "Wala akong pakialam!"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang tugon ay dapat magalang at angkop sa kausap. “Maraming salamat po.” ang angkop na tugon.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q3-w09-d05-q4",
-    "prompt": "Kung hihingi ka ng pabor, alin ang magalang na sasabihin?",
-    "options": [
-     {
-      "id": "d",
-      "text": "Umalis ka na!"
-     },
-     {
-      "id": "a",
-      "text": "Tuloy po kayo."
-     },
-     {
-      "id": "b",
-      "text": "Makikiraan po ba?"
-     },
-     {
-      "id": "c",
-      "text": "Maaari po bang pumunta?"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“Makikiraan po ba?” — gumagamit ito ng magalang na pakiusap kaya angkop kapag humihingi ng pabor.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q3-w09-d05-q5",
-    "prompt": "Alin ang magalang na pananalita?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Bilisan mo!"
-     },
-     {
-      "id": "d",
-      "text": "Wala akong pakialam!"
-     },
-     {
-      "id": "a",
-      "text": "Umalis ka na!"
-     },
-     {
-      "id": "b",
-      "text": "Magandang gabi po."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“Magandang gabi po.” ang magalang na paraan ng pagsasalita.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q3-w09-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 5,
+  "subject": "filipino",
+  "title": "Magagalang na Pananalita · Q3 W09 D05",
+  "objective": "Nagagamit ang magagalang na pagbati at pananalita ayon sa sitwasyon.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Tara na, Detektib! 🔎 May bago tayong tuklasin. Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "pagbati",
+      "definition": "Magalang na pananalitang ginagamit sa pagbati sa ibang tao."
+    },
+    {
+      "term": "pananalita",
+      "definition": "Mga salitang ginagamit upang maipahayag ang iniisip o damdamin."
+    },
+    {
+      "term": "respeto",
+      "definition": "Paggalang sa kapwa at sa kanilang damdamin."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "content": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Magagalang na Pananalita. 💪"
+      },
+      "prompt": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang gabi po."
+    },
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
+      "content": {
+        "examples": [
+          "Magandang gabi po.",
+          "Makikiraan po ba?",
+          "Maraming salamat po.",
+          "Pasensiya na po."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Magagalang na Pananalita. 💪"
+      },
+      "prompt": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Piliin ang mga magalang na pahayag.",
+      "content": {
+        "fits": [
+          "Magandang gabi po.",
+          "Makikiraan po ba?",
+          "Maraming salamat po.",
+          "Pasensiya na po."
+        ],
+        "doesNotFit": [
+          "Umalis ka na!",
+          "Bilisan mo!",
+          "Wala akong pakialam!",
+          "Bigyan mo ako!"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Magagalang na Pananalita bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga magalang na pahayag.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
+      "content": {
+        "options": [
+          "Magandang hapon po.",
+          "Puwede po bang magtanong?",
+          "Paumanhin po.",
+          "Magandang gabi po."
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Magagalang na Pananalita. 💪"
+      },
+      "prompt": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Magandang gabi po.",
+            "right": "magalang na pagbati"
+          },
+          {
+            "left": "Makikiraan po ba?",
+            "right": "magalang na pakiusap"
+          },
+          {
+            "left": "Maraming salamat po.",
+            "right": "magalang na pasasalamat"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Magagalang na Pananalita. 💪"
+      },
+      "prompt": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-q3-w09-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w09-d05-visual",
+      "instruction": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
+      "content": {
+        "steps": [
+          "Tingnan ang sitwasyon",
+          "Isipin kung sino ang kausap",
+          "Piliin ang magalang na pahayag",
+          "Sabihin ito nang may respeto"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Magagalang na Pananalita. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
+      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q3-w09-d05-q1",
+        "prompt": "Alin ang magalang na pagbati sa gabi?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaari po bang pumunta?"
+          },
+          {
+            "id": "b",
+            "text": "Tuloy po kayo."
+          },
+          {
+            "id": "c",
+            "text": "Umalis ka na!"
+          },
+          {
+            "id": "d",
+            "text": "Magandang gabi po."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "“Magandang gabi po.” — may “po” kaya magalang ang pagbati.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q3-w09-d05-q2",
+        "prompt": "Sagutin ito: Ano ang sasabihin mo kung may nagawan ka ng mali?  (sa aralin: Magagalang na Pananalita)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaari po bang pumunta?"
+          },
+          {
+            "id": "b",
+            "text": "Bilisan mo!"
+          },
+          {
+            "id": "c",
+            "text": "Pasensiya na po."
+          },
+          {
+            "id": "d",
+            "text": "Tuloy po kayo."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Kapag may nagawang mali, humingi ng paumanhin nang magalang. “Pasensiya na po.” ang angkop na sasabihin.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q3-w09-d05-q3",
+        "prompt": "Sagutin ito: Alin ang angkop na tugon sa 'Salamat po'?  (sa aralin: Magagalang na Pananalita)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaari po bang pumunta?"
+          },
+          {
+            "id": "b",
+            "text": "Wala akong pakialam!"
+          },
+          {
+            "id": "c",
+            "text": "Maraming salamat po."
+          },
+          {
+            "id": "d",
+            "text": "Tuloy po kayo."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang tugon ay dapat magalang at angkop sa kausap. “Maraming salamat po.” ang angkop na tugon.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q3-w09-d05-q4",
+        "prompt": "Sagutin ito: Kung hihingi ka ng pabor, alin ang magalang na sasabihin?  (sa aralin: Magagalang na Pananalita)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tuloy po kayo."
+          },
+          {
+            "id": "b",
+            "text": "Maaari po bang pumunta?"
+          },
+          {
+            "id": "c",
+            "text": "Makikiraan po ba?"
+          },
+          {
+            "id": "d",
+            "text": "Umalis ka na!"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "“Makikiraan po ba?” — gumagamit ito ng magalang na pakiusap kaya angkop kapag humihingi ng pabor.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q3-w09-d05-q5",
+        "prompt": "Sagutin ito: Alin ang magalang na pananalita?  (sa aralin: Magagalang na Pananalita)",
+        "options": [
+          {
+            "id": "a",
+            "text": "Wala akong pakialam!"
+          },
+          {
+            "id": "b",
+            "text": "Bilisan mo!"
+          },
+          {
+            "id": "c",
+            "text": "Umalis ka na!"
+          },
+          {
+            "id": "d",
+            "text": "Magandang gabi po."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "“Magandang gabi po.” ang magalang na paraan ng pagsasalita.",
+        "type": "MULTIPLE_CHOICE"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

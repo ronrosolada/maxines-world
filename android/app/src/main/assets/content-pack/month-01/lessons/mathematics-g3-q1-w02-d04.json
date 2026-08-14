@@ -1,378 +1,388 @@
 {
- "lessonId": "mathematics-g3-q1-w02-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 4,
- "subject": "mathematics",
- "title": "Number Line-Up · Q1 W02 D04",
- "objective": "Order numbers up to 10,000 from least to greatest and greatest to least.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo is lining up number cards! Help him put them from least to greatest.",
- "vocabulary": [
-  {
-   "term": "120, 210, 201 — least to greatest",
-   "definition": "least to greatest"
-  },
-  {
-   "term": "900, 450, 90 — greatest to least",
-   "definition": "greatest to least"
-  },
-  {
-   "term": "1,205 before 1,250",
-   "definition": "uses place value"
-  }
- ],
- "activities": [
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Watch how 120, 201, and 210 line up from least to greatest.",
-   "content": "Compare place values, then arrange the numbers in the requested order.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in Add-Up Adventure again. 💪"
-   },
-   "prompt": "Watch how 120, 201, and 210 line up from least to greatest.",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Tap each example and read the order.",
-   "content": {
-    "examples": [
-     "120, 210, 201 — least to greatest",
-     "900, 450, 90 — greatest to least",
-     "1,205 before 1,250",
-     "4,000 after 3,999"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Look at each Add-Up Adventure example again. 💪"
-   },
-   "prompt": "Tap each example and read the order.",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Sort each card: is the order correct?",
-   "content": {
-    "fits": [
-     "120, 210, 201 — least to greatest",
-     "900, 450, 90 — greatest to least",
-     "1,205 before 1,250",
-     "4,000 after 3,999"
-    ],
-    "doesNotFit": [
-     "arrange by color",
-     "add the numbers first",
-     "choose without comparing place values",
-     "reverse the requested order"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read the Add-Up Adventure rule before sorting again. 💪"
-   },
-   "prompt": "Sort each card: is the order correct?",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Tap the correct least-to-greatest order.",
-   "content": {
-    "options": [
-     "210, 201, 120",
-     "120 + 201 + 210 = 531",
-     "120, 210, 201",
-     "120, 201, 210 — least to greatest"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in the Add-Up Adventure question. 💪"
-   },
-   "prompt": "Tap the correct least-to-greatest order.",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Match each list to least-to-greatest or greatest-to-least.",
-   "content": {
-    "pairs": [
-     {
-      "left": "120, 210, 201 — least to greatest",
-      "right": "least to greatest"
-     },
-     {
-      "left": "900, 450, 90 — greatest to least",
-      "right": "greatest to least"
-     },
-     {
-      "left": "1,205 before 1,250",
-      "right": "uses place value"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read both sides of each Add-Up Adventure pair again. 💪"
-   },
-   "prompt": "Match each list to least-to-greatest or greatest-to-least.",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  },
-  {
-   "activityId": "mathematics-g3-q1-w02-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "mathematics-g3-q1-w02-d04-visual",
-   "instruction": "Put the steps for ordering numbers in order.",
-   "content": {
-    "steps": [
-     "Read the math question about order numbers up to 10,000 from least to greatest and greatest to least.",
-     "Choose the operation or model that matches the problem",
-     "Solve carefully using the given numbers",
-     "Check that the answer matches the question"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the first, next, and last Add-Up Adventure steps. 💪"
-   },
-   "prompt": "Put the steps for ordering numbers in order.",
-   "narration": "Compare place values, then arrange the numbers in the requested order.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "mathematics-g3-q1-w02-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which list is ordered from least to greatest?",
-    "options": [
-     {
-      "id": "d",
-      "text": "210, 201, 120"
-     },
-     {
-      "id": "a",
-      "text": "120, 210, 201"
-     },
-     {
-      "id": "b",
-      "text": "201, 210, 120"
-     },
-     {
-      "id": "c",
-      "text": "120, 201, 210 — least to greatest"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "120 has 1 hundred, 201 and 210 have 2 hundreds, and 201 < 210 because 0 tens < 1 ten, so 120, 201, 210 is least to greatest."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which list is ordered from greatest to least?",
-    "options": [
-     {
-      "id": "b",
-      "text": "900, 450, 90 — greatest to least"
-     },
-     {
-      "id": "c",
-      "text": "900, 90, 450"
-     },
-     {
-      "id": "d",
-      "text": "90, 450, 900"
-     },
-     {
-      "id": "a",
-      "text": "450, 90, 900"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "900 is the greatest, then 450, then 90, so 900, 450, 90 is greatest to least."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "In least-to-greatest order, which statement is true?",
-    "options": [
-     {
-      "id": "d",
-      "text": "1,205 before 1,250 in greatest-to-least order"
-     },
-     {
-      "id": "a",
-      "text": "1,205 before 1,250"
-     },
-     {
-      "id": "b",
-      "text": "1,250 comes before 1,205"
-     },
-     {
-      "id": "c",
-      "text": "1,520 comes before 1,205"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "1,205 and 1,250 both have 1 thousand and 2 hundreds; 1,205 has 0 tens and 1,250 has 5, so 1,205 comes before 1,250 from least to greatest."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about ordering is true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "3,999 comes before 4,000 in greatest-to-least order"
-     },
-     {
-      "id": "c",
-      "text": "4,000 and 3,999 have the same digits"
-     },
-     {
-      "id": "d",
-      "text": "4,000 after 3,999 in least-to-greatest order"
-     },
-     {
-      "id": "a",
-      "text": "4,000 before 3,999 in least-to-greatest order"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "4,000 has 4 thousands and 3,999 has 3 thousands, so in least-to-greatest order 3,999 comes first and 4,000 after it."
-   },
-   {
-    "itemId": "mathematics-g3-q1-w02-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which list is ordered from least to greatest?",
-    "options": [
-     {
-      "id": "d",
-      "text": "530, 350, 305"
-     },
-     {
-      "id": "a",
-      "text": "350, 305, 530"
-     },
-     {
-      "id": "b",
-      "text": "305, 530, 350"
-     },
-     {
-      "id": "c",
-      "text": "305, 350, 530 — least to greatest"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Compare place values: 305 < 350 < 530, so 305, 350, 530 is least to greatest."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "mathematics-g3-q1-w02-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "mathematics",
+  "title": "Number Line-Up · Q1 W02 D04",
+  "objective": "Order numbers up to 10,000 from least to greatest and greatest to least.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is lining up number cards! Help him put them from least to greatest.",
+  "vocabulary": [
+    {
+      "term": "120, 210, 201 — least to greatest",
+      "definition": "least to greatest"
+    },
+    {
+      "term": "900, 450, 90 — greatest to least",
+      "definition": "greatest to least"
+    },
+    {
+      "term": "1,205 before 1,250",
+      "definition": "uses place value"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Watch how 120, 201, and 210 line up from least to greatest.",
+      "content": "Compare place values, then arrange the numbers in the requested order.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in Number Line-Up again. 💪"
+      },
+      "prompt": "Watch how 120, 201, and 210 line up from least to greatest.",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Tap each example and read the order.",
+      "content": {
+        "examples": [
+          "120, 210, 201 — least to greatest",
+          "900, 450, 90 — greatest to least",
+          "1,205 before 1,250",
+          "4,000 after 3,999"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at each Number Line-Up example again. 💪"
+      },
+      "prompt": "Tap each example and read the order.",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Sort each card: is the order correct?",
+      "content": {
+        "fits": [
+          "120, 210, 201 — least to greatest",
+          "900, 450, 90 — greatest to least",
+          "1,205 before 1,250",
+          "4,000 after 3,999"
+        ],
+        "doesNotFit": [
+          "arrange by color",
+          "add the numbers first",
+          "choose without comparing place values",
+          "reverse the requested order"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read the Number Line-Up rule before sorting again. 💪"
+      },
+      "prompt": "Sort each card: is the order correct?",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Tap the correct least-to-greatest order.",
+      "content": {
+        "options": [
+          "210, 201, 120",
+          "120 + 201 + 210 = 531",
+          "120, 210, 201",
+          "120, 201, 210 — least to greatest"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in the Number Line-Up question. 💪"
+      },
+      "prompt": "Tap the correct least-to-greatest order.",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Match each list to least-to-greatest or greatest-to-least.",
+      "content": {
+        "pairs": [
+          {
+            "left": "120, 210, 201",
+            "right": "least to greatest"
+          },
+          {
+            "left": "900, 450, 90",
+            "right": "greatest to least"
+          },
+          {
+            "left": "1,205 before 1,250",
+            "right": "uses place value"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read both sides of each Number Line-Up pair again. 💪"
+      },
+      "prompt": "Match each list to least-to-greatest or greatest-to-least.",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d04-visual",
+      "instruction": "Put the steps for ordering numbers in order.",
+      "content": {
+        "steps": [
+          "Read the math question about order numbers up to 10,000 from least to greatest and greatest to least.",
+          "Choose the operation or model that matches the problem",
+          "Solve carefully using the given numbers",
+          "Check that the answer matches the question"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the first, next, and last Number Line-Up steps. 💪"
+      },
+      "prompt": "Put the steps for ordering numbers in order.",
+      "narration": "Compare place values, then arrange the numbers in the requested order.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q1-w02-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which list is ordered from least to greatest?",
+        "options": [
+          {
+            "id": "a",
+            "text": "201, 210, 120"
+          },
+          {
+            "id": "b",
+            "text": "120, 210, 201"
+          },
+          {
+            "id": "c",
+            "text": "210, 201, 120"
+          },
+          {
+            "id": "d",
+            "text": "120, 201, 210 — least to greatest"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "120 has 1 hundred, 201 and 210 have 2 hundreds, and 201 < 210 because 0 tens < 1 ten, so 120, 201, 210 is least to greatest."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which list is ordered from greatest to least?",
+        "options": [
+          {
+            "id": "a",
+            "text": "900, 90, 450"
+          },
+          {
+            "id": "b",
+            "text": "450, 90, 900"
+          },
+          {
+            "id": "c",
+            "text": "90, 450, 900"
+          },
+          {
+            "id": "d",
+            "text": "900, 450, 90 — greatest to least"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "900 is the greatest, then 450, then 90, so 900, 450, 90 is greatest to least."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "In least-to-greatest order, which statement is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "1,205 before 1,250"
+          },
+          {
+            "id": "b",
+            "text": "1,250 comes before 1,205"
+          },
+          {
+            "id": "c",
+            "text": "1,520 comes before 1,205"
+          },
+          {
+            "id": "d",
+            "text": "1,205 before 1,250 in greatest-to-least order"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "1,205 and 1,250 both have 1 thousand and 2 hundreds; 1,205 has 0 tens and 1,250 has 5, so 1,205 comes before 1,250 from least to greatest."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about ordering is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "3,999 comes before 4,000 in greatest-to-least order"
+          },
+          {
+            "id": "b",
+            "text": "4,000 after 3,999 in least-to-greatest order"
+          },
+          {
+            "id": "c",
+            "text": "4,000 before 3,999 in least-to-greatest order"
+          },
+          {
+            "id": "d",
+            "text": "4,000 and 3,999 have the same digits"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "4,000 has 4 thousands and 3,999 has 3 thousands, so in least-to-greatest order 3,999 comes first and 4,000 after it."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which list is in order, from the smallest number to the biggest?",
+        "options": [
+          {
+            "id": "a",
+            "text": "305, 530, 350"
+          },
+          {
+            "id": "b",
+            "text": "350, 305, 530"
+          },
+          {
+            "id": "c",
+            "text": "305, 350, 530 — least to greatest"
+          },
+          {
+            "id": "d",
+            "text": "530, 350, 305"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Compare place values: 305 < 350 < 530, so 305, 350, 530 is least to greatest."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
 }

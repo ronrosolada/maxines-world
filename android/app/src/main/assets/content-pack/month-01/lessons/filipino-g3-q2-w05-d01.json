@@ -1,378 +1,389 @@
 {
- "lessonId": "filipino-g3-q2-w05-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 6,
- "day": 1,
- "subject": "filipino",
- "title": "Wastong Pagsulat · Q2 W05 D01",
- "objective": "Naisusulat nang maayos at wasto ang mga natutuhang salita.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Hoy, matalinong bata! 💡 May bago tayong pag-aaralan. Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "baybay",
-   "definition": "pagkakasulat ng mga titik ng salita"
-  },
-  {
-   "term": "malaking titik",
-   "definition": "malaking letra sa simula ng pangungusap at pangalan"
-  },
-  {
-   "term": "bantas",
-   "definition": "markang tulad ng tuldok at kuwit"
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
-   "content": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
-   "narration": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa."
-  },
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
-   "content": {
-    "examples": [
-     "bintana",
-     "hardin",
-     "sasakyan",
-     "magalang"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
-   },
-   "prompt": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Piliin ang mga salitang may wastong baybay.",
-   "content": {
-    "fits": [
-     "bintana",
-     "hardin",
-     "sasakyan",
-     "magalang"
-    ],
-    "doesNotFit": [
-     "bintna",
-     "hardn",
-     "sasakyn",
-     "maglang"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Wastong Pagsulat bago magpangkat muli. 💪"
-   },
-   "prompt": "Piliin ang mga salitang may wastong baybay.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
-   "content": {
-    "options": [
-     "maglang",
-     "hardn",
-     "bintana",
-     "sasakyn"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Itugma ang bawat salita sa kahulugan nito.",
-   "content": {
-    "pairs": [
-     {
-      "left": "bintana",
-      "right": "bubog ng salamin sa dingding"
-     },
-     {
-      "left": "hardin",
-      "right": "lugar na may mga halaman"
-     },
-     {
-      "left": "sasakyan",
-      "right": "ginagamit sa paglalakbay"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  },
-  {
-   "activityId": "filipino-g3-q2-w05-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "filipino-g3-q2-w05-d01-visual",
-   "instruction": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
-   "content": {
-    "steps": [
-     "Basahin ang salita",
-     "Suriin ang baybay",
-     "Suriin ang malaking titik at bantas",
-     "Isulat ito nang maayos"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
-   "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "sequence": 1,
-    "itemId": "filipino-g3-q2-w05-d01-q1",
-    "prompt": "Alin ang wastong baybay ng 'bintana'?",
-    "options": [
-     {
-      "id": "d",
-      "text": "magalang"
-     },
-     {
-      "id": "a",
-      "text": "bintna"
-     },
-     {
-      "id": "b",
-      "text": "bintana"
-     },
-     {
-      "id": "c",
-      "text": "bintanna"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang wastong baybay ng “bintana” ay “bintana” — tama ang ayos ng mga letra at pantig.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 2,
-    "itemId": "filipino-g3-q2-w05-d01-q2",
-    "prompt": "Alin ang salitang may wastong baybay?",
-    "options": [
-     {
-      "id": "c",
-      "text": "hardinn"
-     },
-     {
-      "id": "d",
-      "text": "sasakyaan"
-     },
-     {
-      "id": "a",
-      "text": "hardn"
-     },
-     {
-      "id": "b",
-      "text": "hardin"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“hardin” ang may wastong ayos ng mga letra at pantig.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 3,
-    "itemId": "filipino-g3-q2-w05-d01-q3",
-    "prompt": "Ano ang kahulugan ng 'hardin'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "lugar na may mga halaman"
-     },
-     {
-      "id": "c",
-      "text": "ginagamit sa pagbiyahe"
-     },
-     {
-      "id": "d",
-      "text": "magandang ugali sa pakikipag-usap"
-     },
-     {
-      "id": "a",
-      "text": "bukas sa dingding na may salamin"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “hardin” ay nangangahulugang lugar na may mga halaman.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 4,
-    "itemId": "filipino-g3-q2-w05-d01-q4",
-    "prompt": "Alin sa mga sumusunod ang wastong pagkakasulat?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sasakyn"
-     },
-     {
-      "id": "b",
-      "text": "sasakyan"
-     },
-     {
-      "id": "c",
-      "text": "sasakyaan"
-     },
-     {
-      "id": "d",
-      "text": "bintanna"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "“sasakyan” ang wastong pagkakasulat — tama ang baybay at ang ayos ng mga letra.",
-    "type": "MULTIPLE_CHOICE"
-   },
-   {
-    "sequence": 5,
-    "itemId": "filipino-g3-q2-w05-d01-q5",
-    "prompt": "Kumpletuhin ang pangungusap: 'Nakasara ang ___ dahil malamig ang hangin.'",
-    "options": [
-     {
-      "id": "d",
-      "text": "magalang"
-     },
-     {
-      "id": "a",
-      "text": "hardin"
-     },
-     {
-      "id": "b",
-      "text": "bintana"
-     },
-     {
-      "id": "c",
-      "text": "sasakyan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “bintana” ang angkop na pangtapos ng pangungusap — tama ang kahulugan nito sa pangungusap.",
-    "type": "MULTIPLE_CHOICE"
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-q2-w05-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 1,
+  "subject": "filipino",
+  "title": "Wastong Pagsulat · Q2 W05 D01",
+  "objective": "Naisusulat nang maayos at wasto ang mga natutuhang salita.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Wastong Pagsulat · Q2 W05 D01. Handa ka na bang matuto at maglaro?",
+  "vocabulary": [
+    {
+      "term": "baybay",
+      "definition": "pagkakasulat ng mga titik ng salita"
+    },
+    {
+      "term": "malaking titik",
+      "definition": "malaking letra sa simula ng pangungusap at pangalan"
+    },
+    {
+      "term": "bantas",
+      "definition": "markang tulad ng tuldok at kuwit"
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
+      "content": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
+      "narration": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'bintana' ay isang halimbawa."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
+      "content": {
+        "examples": [
+          "bintana",
+          "hardin",
+          "sasakyan",
+          "magalang"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
+      },
+      "prompt": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Piliin ang mga salitang may wastong baybay.",
+      "content": {
+        "fits": [
+          "bintana",
+          "hardin",
+          "sasakyan",
+          "magalang"
+        ],
+        "doesNotFit": [
+          "bintna",
+          "hardn",
+          "sasakyn",
+          "maglang"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Wastong Pagsulat bago magpangkat muli. 💪"
+      },
+      "prompt": "Piliin ang mga salitang may wastong baybay.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
+      "content": {
+        "options": [
+          "maglang",
+          "hardn",
+          "bintana",
+          "sasakyn"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Itugma ang bawat salita sa kahulugan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "bintana",
+            "right": "bubog ng salamin sa dingding"
+          },
+          {
+            "left": "hardin",
+            "right": "lugar na may mga halaman"
+          },
+          {
+            "left": "sasakyan",
+            "right": "ginagamit sa paglalakbay"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d01-visual",
+      "instruction": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
+      "content": {
+        "steps": [
+          "Basahin ang salita",
+          "Suriin ang baybay",
+          "Suriin ang malaking titik at bantas",
+          "Isulat ito nang maayos"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
+      "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q2-w05-d01-q1",
+        "prompt": "Alin ang wastong baybay ng 'bintana'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bintna"
+          },
+          {
+            "id": "b",
+            "text": "magalang"
+          },
+          {
+            "id": "c",
+            "text": "bintanna"
+          },
+          {
+            "id": "d",
+            "text": "bintana"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang wastong baybay ng “bintana” ay “bintana” — tama ang ayos ng mga letra at pantig.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q2-w05-d01-q2",
+        "prompt": "Sagutin ito: Alin ang salitang may wastong baybay?  (sa aralin: Wastong Pagsulat)",
+        "options": [
+          {
+            "id": "a",
+            "text": "sasakyaan"
+          },
+          {
+            "id": "b",
+            "text": "hardin"
+          },
+          {
+            "id": "c",
+            "text": "hardn"
+          },
+          {
+            "id": "d",
+            "text": "hardinn"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "“hardin” ang may wastong ayos ng mga letra at pantig.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q2-w05-d01-q3",
+        "prompt": "Ano ang kahulugan ng 'hardin'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bukas sa dingding na may salamin"
+          },
+          {
+            "id": "b",
+            "text": "ginagamit sa pagbiyahe"
+          },
+          {
+            "id": "c",
+            "text": "magandang ugali sa pakikipag-usap"
+          },
+          {
+            "id": "d",
+            "text": "lugar na may mga halaman"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “hardin” ay nangangahulugang lugar na may mga halaman.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q2-w05-d01-q4",
+        "prompt": "Sagutin ito: Alin sa mga sumusunod ang wastong pagkakasulat?  (sa aralin: Wastong Pagsulat)",
+        "options": [
+          {
+            "id": "a",
+            "text": "sasakyan"
+          },
+          {
+            "id": "b",
+            "text": "sasakyaan"
+          },
+          {
+            "id": "c",
+            "text": "sasakyn"
+          },
+          {
+            "id": "d",
+            "text": "bintanna"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "“sasakyan” ang wastong pagkakasulat — tama ang baybay at ang ayos ng mga letra.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q2-w05-d01-q5",
+        "prompt": "Kumpletuhin ang pangungusap: 'Nakasara ang ___ dahil malamig ang hangin.'",
+        "options": [
+          {
+            "id": "a",
+            "text": "bintana"
+          },
+          {
+            "id": "b",
+            "text": "hardin"
+          },
+          {
+            "id": "c",
+            "text": "sasakyan"
+          },
+          {
+            "id": "d",
+            "text": "magalang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang “bintana” ang angkop na pangtapos ng pangungusap — tama ang kahulugan nito sa pangungusap.",
+        "type": "MULTIPLE_CHOICE"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "storyIntro": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Wastong Pagsulat · Q2 W05 D01. Handa ka na bang matuto at maglaro?",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

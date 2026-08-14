@@ -1,378 +1,388 @@
 {
- "lessonId": "makabansa-g3-q4-w05-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 14,
- "day": 3,
- "subject": "makabansa",
- "title": "Kapaligiran at Kultura · Q4 W05 D03",
- "objective": "Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "fil-PH",
- "introduction": "Handa ka na ba? 😊 May bagong pakikipagsapalaran si Milo. Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Handa ka na bang sumubok?",
- "vocabulary": [
-  {
-   "term": "pangingisda sa baybayin",
-   "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
-  },
-  {
-   "term": "pagsasaka sa kapatagan",
-   "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
-  },
-  {
-   "term": "disenyong angkop sa klima",
-   "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
-  }
- ],
- "activities": [
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Pakinggan ang paliwanag ni Milo.",
-   "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
-   },
-   "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad."
-  },
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
-   "content": {
-    "examples": [
-     "pangingisda sa baybayin",
-     "pagsasaka sa kapatagan",
-     "disenyong angkop sa klima",
-     "pagkain mula sa lokal na ani"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
-   },
-   "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
-  },
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
-   "content": {
-    "fits": [
-     "pangingisda sa baybayin",
-     "pagsasaka sa kapatagan",
-     "disenyong angkop sa klima",
-     "pagkain mula sa lokal na ani"
-    ],
-    "doesNotFit": [
-     "pagsusuot ng damit na hindi akma sa klima",
-     "pagkain na hindi mula sa lokal na ani",
-     "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-     "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
-   },
-   "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
-  },
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Piliin ang tamang sagot.",
-   "content": {
-    "options": [
-     "pagsusuot ng damit na hindi akma sa klima",
-     "pagkain na hindi mula sa lokal na ani",
-     "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-     "pangingisda sa baybayin"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
-   },
-   "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
-  },
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
-   "content": {
-    "pairs": [
-     {
-      "left": "pangingisda sa baybayin",
-      "right": "kabuhayan sa baybayin"
-     },
-     {
-      "left": "pagsasaka sa kapatagan",
-      "right": "kabuhayan sa kapatagan"
-     },
-     {
-      "left": "disenyong angkop sa klima",
-      "right": "disenyong tumutugon sa klima"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
-   },
-   "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
-  },
-  {
-   "activityId": "makabansa-g3-q4-w05-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "makabansa-g3-q4-w05-d03-visual",
-   "instruction": "Ayusin ang mga hakbang nang tama.",
-   "content": {
-    "steps": [
-     "Tingnan ang halimbawa",
-     "Tukuyin ang mahalagang ideya",
-     "Iugnay sa komunidad",
-     "Ipaliwanag ang sagot"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
-   },
-   "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-   "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-   "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
-   "nextLabel": "Susunod →",
-   "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "makabansa-g3-q4-w05-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
-     },
-     {
-      "id": "b",
-      "text": "pagsasaka sa kapatagan"
-     },
-     {
-      "id": "c",
-      "text": "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
-     },
-     {
-      "id": "d",
-      "text": "bilang ng mga kapatid"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “pagsasaka sa kapatagan” ay halimbawa ng kultura at pamumuhay ng komunidad."
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagdiriwang ng pista ng ani"
-     },
-     {
-      "id": "b",
-      "text": "pagpili ng pangalan ng alagang pusa"
-     },
-     {
-      "id": "c",
-      "text": "kulay ng uniporme sa paaralan"
-     },
-     {
-      "id": "d",
-      "text": "tatak ng sapatos"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang “pagkain mula sa lokal na ani” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa paaralan?",
-    "options": [
-     {
-      "id": "a",
-      "text": "walang epekto ang kapaligiran sa pamumuhay"
-     },
-     {
-      "id": "b",
-      "text": "ang tao lamang ang bumubuo ng kapaligiran"
-     },
-     {
-      "id": "c",
-      "text": "hindi kailangan ng tao ang kapaligiran"
-     },
-     {
-      "id": "d",
-      "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit nagkakaiba-iba ang kasuotan sa iba’t ibang komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "dahil nagkakaiba ang halaga ng damit"
-     },
-     {
-      "id": "b",
-      "text": "dahil mas maganda ang ibang damit"
-     },
-     {
-      "id": "c",
-      "text": "dahil nakaangkop ito sa klima at kapaligiran ng lugar"
-     },
-     {
-      "id": "d",
-      "text": "dahil nauubos ang damit"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang kasuotan ay nakaangkop sa klima at kapaligiran ng lugar."
-   },
-   {
-    "itemId": "makabansa-g3-q4-w05-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pagsasaka sa kapatagan"
-     },
-     {
-      "id": "b",
-      "text": "pagpili ng pangalan ng alagang pusa"
-     },
-     {
-      "id": "c",
-      "text": "pista ng komunidad"
-     },
-     {
-      "id": "d",
-      "text": "awit at sayaw na lokal"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang “pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "makabansa-g3-q4-w05-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 3,
+  "subject": "makabansa",
+  "title": "Kapaligiran at Kultura · Q4 W05 D03",
+  "objective": "Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Handa ka na ba? 😊 May bagong pakikipagsapalaran si Milo. Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Handa ka na bang sumubok?",
+  "vocabulary": [
+    {
+      "term": "pangingisda sa baybayin",
+      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+    },
+    {
+      "term": "pagsasaka sa kapatagan",
+      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+    },
+    {
+      "term": "disenyong angkop sa klima",
+      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+    }
   ],
-  "source": "competency/objective at local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "content": {
+        "examples": [
+          "pangingisda sa baybayin",
+          "pagsasaka sa kapatagan",
+          "disenyong angkop sa klima",
+          "pagkain mula sa lokal na ani"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "content": {
+        "fits": [
+          "pangingisda sa baybayin",
+          "pagsasaka sa kapatagan",
+          "disenyong angkop sa klima",
+          "pagkain mula sa lokal na ani"
+        ],
+        "doesNotFit": [
+          "pagsusuot ng damit na hindi akma sa klima",
+          "pagkain na hindi mula sa lokal na ani",
+          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
+          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Piliin ang tamang sagot.",
+      "content": {
+        "options": [
+          "pagsusuot ng damit na hindi akma sa klima",
+          "pagkain na hindi mula sa lokal na ani",
+          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
+          "pangingisda sa baybayin"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pangingisda sa baybayin",
+            "right": "kabuhayan sa baybayin"
+          },
+          {
+            "left": "pagsasaka sa kapatagan",
+            "right": "kabuhayan sa kapatagan"
+          },
+          {
+            "left": "disenyong angkop sa klima",
+            "right": "disenyong tumutugon sa klima"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w05-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w05-d03-visual",
+      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "content": {
+        "steps": [
+          "Tingnan ang halimbawa",
+          "Tukuyin ang mahalagang ideya",
+          "Iugnay sa komunidad",
+          "Ipaliwanag ang sagot"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
+      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q4-w05-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Subukan mo ito: Alin ang halimbawa ng kultura at pamumuhay ng komunidad?  (sa aralin: Kapaligiran at Kultura)",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          },
+          {
+            "id": "b",
+            "text": "pagsasaka sa kapatagan"
+          },
+          {
+            "id": "c",
+            "text": "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+          },
+          {
+            "id": "d",
+            "text": "bilang ng mga kapatid"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “pagsasaka sa kapatagan” ay halimbawa ng kultura at pamumuhay ng komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w05-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Subukan mo ito: Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?  (sa aralin: Kapaligiran at Kultura)",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagpili ng pangalan ng alagang pusa"
+          },
+          {
+            "id": "b",
+            "text": "kulay ng uniporme sa paaralan"
+          },
+          {
+            "id": "c",
+            "text": "tatak ng sapatos"
+          },
+          {
+            "id": "d",
+            "text": "pagdiriwang ng pista ng ani"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “pagkain mula sa lokal na ani” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w05-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa paaralan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hindi kailangan ng tao ang kapaligiran"
+          },
+          {
+            "id": "b",
+            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+          },
+          {
+            "id": "c",
+            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+          },
+          {
+            "id": "d",
+            "text": "walang epekto ang kapaligiran sa pamumuhay"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w05-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit nagkakaiba-iba ang kasuotan sa iba’t ibang komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "dahil nakaangkop ito sa klima at kapaligiran ng lugar"
+          },
+          {
+            "id": "b",
+            "text": "dahil mas maganda ang ibang damit"
+          },
+          {
+            "id": "c",
+            "text": "dahil nauubos ang damit"
+          },
+          {
+            "id": "d",
+            "text": "dahil nagkakaiba ang halaga ng damit"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang kasuotan ay nakaangkop sa klima at kapaligiran ng lugar."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w05-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Subukan mo ito: Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?  (sa aralin: Kapaligiran at Kultura)",
+        "options": [
+          {
+            "id": "a",
+            "text": "pista ng komunidad"
+          },
+          {
+            "id": "b",
+            "text": "pagpili ng pangalan ng alagang pusa"
+          },
+          {
+            "id": "c",
+            "text": "pagsasaka sa kapatagan"
+          },
+          {
+            "id": "d",
+            "text": "awit at sayaw na lokal"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  }
 }

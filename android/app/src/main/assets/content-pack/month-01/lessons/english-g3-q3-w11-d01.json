@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q3-w11-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 11,
- "day": 1,
- "subject": "english",
- "title": "Sentence Polishing · Q3 W11 D01",
- "objective": "Use a capital letter and correct end punctuation in a simple sentence.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo is polishing sentences about our neighborhood! ✏️ Fix the capital letter and the end mark.",
- "vocabulary": [
-  {
-   "term": "Milo reads.",
-   "definition": "A telling sentence that gives information and ends with a period."
-  },
-  {
-   "term": "Where is the book?",
-   "definition": "A question sentence that ends with a question mark."
-  },
-  {
-   "term": "Look out!",
-   "definition": "An exclamation sentence that ends with an exclamation mark."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q3-w11-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Watch how a capital letter and end mark fix a sentence!",
-   "content": "Polish sentences about our neighborhood. Use a capital letter and punctuation that tells the reader how to read each sentence.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in Sentence Polishing again. 💪"
-   },
-   "prompt": "Watch how a capital letter and end mark fix a sentence!",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  },
-  {
-   "activityId": "english-g3-q3-w11-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Tap each sentence that is polished and ready!",
-   "content": {
-    "examples": [
-     "Ana helps her neighbor.",
-     "Can you pass the ball?",
-     "Please watch the step!",
-     "Our class plants seeds."
-    ],
-    "visualScene": "🏘️🌼📝"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Look at each Sentence Polishing example again. 💪"
-   },
-   "prompt": "Tap each sentence that is polished and ready!",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  },
-  {
-   "activityId": "english-g3-q3-w11-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Sort the polished sentences from the unpolished ones!",
-   "content": {
-    "fits": [
-     "Ana helps her neighbor.",
-     "Can you pass the ball?",
-     "Please watch the step!",
-     "Our class plants seeds."
-    ],
-    "doesNotFit": [
-     "ana helps her neighbor",
-     "can you pass the ball",
-     "please watch the step",
-     "our class plants seeds"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read the Sentence Polishing rule before sorting again. 💪"
-   },
-   "prompt": "Sort the polished sentences from the unpolished ones!",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  },
-  {
-   "activityId": "english-g3-q3-w11-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Which choice uses a capital letter and the correct end mark?",
-   "content": {
-    "options": [
-     "ana helps her neighbor",
-     "Ana helps her neighbor.",
-     "can you pass the ball",
-     "please watch the step"
-    ],
-    "correctIndex": 1
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the clue in the Sentence Polishing question. 💪"
-   },
-   "prompt": "Which choice uses a capital letter and the correct end mark?",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  },
-  {
-   "activityId": "english-g3-q3-w11-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Match each sentence to the kind of sentence it is!",
-   "content": {
-    "pairs": [
-     {
-      "left": "Ana helps her neighbor.",
-      "right": "telling sentence"
-     },
-     {
-      "left": "Can you pass the ball?",
-      "right": "question sentence"
-     },
-     {
-      "left": "Please watch the step!",
-      "right": "exclamation sentence"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Read both sides of each Sentence Polishing pair again. 💪"
-   },
-   "prompt": "Match each sentence to the kind of sentence it is!",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  },
-  {
-   "activityId": "english-g3-q3-w11-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q3-w11-d01-visual",
-   "instruction": "Put the steps for polishing a sentence in order!",
-   "content": {
-    "steps": [
-     "Read the neighborhood sentence",
-     "Find the capital letter",
-     "Match the end mark to meaning",
-     "Read the polished sentence"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You got it! 🌟",
-    "retry": "Find the first, next, and last Sentence Polishing steps. 💪"
-   },
-   "prompt": "Put the steps for polishing a sentence in order!",
-   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q3-w11-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which neighborhood sentence is a correct telling sentence?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ana helps her neighbor."
-     },
-     {
-      "id": "b",
-      "text": "ana helps her neighbor"
-     },
-     {
-      "id": "c",
-      "text": "can you pass the ball"
-     },
-     {
-      "id": "d",
-      "text": "please watch the step"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A telling sentence starts with a capital letter and ends with a period, like 'Ana helps her neighbor.'"
-   },
-   {
-    "itemId": "english-g3-q3-w11-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence asks for something with a question mark?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ana helps her neighbor"
-     },
-     {
-      "id": "b",
-      "text": "Can you pass the ball?"
-     },
-     {
-      "id": "c",
-      "text": "can you pass the ball"
-     },
-     {
-      "id": "d",
-      "text": "please watch the step"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "'Can you pass the ball?' starts with a capital letter and ends with a question mark."
-   },
-   {
-    "itemId": "english-g3-q3-w11-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence gives a warning with an exclamation mark?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ana helps her neighbor"
-     },
-     {
-      "id": "b",
-      "text": "can you pass the ball"
-     },
-     {
-      "id": "c",
-      "text": "Please watch the step!"
-     },
-     {
-      "id": "d",
-      "text": "please watch the step"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A warning with strong feeling ends with an exclamation mark, like 'Please watch the step!'"
-   },
-   {
-    "itemId": "english-g3-q3-w11-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence tells what the class does?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ana helps her neighbor"
-     },
-     {
-      "id": "b",
-      "text": "can you pass the ball"
-     },
-     {
-      "id": "c",
-      "text": "please watch the step"
-     },
-     {
-      "id": "d",
-      "text": "Our class plants seeds."
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "'Our class plants seeds.' starts with a capital letter and ends with a period, so it is a telling sentence."
-   },
-   {
-    "itemId": "english-g3-q3-w11-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which choice uses a capital and fitting punctuation?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Ana helps her neighbor."
-     },
-     {
-      "id": "b",
-      "text": "ana helps her neighbor"
-     },
-     {
-      "id": "c",
-      "text": "can you pass the ball"
-     },
-     {
-      "id": "d",
-      "text": "please watch the step"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "'Ana helps her neighbor.' uses a capital letter and a fitting period, so it is polished."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q3-w11-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 1,
+  "subject": "english",
+  "title": "Sentence Polishing · Q3 W11 D01",
+  "objective": "Use a capital letter and correct end punctuation in a simple sentence.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is polishing sentences about our neighborhood! ✏️ Fix the capital letter and the end mark.",
+  "vocabulary": [
+    {
+      "term": "Milo reads.",
+      "definition": "A telling sentence that gives information and ends with a period."
+    },
+    {
+      "term": "Where is the book?",
+      "definition": "A question sentence that ends with a question mark."
+    },
+    {
+      "term": "Look out!",
+      "definition": "An exclamation sentence that ends with an exclamation mark."
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w11-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Watch how a capital letter and end mark fix a sentence!",
+      "content": "Polish sentences about our neighborhood. Use a capital letter and punctuation that tells the reader how to read each sentence.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in Sentence Polishing again. 💪"
+      },
+      "prompt": "Watch how a capital letter and end mark fix a sentence!",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Tap each sentence that is polished and ready!",
+      "content": {
+        "examples": [
+          "Ana helps her neighbor.",
+          "Can you pass the ball?",
+          "Please watch the step!",
+          "Our class plants seeds."
+        ],
+        "visualScene": "🏘️🌼📝"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Look at each Sentence Polishing example again. 💪"
+      },
+      "prompt": "Tap each sentence that is polished and ready!",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Sort the polished sentences from the unpolished ones!",
+      "content": {
+        "fits": [
+          "Ana helps her neighbor.",
+          "Can you pass the ball?",
+          "Please watch the step!",
+          "Our class plants seeds."
+        ],
+        "doesNotFit": [
+          "ana helps her neighbor",
+          "can you pass the ball",
+          "please watch the step",
+          "our class plants seeds"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read the Sentence Polishing rule before sorting again. 💪"
+      },
+      "prompt": "Sort the polished sentences from the unpolished ones!",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Which choice uses a capital letter and the correct end mark?",
+      "content": {
+        "options": [
+          "ana helps her neighbor",
+          "Ana helps her neighbor.",
+          "can you pass the ball",
+          "please watch the step"
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the clue in the Sentence Polishing question. 💪"
+      },
+      "prompt": "Which choice uses a capital letter and the correct end mark?",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Match each sentence to the kind of sentence it is!",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ana helps her neighbor.",
+            "right": "telling sentence"
+          },
+          {
+            "left": "Can you pass the ball?",
+            "right": "question sentence"
+          },
+          {
+            "left": "Please watch the step!",
+            "right": "exclamation sentence"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Read both sides of each Sentence Polishing pair again. 💪"
+      },
+      "prompt": "Match each sentence to the kind of sentence it is!",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w11-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w11-d01-visual",
+      "instruction": "Put the steps for polishing a sentence in order!",
+      "content": {
+        "steps": [
+          "Read the neighborhood sentence",
+          "Find the capital letter",
+          "Match the end mark to meaning",
+          "Read the polished sentence"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You got it! 🌟",
+        "retry": "Find the first, next, and last Sentence Polishing steps. 💪"
+      },
+      "prompt": "Put the steps for polishing a sentence in order!",
+      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w11-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which neighborhood sentence is a correct telling sentence?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ana helps her neighbor."
+          },
+          {
+            "id": "b",
+            "text": "ana helps her neighbor"
+          },
+          {
+            "id": "c",
+            "text": "can you pass the ball"
+          },
+          {
+            "id": "d",
+            "text": "please watch the step"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A telling sentence starts with a capital letter and ends with a period, like 'Ana helps her neighbor.'"
+      },
+      {
+        "itemId": "english-g3-q3-w11-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence asks for something with a question mark?",
+        "options": [
+          {
+            "id": "a",
+            "text": "please watch the step"
+          },
+          {
+            "id": "b",
+            "text": "can you pass the ball"
+          },
+          {
+            "id": "c",
+            "text": "ana helps her neighbor"
+          },
+          {
+            "id": "d",
+            "text": "Can you pass the ball?"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "'Can you pass the ball?' starts with a capital letter and ends with a question mark."
+      },
+      {
+        "itemId": "english-g3-q3-w11-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence gives a warning with an exclamation mark?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Please watch the step!"
+          },
+          {
+            "id": "b",
+            "text": "ana helps her neighbor"
+          },
+          {
+            "id": "c",
+            "text": "can you pass the ball"
+          },
+          {
+            "id": "d",
+            "text": "please watch the step"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A warning with strong feeling ends with an exclamation mark, like 'Please watch the step!'"
+      },
+      {
+        "itemId": "english-g3-q3-w11-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence tells what the class does?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Our class plants seeds."
+          },
+          {
+            "id": "b",
+            "text": "can you pass the ball"
+          },
+          {
+            "id": "c",
+            "text": "please watch the step"
+          },
+          {
+            "id": "d",
+            "text": "ana helps her neighbor"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "'Our class plants seeds.' starts with a capital letter and ends with a period, so it is a telling sentence."
+      },
+      {
+        "itemId": "english-g3-q3-w11-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice uses a capital and fitting punctuation?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ana helps her neighbor."
+          },
+          {
+            "id": "b",
+            "text": "ana helps her neighbor"
+          },
+          {
+            "id": "c",
+            "text": "please watch the step"
+          },
+          {
+            "id": "d",
+            "text": "can you pass the ball"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "'Ana helps her neighbor.' uses a capital letter and a fitting period, so it is polished."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

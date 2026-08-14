@@ -1,360 +1,370 @@
 {
- "lessonId": "filipino-g3-m01-d02",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 2,
- "subject": "FILIPINO",
- "title": "Gamitin ang Naunang Kaalaman",
- "objective": "Iugnay ang dating kaalaman sa bagong teksto o larawan.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.",
- "vocabulary": [
-  {
-   "term": "salita",
-   "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
-  },
-  {
-   "term": "kaalaman",
-   "definition": "Ang mga alam o natutuhang impormasyon."
-  },
-  {
-   "term": "pangungusap",
-   "definition": "Grupo ng mga salita na may buong diwa."
-  }
- ],
- "activities": [
-  {
-   "activityId": "filipino-g3-m01-d02-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
-   },
-   "assetId": "filipino-g3-m01-d02-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
-  },
-  {
-   "activityId": "filipino-g3-m01-d02-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "Payong at ulap—maaaring umulan",
-     "Basang daan—maaaring bagong umulan",
-     "Pamagat at larawan—gumawa ng hula"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Bahagi ng Pangungusap. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
-   },
-   "assetId": "filipino-g3-m01-d02-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "filipino-g3-m01-d02-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "Payong at ulap—maaaring umulan",
-     "Basang daan—maaaring bagong umulan",
-     "Pamagat at larawan—gumawa ng hula"
-    ],
-    "doesNotFit": [
-     "Ituring na tiyak ang lahat ng hula",
-     "Huwag basahin ang teksto",
-     "Piliin ang hulang walang pahiwatig"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Bahagi ng Pangungusap. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "filipino-g3-m01-d02-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d02-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
-   "content": {
-    "options": [
-     "Nasa ilalim siya ng dagat.",
-     "Gawa sa papel ang ulap.",
-     "Maaaring umulan."
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: Maaaring umulan.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Nasa ilalim siya ng dagat. at Gawa sa papel ang ulap. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "filipino-g3-m01-d02-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "Payong at ulap—maaaring umulan",
-      "right": "maaaring umulan"
-     },
-     {
-      "left": "Basang daan—maaaring bagong umulan",
-      "right": "maaaring bagong umulan"
-     },
-     {
-      "left": "Pamagat at larawan—gumawa ng hula",
-      "right": "gumawa ng hula"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Bahagi ng Pangungusap. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
-   },
-   "assetId": "filipino-g3-m01-d02-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "filipino-g3-m01-d02-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Bahagi ng Pangungusap. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
-   },
-   "assetId": "filipino-g3-m01-d02-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "filipino-g3-m01-d02-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bago basahin ang teksto tungkol sa pagsasaka, alin ang maaari mong gamiting naunang kaalaman?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang kulay ng iyong damit"
-     },
-     {
-      "id": "b",
-      "text": "ang iyong karanasan sa pagtatanim o panonood sa mga magsasaka"
-     },
-     {
-      "id": "c",
-      "text": "ang pangalan ng iyong laruan"
-     },
-     {
-      "id": "d",
-      "text": "ang bilang ng iyong mga kapatid"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang dating karanasan tungkol sa pagsasaka ay naunang kaalamang makatutulong sa pag-unawa ng teksto."
-   },
-   {
-    "itemId": "filipino-g3-m01-d02-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May larawan ng palengke sa teksto. Ano ang naaalala mong kaalaman tungkol dito?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang mga tindera at bumibili sa palengke"
-     },
-     {
-      "id": "b",
-      "text": "ang mga puno sa gubat"
-     },
-     {
-      "id": "c",
-      "text": "ang mga isda sa karagatan"
-     },
-     {
-      "id": "d",
-      "text": "ang mga eroplanong lumilipad"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang palengke ay karaniwang may mga tindera at bumibili — naunang kaalamang tutulong sa pag-unawa."
-   },
-   {
-    "itemId": "filipino-g3-m01-d02-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit makatutulong ang naunang kaalaman sa pagbabasa?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang makalimutan ang binasa"
-     },
-     {
-      "id": "b",
-      "text": "upang mas madaling maunawaan ang bagong teksto"
-     },
-     {
-      "id": "c",
-      "text": "upang matapos agad nang hindi nagbabasa"
-     },
-     {
-      "id": "d",
-      "text": "upang magkaroon ng maraming laruan"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang pag-uugnay ng dating kaalaman sa bago ay nagpapadali ng pag-unawa."
-   },
-   {
-    "itemId": "filipino-g3-m01-d02-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Maaaring umulan."
-     },
-     {
-      "id": "b",
-      "text": "Gawa sa papel ang ulap."
-     },
-     {
-      "id": "c",
-      "text": "Nasa ilalim siya ng dagat."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Ang mga pahiwatig sa pangungusap ay bumubuo ng makatwirang hula: Maaaring umulan.."
-   },
-   {
-    "itemId": "filipino-g3-m01-d02-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Nagbabasa ka ng teksto tungkol sa isda. Alin ang angkop na naunang kaalaman?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ang pagsakay sa eroplano"
-     },
-     {
-      "id": "b",
-      "text": "ang pagtulog sa hapon"
-     },
-     {
-      "id": "c",
-      "text": "ang pagkain ng isda at ang pamamalakaya"
-     },
-     {
-      "id": "d",
-      "text": "ang paglalaro ng computer"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang alam mo na tungkol sa isda at pamamalakaya ay nakaugnay sa tekstong binabasa."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "filipino-g3-m01-d02-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/filipino-g3-m01-d02-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Gamitin ang Naunang Kaalaman; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Gamitin ang Naunang Kaalaman.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "54f5d572effa8cd91ed5bc61d988f289f2307b82df8c5057ae9627575a0dcdc5",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "filipino-g3-m01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "FILIPINO",
+  "title": "Gamitin ang Naunang Kaalaman",
+  "objective": "Iugnay ang dating kaalaman sa bagong teksto o larawan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.",
+  "vocabulary": [
+    {
+      "term": "salita",
+      "definition": "Mga tunog na may kahulugan na ating binabasa at sinusulat."
+    },
+    {
+      "term": "kaalaman",
+      "definition": "Ang mga alam o natutuhang impormasyon."
+    },
+    {
+      "term": "pangungusap",
+      "definition": "Grupo ng mga salita na may buong diwa."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Gamitin ang Naunang Kaalaman. 💪"
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Nakakatulong ang dating kaalaman upang makabuo ng paunang ideya, ngunit kailangang suriin ito gamit ang teksto."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "Payong at ulap—maaaring umulan",
+          "Basang daan—maaaring bagong umulan",
+          "Pamagat at larawan—gumawa ng hula"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Gamitin ang Naunang Kaalaman. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Gamitin ang Naunang Kaalaman. 💪"
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "Payong at ulap—maaaring umulan",
+          "Basang daan—maaaring bagong umulan",
+          "Pamagat at larawan—gumawa ng hula"
+        ],
+        "doesNotFit": [
+          "Ituring na tiyak ang lahat ng hula",
+          "Huwag basahin ang teksto",
+          "Piliin ang hulang walang pahiwatig"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Gamitin ang Naunang Kaalaman. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
+      "content": {
+        "options": [
+          "Nasa ilalim siya ng dagat.",
+          "Gawa sa papel ang ulap.",
+          "Maaaring umulan."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Maaaring umulan.",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Payong at ulap",
+            "right": "maaaring umulan"
+          },
+          {
+            "left": "Basang daan",
+            "right": "maaaring bagong umulan"
+          },
+          {
+            "left": "Pamagat at larawan",
+            "right": "gumawa ng hula"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Gamitin ang Naunang Kaalaman. 🔗",
+        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Gamitin ang Naunang Kaalaman. 💪"
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Gamitin ang Naunang Kaalaman. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Gamitin ang Naunang Kaalaman. 💪"
+      },
+      "assetId": "filipino-g3-m01-d02-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bago basahin ang teksto tungkol sa pagsasaka, alin ang maaari mong gamiting naunang kaalaman?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang pangalan ng iyong laruan"
+          },
+          {
+            "id": "b",
+            "text": "ang iyong karanasan sa pagtatanim o panonood sa mga magsasaka"
+          },
+          {
+            "id": "c",
+            "text": "ang kulay ng iyong damit"
+          },
+          {
+            "id": "d",
+            "text": "ang bilang ng iyong mga kapatid"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang dating karanasan tungkol sa pagsasaka ay naunang kaalamang makatutulong sa pag-unawa ng teksto."
+      },
+      {
+        "itemId": "filipino-g3-m01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May larawan ng palengke sa teksto. Ano ang naaalala mong kaalaman tungkol dito?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang mga eroplanong lumilipad"
+          },
+          {
+            "id": "b",
+            "text": "ang mga tindera at bumibili sa palengke"
+          },
+          {
+            "id": "c",
+            "text": "ang mga isda sa karagatan"
+          },
+          {
+            "id": "d",
+            "text": "ang mga puno sa gubat"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang palengke ay karaniwang may mga tindera at bumibili — naunang kaalamang tutulong sa pag-unawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit makatutulong ang naunang kaalaman sa pagbabasa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang makalimutan ang binasa"
+          },
+          {
+            "id": "b",
+            "text": "upang matapos agad nang hindi nagbabasa"
+          },
+          {
+            "id": "c",
+            "text": "upang magkaroon ng maraming laruan"
+          },
+          {
+            "id": "d",
+            "text": "upang mas madaling maunawaan ang bagong teksto"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pag-uugnay ng dating kaalaman sa bago ay nagpapadali ng pag-unawa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May payong ang bata at madilim ang ulap. Ano ang makatwirang hula?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring umulan."
+          },
+          {
+            "id": "b",
+            "text": "Nasa ilalim siya ng dagat."
+          },
+          {
+            "id": "c",
+            "text": "Gawa sa papel ang ulap."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang mga pahiwatig sa pangungusap ay bumubuo ng makatwirang hula: Maaaring umulan.."
+      },
+      {
+        "itemId": "filipino-g3-m01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nagbabasa ka ng teksto tungkol sa isda. Alin ang angkop na naunang kaalaman?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang pagtulog sa hapon"
+          },
+          {
+            "id": "b",
+            "text": "ang paglalaro ng computer"
+          },
+          {
+            "id": "c",
+            "text": "ang pagkain ng isda at ang pamamalakaya"
+          },
+          {
+            "id": "d",
+            "text": "ang pagsakay sa eroplano"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang alam mo na tungkol sa isda at pamamalakaya ay nakaugnay sa tekstong binabasa."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d02-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d02-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Gamitin ang Naunang Kaalaman; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Gamitin ang Naunang Kaalaman.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "54f5d572effa8cd91ed5bc61d988f289f2307b82df8c5057ae9627575a0dcdc5",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
 }

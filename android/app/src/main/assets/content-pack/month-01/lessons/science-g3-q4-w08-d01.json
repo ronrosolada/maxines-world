@@ -1,378 +1,388 @@
 {
- "lessonId": "science-g3-q4-w08-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 14,
- "day": 1,
- "subject": "science",
- "title": "Light and Sound Lab · Q4 W08 D01",
- "objective": "Describe how light and sound behave and identify safe ways to protect people.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo shakes a bell — ring! And he sees himself in a mirror. How do light and sound reach us?",
- "vocabulary": [
-  {
-   "term": "sound",
-   "definition": "what you hear when something vibrates"
-  },
-  {
-   "term": "light",
-   "definition": "what helps us see"
-  },
-  {
-   "term": "vibrate",
-   "definition": "to move back and forth quickly"
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-q4-w08-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
-   "content": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in Light and Sound Lab again. 💪"
-   },
-   "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
-   "narration": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Explore each example. a bell rings when shaken. a mirror reflects light.",
-   "content": {
-    "examples": [
-     "a bell rings when shaken",
-     "a mirror reflects light",
-     "turn on a lamp to read in a dark room",
-     "stay far from loud machines"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Look at each Light and Sound Lab example again. 💪"
-   },
-   "prompt": "Explore each example. a bell rings when shaken. a mirror reflects light.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Sort the examples into ways we use light and sound safely.",
-   "content": {
-    "fits": [
-     "a bell rings when shaken",
-     "a mirror reflects light",
-     "turn on a lamp to read in a dark room",
-     "stay far from loud machines"
-    ],
-    "doesNotFit": [
-     "stare at the Sun",
-     "put a loud speaker next to your ear",
-     "point a laser at your eyes",
-     "play music at full volume all day"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
-   },
-   "prompt": "Sort the examples into ways we use light and sound safely.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Tap the example Milo showed today!",
-   "content": {
-    "options": [
-     "a sponge",
-     "a sock",
-     "a paper bag",
-     "a mirror"
-    ],
-    "correctIndex": 3
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the clue in the Light and Sound Lab question. 💪"
-   },
-   "prompt": "Choose the example of light and sound safety.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
-   "content": {
-    "pairs": [
-     {
-      "left": "a bell rings when shaken",
-      "right": "makes sound"
-     },
-     {
-      "left": "a mirror reflects light",
-      "right": "helps us see"
-     },
-     {
-      "left": "turn on a lamp to read in a dark room",
-      "right": "helps us see"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
-   },
-   "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  },
-  {
-   "activityId": "science-g3-q4-w08-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "science-g3-q4-w08-d01-visual",
-   "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
-   "content": {
-    "steps": [
-     "Observe the light or sound",
-     "Think about how it behaves",
-     "Decide the safe action",
-     "Protect your eyes and ears"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "Well done! 🐾",
-    "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
-   },
-   "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
-   "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-q4-w08-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which reflects light?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a sponge"
-     },
-     {
-      "id": "c",
-      "text": "a sock"
-     },
-     {
-      "id": "d",
-      "text": "a paper bag"
-     },
-     {
-      "id": "a",
-      "text": "a mirror"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A mirror bounces light back, so you can see yourself in it. A sponge, a sock, and a paper bag do not reflect like a mirror."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the SAFE way to use sound?",
-    "options": [
-     {
-      "id": "a",
-      "text": "use a quiet voice indoors"
-     },
-     {
-      "id": "b",
-      "text": "fold a towel"
-     },
-     {
-      "id": "c",
-      "text": "read a book quietly"
-     },
-     {
-      "id": "d",
-      "text": "write in a notebook"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A quiet voice is gentle on the ears, so it is a safe way to use sound indoors."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the SAFE way to use light?",
-    "options": [
-     {
-      "id": "d",
-      "text": "count the books on a shelf"
-     },
-     {
-      "id": "a",
-      "text": "use a lamp to read in a dark room"
-     },
-     {
-      "id": "b",
-      "text": "name a color in the room"
-     },
-     {
-      "id": "c",
-      "text": "draw a picture"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A lamp gives enough light to read by, so it is a safe way to use light."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows how sound behaves?",
-    "options": [
-     {
-      "id": "c",
-      "text": "a bell rings when shaken"
-     },
-     {
-      "id": "d",
-      "text": "a lamp lights a dark room"
-     },
-     {
-      "id": "a",
-      "text": "a mirror reflects light"
-     },
-     {
-      "id": "b",
-      "text": "a window lets light through"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Shaking makes the bell vibrate, and that makes sound. Lamps, mirrors, and windows are about light."
-   },
-   {
-    "itemId": "science-g3-q4-w08-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows how light behaves?",
-    "options": [
-     {
-      "id": "b",
-      "text": "a mirror reflects light"
-     },
-     {
-      "id": "c",
-      "text": "a drum makes sound when struck"
-     },
-     {
-      "id": "d",
-      "text": "a bell rings when shaken"
-     },
-     {
-      "id": "a",
-      "text": "clapping hands makes sound"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "A mirror bounces light back, which is how it helps you see. Drums, bells, and claps make sound."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-q4-w08-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 1,
+  "subject": "science",
+  "title": "Light and Sound Lab · Q4 W08 D01",
+  "objective": "Describe how light and sound behave and identify safe ways to protect people.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo shakes a bell — ring! And he sees himself in a mirror. How do light and sound reach us?",
+  "vocabulary": [
+    {
+      "term": "sound",
+      "definition": "what you hear when something vibrates"
+    },
+    {
+      "term": "light",
+      "definition": "what helps us see"
+    },
+    {
+      "term": "vibrate",
+      "definition": "to move back and forth quickly"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": true
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-q4-w08-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "content": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in Light and Sound Lab again. 💪"
+      },
+      "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "narration": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Explore each example. a bell rings when shaken. a mirror reflects light.",
+      "content": {
+        "examples": [
+          "a bell rings when shaken",
+          "a mirror reflects light",
+          "turn on a lamp to read in a dark room",
+          "stay far from loud machines"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look at each Light and Sound Lab example again. 💪"
+      },
+      "prompt": "Explore each example. a bell rings when shaken. a mirror reflects light.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "content": {
+        "fits": [
+          "a bell rings when shaken",
+          "a mirror reflects light",
+          "turn on a lamp to read in a dark room",
+          "stay far from loud machines"
+        ],
+        "doesNotFit": [
+          "stare at the Sun",
+          "put a loud speaker next to your ear",
+          "point a laser at your eyes",
+          "play music at full volume all day"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+      },
+      "prompt": "Sort the examples into ways we use light and sound safely.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Tap the example Milo showed today!",
+      "content": {
+        "options": [
+          "a sponge",
+          "a sock",
+          "a paper bag",
+          "a mirror"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+      },
+      "prompt": "Choose the example of light and sound safety.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "content": {
+        "pairs": [
+          {
+            "left": "a bell rings when shaken",
+            "right": "makes sound"
+          },
+          {
+            "left": "a mirror reflects light",
+            "right": "reflection helps us see"
+          },
+          {
+            "left": "turn on a lamp to read in a dark room",
+            "right": "light helps us see"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+      },
+      "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    },
+    {
+      "activityId": "science-g3-q4-w08-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q4-w08-d01-visual",
+      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "content": {
+        "steps": [
+          "Observe the light or sound",
+          "Think about how it behaves",
+          "Decide the safe action",
+          "Protect your eyes and ears"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+      },
+      "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q4-w08-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which reflects light?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a sponge"
+          },
+          {
+            "id": "b",
+            "text": "a paper bag"
+          },
+          {
+            "id": "c",
+            "text": "a mirror"
+          },
+          {
+            "id": "d",
+            "text": "a sock"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A mirror bounces light back, so you can see yourself in it. A sponge, a sock, and a paper bag do not reflect like a mirror."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Take a good look: Which is the SAFE way to use sound?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "write in a notebook"
+          },
+          {
+            "id": "b",
+            "text": "fold a towel"
+          },
+          {
+            "id": "c",
+            "text": "use a quiet voice indoors"
+          },
+          {
+            "id": "d",
+            "text": "read a book quietly"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A quiet voice is gentle on the ears, so it is a safe way to use sound indoors."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Take a good look: Which is the SAFE way to use light?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "draw a picture"
+          },
+          {
+            "id": "b",
+            "text": "name a color in the room"
+          },
+          {
+            "id": "c",
+            "text": "count the books on a shelf"
+          },
+          {
+            "id": "d",
+            "text": "use a lamp to read in a dark room"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "A lamp gives enough light to read by, so it is a safe way to use light."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Take a good look: Which example shows how sound behaves?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "a lamp lights a dark room"
+          },
+          {
+            "id": "b",
+            "text": "a bell rings when shaken"
+          },
+          {
+            "id": "c",
+            "text": "a mirror reflects light"
+          },
+          {
+            "id": "d",
+            "text": "a window lets light through"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Shaking makes the bell vibrate, and that makes sound. Lamps, mirrors, and windows are about light."
+      },
+      {
+        "itemId": "science-g3-q4-w08-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Take a good look: Which example shows how light behaves?  (in this lesson: Light and Sound Lab)",
+        "options": [
+          {
+            "id": "a",
+            "text": "clapping hands makes sound"
+          },
+          {
+            "id": "b",
+            "text": "a mirror reflects light"
+          },
+          {
+            "id": "c",
+            "text": "a drum makes sound when struck"
+          },
+          {
+            "id": "d",
+            "text": "a bell rings when shaken"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A mirror bounces light back, which is how it helps you see. Drums, bells, and claps make sound."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

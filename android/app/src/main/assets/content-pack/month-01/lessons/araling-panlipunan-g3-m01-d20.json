@@ -1,398 +1,408 @@
 {
- "lessonId": "araling-panlipunan-g3-m01-d20",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 20,
- "subject": "ARALING_PANLIPUNAN",
- "title": "Pangwakas: Sining at Kultura ng Lalawigan",
- "objective": "Bumuo ng evidence-based cultural map gamit ang orihinal at non-sacred designs.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "fil-PH",
- "introduction": "Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon.",
- "vocabulary": [
-  {
-   "term": "mapa",
-   "definition": "Ang guhit o larawang nagpapakita ng mga lugar."
-  },
-  {
-   "term": "sining",
-   "definition": "Ang mga pintura, musika, sayaw, at gawaing kamay ng isang lugar."
-  },
-  {
-   "term": "kultura",
-   "definition": "Ang mga tradisyon, pagkain, musika, at pamumuhay ng isang lugar."
-  }
- ],
- "activities": [
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
-   "content": "Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-    "retry": "Balikan ang pahiwatig sa Pangwakas: Sining at Kultura ng Lalawigan. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "accessibilityAlternative": "Alternatibong teksto: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Suriin ang bawat halimbawa at basahin ang mga halimbawa.",
-   "content": {
-    "examples": [
-     "orihinal na disenyo",
-     "tala ng pinagmulan",
-     "fictional place label"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 🔎",
-    "retry": "Suriing muli ang halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
-   "content": {
-    "fits": [
-     "orihinal na disenyo",
-     "tala ng pinagmulan",
-     "fictional place label"
-    ],
-    "doesNotFit": [
-     "Kopyahin sacred pattern",
-     "Tanggalin attribution",
-     "Sabihing authentic ang AI invention"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 🎉",
-    "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
-   },
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Alin ang tamang hakbang?",
-   "content": {
-    "options": [
-     "Kopyahin ang sagradong disenyo.",
-     "Sabihing opisyal ang prototype.",
-     "Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan."
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Tama: Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan.",
-    "retry": "Basahin muli ang tuntunin ng aralin. Kopyahin ang sagradong disenyo. at Sabihing opisyal ang prototipo. ay hindi angkop."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Itambal ang bawat halimbawa sa ideya ng aralin.",
-   "content": {
-    "pairs": [
-     {
-      "left": "orihinal na disenyo",
-      "right": "orihinal na disenyo"
-     },
-     {
-      "left": "tala ng pinagmulan",
-      "right": "tala ng pinagmulan"
-     },
-     {
-      "left": "label ng kathang-isip na lugar",
-      "right": "label ng kathang-isip na lugar"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Pangwakas: Sining at Kultura ng Lalawigan. 🔗",
-    "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pangwakas: Sining at Kultura ng Lalawigan. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
-  },
-  {
-   "activityId": "araling-panlipunan-g3-m01-d20-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Tapusin nang sunod-sunod ang gabay na balik-aral.",
-   "content": {
-    "steps": [
-     "Sabihin ang pangunahing ideya.",
-     "Suriin ang isang halimbawa.",
-     "Ipaliwanag kung bakit ito angkop."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Mahusay! Inayos mo ang mga hakbang sa Pangwakas: Sining at Kultura ng Lalawigan. 🎉",
-    "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pangwakas: Sining at Kultura ng Lalawigan. 💪"
-   },
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 6,
-  "passingCorrectCount": 5,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang dapat mong iwasan sa paggawa ng cultural map?",
-    "options": [
-     {
-      "id": "a",
-      "text": "paggamit ng sariling disenyo"
-     },
-     {
-      "id": "b",
-      "text": "paggamit ng ebidensya"
-     },
-     {
-      "id": "c",
-      "text": "pagsulat ng pinagmulan"
-     },
-     {
-      "id": "d",
-      "text": "paggamit ng sagradong disenyo nang walang pahintulot"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang sagradong disenyo ay hindi dapat gamitin nang walang pahintulot."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Alin ang kumpletong bahagi ng isang ebidensya?",
-    "options": [
-     {
-      "id": "a",
-      "text": "larawan lamang"
-     },
-     {
-      "id": "b",
-      "text": "haka-haka"
-     },
-     {
-      "id": "c",
-      "text": "pangalan lamang"
-     },
-     {
-      "id": "d",
-      "text": "tala ng pinagmulan at petsa"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Ang kumpletong ebidensya ay may pinagmulan at petsa."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang cultural map?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mapang nagpapakita ng edad ng tao"
-     },
-     {
-      "id": "b",
-      "text": "mapang nagpapakita ng mga kalsada lamang"
-     },
-     {
-      "id": "c",
-      "text": "mapang nagpapakita ng mga lugar at gawaing pangkultura ng komunidad"
-     },
-     {
-      "id": "d",
-      "text": "mapang nagpapakita ng presyo ng bahay"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang cultural map ay nagpapakita ng mga lugar at gawaing pangkultura."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Bakit kailangang orihinal ang mga likha sa cultural map?",
-    "options": [
-     {
-      "id": "a",
-      "text": "upang mahaba ang mapa"
-     },
-     {
-      "id": "b",
-      "text": "upang maganda ang kulay"
-     },
-     {
-      "id": "c",
-      "text": "upang igalang ang gawa ng iba at maging totoo ang mapa"
-     },
-     {
-      "id": "d",
-      "text": "upang mabilis matapos"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ang orihinal na likha ay tanda ng paggalang at katotohanan."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Ano ang dapat na nasa bawat elemento ng cultural map?",
-    "options": [
-     {
-      "id": "a",
-      "text": "pangalan lamang"
-     },
-     {
-      "id": "b",
-      "text": "ebidensya at pinagmulan"
-     },
-     {
-      "id": "c",
-      "text": "haka-haka"
-     },
-     {
-      "id": "d",
-      "text": "pangarap"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Ang bawat elemento ay dapat may ebidensya at pinagmulan."
-   },
-   {
-    "itemId": "araling-panlipunan-g3-m01-d20-q06",
-    "sequence": 6,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Gagawa ka ng cultural map ng inyong barangay. Ano ang unang hakbang bago iguhit ang isang lugar dito?",
-    "options": [
-     {
-      "id": "a",
-      "text": "gumuhit agad nang walang tinitingnan"
-     },
-     {
-      "id": "b",
-      "text": "mangalap ng totoong impormasyon at talaan ang pinagmulan nito"
-     },
-     {
-      "id": "c",
-      "text": "kopyahin ang sagradong disenyo ng iba nang walang pahintulot"
-     },
-     {
-      "id": "d",
-      "text": "hulaan na lang ang lugar"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Bago iguhit ang anumang lugar, mangalap muna ng ebidensya — totoong impormasyon na may pinagmulan at petsa — upang maging tama at mapagkakatiwalaan ang mapa."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "araling-panlipunan-g3-m01-d20-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/araling-panlipunan-g3-m01-d20-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Local Art Cultural Map Finale; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels at interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Local Art Cultural Map Finale.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "NAMRIA Map Awareness",
-   "sourceUrl": "https://www.namria.gov.ph/",
-   "claimScope": "Curriculum at subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "53f46183cfc4eddbb6ac35bfd6787391e916909eb2b8426bba033971e87794da",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "araling-panlipunan-g3-m01-d20",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 20,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Pangwakas: Sining at Kultura ng Lalawigan",
+  "objective": "Bumuo ng evidence-based cultural map gamit ang orihinal at non-sacred designs.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon.",
+  "vocabulary": [
+    {
+      "term": "mapa",
+      "definition": "Ang guhit o larawang nagpapakita ng mga lugar."
+    },
+    {
+      "term": "sining",
+      "definition": "Ang mga pintura, musika, sayaw, at gawaing kamay ng isang lugar."
+    },
+    {
+      "term": "kultura",
+      "definition": "Ang mga tradisyon, pagkain, musika, at pamumuhay ng isang lugar."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "content": "Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Balikan ang pahiwatig sa Pangwakas: Sining at Kultura ng Lalawigan. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Huwag kopyahin ang sagrado, katutubong, opisyal, o gawang buhay na alagad ng sining nang walang pahintulot at konsultasyon."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "content": {
+        "examples": [
+          "orihinal na disenyo",
+          "tala ng pinagmulan",
+          "fictional place label"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 🔎",
+        "retry": "Suriing muli ang halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "content": {
+        "fits": [
+          "orihinal na disenyo",
+          "tala ng pinagmulan",
+          "fictional place label"
+        ],
+        "doesNotFit": [
+          "Kopyahin sacred pattern",
+          "Tanggalin attribution",
+          "Sabihing authentic ang AI invention"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Pangwakas: Sining at Kultura ng Lalawigan. 🎉",
+        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang tamang hakbang?",
+      "content": {
+        "options": [
+          "Kopyahin ang sagradong disenyo.",
+          "Sabihing opisyal ang prototype.",
+          "Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Gumamit ng orihinal na disenyo at malinaw na tala ng pinagmulan.",
+        "retry": "Basahin muli ang tuntunin ng aralin."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Orihinal na disenyo",
+            "right": "gawa ng sarili, hindi kinopya"
+          },
+          {
+            "left": "Tala ng pinagmulan",
+            "right": "pinagmulan ng impormasyon"
+          },
+          {
+            "left": "Label ng kathang-isip na lugar",
+            "right": "pangalan sa mapa ng komunidad"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang bawat pares. 🔗",
+        "retry": "Basahin muli ang dalawang panig ng bawat pares. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d20-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Sabihin ang pangunahing ideya.",
+          "Suriin ang isang halimbawa.",
+          "Ipaliwanag kung bakit ito angkop."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Inayos mo ang mga hakbang sa Pangwakas: Sining at Kultura ng Lalawigan. 🎉",
+        "retry": "Ayusin ang una, kasunod, at huling hakbang. 💪"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 6,
+    "passingCorrectCount": 5,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang dapat mong iwasan sa paggawa ng cultural map?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paggamit ng sariling disenyo"
+          },
+          {
+            "id": "b",
+            "text": "paggamit ng sagradong disenyo nang walang pahintulot"
+          },
+          {
+            "id": "c",
+            "text": "pagsulat ng pinagmulan"
+          },
+          {
+            "id": "d",
+            "text": "paggamit ng ebidensya"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang sagradong disenyo ay hindi dapat gamitin nang walang pahintulot."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang kumpletong bahagi ng isang ebidensya?",
+        "options": [
+          {
+            "id": "a",
+            "text": "larawan lamang"
+          },
+          {
+            "id": "b",
+            "text": "tala ng pinagmulan at petsa"
+          },
+          {
+            "id": "c",
+            "text": "pangalan lamang"
+          },
+          {
+            "id": "d",
+            "text": "haka-haka"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang kumpletong ebidensya ay may pinagmulan at petsa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang cultural map?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mapang nagpapakita ng edad ng tao"
+          },
+          {
+            "id": "b",
+            "text": "mapang nagpapakita ng presyo ng bahay"
+          },
+          {
+            "id": "c",
+            "text": "mapang nagpapakita ng mga kalsada lamang"
+          },
+          {
+            "id": "d",
+            "text": "mapang nagpapakita ng mga lugar at gawaing pangkultura ng komunidad"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang cultural map ay nagpapakita ng mga lugar at gawaing pangkultura."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit kailangang orihinal ang mga likha sa cultural map?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang mabilis matapos"
+          },
+          {
+            "id": "b",
+            "text": "upang mahaba ang mapa"
+          },
+          {
+            "id": "c",
+            "text": "upang igalang ang gawa ng iba at maging totoo ang mapa"
+          },
+          {
+            "id": "d",
+            "text": "upang maganda ang kulay"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang orihinal na likha ay tanda ng paggalang at katotohanan."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang dapat na nasa bawat elemento ng cultural map?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ebidensya at pinagmulan"
+          },
+          {
+            "id": "b",
+            "text": "pangarap"
+          },
+          {
+            "id": "c",
+            "text": "haka-haka"
+          },
+          {
+            "id": "d",
+            "text": "pangalan lamang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang bawat elemento ay dapat may ebidensya at pinagmulan."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d20-q06",
+        "sequence": 6,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gagawa ka ng cultural map ng inyong barangay. Ano ang unang hakbang bago iguhit ang isang lugar dito?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mangalap ng totoong impormasyon at talaan ang pinagmulan nito"
+          },
+          {
+            "id": "b",
+            "text": "hulaan na lang ang lugar"
+          },
+          {
+            "id": "c",
+            "text": "kopyahin ang sagradong disenyo ng iba nang walang pahintulot"
+          },
+          {
+            "id": "d",
+            "text": "gumuhit agad nang walang tinitingnan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Bago iguhit ang anumang lugar, mangalap muna ng ebidensya — totoong impormasyon na may pinagmulan at petsa — upang maging tama at mapagkakatiwalaan ang mapa."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d20-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d20-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Local Art Cultural Map Finale; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Local Art Cultural Map Finale.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "53f46183cfc4eddbb6ac35bfd6787391e916909eb2b8426bba033971e87794da",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
 }

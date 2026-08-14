@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q2-w02-d04",
- "schemaVersion": 1,
- "grade": 3,
- "month": 5,
- "day": 4,
- "subject": "english",
- "title": "Word Roots · Q2 W02 D04",
- "objective": "Identify a base word, or root, in common related words.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Clean, sing, slow — watch them grow new endings! 🐱✨ Help Milo find the root word.",
- "vocabulary": [
-  {
-   "term": "clean",
-   "definition": "to make something free of dirt"
-  },
-  {
-   "term": "sing",
-   "definition": "to make music with your voice"
-  },
-  {
-   "term": "slow",
-   "definition": "not fast"
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q2-w02-d04-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Hear how a root word grows new words!",
-   "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Find the clue in Word Roots again. 💪"
-   },
-   "prompt": "Learn this skill: Identify a base word, or root, in common related words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q2-w02-d04-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Tap the pairs that share a root word!",
-   "content": {
-    "examples": [
-     "clean — cleaned",
-     "sing — singer",
-     "slow — slowly",
-     "care — careful"
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Look at each Word Roots example again. 💪"
-   },
-   "prompt": "Look closely at each example to practice: Identify a base word, or root, in common related words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q2-w02-d04-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Sort the pairs: word family or not!",
-   "content": {
-    "fits": [
-     "clean — cleaned",
-     "sing — singer",
-     "slow — slowly",
-     "care — careful"
-    ],
-    "doesNotFit": [
-     "cat — dog",
-     "big — small",
-     "run — jump",
-     "apple — orange"
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Read the Word Roots rule before sorting again. 💪"
-   },
-   "prompt": "Sort each example while practicing: Identify a base word, or root, in common related words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q2-w02-d04-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Tap the pair that shares a base word!",
-   "content": {
-    "options": [
-     "big — small",
-     "run — jump",
-     "clean — cleaned",
-     "cat — dog"
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Find the clue in the Word Roots question. 💪"
-   },
-   "prompt": "Choose the example of base words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q2-w02-d04-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Match each word pair to its root!",
-   "content": {
-    "pairs": [
-     {
-      "left": "clean — cleaned",
-      "right": "base word: clean"
-     },
-     {
-      "left": "sing — singer",
-      "right": "base word: sing"
-     },
-     {
-      "left": "slow — slowly",
-      "right": "base word: slow"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Read both sides of each Word Roots pair again. 💪"
-   },
-   "prompt": "Match the examples about base words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  },
-  {
-   "activityId": "english-g3-q2-w02-d04-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w02-d04-visual",
-   "instruction": "Tap the steps for finding the root in order!",
-   "content": {
-    "steps": [
-     "Read the word pair",
-     "Find the base word",
-     "Look at the word ending",
-     "Say the root word"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the root word — great digging! 🎉",
-    "retry": "Find the first, next, and last Word Roots steps. 💪"
-   },
-   "prompt": "Put the steps in order to practice: Identify a base word, or root, in common related words.",
-   "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q2-w02-d04-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair shows a root word and a related word?",
-    "options": [
-     {
-      "id": "b",
-      "text": "big — small"
-     },
-     {
-      "id": "c",
-      "text": "run — jump"
-     },
-     {
-      "id": "d",
-      "text": "clean — cleaned"
-     },
-     {
-      "id": "a",
-      "text": "cat — dog"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Clean is the root, and cleaned is the same word with -ed added."
-   },
-   {
-    "itemId": "english-g3-q2-w02-d04-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is the base word in 'cleaned'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "sing"
-     },
-     {
-      "id": "b",
-      "text": "slow"
-     },
-     {
-      "id": "c",
-      "text": "cat"
-     },
-     {
-      "id": "d",
-      "text": "clean"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Take the -ed off cleaned and clean is left — that is the base word."
-   },
-   {
-    "itemId": "english-g3-q2-w02-d04-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word was made from the root 'clean'?",
-    "options": [
-     {
-      "id": "d",
-      "text": "cleaned"
-     },
-     {
-      "id": "a",
-      "text": "singer"
-     },
-     {
-      "id": "b",
-      "text": "desk"
-     },
-     {
-      "id": "c",
-      "text": "water"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Cleaned is clean with -ed added, so it grew from the root clean."
-   },
-   {
-    "itemId": "english-g3-q2-w02-d04-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair does NOT belong with the others?",
-    "options": [
-     {
-      "id": "c",
-      "text": "cat — dog"
-     },
-     {
-      "id": "d",
-      "text": "sing — singer"
-     },
-     {
-      "id": "a",
-      "text": "slow — slowly"
-     },
-     {
-      "id": "b",
-      "text": "care — careful"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "\"cat — dog\" names two animals, not a word family. The other pairs share a base word and a related word."
-   },
-   {
-    "itemId": "english-g3-q2-w02-d04-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the root word of 'singer'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "slow"
-     },
-     {
-      "id": "c",
-      "text": "table"
-     },
-     {
-      "id": "d",
-      "text": "sing"
-     },
-     {
-      "id": "a",
-      "text": "clean"
-     }
-    ],
-    "correctOptionIds": [
-     "d"
-    ],
-    "explanation": "Singer is sing with -er added, so the root word is sing."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q2-w02-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 4,
+  "subject": "english",
+  "title": "Word Roots · Q2 W02 D04",
+  "objective": "Identify a base word, or root, in common related words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Clean, sing, slow — watch them grow new endings! 🐱✨ Help Milo find the root word.",
+  "vocabulary": [
+    {
+      "term": "clean",
+      "definition": "to make something free of dirt"
+    },
+    {
+      "term": "sing",
+      "definition": "to make music with your voice"
+    },
+    {
+      "term": "slow",
+      "definition": "not fast"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w02-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Hear how a root word grows new words!",
+      "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Find the clue in Word Roots again. 💪"
+      },
+      "prompt": "Learn this skill: Identify a base word, or root, in common related words.",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Tap the pairs that share a root word!",
+      "content": {
+        "examples": [
+          "clean — cleaned",
+          "sing — singer",
+          "slow — slowly",
+          "care — careful"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Look at each Word Roots example again. 💪"
+      },
+      "prompt": "Look closely at each example",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Sort the pairs: word family or not!",
+      "content": {
+        "fits": [
+          "clean — cleaned",
+          "sing — singer",
+          "slow — slowly",
+          "care — careful"
+        ],
+        "doesNotFit": [
+          "cat — dog",
+          "big — small",
+          "run — jump",
+          "apple — orange"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Read the Word Roots rule before sorting again. 💪"
+      },
+      "prompt": "Sort each example",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Tap the pair that shares a base word!",
+      "content": {
+        "options": [
+          "big — small",
+          "run — jump",
+          "clean — cleaned",
+          "cat — dog"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Find the clue in the Word Roots question. 💪"
+      },
+      "prompt": "Choose the example of base words.",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Match each word pair to its root!",
+      "content": {
+        "pairs": [
+          {
+            "left": "clean",
+            "right": "base word: clean"
+          },
+          {
+            "left": "sing",
+            "right": "base word: sing"
+          },
+          {
+            "left": "slow",
+            "right": "base word: slow"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Read both sides of each Word Roots pair again. 💪"
+      },
+      "prompt": "Match the examples about base words.",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Tap the steps for finding the root in order!",
+      "content": {
+        "steps": [
+          "Read the word pair",
+          "Find the base word",
+          "Look at the word ending",
+          "Say the root word"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the root word — great digging! 🎉",
+        "retry": "Find the first, next, and last Word Roots steps. 💪"
+      },
+      "prompt": "Put the steps in order",
+      "narration": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A root or base word carries the central meaning. Word endings can change how the word is used."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w02-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Answer this one: Which pair shows a root word and a related word?  (in this lesson: Word Roots)",
+        "options": [
+          {
+            "id": "a",
+            "text": "cat — dog"
+          },
+          {
+            "id": "b",
+            "text": "run — jump"
+          },
+          {
+            "id": "c",
+            "text": "big — small"
+          },
+          {
+            "id": "d",
+            "text": "clean — cleaned"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Clean is the root, and cleaned is the same word with -ed added."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is the base word in 'cleaned'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "slow"
+          },
+          {
+            "id": "b",
+            "text": "sing"
+          },
+          {
+            "id": "c",
+            "text": "clean"
+          },
+          {
+            "id": "d",
+            "text": "cat"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Take the -ed off cleaned and clean is left — that is the base word."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word was made from the root 'clean'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "water"
+          },
+          {
+            "id": "b",
+            "text": "cleaned"
+          },
+          {
+            "id": "c",
+            "text": "singer"
+          },
+          {
+            "id": "d",
+            "text": "desk"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Cleaned is clean with -ed added, so it grew from the root clean."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Answer this one: Which pair does NOT belong with the others?  (in this lesson: Word Roots)",
+        "options": [
+          {
+            "id": "a",
+            "text": "care — careful"
+          },
+          {
+            "id": "b",
+            "text": "sing — singer"
+          },
+          {
+            "id": "c",
+            "text": "slow — slowly"
+          },
+          {
+            "id": "d",
+            "text": "cat — dog"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "\"cat — dog\" names two animals, not a word family. The other pairs share a base word and a related word."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the root word of 'singer'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sing"
+          },
+          {
+            "id": "b",
+            "text": "slow"
+          },
+          {
+            "id": "c",
+            "text": "clean"
+          },
+          {
+            "id": "d",
+            "text": "table"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Singer is sing with -er added, so the root word is sing."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

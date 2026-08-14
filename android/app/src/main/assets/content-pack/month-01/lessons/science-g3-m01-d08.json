@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d08",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 8,
- "subject": "SCIENCE",
- "title": "Plant Parts and Jobs",
- "objective": "Identify common plant parts and functions while recognizing variation.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Roots, stems, leaves, and flowers — every part of a plant has a job. Can you match each part to its job?",
- "vocabulary": [
-  {
-   "term": "plant",
-   "definition": "A living thing that grows in soil and makes food."
-  },
-  {
-   "term": "root",
-   "definition": "The part of a plant that holds it in the soil."
-  },
-  {
-   "term": "stem",
-   "definition": "The part of a plant that carries water up."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d08-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows the parts of a plant and their jobs.",
-   "content": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Life Around Us again. 💪"
-   },
-   "assetId": "science-g3-m01-d08-visual",
-   "accessibilityAlternative": "Text alternative: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
-  },
-  {
-   "activityId": "science-g3-m01-d08-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "roots absorb water and anchor",
-     "stems support and transport",
-     "leaves often photosynthesize"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Life Around Us. 🔎",
-    "retry": "Look at each Life Around Us example again. 💪"
-   },
-   "assetId": "science-g3-m01-d08-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d08-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it match the plant part to its job?",
-   "content": {
-    "fits": [
-     "roots absorb water and anchor",
-     "stems support and transport",
-     "leaves often photosynthesize"
-    ],
-    "doesNotFit": [
-     "Soil is plant food",
-     "Every plant always has flowers",
-     "Roots drink with mouths"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d08-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d08-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which part often anchors a plant?",
-   "content": {
-    "options": [
-     "roots",
-     "flower",
-     "fruit"
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: roots",
-    "retry": "Look again — flowers and fruit do not anchor a plant. Tap the part that grows in soil! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d08-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each plant part to its job.",
-   "content": {
-    "pairs": [
-     {
-      "left": "roots absorb water and anchor",
-      "right": "roots"
-     },
-     {
-      "left": "stems support and transport",
-      "right": "stems"
-     },
-     {
-      "left": "leaves often photosynthesize",
-      "right": "leaves"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Life Around Us explanation. 🔗",
-    "retry": "Read both sides of each Life Around Us pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d08-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d08-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: part, job, match.",
-   "content": {
-    "steps": [
-     "Look at the plant part.",
-     "Think about what it does.",
-     "Match the part to its job."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Life Around Us steps in order. 🎉",
-    "retry": "Find the first, next, and last Life Around Us steps. 💪"
-   },
-   "assetId": "science-g3-m01-d08-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d08-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about plant parts is true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Soil is plant food"
-     },
-     {
-      "id": "b",
-      "text": "Every plant always has flowers"
-     },
-     {
-      "id": "c",
-      "text": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Most flowering plants have roots, stems, leaves, and more, but plants differ — not every plant has every part all the time. Soil is not plant food, and not every plant flowers."
-   },
-   {
-    "itemId": "science-g3-m01-d08-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair matches a plant part to its job?",
-    "options": [
-     {
-      "id": "c",
-      "text": "roots absorb water and anchor"
-     },
-     {
-      "id": "a",
-      "text": "leaves hold the plant in the soil"
-     },
-     {
-      "id": "b",
-      "text": "stems make food from sunlight"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Roots soak up water and hold the plant in place. Leaves make food, and stems carry water up — they do not do roots' jobs."
-   },
-   {
-    "itemId": "science-g3-m01-d08-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement is not true?",
-    "options": [
-     {
-      "id": "b",
-      "text": "roots absorb water and anchor"
-     },
-     {
-      "id": "c",
-      "text": "Soil is plant food"
-     },
-     {
-      "id": "a",
-      "text": "stems support and transport"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Plants make their own food in their leaves using light. Soil holds water and nutrients, but it is not food."
-   },
-   {
-    "itemId": "science-g3-m01-d08-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which part often anchors a plant?",
-    "options": [
-     {
-      "id": "a",
-      "text": "roots"
-     },
-     {
-      "id": "b",
-      "text": "flower"
-     },
-     {
-      "id": "c",
-      "text": "fruit"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Roots grow into the soil and hold the plant in place. Flowers and fruits do not anchor the plant."
-   },
-   {
-    "itemId": "science-g3-m01-d08-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which pair matches a plant part to its job?",
-    "options": [
-     {
-      "id": "c",
-      "text": "leaves often photosynthesize"
-     },
-     {
-      "id": "a",
-      "text": "roots make food from sunlight"
-     },
-     {
-      "id": "b",
-      "text": "flowers soak up water from soil"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Leaves make food for the plant using light. Roots take in water and hold the plant, and flowers make seeds."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d08-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d08-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Plant Parts and Jobs; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Plant Parts and Jobs.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "c02ff895af2bd91bcabc72e58596f97694b5c58b607fd3228808db20ee2ab9c4",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d08",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 8,
+  "subject": "SCIENCE",
+  "title": "Plant Parts and Jobs",
+  "objective": "Identify common plant parts and functions while recognizing variation.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Roots, stems, leaves, and flowers — every part of a plant has a job. Can you match each part to its job?",
+  "vocabulary": [
+    {
+      "term": "plant",
+      "definition": "A living thing that grows in soil and makes food."
+    },
+    {
+      "term": "root",
+      "definition": "The part of a plant that holds it in the soil."
+    },
+    {
+      "term": "stem",
+      "definition": "The part of a plant that carries water up."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d08-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows the parts of a plant and their jobs.",
+      "content": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Plant Parts and Jobs again. 💪"
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "Text alternative: Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+    },
+    {
+      "activityId": "science-g3-m01-d08-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "roots absorb water and anchor",
+          "stems support and transport",
+          "leaves often photosynthesize"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Plant Parts and Jobs. 🔎",
+        "retry": "Look at each Plant Parts and Jobs example again. 💪"
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d08-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it match the plant part to its job?",
+      "content": {
+        "fits": [
+          "roots absorb water and anchor",
+          "stems support and transport",
+          "leaves often photosynthesize"
+        ],
+        "doesNotFit": [
+          "Soil is plant food",
+          "Every plant always has flowers",
+          "Roots drink with mouths"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d08-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which part often anchors a plant?",
+      "content": {
+        "options": [
+          "roots",
+          "flower",
+          "fruit"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: roots",
+        "retry": "Look again — flowers and fruit do not anchor a plant. Tap the part that grows in soil! 💪"
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d08-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each plant part to its job.",
+      "content": {
+        "pairs": [
+          {
+            "left": "roots absorb water and anchor",
+            "right": "roots"
+          },
+          {
+            "left": "stems support and transport",
+            "right": "stems"
+          },
+          {
+            "left": "leaves often photosynthesize",
+            "right": "leaves"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Plant Parts and Jobs explanation. 🔗",
+        "retry": "Read both sides of each Plant Parts and Jobs pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d08-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: part, job, match.",
+      "content": {
+        "steps": [
+          "Look at the plant part.",
+          "Think about what it does.",
+          "Match the part to its job."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Plant Parts and Jobs steps in order. 🎉",
+        "retry": "Find the first, next, and last Plant Parts and Jobs steps. 💪"
+      },
+      "assetId": "science-g3-m01-d08-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d08-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about plant parts is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Many flowering plants have roots, stems, leaves, flowers, fruits, and seeds, but not every plant has every part at every stage."
+          },
+          {
+            "id": "b",
+            "text": "Soil is plant food"
+          },
+          {
+            "id": "c",
+            "text": "Every plant always has flowers"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Most flowering plants have roots, stems, leaves, and more, but plants differ — not every plant has every part all the time. Soil is not plant food, and not every plant flowers."
+      },
+      {
+        "itemId": "science-g3-m01-d08-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which pair matches a plant part to its job?",
+        "options": [
+          {
+            "id": "a",
+            "text": "stems make food from sunlight"
+          },
+          {
+            "id": "b",
+            "text": "leaves hold the plant in the soil"
+          },
+          {
+            "id": "c",
+            "text": "roots absorb water and anchor"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Roots soak up water and hold the plant in place. Leaves make food, and stems carry water up — they do not do roots' jobs."
+      },
+      {
+        "itemId": "science-g3-m01-d08-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement is not true?  (in this lesson: Plant Parts and Jobs)",
+        "options": [
+          {
+            "id": "a",
+            "text": "roots absorb water and anchor"
+          },
+          {
+            "id": "b",
+            "text": "Soil is plant food"
+          },
+          {
+            "id": "c",
+            "text": "stems support and transport"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Plants make their own food in their leaves using light. Soil holds water and nutrients, but it is not food."
+      },
+      {
+        "itemId": "science-g3-m01-d08-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which part often anchors a plant?",
+        "options": [
+          {
+            "id": "a",
+            "text": "flower"
+          },
+          {
+            "id": "b",
+            "text": "fruit"
+          },
+          {
+            "id": "c",
+            "text": "roots"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Roots grow into the soil and hold the plant in place. Flowers and fruits do not anchor the plant."
+      },
+      {
+        "itemId": "science-g3-m01-d08-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which plant part goes with the right job?",
+        "options": [
+          {
+            "id": "a",
+            "text": "flowers soak up water from soil"
+          },
+          {
+            "id": "b",
+            "text": "leaves often photosynthesize"
+          },
+          {
+            "id": "c",
+            "text": "roots make food from sunlight"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Leaves make food for the plant using light. Roots take in water and hold the plant, and flowers make seeds."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d08-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d08-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Plant Parts and Jobs; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Plant Parts and Jobs.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "c02ff895af2bd91bcabc72e58596f97694b5c58b607fd3228808db20ee2ab9c4",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

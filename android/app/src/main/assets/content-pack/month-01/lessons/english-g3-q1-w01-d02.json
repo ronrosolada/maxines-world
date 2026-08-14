@@ -232,24 +232,24 @@
         "prompt": "What are the people or animals in a story called?",
         "options": [
           {
-            "id": "c",
+            "id": "a",
             "text": "Numbers"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "Shapes"
           },
           {
-            "id": "a",
-            "text": "Characters"
+            "id": "c",
+            "text": "Colors"
           },
           {
-            "id": "b",
-            "text": "Colors"
+            "id": "d",
+            "text": "Characters"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "People and animals in a story are called characters — they are the ones the story is about."
       },
@@ -260,24 +260,24 @@
         "prompt": "Which one is a character?",
         "options": [
           {
-            "id": "b",
-            "text": "The mango tree"
-          },
-          {
-            "id": "c",
+            "id": "a",
             "text": "The stone fence"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "The blue sky"
           },
           {
-            "id": "a",
+            "id": "c",
             "text": "The brown dog"
+          },
+          {
+            "id": "d",
+            "text": "The mango tree"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "The brown dog is an animal, so it can be a character. The sky, fence, and tree are not people or animals."
       },
@@ -289,7 +289,7 @@
         "options": [
           {
             "id": "a",
-            "text": "Yes"
+            "text": "Only in winter"
           },
           {
             "id": "b",
@@ -297,15 +297,15 @@
           },
           {
             "id": "c",
-            "text": "Only at night"
+            "text": "Yes"
           },
           {
             "id": "d",
-            "text": "Only in winter"
+            "text": "Only at night"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "Yes! Animals can be characters, like Milo the cat or a talking bird in a story."
       },
@@ -316,24 +316,24 @@
         "prompt": "Where do characters live in a story?",
         "options": [
           {
-            "id": "d",
-            "text": "Under the sea only"
-          },
-          {
             "id": "a",
-            "text": "In the story"
+            "text": "In a box"
           },
           {
             "id": "b",
-            "text": "In a jar"
+            "text": "Under the sea only"
           },
           {
             "id": "c",
-            "text": "In a box"
+            "text": "In a jar"
+          },
+          {
+            "id": "d",
+            "text": "In the story"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "Characters live inside the story — that is where they do and say things."
       },
@@ -344,39 +344,49 @@
         "prompt": "Which one could be a character in a story?",
         "options": [
           {
-            "id": "c",
-            "text": "The book's cover"
-          },
-          {
-            "id": "d",
-            "text": "The title"
-          },
-          {
             "id": "a",
-            "text": "A talking bird"
+            "text": "The page number"
           },
           {
             "id": "b",
-            "text": "The page number"
+            "text": "The title"
+          },
+          {
+            "id": "c",
+            "text": "A talking bird"
+          },
+          {
+            "id": "d",
+            "text": "The book's cover"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "A talking bird is an animal that can act and speak in a story, so it can be a character. Page numbers, covers, and titles are parts of the book, not characters."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

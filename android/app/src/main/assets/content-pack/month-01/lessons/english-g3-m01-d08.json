@@ -1,344 +1,354 @@
 {
- "lessonId": "english-g3-m01-d08",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 8,
- "subject": "ENGLISH",
- "title": "Plural Word Changers · M01 D08",
- "objective": "Use common irregular plural nouns.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "One mouse, two mice! Help Milo learn plurals that change in special ways.",
- "vocabulary": [
-  {
-   "term": "plural",
-   "definition": "More than one, like cats or boxes."
-  },
-  {
-   "term": "noun",
-   "definition": "A word that names a person, place, or thing."
-  },
-  {
-   "term": "word",
-   "definition": "A word like child or mouse that changes in a special way when there are many."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-m01-d08-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how some plurals change the whole word!",
-   "content": "Some nouns change in special ways and must be learned in context.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in More Than One again. 💪"
-   },
-   "assetId": "english-g3-m01-d08-visual",
-   "accessibilityAlternative": "Text alternative: Some nouns change in special ways and must be learned in context."
-  },
-  {
-   "activityId": "english-g3-m01-d08-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each word pair and say the special plural!",
-   "content": {
-    "examples": [
-     "child → children",
-     "foot → feet",
-     "mouse → mice"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for More Than One. 🔎",
-    "retry": "Look at each More Than One example again. 💪"
-   },
-   "assetId": "english-g3-m01-d08-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "english-g3-m01-d08-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the irregular plural correct?",
-   "content": {
-    "fits": [
-     "child → children",
-     "foot → feet",
-     "mouse → mice"
-    ],
-    "doesNotFit": [
-     "child → childs",
-     "tooth → tooths",
-     "person → personses"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the More Than One clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "english-g3-m01-d08-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "english-g3-m01-d08-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "What is the plural of child?",
-   "content": {
-    "options": [
-     "childes",
-     "children",
-     "childs"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: children",
-    "retry": "Look again! Child is a special word — its plural is children. Which one is that? 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "english-g3-m01-d08-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each singular word to its special plural!",
-   "content": {
-    "pairs": [
-     {
-      "left": "child → children",
-      "right": "children"
-     },
-     {
-      "left": "foot → feet",
-      "right": "feet"
-     },
-     {
-      "left": "mouse → mice",
-      "right": "mice"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its More Than One explanation. 🔗",
-    "retry": "Read both sides of each More Than One pair again. 💪"
-   },
-   "assetId": "english-g3-m01-d08-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "english-g3-m01-d08-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps for saying special plurals in order!",
-   "content": {
-    "steps": [
-     "Read the singular word.",
-     "Remember the special plural.",
-     "Say the plural word."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the More Than One steps in order. 🎉",
-    "retry": "Find the first, next, and last More Than One steps. 💪"
-   },
-   "assetId": "english-g3-m01-d08-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-m01-d08-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the plural of foot?",
-    "options": [
-     {
-      "id": "a",
-      "text": "foots"
-     },
-     {
-      "id": "b",
-      "text": "feet"
-     },
-     {
-      "id": "c",
-      "text": "feets"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Foot changes to feet — the middle letters change. Foots and feets do not follow the special way foot becomes plural."
-   },
-   {
-    "itemId": "english-g3-m01-d08-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which irregular plural is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "child → children"
-     },
-     {
-      "id": "b",
-      "text": "child → childs"
-     },
-     {
-      "id": "c",
-      "text": "tooth → tooths"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Child is a special word: one child, two children. Childs and tooths are not correct because these words change in a special way."
-   },
-   {
-    "itemId": "english-g3-m01-d08-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which plural is WRONG?",
-    "options": [
-     {
-      "id": "a",
-      "text": "child → children"
-     },
-     {
-      "id": "b",
-      "text": "foot → feet"
-     },
-     {
-      "id": "c",
-      "text": "child → childs"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Child becomes children, so childs is wrong. Children and feet are the correct special plurals."
-   },
-   {
-    "itemId": "english-g3-m01-d08-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What is the plural of child?",
-    "options": [
-     {
-      "id": "a",
-      "text": "childs"
-     },
-     {
-      "id": "b",
-      "text": "children"
-     },
-     {
-      "id": "c",
-      "text": "childes"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "One child, two children — child changes in a special way. Childs and childes do not follow the rule."
-   },
-   {
-    "itemId": "english-g3-m01-d08-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which irregular plural is correct?",
-    "options": [
-     {
-      "id": "a",
-      "text": "mouse → mice"
-     },
-     {
-      "id": "b",
-      "text": "person → personses"
-     },
-     {
-      "id": "c",
-      "text": "child → childs"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Mouse changes to mice — the word changes inside. Personses and childs are not correct plurals."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "english-g3-m01-d08-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/english-g3-m01-d08-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Plural Word Changers; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Plural Word Changers.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "c5b8b4a394c5dccd5b5e87a449de67bc4374518cd2c11d7591ee0fdacc80509b",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-m01-d08",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 8,
+  "subject": "ENGLISH",
+  "title": "Plural Word Changers · M01 D08",
+  "objective": "Use common irregular plural nouns.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "One mouse, two mice! Help Milo learn plurals that change in special ways.",
+  "vocabulary": [
+    {
+      "term": "plural",
+      "definition": "More than one, like cats or boxes."
+    },
+    {
+      "term": "noun",
+      "definition": "A word that names a person, place, or thing."
+    },
+    {
+      "term": "word",
+      "definition": "A word like child or mouse that changes in a special way when there are many."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d08-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how some plurals change the whole word!",
+      "content": "Some nouns change in special ways and must be learned in context.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Plural Word Changers again. 💪"
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "Text alternative: Some nouns change in special ways and must be learned in context."
+    },
+    {
+      "activityId": "english-g3-m01-d08-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each word pair and say the special plural!",
+      "content": {
+        "examples": [
+          "child → children",
+          "foot → feet",
+          "mouse → mice"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Plural Word Changers. 🔎",
+        "retry": "Look at each Plural Word Changers example again. 💪"
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d08-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the irregular plural correct?",
+      "content": {
+        "fits": [
+          "child → children",
+          "foot → feet",
+          "mouse → mice"
+        ],
+        "doesNotFit": [
+          "child → childs",
+          "tooth → tooths",
+          "person → personses"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Plural Word Changers clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d08-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What is the plural of child?",
+      "content": {
+        "options": [
+          "childes",
+          "children",
+          "childs"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: children",
+        "retry": "Look again! Child is a special word — its plural is children. Which one is that? 💪"
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d08-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each singular word to its special plural!",
+      "content": {
+        "pairs": [
+          {
+            "left": "child → children",
+            "right": "children"
+          },
+          {
+            "left": "foot → feet",
+            "right": "feet"
+          },
+          {
+            "left": "mouse → mice",
+            "right": "mice"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Plural Word Changers explanation. 🔗",
+        "retry": "Read both sides of each Plural Word Changers pair again. 💪"
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d08-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps for saying special plurals in order!",
+      "content": {
+        "steps": [
+          "Read the singular word.",
+          "Remember the special plural.",
+          "Say the plural word."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Plural Word Changers steps in order. 🎉",
+        "retry": "Find the first, next, and last Plural Word Changers steps. 💪"
+      },
+      "assetId": "english-g3-m01-d08-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d08-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the plural of foot?",
+        "options": [
+          {
+            "id": "a",
+            "text": "feets"
+          },
+          {
+            "id": "b",
+            "text": "foots"
+          },
+          {
+            "id": "c",
+            "text": "feet"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Foot changes to feet — the middle letters change. Foots and feets do not follow the special way foot becomes plural."
+      },
+      {
+        "itemId": "english-g3-m01-d08-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which irregular plural is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "tooth → tooths"
+          },
+          {
+            "id": "b",
+            "text": "child → children"
+          },
+          {
+            "id": "c",
+            "text": "child → childs"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Child is a special word: one child, two children. Childs and tooths are not correct because these words change in a special way."
+      },
+      {
+        "itemId": "english-g3-m01-d08-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which plural is WRONG?  (in this lesson: Plural Word Changers)",
+        "options": [
+          {
+            "id": "a",
+            "text": "child → childs"
+          },
+          {
+            "id": "b",
+            "text": "foot → feet"
+          },
+          {
+            "id": "c",
+            "text": "child → children"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Child becomes children, so childs is wrong. Children and feet are the correct special plurals."
+      },
+      {
+        "itemId": "english-g3-m01-d08-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the plural of child?",
+        "options": [
+          {
+            "id": "a",
+            "text": "childes"
+          },
+          {
+            "id": "b",
+            "text": "childs"
+          },
+          {
+            "id": "c",
+            "text": "children"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "One child, two children — child changes in a special way. Childs and childes do not follow the rule."
+      },
+      {
+        "itemId": "english-g3-m01-d08-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which one shows the correct irregular plural?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mouse → mice"
+          },
+          {
+            "id": "b",
+            "text": "person → personses"
+          },
+          {
+            "id": "c",
+            "text": "child → childs"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Mouse changes to mice — the word changes inside. Personses and childs are not correct plurals."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d08-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d08-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Plural Word Changers; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Plural Word Changers.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "c5b8b4a394c5dccd5b5e87a449de67bc4374518cd2c11d7591ee0fdacc80509b",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

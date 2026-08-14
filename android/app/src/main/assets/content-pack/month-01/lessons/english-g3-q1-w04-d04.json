@@ -230,6 +230,10 @@
         "prompt": "What does retell mean?",
         "options": [
           {
+            "id": "a",
+            "text": "Tell the story again"
+          },
+          {
             "id": "b",
             "text": "Forget the story"
           },
@@ -240,10 +244,6 @@
           {
             "id": "d",
             "text": "Change the story"
-          },
-          {
-            "id": "a",
-            "text": "Tell the story again"
           }
         ],
         "correctOptionIds": [
@@ -259,23 +259,23 @@
         "options": [
           {
             "id": "a",
-            "text": "The kite flew away"
-          },
-          {
-            "id": "b",
             "text": "A man got it down"
           },
           {
+            "id": "b",
+            "text": "Everyone cheered"
+          },
+          {
             "id": "c",
-            "text": "Ana hugged it"
+            "text": "The kite flew away"
           },
           {
             "id": "d",
-            "text": "Everyone cheered"
+            "text": "Ana hugged it"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "The kite flew away first — that started the story. Getting it down and cheering came later."
       },
@@ -285,10 +285,6 @@
         "type": "MULTIPLE_CHOICE",
         "prompt": "Which word means 'at the start'?",
         "options": [
-          {
-            "id": "d",
-            "text": "The end"
-          },
           {
             "id": "a",
             "text": "First"
@@ -300,6 +296,10 @@
           {
             "id": "c",
             "text": "Finally"
+          },
+          {
+            "id": "d",
+            "text": "The end"
           }
         ],
         "correctOptionIds": [
@@ -314,24 +314,24 @@
         "prompt": "Where did the kite land?",
         "options": [
           {
+            "id": "a",
+            "text": "In a river"
+          },
+          {
+            "id": "b",
+            "text": "In a tree"
+          },
+          {
             "id": "c",
             "text": "On a roof"
           },
           {
             "id": "d",
-            "text": "In a river"
-          },
-          {
-            "id": "a",
-            "text": "In a tree"
-          },
-          {
-            "id": "b",
             "text": "In the sea"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "The kite landed in a tree, and that is why someone had to help get it down."
       },
@@ -342,8 +342,12 @@
         "prompt": "Who helped get the kite down?",
         "options": [
           {
-            "id": "b",
+            "id": "a",
             "text": "A robot"
+          },
+          {
+            "id": "b",
+            "text": "A cloud"
           },
           {
             "id": "c",
@@ -351,30 +355,36 @@
           },
           {
             "id": "d",
-            "text": "A cloud"
-          },
-          {
-            "id": "a",
             "text": "A kind man"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "A kind man helped get the kite down — he saw the kite stuck in the tree."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

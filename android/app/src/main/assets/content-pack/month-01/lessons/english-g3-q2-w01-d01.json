@@ -1,378 +1,388 @@
 {
- "lessonId": "english-g3-q2-w01-d01",
- "schemaVersion": 1,
- "grade": 3,
- "month": 5,
- "day": 1,
- "subject": "english",
- "title": "Word Explorer · Q2 W01 D01",
- "objective": "Use high-frequency and content-specific words in context.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
- "language": "en-PH",
- "introduction": "Milo is hunting for new words! 🐱✨ Brave, huge, and whisper are hiding in sentences. Can you help him find them?",
- "vocabulary": [
-  {
-   "term": "brave",
-   "definition": "showing courage when something is hard or scary"
-  },
-  {
-   "term": "huge",
-   "definition": "very, very big"
-  },
-  {
-   "term": "whisper",
-   "definition": "to speak very softly"
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-q2-w01-d01-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "capability": "ANIMATED_EXPLANATION_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Hear how new words fit in sentences!",
-   "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Find the clue in Word Explorer again. 💪"
-   },
-   "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-   "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d01-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "capability": "HOTSPOT_IMAGE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Tap the sentences that use today's words!",
-   "content": {
-    "examples": [
-     "The brave dog saved the kitten from the rain.",
-     "The elephant is huge, but it walks quietly.",
-     "I whisper to my friend in the library.",
-     "The new coin is shiny and clean."
-    ],
-    "visualScene": "🐱🔎✨"
-   },
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 4
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Look at each Word Explorer example again. 💪"
-   },
-   "prompt": "Look closely at each example to practice: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d01-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "capability": "SORT_AND_CLASSIFY_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Sort the sentences: new word or not!",
-   "content": {
-    "fits": [
-     "The brave dog saved the kitten from the rain.",
-     "The elephant is huge, but it walks quietly.",
-     "I whisper to my friend in the library.",
-     "The new coin is shiny and clean."
-    ],
-    "doesNotFit": [
-     "Milo gives the puppy a gentle pat.",
-     "The clever fox found a way to reach the grapes.",
-     "The kitten sleeps in a cozy basket.",
-     "The rabbit likes to nibble on carrots."
-    ]
-   },
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 8
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Read the Word Explorer rule before sorting again. 💪"
-   },
-   "prompt": "Sort each example while practicing: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d01-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "capability": "MULTIPLE_CHOICE_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Tap the sentence that uses 'brave'!",
-   "content": {
-    "options": [
-     "The clever fox found a way to reach the grapes.",
-     "The kitten sleeps in a cozy basket.",
-     "The brave dog saved the kitten from the rain.",
-     "Milo gives the puppy a gentle pat."
-    ],
-    "correctIndex": 2
-   },
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Find the clue in the Word Explorer question. 💪"
-   },
-   "prompt": "Choose the example of words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d01-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "capability": "MATCHING_PAIRS_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Match each word with its meaning!",
-   "content": {
-    "pairs": [
-     {
-      "left": "brave",
-      "right": "showing courage when something is hard or scary"
-     },
-     {
-      "left": "huge",
-      "right": "very, very big"
-     },
-     {
-      "left": "whisper",
-      "right": "to speak very softly"
-     }
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Read both sides of each Word Explorer pair again. 💪"
-   },
-   "prompt": "Match the examples about words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  },
-  {
-   "activityId": "english-g3-q2-w01-d01-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "capability": "SEQUENCE_BUILDER_V1",
-   "required": true,
-   "assetId": "english-g3-q2-w01-d01-visual",
-   "instruction": "Tap the word-hunting steps in order!",
-   "content": {
-    "steps": [
-     "Read the sentence",
-     "Find the new word",
-     "Look for clues",
-     "Choose the meaning"
-    ]
-   },
-   "completionRule": {
-    "type": "COMPLETE"
-   },
-   "feedback": {
-    "correct": "You found the word that fits just right! 🎉",
-    "retry": "Find the first, next, and last Word Explorer steps. 💪"
-   },
-   "prompt": "Put the steps in order to practice: Use high-frequency and content-specific words in context.",
-   "narration": "Context clues and the topic help readers understand and use new words accurately.",
-   "guideHint": "Need a hint? Read the example again.",
-   "nextLabel": "Next →",
-   "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-q2-w01-d01-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What does 'brave' mean?",
-    "options": [
-     {
-      "id": "c",
-      "text": "to speak very softly"
-     },
-     {
-      "id": "d",
-      "text": "bright and reflects light"
-     },
-     {
-      "id": "a",
-      "text": "showing courage when something is difficult"
-     },
-     {
-      "id": "b",
-      "text": "very, very big"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Brave means showing courage when something is difficult — like a firefighter who climbs a tree to save a cat."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d01-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word means 'very, very big'?",
-    "options": [
-     {
-      "id": "b",
-      "text": "brave"
-     },
-     {
-      "id": "c",
-      "text": "whisper"
-     },
-     {
-      "id": "d",
-      "text": "shiny"
-     },
-     {
-      "id": "a",
-      "text": "huge"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Huge means very, very big, so a huge thing is bigger than a small one."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d01-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which sentence uses the word 'whisper'?",
-    "options": [
-     {
-      "id": "a",
-      "text": "I whisper to my friend in the library."
-     },
-     {
-      "id": "b",
-      "text": "The brave dog saved the kitten from the rain."
-     },
-     {
-      "id": "c",
-      "text": "The elephant is huge, but it walks quietly."
-     },
-     {
-      "id": "d",
-      "text": "The new coin is shiny and clean."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Whisper means to speak very softly, so it belongs in a quiet library."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d01-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word fits in this sentence: 'The ___ firefighter carried the cat down the tree.'",
-    "options": [
-     {
-      "id": "d",
-      "text": "shiny"
-     },
-     {
-      "id": "a",
-      "text": "brave"
-     },
-     {
-      "id": "b",
-      "text": "huge"
-     },
-     {
-      "id": "c",
-      "text": "whisper"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "A firefighter who climbs a tree to save a cat shows courage, so brave fits best."
-   },
-   {
-    "itemId": "english-g3-q2-w01-d01-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Find the word that means 'bright and reflects light'.",
-    "options": [
-     {
-      "id": "c",
-      "text": "huge"
-     },
-     {
-      "id": "d",
-      "text": "whisper"
-     },
-     {
-      "id": "a",
-      "text": "shiny"
-     },
-     {
-      "id": "b",
-      "text": "brave"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Shiny means bright and reflects light — that is why a new coin looks shiny."
-   }
-  ]
- },
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-q2-w01-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 1,
+  "subject": "english",
+  "title": "Word Explorer · Q2 W01 D01",
+  "objective": "Use high-frequency and content-specific words in context.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is hunting for new words! 🐱✨ Brave, huge, and whisper are hiding in sentences. Can you help him find them?",
+  "vocabulary": [
+    {
+      "term": "brave",
+      "definition": "showing courage when something is hard or scary"
+    },
+    {
+      "term": "huge",
+      "definition": "very, very big"
+    },
+    {
+      "term": "whisper",
+      "definition": "to speak very softly"
+    }
   ],
-  "source": "competency/objective and local examples; no unsafe experiment required",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Hear how new words fit in sentences!",
+      "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Find the clue in Word Explorer again. 💪"
+      },
+      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
+      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Tap the sentences that use today's words!",
+      "content": {
+        "examples": [
+          "The brave dog saved the kitten from the rain.",
+          "The elephant is huge, but it walks quietly.",
+          "I whisper to my friend in the library.",
+          "The new coin is shiny and clean."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Look at each Word Explorer example again. 💪"
+      },
+      "prompt": "Look closely at each example",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Sort the sentences: new word or not!",
+      "content": {
+        "fits": [
+          "The brave dog saved the kitten from the rain.",
+          "The elephant is huge, but it walks quietly.",
+          "I whisper to my friend in the library.",
+          "The new coin is shiny and clean."
+        ],
+        "doesNotFit": [
+          "Milo gives the puppy a gentle pat.",
+          "The clever fox found a way to reach the grapes.",
+          "The kitten sleeps in a cozy basket.",
+          "The rabbit likes to nibble on carrots."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Read the Word Explorer rule before sorting again. 💪"
+      },
+      "prompt": "Sort each example",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Tap the sentence that uses 'brave'!",
+      "content": {
+        "options": [
+          "The clever fox found a way to reach the grapes.",
+          "The kitten sleeps in a cozy basket.",
+          "The brave dog saved the kitten from the rain.",
+          "Milo gives the puppy a gentle pat."
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Find the clue in the Word Explorer question. 💪"
+      },
+      "prompt": "Choose the example of words in context.",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Match each word with its meaning!",
+      "content": {
+        "pairs": [
+          {
+            "left": "brave",
+            "right": "showing courage when something is hard or scary"
+          },
+          {
+            "left": "huge",
+            "right": "very, very big"
+          },
+          {
+            "left": "whisper",
+            "right": "to speak very softly"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Read both sides of each Word Explorer pair again. 💪"
+      },
+      "prompt": "Match the examples about words in context.",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    },
+    {
+      "activityId": "english-g3-q2-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w01-d01-visual",
+      "instruction": "Tap the word-hunting steps in order!",
+      "content": {
+        "steps": [
+          "Read the sentence",
+          "Find the new word",
+          "Look for clues",
+          "Choose the meaning"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "You found the word that fits just right! 🎉",
+        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+      },
+      "prompt": "Put the steps in order",
+      "narration": "Context clues and the topic help readers understand and use new words accurately.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w01-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What does 'brave' mean?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bright and reflects light"
+          },
+          {
+            "id": "b",
+            "text": "very, very big"
+          },
+          {
+            "id": "c",
+            "text": "to speak very softly"
+          },
+          {
+            "id": "d",
+            "text": "showing courage when something is difficult"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Brave means showing courage when something is difficult — like a firefighter who climbs a tree to save a cat."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word means 'very, very big'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "huge"
+          },
+          {
+            "id": "b",
+            "text": "brave"
+          },
+          {
+            "id": "c",
+            "text": "whisper"
+          },
+          {
+            "id": "d",
+            "text": "shiny"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Huge means very, very big, so a huge thing is bigger than a small one."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence uses the word 'whisper'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The elephant is huge, but it walks quietly."
+          },
+          {
+            "id": "b",
+            "text": "I whisper to my friend in the library."
+          },
+          {
+            "id": "c",
+            "text": "The new coin is shiny and clean."
+          },
+          {
+            "id": "d",
+            "text": "The brave dog saved the kitten from the rain."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Whisper means to speak very softly, so it belongs in a quiet library."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word fits in this sentence: 'The ___ firefighter carried the cat down the tree.'",
+        "options": [
+          {
+            "id": "a",
+            "text": "shiny"
+          },
+          {
+            "id": "b",
+            "text": "huge"
+          },
+          {
+            "id": "c",
+            "text": "brave"
+          },
+          {
+            "id": "d",
+            "text": "whisper"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A firefighter who climbs a tree to save a cat shows courage, so brave fits best."
+      },
+      {
+        "itemId": "english-g3-q2-w01-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Find the word that means 'bright and reflects light'.",
+        "options": [
+          {
+            "id": "a",
+            "text": "huge"
+          },
+          {
+            "id": "b",
+            "text": "brave"
+          },
+          {
+            "id": "c",
+            "text": "shiny"
+          },
+          {
+            "id": "d",
+            "text": "whisper"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Shiny means bright and reflects light — that is why a new coin looks shiny."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

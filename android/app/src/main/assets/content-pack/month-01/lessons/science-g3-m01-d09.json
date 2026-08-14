@@ -1,352 +1,362 @@
 {
- "lessonId": "science-g3-m01-d09",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 9,
- "subject": "SCIENCE",
- "title": "Plants Help Life",
- "objective": "Explain ways plants support living systems.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Mangoes, shade, and fresh air — plants give us so much! How do plants help living things?",
- "vocabulary": [
-  {
-   "term": "plant",
-   "definition": "A living thing that grows in soil and makes food."
-  },
-  {
-   "term": "habitat",
-   "definition": "The natural home of a plant or animal."
-  },
-  {
-   "term": "material",
-   "definition": "What something is made of, like wood or plastic."
-  }
- ],
- "activities": [
-  {
-   "activityId": "science-g3-m01-d09-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch and listen — Milo shows how plants help living things.",
-   "content": "Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Material Detectives again. 💪"
-   },
-   "assetId": "science-g3-m01-d09-visual",
-   "accessibilityAlternative": "Text alternative: Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials."
-  },
-  {
-   "activityId": "science-g3-m01-d09-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read what it shows.",
-   "content": {
-    "examples": [
-     "trees provide shade",
-     "plants form habitat",
-     "many foods come from plants"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Material Detectives. 🔎",
-    "retry": "Look at each Material Detectives example again. 💪"
-   },
-   "assetId": "science-g3-m01-d09-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "science-g3-m01-d09-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is the way plants help described correctly?",
-   "content": {
-    "fits": [
-     "trees provide shade",
-     "plants form habitat",
-     "many foods come from plants"
-    ],
-    "doesNotFit": [
-     "Plants eat soil",
-     "Every plant is safe to eat",
-     "Plants need no water"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great sorting! Your groups are correct.",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "science-g3-m01-d09-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "science-g3-m01-d09-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "What do plants generally make through photosynthesis?",
-   "content": {
-    "options": [
-     "plastic",
-     "sugars",
-     "soil"
-    ],
-    "correctIndex": 1
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: sugars",
-    "retry": "Look again — plastic and soil are not made by plants. Tap what plants make! 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "science-g3-m01-d09-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each example to the help it gives.",
-   "content": {
-    "pairs": [
-     {
-      "left": "trees provide shade",
-      "right": "shade"
-     },
-     {
-      "left": "plants form habitat",
-      "right": "habitat"
-     },
-     {
-      "left": "many foods come from plants",
-      "right": "food"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Material Detectives explanation. 🔗",
-    "retry": "Read both sides of each Material Detectives pair again. 💪"
-   },
-   "assetId": "science-g3-m01-d09-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "science-g3-m01-d09-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps in order: think of a plant, name a help, explain why.",
-   "content": {
-    "steps": [
-     "Think about a plant.",
-     "Name one way it helps.",
-     "Explain why that matters."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Material Detectives steps in order. 🎉",
-    "retry": "Find the first, next, and last Material Detectives steps. 💪"
-   },
-   "assetId": "science-g3-m01-d09-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "science-g3-m01-d09-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement about how plants help is true?",
-    "options": [
-     {
-      "id": "c",
-      "text": "Every plant is safe to eat"
-     },
-     {
-      "id": "a",
-      "text": "Plants eat soil"
-     },
-     {
-      "id": "b",
-      "text": "Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials."
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Plants use light to make their own food and give us food, oxygen, shade, and homes for animals. Not every plant is safe to eat, and plants do not eat soil."
-   },
-   {
-    "itemId": "science-g3-m01-d09-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which example shows a way plants help?",
-    "options": [
-     {
-      "id": "b",
-      "text": "trees provide shade"
-     },
-     {
-      "id": "c",
-      "text": "trees eat animals for food"
-     },
-     {
-      "id": "a",
-      "text": "trees grow in a single day"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "A tree's leaves and branches block the Sun, giving shade. Trees do not eat animals, and they take years to grow."
-   },
-   {
-    "itemId": "science-g3-m01-d09-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which statement is not true?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Plants eat soil"
-     },
-     {
-      "id": "b",
-      "text": "trees provide shade"
-     },
-     {
-      "id": "c",
-      "text": "plants form habitat"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Plants make their own food with light — they do not eat soil. Trees do give shade, and plants do form homes for animals."
-   },
-   {
-    "itemId": "science-g3-m01-d09-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "What do plants generally make through photosynthesis?",
-    "options": [
-     {
-      "id": "c",
-      "text": "plastic"
-     },
-     {
-      "id": "a",
-      "text": "sugars"
-     },
-     {
-      "id": "b",
-      "text": "soil"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Using light, water, and air, plants make sugars — their own food. They do not make plastic or soil."
-   },
-   {
-    "itemId": "science-g3-m01-d09-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which way do plants help living things?",
-    "options": [
-     {
-      "id": "b",
-      "text": "Plants need no water"
-     },
-     {
-      "id": "c",
-      "text": "Plants eat soil"
-     },
-     {
-      "id": "a",
-      "text": "many foods come from plants"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Fruits, vegetables, and grains come from plants, so plants help feed us. Plants need water, and they make their own food."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "science-g3-m01-d09-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/science-g3-m01-d09-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Plants Help Life; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Plants Help Life.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [
-  "Use the on-screen activity only; no unsupervised physical experiment is required."
- ],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Curriculum resources",
-   "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  },
-  {
-   "sourceTitle": "Smithsonian Science Education Center",
-   "sourceUrl": "https://ssec.si.edu/",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "e7735e089d55b5fa65b9c2d4a80795a6e722741e159338218097b6aee8b7169e",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "science-g3-m01-d09",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 9,
+  "subject": "SCIENCE",
+  "title": "Plants Help Life",
+  "objective": "Explain ways plants support living systems.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Mangoes, shade, and fresh air — plants give us so much! How do plants help living things?",
+  "vocabulary": [
+    {
+      "term": "plant",
+      "definition": "A living thing that grows in soil and makes food."
+    },
+    {
+      "term": "habitat",
+      "definition": "The natural home of a plant or animal."
+    },
+    {
+      "term": "material",
+      "definition": "What something is made of, like wood or plastic."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d09-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch and listen — Milo shows how plants help living things.",
+      "content": "Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Plants Help Life again. 💪"
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "Text alternative: Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials."
+    },
+    {
+      "activityId": "science-g3-m01-d09-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read what it shows.",
+      "content": {
+        "examples": [
+          "trees provide shade",
+          "plants form habitat",
+          "many foods come from plants"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Plants Help Life. 🔎",
+        "retry": "Look at each Plants Help Life example again. 💪"
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d09-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the way plants help described correctly?",
+      "content": {
+        "fits": [
+          "trees provide shade",
+          "plants form habitat",
+          "many foods come from plants"
+        ],
+        "doesNotFit": [
+          "Plants eat soil",
+          "Every plant is safe to eat",
+          "Plants need no water"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d09-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What do plants generally make through photosynthesis?",
+      "content": {
+        "options": [
+          "plastic",
+          "sugars",
+          "soil"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: sugars",
+        "retry": "Look again — plastic and soil are not made by plants. Tap what plants make! 💪"
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d09-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each example to the help it gives.",
+      "content": {
+        "pairs": [
+          {
+            "left": "trees provide shade",
+            "right": "shade"
+          },
+          {
+            "left": "plants form habitat",
+            "right": "habitat"
+          },
+          {
+            "left": "many foods come from plants",
+            "right": "food"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Plants Help Life explanation. 🔗",
+        "retry": "Read both sides of each Plants Help Life pair again. 💪"
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d09-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps in order: think of a plant, name a help, explain why.",
+      "content": {
+        "steps": [
+          "Think about a plant.",
+          "Name one way it helps.",
+          "Explain why that matters."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Plants Help Life steps in order. 🎉",
+        "retry": "Find the first, next, and last Plants Help Life steps. 💪"
+      },
+      "assetId": "science-g3-m01-d09-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d09-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about how plants help is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Every plant is safe to eat"
+          },
+          {
+            "id": "b",
+            "text": "Plants eat soil"
+          },
+          {
+            "id": "c",
+            "text": "Plants make sugars through photosynthesis and can provide food, oxygen, shade, habitat, and materials."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Plants use light to make their own food and give us food, oxygen, shade, and homes for animals. Not every plant is safe to eat, and plants do not eat soil."
+      },
+      {
+        "itemId": "science-g3-m01-d09-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which example shows a way plants help?",
+        "options": [
+          {
+            "id": "a",
+            "text": "trees eat animals for food"
+          },
+          {
+            "id": "b",
+            "text": "trees provide shade"
+          },
+          {
+            "id": "c",
+            "text": "trees grow in a single day"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A tree's leaves and branches block the Sun, giving shade. Trees do not eat animals, and they take years to grow."
+      },
+      {
+        "itemId": "science-g3-m01-d09-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement is not true?  (in this lesson: Plants Help Life)",
+        "options": [
+          {
+            "id": "a",
+            "text": "trees provide shade"
+          },
+          {
+            "id": "b",
+            "text": "plants form habitat"
+          },
+          {
+            "id": "c",
+            "text": "Plants eat soil"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Plants make their own food with light — they do not eat soil. Trees do give shade, and plants do form homes for animals."
+      },
+      {
+        "itemId": "science-g3-m01-d09-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What do plants generally make through photosynthesis?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sugars"
+          },
+          {
+            "id": "b",
+            "text": "plastic"
+          },
+          {
+            "id": "c",
+            "text": "soil"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Using light, water, and air, plants make sugars — their own food. They do not make plastic or soil."
+      },
+      {
+        "itemId": "science-g3-m01-d09-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which way do plants help living things?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Plants eat soil"
+          },
+          {
+            "id": "b",
+            "text": "Plants need no water"
+          },
+          {
+            "id": "c",
+            "text": "many foods come from plants"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Fruits, vegetables, and grains come from plants, so plants help feed us. Plants need water, and they make their own food."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d09-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d09-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Plants Help Life; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Plants Help Life.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "e7735e089d55b5fa65b9c2d4a80795a6e722741e159338218097b6aee8b7169e",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
 }

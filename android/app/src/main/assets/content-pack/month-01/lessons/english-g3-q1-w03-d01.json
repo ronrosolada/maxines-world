@@ -232,12 +232,8 @@
         "prompt": "Which sentence uses am the right way?",
         "options": [
           {
-            "id": "d",
-            "text": "I is ready."
-          },
-          {
             "id": "a",
-            "text": "She are kind."
+            "text": "I am ready."
           },
           {
             "id": "b",
@@ -245,11 +241,15 @@
           },
           {
             "id": "c",
-            "text": "I am ready."
+            "text": "I is ready."
+          },
+          {
+            "id": "d",
+            "text": "She are kind."
           }
         ],
         "correctOptionIds": [
-          "c"
+          "a"
         ],
         "explanation": "“I am ready.” is right because the word I always goes with am."
       },
@@ -260,24 +260,24 @@
         "prompt": "Which sentence uses is the right way?",
         "options": [
           {
+            "id": "a",
+            "text": "She are kind."
+          },
+          {
             "id": "b",
-            "text": "Milo is curious."
+            "text": "You is learning."
           },
           {
             "id": "c",
-            "text": "She are kind."
+            "text": "Milo is curious."
           },
           {
             "id": "d",
             "text": "They am friends."
-          },
-          {
-            "id": "a",
-            "text": "You is learning."
           }
         ],
         "correctOptionIds": [
-          "b"
+          "c"
         ],
         "explanation": "“Milo is curious.” is right because Milo is one cat, and one person or thing goes with is."
       },
@@ -288,24 +288,24 @@
         "prompt": "Which sentence uses are the right way?",
         "options": [
           {
-            "id": "d",
-            "text": "I is ready."
-          },
-          {
             "id": "a",
-            "text": "We are learning."
+            "text": "You is learning."
           },
           {
             "id": "b",
-            "text": "They am friends."
+            "text": "We are learning."
           },
           {
             "id": "c",
-            "text": "You is learning."
+            "text": "I is ready."
+          },
+          {
+            "id": "d",
+            "text": "They am friends."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "“We are learning.” is right because we always goes with are."
       },
@@ -316,67 +316,77 @@
         "prompt": "Which sentence uses the right be-verb?",
         "options": [
           {
-            "id": "b",
-            "text": "I is ready."
-          },
-          {
-            "id": "c",
-            "text": "She are kind."
-          },
-          {
-            "id": "d",
+            "id": "a",
             "text": "The books are open."
           },
           {
-            "id": "a",
+            "id": "b",
             "text": "You is learning."
+          },
+          {
+            "id": "c",
+            "text": "I is ready."
+          },
+          {
+            "id": "d",
+            "text": "She are kind."
           }
         ],
         "correctOptionIds": [
-          "d"
+          "a"
         ],
-        "explanation": "“The books are open.” is right because books means more than one, and more than one goes with are."
+        "explanation": "“The books are open.” is right because books means Be-Verb Team, and more than one goes with are."
       },
       {
         "itemId": "english-g3-q1-w03-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the verb correctly?",
+        "prompt": "Which sentence uses the verb correctly?  (in this lesson: Be-Verb Team)",
         "options": [
           {
-            "id": "d",
-            "text": "I is ready."
-          },
-          {
             "id": "a",
-            "text": "She are kind."
+            "text": "I am ready."
           },
           {
             "id": "b",
-            "text": "They am friends."
+            "text": "She are kind."
           },
           {
             "id": "c",
-            "text": "I am ready."
+            "text": "They am friends."
+          },
+          {
+            "id": "d",
+            "text": "I is ready."
           }
         ],
         "correctOptionIds": [
-          "c"
+          "a"
         ],
         "explanation": "“I am ready.” is right because the word I always goes with am."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

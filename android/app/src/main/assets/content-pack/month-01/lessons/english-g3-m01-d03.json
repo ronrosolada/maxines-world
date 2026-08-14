@@ -1,344 +1,354 @@
 {
- "lessonId": "english-g3-m01-d03",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 3,
- "subject": "ENGLISH",
- "title": "Choose an Ending · M01 D03",
- "objective": "Choose a logical story ending supported by earlier events.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Ana's seedling is dry! Help her choose an ending that really follows the story.",
- "vocabulary": [
-  {
-   "term": "ending",
-   "definition": "The last part of a story that follows what happened."
-  },
-  {
-   "term": "story",
-   "definition": "A tale with characters and events."
-  },
-  {
-   "term": "character",
-   "definition": "A person or animal in a story."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-m01-d03-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Watch how a good ending follows the story!",
-   "content": "A logical ending follows from the characters, problem, and events already shown.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Retell in Your Own Words again. 💪"
-   },
-   "assetId": "english-g3-m01-d03-visual",
-   "accessibilityAlternative": "Text alternative: A logical ending follows from the characters, problem, and events already shown."
-  },
-  {
-   "activityId": "english-g3-m01-d03-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each example and read the ending!",
-   "content": {
-    "examples": [
-     "A watered plant stands upright later.",
-     "A returned book goes back on its shelf.",
-     "A repaired wheel lets the cart move."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Retell in Your Own Words. 🔎",
-    "retry": "Look at each Retell in Your Own Words example again. 💪"
-   },
-   "assetId": "english-g3-m01-d03-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "english-g3-m01-d03-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: is it a logical story ending?",
-   "content": {
-    "fits": [
-     "A watered plant stands upright later.",
-     "A returned book goes back on its shelf.",
-     "A repaired wheel lets the cart move."
-    ],
-    "doesNotFit": [
-     "Adding an unrelated dragon",
-     "Changing every character without explanation",
-     "Ignoring the story problem"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Retell in Your Own Words clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "english-g3-m01-d03-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "english-g3-m01-d03-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "A seedling is dry and Ana waters it. Which ending fits?",
-   "content": {
-    "options": [
-     "The school becomes a spaceship.",
-     "Ana forgets what water is.",
-     "The seedling looks healthier later."
-    ],
-    "correctIndex": 2
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: The seedling looks healthier later.",
-    "retry": "Look again! Ana watered the dry seedling, so the ending must be about the plant. 💪"
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "english-g3-m01-d03-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each ending to the action that came before!",
-   "content": {
-    "pairs": [
-     {
-      "left": "A watered plant stands upright later.",
-      "right": "watering the plant"
-     },
-     {
-      "left": "A returned book goes back on its shelf.",
-      "right": "returning the book"
-     },
-     {
-      "left": "A repaired wheel lets the cart move.",
-      "right": "repairing the wheel"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Retell in Your Own Words explanation. 🔗",
-    "retry": "Read both sides of each Retell in Your Own Words pair again. 💪"
-   },
-   "assetId": "english-g3-m01-d03-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "english-g3-m01-d03-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the steps for choosing an ending in order!",
-   "content": {
-    "steps": [
-     "Read the story problem.",
-     "Think about what the characters did.",
-     "Choose an ending that fits the events."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Retell in Your Own Words steps in order. 🎉",
-    "retry": "Find the first, next, and last Retell in Your Own Words steps. 💪"
-   },
-   "assetId": "english-g3-m01-d03-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-m01-d03-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Lito's bike has a flat tire and he fixes it. Which ending fits?",
-    "options": [
-     {
-      "id": "a",
-      "text": "Lito rides his bike home."
-     },
-     {
-      "id": "b",
-      "text": "The bike turns into a boat."
-     },
-     {
-      "id": "c",
-      "text": "Lito forgets how to ride."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "After the tire is fixed, the bike works again, so Lito can ride it home. The other endings do not follow from fixing a flat tire."
-   },
-   {
-    "itemId": "english-g3-m01-d03-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which ending follows the events of the story?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A watered plant stands upright later."
-     },
-     {
-      "id": "b",
-      "text": "The plant flies away."
-     },
-     {
-      "id": "c",
-      "text": "The soil becomes candy."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Water makes a dry plant healthy again, so it stands upright later. The other endings do not follow from watering a plant."
-   },
-   {
-    "itemId": "english-g3-m01-d03-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "The cart's wheel was repaired. Which ending does NOT fit?",
-    "options": [
-     {
-      "id": "a",
-      "text": "The cart moves again."
-     },
-     {
-      "id": "b",
-      "text": "The cart is easy to push."
-     },
-     {
-      "id": "c",
-      "text": "A dragon flies the cart away."
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "A repaired wheel lets the cart move again, so the first two endings fit. A dragon flying the cart away does not follow from fixing a wheel."
-   },
-   {
-    "itemId": "english-g3-m01-d03-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "A seedling is dry and Ana waters it. Which ending fits?",
-    "options": [
-     {
-      "id": "a",
-      "text": "The seedling looks healthier later."
-     },
-     {
-      "id": "b",
-      "text": "The school becomes a spaceship."
-     },
-     {
-      "id": "c",
-      "text": "Ana forgets what water is."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Water helps a dry seedling grow, so it looks healthier later. The other endings do not follow from the story."
-   },
-   {
-    "itemId": "english-g3-m01-d03-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which is a logical story ending?",
-    "options": [
-     {
-      "id": "a",
-      "text": "A repaired wheel lets the cart move."
-     },
-     {
-      "id": "b",
-      "text": "The story problem is ignored."
-     },
-     {
-      "id": "c",
-      "text": "A dragon appears for no reason."
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Fixing the wheel solves the problem, so the cart can move again. Ignoring the problem or adding a dragon does not make a logical ending."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "english-g3-m01-d03-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/english-g3-m01-d03-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Choose an Ending; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Choose an Ending.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "0ad3dd48ce9b31ef2e7ec74881153dd249ea819786a9c53ca5aa8f2ea8232f25",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-m01-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "ENGLISH",
+  "title": "Choose an Ending · M01 D03",
+  "objective": "Choose a logical story ending supported by earlier events.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Ana's seedling is dry! Help her choose an ending that really follows the story.",
+  "vocabulary": [
+    {
+      "term": "ending",
+      "definition": "The last part of a story that follows what happened."
+    },
+    {
+      "term": "story",
+      "definition": "A tale with characters and events."
+    },
+    {
+      "term": "character",
+      "definition": "A person or animal in a story."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how a good ending follows the story!",
+      "content": "A logical ending follows from the characters, problem, and events already shown.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Choose an Ending again. 💪"
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "Text alternative: A logical ending follows from the characters, problem, and events already shown."
+    },
+    {
+      "activityId": "english-g3-m01-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the ending!",
+      "content": {
+        "examples": [
+          "A watered plant stands upright later.",
+          "A returned book goes back on its shelf.",
+          "A repaired wheel lets the cart move."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Retell in Your Own Words. 🔎",
+        "retry": "Look at each Retell in Your Own Words example again. 💪"
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is it a logical story ending?",
+      "content": {
+        "fits": [
+          "A watered plant stands upright later.",
+          "A returned book goes back on its shelf.",
+          "A repaired wheel lets the cart move."
+        ],
+        "doesNotFit": [
+          "Adding an unrelated dragon",
+          "Changing every character without explanation",
+          "Ignoring the story problem"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Retell in Your Own Words clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "A seedling is dry and Ana waters it. Which ending fits?",
+      "content": {
+        "options": [
+          "The school becomes a spaceship.",
+          "Ana forgets what water is.",
+          "The seedling looks healthier later."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: The seedling looks healthier later.",
+        "retry": "Look again! Ana watered the dry seedling, so the ending must be about the plant. 💪"
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each ending to the action that came before!",
+      "content": {
+        "pairs": [
+          {
+            "left": "A watered plant stands upright later.",
+            "right": "watering the plant"
+          },
+          {
+            "left": "A returned book goes back on its shelf.",
+            "right": "returning the book"
+          },
+          {
+            "left": "A repaired wheel lets the cart move.",
+            "right": "repairing the wheel"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Retell in Your Own Words explanation. 🔗",
+        "retry": "Read both sides of each Retell in Your Own Words pair again. 💪"
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps for choosing an ending in order!",
+      "content": {
+        "steps": [
+          "Read the story problem.",
+          "Think about what the characters did.",
+          "Choose an ending that fits the events."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Retell in Your Own Words steps in order. 🎉",
+        "retry": "Find the first, next, and last Retell in Your Own Words steps. 💪"
+      },
+      "assetId": "english-g3-m01-d03-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Lito's bike has a flat tire and he fixes it. Which ending fits?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Lito forgets how to ride."
+          },
+          {
+            "id": "b",
+            "text": "The bike turns into a boat."
+          },
+          {
+            "id": "c",
+            "text": "Lito rides his bike home."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "After the tire is fixed, the bike works again, so Lito can ride it home. The other endings do not follow from fixing a flat tire."
+      },
+      {
+        "itemId": "english-g3-m01-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which ending follows the events of the story?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A watered plant stands upright later."
+          },
+          {
+            "id": "b",
+            "text": "The soil becomes candy."
+          },
+          {
+            "id": "c",
+            "text": "The plant flies away."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Water makes a dry plant healthy again, so it stands upright later. The other endings do not follow from watering a plant."
+      },
+      {
+        "itemId": "english-g3-m01-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "The cart's wheel was repaired. Which ending does NOT fit?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The cart moves again."
+          },
+          {
+            "id": "b",
+            "text": "A dragon flies the cart away."
+          },
+          {
+            "id": "c",
+            "text": "The cart is easy to push."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A repaired wheel lets the cart move again, so the first two endings fit. A dragon flying the cart away does not follow from fixing a wheel."
+      },
+      {
+        "itemId": "english-g3-m01-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A seedling is dry and Ana waters it. Which ending fits?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ana forgets what water is."
+          },
+          {
+            "id": "b",
+            "text": "The school becomes a spaceship."
+          },
+          {
+            "id": "c",
+            "text": "The seedling looks healthier later."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Water helps a dry seedling grow, so it looks healthier later. The other endings do not follow from the story."
+      },
+      {
+        "itemId": "english-g3-m01-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which is a logical story ending?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The story problem is ignored."
+          },
+          {
+            "id": "b",
+            "text": "A dragon appears for no reason."
+          },
+          {
+            "id": "c",
+            "text": "A repaired wheel lets the cart move."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Fixing the wheel solves the problem, so the cart can move again. Ignoring the problem or adding a dragon does not make a logical ending."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d03-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d03-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Choose an Ending; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Choose an Ending.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "0ad3dd48ce9b31ef2e7ec74881153dd249ea819786a9c53ca5aa8f2ea8232f25",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

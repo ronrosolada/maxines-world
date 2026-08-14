@@ -232,24 +232,24 @@
         "prompt": "What is the special name for a cat in our story?",
         "options": [
           {
-            "id": "c",
+            "id": "a",
             "text": "Kitty"
+          },
+          {
+            "id": "b",
+            "text": "Milo"
+          },
+          {
+            "id": "c",
+            "text": "Pusa"
           },
           {
             "id": "d",
             "text": "Mingming"
-          },
-          {
-            "id": "a",
-            "text": "Milo"
-          },
-          {
-            "id": "b",
-            "text": "Pusa"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Milo is the special name of the cat, so it is a proper noun and starts with a capital M."
       },
@@ -257,11 +257,15 @@
         "itemId": "english-g3-q1-w02-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a proper noun?",
+        "prompt": "Which is a proper noun?  (in this lesson: Common or Proper?)",
         "options": [
           {
-            "id": "b",
+            "id": "a",
             "text": "island"
+          },
+          {
+            "id": "b",
+            "text": "Palawan"
           },
           {
             "id": "c",
@@ -270,14 +274,10 @@
           {
             "id": "d",
             "text": "sand"
-          },
-          {
-            "id": "a",
-            "text": "Palawan"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "Palawan is a special name of a place, so it is a proper noun. Island, beach, and sand are common nouns."
       },
@@ -316,24 +316,24 @@
         "prompt": "Which is a common noun?",
         "options": [
           {
-            "id": "d",
+            "id": "a",
             "text": "June"
           },
           {
-            "id": "a",
-            "text": "city"
-          },
-          {
             "id": "b",
-            "text": "Manila"
+            "text": "city"
           },
           {
             "id": "c",
             "text": "Monday"
+          },
+          {
+            "id": "d",
+            "text": "Manila"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "“City” is a general name, so it is a common noun. Manila, June, and Monday are special names."
       },
@@ -344,39 +344,49 @@
         "prompt": "What do nouns name?",
         "options": [
           {
-            "id": "c",
-            "text": "Only numbers"
-          },
-          {
-            "id": "d",
+            "id": "a",
             "text": "Only sounds"
           },
           {
-            "id": "a",
-            "text": "People, places, and things"
+            "id": "b",
+            "text": "Only numbers"
           },
           {
-            "id": "b",
+            "id": "c",
             "text": "Only colors"
+          },
+          {
+            "id": "d",
+            "text": "People, places, and things"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "Nouns name people, places, and things — common nouns are general, and proper nouns are special."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

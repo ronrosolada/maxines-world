@@ -228,6 +228,10 @@
         "prompt": "What is the last part of a story called?",
         "options": [
           {
+            "id": "a",
+            "text": "The page number"
+          },
+          {
             "id": "b",
             "text": "The cover"
           },
@@ -237,15 +241,11 @@
           },
           {
             "id": "d",
-            "text": "The page number"
-          },
-          {
-            "id": "a",
             "text": "The ending"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "The ending is the last part of a story — it tells how everything finishes."
       },
@@ -261,7 +261,7 @@
           },
           {
             "id": "b",
-            "text": "The duck disappears"
+            "text": "The story stops mid-air"
           },
           {
             "id": "c",
@@ -269,7 +269,7 @@
           },
           {
             "id": "d",
-            "text": "The story stops mid-air"
+            "text": "The duck disappears"
           }
         ],
         "correctOptionIds": [
@@ -284,24 +284,24 @@
         "prompt": "What comes first in a story?",
         "options": [
           {
-            "id": "d",
-            "text": "The epilogue"
-          },
-          {
             "id": "a",
-            "text": "The beginning"
-          },
-          {
-            "id": "b",
             "text": "The ending"
           },
           {
-            "id": "c",
+            "id": "b",
             "text": "The last page"
+          },
+          {
+            "id": "c",
+            "text": "The epilogue"
+          },
+          {
+            "id": "d",
+            "text": "The beginning"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "The beginning comes first — that is where the story starts."
       },
@@ -312,24 +312,24 @@
         "prompt": "Can a story have different endings?",
         "options": [
           {
-            "id": "c",
-            "text": "Only on Mondays"
-          },
-          {
-            "id": "d",
-            "text": "Only in the rain"
-          },
-          {
             "id": "a",
-            "text": "Yes"
+            "text": "No"
           },
           {
             "id": "b",
-            "text": "No"
+            "text": "Only in the rain"
+          },
+          {
+            "id": "c",
+            "text": "Yes"
+          },
+          {
+            "id": "d",
+            "text": "Only on Mondays"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "Yes — you can choose a different possible ending for the same story."
       },
@@ -340,20 +340,20 @@
         "prompt": "The duck is lost in the park. Which is a possible ending?",
         "options": [
           {
+            "id": "a",
+            "text": "A boy helps the duck find its mother"
+          },
+          {
             "id": "b",
-            "text": "The duck turns into a kite"
-          },
-          {
-            "id": "c",
-            "text": "The story stops forever"
-          },
-          {
-            "id": "d",
             "text": "The duck becomes invisible"
           },
           {
-            "id": "a",
-            "text": "A boy helps the duck find its mother"
+            "id": "c",
+            "text": "The duck turns into a kite"
+          },
+          {
+            "id": "d",
+            "text": "The story stops forever"
           }
         ],
         "correctOptionIds": [
@@ -364,15 +364,25 @@
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

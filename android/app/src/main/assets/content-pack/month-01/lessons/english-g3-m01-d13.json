@@ -1,344 +1,354 @@
 {
- "lessonId": "english-g3-m01-d13",
- "schemaVersion": 1,
- "grade": 3,
- "month": 1,
- "day": 13,
- "subject": "ENGLISH",
- "title": "Blend Builders · M01 D13",
- "objective": "Read taught consonant blends while keeping their component sounds perceptible.",
- "estimatedMinutes": 12,
- "educatorValidated": true,
- "releaseStatus": "RELEASED",
- "qualifiesForDailyBadge": true,
- "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
- "language": "en-PH",
- "introduction": "Put two letter sounds together and read words like stop and flag. Say the blend and keep both sounds!",
- "vocabulary": [
-  {
-   "term": "consonant",
-   "definition": "A letter that is not a vowel, like b, c, or d."
-  },
-  {
-   "term": "blend",
-   "definition": "To join letter sounds together to read a word."
-  },
-  {
-   "term": "sound",
-   "definition": "Something you hear; in the blend st, you hear both /s/ and /t/."
-  }
- ],
- "activities": [
-  {
-   "activityId": "english-g3-m01-d13-a01",
-   "sequence": 1,
-   "type": "ANIMATED_EXPLANATION",
-   "instruction": "Hear how st and fl keep both letter sounds!",
-   "content": "In a consonant blend, neighboring consonant sounds can still be heard.",
-   "required": true,
-   "completionRule": {
-    "type": "VIEW_AND_ACKNOWLEDGE"
-   },
-   "feedback": {
-    "correct": "Nice work. Continue to the next step.",
-    "retry": "Find the clue in Blend Builders again. 💪"
-   },
-   "assetId": "english-g3-m01-d13-visual",
-   "accessibilityAlternative": "Text alternative: In a consonant blend, neighboring consonant sounds can still be heard."
-  },
-  {
-   "activityId": "english-g3-m01-d13-a02",
-   "sequence": 2,
-   "type": "HOTSPOT_IMAGE",
-   "instruction": "Tap each word and say the blend out loud.",
-   "content": {
-    "examples": [
-     "flag begins with fl",
-     "stop begins with st",
-     "nest ends with st"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_TARGETS_VISITED",
-    "targetCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You found the examples for Blend Builders. 🔎",
-    "retry": "Look at each Blend Builders example again. 💪"
-   },
-   "assetId": "english-g3-m01-d13-visual",
-   "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
-  },
-  {
-   "activityId": "english-g3-m01-d13-a03",
-   "sequence": 3,
-   "type": "SORT_AND_CLASSIFY",
-   "instruction": "Sort each card: does it name a consonant blend correctly?",
-   "content": {
-    "fits": [
-     "flag begins with fl",
-     "stop begins with st",
-     "nest ends with st"
-    ],
-    "doesNotFit": [
-     "ship begins with a blend",
-     "chair begins with a blend",
-     "Ignoring one sound in flag"
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_ITEMS_SORTED",
-    "itemCount": 6
-   },
-   "feedback": {
-    "correct": "Great! You sorted the examples using the Blend Builders clue. 🎉",
-    "retry": "Use the explanation, not color or position."
-   },
-   "assetId": "english-g3-m01-d13-visual",
-   "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
-  },
-  {
-   "activityId": "english-g3-m01-d13-a04",
-   "sequence": 4,
-   "type": "MULTIPLE_CHOICE",
-   "instruction": "Which word begins with the st blend?",
-   "content": {
-    "options": [
-     "stop",
-     "ship",
-     "top"
-    ],
-    "correctIndex": 0
-   },
-   "required": true,
-   "completionRule": {
-    "type": "CORRECT_RESPONSE"
-   },
-   "feedback": {
-    "correct": "Correct: stop",
-    "retry": "Stop begins with st: you hear /s/ and /t/. Ship starts with sh, and top starts with just /t/."
-   },
-   "assetId": null,
-   "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
-  },
-  {
-   "activityId": "english-g3-m01-d13-a05",
-   "sequence": 5,
-   "type": "MATCHING_PAIRS",
-   "instruction": "Match each word to its blend.",
-   "content": {
-    "pairs": [
-     {
-      "left": "flag begins with fl",
-      "right": "fl"
-     },
-     {
-      "left": "stop begins with st",
-      "right": "st at the start"
-     },
-     {
-      "left": "nest ends with st",
-      "right": "st at the end"
-     }
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_PAIRS_MATCHED",
-    "pairCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You matched each example with its Blend Builders explanation. 🔗",
-    "retry": "Read both sides of each Blend Builders pair again. 💪"
-   },
-   "assetId": "english-g3-m01-d13-visual",
-   "accessibilityAlternative": "A list-based matching control replaces drag gestures."
-  },
-  {
-   "activityId": "english-g3-m01-d13-a06",
-   "sequence": 6,
-   "type": "SEQUENCE_BUILDER",
-   "instruction": "Put the blend-reading steps in order.",
-   "content": {
-    "steps": [
-     "Say the word.",
-     "Listen for both sounds together.",
-     "Name the blend you heard."
-    ]
-   },
-   "required": true,
-   "completionRule": {
-    "type": "ALL_STEPS_COMPLETED",
-    "stepCount": 3
-   },
-   "feedback": {
-    "correct": "Great! You put the Blend Builders steps in order. 🎉",
-    "retry": "Find the first, next, and last Blend Builders steps. 💪"
-   },
-   "assetId": "english-g3-m01-d13-visual",
-   "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
-  }
- ],
- "assessment": {
-  "purpose": "FORMATIVE_MODULE_CHECK",
-  "itemCount": 5,
-  "passingCorrectCount": 4,
-  "claimsMastery": false,
-  "items": [
-   {
-    "itemId": "english-g3-m01-d13-q01",
-    "sequence": 1,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word begins with two consonant sounds?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ship"
-     },
-     {
-      "id": "b",
-      "text": "stop"
-     },
-     {
-      "id": "c",
-      "text": "chair"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "In stop you can hear /s/ then /t/ — that is the st blend. Ship begins with sh, one sound, and chair begins with ch, one sound."
-   },
-   {
-    "itemId": "english-g3-m01-d13-q02",
-    "sequence": 2,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word begins with a consonant blend?",
-    "options": [
-     {
-      "id": "a",
-      "text": "flag"
-     },
-     {
-      "id": "b",
-      "text": "ship"
-     },
-     {
-      "id": "c",
-      "text": "top"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Flag begins with fl: you can hear both /f/ and /l/. Ship begins with sh, one sound together, and top starts with just /t/."
-   },
-   {
-    "itemId": "english-g3-m01-d13-q03",
-    "sequence": 3,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word does NOT begin with a blend?",
-    "options": [
-     {
-      "id": "a",
-      "text": "flag"
-     },
-     {
-      "id": "b",
-      "text": "stop"
-     },
-     {
-      "id": "c",
-      "text": "ship"
-     }
-    ],
-    "correctOptionIds": [
-     "c"
-    ],
-    "explanation": "Ship starts with sh — one sound you cannot split. Flag (fl) and stop (st) are blends because you can hear both letters."
-   },
-   {
-    "itemId": "english-g3-m01-d13-q04",
-    "sequence": 4,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word begins with the st blend?",
-    "options": [
-     {
-      "id": "a",
-      "text": "ship"
-     },
-     {
-      "id": "b",
-      "text": "stop"
-     },
-     {
-      "id": "c",
-      "text": "top"
-     }
-    ],
-    "correctOptionIds": [
-     "b"
-    ],
-    "explanation": "Stop begins with st: say it slowly and you hear /s/ then /t/. Ship starts with sh, and top starts with just /t/."
-   },
-   {
-    "itemId": "english-g3-m01-d13-q05",
-    "sequence": 5,
-    "type": "MULTIPLE_CHOICE",
-    "prompt": "Which word starts with a consonant blend?",
-    "options": [
-     {
-      "id": "a",
-      "text": "star"
-     },
-     {
-      "id": "b",
-      "text": "ship"
-     },
-     {
-      "id": "c",
-      "text": "egg"
-     }
-    ],
-    "correctOptionIds": [
-     "a"
-    ],
-    "explanation": "Star begins with the blend st, which blends the sounds /s/ and /t/. Ship begins with the digraph sh, and egg begins with a vowel."
-   }
-  ]
- },
- "assetSpecs": [
-  {
-   "assetId": "english-g3-m01-d13-visual",
-   "type": "INTERACTIVE_SPEC",
-   "path": "assets/vectors/english-g3-m01-d13-visual.svg",
-   "prompt": "Friendly Grade 3 cartoon storybook concept board for Blend Builders; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
-   "contentDescription": "Five connected learning tokens for exploring examples in Blend Builders.",
-   "decorative": false
-  }
- ],
- "safetyNotes": [],
- "sourceRecords": [
-  {
-   "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
-   "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
-   "claimScope": "Curriculum and subject-matter review reference",
-   "reviewStatus": "PENDING_HUMAN_REVIEW"
-  }
- ],
- "contentHash": "0c158b76a098e90af43d523f77c4ebab36c7e097c6091d8850ad6575b86814c0",
- "contentReview": {
-  "reviewer": "RonBot — full educator review 2026-08-13",
-  "focus": [
-   "factual accuracy",
-   "Grade 3 appropriateness",
-   "child safety",
-   "engagement"
+  "lessonId": "english-g3-m01-d13",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 13,
+  "subject": "ENGLISH",
+  "title": "Blend Builders · M01 D13",
+  "objective": "Read taught consonant blends while keeping their component sounds perceptible.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Put two letter sounds together and read words like stop and flag. Say the blend and keep both sounds!",
+  "vocabulary": [
+    {
+      "term": "consonant",
+      "definition": "A letter that is not a vowel, like b, c, or d."
+    },
+    {
+      "term": "blend",
+      "definition": "To join letter sounds together to read a word."
+    },
+    {
+      "term": "sound",
+      "definition": "Something you hear; in the blend st, you hear both /s/ and /t/."
+    }
   ],
-  "source": "legacy lesson-specific examples preserved; learner-facing shell normalized",
-  "rewritten": false
- },
- "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d13-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Hear how st and fl keep both letter sounds!",
+      "content": "In a consonant blend, neighboring consonant sounds can still be heard.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find the clue in Blend Builders again. 💪"
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "Text alternative: In a consonant blend, neighboring consonant sounds can still be heard."
+    },
+    {
+      "activityId": "english-g3-m01-d13-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each word and say the blend out loud.",
+      "content": {
+        "examples": [
+          "flag begins with fl",
+          "stop begins with st",
+          "nest ends with st"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Blend Builders. 🔎",
+        "retry": "Look at each Blend Builders example again. 💪"
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d13-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it name a consonant blend correctly?",
+      "content": {
+        "fits": [
+          "flag begins with fl",
+          "stop begins with st",
+          "nest ends with st"
+        ],
+        "doesNotFit": [
+          "ship begins with a blend",
+          "chair begins with a blend",
+          "Ignoring one sound in flag"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Blend Builders clue. 🎉",
+        "retry": "Use the explanation, not color or position."
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d13-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which word begins with the st blend?",
+      "content": {
+        "options": [
+          "stop",
+          "ship",
+          "top"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: stop",
+        "retry": "Stop begins with st — you hear /s/ and /t/. Ship starts with sh."
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d13-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each word to its blend.",
+      "content": {
+        "pairs": [
+          {
+            "left": "flag begins with fl",
+            "right": "fl"
+          },
+          {
+            "left": "stop begins with st",
+            "right": "st at the start"
+          },
+          {
+            "left": "nest ends with st",
+            "right": "st at the end"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Blend Builders explanation. 🔗",
+        "retry": "Read both sides of each Blend Builders pair again. 💪"
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d13-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the blend-reading steps in order.",
+      "content": {
+        "steps": [
+          "Say the word.",
+          "Listen for both sounds together.",
+          "Name the blend you heard."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Blend Builders steps in order. 🎉",
+        "retry": "Find the first, next, and last Blend Builders steps. 💪"
+      },
+      "assetId": "english-g3-m01-d13-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d13-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word begins with two consonant sounds?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ship"
+          },
+          {
+            "id": "b",
+            "text": "chair"
+          },
+          {
+            "id": "c",
+            "text": "stop"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "In stop you can hear /s/ then /t/ — that is the st blend. Ship begins with sh, one sound, and chair begins with ch, one sound."
+      },
+      {
+        "itemId": "english-g3-m01-d13-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word begins with a consonant blend?",
+        "options": [
+          {
+            "id": "a",
+            "text": "flag"
+          },
+          {
+            "id": "b",
+            "text": "ship"
+          },
+          {
+            "id": "c",
+            "text": "top"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Flag begins with fl: you can hear both /f/ and /l/. Ship begins with sh, one sound together, and top starts with just /t/."
+      },
+      {
+        "itemId": "english-g3-m01-d13-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word does NOT begin with a blend?",
+        "options": [
+          {
+            "id": "a",
+            "text": "stop"
+          },
+          {
+            "id": "b",
+            "text": "flag"
+          },
+          {
+            "id": "c",
+            "text": "ship"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ship starts with sh — one sound you cannot split. Flag (fl) and stop (st) are blends because you can hear both letters."
+      },
+      {
+        "itemId": "english-g3-m01-d13-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word begins with the st blend?",
+        "options": [
+          {
+            "id": "a",
+            "text": "top"
+          },
+          {
+            "id": "b",
+            "text": "stop"
+          },
+          {
+            "id": "c",
+            "text": "ship"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Stop begins with st: say it slowly and you hear /s/ then /t/. Ship starts with sh, and top starts with just /t/."
+      },
+      {
+        "itemId": "english-g3-m01-d13-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word starts with a consonant blend?",
+        "options": [
+          {
+            "id": "a",
+            "text": "star"
+          },
+          {
+            "id": "b",
+            "text": "ship"
+          },
+          {
+            "id": "c",
+            "text": "egg"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Star begins with the blend st, which blends the sounds /s/ and /t/. Ship begins with the digraph sh, and egg begins with a vowel."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d13-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d13-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Blend Builders; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Blend Builders.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "0c158b76a098e90af43d523f77c4ebab36c7e097c6091d8850ad6575b86814c0",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

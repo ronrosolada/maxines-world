@@ -233,23 +233,23 @@
         "options": [
           {
             "id": "a",
-            "text": "About your day"
-          },
-          {
-            "id": "b",
-            "text": "Math problems"
-          },
-          {
-            "id": "c",
             "text": "List of animals"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "Boat designs"
+          },
+          {
+            "id": "c",
+            "text": "Math problems"
+          },
+          {
+            "id": "d",
+            "text": "About your day"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "A diary holds the story of your own day — what you did and how you felt."
       },
@@ -260,20 +260,20 @@
         "prompt": "Which word is first person?",
         "options": [
           {
-            "id": "d",
-            "text": "It"
-          },
-          {
             "id": "a",
             "text": "I"
           },
           {
             "id": "b",
-            "text": "They"
+            "text": "Them"
           },
           {
             "id": "c",
-            "text": "Them"
+            "text": "It"
+          },
+          {
+            "id": "d",
+            "text": "They"
           }
         ],
         "correctOptionIds": [
@@ -288,20 +288,20 @@
         "prompt": "Which sentence is about Maxine?",
         "options": [
           {
-            "id": "c",
-            "text": "Dogs bark"
-          },
-          {
-            "id": "d",
-            "text": "Birds fly"
-          },
-          {
             "id": "a",
             "text": "I played with Milo"
           },
           {
             "id": "b",
+            "text": "Dogs bark"
+          },
+          {
+            "id": "c",
             "text": "The sun is bright"
+          },
+          {
+            "id": "d",
+            "text": "Birds fly"
           }
         ],
         "correctOptionIds": [
@@ -316,24 +316,24 @@
         "prompt": "Who writes in a diary?",
         "options": [
           {
-            "id": "b",
+            "id": "a",
             "text": "Only teachers"
           },
           {
-            "id": "c",
+            "id": "b",
             "text": "Only kings"
           },
           {
-            "id": "d",
+            "id": "c",
             "text": "Only birds"
           },
           {
-            "id": "a",
+            "id": "d",
             "text": "You do"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "You write in your own diary, using words like I, me, and my."
       },
@@ -345,7 +345,7 @@
         "options": [
           {
             "id": "a",
-            "text": "I ate Lola's adobo"
+            "text": "Milo ate the adobo"
           },
           {
             "id": "b",
@@ -357,26 +357,36 @@
           },
           {
             "id": "d",
-            "text": "Milo ate the adobo"
+            "text": "I ate Lola's adobo"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "'I' is first person — the word you use for yourself. 'I ate Lola's adobo' tells about your own day."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

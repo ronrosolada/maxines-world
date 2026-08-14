@@ -233,7 +233,7 @@
         "options": [
           {
             "id": "a",
-            "text": "her"
+            "text": "their"
           },
           {
             "id": "b",
@@ -241,15 +241,15 @@
           },
           {
             "id": "c",
-            "text": "its"
+            "text": "her"
           },
           {
             "id": "d",
-            "text": "their"
+            "text": "its"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "“Her” shows a girl owns it, like “her kite”."
       },
@@ -260,20 +260,20 @@
         "prompt": "Which is correct?",
         "options": [
           {
-            "id": "d",
-            "text": "mine ball is"
-          },
-          {
             "id": "a",
             "text": "my ball"
           },
           {
             "id": "b",
-            "text": "I ball"
+            "text": "me ball"
           },
           {
             "id": "c",
-            "text": "me ball"
+            "text": "mine ball is"
+          },
+          {
+            "id": "d",
+            "text": "I ball"
           }
         ],
         "correctOptionIds": [
@@ -288,24 +288,24 @@
         "prompt": "What do possessives show?",
         "options": [
           {
-            "id": "c",
+            "id": "a",
             "text": "How old you are"
           },
           {
-            "id": "d",
+            "id": "b",
             "text": "Where to go"
           },
           {
-            "id": "a",
+            "id": "c",
             "text": "Who owns something"
           },
           {
-            "id": "b",
+            "id": "d",
             "text": "What time it is"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "Possessives show who owns something: my, your, his, her, its, our, their."
       },
@@ -316,24 +316,24 @@
         "prompt": "Which shows many people own it?",
         "options": [
           {
-            "id": "b",
+            "id": "a",
             "text": "his"
           },
           {
-            "id": "c",
-            "text": "its"
-          },
-          {
-            "id": "d",
+            "id": "b",
             "text": "her"
           },
           {
-            "id": "a",
+            "id": "c",
             "text": "their"
+          },
+          {
+            "id": "d",
+            "text": "its"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "c"
         ],
         "explanation": "“Their” shows many people own it, like “their house”."
       },
@@ -345,38 +345,48 @@
         "options": [
           {
             "id": "a",
-            "text": "That is my pencil."
-          },
-          {
-            "id": "b",
             "text": "That is I pencil."
           },
           {
-            "id": "c",
+            "id": "b",
             "text": "That is me pencil."
           },
           {
-            "id": "d",
+            "id": "c",
             "text": "That is mine pencil is."
+          },
+          {
+            "id": "d",
+            "text": "That is my pencil."
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "'My' shows the pencil belongs to you — 'my pencil' is the correct possessive form."
       }
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }

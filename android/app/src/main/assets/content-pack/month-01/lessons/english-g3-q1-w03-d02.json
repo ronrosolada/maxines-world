@@ -233,7 +233,7 @@
         "options": [
           {
             "id": "a",
-            "text": "will"
+            "text": "ing"
           },
           {
             "id": "b",
@@ -241,15 +241,15 @@
           },
           {
             "id": "c",
-            "text": "ing"
+            "text": "ly"
           },
           {
             "id": "d",
-            "text": "ly"
+            "text": "will"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "“Will” points to the future — it tells what is going to happen, like “will play”."
       },
@@ -260,24 +260,24 @@
         "prompt": "Which is PAST tense?",
         "options": [
           {
-            "id": "d",
-            "text": "playing"
-          },
-          {
             "id": "a",
-            "text": "played"
+            "text": "plays"
           },
           {
             "id": "b",
-            "text": "play"
+            "text": "playing"
           },
           {
             "id": "c",
-            "text": "plays"
+            "text": "play"
+          },
+          {
+            "id": "d",
+            "text": "played"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "d"
         ],
         "explanation": "“Played” tells about something that already happened, so it is past tense."
       },
@@ -288,19 +288,19 @@
         "prompt": "Yesterday I ___ with Milo.",
         "options": [
           {
-            "id": "c",
-            "text": "will play"
-          },
-          {
-            "id": "d",
-            "text": "plays"
-          },
-          {
             "id": "a",
             "text": "played"
           },
           {
             "id": "b",
+            "text": "plays"
+          },
+          {
+            "id": "c",
+            "text": "will play"
+          },
+          {
+            "id": "d",
             "text": "play"
           }
         ],
@@ -316,24 +316,24 @@
         "prompt": "Tomorrow I ___ my Lola.",
         "options": [
           {
-            "id": "b",
-            "text": "visited"
-          },
-          {
-            "id": "c",
-            "text": "visit"
-          },
-          {
-            "id": "d",
+            "id": "a",
             "text": "visits"
           },
           {
-            "id": "a",
+            "id": "b",
             "text": "will visit"
+          },
+          {
+            "id": "c",
+            "text": "visited"
+          },
+          {
+            "id": "d",
+            "text": "visit"
           }
         ],
         "correctOptionIds": [
-          "a"
+          "b"
         ],
         "explanation": "“Tomorrow” is a future clue, so the action word is “will visit”."
       },
@@ -368,15 +368,25 @@
     ]
   },
   "contentReview": {
-    "reviewer": "RonBot — full educator review 2026-08-13",
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
     "focus": [
       "factual accuracy",
       "Grade 3 appropriateness",
       "child safety",
-      "engagement"
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
     ],
-    "source": "competency/objective and local examples; no unsafe experiment required",
-    "rewritten": false
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00"
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
 }
