@@ -16,6 +16,13 @@ import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.PinDots
 import com.maxinesworld.featureauth.PinPad
+import com.maxinesworld.featureauth.generateParentChallenge
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -182,6 +189,26 @@ class ParentGateViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Resets parent PIN safely without clearing child data in Room.
+     */
+    fun onResetPin(onResetComplete: () -> Unit) {
+        viewModelScope.launch {
+            lockCountdownJob?.cancel()
+            authManager.resetPinOnly()
+            _state.update {
+                it.copy(
+                    pinInput = "",
+                    pinError = null,
+                    attempts = 0,
+                    lockedUntilEpochMillis = 0L,
+                    lockRemainingSeconds = 0,
+                )
+            }
+            onResetComplete()
+        }
+    }
+
     override fun onCleared() {
         lockCountdownJob?.cancel()
         super.onCleared()
@@ -204,6 +231,7 @@ fun ParentGateScreen(
 ) {
     val state by viewModel.state.collectAsState()
     val locked = state.lockRemainingSeconds > 0
+    var showResetDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(state.isAuthenticated) {
         if (state.isAuthenticated) onAuthenticated()
@@ -226,6 +254,7 @@ fun ParentGateScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
                 .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -244,13 +273,13 @@ fun ParentGateScreen(
                 color = Teal40,
                 textAlign = TextAlign.Center
             )
-            Spacer(Modifier.height(32.dp))
-
-            PinDots(length = state.pinInput.length)
             Spacer(Modifier.height(24.dp))
 
+            PinDots(length = state.pinInput.length)
+            Spacer(Modifier.height(20.dp))
+
             PinPad(enabled = !locked) { digit -> viewModel.onPinDigit(digit) }
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(10.dp))
 
             TextButton(
                 onClick = viewModel::onPinDelete,
@@ -261,23 +290,121 @@ fun ParentGateScreen(
 
             if (locked) {
                 Spacer(Modifier.height(8.dp))
-                Text(
-                    "Too many attempts. Try again in ${state.lockRemainingSeconds}s.",
-                    color = ErrorRed,
-                    style = MaterialTheme.typography.bodyMedium,
-                )
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = ErrorRed.copy(alpha = 0.08f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.25f)),
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(12.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Text(
+                            "🔒 Keypad Locked (${state.lockRemainingSeconds}s remaining)",
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = ErrorRed,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Too many attempts. Keypad will unlock automatically in ${state.lockRemainingSeconds} seconds.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Kusang magbubukas pagkatapos ng ${state.lockRemainingSeconds} segundo.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                }
             } else state.pinError?.let {
                 Spacer(Modifier.height(8.dp))
                 Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
             }
 
-            Spacer(Modifier.height(20.dp))
-            Text(
-                "Forgot your PIN? Ask a parent to reset Maxine's World in Android Settings. Resetting the app deletes profiles and learning progress.",
-                color = Ink.copy(alpha = 0.65f),
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-            )
+            Spacer(Modifier.height(16.dp))
+            TextButton(
+                onClick = { showResetDialog = true },
+                modifier = Modifier.semantics { contentDescription = "Forgot PIN or Reset PIN" }
+            ) {
+                Text("Forgot PIN? Reset PIN", color = Teal40, fontWeight = FontWeight.Medium)
+            }
         }
+    }
+
+    if (showResetDialog) {
+        val challenge = remember { generateParentChallenge() }
+        var answerInput by remember { mutableStateOf("") }
+        var errorText by remember { mutableStateOf<String?>(null) }
+
+        AlertDialog(
+            onDismissRequest = { showResetDialog = false },
+            title = {
+                Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        "To set a new PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Teal90.copy(alpha = 0.5f),
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                    ) {
+                        Text(
+                            challenge.questionPromptEn,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Teal40,
+                            modifier = Modifier.padding(12.dp),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                    OutlinedTextField(
+                        value = answerInput,
+                        onValueChange = {
+                            answerInput = it
+                            errorText = null
+                        },
+                        label = { Text("Answer") },
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    if (errorText != null) {
+                        Text(errorText!!, color = ErrorRed, style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        if (challenge.verify(answerInput)) {
+                            showResetDialog = false
+                            viewModel.onResetPin {
+                                onBack()
+                            }
+                        } else {
+                            errorText = "Incorrect answer. Please try again."
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = Teal40)
+                ) {
+                    Text("Verify & Reset PIN")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showResetDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 }

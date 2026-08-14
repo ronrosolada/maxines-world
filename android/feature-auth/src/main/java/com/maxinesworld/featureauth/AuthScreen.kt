@@ -232,9 +232,12 @@ internal fun PinSetupContent(
 @Composable
 private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
     val locked = state.lockRemainingSeconds > 0
+    var showResetDialog by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -258,7 +261,7 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(24.dp))
 
         PinDots(length = state.pinInput.length)
         Text(
@@ -266,10 +269,10 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(20.dp))
 
         PinPad(enabled = !locked) { digit -> viewModel.onPinDigit(digit) }
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(10.dp))
 
         // Delete button
         TextButton(
@@ -280,24 +283,137 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         }
 
         if (locked) {
-            Text(
-                "Too many attempts. Try again in ${state.lockRemainingSeconds}s.",
-                color = ErrorRed,
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        } else state.pinError?.let {
-            Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
             Spacer(Modifier.height(8.dp))
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = ErrorRed.copy(alpha = 0.08f),
+                border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(12.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    Text(
+                        "🔒 Keypad Locked (${state.lockRemainingSeconds}s remaining)",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = ErrorRed,
+                        textAlign = TextAlign.Center,
+                    )
+                    Text(
+                        "Too many attempts. Keypad will unlock automatically in ${state.lockRemainingSeconds} seconds.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                    )
+                    Text(
+                        "Kusang magbubukas pagkatapos ng ${state.lockRemainingSeconds} segundo.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+        } else state.pinError?.let {
+            Spacer(Modifier.height(8.dp))
+            Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
         }
 
         Spacer(Modifier.height(16.dp))
 
-        // ─── Biometric option removed — not yet functional ───
-        // Per audit recommendation: never show a control that suggests protection
-        // that does not exist. BiometricPrompt will be re-added when implemented.
+        TextButton(
+            onClick = { showResetDialog = true },
+            modifier = Modifier.semantics { contentDescription = "Forgot PIN or Reset PIN" }
+        ) {
+            Text("Forgot PIN? Reset PIN", color = Teal40, fontWeight = FontWeight.Medium)
+        }
 
         Spacer(Modifier.height(16.dp))
     }
+
+    if (showResetDialog) {
+        ParentResetPinDialog(
+            onDismiss = { showResetDialog = false },
+            onConfirmReset = {
+                showResetDialog = false
+                viewModel.onResetPin()
+            }
+        )
+    }
+}
+
+@Composable
+private fun ParentResetPinDialog(
+    onDismiss: () -> Unit,
+    onConfirmReset: () -> Unit,
+) {
+    val challenge = remember { generateParentChallenge() }
+    var answerInput by remember { mutableStateOf("") }
+    var errorText by remember { mutableStateOf<String?>(null) }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
+        },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(
+                    "To set a new PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = Teal90.copy(alpha = 0.5f),
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                ) {
+                    Text(
+                        challenge.questionPromptEn,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = Teal40,
+                        modifier = Modifier.padding(12.dp),
+                        textAlign = TextAlign.Center
+                    )
+                }
+                OutlinedTextField(
+                    value = answerInput,
+                    onValueChange = {
+                        answerInput = it
+                        errorText = null
+                    },
+                    label = { Text("Answer") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier.fillMaxWidth()
+                )
+                if (errorText != null) {
+                    Text(errorText!!, color = ErrorRed, style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = {
+                    if (challenge.verify(answerInput)) {
+                        onConfirmReset()
+                    } else {
+                        errorText = "Incorrect answer. Please try again."
+                    }
+                },
+                colors = ButtonDefaults.buttonColors(containerColor = Teal40)
+            ) {
+                Text("Verify & Set New PIN")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancel")
+            }
+        }
+    )
 }
 
 @Composable

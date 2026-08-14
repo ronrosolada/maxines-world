@@ -78,6 +78,19 @@ class ParentAuthManager @Inject constructor(
         }
     }
 
+    /**
+     * Resets the parent PIN and lockout counters without deleting
+     * parent display name or Room database child profiles.
+     */
+    suspend fun resetPinOnly() {
+        context.authDataStore.edit { prefs ->
+            prefs.remove(KEY_PIN_HASH)
+            prefs.remove(KEY_PIN_SALT)
+            prefs.remove(KEY_FAILED_ATTEMPTS)
+            prefs.remove(KEY_LOCKED_UNTIL)
+        }
+    }
+
     private suspend fun getOrCreateSalt(): String {
         context.authDataStore.data.first()[KEY_PIN_SALT]?.let { return it }
         val salt = ByteArray(16).also { SecureRandom().nextBytes(it) }

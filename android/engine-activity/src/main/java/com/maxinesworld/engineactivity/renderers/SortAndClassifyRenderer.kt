@@ -118,13 +118,31 @@ fun SortAndClassifyRenderer(
                 placed -> SubjectColors.Science.surface
                 else -> SurfaceContainer
             }
+            val assignedCategory = if (placed) categories.getOrNull(classified[ii] ?: -1) else null
+            val itemDescription = when {
+                submitted && placed -> "$label — ${if (classified[ii] == correctMapping[ii]) "correct" else "needs review"}"
+                placed -> "$label — sorted in $assignedCategory. Tap to move or remove."
+                sel -> "$label — selected. Tap a box to place."
+                else -> "Item: $label"
+            }
             Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(bg)
-                .clickable(enabled = !submitted && !placed, role = Role.Button) { selectedItem = ii }
+                .clickable(enabled = !submitted, role = Role.Button) {
+                    val (nextSelected, nextClassified) = handleSortItemClick(ii, selectedItem, classified)
+                    selectedItem = nextSelected
+                    classified = nextClassified.toMutableMap()
+                }
                 .padding(12.dp).sizeIn(minHeight = 48.dp)
-                .semantics { contentDescription = if (placed) "$label — sorted" else "Item: $label" },
+                .semantics { contentDescription = itemDescription },
                 verticalAlignment = Alignment.CenterVertically) {
                 Text(label, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
-                if (placed && !submitted) Text("✓", color = OnLeafGreen)
+                if (placed && !submitted) {
+                    Text(
+                        text = if (assignedCategory != null) "✓ $assignedCategory" else "✓",
+                        color = OnLeafGreen,
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                }
             }
         }
 
@@ -208,3 +226,24 @@ internal fun retainCorrectSortPlacements(
     classified.filterTo(mutableMapOf()) { (itemIndex, categoryIndex) ->
         correctMapping[itemIndex] == categoryIndex
     }
+
+/**
+ * Resolves selection and placement when an item card is tapped in Sort & Classify before submission.
+ * - If currently placed: unplaces it (removes from map) and selects it so the learner can re-assign or tap again to deselect.
+ * - If unplaced: toggles selection (selects if not selected, deselects if currently selected).
+ */
+internal fun handleSortItemClick(
+    itemIndex: Int,
+    currentlySelected: Int,
+    classified: Map<Int, Int>,
+): Pair<Int, Map<Int, Int>> {
+    val isPlaced = classified.containsKey(itemIndex)
+    return if (isPlaced) {
+        val nextClassified = classified.toMutableMap().apply { remove(itemIndex) }
+        val nextSelected = if (currentlySelected == itemIndex) -1 else itemIndex
+        Pair(nextSelected, nextClassified)
+    } else {
+        val nextSelected = if (currentlySelected == itemIndex) -1 else itemIndex
+        Pair(nextSelected, classified)
+    }
+}

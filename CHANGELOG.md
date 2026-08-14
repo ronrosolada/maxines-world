@@ -6,6 +6,22 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.32.0] - 2026-08-14
+
+### Highlights & Pedagogical Integrity
+
+- **Corpus-Wide Educator Content Review**: Completed full pedagogical pass across all 358 lessons; resolved duplicate assessment items, rotated answer key positions, diversified mascot openers, and eliminated objective-pasting anti-patterns.
+- **Sort & Classify Unplace & Re-Sort Flow**: Learners can now tap any placed card before submission to unplace it back to the tray or move it to a different category bucket without needing to submit and retry.
+- **Safe, Non-Destructive Parent PIN Recovery**: Added COPPA-compliant guardian verification challenge (`14 × 8`, `17 × 7` mental math gate) allowing guardians who forget their 6-digit PIN to reset it safely without wiping child profiles, learning completions, or earned stickers.
+- **Reassuring, Bilingual PIN Lockout Display**: Replaced raw lockout error text with a live countdown timer card in English and Filipino (*"Kusang magbubukas pagkatapos ng Xs"*).
+
+### Testing & Verification
+
+- All 358 lessons pass `content_quality_audit.py`, `content_pack_validation.py`, and `content_similarity_gate.py` with 0 errors.
+- 101/101 Python content test suites passed.
+- 87/87 connected Android instrumentation tests passed on API 35 emulator.
+
+
 ## [0.31.1] - 2026-08-13
 
 ### Fix

@@ -56,7 +56,7 @@ class SortAndClassifyRendererTest {
             .assertIsEnabled()
             .performClick()
         composeRule
-            .onNodeWithContentDescription("$item — sorted", useUnmergedTree = true)
+            .onNodeWithContentDescription("$item — sorted in Fits. Tap to move or remove.", useUnmergedTree = true)
             .fetchSemanticsNode()
         composeRule
             .onNodeWithContentDescription("Submit", useUnmergedTree = true)

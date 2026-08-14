@@ -227,10 +227,35 @@ class ParentAuthViewModel @Inject constructor(
                 pinHash = "" // no longer stored in Room — DataStore is the single source
             )
             parentAccountDao.upsert(parent)
+            val children = childProfileDao.getByParent(parent.id)
             _state.update {
                 it.copy(
                     hasPin = true,
-                    currentScreen = AuthScreen.CREATE_PROFILE
+                    pinInput = "",
+                    pinError = null,
+                    currentScreen = if (children.isEmpty()) AuthScreen.CREATE_PROFILE else AuthScreen.CHILD_SELECT
+                )
+            }
+        }
+    }
+
+    /**
+     * Resets the parent PIN safely without deleting existing child profiles
+     * or learning progress in Room.
+     */
+    fun onResetPin() {
+        viewModelScope.launch {
+            lockCountdownJob?.cancel()
+            authManager.resetPinOnly()
+            _state.update {
+                it.copy(
+                    hasPin = false,
+                    pinInput = "",
+                    pinError = null,
+                    failedAttempts = 0,
+                    lockedUntilEpochMillis = 0L,
+                    lockRemainingSeconds = 0,
+                    currentScreen = AuthScreen.PIN_SETUP
                 )
             }
         }
@@ -325,3 +350,30 @@ internal fun lockRemainingSeconds(lockedUntilEpochMillis: Long, nowEpochMillis: 
     } else {
         ((lockedUntilEpochMillis - nowEpochMillis) / 1_000L + 1L).toInt()
     }
+
+/**
+ * Child-resistant verification challenge to prevent learners from accidentally
+ * or deliberately resetting the parent PIN. Uses adult-level mental multiplication.
+ */
+data class ParentVerificationChallenge(
+    val factorA: Int,
+    val factorB: Int,
+) {
+    val questionPromptEn: String
+        get() = "Parent Verification: What is $factorA × $factorB?"
+
+    val questionPromptFil: String
+        get() = "Pagpapatunay ng Magulang: Ano ang $factorA × $factorB?"
+
+    val expectedAnswer: Int
+        get() = factorA * factorB
+
+    fun verify(input: String): Boolean =
+        input.trim().toIntOrNull() == expectedAnswer
+}
+
+fun generateParentChallenge(random: java.util.Random = java.util.Random()): ParentVerificationChallenge {
+    val a = 12 + random.nextInt(8) // 12..19
+    val b = 6 + random.nextInt(7)  // 6..12
+    return ParentVerificationChallenge(a, b)
+}

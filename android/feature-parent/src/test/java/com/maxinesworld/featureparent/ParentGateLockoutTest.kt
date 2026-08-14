@@ -2,6 +2,7 @@ package com.maxinesworld.featureparent
 
 import com.maxinesworld.featureauth.ParentAuthManager
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -51,5 +52,21 @@ class ParentGateLockoutTest {
         assertEquals(30, parentGateRemainingSeconds(130_000L, 100_001L))
         assertEquals(1, parentGateRemainingSeconds(130_000L, 129_999L))
         assertEquals(0, parentGateRemainingSeconds(130_000L, 130_000L))
+    }
+
+    @Test
+    fun `onResetPin resets PIN and invokes callback`() = runTest(dispatcher) {
+        coEvery { authManager.resetPinOnly() } coAnswers { }
+        val viewModel = ParentGateViewModel(authManager)
+        runCurrent()
+
+        var callbackCalled = false
+        viewModel.onResetPin { callbackCalled = true }
+        runCurrent()
+
+        coVerify(exactly = 1) { authManager.resetPinOnly() }
+        assertTrue(callbackCalled)
+        assertEquals(0, viewModel.state.value.attempts)
+        assertEquals(0, viewModel.state.value.lockRemainingSeconds)
     }
 }

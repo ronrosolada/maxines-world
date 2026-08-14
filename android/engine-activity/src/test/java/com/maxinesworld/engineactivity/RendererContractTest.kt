@@ -3,6 +3,7 @@ package com.maxinesworld.engineactivity
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.MatchPair
 import com.maxinesworld.coremodel.SortItem
+import com.maxinesworld.engineactivity.renderers.handleSortItemClick
 import com.maxinesworld.engineactivity.renderers.HotspotProgress
 import com.maxinesworld.engineactivity.renderers.hotspotBadgeOffset
 import com.maxinesworld.engineactivity.renderers.hotspotGridColumns
@@ -68,6 +69,34 @@ class RendererContractTest {
         )
 
         assertEquals(mapOf(0 to 0, 2 to 0), retained)
+    }
+
+    @Test
+    fun `tapping an unplaced card selects it and toggles selection`() {
+        val classified = mapOf<Int, Int>()
+        // Initial select
+        val (sel1, map1) = handleSortItemClick(itemIndex = 0, currentlySelected = -1, classified = classified)
+        assertEquals(0, sel1)
+        assertEquals(emptyMap<Int, Int>(), map1)
+
+        // Toggle off
+        val (sel2, map2) = handleSortItemClick(itemIndex = 0, currentlySelected = 0, classified = classified)
+        assertEquals(-1, sel2)
+        assertEquals(emptyMap<Int, Int>(), map2)
+    }
+
+    @Test
+    fun `tapping a placed card unplaces it and selects it for re-placement`() {
+        val classified = mapOf(0 to 1, 1 to 0)
+        // Child taps card 0 which was placed in bucket 1
+        val (sel, nextClassified) = handleSortItemClick(itemIndex = 0, currentlySelected = -1, classified = classified)
+        assertEquals(0, sel)
+        assertEquals(mapOf(1 to 0), nextClassified)
+
+        // Child taps card 0 again -> deselects, remains unplaced
+        val (sel2, nextClassified2) = handleSortItemClick(itemIndex = 0, currentlySelected = 0, classified = nextClassified)
+        assertEquals(-1, sel2)
+        assertEquals(mapOf(1 to 0), nextClassified2)
     }
 
     @Test

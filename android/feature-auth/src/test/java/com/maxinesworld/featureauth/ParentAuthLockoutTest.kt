@@ -183,4 +183,32 @@ class ParentAuthLockoutTest {
 
         coVerify(exactly = 1) { authManager.verifyPin(any()) }
     }
+
+    @Test
+    fun `parent verification challenge correctly verifies answers`() {
+        val challenge = ParentVerificationChallenge(factorA = 14, factorB = 7)
+        assertEquals(98, challenge.expectedAnswer)
+        assertTrue(challenge.verify("98"))
+        assertTrue(challenge.verify(" 98 "))
+        assertFalse(challenge.verify("97"))
+        assertFalse(challenge.verify("abc"))
+    }
+
+    @Test
+    fun `resetting PIN clears lockout and returns to PIN_SETUP while preserving child profiles`() = runTest(dispatcher) {
+        coEvery { authManager.resetPinOnly() } coAnswers { }
+        viewModel = createViewModel()
+
+        viewModel.onResetPin()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { authManager.resetPinOnly() }
+        val state = viewModel.state.value
+        assertEquals(AuthScreen.PIN_SETUP, state.currentScreen)
+        assertFalse(state.hasPin)
+        assertEquals(0, state.failedAttempts)
+        assertEquals(0L, state.lockedUntilEpochMillis)
+        assertEquals(0, state.lockRemainingSeconds)
+        assertEquals(1, state.childProfiles.size)
+    }
 }
