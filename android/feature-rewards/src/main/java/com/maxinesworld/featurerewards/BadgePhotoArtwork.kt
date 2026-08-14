@@ -39,7 +39,11 @@ internal fun BadgePhotoArtwork(
     if (resourceId != 0) {
         Image(
             painter = painterResource(resourceId),
-            contentDescription = "Real-life photo of ${badge.name}",
+            contentDescription = if (badge.photoKind == "official_stamp") {
+                "Official stamp of ${badge.name}"
+            } else {
+                "Real-life photo of ${badge.name}"
+            },
             contentScale = ContentScale.Fit,
             modifier = modifier,
         )
@@ -68,5 +72,7 @@ internal fun badgePhotoKindLabel(kind: String?): String = when (kind) {
     "museum_specimen_photo" -> "Museum specimen photo"
     "captive_photo" -> "Photo from a wildlife facility"
     "field_photo" -> "Field photo"
+    "market_photo" -> "Market photo"
+    "official_stamp" -> "Official Philippine stamp"
     else -> "Photo reference"
 }

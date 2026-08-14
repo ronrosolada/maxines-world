@@ -105,8 +105,8 @@ class RewardBreakFlowTest {
                     name = "Maxine",
                 )
             )
-            authManager.setPin("1234", "UI Smoke Parent")
-
+            // The fixed PIN is verified by ParentAuthManager; no PIN hash is
+            // needed in the instrumentation fixture.
             val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
             val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey)
             rewardBreakId = "ui-smoke-break-${UUID.randomUUID()}"

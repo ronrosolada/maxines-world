@@ -53,20 +53,4 @@ class ParentGateLockoutTest {
         assertEquals(1, parentGateRemainingSeconds(130_000L, 129_999L))
         assertEquals(0, parentGateRemainingSeconds(130_000L, 130_000L))
     }
-
-    @Test
-    fun `onResetPin resets PIN and invokes callback`() = runTest(dispatcher) {
-        coEvery { authManager.resetPinOnly() } coAnswers { }
-        val viewModel = ParentGateViewModel(authManager)
-        runCurrent()
-
-        var callbackCalled = false
-        viewModel.onResetPin { callbackCalled = true }
-        runCurrent()
-
-        coVerify(exactly = 1) { authManager.resetPinOnly() }
-        assertTrue(callbackCalled)
-        assertEquals(0, viewModel.state.value.attempts)
-        assertEquals(0, viewModel.state.value.lockRemainingSeconds)
-    }
 }

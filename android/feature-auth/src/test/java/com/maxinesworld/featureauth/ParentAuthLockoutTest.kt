@@ -4,10 +4,7 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.ParentAccountDao
 import com.maxinesworld.coredatabase.ParentAccountEntity
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.every
-import io.mockk.mockk
+import io.mockk.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -49,7 +46,6 @@ class ParentAuthLockoutTest {
         parentAccountDao = mockk(relaxed = true)
         childProfileDao = mockk(relaxed = true)
         every { authManager.displayName } returns flowOf(null)
-        coEvery { authManager.getPinHash() } returns "hash"
         coEvery { authManager.verifyPin(any()) } returns false
         coEvery { authManager.verifyPin("123456") } returns true
         coEvery { authManager.getFailedAttempts() } returns 0
@@ -170,6 +166,24 @@ class ParentAuthLockoutTest {
     }
 
     @Test
+    fun `fresh install creates parent row before first child profile`() = runTest(dispatcher) {
+        coEvery { parentAccountDao.getParent() } returns null
+        viewModel = createViewModel()
+
+        assertEquals(AuthScreen.CREATE_PROFILE, viewModel.state.value.currentScreen)
+        viewModel.onCreateChild("Maxine")
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            parentAccountDao.upsert(match { it.id == "parent" && it.displayName == "Parent" })
+        }
+        coVerify(exactly = 1) {
+            childProfileDao.upsert(match { it.parentId == "parent" && it.name == "Maxine" })
+        }
+        assertEquals(1, viewModel.state.value.childProfiles.size)
+    }
+
+    @Test
     fun `extra PIN taps while verification is pending do not start a second check`() = runTest(dispatcher) {
         coEvery { authManager.verifyPin(any()) } coAnswers {
             kotlinx.coroutines.delay(1)
@@ -182,33 +196,5 @@ class ParentAuthLockoutTest {
         advanceUntilIdle()
 
         coVerify(exactly = 1) { authManager.verifyPin(any()) }
-    }
-
-    @Test
-    fun `parent verification challenge correctly verifies answers`() {
-        val challenge = ParentVerificationChallenge(factorA = 14, factorB = 7)
-        assertEquals(98, challenge.expectedAnswer)
-        assertTrue(challenge.verify("98"))
-        assertTrue(challenge.verify(" 98 "))
-        assertFalse(challenge.verify("97"))
-        assertFalse(challenge.verify("abc"))
-    }
-
-    @Test
-    fun `resetting PIN clears lockout and returns to PIN_SETUP while preserving child profiles`() = runTest(dispatcher) {
-        coEvery { authManager.resetPinOnly() } coAnswers { }
-        viewModel = createViewModel()
-
-        viewModel.onResetPin()
-        advanceUntilIdle()
-
-        coVerify(exactly = 1) { authManager.resetPinOnly() }
-        val state = viewModel.state.value
-        assertEquals(AuthScreen.PIN_SETUP, state.currentScreen)
-        assertFalse(state.hasPin)
-        assertEquals(0, state.failedAttempts)
-        assertEquals(0L, state.lockedUntilEpochMillis)
-        assertEquals(0, state.lockRemainingSeconds)
-        assertEquals(1, state.childProfiles.size)
     }
 }

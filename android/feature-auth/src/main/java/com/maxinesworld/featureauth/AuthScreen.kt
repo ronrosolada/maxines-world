@@ -56,7 +56,7 @@ fun ParentAuthScreen(
 
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
-    BackHandler(enabled = state.currentScreen == AuthScreen.PIN_SETUP || state.currentScreen == AuthScreen.CREATE_PROFILE) {
+    BackHandler(enabled = state.currentScreen == AuthScreen.CREATE_PROFILE) {
         if (state.currentScreen == AuthScreen.CREATE_PROFILE && state.childProfiles.isNotEmpty()) {
             viewModel.onHideCreateProfile()
         } else {
@@ -72,7 +72,6 @@ fun ParentAuthScreen(
     ) {
         when (state.currentScreen) {
             AuthScreen.LOADING -> LoadingScreen()
-            AuthScreen.PIN_SETUP -> PinSetupScreen(state, viewModel)
             AuthScreen.PIN_LOGIN -> PinLoginScreen(state, viewModel)
             AuthScreen.CHILD_SELECT -> ChildSelectScreen(state, viewModel, onChildSelected)
             AuthScreen.CREATE_PROFILE -> CreateChildScreen(state, viewModel)
@@ -88,151 +87,8 @@ private fun LoadingScreen() {
 }
 
 @Composable
-internal fun PinSetupScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
-    val focusManager = LocalFocusManager.current
-    val keyboardController = LocalSoftwareKeyboardController.current
-    PinSetupContent(
-        state = state,
-        onUpdateName = viewModel::onUpdateName,
-        onPinDigit = viewModel::onPinDigit,
-        onPinDelete = viewModel::onPinDelete,
-        onSetupPin = viewModel::onSetupPin,
-        onPinPadInteraction = {
-            keyboardController?.hide()
-            focusManager.clearFocus(force = true)
-        },
-    )
-}
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-internal fun PinSetupContent(
-    state: AuthUiState,
-    onUpdateName: (String) -> Unit,
-    onPinDigit: (String) -> Unit,
-    onPinDelete: () -> Unit,
-    onSetupPin: () -> Unit,
-    onPinPadInteraction: () -> Unit,
-) {
-    val focusManager = LocalFocusManager.current
-    val keyboardController = LocalSoftwareKeyboardController.current
-    val density = LocalDensity.current
-    val imeVisible = WindowInsets.ime.getBottom(density) > 0
-    val scrollState = rememberScrollState()
-    val deleteRequester = remember { BringIntoViewRequester() }
-
-    // When the name field opens the keyboard, Compose keeps focus on that field
-    // and the scroll position near the top. The keypad's last row is then under
-    // the IME. Bring the bottom control into the reduced viewport so the 0 key,
-    // Delete, and the fixed Set PIN action remain reachable together.
-    LaunchedEffect(imeVisible) {
-        if (imeVisible) deleteRequester.bringIntoView()
-    }
-
-    // Apply IME insets to the whole screen, not only the footer. When the
-    // name field opens the software keyboard, the scrollable content and the
-    // action footer must share the reduced viewport; padding only the footer
-    // can push that footer below the IME on large tablet layouts.
-    Column(Modifier.fillMaxSize().imePadding()) {
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .verticalScroll(scrollState)
-                .padding(horizontal = 32.dp)
-                .padding(top = 32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = if (imeVisible) Arrangement.Top else Arrangement.Center,
-        ) {
-            Icon(Icons.Default.Fingerprint, contentDescription = null, tint = Teal40, modifier = Modifier.size(64.dp))
-            Spacer(Modifier.height(16.dp))
-            Text(
-                "Welcome to Maxine's World!",
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                color = Teal40,
-            )
-            Spacer(Modifier.height(8.dp))
-            Text(
-                "Set up a PIN to keep the parent area secure.",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(Modifier.height(32.dp))
-
-            OutlinedTextField(
-                value = state.displayName,
-                onValueChange = onUpdateName,
-                label = { Text("Parent or guardian name (optional)") },
-                leadingIcon = { Icon(Icons.Default.Person, "Name") },
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Done,
-                ),
-                keyboardActions = KeyboardActions(onDone = {
-                    keyboardController?.hide()
-                    focusManager.clearFocus(force = true)
-                }),
-            )
-            Spacer(Modifier.height(16.dp))
-
-            Text("Choose a 6-digit PIN", fontWeight = FontWeight.Medium)
-            Spacer(Modifier.height(12.dp))
-            PinDots(length = state.pinInput.length)
-            Text(
-                "${state.pinInput.length} of 6 digits",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.height(16.dp))
-
-            PinPad(
-                onInteraction = onPinPadInteraction,
-            ) { digit -> onPinDigit(digit) }
-            Spacer(Modifier.height(12.dp))
-
-            // Delete/backspace — a mis-tapped digit must be correctable without
-            // restarting the app (adversarial UX review #31).
-            TextButton(
-                onClick = onPinDelete,
-                enabled = state.pinInput.isNotEmpty(),
-                modifier = Modifier.bringIntoViewRequester(deleteRequester),
-            ) {
-                Text("Delete")
-            }
-        }
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 32.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            state.pinError?.let {
-                Text(it, color = ErrorRed, style = MaterialTheme.typography.bodyMedium)
-                Spacer(Modifier.height(8.dp))
-            }
-
-            Button(
-                onClick = onSetupPin,
-                enabled = state.pinInput.length == 6,
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Teal40),
-            ) {
-                Text("Set PIN", fontSize = 18.sp)
-            }
-        }
-    }
-}
-
-@Composable
 private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
     val locked = state.lockRemainingSeconds > 0
-    var showResetDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -322,98 +178,7 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         }
 
         Spacer(Modifier.height(16.dp))
-
-        TextButton(
-            onClick = { showResetDialog = true },
-            modifier = Modifier.semantics { contentDescription = "Forgot PIN or Reset PIN" }
-        ) {
-            Text("Forgot PIN? Reset PIN", color = Teal40, fontWeight = FontWeight.Medium)
-        }
-
-        Spacer(Modifier.height(16.dp))
     }
-
-    if (showResetDialog) {
-        ParentResetPinDialog(
-            onDismiss = { showResetDialog = false },
-            onConfirmReset = {
-                showResetDialog = false
-                viewModel.onResetPin()
-            }
-        )
-    }
-}
-
-@Composable
-private fun ParentResetPinDialog(
-    onDismiss: () -> Unit,
-    onConfirmReset: () -> Unit,
-) {
-    val challenge = remember { generateParentChallenge() }
-    var answerInput by remember { mutableStateOf("") }
-    var errorText by remember { mutableStateOf<String?>(null) }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
-        },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    "To set a new PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Surface(
-                    shape = RoundedCornerShape(8.dp),
-                    color = Teal90.copy(alpha = 0.5f),
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
-                ) {
-                    Text(
-                        challenge.questionPromptEn,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = Teal40,
-                        modifier = Modifier.padding(12.dp),
-                        textAlign = TextAlign.Center
-                    )
-                }
-                OutlinedTextField(
-                    value = answerInput,
-                    onValueChange = {
-                        answerInput = it
-                        errorText = null
-                    },
-                    label = { Text("Answer") },
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    modifier = Modifier.fillMaxWidth()
-                )
-                if (errorText != null) {
-                    Text(errorText!!, color = ErrorRed, style = MaterialTheme.typography.bodySmall)
-                }
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    if (challenge.verify(answerInput)) {
-                        onConfirmReset()
-                    } else {
-                        errorText = "Incorrect answer. Please try again."
-                    }
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Teal40)
-            ) {
-                Text("Verify & Set New PIN")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-        }
-    )
 }
 
 @Composable

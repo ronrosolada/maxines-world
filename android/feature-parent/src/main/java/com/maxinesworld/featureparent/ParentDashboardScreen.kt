@@ -1,5 +1,6 @@
 package com.maxinesworld.featureparent
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -63,6 +65,15 @@ internal fun recentActivityLabels(
     .map { completion ->
         "${titleForLesson(completion.lessonId)} — ${(completion.accuracy * 100).toInt()}%"
     }
+
+/** Human-readable app version line shown to parents (e.g. "Maxine's World v0.33.0"). */
+internal fun appVersionLabel(versionName: String): String =
+    if (versionName.isBlank()) "Maxine's World" else "Maxine's World v$versionName"
+
+/** Read the installed app version; blank on any failure so the footer never crashes. */
+internal fun resolveAppVersionName(context: Context): String = runCatching {
+    context.packageManager.getPackageInfo(context.packageName, 0).versionName
+}.getOrNull().orEmpty()
 
 /** Resolve both current full subject IDs and legacy abbreviated IDs. */
 internal fun subjectKeyForLessonId(lessonId: String): String? {
@@ -310,6 +321,16 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         )
                     }
                 }
+
+                // App version — helps parents report issues with the right release.
+                val context = LocalContext.current
+                val versionName = remember { resolveAppVersionName(context) }
+                Text(
+                    appVersionLabel(versionName),
+                    fontSize = 13.sp,
+                    color = Ink.copy(alpha = 0.45f),
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                )
 
                 Spacer(Modifier.height(32.dp))
             }

@@ -20,7 +20,6 @@ import javax.inject.Inject
 
 data class AuthUiState(
     val isLoading: Boolean = true,
-    val hasPin: Boolean = false,
     val displayName: String = "",
     val pinInput: String = "",
     val pinError: String? = null,
@@ -40,7 +39,7 @@ data class AuthUiState(
 )
 
 enum class AuthScreen {
-    LOADING, PIN_SETUP, PIN_LOGIN, CHILD_SELECT, CREATE_PROFILE
+    LOADING, PIN_LOGIN, CHILD_SELECT, CREATE_PROFILE
 }
 
 @HiltViewModel
@@ -56,7 +55,6 @@ class ParentAuthViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val pinHash = authManager.getPinHash()
             val parent = parentAccountDao.getParent()
             val children = parent?.let { childProfileDao.getByParent(it.id) } ?: emptyList()
 
@@ -75,11 +73,9 @@ class ParentAuthViewModel @Inject constructor(
                 _state.update {
                     it.copy(
                         isLoading = false,
-                        hasPin = pinHash != null,
                         displayName = name ?: parent?.displayName ?: "",
                         childProfiles = children,
                         currentScreen = when {
-                            pinHash == null -> AuthScreen.PIN_SETUP
                             children.isEmpty() -> AuthScreen.CREATE_PROFILE
                             else -> AuthScreen.PIN_LOGIN
                         }
@@ -95,7 +91,7 @@ class ParentAuthViewModel @Inject constructor(
             val newInput = (it.pinInput + digit).take(6)
             it.copy(pinInput = newInput, pinError = null)
         }
-        // Auto-verify only during PIN login, not during setup
+        // Auto-verify only during the protected PIN login screen.
         if (_state.value.pinInput.length == 6 && _state.value.currentScreen == AuthScreen.PIN_LOGIN) {
             verifyPin()
         }
@@ -113,7 +109,6 @@ class ParentAuthViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                val pinHash = authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
                 val lockedUntil = authManager.getLockedUntilEpochMillis()
@@ -132,7 +127,7 @@ class ParentAuthViewModel @Inject constructor(
                     return@launch
                 }
 
-                if (pinHash != null && authManager.verifyPin(input)) {
+                if (authManager.verifyPin(input)) {
                     authManager.resetFailedAttempts()
                     _state.update { it.copy(failedAttempts = 0, lockedUntilEpochMillis = 0L) }
                     onAuthenticated()
@@ -205,62 +200,6 @@ class ParentAuthViewModel @Inject constructor(
         super.onCleared()
     }
 
-    fun onSetupPin() {
-        viewModelScope.launch {
-            val pin = _state.value.pinInput
-            if (pin.length != 6) {
-                _state.update { it.copy(pinError = "PIN must be exactly 6 digits") }
-                return@launch
-            }
-            val name = _state.value.displayName.ifBlank { "Parent" }
-            authManager.setPin(pin, name)
-
-            // Single-row invariant (audit F1, 2026-08-06): a fresh UUID here
-            // could INSERT a second parent row while DataStore was temporarily
-            // empty, leaving child data bound to the old row. Reuse the
-            // existing row's id when present (REPLACE upserts it), otherwise
-            // the constant "parent" id makes REPLACE a true single-row upsert.
-            val existing = parentAccountDao.getParent()
-            val parent = ParentAccountEntity(
-                id = existing?.id ?: "parent",
-                displayName = name,
-                pinHash = "" // no longer stored in Room — DataStore is the single source
-            )
-            parentAccountDao.upsert(parent)
-            val children = childProfileDao.getByParent(parent.id)
-            _state.update {
-                it.copy(
-                    hasPin = true,
-                    pinInput = "",
-                    pinError = null,
-                    currentScreen = if (children.isEmpty()) AuthScreen.CREATE_PROFILE else AuthScreen.CHILD_SELECT
-                )
-            }
-        }
-    }
-
-    /**
-     * Resets the parent PIN safely without deleting existing child profiles
-     * or learning progress in Room.
-     */
-    fun onResetPin() {
-        viewModelScope.launch {
-            lockCountdownJob?.cancel()
-            authManager.resetPinOnly()
-            _state.update {
-                it.copy(
-                    hasPin = false,
-                    pinInput = "",
-                    pinError = null,
-                    failedAttempts = 0,
-                    lockedUntilEpochMillis = 0L,
-                    lockRemainingSeconds = 0,
-                    currentScreen = AuthScreen.PIN_SETUP
-                )
-            }
-        }
-    }
-
     fun onAuthenticated() {
         viewModelScope.launch {
             val parent = parentAccountDao.getParent()
@@ -287,7 +226,14 @@ class ParentAuthViewModel @Inject constructor(
                 _state.update { it.copy(childNameError = "Please type your child's name first.") }
                 return@launch
             }
-            val parent = parentAccountDao.getParent() ?: return@launch
+            // PIN setup was removed (hardcoded default PIN, 2026-08-14), so the
+            // parent row must be ensured here on fresh installs. Single-row
+            // invariant: constant "parent" id keeps REPLACE a true upsert.
+            val parent = parentAccountDao.getParent() ?: ParentAccountEntity(
+                id = "parent",
+                displayName = _state.value.displayName.ifBlank { "Parent" },
+                pinHash = "" // no longer stored in Room — DataStore is the single source
+            ).also { parentAccountDao.upsert(it) }
             val child = ChildProfileEntity(
                 id = UUID.randomUUID().toString(),
                 parentId = parent.id,
@@ -350,30 +296,3 @@ internal fun lockRemainingSeconds(lockedUntilEpochMillis: Long, nowEpochMillis: 
     } else {
         ((lockedUntilEpochMillis - nowEpochMillis) / 1_000L + 1L).toInt()
     }
-
-/**
- * Child-resistant verification challenge to prevent learners from accidentally
- * or deliberately resetting the parent PIN. Uses adult-level mental multiplication.
- */
-data class ParentVerificationChallenge(
-    val factorA: Int,
-    val factorB: Int,
-) {
-    val questionPromptEn: String
-        get() = "Parent Verification: What is $factorA × $factorB?"
-
-    val questionPromptFil: String
-        get() = "Pagpapatunay ng Magulang: Ano ang $factorA × $factorB?"
-
-    val expectedAnswer: Int
-        get() = factorA * factorB
-
-    fun verify(input: String): Boolean =
-        input.trim().toIntOrNull() == expectedAnswer
-}
-
-fun generateParentChallenge(random: java.util.Random = java.util.Random()): ParentVerificationChallenge {
-    val a = 12 + random.nextInt(8) // 12..19
-    val b = 6 + random.nextInt(7)  // 6..12
-    return ParentVerificationChallenge(a, b)
-}
