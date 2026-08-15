@@ -6,6 +6,22 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.37.0] - 2026-08-15
+
+### Corpus-Wide AI Storybook Asset Upgrade
+
+- **All 358 Lesson Visuals Upgraded:** Replaced all legacy geometric placeholder SVGs with bespoke 2D storybook scenes generated via ComfyUI (`dreamshaper_8`) on local NVIDIA RTX 3070 GPU.
+- **Subject-Specific Artistic Direction:**
+  - **Science (45 lessons):** Vibrant laboratory exploration tables, Philippine biomes (Palawan reefs, volcanic rocks, weather stations).
+  - **Mathematics (58 lessons):** Colorful counting abacuses, geometric pattern workshops, market arithmetic scenes.
+  - **English (93 lessons):** Whimsical reading gardens, alphabet bridges, storybook character scenes.
+  - **Filipino (92 lessons):** Traditional Filipino cultural settings, festive fiestas, bahay kubo, and community stories.
+  - **Araling Panlipunan (20 lessons):** Historical Philippine landmark explorations, regional map detective rooms.
+  - **Makabansa (26 lessons):** Indigenous Philippine flora/fauna biomes and cultural heritage landscapes.
+  - **GMRC (24 lessons):** Heartwarming family homes, school playgrounds, cooperative sharing activities.
+- **Performance & Rendering:** Compressed into high-density lossless WebP assets embedded directly inside valid SVG wrappers with clean viewBox definitions (zero APK bloat, instant rendering on devices).
+- **Validation Gates:** 358/358 assets verified, 0 errors, 0 warnings, 0 duplicate clusters, 0 missing assets.
+
 ## [0.36.0] - 2026-08-15
 
 ### Visual & Pedagogical Asset Enrichment
