@@ -4,6 +4,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -105,7 +106,7 @@ fun SortAndClassifyRenderer(
                         .background(if (enabled) bucketHighlight else SubjectColors.Science.surface)
                         .border(
                             width = if (enabled) 2.dp else 1.dp,
-                            color = if (enabled) VillageTeal else SubjectColors.Science.outline.copy(alpha = 0.3f),
+                            color = if (enabled) VillageTeal else SubjectColors.Science.primary.copy(alpha = 0.3f),
                             shape = RoundedCornerShape(12.dp)
                         )
                         .clickable(enabled = enabled, role = Role.Button) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
