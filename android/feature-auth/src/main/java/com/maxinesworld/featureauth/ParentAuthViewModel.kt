@@ -93,7 +93,7 @@ class ParentAuthViewModel @Inject constructor(
                         childProfiles = children,
                         currentScreen = when {
                             children.isEmpty() -> AuthScreen.CREATE_PROFILE
-                            else -> AuthScreen.CHILD_SELECT
+                            else -> AuthScreen.PIN_LOGIN
                         }
                     )
                 }

@@ -88,11 +88,27 @@ class PlayroomHomeViewModel @Inject constructor(
                         val sanctuary = SanctuaryUi(
                             earnedPieces = sanctuaryCount,
                             visiblePieces = sanctuaryPieces.map { piece ->
-                                SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey)
+                                SanctuaryPieceUi(
+                                    id = piece.id,
+                                    name = piece.name,
+                                    description = piece.description,
+                                    iconKey = piece.iconKey,
+                                    residentWildlife = piece.residentWildlife,
+                                    funFact = piece.funFact,
+                                )
                             },
                             nextPiece = SanctuaryCatalog.pieces
                                 .getOrNull(sanctuaryCount)
-                                ?.let { piece -> SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey) },
+                                ?.let { piece ->
+                                    SanctuaryPieceUi(
+                                        id = piece.id,
+                                        name = piece.name,
+                                        description = piece.description,
+                                        iconKey = piece.iconKey,
+                                        residentWildlife = piece.residentWildlife,
+                                        funFact = piece.funFact,
+                                    )
+                                },
                             totalPieces = SanctuaryCatalog.pieces.size,
                         )
                         val keepsakes = inventoryDao.getOwnedItemIds(childId)
@@ -256,7 +272,14 @@ class PlayroomHomeViewModel @Inject constructor(
             SanctuaryUi(
                 earnedPieces = SanctuaryCatalog.pieces.size,
                 visiblePieces = SanctuaryCatalog.pieces.map { piece ->
-                    SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey)
+                    SanctuaryPieceUi(
+                        id = piece.id,
+                        name = piece.name,
+                        description = piece.description,
+                        iconKey = piece.iconKey,
+                        residentWildlife = piece.residentWildlife,
+                        funFact = piece.funFact,
+                    )
                 },
                 nextPiece = null,
                 totalPieces = SanctuaryCatalog.pieces.size,

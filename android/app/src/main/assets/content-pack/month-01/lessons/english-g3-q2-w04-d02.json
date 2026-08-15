@@ -1,425 +1,384 @@
 {
-  "lessonId": "english-g3-q2-w04-d02",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 2,
-  "subject": "english",
-  "title": "Capitals and Periods",
-  "objective": "Use a capital letter and a period in a simple telling sentence.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo is writing a note about Ana’s crayons. Can you polish each sentence with a capital letter and the end mark its meaning needs?",
-  "vocabulary": [
-    {
-      "term": "Milo reads.",
-      "definition": "a telling sentence that gives information and ends with a period"
-    },
-    {
-      "term": "Where is the book?",
-      "definition": "a sentence that asks for information and ends with a question mark"
-    },
-    {
-      "term": "Look out!",
-      "definition": "a sentence that shows strong feeling and ends with an exclamation mark"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q2-w04-d02-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Read each sentence and check its first letter and end mark.",
-      "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the first letter and the final mark before trying again."
-      },
-      "prompt": "Learn how capitals and end marks polish a sentence.",
-      "narration": "Begin every sentence with a capital letter. Choose a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Check the first letter, then choose the mark that fits the sentence purpose.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin every sentence with a capital letter. Choose a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Tap sentences with a capital and a matching end mark.",
-      "content": {
-        "examples": [
-          "Milo reads a book.",
-          "Where is the book?",
-          "Look out!",
-          "We are ready."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check both the capital letter and the end mark."
-      },
-      "prompt": "Find writing that starts and ends correctly.",
-      "narration": "A polished sentence begins with a capital and ends with the mark its meaning needs.",
-      "guideHint": "Look at the first letter and last mark.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A polished sentence begins with a capital and ends with the mark its meaning needs."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Sort polished sentences from ones needing a fix.",
-      "content": {
-        "fits": [
-          "Ana packs her bag.",
-          "Where is the bus?",
-          "Watch the puddle!",
-          "We are ready."
-        ],
-        "doesNotFit": [
-          "ana packs her bag.",
-          "Where is the bus.",
-          "watch the puddle.",
-          "we are ready."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Find the first-letter or end-mark mistake before sorting again."
-      },
-      "prompt": "Sort each sentence by whether its capital and end mark are correct.",
-      "narration": "A polished sentence has a capital first letter and an end mark that matches its meaning.",
-      "guideHint": "Check the first letter and ask whether the mark fits the sentence.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A polished sentence has a capital first letter and an end mark that matches its meaning."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Tap the sentence written with the right capital and mark.",
-      "content": {
-        "options": [
-          "where is the book",
-          "look out",
-          "Milo reads.",
-          "milo reads."
-        ],
-        "correctIndex": 2
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the first letter and the final punctuation."
-      },
-      "prompt": "Choose the sentence that is polished correctly.",
-      "narration": "A telling sentence begins with a capital and ends with a period.",
-      "guideHint": "Look for a capital first letter and a final period.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A telling sentence begins with a capital and ends with a period."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Match each sentence to the mark its meaning needs.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Milo reads.",
-            "right": "gives information; use a period"
-          },
-          {
-            "left": "Where is the book?",
-            "right": "asks for information; use a question mark"
-          },
-          {
-            "left": "Look out!",
-            "right": "shows strong feeling; use an exclamation mark"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the sentence purpose and its end mark."
-      },
-      "prompt": "Match each sentence with its punctuation clue.",
-      "narration": "Telling sentences use periods, questions use question marks, and strong feelings use exclamation marks.",
-      "guideHint": "Read what the speaker means before choosing the mark clue.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Telling sentences use periods, questions use question marks, and strong feelings use exclamation marks."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Put the sentence-polishing checks in order.",
-      "content": {
-        "steps": [
-          "Read the whole sentence",
-          "Check the first letter",
-          "Decide the sentence purpose",
-          "Choose the end mark"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check that you read, fixed the capital, matched the mark, and reread."
-      },
-      "prompt": "Order the steps for checking capitals and punctuation.",
-      "narration": "Writers check the first letter and meaning before choosing the final mark.",
-      "guideHint": "Begin by reading the whole sentence.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Writers check the first letter and meaning before choosing the final mark."
-    },
-    {
-      "activityId": "english-g3-q2-w04-d02-a07",
-      "sequence": 7,
-      "type": "WRITING_PRODUCTION",
-      "capability": "WRITING_PRODUCTION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w04-d02-visual",
-      "instruction": "Build a telling sentence with a capital and period.",
-      "content": {
-        "tiles": [
-          "Milo",
-          "reads",
-          "a",
-          "book",
-          "."
-        ],
-        "checklist": [
-          "My sentence starts with a capital letter.",
-          "My sentence ends with a period.",
-          "My sentence tells a whole idea."
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the first letter, final period, and complete idea."
-      },
-      "prompt": "Arrange the tiles to write a polished telling sentence.",
-      "narration": "A telling sentence starts with a capital letter, ends with a period, and gives a complete idea.",
-      "guideHint": "Start with the name or first word that has a capital.",
-      "hint": "A telling sentence starts with a capital letter and ends with a period.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A telling sentence starts with a capital letter, ends with a period, and gives a complete idea."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q2-w04-d02-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Milo writes a note about reading. Which telling sentence is polished?",
-        "options": [
-          {
-            "id": "a",
-            "text": "milo reads a story"
-          },
-          {
-            "id": "b",
-            "text": "reading a sunny book"
-          },
-          {
-            "id": "c",
-            "text": "in the classroom corner"
-          },
-          {
-            "id": "d",
-            "text": "Milo reads a fun book."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Milo reads a fun book. starts with capital M, gives a complete idea, and ends with a period."
-      },
-      {
-        "itemId": "english-g3-q2-w04-d02-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Ana asks where the math notebook is. Which sentence is polished?",
-        "options": [
-          {
-            "id": "a",
-            "text": "where is the red notebook"
-          },
-          {
-            "id": "b",
-            "text": "Where is the math notebook?"
-          },
-          {
-            "id": "c",
-            "text": "The math notebook is on the desk."
-          },
-          {
-            "id": "d",
-            "text": "looking for the pencil"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Where is the math notebook? asks a question, so it starts with W and ends with a question mark."
-      },
-      {
-        "itemId": "english-g3-q2-w04-d02-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Milo warns a friend about a wet floor. Which sentence shows strong warning?",
-        "options": [
-          {
-            "id": "a",
-            "text": "the floor is wet"
-          },
-          {
-            "id": "b",
-            "text": "Is the floor slippery today?"
-          },
-          {
-            "id": "c",
-            "text": "walking slowly in the hall"
-          },
-          {
-            "id": "d",
-            "text": "Look out for the puddle!"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Look out for the puddle! shows a strong warning and uses a capital plus an exclamation mark."
-      },
-      {
-        "itemId": "english-g3-q2-w04-d02-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Ana writes her friend’s name in a note. Why does the name need a capital letter?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Because it is a special proper noun"
-          },
-          {
-            "id": "b",
-            "text": "Because it is an action word"
-          },
-          {
-            "id": "c",
-            "text": "Because it comes at the end of a question"
-          },
-          {
-            "id": "d",
-            "text": "Because it shows where a sentence stops"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "A person’s name is a proper noun, so it begins with a capital letter."
-      },
-      {
-        "itemId": "english-g3-q2-w04-d02-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which note about Ana sharing crayons has correct capitalization and punctuation?",
-        "options": [
-          {
-            "id": "a",
-            "text": "ana shares her crayons"
-          },
-          {
-            "id": "b",
-            "text": "Ana shares her colorful crayons."
-          },
-          {
-            "id": "c",
-            "text": "sharing crayons at school"
-          },
-          {
-            "id": "d",
-            "text": "are they sharing crayons."
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Ana shares her colorful crayons. starts with capital A and ends with a period for this telling sentence."
-      }
-    ]
+ "lessonId": "english-g3-q2-w04-d02",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 2,
+ "subject": "english",
+ "title": "Telling Sentences",
+ "objective": "Write a telling sentence that gives information and ends with a period.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ A telling sentence gives information. It begins with a capital letter and ends with a period. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "capital letter",
+   "definition": "starts the sentence"
   },
-  "contentReview": {
-    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement",
-      "matching-pair integrity",
-      "answer-position balance",
-      "feedback quality",
-      "language purity (fil/en)"
+  {
+   "term": "words",
+   "definition": "give the idea"
+  },
+  {
+   "term": "period",
+   "definition": "ends the telling sentence"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q2-w04-d02-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Listen for the clue in Telling Sentences.",
+   "content": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You noticed the clue in Telling Sentences. 🎉",
+    "retry": "Find the clue in Telling Sentences again. 💪"
+   },
+   "prompt": "Listen for the clue in Telling Sentences.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
+  },
+  {
+   "activityId": "english-g3-q2-w04-d02-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Find the examples for Telling Sentences.",
+   "content": {
+    "examples": [
+     "Milo is a cat.",
+     "The rain is falling.",
+     "Maxine reads a book.",
+     "Rice grows in fields."
     ],
-    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
-    "rewritten": true,
-    "date": "2026-08-14"
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Telling Sentences. 🔎",
+    "retry": "Look at each Telling Sentences example again. 💪"
+   },
+   "prompt": "Find the examples for Telling Sentences.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning World (English)",
-    "visualScene": "📚📖🏰✨"
+  {
+   "activityId": "english-g3-q2-w04-d02-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Sort the examples by the Telling Sentences clue.",
+   "content": {
+    "fits": [
+     "Milo is a cat.",
+     "The bag is blue.",
+     "We walk home.",
+     "Plants need water."
+    ],
+    "doesNotFit": [
+     "Where is Milo?",
+     "Please sit down!",
+     "a blue bag",
+     "running fast"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Telling Sentences clue. 🎉",
+    "retry": "Read the Telling Sentences rule before sorting again. 💪"
+   },
+   "prompt": "Sort the examples by the Telling Sentences clue.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
   },
-  "pacingPass": "pacing-b2-2026-08-15"
+  {
+   "activityId": "english-g3-q2-w04-d02-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Choose the answer that fits Telling Sentences.",
+   "content": {
+    "options": [
+     "Milo is a cat.",
+     "Where is Milo?",
+     "Please sit down!",
+     "a blue bag"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great! You chose an answer that fits Telling Sentences. 🎉",
+    "retry": "Find the clue in the Telling Sentences question. 💪"
+   },
+   "prompt": "Choose the answer that fits Telling Sentences.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
+  },
+  {
+   "activityId": "english-g3-q2-w04-d02-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Match each example with its Telling Sentences explanation.",
+   "content": {
+    "pairs": [
+     {
+      "left": "capital letter",
+      "right": "starts the sentence"
+     },
+     {
+      "left": "words",
+      "right": "give the idea"
+     },
+     {
+      "left": "period",
+      "right": "ends the telling sentence"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Telling Sentences explanation. 🔗",
+    "retry": "Read both sides of each Telling Sentences pair again. 💪"
+   },
+   "prompt": "Match each example with its Telling Sentences explanation.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
+  },
+  {
+   "activityId": "english-g3-q2-w04-d02-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w04-d02-visual",
+   "instruction": "Put the Telling Sentences steps in order.",
+   "content": {
+    "steps": [
+     "Think of one true idea",
+     "Start with a capital",
+     "Write the words in order",
+     "Add a period"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You put the Telling Sentences steps in order. 🎉",
+    "retry": "Find the first, next, and last Telling Sentences steps. 💪"
+   },
+   "prompt": "Put the Telling Sentences steps in order.",
+   "narration": "A telling sentence gives information. It begins with a capital letter and ends with a period.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A telling sentence gives information. It begins with a capital letter and ends with a period."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q2-w04-d02-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example belongs to Telling Sentences?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Please sit down!"
+     },
+     {
+      "id": "b",
+      "text": "a blue bag"
+     },
+     {
+      "id": "c",
+      "text": "Milo is a cat."
+     },
+     {
+      "id": "d",
+      "text": "Where is Milo?"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Milo is a cat."
+   },
+   {
+    "itemId": "english-g3-q2-w04-d02-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which choice shows the skill in Telling Sentences?",
+    "options": [
+     {
+      "id": "a",
+      "text": "running fast"
+     },
+     {
+      "id": "b",
+      "text": "The rain is falling."
+     },
+     {
+      "id": "c",
+      "text": "Please sit down!"
+     },
+     {
+      "id": "d",
+      "text": "a blue bag"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: The rain is falling."
+   },
+   {
+    "itemId": "english-g3-q2-w04-d02-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What is one example from Telling Sentences?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Maxine reads a book."
+     },
+     {
+      "id": "b",
+      "text": "a blue bag"
+     },
+     {
+      "id": "c",
+      "text": "running fast"
+     },
+     {
+      "id": "d",
+      "text": "Where is Milo?"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Maxine reads a book."
+   },
+   {
+    "itemId": "english-g3-q2-w04-d02-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which situation matches Telling Sentences?",
+    "options": [
+     {
+      "id": "a",
+      "text": "running fast"
+     },
+     {
+      "id": "b",
+      "text": "Where is Milo?"
+     },
+     {
+      "id": "c",
+      "text": "Please sit down!"
+     },
+     {
+      "id": "d",
+      "text": "Rice grows in fields."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: Rice grows in fields."
+   },
+   {
+    "itemId": "english-g3-q2-w04-d02-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which answer demonstrates Telling Sentences?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Please sit down!"
+     },
+     {
+      "id": "b",
+      "text": "a blue bag"
+     },
+     {
+      "id": "c",
+      "text": "Milo is a cat."
+     },
+     {
+      "id": "d",
+      "text": "Where is Milo?"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Milo is a cat."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-13T21:30:00+08:00",
+ "scene": {
+  "character": "Milo the Cat",
+  "setting": "Milo's Learning World (English)",
+  "visualScene": "📚📖🏰✨"
+ },
+ "pacingPass": "pacing-b2-2026-08-15"
 }

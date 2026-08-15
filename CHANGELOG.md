@@ -6,6 +6,21 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.42.0] - 2026-08-16
+
+### Gamified & Interactive Milo's Wildlife Sanctuary
+
+- **Interactive Habitat Cards & Touch Affordances:**
+  - Upgraded all 12 habitat tiles on the sanctuary board and panoramic scene to interactive touch surfaces with 56dp+ touch targets.
+  - Tapping any earned habitat (e.g. *Little Pond*, *Story Tree*, *Kindness Garden*) opens an interactive inspection dialog with high-res habitat art, unlock status, and Milo's Field Notes.
+- **Philippine Wildlife Resident Connections:**
+  - Linked native animals from the 51 Wildlife Collectible badges (e.g. *Tamaraw*, *Sinarapan*, *Philippine Tarsier*, *Cebu Flowerpecker*, *Palawan Pangolin*, *Luzon Peacock Swallowtail*) directly to their corresponding natural habitats in `SanctuaryCatalog`.
+  - Added educational fun facts highlighting Philippine biodiversity conservation.
+- **Milo Character Animation & Encouraging Voice Quotes:**
+  - Tapping Milo inside the sanctuary triggers a playful bounce animation and displays rotating bilingual encouraging voice quotes (*"Salamat sa pag-aaral! Milo loves our sanctuary!"*, *"Great job today! Every lesson helps our wildlife friends!"*).
+- **Parent Auth Lockout Stability:**
+  - Fixed automated PIN login transition for fresh profiles and resolved auto-verification test race conditions in `ParentAuthViewModel`.
+
 ## [0.41.0] - 2026-08-15
 
 ### Complete 59-Video Tagalog Media Curriculum & Assessment Bank

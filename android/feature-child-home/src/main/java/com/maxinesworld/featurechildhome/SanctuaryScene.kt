@@ -1,8 +1,12 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -15,6 +19,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Park
@@ -23,6 +28,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,12 +41,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
+import com.maxinesworld.featurerewards.SanctuaryCatalog
 
 /**
  * Scene placement for Milo's Wildlife Sanctuary (design.md §2).
@@ -134,12 +148,34 @@ internal val miloSanctuarySlot = SanctuarySlot(
 @Composable
 fun SanctuaryScene(
     sanctuary: SanctuaryUi,
+    onPieceClick: (SanctuaryPieceUi) -> Unit = {},
+    onMiloClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val earnedIds = earnedSlotIds(sanctuary.visiblePieces)
+    val visiblePieceMap = sanctuary.visiblePieces.associateBy { it.id }
     val allSlots = sanctuarySceneSlots()
     val nextSlot = nextSanctuarySlot()
     val showNext = sanctuary.nextPiece != null && earnedIds.size < sanctuary.totalPieces
+    val reduceMotion = LocalAnimationsDisabled.current
+    var miloBounced by remember { mutableStateOf(false) }
+    var miloSpeechBubble by remember { mutableStateOf<String?>(null) }
+
+    val miloScale by animateFloatAsState(
+        targetValue = if (miloBounced) 1.25f else 1.0f,
+        animationSpec = if (reduceMotion) snap() else tween(180),
+        label = "miloBounce",
+    )
+
+    val miloQuotes = remember {
+        listOf(
+            "Salamat sa pag-aaral! Milo loves our sanctuary!",
+            "Look how peaceful our nature home is!",
+            "Great job today! Every lesson helps our wildlife friends!",
+            "Milo is happy to protect Philippine animals with you!",
+        )
+    }
+
     val sceneDescription = buildString {
         append("Milo's Wildlife Sanctuary. ")
         if (earnedIds.isNotEmpty()) {
@@ -174,6 +210,15 @@ fun SanctuaryScene(
 
         allSlots.forEach { slot ->
             val earned = slot.pieceId in earnedIds
+            val pieceUi = visiblePieceMap[slot.pieceId] ?: SanctuaryCatalog.byId(slot.pieceId)?.let {
+                SanctuaryPieceUi(it.id, it.name, it.description, it.iconKey, it.residentWildlife, it.funFact)
+            }
+            val clickableModifier = if (earned && pieceUi != null) {
+                Modifier.clickable { onPieceClick(pieceUi) }
+            } else {
+                Modifier
+            }
+
             Box(
                 Modifier
                     .size(slotSize(slot))
@@ -185,7 +230,14 @@ fun SanctuaryScene(
                     )
                     .clip(CircleShape)
                     .background(if (earned) slot.tint else slot.tint.copy(alpha = 0.18f))
-                    .border(2.dp, slot.tint.copy(alpha = 0.55f), CircleShape),
+                    .border(2.dp, slot.tint.copy(alpha = 0.55f), CircleShape)
+                    .then(clickableModifier)
+                    .semantics {
+                        if (earned && pieceUi != null) {
+                            role = androidx.compose.ui.semantics.Role.Button
+                            contentDescription = "${pieceUi.name} in sanctuary. Tap to inspect."
+                        }
+                    },
                 contentAlignment = Alignment.Center,
             ) {
                 if (earned) {
@@ -203,7 +255,7 @@ fun SanctuaryScene(
             }
         }
 
-        if (showNext) {
+        if (showNext && sanctuary.nextPiece != null) {
             Box(
                 Modifier
                     .size(slotSize(nextSlot))
@@ -215,12 +267,17 @@ fun SanctuaryScene(
                     )
                     .clip(CircleShape)
                     .background(Color.White.copy(alpha = 0.6f))
-                    .border(2.dp, Color(0xFF8FAF9F), CircleShape),
+                    .border(2.dp, Color(0xFF8FAF9F), CircleShape)
+                    .clickable { onPieceClick(sanctuary.nextPiece) }
+                    .semantics {
+                        role = androidx.compose.ui.semantics.Role.Button
+                        contentDescription = "Next place: ${sanctuary.nextPiece.name}. Tap to preview."
+                    },
                 contentAlignment = Alignment.Center,
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(
-                        painter = painterResource(sanctuaryPieceDrawable(sanctuary.nextPiece?.iconKey ?: "next")),
+                        painter = painterResource(sanctuaryPieceDrawable(sanctuary.nextPiece.iconKey)),
                         contentDescription = null,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
@@ -243,7 +300,16 @@ fun SanctuaryScene(
                 )
                 .clip(CircleShape)
                 .background(Color.White)
-                .border(3.dp, Color.White, CircleShape),
+                .border(3.dp, Color.White, CircleShape)
+                .clickable {
+                    miloBounced = true
+                    miloSpeechBubble = miloQuotes.random()
+                    onMiloClick()
+                }
+                .semantics {
+                    role = androidx.compose.ui.semantics.Role.Button
+                    contentDescription = "Milo, the sanctuary cat. Tap for an encouraging word."
+                },
             contentAlignment = Alignment.Center,
         ) {
             Image(
@@ -254,6 +320,33 @@ fun SanctuaryScene(
                     .fillMaxSize()
                     .clip(CircleShape),
             )
+        }
+
+        // Milo Speech Bubble Overlay when tapped
+        miloSpeechBubble?.let { quote ->
+            LaunchedEffect(quote) {
+                kotlinx.coroutines.delay(300)
+                miloBounced = false
+                kotlinx.coroutines.delay(2700)
+                miloSpeechBubble = null
+            }
+            androidx.compose.material3.Surface(
+                shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+                color = Color.White.copy(alpha = 0.95f),
+                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF087F83)),
+                modifier = Modifier
+                    .offset(x = 12.dp, y = 8.dp)
+                    .widthIn(max = 240.dp)
+                    .padding(4.dp)
+            ) {
+                Text(
+                    text = "🐾 \"$quote\"",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF183B4A),
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp)
+                )
+            }
         }
     }
 }

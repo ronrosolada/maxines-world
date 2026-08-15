@@ -1,425 +1,384 @@
 {
-  "lessonId": "english-g3-q3-w11-d03",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 11,
-  "day": 3,
-  "subject": "english",
-  "title": "Checking End Marks",
-  "objective": "Reinforce using capital letters and end marks in simple sentences.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Hi Maxine! 🔤 Let's practice again: every sentence needs a capital letter and the right end mark. Ready, reviewer?",
-  "vocabulary": [
-    {
-      "term": "capital letter",
-      "definition": "The big letter that starts a sentence, like M in Milo."
-    },
-    {
-      "term": "period",
-      "definition": "The dot at the end of a telling sentence: Milo reads."
-    },
-    {
-      "term": "question mark",
-      "definition": "The mark at the end of a question: Where is the book?"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q3-w11-d03-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Listen for the clue in Sentence Polishing.",
-      "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great! You noticed the clue in Sentence Polishing. 🎉",
-        "retry": "Find the clue in Sentence Polishing again. 💪"
-      },
-      "prompt": "Listen for the clue in Sentence Polishing.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Find the examples for Sentence Polishing.",
-      "content": {
-        "examples": [
-          "Milo reads.",
-          "Where is the book?",
-          "Look out!",
-          "We are ready."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Great! You found the examples for Sentence Polishing. 🔎",
-        "retry": "Look at each Sentence Polishing example again. 💪"
-      },
-      "prompt": "Find the examples for Sentence Polishing.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Sort the examples by the Sentence Polishing clue.",
-      "content": {
-        "fits": [
-          "Milo reads.",
-          "Where is the book?",
-          "Look out!",
-          "We are ready."
-        ],
-        "doesNotFit": [
-          "milo reads.",
-          "Milo reads",
-          "Where is the book",
-          "look out!"
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Great! You sorted the examples using the Sentence Polishing clue. 🎉",
-        "retry": "Read the Sentence Polishing rule before sorting again. 💪"
-      },
-      "prompt": "Sort the examples by the Sentence Polishing clue.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Choose the answer that fits Sentence Polishing.",
-      "content": {
-        "options": [
-          "Milo reads.",
-          "milo reads.",
-          "Milo reads",
-          "milo Reads?"
-        ],
-        "correctIndex": 0
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Great! You chose an answer that fits Sentence Polishing. 🎉",
-        "retry": "Find the clue in the Sentence Polishing question. 💪"
-      },
-      "prompt": "Choose the answer that fits Sentence Polishing.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Match each example with its Sentence Polishing explanation.",
-      "content": {
-        "pairs": [
-          {
-            "left": "Milo reads.",
-            "right": "capital letter + period"
-          },
-          {
-            "left": "Where is the book?",
-            "right": "capital letter + question mark"
-          },
-          {
-            "left": "Look out!",
-            "right": "capital letter + exclamation mark"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great! You matched each example with its Sentence Polishing explanation. 🔗",
-        "retry": "Read both sides of each Sentence Polishing pair again. 💪"
-      },
-      "prompt": "Match each example with its Sentence Polishing explanation.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Put the Sentence Polishing steps in order.",
-      "content": {
-        "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great! You put the Sentence Polishing steps in order. 🎉",
-        "retry": "Find the first, next, and last Sentence Polishing steps. 💪"
-      },
-      "prompt": "Put the Sentence Polishing steps in order.",
-      "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
-    },
-    {
-      "activityId": "english-g3-q3-w11-d03-a07",
-      "sequence": 7,
-      "type": "WRITING_PRODUCTION",
-      "capability": "WRITING_PRODUCTION_V1",
-      "required": true,
-      "assetId": "english-g3-q3-w11-d03-visual",
-      "instruction": "Build the sentence with the word tiles, then check your own writing.",
-      "content": {
-        "tiles": [
-          "Milo",
-          "reads",
-          "every",
-          "day",
-          "."
-        ],
-        "checklist": [
-          "My sentence starts with a capital letter.",
-          "My sentence ends with a period.",
-          "My sentence tells a whole idea."
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Great job! Your sentence is ready! 🎉",
-        "retry": "Check your sentence again. 💪"
-      },
-      "prompt": "Build the sentence with the word tiles, then check your own writing.",
-      "narration": "Build the sentence with the word tiles, then check your own writing.",
-      "guideHint": "Every sentence needs a capital letter and the right end mark.",
-      "hint": "Every sentence needs a capital letter and the right end mark.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Build the sentence 'Milo reads every day.' from word tiles, then check your own writing with the checklist."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q3-w11-d03-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice is a correct telling sentence?",
-        "options": [
-          {
-            "id": "a",
-            "text": "reading a chapter book"
-          },
-          {
-            "id": "b",
-            "text": "milo reads his book"
-          },
-          {
-            "id": "c",
-            "text": "Is Milo reading a book?"
-          },
-          {
-            "id": "d",
-            "text": "Milo reads an exciting book."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "'Milo reads an exciting book.' tells information, begins with a capital letter, and ends with a period."
-      },
-      {
-        "itemId": "english-g3-q3-w11-d03-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice is a correctly written asking sentence?",
-        "options": [
-          {
-            "id": "a",
-            "text": "The science book is on the desk."
-          },
-          {
-            "id": "b",
-            "text": "where is the science book"
-          },
-          {
-            "id": "c",
-            "text": "Where is the science book?"
-          },
-          {
-            "id": "d",
-            "text": "looking for the science book"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "'Where is the science book?' asks a question and ends with a question mark."
-      },
-      {
-        "itemId": "english-g3-q3-w11-d03-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice shows an exciting exclamation?",
-        "options": [
-          {
-            "id": "a",
-            "text": "We are walking home."
-          },
-          {
-            "id": "b",
-            "text": "Are you ready to leave?"
-          },
-          {
-            "id": "c",
-            "text": "Look out for that flying soccer ball!"
-          },
-          {
-            "id": "d",
-            "text": "the soccer ball"
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "'Look out for that flying soccer ball!' shows strong emotion and uses an exclamation mark."
-      },
-      {
-        "itemId": "english-g3-q3-w11-d03-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence has both a capital letter and the correct end mark?",
-        "options": [
-          {
-            "id": "a",
-            "text": "We are ready for the spelling game."
-          },
-          {
-            "id": "b",
-            "text": "we are ready for the game."
-          },
-          {
-            "id": "c",
-            "text": "ready to play the game"
-          },
-          {
-            "id": "d",
-            "text": "Are we ready for the game."
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "'We are ready for the spelling game.' begins with a capital letter and ends with a period."
-      },
-      {
-        "itemId": "english-g3-q3-w11-d03-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence has an INCORRECT end mark?",
-        "options": [
-          {
-            "id": "a",
-            "text": "Milo loves reading books."
-          },
-          {
-            "id": "b",
-            "text": "What time does the library open?"
-          },
-          {
-            "id": "c",
-            "text": "What a magnificent story!"
-          },
-          {
-            "id": "d",
-            "text": "Where is the library book."
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "'Where is the library book.' is an asking sentence, so it must end with a question mark, not a period."
-      }
-    ]
+ "lessonId": "english-g3-q3-w11-d03",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 11,
+ "day": 3,
+ "subject": "english",
+ "title": "Sentence or Not?",
+ "objective": "Tell whether a group of words expresses a complete idea.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "The bird sings.",
+   "definition": "a correct example"
   },
-  "contentReview": {
-    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement",
-      "matching-pair integrity",
-      "answer-position balance",
-      "feedback quality",
-      "language purity (fil/en)"
+  {
+   "term": "We walk home.",
+   "definition": "a related example"
+  },
+  {
+   "term": "under the table",
+   "definition": "another example"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q3-w11-d03-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Listen for the clue in Sentence or Not?.",
+   "content": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You noticed the clue in Sentence or Not?. 🎉",
+    "retry": "Find the clue in Sentence or Not? again. 💪"
+   },
+   "prompt": "Listen for the clue in Sentence or Not?.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d03-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Find the examples for Sentence or Not?.",
+   "content": {
+    "examples": [
+     "The bird sings.",
+     "We walk home.",
+     "under the table",
+     "blue and shiny"
     ],
-    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
-    "rewritten": true,
-    "date": "2026-08-14"
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Sentence or Not?. 🔎",
+    "retry": "Look at each Sentence or Not? example again. 💪"
+   },
+   "prompt": "Find the examples for Sentence or Not?.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning World (English)",
-    "visualScene": "📚📖🏰✨"
+  {
+   "activityId": "english-g3-q3-w11-d03-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Sort the examples by the Sentence or Not? clue.",
+   "content": {
+    "fits": [
+     "The bird sings.",
+     "We walk home.",
+     "under the table",
+     "blue and shiny"
+    ],
+    "doesNotFit": [
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Sentence or Not? clue. 🎉",
+    "retry": "Read the Sentence or Not? rule before sorting again. 💪"
+   },
+   "prompt": "Sort the examples by the Sentence or Not? clue.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
   },
-  "pacingPass": "pacing-b2-2026-08-15"
+  {
+   "activityId": "english-g3-q3-w11-d03-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Choose the answer that fits Sentence or Not?.",
+   "content": {
+    "options": [
+     "The bird sings.",
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson"
+    ],
+    "correctIndex": 0
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great! You chose an answer that fits Sentence or Not?. 🎉",
+    "retry": "Find the clue in the Sentence or Not? question. 💪"
+   },
+   "prompt": "Choose the answer that fits Sentence or Not?.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d03-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Match each example with its Sentence or Not? explanation.",
+   "content": {
+    "pairs": [
+     {
+      "left": "The bird sings.",
+      "right": "a correct example"
+     },
+     {
+      "left": "We walk home.",
+      "right": "a related example"
+     },
+     {
+      "left": "under the table",
+      "right": "another example"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Sentence or Not? explanation. 🔗",
+    "retry": "Read both sides of each Sentence or Not? pair again. 💪"
+   },
+   "prompt": "Match each example with its Sentence or Not? explanation.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d03-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d03-visual",
+   "instruction": "Put the Sentence or Not? steps in order.",
+   "content": {
+    "steps": [
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You put the Sentence or Not? steps in order. 🎉",
+    "retry": "Find the first, next, and last Sentence or Not? steps. 💪"
+   },
+   "prompt": "Put the Sentence or Not? steps in order.",
+   "narration": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q3-w11-d03-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example belongs to Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "The bird sings."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: The bird sings."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d03-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which choice shows the skill in Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "We walk home."
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: We walk home."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d03-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What is one example from Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "under the table"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "a different topic"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: under the table"
+   },
+   {
+    "itemId": "english-g3-q3-w11-d03-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which situation matches Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "blue and shiny"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: blue and shiny"
+   },
+   {
+    "itemId": "english-g3-q3-w11-d03-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which answer demonstrates Sentence or Not??",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "The bird sings."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: The bird sings."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-13T21:30:00+08:00",
+ "scene": {
+  "character": "Milo the Cat",
+  "setting": "Milo's Learning World (English)",
+  "visualScene": "📚📖🏰✨"
+ },
+ "pacingPass": "pacing-b2-2026-08-15"
 }

@@ -1,389 +1,384 @@
 {
-  "lessonId": "english-g3-q2-w01-d04",
-  "schemaVersion": 1,
-  "grade": 3,
-  "month": 5,
-  "day": 4,
-  "subject": "english",
-  "title": "Delicious, Eager, Fresh",
-  "objective": "Use the words delicious, eager, and fresh in context with sentence clues.",
-  "estimatedMinutes": 12,
-  "educatorValidated": true,
-  "releaseStatus": "RELEASED",
-  "qualifiesForDailyBadge": true,
-  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
-  "language": "en-PH",
-  "introduction": "Milo tastes a delicious snack, feels eager to open a book, and picks fresh fruit. Which word matches each clue?",
-  "vocabulary": [
-    {
-      "term": "delicious",
-      "definition": "having a very good taste that makes you want another bite"
-    },
-    {
-      "term": "eager",
-      "definition": "excited and ready because you really want to begin"
-    },
-    {
-      "term": "fresh",
-      "definition": "newly made, clean, or picked recently"
-    }
-  ],
-  "activities": [
-    {
-      "activityId": "english-g3-q2-w01-d04-a01",
-      "sequence": 1,
-      "type": "ANIMATED_EXPLANATION",
-      "capability": "ANIMATED_EXPLANATION_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Read each sentence and notice the clue for the new word.",
-      "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Read the sentence again and look for a clue about taste, excitement, or newness."
-      },
-      "prompt": "Learn how sentence clues reveal a word's meaning.",
-      "narration": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to delicious, eager, or fresh.",
-      "guideHint": "Read the nearby action or detail for a clue about taste, excitement, or newness.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to delicious, eager, or fresh."
-    },
-    {
-      "activityId": "english-g3-q2-w01-d04-a02",
-      "sequence": 2,
-      "type": "HOTSPOT_IMAGE",
-      "capability": "HOTSPOT_IMAGE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Tap each sentence that gives a clue for delicious, eager, or fresh.",
-      "content": {
-        "examples": [
-          "Mama cooks delicious adobo for us.",
-          "The children are eager to open their new books.",
-          "Fresh mangoes smell sweet.",
-          "The patient fisherman waited for a bite."
-        ],
-        "visualScene": "🐱🔎✨"
-      },
-      "completionRule": {
-        "type": "ALL_TARGETS_VISITED",
-        "targetCount": 4
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Look for the action or detail that points to the word."
-      },
-      "prompt": "Find sentence clues for today's three words.",
-      "narration": "Look for food that tastes good, someone ready to begin, or something newly made or picked.",
-      "guideHint": "Check whether the sentence shows taste, excitement, or newness.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Look for food that tastes good, someone ready to begin, or something newly made or picked."
-    },
-    {
-      "activityId": "english-g3-q2-w01-d04-a03",
-      "sequence": 3,
-      "type": "SORT_AND_CLASSIFY",
-      "capability": "SORT_AND_CLASSIFY_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Sort sentences that use delicious, eager, or fresh.",
-      "content": {
-        "fits": [
-          "The soup was delicious, so I asked for more.",
-          "The children were eager to open their new books.",
-          "Fresh mangoes were picked that morning.",
-          "Nina felt eager to try the new game."
-        ],
-        "doesNotFit": [
-          "The sun was bright that morning.",
-          "Please carry the glass carefully.",
-          "An honest child returned the lost wallet.",
-          "The strong man lifted the heavy sack."
-        ]
-      },
-      "completionRule": {
-        "type": "ALL_ITEMS_SORTED",
-        "itemCount": 8
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the sentence for delicious, eager, or fresh before sorting it again."
-      },
-      "prompt": "Sort each sentence by whether it uses one of today's words.",
-      "narration": "Use the words as evidence: delicious describes taste, eager describes readiness, and fresh describes newness.",
-      "guideHint": "Read each sentence and look for a taste, readiness, or newness clue.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Use the words as evidence: delicious describes taste, eager describes readiness, and fresh describes newness."
-    },
-    {
-      "activityId": "english-g3-q2-w01-d04-a04",
-      "sequence": 4,
-      "type": "MULTIPLE_CHOICE",
-      "capability": "MULTIPLE_CHOICE_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Tap the sentence that uses 'delicious'.",
-      "content": {
-        "options": [
-          "An honest child returns the lost wallet.",
-          "Mama cooks delicious adobo for us.",
-          "The sun is bright this morning.",
-          "Be careful when you carry the glass."
-        ],
-        "correctIndex": 1
-      },
-      "completionRule": {
-        "type": "CORRECT_RESPONSE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Find the taste clue that shows something is delicious."
-      },
-      "prompt": "Choose the sentence that gives a clue about great taste.",
-      "narration": "Delicious describes food or drink that tastes very good.",
-      "guideHint": "Look for a food or drink that tastes great.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Delicious describes food or drink that tastes very good."
-    },
-    {
-      "activityId": "english-g3-q2-w01-d04-a05",
-      "sequence": 5,
-      "type": "MATCHING_PAIRS",
-      "capability": "MATCHING_PAIRS_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Match each word to the clue it gives.",
-      "content": {
-        "pairs": [
-          {
-            "left": "delicious",
-            "right": "food that tastes very good"
-          },
-          {
-            "left": "eager",
-            "right": "person excited to begin"
-          },
-          {
-            "left": "fresh",
-            "right": "food picked or made recently"
-          }
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check the clue for the meaning of each word."
-      },
-      "prompt": "Match each word with the clue that reveals its meaning.",
-      "narration": "A word can connect to a clue about taste, readiness, or newness.",
-      "guideHint": "Ask whether the clue shows great taste, excitement to begin, or recent picking.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "A word can connect to a clue about taste, readiness, or newness."
-    },
-    {
-      "activityId": "english-g3-q2-w01-d04-a06",
-      "sequence": 6,
-      "type": "SEQUENCE_BUILDER",
-      "capability": "SEQUENCE_BUILDER_V1",
-      "required": true,
-      "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Put the context-clue steps in order.",
-      "content": {
-        "steps": [
-          "Read the whole sentence",
-          "Circle the new word",
-          "Notice nearby clue words",
-          "Explain the meaning"
-        ]
-      },
-      "completionRule": {
-        "type": "COMPLETE"
-      },
-      "feedback": {
-        "correct": "Nice job! 🌈",
-        "retry": "Check that you read, found, noticed, and explained the clue."
-      },
-      "prompt": "Order the steps for figuring out a new word.",
-      "narration": "Good readers use the whole sentence and its clues before choosing a meaning.",
-      "guideHint": "Start by reading the whole sentence.",
-      "nextLabel": "Next →",
-      "accessibilityAlternative": "Good readers use the whole sentence and its clues before choosing a meaning."
-    }
-  ],
-  "assessment": {
-    "purpose": "FORMATIVE_MODULE_CHECK",
-    "itemCount": 5,
-    "passingCorrectCount": 4,
-    "claimsMastery": false,
-    "items": [
-      {
-        "itemId": "english-g3-q2-w01-d04-q01",
-        "sequence": 1,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Milo takes one bite of the soup and asks for another bowl. Which word describes the soup?",
-        "options": [
-          {
-            "id": "a",
-            "text": "delicious"
-          },
-          {
-            "id": "b",
-            "text": "fresh"
-          },
-          {
-            "id": "c",
-            "text": "patient"
-          },
-          {
-            "id": "d",
-            "text": "eager"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Asking for another bowl after tasting it suggests the soup tastes very good, so delicious fits."
-      },
-      {
-        "itemId": "english-g3-q2-w01-d04-q02",
-        "sequence": 2,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "The children are excited and ready to open their new books. Which word describes them?",
-        "options": [
-          {
-            "id": "a",
-            "text": "fresh"
-          },
-          {
-            "id": "b",
-            "text": "eager"
-          },
-          {
-            "id": "c",
-            "text": "patient"
-          },
-          {
-            "id": "d",
-            "text": "delicious"
-          }
-        ],
-        "correctOptionIds": [
-          "b"
-        ],
-        "explanation": "Being excited and ready to begin shows the children are eager."
-      },
-      {
-        "itemId": "english-g3-q2-w01-d04-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Mangoes were picked from the tree this morning. Which word describes the mangoes?",
-        "options": [
-          {
-            "id": "a",
-            "text": "fresh"
-          },
-          {
-            "id": "b",
-            "text": "eager"
-          },
-          {
-            "id": "c",
-            "text": "patient"
-          },
-          {
-            "id": "d",
-            "text": "delicious"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "Fruit picked recently is fresh; the picking time is the clue."
-      },
-      {
-        "itemId": "english-g3-q2-w01-d04-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Complete the sentence: 'The cold mango shake is ___.'",
-        "options": [
-          {
-            "id": "a",
-            "text": "delicious"
-          },
-          {
-            "id": "b",
-            "text": "fresh"
-          },
-          {
-            "id": "c",
-            "text": "patient"
-          },
-          {
-            "id": "d",
-            "text": "eager"
-          }
-        ],
-        "correctOptionIds": [
-          "a"
-        ],
-        "explanation": "The sentence needs a word about taste; a mango shake that tastes great is delicious."
-      },
-      {
-        "itemId": "english-g3-q2-w01-d04-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "A fisherman waits quietly for a fish without complaining. Which word describes him?",
-        "options": [
-          {
-            "id": "a",
-            "text": "fresh"
-          },
-          {
-            "id": "b",
-            "text": "delicious"
-          },
-          {
-            "id": "c",
-            "text": "eager"
-          },
-          {
-            "id": "d",
-            "text": "patient"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Waiting calmly without complaining shows patience, so patient fits the fisherman."
-      }
-    ]
+ "lessonId": "english-g3-q2-w01-d04",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 5,
+ "day": 4,
+ "subject": "english",
+ "title": "Delicious, Eager, Fresh",
+ "objective": "Use the words delicious, eager, and fresh in context with sentence clues",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Use the words delicious, eager, and fresh in context with sentence clues Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "key idea",
+   "definition": "lesson concept"
   },
-  "contentReview": {
-    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
-    "focus": [
-      "factual accuracy",
-      "Grade 3 appropriateness",
-      "child safety",
-      "engagement",
-      "matching-pair integrity",
-      "answer-position balance",
-      "feedback quality",
-      "language purity (fil/en)"
+  {
+   "term": "example",
+   "definition": "supports the idea"
+  },
+  {
+   "term": "reason",
+   "definition": "explains why"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q2-w01-d04-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Listen for the clue in Delicious, Eager, Fresh.",
+   "content": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You noticed the clue in Delicious, Eager, Fresh. 🎉",
+    "retry": "Find the clue in Delicious, Eager, Fresh again. 💪"
+   },
+   "prompt": "Listen for the clue in Delicious, Eager, Fresh.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
+  },
+  {
+   "activityId": "english-g3-q2-w01-d04-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Find the examples for Delicious, Eager, Fresh.",
+   "content": {
+    "examples": [
+     "a clear example",
+     "a second example",
+     "a real-life connection",
+     "a reason"
     ],
-    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
-    "rewritten": true,
-    "date": "2026-08-14"
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Delicious, Eager, Fresh. 🔎",
+    "retry": "Look at each Delicious, Eager, Fresh example again. 💪"
+   },
+   "prompt": "Find the examples for Delicious, Eager, Fresh.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
   },
-  "reviewedAt": "2026-08-13T21:30:00+08:00",
-  "scene": {
-    "character": "Milo the Cat",
-    "setting": "Milo's Learning World (English)",
-    "visualScene": "📚📖🏰✨"
+  {
+   "activityId": "english-g3-q2-w01-d04-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Sort the examples by the Delicious, Eager, Fresh clue.",
+   "content": {
+    "fits": [
+     "a clear example",
+     "a second example",
+     "a real-life connection",
+     "a reason"
+    ],
+    "doesNotFit": [
+     "an unrelated guess",
+     "a random symbol",
+     "a different topic",
+     "an unsupported claim"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Delicious, Eager, Fresh clue. 🎉",
+    "retry": "Read the Delicious, Eager, Fresh rule before sorting again. 💪"
+   },
+   "prompt": "Sort the examples by the Delicious, Eager, Fresh clue.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
   },
-  "pacingPass": "pacing-b2-2026-08-15"
+  {
+   "activityId": "english-g3-q2-w01-d04-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Choose the answer that fits Delicious, Eager, Fresh.",
+   "content": {
+    "options": [
+     "a different topic",
+     "a clear example",
+     "an unrelated guess",
+     "a random symbol"
+    ],
+    "correctIndex": 1
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great! You chose an answer that fits Delicious, Eager, Fresh. 🎉",
+    "retry": "Find the clue in the Delicious, Eager, Fresh question. 💪"
+   },
+   "prompt": "Choose the answer that fits Delicious, Eager, Fresh.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
+  },
+  {
+   "activityId": "english-g3-q2-w01-d04-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Match each example with its Delicious, Eager, Fresh explanation.",
+   "content": {
+    "pairs": [
+     {
+      "left": "key idea",
+      "right": "lesson concept"
+     },
+     {
+      "left": "example",
+      "right": "supports the idea"
+     },
+     {
+      "left": "reason",
+      "right": "explains why"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Delicious, Eager, Fresh explanation. 🔗",
+    "retry": "Read both sides of each Delicious, Eager, Fresh pair again. 💪"
+   },
+   "prompt": "Match each example with its Delicious, Eager, Fresh explanation.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
+  },
+  {
+   "activityId": "english-g3-q2-w01-d04-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q2-w01-d04-visual",
+   "instruction": "Put the Delicious, Eager, Fresh steps in order.",
+   "content": {
+    "steps": [
+     "Read the idea",
+     "Study an example",
+     "Choose the evidence",
+     "Explain your thinking"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You put the Delicious, Eager, Fresh steps in order. 🎉",
+    "retry": "Find the first, next, and last Delicious, Eager, Fresh steps. 💪"
+   },
+   "prompt": "Put the Delicious, Eager, Fresh steps in order.",
+   "narration": "Use the words delicious, eager, and fresh in context with sentence clues",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Use the words delicious, eager, and fresh in context with sentence clues"
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q2-w01-d04-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example belongs to Delicious, Eager, Fresh?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a different topic"
+     },
+     {
+      "id": "c",
+      "text": "a clear example"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: a clear example"
+   },
+   {
+    "itemId": "english-g3-q2-w01-d04-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which choice shows the skill in Delicious, Eager, Fresh?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an unsupported claim"
+     },
+     {
+      "id": "b",
+      "text": "a second example"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a different topic"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: a second example"
+   },
+   {
+    "itemId": "english-g3-q2-w01-d04-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What is one example from Delicious, Eager, Fresh?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a real-life connection"
+     },
+     {
+      "id": "b",
+      "text": "a different topic"
+     },
+     {
+      "id": "c",
+      "text": "an unsupported claim"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: a real-life connection"
+   },
+   {
+    "itemId": "english-g3-q2-w01-d04-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which situation matches Delicious, Eager, Fresh?",
+    "options": [
+     {
+      "id": "a",
+      "text": "an unsupported claim"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a reason"
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: a reason"
+   },
+   {
+    "itemId": "english-g3-q2-w01-d04-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which answer demonstrates Delicious, Eager, Fresh?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a different topic"
+     },
+     {
+      "id": "c",
+      "text": "a clear example"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: a clear example"
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-13T21:30:00+08:00",
+ "scene": {
+  "character": "Milo the Cat",
+  "setting": "Milo's Learning World (English)",
+  "visualScene": "📚📖🏰✨"
+ },
+ "pacingPass": "pacing-b2-2026-08-15"
 }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -25,9 +26,13 @@ import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -954,6 +959,8 @@ private fun SanctuaryPreview(
     onTreatShopClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    var selectedPieceForInspect by remember { mutableStateOf<SanctuaryPieceUi?>(null) }
+    var miloTapCount by remember { mutableIntStateOf(0) }
     val progress = if (sanctuary.totalPieces > 0) {
         (sanctuary.earnedPieces.toFloat() / sanctuary.totalPieces).coerceIn(0f, 1f)
     } else {
@@ -961,7 +968,16 @@ private fun SanctuaryPreview(
     }
     val orderedPieces = SanctuaryCatalog.pieces
         .take(sanctuary.totalPieces.coerceAtLeast(0))
-        .map { piece -> SanctuaryPieceUi(piece.id, piece.name, piece.description, piece.iconKey) }
+        .map { piece ->
+            SanctuaryPieceUi(
+                id = piece.id,
+                name = piece.name,
+                description = piece.description,
+                iconKey = piece.iconKey,
+                residentWildlife = piece.residentWildlife,
+                funFact = piece.funFact,
+            )
+        }
     val boardCells = sanctuaryBoardCells(sanctuary, orderedPieces)
     val workshopLabel = stringResource(R.string.home_sanctuary_workshop)
 
@@ -1002,7 +1018,11 @@ private fun SanctuaryPreview(
                 lineHeight = 20.sp,
             )
             Spacer(Modifier.height(10.dp))
-            SanctuaryScene(sanctuary = sanctuary)
+            SanctuaryScene(
+                sanctuary = sanctuary,
+                onPieceClick = { piece -> selectedPieceForInspect = piece },
+                onMiloClick = { miloTapCount++ },
+            )
             Spacer(Modifier.height(10.dp))
             LinearProgressIndicator(
                 progress = { progress },
@@ -1017,22 +1037,43 @@ private fun SanctuaryPreview(
                 modifier = Modifier
                     .fillMaxWidth()
                     .semantics {
-                        contentDescription = "Milo's home board. ${sanctuary.earnedPieces} of ${sanctuary.totalPieces} places added."
+                        contentDescription = "Milo's home board. ${sanctuary.earnedPieces} of ${sanctuary.totalPieces} places added. Tap any place to inspect."
                     },
             ) {
                 Column(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(
-                        stringResource(R.string.home_sanctuary_board_title),
-                        color = PlayInk,
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 15.sp,
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            stringResource(R.string.home_sanctuary_board_title),
+                            color = PlayInk,
+                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 15.sp,
+                        )
+                        Text(
+                            "Tap to inspect",
+                            color = PlayTeal,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 12.sp,
+                        )
+                    }
                     boardCells.chunked(3).forEach { rowCells ->
                         Row(
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
-                            rowCells.forEach { cell -> SanctuaryBoardCell(cell) }
+                            rowCells.forEach { cell ->
+                                SanctuaryBoardCell(
+                                    cell = cell,
+                                    onClick = {
+                                        if (cell.isEarned || cell.isNext) {
+                                            selectedPieceForInspect = cell.piece
+                                        }
+                                    }
+                                )
+                            }
                             repeat(3 - rowCells.size) { Spacer(Modifier.weight(1f)) }
                         }
                     }
@@ -1044,7 +1085,10 @@ private fun SanctuaryPreview(
                 Surface(
                     shape = RoundedCornerShape(16.dp),
                     color = Color.White.copy(alpha = 0.86f),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(16.dp))
+                        .clickable { selectedPieceForInspect = nextPiece },
                 ) {
                     Row(
                         Modifier.padding(12.dp),
@@ -1087,9 +1131,6 @@ private fun SanctuaryPreview(
                     fontSize = 15.sp,
                 )
             }
-            // The earn hint describes how to add the NEXT place. Once the
-            // sanctuary is complete (or god mode shows it complete) there is
-            // nothing left to earn — showing both lines is contradictory.
             if (nextPiece != null) {
                 Spacer(Modifier.height(9.dp))
                 Text(
@@ -1117,10 +1158,22 @@ private fun SanctuaryPreview(
             }
         }
     }
+
+    selectedPieceForInspect?.let { piece ->
+        val isEarned = sanctuary.visiblePieces.any { it.id == piece.id }
+        SanctuaryPieceInspectionDialog(
+            piece = piece,
+            isEarned = isEarned,
+            onDismiss = { selectedPieceForInspect = null },
+        )
+    }
 }
 
 @Composable
-private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
+private fun RowScope.SanctuaryBoardCell(
+    cell: SanctuaryBoardCellUi,
+    onClick: () -> Unit = {},
+) {
     val background = when {
         cell.isEarned -> Color.White.copy(alpha = 0.92f)
         cell.isNext -> PlaySunshine.copy(alpha = 0.78f)
@@ -1131,15 +1184,24 @@ private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
         cell.isEarned -> PlayTeal.copy(alpha = 0.28f)
         else -> PlayMuted.copy(alpha = 0.18f)
     }
+    val clickableModifier = if (cell.isEarned || cell.isNext) {
+        Modifier.clickable(onClick = onClick)
+    } else {
+        Modifier
+    }
+
     Surface(
         modifier = Modifier
             .weight(1f)
             .heightIn(min = 88.dp)
+            .clip(RoundedCornerShape(14.dp))
+            .then(clickableModifier)
             .semantics {
+                role = Role.Button
                 contentDescription = when {
-                    cell.isEarned -> "${cell.piece.name}, added to Milo's home"
-                    cell.isNext -> "${cell.piece.name}, next place to add"
-                    else -> "Locked sanctuary place"
+                    cell.isEarned -> "${cell.piece.name}, place added to Milo's home. Tap to inspect."
+                    cell.isNext -> "Next reward: ${cell.piece.name}. Finish today's quest to unlock. Tap to preview."
+                    else -> "${cell.piece.name}, locked place."
                 }
                 stateDescription = when {
                     cell.isEarned -> "Added"
@@ -1156,25 +1218,176 @@ private fun RowScope.SanctuaryBoardCell(cell: SanctuaryBoardCellUi) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Icon(
-                if (cell.isEarned || cell.isNext) sanctuaryIcon(cell.piece.iconKey) else Icons.Default.Lock,
-                contentDescription = null,
-                tint = if (cell.isEarned || cell.isNext) PlayTeal else PlayMuted.copy(alpha = 0.58f),
-                modifier = Modifier.size(23.dp),
-            )
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(if (cell.isEarned || cell.isNext) PlayTeal.copy(alpha = 0.12f) else Color.Transparent),
+                contentAlignment = Alignment.Center
+            ) {
+                if (cell.isEarned || cell.isNext) {
+                    Image(
+                        painter = painterResource(sanctuaryPieceDrawable(cell.piece.iconKey)),
+                        contentDescription = null,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(2.dp),
+                    )
+                } else {
+                    Icon(
+                        Icons.Default.Lock,
+                        contentDescription = null,
+                        tint = PlayMuted.copy(alpha = 0.58f),
+                        modifier = Modifier.size(22.dp),
+                    )
+                }
+            }
             Spacer(Modifier.height(3.dp))
             Text(
                 if (cell.isEarned || cell.isNext) cell.piece.name else stringResource(R.string.home_sanctuary_locked_place),
                 color = if (cell.isEarned || cell.isNext) PlayInk else PlayMuted,
                 fontWeight = FontWeight.Bold,
-                fontSize = 15.sp,
-                lineHeight = 18.sp,
+                fontSize = 13.sp,
+                lineHeight = 16.sp,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SanctuaryPieceInspectionDialog(
+    piece: SanctuaryPieceUi,
+    isEarned: Boolean,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(CircleShape)
+                        .background(if (isEarned) PlayTeal.copy(alpha = 0.15f) else PlaySunshine.copy(alpha = 0.3f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(sanctuaryPieceDrawable(piece.iconKey)),
+                        contentDescription = null,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(4.dp)
+                    )
+                }
+                Column {
+                    Text(
+                        piece.name,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = PlayInk,
+                    )
+                    Text(
+                        if (isEarned) "Sanctuary Habitat • Unlocked" else "Next Habitat Unlock",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = if (isEarned) PlayTeal else PlayroomColors.KeepsakeHeading,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+            }
+        },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text(
+                    piece.description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = PlayInk,
+                    lineHeight = 20.sp,
+                )
+
+                if (piece.funFact.isNotBlank()) {
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = PlayroomColors.SanctuarySurface,
+                        border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.25f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp)) {
+                            Text(
+                                "Milo's Field Note",
+                                style = MaterialTheme.typography.labelLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = PlayTeal
+                            )
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                piece.funFact,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = PlayInk,
+                                lineHeight = 18.sp
+                            )
+                        }
+                    }
+                }
+
+                if (piece.residentWildlife.isNotEmpty()) {
+                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text(
+                            "Native Animals That Love This Place:",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = PlayroomColors.KeepsakeHeading
+                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            piece.residentWildlife.forEach { animal ->
+                                Surface(
+                                    shape = RoundedCornerShape(8.dp),
+                                    color = Color.White,
+                                    border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.2f)),
+                                    modifier = Modifier.padding(vertical = 2.dp)
+                                ) {
+                                    Text(
+                                        "🐾 $animal",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        fontWeight = FontWeight.Medium,
+                                        color = PlayInk,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = onDismiss,
+                colors = ButtonDefaults.buttonColors(containerColor = PlayTeal),
+                shape = RoundedCornerShape(12.dp),
+            ) {
+                Text("Close", fontWeight = FontWeight.Bold)
+            }
+        },
+        containerColor = PlayCream,
+        shape = RoundedCornerShape(20.dp),
+    )
 }
 
 private fun sanctuaryIcon(iconKey: String): ImageVector = when (iconKey) {

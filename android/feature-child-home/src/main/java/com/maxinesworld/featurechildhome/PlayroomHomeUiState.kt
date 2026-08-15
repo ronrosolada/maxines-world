@@ -96,6 +96,8 @@ data class SanctuaryPieceUi(
     val name: String,
     val description: String,
     val iconKey: String,
+    val residentWildlife: List<String> = emptyList(),
+    val funFact: String = "",
 )
 
 @androidx.compose.runtime.Immutable
