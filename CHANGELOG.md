@@ -6,6 +6,17 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.41.0] - 2026-08-15
+
+### Complete 59-Video Tagalog Media Curriculum & Assessment Bank
+
+- **Full 59 Tagalog Video Assessments:** Authored and integrated 330 new child-facing interactive questions covering Videos 27 through 59:
+  - *Kids Tagalog 27–33:* Siblings & family titles, polite greetings, opposites (mainit/malamig), vehicles & car parts, insects, descriptive adjectives, scents & hygiene.
+  - *Kids Tagalog 34–39:* New Year time words, emotional expressions (masaya/malungkot), polite expressions, plant anatomy, greetings (Kamusta ka), extended family.
+  - *Kids Tagalog 40–49:* Handwashing hygiene, speed concepts (mabilis/mabagal), mealtime, lost & found storybook, self-introductions, fruits & vegetables, spatial directions, prepositions of location, expressions of preference (gusto/ayoko), respectful speech (po at opo).
+  - *Kids Tagalog 50–59:* School supplies, birthday celebration songs, traditional Filipino games (tagu-taguan, sungka, piko), body parts action song, Christmas traditions (parol, bibingka, simbang gabi), farm animals & animal sounds, geometric shapes, color mixing, and counting numbers 1 to 20.
+- **100% Video-to-Assessment Parity:** All 59 staged MP4 video lessons hosted on the DreamNAS content server now have full 10-question multiple-choice interactive quiz banks in `media-assessments.json` (590 verified questions total).
+
 ## [0.40.0] - 2026-08-15
 
 ### Adversarial UX & Touch Ergonomics Overhaul
