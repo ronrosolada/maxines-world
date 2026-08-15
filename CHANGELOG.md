@@ -6,6 +6,21 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.36.0] - 2026-08-15
+
+### Visual & Pedagogical Asset Enrichment
+
+- **Badge Photo Coverage (100% Complete):** Generated and integrated the missing Panay monitor lizard (`animal_photo_reptile_panay_monitor.webp`) using ComfyUI on local RTX 3070 diffusion pipeline, achieving 100% asset completeness across the entire 51-badge Philippine fauna curriculum catalog.
+- **Impeccable Storybook Art & Audio Integration:** Aligned lesson asset workflows with tactile Philippine biodiversity biomes, clean vector outlines, high-contrast child UX, and zero-emoji standards.
+- **Curriculum & Asset Validation:** Verified all 358 lessons across 7 subjects with 0 errors and 0 warnings on strict content validation and asset resolution gates.
+
+### Verification
+
+- Content pack validation: 358 lessons, 358 files, 0 errors, 0 warnings.
+- Content quality audit: 0 errors across 7 subjects (Araling Panlipunan, English, Filipino, GMRC, Makabansa, Mathematics, Science).
+- Lesson asset verification: 358/358 valid SVGs, 0 missing, 0 orphaned.
+- Badge Catalog & Photos: 51/51 badges fully resolved (49 animal photo assets + milestone badge).
+
 ## [0.35.1] - 2026-08-15
 
 ### Corrective Content and Parent Access Patch
