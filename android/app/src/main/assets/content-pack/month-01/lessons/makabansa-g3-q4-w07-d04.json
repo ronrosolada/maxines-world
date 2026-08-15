@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🎣 Sa tabi ng lawa, may pamayanang namumuhay mula sa tubig. Paano kaya? Tara na kay Milo!",
+  "introduction": "🎣 Sa tabi ng lawa, ang tubig ay nagbibigay ng pagkain, paglalakbay, at hanapbuhay. Alamin natin kung paano nakaaapekto ang lawa sa kultura at pamumuhay ng komunidad.",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "lawa",
+      "definition": "Malawak na tubig na napaliligiran ng lupa."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "pangingisda",
+      "definition": "Paghuli ng isda bilang pagkain o hanapbuhay."
     },
     {
-      "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "term": "bangka",
+      "definition": "Maliit na sasakyang ginagamit sa paglalakbay sa tubig."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang gawain sa barangay. Gayundin, sa isang bukirin malapit sa ilog.",
+      "instruction": "Pakinggan kung paano hinuhubog ng lawa ang buhay ng komunidad.",
+      "content": "Sa lawa, nagbibigay ang tubig ng isda, daanan, at iba pang pangangailangan ng komunidad. Ang pangingisda, pagtatawid sa bangka, at pagtutuyo ng isda ay maaaring maging bahagi ng hanapbuhay at pagkain. Kaya hinuhubog ng lawa ang pang-araw-araw na buhay at kultura.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Ang tubig ng lawa ay nakatutulong sa pagkain, paglalakbay, at hanapbuhay. 🎉",
+        "retry": "Balikan ang ugnayan ng tubig, isda, bangka, pagkain, at hanapbuhay sa lawa."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang gawain sa barangay. Gayundin, sa isang bukirin malapit sa ilog.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin kung paano nakaaapekto ang lawa sa pamumuhay.",
+      "narration": "Sa lawa, nagbibigay ang tubig ng isda, daanan, at iba pang pangangailangan ng komunidad. Ang pangingisda, pagtatawid sa bangka, at pagtutuyo ng isda ay maaaring maging bahagi ng hanapbuhay at pagkain. Kaya hinuhubog ng lawa ang pang-araw-araw na buhay at kultura.",
+      "guideHint": "Pansinin kung paano ginagamit ang tubig sa pagkain at hanapbuhay.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang gawain sa barangay. Gayundin, sa isang bukirin malapit sa ilog."
+      "accessibilityAlternative": "Paliwanag tungkol sa isda, bangka, pagkain, paglalakbay, at hanapbuhay sa lawa."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin sa larawan ang mga gawaing kaugnay ng lawa.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "naghuhuli ng isda mula sa bangka",
+          "nagtatawid ng tao sa kabilang pampang",
+          "nagtutuyo ng isda sa araw",
+          "naghahatid ng pagkain sa pamamagitan ng bangka"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Natukoy mo ang mga gawaing bahagi ng buhay sa lawa. 🎉",
+        "retry": "Hanapin ang larawang may bangka, isda, pampang, o pagkaing mula sa lawa."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Tuklasin ang bangka, pangingisda, at pagkaing nagmumula sa lawa.",
+      "narration": "Hanapin ang mga gawaing ipinapakita sa larawan at isipin kung paano nakatutulong ang mga ito sa komunidad.",
+      "guideHint": "Hanapin ang gawain na gumagamit ng tubig, bangka, isda, o pampang.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Larawan ng bangka, pangingisda, pagtatawid sa pampang, at pagtutuyo ng isda."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Pangkatin ang mga gawaing kaugnay ng lawa.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "naghuhuli ng isda mula sa bangka",
+          "nagtatawid ng tao sa lawa",
+          "nagtutuyo ng isda para sa pagkain",
+          "naglalaro sa pampang kasama ang pamilya"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "nagsusulat ng aralin sa silid-aralan",
+          "sumasakay sa tren sa siyudad",
+          "nagtatrabaho sa gusali ng opisina",
+          "nag-aalaga ng baka sa malawak na pastulan"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "correct": "Mahusay! Napangkat mo ang mga gawaing kaugnay ng lawa. 🎉",
+        "retry": "Tingnan kung ang gawain ay may malinaw na ugnayan sa tubig, bangka, isda, o pampang."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pagbukud-bukurin ang mga gawain ayon sa ugnayan nito sa lawa.",
+      "narration": "Pangkatin ang mga kard ayon sa malinaw na ugnayan ng gawain sa lugar at pamumuhay ng komunidad.",
+      "guideHint": "Suriin kung ang gawain ay gumagamit ng tubig, bangka, isda, o pampang.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga kard tungkol sa pangingisda, bangka, pampang, at ibang kapaligiran."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d04-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang gawaing nagpapakita ng buhay sa lawa.",
       "content": {
         "options": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pangingisda sa baybayin",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+          "pag-aani ng palay sa bukid",
+          "pagkakarga ng kahon sa daungan",
+          "pangingisda mula sa bangka",
+          "pagtatrabaho sa mataas na gusali"
         ],
         "correctIndex": 2
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Tama! Ang pangingisda mula sa bangka ay hanapbuhay na umaasa sa tubig ng lawa. 🎉",
+        "retry": "Suriin kung aling gawain ang direktang gumagamit ng bangka o tubig para sa pagkain."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang hanapbuhay na umaasa sa tubig ng lawa?",
+      "narration": "Gamitin ang paliwanag tungkol sa lugar upang piliin ang iisang gawaing may tamang ugnayan dito.",
+      "guideHint": "Hanapin ang gawaing gumagamit ng bangka o tubig upang makakuha ng pagkain.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga pagpipilian tungkol sa lawa, bukid, daungan, at gusali."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang gawain sa tungkulin o bunga nito.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "pangingisda mula sa maliit na bangka",
+            "right": "pagkuha ng pagkain at kita mula sa tubig"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "pagtatawid ng tao sa kabilang pampang",
+            "right": "paglalakbay na umaasa sa lawa"
           },
           {
-            "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "left": "pagtutuyo ng isda sa araw",
+            "right": "pag-iingat ng pagkain para sa ibang araw"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naipares mo ang gawain sa bungang dulot nito sa pamumuhay sa lawa. 🎉",
+        "retry": "Basahin ang gawain at hanapin ang kaugnay na pagkain, paglalakbay, o pag-iingat ng isda."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itapat ang gawain sa lawa sa tungkulin o bungang dulot nito.",
+      "narration": "Iugnay ang bawat gawain sa tungkulin, bunga, o kategoryang ipinapakita nito sa komunidad.",
+      "guideHint": "Basahin ang gawain at itanong kung paano ito nakatutulong sa pagkain o paglalakbay.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga pares tungkol sa bangka, isda, pampang, at bungang dulot ng mga ito."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d04-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d04-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng lawa at pamumuhay.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tingnan ang gawain sa tabi ng lawa",
+          "Tukuyin kung paano ginagamit ang tubig",
+          "Iugnay ito sa pagkain, paglalakbay, o hanapbuhay",
+          "Ipaliwanag kung paano hinuhubog ng lawa ang buhay"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naiugnay mo ang tubig sa pagkain, paglalakbay, at hanapbuhay ng komunidad. 🎉",
+        "retry": "Unahin ang gawain sa lawa, tukuyin ang gamit ng tubig, saka ipaliwanag ang tulong nito sa pamumuhay."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ayusin ang mga hakbang sa pagpapaliwanag ng ugnayan ng lawa at pamumuhay.",
+      "narration": "Ayusin ang mga hakbang mula sa pagmamasid sa lugar hanggang sa pagpapaliwanag ng ugnayan nito sa pamumuhay.",
+      "guideHint": "Magsimula sa gawain sa lawa, tukuyin ang gamit ng tubig, iugnay sa buhay, at ipaliwanag ang bunga.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga hakbang mula sa pagtukoy ng gawain sa lawa hanggang sa pagpapaliwanag ng bunga nito."
     }
   ],
   "assessment": {
@@ -225,141 +225,141 @@
         "itemId": "makabansa-g3-q4-w07-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa tabi ng lawa, alin ang hanapbuhay na umaasa sa tubig?",
         "options": [
           {
             "id": "a",
-            "text": "pagkain na hindi mula sa lokal na ani"
+            "text": "pagtatanim ng palay sa bukid"
           },
           {
             "id": "b",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "pagkakarga ng kahon sa barko"
           },
           {
             "id": "c",
-            "text": "bilang ng mga kapatid"
+            "text": "pagtatrabaho sa opisina"
           },
           {
             "id": "d",
-            "text": "pangingisda sa baybayin"
+            "text": "pangingisda mula sa bangka"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “pangingisda sa baybayin” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pangingisda mula sa bangka ay direktang gumagamit ng tubig ng lawa upang makakuha ng pagkain o kita."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "May maliit na bangka ang pamilya. Paano ito makatutulong sa kanilang pamumuhay?",
         "options": [
           {
             "id": "a",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Magagamit ito sa pagtatanim ng palay sa bundok."
           },
           {
             "id": "b",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Magagamit ito sa paggawa ng mataas na gusali."
           },
           {
             "id": "c",
-            "text": "tatak ng sapatos"
+            "text": "Magagamit ito sa pag-akyat sa tuyong lupa."
           },
           {
             "id": "d",
-            "text": "disenyong angkop sa klima"
+            "text": "Magagamit ito sa pangingisda o pagtawid sa lawa."
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “disenyong angkop sa klima” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang bangka ay sasakyang pantubig, kaya ginagamit ito sa pangingisda o pagtawid sa lawa."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa lawa?",
+        "prompt": "Bakit maaaring maging mahalaga ang lawa sa pagkain ng komunidad?",
         "options": [
           {
             "id": "a",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Wala itong naibibigay na pagkain."
           },
           {
             "id": "b",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Nagbibigay ito ng mga gusali para sa tirahan."
           },
           {
             "id": "c",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Nagbibigay ito ng isda na maaaring kainin o ipagbili."
           },
           {
             "id": "d",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Pinipigilan nito ang mga tao na maghanapbuhay."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Mahalaga ang lawa sa pagkain dahil ang isdang nahuhuli roon ay maaaring kainin ng pamilya o ipagbili."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang pinakatamang paraan ng paglalarawan ng kultura ng isang komunidad?",
+        "prompt": "Sa pampang ng lawa, nagtutuyo si Ana ng isda sa araw. Ano ang ipinapakita nito?",
         "options": [
           {
             "id": "a",
-            "text": "ilarawan ito batay sa kanilang kapaligiran at karanasan"
+            "text": "Iniingatan ang pagkain upang magamit sa ibang araw."
           },
           {
             "id": "b",
-            "text": "ilarawan ito upang pintasan"
+            "text": "Walang ugnayan ang isda sa lawa."
           },
           {
             "id": "c",
-            "text": "ilarawan ito batay sa haka-haka"
+            "text": "Ang lawa ay ginagamit lamang sa paglalaro."
           },
           {
             "id": "d",
-            "text": "ilarawan ito nang walang ebidensya"
+            "text": "Hindi kailangan ng pamilya ang tubig."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang kultura ay dapat ilarawan batay sa kapaligiran at karanasan ng komunidad."
+        "explanation": "Ang pagtutuyo sa araw ay paraan ng pag-iingat ng isda upang hindi agad masira at magamit sa ibang araw."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI karaniwang gawain sa pamumuhay sa lawa?",
         "options": [
           {
             "id": "a",
-            "text": "pagkain na hindi mula sa lokal na ani"
+            "text": "pagkakarga ng produkto sa malaking barko sa daungan"
           },
           {
             "id": "b",
-            "text": "pista ng komunidad"
+            "text": "pangingisda mula sa bangka"
           },
           {
             "id": "c",
-            "text": "pangingisda sa baybayin"
+            "text": "pagtatawid ng tao sa kabilang pampang"
           },
           {
             "id": "d",
-            "text": "awit at sayaw na lokal"
+            "text": "pagtutuyo ng isda"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pagkain na hindi mula sa lokal na ani” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pagkakarga ng produkto sa malaking barko ay gawaing nakaugnay sa daungan, hindi sa karaniwang pamumuhay sa lawa."
       }
     ]
   },

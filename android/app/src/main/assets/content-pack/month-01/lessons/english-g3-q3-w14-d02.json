@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is sorting texts by their purpose! 🐱 A story entertains, instructions explain steps, and an informational text teaches facts. Ready to explore?",
+  "introduction": "Milo has three messages to sort! 🐱 A story entertains, instructions guide actions, and an informational text teaches facts.",
   "vocabulary": [
     {
       "term": "story",
-      "definition": "A text that tells events with characters or a situation."
+      "definition": "A text that tells events involving characters or a situation."
     },
     {
       "term": "instructions",
-      "definition": "A text that gives steps for completing a task."
+      "definition": "A text that gives ordered steps for doing something."
     },
     {
       "term": "informational text",
-      "definition": "A text that gives facts about a topic."
+      "definition": "A text that teaches true facts about a topic."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Listen and learn the three text types!",
+      "instruction": "Listen for the purpose of each text type.",
       "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Text Type Toolbox again. 💪"
+        "retry": "Check the writer’s purpose before naming the text type."
       },
-      "prompt": "Listen to the explanation about text types.",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for what each text helps the reader do.",
+      "narration": "A story entertains through events, instructions tell steps, and an informational text teaches facts.",
+      "guideHint": "Ask: does the text entertain, guide an action, or teach facts?",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "A story entertains through events, instructions tell steps, and an informational text teaches facts."
     },
     {
       "activityId": "english-g3-q3-w14-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Tap each text type!",
+      "instruction": "Tap a sample and think about its purpose.",
       "content": {
         "examples": [
-          "story",
-          "instructions",
-          "informational text",
-          "personal response"
+          "A tale about an imaginary dragon",
+          "Steps for planting a seed",
+          "Facts about mangrove roots",
+          "A page about animal habitats"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Text Type Toolbox example again. 💪"
+        "retry": "Check whether the sample entertains, guides, or teaches."
       },
-      "prompt": "Look closely at each example",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each sample and ask what its purpose is.",
+      "narration": "A sample’s purpose helps you tell whether it is a story, instructions, or an informational text.",
+      "guideHint": "Picture what the reader would do with each sample.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "A sample’s purpose helps you tell whether it is a story, instructions, or an informational text."
     },
     {
       "activityId": "english-g3-q3-w14-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Sort the text types into the box!",
+      "instruction": "Sort real text samples from non-text things.",
       "content": {
         "fits": [
-          "story",
-          "instructions",
-          "informational text",
-          "personal response"
+          "A story about an imaginary dragon",
+          "Steps for planting a seed",
+          "Facts about mangrove roots",
+          "A page about animal habitats"
         ],
         "doesNotFit": [
-          "a story about an imaginary dragon",
-          "a shopping list",
-          "a greeting only",
-          "a personal dream"
+          "a red kite",
+          "a loud sound",
+          "a secret thought",
+          "a bowl of mangoes"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Text Type Toolbox rule before sorting again. 💪"
+        "retry": "Check whether the card is a text sample, not an object, sound, or thought."
       },
-      "prompt": "Sort each example",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort text samples away from things that are not texts.",
+      "narration": "Texts use words to entertain, guide an action, or teach facts; objects and sounds do not have a text purpose.",
+      "guideHint": "Look for a group of words a reader could read for a purpose.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "Texts use words to entertain, guide an action, or teach facts; objects and sounds do not have a text purpose."
     },
     {
       "activityId": "english-g3-q3-w14-d02-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Which text type teaches facts?",
+      "instruction": "Choose the text that teaches facts.",
       "content": {
         "options": [
-          "informational text",
+          "a book that teaches facts about animals",
           "a story about an imaginary dragon",
-          "a shopping list",
-          "a greeting only"
+          "a list of groceries",
+          "a greeting card"
         ],
         "correctIndex": 0
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Text Type Toolbox question. 💪"
+        "retry": "Check whether the text teaches information, not just a greeting or a story."
       },
-      "prompt": "Which choice is an informational text that teaches facts?",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Lia wants facts about animals. Which text should she choose?",
+      "narration": "An informational text teaches true facts about a topic.",
+      "guideHint": "Look for the choice whose purpose is to teach facts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "An informational text teaches true facts about a topic."
     },
     {
       "activityId": "english-g3-q3-w14-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Match the text types!",
+      "instruction": "Match each text type to the purpose it serves.",
       "content": {
         "pairs": [
           {
             "left": "story",
-            "right": "example with a useful detail"
+            "right": "entertains by telling events"
           },
           {
             "left": "instructions",
-            "right": "example with a useful detail (2)"
+            "right": "guides a reader through steps"
           },
           {
             "left": "informational text",
-            "right": "example with a useful detail (3)"
+            "right": "teaches facts about a topic"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Text Type Toolbox pair again. 💪"
+        "retry": "Check the purpose: entertain, guide steps, or teach facts."
       },
-      "prompt": "Match each example to the idea it shows about: Choose a text type that fits the writer's purpose.",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each text type with its writer’s purpose.",
+      "narration": "The writer’s purpose tells readers how a text type is meant to help them.",
+      "guideHint": "Read the text type, then choose what it helps the reader do.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "The writer’s purpose tells readers how a text type is meant to help them."
     },
     {
       "activityId": "english-g3-q3-w14-d02-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d02-visual",
-      "instruction": "Put the text-type steps in order.",
+      "instruction": "Put the text-purpose steps in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read the sample text",
+          "Ask what the writer wants the reader to do",
+          "Match the purpose to a text type",
+          "Explain the clue in the text"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Text Type Toolbox steps. 💪"
+        "retry": "Check that the text type matches the purpose you named."
       },
-      "prompt": "Put the steps in order",
-      "narration": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for choosing a text type in order.",
+      "narration": "Readers identify a text type by asking what the writer wants the reader to do.",
+      "guideHint": "Find the writer’s purpose before choosing the text type.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts."
+      "accessibilityAlternative": "Readers identify a text type by asking what the writer wants the reader to do."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q3-w14-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which text teaches facts about a topic?",
+        "prompt": "Lia wants facts about mangrove trees. Which text should she read?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "An informational text about mangrove trees teaches real facts. A story about a dragon is make-believe, a shopping list just names items, and a greeting only says hello."
+        "explanation": "An informational text about mangrove trees is written to teach facts about that topic."
       },
       {
         "itemId": "english-g3-q3-w14-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice teaches facts about a topic?",
+        "prompt": "A class book says, “Mangrove roots hold soil in place.” What kind of text fits?",
         "options": [
           {
             "id": "a",
@@ -265,7 +265,7 @@
           },
           {
             "id": "c",
-            "text": "Mangrove roots hold soil in place."
+            "text": "an informational text about mangroves"
           },
           {
             "id": "d",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "'Mangrove roots hold soil in place.' teaches a fact about mangroves. A dragon story is make-believe, and lists and greetings do not teach facts about a topic."
+        "explanation": "The sentence teaches a fact about mangroves, so it fits an informational text."
       },
       {
         "itemId": "english-g3-q3-w14-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example would help a reader learn facts?",
+        "prompt": "Milo wants to learn how trees help animals. Which text would help?",
         "options": [
           {
             "id": "a",
@@ -297,19 +297,19 @@
           },
           {
             "id": "d",
-            "text": "Trees can provide shelter for living things."
+            "text": "an informational page about how trees help animals"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A fact sentence, like 'Trees can provide shelter for living things,' teaches something real. A story about a dragon, a shopping list, and a greeting do not teach facts."
+        "explanation": "An informational page would teach facts about how trees help animals; the other choices have different purposes."
       },
       {
         "itemId": "english-g3-q3-w14-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which text is written to inform the reader?",
+        "prompt": "Your teacher asks you to learn true facts about animals. Which text informs?",
         "options": [
           {
             "id": "a",
@@ -321,7 +321,7 @@
           },
           {
             "id": "c",
-            "text": "A book that teaches facts about animals."
+            "text": "a book that teaches facts about animals"
           },
           {
             "id": "d",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A book that teaches facts about animals is written to inform the reader. A dragon story entertains, a shopping list just names items, and a greeting only says hello."
+        "explanation": "A book that teaches facts about animals is written to inform the reader."
       },
       {
         "itemId": "english-g3-q3-w14-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice belongs in an information book?",
+        "prompt": "You want to read about where animals live. Which choice belongs in an information book?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "An information book is full of facts, like facts about where animals live. A dragon story, a shopping list, and a greeting are not facts for an information book."
+        "explanation": "Facts about where animals live teach the reader about a topic, so they belong in an information book."
       }
     ]
   },

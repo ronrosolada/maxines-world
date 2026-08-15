@@ -13,11 +13,11 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo found a rock, a cup of water, and some air! Can you tell which one is a solid, a liquid, or a gas?",
+  "introduction": "Milo has a stone, a cup of water, and air in a balloon. How can Maxine tell each state of matter apart?",
   "vocabulary": [
     {
       "term": "classify",
-      "definition": "To sort things into groups that are alike."
+      "definition": "To put things into groups using a rule you can explain."
     },
     {
       "term": "material",
@@ -25,7 +25,7 @@
     },
     {
       "term": "solid",
-      "definition": "Matter with its own shape, like a rock."
+      "definition": "Matter that keeps its own shape, like a stone or block."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d01-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo explains solids, liquids, and gases.",
+      "instruction": "Watch Milo compare a solid, a liquid, and a gas.",
       "content": "Solids keep a shape, liquids flow and take a container’s shape, and gases spread to fill available space; these are three common states, not the only states.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Material Detectives again. 💪"
+        "retry": "Check the clues: solids keep shape, liquids flow, and gases spread."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "Text alternative: Solids keep a shape, liquids flow and take a container’s shape, and gases spread to fill available space; these are three common states, not the only states."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d01-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap the stone, water, and air to compare their states.",
       "content": {
         "examples": [
-          "stone—solid",
-          "water—liquid",
-          "air—gas"
+          "stone keeps its shape",
+          "water flows to fit its cup",
+          "air spreads through a balloon"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Material Detectives. 🔎",
-        "retry": "Look at each Material Detectives example again. 💪"
+        "retry": "Tap all three examples, then compare shape, flow, and spreading."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d01-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: does it describe a solid, liquid, or gas correctly?",
+      "instruction": "Sort each observation by whether it shows a solid.",
       "content": {
         "fits": [
-          "stone—solid",
-          "water—liquid",
-          "air—gas"
+          "wooden building block",
+          "glass marble",
+          "metal spoon"
         ],
         "doesNotFit": [
-          "Smoke is simply a gas",
-          "All matter is visible",
-          "Only three states can ever exist"
+          "juice in a cup",
+          "air in a balloon",
+          "steam above a kettle"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether each example keeps its shape, flows, or spreads."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d01-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Which familiar material is a liquid?",
+      "instruction": "Choose the example that flows and takes the shape of its container.",
       "content": {
         "options": [
           "stone",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: water",
-        "retry": "Look again — stone and air are not liquids. Tap the material that flows! 💪"
+        "retry": "Look for a material that flows and takes the container's shape."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d01-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each example to its state.",
+      "instruction": "Match each material with the way it behaves.",
       "content": {
         "pairs": [
           {
-            "left": "stone",
-            "right": "solid"
+            "left": "wooden block",
+            "right": "keeps its own shape"
           },
           {
-            "left": "water",
-            "right": "liquid"
+            "left": "drinking water",
+            "right": "flows to fit its container"
           },
           {
-            "left": "air",
-            "right": "gas"
+            "left": "air in a balloon",
+            "right": "spreads through available space"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Material Detectives explanation. 🔗",
-        "retry": "Read both sides of each Material Detectives pair again. 💪"
+        "retry": "For each material, check whether it keeps shape, flows, or fills space."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d01-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: name the matter, say its state, give a property.",
+      "instruction": "Order the steps for identifying a material state.",
       "content": {
         "steps": [
           "Name an example of matter.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Material Detectives steps in order. 🎉",
-        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+        "retry": "Check the order: name the example, identify its state, then give a property."
       },
       "assetId": "science-g3-m01-d01-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about solids, liquids, and gases is true?",
+        "prompt": "Milo watches a stone, water in a cup, and air in a balloon. Which statement correctly describes all three?",
         "options": [
           {
             "id": "a",
@@ -204,18 +204,22 @@
           {
             "id": "c",
             "text": "All matter is visible"
+          },
+          {
+            "id": "d",
+            "text": "A stone flows while water keeps its own shape"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A solid keeps its own shape, a liquid takes its container's shape, and a gas spreads to fill the space. Smoke carries tiny particles, and some matter is too small to see."
+        "explanation": "A solid keeps its own shape, a liquid flows into its container's shape, and a gas spreads through available space. Smoke can carry tiny particles, and some matter is too small to see."
       },
       {
         "itemId": "science-g3-m01-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair names a material and its correct state?",
+        "prompt": "At snack time, Maxine compares air, water, and a stone. Which pair shows a material and its correct state?",
         "options": [
           {
             "id": "a",
@@ -228,18 +232,22 @@
           {
             "id": "c",
             "text": "stone—solid"
+          },
+          {
+            "id": "d",
+            "text": "water—gas"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A stone keeps its own shape, so it is a solid. Water flows and air spreads out, so neither is a solid."
+        "explanation": "A stone keeps its own shape, so it is a solid. Water flows, and air spreads out, so neither is a solid."
       },
       {
         "itemId": "science-g3-m01-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is not true?",
+        "prompt": "Milo reads four cards about matter. Which card is NOT true?",
         "options": [
           {
             "id": "a",
@@ -247,23 +255,27 @@
           },
           {
             "id": "b",
-            "text": "stone—solid"
+            "text": "A stone is a solid"
           },
           {
             "id": "c",
-            "text": "water—liquid"
+            "text": "Water is a liquid"
+          },
+          {
+            "id": "d",
+            "text": "Air spreads through a balloon"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Smoke is not just a gas — it carries tiny bits of solid or liquid. Water is a liquid, and a stone is a solid."
+        "explanation": "Smoke is not just a gas because it carries tiny solid or liquid particles. A stone is solid, water is liquid, and air spreads as a gas."
       },
       {
         "itemId": "science-g3-m01-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which familiar material is a liquid?",
+        "prompt": "Maxine pours water into a cup and watches it flow. Which familiar material is a liquid?",
         "options": [
           {
             "id": "a",
@@ -276,18 +288,22 @@
           {
             "id": "c",
             "text": "stone"
+          },
+          {
+            "id": "d",
+            "text": "wooden block"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Water flows and takes the shape of its container, so it is a liquid. A stone keeps its shape, and air spreads out."
+        "explanation": "Water flows and takes the shape of its cup, so it is a liquid. Air spreads out, while a stone and block keep their shapes."
       },
       {
         "itemId": "science-g3-m01-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair shows the correct state?",
+        "prompt": "A balloon, a stone, and a cup of water sit on Milo's table. What state is the air in the balloon?",
         "options": [
           {
             "id": "a",
@@ -300,12 +316,16 @@
           {
             "id": "c",
             "text": "air—gas"
+          },
+          {
+            "id": "d",
+            "text": "water—solid"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Air spreads to fill its container, so it is a gas. A stone keeps its own shape, and air does not stay solid."
+        "explanation": "Air spreads to fill the balloon, so it is a gas. A stone is solid, and water in the cup is liquid."
       }
     ]
   },

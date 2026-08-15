@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🪞 Milo wants to show you how a mirror reflects light. Let's see how light behaves — and how to keep our eyes safe!",
+  "introduction": "Milo shines a lamp at a mirror and sees light bounce toward his eyes. How does a mirror help us see?",
   "vocabulary": [
     {
-      "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "term": "reflect",
+      "definition": "To bounce light off a surface."
+    },
+    {
+      "term": "mirror",
+      "definition": "A smooth surface that reflects light and can show an image."
     },
     {
       "term": "light",
-      "definition": "what helps us see"
-    },
-    {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "definition": "Energy that lets our eyes see objects."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo explain how light behaves and how to protect your eyes.",
       "content": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check whether the object makes, reflects, blocks, or lets light pass."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "a bell rings when shaken. a mirror reflects light. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Explore each example. a bell rings when shaken. a mirror reflects light.",
+      "instruction": "Tap each example and notice what light does.",
       "content": {
         "examples": [
-          "a bell rings when shaken",
-          "a mirror reflects light",
-          "turn on a lamp to read in a dark room",
-          "stay far from loud machines"
+          "a mirror bounces lamp light into eyes",
+          "a lamp makes its own light",
+          "a book is visible when light reflects from it",
+          "look away from a very bright light"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "For each card, name what light does before choosing the result."
       },
       "prompt": "Explore each example. a bell rings when shaken. a mirror reflects light.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows light safely.",
       "content": {
         "fits": [
-          "a bell rings when shaken",
-          "a mirror reflects light",
-          "turn on a lamp to read in a dark room",
-          "stay far from loud machines"
+          "a mirror bounces light into eyes",
+          "a lamp makes its own light",
+          "a book reflects light into eyes",
+          "a learner looks away from glare"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "The Moon makes its own sunlight",
+          "Look straight at the Sun",
+          "A mirror makes darkness",
+          "Point a bright light into someone’s eyes"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card describes a real light effect or a safe action."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose the light example shown in this lesson.",
       "content": {
         "options": [
-          "a sponge",
-          "a sock",
-          "a paper bag",
-          "a mirror"
+          "A sponge",
+          "A sock",
+          "A paper bag",
+          "A mirror"
         ],
         "correctIndex": 3
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "Compare each choice with the light behavior shown in the examples."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "instruction": "Match each light example with its effect or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "a bell rings when shaken",
-            "right": "makes sound"
+            "left": "mirror",
+            "right": "bounces light toward your eyes"
           },
           {
-            "left": "a mirror reflects light",
-            "right": "reflection helps us see"
+            "left": "lamp",
+            "right": "makes its own light"
           },
           {
-            "left": "turn on a lamp to read in a dark room",
-            "right": "light helps us see"
+            "left": "book",
+            "right": "reflects light so you can see it"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each light example to the effect or protection it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d01-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing light and protecting your eyes.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: observe light, explain its behavior, choose a safe action, protect eyes."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q4-w08-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which reflects light?",
+        "prompt": "Maxine shines a lamp at four objects. Which one reflects light toward her eyes?",
         "options": [
           {
             "id": "a",
-            "text": "a sponge"
+            "text": "A sponge"
           },
           {
             "id": "b",
-            "text": "a paper bag"
+            "text": "A paper bag"
           },
           {
             "id": "c",
-            "text": "a mirror"
+            "text": "A mirror"
           },
           {
             "id": "d",
-            "text": "a sock"
+            "text": "A sock"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A mirror bounces light back, so you can see yourself in it. A sponge, a sock, and a paper bag do not reflect like a mirror."
+        "explanation": "A mirror has a smooth surface that bounces light toward Maxine’s eyes, so she can see a reflection. The other objects do not reflect like a mirror."
       },
       {
         "itemId": "science-g3-q4-w08-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Milo wants to read safely in a dim room. Which action uses light safely?",
         "options": [
           {
             "id": "a",
-            "text": "write in a notebook"
+            "text": "Draw with no light"
           },
           {
             "id": "b",
-            "text": "fold a towel"
+            "text": "Name a color in darkness"
           },
           {
             "id": "c",
-            "text": "use a quiet voice indoors"
+            "text": "Use a lamp at a comfortable brightness"
           },
           {
             "id": "d",
-            "text": "read a book quietly"
+            "text": "Stare into a bright bulb"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A quiet voice is gentle on the ears, so it is a safe way to use sound indoors."
+        "explanation": "A lamp at a comfortable brightness gives enough light for reading without staring into glare. The other choices do not provide safe reading light."
       },
       {
         "itemId": "science-g3-q4-w08-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Maxine looks at a mirror, lamp, and book. Which statement about light is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "draw a picture"
+            "text": "A mirror reflects light"
           },
           {
             "id": "b",
-            "text": "name a color in the room"
+            "text": "A lamp makes its own light"
           },
           {
             "id": "c",
-            "text": "count the books on a shelf"
+            "text": "A book can be seen when light reflects from it"
           },
           {
             "id": "d",
-            "text": "use a lamp to read in a dark room"
+            "text": "The Moon makes its own visible light"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A lamp gives enough light to read by, so it is a safe way to use light."
+        "explanation": "The Moon does not make its own visible light; it reflects sunlight. A mirror reflects, a lamp emits light, and a book can send reflected light to your eyes."
       },
       {
         "itemId": "science-g3-q4-w08-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "Milo sees a book on a table because a lamp is on. Why can he see it?",
         "options": [
           {
             "id": "a",
-            "text": "a lamp lights a dark room"
+            "text": "The book makes sunlight."
           },
           {
             "id": "b",
-            "text": "a bell rings when shaken"
+            "text": "Light reflects from the book into his eyes."
           },
           {
             "id": "c",
-            "text": "a mirror reflects light"
+            "text": "Eyes send a beam into it."
           },
           {
             "id": "d",
-            "text": "a window lets light through"
+            "text": "The book creates darkness."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Shaking makes the bell vibrate, and that makes sound. Lamps, mirrors, and windows are about light."
+        "explanation": "Lamp light bounces off the book into Milo’s eyes. Eyes receive light; they do not send a beam, and the book is not a light source."
       },
       {
         "itemId": "science-g3-q4-w08-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Maxine notices her face in a mirror. Which pair correctly describes the mirror?",
         "options": [
           {
             "id": "a",
-            "text": "clapping hands makes sound"
+            "text": "A mirror absorbs all light"
           },
           {
             "id": "b",
-            "text": "a mirror reflects light"
+            "text": "A mirror reflects light"
           },
           {
             "id": "c",
-            "text": "a drum makes sound when struck"
+            "text": "A mirror makes its own sunlight"
           },
           {
             "id": "d",
-            "text": "a bell rings when shaken"
+            "text": "Darkness makes the image"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A mirror bounces light back, which is how it helps you see. Drums, bells, and claps make sound."
+        "explanation": "The mirror reflects light from Maxine’s face toward her eyes, making the image visible. It is not a light source, and darkness does not create the image."
       }
     ]
   },

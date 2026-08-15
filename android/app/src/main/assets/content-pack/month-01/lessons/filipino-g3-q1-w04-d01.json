@@ -13,11 +13,11 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Kumusta, kaibigan! Ako si Milo. Nakakita ka na ba ng mga salitang hindi mo pa naririnig dati? Tulad ng tsubibo, kalupi, at batobalani? Ang mga ito ay mga salitang di-kilala.",
+  "introduction": "Kapag bago ang salita, pakinggan ang bawat tunog at itapat ito sa letra. Suriin ang pagkakasunod ng mga letra bago isulat.",
   "vocabulary": [
     {
       "term": "Baybay",
-      "definition": "Ang tamang pagkakasunod-sunod ng mga letra sa pagsulat ng isang salita."
+      "definition": "Tamang pagkakasunod ng mga letra sa pagsulat ng isang salita."
     },
     {
       "term": "Tsubibo",
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa tamang pagbabaybay ng mga salita.",
+      "instruction": "Pakinggan ang tunog at suriin ang wastong ayos ng letra.",
       "content": "Ang pagbabaybay o ispeling ay maaaring pasulat o pabigkas. Sa maraming salitang Filipino, nakatutulong ang tamang bigkas upang matukoy ang baybay, ngunit dapat pa ring suriin ang wastong anyo ng salita kapag may alinlangan. Halimbawa — ang tunog na /b-a-g/ ay binabaybay na 'bag', ang /m-a-t-a/ ay 'mata', at ang /ts-u-b-i-b-o/ ay 'tsubibo'. Mababaybay mo nang maayos ang salita kung alam mo ang pangalan ng bawat letra at maisusulat ito sa tamang pagkakasunod-sunod. Ang mga salitang batobalani, kalupi, miktinig, antipara, tampipi, at tsubibo ay mga halimbawa ng salitang di-kilala. Ang pabigkas na pagbaybay ay dapat paletra at hindi papantig. Halimbawa: aso = /ey-es-o/, lapis = /el-ey-pi-ay-es/. Mahalagang intindihing mabuti kung paano ginamit ang salita sa pangungusap upang maunawaan ang kahulugan nito.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
         "correct": "Magaling! Naunawaan mo kung paano bumaybay nang wasto.",
-        "retry": "Panoorin muli ang paliwanag tungkol sa pagbabaybay."
+        "retry": "Bigkasin ang salita nang paletra at ihambing ang bawat letra. 💪"
       },
       "prompt": "Pakinggan ang paliwanag ni Milo tungkol sa pagbabaybay!",
       "narration": "Alamin natin ang tamang paraan ng pagbabaybay ng mga salita!",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Pagbabaybay nang Wasto ng mga Salita.",
+      "instruction": "Basahin ang mga salitang di-kilala at ang halimbawa nito.",
       "content": {
         "examples": [
           "tsubibo",
@@ -72,8 +72,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Pagbabaybay nang Wasto ng mga Salita. 💪"
+        "correct": "Mahusay! Nahanap mo ang mga salitang di-kilala at ang gamit nito. 🔎",
+        "retry": "Pansinin ang tunog at kahulugan bago isulat ang salita. 💪"
       },
       "prompt": "Pindutin ang bawat halimbawang kaugnay ng Pagbabaybay nang Wasto ng mga Salita.",
       "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Pagbabaybay nang Wasto ng mga Salita.",
@@ -88,7 +88,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng wastong pagbabaybay.",
+      "instruction": "Piliin ang mga salitang wasto ang pagkakasunod ng letra.",
       "content": {
         "fits": [
           "tsubibo",
@@ -106,8 +106,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Magaling! Nakikilala mo na ang tama at maling baybay ng mga salita.",
-        "retry": "Balikan ang paliwanag. Pakinggan ang tunog ng bawat salita."
+        "correct": "Mahusay! Naipangkat mo ang mga salitang wasto ang baybay. 🎉",
+        "retry": "Tingnan kung may napalitan, nawala, o nadagdag na letra. 💪"
       },
       "prompt": "Pangkatin ang mga salita ayon sa tamang baybay!",
       "narration": "Alin ang tama ang baybay? Alin ang mali?",
@@ -122,7 +122,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Piliin ang salitang may tamang baybay sa bawat pangkat.",
+      "instruction": "Alin ang tamang baybay ng “tampipi”?",
       "content": {
         "options": [
           "tampipi",
@@ -137,7 +137,7 @@
       },
       "feedback": {
         "correct": "Tama! Ang 'tampipi' ay nangangahulugang maleta o bag na de gulong.",
-        "retry": "Subukan mong muli. Pakinggan ang tunog ng salita — /t-a-m-p-i-p-i/."
+        "retry": "Pakinggan ang bawat tunog: /t-a-m-p-i-p-i/. 💪"
       },
       "prompt": "Piliin ang tamang baybay!",
       "narration": "Alin sa mga ito ang tama ang pagkakasulat ng 'tampipi'?",
@@ -152,7 +152,7 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng wastong pagbabaybay.",
+      "instruction": "Itugma ang salita sa kahulugan o halimbawa nito.",
       "content": {
         "pairs": [
           {
@@ -177,8 +177,8 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Ang galing! Naunawaan mo ang kahulugan ng mga salitang di-kilala.",
-        "retry": "Basahin muli ang kahulugan ng bawat salita sa diksyunaryo."
+        "correct": "Mahusay! Itinugma mo ang salita sa kahulugan nito. 🔗",
+        "retry": "Gamitin ang kahulugan upang makilala ang salitang hinahanap. 💪"
       },
       "prompt": "Itapat ang salita sa tamang kahulugan at baybay.",
       "narration": "Ano ang kahulugan ng bawat salita?",
@@ -193,13 +193,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa wastong pagbabaybay.",
       "content": {
         "steps": [
-          "Pakinggang mabuti ang tunog o bigkas ng salita.",
-          "Tukuyin ang bawat tunog at ang katumbas nitong letra.",
-          "Isa-isahin ang mga letra sa tamang pagkakasunod-sunod.",
-          "Isulat ang salita ayon sa tamang baybay."
+          "Pakinggan ang buong salita.",
+          "Tukuyin ang bawat tunog at letra.",
+          "Isaayos ang mga letra mula una hanggang huli.",
+          "Isulat at basahin muli ang baybay."
         ]
       },
       "completionRule": {
@@ -207,7 +207,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Iyan ang tamang hakbang sa pagbabaybay ng salita.",
-        "retry": "Isipin mong muli. Ano ang unang dapat gawin bago bumaybay?"
+        "retry": "Sundin ang daloy: pakinggan, tukuyin, isaayos, at suriin. 💪"
       },
       "prompt": "Ayusin ang mga hakbang sa tamang pagbabaybay!",
       "narration": "Ano ang unang hakbang sa pagbabaybay?",
@@ -248,7 +248,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "“tsubibo” ang may wastong ayos ng mga letra."
+        "explanation": "Ang “tsubibo” lamang ang may kumpletong wastong ayos ng mga tunog at letra."
       },
       {
         "sequence": 2,
@@ -276,7 +276,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang salitang may ganitong kahulugan ay binabaybay na “antipara”."
+        "explanation": "Ang salitang nangangahulugang salamin sa malabong mata ay “antipara”; iyan ang wastong ayos ng letra."
       },
       {
         "sequence": 3,
@@ -304,7 +304,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Binibigkas ang bawat letra ng salita: /ey-es-o/."
+        "explanation": "Sa pabigkas na baybay, binibigkas ang pangalan ng bawat letra: a, s, o."
       },
       {
         "sequence": 4,
@@ -332,7 +332,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang salitang nangangahulugang “pitaka” ay binabaybay na “kalupi”."
+        "explanation": "Ang kahulugang pitaka ay tumutukoy sa “kalupi,” hindi sa ibang baybay."
       },
       {
         "sequence": 5,
@@ -360,7 +360,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Pagbabaybay o ispeling ang tawag sa pagsusulat ng salita sa wastong ayos ng mga letra."
+        "explanation": "Ang pagbabaybay ay pagsulat ng salita sa tamang pagkakasunod ng mga letra."
       }
     ]
   },

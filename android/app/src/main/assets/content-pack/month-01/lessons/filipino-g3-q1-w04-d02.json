@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Kumusta, kaibigan! Ako si Milo. May mga pagkakataon bang may nababasa kang salita na hindi mo alam ang kahulugan? Huwag mag-alala!",
+  "introduction": "Gamitin ang diksyunaryo kapag may salitang hindi pamilyar. Hanapin ito ayon sa alpabeto at basahin ang kahulugan sa tabi nito.",
   "vocabulary": [
     {
       "term": "Diksyunaryo",
-      "definition": "Isang aklat na binubuo ng mga salita ng isang wika na isinasaayos nang paalpabeto mula A hanggang Z, na may mga paliwanag at kahulugan."
+      "definition": "Aklat na naglilista ng mga salita sa alpabetikong ayos at nagbibigay ng kahulugan."
     },
     {
       "term": "Paalpabeto",
-      "definition": "Ang pagkakasunod-sunod ng mga salita ayon sa alpabeto — A, B, C, D, E, hanggang Z."
+      "definition": "Ayos ng mga salita mula sa A hanggang Z."
     },
     {
       "term": "Kahulugan",
-      "definition": "Ang ibig sabihin o paliwanag ng isang salita."
+      "definition": "Ibig sabihin o paliwanag ng isang salita."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa paggamit ng diksyunaryo.",
+      "instruction": "Basahin kung paano hanapin ang salita at kahulugan sa diksyunaryo.",
       "content": "Ang diksyunaryo ay isang aklat na binubuo ng mga salita ng isang wika. Ang mga salita ay isinasaayos nang paalpabeto — mula A hanggang Z. Bawat salita ay may kasamang paliwanag, pagpapakahulugan, o pagbibigay ng katuturan. Halimbawa ng mga salita at kahulugan sa diksyunaryo: marikit — maganda, mabilis — matulin, matatag — matibay, maligaya — masaya, marunong — matalino. Kapag naghahanap ng salita sa diksyunaryo, tingnan ang unang titik ng salita at hanapin ito sa tamang bahagi ng aklat. Halimbawa, ang salitang 'bulaklak' ay nasa titik B. Mahalaga ang diksyunaryo upang malaman ang tamang baybay, kahulugan, at pagpapantig ng mga salita.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
         "correct": "Mahusay! Alam mo na ngayon kung ano ang diksyunaryo at kung paano ito gamitin.",
-        "retry": "Panoorin muli ang paliwanag tungkol sa diksyunaryo."
+        "retry": "Tingnan ang unang letra, hanapin ang bahagi, at basahin ang kahulugan. 💪"
       },
       "prompt": "Pakinggan ang paliwanag ni Milo tungkol sa diksyunaryo!",
       "narration": "Alamin natin kung paano gumamit ng diksyunaryo!",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng paggamit ng diksyunaryo.",
+      "instruction": "Hanapin ang mga bahagi ng pahina ng diksyunaryo.",
       "content": {
         "examples": [
           "Pamagat",
@@ -73,8 +73,8 @@
         "targetCount": 5
       },
       "feedback": {
-        "correct": "Mahusay! Alam mo na ang bawat bahagi ng isang pahina ng diksyunaryo.",
-        "retry": "Pindutin ang lahat ng bahagi ng pahina ng diksyunaryo."
+        "correct": "Mahusay! Nahanap mo ang mga bahagi ng diksyunaryo. 🔎",
+        "retry": "Tingnan kung pamagat, katawan, glosari, talaan, o indeks ang bahagi. 💪"
       },
       "prompt": "Pindutin ang bawat bahagi ng pahina ng diksyunaryo!",
       "narration": "Tuklasin natin ang mga bahagi ng isang pahina ng diksyunaryo!",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng paggamit ng diksyunaryo.",
+      "instruction": "Piliin ang mga pahayag na tama tungkol sa diksyunaryo.",
       "content": {
         "fits": [
           "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto.",
@@ -112,8 +112,8 @@
         "itemCount": 11
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kahulugan sa Konteksto bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang wastong gamit ng diksyunaryo. 🎉",
+        "retry": "Suriin ang alpabetikong ayos at ang impormasyong ibinibigay nito. 💪"
       },
       "prompt": "Pagbukud-bukurin ang mga pahayag sa TAMANG SAGOT at HINDI TAMANG SAGOT.",
       "narration": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi.",
@@ -128,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?",
+      "instruction": "Alin ang unang hakbang sa paghahanap ng “mata”?",
       "content": {
         "options": [
           "Hanapin ang titik Z at bumalik sa simula.",
@@ -143,7 +143,7 @@
       },
       "feedback": {
         "correct": "Tama! Ang salitang 'mata' ay hahanapin sa titik M.",
-        "retry": "Isipin ang unang titik ng 'mata'. Anong titik iyon?"
+        "retry": "Unang letra ng “mata” ang M; doon dapat magsimula. 💪"
       },
       "prompt": "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?",
       "narration": "Kung hahanapin mo ang salitang 'matatag,' saan ka titingin?",
@@ -158,28 +158,28 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Itapat ang bawat salita sa tamang kahulugan nito mula sa diksyunaryo.",
+      "instruction": "Itugma ang salita sa paglalarawan ng kahulugan nito.",
       "content": {
         "pairs": [
           {
             "left": "marikit",
-            "right": "maganda"
+            "right": "naglalarawan ng kagandahan"
           },
           {
             "left": "mabilis",
-            "right": "matulin"
+            "right": "naglalarawan ng bilis"
           },
           {
             "left": "matatag",
-            "right": "matibay"
+            "right": "naglalarawan ng tibay"
           },
           {
             "left": "maligaya",
-            "right": "masaya"
+            "right": "naglalarawan ng saya"
           },
           {
             "left": "marunong",
-            "right": "matalino"
+            "right": "naglalarawan ng talino"
           }
         ]
       },
@@ -187,8 +187,8 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Ang galing! Alam mo na ang kahulugan ng mga salita sa diksyunaryo.",
-        "retry": "Balikan ang diksyunaryo at basahin muli ang mga kahulugan."
+        "correct": "Mahusay! Itinugma mo ang salita sa kahulugan nito. 🔗",
+        "retry": "Basahin ang kahulugan at hanapin ang salitang inilalarawan. 💪"
       },
       "prompt": "Itapat ang salita sa kahulugan nito!",
       "narration": "Ano ang kahulugan ng bawat salita?",
@@ -203,21 +203,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w04-d02-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa paggamit ng diksyunaryo.",
       "content": {
         "steps": [
-          "Tingnan ang unang titik ng salitang hinahanap mo.",
-          "Hanapin ang bahagi ng diksyunaryo para sa titik na iyon.",
-          "Basahin ang mga salita nang paalpabeto hanggang makita ang hinahanap.",
-          "Basahin ang kahulugan ng salita na nasa tabi nito."
+          "Tingnan ang unang titik ng salita.",
+          "Hanapin ang bahagi para sa titik na iyon.",
+          "Basahin nang paalpabeto hanggang makita ang salita.",
+          "Basahin ang kahulugan sa tabi nito."
         ]
       },
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Tama! Iyan ang tamang paraan ng paghahanap ng salita sa diksyunaryo.",
-        "retry": "Isipin mong muli. Ano ang unang dapat gawin? Tingnan ang unang titik!"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa paggamit ng diksyunaryo. 🎉",
+        "retry": "Sundin ang daloy: unang titik, bahagi, salita, kahulugan. 💪"
       },
       "prompt": "Ayusin ang mga hakbang sa paggamit ng diksyunaryo!",
       "narration": "Ano ang unang hakbang sa paghahanap ng salita sa diksyunaryo?",
@@ -258,7 +258,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto.."
+        "explanation": "Ang diksyunaryo ay aklat na naglilista ng mga salita sa alpabetikong ayos at nagbibigay ng kahulugan."
       },
       {
         "sequence": 2,
@@ -286,7 +286,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Nakaayos nang paalpabeto mula A hanggang Z.."
+        "explanation": "Ang pagkakaayos mula A hanggang Z ang tumutulong upang madaling mahanap ang salita."
       },
       {
         "sequence": 3,
@@ -314,7 +314,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “marikit” ay nangangahulugang Maganda."
+        "explanation": "Ang “marikit” ay nangangahulugang maganda; iyon ang kahulugang dapat basahin sa diksyunaryo."
       },
       {
         "sequence": 4,
@@ -342,7 +342,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Kasunod ito ng 'buhay' dahil nauuna ang h sa l. — ito ang wastong ayos ng salita sa diksyunaryo."
+        "explanation": "Ang “bulaklak” ay kasunod ng “buhay” dahil parehong b ang una at ang h ay nauuna sa l."
       },
       {
         "sequence": 5,
@@ -370,7 +370,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "ahas, agham, apoy — tama ang ayos mula A hanggang Z."
+        "explanation": "Sa mga salitang a, ang “ahas” ay nauuna sa “agham,” at ang “agham” ay nauuna sa “apoy.”"
       }
     ]
   },

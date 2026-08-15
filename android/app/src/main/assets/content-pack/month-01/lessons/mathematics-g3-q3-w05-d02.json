@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo made a bar graph of his class’s pets! 📊 Help him read the tallest bar and the shortest bar.",
+  "introduction": "Milo made a bar graph of his class’s pets. Can you use the title, labels, scale, and bar heights to read the data?",
   "vocabulary": [
     {
       "term": "the tallest bar is greatest",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Watch Milo read a bar graph!",
-      "content": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
+      "instruction": "Watch how labels, scale, and bar height reveal graph data.",
+      "content": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Bar-Graph Scouts again. 💪"
+        "retry": "Read the title and labels before comparing any bars."
       },
-      "prompt": "Learn this skill: Read a single bar graph and answer questions using its data.",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch how labels, scale, and bar height reveal graph data.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Tap the graph-reading examples in the picture!",
+      "instruction": "Tap a graph clue and read the value it helps you find.",
       "content": {
         "examples": [
-          "the tallest bar is greatest",
-          "the shortest bar is least",
-          "compare two categories",
-          "read the scale"
+          "the tallest bar shows the most pets",
+          "the shortest bar shows the fewest pets",
+          "compare dog and bird bar heights",
+          "read the number at the top of a bar"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Bar-Graph Scouts example again. 💪"
+        "retry": "Use the scale and the top of the bar to find its value."
       },
-      "prompt": "Find examples of reading a bar graph.",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap a graph clue and read the value it helps you find.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Sort the true graph statements from the false ones!",
+      "instruction": "Sort true bar-graph observations from false ones.",
       "content": {
         "fits": [
-          "the tallest bar is greatest",
-          "the shortest bar is least",
-          "compare two categories",
-          "read the scale"
+          "the tallest bar shows the most pets",
+          "the shortest bar shows the fewest pets",
+          "compare dog and bird bar heights",
+          "read the number at the top of a bar"
         ],
         "doesNotFit": [
           "the shortest bar shows the most",
           "the tallest bar shows the least",
-          "read the colors instead of the bars",
-          "guess without looking at the bars"
+          "read colors instead of bar heights",
+          "guess without checking the bars"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Bar-Graph Scouts rule before sorting again. 💪"
+        "retry": "Check the bar height against the scale before sorting."
       },
-      "prompt": "Sort each example",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort true bar-graph observations from false ones.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Tap the true statement about bar graphs!",
+      "instruction": "Tap the true statement about the pet graph.",
       "content": {
         "options": [
           "the tallest bar is least",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Bar-Graph Scouts question. 💪"
+        "retry": "Compare the bars, not their colors, to find the greatest value."
       },
-      "prompt": "Choose the example of reading a bar graph.",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the true statement about the pet graph.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Match each graph idea to its meaning!",
+      "instruction": "Match each graph idea with the reading job it does.",
       "content": {
         "pairs": [
           {
-            "left": "the tallest bar is greatest",
-            "right": "names the data"
+            "left": "the tallest bar",
+            "right": "shows the most in its category"
           },
           {
-            "left": "the shortest bar is least",
-            "right": "shows one category's amount"
+            "left": "the shortest bar",
+            "right": "shows the fewest in its category"
           },
           {
             "left": "compare two categories",
-            "right": "helps compare values"
+            "right": "checks which category has more"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Bar-Graph Scouts pair again. 💪"
+        "retry": "Match each idea with the evidence it gives about the data."
       },
-      "prompt": "Match the examples about reading a bar graph.",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each graph idea with the reading job it does.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d02-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d02-visual",
-      "instruction": "Put the graph-reading steps in order!",
+      "instruction": "Order the checks for reading one bar graph.",
       "content": {
         "steps": [
-          "Read the math question about read a single bar graph and answer questions using its data.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Read the graph title and category labels",
+          "Read the scale and locate the top of each bar",
+          "Compare the bars or read the requested value",
+          "Check that the answer uses the graph data"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Bar-Graph Scouts steps. 💪"
+        "retry": "Read title, labels, scale, and heights; then answer from the graph."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Read the title and labels, compare bar lengths, and use only the values shown in the graph.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for reading one bar graph.",
+      "narration": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph.",
+      "guideHint": "Read the title and labels, then use the scale to compare bar heights.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Read the title and labels, compare bar lengths, and use only the values shown in the graph."
+      "accessibilityAlternative": "Read the title, labels, and scale. Compare bar heights, then use only the values shown in the graph."
     }
   ],
   "assessment": {

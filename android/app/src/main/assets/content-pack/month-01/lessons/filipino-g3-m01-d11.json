@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "fil-PH",
-  "introduction": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan.",
+  "introduction": "Sa bawat kuwento, hanapin kung sino ang gumaganap, saan at kailan nangyari ang kilos, at ano ang suliranin. Isipin din ang posibleng kalutasan.",
   "vocabulary": [
     {
       "term": "kuwento",
@@ -33,7 +33,7 @@
       "activityId": "filipino-g3-m01-d11-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "instruction": "Basahin ang paliwanag tungkol sa mga elemento ng kuwento.",
       "content": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-        "retry": "Balikan ang pahiwatig sa Elemento ng Kuwento. 💪"
+        "retry": "Hanapin ang pahiwatig kung sino, saan, at ano ang nangyari. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "Alternatibong teksto: Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
@@ -50,7 +50,7 @@
       "activityId": "filipino-g3-m01-d11-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "instruction": "Tingnan ang elemento na inilalarawan sa bawat halimbawa.",
       "content": {
         "examples": [
           "tauhan—gumaganap",
@@ -64,8 +64,8 @@
         "targetCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🔎",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Nahanap mo ang mga elemento ng kuwento. 🔎",
+        "retry": "Hanapin ang salitang nagsasabi kung sino, saan, o ano ang naganap. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
@@ -74,12 +74,12 @@
       "activityId": "filipino-g3-m01-d11-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "Ilagay sa angkop na pangkat ang tamang elemento ng kuwento.",
       "content": {
         "fits": [
-          "tauhan—gumaganap",
-          "tagpuan—lugar at panahon",
-          "pangyayari—naganap"
+          "tauhang gumaganap",
+          "tagpuang lugar at panahon",
+          "pangyayaring naganap"
         ],
         "doesNotFit": [
           "tagpuan—pangalan ng may-akda",
@@ -93,8 +93,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🎉",
-        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+        "correct": "Mahusay! Naipangkat mo ang tamang elemento ng kuwento. 🎉",
+        "retry": "Itanong kung ang card ay tumutukoy sa tauhan, tagpuan, o pangyayari. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Tama: lugar at panahon ng kuwento",
-        "retry": "Basahin muli ang tuntunin ng aralin. taong sumulat at aral lamang ay hindi angkop."
+        "retry": "Ang tagpuan ay lugar at panahon, hindi tao o aral. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "filipino-g3-m01-d11-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "instruction": "Itambal ang halimbawa sa tuntunin o gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "tauhan",
-            "right": "gumaganap"
+            "right": "gumaganap sa kuwento"
           },
           {
             "left": "tagpuan",
-            "right": "lugar at panahon"
+            "right": "lugar at panahon ng kuwento"
           },
           {
             "left": "pangyayari",
-            "right": "naganap"
+            "right": "kilos o pangyayaring naganap"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "pairCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Salitang May Kahulugan. 🔗",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Itinugma mo ang elemento sa bahagi ng kuwento. 🔗",
+        "retry": "Itugma ang elemento sa impormasyong inilalarawan nito. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
@@ -163,9 +163,9 @@
       "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
+          "Basahin ang bahagi ng kuwento.",
+          "Tukuyin ang tauhan, tagpuan, suliranin, o kalutasan.",
+          "Ipaliwanag ang pahiwatig sa teksto."
         ]
       },
       "required": true,
@@ -174,8 +174,8 @@
         "stepCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Salitang May Kahulugan. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsusuri ng kuwento. 🎉",
+        "retry": "Sundin ang daloy: basahin, tukuyin, at ipaliwanag. 💪"
       },
       "assetId": "filipino-g3-m01-d11-visual",
       "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
@@ -293,7 +293,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang mga kuwento ay maaaring may tauhan, tagpuan, mahahalagang pangyayari, at minsan ay suliranin at kalutasan."
+        "explanation": "Ang tagpuan ay tumutukoy sa lugar at panahon kung saan nagaganap ang kuwento."
       },
       {
         "itemId": "filipino-g3-m01-d11-q05",

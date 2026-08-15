@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Is the ball moving? It was beside the cone, and now it is far away! How do we know something moved?",
+  "introduction": "Milo marks a cone as a reference point; the ball moves from beside it to farther away. How can Maxine describe that motion?",
   "vocabulary": [
     {
       "term": "point",
-      "definition": "An exact spot in space, marked with a dot."
+      "definition": "An exact spot used to mark where something is."
     },
     {
       "term": "motion",
-      "definition": "The way something moves from one place to another."
+      "definition": "A change in position compared with a reference point over time."
     },
     {
       "term": "reference",
-      "definition": "A starting point used to tell where something is."
+      "definition": "A named object or spot used for comparing position or motion."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d16-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows how to describe motion from a reference point.",
+      "instruction": "Watch Milo describe motion by comparing an object with a reference point.",
       "content": "Motion is change in position relative to a reference point over time.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Motion from a Reference Point again. 💪"
+        "retry": "Name the reference point, compare positions, and describe the change over time."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "Text alternative: Motion is change in position relative to a reference point over time."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d16-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each scene and compare the object with its reference point.",
       "content": {
         "examples": [
-          "ball moves away from cone",
-          "cart passes the tree",
-          "book stays beside box"
+          "a ball moves farther from a cone",
+          "a cart passes a tree",
+          "a book stays beside a box"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Motion Explorers. 🔎",
-        "retry": "Look at each Motion Explorers example again. 💪"
+        "retry": "For each scene, name the reference point and compare the object’s position."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d16-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: does it describe motion from the reference point?",
+      "instruction": "Sort each observation by whether it uses a reference point to describe motion.",
       "content": {
         "fits": [
-          "ball moves away from cone",
-          "cart passes the tree",
-          "book stays beside box"
+          "a ball moves farther from a cone",
+          "a cart passes a tree",
+          "a book stays beside a box"
         ],
         "doesNotFit": [
-          "No reference point",
-          "Use color as position",
-          "Call still object moving without comparison"
+          "A ball changes color",
+          "No comparison object is named",
+          "A book moves because it wants to"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Check that the card names an object and a point for comparison."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,12 +103,13 @@
       "activityId": "science-g3-m01-d16-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "A ball changes from beside the cone to far from it. Relative to the cone, it",
+      "instruction": "Choose what changed when the ball moved farther from the cone.",
       "content": {
         "options": [
           "changed color",
           "became heavier",
-          "moved"
+          "moved",
+          "started making sound"
         ],
         "correctIndex": 2
       },
@@ -118,7 +119,7 @@
       },
       "feedback": {
         "correct": "Correct: moved",
-        "retry": "Look again — color and weight do not show motion. Tap what changed! 💪"
+        "retry": "The ball’s position changed compared with the cone, which is the motion clue."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +128,20 @@
       "activityId": "science-g3-m01-d16-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each motion to its reference point.",
+      "instruction": "Match each object with its position compared with a reference point.",
       "content": {
         "pairs": [
           {
-            "left": "ball moves away from cone",
-            "right": "away from the cone"
+            "left": "ball",
+            "right": "position changes farther from cone"
           },
           {
-            "left": "cart passes the tree",
-            "right": "past the tree"
+            "left": "cart",
+            "right": "position changes past tree"
           },
           {
-            "left": "book stays beside box",
-            "right": "beside the box"
+            "left": "book",
+            "right": "position stays beside box"
           }
         ]
       },
@@ -151,7 +152,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Motion Explorers explanation. 🔗",
-        "retry": "Read both sides of each Motion Explorers pair again. 💪"
+        "retry": "Match each object to the position change or staying-place described from its reference point."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +161,7 @@
       "activityId": "science-g3-m01-d16-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: reference point, position, motion.",
+      "instruction": "Order the steps for describing motion from a reference point.",
       "content": {
         "steps": [
           "Name the reference point.",
@@ -175,7 +176,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Motion Explorers steps in order. 🎉",
-        "retry": "Find the first, next, and last Motion Explorers steps. 💪"
+        "retry": "Check the order: name the reference point, describe position, then describe motion."
       },
       "assetId": "science-g3-m01-d16-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,121 +192,141 @@
         "itemId": "science-g3-m01-d16-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about motion is true?",
+        "prompt": "Milo compares a ball with a cone before and after it rolls. Which statement about motion is true?",
         "options": [
           {
             "id": "a",
-            "text": "Motion is change in position relative to a reference point over time."
+            "text": "Motion is a change in position relative to a reference point over time."
           },
           {
             "id": "b",
-            "text": "No reference point"
+            "text": "No reference point is needed"
           },
           {
             "id": "c",
             "text": "Use color as position"
+          },
+          {
+            "id": "d",
+            "text": "Motion means an object changes material."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "To tell if something moves, compare it with a reference point, like a tree or a cone. Color cannot tell position, and you always need a reference point."
+        "explanation": "To tell whether the ball moved, compare its position with the cone over time. Color and material changes do not describe this motion."
       },
       {
         "itemId": "science-g3-m01-d16-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows motion?",
+        "prompt": "A ball starts beside a cone and rolls away from it. Which example shows motion?",
         "options": [
           {
             "id": "a",
-            "text": "ball moves away from cone"
+            "text": "The ball moves away from the cone"
           },
           {
             "id": "b",
-            "text": "ball stays in a box all day"
+            "text": "The ball stays in a box all day"
           },
           {
             "id": "c",
-            "text": "cone changes color"
+            "text": "The cone changes color"
+          },
+          {
+            "id": "d",
+            "text": "The ball feels happy"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The ball changes its position compared with the cone, so it is moving. Staying in a box or changing color is not motion."
+        "explanation": "The ball changes position compared with the cone, so it is moving. Staying still, changing color, or feeling happy does not show motion."
       },
       {
         "itemId": "science-g3-m01-d16-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which one is NOT needed to describe motion?",
+        "prompt": "Maxine wants to describe a cart’s motion. Which piece of information is NOT needed for a position comparison?",
         "options": [
           {
             "id": "a",
-            "text": "ball moves away from cone"
+            "text": "A cart moves past a tree"
           },
           {
             "id": "b",
-            "text": "cart passes the tree"
+            "text": "A cart is beside a cone"
           },
           {
             "id": "c",
-            "text": "No reference point"
+            "text": "No reference point is named"
+          },
+          {
+            "id": "d",
+            "text": "A cart is farther from a box"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "You need a reference point, like a tree or a cone, to describe motion. Without one, you cannot tell if something moved."
+        "explanation": "A reference point such as a tree, cone, or box is needed for comparison. Without one, a position change cannot be described clearly."
       },
       {
         "itemId": "science-g3-m01-d16-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "A ball changes from beside the cone to far from it. Relative to the cone, it",
+        "prompt": "A ball changes from beside a cone to far from it. Relative to the cone, what happened?",
         "options": [
           {
             "id": "a",
-            "text": "became heavier"
+            "text": "It became heavier"
           },
           {
             "id": "b",
-            "text": "moved"
+            "text": "It moved"
           },
           {
             "id": "c",
-            "text": "changed color"
+            "text": "It changed color"
+          },
+          {
+            "id": "d",
+            "text": "It became louder"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The ball's position changed compared with the cone, so it moved. Changing color or weight is not motion."
+        "explanation": "The ball’s position changed compared with the cone, so it moved. Weight, color, and loudness do not tell whether its position changed."
       },
       {
         "itemId": "science-g3-m01-d16-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence describes position with a reference point?",
+        "prompt": "Milo says, “The book is beside the box.” What does that sentence describe?",
         "options": [
           {
             "id": "a",
-            "text": "book stays beside box"
+            "text": "The book’s position compared with a box"
           },
           {
             "id": "b",
-            "text": "book moves because it wants to"
+            "text": "The book moves because it wants to"
           },
           {
             "id": "c",
-            "text": "book is happy"
+            "text": "The book is happy"
+          },
+          {
+            "id": "d",
+            "text": "The book changes into a box"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The book's position is compared with the box, so 'beside the box' uses a reference point. Feelings and wishes are not positions."
+        "explanation": "“Beside the box” names a reference point and the book’s position relative to it. Feelings and wishes are not position evidence."
       }
     ]
   },

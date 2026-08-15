@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🌷 Sa hardin, tahimik at payapa. Paano tayo magiging magalang doon? Tara na kay Milo!",
+  "introduction": "Sa hardin, napapangalagaan ang mga halaman at katahimikan kapag maingat ang kilos natin. Matutong makinig, magpaalam, at gumalang sa ibang nag-aalaga o namamasyal. 🌷",
   "vocabulary": [
     {
       "term": "nakikinig",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Subukan din ito sa bahay. Halimbawa, sa pag-iingat sa gamit ng iba. Gayundin, sa pagsunod sa ligtas na tuntunin.",
+      "instruction": "Pakinggan kung paano gumalang sa hardin at sa mga halaman.",
+      "content": "Sa hardin, ipinakikita ang paggalang sa pakikinig sa tagapangalaga at kasama, paggamit ng magagalang na salita, paghingi ng pahintulot bago humawak, at pag-iingat sa halaman at espasyo.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Paggalang sa Kapwa. 💪"
+        "retry": "Pakinggan muli: makinig, magpaalam, at huwag manira sa hardin."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Subukan din ito sa bahay. Halimbawa, sa pag-iingat sa gamit ng iba. Gayundin, sa pagsunod sa ligtas na tuntunin.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin ang pakikinig, pahintulot, at maingat na kilos.",
+      "narration": "Sa hardin, ipinakikita ang paggalang sa pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman at espasyo.",
+      "guideHint": "Pakinggan ang clue: makinig, magpaalam, at huwag manira.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Subukan din ito sa bahay. Halimbawa, sa pag-iingat sa gamit ng iba. Gayundin, sa pagsunod sa ligtas na tuntunin."
+      "accessibilityAlternative": "Sa hardin, ipinakikita ang paggalang sa pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman at espasyo."
     },
     {
       "activityId": "gmrc-g3-q2-w03-d05-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Hanapin ang pakikinig, salita, pahintulot, at pag-iingat sa hardin.",
       "content": {
         "examples": [
-          "nakikinig",
+          "nakikinig sa tagapangalaga",
           "nagsasabi ng po at opo kung angkop",
-          "humihingi ng pahintulot",
-          "gumagalang sa pagkakaiba"
+          "humihingi ng pahintulot bago humawak",
+          "gumagalang sa ibang namamasyal"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Paggalang sa Kapwa. 💪"
+        "retry": "Hanapin ang pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "I-tap ang mga kilos na nagpapakita ng paggalang sa hardin.",
+      "narration": "Hanapin ang nakikinig sa tagapangalaga, gumagamit ng magalang na salita, nagpapaalam bago humawak, at gumagalang sa namamasyal.",
+      "guideHint": "Hanapin ang apat na kilos na nag-iingat sa halaman at tao.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Hanapin ang nakikinig sa tagapangalaga, gumagamit ng magalang na salita, nagpapaalam bago humawak, at gumagalang sa namamasyal."
     },
     {
       "activityId": "gmrc-g3-q2-w03-d05-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Ilagay ang kilos sa maingat o hindi maingat sa hardin.",
       "content": {
         "fits": [
-          "nakikinig",
+          "nakikinig sa tagapangalaga",
           "nagsasabi ng po at opo kung angkop",
-          "humihingi ng pahintulot",
-          "gumagalang sa pagkakaiba"
+          "humihingi ng pahintulot bago humawak",
+          "gumagalang sa ibang namamasyal"
         ],
         "doesNotFit": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "hindi nakikinig"
+          "pumipitas nang walang pahintulot",
+          "nanunukso sa namamasyal",
+          "sumisigaw sa tahimik na hardin",
+          "tumatapak sa taniman"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Paggalang sa Kapwa bago magpangkat muli. 💪"
+        "retry": "Tanungin: nag-iingat ba ito sa halaman o sa damdamin ng iba?"
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paghiwalayin ang nag-iingat sa halaman at kapwa at ang hindi.",
+      "narration": "Ang pakikinig, pahintulot, magalang na salita, at pag-iingat ay tumutulong protektahan ang halaman at tahimik na espasyo.",
+      "guideHint": "Tanungin: nag-iingat ba ito sa halaman o sa damdamin ng iba?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang pakikinig, pahintulot, magalang na salita, at pag-iingat ay tumutulong protektahan ang halaman at tahimik na espasyo."
     },
     {
       "activityId": "gmrc-g3-q2-w03-d05-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang kilos na nagbibigay-pansin sa tagapangalaga.",
       "content": {
         "options": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "nakikinig"
+          "pumipitas nang walang pahintulot",
+          "nanunukso sa namamasyal",
+          "tumatapak sa taniman",
+          "nakikinig sa tagapangalaga"
         ],
         "correctIndex": 3
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Paggalang sa Kapwa. 💪"
+        "retry": "Piliin ang kilos na nagbibigay-pansin sa paalala."
       },
-      "prompt": "Piliin ang tamang halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang halimbawa ng paggalang sa hardin?",
+      "narration": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman kung paano iingatan ang mga halaman.",
+      "guideHint": "Piliin ang kilos na nagbibigay-pansin sa paalala.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman kung paano iingatan ang mga halaman."
     },
     {
       "activityId": "gmrc-g3-q2-w03-d05-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Itugma ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Itugma ang kilos sa mabuting bunga nito sa hardin.",
       "content": {
         "pairs": [
           {
-            "left": "nakikinig",
-            "right": "pakikinig nang may paggalang"
+            "left": "nakikinig sa tagapangalaga",
+            "right": "nalalaman ang tuntunin sa halaman"
           },
           {
             "left": "nagsasabi ng po at opo kung angkop",
-            "right": "magalang na pananalita"
+            "right": "nagiging mahinahon ang usapan"
           },
           {
-            "left": "humihingi ng pahintulot",
-            "right": "paggalang sa hangganan"
+            "left": "humihingi ng pahintulot bago humawak",
+            "right": "napoprotektahan ang halaman"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Paggalang sa Kapwa. 💪"
+        "retry": "Iugnay sa tuntunin, mahinahong usapan, o proteksiyon sa halaman."
       },
-      "prompt": "Itapat ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Iugnay ang bawat kilos sa naitutulong nito sa halaman o kapwa.",
+      "narration": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nagpoprotekta sa halaman.",
+      "guideHint": "Iugnay sa tuntunin, mahinahong usapan, o proteksiyon sa halaman.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nagpoprotekta sa halaman."
     },
     {
       "activityId": "gmrc-g3-q2-w03-d05-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "gmrc-g3-q2-w03-d05-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin mula pakikinig sa tuntunin hanggang pag-iwan ng maayos na hardin.",
       "content": {
         "steps": [
-          "Makinig nang mabuti",
-          "Hintaying matapos ang kausap",
-          "Magsalita nang magalang",
-          "Gawin ito sa lahat ng pagkakataon"
+          "Makinig sa tuntunin ng hardin",
+          "Magpaalam bago humawak o pumasok sa taniman",
+          "Maglakad nang maingat",
+          "Magpasalamat at iwanang maayos ang lugar"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Paggalang sa Kapwa. 💪"
+        "retry": "Unahin ang pakikinig, saka pahintulot, maingat na paglalakad, at pagliligpit."
       },
-      "prompt": "Ayusin ang mga hakbang sa paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ilagay sa tamang ayos ang maingat na pagbisita sa hardin.",
+      "narration": "Makinig sa tuntunin, magpaalam, maglakad nang maingat, at magpasalamat bago iwanang maayos ang hardin.",
+      "guideHint": "Unahin ang pakikinig; huli ang pag-iwan ng lugar na maayos.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Makinig sa tuntunin, magpaalam, maglakad nang maingat, at magpasalamat bago iwanang maayos ang hardin."
     }
   ],
   "assessment": {
@@ -225,11 +225,11 @@
         "itemId": "gmrc-g3-q2-w03-d05-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng paggalang sa kapwa?",
+        "prompt": "May tagapangalaga na nagpapaliwanag kung paano iingatan ang hardin. Ano ang magalang na kilos?",
         "options": [
           {
             "id": "a",
-            "text": "pag-uutos sa kapwa"
+            "text": "pag-uutos sa kaniya"
           },
           {
             "id": "b",
@@ -241,41 +241,41 @@
           },
           {
             "id": "d",
-            "text": "nanunukso sa kapwa"
+            "text": "nanunukso sa kaniya"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “gumagalang sa pagkakaiba” ay halimbawa ng paggalang sa kapwa."
+        "explanation": "Ang pakikinig at paggalang sa tagapangalaga ay tumutulong sa pag-iingat ng hardin."
       },
       {
         "itemId": "gmrc-g3-q2-w03-d05-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng paggalang sa kapwa?",
+        "prompt": "Gusto mong gumamit ng pandilig sa hardin. Ano ang dapat mong gawin muna?",
         "options": [
           {
             "id": "a",
-            "text": "pagsingit sa usapan"
+            "text": "kunin ito nang walang paalam"
           },
           {
             "id": "b",
-            "text": "pag-aagaw ng gamit"
+            "text": "pumitas ng bulaklak"
           },
           {
             "id": "c",
-            "text": "nagbabahagi ng baon"
+            "text": "humingi ng pahintulot bago gumamit"
           },
           {
             "id": "d",
-            "text": "pagtawa sa nagsasalita"
+            "text": "iwan itong nakabukas"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang “humihingi ng pahintulot” ay halimbawa rin ng paggalang sa kapwa."
+        "explanation": "Ang paghingi ng pahintulot ay paggalang sa gamit at sa taong nag-aalaga ng hardin."
       },
       {
         "itemId": "gmrc-g3-q2-w03-d05-q03",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pagbati sa kakilala o kapitbahay ay paggalang sa kapwa."
+        "explanation": "Ang magalang na pagbati ay pagkilala sa kakilala habang iniingatan ang tahimik na lugar."
       },
       {
         "itemId": "gmrc-g3-q2-w03-d05-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Hinihintay mo ang nanay mo sa paaralan nang dumating ang kapitbahay ninyo. Ano ang magalang mong gagawin?",
+        "prompt": "Hinihintay mo ang nanay mo sa hardin nang dumating ang kapitbahay. Ano ang magalang mong gawin?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pagbati sa kapitbahay ay paggalang sa kakilala."
+        "explanation": "Ang pagbati sa kapitbahay ay maayos na pagkilala sa kakilala."
       },
       {
         "itemId": "gmrc-g3-q2-w03-d05-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng paggalang sa kapwa?",
+        "prompt": "Alin ang HINDI nagpapakita ng paggalang sa hardin?",
         "options": [
           {
             "id": "a",
@@ -345,11 +345,11 @@
           },
           {
             "id": "b",
-            "text": "sumusuway sa ligtas na tuntunin"
+            "text": "sumusuway sa tuntunin at pumipitas nang walang pahintulot"
           },
           {
             "id": "c",
-            "text": "gumagalang sa pagkakaiba"
+            "text": "gumagalang sa ibang namamasyal"
           },
           {
             "id": "d",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “sumusuway sa ligtas na tuntunin” ay hindi halimbawa ng paggalang sa kapwa."
+        "explanation": "Ang pagsuway at pagkuha ng bulaklak nang walang pahintulot ay nakapipinsala sa hardin."
       }
     ]
   },

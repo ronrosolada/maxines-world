@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is washing fruit for a snack! 🐱✨ Use first, next, then, and finally to put the steps in order.",
+  "introduction": "Milo is washing fruit for a snack and needs to explain each action in order. Which words show first, next, then, and finally?",
   "vocabulary": [
     {
       "term": "First, wash the fruit.",
-      "definition": "The first step: wash the fruit before cutting it."
+      "definition": "the step that comes before all other steps"
     },
     {
       "term": "Next, cut it safely.",
-      "definition": "The second step: cut the fruit with care."
+      "definition": "the step that follows the first action"
     },
     {
       "term": "Then, share it.",
-      "definition": "The third step: share the fruit with others."
+      "definition": "the step that continues the routine after the next action"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Watch how first, next, then, and finally show the order!",
+      "instruction": "Read the snack steps and notice each order word.",
       "content": "Sequence words such as first, next, then, and finally help readers follow an order.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Sentence Order again. 💪"
+        "retry": "Check the sequence word and the action that follows it."
       },
-      "prompt": "Watch how first, next, then, and finally show the order!",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sequence words show event order.",
+      "narration": "First begins the order, next moves forward, then continues, and finally ends the sequence.",
+      "guideHint": "Use the sequence word as an order clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "First begins the order, next moves forward, then continues, and finally ends the sequence."
     },
     {
       "activityId": "english-g3-q3-w10-d03-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Tap each step that uses a sequence word!",
+      "instruction": "Tap each snack step that uses an order word.",
       "content": {
         "examples": [
           "First, wash the fruit.",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Sentence Order example again. 💪"
+        "retry": "Find the sequence word before choosing."
       },
-      "prompt": "Tap each step that uses a sequence word!",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find the words that show when each action happens.",
+      "narration": "Sequence words help readers follow what happens before, during, and after a task.",
+      "guideHint": "Look for a word that tells the step’s place.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "Sequence words help readers follow what happens before, during, and after a task."
     },
     {
       "activityId": "english-g3-q3-w10-d03-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Sort the ordered steps from the mixed-up ideas!",
+      "instruction": "Sort ordered snack steps from unrelated cards.",
       "content": {
         "fits": [
           "First, wash the fruit.",
@@ -98,10 +98,10 @@
           "Finally, clean up."
         ],
         "doesNotFit": [
-          "a title only",
-          "a final event placed first",
-          "an unrelated detail",
-          "a sentence with no time clue"
+          "The title names a snack.",
+          "The kite flew high.",
+          "Milo slept on the mat.",
+          "We read a book."
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Sentence Order rule before sorting again. 💪"
+        "retry": "Check the action and its place in the routine."
       },
-      "prompt": "Sort the ordered steps from the mixed-up ideas!",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort cards that belong to the fruit-snack routine.",
+      "narration": "A snack step has an action that belongs in the routine; unrelated cards do not.",
+      "guideHint": "Ask whether the action belongs to washing, cutting, sharing, or cleanup.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "A snack step has an action that belongs in the routine; unrelated cards do not."
     },
     {
       "activityId": "english-g3-q3-w10-d03-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Which step comes first?",
+      "instruction": "Tap the step that happens first.",
       "content": {
         "options": [
           "Then, share it.",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Sentence Order question. 💪"
+        "retry": "Check which action prepares the fruit first."
       },
-      "prompt": "Which step comes first?",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the first action in the fruit-snack routine.",
+      "narration": "Washing comes first so the fruit is clean before cutting.",
+      "guideHint": "Look for the sequence word that starts the routine.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "Washing comes first so the fruit is clean before cutting."
     },
     {
       "activityId": "english-g3-q3-w10-d03-a05",
@@ -155,20 +155,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Match each step to what it shows!",
+      "instruction": "Match each order word to its snack action.",
       "content": {
         "pairs": [
           {
-            "left": "First, wash the fruit.",
-            "right": "telling sentence"
+            "left": "First",
+            "right": "starts the routine by washing"
           },
           {
-            "left": "Next, cut it safely.",
-            "right": "telling sentence (2)"
+            "left": "Next",
+            "right": "follows with safe cutting"
           },
           {
-            "left": "Then, share it.",
-            "right": "telling sentence (3)"
+            "left": "Then",
+            "right": "continues by sharing"
+          },
+          {
+            "left": "Finally",
+            "right": "ends with cleanup"
           }
         ]
       },
@@ -177,13 +181,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Sentence Order pair again. 💪"
+        "retry": "Check the order word and action together."
       },
-      "prompt": "Match each step to what it shows!",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each sequence word with the action it introduces.",
+      "narration": "Each sequence word marks a different place in the snack routine.",
+      "guideHint": "Read the word and picture the action that follows it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "Each sequence word marks a different place in the snack routine."
     },
     {
       "activityId": "english-g3-q3-w10-d03-a06",
@@ -192,13 +196,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d03-visual",
-      "instruction": "Put the steps for using sequence words in order!",
+      "instruction": "Put the fruit-snack steps in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read every step",
+          "Find the first action",
+          "Follow next and then",
+          "Place cleanup last"
         ]
       },
       "completionRule": {
@@ -206,13 +210,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Sentence Order steps. 💪"
+        "retry": "Check that washing comes before cutting and cleanup comes last."
       },
-      "prompt": "Put the steps for using sequence words in order!",
-      "narration": "Sequence words such as first, next, then, and finally help readers follow an order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the actions from washing to cleanup.",
+      "narration": "A safe routine moves from washing to cutting, sharing, and cleaning.",
+      "guideHint": "Start with the action that prepares the fruit.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Sequence words such as first, next, then, and finally help readers follow an order."
+      "accessibilityAlternative": "A safe routine moves from washing to cutting, sharing, and cleaning."
     }
   ],
   "assessment": {
@@ -225,7 +229,7 @@
         "itemId": "english-g3-q3-w10-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which step should happen FIRST?",
+        "prompt": "Milo is about to prepare the fruit. Which action should happen first?",
         "options": [
           {
             "id": "a",
@@ -237,7 +241,7 @@
           },
           {
             "id": "c",
-            "text": "First, fold the paper."
+            "text": "First, wash the fruit."
           },
           {
             "id": "d",
@@ -247,13 +251,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Folding the paper comes first — the boat cannot begin without it."
+        "explanation": "Washing comes first so the fruit is clean before it is prepared."
       },
       {
         "itemId": "english-g3-q3-w10-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "After washing the fruit, which step comes NEXT?",
+        "prompt": "After washing, which snack step comes next?",
         "options": [
           {
             "id": "a",
@@ -269,19 +273,19 @@
           },
           {
             "id": "d",
-            "text": "Next, fold the corners."
+            "text": "Next, cut it safely."
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "After folding the paper, the next step is folding the corners."
+        "explanation": "After washing, the next action is cutting the fruit safely."
       },
       {
         "itemId": "english-g3-q3-w10-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Right after cutting the fruit, which step comes next?",
+        "prompt": "Milo has just cut the fruit. What should he do right after?",
         "options": [
           {
             "id": "a",
@@ -289,7 +293,7 @@
           },
           {
             "id": "b",
-            "text": "Then, open the boat."
+            "text": "Then, share it."
           },
           {
             "id": "c",
@@ -303,17 +307,17 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Opening the boat comes right after the corners are folded."
+        "explanation": "Sharing comes after cutting, so Then, share it is next."
       },
       {
         "itemId": "english-g3-q3-w10-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the LAST step?",
+        "prompt": "Everyone has finished the snack. Which action is last?",
         "options": [
           {
             "id": "a",
-            "text": "Finally, sail it."
+            "text": "Finally, clean up."
           },
           {
             "id": "b",
@@ -331,13 +335,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Sailing the boat is the last step — everything is done and the boat is ready."
+        "explanation": "Cleaning up is last after the snack is prepared and shared."
       },
       {
         "itemId": "english-g3-q3-w10-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice shows the correct order?",
+        "prompt": "Which choice shows the complete routine from start to finish?",
         "options": [
           {
             "id": "a",
@@ -345,7 +349,7 @@
           },
           {
             "id": "b",
-            "text": "First, fold the paper. Next, fold the corners. Then, open the boat. Finally, sail it."
+            "text": "First, wash the fruit. Next, cut it safely. Then, share it. Finally, clean up."
           },
           {
             "id": "c",
@@ -359,7 +363,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The correct order is fold the paper, fold the corners, open the boat, then sail it — each step uses its sequence word."
+        "explanation": "The correct order is first wash, next cut, then share, and finally clean up."
       }
     ]
   },

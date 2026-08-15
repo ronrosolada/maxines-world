@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🌤️ Tuwing hapon, may mga salitang magagalang tayong ginagamit. Tara, aralin natin ang mga ito!",
+  "introduction": "Alas-dos ng hapon at nakasalubong mo ang guro mo. Pumili tayo ng pagbating magalang at angkop sa oras!",
   "vocabulary": [
     {
       "term": "pagbati",
-      "definition": "Magalang na pananalitang ginagamit sa pagbati sa ibang tao."
+      "definition": "Magagalang na salitang sinasabi kapag may nakikita o nakakasalamuha."
     },
     {
       "term": "pananalita",
-      "definition": "Mga salitang ginagamit upang maipahayag ang iniisip o damdamin."
+      "definition": "Mga salitang ginagamit upang sabihin ang iniisip o nararamdaman."
     },
     {
       "term": "respeto",
-      "definition": "Paggalang sa kapwa at sa kanilang damdamin."
+      "definition": "Paggalang sa tao at sa kanyang damdamin."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "content": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang hapon po.",
+      "instruction": "Piliin ang pagbating magalang at angkop sa oras ng hapon.",
+      "content": "Kapag hapon, maaari mong sabihin ang “Magandang hapon po.” Ang “po” ay nagpapakita ng paggalang sa kausap.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Magagalang na Pananalita. 💪"
+        "retry": "Pahiwatig: hapon ang oras, kaya “Magandang hapon po” ang angkop na pagbati. 💪"
       },
-      "prompt": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang hapon po.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ano ang sasabihin kapag bumabati sa hapon?",
+      "narration": "Kapag hapon, maaari mong sabihin ang “Magandang hapon po.” Ang “po” ay nagpapakita ng paggalang sa kausap.",
+      "guideHint": "Pahiwatig: tingnan ang oras at gamitin ang “po” sa pagbati.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa sitwasyon. Halimbawa: Magandang hapon po."
+      "accessibilityAlternative": "Kapag hapon, maaari mong sabihin ang “Magandang hapon po.” Ang “po” ay nagpapakita ng paggalang sa kausap."
     },
     {
       "activityId": "filipino-g3-q2-w06-d02-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
+      "instruction": "Basahin ang bawat pahayag at isipin kung kailan ito ginagamit.",
       "content": {
         "examples": [
           "Magandang hapon po.",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Magagalang na Pananalita. 💪"
+        "retry": "Pahiwatig: isipin kung ano ang nangyayari bago sabihin ang bawat pahayag. 💪"
       },
-      "prompt": "Tuklasin ang mga magalang na pahayag. Isipin kung kailan ito ginagamit.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Tukuyin ang layunin ng bawat magalang na pahayag.",
+      "narration": "Ang “Magandang hapon po” ay pagbati; ang “Puwede po bang magtanong?” ay pakiusap; ang “Walang anuman po” ay tugon sa pasasalamat; ang “Patawad po” ay paghingi ng tawad.",
+      "guideHint": "Pahiwatig: alamin kung pagbati, pakiusap, tugon, o paghingi ng tawad ang pahayag.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+      "accessibilityAlternative": "Ang “Magandang hapon po” ay pagbati; ang “Puwede po bang magtanong?” ay pakiusap; ang “Walang anuman po” ay tugon sa pasasalamat; ang “Patawad po” ay paghingi ng tawad."
     },
     {
       "activityId": "filipino-g3-q2-w06-d02-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Piliin ang mga magalang na pahayag.",
+      "instruction": "Pag-uriin ang magalang at di-magalang na mga pahayag.",
       "content": {
         "fits": [
           "Magandang hapon po.",
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Magagalang na Pananalita bago magpangkat muli. 💪"
+        "retry": "Pahiwatig: hanapin ang mahinahong pahayag at salitang “po.” 💪"
       },
-      "prompt": "Piliin ang mga magalang na pahayag.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang mga pahayag na nagpapakita ng paggalang?",
+      "narration": "Ang “po” at mahinahong pananalita ay palatandaan ng paggalang. Ang utos na padabog o mapanakit ay hindi magalang.",
+      "guideHint": "Pahiwatig: pakinggan kung mahinahon at may paggalang ang pananalita.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+      "accessibilityAlternative": "Ang “po” at mahinahong pananalita ay palatandaan ng paggalang. Ang utos na padabog o mapanakit ay hindi magalang."
     },
     {
       "activityId": "filipino-g3-q2-w06-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
+      "instruction": "Piliin ang pagbating angkop sa oras at kausap.",
       "content": {
         "options": [
           "Magandang hapon po.",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Magagalang na Pananalita. 💪"
+        "retry": "Pahiwatig: hapon ang oras at guro ang kausap; piliin ang pagbating may “po.” 💪"
       },
-      "prompt": "Piliin ang magalang na pahayag na angkop sa sitwasyon.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Nakilala mo ang guro sa alas-dos ng hapon. Ano ang sasabihin mo?",
+      "narration": "Sa pagbati, gamitin ang tamang oras at ang magalang na “po.”",
+      "guideHint": "Pahiwatig: hapon ang oras at guro ang kausap.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+      "accessibilityAlternative": "Sa pagbati, gamitin ang tamang oras at ang magalang na “po.”"
     },
     {
       "activityId": "filipino-g3-q2-w06-d02-a05",
@@ -155,12 +155,12 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
+      "instruction": "Itugma ang pahayag sa gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "Magandang hapon po.",
-            "right": "magalang na pagbati"
+            "right": "pagbati sa hapon"
           },
           {
             "left": "Puwede po bang magtanong?",
@@ -168,7 +168,7 @@
           },
           {
             "left": "Walang anuman po.",
-            "right": "magalang na pasasalamat"
+            "right": "tugon sa pasasalamat"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Magagalang na Pananalita. 💪"
+        "retry": "Pahiwatig: isipin ang sitwasyon at layunin ng bawat pahayag. 💪"
       },
-      "prompt": "Itugma ang bawat pahayag sa wastong pangkat: pagbati, pakiusap, o pasasalamat.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itugma ang bawat pahayag sa pagbati, pakiusap, o tugon.",
+      "narration": "Ang pahayag ay maaaring pagbati, pakiusap, paghingi ng tawad, o tugon sa pasasalamat. Isipin ang sitwasyon bago magtugma.",
+      "guideHint": "Pahiwatig: itanong kung ano ang ginagawa ng pahayag sa usapan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+      "accessibilityAlternative": "Ang pahayag ay maaaring pagbati, pakiusap, paghingi ng tawad, o tugon sa pasasalamat. Isipin ang sitwasyon bago magtugma."
     },
     {
       "activityId": "filipino-g3-q2-w06-d02-a06",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w06-d02-visual",
-      "instruction": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
+      "instruction": "Ayusin ang pagpili ng magalang na pahayag.",
       "content": {
         "steps": [
           "Tingnan ang sitwasyon",
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Magagalang na Pananalita. 💪"
+        "retry": "Pahiwatig: tingnan ang sitwasyon, isipin ang kausap, piliin ang pahayag, saka magsalita nang magalang. 💪"
       },
-      "prompt": "Ayusin ang mga hakbang. Tingnan muna ang sitwasyon bago pumili ng pahayag.",
-      "narration": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ano ang susuriin bago magsalita?",
+      "narration": "Tingnan ang sitwasyon, isipin ang kausap, piliin ang angkop na pahayag, at sabihin ito nang may respeto.",
+      "guideHint": "Pahiwatig: magsimula sa sitwasyon bago piliin ang mga salita.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Piliin ang magalang na pananalita na angkop sa oras, kausap, at pangyayari."
+      "accessibilityAlternative": "Tingnan ang sitwasyon, isipin ang kausap, piliin ang angkop na pahayag, at sabihin ito nang may respeto."
     }
   ],
   "assessment": {
@@ -224,7 +224,7 @@
       {
         "sequence": 1,
         "itemId": "filipino-g3-q2-w06-d02-q1",
-        "prompt": "Alin ang magalang na pagbati sa hapon?",
+        "prompt": "Alas-dos ng hapon nang makasalubong mo ang guro. Ano ang magalang na bati?",
         "options": [
           {
             "id": "a",
@@ -246,14 +246,14 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "“Magandang hapon po.” — may “po” kaya magalang ang pagbati.",
+        "explanation": "Hapon ang oras, at ang “po” sa “Magandang hapon po” ay nagpapakita ng paggalang sa guro.",
         "type": "MULTIPLE_CHOICE"
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q2-w06-d02-q2",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang sasabihin mo kung may nagawan ka ng mali?",
+        "prompt": "Nabasag ni Ana ang lapis ng kaklase niya. Ano ang dapat niyang sabihin?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Patawad po."
+        "explanation": "May nagawang mali si Ana, kaya “Patawad po” ang pananalitang humihingi ng tawad nang magalang."
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q2-w06-d02-q3",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang angkop na tugon sa 'Salamat po'?",
+        "prompt": "Tinulungan ka ng guro at sinabi mong “Salamat po.” Ano ang angkop niyang tugon?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Walang anuman po."
+        "explanation": "Ang “Walang anuman po” ay magalang na tugon kapag may nagsabi ng “Salamat po.”"
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q2-w06-d02-q4",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Kung hihingi ka ng pabor, alin ang magalang na sasabihin?",
+        "prompt": "Gusto mong magtanong sa guro habang nagtuturo siya. Ano ang magalang na sasabihin?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Puwede po bang magtanong?"
+        "explanation": "Ang “Puwede po bang magtanong?” ay pakiusap na may “po” at angkop bago magtanong."
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q2-w06-d02-q5",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang magalang na pananalita?",
+        "prompt": "Nakita mo ang kapitbahay sa hapon. Alin ang magalang na pananalita?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Magandang hapon po."
+        "explanation": "Ang “Magandang hapon po” ay mahinahong pagbati at may “po,” kaya ito ang magalang na pahayag."
       }
     ]
   },

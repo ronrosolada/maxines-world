@@ -11,6 +11,7 @@ import hashlib
 import html
 import math
 import random
+import re
 from typing import Callable
 
 from content_review import canonical_subject, profile_for
@@ -520,6 +521,39 @@ def topic_key(lesson: dict[str, object]) -> str:
     return key
 
 
+
+
+def a11y_metadata(lesson: dict[str, object], lesson_id: str) -> tuple[str, str, str, str]:
+    """Canonical a11y metadata, byte-identical to add_svg_accessibility.accessible_svg."""
+    asset_id = f"{lesson_id}-visual"
+    key = re.sub(r"[^a-z0-9]+", "-", asset_id.lower()).strip("-")
+    title_id = f"svg-title-{key}"
+    desc_id = f"svg-desc-{key}"
+    title = str(lesson.get("title") or lesson_id.replace("-", " "))
+    objective = str(lesson.get("objective") or "Lesson illustration")
+    visual_context = ""
+    for activity in lesson.get("activities", []):
+        if activity.get("assetId") != asset_id:
+            continue
+        if activity.get("type") == "HOTSPOT_IMAGE":
+            instruction = str(activity.get("instruction") or "").strip()
+            examples = activity.get("content", {}).get("examples", [])
+            examples = [str(e).strip() for e in examples if str(e).strip()]
+            details = ", ".join(examples[:8])
+            visual_context = " ".join(
+                part for part in (
+                    instruction,
+                    f"It shows: {details}." if details else "",
+                ) if part
+            )
+            break
+    escaped_title = html.escape(f"Lesson visual: {title}", quote=False)
+    description = f"Illustration for {title}. {objective}"
+    if visual_context:
+        description += f" {visual_context}"
+    escaped_desc = html.escape(description, quote=False)
+    return title_id, desc_id, escaped_title, escaped_desc
+
 def scene_svg(lesson: dict[str, object]) -> str:
     lesson_id = str(lesson.get("lessonId", "lesson"))
     subject = canonical_subject(str(lesson.get("subject", "")))
@@ -534,10 +568,11 @@ def scene_svg(lesson: dict[str, object]) -> str:
     # change between lessons instead of reusing a card grid.
     sky = bg
     ground = "#D9EFC7" if subject in {"science", "makabansa", "araling-panlipunan"} else "#F8DDB0"
+    title_id, desc_id, escaped_title, escaped_desc = a11y_metadata(lesson, lesson_id)
     out = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">',
-        f'<title id="title">{esc(lesson.get("title", lesson_id))} illustration</title>',
-        f'<desc id="desc">A topic-specific illustrated scene for {esc(lesson.get("title", lesson_id))}. It shows visual clues for the lesson objective.</desc>',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="{title_id} {desc_id}">',
+        f'\n  <title id="{title_id}">{escaped_title}</title>',
+        f'\n  <desc id="{desc_id}">{escaped_desc}</desc>\n',
         '<defs>',
         f'<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{sky}"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.72"/></linearGradient>',
         '</defs>',
@@ -561,7 +596,12 @@ def scene_svg(lesson: dict[str, object]) -> str:
         4: [(400, 295, 1.12), (130, 270, .55), (680, 270, .55), (270, 140, .48), (600, 140, .48)],
     }[variant]
     for i, (name, (x, y, scale)) in enumerate(zip(chosen, placements)):
-        out.append(draw_motif(name, x, y, scale, accent if i % 2 == 0 else secondary, secondary if i % 2 == 0 else accent, ink, rng))
+        motif = draw_motif(name, x, y, scale, accent if i % 2 == 0 else secondary, secondary if i % 2 == 0 else accent, ink, rng)
+        if i == 0:
+            # Real depth on the focal anchor: soft drop shadow, same filter
+            # pattern already proven in shipped hand-authored boards.
+            motif = f'<g filter="drop-shadow(0 4px 8px rgba(0,0,0,0.12))">{motif}</g>'
+        out.append(motif)
     # A small lesson-specific visual signature prevents accidental convergence
     # while remaining decorative: topic color dots and a seed-based pennant.
     sig = int(hashlib.sha256(lesson_id.encode()).hexdigest()[-4:], 16)

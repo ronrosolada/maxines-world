@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Blend Builders again. 💪"
+        "retry": "Listen for both consonant sounds and keep them together in the blend. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "Text alternative: In a consonant blend, neighboring consonant sounds can still be heard."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Blend Builders. 🔎",
-        "retry": "Look at each Blend Builders example again. 💪"
+        "retry": "Say the word slowly and listen for each consonant in its blend. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Blend Builders clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort words with two heard consonant sounds away from digraphs or missing sounds. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: stop",
-        "retry": "Stop begins with st — you hear /s/ and /t/. Ship starts with sh."
+        "retry": "Stop starts with st, so listen for /s/ followed by /t/. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d13-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each word to its blend.",
+      "instruction": "Match each word with its blend position.",
       "content": {
         "pairs": [
           {
-            "left": "flag begins with fl",
-            "right": "fl"
+            "left": "flag",
+            "right": "fl at the beginning; two sounds"
           },
           {
-            "left": "stop begins with st",
-            "right": "st at the start"
+            "left": "stop",
+            "right": "st at the beginning; two sounds"
           },
           {
-            "left": "nest ends with st",
-            "right": "st at the end"
+            "left": "nest",
+            "right": "st at the end; two sounds"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Blend Builders explanation. 🔗",
-        "retry": "Read both sides of each Blend Builders pair again. 💪"
+        "retry": "Match each word with the blend and where it appears in the word. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Blend Builders steps in order. 🎉",
-        "retry": "Find the first, next, and last Blend Builders steps. 💪"
+        "retry": "Order the routine: say the word, hear both sounds, then name the blend. 💪"
       },
       "assetId": "english-g3-m01-d13-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "stop"
+          },
+          {
+            "id": "d",
+            "text": "nest"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "top"
+          },
+          {
+            "id": "d",
+            "text": "chair"
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "ship"
+          },
+          {
+            "id": "d",
+            "text": "star"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "ship"
+          },
+          {
+            "id": "d",
+            "text": "chair"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "egg"
+          },
+          {
+            "id": "d",
+            "text": "chair"
           }
         ],
         "correctOptionIds": [

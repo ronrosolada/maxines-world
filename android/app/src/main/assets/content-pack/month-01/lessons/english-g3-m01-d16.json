@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Whose kite is that? Mine! Whose bag is this? Yours! Use mine, yours, his, hers, ours, and theirs to show who owns things.",
+  "introduction": "Whose kite is that? Use mine, yours, his, hers, ours, and theirs to show who owns things.",
   "vocabulary": [
     {
       "term": "possessive",
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Whose Is It? again. 💪"
+        "retry": "Ask who owns the item, then choose mine, yours, his, hers, ours, or theirs. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "Text alternative: Mine, yours, his, hers, ours, and theirs can stand alone and replace a possessive noun phrase."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Whose Is It?. 🔎",
-        "retry": "Look at each Whose Is It? example again. 💪"
+        "retry": "Look at the sentence ending and find the ownership word that stands alone. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Whose Is It? clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort sentences with a stand-alone possessive pronoun away from broken noun phrases. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: The kite is hers.",
-        "retry": "The kite is hers stands alone and sounds right."
+        "retry": "Hers stands alone after is: the kite is hers. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d16-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each sentence to its owner word.",
+      "instruction": "Match each item with the ownership relationship it shows.",
       "content": {
         "pairs": [
           {
-            "left": "The red bag is mine.",
-            "right": "mine"
+            "left": "The red bag",
+            "right": "belongs to the speaker (mine)"
           },
           {
-            "left": "That desk is ours.",
-            "right": "ours"
+            "left": "That desk",
+            "right": "belongs to our group (ours)"
           },
           {
-            "left": "The blue hats are theirs.",
-            "right": "theirs"
+            "left": "The blue hats",
+            "right": "belong to them (theirs)"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Whose Is It? explanation. 🔗",
-        "retry": "Read both sides of each Whose Is It? pair again. 💪"
+        "retry": "Match each item with the ownership relationship it shows. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Whose Is It? steps in order. 🎉",
-        "retry": "Find the first, next, and last Whose Is It? steps. 💪"
+        "retry": "Order the routine: ask who owns it, choose the pronoun, then say the sentence. 💪"
       },
       "assetId": "english-g3-m01-d16-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "That pencil is her."
+          },
+          {
+            "id": "d",
+            "text": "The red mine bag."
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "That desk is ours."
+          },
+          {
+            "id": "d",
+            "text": "That desk is us."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "That desk is ours."
+          },
+          {
+            "id": "d",
+            "text": "The desk is ours."
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "The kite is hers."
+          },
+          {
+            "id": "d",
+            "text": "The kite is our."
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "Theirs blue hats."
+          },
+          {
+            "id": "d",
+            "text": "The blue hats are their."
           }
         ],
         "correctOptionIds": [

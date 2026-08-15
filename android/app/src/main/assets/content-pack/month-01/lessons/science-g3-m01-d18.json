@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo turns on a lamp and the room lights up. How does light help us see the things around us?",
+  "introduction": "Milo turns on a lamp and sees a book because light reaches his eyes. How do sources and reflectors help us see safely?",
   "vocabulary": [
     {
       "term": "light",
-      "definition": "Energy that lets us see things."
+      "definition": "Energy that lets our eyes detect objects."
     },
     {
       "term": "sun",
-      "definition": "The star that gives us light and warmth."
+      "definition": "The star that gives Earth light and warmth."
     },
     {
       "term": "shadow",
-      "definition": "A dark shape made when light is blocked."
+      "definition": "A dark shape made when an object blocks light."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d18-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows how light lets us see.",
+      "instruction": "Watch Milo trace light from a source to an object and eyes.",
       "content": "We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Light Lets Us See again. 💪"
+        "retry": "Trace the light: a source makes it, an object reflects it, and eyes receive it."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "Text alternative: We see an object when light from a source or reflected by the object enters our eyes. Never look at the Sun, lasers, or powerful lamps."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d18-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each object and decide whether it makes or reflects light.",
       "content": {
         "examples": [
-          "lamp—source",
-          "Moon—reflector",
-          "book—seen by reflected light"
+          "a lamp makes its own light",
+          "the Moon reflects sunlight",
+          "a book is seen by reflected light"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Light Lets Us See. 🔎",
-        "retry": "Look at each Light Lets Us See example again. 💪"
+        "retry": "For each object, ask whether it makes light or reflects light."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,16 +74,16 @@
       "activityId": "science-g3-m01-d18-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is it a light source or a reflector?",
+      "instruction": "Sort each observation by whether it describes a safe source or reflector.",
       "content": {
         "fits": [
-          "lamp—source",
-          "Moon—reflector",
-          "book—seen by reflected light"
+          "a lamp makes its own light",
+          "the Moon reflects sunlight",
+          "a book reflects light into eyes"
         ],
         "doesNotFit": [
-          "Moon makes its own visible light",
-          "Look at the Sun",
+          "The Moon makes its own visible light",
+          "Look directly at the Sun",
           "Darkness is a material"
         ]
       },
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Check the source, reflection, and eye-safety clue in each observation."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,12 +103,13 @@
       "activityId": "science-g3-m01-d18-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Why can we see a book in a lit room?",
+      "instruction": "Choose why Maxine can see a book in a lit room.",
       "content": {
         "options": [
           "Eyes send a beam into it.",
           "Light reflects from it into our eyes.",
-          "The book makes sunlight."
+          "The book makes sunlight.",
+          "The book is visible without light."
         ],
         "correctIndex": 1
       },
@@ -118,7 +119,7 @@
       },
       "feedback": {
         "correct": "Correct: Light reflects from it into our eyes.",
-        "retry": "Look again — eyes do not send beams and books do not make sunlight."
+        "retry": "Light from the lamp bounces off the book into eyes, which is the seeing clue."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +128,20 @@
       "activityId": "science-g3-m01-d18-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each object to source or reflector.",
+      "instruction": "Match each object with its role in helping us see.",
       "content": {
         "pairs": [
           {
             "left": "lamp",
-            "right": "source"
+            "right": "makes its own light"
           },
           {
             "left": "Moon",
-            "right": "reflector"
+            "right": "reflects sunlight toward us"
           },
           {
             "left": "book",
-            "right": "seen by reflected light"
+            "right": "reflects light so eyes can see it"
           }
         ]
       },
@@ -151,7 +152,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Light Lets Us See explanation. 🔗",
-        "retry": "Read both sides of each Light Lets Us See pair again. 💪"
+        "retry": "Match each object with whether it makes light or reflects it toward eyes."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +161,7 @@
       "activityId": "science-g3-m01-d18-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: look, ask, sort.",
+      "instruction": "Order the steps for explaining how light reaches our eyes.",
       "content": {
         "steps": [
           "Look at each object.",
@@ -175,7 +176,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Light Lets Us See steps in order. 🎉",
-        "retry": "Find the first, next, and last Light Lets Us See steps. 💪"
+        "retry": "Check the order: identify source, trace reflection, explain seeing, then choose safe viewing."
       },
       "assetId": "science-g3-m01-d18-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,79 +192,91 @@
         "itemId": "science-g3-m01-d18-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about seeing is true?",
+        "prompt": "Milo turns on a lamp and looks at a book. Which statement about seeing is true?",
         "options": [
           {
             "id": "a",
-            "text": "Moon makes its own visible light"
+            "text": "The Moon makes its own visible light"
           },
           {
             "id": "b",
-            "text": "Look at the Sun"
+            "text": "Look directly at the Sun"
           },
           {
             "id": "c",
-            "text": "We see an object when light from a source or reflected by the object enters our eyes."
+            "text": "We see when source or reflected light enters our eyes."
+          },
+          {
+            "id": "d",
+            "text": "Eyes send light into every object."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Light from a lamp or bounced off an object enters your eyes, so you can see it. The Moon only reflects light, and looking at the Sun is dangerous."
+        "explanation": "Light from a source or reflected by an object enters the eyes, allowing us to see. The Moon reflects light, and staring at the Sun is unsafe."
       },
       {
         "itemId": "science-g3-m01-d18-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair names an object and what it does with light?",
+        "prompt": "Maxine sorts a lamp, shirt, book, and candle. Which pair names an object and its light role?",
         "options": [
           {
             "id": "a",
-            "text": "lamp—source"
+            "text": "Lamp—source"
           },
           {
             "id": "b",
-            "text": "shirt—source"
+            "text": "Shirt—source"
           },
           {
             "id": "c",
-            "text": "book—source"
+            "text": "Book—source"
+          },
+          {
+            "id": "d",
+            "text": "Candle—darkness"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A lamp makes its own light, so it is a source. Books and shirts only reflect light."
+        "explanation": "A lamp makes its own light, so it is a source. A shirt and book mainly reflect light, and darkness is not a light role."
       },
       {
         "itemId": "science-g3-m01-d18-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about light is NOT true?",
+        "prompt": "Milo reads four statements about a lamp, Moon, and book. Which is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "Moon makes its own visible light"
+            "text": "The Moon makes its own visible light"
           },
           {
             "id": "b",
-            "text": "Moon—reflector"
+            "text": "The Moon reflects sunlight"
           },
           {
             "id": "c",
-            "text": "lamp—source"
+            "text": "A lamp makes its own light"
+          },
+          {
+            "id": "d",
+            "text": "A book can reflect light"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The Moon shines because it reflects sunlight — it does not make its own light. A lamp is a source, and the Moon is a reflector."
+        "explanation": "The Moon shines by reflecting sunlight; it does not make its own visible light. A lamp is a source, and a book can reflect light."
       },
       {
         "itemId": "science-g3-m01-d18-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Why can we see a book in a lit room?",
+        "prompt": "A lamp shines on a book in Maxine’s room. Why can she see the book?",
         "options": [
           {
             "id": "a",
@@ -275,37 +288,45 @@
           },
           {
             "id": "c",
-            "text": "Light reflects from it into our eyes."
+            "text": "Light reflects from the book into her eyes."
+          },
+          {
+            "id": "d",
+            "text": "The book creates darkness."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Light from the lamp bounces off the book into your eyes. Eyes do not send beams, and a book cannot make sunlight."
+        "explanation": "Light from the lamp bounces off the book into Maxine’s eyes. Eyes receive light, and the book is not a source."
       },
       {
         "itemId": "science-g3-m01-d18-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which pair is correct?",
+        "prompt": "Milo sees his face in a mirror. Which pair correctly describes the light?",
         "options": [
           {
             "id": "a",
-            "text": "book—seen by reflected light"
+            "text": "A mirror reflects light"
           },
           {
             "id": "b",
-            "text": "book—makes its own light"
+            "text": "A book makes its own light"
           },
           {
             "id": "c",
-            "text": "darkness—makes light"
+            "text": "Darkness makes the image"
+          },
+          {
+            "id": "d",
+            "text": "A mirror absorbs every ray"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A book is seen when light bounces off it into your eyes — it does not make its own light. Darkness is the absence of light."
+        "explanation": "The mirror reflects light from Milo’s face toward his eyes, making the image visible. It does not make its own light or create the image from darkness."
       }
     ]
   },

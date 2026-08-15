@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🏫 Kahit sa paaralan, may epekto ang paligid. Ano kaya ito? Tuklasin natin kasama si Milo!",
+  "introduction": "🏫 Sa paaralan, ang mga puno, daan, tubig, at panahon ay nakaaapekto sa pag-aaral. Tingnan natin kung paano inaangkop ng komunidad ang buhay sa paaralan sa paligid.",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "bakuran",
+      "definition": "Lupang nakapaligid sa isang gusali o bahay."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "likas na liwanag",
+      "definition": "Liwanag mula sa araw na tumutulong makita ang loob ng silid."
     },
     {
-      "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "term": "silid-aralan",
+      "definition": "Silid kung saan nagaganap ang pag-aaral ng mga bata."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
+      "instruction": "Pakinggan ang paliwanag kung paano naaangkop ang paaralan.",
+      "content": "Ang paligid ng paaralan ay nakaaapekto sa pag-aaral. Ang mga puno ay nagbibigay-lilim, ang mga bintana ay nagpapapasok ng hangin at liwanag, at ang maayos na daan ay tumutulong sa ligtas na pagpasok. Maaari ring magtanim ang paaralan ng mga halamang tumutubo sa kanilang lugar.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naipaliwanag mo ang ugnayan ng paaralan. 🎉",
+        "retry": "Balikan ang apat na halimbawa: lilim, hangin at liwanag, ligtas na daan, at halamang lokal."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano naaapektuhan ng paligid ang buhay sa paaralan?",
+      "narration": "Ang paligid ng paaralan ay nakaaapekto sa pag-aaral.",
+      "guideHint": "Pansinin ang puno, bintana, ligtas na daan, at hardin ng paaralan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Isipin ang isang halimbawa sa paaralan. Halimbawa, sa isang pista ng komunidad. Gayundin, sa isang awit ng komunidad."
+      "accessibilityAlternative": "Ang paligid ng paaralan ay nakaaapekto sa pag-aaral."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin ang mga larawang nagpapakita ng buhay sa paaralan.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Puno sa bakuran na nagbibigay-lilim sa hintayan",
+          "Bintanang nagpapapasok ng hangin sa silid",
+          "Maayos na daan sa lugar na maputik kapag umuulan",
+          "Hardin na may gulay na tumutubo sa komunidad"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Nakita mo ang mga halimbawa sa paaralan. 🎉",
+        "retry": "Suriin ang puno, bintana, daan, at hardin; bawat isa ay may gamit sa paaralan."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin sa larawan ang nagpapakita ng epekto ng paligid sa paaralan?",
+      "narration": "Hanapin ang puno, bintana, maayos na daan, at hardin ng paaralan.",
+      "guideHint": "Hanapin ang lilim, hangin, ligtas na daan, at halamang tumutubo sa lugar.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Hanapin ang puno, bintana, maayos na daan, at hardin ng paaralan."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d03-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Pangkatin ang mga obserbasyon ayon sa tulong nito sa paaralan.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Silid-aralan na may bintanang nagpapapasok ng hangin",
+          "Puno sa bakuran na nagbibigay-lilim sa mga mag-aaral",
+          "Tulay na ligtas tawiran papunta sa paaralan",
+          "Hardin ng paaralan na nagtatanim ng gulay mula sa lugar"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "Pagpili ng kulay ng laruan sa bahay",
+          "Pag-aalaga ng kamelyo sa disyerto",
+          "Paghuli ng isda sa malalim na dagat",
+          "Pag-akyat sa matarik na taluktok para sa niyebe"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naiuri mo ang mga gawaing may ugnayan sa paaralan. 🎉",
+        "retry": "Tingnan kung ang obserbasyon ay tumutulong sa pagpasok, hangin, lilim, o pag-aaral."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang nagpapakita ng epekto ng paligid sa buhay sa paaralan?",
+      "narration": "Pagmasdan kung nakatutulong ang obserbasyon sa pag-aaral, pagpasok, pahinga, o hardin.",
+      "guideHint": "Hanapin ang bintana, puno, tulay, o hardin na may gamit sa paaralan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Pagmasdan kung nakatutulong ang obserbasyon sa pag-aaral, pagpasok, pahinga, o hardin."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d03-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang bahaging tumutulong sa pag-aaral.",
       "content": {
         "options": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pangingisda sa baybayin"
+          "Silid na walang bintana sa mainit na araw",
+          "Daan na laging binabaha at walang ligtas na tawiran",
+          "Bakuran na walang lugar para sa pahinga",
+          "Puno na nagbibigay-lilim sa mga batang naghihintay"
         ],
         "correctIndex": 3
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Pinili mo ang tamang sagot tungkol sa paaralan. ✅",
+        "retry": "Suriin kung aling bahagi ang nagbibigay ng lilim sa mainit na araw."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Sa mainit na araw, aling bahagi ng paaralan ang makatutulong sa mga mag-aaral?",
+      "narration": "Piliin ang bahagi ng paaralan na nagbibigay ng lilim sa mga batang naghihintay.",
+      "guideHint": "Hanapin ang nagbibigay ng lilim sa mainit na araw.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Piliin ang bahagi ng paaralan na nagbibigay ng lilim sa mga batang naghihintay."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang bahagi ng paaralan sa tulong nito.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "Puno sa bakuran na nagbibigay-lilim sa hintayan",
+            "right": "Lugar na nagpapahinga ang mga mag-aaral"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "Bintanang nagpapapasok ng hangin sa silid",
+            "right": "Paraan ng pagpapalamig sa pag-aaral"
           },
           {
-            "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "left": "Maayos na daan sa lugar na maputik kapag umuulan",
+            "right": "Ligtas na pagpunta sa paaralan"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naiugnay mo ang gawain at pakinabang sa paaralan. ✅",
+        "retry": "Basahin ang kanang panig at hanapin kung ito ay pahinga, hangin, o ligtas na pagpasok."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano nakatutulong ang bawat bahagi ng paaralan?",
+      "narration": "Iugnay ang puno, bintana, at daan sa pahinga, hangin, o ligtas na pagpasok.",
+      "guideHint": "Hanapin kung ang pares ay tungkol sa pahinga, pagpapalamig, o pagpunta sa paaralan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Iugnay ang puno, bintana, at daan sa pahinga, hangin, o ligtas na pagpasok."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d03-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d03-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng paligid at paaralan.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tingnan ang panahon at lupa sa paligid ng paaralan.",
+          "Tukuyin ang hamon o pangangailangan ng mga mag-aaral.",
+          "Piliin ang bahagi o gawaing makatutulong.",
+          "Ipaliwanag kung paano nito sinusuportahan ang pag-aaral."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagpapaliwanag ng paaralan. ✅",
+        "retry": "Unahin ang pagmamasid, pagkatapos tukuyin ang pangangailangan, tulong, at epekto sa pag-aaral."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ano ang tamang paraan ng pagpapaliwanag sa epekto ng paligid sa paaralan?",
+      "narration": "Magsimula sa pagmamasid sa paligid, tukuyin ang pangangailangan, piliin ang tulong, at ipaliwanag ang epekto.",
+      "guideHint": "Unahin ang panahon at lupa bago tukuyin ang pangangailangan at tulong sa paaralan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Magsimula sa pagmamasid sa paligid, tukuyin ang pangangailangan, piliin ang tulong, at ipaliwanag ang epekto."
     }
   ],
   "assessment": {
@@ -225,141 +225,141 @@
         "itemId": "makabansa-g3-q4-w05-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa mainit na araw, aling bahagi ng silid-aralan ang makatutulong?",
         "options": [
           {
             "id": "a",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "Makitid na siwang na walang hangin"
           },
           {
             "id": "b",
-            "text": "pagsasaka sa kapatagan"
+            "text": "Bintanang nagpapapasok ng hangin"
           },
           {
             "id": "c",
-            "text": "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+            "text": "Silid na walang pintuan"
           },
           {
             "id": "d",
-            "text": "bilang ng mga kapatid"
+            "text": "Bakurang walang puno"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “pagsasaka sa kapatagan” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang bintana ay nagbibigay-daan sa hangin kaya nakatutulong ito sa pag-aaral sa mainit na araw."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Kapag maputik ang daan papunta sa paaralan, ano ang makatutulong?",
         "options": [
           {
             "id": "a",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Maglakad sa gitna ng putik."
           },
           {
             "id": "b",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Isara ang paaralan buong taon."
           },
           {
             "id": "c",
-            "text": "tatak ng sapatos"
+            "text": "Itapon ang bag sa daan."
           },
           {
             "id": "d",
-            "text": "pagdiriwang ng pista ng ani"
+            "text": "Maglagay ng ligtas na tawiran at daan."
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “pagkain mula sa lokal na ani” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang ligtas at maayos na daan ay tumutulong sa mga bata na makapasok kahit maputik ang paligid."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa paaralan?",
+        "prompt": "Bakit nagtatanim ng gulay ang paaralan?",
         "options": [
           {
             "id": "a",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Para takpan ang lahat ng bintana."
           },
           {
             "id": "b",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Para matuto ang mga bata tungkol sa halamang tumutubo sa kanilang paligid."
           },
           {
             "id": "c",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Para gawing bundok ang bakuran."
           },
           {
             "id": "d",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Para hindi pumasok ang hangin."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Ang hardin ay nag-uugnay sa pag-aaral ng mga bata at sa mga halamang makikita sa kanilang paligid."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Bakit nagkakaiba-iba ang kasuotan sa iba’t ibang komunidad?",
+        "prompt": "May puno sa tabi ng silid. Paano ito nakatutulong?",
         "options": [
           {
             "id": "a",
-            "text": "dahil nakaangkop ito sa klima at kapaligiran ng lugar"
+            "text": "Nagbibigay ng lilim sa mga nag-aaral."
           },
           {
             "id": "b",
-            "text": "dahil mas maganda ang ibang damit"
+            "text": "Pinapadilim nito ang lahat ng silid."
           },
           {
             "id": "c",
-            "text": "dahil nauubos ang damit"
+            "text": "Pinatitigil nito ang ulan magpakailanman."
           },
           {
             "id": "d",
-            "text": "dahil nagkakaiba ang halaga ng damit"
+            "text": "Ginagawa nitong dagat ang bakuran."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang kasuotan ay nakaangkop sa klima at kapaligiran ng lugar."
+        "explanation": "Ang puno ay nagbibigay-lilim, kaya mas komportable ang mga batang nag-aaral o naghihintay."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI nagpapakita ng epekto ng paligid sa buhay sa paaralan?",
         "options": [
           {
             "id": "a",
-            "text": "pista ng komunidad"
+            "text": "Paggamit ng bintana para sa hangin"
           },
           {
             "id": "b",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Pagpili ng kulay ng paboritong laruan"
           },
           {
             "id": "c",
-            "text": "pagsasaka sa kapatagan"
+            "text": "Paggawa ng ligtas na daan kapag umuulan"
           },
           {
             "id": "d",
-            "text": "awit at sayaw na lokal"
+            "text": "Pagtatanim ng gulay sa hardin ng paaralan"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pagpili ng kulay ng laruan ay walang ugnayan sa paligid o sa pag-aayos ng buhay sa paaralan."
       }
     ]
   },

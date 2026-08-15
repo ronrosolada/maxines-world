@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! ➕ Milo has 245 and 123 mangoes in two baskets. Help him find the total!",
+  "introduction": "Milo has 245 mangoes in one basket and 123 in another. How many mangoes are there altogether?",
   "vocabulary": [
     {
       "term": "addend",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Listen to Milo. He will show you how to add from ones to thousands.",
-      "content": "Add from ones to thousands. two hundred forty five plus one hundred twenty three equals three hundred sixty eight. Regroup 10 ones as 1 ten when needed.",
+      "instruction": "Watch Milo add ones, tens, and hundreds in place-value columns.",
+      "content": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Add-Up Adventure again. 💪"
+        "retry": "Begin with ones, then check whether 10 or more need regrouping."
       },
-      "prompt": "Listen to Milo. He will show you how to add from ones to thousands.",
-      "narration": "Add from ones to thousands. two hundred forty five plus one hundred twenty three equals three hundred sixty eight. Regroup 10 ones as 1 ten when needed.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch Milo add ones, tens, and hundreds in place-value columns.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. two hundred forty five plus one hundred twenty three equals three hundred sixty eight. Regroup 10 ones as 1 ten when needed."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Tap the addition examples in the picture!",
+      "instruction": "Tap an example and follow each place-value addition step.",
       "content": {
         "examples": [
           "245 + 123 = 368",
           "2,650 + 1,200 = 3,850",
-          "regroup 10 ones",
-          "check with an estimate"
+          "10 ones trade for 1 ten",
+          "round the addends to estimate"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Add-Up Adventure example again. 💪"
+        "retry": "Follow the ones, tens, and hundreds columns in order."
       },
-      "prompt": "Find examples of adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap an example and follow each place-value addition step.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Sort the addition cards from the other operations!",
+      "instruction": "Sort addition results from subtraction, multiplication, and division.",
       "content": {
         "fits": [
           "245 + 123 = 368",
           "2,650 + 1,200 = 3,850",
-          "regroup 10 ones",
-          "check with an estimate"
+          "10 ones trade for 1 ten",
+          "round the addends to estimate"
         ],
         "doesNotFit": [
-          "subtract the addends",
-          "multiply the numbers",
-          "compare without finding a sum",
-          "divide the addends"
+          "245 − 123 = 122",
+          "245 × 123",
+          "245 > 123 without a sum",
+          "123 ÷ 3 = 41"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Add-Up Adventure rule before sorting again. 💪"
+        "retry": "Look for an addition sign and a result that fits the addends."
       },
-      "prompt": "Sort the examples of adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort addition results from subtraction, multiplication, and division.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Tap the correct sum for 245 + 123!",
+      "instruction": "Tap the correct sum for 245 + 123.",
       "content": {
         "options": [
           "468",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Add-Up Adventure question. 💪"
+        "retry": "Add 5 + 3 ones, then 4 + 2 tens, then 2 + 1 hundreds."
       },
-      "prompt": "Choose the example of adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the correct sum for 245 + 123.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Match the addition cards to what they show!",
+      "instruction": "Match each addition expression with the result or regrouping rule.",
       "content": {
         "pairs": [
           {
-            "left": "245 + 123 = 368",
-            "right": "correct addition: makes 368"
+            "left": "245 + 123",
+            "right": "sum is 368"
           },
           {
-            "left": "2,650 + 1,200 = 3,850",
-            "right": "correct addition: makes 3,850"
+            "left": "2,650 + 1,200",
+            "right": "sum is 3,850"
           },
           {
-            "left": "regroup 10 ones",
-            "right": "a regrouping step"
+            "left": "10 ones",
+            "right": "trade for 1 ten"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Add-Up Adventure pair again. 💪"
+        "retry": "Use the operation and place-value result to match each card."
       },
-      "prompt": "Match the examples about adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each addition expression with the result or regrouping rule.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d02-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d02-visual",
-      "instruction": "Put the adding steps in order, starting with the ones place.",
+      "instruction": "Order the place-value steps for adding two numbers.",
       "content": {
         "steps": [
-          "Read the problem: two hundred forty five plus one hundred twenty three",
-          "Add the ones",
-          "Add the tens and hundreds",
-          "Check with an estimate"
+          "Line up the addends by ones, tens, and hundreds",
+          "Add the ones and regroup if the total is 10 or more",
+          "Add the tens and hundreds, carrying each regroup",
+          "Estimate to check whether the sum is reasonable"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Add-Up Adventure steps. 💪"
+        "retry": "Line up places, add from ones, regroup if needed, and estimate."
       },
-      "prompt": "Put the adding steps in order, starting with the ones place.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the place-value steps for adding two numbers.",
+      "narration": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed.",
+      "guideHint": "Line up place values and start at the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "Start with the ones place, then add tens and hundreds. Regroup 10 ones as 1 ten or 10 tens as 1 hundred when needed."
     }
   ],
   "assessment": {
@@ -253,7 +253,7 @@
         "itemId": "mathematics-g3-q2-w03-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What is the sum of two hundred forty five and one hundred twenty three?",
+        "prompt": "Milo packs 245 mangoes and 123 bananas. How many pieces of fruit are in both baskets?",
         "options": [
           {
             "id": "a",
@@ -275,7 +275,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "245 + 123 = 368 because 5 + 3 = 8, 4 + 2 = 6, and 2 + 1 = 3, reading from ones up to hundreds."
+        "explanation": "Add the two amounts: 245 + 123 = 368. The ones make 8, the tens make 6, and the hundreds make 3."
       },
       {
         "itemId": "mathematics-g3-q2-w03-d02-q03",

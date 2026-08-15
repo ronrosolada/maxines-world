@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo watches the clouds! ☁️ Help him say which events are certain, likely, unlikely, or impossible.",
+  "introduction": "Milo is reviewing chance with clouds, coins, and a shell jar. Can you identify certain, likely, unlikely, and impossible events?",
   "vocabulary": [
     {
       "term": "a fair coin can land heads",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Watch Milo explain certain, likely, unlikely, and impossible!",
-      "content": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
+      "instruction": "Watch four chance words describe how possible an event is.",
+      "content": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in Chance Check again. 💪"
+        "retry": "Ask whether the event must happen, has a good chance, a small chance, or cannot happen."
       },
-      "prompt": "Listen to the explanation about likely and unlikely outcomes.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch four chance words describe how possible an event is.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Tap the examples of chance in the picture!",
+      "instruction": "Tap each event and notice its clue about chance.",
       "content": {
         "examples": [
-          "a fair coin can land heads",
-          "a fish breathing on land is impossible",
-          "rain may be likely with dark clouds",
-          "a fair die has six possible faces"
+          "the sun rises tomorrow — certain",
+          "rain follows dark clouds — likely",
+          "finding a pearl in one scoop — unlikely",
+          "a fish breathes on land — impossible"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Look at each Chance Check example again. 💪"
+        "retry": "Use clues such as a bird’s wings, a die’s faces, or a coin’s sides."
       },
-      "prompt": "Find examples of likely and unlikely outcomes.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each event and notice its clue about chance.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d03-a03",
@@ -89,16 +89,16 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Sort the chance statements from the false ones!",
+      "instruction": "Sort real chance statements from impossible ones.",
       "content": {
         "fits": [
-          "a fair coin can land heads",
-          "a fish breathing on land is impossible",
-          "rain may be likely with dark clouds",
-          "a fair die has six possible faces"
+          "a bird can fly",
+          "the sun rises tomorrow",
+          "rain follows dark clouds",
+          "finding a pearl in one scoop"
         ],
         "doesNotFit": [
-          "a fish can breathe on land",
+          "a fish breathes on land",
           "a stone floats in air",
           "a coin has seven sides",
           "a die has seven faces"
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read the Chance Check rule before sorting again. 💪"
+        "retry": "Check whether each event can happen before sorting."
       },
-      "prompt": "Sort the examples of likely and unlikely outcomes.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort real chance statements from impossible ones.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d03-a04",
@@ -125,10 +125,10 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Tap the true chance statement!",
+      "instruction": "Tap the true chance statement.",
       "content": {
         "options": [
-          "a fish can breathe on land",
+          "a fish breathes on land",
           "a stone floats in air",
           "a die has seven faces",
           "a fair coin can land heads"
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in the Chance Check question. 💪"
+        "retry": "Read the event and match it to a real-world chance clue."
       },
-      "prompt": "Choose the example of likely and unlikely outcomes.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the true chance statement.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d03-a05",
@@ -155,20 +155,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Match each outcome to its chance word!",
+      "instruction": "Match each event with the chance idea it demonstrates.",
       "content": {
         "pairs": [
           {
-            "left": "a fair coin can land heads",
-            "right": "describes a chance"
+            "left": "the sun rises tomorrow",
+            "right": "a certain event"
           },
           {
-            "left": "a fish breathing on land is impossible",
-            "right": "cannot happen in the situation"
+            "left": "rain follows dark clouds",
+            "right": "a likely weather outcome"
           },
           {
-            "left": "rain may be likely with dark clouds",
-            "right": "compares possible outcomes"
+            "left": "finding a pearl in one scoop",
+            "right": "an unlikely outcome"
+          },
+          {
+            "left": "a fish breathes on land",
+            "right": "an impossible event"
           }
         ]
       },
@@ -177,13 +181,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read both sides of each Chance Check pair again. 💪"
+        "retry": "Compare the event with certain, likely, unlikely, or impossible."
       },
-      "prompt": "Match the examples about likely and unlikely outcomes.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each event with the chance idea it demonstrates.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     },
     {
       "activityId": "mathematics-g3-q3-w05-d03-a06",
@@ -192,13 +196,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w05-d03-visual",
-      "instruction": "Put the chance-checking steps in order!",
+      "instruction": "Order the checks for describing an event’s chance.",
       "content": {
         "steps": [
-          "Read the math question about describe real-life outcomes as certain, likely, unlikely, or impossible.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Read what the situation says can happen",
+          "Look for clues about how often or how easily it happens",
+          "Choose certain, likely, unlikely, or impossible",
+          "Check that the chance word fits the situation"
         ]
       },
       "completionRule": {
@@ -206,13 +210,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Chance Check steps. 💪"
+        "retry": "Read the situation, judge its chance, and choose the matching word."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for describing an event’s chance.",
+      "narration": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen.",
+      "guideHint": "Look for a clue: must happen, good chance, small chance, or cannot happen.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A certain event will happen, an impossible event cannot happen in the situation, and likely or unlikely describe different chances."
+      "accessibilityAlternative": "Certain means an event will happen; likely means a good chance; unlikely means a small chance; impossible means it cannot happen."
     }
   ],
   "assessment": {
@@ -225,7 +229,7 @@
         "itemId": "mathematics-g3-q3-w05-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence about chance is right?",
+        "prompt": "Milo flips a fair coin. Which sentence about a possible outcome is right?",
         "options": [
           {
             "id": "a",
@@ -253,7 +257,7 @@
         "itemId": "mathematics-g3-q3-w05-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which of these chance statements is true?",
+        "prompt": "A bird spreads its wings. Which chance statement is true?",
         "options": [
           {
             "id": "a",
@@ -281,7 +285,7 @@
         "itemId": "mathematics-g3-q3-w05-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which chance statement is correct?",
+        "prompt": "A turtle races a much faster rabbit. Which chance statement is correct?",
         "options": [
           {
             "id": "a",
@@ -309,7 +313,7 @@
         "itemId": "mathematics-g3-q3-w05-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which one about chance is right?",
+        "prompt": "Milo rolls a fair die. Which statement about its faces is right?",
         "options": [
           {
             "id": "a",
@@ -337,7 +341,7 @@
         "itemId": "mathematics-g3-q3-w05-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence tells the chance correctly?",
+        "prompt": "Milo flips a fair coin. Which sentence tells the chance correctly?",
         "options": [
           {
             "id": "a",

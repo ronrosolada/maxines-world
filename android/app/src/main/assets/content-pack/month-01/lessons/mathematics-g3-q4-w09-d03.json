@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo shades stars in rows of 3 on his chart. Help him spot fractions that are one whole or more!",
+  "introduction": "Milo shades equal star spaces on a chart. Can you tell when the shaded fraction fills one whole or covers more?",
   "vocabulary": [
     {
       "term": "3/3 = 1",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Tap play and watch what 3/3 and 4/3 look like!",
-      "content": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
+      "instruction": "Watch equal parts show one whole or more than one.",
+      "content": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Fraction Models again. 💪"
+        "retry": "Check that all parts are the same size before comparing counts."
       },
-      "prompt": "Tap play and watch what 3/3 and 4/3 look like!",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch equal parts show one whole or more than one.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Tap each card and name the fraction!",
+      "instruction": "Tap each model and count total and shaded parts.",
       "content": {
         "examples": [
-          "3/3 = 1",
-          "4/3 is greater than 1",
-          "parts must be equal",
-          "use a model"
+          "3 of 3 equal star spaces shaded",
+          "4 equal thirds counted",
+          "5 of 5 equal boxes shaded",
+          "one strip split into equal parts"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Fraction Models example again. 💪"
+        "retry": "Count total parts first, then count the shaded parts."
       },
-      "prompt": "Tap each card and name the fraction!",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each model and count total and shaded parts.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d03-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Sort the cards that show real fractions!",
+      "instruction": "Sort equal-part fraction models from uneven or unrelated pictures.",
       "content": {
         "fits": [
-          "3/3 = 1",
-          "4/3 is greater than 1",
-          "parts must be equal",
-          "use a model"
+          "3 of 3 equal star spaces shaded",
+          "4 equal thirds counted",
+          "5 of 5 equal boxes shaded",
+          "one strip split into equal parts"
         ],
         "doesNotFit": [
-          "parts that are not equal",
-          "a whole number with no parts",
-          "the denominator as the shaded parts",
+          "three pieces with different sizes",
+          "a whole number 7 with no parts",
+          "a denominator drawn as a shaded part",
           "a shape split into unrelated sizes"
         ]
       },
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Fraction Models rule before sorting again. 💪"
+        "retry": "Look for equal parts and a shaded count that fits the model."
       },
-      "prompt": "Sort the cards that show real fractions!",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort equal-part fraction models from uneven or unrelated pictures.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d03-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Which fraction equals one whole?",
+      "instruction": "Tap the fraction that equals one whole.",
       "content": {
         "options": [
           "3/3 = 1",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Fraction Models question. 💪"
+        "retry": "Compare numerator and denominator after checking equal parts."
       },
-      "prompt": "Which fraction equals one whole?",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the fraction that equals one whole.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Match each fraction to what it means!",
+      "instruction": "Match each model with what its shaded parts mean.",
       "content": {
         "pairs": [
           {
-            "left": "3/3 = 1",
-            "right": "three thirds fill one whole"
+            "left": "3 of 3 star spaces shaded",
+            "right": "fills one whole"
           },
           {
-            "left": "4/3 is greater than 1",
-            "right": "more than one whole"
+            "left": "4 equal thirds counted",
+            "right": "covers more than one whole"
           },
           {
-            "left": "parts must be equal",
-            "right": "all parts are the same size"
+            "left": "equal-sized star spaces",
+            "right": "makes a fair fraction model"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Fraction Models pair again. 💪"
+        "retry": "Use the total and shaded parts to match each model’s meaning."
       },
-      "prompt": "Match each fraction to what it means!",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each model with what its shaded parts mean.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d03-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d03-visual",
-      "instruction": "Put the steps in order: one whole or more!",
+      "instruction": "Order the checks for reading a fraction model.",
       "content": {
         "steps": [
-          "Look at the numerator and the denominator",
-          "Compare the two numbers",
-          "If they are equal, the fraction is one whole",
-          "If the numerator is bigger, it is more than one whole"
+          "Check that all parts are equal in size",
+          "Count the total number of parts",
+          "Count the shaded parts",
+          "Compare the counts and write the fraction"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Fraction Models steps. 💪"
+        "retry": "Check equal parts, count total, count shaded, then name the fraction."
       },
-      "prompt": "Put the steps in order: one whole or more!",
-      "narration": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for reading a fraction model.",
+      "narration": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one.",
+      "guideHint": "Count equal total parts and shaded parts; then compare the counts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A fraction names equal parts. A fraction equal to one has the same numerator and denominator; a fraction greater than one has a larger numerator."
+      "accessibilityAlternative": "A fraction model must have equal-sized parts. If shaded parts equal all parts, it is one whole; if shaded parts are more, it is greater than one."
     }
   ],
   "assessment": {
@@ -247,7 +247,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "3/3 equals 1 because the numerator and denominator are the same: three thirds fill one whole. 3/4 and 2/3 are less than one, and 4/3 is Fraction Models."
+        "explanation": "3/3 equals 1 because the numerator and denominator are the same: three thirds fill one whole. 3/4 and 2/3 are less than one, and 4/3 is greater than one whole."
       },
       {
         "itemId": "mathematics-g3-q4-w09-d03-q02",
@@ -275,7 +275,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "4/3 is greater than 1 because the numerator 4 is bigger than the denominator 3, so the fraction is Fraction Models whole. 3/5 and 1/4 are less than one, and 2/2 equals one."
+        "explanation": "4/3 is greater than 1 because the numerator 4 is bigger than the denominator 3, so the fraction is greater than one whole. 3/5 and 1/4 are less than one, and 2/2 equals one."
       },
       {
         "itemId": "mathematics-g3-q4-w09-d03-q03",

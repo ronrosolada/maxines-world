@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Sentence Workshop again. 💪"
+        "retry": "Check for a subject, a verb, and a complete thought. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "Text alternative: A complete sentence expresses a complete thought and normally has a subject and predicate."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Sentence Workshop. 🔎",
-        "retry": "Look at each Sentence Workshop example again. 💪"
+        "retry": "Tap a complete sentence and notice who acts and what happens. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Sentence Workshop clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort complete thoughts away from word groups missing a subject or verb. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: The bird builds a nest.",
-        "retry": "Look again! A complete sentence needs a subject and a verb. Which one has both? 💪"
+        "retry": "Choose the option that names who acts and what the subject does. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Sentence Workshop explanation. 🔗",
-        "retry": "Read both sides of each Sentence Workshop pair again. 💪"
+        "retry": "Match each sentence with the subject who or what acts. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Sentence Workshop steps in order. 🎉",
-        "retry": "Find the first, next, and last Sentence Workshop steps. 💪"
+        "retry": "Order the check: find the subject, find the verb, then add capitals and punctuation. 💪"
       },
       "assetId": "english-g3-m01-d05-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "very softly"
+          },
+          {
+            "id": "d",
+            "text": "after lunch"
           }
         ],
         "correctOptionIds": [
@@ -215,25 +219,29 @@
         "itemId": "english-g3-m01-d05-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice uses a capital letter and the correct end mark?",
+        "prompt": "Which sentence begins with a capital letter and ends with a period?",
         "options": [
           {
             "id": "a",
-            "text": "the turtle swims."
+            "text": "the turtle swims fast"
           },
           {
             "id": "b",
-            "text": "The turtle swims."
+            "text": "The turtle swims in the pond."
           },
           {
             "id": "c",
-            "text": "The turtle swims"
+            "text": "swims in the blue pond."
+          },
+          {
+            "id": "d",
+            "text": "under the warm rock"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "“The turtle swims.” starts with a capital T and ends with a period. The other choices are missing the capital letter or the end mark."
+        "explanation": "'The turtle swims in the pond.' is a complete sentence that starts with a capital 'T' and ends with a period."
       },
       {
         "itemId": "english-g3-m01-d05-q03",
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "under the chair"
+          },
+          {
+            "id": "d",
+            "text": "The teacher smiles."
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "very softly"
+          },
+          {
+            "id": "d",
+            "text": "after the rain"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "Our class planted seeds."
+          },
+          {
+            "id": "d",
+            "text": "near the garden"
           }
         ],
         "correctOptionIds": [

@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🌱 Ang salitang 'sumulat' ay may ugat. Hanapin natin kung saan ito nagmula!",
+  "introduction": "Sa “sumulat,” hanapin ang payak na salitang pinagmulan. Ihambing ito sa mga salitang nabuo sa pagdaragdag ng panlapi.",
   "vocabulary": [
     {
       "term": "salitang-ugat",
-      "definition": "ang payak na anyo ng salita"
+      "definition": "Pinakasimpleng anyo bago lagyan ng panlapi."
     },
     {
       "term": "panlapi",
-      "definition": "idinadagdag sa salitang-ugat upang bumuo ng bagong salita"
+      "definition": "Bahaging idinadagdag sa salitang-ugat upang makabuo ng salita."
     },
     {
       "term": "bagong salita",
-      "definition": "salitang nabuo mula sa ugat at panlapi"
+      "definition": "Salitang nabuo mula sa salitang-ugat at panlapi."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
-      "content": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
+      "instruction": "Basahin ang paliwanag tungkol sa salitang-ugat.",
+      "content": "Ang salitang-ugat ang pinakasimpleng anyo. Sa “sulat → sumulat,” ang ugat ay “sulat.”",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Salitang-Ugat. 💪"
+        "retry": "Alisin sa isip ang idinagdag na panlapi at hanapin ang payak na salita. 💪"
       },
       "prompt": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
       "narration": "Ang salitang-ugat ang payak na anyo. Sa 'sulat → sumulat', ang ugat ay 'sulat'.",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
+      "instruction": "Hanapin ang salitang-ugat sa bawat halimbawa.",
       "content": {
         "examples": [
           "sulat → sumulat",
@@ -73,8 +73,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Salitang-Ugat. 💪"
+        "correct": "Mahusay! Nahanap mo ang mga salitang-ugat at bagong salita. 🔎",
+        "retry": "Ihambing ang bagong salita sa payak na salitang pinagmulan. 💪"
       },
       "prompt": "Tuklasin ang mga halimbawa. Hanapin ang salitang-ugat ng bawat salita.",
       "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Piliin ang pares ng salitang-ugat at bagong salita.",
+      "instruction": "Piliin ang pares na may tamang salitang-ugat.",
       "content": {
         "fits": [
           "sulat → sumulat",
@@ -109,8 +109,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Salitang-Ugat bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga pares ayon sa salitang-ugat. 🎉",
+        "retry": "Suriin kung pareho ang ugat at kahulugan ng dalawang salita. 💪"
       },
       "prompt": "Piliin ang mga pares ng salitang-ugat at bagong salita.",
       "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Piliin ang pinakamabuting sagot.",
+      "instruction": "Alin ang pares na wastong nagpapakita ng ugat at bagong salita?",
       "content": {
         "options": [
-          "laro → naglaro",
+          "laro → tumakbo",
           "sulat → sumulat",
-          "basa → bumasa",
-          "tanim → nagtanim"
+          "basa → nagtanim",
+          "tanim → bumasa"
         ],
         "correctIndex": 1
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Salitang-Ugat. 💪"
+        "retry": "Hanapin ang salitang nananatiling ugat matapos alisin ang panlapi. 💪"
       },
       "prompt": "Piliin ang pinakamabuting sagot. Hanapin ang payak na anyo ng salita.",
       "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Itugma ang bawat halimbawa sa wastong pangkat.",
+      "instruction": "Itugma ang salita sa papel nito sa pagbuo.",
       "content": {
         "pairs": [
           {
             "left": "sulat",
-            "right": "salitang-ugat"
+            "right": "salitang pinagmulan"
           },
           {
             "left": "sumulat",
-            "right": "bagong salita"
+            "right": "salitang may panlapi"
           },
           {
             "left": "sulat → sumulat",
-            "right": "pares ng ugat at bagong salita"
+            "right": "pares na nagpapakita ng pagbuo"
           }
         ]
       },
@@ -176,8 +176,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Salitang-Ugat. 💪"
+        "correct": "Mahusay! Itinugma mo ang ugat sa bagong salita at pagbuo nito. 🔗",
+        "retry": "Tingnan kung ugat, bagong salita, o pares ang inilalarawan. 💪"
       },
       "prompt": "Itugma ang bawat halimbawa sa wastong pangkat: ugat, bagong salita, o pares.",
       "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
@@ -192,21 +192,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d05-visual",
-      "instruction": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
+      "instruction": "Ayusin ang mga hakbang sa paghahanap ng ugat.",
       "content": {
         "steps": [
-          "Basahin ang salita",
-          "Alisin ang panlapi",
-          "Hanapin ang payak na anyo",
-          "Sabihin ang salitang-ugat"
+          "Basahin ang salitang may panlapi.",
+          "Tukuyin ang bahaging idinagdag.",
+          "Alisin ito upang makita ang payak na anyo.",
+          "Sabihin ang salitang-ugat."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Salitang-Ugat. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa paghahanap ng ugat. 🎉",
+        "retry": "Sundin ang daloy: basahin, alisin, hanapin, at sabihin. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Alisin muna ang panlapi upang makita ang ugat.",
       "narration": "Ang salitang-ugat ang payak na anyo na pinagmumulan ng ibang salita.",
@@ -246,7 +246,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang salitang-ugat ay ang payak na anyo ng salita bago idagdag ang mga panlapi. Ang ugat ng “sumulat” ay “sulat”.",
+        "explanation": "Ang ugat ay ang payak na anyo bago idagdag ang panlapi; sa “sumulat,” ito ay “sulat.”",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -256,11 +256,11 @@
         "options": [
           {
             "id": "a",
-            "text": "tanim → nagtanim"
+            "text": "tanim → naglaro"
           },
           {
             "id": "b",
-            "text": "basa → bumasa"
+            "text": "basa → nagtanim"
           },
           {
             "id": "c",
@@ -268,13 +268,13 @@
           },
           {
             "id": "d",
-            "text": "laro → naglaro"
+            "text": "laro → kumain"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pares na “sulat → sumulat” ang nagpapakita ng ugat at ng bagong salitang nabuo mula rito.",
+        "explanation": "Ang pares na ito lamang ang may magkaugnay na ugat at bagong salita sa mga pagpipilian.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -302,7 +302,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang ugat ng “bumasa” ay “basa” — ito ang payak na anyo bago ang panlapi.",
+        "explanation": "Ang “basa” ang payak na anyo bago idagdag ang panlaping bum-.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -330,21 +330,21 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang salitang-ugat ay ang payak na anyo bago ang panlapi. Ang ugat ng “nagtanim” ay “tanim”.",
+        "explanation": "Ang “tanim” ang payak na anyo bago idagdag ang panlaping nag-.",
         "type": "MULTIPLE_CHOICE"
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q1-w01-d05-q5",
-        "prompt": "Aling salita ang HINDI galing sa ugat na 'sulat'?",
+        "prompt": "Aling salita ang hindi kaugnay ng mga ugat na “sulat,” “basa,” o “laro”?",
         "options": [
           {
             "id": "a",
-            "text": "naglaro"
+            "text": "sumulat"
           },
           {
             "id": "b",
-            "text": "nagtanim"
+            "text": "bumasa"
           },
           {
             "id": "c",
@@ -352,13 +352,13 @@
           },
           {
             "id": "d",
-            "text": "bumasa"
+            "text": "naglaro"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang ibang salita ay nabuo mula sa iisang ugat sa pamamagitan ng panlapi. Ang “kumain” ay hindi galing sa ugat na iyon.",
+        "explanation": "Ang “kumain” ay mula sa ugat na “kain,” hindi sa “sulat,” “basa,” o “laro.”",
         "type": "MULTIPLE_CHOICE"
       }
     ]

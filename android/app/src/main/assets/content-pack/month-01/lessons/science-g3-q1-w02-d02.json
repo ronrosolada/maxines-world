@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🔍 Milo found sandpaper. Let's look closely: is it rough or smooth? And how do we use it safely?",
+  "introduction": "Milo examines sandpaper: what can Maxine feel, and how can she use it safely?",
   "vocabulary": [
     {
       "term": "property",
-      "definition": "how a material looks, feels, or behaves"
+      "definition": "A way to describe how a material looks, feels, or behaves."
     },
     {
       "term": "flexible",
-      "definition": "able to bend without breaking"
+      "definition": "Able to bend without breaking easily."
     },
     {
       "term": "absorb",
-      "definition": "to soak up a liquid"
+      "definition": "To soak up a liquid."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "instruction": "Watch Milo observe a material and describe its properties safely.",
       "content": "Materials have properties. wooden chair is hard and sturdy, and cotton t-shirt is soft.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in Material Detectives again. 💪"
+        "retry": "Look at the object, then name what you can see, feel, or safely test."
       },
       "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
       "narration": "Materials have properties. wooden chair is hard and sturdy, and cotton t-shirt is soft.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Explore each example. wooden chair is hard and sturdy, and cotton t-shirt is soft.",
+      "instruction": "Tap each object and notice the property Milo describes.",
       "content": {
         "examples": [
-          "wooden chair — hard and sturdy",
-          "cotton t-shirt — soft",
-          "plastic bottle — keeps water in",
-          "sandpaper — rough"
+          "a wooden chair stays firm under a gentle touch",
+          "a cotton shirt feels soft",
+          "a plastic bottle keeps water inside",
+          "sandpaper feels rough"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Look at each Material Detectives example again. 💪"
+        "retry": "Check the object and the observation before naming its property."
       },
       "prompt": "Explore each example. wooden chair is hard and sturdy, and cotton t-shirt is soft.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Sort the examples. Keep the ones that describe a material's property.",
+      "instruction": "Sort each observation by whether it describes a material property.",
       "content": {
         "fits": [
-          "wooden chair — hard and sturdy",
-          "cotton t-shirt — soft",
-          "plastic bottle — keeps water in",
-          "sandpaper — rough"
+          "a wooden chair stays firm under a gentle touch",
+          "a cotton shirt feels soft",
+          "a plastic bottle keeps water inside",
+          "sandpaper feels rough"
         ],
         "doesNotFit": [
-          "a loud sound",
-          "a happy feeling",
-          "a fast race",
-          "a tall mountain"
+          "a loud sound fills the room",
+          "a happy feeling changes mood",
+          "a fast race uses time",
+          "a mountain has a height"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read the Material Detectives rule before sorting again. 💪"
+        "retry": "Ask whether each card describes something observable about a material."
       },
       "prompt": "Sort the examples. Keep the ones that describe a material's property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Tap the material that shows today's property!",
+      "instruction": "Choose the object that shows the focus property.",
       "content": {
         "options": [
           "rubber band",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in the Material Detectives question. 💪"
+        "retry": "Compare each choice with the property clue from the material."
       },
       "prompt": "Choose the example of material properties.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Match each material with the property it shows.",
+      "instruction": "Match each material with the evidence for its property.",
       "content": {
         "pairs": [
           {
             "left": "wooden chair",
-            "right": "hard and sturdy"
+            "right": "stays firm under a gentle touch"
           },
           {
-            "left": "cotton t-shirt",
-            "right": "soft"
+            "left": "cotton shirt",
+            "right": "feels soft on skin"
           },
           {
             "left": "plastic bottle",
-            "right": "keeps water in"
+            "right": "keeps water from spilling"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read both sides of each Material Detectives pair again. 💪"
+        "retry": "Match the material to the observable evidence that supports its property."
       },
       "prompt": "Match each material with the property it shows.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q1-w02-d02-visual",
-      "instruction": "Put the steps in order. Observe the material safely, then name its property.",
+      "instruction": "Order the steps for safely investigating a material.",
       "content": {
         "steps": [
           "Observe the material safely",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+        "retry": "Check the order: observe safely, name the property, compare, then choose a safe use."
       },
       "prompt": "Put the steps in order. Observe the material safely, then name its property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q1-w02-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is flexible?",
+        "prompt": "Maxine compares a rubber band, stone, and wooden chair. Which material is flexible?",
         "options": [
           {
             "id": "a",
-            "text": "stone"
+            "text": "Stone"
           },
           {
             "id": "b",
-            "text": "metal spoon"
+            "text": "Metal spoon"
           },
           {
             "id": "c",
-            "text": "wooden chair"
+            "text": "Wooden chair"
           },
           {
             "id": "d",
-            "text": "rubber band"
+            "text": "Rubber band"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Rubber band bends easily, so it is flexible."
+        "explanation": "A rubber band bends and returns to shape, so it is flexible. Stone, metal, and a wooden chair resist bending."
       },
       {
         "itemId": "science-g3-q1-w02-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material absorbs water?",
+        "prompt": "Milo wipes a spill with four materials. Which one absorbs water?",
         "options": [
           {
             "id": "a",
-            "text": "wooden ruler"
+            "text": "Wooden ruler"
           },
           {
             "id": "b",
-            "text": "cotton cloth"
+            "text": "Cotton cloth"
           },
           {
             "id": "c",
-            "text": "glass jar"
+            "text": "Glass jar"
           },
           {
             "id": "d",
-            "text": "wooden chair"
+            "text": "Wooden chair"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Cotton cloth soaks up water, so it absorbs water."
+        "explanation": "Cotton cloth has fibers that soak up water. Glass, wood, and a chair do not absorb the spill as well."
       },
       {
         "itemId": "science-g3-q1-w02-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is hard?",
+        "prompt": "Milo gently presses a stone and a rubber ball. Which material is hard?",
         "options": [
           {
             "id": "a",
-            "text": "sponge"
+            "text": "Sponge"
           },
           {
             "id": "b",
-            "text": "rubber ball"
+            "text": "Rubber ball"
           },
           {
             "id": "c",
-            "text": "aluminum foil"
+            "text": "Aluminum foil"
           },
           {
             "id": "d",
-            "text": "stone"
+            "text": "Stone"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Stone is firm and does not bend, so it is hard."
+        "explanation": "A stone stays firm and resists bending, which is evidence of hardness. A sponge, rubber ball, and foil are softer or bendable."
       },
       {
         "itemId": "science-g3-q1-w02-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What property does sandpaper have?",
+        "prompt": "Maxine rubs sandpaper gently with an adult nearby. What property does she feel?",
         "options": [
           {
             "id": "a",
-            "text": "hard and sturdy"
+            "text": "Hard and sturdy"
           },
           {
             "id": "b",
-            "text": "soft"
+            "text": "Soft"
           },
           {
             "id": "c",
-            "text": "rough"
+            "text": "Rough"
           },
           {
             "id": "d",
-            "text": "keeps water in"
+            "text": "Keeps water in"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Sandpaper feels rough, so that is its property."
+        "explanation": "The tiny grains on sandpaper make its surface feel rough. The other choices describe different material properties."
       },
       {
         "itemId": "science-g3-q1-w02-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to learn about a material?",
+        "prompt": "Before studying sandpaper, which action is safe?",
         "options": [
           {
             "id": "a",
-            "text": "look at it and touch it gently"
+            "text": "Look at it and touch it gently"
           },
           {
             "id": "b",
-            "text": "taste it"
+            "text": "Taste it"
           },
           {
             "id": "c",
-            "text": "leave it out in the rain"
+            "text": "Leave it in rain"
           },
           {
             "id": "d",
-            "text": "throw it"
+            "text": "Throw it"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Looking at it and touching it gently is safe. Tasting, throwing, or hitting materials is not safe."
+        "explanation": "Looking and gentle touching are enough for a safe observation. Tasting, throwing, or careless handling is unsafe."
       }
     ]
   },

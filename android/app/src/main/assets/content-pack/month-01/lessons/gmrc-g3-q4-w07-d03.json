@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Handa ka na bang sumubok?",
+  "introduction": "May tungkulin si Milo sa silid-aralan: alagaan ang susi, tapusin ang gawain, at magsabi kapag may problema. 🔑 Handa ka bang magsanay ng pananagutan?",
   "vocabulary": [
     {
       "term": "inaayos ang gamit",
-      "definition": "Paglalagay ng mga gamit sa tamang lugar pagkatapos gamitin."
+      "definition": "Ibinabalik ang kagamitan sa tamang lugar pagkatapos gamitin."
     },
     {
       "term": "tinatapos ang gawain",
-      "definition": "Pagtupad sa sinimulang gawain nang maayos."
+      "definition": "Ipinagpapatuloy ang sinimulan hanggang maayos itong matapos."
     },
     {
       "term": "sumusunod sa napagkasunduan",
-      "definition": "Pagtupad sa tuntuning napagkasunduan ng pangkat."
+      "definition": "Ginagawa ang napag-usapang tuntunin kahit walang nagpapaalala."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "instruction": "Pakinggan ang mga halimbawa ng pananagutan.",
       "content": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Halimbawa, sa pagbabahagi ng gamit. Gayundin, sa paghihintay ng sariling pagkakataon.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Aking Pananagutan. 💪"
+        "retry": "Suriin kung natapos, naingatan, o inamin ang sariling tungkulin."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Halimbawa, sa pagbabahagi ng gamit. Gayundin, sa paghihintay ng sariling pagkakataon.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pakinggan kung paano gampanan ang isang tungkulin.",
+      "narration": "Ang may pananagutan ay umaako sa gawain, nag-iingat sa gamit, tinatapos ang ipinagkatiwala, at umaamin kapag nagkamali.",
+      "guideHint": "Alalahanin: alagaan ang gamit, tapusin ang gawain, at magsabi kung may problema.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali. Halimbawa, sa pagbabahagi ng gamit. Gayundin, sa paghihintay ng sariling pagkakataon."
+      "accessibilityAlternative": "Ang may pananagutan ay umaako sa gawain, nag-iingat sa gamit, tinatapos ang ipinagkatiwala, at umaamin kapag nagkamali."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pananagutan sa tungkulin.",
+      "instruction": "Hanapin ang mga kilos ng pagiging responsable.",
       "content": {
         "examples": [
-          "inaayos ang gamit",
-          "tinatapos ang gawain",
-          "sumusunod sa napagkasunduan",
-          "humihingi ng tulong kapag kailangan"
+          "ibinabalik ang susi sa guro",
+          "tinatapos ang gawain bago maglaro",
+          "inaayos ang gamit pagkatapos gamitin",
+          "nagsasabi agad kapag may problema"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Aking Pananagutan. 💪"
+        "retry": "Suriin kung ang kilos ay tumatapos, nag-aayos, sumusunod, o nagsasabi ng problema."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Tuklasin ang bawat kilos ng pananagutan.",
+      "narration": "Ang pananagutan ay nakikita sa pagtupad ng gawain, pag-aayos ng gamit, pagsunod sa kasunduan, at paghingi ng tulong kapag kailangan.",
+      "guideHint": "Hanapin ang kilos na tumutupad sa isang tungkulin.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      "accessibilityAlternative": "Ang pananagutan ay nakikita sa pagtupad ng gawain, pag-aayos ng gamit, pagsunod sa kasunduan, at paghingi ng tulong kapag kailangan."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d03-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pananagutan sa tungkulin.",
+      "instruction": "Pangkatin ang responsable at iresponsableng kilos.",
       "content": {
         "fits": [
-          "inaayos ang gamit",
-          "tinatapos ang gawain",
-          "sumusunod sa napagkasunduan",
-          "humihingi ng tulong kapag kailangan"
+          "ibinabalik ang susi sa guro",
+          "tinatapos ang gawain bago maglaro",
+          "inaayos ang gamit pagkatapos gamitin",
+          "nagsasabi agad kapag may problema"
         ],
         "doesNotFit": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "hindi nakikinig"
+          "itinatago ang nasirang gamit",
+          "ipinapagawa sa iba ang sariling gawain",
+          "iniiwan ang kalat",
+          "nagpapanggap na tapos na"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Aking Pananagutan bago magpangkat muli. 💪"
+        "retry": "Suriin kung inaako at tinatapos ng bata ang sariling gawain."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pagbukud-bukurin ang mga kilos ayon sa pananagutan.",
+      "narration": "Ang taong responsable ay hindi nag-iiwan ng tungkulin o suliranin sa iba.",
+      "guideHint": "Ihambing ang bawat kilos sa tungkuling ipinagkatiwala.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      "accessibilityAlternative": "Ang taong responsable ay hindi nag-iiwan ng tungkulin o suliranin sa iba."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d03-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang kilos na nagpapakita ng pananagutan.",
       "content": {
         "options": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "inaayos ang gamit"
+          "Iwanan ang susi sa mesa.",
+          "Ipahiram ang susi nang walang paalam.",
+          "Itago ang susi.",
+          "Ingatan at isauli ang susi sa tamang oras."
         ],
         "correctIndex": 3
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Aking Pananagutan. 💪"
+        "retry": "Suriin kung ibinabalik ang ipinagkatiwalang gamit sa tamang oras."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pinagkatiwalaan ka ng susi. Ano ang dapat mong gawin?",
+      "narration": "Ang pag-iingat at pagsasauli ng susi sa tamang oras ay pagtupad sa ipinagkatiwalang tungkulin.",
+      "guideHint": "Isipin kung aling kilos ang nag-iingat sa susi at tumutupad sa kasunduan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      "accessibilityAlternative": "Ang pag-iingat at pagsasauli ng susi sa tamang oras ay pagtupad sa ipinagkatiwalang tungkulin."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Itugma ang mga halimbawa ng pananagutan sa tungkulin.",
+      "instruction": "Itugma ang tungkulin sa mabuting bunga nito.",
       "content": {
         "pairs": [
           {
             "left": "inaayos ang gamit",
-            "right": "pagmamahal sa bayan"
+            "right": "madaling makita at hindi nawawala ang kagamitan"
           },
           {
             "left": "tinatapos ang gawain",
-            "right": "kilos ng pagiging responsable"
+            "right": "natutupad ang ipinagkatiwalang tungkulin"
           },
           {
             "left": "sumusunod sa napagkasunduan",
-            "right": "kilos ng pagtupad sa tungkulin"
+            "right": "maaasahan ng pangkat ang iyong kilos"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Aking Pananagutan. 💪"
+        "retry": "Suriin kung ang kanang panig ay bunga ng pagtupad sa tungkulin."
       },
-      "prompt": "Itapat ang mga halimbawa ng pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itugma ang kilos sa ipinapakitang pananagutan.",
+      "narration": "Ang responsableng kilos ay may bunga: natutupad ang gawain at nagiging maaasahan ang pangkat.",
+      "guideHint": "Basahin ang kilos at hanapin ang bunga nito sa pangkat.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      "accessibilityAlternative": "Ang responsableng kilos ay may bunga: natutupad ang gawain at nagiging maaasahan ang pangkat."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d03-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d03-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa pagtupad ng tungkulin.",
       "content": {
         "steps": [
-          "Unawain ang iyong tungkulin",
-          "Gawin ito nang maayos",
-          "Tapusin ito sa tamang oras",
-          "Ipaalam kung may problema"
+          "Alamin ang iyong tungkulin",
+          "Ihanda ang kailangang gamit",
+          "Gawin at tapusin nang maayos",
+          "Sabihin agad kung may problema"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Aking Pananagutan. 💪"
+        "retry": "Suriin kung nauuna ang pag-unawa at nahuhuli ang pagsasabi ng problema."
       },
-      "prompt": "Ayusin ang mga hakbang sa pananagutan sa tungkulin.",
-      "narration": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ayusin ang mga hakbang sa pananagutan sa silid-aralan.",
+      "narration": "Unawain ang tungkulin, gawin at tapusin ito, at magsabi agad kung may problemang kailangang lutasin.",
+      "guideHint": "Isipin ang kilos mula pag-unawa hanggang pag-uulat ng problema.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang responsable ay tumutupad sa gawain, nag-iingat sa gamit, at umaamin kapag nagkamali."
+      "accessibilityAlternative": "Unawain ang tungkulin, gawin at tapusin ito, at magsabi agad kung may problemang kailangang lutasin."
     }
   ],
   "assessment": {
@@ -229,137 +229,137 @@
         "options": [
           {
             "id": "a",
-            "text": "dalhin ito sa palaruan"
+            "text": "Dalhin ito sa palaruan."
           },
           {
             "id": "b",
-            "text": "ipahiram sa lahat ng gusto"
+            "text": "Ipahiram sa lahat ng gusto."
           },
           {
             "id": "c",
-            "text": "ingatan ito at isauli sa tamang oras"
+            "text": "Ingatan ito at isauli sa tamang oras."
           },
           {
             "id": "d",
-            "text": "iwanan ito sa mesa"
+            "text": "Iwanan ito sa mesa."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinagkatiwalang gamit ay dapat ingatan at isauli — iyan ang tunay na pananagutan."
+        "explanation": "Ang susi ay ipinagkatiwalang gamit; ang pag-iingat at pagsasauli sa oras ay pagtupad sa pananagutan."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Inutusan ka ng nanay mo na ayusin ang iyong higaan bago pumasok. Ano ang gagawin mo?",
+        "prompt": "Inutusan kang ayusin ang iyong higaan bago pumasok. Ano ang gagawin mo?",
         "options": [
           {
             "id": "a",
-            "text": "magkunwaring may sakit"
+            "text": "Magkunwaring may sakit."
           },
           {
             "id": "b",
-            "text": "ayusin ito agad bago maglaro"
+            "text": "Ayusin ito agad bago maglaro."
           },
           {
             "id": "c",
-            "text": "ipagawa sa kapatid"
+            "text": "Ipagawa sa kapatid."
           },
           {
             "id": "d",
-            "text": "maglaro muna at kalimutan ito"
+            "text": "Maglaro muna at kalimutan ito."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang paggawa ng tungkulin nang walang paalala ay tanda ng pananagutan."
+        "explanation": "Ang pag-aayos ng sariling higaan bago maglaro ay pagtupad sa tungkulin nang hindi iniiwan sa iba."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Kayo ng katabi mo ang pumalit sa pagbubura ng pisara sa loob ng isang linggo. Ano ang tamang gawin?",
+        "prompt": "Kayo ng katabi mo ang nakatakdang magbura ng pisara sa loob ng isang linggo. Ano ang tama?",
         "options": [
           {
             "id": "a",
-            "text": "kalimutan kapag mainit ang panahon"
+            "text": "Kalimutan kapag mainit ang panahon."
           },
           {
             "id": "b",
-            "text": "gawin ito araw-araw nang maayos"
+            "text": "Gawin ito araw-araw nang maayos."
           },
           {
             "id": "c",
-            "text": "ipabura palagi sa katabi"
+            "text": "Ipabura palagi sa katabi."
           },
           {
             "id": "d",
-            "text": "gawin lamang kapag nakatingin ang guro"
+            "text": "Gawin lamang kapag nakatingin ang guro."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang tungkuling pinagkatiwala ay dapat gampanan nang buo at maayos sa bawat araw."
+        "explanation": "Ang napagkasunduang tungkulin ay dapat gampanan nang maayos bawat araw, kahit walang nakatingin."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "May takdang-aralin ka pero may paboritong palabas sa TV. Ano ang dapat mong gawin?",
+        "prompt": "May takdang-aralin ka pero may paboritong palabas sa telebisyon. Ano ang dapat gawin?",
         "options": [
           {
             "id": "a",
-            "text": "isisi sa kapatid ang hindi paggawa"
+            "text": "Isisi sa kapatid ang hindi paggawa."
           },
           {
             "id": "b",
-            "text": "huwag nang gawin ang takdang-aralin"
+            "text": "Huwag nang gawin ang takdang-aralin."
           },
           {
             "id": "c",
-            "text": "tapusin muna ang takdang-aralin bago manood"
+            "text": "Tapusin muna ang takdang-aralin bago manood."
           },
           {
             "id": "d",
-            "text": "manood muna at magmadali sa umaga"
+            "text": "Manood muna at magmadali sa umaga."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pag-una sa tungkulin bago sa libangan ay pagiging responsable."
+        "explanation": "Ang pag-una sa takdang-aralin bago libangan ay nagpapakita na inuuna mo ang iyong pananagutan."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Nabasag mo ang baso habang naglalaro sa bahay. Ano ang dapat mong gawin?",
+        "prompt": "Nabasag mo ang baso habang naglalaro. Ano ang dapat mong gawin?",
         "options": [
           {
             "id": "a",
-            "text": "umalis na parang walang nangyari"
+            "text": "Umalis na parang walang nangyari."
           },
           {
             "id": "b",
-            "text": "sisihin ang pusa"
+            "text": "Sisihin ang pusa."
           },
           {
             "id": "c",
-            "text": "sabihin sa nakatatanda at tumulong maglinis nang ligtas"
+            "text": "Sabihin sa nakatatanda at tumulong maglinis nang ligtas."
           },
           {
             "id": "d",
-            "text": "itago ang mga basag"
+            "text": "Itago ang mga basag."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pag-amin at pagtulong sa paglilinis ay pananagutan sa sariling nagawa."
+        "explanation": "Ang pag-amin at pagtulong sa ligtas na paglilinis ay pag-ako sa bunga ng sariling kilos."
       }
     ]
   },

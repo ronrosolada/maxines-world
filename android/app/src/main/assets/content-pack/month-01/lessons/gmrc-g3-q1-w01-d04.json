@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, kaibigan! 👋 Samahan mo si Milo ngayong araw. Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Handa ka na bang sumubok?",
+  "introduction": "May iba-ibang paraan ng pananalig at pagpapakita ng kabutihan ang mga tao. Matutong igalang ang paniniwala ng iba habang sinusunod ang sa iyo. 🙏",
   "vocabulary": [
     {
       "term": "nagpapasalamat",
-      "definition": "Pagpapahayag ng pasasalamat sa kabutihang ginawa ng iba, tulad ng pagsasabing “Salamat po.”"
+      "definition": "Pagsasabi o pagpapakita na pinahahalagahan mo ang kabutihang natanggap."
     },
     {
       "term": "gumagalang sa paniniwala ng iba",
-      "definition": "Pagrespeto sa sariling paniniwala at sa paniniwala ng iba."
+      "definition": "Pagbibigay-daan sa iba na sundin ang kanilang paniniwala nang hindi nanunukso."
     },
     {
       "term": "humihingi ng gabay",
-      "definition": "Pagtatanong o paghingi ng tulong sa guro o nakatatanda bago gumawa ng isang bagay."
+      "definition": "Pagtatanong sa guro o nakatatanda kapag kailangan ng tulong sa pasiya."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
+      "instruction": "Pakinggan kung paano ipinakikita ang pananalig at paggalang.",
+      "content": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, paggawa ng mabuti, at paggalang sa paniniwala ng iba. Hindi natin pinipilit o tinutuya ang kapwa.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Pananalig at Paggalang. 💪"
+        "retry": "Pakinggan muli: manalangin nang tahimik, magpasalamat, gumawa ng mabuti, at gumalang."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin ang tahimik na pananalig at pagtanggap sa iba.",
+      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, paggawa ng mabuti, at paggalang sa paniniwala ng iba.",
+      "guideHint": "Pakinggan ang clue: manalangin nang tahimik, magpasalamat, at gumalang.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagbibigay ng mahinahong sagot. Gayundin, sa pag-anyaya sa nag-iisang kaklase."
+      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, paggawa ng mabuti, at paggalang sa paniniwala ng iba."
     },
     {
       "activityId": "gmrc-g3-q1-w01-d04-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "instruction": "Hanapin ang pasasalamat, paggalang, gabay, at mabuting kilos.",
       "content": {
         "examples": [
           "nagpapasalamat",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Pananalig at Paggalang. 💪"
+        "retry": "Hanapin ang nagpapasalamat, gumagalang, humihingi ng gabay, at gumagawa ng mabuti."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "I-tap ang mga kilos na nagpapakita ng pananalig at paggalang.",
+      "narration": "Hanapin ang nagpapasalamat, gumagalang sa paniniwala ng iba, humihingi ng gabay, at gumagawa ng mabuti.",
+      "guideHint": "Hanapin ang apat na kilos na hindi nanunukso o namimilit.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+      "accessibilityAlternative": "Hanapin ang nagpapasalamat, gumagalang sa paniniwala ng iba, humihingi ng gabay, at gumagawa ng mabuti."
     },
     {
       "activityId": "gmrc-g3-q1-w01-d04-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "instruction": "Ilagay ang kilos sa pangkat ng paggalang o hindi paggalang.",
       "content": {
         "fits": [
           "nagpapasalamat",
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Pananalig at Paggalang bago magpangkat muli. 💪"
+        "retry": "Tanungin: may pagtanggap ba o may panunukso at pamimilit?"
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paghiwalayin ang kilos na tumatanggap sa iba at ang hindi.",
+      "narration": "Ang pasasalamat, paggalang, gabay, at kabutihan ay nagpapakita ng pananalig; ang panunukso at pamimilit ay hindi.",
+      "guideHint": "Tanungin: may pagtanggap ba o may panunukso at pamimilit?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+      "accessibilityAlternative": "Ang pasasalamat, paggalang, gabay, at kabutihan ay nagpapakita ng pananalig; ang panunukso at pamimilit ay hindi."
     },
     {
       "activityId": "gmrc-g3-q1-w01-d04-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang kilos na kumikilala sa kabutihang natanggap.",
       "content": {
         "options": [
           "nanunukso sa kapwa",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Pananalig at Paggalang. 💪"
+        "retry": "Piliin ang kilos na kumikilala sa kabutihang natanggap."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang nagpapakita ng pananalig at paggalang?",
+      "narration": "Ang pagpapasalamat ay pagkilala sa kabutihang ginawa ng iba o sa biyayang natanggap.",
+      "guideHint": "Piliin ang salitang nagpapakita ng pagkilala sa kabutihan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+      "accessibilityAlternative": "Ang pagpapasalamat ay pagkilala sa kabutihang ginawa ng iba o sa biyayang natanggap."
     },
     {
       "activityId": "gmrc-g3-q1-w01-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Itugma ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
+      "instruction": "Itugma ang kilos sa ipinakikitang paggalang.",
       "content": {
         "pairs": [
           {
             "left": "nagpapasalamat",
-            "right": "pagkilala sa kabutihan"
+            "right": "kinikilala ang kabutihan"
           },
           {
             "left": "gumagalang sa paniniwala ng iba",
-            "right": "paggalang sa pagkakaiba"
+            "right": "tinatanggap ang pagkakaiba"
           },
           {
             "left": "humihingi ng gabay",
-            "right": "paghingi ng tulong"
+            "right": "humaharap nang mahinahon sa pasiya"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Pananalig at Paggalang. 💪"
+        "retry": "Iugnay ang kilos sa pagkilala, pagtanggap, o mahinahong pasiya."
       },
-      "prompt": "Itapat ang mga halimbawa ng pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Iugnay ang bawat kilos sa kahulugan nito.",
+      "narration": "Ang pasasalamat ay pagkilala sa kabutihan, paggalang ay pagtanggap sa pagkakaiba, at gabay ay tulong sa mahinahong pasiya.",
+      "guideHint": "Iugnay ang kilos sa pagkilala, pagtanggap, o mahinahong pasiya.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+      "accessibilityAlternative": "Ang pasasalamat ay pagkilala sa kabutihan, paggalang ay pagtanggap sa pagkakaiba, at gabay ay tulong sa mahinahong pasiya."
     },
     {
       "activityId": "gmrc-g3-q1-w01-d04-a06",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "gmrc-g3-q1-w01-d04-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin mula pagkilala sa paniniwala hanggang pagiging halimbawa.",
       "content": {
         "steps": [
           "Kilalanin ang iyong paniniwala",
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Pananalig at Paggalang. 💪"
+        "retry": "Unahin ang pagkilala, saka paggalang, hindi pamimilit, at mabuting halimbawa."
       },
-      "prompt": "Ayusin ang mga hakbang sa pananalig at paggalang sa paniniwala.",
-      "narration": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ilagay sa tamang ayos ang magalang na pananalig.",
+      "narration": "Kilalanin ang sariling paniniwala, igalang ang iba, huwag mamilit, at maging mabuting halimbawa.",
+      "guideHint": "Unahin ang pagkilala; huli ang pagiging mabuting halimbawa.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa."
+      "accessibilityAlternative": "Kilalanin ang sariling paniniwala, igalang ang iba, huwag mamilit, at maging mabuting halimbawa."
     }
   ],
   "assessment": {
@@ -225,57 +225,57 @@
         "itemId": "gmrc-g3-q1-w01-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng pananalig at paggalang sa paniniwala?",
+        "prompt": "May kaklaseng may ibang paraan ng pananalangin. Ano ang magalang mong gawin?",
         "options": [
           {
             "id": "a",
-            "text": "hindi nakikinig"
+            "text": "sabihing mali agad ang kaniyang paraan"
           },
           {
             "id": "b",
-            "text": "pagtawa sa pagsamba ng iba"
+            "text": "tawanan siya kapag nananalangin"
           },
           {
             "id": "c",
-            "text": "nanunukso sa kapwa"
+            "text": "pilitin siyang sumunod sa iyo"
           },
           {
             "id": "d",
-            "text": "gumagalang sa paniniwala ng iba"
+            "text": "igalang ang kaniyang paniniwala at manahimik habang nananalangin siya"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “gumagalang sa paniniwala ng iba” ay halimbawa ng pananalig at paggalang sa paniniwala."
+        "explanation": "Ang paggalang ay pagbibigay-daan sa pananalig ng iba nang walang panunukso o pamimilit."
       },
       {
         "itemId": "gmrc-g3-q1-w01-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng pananalig at paggalang sa paniniwala?",
+        "prompt": "Hindi ka sigurado sa tamang kilos bago gumawa ng pasiya. Ano ang makatutulong?",
         "options": [
           {
             "id": "a",
-            "text": "pagpilit sa iba na magbago"
+            "text": "manghula at huwag magsabi sa iba"
           },
           {
             "id": "b",
-            "text": "pamimintas sa paniniwala ng iba"
+            "text": "piliin ang pinakamadaling gawin kahit makasakit"
           },
           {
             "id": "c",
-            "text": "pagbabawal sa panalangin"
+            "text": "pilitin ang kaklase na pumili para sa iyo"
           },
           {
             "id": "d",
-            "text": "humihingi ng gabay"
+            "text": "humingi ng gabay sa guro o nakatatanda"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “humihingi ng gabay” ay halimbawa rin ng pananalig at paggalang sa paniniwala."
+        "explanation": "Ang paghingi ng gabay ay mahinahong paraan upang makagawa ng mabuting pasiya."
       },
       {
         "itemId": "gmrc-g3-q1-w01-d04-q03",
@@ -303,7 +303,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang tahimik na pananalangin ay pananalig nang hindi nakakaistorbo sa iba."
+        "explanation": "Ang tahimik na pananalangin ay nagpapakita ng pananalig nang hindi nakakaistorbo sa iba."
       },
       {
         "itemId": "gmrc-g3-q1-w01-d04-q04",
@@ -331,35 +331,35 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang paggalang sa pananalangin ng iba ay paggalang sa kaniyang paniniwala."
+        "explanation": "Ang paghihintay at hindi panggugulo ay paggalang sa paraan ng pananalig ng kaklase."
       },
       {
         "itemId": "gmrc-g3-q1-w01-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng pananalig at paggalang sa paniniwala?",
+        "prompt": "Alin ang HINDI nagpapakita ng pananalig at paggalang sa paniniwala?",
         "options": [
           {
             "id": "a",
-            "text": "iginagalang ang paraan ng pagsamba ng iba"
+            "text": "humihingi ng pahintulot bago gumamit ng bagay"
           },
           {
             "id": "b",
-            "text": "gumagalang sa paniniwala ng iba"
+            "text": "nakikinig kapag may nagpapaliwanag"
           },
           {
             "id": "c",
-            "text": "hindi nakikinig"
+            "text": "tumutawa sa paraan ng pagsamba ng iba"
           },
           {
             "id": "d",
-            "text": "nakikinig sa pagpapaliwanag ng iba"
+            "text": "nagpapasalamat sa tulong"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang “hindi nakikinig” ay hindi halimbawa ng pananalig at paggalang sa paniniwala."
+        "explanation": "Ang pagtawa sa pagsamba ng iba ay panunukso, hindi paggalang sa paniniwala."
       }
     ]
   },

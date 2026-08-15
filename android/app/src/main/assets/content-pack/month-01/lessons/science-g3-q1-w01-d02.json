@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🔍 Milo found a wooden ruler. Let's look closely: is it hard or soft, bendy or stiff? And how do we use it safely?",
+  "introduction": "wooden ruler",
   "vocabulary": [
     {
       "term": "property",
-      "definition": "how a material looks, feels, or behaves"
+      "definition": "A way to describe how a material looks, feels, or behaves."
     },
     {
       "term": "flexible",
-      "definition": "able to bend without breaking"
+      "definition": "Able to bend without breaking easily."
     },
     {
       "term": "absorb",
-      "definition": "to soak up a liquid"
+      "definition": "To soak up a liquid."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "instruction": "Watch Milo observe a material and describe its properties safely.",
       "content": "Materials have properties. metal spoon is hard and shiny, and rubber band is flexible.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Material Detectives again. 💪"
+        "retry": "Look at the object, then name what you can see, feel, or safely test."
       },
       "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
       "narration": "Materials have properties. metal spoon is hard and shiny, and rubber band is flexible.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Explore each example. metal spoon is hard and shiny, and rubber band is flexible.",
+      "instruction": "Tap each object and notice the property Milo describes.",
       "content": {
         "examples": [
-          "metal spoon — hard and shiny",
-          "rubber band — flexible",
-          "paper towel — absorbs water",
-          "wooden ruler — hard and useful for measuring"
+          "a metal spoon stays firm and reflects light",
+          "a rubber band bends and returns to shape",
+          "a paper towel soaks up water",
+          "a wooden ruler stays firm for measuring"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Material Detectives example again. 💪"
+        "retry": "Check the object and the observation before naming its property."
       },
       "prompt": "Explore each example. metal spoon is hard and shiny, and rubber band is flexible.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Sort the examples. Keep the ones that describe a material's property.",
+      "instruction": "Sort each observation by whether it describes a material property.",
       "content": {
         "fits": [
-          "metal spoon — hard and shiny",
-          "rubber band — flexible",
-          "paper towel — absorbs water",
-          "wooden ruler — hard and useful for measuring"
+          "a metal spoon stays firm and reflects light",
+          "a rubber band bends and returns to shape",
+          "a paper towel soaks up water",
+          "a wooden ruler stays firm for measuring"
         ],
         "doesNotFit": [
-          "a loud sound",
-          "a happy feeling",
-          "a fast race",
-          "a tall mountain"
+          "a loud sound fills the room",
+          "a happy feeling changes mood",
+          "a fast race uses time",
+          "a mountain has a height"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Material Detectives rule before sorting again. 💪"
+        "retry": "Ask whether each card describes something observable about a material."
       },
       "prompt": "Sort the examples. Keep the ones that describe a material's property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Tap the material that shows today's property!",
+      "instruction": "Choose the object that shows the ruler lesson’s focus on material properties.",
       "content": {
         "options": [
           "sponge",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Material Detectives question. 💪"
+        "retry": "Compare each choice with the property clue from the material."
       },
       "prompt": "Choose the example of material properties.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Match each material with the property it shows.",
+      "instruction": "Match each material with the evidence for its property.",
       "content": {
         "pairs": [
           {
             "left": "metal spoon",
-            "right": "hard and shiny"
+            "right": "stays firm and reflects light"
           },
           {
             "left": "rubber band",
-            "right": "flexible"
+            "right": "bends and returns to shape"
           },
           {
             "left": "paper towel",
-            "right": "absorbs water"
+            "right": "soaks up water"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Material Detectives pair again. 💪"
+        "retry": "Match the material to the observable evidence that supports its property."
       },
       "prompt": "Match each material with the property it shows.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d02-visual",
-      "instruction": "Put the steps in order. Observe the material safely, then name its property.",
+      "instruction": "Order the steps for safely investigating a material.",
       "content": {
         "steps": [
           "Observe the material safely",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+        "retry": "Check the order: observe safely, name the property, compare, then choose a safe use."
       },
       "prompt": "Put the steps in order. Observe the material safely, then name its property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q1-w01-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is flexible?",
+        "prompt": "Milo bends several objects gently. Which one bends without breaking?",
         "options": [
           {
             "id": "a",
-            "text": "metal spoon"
+            "text": "Metal spoon"
           },
           {
             "id": "b",
-            "text": "stone"
+            "text": "Stone"
           },
           {
             "id": "c",
-            "text": "rubber band"
+            "text": "Rubber band"
           },
           {
             "id": "d",
-            "text": "glass jar"
+            "text": "Glass jar"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A rubber band bends without breaking, so it is flexible. A stone, a glass jar, and a metal spoon do not bend."
+        "explanation": "A rubber band stretches and bends, then can return to its shape. A stone, glass jar, and metal spoon resist bending."
       },
       {
         "itemId": "science-g3-q1-w01-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material absorbs water?",
+        "prompt": "Maxine spills a little water and compares materials. Which one absorbs it?",
         "options": [
           {
             "id": "a",
-            "text": "glass jar"
+            "text": "Glass jar"
           },
           {
             "id": "b",
-            "text": "paper towel"
+            "text": "Paper towel"
           },
           {
             "id": "c",
-            "text": "stone"
+            "text": "Stone"
           },
           {
             "id": "d",
-            "text": "aluminum foil"
+            "text": "Aluminum foil"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Paper towel soaks up water, so it absorbs water. Aluminum foil, a glass jar, and a stone do not soak it up."
+        "explanation": "A paper towel has spaces that soak up water. A glass jar, stone, and aluminum foil do not absorb it in the same way."
       },
       {
         "itemId": "science-g3-q1-w01-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is hard?",
+        "prompt": "Milo taps a wooden ruler and a metal spoon. Which material is hard?",
         "options": [
           {
             "id": "a",
-            "text": "plastic cup"
+            "text": "Plastic cup"
           },
           {
             "id": "b",
-            "text": "clay"
+            "text": "Clay"
           },
           {
             "id": "c",
-            "text": "rubber ball"
+            "text": "Rubber ball"
           },
           {
             "id": "d",
-            "text": "metal spoon"
+            "text": "Metal spoon"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Metal spoon is firm and does not bend, so it is hard."
+        "explanation": "A metal spoon is firm and resists bending, which is evidence that it is hard. The other choices are softer or more bendable."
       },
       {
         "itemId": "science-g3-q1-w01-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What property does a wooden ruler have?",
+        "prompt": "Maxine uses a wooden ruler to draw a straight line. Which property helps?",
         "options": [
           {
             "id": "a",
-            "text": "soft"
+            "text": "Soft"
           },
           {
             "id": "b",
-            "text": "hard"
+            "text": "Hard"
           },
           {
             "id": "c",
-            "text": "flexible"
+            "text": "Flexible"
           },
           {
             "id": "d",
-            "text": "absorbs water"
+            "text": "Absorbs water"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A wooden ruler is hard, so that is its property."
+        "explanation": "The ruler stays firm instead of bending while Maxine draws, so hardness helps it measure a straight line."
       },
       {
         "itemId": "science-g3-q1-w01-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to learn about a material?",
+        "prompt": "Before studying the ruler, which action is safe?",
         "options": [
           {
             "id": "a",
-            "text": "throw it"
+            "text": "Throw it"
           },
           {
             "id": "b",
-            "text": "leave it out in the rain"
+            "text": "Leave it in rain"
           },
           {
             "id": "c",
-            "text": "taste it"
+            "text": "Taste it"
           },
           {
             "id": "d",
-            "text": "look at it and touch it gently"
+            "text": "Look at it and touch it gently"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Looking at it and touching it gently is safe. Tasting, throwing, or hitting materials is not safe."
+        "explanation": "Looking and gentle touching let Maxine observe without causing harm. Tasting, throwing, and weathering an object are unsafe choices."
       }
     ]
   },

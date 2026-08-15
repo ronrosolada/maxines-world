@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 📚 May kuwento si Milo tungkol sa alampay ni Lola Rosa. Pagkatapos nating basahin, gagawa tayo ng maikling buod!",
+  "introduction": "Sa buod ng alampay ni Lola Rosa, piliin ang tauhan, suliranin, mahahalagang pangyayari, at wakas. Isulat ang mga ito nang maikli.",
   "vocabulary": [
     {
       "term": "tauhan",
-      "definition": "ang mga tao o hayop sa kuwento"
+      "definition": "Taong gumaganap o hayop na kasama sa kuwento."
     },
     {
       "term": "suliranin",
-      "definition": "ang problema sa kuwento"
+      "definition": "Suliraning kailangang lutasin sa kuwento."
     },
     {
       "term": "buod",
-      "definition": "maikling paglalahad ng mahahalagang bahagi ng kuwento"
+      "definition": "Maikling salaysay ng tauhan, suliranin, pangyayari, at wakas."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
-      "content": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at sa kusina. Natagpuan nila ito sa ilalim ng unan. Nagpasalamat si Lola Rosa sa kanila. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
+      "instruction": "Piliin ang mahahalagang bahagi para sa buod.",
+      "content": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at kusina. Natagpuan nila ito sa ilalim ng unan. Sa buod, pagsasamahin ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Maikling Buod. 💪"
+        "retry": "Piliin lamang ang pangyayaring kailangan upang maunawaan ang wakas. 💪"
       },
       "prompt": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
       "narration": "Nawala ang alampay ni Lola Rosa. Hinanap ito nina Milo at Ana sa sala at sa kusina. Natagpuan nila ito sa ilalim ng unan. Nagpasalamat si Lola Rosa sa kanila. Sa buod, ilahad ang tauhan, suliranin, pangyayari, at wakas nang maikli.",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
+      "instruction": "Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
       "content": {
         "examples": [
           "Lola Rosa, Milo, at Ana",
@@ -73,8 +73,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Nahanap mo ang mahahalagang bahagi ng buod. 🔎",
+        "retry": "Hanapin kung sino, ano ang problema, ano ang ginawa, at paano natapos. 💪"
       },
       "prompt": "Basahin ang kuwento. Tukuyin ang tauhan, suliranin, pangyayari, at wakas.",
       "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Piliin ang mga bahagi ng kuwentong ito.",
+      "instruction": "Piliin ang mga bahaging kabilang sa buod.",
       "content": {
         "fits": [
           "Lola Rosa, Milo, at Ana",
@@ -108,8 +108,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Mga Salitang May Kahulugan bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga bahaging kailangan sa buod. 🎉",
+        "retry": "Iwanan ang mga pangyayaring hindi bahagi ng alampay ni Lola Rosa. 💪"
       },
       "prompt": "Piliin ang mga bahagi ng kuwentong ito.",
       "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
@@ -124,7 +124,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
+      "instruction": "Sino ang gumaganap sa kuwento ng alampay?",
       "content": {
         "options": [
           "Aling Rosa at Nena",
@@ -139,7 +139,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Mga Salitang May Kahulugan. 💪"
+        "retry": "Tukuyin ang mga taong kumikilos sa kuwentong ito. 💪"
       },
       "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang tauhan ang gumaganap sa kuwento.",
       "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
@@ -154,20 +154,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
+      "instruction": "Itugma ang bahagi ng kuwento sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "Lola Rosa, Milo, at Ana",
-            "right": "tauhan"
+            "right": "mga tauhang gumaganap"
           },
           {
             "left": "Nawala ang alampay ni Lola Rosa.",
-            "right": "suliranin"
+            "right": "suliraning kailangang lutasin"
           },
           {
-            "left": "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
-            "right": "mahalagang pangyayari"
+            "left": "Hinanap ito nina Milo at Ana sa sala at kusina.",
+            "right": "mahalagang hakbang sa kuwento"
           }
         ]
       },
@@ -175,8 +175,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Itinugma mo ang bahagi ng kuwento sa tungkulin nito. 🔗",
+        "retry": "Tingnan kung tauhan, problema, o pangyayaring nagpapasulong ito. 💪"
       },
       "prompt": "Itugma ang bawat bahagi ng kuwento sa wastong pangkat: tauhan, suliranin, o pangyayari.",
       "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
@@ -191,21 +191,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d04-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
+      "instruction": "Ayusin ang mga hakbang sa pagsulat ng maikling buod.",
       "content": {
         "steps": [
-          "Basahin ang kuwento",
-          "Tukuyin ang tauhan",
-          "Hanapin ang suliranin at pangyayari",
-          "Isulat ang maikling buod"
+          "Basahin ang kuwento.",
+          "Tukuyin ang mga tauhan.",
+          "Hanapin ang suliranin, pangyayari, at wakas.",
+          "Isulat ang mahahalagang bahagi nang maikli."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsulat ng buod. 🎉",
+        "retry": "Sundin ang daloy: basahin, tukuyin, piliin, at isulat. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Basahin muna ang kuwento bago tukuyin ang tauhan.",
       "narration": "Sa buod, ilahad ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
@@ -245,7 +245,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang tauhan ay ang gumaganap sa kuwento. Dito, ang tauhan ay Lola Rosa, Milo, at Ana.",
+        "explanation": "Ang tauhan ay ang mga taong kumikilos sa kuwento: Lola Rosa, Milo, at Ana.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -273,7 +273,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang suliranin ay ang problemang kailangang lutasin sa kuwento. Dito, Nawala ang alampay ni Lola Rosa..",
+        "explanation": "Ang nawawalang alampay ang problemang kailangang lutasin sa kuwento.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -283,7 +283,7 @@
         "options": [
           {
             "id": "a",
-            "text": "Hinanap ito nina Milo at Ana sa sala at sa kusina."
+            "text": "Hinanap ito nina Milo at Ana sa sala at kusina."
           },
           {
             "id": "b",
@@ -301,7 +301,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang mahalagang pangyayari ay ang nagpapausad sa kuwento patungo sa wakas. Dito, Hinanap ito nina Milo at Ana sa sala at sa kusina..",
+        "explanation": "Ang paghahanap sa sala at kusina ang mahalagang kilos na nag-uugnay sa problema at wakas.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -329,7 +329,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang wakas ay nagsasaad kung paano nalutas ang suliranin. Dito, Natagpuan nila ito sa ilalim ng unan..",
+        "explanation": "Ang pagkatagpo sa alampay sa ilalim ng unan ang nagpapakitang nalutas ang suliranin.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -357,7 +357,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Pinagsama ng buod ang tauhan, suliranin, pangyayari, at wakas nang maikli: nawala ang alampay ni Lola Rosa, hinanap ito nina Milo at Ana, at natagpuan sa ilalim ng unan.",
+        "explanation": "Ang maikling buod ay pinagsasama ang pangunahing tauhan, problema, mahalagang kilos, at wakas.",
         "type": "MULTIPLE_CHOICE"
       }
     ]

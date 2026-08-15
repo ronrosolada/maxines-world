@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo found 47 shells and wants to round them! 🐚 Help him round 47 to the nearest ten — 7 is 5 or more, so it goes up to 50.",
+  "introduction": "Milo is reviewing rounding with shell counts. Can you use the next digit to decide whether each number goes up or down?",
   "vocabulary": [
     {
       "term": "47 rounds to 50",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Watch Milo round numbers to the nearest ten, hundred, or thousand!",
-      "content": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down. Try the same idea with a new number.",
+      "instruction": "Watch the next digit decide each rounding move.",
+      "content": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Rounding Ramp again. 💪"
+        "retry": "Check the digit immediately right of the named place: 5–9 up, 0–4 down."
       },
-      "prompt": "Listen to the explanation about rounding numbers.",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down. Try the same idea with a new number.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch the next digit decide each rounding move.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down. Try the same idea with a new number."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Tap the rounding examples in the picture!",
+      "instruction": "Tap a number and point to the digit that decides its rounding.",
       "content": {
         "examples": [
-          "47 rounds to 50",
-          "342 rounds to 300",
-          "3,650 rounds to 4,000",
-          "1,241 rounds to 1,200"
+          "47 → 50 (ones digit 7)",
+          "342 → 300 (tens digit 4)",
+          "3,650 → 4,000 (hundreds digit 6)",
+          "1,241 → 1,200 (tens digit 4)"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Rounding Ramp example again. 💪"
+        "retry": "Circle the target place, then inspect the next digit."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap a number and point to the digit that decides its rounding.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d03-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Sort the true rounding statements from the false ones!",
+      "instruction": "Sort each rounding equation as true or false.",
       "content": {
         "fits": [
-          "47 rounds to 50",
-          "342 rounds to 300",
-          "3,650 rounds to 4,000",
-          "1,241 rounds to 1,200"
+          "47 → 50",
+          "342 → 300",
+          "3,650 → 4,000",
+          "1,241 → 1,200"
         ],
         "doesNotFit": [
-          "342 rounds to 400",
-          "47 rounds to 40",
-          "3,650 rounds to 3,000",
-          "1,241 rounds to 1,300"
+          "47 → 40",
+          "342 → 400",
+          "3,650 → 3,000",
+          "1,241 → 1,300"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Rounding Ramp rule before sorting again. 💪"
+        "retry": "Test the next digit before placing the rounding equation."
       },
-      "prompt": "Sort each example",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each rounding equation as true or false.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d03-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Tap the true rounding statement!",
+      "instruction": "Tap the true rounding statement.",
       "content": {
         "options": [
-          "342 rounds to 400",
-          "47 rounds to 50",
-          "3,650 rounds to 3,000",
-          "1,241 rounds to 1,300"
+          "342 → 400",
+          "47 → 50",
+          "3,650 → 3,000",
+          "1,241 → 1,300"
         ],
         "correctIndex": 1
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Rounding Ramp question. 💪"
+        "retry": "For 47, the ones digit is 7, so compare it with 5."
       },
-      "prompt": "Choose the example of rounding numbers.",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the true rounding statement.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Match each rounding to its rule!",
+      "instruction": "Match each rounding problem with the clue that proves it.",
       "content": {
         "pairs": [
           {
-            "left": "47 rounds to 50",
-            "right": "look at the next digit"
+            "left": "47 to the nearest ten",
+            "right": "ones digit 7 rounds up"
           },
           {
-            "left": "342 rounds to 300",
-            "right": "moves to a nearby place value"
+            "left": "342 to the nearest hundred",
+            "right": "tens digit 4 stays down"
           },
           {
-            "left": "3,650 rounds to 4,000",
-            "right": "keeps a useful estimate"
+            "left": "3,650 to the nearest thousand",
+            "right": "hundreds digit 6 rounds up"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Rounding Ramp pair again. 💪"
+        "retry": "Use the deciding digit to explain each rounded result."
       },
-      "prompt": "Match the examples about rounding numbers.",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each rounding problem with the clue that proves it.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d03-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d03-visual",
-      "instruction": "Put the rounding steps in order!",
+      "instruction": "Order the checks for rounding a number.",
       "content": {
         "steps": [
-          "Read the number and place value named in the question",
-          "Look at the digit immediately to the right",
-          "Round the named digit up or keep it the same",
-          "Check that the rounded number has the right place value"
+          "Read the number and the requested place",
+          "Find the digit immediately to the right",
+          "Use 5–9 up or 0–4 down",
+          "Rewrite the remaining places as zeros and check"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Rounding Ramp steps. 💪"
+        "retry": "Name the place, inspect the next digit, and check the zeros."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for rounding a number.",
+      "narration": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit just to its right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Look at the digit to the right of the place you are rounding. Five or more rounds up; four or less stays down."
+      "accessibilityAlternative": "Find the place named in the question and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
     }
   ],
   "assessment": {

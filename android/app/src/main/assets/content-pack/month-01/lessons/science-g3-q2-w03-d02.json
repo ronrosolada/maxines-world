@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🌿 Milo wants to check: is a bird living? Is a fish living? Let's find out what living things need!",
+  "introduction": "Milo sees a bird in a tree and a fish in water. What evidence shows that both are living?",
   "vocabulary": [
     {
       "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
+      "definition": "A thing that grows, uses energy, and responds to its surroundings."
     },
     {
       "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
+      "definition": "A thing that does not grow, use energy, or carry out life processes."
     },
     {
       "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
+      "definition": "Something a living thing must have, such as water, food, or light."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+      "instruction": "Watch Milo use growth and needs as clues for living things.",
       "content": "a bird is a living thing: it grows and needs food and water. a pencil is non-living, so it does not grow.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in Life Around Us again. 💪"
+        "retry": "Check for growth, energy use, response, and needs—not just movement."
       },
       "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
       "narration": "a bird is a living thing: it grows and needs food and water. a pencil is non-living, so it does not grow.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Explore each example. a bird and a fish are living, but a pencil is not.",
+      "instruction": "Tap each example and look for evidence of life.",
       "content": {
         "examples": [
-          "a bird — living",
-          "a fish — living",
-          "a fish uses gills to breathe",
-          "a pencil — non-living"
+          "a bird grows feathers and needs food",
+          "a fish swims and uses gills to breathe",
+          "a fish needs water to live",
+          "a pencil stays on a desk"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Look at each Life Around Us example again. 💪"
+        "retry": "For each card, name the life clue you can observe."
       },
       "prompt": "Explore each example. a bird and a fish are living, but a pencil is not.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Sort the examples: a bird and a fish are living things.",
+      "instruction": "Sort each observation by whether it shows life or a life need.",
       "content": {
         "fits": [
-          "a bird — living",
-          "a fish — living",
-          "a fish uses gills to breathe"
+          "a bird grows feathers and needs food",
+          "a fish swims and uses gills to breathe",
+          "a fish needs water to live"
         ],
         "doesNotFit": [
-          "a pencil — non-living",
-          "a rock",
-          "water",
-          "a spoon"
+          "a pencil stays on a desk",
+          "a rock remains still",
+          "water fills a cup",
+          "a spoon reflects light"
         ]
       },
       "completionRule": {
@@ -109,7 +109,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read the Life Around Us rule before sorting again. 💪"
+        "retry": "Look for growth, response, or a need of a living thing."
       },
       "prompt": "Sort the examples: a bird and a fish are living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -124,7 +124,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Tap the living thing!",
+      "instruction": "Choose the example that best matches the living-things clue.",
       "content": {
         "options": [
           "a rock",
@@ -139,7 +139,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in the Life Around Us question. 💪"
+        "retry": "Compare each choice with growth, needs, or a body function."
       },
       "prompt": "Choose the example of living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -154,20 +154,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Match each card to living or non-living.",
+      "instruction": "Match each example with evidence about life.",
       "content": {
         "pairs": [
           {
             "left": "a bird",
-            "right": "living thing"
+            "right": "grows, uses energy, and needs food"
           },
           {
             "left": "a pencil",
-            "right": "non-living thing"
+            "right": "does not grow or need food"
           },
           {
-            "left": "a fish uses gills to breathe",
-            "right": "a fact about living things"
+            "left": "fish gills",
+            "right": "take oxygen from water"
           }
         ]
       },
@@ -176,7 +176,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read both sides of each Life Around Us pair again. 💪"
+        "retry": "Match each example with the evidence that shows life or a life need."
       },
       "prompt": "Match a bird, a fish, and a pencil with their groups.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -191,7 +191,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d02-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "instruction": "Order the steps for deciding whether an example is living.",
       "content": {
         "steps": [
           "Observe the example: a bird",
@@ -205,7 +205,7 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the first, next, and last Life Around Us steps. 💪"
+        "retry": "Check the order: observe, ask about growth, check needs, then decide."
       },
       "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -224,141 +224,141 @@
         "itemId": "science-g3-q2-w03-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
+        "prompt": "Milo watches a bird fly above a fish tank. Which example is living?",
         "options": [
           {
             "id": "a",
-            "text": "a spoon"
+            "text": "A spoon"
           },
           {
             "id": "b",
-            "text": "water"
+            "text": "Water"
           },
           {
             "id": "c",
-            "text": "a bird"
+            "text": "A bird"
           },
           {
             "id": "d",
-            "text": "a rock"
+            "text": "A rock"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A bird grows, eats, drinks, and can move, so it is living. A rock, water, and a spoon do not grow."
+        "explanation": "A bird grows, uses energy, and needs food, so it is living. Water, a rock, and a spoon do not grow."
       },
       {
         "itemId": "science-g3-q2-w03-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
+        "prompt": "Maxine sorts a pencil, fish, bird, and goat. Which one is NOT living?",
         "options": [
           {
             "id": "a",
-            "text": "a pencil"
+            "text": "A pencil"
           },
           {
             "id": "b",
-            "text": "a fish"
+            "text": "A fish"
           },
           {
             "id": "c",
-            "text": "a bird"
+            "text": "A bird"
           },
           {
             "id": "d",
-            "text": "a goat"
+            "text": "A goat"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A pencil does not grow and does not need food or water, so it is not living. The goat, the bird, and the fish are living."
+        "explanation": "A pencil does not grow or need food and water, so it is non-living. The fish, bird, and goat are living."
       },
       {
         "itemId": "science-g3-q2-w03-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
+        "prompt": "A class list asks what living things need to grow. Which choice belongs?",
         "options": [
           {
             "id": "a",
-            "text": "food and water"
+            "text": "Food and water"
           },
           {
             "id": "b",
-            "text": "a quiet shelf"
+            "text": "A quiet shelf"
           },
           {
             "id": "c",
-            "text": "a plastic cover"
+            "text": "A plastic cover"
           },
           {
             "id": "d",
-            "text": "a battery"
+            "text": "A battery"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Living things need food and water to grow and stay alive. Covers, shelves, and batteries are not food or water."
+        "explanation": "Living things need resources such as food and water to grow and stay alive. Shelves, covers, and batteries are not life resources."
       },
       {
         "itemId": "science-g3-q2-w03-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What do fish use to breathe?",
+        "prompt": "A fish opens and closes its gill covers in water. What does it use to breathe?",
         "options": [
           {
             "id": "a",
-            "text": "gills"
+            "text": "Gills"
           },
           {
             "id": "b",
-            "text": "wings"
+            "text": "Wings"
           },
           {
             "id": "c",
-            "text": "fur"
+            "text": "Fur"
           },
           {
             "id": "d",
-            "text": "feet"
+            "text": "Feet"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Fish breathe with gills, which take oxygen from water. Feet, fur, and wings are not gills."
+        "explanation": "Fish gills take oxygen from water, allowing the fish to breathe. Wings, fur, and feet do not perform that breathing job."
       },
       {
         "itemId": "science-g3-q2-w03-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
+        "prompt": "Maxine watches a fish swim, eat, and respond to movement. Which example is living?",
         "options": [
           {
             "id": "a",
-            "text": "a pencil"
+            "text": "A pencil"
           },
           {
             "id": "b",
-            "text": "water"
+            "text": "Water"
           },
           {
             "id": "c",
-            "text": "a fish"
+            "text": "A fish"
           },
           {
             "id": "d",
-            "text": "a spoon"
+            "text": "A spoon"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A fish grows, needs food and water, and breathes with gills, so it is living. A pencil, water, and a spoon are not."
+        "explanation": "A fish grows, needs food and water, and breathes with gills, which are signs of life. A pencil, water, and a spoon are not living."
       }
     ]
   },

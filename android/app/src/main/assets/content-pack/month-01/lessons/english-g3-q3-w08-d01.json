@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: bright, careful, and honest. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo sees bright sunlight, carries a glass carefully, and returns a lost wallet. Which sentence clue reveals each word?",
   "vocabulary": [
     {
       "term": "bright",
-      "definition": "full of light or very smart"
+      "definition": "full of light and easy for your eyes to notice"
     },
     {
       "term": "careful",
-      "definition": "giving attention so nothing gets hurt"
+      "definition": "thinking ahead so people and things stay safe"
     },
     {
       "term": "honest",
-      "definition": "telling the truth"
+      "definition": "telling the truth even when a mistake is yours"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Watch how sentence clues unlock the meaning of new words!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and name the clue before choosing the word."
       },
-      "prompt": "Watch how sentence clues unlock the meaning of new words!",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word’s meaning.",
+      "narration": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing.",
+      "guideHint": "Read the nearby action, object, or setting for a clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing."
     },
     {
       "activityId": "english-g3-q3-w08-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Tap each sentence that uses a new word with clear clues!",
+      "instruction": "Tap each sentence that gives a clue for today’s words.",
       "content": {
         "examples": [
-          "The sun is bright this morning.",
+          "The sun is bright above the field.",
           "Be careful when you carry the glass.",
           "An honest child returns the lost wallet.",
-          "The strong man lifted the heavy sack."
+          "The bright lantern lit the path."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the detail that points to the word."
       },
-      "prompt": "Tap each sentence that uses a new word with clear clues!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for the three new words.",
+      "narration": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning.",
+      "guideHint": "Check the action or setting around the new word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning."
     },
     {
       "activityId": "english-g3-q3-w08-d01-a03",
@@ -89,13 +89,13 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Sort the sentences with new words from the other sentences!",
+      "instruction": "Sort sentences that use today’s words from other sentences.",
       "content": {
         "fits": [
-          "The sun is bright this morning.",
+          "The sun is bright above the field.",
           "Be careful when you carry the glass.",
           "An honest child returns the lost wallet.",
-          "The strong man lifted the heavy sack."
+          "The bright lantern lit the path."
         ],
         "doesNotFit": [
           "The market is busy on Sunday.",
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for a target word and matching clue."
       },
-      "prompt": "Sort the sentences with new words from the other sentences!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it gives a clue for a target word.",
+      "narration": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea.",
+      "guideHint": "Look for one of the three target words and its supporting detail.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea."
     },
     {
       "activityId": "english-g3-q3-w08-d01-a04",
@@ -125,12 +125,12 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Which sentence uses the word 'bright'?",
+      "instruction": "Tap the sentence that uses today’s target word.",
       "content": {
         "options": [
           "The cheerful girl sings on her way to school.",
           "The well is very deep.",
-          "The sun is bright this morning.",
+          "The sun is bright above the field.",
           "The market is busy on Sunday."
         ],
         "correctIndex": 2
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the sentence containing a target word."
       },
-      "prompt": "Which sentence uses the word 'bright'?",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence with a target word and useful clue.",
+      "narration": "The target word should fit the sentence’s action, object, or setting.",
+      "guideHint": "Read each sentence and look for today’s word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "The target word should fit the sentence’s action, object, or setting."
     },
     {
       "activityId": "english-g3-q3-w08-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Match each new word to its meaning!",
+      "instruction": "Match each word to the clue that reveals its meaning.",
       "content": {
         "pairs": [
           {
             "left": "bright",
-            "right": "full of light or very smart"
+            "right": "sunlight that fills the morning"
           },
           {
             "left": "careful",
-            "right": "giving attention so nothing gets hurt"
+            "right": "safe handling of fragile glass"
           },
           {
             "left": "honest",
-            "right": "telling the truth"
+            "right": "returning something that is not yours"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the scene for evidence of the word’s meaning."
       },
-      "prompt": "Match each new word to its meaning!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with a real-life clue.",
+      "narration": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear.",
+      "guideHint": "Read the word and imagine the matching scene.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear."
     },
     {
       "activityId": "english-g3-q3-w08-d01-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d01-visual",
-      "instruction": "Put the steps for finding word meaning in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
+          "Read the whole sentence",
           "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Notice the clue",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, connected, and explained the clue."
       },
-      "prompt": "Put the steps for finding word meaning in order!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers read the whole sentence, notice the clue, and explain the meaning.",
+      "guideHint": "Begin by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers read the whole sentence, notice the clue, and explain the meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q3-w08-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'bright' mean?",
+        "prompt": "At sunrise, the field has lots of light. Which word describes it?",
         "options": [
           {
             "id": "a",
-            "text": "giving attention so nothing gets hurt"
+            "text": "careful"
           },
           {
             "id": "b",
-            "text": "telling the truth"
+            "text": "honest"
           },
           {
             "id": "c",
-            "text": "having power or force"
+            "text": "strong"
           },
           {
             "id": "d",
-            "text": "full of light or very smart"
+            "text": "bright"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Bright means full of light, like a sunny morning. The other choices name different ideas."
+        "explanation": "A field filled with light is bright; the sunlight is the clue."
       },
       {
         "itemId": "english-g3-q3-w08-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'giving attention so nothing gets hurt'?",
+        "prompt": "A child carries a glass slowly so it will not break. Which word describes the child?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The clue 'so nothing gets hurt' matches careful. Bright, honest, and strong name different ideas."
+        "explanation": "Thinking about safety while carrying glass is careful behavior."
       },
       {
         "itemId": "english-g3-q3-w08-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'honest'?",
+        "prompt": "A child finds a lost wallet and gives it to the teacher. Which word describes the child?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "An honest person tells the truth, so returning a lost wallet shows honesty."
+        "explanation": "Returning something that is not yours shows honesty; the action is the clue."
       },
       {
         "itemId": "english-g3-q3-w08-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'The ___ light hurt my eyes.'",
+        "prompt": "Complete the sentence: 'The ___ lantern lit the path.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A bright light can hurt your eyes. 'A slow light' does not make sense in this sentence."
+        "explanation": "A lantern that gives lots of light is bright."
       },
       {
         "itemId": "english-g3-q3-w08-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'having power or force'.",
+        "prompt": "A strong athlete lifts a heavy box. Which word means having power or force?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Strong means having power or force, like a strong person lifting something heavy."
+        "explanation": "Strong means having power or force; lifting a heavy box shows the clue."
       }
     ]
   },

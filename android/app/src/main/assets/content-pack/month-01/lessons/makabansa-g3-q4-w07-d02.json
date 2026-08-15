@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🚜 Sa bukid, maraming pananim. Paano kaya nakakonekta ang lupa sa buhay ng mga tao? Alamin natin!",
+  "introduction": "🚜 Sa bukid, ang lupa, ulan, at pananim ay tumutulong sa pamilya at komunidad. Alamin natin kung paano nagiging bahagi ng pamumuhay ang mga ito.",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "bukid",
+      "definition": "Lupang tinataniman at inaalagaan upang mapagtaniman ng pagkain."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "pananim",
+      "definition": "Halaman na itinatanim upang maging pagkain o produkto."
     },
     {
-      "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "term": "kawayan",
+      "definition": "Matibay na halamang ginagamit sa bahay at mga kasangkapan."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang awit ng komunidad. Gayundin, sa isang komunidad sa baybayin. Gayundin, sa isang tanawin sa lalawigan.",
+      "instruction": "Pakinggan kung paano hinuhubog ng bukid ang buhay ng komunidad.",
+      "content": "Sa bukid, ang lupa, ulan, at araw ay tumutulong sa paglaki ng pananim. Ang pagtatanim, pag-aani, paggamit ng kawayan, at pagdadala ng ani sa pamilihan ay nagiging bahagi ng hanapbuhay ng komunidad. Kaya nakaaapekto ang bukid sa pagkain at gawain ng mga tao.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Ang lupa, pananim, at ani sa bukid ay humuhubog sa pagkain at hanapbuhay. 🎉",
+        "retry": "Balikan ang ugnayan ng lupa, ulan, pananim, ani, at hanapbuhay sa bukid."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang awit ng komunidad. Gayundin, sa isang komunidad sa baybayin. Gayundin, sa isang tanawin sa lalawigan.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin kung paano nakaaapekto ang bukid sa pamumuhay.",
+      "narration": "Sa bukid, ang lupa, ulan, at araw ay tumutulong sa paglaki ng pananim. Ang pagtatanim, pag-aani, paggamit ng kawayan, at pagdadala ng ani sa pamilihan ay nagiging bahagi ng hanapbuhay ng komunidad. Kaya nakaaapekto ang bukid sa pagkain at gawain ng mga tao.",
+      "guideHint": "Pansinin kung paano tumutulong ang lupa, ulan, at pananim.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa isang awit ng komunidad. Gayundin, sa isang komunidad sa baybayin. Gayundin, sa isang tanawin sa lalawigan."
+      "accessibilityAlternative": "Paliwanag tungkol sa lupa, ulan, pananim, pag-aani, at hanapbuhay sa bukid."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin sa larawan ang mga gawaing kaugnay ng bukid.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "pagtatanim ng palay sa basang lupa",
+          "pag-aani ng gulay sa umaga",
+          "paggamit ng kawayan sa bakod ng taniman",
+          "paghahatid ng ani sa pamilihan"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Natukoy mo ang mga gawaing bahagi ng buhay sa bukid. 🎉",
+        "retry": "Hanapin ang larawang may pananim, pag-aani, kawayan, o pagdadala ng ani."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Tuklasin ang pananim, ani, at gamit na nagmumula sa bukid.",
+      "narration": "Hanapin ang mga gawaing ipinapakita sa larawan at isipin kung paano nakatutulong ang mga ito sa komunidad.",
+      "guideHint": "Hanapin ang lupa, pananim, ani, o kagamitang may ugnayan sa bukid.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Larawan ng taniman, pag-aani, kawayan, at pagdadala ng ani sa pamilihan."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Pangkatin ang mga gawaing kaugnay ng bukid.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "pagtatanim ng palay sa basang lupa",
+          "pag-aani ng gulay sa umaga",
+          "paggamit ng kawayan sa bakod ng taniman",
+          "paghahatid ng ani sa pamilihan"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "nagkakarga ng kahon sa barko sa daungan",
+          "nagtitinda ng sapatos sa malaking tindahan",
+          "nangingisda sa gitna ng lawa",
+          "sumasakay sa tren papunta sa opisina"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "correct": "Mahusay! Napangkat mo ang mga gawaing kaugnay ng bukid. 🎉",
+        "retry": "Tingnan kung ang gawain ay gumagamit ng lupa, pananim, ani, o kagamitang mula sa bukid."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pagbukud-bukurin ang mga gawain ayon sa ugnayan nito sa bukid.",
+      "narration": "Pangkatin ang mga kard ayon sa malinaw na ugnayan ng gawain sa lugar at pamumuhay ng komunidad.",
+      "guideHint": "Suriin kung may ugnayan ang card sa lupa, pananim, ani, o gawain sa bukid.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga kard tungkol sa taniman, ani, kawayan, pamilihan, at ibang gawain."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d02-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang gawaing nagpapakita ng buhay sa bukid.",
       "content": {
         "options": [
-          "pangingisda sa baybayin",
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+          "pagtatanim at pag-aani ng gulay",
+          "pagkakarga ng kahon sa barko",
+          "pag-aayos ng tiket sa sinehan",
+          "paglalayag sa lawa"
         ],
         "correctIndex": 0
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Tama! Ang pagtatanim at pag-aani ng gulay ay umaasa sa lupa at ulan ng bukid. 🎉",
+        "retry": "Suriin kung aling gawain ang direktang gumagamit ng lupa upang mapatubo ang pagkain."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang hanapbuhay na angkop sa matabang lupa at sapat na ulan?",
+      "narration": "Gamitin ang paliwanag tungkol sa lugar upang piliin ang iisang gawaing may tamang ugnayan dito.",
+      "guideHint": "Hanapin ang gawaing direktang gumagamit ng lupa upang makapagpatubo ng pagkain.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga pagpipilian tungkol sa taniman, barko, sinehan, at lawa."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang gawain sa tungkulin o bunga nito.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "pagtatanim ng palay sa matabang lupa",
+            "right": "hanapbuhay na umaasa sa pananim"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "paggamit ng kawayan sa bakod",
+            "right": "paggamit ng likas na materyal"
           },
           {
-            "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "left": "pagdadala ng ani sa pamilihan",
+            "right": "pag-uugnay ng bukid at mamimili"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naipares mo ang gawain sa gamit o bungang mahalaga sa bukid. 🎉",
+        "retry": "Basahin ang gawain at hanapin ang kaugnay na pananim, materyal, o ani."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itapat ang gawain sa bukid sa tungkulin o bungang dulot nito.",
+      "narration": "Iugnay ang bawat gawain sa tungkulin, bunga, o kategoryang ipinapakita nito sa komunidad.",
+      "guideHint": "Basahin ang gawain at itanong kung paano ito nakatutulong sa pananim o pagkain.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga pares tungkol sa taniman, kawayan, ani, at ugnayan ng bukid sa pamilihan."
     },
     {
       "activityId": "makabansa-g3-q4-w07-d02-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w07-d02-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng bukid at pamumuhay.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tingnan ang lupa, tubig, at pananim",
+          "Tukuyin ang gawaing ginagawa sa bukid",
+          "Iugnay ito sa pagkain o hanapbuhay",
+          "Ipaliwanag kung paano hinuhubog ng bukid ang buhay"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naiugnay mo ang lupa sa gawain, pagkain, at hanapbuhay ng komunidad. 🎉",
+        "retry": "Unahin ang lupa at pananim, tukuyin ang gawain, iugnay sa pagkain, saka ipaliwanag ang bunga."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ayusin ang mga hakbang sa pagpapaliwanag ng ugnayan ng bukid at pamumuhay.",
+      "narration": "Ayusin ang mga hakbang mula sa pagmamasid sa lugar hanggang sa pagpapaliwanag ng ugnayan nito sa pamumuhay.",
+      "guideHint": "Tingnan ang lupa, tukuyin ang gawain, iugnay sa pagkain o hanapbuhay, at ipaliwanag ang bunga.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Mga hakbang mula sa pagtukoy ng lupa at pananim hanggang sa pagpapaliwanag ng pamumuhay sa bukid."
     }
   ],
   "assessment": {
@@ -225,141 +225,141 @@
         "itemId": "makabansa-g3-q4-w07-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Sa pamumuhay sa bukid, alin ang angkop sa klima at gawain ng komunidad?",
+        "prompt": "May matabang lupa at sapat na ulan sa bukid. Alin ang hanapbuhay na angkop dito?",
         "options": [
           {
             "id": "a",
-            "text": "disenyong angkop sa klima"
+            "text": "pagtatanim at pag-aani ng gulay"
           },
           {
             "id": "b",
-            "text": "bilang ng mga kapatid"
+            "text": "pagkakarga ng kahon sa barko"
           },
           {
             "id": "c",
-            "text": "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+            "text": "pag-aayos ng tiket sa sinehan"
           },
           {
             "id": "d",
-            "text": "pagkain na hindi mula sa lokal na ani"
+            "text": "paglalayag sa lawa"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “disenyong angkop sa klima” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang matabang lupa at sapat na ulan ay tumutulong sa pagtatanim at pag-aani ng gulay sa bukid."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Gumamit si Nena ng kawayan mula sa paligid upang gumawa ng bakod. Ano ang ipinapakita?",
         "options": [
           {
             "id": "a",
-            "text": "tatak ng sapatos"
+            "text": "Ang lahat ng materyal ay galing sa malayo."
           },
           {
             "id": "b",
-            "text": "pagluluto ng pagkaing gawa sa lokal na sangkap"
+            "text": "Ginagamit ng komunidad ang likas na materyal sa pang-araw-araw na buhay."
           },
           {
             "id": "c",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Walang kinalaman ang paligid sa kanilang gawain."
           },
           {
             "id": "d",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Ang kawayan ay pagkain ng mga tao."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “pagkain mula sa lokal na ani” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ginamit ni Nena ang kawayan na nasa paligid, kaya ipinapakitang ginagamit ng komunidad ang likas na materyal sa pang-araw-araw na gawain."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa bukid?",
+        "prompt": "Bakit mahalaga ang bukid sa pagkain ng komunidad?",
         "options": [
           {
             "id": "a",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Dahil dito ginagawa ang lahat ng gamit sa bahay."
           },
           {
             "id": "b",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Dahil walang ibang gawain ang mga tao."
           },
           {
             "id": "c",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Dahil pinipigilan nito ang pagpunta sa pamilihan."
           },
           {
             "id": "d",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Dito itinatanim at inaani ang ilang pagkaing kailangan ng mga tao."
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Mahalaga ang bukid dahil doon itinatanim at inaani ang mga pagkaing maaaring kainin o dalhin sa pamilihan."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Sa isang lugar na maraming kawayan, alin ang maaaring gawin ng mga tao?",
+        "prompt": "Pagkatapos mag-ani, ano ang maaaring susunod na gawain ng pamilya?",
         "options": [
           {
             "id": "a",
-            "text": "gumawa ng bahay at gamit mula sa kawayan"
+            "text": "Dalhin ang ani sa pamilihan upang maipagbili."
           },
           {
             "id": "b",
-            "text": "mag-imbak ng niyebe"
+            "text": "Ilagay ang ani sa pantalan upang maging barko."
           },
           {
             "id": "c",
-            "text": "gumawa ng yelo"
+            "text": "Sumakay sa tren upang magtanim ng niyebe."
           },
           {
             "id": "d",
-            "text": "magtayo ng toreng yelo"
+            "text": "Maghanap ng niyebe para palamigin ang palayan."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang kawayan ay ginagamit sa bahay at mga gamit — bunga ito ng kapaligiran."
+        "explanation": "Pagkatapos mag-ani, maaaring dalhin ng pamilya ang ani sa pamilihan upang maipagbili o maipamahagi sa mga nangangailangan."
       },
       {
         "itemId": "makabansa-g3-q4-w07-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI karaniwang gawain na nakaugnay sa bukid?",
         "options": [
           {
             "id": "a",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "pagbili ng tiket sa barko sa daungan"
           },
           {
             "id": "b",
-            "text": "disenyong angkop sa klima"
+            "text": "paghahasik ng binhi sa lupa"
           },
           {
             "id": "c",
-            "text": "pista ng komunidad"
+            "text": "pag-aalaga ng pananim"
           },
           {
             "id": "d",
-            "text": "awit at sayaw na lokal"
+            "text": "pagdadala ng ani sa pamilihan"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pagtatanim ng halamang hindi nabubuhay sa klima ng lugar” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pagbili ng tiket sa barko ay kaugnay ng paglalakbay sa daungan, hindi ng pagtatanim, pag-aalaga, o pagdadala ng ani sa bukid."
       }
     ]
   },

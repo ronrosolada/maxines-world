@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo's magnet pulls the iron nail but not the wooden spoon. What else can a magnet do?",
+  "introduction": "Milo tests a magnet with an iron nail and a wooden spoon. What will the magnet attract, and how can Maxine test it safely?",
   "vocabulary": [
     {
       "term": "attract",
-      "definition": "To pull toward, like a magnet pulling metal."
+      "definition": "To pull an object closer."
     },
     {
       "term": "magnet",
-      "definition": "A metal object that pulls iron and steel."
+      "definition": "An object that can attract some materials, such as iron or steel."
     },
     {
       "term": "material",
-      "definition": "What something is made of, like wood or plastic."
+      "definition": "What an object is made of, such as iron, wood, or plastic."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d17-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows what magnets attract and how poles act.",
+      "instruction": "Watch Milo test magnetic materials and compare the poles safely.",
       "content": "Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Magnet Investigators again. 💪"
+        "retry": "Check the material and the poles: some metals attract, like poles repel, unlike poles attract."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "Text alternative: Magnets attract some materials, not all metals; poles can attract or repel. Use only an on-screen simulation or sealed adult-inspected magnet."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d17-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each magnet example and notice whether it attracts or repels.",
       "content": {
         "examples": [
-          "iron object may be attracted",
-          "like poles repel",
-          "unlike poles attract"
+          "an iron object may be attracted",
+          "like poles push apart",
+          "unlike poles pull together"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Magnet Investigators. 🔎",
-        "retry": "Look at each Magnet Investigators example again. 💪"
+        "retry": "For each example, identify the material or pole relationship first."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d17-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is the magnet statement safe and correct?",
+      "instruction": "Sort each observation by whether the magnet claim is safe and correct.",
       "content": {
         "fits": [
-          "iron object may be attracted",
-          "like poles repel",
-          "unlike poles attract"
+          "an iron nail moves toward a magnet",
+          "two like poles push apart",
+          "two unlike poles pull together"
         ],
         "doesNotFit": [
-          "All metals are magnetic",
-          "Swallowable loose magnets",
-          "Magnets attract wood"
+          "Every metal is magnetic",
+          "A child swallows a loose magnet",
+          "A magnet attracts a wooden spoon"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether the card is a safe, accurate observation about attraction or repulsion."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,12 +103,13 @@
       "activityId": "science-g3-m01-d17-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Which is correct?",
+      "instruction": "Choose the correct statement about magnetic poles.",
       "content": {
         "options": [
           "Like magnetic poles repel.",
           "All metals are magnetic.",
-          "Magnets attract every object."
+          "Magnets attract every object.",
+          "Wood is always pulled by magnets."
         ],
         "correctIndex": 0
       },
@@ -118,7 +119,7 @@
       },
       "feedback": {
         "correct": "Correct: Like magnetic poles repel.",
-        "retry": "Look again — not all metals and not every object are attracted. Tap the true statement! 💪"
+        "retry": "Like poles push apart, so compare the pole relationship with each choice."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +128,20 @@
       "activityId": "science-g3-m01-d17-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each magnet example to its group.",
+      "instruction": "Match each magnet observation with the force or material clue.",
       "content": {
         "pairs": [
           {
-            "left": "iron object may be attracted",
-            "right": "iron"
+            "left": "iron nail",
+            "right": "may move toward a magnet"
           },
           {
-            "left": "like poles repel",
-            "right": "like poles"
+            "left": "like poles",
+            "right": "push away from each other"
           },
           {
-            "left": "unlike poles attract",
-            "right": "unlike poles"
+            "left": "unlike poles",
+            "right": "pull toward each other"
           }
         ]
       },
@@ -151,7 +152,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Magnet Investigators explanation. 🔗",
-        "retry": "Read both sides of each Magnet Investigators pair again. 💪"
+        "retry": "Match each object or pole pair with the movement the magnet can cause."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +161,7 @@
       "activityId": "science-g3-m01-d17-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: hold safely, test, predict.",
+      "instruction": "Order the steps for testing a magnet safely.",
       "content": {
         "steps": [
           "Hold the magnet safely.",
@@ -175,7 +176,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Magnet Investigators steps in order. 🎉",
-        "retry": "Find the first, next, and last Magnet Investigators steps. 💪"
+        "retry": "Check the order: hold safely, test a material, observe attraction, then predict poles."
       },
       "assetId": "science-g3-m01-d17-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +192,7 @@
         "itemId": "science-g3-m01-d17-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about magnets is true?",
+        "prompt": "Milo tests an iron nail, a wooden spoon, and two magnet poles. Which statement is true?",
         "options": [
           {
             "id": "a",
@@ -204,42 +205,50 @@
           {
             "id": "c",
             "text": "All metals are magnetic"
+          },
+          {
+            "id": "d",
+            "text": "A magnet always pushes every object away."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A magnet pulls some materials, like iron, but not all metals or all objects. Its poles can pull together or push apart."
+        "explanation": "Magnets attract some materials, such as iron, but not every metal or object. Depending on the poles, magnets can pull together or push apart."
       },
       {
         "itemId": "science-g3-m01-d17-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which object might a magnet pull?",
+        "prompt": "Maxine holds a magnet near three objects. Which one might the magnet pull?",
         "options": [
           {
             "id": "a",
-            "text": "rubber ball may be attracted"
+            "text": "A rubber ball"
           },
           {
             "id": "b",
-            "text": "iron object may be attracted"
+            "text": "An iron object"
           },
           {
             "id": "c",
-            "text": "plastic cup may be attracted"
+            "text": "A plastic cup"
+          },
+          {
+            "id": "d",
+            "text": "A wooden spoon"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Iron is a material magnets pull strongly. Plastic and rubber are not attracted."
+        "explanation": "Iron is a material that magnets can attract strongly. Rubber, plastic, and wood are not usually pulled by a magnet."
       },
       {
         "itemId": "science-g3-m01-d17-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about magnets is NOT true?",
+        "prompt": "Milo reads four magnet claims. Which one is NOT true?",
         "options": [
           {
             "id": "a",
@@ -247,47 +256,27 @@
           },
           {
             "id": "b",
-            "text": "iron object may be attracted"
+            "text": "An iron object may be attracted"
           },
           {
             "id": "c",
-            "text": "like poles repel"
+            "text": "Like poles repel"
+          },
+          {
+            "id": "d",
+            "text": "Unlike poles attract"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Magnets pull some metals, like iron, but not all metals. Iron objects can be attracted, and like poles repel."
+        "explanation": "Not all metals are magnetic; magnets attract particular materials such as iron. Like poles repel and unlike poles attract."
       },
       {
         "itemId": "science-g3-m01-d17-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is correct?",
-        "options": [
-          {
-            "id": "a",
-            "text": "All metals are magnetic."
-          },
-          {
-            "id": "b",
-            "text": "Magnets attract every object."
-          },
-          {
-            "id": "c",
-            "text": "Like magnetic poles repel."
-          }
-        ],
-        "correctOptionIds": [
-          "c"
-        ],
-        "explanation": "Two north poles push each other away — like poles repel. Not all metals are magnetic, and magnets do not attract every object."
-      },
-      {
-        "itemId": "science-g3-m01-d17-q05",
-        "sequence": 5,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Which magnet statement is true?",
+        "prompt": "Maxine brings two north poles close together. What should she predict?",
         "options": [
           {
             "id": "a",
@@ -295,17 +284,49 @@
           },
           {
             "id": "b",
-            "text": "unlike poles attract"
+            "text": "Magnets attract every object"
+          },
+          {
+            "id": "c",
+            "text": "Like magnetic poles repel"
+          },
+          {
+            "id": "d",
+            "text": "Wood is attracted"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Two north poles are like poles, so they push apart. Magnetism does not attract every object or all metals."
+      },
+      {
+        "itemId": "science-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo turns one magnet around and brings unlike poles together. Which statement is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "All metals are magnetic"
+          },
+          {
+            "id": "b",
+            "text": "Unlike poles attract"
           },
           {
             "id": "c",
             "text": "Magnets attract wood"
+          },
+          {
+            "id": "d",
+            "text": "A magnet cannot affect another magnet"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A north pole and a south pole pull together — unlike poles attract. Not all metals are magnetic, and wood is not attracted."
+        "explanation": "A north pole and a south pole are unlike poles, so they pull together. Wood is not normally attracted, and not all metals are magnetic."
       }
     ]
   },

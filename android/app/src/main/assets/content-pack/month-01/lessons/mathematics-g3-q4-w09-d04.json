@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo's paper star can slide, turn, or flip! Guess how it looks after each move.",
+  "introduction": "Milo moves a paper triangle across a grid. Can you tell whether it slides, turns, or flips?",
   "vocabulary": [
     {
       "term": "slide right",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Tap play and watch Milo slide, turn, and flip a star!",
-      "content": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
+      "instruction": "Watch how the triangle changes position, direction, or side.",
+      "content": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Shape Moves again. 💪"
+        "retry": "Compare position, direction, and mirror side before naming the move."
       },
-      "prompt": "Tap play and watch Milo slide, turn, and flip a star!",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch how the triangle changes position, direction, or side.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Tap each move and name it: slide, turn, or flip!",
+      "instruction": "Tap the before-and-after picture for each move.",
       "content": {
         "examples": [
-          "slide right",
-          "turn a quarter-turn",
-          "flip across a line",
-          "compare before and after"
+          "same triangle in a new spot",
+          "triangle points up then points right",
+          "shape appears on the other side of a mirror line",
+          "same square shifted three spaces"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Shape Moves example again. 💪"
+        "retry": "Look at both pictures: did the shape slide, rotate, or reflect?"
       },
-      "prompt": "Tap each move and name it: slide, turn, or flip!",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the before-and-after picture for each move.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Sort each move: slide, turn, flip, or a mistake!",
+      "instruction": "Sort the before-and-after drawings by the move they show.",
       "content": {
         "fits": [
-          "slide right",
-          "turn a quarter-turn",
-          "flip across a line",
-          "compare before and after"
+          "same triangle in a new spot",
+          "triangle points up then points right",
+          "shape appears on the other side of a mirror line",
+          "same square shifted three spaces"
         ],
         "doesNotFit": [
-          "change the shape's size",
-          "erase one side",
-          "replace the figure with a number",
-          "move it without following the stated rule"
+          "triangle is larger after the move",
+          "one corner disappears",
+          "a number replaces the shape",
+          "the new picture ignores the stated direction"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Shape Moves rule before sorting again. 💪"
+        "retry": "Check the before-and-after drawing, not the shape’s color."
       },
-      "prompt": "Sort each move: slide, turn, flip, or a mistake!",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort the before-and-after drawings by the move they show.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d04-a04",
@@ -125,11 +125,11 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Which move slides the shape to the right?",
+      "instruction": "Tap the move that sends the shape right without turning.",
       "content": {
         "options": [
           "turn the shape",
-          "slide right",
+          "same triangle shifted right",
           "flip the shape",
           "shrink the shape"
         ],
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Shape Moves question. 💪"
+        "retry": "A slide changes position but keeps the same direction and size."
       },
-      "prompt": "Which move slides the shape to the right?",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the move that sends the shape right without turning.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Match each move to what it does!",
+      "instruction": "Match each before-and-after clue with its move.",
       "content": {
         "pairs": [
           {
-            "left": "slide right",
-            "right": "glides to a new spot"
+            "left": "same triangle in a new spot",
+            "right": "position changed, shape stayed same"
           },
           {
-            "left": "turn a quarter-turn",
-            "right": "rotates a quarter spin"
+            "left": "triangle points up then points right",
+            "right": "orientation changed by rotation"
           },
           {
-            "left": "flip across a line",
-            "right": "mirror image across the line"
+            "left": "shape appears across a mirror line",
+            "right": "reflected to the other side"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Shape Moves pair again. 💪"
+        "retry": "Use the visible result to match slide, turn, or flip."
       },
-      "prompt": "Match each move to what it does!",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each before-and-after clue with its move.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     },
     {
       "activityId": "mathematics-g3-q4-w09-d04-a06",
@@ -192,12 +192,12 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w09-d04-visual",
-      "instruction": "Put the steps in order: before, move, after!",
+      "instruction": "Order the checks for describing a shape move.",
       "content": {
         "steps": [
           "Look at the shape before the move",
-          "Do the move: slide, turn, or flip",
-          "Look at the shape after the move",
+          "Follow the stated direction, turn, or mirror line",
+          "Compare the shape after the move",
           "Check that the shape and size stayed the same"
         ]
       },
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Shape Moves steps. 💪"
+        "retry": "Look before, follow the move, compare after, and check size."
       },
-      "prompt": "Put the steps in order: before, move, after!",
-      "narration": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for describing a shape move.",
+      "narration": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same.",
+      "guideHint": "Compare the before-and-after position, direction, and mirror side.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A slide moves a shape, a turn rotates it, and a flip reflects it. The shape and size stay the same."
+      "accessibilityAlternative": "A slide changes position, a turn changes direction, and a flip makes a mirror image. The shape and size stay the same."
     }
   ],
   "assessment": {

@@ -15,6 +15,7 @@ Guards the Filipino quarterly content repair:
 
 import copy
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -120,8 +121,17 @@ class TestSemantics(unittest.TestCase):
                 co = it["correctOptionIds"][0]
                 correct = [o["text"] for o in it["options"] if o["id"] == co][0]
                 if "simuno" in it["prompt"] or "paghahati" in it["prompt"]:
-                    self.assertTrue("/" in correct or correct in parts,
-                                    f"{lid}: {correct!r}")
+                    if "/" in correct or correct in parts:
+                        continue
+                    match = re.fullmatch(
+                        r"Simuno:\s*(.*?);\s*panaguri:\s*(.*?)\s*",
+                        correct,
+                        flags=re.IGNORECASE,
+                    )
+                    if match is None:
+                        self.fail(f"{lid}: {correct!r}")
+                    self.assertIn(match.group(1).strip(), parts, f"{lid}: {correct!r}")
+                    self.assertIn(match.group(2).strip(), parts, f"{lid}: {correct!r}")
 
     def test_talata_paragraph_is_embedded(self):
         for lid in all_repaired()["talata"]:

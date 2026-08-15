@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "May bagong misyon si Milo! 🐱✨ Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad. Handa ka na bang sumubok?",
+  "introduction": "Ang pagiging mabuting mamamayan ay nagsisimula sa maliliit na gawaing ligtas at kapaki-pakinabang. Tuklasin kung paano alagaan ang paligid, pampublikong gamit, at komunidad. 🇵🇭",
   "vocabulary": [
     {
       "term": "nagtatapon sa tamang basurahan",
-      "definition": "Pagpapanatiling malinis ng kapaligiran sa pamamagitan ng wastong pagtatapon."
+      "definition": "Paglalagay ng basura sa lalagyan na para rito upang manatiling malinis ang paligid."
     },
     {
       "term": "nangangalaga sa pampublikong gamit",
-      "definition": "Pag-iingat sa mga gamit na pinagsasaluhan ng lahat, tulad ng upuan, libro, at palaruan."
+      "definition": "Maingat na paggamit at pagprotekta sa gamit na pinagsasaluhan ng lahat."
     },
     {
       "term": "tumutulong sa komunidad",
-      "definition": "Paggawa ng kabutihan para sa mga tao sa inyong lugar, tulad ng paglilinis ng palaruan."
+      "definition": "Paggawa ng ligtas na kabutihan para sa mga tao sa inyong lugar."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Pag-aralan natin ang aralin tungkol sa pagmamahal sa bayan.",
+      "instruction": "Pakinggan kung paano maging mabuting mamamayan.",
       "content": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Mabuting Mamamayan. 💪"
+        "retry": "Pakinggan muli: malinis na paligid, maingat na gamit, at ligtas na tulong."
       },
-      "prompt": " Naipakikita ang pagmamahal sa bayan sa maliit at makabuluhang gawain.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin ang ligtas na pag-aalaga, pagsunod, at pagtulong.",
+      "narration": "Ang mabuting mamamayan ay nag-aalaga sa kapaligiran, sumusunod sa tuntunin, nangangalaga sa pampublikong gamit, at tumutulong nang ligtas.",
+      "guideHint": "Pakinggan ang clue: malinis na paligid, maingat na gamit, at ligtas na tulong.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Ang mabuting mamamayan ay nag-aalaga sa kapaligiran, sumusunod sa tuntunin, nangangalaga sa pampublikong gamit, at tumutulong nang ligtas."
     },
     {
       "activityId": "gmrc-g3-q3-w06-d01-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pagmamahal sa bayan.",
+      "instruction": "Hanapin ang basurahan, pampublikong gamit, pagtulong, at sagisag.",
       "content": {
         "examples": [
           "nagtatapon sa tamang basurahan",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Mabuting Mamamayan. 💪"
+        "retry": "Hanapin ang basurahan, pampublikong gamit, pagtulong, at sagisag ng bayan."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pagmamahal sa bayan.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "I-tap ang mga kilos ng mabuting mamamayan.",
+      "narration": "Hanapin ang tamang pagtatapon, pag-iingat sa gamit ng lahat, pagtulong sa komunidad, at paggalang sa sagisag ng bayan.",
+      "guideHint": "Hanapin ang apat na kilos na may pakinabang sa lahat.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Hanapin ang tamang pagtatapon, pag-iingat sa gamit ng lahat, pagtulong sa komunidad, at paggalang sa sagisag ng bayan."
     },
     {
       "activityId": "gmrc-g3-q3-w06-d01-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pagmamahal sa bayan.",
+      "instruction": "Ilagay ang kilos sa pagmamahal sa bayan o ang hindi.",
       "content": {
         "fits": [
           "nagtatapon sa tamang basurahan",
@@ -99,9 +99,9 @@
         ],
         "doesNotFit": [
           "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
+          "kumukuha ng gamit ng lahat",
           "sumusuway sa ligtas na tuntunin",
-          "hindi nakikinig"
+          "hindi nakikinig sa paalala"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Mabuting Mamamayan bago magpangkat muli. 💪"
+        "retry": "Tanungin: nakapaglilinis, nakapoprotekta, o nakatutulong ba ito?"
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pagmamahal sa bayan.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paghiwalayin ang nakatutulong sa lahat at ang nakapipinsala.",
+      "narration": "Ang tamang pagtatapon, pag-iingat sa gamit, pagtulong, at paggalang sa sagisag ay nakatutulong sa lahat.",
+      "guideHint": "Tanungin: nakapaglilinis, nakapoprotekta, o nakatutulong ba ito?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Ang tamang pagtatapon, pag-iingat sa gamit, pagtulong, at paggalang sa sagisag ay nakatutulong sa lahat."
     },
     {
       "activityId": "gmrc-g3-q3-w06-d01-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang kilos na nagpapanatiling malinis ang paligid.",
       "content": {
         "options": [
           "nanunukso sa kapwa",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Mabuting Mamamayan. 💪"
+        "retry": "Piliin ang kilos na naglalagay ng basura sa tamang lalagyan."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pagmamahal sa bayan.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang maliit ngunit makabuluhang gawa para sa bayan?",
+      "narration": "Ang pagtatapon sa tamang basurahan ay simpleng gawaing nagpapanatiling malinis ang lugar na ginagamit ng lahat.",
+      "guideHint": "Piliin ang kilos na naglalagay ng basura sa tamang lalagyan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Ang pagtatapon sa tamang basurahan ay simpleng gawaing nagpapanatiling malinis ang lugar na ginagamit ng lahat."
     },
     {
       "activityId": "gmrc-g3-q3-w06-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng pagmamahal sa bayan.",
+      "instruction": "Itugma ang gawaing pansarili sa pakinabang ng komunidad.",
       "content": {
         "pairs": [
           {
             "left": "nagtatapon sa tamang basurahan",
-            "right": "kilos ng pagmamahal sa bayan"
+            "right": "malinis na paligid para sa lahat"
           },
           {
             "left": "nangangalaga sa pampublikong gamit",
-            "right": "pagmamahal sa bayan"
+            "right": "matagal na nagagamit ng komunidad"
           },
           {
             "left": "tumutulong sa komunidad",
-            "right": "pagmamalasakit sa iba"
+            "right": "natutugunan ang ligtas na pangangailangan"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mabuting Mamamayan. 💪"
+        "retry": "Iugnay sa kalinisan, tagal ng gamit, o pangangailangan."
       },
-      "prompt": "Itapat ang mga halimbawa ng pagmamahal sa bayan.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Iugnay ang bawat kilos sa mabuting bunga nito.",
+      "narration": "Ang tamang pagtatapon ay kalinisan, pag-aalaga ay nagpapatagal sa gamit, at pagtulong ay tumutugon sa pangangailangan.",
+      "guideHint": "Iugnay sa kalinisan, tagal ng gamit, o pangangailangan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Ang tamang pagtatapon ay kalinisan, pag-aalaga ay nagpapatagal sa gamit, at pagtulong ay tumutugon sa pangangailangan."
     },
     {
       "activityId": "gmrc-g3-q3-w06-d01-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "gmrc-g3-q3-w06-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin mula pagpansin sa pangangailangan hanggang pagpapatuloy.",
       "content": {
         "steps": [
-          "Kilalanin ang pangangailangan ng komunidad",
-          "Pumili ng gawaing kaya mo",
-          "Gawin ito nang may pahintulot",
-          "Ipagpatuloy ang pagtulong"
+          "Pansinin ang pangangailangan ng lugar",
+          "Pumili ng gawaing kaya at ligtas",
+          "Humingi ng pahintulot kung kailangan",
+          "Ipagpatuloy ang mabuting gawi"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mabuting Mamamayan. 💪"
+        "retry": "Unahin ang pangangailangan, saka ligtas na gawain, pahintulot, at pagpapatuloy."
       },
-      "prompt": "Ayusin ang mga hakbang sa pagmamahal sa bayan.",
-      "narration": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ilagay sa tamang ayos ang pagiging mabuting mamamayan.",
+      "narration": "Pansinin ang pangangailangan, pumili ng ligtas na gawain, humingi ng pahintulot kung kailangan, at ipagpatuloy ang gawi.",
+      "guideHint": "Unahin ang pagpansin; huli ang pagpapatuloy ng mabuting gawi.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad."
+      "accessibilityAlternative": "Pansinin ang pangangailangan, pumili ng ligtas na gawain, humingi ng pahintulot kung kailangan, at ipagpatuloy ang gawi."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "gmrc-g3-q3-w06-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ginugutom ang mga pusang ligaw malapit sa inyong bahay. Ano ang maaari mong gawin?",
+        "prompt": "Gutom ang mga pusang ligaw malapit sa inyong bahay. Ano ang ligtas na gawin?",
         "options": [
           {
             "id": "a",
@@ -233,7 +233,7 @@
           },
           {
             "id": "b",
-            "text": "pakainin sila ng sira na pagkain"
+            "text": "pakainin sila ng sirang pagkain"
           },
           {
             "id": "c",
@@ -247,7 +247,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pag-aalaga sa mga hayop ay may tamang paraan: may pahintulot at ligtas na pagkain."
+        "explanation": "Ang pag-aalaga sa hayop ay dapat may pahintulot, angkop na pagkain, at ligtas na paraan."
       },
       {
         "itemId": "gmrc-g3-q3-w06-d01-q02",
@@ -257,7 +257,7 @@
         "options": [
           {
             "id": "a",
-            "text": "iwan itong lanta"
+            "text": "iwan itong malanta"
           },
           {
             "id": "b",
@@ -265,7 +265,7 @@
           },
           {
             "id": "c",
-            "text": "diligin at alagaan ito"
+            "text": "diligin at alagaan ito ayon sa panuto"
           },
           {
             "id": "d",
@@ -275,7 +275,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pag-aalaga sa mga halaman ng paaralan ay pangangalaga sa komunidad."
+        "explanation": "Ang pag-aalaga sa tanim ay pangangalaga sa lugar na ginagamit ng buong paaralan."
       },
       {
         "itemId": "gmrc-g3-q3-w06-d01-q03",
@@ -293,7 +293,7 @@
           },
           {
             "id": "c",
-            "text": "sumali sa ligtas na bahagi, tulad ng pagpupulot ng tuyong dahon"
+            "text": "sumali sa ligtas na bahagi tulad ng pagpupulot ng tuyong dahon"
           },
           {
             "id": "d",
@@ -303,7 +303,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Kahit bata ay makakatulong sa komunidad sa pamamagitan ng mga ligtas na gawain."
+        "explanation": "Ang batang tumutulong sa ligtas na gawain ay nakapag-aambag sa kalinisan ng komunidad."
       },
       {
         "itemId": "gmrc-g3-q3-w06-d01-q04",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang paglilinis ng paaralan ay maliit ngunit makabuluhang pagmamahal sa bayan."
+        "explanation": "Ang tamang pagtatapon ay maliit na gawaing naglilinis sa lugar para sa lahat."
       },
       {
         "itemId": "gmrc-g3-q3-w06-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Nakikita mong halos mahulog na ang bandila sa paaralan. Ano ang dapat mong gawin?",
+        "prompt": "Halos mahulog na ang bandila sa paaralan. Ano ang dapat mong gawin?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang pag-aalaga sa bandila at pag-uulat ng panganib ay pagmamahal sa bayan."
+        "explanation": "Ang pag-uulat ng panganib sa nakatatanda ay nag-iingat sa sagisag at sa batang maaaring masaktan."
       }
     ]
   },

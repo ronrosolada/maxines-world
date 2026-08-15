@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo has 458 beads and gives away 123! 🎈 Help him subtract 458 − 123, starting at the ones place.",
+  "introduction": "Milo has 458 beads and gives away 123. How many beads remain after the take-away?",
   "vocabulary": [
     {
       "term": "458 − 123 = 335",
-      "definition": "When we subtract 123 from 458, the difference is 335."
+      "definition": "Taking 123 away from 458 leaves a difference of 335."
     },
     {
       "term": "700 − 245 = 455",
-      "definition": "700 minus 245 needs regrouping, and the difference is 455."
+      "definition": "Regroup before subtracting when a top place has too few units."
     },
     {
       "term": "regroup one hundred as ten tens",
-      "definition": "When we cannot subtract, we trade 1 hundred for 10 tens."
+      "definition": "Trade 1 hundred for 10 tens so the next subtraction can continue."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Watch Milo subtract from the ones place!",
-      "content": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
+      "instruction": "Watch how regrouping helps Milo subtract from the ones place.",
+      "content": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Take-Away Trail again. 💪"
+        "retry": "Compare the top and bottom digits in each place before subtracting."
       },
-      "prompt": "Learn this skill: Subtract numbers below 10,000 with or without regrouping.",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch how regrouping helps Milo subtract from the ones place.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Tap the subtraction examples in the picture!",
+      "instruction": "Tap each subtraction example and follow the place-value changes.",
       "content": {
         "examples": [
           "458 − 123 = 335",
           "700 − 245 = 455",
-          "regroup one hundred as ten tens",
-          "check by adding the difference"
+          "335 + 123 = 458",
+          "trade 1 hundred for 10 tens"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Take-Away Trail example again. 💪"
+        "retry": "Find the place that needs a trade, then continue from ones upward."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each subtraction example and follow the place-value changes.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Sort the subtraction cards from the other operations!",
+      "instruction": "Sort subtraction results from addition, multiplication, and comparison.",
       "content": {
         "fits": [
           "458 − 123 = 335",
           "700 − 245 = 455",
-          "regroup one hundred as ten tens",
-          "check by adding the difference"
+          "335 + 123 = 458",
+          "trade 1 hundred for 10 tens"
         ],
         "doesNotFit": [
-          "add the numbers",
-          "multiply the numbers",
-          "compare without finding a difference",
-          "write the starting number as the answer"
+          "458 + 123 = 581",
+          "458 × 123",
+          "458 > 123 without a difference",
+          "123 ÷ 3 = 41"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Take-Away Trail rule before sorting again. 💪"
+        "retry": "Look for a minus sign and a result that fits taking away."
       },
-      "prompt": "Sort each example",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort subtraction results from addition, multiplication, and comparison.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Tap the correct difference for 458 − 123!",
+      "instruction": "Tap the correct difference for 458 − 123.",
       "content": {
         "options": [
           "458 − 123 = 335",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Take-Away Trail question. 💪"
+        "retry": "Subtract 3 ones, 2 tens, and 1 hundred from 458."
       },
-      "prompt": "Choose the example of subtracting numbers.",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the correct difference for 458 − 123.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Match the subtraction cards to what they show!",
+      "instruction": "Match each subtraction expression with its regrouping clue.",
       "content": {
         "pairs": [
           {
-            "left": "458 − 123 = 335",
-            "right": "takes away a quantity"
+            "left": "458 − 123",
+            "right": "takes away 123"
           },
           {
-            "left": "700 − 245 = 455",
-            "right": "may require regrouping"
+            "left": "700 − 245",
+            "right": "needs regrouping"
           },
           {
-            "left": "regroup one hundred as ten tens",
-            "right": "checks a difference"
+            "left": "1 hundred → 10 tens",
+            "right": "prepares the next place"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Take-Away Trail pair again. 💪"
+        "retry": "Match the expression to the amount taken away or the trade it needs."
       },
-      "prompt": "Match the examples about subtracting numbers.",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each subtraction expression with its regrouping clue.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     },
     {
       "activityId": "mathematics-g3-q2-w04-d02-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w04-d02-visual",
-      "instruction": "Put the subtraction steps in order!",
+      "instruction": "Order the checks for subtracting and verifying a difference.",
       "content": {
         "steps": [
-          "Read the math question about subtract numbers below 10,000 with or without regrouping.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Line up the minuend and subtrahend by place value",
+          "Subtract the ones, regrouping if the top digit is too small",
+          "Continue through tens and hundreds",
+          "Add the difference back to check the starting number"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Take-Away Trail steps. 💪"
+        "retry": "Subtract, record any regrouping, then add back to check."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for subtracting and verifying a difference.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Subtract from ones to thousands. Regroup when a top digit is too small for the digit below it."
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
     }
   ],
   "assessment": {

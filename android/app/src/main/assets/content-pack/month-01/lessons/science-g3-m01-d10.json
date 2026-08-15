@@ -13,15 +13,15 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "A seed can rest for a long time and still be alive. How can you tell if something is living or non-living?",
+  "introduction": "A seed may rest before it sprouts, while a toy car moves only when pushed. What evidence helps Maxine tell living from non-living?",
   "vocabulary": [
     {
       "term": "energy",
-      "definition": "The power to do work, like light or heat."
+      "definition": "The ability to make things happen or to do work, such as growing or moving."
     },
     {
       "term": "life cycle",
-      "definition": "How a living thing is born, grows, and changes."
+      "definition": "The pattern of being born, growing, changing, and producing new living things."
     },
     {
       "term": "plant",
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d10-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows how to tell living things from non-living things.",
+      "instruction": "Watch Milo use several signs to tell living from non-living.",
       "content": "Living organisms use energy, maintain internal processes, grow or develop, respond, and belong to reproducing life cycles; one visible sign alone is not enough.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Living or Nonliving? again. 💪"
+        "retry": "Check several signs—growth, energy use, response, and a life cycle—not movement alone."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "Text alternative: Living organisms use energy, maintain internal processes, grow or develop, respond, and belong to reproducing life cycles; one visible sign alone is not enough."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d10-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each example and look for evidence of life.",
       "content": {
         "examples": [
-          "seed can be dormant and living",
-          "fire moves but is not an organism",
-          "plant grows and uses energy"
+          "a seed rests but can grow later",
+          "a plant grows and uses energy",
+          "a car moves when pushed but is not an organism"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Living or Nonliving?. 🔎",
-        "retry": "Look at each Living or Nonliving? example again. 💪"
+        "retry": "For each example, find evidence of growth, energy use, or a life cycle."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d10-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is the living or non-living statement correct?",
+      "instruction": "Sort each observation by whether the evidence supports the life claim.",
       "content": {
         "fits": [
-          "seed can be dormant and living",
-          "fire moves but is not an organism",
-          "plant grows and uses energy"
+          "a seed rests but can grow later",
+          "a plant grows and uses energy",
+          "a car moves when pushed but is not an organism"
         ],
         "doesNotFit": [
           "Movement alone proves life",
-          "Every individual must visibly reproduce",
-          "Dormancy means nonliving"
+          "A dormant seed is always dead",
+          "Every living thing shows every sign at once"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether the card uses several signs of life instead of one quick clue."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d10-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Which statement is correct?",
+      "instruction": "Choose the statement that correctly uses evidence about life.",
       "content": {
         "options": [
           "Everything that moves is alive.",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: Movement alone does not prove something is living.",
-        "retry": "Look again — moving things are not always alive."
+        "retry": "A car can move without being alive, so choose the statement that checks more evidence."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d10-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each thing to living or non-living.",
+      "instruction": "Match each example with the evidence it gives about being living or non-living.",
       "content": {
         "pairs": [
           {
-            "left": "seed can be dormant and living",
-            "right": "a seed"
+            "left": "a seed",
+            "right": "can rest and still grow later"
           },
           {
-            "left": "fire moves but is not an organism",
-            "right": "fire"
+            "left": "fire",
+            "right": "moves but has no life cycle"
           },
           {
-            "left": "plant grows and uses energy",
-            "right": "a plant"
+            "left": "a plant",
+            "right": "grows and uses energy"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Living or Nonliving? explanation. 🔗",
-        "retry": "Read both sides of each Living or Nonliving? pair again. 💪"
+        "retry": "Match each example with the evidence that supports or challenges a life claim."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d10-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: look, check the signs, decide.",
+      "instruction": "Order the steps for deciding whether something is living.",
       "content": {
         "steps": [
           "Look at each thing.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Living or Nonliving? steps in order. 🎉",
-        "retry": "Find the first, next, and last Living or Nonliving? steps. 💪"
+        "retry": "Check the order: observe, check several signs, then decide living or non-living."
       },
       "assetId": "science-g3-m01-d10-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d10-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about living things is true?",
+        "prompt": "Milo compares a sprouting seed, a plant, and a toy car. Which statement about living things is true?",
         "options": [
           {
             "id": "a",
@@ -199,71 +199,83 @@
           },
           {
             "id": "b",
-            "text": "Living things use energy, grow, respond to their surroundings, and belong to life cycles; one visible sign alone is not enough."
+            "text": "Living things use energy, grow, respond to surroundings, and belong to life cycles; one sign alone is not enough."
           },
           {
             "id": "c",
             "text": "Movement alone proves life"
+          },
+          {
+            "id": "d",
+            "text": "Anything that changes color is alive"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Living things grow, use energy, respond, and have life cycles. Movement alone is not proof — a car moves but is not alive, and not every living thing reproduces visibly."
+        "explanation": "Living things show several signs, such as growth, energy use, response, and a life cycle. A toy car can move, and one visible sign alone does not prove life."
       },
       {
         "itemId": "science-g3-m01-d10-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about living things is correct?",
+        "prompt": "A seed rests in soil for weeks before sprouting. Which statement is correct?",
         "options": [
           {
             "id": "a",
-            "text": "fire is a living organism"
+            "text": "Fire is a living organism"
           },
           {
             "id": "b",
-            "text": "a moving toy car is alive"
+            "text": "A moving toy car is alive"
           },
           {
             "id": "c",
-            "text": "seed can be dormant and living"
+            "text": "A seed can be dormant and living"
+          },
+          {
+            "id": "d",
+            "text": "Anything that moves is alive"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A seed can rest for a long time and still be alive. Fire and toy cars move, but they are not alive."
+        "explanation": "A seed can be dormant—resting while still alive—and later sprout. Fire and toy cars can move, but they are not living organisms."
       },
       {
         "itemId": "science-g3-m01-d10-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is not true?",
+        "prompt": "Milo writes four claims about living things. Which statement is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "seed can be dormant and living"
+            "text": "A seed can be dormant and living"
           },
           {
             "id": "b",
-            "text": "fire moves but is not an organism"
+            "text": "Fire moves but is not an organism"
           },
           {
             "id": "c",
             "text": "Movement alone proves life"
+          },
+          {
+            "id": "d",
+            "text": "A plant grows and uses energy"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Movement alone does not prove life — fire moves but is not alive. A seed can rest and still be alive."
+        "explanation": "Movement alone does not prove life: fire and cars move without being organisms. A seed can rest while alive, and a plant grows and uses energy."
       },
       {
         "itemId": "science-g3-m01-d10-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is correct?",
+        "prompt": "Maxine pushes a toy car and sees it move. Which statement helps her decide whether movement means life?",
         "options": [
           {
             "id": "a",
@@ -276,36 +288,44 @@
           {
             "id": "c",
             "text": "Movement alone does not prove something is living."
+          },
+          {
+            "id": "d",
+            "text": "A moving object always grows."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Cars and fire move too, but they are not alive. Living things grow, use energy, and respond to their surroundings."
+        "explanation": "Cars and fire can move without living. To identify life, check several signs such as growth, energy use, response, and a life cycle."
       },
       {
         "itemId": "science-g3-m01-d10-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is true about living things?",
+        "prompt": "A classroom plant grows toward a window and uses water. Which statement is true?",
         "options": [
           {
             "id": "a",
-            "text": "plant grows and uses energy"
+            "text": "A plant grows and uses energy"
           },
           {
             "id": "b",
-            "text": "Dormancy means nonliving"
+            "text": "Dormancy means non-living"
           },
           {
             "id": "c",
             "text": "Movement alone proves life"
+          },
+          {
+            "id": "d",
+            "text": "A plant is alive only when it has flowers"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A plant grows and uses energy, which are signs of life. Dormant seeds are still alive, and movement alone does not prove life."
+        "explanation": "Growth and energy use are evidence that the plant is living. A dormant seed can still be alive, and flowers or movement alone are not the whole test."
       }
     ]
   },

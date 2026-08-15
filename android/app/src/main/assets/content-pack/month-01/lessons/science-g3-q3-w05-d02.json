@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🔍 Milo found a paper bag. Let's look closely: is it strong or weak, smooth or rough? And how do we use it safely?",
+  "introduction": "Milo examines a paper bag: what can Maxine observe, and how can she handle it safely?",
   "vocabulary": [
     {
       "term": "property",
-      "definition": "how a material looks, feels, or behaves"
+      "definition": "A way to describe how a material looks, feels, or behaves."
     },
     {
       "term": "flexible",
-      "definition": "able to bend without breaking"
+      "definition": "Able to bend without breaking easily."
     },
     {
       "term": "absorb",
-      "definition": "to soak up a liquid"
+      "definition": "To soak up a liquid."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "instruction": "Watch Milo observe a material and describe its properties safely.",
       "content": "Materials have properties. mirror is very shiny, and wool scarf is warm and soft.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Material Detectives again. 💪"
+        "retry": "Look at the object, then name what you can see, feel, or safely test."
       },
       "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
       "narration": "Materials have properties. mirror is very shiny, and wool scarf is warm and soft.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Explore each example. mirror is very shiny, and wool scarf is warm and soft.",
+      "instruction": "Tap each object and notice the property Milo describes.",
       "content": {
         "examples": [
-          "mirror — very shiny",
-          "wool scarf — warm and soft",
-          "metal nail — hard",
-          "paper bag — tears easily"
+          "a mirror reflects a bright patch of light",
+          "a wool scarf feels warm and soft",
+          "a metal nail stays firm",
+          "a paper bag tears when pulled too hard"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Material Detectives example again. 💪"
+        "retry": "Check the object and the observation before naming its property."
       },
       "prompt": "Explore each example. mirror is very shiny, and wool scarf is warm and soft.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Sort the examples. Keep the ones that describe a material's property.",
+      "instruction": "Sort each observation by whether it describes a material property.",
       "content": {
         "fits": [
-          "mirror — very shiny",
-          "wool scarf — warm and soft",
-          "metal nail — hard",
-          "paper bag — tears easily"
+          "a mirror reflects a bright patch of light",
+          "a wool scarf feels warm and soft",
+          "a metal nail stays firm",
+          "a paper bag tears when pulled too hard"
         ],
         "doesNotFit": [
-          "a loud sound",
-          "a happy feeling",
-          "a fast race",
-          "a tall mountain"
+          "a loud sound fills the room",
+          "a happy feeling changes mood",
+          "a fast race uses time",
+          "a mountain has a height"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Material Detectives rule before sorting again. 💪"
+        "retry": "Ask whether each card describes something observable about a material."
       },
       "prompt": "Sort the examples. Keep the ones that describe a material's property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Tap the material that shows today's property!",
+      "instruction": "Choose the object that shows the focus property.",
       "content": {
         "options": [
           "mirror",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Material Detectives question. 💪"
+        "retry": "Compare each choice with the property clue from the material."
       },
       "prompt": "Choose the example of material properties.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Match each material with the property it shows.",
+      "instruction": "Match each material with the evidence for its property.",
       "content": {
         "pairs": [
           {
             "left": "mirror",
-            "right": "very shiny"
+            "right": "reflects a bright patch of light"
           },
           {
             "left": "wool scarf",
-            "right": "warm and soft"
+            "right": "feels warm and soft"
           },
           {
             "left": "metal nail",
-            "right": "hard"
+            "right": "stays firm when pressed"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Material Detectives pair again. 💪"
+        "retry": "Match the material to the observable evidence that supports its property."
       },
       "prompt": "Match each material with the property it shows.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d02-visual",
-      "instruction": "Put the steps in order. Observe the material safely, then name its property.",
+      "instruction": "Order the steps for safely investigating a material.",
       "content": {
         "steps": [
           "Observe the material safely",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+        "retry": "Check the order: observe safely, name the property, compare, then choose a safe use."
       },
       "prompt": "Put the steps in order. Observe the material safely, then name its property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q3-w05-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is flexible?",
+        "prompt": "Maxine gently bends a rubber band, spoon, stone, and mirror. Which material is flexible?",
         "options": [
           {
             "id": "a",
-            "text": "metal spoon"
+            "text": "Metal spoon"
           },
           {
             "id": "b",
-            "text": "rubber band"
+            "text": "Rubber band"
           },
           {
             "id": "c",
-            "text": "stone"
+            "text": "Stone"
           },
           {
             "id": "d",
-            "text": "mirror"
+            "text": "Mirror"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Rubber band bends easily, so it is flexible."
+        "explanation": "A rubber band bends and returns to shape, so it is flexible. Metal, stone, and glass resist bending or can break."
       },
       {
         "itemId": "science-g3-q3-w05-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material absorbs water?",
+        "prompt": "Milo wipes a spill with a jar, ruler, cloth, and mirror. Which absorbs water?",
         "options": [
           {
             "id": "a",
-            "text": "glass jar"
+            "text": "Glass jar"
           },
           {
             "id": "b",
-            "text": "wooden ruler"
+            "text": "Wooden ruler"
           },
           {
             "id": "c",
-            "text": "cotton cloth"
+            "text": "Cotton cloth"
           },
           {
             "id": "d",
-            "text": "mirror"
+            "text": "Mirror"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Cotton cloth soaks up water, so it absorbs water."
+        "explanation": "Cotton cloth has fibers that soak up water. Glass and mirrors repel water, and a ruler absorbs much less."
       },
       {
         "itemId": "science-g3-q3-w05-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is hard?",
+        "prompt": "Milo presses a rubber ball, foil, sponge, and metal nail. Which material is hard?",
         "options": [
           {
             "id": "a",
-            "text": "rubber ball"
+            "text": "Rubber ball"
           },
           {
             "id": "b",
-            "text": "aluminum foil"
+            "text": "Aluminum foil"
           },
           {
             "id": "c",
-            "text": "sponge"
+            "text": "Sponge"
           },
           {
             "id": "d",
-            "text": "metal nail"
+            "text": "Metal nail"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Metal nail is firm and does not bend, so it is hard."
+        "explanation": "A metal nail stays firm and resists bending, showing hardness. A ball, foil, and sponge are softer or more flexible."
       },
       {
         "itemId": "science-g3-q3-w05-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What property does a paper bag have?",
+        "prompt": "Maxine carries a paper bag with a light book. What property should she remember?",
         "options": [
           {
             "id": "a",
-            "text": "warm and soft"
+            "text": "Warm and soft"
           },
           {
             "id": "b",
-            "text": "hard"
+            "text": "Hard"
           },
           {
             "id": "c",
-            "text": "tears easily"
+            "text": "Tears easily"
           },
           {
             "id": "d",
-            "text": "very shiny"
+            "text": "Very shiny"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A paper bag tears easily, so that is its property."
+        "explanation": "A paper bag can tear when pulled too hard, so tears easily is an important property to remember."
       },
       {
         "itemId": "science-g3-q3-w05-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "A learner studies a paper bag. Which action is SAFE?",
+        "prompt": "Before studying a paper bag, which action is safe?",
         "options": [
           {
             "id": "a",
-            "text": "taste it"
+            "text": "Taste it"
           },
           {
             "id": "b",
-            "text": "throw it"
+            "text": "Throw it"
           },
           {
             "id": "c",
-            "text": "look at it and touch it gently"
+            "text": "Look at it and touch it gently"
           },
           {
             "id": "d",
-            "text": "leave it out in the rain"
+            "text": "Leave it in rain"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Looking at it and touching it gently is safe. Tasting, throwing, or hitting materials is not safe."
+        "explanation": "Looking and gentle touching allow a safe observation. Tasting, throwing, or soaking the bag are unsafe choices."
       }
     ]
   },

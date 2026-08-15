@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Look at the picture with Milo! 🐱 A picture gives clues you can see, so name only what is visible. Ready to explore?",
+  "introduction": "Milo is a picture detective! 🐱 Look for the red kite, children, dog, and basket, then describe only what your eyes can see.",
   "vocabulary": [
     {
       "term": "red kite",
-      "definition": "in the sky"
+      "definition": "A bright red toy flying in the sky."
     },
     {
       "term": "basket",
-      "definition": "on the table"
+      "definition": "A container shown on the table."
     },
     {
       "term": "children",
-      "definition": "beside a tree"
+      "definition": "Two young people shown beside the tree."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d04-visual",
-      "instruction": "Listen and learn how to describe a picture!",
+      "instruction": "Listen for details you can see in the picture.",
       "content": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in Picture Detective again. 💪"
+        "retry": "Check whether the detail is visible in the picture."
       },
-      "prompt": "Listen to the explanation about details in a picture.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for the rule: describe visible details, not guesses.",
+      "narration": "A picture can show people, places, objects, colors, and actions. Name only visible details, then describe them in a complete sentence.",
+      "guideHint": "Use your eyes: name who or what is shown and where.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "A picture can show people, places, objects, colors, and actions. Name only visible details, then describe them in a complete sentence."
     },
     {
       "activityId": "english-g3-q3-w13-d04-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d04-visual",
-      "instruction": "Tap each detail you can see!",
+      "instruction": "Tap each visible person, object, place, or action.",
       "content": {
         "examples": [
           "a red kite in the sky",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Look at each Picture Detective example again. 💪"
+        "retry": "Check that your choice is something the picture can show."
       },
-      "prompt": "Find examples of details in a picture.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each detail you can see.",
+      "narration": "Picture clues show visible people, places, objects, colors, and actions.",
+      "guideHint": "Name what is shown and notice where it is.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "Picture clues show visible people, places, objects, colors, and actions."
     },
     {
       "activityId": "english-g3-q3-w13-d04-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d04-visual",
-      "instruction": "Sort the visible details into the box!",
+      "instruction": "Sort visible picture details from invisible ideas.",
       "content": {
         "fits": [
-          "colors",
-          "people",
-          "places",
-          "actions"
+          "a red kite",
+          "two children",
+          "a basket on the table",
+          "a dog running on the path"
         ],
         "doesNotFit": [
-          "a smell",
+          "a sweet smell",
           "a secret thought",
-          "a sound outside the picture",
+          "a sound from outside",
           "a dream"
         ]
       },
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read the Picture Detective rule before sorting again. 💪"
+        "retry": "Check whether the card names something visible, not a feeling, sound, smell, or dream."
       },
-      "prompt": "Sort the examples of details in a picture.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort details you can see away from details you cannot see.",
+      "narration": "A picture can show visible details, but it cannot show a smell, secret thought, outside sound, or dream.",
+      "guideHint": "Ask whether your eyes could find the detail in the picture.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "A picture can show visible details, but it cannot show a smell, secret thought, outside sound, or dream."
     },
     {
       "activityId": "english-g3-q3-w13-d04-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d04-visual",
-      "instruction": "Which one can you see in the picture?",
+      "instruction": "Choose the detail you can see in the picture.",
       "content": {
         "options": [
           "a sound outside the picture",
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in the Picture Detective question. 💪"
+        "retry": "Check whether the choice can be seen in the picture."
       },
-      "prompt": "Choose the example of details in a picture.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Milo sees a bright shape above the tree. Which detail can he name?",
+      "narration": "A visible detail is something the eyes can find in the picture.",
+      "guideHint": "Look for the object that is shown, not a smell, sound, or thought.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "A visible detail is something the eyes can find in the picture."
     },
     {
       "activityId": "english-g3-q3-w13-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d04-visual",
-      "instruction": "Match each thing to where it is in the picture!",
+      "instruction": "Match each object to where it appears.",
       "content": {
         "pairs": [
           {
             "left": "red kite",
-            "right": "in the sky"
+            "right": "flies above the tree"
           },
           {
             "left": "basket",
-            "right": "on the table"
+            "right": "rests on the table"
           },
           {
             "left": "children",
-            "right": "beside a tree"
+            "right": "stand beside a tree"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read both sides of each Picture Detective pair again. 💪"
+        "retry": "Check that the location matches the picture detail."
       },
-      "prompt": "Match the examples about details in a picture.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each picture detail with its location.",
+      "narration": "A location phrase adds a visible clue about where an object or person appears.",
+      "guideHint": "Read the object, then find its place in the scene.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "A location phrase adds a visible clue about where an object or person appears."
     },
     {
       "activityId": "english-g3-q3-w13-d04-a06",
@@ -195,10 +195,10 @@
       "instruction": "Put the picture-reading steps in order.",
       "content": {
         "steps": [
-          "Look at the whole picture",
-          "Find people and places",
-          "Notice small details",
-          "Tell what you can see"
+          "Scan the whole picture",
+          "Name people, places, and objects",
+          "Notice visible actions or colors",
+          "Describe only what your eyes can see"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the first, next, and last Picture Detective steps. 💪"
+        "retry": "Check that your sentence names only a visible detail."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for describing a picture in order.",
+      "narration": "Readers scan the whole picture, name visible details, notice actions or colors, and describe only what they see.",
+      "guideHint": "Start with the whole scene, then move to people, places, objects, and actions.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A picture gives clues we can see. Name only what is visible, then describe it in a complete sentence."
+      "accessibilityAlternative": "Readers scan the whole picture, name visible details, notice actions or colors, and describe only what they see."
     }
   ],
   "assessment": {
@@ -225,11 +225,11 @@
         "itemId": "english-g3-q3-w13-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What should you name first?",
+        "prompt": "Milo begins describing a picture. What should he name first?",
         "options": [
           {
             "id": "a",
-            "text": "A detail you can see"
+            "text": "A detail he can see"
           },
           {
             "id": "b",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "You name a detail you can see, like people, places, or objects. A dream, a smell, and a secret thought are not visible in a picture."
+        "explanation": "A picture description starts with a detail visible to the eyes; thoughts, dreams, and smells cannot be seen."
       },
       {
         "itemId": "english-g3-q3-w13-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is visible?",
+        "prompt": "The picture shows something red above the tree. Which detail is visible?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A red kite is something you can see with your eyes. A sweet smell, a loud sound, and a hidden wish cannot be seen in a picture."
+        "explanation": "A red kite is visible above the tree; smells, wishes, and sounds are not visible picture details."
       },
       {
         "itemId": "english-g3-q3-w13-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence tells only what you can SEE in the picture?",
+        "prompt": "Which sentence tells only what the eyes can see?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'The basket is on the table' names a visible object. Feelings, sounds, and dreams are not things you can see in a picture."
+        "explanation": "The basket is on the table names a visible object and location; the other choices add sound, a dream, or a feeling."
       },
       {
         "itemId": "english-g3-q3-w13-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which object can you see in the picture?",
+        "prompt": "Which object can Milo point to in the picture?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A basket on the table is a visible object in the picture. A dream, a smell, and a secret thought cannot be seen."
+        "explanation": "A basket on the table is a visible object that Milo can point to."
       },
       {
         "itemId": "english-g3-q3-w13-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is visible in the picture?",
+        "prompt": "The children stand beside the tree. Which detail is visible?",
         "options": [
           {
             "id": "a",
@@ -345,11 +345,11 @@
           },
           {
             "id": "b",
-            "text": "a red kite in the sky"
+            "text": "two children beside a tree"
           },
           {
             "id": "c",
-            "text": "a sound outside the picture"
+            "text": "a sound from outside"
           },
           {
             "id": "d",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A red kite in the sky is something you can see in the picture. A sound, a smell, and a secret thought are not visible."
+        "explanation": "Two children beside a tree can be seen in the picture; smells, sounds, and thoughts cannot."
       }
     ]
   },

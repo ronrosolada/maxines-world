@@ -1,9 +1,20 @@
 # Maxine's World — Current State & Release Handoff
 
-**Document baseline:** 2026-08-13
-**Release candidate:** `0.31.0` (`versionCode = 32`)
-**Working branch:** `release/v0.31.0` (merged to `main` before tagging)
+**Document baseline:** 2026-08-15
+**Release candidate:** `0.35.0` (`versionCode = 37`)
+**Working branch:** `main`
 **Repository:** `ronrosolada/maxines-world` (public)
+
+## Release 0.35.0 candidate (2026-08-15)
+
+- Scope: corpus-wide educator-effectiveness remediation, assessment-integrity fixes, and the 358-asset SVG craft/accessibility pass.
+- Content QA: 358 lessons/files, 0 strict-validation errors/warnings, 0 quality findings, 0 assessment duplicate groups, 0 similarity pairs, 0 pacing violations, and 358/358 valid lesson assets.
+- Tooling QA: full Python discovery passed **115 tests**.
+- Android QA: `verifyPlayableContent`, core-content tests, app unit tests, lint, debug assembly, and signed release assembly all passed.
+- Release APK: `android/app/build/outputs/apk/release/app-release.apk`; `com.maxinesworld.app`, version `0.35.0`, code `37`, APK Signature Scheme v2 verified.
+- Emulator smoke: fresh install showed the PIN onboarding counter `0 of 6 digits`; zero fatal Android runtime exceptions.
+- Signing remains workstation-only through `~/.gradle/maxines-world-signing.properties` (mode `600`); no signing values belong in Git.
+- Remaining release steps: commit, push `main`, wait for CI, push the matching `v0.35.0` tag, and publish the GitHub release with the verified APK.
 
 ## Product goal
 
@@ -53,6 +64,46 @@ Remaining follow-ups are tracked as GitHub issues, not silently dropped:
 
 No `mark_lessons_reviewed.py` run was performed in this round; all 358 lessons
 retain their prior metadata.
+
+## Maxine (Child-Learner) & Live Emulator Content Review & Re-Authoring (2026-08-15)
+
+Reviewed from the perspective of 8-year-old learner Maxine with live UI verification on the Android tablet emulator (`3048x2032` SwiftShader / API 35) and comprehensive static scans across all 6 main subjects (338 lessons).
+
+### Re-Authoring Pass Completed (2026-08-15)
+All critical blockers, single-letter casing traps, circular definitions, and cross-contaminations were re-authored across 65 lesson files:
+1. **P0 Blockers Resolved:**
+   - `english-g3-q3-w10-d03.json`: Purged contaminated paper-boat assessment and re-authored with complete, aligned fruit preparation sequencing questions and matching activities.
+   - `mathematics-g3-q3-w07-d04.json`: Corrected pattern activity key (`correctIndex: 1`), fixed sequence prompt rule to *"add 3 each time"*, and enriched pattern explanations.
+2. **P1 Concept & Language Bleed Fixes:**
+   - Phonics (`english-g3-q1-w03-d03.json`): Updated blend explanations to clarify that both consonant sounds remain audible.
+   - Fraction Models template contamination (`mathematics-g3-q4-w09-d02.json`, `d03.json`): Replaced template artifact strings with clear *"greater than one whole"* explanations.
+   - Language Bleed (`english-g3-q2-w06-d03`, `english-g3-q3-w13-d01/d02`): Replaced *"salaysay"* with *"personal story"* in English narration.
+3. **Casing & Punctuation Distractor Redesign:**
+   - Re-authored multiple-choice questions across `english-g3-m01-d05`, `english-g3-q1-w01-d05`, `english-g3-q2-w04-d02/d04`, `english-g3-q3-w11-d01/d03`, `english-g3-q3-w12-d01`, `filipino-g3-m01-d05/d07/d13`, `filipino-g3-q1-w05-d01`, and `filipino-g3-q1-w07-d01` with distinct, plausible, full contextual sentences.
+4. **Vocabulary & Activity Enrichment:**
+   - Math geometry vocabulary (`point`, `line segment`, `ray`, `line`) in `mathematics-g3-q1-w01-d01` to `d04` expanded with kid-friendly concrete definitions.
+   - Science Optics unit (`science-g3-q3-w05` to `science-g3-q4-w09`) and Waste lesson (`m01-d14`) enriched with distinctive terms (*refraction, prism, spectrum, opaque, transparent, translucent, glare*).
+   - Filipino *Simuno* cluster (32 lessons) diversified across multiple grammar facets (*pandiwa*, *pang-uri*, *karaniwang ayos*, *di-karaniwang ayos*).
+   - Science giveaway sorting/matching cards in `science-g3-m01-d01` updated to observation-based descriptions.
+
+### Graphics Asset Overhaul — Emoji Eradication & Scene Uniqueness (2026-08-15)
+
+A fleet-wide graphics pass was completed against the craft-floor standards (no emoji-as-icons, consistent stroke/ink, real depth, unique seeded scenes):
+
+1. **Duplicate-scene eradication:** 15 normalized-identical SVG groups (71 files — legacy 640×360 board templates) regenerated with the seeded `scene_svg` (800×450, lesson-ID-seeded motifs/layout) → **0 remaining normalized-duplicate groups**.
+2. **Emoji-as-icon eradication:** 287 of 358 SVGs carried raw emoji glyphs (📚 ✏️ 📖 💡 🌸 …) as `<text>` icons. All 277 generator-owned files regenerated with drawn vector motifs; the 10 hand-authored English Q1 W01–W04 hotspot boards had their emoji `<text>` nodes surgically replaced with drawn book-stack/pencil/open-book/lightbulb vector icons (same ink/palette) without touching bespoke art.
+3. **Canonical a11y metadata:** `scene_svg` patched to emit byte-identical metadata to `add_svg_accessibility.accessible_svg` (unique `svg-title-*`/`svg-desc-*` IDs, objective-rich descriptions) — the idempotency test that this surfaced is now green.
+4. **Verification:** `test_svg_accessibility.py` 4/4 green; `test_generate_quarterly_assets.py` 3/3 green; `verify_lesson_assets.py` 0 missing/malformed/orphaned; **0 emoji glyphs and 0 duplicate visual layouts across all 358 SVGs**.
+
+### Verification Status
+- `content_pack_validation.py --strict`: **0 errors, 0 warnings** (358 lessons)
+- `content_quality_audit.py --check`: **0 findings**
+- `dedupe_lesson_titles.py --check`: **0 duplicate groups**
+- `assessment_duplicate_gate.py`: **0 duplicate groups**
+- `objective_pacing_audit.py --check`: **0 over-fan-out**
+- `./gradlew testDebugUnitTest`: **BUILD SUCCESSFUL (all unit test suites green)**
+
+## Current product surface
 
 ## Current product surface
 
@@ -196,6 +247,37 @@ Before tagging `v0.31.0`:
    PIN setup, child creation/selection, Playroom, lesson launch, reward break,
    and back navigation.
 5. Confirm CI is green on `main`, then tag and push the release.
+
+## Educator effectiveness pass & final validation (2026-08-15)
+
+MoA completed the corpus-wide educator effectiveness review and in-place re-authoring.
+Every lesson has exactly one final disposition; no lesson is blocked:
+
+- **358/358 lessons dispositioned** — 358 FIXED, 0 OK, 0 BLOCKED.
+- Subject totals: Mathematics 58, English 93, Filipino 92, Science 45,
+  Makabansa 26, GMRC 24, Araling Panlipunan 20.
+- Durable per-lesson report: `docs/educator-effectiveness-review-2026-08-15.md`.
+- Protected lesson metadata, activity enums, asset references, and answer-key
+  integrity were preserved by the MoA lanes and verified after completion.
+
+Final validation after the last content edit:
+
+- Strict content-pack validation: **358 lessons, 0 errors, 0 warnings**.
+- Content quality audit: **0 findings**.
+- Assessment duplicate gate: **0 duplicate groups**.
+- Content similarity gate: **0 near-duplicate pairs** at threshold 0.85.
+- Objective pacing: **0 over-fan-out objectives**, 0 missing objectives.
+- Lesson assets: **358/358 SVGs**, no missing/orphan/malformed/render-failed assets.
+- SVG accessibility generator check: **0 pending updates**; accessibility tests 4/4.
+- Android `:app:testDebugUnitTest`: **BUILD SUCCESSFUL**.
+- Android `:app:assembleDebug`: **BUILD SUCCESSFUL**.
+
+During final validation, ten narrow mechanical content repairs were made (four
+Science HOTSPOT payload shape fixes, one Mathematics duplicate-prompt repair,
+and five Filipino answer/source-alignment fixes). All were revalidated by the
+same gates above. Historical Python repair fixtures still contain legacy
+exact-text/format assumptions for some scenario-based prompts; they are not
+release gates and do not reflect pack/schema failures.
 
 ## Known non-blocking scope boundaries
 

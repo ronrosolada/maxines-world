@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Milo has a story about Nina. Let's find the clues: who is in it, where it happens, and what Nina did!",
+  "introduction": "Nina helps a little bird leave the porch safely! 🐱 Read the story details to find who, where, and what happened.",
   "vocabulary": [
     {
       "term": "character",
-      "definition": "the person or animal in the story"
+      "definition": "A person or animal who takes part in a story."
     },
     {
       "term": "setting",
-      "definition": "where and when the story happens"
+      "definition": "The place and time where a story happens."
     },
     {
       "term": "event",
-      "definition": "something that happens in the story"
+      "definition": "An action or change that happens in a story."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Listen and learn how to find story clues!",
+      "instruction": "Listen for Nina’s actions, the setting, and the bird’s event.",
       "content": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in Story Clue Crew again. 💪"
+        "retry": "Check the story for Nina’s action and the bird’s movement."
       },
-      "prompt": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
-      "narration": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for who, where, and what happened in Nina’s story.",
+      "narration": "Nina heard a soft knock. A little bird flew onto the porch. Nina opened the window, and the bird flew out into the sky.",
+      "guideHint": "Ask: Who is in the story, where are they, and what changes?",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Nina heard a soft knock on the door. A little bird had flown into the porch. Nina opened the window, and the bird flew out into the sky."
+      "accessibilityAlternative": "Nina heard a soft knock. A little bird flew onto the porch. Nina opened the window, and the bird flew out into the sky."
     },
     {
       "activityId": "english-g3-q3-w14-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Tap each story clue you find!",
+      "instruction": "Tap each detail from Nina’s porch story.",
       "content": {
         "examples": [
-          "the character: Nina and the bird",
-          "the setting: the porch",
-          "the event: a little bird flew into the porch and Nina set it free",
-          "the clue: Nina opened the window so the bird could fly out."
+          "Nina and the bird",
+          "the porch",
+          "a bird flew onto the porch",
+          "Nina opened the window"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Look at each Story Clue Crew example again. 💪"
+        "retry": "Check the porch story for the character, setting, event, or clue."
       },
-      "prompt": "Find examples of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap a character, setting, event, or story clue.",
+      "narration": "Use the story’s exact details—not guesses—to explain Nina’s choice and the bird’s safe escape.",
+      "guideHint": "Read each detail and decide whether it tells who, where, what, or why.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Use the story’s exact details—not guesses—to explain Nina’s choice and the bird’s safe escape."
     },
     {
       "activityId": "english-g3-q3-w14-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Sort the story clues into the box!",
+      "instruction": "Sort details that belong to Nina’s story.",
       "content": {
         "fits": [
-          "the character: Nina and the bird",
-          "the setting: the porch",
-          "the event: a little bird flew into the porch and Nina set it free",
-          "the clue: Nina opened the window so the bird could fly out."
+          "Nina and the bird",
+          "the porch",
+          "Nina opened the window",
+          "The bird flew into the sky"
         ],
         "doesNotFit": [
-          "Nina caught the bird in a cage.",
-          "The bird knocked with its beak.",
-          "Nina closed all the windows.",
-          "The bird slept in the porch."
+          "Nina kept the bird in a cage.",
+          "The bird was a fish.",
+          "Nina closed the window.",
+          "The bird slept all day."
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read the Story Clue Crew rule before sorting again. 💪"
+        "retry": "Check whether the card matches the story, not a made-up event."
       },
-      "prompt": "Sort the examples of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort Nina’s story details away from changed details.",
+      "narration": "A story detail must match what the text says about Nina, the bird, the porch, and the open window.",
+      "guideHint": "Compare each card with the sentences in Nina’s story.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "A story detail must match what the text says about Nina, the bird, the porch, and the open window."
     },
     {
       "activityId": "english-g3-q3-w14-d01-a04",
@@ -125,12 +125,12 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Which one is a character in the story?",
+      "instruction": "Choose the characters in Nina’s porch story.",
       "content": {
         "options": [
-          "Nina caught the bird in a cage.",
-          "The bird knocked with its beak.",
-          "Nina closed all the windows.",
+          "the cook",
+          "the teacher",
+          "the mailman",
           "Nina and the bird"
         ],
         "correctIndex": 3
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the clue in the Story Clue Crew question. 💪"
+        "retry": "Check who actually acts in Nina’s story."
       },
-      "prompt": "Choose the example of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Nina hears a bird and opens a window. Who are the characters?",
+      "narration": "Characters are the people or animals who take part in a story.",
+      "guideHint": "Look for the people or animals named in the porch scene.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Characters are the people or animals who take part in a story."
     },
     {
       "activityId": "english-g3-q3-w14-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w14-d01-visual",
-      "instruction": "Match each story clue to its kind!",
+      "instruction": "Match each story detail to its kind.",
       "content": {
         "pairs": [
           {
             "left": "Nina and the bird",
-            "right": "character"
+            "right": "who takes part in the story"
           },
           {
             "left": "the porch",
-            "right": "setting"
+            "right": "where the story happens"
           },
           {
-            "left": "a little bird flew into the porch and Nina set it free",
-            "right": "event"
+            "left": "a little bird flew onto the porch and Nina opened the window",
+            "right": "what happens in the story"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Read both sides of each Story Clue Crew pair again. 💪"
+        "retry": "Check whether the detail names who, where, or what happened."
       },
-      "prompt": "Match the examples about details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each detail with what it tells the reader.",
+      "narration": "A character is who takes part, a setting is where the story happens, and an event is what happens.",
+      "guideHint": "Use the clue in each detail: who, where, or what happened.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "A character is who takes part, a setting is where the story happens, and an event is what happens."
     },
     {
       "activityId": "english-g3-q3-w14-d01-a06",
@@ -195,10 +195,10 @@
       "instruction": "Put the story-clue steps in order.",
       "content": {
         "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
+          "Read the story once",
+          "Name who and where",
+          "Retell the important event",
+          "Use a story detail to explain your answer"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Great thinking! 🎉",
-        "retry": "Find the first, next, and last Story Clue Crew steps. 💪"
+        "retry": "Check that your explanation uses a detail from Nina’s story."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for finding Nina’s story details in order.",
+      "narration": "Readers find story details by reading first, naming who and where, retelling the event, and using evidence.",
+      "guideHint": "Find who, where, and what happened before explaining your answer.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Readers find story details by reading first, naming who and where, retelling the event, and using evidence."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q3-w14-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
+        "prompt": "Nina opens a window for a bird. Who is in the story?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The story is about Nina and the bird. The mailman, the teacher, and the cook are not in the story."
+        "explanation": "Nina and the bird are the people and animal who take part in the story; the other people are not mentioned."
       },
       {
         "itemId": "english-g3-q3-w14-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
+        "prompt": "The bird flies into Nina’s home area. Where does this story happen?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The bird flew into the porch, so that is where the story happens. The market, the beach, and the school are not in the story."
+        "explanation": "The setting is the porch because the bird flies onto the porch and Nina opens the window there."
       },
       {
         "itemId": "english-g3-q3-w14-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
+        "prompt": "What event happens in Nina’s story?",
         "options": [
           {
             "id": "a",
@@ -289,7 +289,7 @@
           },
           {
             "id": "b",
-            "text": "a little bird flew into the porch and Nina set it free"
+            "text": "A little bird flew onto the porch and Nina set it free."
           },
           {
             "id": "c",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The story says a little bird flew into the porch and Nina set it free. Nina did not catch the bird in a cage, the windows were not closed, and the bird did not knock with its beak."
+        "explanation": "The text says the bird flew onto the porch and Nina opened the window so it could fly out."
       },
       {
         "itemId": "english-g3-q3-w14-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
+        "prompt": "Which detail is true from Nina’s story?",
         "options": [
           {
             "id": "a",
@@ -331,35 +331,35 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The story says Nina opened the window and the bird flew out. The bird did not knock with its beak, Nina did not close the windows, and she did not catch the bird in a cage."
+        "explanation": "Nina opened the window and the bird flew out; that exact action is stated in the story."
       },
       {
         "itemId": "english-g3-q3-w14-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Nina feel at the end of the story?",
+        "prompt": "What did Nina do to help the bird?",
         "options": [
           {
             "id": "a",
-            "text": "angry"
+            "text": "The bird knocked with its beak."
           },
           {
             "id": "b",
-            "text": "glad"
+            "text": "Nina opened the window."
           },
           {
             "id": "c",
-            "text": "sleepy"
+            "text": "Nina closed all the windows."
           },
           {
             "id": "d",
-            "text": "hungry"
+            "text": "Nina caught the bird in a cage."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Nina felt glad because the bird flew out free. Angry, sleepy, and hungry do not match the end of the story."
+        "explanation": "Nina opened the window, giving the bird a way to fly safely out into the sky."
       }
     ]
   },

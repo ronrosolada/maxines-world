@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: delicious, eager, and fresh. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo tastes a delicious snack, feels eager to open a book, and picks fresh fruit. Which word matches each clue?",
   "vocabulary": [
     {
       "term": "delicious",
-      "definition": "tastes very good"
+      "definition": "having a very good taste that makes you want another bite"
     },
     {
       "term": "eager",
-      "definition": "excited and ready to do something"
+      "definition": "excited and ready because you really want to begin"
     },
     {
       "term": "fresh",
-      "definition": "new, clean, or just picked"
+      "definition": "newly made, clean, or picked recently"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Hear how new words fit in sentences!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and look for a clue about taste, excitement, or newness."
       },
-      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word's meaning.",
+      "narration": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to delicious, eager, or fresh.",
+      "guideHint": "Read the nearby action or detail for a clue about taste, excitement, or newness.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to delicious, eager, or fresh."
     },
     {
       "activityId": "english-g3-q2-w01-d04-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Tap the sentences that use today's words!",
+      "instruction": "Tap each sentence that gives a clue for delicious, eager, or fresh.",
       "content": {
         "examples": [
           "Mama cooks delicious adobo for us.",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the action or detail that points to the word."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for today's three words.",
+      "narration": "Look for food that tastes good, someone ready to begin, or something newly made or picked.",
+      "guideHint": "Check whether the sentence shows taste, excitement, or newness.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for food that tastes good, someone ready to begin, or something newly made or picked."
     },
     {
       "activityId": "english-g3-q2-w01-d04-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Sort the sentences: new word or not!",
+      "instruction": "Sort sentences that use delicious, eager, or fresh.",
       "content": {
         "fits": [
-          "Mama cooks delicious adobo for us.",
-          "The children are eager to open their new books.",
-          "Fresh mangoes smell sweet.",
-          "The patient fisherman waited for a bite."
+          "The soup was delicious, so I asked for more.",
+          "The children were eager to open their new books.",
+          "Fresh mangoes were picked that morning.",
+          "Nina felt eager to try the new game."
         ],
         "doesNotFit": [
-          "The sun is bright this morning.",
-          "Be careful when you carry the glass.",
-          "An honest child returns the lost wallet.",
+          "The sun was bright that morning.",
+          "Please carry the glass carefully.",
+          "An honest child returned the lost wallet.",
           "The strong man lifted the heavy sack."
         ]
       },
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for delicious, eager, or fresh before sorting it again."
       },
-      "prompt": "Sort each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it uses one of today's words.",
+      "narration": "Use the words as evidence: delicious describes taste, eager describes readiness, and fresh describes newness.",
+      "guideHint": "Read each sentence and look for a taste, readiness, or newness clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Use the words as evidence: delicious describes taste, eager describes readiness, and fresh describes newness."
     },
     {
       "activityId": "english-g3-q2-w01-d04-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Tap the sentence that uses 'delicious'!",
+      "instruction": "Tap the sentence that uses 'delicious'.",
       "content": {
         "options": [
           "An honest child returns the lost wallet.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the taste clue that shows something is delicious."
       },
-      "prompt": "Choose the example of words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that gives a clue about great taste.",
+      "narration": "Delicious describes food or drink that tastes very good.",
+      "guideHint": "Look for a food or drink that tastes great.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Delicious describes food or drink that tastes very good."
     },
     {
       "activityId": "english-g3-q2-w01-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Match each word with its meaning!",
+      "instruction": "Match each word to the clue it gives.",
       "content": {
         "pairs": [
           {
             "left": "delicious",
-            "right": "tastes very good"
+            "right": "food that tastes very good"
           },
           {
             "left": "eager",
-            "right": "excited and ready to do something"
+            "right": "person excited to begin"
           },
           {
             "left": "fresh",
-            "right": "new, clean, or just picked"
+            "right": "food picked or made recently"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the clue for the meaning of each word."
       },
-      "prompt": "Match the examples about words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with the clue that reveals its meaning.",
+      "narration": "A word can connect to a clue about taste, readiness, or newness.",
+      "guideHint": "Ask whether the clue shows great taste, excitement to begin, or recent picking.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A word can connect to a clue about taste, readiness, or newness."
     },
     {
       "activityId": "english-g3-q2-w01-d04-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d04-visual",
-      "instruction": "Tap the word-hunting steps in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
-          "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Read the whole sentence",
+          "Circle the new word",
+          "Notice nearby clue words",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Delicious! You used the new words like a champ! 🎉",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, noticed, and explained the clue."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers use the whole sentence and its clues before choosing a meaning.",
+      "guideHint": "Start by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers use the whole sentence and its clues before choosing a meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q2-w01-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'delicious' mean?",
+        "prompt": "Milo takes one bite of the soup and asks for another bowl. Which word describes the soup?",
         "options": [
           {
             "id": "a",
-            "text": "tastes very good"
+            "text": "delicious"
           },
           {
             "id": "b",
-            "text": "new, clean, or just picked"
+            "text": "fresh"
           },
           {
             "id": "c",
-            "text": "able to wait calmly"
+            "text": "patient"
           },
           {
             "id": "d",
-            "text": "excited and ready to do something"
+            "text": "eager"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Delicious means tastes very good — like Mama’s adobo."
+        "explanation": "Asking for another bowl after tasting it suggests the soup tastes very good, so delicious fits."
       },
       {
         "itemId": "english-g3-q2-w01-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'excited and ready to do something'?",
+        "prompt": "The children are excited and ready to open their new books. Which word describes them?",
         "options": [
           {
             "id": "a",
@@ -275,41 +275,41 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Eager means excited and ready, like children about to open new books."
+        "explanation": "Being excited and ready to begin shows the children are eager."
       },
       {
         "itemId": "english-g3-q2-w01-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'fresh'?",
+        "prompt": "Mangoes were picked from the tree this morning. Which word describes the mangoes?",
         "options": [
           {
             "id": "a",
-            "text": "Fresh mangoes smell sweet."
+            "text": "fresh"
           },
           {
             "id": "b",
-            "text": "The children are eager to open their new books."
+            "text": "eager"
           },
           {
             "id": "c",
-            "text": "The patient fisherman waited for a bite."
+            "text": "patient"
           },
           {
             "id": "d",
-            "text": "Mama cooks delicious adobo for us."
+            "text": "delicious"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Fresh means new, clean, or just picked — that is why fresh mangoes smell sweet."
+        "explanation": "Fruit picked recently is fresh; the picking time is the clue."
       },
       {
         "itemId": "english-g3-q2-w01-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'The mango shake is cold and ___.'",
+        "prompt": "Complete the sentence: 'The cold mango shake is ___.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A cold mango shake that tastes great is delicious."
+        "explanation": "The sentence needs a word about taste; a mango shake that tastes great is delicious."
       },
       {
         "itemId": "english-g3-q2-w01-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'able to wait calmly'.",
+        "prompt": "A fisherman waits quietly for a fish without complaining. Which word describes him?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Patient means able to wait calmly — like a fisherman waiting for a bite."
+        "explanation": "Waiting calmly without complaining shows patience, so patient fits the fisherman."
       }
     ]
   },

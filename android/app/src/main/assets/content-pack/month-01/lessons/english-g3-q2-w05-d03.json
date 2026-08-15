@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Milo has a story about himself. Let's find the clues: who is in it, where it happens, and what Milo did!",
+  "introduction": "Milo finds a lost kitten in a garden and wants to explain what happened. Can you use story details instead of guesses?",
   "vocabulary": [
     {
       "term": "character",
-      "definition": "the person or animal in the story"
+      "definition": "a person or animal who takes part in a story"
     },
     {
       "term": "setting",
-      "definition": "where and when the story happens"
+      "definition": "the place and time where a story happens"
     },
     {
       "term": "event",
-      "definition": "something that happens in the story"
+      "definition": "an action or change that happens in a story"
     }
   ],
   "activities": [
@@ -36,18 +36,18 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Hear how story clues tell who, where, and what happened!",
+      "instruction": "Read the story and notice who, where, and what happened.",
       "content": "Milo found a lost kitten in the garden. The kitten was hiding under a yellow flower pot. Milo gave it milk, and the kitten purred happily.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Find the clue in Story Clue Crew again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the story and point to the detail that answers who, where, or what happened."
       },
-      "prompt": "Hear how story clues tell who, where, and what happened!",
+      "prompt": "Learn how story details reveal characters, setting, and events.",
       "narration": "Milo found a lost kitten in the garden. The kitten was hiding under a yellow flower pot. Milo gave it milk, and the kitten purred happily.",
-      "guideHint": "Need a hint? Read the example again.",
+      "guideHint": "Look for the people or animals, the place, and the action.",
       "nextLabel": "Next →",
       "accessibilityAlternative": "Milo found a lost kitten in the garden. The kitten was hiding under a yellow flower pot. Milo gave it milk, and the kitten purred happily."
     },
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Tap the clues that tell about the story!",
+      "instruction": "Tap details that come from Milo’s story.",
       "content": {
         "examples": [
-          "the character: Milo and the kitten",
-          "the setting: the garden",
-          "the event: Milo found a lost kitten and gave it milk",
-          "the clue: The kitten was hiding under a yellow flower pot."
+          "Milo and the kitten",
+          "the garden",
+          "Milo found a lost kitten and gave it milk",
+          "The kitten hid under a yellow flower pot"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Look at each Story Clue Crew example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look back at the story for a matching detail."
       },
-      "prompt": "Tap the clues that tell about the story!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find story evidence instead of making a guess.",
+      "narration": "Readers use details from the story to explain who was there, where events happened, and what happened.",
+      "guideHint": "Ask whether the exact idea appears in the story.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Readers use details from the story to explain who was there, where events happened, and what happened."
     },
     {
       "activityId": "english-g3-q2-w05-d03-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Sort the story clues from the made-up ones!",
+      "instruction": "Sort story details from made-up details.",
       "content": {
         "fits": [
-          "the character: Milo and the kitten",
-          "the setting: the garden",
-          "the event: Milo found a lost kitten and gave it milk",
-          "the clue: The kitten was hiding under a yellow flower pot."
+          "Milo and the kitten",
+          "the garden",
+          "Milo found a lost kitten and gave it milk",
+          "The kitten hid under a yellow flower pot"
         ],
         "doesNotFit": [
-          "The kitten was hiding inside a blue box.",
+          "The kitten hid inside a blue box.",
           "Milo found a puppy in the kitchen.",
-          "The kitten was sleeping on the roof.",
+          "The kitten slept on the roof.",
           "Milo gave the kitten a piece of bread."
         ]
       },
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Read the Story Clue Crew rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the matching sentence before sorting again."
       },
-      "prompt": "Sort the story clues from the made-up ones!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each card by whether Milo’s story supports it.",
+      "narration": "A supported detail matches the story; a made-up detail changes a character, place, or event.",
+      "guideHint": "Compare each card with the story sentences.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "A supported detail matches the story; a made-up detail changes a character, place, or event."
     },
     {
       "activityId": "english-g3-q2-w05-d03-a04",
@@ -125,12 +125,12 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Who is in the story?",
+      "instruction": "Tap the choice that names the story’s characters.",
       "content": {
         "options": [
           "Milo and the kitten",
-          "The kitten was sleeping on the roof.",
-          "The kitten was hiding inside a blue box.",
+          "The kitten slept on the roof.",
+          "The kitten hid inside a blue box.",
           "Milo found a puppy in the kitchen."
         ],
         "correctIndex": 0
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Find the clue in the Story Clue Crew question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the story for the people or animals who appear."
       },
-      "prompt": "Who is in the story?",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the people or animals who take part in the story.",
+      "narration": "Characters are the people or animals in the story, not a place or an invented event.",
+      "guideHint": "Look for who appears in the story.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Characters are the people or animals in the story, not a place or an invented event."
     },
     {
       "activityId": "english-g3-q2-w05-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Match each story clue to what it tells!",
+      "instruction": "Match each story detail to what it tells.",
       "content": {
         "pairs": [
           {
             "left": "Milo and the kitten",
-            "right": "character"
+            "right": "characters who take part"
           },
           {
             "left": "the garden",
-            "right": "setting"
+            "right": "place where events happen"
           },
           {
             "left": "Milo found a lost kitten and gave it milk",
-            "right": "event"
+            "right": "main event in the story"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Read both sides of each Story Clue Crew pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the detail against the story and its role."
       },
-      "prompt": "Match each story clue to what it tells!",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each detail with character, setting, or event.",
+      "narration": "Characters are who, setting is where, and events tell what happens.",
+      "guideHint": "Ask whether the detail answers who, where, or what happened.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Characters are who, setting is where, and events tell what happens."
     },
     {
       "activityId": "english-g3-q2-w05-d03-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d03-visual",
-      "instruction": "Put the steps for using story clues in order.",
+      "instruction": "Put the story-clue checks in order.",
       "content": {
         "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
+          "Read the story once",
+          "Name who or what appears",
+          "Find where it happens",
+          "Retell what happened"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Great clue hunting! You used the story clues to answer! 🕵️",
-        "retry": "Find the first, next, and last Story Clue Crew steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, named who, found where, and retold the event."
       },
-      "prompt": "Put the steps for using story clues in order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for finding story evidence.",
+      "narration": "Readers identify who and where before retelling the important action.",
+      "guideHint": "Begin by reading the story once.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Readers identify who and where before retelling the important action."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q2-w05-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
+        "prompt": "Milo asks who took part in his story about the lost kitten. Which answer uses story evidence?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The story is about Milo and the kitten, so they are the characters."
+        "explanation": "Milo and the kitten are the people or animals named in the story, so they are the characters."
       },
       {
         "itemId": "english-g3-q2-w05-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
+        "prompt": "Milo asks where the kitten was found. Which choice names the setting?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The story places the kitten in the garden, so that is the setting."
+        "explanation": "The story places Milo and the kitten in the garden, so the garden is the setting."
       },
       {
         "itemId": "english-g3-q2-w05-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
+        "prompt": "Milo wants to retell the main event. Which detail belongs in his retelling?",
         "options": [
           {
             "id": "a",
@@ -289,11 +289,11 @@
           },
           {
             "id": "b",
-            "text": "The kitten was sleeping on the roof."
+            "text": "The kitten slept on the roof."
           },
           {
             "id": "c",
-            "text": "The kitten was hiding inside a blue box."
+            "text": "The kitten hid inside a blue box."
           },
           {
             "id": "d",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The story tells that Milo found a lost kitten and gave it milk — that is the main event."
+        "explanation": "The story says Milo found the kitten and gave it milk; that is the main event."
       },
       {
         "itemId": "english-g3-q2-w05-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
+        "prompt": "Milo points to one detail as evidence. Which detail is true?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The story says the kitten hid under a yellow flower pot, so that detail is true."
+        "explanation": "The story specifically says the kitten hid under a yellow flower pot."
       },
       {
         "itemId": "english-g3-q2-w05-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Milo feel at the end of the story?",
+        "prompt": "After Milo gives the kitten milk and it purrs, how might Milo feel?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Milo helped the kitten and kept it safe, so he felt happy at the end."
+        "explanation": "Milo helped the lost kitten, and the kitten responded happily, so happy is the best supported feeling."
       }
     ]
   },

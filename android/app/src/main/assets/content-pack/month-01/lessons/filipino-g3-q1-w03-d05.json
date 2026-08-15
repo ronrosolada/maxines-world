@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 📝 May talata tayong aaralin tungkol sa paaralan ni Ben. Hanapin natin ang paksa at mga detalye nito!",
+  "introduction": "Sa talata tungkol sa paaralan ni Ben, hanapin ang paksa at mga detalyeng tumutulong magpaliwanag dito. Panatilihing iisa ang pokus.",
   "vocabulary": [
     {
       "term": "paksa",
-      "definition": "ang pinag-uusapan sa talata"
+      "definition": "Paksa o bagay na pinag-uusapan sa buong talata."
     },
     {
       "term": "pangunahing ideya",
-      "definition": "ang pinakamahalagang mensahe ng talata"
+      "definition": "Pinakamahalagang mensaheng ipinapahayag ng talata."
     },
     {
       "term": "detalye",
-      "definition": "dagdag na impormasyon tungkol sa paksa"
+      "definition": "Impormasyong nagbibigay-linaw at suporta sa paksa."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "content": "Ang paaralan ni Ben ay malapit sa palengke. Maraming puno sa paligid nito. Tuwang-tuwa si Ben na pumasok araw-araw. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "instruction": "Basahin ang talata at hanapin ang iisang paksa.",
+      "content": "Ang paaralan ni Ben ay malapit sa palengke. Maraming puno sa paligid nito. Tuwang-tuwa si Ben na pumasok araw-araw.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Munting Talata. 💪"
+        "retry": "Itanong kung ano ang pinag-uusapan ng lahat ng pangungusap. 💪"
       },
       "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
       "narration": "Ang paaralan ni Ben ay malapit sa palengke. Maraming puno sa paligid nito. Tuwang-tuwa si Ben na pumasok araw-araw. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "instruction": "Tukuyin ang paksa, ideya, detalye, at wakas.",
       "content": {
         "examples": [
           "ang paaralan ni Ben",
@@ -73,8 +73,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Munting Talata. 💪"
+        "correct": "Mahusay! Nakita mo ang mga bahagi ng talata tungkol sa paaralan ni Ben. 🔎",
+        "retry": "Hanapin ang pangungusap na naglilinaw sa paaralan ni Ben. 💪"
       },
       "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Piliin ang mga bahagi ng talatang ito.",
+      "instruction": "Piliin ang card na kaugnay ng talata.",
       "content": {
         "fits": [
           "ang paaralan ni Ben",
@@ -109,8 +109,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Munting Talata bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga bahaging kaugnay ng talata. 🎉",
+        "retry": "Suriin kung tumutulong ang card sa iisang paksa. 💪"
       },
       "prompt": "Piliin ang mga bahagi ng talatang ito.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+      "instruction": "Alin ang pangungusap na nagsasabi ng pangunahing ideya?",
       "content": {
         "options": [
           "Nagtatanim siya ng kamatis, talong, at sili.",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Munting Talata. 💪"
+        "retry": "Piliin ang pangungusap na may sentrong ideya ng paksa. 💪"
       },
       "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+      "instruction": "Itugma ang bahagi ng talata sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "ang paaralan ni Ben",
-            "right": "paksa"
+            "right": "paksang tinatalakay"
           },
           {
             "left": "Ang paaralan ni Ben ay malapit sa palengke.",
-            "right": "pangunahing ideya"
+            "right": "pangunahing mensahe"
           },
           {
             "left": "Maraming puno sa paligid nito.",
-            "right": "detalye"
+            "right": "detalyeng sumusuporta"
           }
         ]
       },
@@ -176,8 +176,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Munting Talata. 💪"
+        "correct": "Mahusay! Itinugma mo ang bawat bahagi sa tungkulin nito. 🔗",
+        "retry": "Tingnan kung paksa, pangunahing mensahe, o suportang detalye ang bahagi. 💪"
       },
       "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -192,21 +192,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d05-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+      "instruction": "Ayusin ang mga hakbang sa pagsusuri ng talata.",
       "content": {
         "steps": [
-          "Basahin ang talata",
-          "Hanapin ang paksa",
-          "Hanapin ang pangunahing ideya",
-          "Tukuyin ang mga detalye"
+          "Basahin ang talata tungkol sa paaralan.",
+          "Tukuyin ang paksa ni Ben.",
+          "Hanapin ang pangunahing ideya.",
+          "Piliin ang detalyeng at wakas na kaugnay."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Munting Talata. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsusuri ng talata. 🎉",
+        "retry": "Sundin ang daloy: basahin, tukuyin, hanapin, at piliin. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -247,7 +247,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: ang paaralan ni Ben"
+        "explanation": "Ang paksa ay kung tungkol saan ang talata; lahat ng pangungusap ay tungkol sa paaralan ni Ben."
       },
       {
         "sequence": 2,
@@ -275,7 +275,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Ang paaralan ni Ben ay malapit sa palengke."
+        "explanation": "Ang pangunahing ideya ang sentrong mensahe; malapit sa palengke ang paaralan ni Ben."
       },
       {
         "sequence": 3,
@@ -303,7 +303,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Maraming puno sa paligid nito."
+        "explanation": "Ang mga punong nakapaligid ay detalyeng tuwirang binanggit sa talata."
       },
       {
         "sequence": 4,
@@ -331,7 +331,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Tuwang-tuwa si Ben na pumasok araw-araw."
+        "explanation": "Ang huling pangungusap tungkol sa pagpasok ni Ben ang nagsasara ng ideya."
       },
       {
         "sequence": 5,
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: ang paaralan ni Ben"
+        "explanation": "Iisang paksa ang pinagsasama ng talata: paaralan ni Ben."
       }
     ]
   },

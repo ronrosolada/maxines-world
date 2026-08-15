@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: curious, proud, and silent. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo asks questions about a mystery box, feels proud of his drawing, and enters a silent library. Can you choose the word each scene needs?",
   "vocabulary": [
     {
       "term": "curious",
-      "definition": "wanting to know or learn"
+      "definition": "wanting to find out more by asking or exploring"
     },
     {
       "term": "proud",
-      "definition": "feeling happy about something you did"
+      "definition": "feeling pleased about something you worked hard to do"
     },
     {
       "term": "silent",
-      "definition": "very quiet, with no sound"
+      "definition": "so quiet that you cannot hear any sound"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Hear how new words fit in sentences!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and look for a clue about wondering, success, or sound."
       },
-      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word's meaning.",
+      "narration": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to curious, proud, or silent.",
+      "guideHint": "Read the nearby action or setting for a clue about wondering, success, or sound.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to curious, proud, or silent."
     },
     {
       "activityId": "english-g3-q2-w01-d03-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Tap the sentences that use today's words!",
+      "instruction": "Tap each sentence that gives a clue for curious, proud, or silent.",
       "content": {
         "examples": [
           "The curious boy asked many questions.",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the action or setting that points to the word."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for today's three words.",
+      "narration": "Look for questions that show wondering, a success someone celebrates, or a place without sound.",
+      "guideHint": "Check whether the sentence shows wondering, accomplishment, or no sound.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for questions that show wondering, a success someone celebrates, or a place without sound."
     },
     {
       "activityId": "english-g3-q2-w01-d03-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Sort the sentences: new word or not!",
+      "instruction": "Sort sentences that use curious, proud, or silent.",
       "content": {
         "fits": [
-          "The curious boy asked many questions.",
-          "Ana is proud of her neat handwriting.",
-          "The library is silent during reading time.",
-          "The tiny ant carried a big leaf."
+          "The curious child opened the mystery box.",
+          "Ana felt proud of her careful drawing.",
+          "The library was silent during reading time.",
+          "Milo was curious about the footprints outside."
         ],
         "doesNotFit": [
-          "Mama cooks delicious adobo for us.",
-          "The children are eager to open their new books.",
-          "Fresh mangoes smell sweet.",
-          "The patient fisherman waited for a bite."
+          "Mama packed a sandwich for the trip.",
+          "The yellow kite rose above the field.",
+          "The patient dog waited by the gate.",
+          "Fresh mangoes smelled sweet."
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for curious, proud, or silent before sorting it again."
       },
-      "prompt": "Sort each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it uses one of today's words.",
+      "narration": "Use the words as evidence: curious shows wondering, proud shows satisfaction, and silent means no sound.",
+      "guideHint": "Read each sentence and look for a question, accomplishment, or quiet-setting clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Use the words as evidence: curious shows wondering, proud shows satisfaction, and silent means no sound."
     },
     {
       "activityId": "english-g3-q2-w01-d03-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Tap the sentence that uses 'curious'!",
+      "instruction": "Tap the sentence that uses 'curious'.",
       "content": {
         "options": [
           "The curious boy asked many questions.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the action that shows someone wants to know more."
       },
-      "prompt": "Choose the example of words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that shows someone wanting to know more.",
+      "narration": "A curious person wonders about something and may ask questions or investigate.",
+      "guideHint": "Look for wondering, asking, or exploring.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A curious person wonders about something and may ask questions or investigate."
     },
     {
       "activityId": "english-g3-q2-w01-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Match each word with its meaning!",
+      "instruction": "Match each word to the clue it gives.",
       "content": {
         "pairs": [
           {
             "left": "curious",
-            "right": "wanting to know or learn"
+            "right": "questions or exploring to learn more"
           },
           {
             "left": "proud",
-            "right": "feeling happy about something you did"
+            "right": "happy feeling after hard work"
           },
           {
             "left": "silent",
-            "right": "very quiet, with no sound"
+            "right": "place with no sound"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the clue for the meaning of each word."
       },
-      "prompt": "Match the examples about words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with the clue that reveals its meaning.",
+      "narration": "A word can connect to a clue about wondering, accomplishment, or no sound.",
+      "guideHint": "Ask whether the clue shows questions, satisfaction, or complete quiet.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A word can connect to a clue about wondering, accomplishment, or no sound."
     },
     {
       "activityId": "english-g3-q2-w01-d03-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d03-visual",
-      "instruction": "Tap the word-hunting steps in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
-          "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Read the whole sentence",
+          "Circle the new word",
+          "Notice nearby clue words",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You spotted the feeling words perfectly! 🎉",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, noticed, and explained the clue."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers use the whole sentence and its clues before choosing a meaning.",
+      "guideHint": "Start by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers use the whole sentence and its clues before choosing a meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q2-w01-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'curious' mean?",
+        "prompt": "Milo sees a locked box and asks many questions about it. Which word describes Milo?",
         "options": [
           {
             "id": "a",
-            "text": "wanting to know or learn"
+            "text": "curious"
           },
           {
             "id": "b",
-            "text": "very small"
+            "text": "tiny"
           },
           {
             "id": "c",
-            "text": "very quiet, with no sound"
+            "text": "silent"
           },
           {
             "id": "d",
-            "text": "feeling happy about something you did"
+            "text": "proud"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Curious means wanting to know or learn — like asking many questions."
+        "explanation": "Asking many questions shows that Milo wants to know more, so curious fits."
       },
       {
         "itemId": "english-g3-q2-w01-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'feeling happy about something you did'?",
+        "prompt": "After finishing a careful drawing, Ana smiles and shows it to her family. Which word describes her feeling?",
         "options": [
           {
             "id": "a",
@@ -275,41 +275,41 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Proud means feeling happy about something you did, like neat handwriting."
+        "explanation": "Feeling pleased after completing hard work is proud; her finished drawing is the clue."
       },
       {
         "itemId": "english-g3-q2-w01-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'silent'?",
+        "prompt": "During the test, the room has no sounds at all. Which word describes the room?",
         "options": [
           {
             "id": "a",
-            "text": "The library is silent during reading time."
+            "text": "silent"
           },
           {
             "id": "b",
-            "text": "The tiny ant carried a big leaf."
+            "text": "tiny"
           },
           {
             "id": "c",
-            "text": "Ana is proud of her neat handwriting."
+            "text": "proud"
           },
           {
             "id": "d",
-            "text": "The curious boy asked many questions."
+            "text": "curious"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Silent means very quiet, so it fits a library during reading time."
+        "explanation": "A room with no sounds is silent; the absence of noise is the clue."
       },
       {
         "itemId": "english-g3-q2-w01-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'Milo is ___ about the box in the corner.'",
+        "prompt": "Complete the sentence: 'Milo is ___ about the footprints outside.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A box in the corner makes you wonder, so Milo feels curious about it."
+        "explanation": "Footprints make Milo wonder and want to investigate, so curious completes the sentence."
       },
       {
         "itemId": "english-g3-q2-w01-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'very small'.",
+        "prompt": "An ant is much smaller than a beetle. Which word describes the ant?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Tiny means very small — an ant is a tiny creature."
+        "explanation": "An ant that is very small is tiny; its size is the clue."
       }
     ]
   },

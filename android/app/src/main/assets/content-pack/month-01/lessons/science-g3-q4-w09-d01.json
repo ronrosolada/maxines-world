@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🌈 Milo wants to show you how a rainbow appears. Let's see how light behaves — and how to keep our eyes safe!",
+  "introduction": "Milo sees a rainbow after rain. How can bent light separate into many colors, and how can Maxine protect her eyes?",
   "vocabulary": [
     {
-      "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "term": "refraction",
+      "definition": "The bending of light as it enters water or clear material."
     },
     {
-      "term": "light",
-      "definition": "what helps us see"
+      "term": "prism",
+      "definition": "A clear shape that can spread white light into colors."
     },
     {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "term": "spectrum",
+      "definition": "The band of colors that can be separated from white light."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo explain how light behaves and how to protect your eyes.",
       "content": "a dog barks loudly. a rainbow appears when light bends. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check whether the object makes, reflects, blocks, or lets light pass."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "a dog barks loudly. a rainbow appears when light bends. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Explore each example. a dog barks loudly. a rainbow appears when light bends.",
+      "instruction": "Tap each example and notice what light does.",
       "content": {
         "examples": [
-          "a dog barks loudly",
-          "a rainbow appears when light bends",
-          "move away if a sound hurts your ears",
-          "do not point a laser at your eyes"
+          "raindrops bend sunlight into rainbow colors",
+          "a prism spreads white light into colors",
+          "a rainbow shows separated colors",
+          "look away from a very bright light"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "For each card, name what light does before choosing the result."
       },
       "prompt": "Explore each example. a dog barks loudly. a rainbow appears when light bends.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows light safely.",
       "content": {
         "fits": [
-          "a dog barks loudly",
-          "a rainbow appears when light bends",
-          "move away if a sound hurts your ears",
-          "do not point a laser at your eyes"
+          "raindrops bend and spread light",
+          "a prism separates colors from white light",
+          "a rainbow displays a band of colors",
+          "a learner avoids staring at glare"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "A rainbow is made by sound",
+          "Look directly at the Sun",
+          "A prism blocks every color",
+          "Point a laser into someone’s eyes"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card describes a real light effect or a safe action."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose the light example shown in this lesson.",
       "content": {
         "options": [
-          "a rainbow",
-          "a shadow",
-          "an echo",
-          "a flash"
+          "A rainbow",
+          "A shadow",
+          "An echo",
+          "A flash"
         ],
         "correctIndex": 0
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "Compare each choice with the light behavior shown in the examples."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "instruction": "Match each light example with its effect or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "a dog barks loudly",
-            "right": "makes sound"
+            "left": "raindrops",
+            "right": "bend and spread sunlight into colors"
           },
           {
-            "left": "a rainbow appears when light bends",
-            "right": "helps us see"
+            "left": "prism",
+            "right": "separates colors from white light"
           },
           {
-            "left": "move away if a sound hurts your ears",
-            "right": "protects hearing"
+            "left": "rainbow",
+            "right": "shows a band of visible colors"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each light example to the effect or protection it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q4-w09-d01-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing light and protecting your eyes.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: observe light, explain its behavior, choose a safe action, protect eyes."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q4-w09-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What appears when light bends?",
+        "prompt": "After rain, Maxine sees colors across the sky. What appears when light bends in raindrops?",
         "options": [
           {
             "id": "a",
-            "text": "a rainbow"
+            "text": "A rainbow"
           },
           {
             "id": "b",
-            "text": "a shadow"
+            "text": "A shadow"
           },
           {
             "id": "c",
-            "text": "a flash"
+            "text": "A flash"
           },
           {
             "id": "d",
-            "text": "an echo"
+            "text": "An echo"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "When light bends through raindrops, it spreads into colors, and you see a rainbow. Shadows, echoes, and flashes are not from bending light."
+        "explanation": "Raindrops bend and spread sunlight into colors, making a rainbow. Shadows, echoes, and flashes come from different causes."
       },
       {
         "itemId": "science-g3-q4-w09-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Milo watches a rainbow near bright sunlight. Which action protects his eyes?",
         "options": [
           {
             "id": "a",
-            "text": "turn the music very loud"
+            "text": "Turn music very loud"
           },
           {
             "id": "b",
-            "text": "bang drums near a sleeping baby"
+            "text": "Bang drums near a baby"
           },
           {
             "id": "c",
-            "text": "move away if a sound hurts your ears"
+            "text": "Look away from bright glare"
           },
           {
             "id": "d",
-            "text": "shout into a friend's ear"
+            "text": "Shout into a friend’s ear"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "If a sound hurts your ears, it is too loud — moving away keeps your hearing safe."
+        "explanation": "Looking away from strong glare protects eyes. Loud sounds are a hearing issue, while staring at bright light can hurt eyes."
       },
       {
         "itemId": "science-g3-q4-w09-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Maxine uses a small laser pointer with an adult. Which choice is safe?",
         "options": [
           {
             "id": "a",
-            "text": "shine a flashlight into a friend's eyes"
+            "text": "Shine it into a friend’s eyes"
           },
           {
             "id": "b",
-            "text": "do not point a laser at your eyes"
+            "text": "Do not point it at anyone’s eyes"
           },
           {
             "id": "c",
-            "text": "stare at the sun"
+            "text": "Stare at the Sun"
           },
           {
             "id": "d",
-            "text": "look at a laser for a long time"
+            "text": "Look at the laser for a long time"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A laser is very bright and can damage your eyes, so never point one at anyone's eyes."
+        "explanation": "A laser can be very bright and damage eyes, so never point it at anyone’s eyes. The other choices create unsafe direct light."
       },
       {
         "itemId": "science-g3-q4-w09-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "Milo compares a rainbow, mirror, dog bark, and window. Which example shows light behavior?",
         "options": [
           {
             "id": "a",
-            "text": "a mirror reflects light"
+            "text": "A dog barks loudly"
           },
           {
             "id": "b",
-            "text": "a rainbow appears when light bends"
+            "text": "A mirror reflects light"
           },
           {
             "id": "c",
-            "text": "a dog barks loudly"
+            "text": "A rainbow appears when light bends"
           },
           {
             "id": "d",
-            "text": "a window lets light through"
+            "text": "A window lets light through"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A bark is a sound the dog makes, and it travels to your ears. Rainbows, mirrors, and windows are about light."
+        "explanation": "A rainbow appears when light bends through raindrops. Mirrors and windows also involve light, while a bark is sound."
       },
       {
         "itemId": "science-g3-q4-w09-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Maxine sees red, orange, yellow, green, and blue in a rainbow. What does this show?",
         "options": [
           {
             "id": "a",
-            "text": "a bell rings when shaken"
+            "text": "A bell rings when shaken"
           },
           {
             "id": "b",
-            "text": "a rainbow appears when light bends"
+            "text": "A rainbow separates light into colors"
           },
           {
             "id": "c",
-            "text": "a dog barks loudly"
+            "text": "A dog barks loudly"
           },
           {
             "id": "d",
-            "text": "clapping hands makes sound"
+            "text": "Clapping hands makes sound"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "When light bends through raindrops, it makes a rainbow. Barks, bells, and claps make sound."
+        "explanation": "A rainbow shows colors separated when light bends and spreads. Bells, barks, and claps are sound examples, not the cause of the color band."
       }
     ]
   },

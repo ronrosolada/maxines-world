@@ -21,7 +21,7 @@
     },
     {
       "term": "animal",
-      "definition": "An animal is a living thing, like a dog, and its name can be a common noun or a proper noun."
+      "definition": "A living creature such as a puppy, cat, or bird."
     },
     {
       "term": "common noun",
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Common or Proper? again. 💪"
+        "retry": "Check whether the name is general or one special person, place, or thing. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "Text alternative: A common noun names a general person, place, animal, or thing. A proper noun names a specific one and begins with a capital letter."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Common or Proper?. 🔎",
-        "retry": "Look at each Common or Proper? example again. 💪"
+        "retry": "Compare each pair: the general noun stays lowercase, but the special name begins with a capital. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Common or Proper? clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort names by meaning and capitalization, not by a random word or feeling. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: Palawan",
-        "retry": "Look again! Proper nouns name ONE special thing, like Palawan. 💪"
+        "retry": "Ask whether the word names one special place or a general kind of place. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d06-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each proper noun to its common noun!",
+      "instruction": "Match each proper noun with the kind of name it is.",
       "content": {
         "pairs": [
           {
-            "left": "city / Cebu City",
-            "right": "Cebu City"
+            "left": "Cebu City",
+            "right": "proper noun for a specific place"
           },
           {
-            "left": "girl / Maxine",
-            "right": "Maxine"
+            "left": "Maxine",
+            "right": "proper noun for a specific person"
           },
           {
-            "left": "river / Pasig River",
-            "right": "Pasig River"
+            "left": "Pasig River",
+            "right": "proper noun for a specific river"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Common or Proper? explanation. 🔗",
-        "retry": "Read both sides of each Common or Proper? pair again. 💪"
+        "retry": "Match each special name with the kind of general noun it names. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Common or Proper? steps in order. 🎉",
-        "retry": "Find the first, next, and last Common or Proper? steps. 💪"
+        "retry": "Order the check: name the general noun, name its special example, then check capitalization. 💪"
       },
       "assetId": "english-g3-m01-d06-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "island"
+          },
+          {
+            "id": "d",
+            "text": "town"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "river / Pasig River"
+          },
+          {
+            "id": "d",
+            "text": "island / Palawan"
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "Palawan"
+          },
+          {
+            "id": "d",
+            "text": "river"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "teacher"
+          },
+          {
+            "id": "d",
+            "text": "school"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "Writing every common noun with a capital"
+          },
+          {
+            "id": "d",
+            "text": "Pasig River / river"
           }
         ],
         "correctOptionIds": [

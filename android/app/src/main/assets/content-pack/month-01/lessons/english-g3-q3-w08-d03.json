@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: silly, warm, and quiet. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo makes a silly face, wraps in a warm blanket, and enters a quiet room. Which sentence clues reveal the words?",
   "vocabulary": [
     {
       "term": "silly",
-      "definition": "funny and not serious"
+      "definition": "funny in a playful way and not serious"
     },
     {
       "term": "warm",
-      "definition": "a little hot, comfortable"
+      "definition": "comfortably a little hot, like a blanket on a cool night"
     },
     {
       "term": "quiet",
-      "definition": "making little or no noise"
+      "definition": "making very little or no sound"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Watch how clues in a sentence unlock a new word!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and name the clue before choosing the word."
       },
-      "prompt": "Watch how clues in a sentence unlock a new word!",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word’s meaning.",
+      "narration": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing.",
+      "guideHint": "Read the nearby action, object, or setting for a clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing."
     },
     {
       "activityId": "english-g3-q3-w08-d03-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Tap each sentence that shows a new word with clues!",
+      "instruction": "Tap each sentence that gives a clue for today’s words.",
       "content": {
         "examples": [
           "The clown made a silly face.",
           "The blanket is warm on cold nights.",
           "The mouse is quiet in the corner.",
-          "The helpful boy carried his Lola's bag."
+          "The silly puppy chased its tail."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the detail that points to the word."
       },
-      "prompt": "Tap each sentence that shows a new word with clues!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for the three new words.",
+      "narration": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning.",
+      "guideHint": "Check the action or setting around the new word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning."
     },
     {
       "activityId": "english-g3-q3-w08-d03-a03",
@@ -89,13 +89,13 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Sort the sentences with new words from the other sentences!",
+      "instruction": "Sort sentences that use today’s words from other sentences.",
       "content": {
         "fits": [
           "The clown made a silly face.",
           "The blanket is warm on cold nights.",
           "The mouse is quiet in the corner.",
-          "The helpful boy carried his Lola's bag."
+          "The silly puppy chased its tail."
         ],
         "doesNotFit": [
           "The brave dog saved the kitten from the rain.",
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for a target word and matching clue."
       },
-      "prompt": "Sort the sentences with new words from the other sentences!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it gives a clue for a target word.",
+      "narration": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea.",
+      "guideHint": "Look for one of the three target words and its supporting detail.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea."
     },
     {
       "activityId": "english-g3-q3-w08-d03-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Which sentence uses the word 'silly'?",
+      "instruction": "Tap the sentence that uses today’s target word.",
       "content": {
         "options": [
           "The clown made a silly face.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the sentence containing a target word."
       },
-      "prompt": "Which sentence uses the word 'silly'?",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence with a target word and useful clue.",
+      "narration": "The target word should fit the sentence’s action, object, or setting.",
+      "guideHint": "Read each sentence and look for today’s word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "The target word should fit the sentence’s action, object, or setting."
     },
     {
       "activityId": "english-g3-q3-w08-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Match each new word to its meaning!",
+      "instruction": "Match each word to the clue that reveals its meaning.",
       "content": {
         "pairs": [
           {
             "left": "silly",
-            "right": "funny and not serious"
+            "right": "funny action that is not serious"
           },
           {
             "left": "warm",
-            "right": "a little hot, comfortable"
+            "right": "blanket that feels comfortable on a cool night"
           },
           {
             "left": "quiet",
-            "right": "making little or no noise"
+            "right": "room where almost no sound is heard"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the scene for evidence of the word’s meaning."
       },
-      "prompt": "Match each new word to its meaning!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with a real-life clue.",
+      "narration": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear.",
+      "guideHint": "Read the word and imagine the matching scene.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear."
     },
     {
       "activityId": "english-g3-q3-w08-d03-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d03-visual",
-      "instruction": "Put the steps for finding word meaning in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
+          "Read the whole sentence",
           "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Notice the clue",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, connected, and explained the clue."
       },
-      "prompt": "Put the steps for finding word meaning in order!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers read the whole sentence, notice the clue, and explain the meaning.",
+      "guideHint": "Begin by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers read the whole sentence, notice the clue, and explain the meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q3-w08-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'silly' mean?",
+        "prompt": "A clown makes a funny face just for play. Which word describes the face?",
         "options": [
           {
             "id": "a",
-            "text": "funny and not serious"
+            "text": "silly"
           },
           {
             "id": "b",
-            "text": "a little hot, comfortable"
+            "text": "warm"
           },
           {
             "id": "c",
-            "text": "giving aid; useful"
+            "text": "helpful"
           },
           {
             "id": "d",
-            "text": "making little or no noise"
+            "text": "quiet"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Silly means funny and not serious, like a clown making a funny face."
+        "explanation": "A funny, playful action that is not serious is silly."
       },
       {
         "itemId": "english-g3-q3-w08-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'a little hot, comfortable'?",
+        "prompt": "Milo wraps in a blanket on a cool night. Which word describes the blanket?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Warm means a little hot and comfortable, like a blanket on a cold night."
+        "explanation": "A blanket that feels comfortably a little hot is warm."
       },
       {
         "itemId": "english-g3-q3-w08-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'quiet'?",
+        "prompt": "A mouse makes almost no sound in the corner. Which sentence shows that clue?",
         "options": [
           {
             "id": "a",
@@ -293,7 +293,7 @@
           },
           {
             "id": "c",
-            "text": "The helpful boy carried his Lola's bag."
+            "text": "The neighbor's boy carried a bag."
           },
           {
             "id": "d",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Quiet means making little or no noise, and a mouse in the corner is very quiet."
+        "explanation": "A mouse making little or no noise is quiet."
       },
       {
         "itemId": "english-g3-q3-w08-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'We laughed at the ___ dance.'",
+        "prompt": "Complete the sentence: 'We laughed at the ___ dance.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "We laugh at a silly dance because silly means funny and not serious."
+        "explanation": "A dance that makes people laugh because it is funny and playful is silly."
       },
       {
         "itemId": "english-g3-q3-w08-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'giving aid; useful'.",
+        "prompt": "A child carries a bag for someone who needs help. Which word means giving aid?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Helpful means giving aid, like carrying a bag for someone who needs help."
+        "explanation": "Helpful means giving aid; carrying the bag is the clue."
       }
     ]
   },

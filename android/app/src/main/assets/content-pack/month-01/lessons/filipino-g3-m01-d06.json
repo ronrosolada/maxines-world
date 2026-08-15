@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "fil-PH",
-  "introduction": "Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa.",
+  "introduction": "Sa paggawa ng gawain, mahalaga ang tamang ayos ng panuto. Basahin muna ang lahat ng hakbang bago kumilos.",
   "vocabulary": [
     {
       "term": "panuto",
@@ -21,11 +21,11 @@
     },
     {
       "term": "sundin",
-      "definition": "Ang pagsunod sa mga panuto o utos."
+      "definition": "Gawin ang mga hakbang ayon sa ibinigay na panuto."
     },
     {
       "term": "hakbang",
-      "definition": "Ang mga hakbang o sunod-sunod na bahagi ng isang gawain."
+      "definition": "Isang gawain sa sunod-sunod na proseso."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "filipino-g3-m01-d06-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "instruction": "Basahin o pakinggan ang paliwanag tungkol sa panuto.",
       "content": "Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-        "retry": "Balikan ang pahiwatig sa Sundin ang Panuto. 💪"
+        "retry": "Pansinin ang salitang nagsasabi ng unang hakbang. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "Alternatibong teksto: Basahin o pakinggan muna ang lahat ng hakbang, pansinin ang pagkakasunod, saka isagawa."
@@ -50,7 +50,7 @@
       "activityId": "filipino-g3-m01-d06-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "instruction": "Basahin ang mga halimbawa at pansinin ang ayos ng hakbang.",
       "content": {
         "examples": [
           "Una: kunin ang papel.",
@@ -64,8 +64,8 @@
         "targetCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🔎",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Nahanap mo ang mga hakbang sa panuto. 🔎",
+        "retry": "Pansinin ang mga salitang Una, Ikalawa, at Huli. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
@@ -74,12 +74,12 @@
       "activityId": "filipino-g3-m01-d06-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "Ilagay sa angkop na pangkat ang wastong hakbang.",
       "content": {
         "fits": [
-          "Una: kunin ang papel.",
-          "Ikalawa: gumuhit ng bilog.",
-          "Huli: kulayan ang bilog."
+          "Kunin ang papel",
+          "Gumuhit ng bilog",
+          "Kulayan ang bilog"
         ],
         "doesNotFit": [
           "Unahin ang huling hakbang",
@@ -93,8 +93,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Mga Salitang May Kahulugan. 🎉",
-        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+        "correct": "Mahusay! Naipangkat mo ang mga hakbang ayon sa panuto. 🎉",
+        "retry": "Suriin kung sumusunod ang gawain sa unang, kasunod, at huling hakbang. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Tama: Basahin o pakinggan ang buong panuto.",
-        "retry": "Basahin muli ang tuntunin ng aralin."
+        "retry": "Hanapin ang unang bilin bago isagawa ang kasunod na hakbang. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "filipino-g3-m01-d06-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "instruction": "Itambal ang salita o halimbawa sa tuntunin nito.",
       "content": {
         "pairs": [
           {
-            "left": "Una: kunin ang papel.",
-            "right": "unang hakbang"
+            "left": "Kunin ang papel.",
+            "right": "unang hakbang sa gawain"
           },
           {
-            "left": "Ikalawa: gumuhit ng bilog.",
-            "right": "ikalawang hakbang"
+            "left": "Gumuhit ng bilog.",
+            "right": "ikalawang hakbang sa gawain"
           },
           {
-            "left": "Huli: kulayan ang bilog.",
-            "right": "huling hakbang"
+            "left": "Kulayan ang bilog.",
+            "right": "huling hakbang sa gawain"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "pairCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Mga Salitang May Kahulugan. 🔗",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Itinugma mo ang kilos sa tamang posisyon sa panuto. 🔗",
+        "retry": "Hanapin ang posisyon ng kilos sa buong panuto. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
@@ -163,9 +163,9 @@
       "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
+          "Basahin o pakinggan ang buong panuto.",
+          "Hanapin ang una, kasunod, at huling hakbang.",
+          "Isagawa ang mga hakbang ayon sa tamang ayos."
         ]
       },
       "required": true,
@@ -174,8 +174,8 @@
         "stepCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Inayos mo ang mga hakbang sa Mga Salitang May Kahulugan. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsunod sa panuto. 🎉",
+        "retry": "Sundin ang daloy: basahin, ayusin, at isagawa. 💪"
       },
       "assetId": "filipino-g3-m01-d06-visual",
       "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
@@ -293,7 +293,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Bago simulan ang anumang gawain, alamin muna ang buong panuto: Basahin o pakinggan ang buong panuto.."
+        "explanation": "Bago gawin ang alinmang hakbang, kailangang malaman muna ang buong panuto upang masunod ang tamang ayos."
       },
       {
         "itemId": "filipino-g3-m01-d06-q05",

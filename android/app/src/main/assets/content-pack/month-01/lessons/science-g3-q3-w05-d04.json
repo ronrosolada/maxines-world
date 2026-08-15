@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🎸 Milo wants to show you how a guitar makes sound. Let's see how sound behaves — and how to keep our ears safe!",
+  "introduction": "Milo plucks a guitar string and hears a sound. How does the string make sound, and how can Maxine protect her ears?",
   "vocabulary": [
     {
+      "term": "vibration",
+      "definition": "A quick back-and-forth movement that can make sound."
+    },
+    {
       "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "definition": "A vibration that travels through air or another material to your ears."
     },
     {
-      "term": "light",
-      "definition": "what helps us see"
-    },
-    {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "term": "hearing safety",
+      "definition": "Ways to protect your ears from sounds that are too loud."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo show how a vibrating guitar string makes sound safely.",
       "content": "a vibrating guitar string makes sound. a flashlight helps us see. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check the clue: a vibrating object starts sound, and loud sound can hurt ears."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "a vibrating guitar string makes sound. a flashlight helps us see. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Explore each example. a vibrating guitar string makes sound. a flashlight helps us see.",
+      "instruction": "Tap each sound example and notice the safe hearing choice.",
       "content": {
         "examples": [
-          "a vibrating guitar string makes sound",
-          "a flashlight helps us see",
-          "move away from very loud speakers",
-          "never stare at the Sun"
+          "a plucked guitar string vibrates",
+          "a speaker cone vibrates as music plays",
+          "lower the volume to protect your ears",
+          "move away from a very loud speaker"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "Look for vibration first, then choose the action that protects hearing."
       },
       "prompt": "Explore each example. a vibrating guitar string makes sound. a flashlight helps us see.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows sound or safe hearing.",
       "content": {
         "fits": [
-          "a vibrating guitar string makes sound",
-          "a flashlight helps us see",
-          "move away from very loud speakers",
-          "never stare at the Sun"
+          "a guitar string vibrates after it is plucked",
+          "a speaker cone vibrates as music plays",
+          "a learner lowers the volume",
+          "a learner moves away from very loud sound"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "A still string makes sound",
+          "Sound travels through empty space",
+          "Put a speaker next to your ear",
+          "Play music at maximum volume all day"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card shows vibration, sound travel, or safer listening."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose what starts the sound from a plucked guitar string.",
       "content": {
         "options": [
           "a folded blanket",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "A plucked string shakes back and forth, so choose the word for that movement."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "instruction": "Match each sound example with its result or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "a vibrating guitar string makes sound",
-            "right": "makes sound"
+            "left": "guitar string",
+            "right": "vibrates to make sound"
           },
           {
-            "left": "a flashlight helps us see",
-            "right": "helps us see"
+            "left": "speaker cone",
+            "right": "vibrates and moves air"
           },
           {
-            "left": "move away from very loud speakers",
-            "right": "protects hearing"
+            "left": "lower volume",
+            "right": "reduces strain on ears"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each source to the vibration or hearing-safety result it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q3-w05-d04-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing vibration and protecting hearing.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: make a gentle sound, observe vibration, then set a safe volume."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q3-w05-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which makes sound?",
+        "prompt": "Maxine plucks a guitar string and sees it shake. What makes the sound?",
         "options": [
           {
             "id": "a",
-            "text": "a folded blanket"
+            "text": "A folded blanket"
           },
           {
             "id": "b",
-            "text": "a silent rock"
+            "text": "A silent rock"
           },
           {
             "id": "c",
-            "text": "a still chair"
+            "text": "A still chair"
           },
           {
             "id": "d",
-            "text": "a vibrating guitar string"
+            "text": "A vibrating guitar string"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The plucked string shakes back and forth, and that vibration makes sound. Blankets, chairs, and rocks make no sound on their own."
+        "explanation": "The plucked string moves back and forth. That vibration makes the sound; the other objects do not vibrate to make a sound in this scene."
       },
       {
         "itemId": "science-g3-q3-w05-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Milo stands near a very loud speaker. Which action protects his hearing?",
         "options": [
           {
             "id": "a",
-            "text": "fold a towel"
+            "text": "Fold a towel"
           },
           {
             "id": "b",
-            "text": "write in a notebook"
+            "text": "Write in a notebook"
           },
           {
             "id": "c",
-            "text": "move away from very loud speakers"
+            "text": "Move away from the speaker"
           },
           {
             "id": "d",
-            "text": "read a book quietly"
+            "text": "Turn the volume all the way up"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Loud sound can hurt your ears, so moving away from very loud speakers keeps your hearing safe."
+        "explanation": "Very loud sound can hurt ears, so moving away reduces the sound reaching them. The other actions do not make loud listening safer."
       },
       {
         "itemId": "science-g3-q3-w05-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Milo reads four claims about sound. Which one is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "draw a picture"
+            "text": "A plucked string vibrates"
           },
           {
             "id": "b",
-            "text": "name a color in the room"
+            "text": "A speaker cone vibrates"
           },
           {
             "id": "c",
-            "text": "never stare at the Sun"
+            "text": "Sound travels through perfect vacuum"
           },
           {
             "id": "d",
-            "text": "count the books on a shelf"
+            "text": "Sound can travel through air"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The Sun is very bright and can hurt your eyes, so never stare at it."
+        "explanation": "Sound needs matter, such as air, to carry its vibrations, so it cannot travel through a perfect vacuum. Strings and speakers vibrate, and air can carry sound."
       },
       {
         "itemId": "science-g3-q3-w05-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "A learner plucks a guitar string. What starts the sound?",
         "options": [
           {
             "id": "a",
-            "text": "a mirror reflects light"
+            "text": "Color"
           },
           {
             "id": "b",
-            "text": "a flashlight helps us see"
+            "text": "Shadow"
           },
           {
             "id": "c",
-            "text": "a vibrating guitar string makes sound"
+            "text": "Vibration"
           },
           {
             "id": "d",
-            "text": "a window lets light through"
+            "text": "Stillness"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The plucked string vibrates, and that vibration makes sound. Flashlights, mirrors, and windows are about light, not sound."
+        "explanation": "The string shakes back and forth quickly, and that vibration starts the sound. Color, shadow, and stillness do not make the string sound."
       },
       {
         "itemId": "science-g3-q3-w05-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Maxine listens to music through headphones. Which choice is safest?",
         "options": [
           {
             "id": "a",
-            "text": "a drum makes sound when struck"
+            "text": "Use maximum volume"
           },
           {
             "id": "b",
-            "text": "clapping hands makes sound"
+            "text": "Press the speaker against an ear"
           },
           {
             "id": "c",
-            "text": "a bell rings when shaken"
+            "text": "Listen for hours without a break"
           },
           {
             "id": "d",
-            "text": "a flashlight helps us see"
+            "text": "Lower the volume and take breaks"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A flashlight sends out light, which lets us see in the dark. Drums, claps, and bells make sound, not light."
+        "explanation": "Lower volume is gentler on ears and taking breaks helps protect hearing. Maximum volume and pressing speakers close can cause harm."
       }
     ]
   },

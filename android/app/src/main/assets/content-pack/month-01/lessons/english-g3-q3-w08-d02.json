@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: busy, cheerful, and deep. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo visits a busy market, hears a cheerful song, and looks into a deep well. Which clues reveal the words?",
   "vocabulary": [
     {
       "term": "busy",
-      "definition": "having many things to do"
+      "definition": "having many tasks or activities happening at once"
     },
     {
       "term": "cheerful",
-      "definition": "happy and full of joy"
+      "definition": "showing a happy mood through smiles or actions"
     },
     {
       "term": "deep",
-      "definition": "going far down"
+      "definition": "reaching far down below the surface"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Watch how clues in a sentence unlock a new word!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and name the clue before choosing the word."
       },
-      "prompt": "Watch how clues in a sentence unlock a new word!",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word’s meaning.",
+      "narration": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing.",
+      "guideHint": "Read the nearby action, object, or setting for a clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue gives evidence about bright, careful, honest, busy, cheerful, deep, silly, warm, or quiet. Read the whole sentence before choosing."
     },
     {
       "activityId": "english-g3-q3-w08-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Tap each sentence that shows a new word with clues!",
+      "instruction": "Tap each sentence that gives a clue for today’s words.",
       "content": {
         "examples": [
           "The market is busy on Sunday.",
           "The cheerful girl sings on her way to school.",
           "The well is very deep.",
-          "The pillow is soft and fluffy."
+          "The busy market has many shoppers."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the detail that points to the word."
       },
-      "prompt": "Tap each sentence that shows a new word with clues!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for the three new words.",
+      "narration": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning.",
+      "guideHint": "Check the action or setting around the new word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for a light detail, safe action, mood, size, sound, or playful action that reveals meaning."
     },
     {
       "activityId": "english-g3-q3-w08-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Sort the sentences with new words from the other sentences!",
+      "instruction": "Sort sentences that use today’s words from other sentences.",
       "content": {
         "fits": [
           "The market is busy on Sunday.",
           "The cheerful girl sings on her way to school.",
           "The well is very deep.",
-          "The pillow is soft and fluffy."
+          "The busy market has many shoppers."
         ],
         "doesNotFit": [
           "The clown made a silly face.",
           "The blanket is warm on cold nights.",
           "The mouse is quiet in the corner.",
-          "The helpful boy carried his Lola's bag."
+          "The helpful boy carried his neighbor’s bag."
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for a target word and matching clue."
       },
-      "prompt": "Sort the sentences with new words from the other sentences!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it gives a clue for a target word.",
+      "narration": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea.",
+      "guideHint": "Look for one of the three target words and its supporting detail.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A target sentence uses one of today’s words and gives a clue; another sentence may describe a different idea."
     },
     {
       "activityId": "english-g3-q3-w08-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Which sentence uses the word 'busy'?",
+      "instruction": "Tap the sentence that uses today’s target word.",
       "content": {
         "options": [
           "The blanket is warm on cold nights.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the sentence containing a target word."
       },
-      "prompt": "Which sentence uses the word 'busy'?",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence with a target word and useful clue.",
+      "narration": "The target word should fit the sentence’s action, object, or setting.",
+      "guideHint": "Read each sentence and look for today’s word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "The target word should fit the sentence’s action, object, or setting."
     },
     {
       "activityId": "english-g3-q3-w08-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Match each new word to its meaning!",
+      "instruction": "Match each word to the clue that reveals its meaning.",
       "content": {
         "pairs": [
           {
             "left": "busy",
-            "right": "having many things to do"
+            "right": "many tasks happening at once"
           },
           {
             "left": "cheerful",
-            "right": "happy and full of joy"
+            "right": "happy mood shown by singing"
           },
           {
             "left": "deep",
-            "right": "going far down"
+            "right": "well that reaches far below ground"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the scene for evidence of the word’s meaning."
       },
-      "prompt": "Match each new word to its meaning!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with a real-life clue.",
+      "narration": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear.",
+      "guideHint": "Read the word and imagine the matching scene.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A clue can be an action, object, setting, or feeling that makes the word’s meaning clear."
     },
     {
       "activityId": "english-g3-q3-w08-d02-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w08-d02-visual",
-      "instruction": "Put the steps for finding word meaning in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
+          "Read the whole sentence",
           "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Notice the clue",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, connected, and explained the clue."
       },
-      "prompt": "Put the steps for finding word meaning in order!",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers read the whole sentence, notice the clue, and explain the meaning.",
+      "guideHint": "Begin by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers read the whole sentence, notice the clue, and explain the meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q3-w08-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'busy' mean?",
+        "prompt": "The market has many shoppers and tasks happening at once. Which word describes it?",
         "options": [
           {
             "id": "a",
-            "text": "happy and full of joy"
+            "text": "cheerful"
           },
           {
             "id": "b",
-            "text": "not hard; gentle to touch"
+            "text": "soft"
           },
           {
             "id": "c",
-            "text": "going far down"
+            "text": "deep"
           },
           {
             "id": "d",
-            "text": "having many things to do"
+            "text": "busy"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Busy means having many things to do, like a market full of shoppers."
+        "explanation": "A place with many activities happening at once is busy."
       },
       {
         "itemId": "english-g3-q3-w08-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'happy and full of joy'?",
+        "prompt": "A child smiles and sings while walking to school. Which word describes her?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Cheerful means happy and full of joy, like someone who smiles and sings."
+        "explanation": "Smiling and singing show a cheerful, happy mood."
       },
       {
         "itemId": "english-g3-q3-w08-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'deep'?",
+        "prompt": "Milo looks into a well that reaches far below the ground. Which word describes it?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Deep means going far down, and a well goes far down into the ground."
+        "explanation": "A well that reaches far down is deep; its distance below the ground is the clue."
       },
       {
         "itemId": "english-g3-q3-w08-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'The ants are ___ carrying food.'",
+        "prompt": "Complete the sentence: 'The ants are ___ carrying food.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The ants have many things to do, so busy fits the sentence."
+        "explanation": "Ants carrying food and doing many tasks are busy."
       },
       {
         "itemId": "english-g3-q3-w08-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'not hard; gentle to touch'.",
+        "prompt": "Milo touches a fluffy pillow. Which word means not hard and gentle to touch?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Soft means not hard and gentle to touch, like a fluffy pillow."
+        "explanation": "Soft means not hard and gentle to touch, like the fluffy pillow."
       }
     ]
   },

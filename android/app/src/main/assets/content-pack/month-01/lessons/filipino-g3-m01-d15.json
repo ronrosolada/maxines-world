@@ -13,11 +13,11 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Palawakin ang Talasalitaan. Handa ka na bang matuto at maglaro?",
+  "introduction": "Basahin ang mga salitang nasa paligid at tingnan ang larawan upang mahinuha ang kahulugan. Ihambing ang kasingkahulugan at kasalungat.",
   "vocabulary": [
     {
       "term": "konteksto",
-      "definition": "Ang mga salitang kasama na tumutulong sa kahulugan."
+      "definition": "Mga salitang nakapaligid sa isang salita at nagbibigay ng pahiwatig sa kahulugan."
     },
     {
       "term": "kasingkahulugan",
@@ -33,7 +33,7 @@
       "activityId": "filipino-g3-m01-d15-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "instruction": "Basahin ang paliwanag tungkol sa kahulugan ng salita.",
       "content": "Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-        "retry": "Balikan ang pahiwatig sa Palawakin ang Talasalitaan. 💪"
+        "retry": "Basahin ang mga salitang nasa paligid bago pumili ng kahulugan. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "Alternatibong teksto: Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
@@ -50,7 +50,7 @@
       "activityId": "filipino-g3-m01-d15-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "instruction": "Tingnan ang pahiwatig sa bawat halimbawa.",
       "content": {
         "examples": [
           "masaya—maligaya",
@@ -64,8 +64,8 @@
         "targetCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Kahulugan sa Konteksto. 🔎",
-        "retry": "Suriing muli ang halimbawa ng Kahulugan sa Konteksto. 💪"
+        "correct": "Mahusay! Nahanap mo ang mga pahiwatig sa kahulugan. 🔎",
+        "retry": "Hanapin ang pahiwatig na nagpapakita ng katulad o kabaligtarang kahulugan. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
@@ -74,12 +74,12 @@
       "activityId": "filipino-g3-m01-d15-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "Ilagay sa angkop na pangkat ang magkakaugnay na kahulugan.",
       "content": {
         "fits": [
-          "masaya—maligaya",
-          "mabilis—matulin",
-          "mataas—mababa bilang kasalungat"
+          "masaya at maligaya",
+          "mabilis at matulin",
+          "mataas at mababa"
         ],
         "doesNotFit": [
           "Piliin ang kahulugan nang walang konteksto",
@@ -93,8 +93,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Kahulugan sa Konteksto. 🎉",
-        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+        "correct": "Mahusay! Naipangkat mo ang mga salitang magkakaugnay ang kahulugan. 🎉",
+        "retry": "Tingnan kung katulad o kabaligtaran ang kahulugan ng dalawang salita. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Tama: maligaya",
-        "retry": "Basahin muli ang tuntunin ng aralin. malungkot at mabagal ay hindi angkop."
+        "retry": "Ang kasingkahulugan ay katulad ang ibig sabihin; ang kasalungat ay kabaligtaran. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "filipino-g3-m01-d15-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "instruction": "Itambal ang halimbawa sa tuntunin o gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "masaya",
-            "right": "maligaya"
+            "right": "kasingkahulugan ng damdamin"
           },
           {
             "left": "mabilis",
-            "right": "matulin"
+            "right": "kasingkahulugan ng bilis"
           },
           {
             "left": "mataas",
-            "right": "mababa"
+            "right": "kasalungat sa mababa"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "pairCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Kahulugan sa Konteksto. 🔗",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kahulugan sa Konteksto. 💪"
+        "correct": "Mahusay! Itinugma mo ang salita sa ugnayan ng kahulugan. 🔗",
+        "retry": "Tukuyin kung katulad o kabaligtaran ang ugnayan. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
@@ -163,9 +163,9 @@
       "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
+          "Basahin ang pangungusap at larawan.",
+          "Hanapin ang pahiwatig sa paligid ng salita.",
+          "Piliin ang kasingkahulugan o kasalungat."
         ]
       },
       "required": true,
@@ -174,8 +174,8 @@
         "stepCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Inayos mo ang mga hakbang sa Kahulugan sa Konteksto. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kahulugan sa Konteksto. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa paghinuha ng kahulugan. 🎉",
+        "retry": "Sundin ang daloy: basahin, hanapin, at piliin. 💪"
       },
       "assetId": "filipino-g3-m01-d15-visual",
       "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
@@ -213,7 +213,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang matulin ay katulad ng mabilis."
+        "explanation": "Ang kasingkahulugan ay salitang katulad ang ibig sabihin; ang “matulin” ay katulad ng “mabilis.”"
       },
       {
         "itemId": "filipino-g3-m01-d15-q02",
@@ -241,7 +241,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang kasalungat ng maliit ay malaki."
+        "explanation": "Ang kasalungat ay salitang kabaligtaran ang ibig sabihin; ang “malaki” ay kabaligtaran ng “maliit.”"
       },
       {
         "itemId": "filipino-g3-m01-d15-q03",
@@ -293,7 +293,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Suriin ang pangungusap at mga pahiwatig bago pumili ng kahulugan."
+        "explanation": "Ang “maligaya” ay kasingkahulugan ng “masaya,” dahil pareho silang nagsasaad ng tuwa."
       },
       {
         "itemId": "filipino-g3-m01-d15-q05",

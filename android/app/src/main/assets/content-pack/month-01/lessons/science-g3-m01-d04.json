@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "A fish lives in water and a bird builds a nest in a tree. Where do animals call home?",
+  "introduction": "A fish swims in a pond, a bird finds food near a nest, and a frog rests in a damp place. Why do these habitats fit?",
   "vocabulary": [
     {
       "term": "water",
-      "definition": "The liquid all living things need."
+      "definition": "A place where living things find the resources they need."
     },
     {
       "term": "shelter",
-      "definition": "A safe place that protects living things."
+      "definition": "A safe place that protects a living thing from danger."
     },
     {
       "term": "animal",
-      "definition": "A living thing that can move and needs food."
+      "definition": "A living thing that grows, moves, and needs food."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d04-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows where animals live and why.",
+      "instruction": "Watch Milo match animals with habitats that meet their needs.",
       "content": "Habitats provide resources such as food, water, shelter, and space.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Animals Around Us again. 💪"
+        "retry": "Check the animal's needs for food, water, shelter, and space."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "Text alternative: Habitats provide resources such as food, water, shelter, and space."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d04-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each animal and find the resource its habitat provides.",
       "content": {
         "examples": [
-          "fish—water habitat",
-          "bird—nesting area and food",
-          "frog—moist habitat"
+          "a fish swims where water provides oxygen",
+          "a bird finds food near its nest",
+          "a frog rests where the ground stays damp"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Animals Around Us. 🔎",
-        "retry": "Look at each Animals Around Us example again. 💪"
+        "retry": "For each animal, name the resource its habitat supplies."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d04-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is the habitat match correct and kind?",
+      "instruction": "Sort each observation by whether the habitat match is suitable and kind.",
       "content": {
         "fits": [
-          "fish—water habitat",
-          "bird—nesting area and food",
-          "frog—moist habitat"
+          "a fish swims where water provides oxygen",
+          "a bird finds food near its nest",
+          "a frog rests where the ground stays damp"
         ],
         "doesNotFit": [
-          "Every animal fits one habitat only",
-          "Take wildlife home",
-          "Feed unknown wild animals"
+          "a child takes a wild bird home",
+          "a frog is placed on dry hot sand",
+          "a fish is kept away from water"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether the place provides the animal's needs without disturbing it."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d04-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Why does an animal need a habitat?",
+      "instruction": "Choose why a pond can suit a tadpole.",
       "content": {
         "options": [
           "It gives the animal a school grade.",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: It provides needed resources.",
-        "retry": "Look again — grades and pets are not resources. Tap the real reason animals need a home! 💪"
+        "retry": "A tadpole needs water and other resources, so check the choice that names them."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d04-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each animal to its habitat.",
+      "instruction": "Match each animal with a resource its habitat provides.",
       "content": {
         "pairs": [
           {
             "left": "fish",
-            "right": "water habitat"
+            "right": "water with oxygen for breathing"
           },
           {
             "left": "bird",
-            "right": "nesting area"
+            "right": "nesting space and nearby food"
           },
           {
             "left": "frog",
-            "right": "moist habitat"
+            "right": "moist ground and shelter"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Animals Around Us explanation. 🔗",
-        "retry": "Read both sides of each Animals Around Us pair again. 💪"
+        "retry": "Match each animal to a resource it can actually find in that habitat."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d04-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: meet the animal, think about needs, match the habitat.",
+      "instruction": "Order the steps for matching an animal with a suitable habitat.",
       "content": {
         "steps": [
           "Meet the animal.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Animals Around Us steps in order. 🎉",
-        "retry": "Find the first, next, and last Animals Around Us steps. 💪"
+        "retry": "Check the order: identify the animal, list its needs, then match its habitat."
       },
       "assetId": "science-g3-m01-d04-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about habitats is true?",
+        "prompt": "Milo sees a fish in a pond, a bird near a nest, and a frog on damp ground. Which statement is true?",
         "options": [
           {
             "id": "a",
@@ -204,42 +204,50 @@
           {
             "id": "c",
             "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "d",
+            "text": "A habitat is only a sleeping place"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A habitat gives animals food, water, shelter, and space. Many animals use Animals Around Us habitat, and wild animals should stay in the wild."
+        "explanation": "A habitat gives an animal resources such as food, water, shelter, and space. Different animals need different places, and a habitat is more than a sleeping spot."
       },
       {
         "itemId": "science-g3-m01-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a suitable habitat?",
+        "prompt": "Maxine helps an adult observe a tadpole. Which habitat is suitable for it?",
         "options": [
           {
             "id": "a",
-            "text": "fish—desert habitat"
+            "text": "Fish—desert habitat"
           },
           {
             "id": "b",
-            "text": "fish—water habitat"
+            "text": "Fish—water habitat"
           },
           {
             "id": "c",
-            "text": "fish—tree habitat"
+            "text": "Fish—tree habitat"
+          },
+          {
+            "id": "d",
+            "text": "Tadpole—dry sand"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Fish need water to live, so a water habitat suits them. Trees and deserts cannot give fish what they need."
+        "explanation": "Tadpoles and fish need water, so a water habitat can meet their needs. A tree, desert, or dry sand cannot provide the needed water."
       },
       {
         "itemId": "science-g3-m01-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is not true?",
+        "prompt": "Milo has four habitat cards. Which statement is NOT true?",
         "options": [
           {
             "id": "a",
@@ -247,65 +255,77 @@
           },
           {
             "id": "b",
-            "text": "fish—water habitat"
+            "text": "Fish can live in water"
           },
           {
             "id": "c",
-            "text": "bird—nesting area and food"
+            "text": "Birds can find nesting places in trees"
+          },
+          {
+            "id": "d",
+            "text": "Frogs need a moist place"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Many animals use different habitats for different needs, so no animal fits only one habitat. Birds do nest, and fish do live in water."
+        "explanation": "One habitat does not suit every animal because animals have different needs. Water can suit fish, trees can offer birds nesting space, and damp places suit frogs."
       },
       {
         "itemId": "science-g3-m01-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Why does an animal need a habitat?",
+        "prompt": "Maxine sees a tadpole swimming in a pond. Why might the pond suit it?",
         "options": [
           {
             "id": "a",
-            "text": "It provides needed resources."
+            "text": "It provides water and resources it needs."
           },
           {
             "id": "b",
-            "text": "It changes every animal into a pet."
+            "text": "All animals must live there."
           },
           {
             "id": "c",
-            "text": "It gives the animal a school grade."
+            "text": "It is made of paper."
+          },
+          {
+            "id": "d",
+            "text": "It gives the tadpole a school grade."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A habitat gives an animal the food, water, shelter, and space it needs to live. It does not give grades or turn animals into pets."
+        "explanation": "A pond provides water and other resources a tadpole needs while it grows. It is not made of paper, and not every animal can live there."
       },
       {
         "itemId": "science-g3-m01-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which habitat suits the frog?",
+        "prompt": "An earthworm is found under damp soil. Which environment suits it best?",
         "options": [
           {
             "id": "a",
-            "text": "frog—moist habitat"
+            "text": "An icebox"
           },
           {
             "id": "b",
-            "text": "frog—deep ocean floor"
+            "text": "The dry ocean surface"
           },
           {
             "id": "c",
-            "text": "frog—hot desert sand"
+            "text": "Damp soil"
+          },
+          {
+            "id": "d",
+            "text": "Hot desert sand"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Frogs need a moist place, so a moist habitat suits them. Hot desert sand and the deep ocean floor are too dry or too far."
+        "explanation": "Earthworms need moist soil for air, food, and shelter. An icebox, dry ocean surface, or hot sand does not provide the right conditions."
       }
     ]
   },

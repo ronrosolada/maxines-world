@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🌿 Milo wants to check: is a mango tree living? Is a dog living? Let's find out what living things need!",
+  "introduction": "Milo sees a mango tree and a dog. What evidence shows that each one is living?",
   "vocabulary": [
     {
       "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
+      "definition": "A thing that grows, uses energy, and responds to its surroundings."
     },
     {
       "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
+      "definition": "A thing that does not grow, use energy, or carry out life processes."
     },
     {
       "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
+      "definition": "Something a living thing must have, such as water, food, or light."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+      "instruction": "Watch Milo use growth and needs as clues for living things.",
       "content": "a mango tree is a living thing: it grows and needs food and water. a rock is non-living, so it does not grow.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Life Around Us again. 💪"
+        "retry": "Check for growth, energy use, response, and needs—not just movement."
       },
       "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
       "narration": "a mango tree is a living thing: it grows and needs food and water. a rock is non-living, so it does not grow.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Explore each example. a mango tree and a dog are living, but a rock is not.",
+      "instruction": "Tap each example and look for evidence of life.",
       "content": {
         "examples": [
-          "a mango tree — living",
-          "a dog — living",
-          "roots help a plant take in water",
-          "a rock — non-living"
+          "a mango tree grows new leaves",
+          "a dog eats, drinks, and responds",
+          "plant roots take in water",
+          "a rock stays nonliving"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Life Around Us example again. 💪"
+        "retry": "For each card, name the life clue you can observe."
       },
       "prompt": "Explore each example. a mango tree and a dog are living, but a rock is not.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Sort the examples: a mango tree and a dog are living things.",
+      "instruction": "Sort each observation by whether it shows a living thing or its needs.",
       "content": {
         "fits": [
-          "a mango tree — living",
-          "a dog — living",
-          "roots help a plant take in water"
+          "a mango tree grows new leaves",
+          "a dog eats, drinks, and responds",
+          "plant roots take in water"
         ],
         "doesNotFit": [
-          "a rock — non-living",
-          "water",
-          "a pencil",
-          "a spoon"
+          "a rock stays still",
+          "water fills a cup",
+          "a pencil lies on a desk",
+          "a spoon reflects light"
         ]
       },
       "completionRule": {
@@ -109,7 +109,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Life Around Us rule before sorting again. 💪"
+        "retry": "Look for growth, response, or a need of a living thing."
       },
       "prompt": "Sort the examples: a mango tree and a dog are living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -124,7 +124,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Tap the living thing!",
+      "instruction": "Choose the example that shows a living thing.",
       "content": {
         "options": [
           "a spoon",
@@ -139,7 +139,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Life Around Us question. 💪"
+        "retry": "A living thing grows and has needs, so compare each choice with those clues."
       },
       "prompt": "Choose the example of living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -154,20 +154,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Match each card to living or non-living.",
+      "instruction": "Match each example with evidence about life.",
       "content": {
         "pairs": [
           {
             "left": "a mango tree",
-            "right": "living thing"
+            "right": "grows new leaves and needs water"
           },
           {
             "left": "a rock",
-            "right": "non-living thing"
+            "right": "does not grow or need food"
           },
           {
-            "left": "roots help a plant take in water",
-            "right": "a fact about living things"
+            "left": "plant roots",
+            "right": "take in water for the plant"
           }
         ]
       },
@@ -176,7 +176,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Life Around Us pair again. 💪"
+        "retry": "Match the example with the evidence that shows life or a life need."
       },
       "prompt": "Match a mango tree, a dog, and a rock with their groups.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -191,7 +191,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d01-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "instruction": "Order the steps for deciding whether an example is living.",
       "content": {
         "steps": [
           "Observe the example: a mango tree",
@@ -205,7 +205,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Life Around Us steps. 💪"
+        "retry": "Check the order: observe, ask about growth, check needs, then decide."
       },
       "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -224,141 +224,141 @@
         "itemId": "science-g3-q1-w01-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
+        "prompt": "Milo sees a mango tree growing beside a dog. Which example is a living thing?",
         "options": [
           {
             "id": "a",
-            "text": "a spoon"
+            "text": "A spoon"
           },
           {
             "id": "b",
-            "text": "water"
+            "text": "Water in a cup"
           },
           {
             "id": "c",
-            "text": "a pencil"
+            "text": "A pencil"
           },
           {
             "id": "d",
-            "text": "a mango tree"
+            "text": "A mango tree"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A mango tree grows, needs food and water, and makes more mango trees, so it is living. A spoon, water, and a pencil do not grow."
+        "explanation": "A mango tree grows and uses water and light, so it is living. A spoon, water in a cup, and a pencil do not grow."
       },
       {
         "itemId": "science-g3-q1-w01-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
+        "prompt": "Maxine sorts a dog, bird, mango tree, and rock. Which one is NOT living?",
         "options": [
           {
             "id": "a",
-            "text": "a dog"
+            "text": "A dog"
           },
           {
             "id": "b",
-            "text": "a mango tree"
+            "text": "A mango tree"
           },
           {
             "id": "c",
-            "text": "a bird"
+            "text": "A bird"
           },
           {
             "id": "d",
-            "text": "a rock"
+            "text": "A rock"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A rock does not grow and does not need food or water, so it is not living. The dog, the bird, and the mango tree are living."
+        "explanation": "A rock does not grow or need food and water, so it is non-living. The dog, bird, and mango tree are living things."
       },
       {
         "itemId": "science-g3-q1-w01-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
+        "prompt": "A class list asks what living things need to grow. Which choice belongs on the list?",
         "options": [
           {
             "id": "a",
-            "text": "a quiet shelf"
+            "text": "A quiet shelf"
           },
           {
             "id": "b",
-            "text": "a battery"
+            "text": "A battery"
           },
           {
             "id": "c",
-            "text": "food and water"
+            "text": "Food and water"
           },
           {
             "id": "d",
-            "text": "a plastic cover"
+            "text": "A plastic cover"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Living things need food and water to grow and stay alive. Batteries, plastic covers, and shelves are not food or water."
+        "explanation": "Living things need resources such as food and water to grow and stay alive. A shelf, battery, or plastic cover cannot provide those life needs."
       },
       {
         "itemId": "science-g3-q1-w01-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What body part helps a plant take in water?",
+        "prompt": "Milo examines a plant whose roots reach into the soil. What body part helps it take in water?",
         "options": [
           {
             "id": "a",
-            "text": "fur"
+            "text": "Fur"
           },
           {
             "id": "b",
-            "text": "wings"
+            "text": "Wings"
           },
           {
             "id": "c",
-            "text": "roots"
+            "text": "Roots"
           },
           {
             "id": "d",
-            "text": "wheels"
+            "text": "Wheels"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Roots grow into the soil and soak up water for the plant. Wings, fur, and wheels cannot take in water."
+        "explanation": "Roots grow through soil and absorb water for the plant. Fur, wings, and wheels cannot perform that plant job."
       },
       {
         "itemId": "science-g3-q1-w01-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
+        "prompt": "Maxine watches a dog eat, drink, and respond to her voice. Which example is living?",
         "options": [
           {
             "id": "a",
-            "text": "a rock"
+            "text": "A rock"
           },
           {
             "id": "b",
-            "text": "a spoon"
+            "text": "A spoon"
           },
           {
             "id": "c",
-            "text": "a dog"
+            "text": "A dog"
           },
           {
             "id": "d",
-            "text": "a pencil"
+            "text": "A pencil"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A dog grows, eats, drinks, and responds, so it is living. Spoons, rocks, and pencils do not do these things."
+        "explanation": "A dog grows, eats, drinks, and responds, which are evidence of life. Rocks, spoons, and pencils do not carry out those life processes."
       }
     ]
   },

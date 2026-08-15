@@ -25,7 +25,7 @@
     },
     {
       "term": "sound",
-      "definition": "A sound is something you hear, like each beat you clap in a word."
+      "definition": "What you hear when a word is spoken, such as its beats."
     }
   ],
   "activities": [
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Clap the Syllables again. 💪"
+        "retry": "Say the word aloud and clap once for each spoken beat. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "Text alternative: A syllable is a spoken beat with a vowel sound. Clapping helps hear beats but does not by itself determine spelling."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Clap the Syllables. 🔎",
-        "retry": "Look at each Clap the Syllables example again. 💪"
+        "retry": "Say each word slowly, then count the claps you hear. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Clap the Syllables clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort by spoken beats, not by the number of letters or vowel symbols. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: three",
-        "retry": "Say ba-na-na slowly and clap! How many claps did you make? 💪"
+        "retry": "Say ba-na-na slowly and count the three claps: ba, na, na. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d10-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each word to the number of beats you hear!",
+      "instruction": "Match each word with the number of beats you hear.",
       "content": {
         "pairs": [
           {
-            "left": "ta-ble has two beats",
-            "right": "table"
+            "left": "table",
+            "right": "two spoken beats"
           },
           {
-            "left": "win-dow has two beats",
-            "right": "window"
+            "left": "window",
+            "right": "two spoken beats"
           },
           {
-            "left": "ba-na-na has three beats",
-            "right": "banana"
+            "left": "banana",
+            "right": "three spoken beats"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Clap the Syllables explanation. 🔗",
-        "retry": "Read both sides of each Clap the Syllables pair again. 💪"
+        "retry": "Match each word with the number of spoken beats it has. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Clap the Syllables steps in order. 🎉",
-        "retry": "Find the first, next, and last Clap the Syllables steps. 💪"
+        "retry": "Order the routine: say the word, clap each beat, then count the claps. 💪"
       },
       "assetId": "english-g3-m01-d10-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "two"
+          },
+          {
+            "id": "d",
+            "text": "three"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "ta-ble has two beats"
+          },
+          {
+            "id": "d",
+            "text": "ta-ble has three beats"
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "Counting letters instead of beats"
+          },
+          {
+            "id": "d",
+            "text": "Saying win-dow and clapping two times"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "five"
+          },
+          {
+            "id": "d",
+            "text": "four"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "Using spelling alone"
+          },
+          {
+            "id": "d",
+            "text": "Counting syllables by alphabet letters"
           }
         ],
         "correctOptionIds": [

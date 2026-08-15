@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is practicing his reading voice! 🐱✨ Let the punctuation tell you when to ask, tell, or exclaim.",
+  "introduction": "Milo practices reading a question, a calm statement, and an excited warning aloud. Can your voice follow each end mark?",
   "vocabulary": [
     {
       "term": "Are you ready?",
-      "definition": "A question sentence that ends with a question mark."
+      "definition": "a sentence that asks for information and ends with a question mark"
     },
     {
       "term": "I am ready.",
-      "definition": "A telling sentence that gives information and ends with a period."
+      "definition": "a sentence that gives information and ends with a period"
     },
     {
       "term": "What a surprise!",
-      "definition": "An exclamation sentence that ends with an exclamation mark."
+      "definition": "a sentence that shows strong feeling and ends with an exclamation mark"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Watch how your voice changes for questions, telling, and exclaiming!",
+      "instruction": "Read each sentence and let the end mark guide your voice.",
       "content": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the clue in Voice Clues again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Match the sentence purpose with its end mark."
       },
-      "prompt": "Watch how your voice changes for questions, telling, and exclaiming!",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how end marks shape a sentence’s voice.",
+      "narration": "A question mark asks, a period tells, and an exclamation mark shows strong feeling.",
+      "guideHint": "Look at the final mark before choosing a voice.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "A question mark asks, a period tells, and an exclamation mark shows strong feeling."
     },
     {
       "activityId": "english-g3-q3-w10-d02-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Tap each sentence that sounds like its end mark!",
+      "instruction": "Tap each sentence whose meaning fits its end mark.",
       "content": {
         "examples": [
           "Are you ready?",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Look at each Voice Clues example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence purpose and its final mark."
       },
-      "prompt": "Tap each sentence that sounds like its end mark!",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentences that sound right when read aloud.",
+      "narration": "Read for purpose: ask, tell, or show strong feeling, then check the mark.",
+      "guideHint": "Ask what the speaker means and inspect the final mark.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "Read for purpose: ask, tell, or show strong feeling, then check the mark."
     },
     {
       "activityId": "english-g3-q3-w10-d02-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Sort the well-read sentences from the mixed-up marks!",
+      "instruction": "Sort sentences with matching marks from mismatched ones.",
       "content": {
         "fits": [
           "Are you ready?",
@@ -98,10 +98,10 @@
           "Please listen."
         ],
         "doesNotFit": [
-          "a question with a period",
-          "a telling sentence with a question mark",
-          "an exclamation with no punctuation",
-          "a pause in the wrong place"
+          "Are you ready.",
+          "I am ready?",
+          "What a surprise.",
+          "Please listen!"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Read the Voice Clues rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the meaning and the final mark before sorting."
       },
-      "prompt": "Sort the well-read sentences from the mixed-up marks!",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether its end mark fits its meaning.",
+      "narration": "Questions need ?, telling sentences need ., and strong feelings often need !.",
+      "guideHint": "Read the sentence aloud and compare its purpose with the mark.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "Questions need ?, telling sentences need ., and strong feelings often need !."
     },
     {
       "activityId": "english-g3-q3-w10-d02-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Which sentence uses voice or punctuation to show its meaning?",
+      "instruction": "Tap the sentence that shows its meaning with punctuation.",
       "content": {
         "options": [
           "Are you ready?",
-          "I am ready",
-          "what time is it",
-          "look out"
+          "I am ready.",
+          "What time is it?",
+          "Look out!"
         ],
         "correctIndex": 0
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the clue in the Voice Clues question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the sentence that asks and ends with a question mark."
       },
-      "prompt": "Which sentence uses voice or punctuation to show its meaning?",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that asks for information.",
+      "narration": "A question asks something and ends with a question mark.",
+      "guideHint": "Look for words that ask and a final ?.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "A question asks something and ends with a question mark."
     },
     {
       "activityId": "english-g3-q3-w10-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Match each sentence to the kind of sentence it is!",
+      "instruction": "Match each sentence to the purpose its mark signals.",
       "content": {
         "pairs": [
           {
             "left": "Are you ready?",
-            "right": "question sentence"
+            "right": "asks for information"
           },
           {
             "left": "I am ready.",
-            "right": "telling sentence"
+            "right": "gives information calmly"
           },
           {
             "left": "What a surprise!",
-            "right": "exclamation sentence"
+            "right": "shows strong feeling"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Read both sides of each Voice Clues pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence purpose and its end mark."
       },
-      "prompt": "Match each sentence to the kind of sentence it is!",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each sentence with its voice clue.",
+      "narration": "The end mark signals whether the speaker asks, tells, or shows strong feeling.",
+      "guideHint": "Read the sentence and look at its last mark.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "The end mark signals whether the speaker asks, tells, or shows strong feeling."
     },
     {
       "activityId": "english-g3-q3-w10-d02-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w10-d02-visual",
-      "instruction": "Put the steps for reading with the right voice in order!",
+      "instruction": "Put the voice-reading checks in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read the whole sentence",
+          "Notice the end mark",
+          "Decide: ask, tell, or exclaim",
+          "Use a matching voice"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Voice Clues steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found the mark, named the purpose, and chose a voice."
       },
-      "prompt": "Put the steps for reading with the right voice in order!",
-      "narration": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for reading a sentence with feeling.",
+      "narration": "Readers identify the purpose and end mark before choosing a voice.",
+      "guideHint": "Begin by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims."
+      "accessibilityAlternative": "Readers identify the purpose and end mark before choosing a voice."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q3-w10-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses punctuation to show its meaning?",
+        "prompt": "Milo asks a friend whether she is ready. Which sentence should he read as a question?",
         "options": [
           {
             "id": "a",
-            "text": "look out"
-          },
-          {
-            "id": "b",
-            "text": "what time is it"
-          },
-          {
-            "id": "c",
             "text": "Are you ready?"
           },
           {
+            "id": "b",
+            "text": "I am ready."
+          },
+          {
+            "id": "c",
+            "text": "What time is it?"
+          },
+          {
             "id": "d",
-            "text": "I am ready"
+            "text": "Look out!"
           }
         ],
         "correctOptionIds": [
-          "c"
+          "a"
         ],
-        "explanation": "'Are you ready?' ends with a question mark, so the punctuation shows it is a question."
+        "explanation": "Are you ready? asks for information and ends with a question mark."
       },
       {
         "itemId": "english-g3-q3-w10-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence is a telling sentence?",
+        "prompt": "Milo tells the class that he is ready. Which sentence uses a calm telling voice?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A telling sentence gives information and ends with a period, like 'I am ready.'"
+        "explanation": "I am ready. gives information and ends with a period, so it uses a calm voice."
       },
       {
         "itemId": "english-g3-q3-w10-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence is an exclamation?",
+        "prompt": "Milo sees a surprise gift and feels excited. Which sentence matches?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "An exclamation shows strong feeling and ends with an exclamation mark, like 'What a surprise!'"
+        "explanation": "What a surprise! shows strong feeling and ends with an exclamation mark."
       },
       {
         "itemId": "english-g3-q3-w10-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence is clear and easy to read aloud?",
+        "prompt": "Milo wants his partner to listen calmly. Which sentence is clear to read aloud?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "'Please listen.' starts with a capital letter and ends with a period, so it is clear to read aloud."
+        "explanation": "Please listen. starts with a capital and ends with a period, fitting a calm direction."
       },
       {
         "itemId": "english-g3-q3-w10-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence asks a question?",
+        "prompt": "Milo asks about the time. Which sentence is a question?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'Are you ready?' asks a question, and the question mark shows it."
+        "explanation": "Are you ready? asks for information, and the question mark signals the voice."
       }
     ]
   },

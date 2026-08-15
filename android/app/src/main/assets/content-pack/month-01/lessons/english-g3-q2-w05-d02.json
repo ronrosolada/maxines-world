@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is reading a story aloud! Read the words clearly, pause at the punctuation, and let your voice show the meaning.",
+  "introduction": "Milo reads a short story aloud to Maxine. Can you help him say every word clearly, group phrases, and pause where the marks tell him?",
   "vocabulary": [
     {
       "term": "pause at punctuation",
-      "definition": "Stop briefly at a punctuation mark when reading aloud."
+      "definition": "stop briefly when a comma or end mark tells you to pause"
     },
     {
       "term": "read each word accurately",
-      "definition": "Say each word correctly while reading."
+      "definition": "say every word correctly instead of guessing or skipping"
     },
     {
       "term": "group words into phrases",
-      "definition": "Read words together in meaningful groups."
+      "definition": "read related words together as one meaningful chunk"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Listen to how good readers read sentences smoothly!",
+      "instruction": "Listen for clear words, a steady pace, and meaningful expression.",
       "content": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Find the clue in Smooth Reading again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the reading is accurate, steady, and guided by punctuation."
       },
-      "prompt": "Listen to how good readers read sentences smoothly!",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn three habits that make oral reading smooth.",
+      "narration": "Smooth reading combines accurate words, meaningful phrases, a steady pace, and pauses at punctuation.",
+      "guideHint": "Notice the words, phrase groups, pace, and punctuation stops.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Smooth reading combines accurate words, meaningful phrases, a steady pace, and pauses at punctuation."
     },
     {
       "activityId": "english-g3-q2-w05-d02-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Tap the reading moves that make sentences smooth!",
+      "instruction": "Tap the reading moves that make sentences smooth.",
       "content": {
         "examples": [
           "pause at punctuation",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Look at each Smooth Reading example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the move supports clear, meaningful reading."
       },
-      "prompt": "Tap the reading moves that make sentences smooth!",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find habits that help a reader sound clear.",
+      "narration": "Good readers say words accurately, group related words, pause at marks, and match their voice to meaning.",
+      "guideHint": "Look for a habit that helps listeners follow the message.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Good readers say words accurately, group related words, pause at marks, and match their voice to meaning."
     },
     {
       "activityId": "english-g3-q2-w05-d02-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Sort the reading moves from the unfinished sentences!",
+      "instruction": "Sort smooth-reading moves from habits that make reading harder.",
       "content": {
         "fits": [
           "pause at punctuation",
@@ -98,10 +98,10 @@
           "change your voice for a question"
         ],
         "doesNotFit": [
-          "milo reads.",
-          "where is the book",
-          "look out",
-          "we are ready"
+          "skip words you do not know",
+          "race through every line",
+          "read without looking at punctuation",
+          "stop after every single letter"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Read the Smooth Reading rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Choose the clue about accuracy, phrasing, pace, or punctuation."
       },
-      "prompt": "Sort the reading moves from the unfinished sentences!",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each card by whether it supports fluent reading.",
+      "narration": "Fluent reading uses accurate words, meaningful groups, and punctuation pauses; skipping or racing makes meaning harder to hear.",
+      "guideHint": "Ask whether the habit helps listeners understand every phrase.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Fluent reading uses accurate words, meaningful groups, and punctuation pauses; skipping or racing makes meaning harder to hear."
     },
     {
       "activityId": "english-g3-q2-w05-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Which choice uses a capital letter and the correct end mark?",
+      "instruction": "Tap the reading that uses a capital and end mark correctly.",
       "content": {
         "options": [
           "milo reads.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Find the clue in the Smooth Reading question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the capital letter and end mark before reading."
       },
-      "prompt": "Which choice uses a capital letter and the correct end mark?",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence Milo can read smoothly as written.",
+      "narration": "Accurate reading starts with seeing the words and punctuation correctly.",
+      "guideHint": "Look at the first letter and final mark.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Accurate reading starts with seeing the words and punctuation correctly."
     },
     {
       "activityId": "english-g3-q2-w05-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Match each reading move to what it does!",
+      "instruction": "Match each reading move to the help it gives.",
       "content": {
         "pairs": [
           {
             "left": "pause at punctuation",
-            "right": "stop briefly at a period or comma"
+            "right": "helps listeners hear phrase boundaries"
           },
           {
             "left": "read each word accurately",
-            "right": "say every word correctly"
+            "right": "keeps the message from changing"
           },
           {
             "left": "group words into phrases",
-            "right": "read words together in groups"
+            "right": "helps reading sound natural"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Read both sides of each Smooth Reading pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the habit’s benefit for clear reading."
       },
-      "prompt": "Match each reading move to what it does!",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each reading habit with its benefit for listeners.",
+      "narration": "Each habit supports a different part of fluency: accuracy, phrasing, or meaningful pauses.",
+      "guideHint": "Read the left side and ask what problem the habit prevents.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Each habit supports a different part of fluency: accuracy, phrasing, or meaningful pauses."
     },
     {
       "activityId": "english-g3-q2-w05-d02-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d02-visual",
-      "instruction": "Put the smooth-reading steps in order.",
+      "instruction": "Put the smooth-reading checks in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read the whole sentence",
+          "Say each word accurately",
+          "Group words into phrases",
+          "Use punctuation and expression"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Nice reading! You read it smoothly with the right stops and sounds! 📖",
-        "retry": "Find the first, next, and last Smooth Reading steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, said, grouped, and expressed the sentence."
       },
-      "prompt": "Put the smooth-reading steps in order.",
-      "narration": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for reading a sentence smoothly.",
+      "narration": "Readers first see the words, then say them accurately, group phrases, and use punctuation.",
+      "guideHint": "Begin by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Good fluency combines accurate words, a steady pace, and expression that matches the meaning."
+      "accessibilityAlternative": "Readers first see the words, then say them accurately, group phrases, and use punctuation."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q2-w05-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "When you read a sentence aloud smoothly, what should you do?",
+        "prompt": "Milo reads a story aloud to his class. What should he do for smooth, meaningful reading?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Smooth, meaningful reading uses a steady pace so every word is read accurately and clearly."
+        "explanation": "A steady pace lets Milo say every word accurately and use expression that matches the meaning."
       },
       {
         "itemId": "english-g3-q2-w05-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which reader reads with meaning?",
+        "prompt": "Ana reads a sentence with a period. Which action shows she is reading with meaning?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Reading with meaning means using expression and pausing at end marks, just like talking."
+        "explanation": "Pausing at the period and using expression help listeners hear the sentence’s meaning."
       },
       {
         "itemId": "english-g3-q2-w05-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "How should you read this sentence aloud: 'Look out!'?",
+        "prompt": "Milo sees the exclamation point in “Look out!” How should he read it?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "An exclamation point shows strong feeling, so read it with an excited voice."
+        "explanation": "An exclamation point shows strong feeling, so an excited voice matches the clue."
       },
       {
         "itemId": "english-g3-q2-w05-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "How should you read a question aloud?",
+        "prompt": "Ana reads a question aloud. What should her voice do?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Questions end with a question mark — your voice rises at the end, just like asking in real life."
+        "explanation": "A question mark signals a question, so the voice rises at the end."
       },
       {
         "itemId": "english-g3-q2-w05-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which reading sounds accurate and smooth?",
+        "prompt": "Which reading choice would sound accurate and smooth to Milo’s listener?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Accurate, smooth reading reads every word correctly at an even pace without guessing."
+        "explanation": "Reading every word correctly at an even pace supports accurate, smooth fluency."
       }
     ]
   },

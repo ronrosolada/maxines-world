@@ -13,11 +13,11 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Why did the leaves move? Because the wind blew! Find the cause and the effect in each sentence.",
+  "introduction": "Why did the leaves move? Find the wind as the cause and the moving leaves as the effect.",
   "vocabulary": [
     {
       "term": "cause",
-      "definition": "Why something happens."
+      "definition": "The reason an event happens, such as rain making a path wet."
     },
     {
       "term": "effect",
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Cause-and-Effect Garden again. 💪"
+        "retry": "Find what happened first and what happened because of it. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "Text alternative: A cause helps make something happen; an effect is what happens. Sequence alone does not prove causation."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Cause-and-Effect Garden. 🔎",
-        "retry": "Look at each Cause-and-Effect Garden example again. 💪"
+        "retry": "Look for the cause-and-effect link signaled by because or so. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Cause-and-Effect Garden clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort linked causes and effects away from sentences with no clear connection. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: The leaves moved.",
-        "retry": "The leaves moved is the effect; the wind blew is the cause."
+        "retry": "The leaves moved happened after the wind blew, so it is the effect. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d17-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each effect to its cause.",
+      "instruction": "Match each effect with the cause that made it happen.",
       "content": {
         "pairs": [
           {
-            "left": "It rained, so the path became wet.",
-            "right": "effect: wet path"
+            "left": "wet path",
+            "right": "rain caused it"
           },
           {
-            "left": "The plant wilted because it lacked water.",
-            "right": "effect: wilted plant"
+            "left": "wilted plant",
+            "right": "lack of water caused it"
           },
           {
-            "left": "The bell rang, so learners lined up.",
-            "right": "effect: lined up"
+            "left": "learners lined up",
+            "right": "bell ringing caused it"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Cause-and-Effect Garden explanation. 🔗",
-        "retry": "Read both sides of each Cause-and-Effect Garden pair again. 💪"
+        "retry": "Match each effect with the cause that made it happen. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Cause-and-Effect Garden steps in order. 🎉",
-        "retry": "Find the first, next, and last Cause-and-Effect Garden steps. 💪"
+        "retry": "Order the reasoning: find the cause, find the effect, then connect them with because or so. 💪"
       },
       "assetId": "english-g3-m01-d17-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "The rain"
+          },
+          {
+            "id": "d",
+            "text": "The wet path"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "The bell rang twice."
+          },
+          {
+            "id": "d",
+            "text": "The path was wet."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "It rained, so the path became wet."
+          },
+          {
+            "id": "d",
+            "text": "Milo watered the plant, so it grew."
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "The word so."
+          },
+          {
+            "id": "d",
+            "text": "The wind"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "The bell rang, and it was Tuesday."
+          },
+          {
+            "id": "d",
+            "text": "The bell is blue."
           }
         ],
         "correctOptionIds": [

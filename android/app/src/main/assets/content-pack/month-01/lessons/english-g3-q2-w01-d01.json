@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: brave, huge, and whisper. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo hears a whisper in the library and spots a huge box. Can you choose words that describe what happens?",
   "vocabulary": [
     {
       "term": "brave",
-      "definition": "showing courage when something is hard or scary"
+      "definition": "ready to do the right thing even when you feel afraid"
     },
     {
       "term": "huge",
-      "definition": "very, very big"
+      "definition": "so large that it takes up much more space than usual"
     },
     {
       "term": "whisper",
-      "definition": "to speak very softly"
+      "definition": "speak in a very quiet voice so only nearby people hear"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Hear how new words fit in sentences!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and look for a clue about courage, size, or sound."
       },
-      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word's meaning.",
+      "narration": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to brave, huge, or whisper.",
+      "guideHint": "Read the words around the new word; they may show courage, size, or sound.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to brave, huge, or whisper."
     },
     {
       "activityId": "english-g3-q2-w01-d01-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Tap the sentences that use today's words!",
+      "instruction": "Tap each sentence that gives a clue for brave, huge, or whisper.",
       "content": {
         "examples": [
           "The brave dog saved the kitten from the rain.",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the action, size detail, or quiet voice that points to the word."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for today's three words.",
+      "narration": "Look for an action that shows courage, a detail about size, or a very quiet voice.",
+      "guideHint": "Check whether the sentence shows courage, great size, or a quiet voice.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for an action that shows courage, a detail about size, or a very quiet voice."
     },
     {
       "activityId": "english-g3-q2-w01-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Sort the sentences: new word or not!",
+      "instruction": "Sort sentences that use brave, huge, or whisper.",
       "content": {
         "fits": [
-          "The brave dog saved the kitten from the rain.",
-          "The elephant is huge, but it walks quietly.",
-          "I whisper to my friend in the library.",
-          "The new coin is shiny and clean."
+          "The brave climber reached the high branch.",
+          "A huge whale splashed beside our boat.",
+          "Please whisper while the baby sleeps.",
+          "Milo was brave when he tried the new slide."
         ],
         "doesNotFit": [
-          "Milo gives the puppy a gentle pat.",
-          "The clever fox found a way to reach the grapes.",
-          "The kitten sleeps in a cozy basket.",
-          "The rabbit likes to nibble on carrots."
+          "The shiny coin rolled under the chair.",
+          "Ana carried a heavy backpack.",
+          "The kitten curled inside a basket.",
+          "Our teacher smiled at the class."
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for brave, huge, or whisper before sorting it again."
       },
-      "prompt": "Sort each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it uses one of today's words.",
+      "narration": "Use the words as evidence: brave shows courage, huge shows great size, and whisper means a very quiet voice.",
+      "guideHint": "Read each sentence and look for a courage, size, or quiet-speech clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Use the words as evidence: brave shows courage, huge shows great size, and whisper means a very quiet voice."
     },
     {
       "activityId": "english-g3-q2-w01-d01-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Tap the sentence that uses 'brave'!",
+      "instruction": "Tap the sentence that uses 'brave'.",
       "content": {
         "options": [
           "The clever fox found a way to reach the grapes.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the action that shows courage."
       },
-      "prompt": "Choose the example of words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that shows courage.",
+      "narration": "A brave person or animal does something helpful even when it feels scary.",
+      "guideHint": "Look for an action that takes courage.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A brave person or animal does something helpful even when it feels scary."
     },
     {
       "activityId": "english-g3-q2-w01-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Match each word with its meaning!",
+      "instruction": "Match each word to the clue it gives.",
       "content": {
         "pairs": [
           {
             "left": "brave",
-            "right": "showing courage when something is hard or scary"
+            "right": "action that shows courage"
           },
           {
             "left": "huge",
-            "right": "very, very big"
+            "right": "detail showing great size"
           },
           {
             "left": "whisper",
-            "right": "to speak very softly"
+            "right": "quiet way to speak"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the clue for the meaning of each word."
       },
-      "prompt": "Match the examples about words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with the clue that reveals its meaning.",
+      "narration": "A word can connect to a clue about courage, size, or quiet speech.",
+      "guideHint": "Ask whether the clue shows courage, great size, or a very quiet voice.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A word can connect to a clue about courage, size, or quiet speech."
     },
     {
       "activityId": "english-g3-q2-w01-d01-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d01-visual",
-      "instruction": "Tap the word-hunting steps in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
-          "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Read the whole sentence",
+          "Circle the new word",
+          "Notice nearby clue words",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "You found the word that fits just right! 🎉",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, noticed, and explained the clue."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers use the whole sentence and its clues before choosing a meaning.",
+      "guideHint": "Start by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers use the whole sentence and its clues before choosing a meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q2-w01-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'brave' mean?",
+        "prompt": "At the rescue drill, Lila climbs a tall ladder to help a kitten. Which word describes Lila?",
         "options": [
           {
             "id": "a",
-            "text": "bright and reflects light"
+            "text": "shiny"
           },
           {
             "id": "b",
-            "text": "very, very big"
+            "text": "huge"
           },
           {
             "id": "c",
-            "text": "to speak very softly"
+            "text": "whisper"
           },
           {
             "id": "d",
-            "text": "showing courage when something is difficult"
+            "text": "brave"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Brave means showing courage when something is difficult — like a firefighter who climbs a tree to save a cat."
+        "explanation": "Climbing to help a kitten shows courage even when the ladder feels scary, so brave fits."
       },
       {
         "itemId": "english-g3-q2-w01-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'very, very big'?",
+        "prompt": "An elephant fills most of the doorway. Which word describes its size?",
         "options": [
           {
             "id": "a",
@@ -275,41 +275,41 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Huge means very, very big, so a huge thing is bigger than a small one."
+        "explanation": "An elephant that fills the doorway is very large, so huge describes its size."
       },
       {
         "itemId": "english-g3-q2-w01-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'whisper'?",
+        "prompt": "In the library, Nina speaks so softly that only her friend hears. Which word describes her voice?",
         "options": [
           {
             "id": "a",
-            "text": "The elephant is huge, but it walks quietly."
+            "text": "huge"
           },
           {
             "id": "b",
-            "text": "I whisper to my friend in the library."
+            "text": "whisper"
           },
           {
             "id": "c",
-            "text": "The new coin is shiny and clean."
+            "text": "brave"
           },
           {
             "id": "d",
-            "text": "The brave dog saved the kitten from the rain."
+            "text": "shiny"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Whisper means to speak very softly, so it belongs in a quiet library."
+        "explanation": "Speaking so softly that only one friend hears is a whisper."
       },
       {
         "itemId": "english-g3-q2-w01-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'The ___ firefighter carried the cat down the tree.'",
+        "prompt": "Complete the sentence: 'The ___ firefighter carried the cat down the tree.'",
         "options": [
           {
             "id": "a",
@@ -321,23 +321,23 @@
           },
           {
             "id": "c",
-            "text": "brave"
+            "text": "whisper"
           },
           {
             "id": "d",
-            "text": "whisper"
+            "text": "brave"
           }
         ],
         "correctOptionIds": [
-          "c"
+          "d"
         ],
-        "explanation": "A firefighter who climbs a tree to save a cat shows courage, so brave fits best."
+        "explanation": "Carrying a cat down a tree takes courage, so brave is the best clue-based choice."
       },
       {
         "itemId": "english-g3-q2-w01-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'bright and reflects light'.",
+        "prompt": "A new coin catches the light and looks bright. Which word describes the coin?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Shiny means bright and reflects light — that is why a new coin looks shiny."
+        "explanation": "A bright coin that reflects light is shiny; its appearance is the clue."
       }
     ]
   },

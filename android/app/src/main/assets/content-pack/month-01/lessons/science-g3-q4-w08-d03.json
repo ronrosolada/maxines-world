@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🌑 Milo wants to show you how shadows form. Let's see how light behaves — and how to keep our eyes safe!",
+  "introduction": "Milo holds a ball in front of a lamp and sees a dark shape behind it. How does a shadow form safely?",
   "vocabulary": [
     {
-      "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "term": "shadow",
+      "definition": "A dark area made when an object blocks light."
     },
     {
-      "term": "light",
-      "definition": "what helps us see"
+      "term": "block",
+      "definition": "To stop light from reaching a place."
     },
     {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "term": "eye protection",
+      "definition": "A safe tool or habit that helps shield your eyes."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo explain how light behaves and how to protect your eyes.",
       "content": "a whistle makes a high sound. a shadow forms when light is blocked. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check whether the object makes, reflects, blocks, or lets light pass."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "a whistle makes a high sound. a shadow forms when light is blocked. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Explore each example. a whistle makes a high sound. a shadow forms when light is blocked.",
+      "instruction": "Tap each example and notice what light does.",
       "content": {
         "examples": [
-          "a whistle makes a high sound",
-          "a shadow forms when light is blocked",
-          "give your ears a rest from loud noise",
-          "never shine a flashlight into someone's eyes"
+          "a ball blocks lamp light and makes a dark shape",
+          "a flashlight sends light toward a wall",
+          "sunglasses reduce bright light reaching eyes",
+          "look away from a very bright beam"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "For each card, name what light does before choosing the result."
       },
       "prompt": "Explore each example. a whistle makes a high sound. a shadow forms when light is blocked.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows light safely.",
       "content": {
         "fits": [
-          "a whistle makes a high sound",
-          "a shadow forms when light is blocked",
-          "give your ears a rest from loud noise",
-          "never shine a flashlight into someone's eyes"
+          "an object blocks light and leaves a shadow",
+          "a flashlight makes a visible beam",
+          "sunglasses reduce glare",
+          "a learner looks away from a bright beam"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "A shadow makes its own light",
+          "Look straight into a bright lamp",
+          "A shadow is a kind of sound",
+          "Point a flashlight into someone’s eyes"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card describes a real light effect or a safe action."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose the light example shown in this lesson.",
       "content": {
         "options": [
-          "a warm spot",
-          "a shadow",
-          "a bright flash",
-          "a loud echo"
+          "A warm spot",
+          "A shadow",
+          "A bright flash",
+          "A loud echo"
         ],
         "correctIndex": 1
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "Compare each choice with the light behavior shown in the examples."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "instruction": "Match each light example with its effect or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "a whistle makes a high sound",
-            "right": "makes sound"
+            "left": "a ball",
+            "right": "blocks light and leaves a dark area"
           },
           {
-            "left": "a shadow forms when light is blocked",
-            "right": "helps us see"
+            "left": "a flashlight",
+            "right": "sends light toward a surface"
           },
           {
-            "left": "give your ears a rest from loud noise",
-            "right": "protects hearing"
+            "left": "sunglasses",
+            "right": "reduce bright light reaching eyes"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each light example to the effect or protection it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q4-w08-d03-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing light and protecting your eyes.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: observe light, explain its behavior, choose a safe action, protect eyes."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q4-w08-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What forms when light is blocked?",
+        "prompt": "Milo holds a ball between a lamp and a wall. What forms behind the ball?",
         "options": [
           {
             "id": "a",
-            "text": "a bright flash"
+            "text": "A bright flash"
           },
           {
             "id": "b",
-            "text": "a warm spot"
+            "text": "A warm spot"
           },
           {
             "id": "c",
-            "text": "a loud echo"
+            "text": "A loud echo"
           },
           {
             "id": "d",
-            "text": "a shadow"
+            "text": "A shadow"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "When something blocks light, a dark shadow forms behind it. Blocked light does not make a warm spot, a flash, or an echo."
+        "explanation": "The ball blocks light, leaving a darker area behind it called a shadow. Blocking light does not create an echo or a bright flash."
       },
       {
         "itemId": "science-g3-q4-w08-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Maxine is outside in strong sunlight. Which action protects her eyes?",
         "options": [
           {
             "id": "a",
-            "text": "write in a notebook"
+            "text": "Write in a notebook"
           },
           {
             "id": "b",
-            "text": "fold a towel"
+            "text": "Fold a towel"
           },
           {
             "id": "c",
-            "text": "give your ears a rest from loud noise"
+            "text": "Wear sunglasses and look away from glare"
           },
           {
             "id": "d",
-            "text": "read a book quietly"
+            "text": "Read a book quietly"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Resting your ears from loud noise keeps your hearing safe."
+        "explanation": "Sunglasses and looking away reduce bright light reaching the eyes. Staring at glare can hurt, while the other choices do not protect from it."
       },
       {
         "itemId": "science-g3-q4-w08-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Milo uses a flashlight with a friend. Which action is safe?",
         "options": [
           {
             "id": "a",
-            "text": "name a color in the room"
+            "text": "Name a color in the room"
           },
           {
             "id": "b",
-            "text": "never shine a flashlight into someone's eyes"
+            "text": "Never shine it into someone’s eyes"
           },
           {
             "id": "c",
-            "text": "draw a picture"
+            "text": "Draw a picture"
           },
           {
             "id": "d",
-            "text": "count the books on a shelf"
+            "text": "Count books on a shelf"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Bright light in the eyes can hurt them, so never shine a flashlight into someone's eyes."
+        "explanation": "Bright flashlight beams can hurt eyes, so never shine one into a person’s eyes. The safe choice prevents direct glare."
       },
       {
         "itemId": "science-g3-q4-w08-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "A learner moves a ball in front of a lamp. Which example shows how light behaves?",
         "options": [
           {
             "id": "a",
-            "text": "a shadow forms when light is blocked"
+            "text": "A whistle makes a high sound"
           },
           {
             "id": "b",
-            "text": "a whistle makes a high sound"
+            "text": "A shadow forms when light is blocked"
           },
           {
             "id": "c",
-            "text": "a window lets light through"
+            "text": "A window lets light through"
           },
           {
             "id": "d",
-            "text": "a mirror reflects light"
+            "text": "A mirror reflects light"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Blowing makes the whistle vibrate, and that makes a high sound. Mirrors, shadows, and windows are about light."
+        "explanation": "When the ball blocks the lamp, a shadow forms behind it. The other choices describe sound, transmission, or reflection rather than this shadow clue."
       },
       {
         "itemId": "science-g3-q4-w08-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Maxine notices a dark shape behind a toy near a lamp. Which statement explains it?",
         "options": [
           {
             "id": "a",
-            "text": "a shadow forms when light is blocked"
+            "text": "The toy blocks light and makes a shadow"
           },
           {
             "id": "b",
-            "text": "clapping hands makes sound"
+            "text": "Clapping makes the shape"
           },
           {
             "id": "c",
-            "text": "a drum makes sound when struck"
+            "text": "A bell creates darkness"
           },
           {
             "id": "d",
-            "text": "a bell rings when shaken"
+            "text": "The toy makes its own light"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "When something blocks light, a shadow forms — that is light at work. Drums, bells, and claps make sound."
+        "explanation": "The toy blocks light, so less light reaches the wall behind it and a shadow appears. Sound cannot make the shadow, and the toy is not a light source."
       }
     ]
   },

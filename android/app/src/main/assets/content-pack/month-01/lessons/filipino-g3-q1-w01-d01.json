@@ -13,19 +13,22 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🐱✨ May kuwento si Milo tungkol kay Ana na nagbabasa. Hatiin natin ang pangungusap: sino ang pinag-uusapan, at ano ang ginagawa? Tara na!",
+  "introduction": "Sa pangungusap na “Si Ana ay nagbabasa,” hanapin muna kung sino ang pinag-uusapan. Pagkatapos, tukuyin ang sinasabi tungkol sa kaniya.",
   "vocabulary": [
     {
+      "word": "simuno",
       "term": "simuno",
-      "definition": "ang pinag-uusapan sa pangungusap"
+      "definition": "Ang bahagi ng pangungusap na nagsasabi kung sino o ano ang gumagawa ng kilos."
     },
     {
+      "word": "panaguri",
       "term": "panaguri",
-      "definition": "ang nagsasabi tungkol sa simuno"
+      "definition": "Ang bahagi ng pangungusap na nagsasaad ng kilos o katangian ng simuno."
     },
     {
-      "term": "payak na pangungusap",
-      "definition": "pangungusap na may isang simuno at isang panaguri"
+      "word": "payak na simuno",
+      "term": "payak na simuno",
+      "definition": "Isang payak na ngalan ng tao, hayop, o bagay na pinag-uusapan."
     }
   ],
   "activities": [
@@ -36,14 +39,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Pakinggan si Milo: hatiin ang pangungusap na 'Si Ana  ay nagbabasa.'.",
-      "content": "Ang simuno ang pinag-uusapan: Si Ana. Ang panaguri ang nagsasabi tungkol sa simuno: nagbabasa. Hatiin sa dalawa: [Si Ana] ay ang simuno, [ay nagbabasa] ay ang panaguri.",
+      "instruction": "Basahin at hatiin ang pangungusap sa dalawang bahagi.",
+      "content": "Ang simuno ang pinag-uusapan: Si Ana. Ang panaguri ang nagsasabi tungkol sa kaniya: ay nagbabasa. Hatiin sa [Si Ana] at [ay nagbabasa].",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
+        "retry": "Tanungin kung sino ang pinag-uusapan at ano ang ginagawa. 💪"
       },
       "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "narration": "Ang simuno ang pinag-uusapan: Si Ana. Ang panaguri ang nagsasabi tungkol sa simuno: nagbabasa. Hatiin sa dalawa: [Si Ana] ay ang simuno, [ay nagbabasa] ay ang panaguri.",
@@ -58,7 +61,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Ana / ay...",
+      "instruction": "Basahin ang mga halimbawa at markahan ang hati.",
       "content": {
         "examples": [
           "Si Ana / ay nagbabasa.",
@@ -73,8 +76,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Nakita mo ang simuno at panaguri ni Ana. 🔎",
+        "retry": "Hanapin ang pangalan o pangkat ng pinag-uusapan bago ang “/”. 💪"
       },
       "prompt": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Ana / ay nagbabasa.'.",
       "narration": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Si Ana / ay nagbabasa.'.",
@@ -89,7 +92,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Piliin ang buong pangungusap na may tamang hati.",
       "content": {
         "fits": [
           "Si Ana / ay nagbabasa.",
@@ -98,10 +101,10 @@
           "Ang mga bata / ay naglalaro."
         ],
         "doesNotFit": [
-          "ang matiyagang sumusulat",
-          "sa likod ng bahay",
-          "at nagmamadali tuwing gabi",
-          "kasi tuwang-tuwa ang lahat"
+          "sa tahimik na silid",
+          "at nagbabasa",
+          "dahil may oras",
+          "masayang-masaya"
         ]
       },
       "completionRule": {
@@ -109,8 +112,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Bahagi ng Pangungusap bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga pangungusap na may simuno at panaguri. 🎉",
+        "retry": "Suriin kung may simuno, panaguri, at kumpletong diwa ang pangungusap. 💪"
       },
       "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -125,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Alin ang wastong hati ng pangungusap ni Ana?",
       "content": {
         "options": [
           "ang matiyagang sumusulat",
@@ -140,7 +143,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Bahagi ng Pangungusap. 💪"
+        "retry": "Tingnan kung ang pangungusap ay may simuno at panaguri sa tamang hati. 💪"
       },
       "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -155,20 +158,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Itugma ang bahagi ng pangungusap sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "Si Ana",
-            "right": "simuno"
+            "right": "pangalan ng taong pinag-uusapan"
           },
           {
             "left": "ay nagbabasa.",
-            "right": "panaguri"
+            "right": "kilos na ginagawa ng simuno"
           },
           {
             "left": "Si Ana / ay nagbabasa.",
-            "right": "buong pangungusap"
+            "right": "kumpletong pangungusap"
           }
         ]
       },
@@ -176,8 +179,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Itinugma mo ang mga bahagi ng pangungusap ni Ana. 🔗",
+        "retry": "Itanong kung sino ang gumagawa at ano ang sinasabi tungkol sa kaniya. 💪"
       },
       "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -192,21 +195,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d01-visual",
-      "instruction": "Ayusin ang mga hakbang.",
+      "instruction": "Ayusin ang mga hakbang sa pagtukoy ng simuno at panaguri.",
       "content": {
         "steps": [
-          "Basahin ang pangungusap",
-          "Hanapin kung sino o ano ang pinag-uusapan",
-          "Hanapin ang sinasabi tungkol dito",
-          "Sabihin: simuno at panaguri"
+          "Basahin ang buong pangungusap.",
+          "Tanungin kung sino o ano ang pinag-uusapan.",
+          "Hanapin ang sinasabi tungkol dito.",
+          "Tukuyin ang simuno at panaguri."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagtukoy ng simuno at panaguri. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang ayon sa tanong. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Ana / ay nagbabasa.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -246,7 +249,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang simuno ay ang pinag-uusapan sa pangungusap. Sa “Si Ana / ay nagbabasa.”, Si Ana ang pinag-uusapan, kaya ito ang simuno.",
+        "explanation": "Ang simuno ang pinag-uusapan; sa pangungusap, si Ana ang gumagawa ng kilos.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -274,7 +277,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang panaguri ay nagsasabi kung ano ang ginagawa o kalagayan ng simuno. Sa “Si Ana / ay nagbabasa.”, ay nagbabasa. ang nagsasabi tungkol sa simuno.",
+        "explanation": "Ang panaguri ang nagsasabi ng kilos; “ay nagbabasa” ang kilos ni Ana.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -285,25 +288,25 @@
         "options": [
           {
             "id": "a",
-            "text": "Ang aso ay / tumatakbo."
+            "text": "Simuno: “Ang aso ay”; panaguri: “tumatakbo.”"
           },
           {
             "id": "b",
-            "text": "Ang aso ay tumatakbo / ."
+            "text": "Simuno: “Ang aso ay tumatakbo”; panaguri: wala"
           },
           {
             "id": "c",
-            "text": "Ang aso / ay tumatakbo."
+            "text": "Simuno: “Ang aso”; panaguri: “ay tumatakbo.”"
           },
           {
             "id": "d",
-            "text": "Ang / aso ay tumatakbo."
+            "text": "Simuno: “Ang”; panaguri: “aso ay tumatakbo.”"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Ang aso / ay tumatakbo."
+        "explanation": "Ang simuno ay “Ang aso” at ang panaguri ay “ay tumatakbo,” kaya iyon ang wastong hati."
       },
       {
         "sequence": 4,
@@ -312,7 +315,7 @@
         "options": [
           {
             "id": "a",
-            "text": "ay natututo."
+            "text": "ay tumutubo sa paso."
           },
           {
             "id": "b",
@@ -320,17 +323,17 @@
           },
           {
             "id": "c",
-            "text": "ay tumatakbo."
+            "text": "ay tumatahol sa bakuran."
           },
           {
             "id": "d",
-            "text": "ay naglalaro."
+            "text": "ay nangingitlog."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang panaguri ay dapat tungkol sa simuno. ay nagbabasa. ang nagsasabi ng ginagawa o kalagayan ng Si Ana, kaya ito ang maaaring panaguri.",
+        "explanation": "Ang panaguri ay dapat akma sa simuno; si Ana ay maaaring nagbabasa.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -341,25 +344,25 @@
         "options": [
           {
             "id": "a",
-            "text": "Si Milo / ay natututo."
+            "text": "Simuno: “Si Milo”; panaguri: “ay natututo.”"
           },
           {
             "id": "b",
-            "text": "Si Milo ay natututo / ."
+            "text": "Simuno: “Si Milo ay”; panaguri: “natututo.”"
           },
           {
             "id": "c",
-            "text": "Si Milo ay / natututo."
+            "text": "Simuno: “Si Milo ay natututo”; panaguri: wala"
           },
           {
             "id": "d",
-            "text": "Si / Milo ay natututo."
+            "text": "Simuno: “Si”; panaguri: “Milo ay natututo.”"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Si Milo / ay natututo."
+        "explanation": "Ang simuno ay “Si Milo,” at ang panaguri ay “ay natututo.”"
       }
     ]
   },

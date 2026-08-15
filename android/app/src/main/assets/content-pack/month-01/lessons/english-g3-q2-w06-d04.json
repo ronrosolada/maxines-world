@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is writing in his diary! Pick the polite words that fit each moment, like Good morning and Thank you.",
+  "introduction": "Milo asks a friend for a turn and thanks her for sharing. Can you choose polite words for asking, getting attention, and replying?",
   "vocabulary": [
     {
-      "term": "Good morning.",
-      "definition": "A greeting used in the morning."
+      "term": "Excuse me.",
+      "definition": "polite words used to get someone’s attention or pass by"
     },
     {
-      "term": "Please help me.",
-      "definition": "A polite way to ask for help."
+      "term": "Please.",
+      "definition": "a polite word added when asking for something"
     },
     {
-      "term": "Thank you.",
-      "definition": "A polite way to show you are grateful."
+      "term": "You are welcome.",
+      "definition": "a polite reply after someone says thank you"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Listen to how kind words fit each moment!",
+      "instruction": "Read each scene and choose respectful words for it.",
       "content": "A greeting and polite expression should fit the person, time, and situation.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Find the clue in Kind Words, Right Place · Q2 W again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Match the polite expression to the conversation purpose."
       },
-      "prompt": "Listen to how kind words fit each moment!",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how please, excuse me, and you are welcome fit a conversation.",
+      "narration": "Excuse me gets attention kindly, please softens a request, and you are welcome replies to thanks.",
+      "guideHint": "Ask whether Milo needs attention, a request, or a reply.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Excuse me gets attention kindly, please softens a request, and you are welcome replies to thanks."
     },
     {
       "activityId": "english-g3-q2-w06-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Tap the polite words that fit each scene!",
+      "instruction": "Tap the polite expression that fits each scene.",
       "content": {
         "examples": [
-          "Good morning.",
-          "Please help me.",
-          "Thank you.",
-          "Excuse me."
+          "Excuse me, may I pass?",
+          "Please share the crayons.",
+          "Thank you for your help.",
+          "You are welcome."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Look at each Kind Words, Right Place · Q2 W example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the expression’s job in the scene."
       },
-      "prompt": "Tap the polite words that fit each scene!",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find kind words for asking, passing, and replying.",
+      "narration": "Use excuse me before interrupting or passing, please when asking, and you are welcome after thanks.",
+      "guideHint": "Look for the action Milo needs to perform.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Use excuse me before interrupting or passing, please when asking, and you are welcome after thanks."
     },
     {
       "activityId": "english-g3-q2-w06-d04-a03",
@@ -89,13 +89,13 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Sort the polite words from the rude ones!",
+      "instruction": "Sort respectful expressions from rude commands.",
       "content": {
         "fits": [
-          "Good morning.",
-          "Please help me.",
-          "Thank you.",
-          "Excuse me."
+          "Excuse me.",
+          "Please.",
+          "You are welcome.",
+          "Thank you."
         ],
         "doesNotFit": [
           "Go away now!",
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Read the Kind Words, Right Place · Q2 W rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the words show respect."
       },
-      "prompt": "Sort the polite words from the rude ones!",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each phrase by whether it treats the listener kindly.",
+      "narration": "Respectful phrases ask or reply kindly; rude commands push or insult the listener.",
+      "guideHint": "Read the phrase as if a classmate said it to you.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Respectful phrases ask or reply kindly; rude commands push or insult the listener."
     },
     {
       "activityId": "english-g3-q2-w06-d04-a04",
@@ -125,12 +125,12 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Which expression fits the situation politely?",
+      "instruction": "Tap the polite phrase for asking to pass.",
       "content": {
         "options": [
           "Hurry up!",
           "I do not care!",
-          "Good morning.",
+          "Please.",
           "Go away now!"
         ],
         "correctIndex": 2
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Find the clue in the Kind Words, Right Place · Q2 W question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that the phrase is respectful and fits passing."
       },
-      "prompt": "Which expression fits the situation politely?",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the words Milo can use to get attention kindly.",
+      "narration": "Excuse me is a respectful way to get someone’s attention or pass by.",
+      "guideHint": "Look for the phrase that gets attention without ordering.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Excuse me is a respectful way to get someone’s attention or pass by."
     },
     {
       "activityId": "english-g3-q2-w06-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Match each kind phrase to what it does!",
+      "instruction": "Match each phrase to its conversation job.",
       "content": {
         "pairs": [
           {
-            "left": "Good morning.",
-            "right": "used in the morning"
+            "left": "Excuse me.",
+            "right": "gets attention before speaking"
           },
           {
-            "left": "Please help me.",
-            "right": "a polite way to ask for help"
+            "left": "Please.",
+            "right": "makes a request sound respectful"
           },
           {
-            "left": "Thank you.",
-            "right": "shows you are grateful"
+            "left": "You are welcome.",
+            "right": "replies after someone says thanks"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Read both sides of each Kind Words, Right Place · Q2 W pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the phrase’s conversation job."
       },
-      "prompt": "Match each kind phrase to what it does!",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each polite expression with the moment it fits.",
+      "narration": "Polite expressions help speakers get attention, ask, or reply after thanks.",
+      "guideHint": "Read the phrase and ask what it helps the speaker do.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Polite expressions help speakers get attention, ask, or reply after thanks."
     },
     {
       "activityId": "english-g3-q2-w06-d04-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w06-d04-visual",
-      "instruction": "Put the steps for choosing kind words in order.",
+      "instruction": "Put the polite-conversation checks in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Notice the situation",
+          "Choose the conversation purpose",
+          "Say a polite expression",
+          "Listen for the reply"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Lovely! You picked the kind words that fit the moment! 🌟",
-        "retry": "Find the first, next, and last Kind Words, Right Place · Q2 W steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you noticed, chose, spoke, and listened respectfully."
       },
-      "prompt": "Put the steps for choosing kind words in order.",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for choosing respectful words.",
+      "narration": "Speakers notice the situation, choose a purpose, and use a kind expression.",
+      "guideHint": "Begin by noticing what the other person needs.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Speakers notice the situation, choose a purpose, and use a kind expression."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q2-w06-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which words fit the situation politely?",
+        "prompt": "Milo wants to pass a classmate carrying books. Which phrase should he use?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'Excuse me' is polite — it gets a person's attention gently."
+        "explanation": "Excuse me gets the classmate’s attention politely before Milo passes."
       },
       {
         "itemId": "english-g3-q2-w06-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice shows respect for the person speaking?",
+        "prompt": "Milo asks a friend to share crayons. Which word makes the request respectful?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Saying please shows respect when you ask for something."
+        "explanation": "Please makes Milo’s request sound kind and respectful."
       },
       {
         "itemId": "english-g3-q2-w06-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence politely asks for help?",
+        "prompt": "Milo needs help opening a box. Which sentence asks politely?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Asking 'Could you help me, please?' is polite because it asks gently with the word please."
+        "explanation": "Could you help me, please? asks gently and includes the polite word please."
       },
       {
         "itemId": "english-g3-q2-w06-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example uses a polite expression?",
+        "prompt": "A friend says thank you after Milo shares. Which reply fits?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "'You are welcome' is a polite reply when someone thanks you."
+        "explanation": "You are welcome is a polite reply after someone says thank you."
       },
       {
         "itemId": "english-g3-q2-w06-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice would sound respectful?",
+        "prompt": "Milo receives help with his project. Which choice shows respect?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Thanking someone politely shows respect."
+        "explanation": "Thank you very much shows gratitude and respect after receiving help."
       }
     ]
   },

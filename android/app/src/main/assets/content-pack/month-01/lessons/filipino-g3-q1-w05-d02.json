@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Kumusta, kaibigan! Ako si Milo. Alam mo ba na may mga salitang nagpapakita ng paggalang sa ating kapwa?",
+  "introduction": "Sa pagbati, pakiusap, at paghingi ng paumanhin, piliin ang pananalitang akma sa sitwasyon at nagpapakita ng paggalang.",
   "vocabulary": [
     {
       "term": "Pagbati",
-      "definition": "Mga salitang ginagamit sa pagsalubong o pagtanggap sa isang tao, tulad ng 'Magandang umaga po'."
+      "definition": "Salitang ginagamit sa pagsalubong o pagtanggap sa isang tao."
     },
     {
       "term": "Paumanhin",
-      "definition": "Salitang ginagamit kapag humihingi ng tawad o dispensa sa nagawang pagkakamali."
+      "definition": "Salitang ginagamit sa paghingi ng tawad sa nagawang pagkakamali."
     },
     {
       "term": "Pakiusap",
-      "definition": "Magalang na paraan ng paghingi ng pabor o tulong mula sa ibang tao."
+      "definition": "Magalang na paraan ng paghingi ng pabor o tulong."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa magagalang na pananalita.",
+      "instruction": "Basahin ang magalang na pahayag para sa bawat sitwasyon.",
       "content": "Ang magagalang na pananalita ay ginagamit upang maipakita ang respeto at paggalang sa kausap. Narito ang ilang halimbawa: SA PAGBATI — Magandang umaga, Magandang hapon, Magandang gabi. SA PAGHINGI NG PAUMANHIN — Ipagpaumanhin po ninyo, hindi ko po sinasadya. SA PAKIKIPAG-USAP — Kumusta po kayo? SA PAGTANGGAP NG REGALO — Maraming salamat po. SA PANGHIHIRAM NG GAMIT — Maaari ko bang mahiram ang iyong lapis? SA PAGDAAN SA HARAP NG TAO — Makikiraan po. SA PAGBATI SA NAKATATANDA — Mano po. Tandaan: Ang paggamit ng 'po' at 'opo' ay nagpapakita ng paggalang lalo na sa mga nakatatanda. Mahalagang piliin ang angkop na magagalang na salita sa bawat sitwasyon.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
         "correct": "Mahusay! Alam mo na ang iba't ibang Magagalang na Pananalita na Angkop sa Sitwasyon.",
-        "retry": "Panoorin muli ang paliwanag tungkol sa Magagalang na Pananalita na Angkop sa Sitwasyon."
+        "retry": "Tukuyin kung pagbati, pakiusap, pasasalamat, o paumanhin ang kailangan. 💪"
       },
       "prompt": "Pakinggan si Milo tungkol sa magagalang na pananalita!",
       "narration": "Alamin natin ang iba't ibang magagalang na salita para sa bawat sitwasyon!",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Magagalang na Pananalita na Angkop sa Sitwasyon.",
+      "instruction": "Tukuyin ang sitwasyon at ang angkop na pahayag.",
       "content": {
         "examples": [
           "Binati mo ang guro mo sa umaga",
@@ -73,8 +73,8 @@
         "targetCount": 5
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Magagalang na Pananalita na Angkop sa Sitwasyon. 💪"
+        "correct": "Mahusay! Nahanap mo ang pahayag na angkop sa bawat sitwasyon. 🔎",
+        "retry": "Iugnay ang oras, kausap, at pangyayari sa tamang pananalita. 💪"
       },
       "prompt": "Pindutin ang bawat halimbawang kaugnay ng Magagalang na Pananalita na Angkop sa Sitwasyon.",
       "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Magagalang na Pananalita na Angkop sa Sitwasyon.",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng magagalang na salita.",
+      "instruction": "Piliin ang mga pahayag na nagpapakita ng paggalang.",
       "content": {
         "fits": [
           "Ipagpaumanhin ninyo po, hindi ko na po uulitin.",
@@ -107,8 +107,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Magaling! Alam mo na kung alin ang magalang at di-magalang na pananalita.",
-        "retry": "Balikan ang paliwanag. Alin ang nagpapakita ng respeto sa kausap?"
+        "correct": "Mahusay! Naipangkat mo ang magagalang na pananalita. 🎉",
+        "retry": "Piliin ang mahinahong pahayag, hindi utos o panunumbat. 💪"
       },
       "prompt": "Pangkatin ang mga pahayag sa MAGALANG at DI-MAGALANG!",
       "narration": "Alin sa mga pahayag na ito ang magalang? Alin ang hindi?",
@@ -123,7 +123,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Paano magtatanong nang magalang sa hindi kakilala?",
       "content": {
         "options": [
           "Wala po akong oras.",
@@ -138,7 +138,7 @@
       },
       "feedback": {
         "correct": "Tama! 'Maaari po bang magtanong?' ay magalang na paraan ng pakikipag-usap sa hindi kilala.",
-        "retry": "Isipin mo — paano ka magtatanong nang magalang sa isang hindi mo kilala?"
+        "retry": "Gumamit ng pakiusap at magalang na “po” sa tanong. 💪"
       },
       "prompt": "Alin ang halimbawa ng magagalang na pananalita kapag nais mong magtanong sa guro?",
       "narration": "May itatanong ka sa isang matandang hindi mo kilala. Ano ang sasabihin mo?",
@@ -153,7 +153,7 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Itapat ang bawat sitwasyon sa angkop na magagalang na pananalita.",
+      "instruction": "Itugma ang sitwasyon sa angkop na pananalita.",
       "content": {
         "pairs": [
           {
@@ -182,8 +182,8 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Ang galing! Alam mo na ang tamang magalang na pananalita sa bawat sitwasyon.",
-        "retry": "Balikan ang mga halimbawa ng Magagalang na Pananalita na Angkop sa Sitwasyon."
+        "correct": "Mahusay! Itinugma mo ang sitwasyon sa magalang na pananalita. 🔗",
+        "retry": "Itanong kung pagbati, pasasalamat, paumanhin, o pakikiraan ang kailangan. 💪"
       },
       "prompt": "Itapat ang sitwasyon sa tamang magalang na pananalita!",
       "narration": "Ano ang tamang sasabihin sa bawat sitwasyon?",
@@ -198,21 +198,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d02-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa pagpili ng magalang na salita.",
       "content": {
         "steps": [
           "Basahin ang sitwasyon at tukuyin ang kausap.",
-          "Tukuyin kung pagbati, pakiusap, o paghingi ng paumanhin ang kailangan.",
-          "Piliin ang magagalang na pananalitang angkop.",
-          "Basahin ang buong pahayag nang maayos."
+          "Tukuyin kung pagbati, pakiusap, o paumanhin ang kailangan.",
+          "Piliin ang pananalitang angkop sa sitwasyon.",
+          "Basahin muli ang buong pahayag nang maayos."
         ]
       },
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Tama! Iyan ang magalang na paraan ng panghihiram ng gamit.",
-        "retry": "Isipin mong muli. Ano ang unang dapat gawin bago manghiram?"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa magalang na pakikipag-usap. 🎉",
+        "retry": "Sundin ang daloy: sitwasyon, layunin, pahayag, pagsusuri. 💪"
       },
       "prompt": "Ayusin ang mga hakbang mula sa sitwasyon hanggang sa magalang na sagot.",
       "narration": "Paano ka manghihiram ng gamit sa iyong kaklase nang magalang?",
@@ -253,7 +253,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "“Magandang umaga po.” — magalang na pagbati sa nakatatanda."
+        "explanation": "Ang “Magandang umaga po” ay pagbating akma sa oras at magalang sa guro."
       },
       {
         "sequence": 2,
@@ -281,7 +281,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Kapag nagkamali nang hindi sinasadya, magpaumanhin nang magalang: “Ipagpaumanhin po ninyo, hindi ko po sinasadya.”."
+        "explanation": "Kapag nakabasag ng baso nang hindi sinasadya, ang tamang tugon ay humingi ng paumanhin."
       },
       {
         "sequence": 3,
@@ -309,7 +309,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Kapag may natanggap, magpasalamat nang magalang: “Maraming salamat po, Lola.”."
+        "explanation": "Ang pagtanggap ng regalo ay dapat sundan ng pasasalamat, kaya “Maraming salamat po” ang angkop."
       },
       {
         "sequence": 4,
@@ -337,7 +337,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "“Maaari ko bang mahiram ang lapis mo?” — magalang na paraan ng paghingi ng pahintulot."
+        "explanation": "Ang paghiram ay pakiusap; ang tanong na “Maaari ko bang mahiram...” ay humihingi ng pahintulot nang maayos."
       },
       {
         "sequence": 5,
@@ -365,7 +365,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Upang maipakita ang respeto at paggalang sa kausap. — kaya mahalagang gumamit ng Magagalang na Pananalita na Angkop sa Sitwasyon."
+        "explanation": "Ang magalang na pananalita ay nagpapakita ng respeto at paggalang sa kausap."
       }
     ]
   },

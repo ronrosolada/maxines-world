@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo counts 2, 4, 6, 8 shells! 🐚 Help him see the rule: add 2 each time.",
+  "introduction": "Milo is checking bead and number patterns. Can you find the repeating group or the amount added each time?",
   "vocabulary": [
     {
       "term": "red, blue, red, blue",
-      "definition": "A repeating pattern cycles the same group of colors again and again."
+      "definition": "The same two colors return in the same order again and again."
     },
     {
       "term": "2, 4, 6, 8",
-      "definition": "An increasing pattern that grows by adding 2 each time."
+      "definition": "Each number is 2 more than the number before it."
     },
     {
       "term": "triangle, square, triangle",
-      "definition": "A shape pattern that tells what shape comes next."
+      "definition": "The shapes alternate in a repeating order."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Watch Milo find the pattern rule!",
-      "content": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
+      "instruction": "Watch how a repeated group or growing number reveals a rule.",
+      "content": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Pattern Path again. 💪"
+        "retry": "Check whether the same group returns or the amount changes by one rule."
       },
-      "prompt": "Listen to the explanation about patterns.",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch how a repeated group or growing number reveals a rule.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     },
     {
       "activityId": "mathematics-g3-q3-w07-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Tap the patterns in the picture!",
+      "instruction": "Tap each sequence and look for what repeats or changes.",
       "content": {
         "examples": [
           "red, blue, red, blue",
           "2, 4, 6, 8",
           "triangle, square, triangle",
-          "state the rule"
+          "circle, star, circle, star"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Pattern Path example again. 💪"
+        "retry": "Look across every term, not just the last two, for the rule."
       },
-      "prompt": "Find examples of patterns.",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each sequence and look for what repeats or changes.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     },
     {
       "activityId": "mathematics-g3-q3-w07-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Sort the patterns from the non-patterns!",
+      "instruction": "Sort sequences with a clear rule from mixed sequences.",
       "content": {
         "fits": [
           "red, blue, red, blue",
           "2, 4, 6, 8",
           "triangle, square, triangle",
-          "state the rule"
+          "circle, star, circle, star"
         ],
         "doesNotFit": [
-          "3, 1, 9, 4 — no rule",
+          "3, 1, 9, 4",
+          "2, 9, 4, 7",
           "one red bead alone",
-          "2, 9, 4, 7 — no rule",
-          "a handful of mixed beads"
+          "mixed beads with no fixed order"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Pattern Path rule before sorting again. 💪"
+        "retry": "Test the same repeat or difference across the whole sequence."
       },
-      "prompt": "Sort each example",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort sequences with a clear rule from mixed sequences.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     },
     {
       "activityId": "mathematics-g3-q3-w07-d04-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Tap the repeating pattern!",
+      "instruction": "Tap the repeating pattern.",
       "content": {
         "options": [
           "5, 1, 9, 2, 8",
@@ -133,20 +133,20 @@
           "8, 3, 5, 9, 1",
           "2, 9, 4, 7"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       },
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Pattern Path question. 💪"
+        "retry": "Look for a group that returns in the same order."
       },
-      "prompt": "Choose the example of patterns.",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the repeating pattern.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     },
     {
       "activityId": "mathematics-g3-q3-w07-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Match each pattern to its rule!",
+      "instruction": "Match each sequence with the rule it demonstrates.",
       "content": {
         "pairs": [
           {
             "left": "red, blue, red, blue",
-            "right": "repeats a rule"
+            "right": "same two colors return in order"
           },
           {
             "left": "2, 4, 6, 8",
-            "right": "changes predictably"
+            "right": "adds 2 each time"
           },
           {
-            "left": "triangle, square, triangle",
-            "right": "helps find the next term"
+            "left": "circle, star, circle, star",
+            "right": "same two shapes return in order"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Pattern Path pair again. 💪"
+        "retry": "Compare the sequence with its repeated group or constant change."
       },
-      "prompt": "Match the examples about patterns.",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each sequence with the rule it demonstrates.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     },
     {
       "activityId": "mathematics-g3-q3-w07-d04-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q3-w07-d04-visual",
-      "instruction": "Put the pattern-finding steps in order!",
+      "instruction": "Order the checks for finding and explaining a pattern.",
       "content": {
         "steps": [
-          "Read the math question about find missing terms and explain repeating or increasing patterns.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Read every term in the sequence",
+          "Find the repeated group or constant change",
+          "State the rule in words or numbers",
+          "Use the rule to predict and check the next term"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Pattern Path steps. 💪"
+        "retry": "Read the terms, state the rule, predict the next term, and check."
       },
-      "prompt": "Put the steps in order",
-      "narration": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for finding and explaining a pattern.",
+      "narration": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time.",
+      "guideHint": "Compare all terms: find the repeating group or constant change.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A repeating pattern cycles through a group. An increasing pattern changes by a rule such as adding 2 each time."
+      "accessibilityAlternative": "A repeating pattern returns to the same group. An increasing pattern changes by a rule, such as adding 2 each time."
     }
   ],
   "assessment": {
@@ -309,11 +309,11 @@
         "itemId": "mathematics-g3-q3-w07-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Milo finds the pattern 3, 6, 9, 12. What does he need to tell to explain it?",
+        "prompt": "Milo finds the number pattern 3, 6, 9, 12. What rule explains this pattern?",
         "options": [
           {
             "id": "a",
-            "text": "how many numbers are in the pattern"
+            "text": "multiply by 3 each time"
           },
           {
             "id": "b",
@@ -321,17 +321,17 @@
           },
           {
             "id": "c",
-            "text": "the rule: add 2 each time"
+            "text": "add 3 each time"
           },
           {
             "id": "d",
-            "text": "the names of the numbers"
+            "text": "subtract 2 each time"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "To explain the pattern, say the rule: add 2 each time."
+        "explanation": "Each number is 3 more than the one before it (3+3=6, 6+3=9, 9+3=12), so the rule is add 3 each time."
       },
       {
         "itemId": "mathematics-g3-q3-w07-d04-q05",

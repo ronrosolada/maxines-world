@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is writing a story about his day! Find the signal words that connect the ideas: first, because, and so.",
+  "introduction": "Milo is writing about his school day and needs words that connect each idea. Can you spot order, reason, contrast, and result clues?",
   "vocabulary": [
     {
       "term": "first",
-      "definition": "A signal word that tells which event comes before the others."
+      "definition": "a word that tells where an event falls in a sequence"
     },
     {
       "term": "because",
-      "definition": "A signal word that introduces a reason."
+      "definition": "a word that explains why something happens"
     },
     {
       "term": "but",
-      "definition": "A signal word that shows a contrast."
+      "definition": "a word that places two different ideas side by side"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Listen to how first, because, and so connect ideas!",
+      "instruction": "Read the sentences and notice each word that connects ideas.",
       "content": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Find the clue in Signal Words again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Name the relationship before choosing the signal word."
       },
-      "prompt": "Listen to how first, because, and so connect ideas!",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how signal words show relationships between ideas.",
+      "narration": "Signal words give readers a map: first shows order, because gives a reason, but shows a contrast, and so shows a result.",
+      "guideHint": "Ask whether the word shows order, a reason, a contrast, or a result.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "Signal words give readers a map: first shows order, because gives a reason, but shows a contrast, and so shows a result."
     },
     {
       "activityId": "english-g3-q2-w05-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Tap each signal word that links the ideas!",
+      "instruction": "Tap sentences that use a signal word to connect ideas.",
       "content": {
         "examples": [
-          "first",
-          "because",
-          "but",
-          "so"
+          "First, I packed my bag.",
+          "I stayed inside because it rained.",
+          "I wanted to play, but homework came first.",
+          "It rained, so the game moved indoors."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Look at each Signal Words example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check what relationship the signal word shows."
       },
-      "prompt": "Tap each signal word that links the ideas!",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find signal words inside connected sentences.",
+      "narration": "A signal word helps explain how one idea relates to another.",
+      "guideHint": "Read both ideas around the connecting word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "A signal word helps explain how one idea relates to another."
     },
     {
       "activityId": "english-g3-q2-w05-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Sort the signal words from the other cards!",
+      "instruction": "Sort connected signal-word sentences from unrelated phrases.",
       "content": {
         "fits": [
-          "first",
-          "because",
-          "but",
-          "so"
+          "First, I packed my bag.",
+          "I stayed inside because it rained.",
+          "I wanted to play, but homework came first.",
+          "It rained, so the game moved indoors."
         ],
         "doesNotFit": [
-          "the tall tree",
-          "a red balloon",
-          "the school gate",
-          "a yellow mango"
+          "The tall tree beside the gate.",
+          "A red balloon floated away.",
+          "The school gate was blue.",
+          "A yellow mango on the plate."
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Read the Signal Words rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the connecting word and name its relationship."
       },
-      "prompt": "Sort the signal words from the other cards!",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each card by whether it shows a clear idea connection.",
+      "narration": "A signal-word sentence tells order, reason, contrast, or result; an unrelated phrase does not.",
+      "guideHint": "Read the whole card and look for a relationship between ideas.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "A signal-word sentence tells order, reason, contrast, or result; an unrelated phrase does not."
     },
     {
       "activityId": "english-g3-q2-w05-d01-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Which words show how the ideas are connected?",
+      "instruction": "Tap the sentence with a word that connects ideas.",
       "content": {
         "options": [
-          "the tall tree",
-          "a red balloon",
-          "first",
-          "a yellow mango"
+          "The tall tree beside the gate.",
+          "A red balloon floated away.",
+          "First, I packed my bag.",
+          "A yellow mango on the plate."
         ],
         "correctIndex": 2
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Find the clue in the Signal Words question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the word that links the two ideas."
       },
-      "prompt": "Which words show how the ideas are connected?",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that shows how ideas are related.",
+      "narration": "First, because, but, and so connect ideas by showing order, reason, contrast, or result.",
+      "guideHint": "Read the two parts and look for their relationship word.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "First, because, but, and so connect ideas by showing order, reason, contrast, or result."
     },
     {
       "activityId": "english-g3-q2-w05-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Match each signal word to what it shows!",
+      "instruction": "Match each signal word to the relationship it shows.",
       "content": {
         "pairs": [
           {
             "left": "first",
-            "right": "shows which event comes first"
+            "right": "puts an event at the beginning"
           },
           {
             "left": "because",
-            "right": "introduces a reason"
+            "right": "answers the question “why?”"
           },
           {
             "left": "but",
-            "right": "shows a contrast"
+            "right": "shows two ideas differ"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Read both sides of each Signal Words pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the word shows order, reason, or contrast."
       },
-      "prompt": "Match each signal word to what it shows!",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each signal word with its job in a sentence.",
+      "narration": "Signal words help readers see order, reason, and contrast between ideas.",
+      "guideHint": "Read the word in a sentence and ask what it explains.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "Signal words help readers see order, reason, and contrast between ideas."
     },
     {
       "activityId": "english-g3-q2-w05-d01-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d01-visual",
-      "instruction": "Put the steps for finding signal words in order.",
+      "instruction": "Put the signal-word checks in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read both ideas",
+          "Circle the signal word",
+          "Name the relationship",
+          "Explain how it connects"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Super! You spotted how the signal words connect the ideas! 🎉",
-        "retry": "Find the first, next, and last Signal Words steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, named, and explained the connection."
       },
-      "prompt": "Put the steps for finding signal words in order.",
-      "narration": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for finding a signal word’s job.",
+      "narration": "Readers compare the ideas around a signal word before naming the relationship.",
+      "guideHint": "Begin by reading both ideas.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result."
+      "accessibilityAlternative": "Readers compare the ideas around a signal word before naming the relationship."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q2-w05-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence links the ideas with a signal word?",
+        "prompt": "Milo explains why his game moved indoors after rain. Which sentence links the ideas with a result word?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "“So” is the signal word: it shows that the plants growing was the result of the rain."
+        "explanation": "So links the rain to what happened afterward: the plants grew as a result."
       },
       {
         "itemId": "english-g3-q2-w05-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence shows the result of warming ice?",
+        "prompt": "Milo leaves ice in the sun. Which sentence shows the result?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The word so links the reason (warming ice) to the result (it melted)."
+        "explanation": "So connects the reason, warming ice, to the result, melting."
       },
       {
         "itemId": "english-g3-q2-w05-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence shows a result of practicing?",
+        "prompt": "Milo practices drawing every day. Which sentence shows the result of his practice?",
         "options": [
           {
             "id": "a",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The word so shows the result: Milo improved because he practiced."
+        "explanation": "So shows that improving happened as a result of practicing."
       },
       {
         "itemId": "english-g3-q2-w05-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence connects the bell ringing to what happened next?",
+        "prompt": "The school bell rings. Which sentence connects the bell to what happens next?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The word so shows that class began because the bell rang."
+        "explanation": "So connects the bell ringing with the result that class began."
       },
       {
         "itemId": "english-g3-q2-w05-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice uses a connection word correctly?",
+        "prompt": "Milo chooses a sentence that uses a connection word correctly. Which choice works?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Only this sentence uses a signal word: so shows the result of the rain."
+        "explanation": "So joins the rain and the plant growth, showing that the growth followed as a result."
       }
     ]
   },

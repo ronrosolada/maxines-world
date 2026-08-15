@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Be-Verb Team again. 💪"
+        "retry": "Check the subject and time before choosing its be-verb. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "Text alternative: Use I am; he, she, or it is; you, we, or they are. For past time use was or were with the matching subject."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Be-Verb Team. 🔎",
-        "retry": "Look at each Be-Verb Team example again. 💪"
+        "retry": "Say the sentence and notice which subject goes with am, is, are, was, or were. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Be-Verb Team clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort sentences whose be-verb agrees with the subject away from mismatched pairs. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: They are helpful.",
-        "retry": "They goes with are, not is or am. Pick the pair that sounds right: They are helpful. 💪"
+        "retry": "They takes are, so choose the sentence with They are helpful. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d11-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each sentence to its be-verb.",
+      "instruction": "Match each subject and time clue with its be-verb.",
       "content": {
         "pairs": [
           {
-            "left": "I am ready.",
-            "right": "am"
+            "left": "I · present",
+            "right": "use am"
           },
           {
-            "left": "They are reading.",
-            "right": "are"
+            "left": "They · present",
+            "right": "use are"
           },
           {
-            "left": "She was here yesterday.",
-            "right": "was"
+            "left": "She · past",
+            "right": "use was"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Be-Verb Team explanation. 🔗",
-        "retry": "Read both sides of each Be-Verb Team pair again. 💪"
+        "retry": "Match the subject and time clue with the be-verb form it needs. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Be-Verb Team steps in order. 🎉",
-        "retry": "Find the first, next, and last Be-Verb Team steps. 💪"
+        "retry": "Order the check: find the subject, check time, then choose the agreeing be-verb. 💪"
       },
       "assetId": "english-g3-m01-d11-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "I is ready."
+          },
+          {
+            "id": "d",
+            "text": "They is reading."
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "I is ready."
+          },
+          {
+            "id": "d",
+            "text": "She am ready."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "They are reading."
+          },
+          {
+            "id": "d",
+            "text": "We are ready."
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "They am helpful."
+          },
+          {
+            "id": "d",
+            "text": "They was helpful."
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "She was here yesterday."
+          },
+          {
+            "id": "d",
+            "text": "She were here yesterday."
           }
         ],
         "correctOptionIds": [

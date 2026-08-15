@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🌿 Milo wants to check: is an ant living? Is a duck living? Let's find out what living things need!",
+  "introduction": "Milo sees an ant carrying food and a duck swimming. What evidence shows that both are living?",
   "vocabulary": [
     {
       "term": "living thing",
-      "definition": "something that grows, needs food and water, and can respond"
+      "definition": "A thing that grows, uses energy, and responds to its surroundings."
     },
     {
       "term": "non-living thing",
-      "definition": "something that does not grow or need food and water"
+      "definition": "A thing that does not grow, use energy, or carry out life processes."
     },
     {
       "term": "basic need",
-      "definition": "something a living thing must have to live, like food and water"
+      "definition": "Something a living thing must have, such as water, food, or light."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Listen to Milo. He will help you tell living things from non-living things.",
+      "instruction": "Watch Milo use growth and needs as clues for living things.",
       "content": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in Life Around Us again. 💪"
+        "retry": "Check for growth, energy use, response, and needs—not just movement."
       },
       "prompt": "Listen to Milo. He will help you tell living things from non-living things.",
       "narration": "an ant is a living thing: it grows and needs food and water. a chair is non-living, so it does not grow.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Explore each example. an ant and a duck are living, but a chair is not.",
+      "instruction": "Tap each example and look for evidence of life.",
       "content": {
         "examples": [
-          "an ant — living",
-          "a duck — living",
+          "an ant grows and carries food",
+          "a duck swims and needs water",
           "a bird uses wings to fly",
-          "a chair — non-living"
+          "a chair stays in one place"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Look at each Life Around Us example again. 💪"
+        "retry": "For each card, name the life clue you can observe."
       },
       "prompt": "Explore each example. an ant and a duck are living, but a chair is not.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Sort the examples: an ant and a duck are living things.",
+      "instruction": "Sort each observation by whether it shows life or a life need.",
       "content": {
         "fits": [
-          "an ant — living",
-          "a duck — living",
+          "an ant grows and carries food",
+          "a duck swims and needs water",
           "a bird uses wings to fly"
         ],
         "doesNotFit": [
-          "a chair — non-living",
-          "a rock",
-          "water",
-          "a pencil"
+          "a chair stays in one place",
+          "a rock remains still",
+          "water fills a cup",
+          "a pencil reflects light"
         ]
       },
       "completionRule": {
@@ -109,7 +109,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read the Life Around Us rule before sorting again. 💪"
+        "retry": "Look for growth, response, or a need of a living thing."
       },
       "prompt": "Sort the examples: an ant and a duck are living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -124,7 +124,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Tap the living thing!",
+      "instruction": "Choose the example that best matches the living-things clue.",
       "content": {
         "options": [
           "a rock",
@@ -139,7 +139,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the clue in the Life Around Us question. 💪"
+        "retry": "Compare each choice with growth, needs, or a body function."
       },
       "prompt": "Choose the example of living things.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -154,20 +154,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Match each card to living or non-living.",
+      "instruction": "Match each example with evidence about life.",
       "content": {
         "pairs": [
           {
             "left": "an ant",
-            "right": "living thing"
+            "right": "grows, uses energy, and needs food"
           },
           {
             "left": "a chair",
-            "right": "non-living thing"
+            "right": "does not grow or need food"
           },
           {
-            "left": "a bird uses wings to fly",
-            "right": "a fact about living things"
+            "left": "bird wings",
+            "right": "help the bird fly"
           }
         ]
       },
@@ -176,7 +176,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Read both sides of each Life Around Us pair again. 💪"
+        "retry": "Match each example with the evidence that shows life or a life need."
       },
       "prompt": "Match an ant, a duck, and a chair with their groups.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -191,7 +191,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q2-w03-d04-visual",
-      "instruction": "Put the steps in order. Observe first, then decide if the thing is living.",
+      "instruction": "Order the steps for deciding whether an example is living.",
       "content": {
         "steps": [
           "Observe the example: an ant",
@@ -205,7 +205,7 @@
       },
       "feedback": {
         "correct": "You got it! 🌟",
-        "retry": "Find the first, next, and last Life Around Us steps. 💪"
+        "retry": "Check the order: observe, ask about growth, check needs, then decide."
       },
       "prompt": "Put the steps in order. Observe first, then decide if the thing is living.",
       "narration": "Living things grow, need resources, and respond to their surroundings. Plants and animals have parts that help them live.",
@@ -224,141 +224,141 @@
         "itemId": "science-g3-q2-w03-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a living thing?",
+        "prompt": "Milo watches an ant carry a crumb. Which example is living?",
         "options": [
           {
             "id": "a",
-            "text": "a rock"
+            "text": "A rock"
           },
           {
             "id": "b",
-            "text": "an ant"
+            "text": "An ant"
           },
           {
             "id": "c",
-            "text": "water"
+            "text": "Water"
           },
           {
             "id": "d",
-            "text": "a pencil"
+            "text": "A pencil"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "An ant grows, eats, drinks, and moves, so it is living. A rock, water, and a pencil do not grow."
+        "explanation": "An ant grows, uses energy, eats, and moves, so it is living. A rock, water, and a pencil do not carry out those life processes."
       },
       {
         "itemId": "science-g3-q2-w03-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is NOT a living thing?",
+        "prompt": "Maxine sorts a fish, ant, chair, and duck. Which one is NOT living?",
         "options": [
           {
             "id": "a",
-            "text": "a fish"
+            "text": "A fish"
           },
           {
             "id": "b",
-            "text": "an ant"
+            "text": "An ant"
           },
           {
             "id": "c",
-            "text": "a chair"
+            "text": "A chair"
           },
           {
             "id": "d",
-            "text": "a duck"
+            "text": "A duck"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A chair does not grow and does not need food or water, so it is not living. The fish, the ant, and the duck are living."
+        "explanation": "A chair does not grow or need food and water, so it is non-living. The fish, ant, and duck are living."
       },
       {
         "itemId": "science-g3-q2-w03-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What do all living things need to grow?",
+        "prompt": "A class chart asks what living things need to grow. Which choice belongs?",
         "options": [
           {
             "id": "a",
-            "text": "a battery"
+            "text": "A battery"
           },
           {
             "id": "b",
-            "text": "food and water"
+            "text": "Food and water"
           },
           {
             "id": "c",
-            "text": "a quiet shelf"
+            "text": "A quiet shelf"
           },
           {
             "id": "d",
-            "text": "a plastic cover"
+            "text": "A plastic cover"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Living things need food and water to grow and stay alive. Shelves, batteries, and covers are not food or water."
+        "explanation": "Living things need resources such as food and water to grow and stay alive. A battery, shelf, or cover is not a life resource."
       },
       {
         "itemId": "science-g3-q2-w03-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What do birds use to fly?",
+        "prompt": "A duck spreads its wings at a pond. What do birds use to fly?",
         "options": [
           {
             "id": "a",
-            "text": "scales"
+            "text": "Scales"
           },
           {
             "id": "b",
-            "text": "roots"
+            "text": "Roots"
           },
           {
             "id": "c",
-            "text": "wings"
+            "text": "Wings"
           },
           {
             "id": "d",
-            "text": "gills"
+            "text": "Gills"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Birds fly with wings. Roots, scales, and gills are not wings."
+        "explanation": "Birds use wings to push against air and fly. Roots, scales, and gills are different body parts with other jobs."
       },
       {
         "itemId": "science-g3-q2-w03-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a living thing?",
+        "prompt": "Milo watches a duck eat, grow, and swim. Which example is living?",
         "options": [
           {
             "id": "a",
-            "text": "a duck"
+            "text": "A duck"
           },
           {
             "id": "b",
-            "text": "a chair"
+            "text": "A chair"
           },
           {
             "id": "c",
-            "text": "water"
+            "text": "Water"
           },
           {
             "id": "d",
-            "text": "a pencil"
+            "text": "A pencil"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A duck grows, needs food and water, and flies with wings, so it is living. A chair, water, and a pencil are not."
+        "explanation": "A duck grows, needs food and water, and responds to its surroundings, so it is living. A chair, water, and a pencil are not."
       }
     ]
   },

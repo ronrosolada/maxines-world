@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Retell It in Order again. 💪"
+        "retry": "Look for the event order: beginning first, middle next, and ending last. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "Text alternative: A retelling uses key events in order and the learner’s own words, not every sentence."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Retell in Your Own Words. 🔎",
-        "retry": "Look at each Retell in Your Own Words example again. 💪"
+        "retry": "Use First, Next, and Finally to place each event in the retelling. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Retell in Your Own Words clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort key events into beginning, middle, and ending without adding unrelated details. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: Finally",
-        "retry": "Finally signals the last event. First opens the story."
+        "retry": "Finally signals the last event, while First signals the opening. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,7 +127,7 @@
       "activityId": "english-g3-m01-d19-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each story part to its place.",
+      "instruction": "Match each story part with its place in the retelling order.",
       "content": {
         "pairs": [
           {
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Retell in Your Own Words explanation. 🔗",
-        "retry": "Read both sides of each Retell in Your Own Words pair again. 💪"
+        "retry": "Match each story part with its place in the retelling order. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Retell in Your Own Words steps in order. 🎉",
-        "retry": "Find the first, next, and last Retell in Your Own Words steps. 💪"
+        "retry": "Order the retelling: tell how it starts, what happens next, and how it ends. 💪"
       },
       "assetId": "english-g3-m01-d19-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "The very last event"
+          },
+          {
+            "id": "d",
+            "text": "The title"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "First the paper was folded."
+          },
+          {
+            "id": "d",
+            "text": "After that, the boat was tested."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "Beginning, middle, ending"
+          },
+          {
+            "id": "d",
+            "text": "Ending, beginning, middle"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "Before"
+          },
+          {
+            "id": "d",
+            "text": "Next"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "Next the boat was tested."
+          },
+          {
+            "id": "d",
+            "text": "Next the paper floated."
           }
         ],
         "correctOptionIds": [

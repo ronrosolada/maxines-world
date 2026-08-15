@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🔍 Milo found a metal key. Let's look closely: is it shiny or dull, hard or soft? And how do we handle it safely?",
+  "introduction": "metal key",
   "vocabulary": [
     {
       "term": "property",
-      "definition": "how a material looks, feels, or behaves"
+      "definition": "A way to describe how a material looks, feels, or behaves."
     },
     {
       "term": "flexible",
-      "definition": "able to bend without breaking"
+      "definition": "Able to bend without breaking easily."
     },
     {
       "term": "absorb",
-      "definition": "to soak up a liquid"
+      "definition": "To soak up a liquid."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Listen to Milo. He will show you how to describe materials by their properties.",
-      "content": "Materials have properties. rubber ball is bounces, and denim is thick and tough.",
+      "instruction": "Watch Milo observe a material and describe its properties safely.",
+      "content": "Materials have properties. rubber ball bounces high, and denim is thick and tough.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in Material Detectives again. 💪"
+        "retry": "Look at the object, then name what you can see, feel, or safely test."
       },
       "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
-      "narration": "Materials have properties. rubber ball is bounces, and denim is thick and tough.",
+      "narration": "Materials have properties. rubber ball bounces high, and denim is thick and tough.",
       "guideHint": "Need a hint? Read the example again.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Materials have properties. rubber ball is bounces, and denim is thick and tough."
+      "accessibilityAlternative": "Materials have properties. rubber ball bounces high, and denim is thick and tough."
     },
     {
       "activityId": "science-g3-q1-w01-d05-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Explore each example. a rubber ball bounces, and denim is thick and tough.",
+      "instruction": "Tap each object and notice the property Milo describes.",
       "content": {
         "examples": [
-          "rubber ball — bounces",
-          "denim — thick and tough",
-          "wax paper — does not absorb water",
-          "metal key — hard"
+          "a rubber ball squishes and bounces back",
+          "denim feels thick and tough",
+          "wax paper does not soak up water",
+          "a metal key stays firm when pressed"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Look at each Material Detectives example again. 💪"
+        "retry": "Check the object and the observation before naming its property."
       },
       "prompt": "Explore each example. A rubber ball bounces, and denim is thick and tough.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Sort the examples. Keep the ones that describe a material's property.",
+      "instruction": "Sort each observation by whether it describes a material property.",
       "content": {
         "fits": [
-          "rubber ball — bounces",
-          "denim — thick and tough",
-          "wax paper — does not absorb water",
-          "metal key — hard"
+          "a rubber ball squishes and bounces back",
+          "denim feels thick and tough",
+          "wax paper does not soak up water",
+          "a metal key stays firm when pressed"
         ],
         "doesNotFit": [
-          "a loud sound",
-          "a happy feeling",
-          "a fast race",
-          "a tall mountain"
+          "a loud sound fills the room",
+          "a happy feeling changes mood",
+          "a fast race uses time",
+          "a mountain has a height"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read the Material Detectives rule before sorting again. 💪"
+        "retry": "Ask whether each card describes something observable about a material."
       },
       "prompt": "Sort the examples. Keep the ones that describe a material's property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Tap the material that shows today's property!",
+      "instruction": "Choose the object that shows the key lesson’s focus on material properties.",
       "content": {
         "options": [
           "paper towel",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in the Material Detectives question. 💪"
+        "retry": "Compare each choice with the property clue from the material."
       },
       "prompt": "Choose the example of material properties.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Match each material with the property it shows.",
+      "instruction": "Match each material with the evidence for its property.",
       "content": {
         "pairs": [
           {
             "left": "rubber ball",
-            "right": "bounces"
+            "right": "squishes and bounces back"
           },
           {
             "left": "denim",
-            "right": "thick and tough"
+            "right": "feels thick and tough"
           },
           {
             "left": "wax paper",
-            "right": "does not absorb water"
+            "right": "keeps water from soaking through"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read both sides of each Material Detectives pair again. 💪"
+        "retry": "Match the material to the observable evidence that supports its property."
       },
       "prompt": "Match each material with the property it shows.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q1-w01-d05-visual",
-      "instruction": "Put the steps in order. Observe the material safely, then name its property.",
+      "instruction": "Order the steps for safely investigating a material.",
       "content": {
         "steps": [
           "Observe the material safely",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Material Detectives steps. 💪"
+        "retry": "Check the order: observe safely, name the property, compare, then choose a safe use."
       },
       "prompt": "Put the steps in order. Observe the material safely, then name its property.",
       "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q1-w01-d05-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is flexible?",
+        "prompt": "Maxine gently squeezes several objects. Which material bends or changes shape most easily?",
         "options": [
           {
             "id": "a",
-            "text": "stone"
+            "text": "Stone"
           },
           {
             "id": "b",
-            "text": "metal spoon"
+            "text": "Metal spoon"
           },
           {
             "id": "c",
-            "text": "rubber ball"
+            "text": "Rubber ball"
           },
           {
             "id": "d",
-            "text": "glass jar"
+            "text": "Glass jar"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A rubber ball squishes and bounces back, so it is flexible. A stone, a metal spoon, and a glass jar do not bend."
+        "explanation": "A rubber ball can squish and bounce back, showing flexibility. Stone, glass, and a metal spoon resist that change."
       },
       {
         "itemId": "science-g3-q1-w01-d05-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material absorbs water?",
+        "prompt": "Milo compares cloth, foil, glass, and a ruler after water is spilled. Which absorbs it?",
         "options": [
           {
             "id": "a",
-            "text": "cotton cloth"
+            "text": "Cotton cloth"
           },
           {
             "id": "b",
-            "text": "aluminum foil"
+            "text": "Aluminum foil"
           },
           {
             "id": "c",
-            "text": "glass jar"
+            "text": "Glass jar"
           },
           {
             "id": "d",
-            "text": "wooden ruler"
+            "text": "Wooden ruler"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Cotton cloth soaks up water, so it absorbs water. Glass, aluminum foil, and a wooden ruler do not soak it up."
+        "explanation": "Cotton cloth has fibers that soak up water. Foil and glass do not soak it up, and a ruler absorbs much less."
       },
       {
         "itemId": "science-g3-q1-w01-d05-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which material is hard?",
+        "prompt": "Milo taps a key and a sponge. Which material is hard?",
         "options": [
           {
             "id": "a",
-            "text": "sponge"
+            "text": "Sponge"
           },
           {
             "id": "b",
-            "text": "rubber ball"
+            "text": "Rubber ball"
           },
           {
             "id": "c",
-            "text": "aluminum foil"
+            "text": "Aluminum foil"
           },
           {
             "id": "d",
-            "text": "metal key"
+            "text": "Metal key"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "A metal key is firm and does not bend, so it is hard. A sponge, a rubber ball, and aluminum foil are soft or bendable."
+        "explanation": "A metal key is firm and resists bending, which shows hardness. A sponge, rubber ball, and foil are softer or more bendable."
       },
       {
         "itemId": "science-g3-q1-w01-d05-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What property does a metal key have?",
+        "prompt": "Maxine tries to bend a metal key. Which property does she observe?",
         "options": [
           {
             "id": "a",
-            "text": "thick and tough"
+            "text": "Thick and tough"
           },
           {
             "id": "b",
-            "text": "does not absorb water"
+            "text": "Does not absorb water"
           },
           {
             "id": "c",
-            "text": "hard"
+            "text": "Hard"
           },
           {
             "id": "d",
-            "text": "bounces"
+            "text": "Bounces"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A metal key is firm and does not bend, so hard is its property. It does not bounce, and it is not thick and tough."
+        "explanation": "The key resists bending under a gentle test, so hard describes its property. Not bouncing or absorbing water is not the main clue."
       },
       {
         "itemId": "science-g3-q1-w01-d05-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to learn about a material?",
+        "prompt": "Before studying the key, which action is safe?",
         "options": [
           {
             "id": "a",
-            "text": "throw it"
+            "text": "Throw it"
           },
           {
             "id": "b",
-            "text": "look at it and touch it gently"
+            "text": "Look at it and touch it gently"
           },
           {
             "id": "c",
-            "text": "leave it out in the rain"
+            "text": "Leave it in rain"
           },
           {
             "id": "d",
-            "text": "taste it"
+            "text": "Taste it"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Looking and gentle touching keep you safe and still let you observe. Tasting, throwing, and hitting are unsafe."
+        "explanation": "Looking and gentle touching keep the observation safe. Throwing, tasting, or leaving a metal key in rain are not careful methods."
       }
     ]
   },

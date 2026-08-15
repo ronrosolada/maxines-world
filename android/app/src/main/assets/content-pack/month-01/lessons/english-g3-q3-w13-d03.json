@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is meeting the characters of a new story! 🐱 Ana, the puppy, and Lola act in the story — their words and actions tell us what they are like. Ready to explore?",
+  "introduction": "Ana shares her umbrella when rain starts! 🐱 Read what each character says and does to learn what they are like.",
   "vocabulary": [
     {
       "term": "Ana",
-      "definition": "shares an umbrella"
+      "definition": "A character who shares her umbrella with someone in the rain."
     },
     {
       "term": "puppy",
-      "definition": "hides under a chair"
+      "definition": "A character who hides under a chair when feeling shy."
     },
     {
       "term": "Lola",
-      "definition": "tells a story"
+      "definition": "A character who tells a funny story."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Listen and learn how to spot the characters!",
+      "instruction": "Listen for each character’s words and actions.",
       "content": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in Meet the Characters again. 💪"
+        "retry": "Check who said or did the action before choosing."
       },
-      "prompt": "Learn this skill: Identify story characters and support ideas about them with actions or words.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for actions that reveal a character.",
+      "narration": "Characters are people or animals in a story. Their words and actions give clues: Ana shares an umbrella, the puppy hides under a chair, and Lola tells a funny story.",
+      "guideHint": "Match each action to the character who does it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "Characters are people or animals in a story. Their words and actions give clues: Ana shares an umbrella, the puppy hides under a chair, and Lola tells a funny story."
     },
     {
       "activityId": "english-g3-q3-w13-d03-a02",
@@ -58,11 +58,11 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Tap each story character!",
+      "instruction": "Tap the characters and their actions in the story.",
       "content": {
         "examples": [
           "Ana shares her umbrella",
-          "the puppy hides under the chair",
+          "the puppy hides under a chair",
           "Lola tells a funny story",
           "the bird carries a twig"
         ],
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Look at each Retell in Your Own Words example again. 💪"
+        "retry": "Check which character performs each action."
       },
-      "prompt": "Find examples of story characters.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each character-and-action clue.",
+      "narration": "A character is someone or an animal who acts in the story; actions help readers describe them.",
+      "guideHint": "Read the action and name the character connected to it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "A character is someone or an animal who acts in the story; actions help readers describe them."
     },
     {
       "activityId": "english-g3-q3-w13-d03-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Sort the characters into the story box!",
+      "instruction": "Sort people and animals who act in the story.",
       "content": {
         "fits": [
           "Ana",
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read the Retell in Your Own Words rule before sorting again. 💪"
+        "retry": "Check whether the card names a character or only a thing, place, or weather detail."
       },
-      "prompt": "Sort the examples of story characters.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort story characters away from things that do not act.",
+      "narration": "Characters take part in a story through their words or actions.",
+      "guideHint": "Look for a person or animal who can act in the story.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "Characters take part in a story through their words or actions."
     },
     {
       "activityId": "english-g3-q3-w13-d03-a04",
@@ -125,10 +125,10 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Which one is a story character?",
+      "instruction": "Choose the character named in the action.",
       "content": {
         "options": [
-          "Ana shares her umbrella",
+          "Ana",
           "the rain",
           "the blue chair",
           "a mango tree"
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in the Retell in Your Own Words question. 💪"
+        "retry": "Check whether the choice can act in the story."
       },
-      "prompt": "Choose the example of story characters.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Ana shares an umbrella. Who is the character?",
+      "narration": "A character is the person or animal who performs an action in the story.",
+      "guideHint": "Find who is doing the action in the sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "A character is the person or animal who performs an action in the story."
     },
     {
       "activityId": "english-g3-q3-w13-d03-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Match each character to what it does!",
+      "instruction": "Match each character to the action that reveals them.",
       "content": {
         "pairs": [
           {
             "left": "Ana",
-            "right": "shares an umbrella"
+            "right": "shares her umbrella with someone in the rain"
           },
           {
-            "left": "puppy",
-            "right": "hides under a chair"
+            "left": "the puppy",
+            "right": "hides under a chair when feeling shy"
           },
           {
             "left": "Lola",
-            "right": "tells a story"
+            "right": "tells a funny story to make others laugh"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read both sides of each Retell in Your Own Words pair again. 💪"
+        "retry": "Check that the action belongs to the same character, not a different one."
       },
-      "prompt": "Match the examples about story characters.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each character with the action the story gives.",
+      "narration": "Readers use a character’s actions as evidence for describing that character.",
+      "guideHint": "Find the action that belongs to the named character.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "Readers use a character’s actions as evidence for describing that character."
     },
     {
       "activityId": "english-g3-q3-w13-d03-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w13-d03-visual",
-      "instruction": "Put the steps for learning about a character in order.",
+      "instruction": "Put the character-clue steps in order.",
       "content": {
         "steps": [
-          "Notice who is present",
-          "Read what each one says",
-          "Watch what each one does",
-          "Describe the character with evidence"
+          "Name the character",
+          "Notice what the character says",
+          "Notice what the character does",
+          "Describe the character with a story clue"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Retell in Your Own Words steps. 💪"
+        "retry": "Check that your description is supported by something the character says or does."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for describing a character in order.",
+      "narration": "Readers name the character, notice words and actions, and use one clue to describe what the character is like.",
+      "guideHint": "Use an action or spoken line as evidence for your description.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues."
+      "accessibilityAlternative": "Readers name the character, notice words and actions, and use one clue to describe what the character is like."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q3-w13-d03-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which one is a story character?",
+        "prompt": "A story says a curious puppy hides under a chair. Which one is a character?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The puppy is an animal who acts in the story, so it is a character. Chairs, rain, and trees are not characters."
+        "explanation": "The puppy is an animal who acts in the story, so it is a character; the other choices are things or weather."
       },
       {
         "itemId": "english-g3-q3-w13-d03-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does Ana do in the story?",
+        "prompt": "Rain begins while Ana and her friends are outside. What does Ana do?",
         "options": [
           {
             "id": "a",
@@ -275,41 +275,41 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ana is the character who shares her umbrella. The puppy hides under a chair, Lola tells a story, and the bird carries a twig."
+        "explanation": "Ana shares her umbrella. The other actions belong to the puppy, the bird, or Lola."
       },
       {
         "itemId": "english-g3-q3-w13-d03-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which action shows that the puppy is shy?",
+        "prompt": "The puppy hides under a chair when visitors arrive. What trait does this action suggest?",
         "options": [
           {
             "id": "a",
-            "text": "hides under a chair"
+            "text": "shy"
           },
           {
             "id": "b",
-            "text": "shares an umbrella"
+            "text": "generous"
           },
           {
             "id": "c",
-            "text": "flies away with a twig"
+            "text": "adventurous"
           },
           {
             "id": "d",
-            "text": "tells a funny story"
+            "text": "noisy"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Hiding under a chair shows the puppy is shy. Sharing the umbrella is Ana's kind act, telling a story is Lola's, and carrying a twig is the bird's."
+        "explanation": "Hiding under a chair suggests the puppy is shy; the action is evidence for that trait."
       },
       {
         "itemId": "english-g3-q3-w13-d03-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which character tells a story?",
+        "prompt": "Who tells a funny story to make the others laugh?",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Lola is the character who tells a story. The puppy hides under a chair, the bird carries a twig, and the hungry cat is not the storyteller."
+        "explanation": "Lola tells the funny story, so her action identifies her as the storyteller."
       },
       {
         "itemId": "english-g3-q3-w13-d03-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which clue shows that Lola likes to make people laugh?",
+        "prompt": "Which action is evidence that Lola likes to make people laugh?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Lola telling a funny story is her action, and it shows she likes to make people laugh. The other choices are actions of other characters."
+        "explanation": "Lola telling a funny story is the action that supports the idea that she likes making people laugh."
       }
     ]
   },

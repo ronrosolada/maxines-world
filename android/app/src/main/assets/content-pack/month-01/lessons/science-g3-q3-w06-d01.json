@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 👏 Milo wants to show you how clapping makes sound. Let's see how sound behaves — and how to use it safely!",
+  "introduction": "Milo claps his hands and hears a sound. What vibrates, and how can Maxine listen safely?",
   "vocabulary": [
     {
+      "term": "vibration",
+      "definition": "A quick back-and-forth movement that can make sound."
+    },
+    {
       "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "definition": "A vibration that travels through air or another material to your ears."
     },
     {
-      "term": "light",
-      "definition": "what helps us see"
-    },
-    {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "term": "hearing safety",
+      "definition": "Ways to protect your ears from sounds that are too loud."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo show how a vibrating object makes sound safely.",
       "content": "clapping hands makes sound. a lamp lights a dark room. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check the clue: a vibrating object starts sound, and loud sound can hurt ears."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "clapping hands makes sound. a lamp lights a dark room. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Explore each example. clapping hands makes sound. a lamp lights a dark room.",
+      "instruction": "Tap each sound example and notice the safe hearing choice.",
       "content": {
         "examples": [
-          "clapping hands makes sound",
-          "a lamp lights a dark room",
-          "cover your ears at a very loud concert",
-          "do not point a laser at your eyes"
+          "hands move together and vibrate when they clap",
+          "a drum skin vibrates when struck",
+          "a quiet voice is gentler on ears",
+          "take a break from very loud music"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "Look for vibration first, then choose the action that protects hearing."
       },
       "prompt": "Explore each example. clapping hands makes sound. a lamp lights a dark room.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows sound or safe hearing.",
       "content": {
         "fits": [
-          "clapping hands makes sound",
-          "a lamp lights a dark room",
-          "cover your ears at a very loud concert",
-          "do not point a laser at your eyes"
+          "hands vibrate when they clap",
+          "a drum skin vibrates when struck",
+          "a learner lowers a loud volume",
+          "a learner rests ears after loud sound"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "A still hand makes a sound by itself",
+          "Sound travels through empty space",
+          "Put a speaker next to an ear",
+          "Listen at maximum volume all day"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card shows vibration, sound travel, or safer listening."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose the sound example that matches Milo’s demonstration.",
       "content": {
         "options": [
+          "a pair of hands moving together",
           "a lamp",
-          "a loud shout",
-          "a warm blanket",
-          "a fast car"
+          "a quiet room",
+          "a still chair"
         ],
         "correctIndex": 0
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "Compare the choices with the object that vibrates to make sound."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
+      "instruction": "Match each sound source with its result or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "clapping hands makes sound",
-            "right": "makes sound"
+            "left": "clapping hands",
+            "right": "vibration makes a sound"
           },
           {
-            "left": "a lamp lights a dark room",
-            "right": "helps us see"
+            "left": "drum skin",
+            "right": "vibration moves air to ears"
           },
           {
-            "left": "cover your ears at a very loud concert",
-            "right": "protects hearing"
+            "left": "lower volume",
+            "right": "reduces strain on ears"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each source to the vibration or hearing-safety result it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q3-w06-d01-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing sound and protecting hearing.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: make a gentle sound, observe vibration, then choose a safe volume."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q3-w06-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which helps us see in a dark room?",
+        "prompt": "Maxine claps her hands. What starts the sound she hears?",
         "options": [
           {
             "id": "a",
-            "text": "a loud shout"
+            "text": "A lamp"
           },
           {
             "id": "b",
-            "text": "a lamp"
+            "text": "Her hands vibrate"
           },
           {
             "id": "c",
-            "text": "a warm blanket"
+            "text": "A warm blanket"
           },
           {
             "id": "d",
-            "text": "a fast car"
+            "text": "A fast car"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A lamp gives off light, which lets us see in a dark room. Shouts, blankets, and cars do not make light."
+        "explanation": "Clapping makes the hands move and vibrate, and that vibration starts the sound. Lamps, blankets, and cars are not the cause here."
       },
       {
         "itemId": "science-g3-q3-w06-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Milo is near very loud music. Which action is safest for his hearing?",
         "options": [
           {
             "id": "a",
-            "text": "fold a towel"
+            "text": "Fold a towel"
           },
           {
             "id": "b",
-            "text": "read a book quietly"
+            "text": "Read a book quietly"
           },
           {
             "id": "c",
-            "text": "cover your ears at a very loud concert"
+            "text": "Cover his ears and move away"
           },
           {
             "id": "d",
-            "text": "write in a notebook"
+            "text": "Turn the volume higher"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Very loud music can hurt your ears, so covering them keeps your hearing safe."
+        "explanation": "Very loud music can hurt ears, so covering them and moving away reduces the sound reaching them."
       },
       {
         "itemId": "science-g3-q3-w06-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Milo reads four claims about sound. Which one is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "draw a picture"
+            "text": "Clapping can make sound"
           },
           {
             "id": "b",
-            "text": "count the books on a shelf"
+            "text": "A drum skin can vibrate"
           },
           {
             "id": "c",
-            "text": "do not point a laser at your eyes"
+            "text": "Sound travels through perfect empty space"
           },
           {
             "id": "d",
-            "text": "name a color in the room"
+            "text": "Sound can travel through air"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A laser is very bright and can damage your eyes, so never point one at anyone's eyes."
+        "explanation": "Sound needs matter such as air to carry vibrations, so it cannot travel through a perfect vacuum. Claps and drums vibrate to make sound."
       },
       {
         "itemId": "science-g3-q3-w06-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "Maxine claps and feels a quick movement in her hands. Which example shows how sound begins?",
         "options": [
           {
             "id": "a",
-            "text": "a lamp lights a dark room"
+            "text": "A lamp lights a room"
           },
           {
             "id": "b",
-            "text": "a window lets light through"
+            "text": "A window lets light through"
           },
           {
             "id": "c",
-            "text": "a mirror reflects light"
+            "text": "A mirror reflects light"
           },
           {
             "id": "d",
-            "text": "clapping hands makes sound"
+            "text": "Clapping hands makes sound"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Clapping makes your hands vibrate, and that makes sound. Lamps, mirrors, and windows are about light."
+        "explanation": "Clapping makes the hands vibrate, and that vibration makes sound. Lamps, windows, and mirrors describe light rather than the sound source."
       },
       {
         "itemId": "science-g3-q3-w06-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Milo listens to music at home. Which action helps protect his hearing?",
         "options": [
           {
             "id": "a",
-            "text": "clapping hands makes sound"
+            "text": "Play music at maximum volume"
           },
           {
             "id": "b",
-            "text": "a whistle makes a high sound"
+            "text": "Press a speaker next to an ear"
           },
           {
             "id": "c",
-            "text": "a lamp lights a dark room"
+            "text": "Keep the volume low"
           },
           {
             "id": "d",
-            "text": "a drum makes sound when struck"
+            "text": "Listen for hours without a break"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A lamp gives off light, so it lets us see in a dark room. Drums, whistles, and claps make sound."
+        "explanation": "Lower volume is gentler on ears, and breaks also help protect hearing. Very loud or close sound can cause harm."
       }
     ]
   },

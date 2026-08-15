@@ -13,19 +13,22 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🐱✨ May kuwento si Milo tungkol kay Marco na nagpipinta. Hatiin natin ang pangungusap: sino ang pinag-uusapan, at ano ang ginagawa? Tara na!",
+  "introduction": "Si Marco ay nagpipinta. Tukuyin natin kung sino ang pinag-uusapan at ano ang ginagawa niya!",
   "vocabulary": [
     {
+      "word": "simuno",
       "term": "simuno",
-      "definition": "ang pinag-uusapan sa pangungusap"
+      "definition": "Tao o bagay na pinag-uusapan sa pangungusap."
     },
     {
-      "term": "panaguri",
-      "definition": "ang nagsasabi tungkol sa simuno"
+      "word": "pandiwa",
+      "term": "pandiwa",
+      "definition": "Salitang nagsasabi ng kilos, tulad ng tumatakbo o nagbabasa."
     },
     {
-      "term": "payak na pangungusap",
-      "definition": "pangungusap na may isang simuno at isang panaguri"
+      "word": "karaniwang ayos",
+      "term": "karaniwang ayos",
+      "definition": "Ayos na nauuna ang panaguri bago ang simuno."
     }
   ],
   "activities": [
@@ -36,20 +39,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Pakinggan si Milo: hatiin ang pangungusap na 'Si Marco  ay nagpipinta.'.",
-      "content": "Ang simuno ang pinag-uusapan: Si Marco. Ang panaguri ang nagsasabi tungkol sa simuno: nagpipinta. Hatiin sa dalawa: [Si Marco] ay ang simuno, [ay nagpipinta] ay ang panaguri.",
+      "instruction": "Hatiin ang “Si Marco ay nagpipinta” sa simuno at panaguri.",
+      "content": "Sa “Si Marco ay nagpipinta”, si marco ang simuno dahil siya ang pinag-uusapan. “ay nagpipinta.” ang panaguri dahil sinasabi nito ang ginagawa niya.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
+        "retry": "Pahiwatig: itanong, “Sino ang pinag-uusapan?” at “Ano ang ginagawa niya?” 💪"
       },
-      "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "narration": "Ang simuno ang pinag-uusapan: Si Marco. Ang panaguri ang nagsasabi tungkol sa simuno: nagpipinta. Hatiin sa dalawa: [Si Marco] ay ang simuno, [ay nagpipinta] ay ang panaguri.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Sa pangungusap, sino ang pinag-uusapan at ano ang ginagawa niya?",
+      "narration": "Sa “Si Marco ay nagpipinta”, si marco ang simuno dahil siya ang pinag-uusapan. “ay nagpipinta.” ang panaguri dahil sinasabi nito ang ginagawa niya.",
+      "guideHint": "Pahiwatig: itanong, “Sino ang pinag-uusapan?” at “Ano ang ginagawa niya?”",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan: Si Marco. Ang panaguri ang nagsasabi tungkol sa simuno: nagpipinta. Hatiin sa dalawa: [Si Marco] ay ang simuno, [ay nagpipinta] ay ang panaguri."
+      "accessibilityAlternative": "Sa “Si Marco ay nagpipinta”, si marco ang simuno dahil siya ang pinag-uusapan. “ay nagpipinta.” ang panaguri dahil sinasabi nito ang ginagawa niya."
     },
     {
       "activityId": "filipino-g3-q2-w04-d02-a02",
@@ -58,7 +61,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Basahin ang bawat pangungusap at tukuyin ang simuno at panaguri.",
       "content": {
         "examples": [
           "Si Marco / ay nagpipinta.",
@@ -74,13 +77,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
+        "retry": "Pahiwatig: hanapin muna kung sino o ano ang pinag-uusapan, saka ang kilos nito. 💪"
       },
-      "prompt": "Tuklasin ang mga halimbawa ng simuno at panaguri.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Hanapin ang bahagi bago at pagkatapos ng pahilis na guhit.",
+      "narration": "Basahin ang bawat pangungusap. Ang bahagi bago ang guhit ang simuno; ang bahagi pagkatapos nito ang panaguri.",
+      "guideHint": "Pahiwatig: ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Basahin ang bawat pangungusap. Ang bahagi bago ang guhit ang simuno; ang bahagi pagkatapos nito ang panaguri."
     },
     {
       "activityId": "filipino-g3-q2-w04-d02-a03",
@@ -89,7 +92,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Pag-uriin ang buong pangungusap at mga bahaging kulang sa diwa.",
       "content": {
         "fits": [
           "Si Marco / ay nagpipinta.",
@@ -110,13 +113,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Bahagi ng Pangungusap bago magpangkat muli. 💪"
+        "retry": "Pahiwatig: tingnan kung may simuno at panaguri at nabubuo ang buong diwa. 💪"
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang kumpletong pangungusap na may simuno at panaguri?",
+      "narration": "Ang buong pangungusap ay may simuno at panaguri at nagpapahayag ng buong diwa. Ang maiikling bahagi ay kulang sa isa sa mga ito.",
+      "guideHint": "Pahiwatig: tingnan kung may pinag-uusapan at may sinasabi tungkol dito.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Ang buong pangungusap ay may simuno at panaguri at nagpapahayag ng buong diwa. Ang maiikling bahagi ay kulang sa isa sa mga ito."
     },
     {
       "activityId": "filipino-g3-q2-w04-d02-a04",
@@ -125,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang buong pangungusap na may simuno at panaguri.",
       "content": {
         "options": [
           "ang matiyagang sumusulat",
@@ -140,13 +143,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Bahagi ng Pangungusap. 💪"
+        "retry": "Pahiwatig: hanapin ang pangungusap na may simuno, panaguri, at buong diwa. 💪"
       },
-      "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang kumpletong pangungusap na may simuno at panaguri?",
+      "narration": "Hanapin ang pagpipiliang nagsasabi kung sino o ano ang pinag-uusapan at kung ano ang ginagawa o kalagayan nito.",
+      "guideHint": "Pahiwatig: ang tamang sagot ay may dalawang bahagi at buong diwa.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Hanapin ang pagpipiliang nagsasabi kung sino o ano ang pinag-uusapan at kung ano ang ginagawa o kalagayan nito."
     },
     {
       "activityId": "filipino-g3-q2-w04-d02-a05",
@@ -155,20 +158,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Itugma ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Itugma ang bawat bahagi sa ginagampanan nito.",
       "content": {
         "pairs": [
           {
             "left": "Si Marco",
-            "right": "simuno"
+            "right": "bahaging pinag-uusapan"
           },
           {
             "left": "ay nagpipinta.",
-            "right": "panaguri"
+            "right": "sinasabi tungkol sa simuno"
           },
           {
             "left": "Si Marco / ay nagpipinta.",
-            "right": "buong pangungusap"
+            "right": "kumpletong diwa"
           }
         ]
       },
@@ -177,13 +180,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
+        "retry": "Pahiwatig: ang simuno ay pinag-uusapan, at ang panaguri ay nagsasabi tungkol dito. 💪"
       },
-      "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itugma ang bahagi sa simuno, panaguri, o buong pangungusap.",
+      "narration": "Ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito; magkasama silang bumubuo ng buong pangungusap.",
+      "guideHint": "Pahiwatig: itanong kung sino ang pinag-uusapan at ano ang sinasabi tungkol sa kanya.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito; magkasama silang bumubuo ng buong pangungusap."
     },
     {
       "activityId": "filipino-g3-q2-w04-d02-a06",
@@ -192,7 +195,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q2-w04-d02-visual",
-      "instruction": "Ayusin ang mga hakbang.",
+      "instruction": "Ayusin ang proseso ng paghahanap ng simuno at panaguri.",
       "content": {
         "steps": [
           "Basahin ang pangungusap",
@@ -206,13 +209,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
+        "retry": "Pahiwatig: basahin, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, saka pangalanan ang mga bahagi. 💪"
       },
-      "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Si Marco / ay nagpipinta.'.",
-      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano mo susuriin ang isang pangungusap?",
+      "narration": "Basahin ang pangungusap, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, at pangalanan ang dalawang bahagi.",
+      "guideHint": "Pahiwatig: magsimula sa pagbasa, pagkatapos ay itanong kung sino o ano ang pinag-uusapan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+      "accessibilityAlternative": "Basahin ang pangungusap, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, at pangalanan ang dalawang bahagi."
     }
   ],
   "assessment": {
@@ -224,7 +227,7 @@
       {
         "sequence": 1,
         "itemId": "filipino-g3-q2-w04-d02-q1",
-        "prompt": "Alin ang simuno sa 'Si Marco / ay nagpipinta.'?",
+        "prompt": "Sa pangungusap na “Si Marco ay nagpipinta,” sino ang batang pinag-uusapan?",
         "options": [
           {
             "id": "a",
@@ -246,13 +249,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang simuno ay ang pinag-uusapan sa pangungusap. Sa “Si Marco / ay nagpipinta.”, Si Marco ang pinag-uusapan, kaya ito ang simuno.",
+        "explanation": "Tanungin, “Sino ang pinag-uusapan?” Si Marco ang sagot, kaya siya ang simuno.",
         "type": "MULTIPLE_CHOICE"
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q2-w04-d02-q2",
-        "prompt": "Alin ang panaguri sa 'Si Marco / ay nagpipinta.'?",
+        "prompt": "Ano ang ginagawa ni Marco sa pangungusap na “Si Marco ay nagpipinta”?",
         "options": [
           {
             "id": "a",
@@ -274,41 +277,41 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang panaguri ay nagsasabi kung ano ang ginagawa o kalagayan ng simuno. Sa “Si Marco / ay nagpipinta.”, ay nagpipinta. ang nagsasabi tungkol sa simuno.",
+        "explanation": "Tanungin, “Ano ang ginagawa ni Marco?” Ang panaguring “ay nagpipinta.” ang nagsasabi ng kilos niya.",
         "type": "MULTIPLE_CHOICE"
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q2-w04-d02-q3",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano wastong hatiin ang pangungusap na 'Ang hardin ay namumulaklak.'?",
+        "prompt": "Sa klase, binasa ni Lea ang “Ang hardin ay namumulaklak.” Saan ilalagay ang guhit upang paghiwalayin ang simuno at panaguri?",
         "options": [
           {
             "id": "a",
-            "text": "Ang hardin / ay namumulaklak."
+            "text": "Simuno: Ang hardin; panaguri: ay namumulaklak."
           },
           {
             "id": "b",
-            "text": "Ang hardin ay / namumulaklak."
+            "text": "Simuno: Ang hardin ay; panaguri: namumulaklak."
           },
           {
             "id": "c",
-            "text": "Ang hardin ay namumulaklak / ."
+            "text": "Simuno: Ang; panaguri: hardin ay namumulaklak."
           },
           {
             "id": "d",
-            "text": "Ang / hardin ay namumulaklak."
+            "text": "Simuno: Ang hardin ay namumulaklak; panaguri: wala."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Ang hardin / ay namumulaklak."
+        "explanation": "Ang “Ang hardin” ang pinag-uusapan at “ay namumulaklak.” ang sinasabi tungkol dito, kaya iyon ang wastong paghahati."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q2-w04-d02-q4",
-        "prompt": "Kung ang simuno ay 'Si Marco', alin ang maaaring panaguri?",
+        "prompt": "May hawak na pintura at gumuguhit sa papel si Marco. Alin ang panaguring tumutugma sa larawan?",
         "options": [
           {
             "id": "a",
@@ -316,50 +319,50 @@
           },
           {
             "id": "b",
-            "text": "ay nagdidilig."
+            "text": "ay natutulog sa silid."
           },
           {
             "id": "c",
-            "text": "ay humihinto sa gabi."
+            "text": "ay nagdidilig ng halaman."
           },
           {
             "id": "d",
-            "text": "ay namumulaklak."
+            "text": "ay naghuhugas ng pinggan."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang panaguri ay dapat tungkol sa simuno. ay nagpipinta. ang nagsasabi ng ginagawa o kalagayan ng Si Marco, kaya ito ang maaaring panaguri.",
+        "explanation": "Ang kilos na tumutugma sa hawak na pintura at pagguhit ni Marco ay “ay nagpipinta.”",
         "type": "MULTIPLE_CHOICE"
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q2-w04-d02-q5",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano wastong hatiin ang pangungusap na 'Si Nena ay nagdidilig.'?",
+        "prompt": "Sa kuwento, si Nena ay nagdidilig. Saan ilalagay ang guhit sa “Si Nena ay nagdidilig.”?",
         "options": [
           {
             "id": "a",
-            "text": "Si Nena / ay nagdidilig."
+            "text": "Simuno: Si Nena; panaguri: ay nagdidilig."
           },
           {
             "id": "b",
-            "text": "Si Nena ay / nagdidilig."
+            "text": "Simuno: Si; panaguri: Nena ay nagdidilig."
           },
           {
             "id": "c",
-            "text": "Si Nena ay nagdidilig / ."
+            "text": "Simuno: Si Nena ay; panaguri: nagdidilig."
           },
           {
             "id": "d",
-            "text": "Si / Nena ay nagdidilig."
+            "text": "Simuno: Si Nena ay nagdidilig; panaguri: wala."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Si Nena / ay nagdidilig."
+        "explanation": "Ang “Si Nena” ang simuno at “ay nagdidilig.” ang panaguri, kaya iyon ang wastong paghahati."
       }
     ]
   },

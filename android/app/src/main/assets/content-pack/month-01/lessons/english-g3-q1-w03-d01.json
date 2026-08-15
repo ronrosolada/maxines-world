@@ -43,7 +43,7 @@
       },
       "feedback": {
         "correct": "You joined the be-verb team!",
-        "retry": "Watch the explanation again."
+        "retry": "Check the subject before choosing am, is, or are. 💪"
       },
       "prompt": "Pay attention!",
       "narration": "Milo says: Let's learn!",
@@ -75,7 +75,7 @@
       },
       "feedback": {
         "correct": "You found the matches!",
-        "retry": "Which be-verb fits each word?"
+        "retry": "Say each subject and notice which be-verb agrees with it. 💪"
       },
       "prompt": "Tap each one!",
       "narration": "Find them all!",
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Sorted! He, she, it → is.",
-        "retry": "Which words go with is?"
+        "retry": "Sort pairs by the subject rule: I takes am, one person takes is, groups take are. 💪"
       },
       "prompt": "Drag each item to its group.",
       "narration": "Let's organize!",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Yes! They → are.",
-        "retry": "Which be-verb matches 'they'?"
+        "retry": "Match the subject with the be-verb it needs, then read the whole sentence. 💪"
       },
       "prompt": "Tap the best answer.",
       "narration": "Choose carefully!",
@@ -155,24 +155,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q1-w03-d01-visual",
-      "instruction": "Match each word to its be-verb!",
+      "instruction": "Match each subject with its agreeing be-verb rule.",
       "content": {
         "pairs": [
           {
             "left": "I",
-            "right": "am"
+            "right": "am for the speaker"
           },
           {
             "left": "She",
-            "right": "is"
+            "right": "is for one person"
           },
           {
             "left": "They",
-            "right": "are"
+            "right": "are for a group"
           },
           {
             "left": "We",
-            "right": "example with a useful detail"
+            "right": "are for a group including the speaker"
           }
         ]
       },
@@ -181,7 +181,7 @@
       },
       "feedback": {
         "correct": "You matched the whole team!",
-        "retry": "What be-verb goes with each word?"
+        "retry": "Match each subject with its agreeing be-verb rule. 💪"
       },
       "prompt": "Tap the matching pair.",
       "narration": "Match them up!",
@@ -210,7 +210,7 @@
       },
       "feedback": {
         "correct": "You chose the right verbs!",
-        "retry": "What do we check first?"
+        "retry": "Order the check: read the subject, test I/he-she-it/group, then choose the verb. 💪"
       },
       "prompt": "Put the steps in order.",
       "narration": "Order the steps!",
@@ -335,35 +335,35 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "“The books are open.” is right because books means Be-Verb Team, and more than one goes with are."
+        "explanation": "“The books are open.” is correct because books names more than one thing, so it takes are."
       },
       {
         "itemId": "english-g3-q1-w03-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the verb correctly?",
+        "prompt": "Milo and Ana ___ ready. Which be-verb completes the sentence?",
         "options": [
           {
             "id": "a",
-            "text": "I am ready."
+            "text": "are"
           },
           {
             "id": "b",
-            "text": "She are kind."
+            "text": "is"
           },
           {
             "id": "c",
-            "text": "They am friends."
+            "text": "am"
           },
           {
             "id": "d",
-            "text": "I is ready."
+            "text": "be"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "“I am ready.” is right because the word I always goes with am."
+        "explanation": "Milo and Ana names two people, so the plural subject takes are."
       }
     ]
   },

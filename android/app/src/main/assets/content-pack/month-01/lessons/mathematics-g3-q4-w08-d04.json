@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! ➕ Milo counted 456 birds and 544 more birds. How many birds in all?",
+  "introduction": "Milo counted 456 birds and 544 more birds. How many birds are there in all?",
   "vocabulary": [
     {
       "term": "addend",
-      "definition": "a number that is added to another number"
+      "definition": "Each number being joined in an addition problem."
     },
     {
       "term": "sum",
-      "definition": "the answer when you add"
+      "definition": "The total you get after adding the addends."
     },
     {
       "term": "regroup",
-      "definition": "to trade 10 ones for 1 ten (or 10 tens for 1 hundred)"
+      "definition": "Trade 10 in one place for 1 in the next place."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Listen to Milo. He will show you how to add from ones to thousands.",
-      "content": "Add from ones to thousands. four hundred fifty six plus five hundred forty four equals one thousand zero. Regroup 10 ones as 1 ten when needed.",
+      "instruction": "Watch Milo regroup across the ones, tens, and hundreds.",
+      "content": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Add-Up Adventure again. 💪"
+        "retry": "Start with 6 + 4 ones, then carry each group of 10 to the next place."
       },
-      "prompt": "Listen to Milo. He will show you how to add from ones to thousands.",
-      "narration": "Add from ones to thousands. four hundred fifty six plus five hundred forty four equals one thousand zero. Regroup 10 ones as 1 ten when needed.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch Milo regroup across the ones, tens, and hundreds.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. four hundred fifty six plus five hundred forty four equals one thousand zero. Regroup 10 ones as 1 ten when needed."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     },
     {
       "activityId": "mathematics-g3-q4-w08-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Tap the addition examples in the picture!",
+      "instruction": "Tap each bird-count example and follow the place values.",
       "content": {
         "examples": [
-          "456 + 544 = 1,000",
-          "4,010 + 2,990 = 7,000",
-          "regroup 10 ones",
-          "check with an estimate"
+          "456 + 544 = 1,000 birds",
+          "4,010 + 2,990 = 7,000 birds",
+          "10 ones trade for 1 ten",
+          "round the addends to estimate"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Add-Up Adventure example again. 💪"
+        "retry": "Follow the ones, tens, hundreds, and thousands columns."
       },
-      "prompt": "Explore each example. four hundred fifty six plus five hundred forty four equals one thousand zero.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each bird-count example and follow the place values.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     },
     {
       "activityId": "mathematics-g3-q4-w08-d04-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Sort the addition cards from the other operations!",
+      "instruction": "Sort addition results from other operations.",
       "content": {
         "fits": [
-          "456 + 544 = 1,000",
-          "4,010 + 2,990 = 7,000",
-          "regroup 10 ones",
-          "check with an estimate"
+          "456 + 544 = 1,000 birds",
+          "4,010 + 2,990 = 7,000 birds",
+          "10 ones trade for 1 ten",
+          "round the addends to estimate"
         ],
         "doesNotFit": [
-          "subtract the addends",
-          "multiply the numbers",
-          "compare without finding a sum",
+          "456 − 544 = 88",
+          "456 × 544",
+          "compare the addends without finding a sum",
           "divide the addends"
         ]
       },
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Add-Up Adventure rule before sorting again. 💪"
+        "retry": "Look for an addition sign and a result that fits the addends."
       },
-      "prompt": "Sort the examples of adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort addition results from other operations.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     },
     {
       "activityId": "mathematics-g3-q4-w08-d04-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Tap the correct sum for 456 + 544!",
+      "instruction": "Tap the correct sum for 456 + 544.",
       "content": {
         "options": [
-          "1,000",
-          "1010",
-          "1100",
-          "990"
+          "456 + 544 = 1,000",
+          "456 + 544 = 1,010",
+          "456 + 544 = 1,100",
+          "456 + 544 = 990"
         ],
         "correctIndex": 0
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Add-Up Adventure question. 💪"
+        "retry": "Add 456 + 544 from ones and track each regroup to 1,000."
       },
-      "prompt": "Choose the example of adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the correct sum for 456 + 544.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     },
     {
       "activityId": "mathematics-g3-q4-w08-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Match the addition cards to what they show!",
+      "instruction": "Match each addition expression with its result or regrouping rule.",
       "content": {
         "pairs": [
           {
-            "left": "456 + 544 = 1,000",
-            "right": "correct addition: makes 1,000"
+            "left": "456 + 544",
+            "right": "sum is 1,000"
           },
           {
-            "left": "4,010 + 2,990 = 7,000",
-            "right": "correct addition: makes 7,000"
+            "left": "4,010 + 2,990",
+            "right": "sum is 7,000"
           },
           {
-            "left": "regroup 10 ones",
-            "right": "a regrouping step"
+            "left": "10 ones",
+            "right": "trade for 1 ten"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Add-Up Adventure pair again. 💪"
+        "retry": "Use the operation and place-value result to match each card."
       },
-      "prompt": "Match the examples about adding numbers.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each addition expression with its result or regrouping rule.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     },
     {
       "activityId": "mathematics-g3-q4-w08-d04-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q4-w08-d04-visual",
-      "instruction": "Put the adding steps in order, starting with the ones place.",
+      "instruction": "Order the place-value steps for adding two numbers.",
       "content": {
         "steps": [
-          "Read the problem: four hundred fifty six plus five hundred forty four",
-          "Add the ones",
-          "Add the tens and hundreds",
-          "Check with an estimate"
+          "Line up the addends by ones, tens, hundreds, and thousands",
+          "Add the ones and regroup if the total is 10 or more",
+          "Continue through tens and hundreds, carrying each regroup",
+          "Estimate to check whether the sum is reasonable"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Add-Up Adventure steps. 💪"
+        "retry": "Line up places, add from ones, regroup, and estimate the answer."
       },
-      "prompt": "Put the adding steps in order, starting with the ones place.",
-      "narration": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the place-value steps for adding two numbers.",
+      "narration": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000.",
+      "guideHint": "Line up the places and start with the ones column.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Add from ones to thousands. Regroup 10 ones as 1 ten, 10 tens as 1 hundred, and so on."
+      "accessibilityAlternative": "456 + 544 makes 10 ones, 10 tens, and 10 hundreds. Regroup each place before writing 1,000."
     }
   ],
   "assessment": {
@@ -253,7 +253,7 @@
         "itemId": "mathematics-g3-q4-w08-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What is the sum of four hundred fifty six and five hundred forty four?",
+        "prompt": "Milo puts 456 bird stickers in one album and 544 in another. How many stickers are in both albums?",
         "options": [
           {
             "id": "a",
@@ -275,7 +275,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "456 + 544 = 1,000 because 6 + 4 = 10, so carry 1 ten, then 5 + 4 + 1 = 10, carry 1, and 4 + 5 + 1 = 10, carry 1 to the thousands."
+        "explanation": "Add the two groups: 456 + 544 = 1,000. Each place makes 10, so the regrouping carries into the thousands."
       },
       {
         "itemId": "mathematics-g3-q4-w08-d04-q03",

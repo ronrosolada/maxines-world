@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "A baby frog looks like its parents, but not exactly. Which traits do young ones get from their parents?",
+  "introduction": "Milo compares fictional young organisms with their parents. Which traits can be inherited, and why are young ones not exact copies?",
   "vocabulary": [
     {
       "term": "environment",
-      "definition": "Everything around us — land, water, and air."
+      "definition": "Everything around a living thing, including land, water, air, and other organisms."
     },
     {
       "term": "trait",
-      "definition": "A feature or quality a living thing has."
+      "definition": "A feature of a living thing, such as color, shape, or fur pattern."
     },
     {
       "term": "animal",
-      "definition": "A living thing that can move, like a dog or bird."
+      "definition": "A living thing that grows, uses energy, and can respond."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d11-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows how young ones get traits from parents.",
+      "instruction": "Watch Milo compare inherited traits in fictional organisms.",
       "content": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Family Traits again. 💪"
+        "retry": "Check whether the trait is present from birth and can resemble a parent’s trait."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "Text alternative: Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d11-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each fictional organism and notice the trait it shares.",
       "content": {
         "examples": [
-          "fictional beetle color patterns",
-          "leaf shape in imaginary plants",
-          "fur pattern in cartoon animals"
+          "a beetle shares a color pattern with its parent",
+          "an imaginary plant has a leaf shape like its parent",
+          "a cartoon animal has a fur pattern like its parent"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Family Traits. 🔎",
-        "retry": "Look at each Family Traits example again. 💪"
+        "retry": "For each organism, name the trait and compare it with the fictional parent."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d11-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is it about an inherited trait?",
+      "instruction": "Sort each observation by whether it shows an inherited trait.",
       "content": {
         "fits": [
-          "fictional beetle color patterns",
-          "leaf shape in imaginary plants",
-          "fur pattern in cartoon animals"
+          "a beetle shares a color pattern with its parent",
+          "an imaginary plant has a leaf shape like its parent",
+          "a cartoon animal has a fur pattern like its parent"
         ],
         "doesNotFit": [
-          "Ask about biological parentage",
-          "Rank skin colors",
-          "Claim one parent determines everything"
+          "a haircut changes an animal’s fur",
+          "a scar appears after a fall",
+          "One parent determines every trait"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether the card describes a trait inherited from a parent, not a later event."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d11-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Which is true?",
+      "instruction": "Choose the true statement about traits passed to young organisms.",
       "content": {
         "options": [
           "Offspring may resemble parents without being exact copies.",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: Offspring may resemble parents without being exact copies.",
-        "retry": "Look again — exact copies are not how offspring work. Tap the true statement! 💪"
+        "retry": "Young organisms can resemble parents without being copies, so check that clue."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d11-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each fictional example to its group.",
+      "instruction": "Match each fictional observation with its inheritance clue.",
       "content": {
         "pairs": [
           {
-            "left": "fictional beetle color patterns",
-            "right": "beetles"
+            "left": "beetle color pattern",
+            "right": "may resemble a parent’s pattern"
           },
           {
-            "left": "leaf shape in imaginary plants",
-            "right": "plants"
+            "left": "imaginary leaf shape",
+            "right": "can be shared by a parent plant"
           },
           {
-            "left": "fur pattern in cartoon animals",
-            "right": "animals"
+            "left": "cartoon fur pattern",
+            "right": "can be present from birth"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Family Traits explanation. 🔗",
-        "retry": "Read both sides of each Family Traits pair again. 💪"
+        "retry": "Match each trait with the clue that connects it to a parent."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d11-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: look, name the trait, compare with parents.",
+      "instruction": "Order the steps for comparing an organism’s traits with its parents.",
       "content": {
         "steps": [
           "Look at the fictional organism.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Family Traits steps in order. 🎉",
-        "retry": "Find the first, next, and last Family Traits steps. 💪"
+        "retry": "Check the order: observe the organism, name its trait, then compare with parents."
       },
       "assetId": "science-g3-m01-d11-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d11-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about inherited traits is true?",
+        "prompt": "Milo compares fictional young organisms with their parents. Which statement about inherited traits is true?",
         "options": [
           {
             "id": "a",
@@ -199,71 +199,83 @@
           },
           {
             "id": "b",
-            "text": "Offspring can inherit traits but are not exact copies; traits can involve genes and environment."
+            "text": "Offspring can inherit traits but are not exact copies; genes and environment can both matter."
           },
           {
             "id": "c",
             "text": "Environment never matters"
+          },
+          {
+            "id": "d",
+            "text": "Young organisms inherit every learned habit."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Young animals and plants get traits from their parents but are not exact copies — the environment can shape them too."
+        "explanation": "Young organisms can inherit traits and still differ from their parents. Genes influence traits, and the environment can shape how some traits appear."
       },
       {
         "itemId": "science-g3-m01-d11-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which trait could a young animal be born with?",
+        "prompt": "A fictional beetle is born with a color pattern like its parent. Which trait could be inherited?",
         "options": [
           {
             "id": "a",
-            "text": "a haircut from a barber"
+            "text": "A haircut from a barber"
           },
           {
             "id": "b",
-            "text": "a scar from a fall"
+            "text": "A scar from a fall"
           },
           {
             "id": "c",
-            "text": "fictional beetle color patterns"
+            "text": "The beetle’s color pattern"
+          },
+          {
+            "id": "d",
+            "text": "A song the beetle learned"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The beetle's color pattern comes from its parents, so it is inherited. Scars and haircuts come from what happens to the animal, not from its parents."
+        "explanation": "A color pattern present from birth can be inherited from parents. A haircut, scar, or learned song happens after birth."
       },
       {
         "itemId": "science-g3-m01-d11-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about offspring is NOT true?",
+        "prompt": "Milo writes four claims about offspring. Which one is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "Young ones are born with traits from their parents."
+            "text": "Young ones can be born with traits from parents"
           },
           {
             "id": "b",
-            "text": "Traits can be shaped by the environment."
+            "text": "Traits can be shaped by the environment"
           },
           {
             "id": "c",
-            "text": "Offspring are always exact copies of a parent."
+            "text": "Offspring are always exact copies of one parent"
+          },
+          {
+            "id": "d",
+            "text": "Each young organism can have its own combination of traits"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Young ones get traits from their parents but are not exact copies — each one is unique. They are born with traits, and the environment can shape them."
+        "explanation": "Young organisms can resemble parents without being exact copies. Each one has its own combination, and the environment can affect some traits."
       },
       {
         "itemId": "science-g3-m01-d11-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is true?",
+        "prompt": "Maxine compares a fictional parent and young organism. Which statement is true?",
         "options": [
           {
             "id": "a",
@@ -276,36 +288,44 @@
           {
             "id": "c",
             "text": "Offspring may resemble parents without being exact copies."
+          },
+          {
+            "id": "d",
+            "text": "Young organisms have no traits at birth."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Young ones often look like their parents but are not exactly the same — each individual is unique."
+        "explanation": "A young organism may share traits with a parent while still being different. Inherited traits are present early, and the environment can also influence some features."
       },
       {
         "itemId": "science-g3-m01-d11-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which trait could an animal be born with?",
+        "prompt": "A cartoon animal is born with a fur pattern like its parent. Which trait could be inherited?",
         "options": [
           {
             "id": "a",
-            "text": "a song a cartoon animal learned"
+            "text": "A song it learned"
           },
           {
             "id": "b",
-            "text": "fur pattern in cartoon animals"
+            "text": "Its fur pattern"
           },
           {
             "id": "c",
-            "text": "a toy a cartoon animal plays with"
+            "text": "A toy it plays with"
+          },
+          {
+            "id": "d",
+            "text": "A scar from a later fall"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Fur pattern comes from the animal's parents, so it is inherited. Toys and learned songs are not born with the animal."
+        "explanation": "A fur pattern present from birth can come from parents. A learned song, toy, or later scar is not inherited in that way."
       }
     ]
   },

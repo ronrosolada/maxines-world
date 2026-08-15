@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🏪 Sa tindahan, may tindera tayong kinakausap. Paano tayo magiging magalang? Alamin natin!",
+  "introduction": "Sa tindahan, nakikipag-usap tayo sa tindera at naghihintay ng ating pagkakataon. 🏪 Paano maipapakita ang paggalang habang bumibili?",
   "vocabulary": [
     {
       "term": "nakikinig",
-      "definition": "Pagbibigay-pansin sa nagsasalita bago tumugon."
+      "definition": "Binibigyang-pansin ang sinasabi ng kausap bago sumagot o kumilos."
     },
     {
       "term": "nagsasabi ng po at opo kung angkop",
-      "definition": "Magalang na pananalitang ginagamit ayon sa kausap at sitwasyon."
+      "definition": "Gumagamit ng magalang na pananalita ayon sa kausap at sitwasyon."
     },
     {
       "term": "humihingi ng pahintulot",
-      "definition": "Pagtatanong muna bago gumamit o gumawa ng isang bagay."
+      "definition": "Nagtatanong muna bago gumamit ng gamit o gumawa ng kilos na may epekto sa iba."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
+      "instruction": "Pakinggan ang mga hakbang sa magalang na pagbili.",
       "content": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa paghihintay ng sariling pagkakataon.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Paggalang sa Kapwa. 💪"
+        "retry": "Suriin kung nakinig, naghintay, nagsalita nang magalang, at nagpasalamat."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa paghihintay ng sariling pagkakataon.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pakinggan kung paano maging magalang sa tindahan.",
+      "narration": "Sa tindahan, makinig sa presyo o bilin, maghintay sa pila, magsabi ng po at opo kung angkop, at magpasalamat bago umalis.",
+      "guideHint": "Alalahanin: makinig, maghintay, magsalita nang magalang, magpasalamat.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Iugnay ito sa isang kaibigan o kapitbahay. Halimbawa, sa paghihintay ng sariling pagkakataon."
+      "accessibilityAlternative": "Sa tindahan, makinig sa presyo o bilin, maghintay sa pila, magsabi ng po at opo kung angkop, at magpasalamat bago umalis."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Hanapin ang magagalang na kilos sa tindahan.",
       "content": {
         "examples": [
-          "nakikinig",
+          "nakikinig sa presyo ng paninda",
+          "naghihintay sa pila",
           "nagsasabi ng po at opo kung angkop",
-          "humihingi ng pahintulot",
-          "gumagalang sa pagkakaiba"
+          "nagpapasalamat bago umalis"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Paggalang sa Kapwa. 💪"
+        "retry": "Suriin kung ang kilos ay nakikinig, naghihintay, o nagsasalita nang magalang."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Tuklasin ang bawat magalang na kilos sa tindahan.",
+      "narration": "Makikita ang paggalang sa tindahan sa pakikinig, paghihintay, mahinahong pananalita, at pasasalamat.",
+      "guideHint": "Hanapin ang kilos na makatutulong sa maayos na pagbili.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Makikita ang paggalang sa tindahan sa pakikinig, paghihintay, mahinahong pananalita, at pasasalamat."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Pangkatin ang magalang na kilos at hindi magalang na kilos.",
       "content": {
         "fits": [
-          "nakikinig",
+          "nakikinig sa presyo ng paninda",
+          "naghihintay sa pila",
           "nagsasabi ng po at opo kung angkop",
-          "humihingi ng pahintulot",
-          "gumagalang sa pagkakaiba"
+          "nagpapasalamat bago umalis"
         ],
         "doesNotFit": [
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya",
-          "sumusuway sa ligtas na tuntunin",
-          "hindi nakikinig"
+          "sumisingit sa pila",
+          "nang-iinsulto sa tindera",
+          "kumukuha ng paninda nang walang paalam",
+          "umaalis nang hindi nagbabayad"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Paggalang sa Kapwa bago magpangkat muli. 💪"
+        "retry": "Suriin kung may paggalang sa tindera at sa ibang mamimili."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Pagbukud-bukurin ang kilos sa tindahan.",
+      "narration": "Ang magalang na mamimili ay nakikinig, naghihintay, gumagamit ng mahinahong salita, at nagbabayad nang maayos.",
+      "guideHint": "Ihambing ang bawat kilos sa tuntunin ng maayos na pagbili.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang magalang na mamimili ay nakikinig, naghihintay, gumagamit ng mahinahong salita, at nagbabayad nang maayos."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d01-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang magalang na kilos habang namimili.",
       "content": {
         "options": [
-          "sumusuway sa ligtas na tuntunin",
-          "nakikinig",
-          "nanunukso sa kapwa",
-          "kumukuha ng hindi kanya"
+          "sumisingit sa pila",
+          "nakikinig sa presyo",
+          "nananadya sa tindera",
+          "kumukuha nang walang paalam"
         ],
         "correctIndex": 1
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Paggalang sa Kapwa. 💪"
+        "retry": "Suriin kung ang kilos ay nakikinig at hindi nang-iistorbo."
       },
-      "prompt": "Piliin ang tamang halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "May ipinapaliwanag ang tindera. Ano ang magalang mong gawin?",
+      "narration": "Ang pakikinig sa paliwanag ng tindera ay nagpapakita ng paggalang at tumutulong sa tamang pagbili.",
+      "guideHint": "Pakinggan muna ang sinasabi ng tindera bago kumilos.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang pakikinig sa paliwanag ng tindera ay nagpapakita ng paggalang at tumutulong sa tamang pagbili."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng paggalang sa kapwa.",
+      "instruction": "Itugma ang kilos sa magandang bunga nito.",
       "content": {
         "pairs": [
           {
-            "left": "nakikinig",
-            "right": "pakikinig nang may paggalang"
+            "left": "nakikinig sa presyo",
+            "right": "nauunawaan ang bilin bago pumili"
           },
           {
-            "left": "nagsasabi ng po at opo kung angkop",
-            "right": "magalang na pananalita"
+            "left": "naghihintay sa pila",
+            "right": "nabibigyan ng pagkakataon ang bawat mamimili"
           },
           {
-            "left": "humihingi ng pahintulot",
-            "right": "paggalang sa hangganan"
+            "left": "nagsasabi ng po at opo",
+            "right": "mahinahong pakikipag-usap sa tindera"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Paggalang sa Kapwa. 💪"
+        "retry": "Suriin kung ang kanang panig ay bunga o gamit ng kilos."
       },
-      "prompt": "Itapat ang mga halimbawa ng paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Itugma ang bawat kilos sa ipinapakitang paggalang.",
+      "narration": "Ang magalang na kilos ay may mabuting bunga para sa mamimili at tindera.",
+      "guideHint": "Basahin ang kilos at hanapin ang bunga nito sa tindahan.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Ang magalang na kilos ay may mabuting bunga para sa mamimili at tindera."
     },
     {
       "activityId": "gmrc-g3-q4-w07-d01-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "gmrc-g3-q4-w07-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa magalang na pagbili.",
       "content": {
         "steps": [
-          "Makinig nang mabuti",
-          "Hintaying matapos ang kausap",
+          "Pakinggan ang presyo o bilin",
+          "Maghintay ng iyong pagkakataon",
           "Magsalita nang magalang",
-          "Gawin ito sa lahat ng pagkakataon"
+          "Magpasalamat bago umalis"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Paggalang sa Kapwa. 💪"
+        "retry": "Suriin kung ang huling hakbang ay nagpapakita ng pasasalamat."
       },
-      "prompt": "Ayusin ang mga hakbang sa paggalang sa kapwa.",
-      "narration": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ayusin ang mga hakbang sa pagiging magalang sa tindahan.",
+      "narration": "Sa pagbili, makinig muna, maghintay, magsalita nang magalang, at magpasalamat bago umalis.",
+      "guideHint": "Isipin ang tamang kilos mula pakikinig hanggang pag-alis.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba."
+      "accessibilityAlternative": "Sa pagbili, makinig muna, maghintay, magsalita nang magalang, at magpasalamat bago umalis."
     }
   ],
   "assessment": {
@@ -225,57 +225,57 @@
         "itemId": "gmrc-g3-q4-w07-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng paggalang sa kapwa?",
+        "prompt": "Bibili ka ng tinapay at may nagsasalita ang tindera. Ano ang magalang na gawin?",
         "options": [
           {
             "id": "a",
-            "text": "kumukuha ng hindi kanya"
+            "text": "Kumuha agad nang walang paalam."
           },
           {
             "id": "b",
-            "text": "pag-uutos sa kapwa"
+            "text": "Sumingit sa pila."
           },
           {
             "id": "c",
-            "text": "humihingi ng pahintulot"
+            "text": "Makinig at maghintay ng iyong pagkakataon."
           },
           {
             "id": "d",
-            "text": "sumusuway sa ligtas na tuntunin"
+            "text": "Tumalikod at umalis."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang “humihingi ng pahintulot” ay halimbawa ng paggalang sa kapwa."
+        "explanation": "Ang pakikinig at paghihintay ay nagpapakita ng paggalang sa nagsasalita at sa ibang mamimili."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng paggalang sa kapwa?",
+        "prompt": "Binigyan ka ng sukli. Ano ang maaari mong sabihin?",
         "options": [
           {
             "id": "a",
-            "text": "pagsingit sa usapan"
+            "text": "“Akin na!”"
           },
           {
             "id": "b",
-            "text": "pag-aagaw ng gamit"
+            "text": "“Bilisan mo!”"
           },
           {
             "id": "c",
-            "text": "pagtawa sa nagsasalita"
+            "text": "“Wala akong pakialam.”"
           },
           {
             "id": "d",
-            "text": "nagmamano sa nakatatanda"
+            "text": "“Salamat po.”"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “nagsasabi ng po at opo kung angkop” ay halimbawa rin ng paggalang sa kapwa."
+        "explanation": "Ang pagsasabi ng “Salamat po” ay magalang na pagkilala sa tulong o serbisyong natanggap."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d01-q03",
@@ -285,81 +285,81 @@
         "options": [
           {
             "id": "a",
-            "text": "pag-usapan siya sa katabi"
+            "text": "Pag-usapan siya sa katabi."
           },
           {
             "id": "b",
-            "text": "tingnan lamang siya at dumaan"
+            "text": "Tingnan lamang siya at dumaan."
           },
           {
             "id": "c",
-            "text": "tumakbo papalayo"
+            "text": "Tumakbo papalayo."
           },
           {
             "id": "d",
-            "text": "batiin siya nang may ngiti: “Magandang araw po!”"
+            "text": "Batiin siya nang may ngiti: “Magandang araw po!”"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang pagbati sa kakilala o kapitbahay ay paggalang sa kapwa."
+        "explanation": "Ang maayos na pagbati ay nagpapakita ng paggalang sa kakilala o kapitbahay."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "May matandang kapitbahay na nagbubuhat ng mabigat na bag. Ano ang dapat mong gawin?",
+        "prompt": "Hindi mo maabot ang paninda sa mataas na estante. Ano ang dapat gawin?",
         "options": [
           {
             "id": "a",
-            "text": "mag-alok ng tulong nang may pahintulot"
+            "text": "Humingi ng tulong at pahintulot sa tindera."
           },
           {
             "id": "b",
-            "text": "pagtawanan siya"
+            "text": "Umakyat sa estante nang walang paalam."
           },
           {
             "id": "c",
-            "text": "hayaan siyang mag-isa"
+            "text": "Hilahin ang paninda hanggang mahulog."
           },
           {
             "id": "d",
-            "text": "kunin ang bag nang walang paalam"
+            "text": "Kunin ang gamit ng ibang mamimili."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pag-aalok ng tulong nang may pahintulot ay paggalang sa nakatatanda."
+        "explanation": "Ang paghingi ng tulong at pahintulot ay ligtas at gumagalang sa tindera at sa paninda."
       },
       {
         "itemId": "gmrc-g3-q4-w07-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng paggalang sa kapwa?",
+        "prompt": "Alin ang HINDI magalang na kilos sa tindahan?",
         "options": [
           {
             "id": "a",
-            "text": "nanunukso sa kapwa"
+            "text": "Sumisingit sa pila."
           },
           {
             "id": "b",
-            "text": "nakikinig nang mabuti"
+            "text": "Nakikinig sa presyo."
           },
           {
             "id": "c",
-            "text": "humihingi ng pahintulot"
+            "text": "Humihingi ng pahintulot."
           },
           {
             "id": "d",
-            "text": "nagpapasalamat"
+            "text": "Nagpapasalamat bago umalis."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “sumusuway sa ligtas na tuntunin” ay hindi halimbawa ng paggalang sa kapwa."
+        "explanation": "Ang pagsingit sa pila ay hindi nagbibigay ng patas na pagkakataon sa ibang mamimili."
       }
     ]
   },

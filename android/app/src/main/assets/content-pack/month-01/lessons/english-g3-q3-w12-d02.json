@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Milo has a story about Ben. Let's find the clues: who is in it, where it happens, and what Ben did!",
+  "introduction": "Ben watches a line of ants in the yard! 📖 Read the details to find the characters, setting, event, and Ben’s idea about teamwork.",
   "vocabulary": [
     {
       "term": "character",
-      "definition": "the person or animal in the story"
+      "definition": "A person or animal who takes part in a story."
     },
     {
       "term": "setting",
-      "definition": "where and when the story happens"
+      "definition": "The place and time where a story happens."
     },
     {
       "term": "event",
-      "definition": "something that happens in the story"
+      "definition": "An action or change that happens in a story."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d02-visual",
-      "instruction": "Listen and learn how to find story clues!",
+      "instruction": "Listen for who, where, and what happens in Ben’s story.",
       "content": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in Story Clue Crew again. 💪"
+        "retry": "Check the story for who, where, and what happened."
       },
-      "prompt": "Learn this skill: Use details from a story to explain characters, events, and ideas.",
-      "narration": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for the story’s character, setting, and event.",
+      "narration": "Ben watched ants march across the yard to their home. Each ant carried a small piece of food, and Ben said, “They work together like one big family.”",
+      "guideHint": "Ask: Who is there, where are they, and what happens?",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Ben watched the ants march in a line to their home. Each ant carried a small piece of food. Ben said, 'They work together like one big family.'"
+      "accessibilityAlternative": "Ben watched ants march across the yard to their home. Each ant carried a small piece of food, and Ben said, “They work together like one big family.”"
     },
     {
       "activityId": "english-g3-q3-w12-d02-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d02-visual",
-      "instruction": "Tap each story clue you find!",
+      "instruction": "Tap each detail from Ben’s ant story.",
       "content": {
         "examples": [
-          "the character: Ben and the ants",
-          "the setting: the yard",
-          "the event: the ants marched in a line carrying food",
-          "the clue: Each ant carried a small piece of food."
+          "Ben and the ants",
+          "the yard",
+          "the ants carried food home",
+          "Each ant carried a small piece of food."
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Look at each Story Clue Crew example again. 💪"
+        "retry": "Check the story for the character, place, event, or exact detail."
       },
-      "prompt": "Find examples of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap a character, setting, event, or story clue.",
+      "narration": "Use the story’s exact details, not guesses alone, to explain what happened.",
+      "guideHint": "Read each detail and decide whether it tells who, where, what, or a clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Use the story’s exact details, not guesses alone, to explain what happened."
     },
     {
       "activityId": "english-g3-q3-w12-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d02-visual",
-      "instruction": "Sort the story clues into the box!",
+      "instruction": "Sort details that belong to Ben’s story.",
       "content": {
         "fits": [
-          "the character: Ben and the ants",
-          "the setting: the yard",
-          "the event: the ants marched in a line carrying food",
-          "the clue: Each ant carried a small piece of food."
+          "Ben and the ants",
+          "the yard",
+          "The ants marched in a line.",
+          "Each ant carried a small piece of food."
         ],
         "doesNotFit": [
+          "Ben watched birds in the market.",
           "The ants carried stones.",
-          "Ben fed the ants bread.",
-          "The ants were flying home.",
-          "Ben stepped on the ants."
+          "The ants flew home.",
+          "Ben fed them bread."
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read the Story Clue Crew rule before sorting again. 💪"
+        "retry": "Check whether the card matches the story, not a made-up event."
       },
-      "prompt": "Sort the examples of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort details from Ben’s story away from changed details.",
+      "narration": "A story detail must match what the text says about Ben, the ants, the yard, and their work.",
+      "guideHint": "Compare each card with the sentences about Ben and the ants.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "A story detail must match what the text says about Ben, the ants, the yard, and their work."
     },
     {
       "activityId": "english-g3-q3-w12-d02-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d02-visual",
-      "instruction": "Which one is a character in the story?",
+      "instruction": "Choose the character named in Ben’s story.",
       "content": {
         "options": [
-          "The ants were flying home.",
-          "The ants carried stones.",
+          "the mailman",
+          "the teacher",
           "Ben and the ants",
-          "Ben fed the ants bread."
+          "the cook"
         ],
         "correctIndex": 2
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the clue in the Story Clue Crew question. 💪"
+        "retry": "Check who is actually in the yard scene."
       },
-      "prompt": "Choose the example of details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Ben watches ants in the yard. Who are the story’s characters?",
+      "narration": "The characters are the people or animals who take part in the story.",
+      "guideHint": "Look for the people or animals named in the story.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "The characters are the people or animals who take part in the story."
     },
     {
       "activityId": "english-g3-q3-w12-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d02-visual",
-      "instruction": "Match each story clue to its kind!",
+      "instruction": "Match each story detail to its kind.",
       "content": {
         "pairs": [
           {
             "left": "Ben and the ants",
-            "right": "character"
+            "right": "who takes part in the story"
           },
           {
             "left": "the yard",
-            "right": "setting"
+            "right": "where the story happens"
           },
           {
             "left": "the ants marched in a line carrying food",
-            "right": "event"
+            "right": "what happens in the story"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Read both sides of each Story Clue Crew pair again. 💪"
+        "retry": "Check whether the detail names who, where, or what happened."
       },
-      "prompt": "Match the examples about details in a story.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each detail with what it tells the reader.",
+      "narration": "A character is who takes part, a setting is where the story happens, and an event is what happens.",
+      "guideHint": "Use the clue in each detail: who, where, or what happened.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "A character is who takes part, a setting is where the story happens, and an event is what happens."
     },
     {
       "activityId": "english-g3-q3-w12-d02-a06",
@@ -195,10 +195,10 @@
       "instruction": "Put the story-clue steps in order.",
       "content": {
         "steps": [
-          "Read the story",
-          "Find the character",
-          "Find the setting",
-          "Look for what happened"
+          "Read the story once",
+          "Name who and where",
+          "Retell the important event",
+          "Use a story detail to explain your answer"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Awesome work! ⭐",
-        "retry": "Find the first, next, and last Story Clue Crew steps. 💪"
+        "retry": "Check that your explanation uses a detail from Ben’s story."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "Readers use story clues—not guesses alone—to explain what happened and why.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for finding story details in order.",
+      "narration": "Readers find story details by reading first, naming who and where, retelling the event, and using evidence.",
+      "guideHint": "Find who, where, and what happened before explaining your answer.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Readers use story clues—not guesses alone—to explain what happened and why."
+      "accessibilityAlternative": "Readers find story details by reading first, naming who and where, retelling the event, and using evidence."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "english-g3-q3-w12-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Who is in the story?",
+        "prompt": "Ben watches ants in the yard. Who is in the story?",
         "options": [
           {
             "id": "a",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "The story is about Ben and the ants. The mailman, the cook, and the teacher are not in the story."
+        "explanation": "Ben and the ants are the people and animals who take part in the story; the other people are not mentioned."
       },
       {
         "itemId": "english-g3-q3-w12-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Where does the story happen?",
+        "prompt": "Ben watches the ants near their home. Where does this scene happen?",
         "options": [
           {
             "id": "a",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ben watched the ants in the yard. The market, the school, and the beach are not in the story."
+        "explanation": "The setting is the yard because that is where Ben watches the ants."
       },
       {
         "itemId": "english-g3-q3-w12-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What happened in the story?",
+        "prompt": "What event does Ben observe in the yard?",
         "options": [
           {
             "id": "a",
@@ -289,7 +289,7 @@
           },
           {
             "id": "b",
-            "text": "the ants marched in a line carrying food"
+            "text": "The ants marched in a line carrying food."
           },
           {
             "id": "c",
@@ -303,13 +303,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The story says the ants marched in a line carrying food. The ants did not fly home or carry stones."
+        "explanation": "The text says the ants marched in a line and carried food, so that is the event Ben observes."
       },
       {
         "itemId": "english-g3-q3-w12-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is TRUE from the story?",
+        "prompt": "Ben notices something about each ant. Which detail did he see?",
         "options": [
           {
             "id": "a",
@@ -331,35 +331,35 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The story says each ant carried a small piece of food. The ants did not carry stones, Ben did not feed them bread, and they were not flying home."
+        "explanation": "The sentence says each ant carried a small piece of food; that exact detail supports the answer."
       },
       {
         "itemId": "english-g3-q3-w12-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "How did Ben feel at the end of the story?",
+        "prompt": "What idea does Ben share about the ants?",
         "options": [
           {
             "id": "a",
-            "text": "amazed"
+            "text": "They work together like one big family."
           },
           {
             "id": "b",
-            "text": "angry"
+            "text": "They are playing a game."
           },
           {
             "id": "c",
-            "text": "sleepy"
+            "text": "They are carrying stones."
           },
           {
             "id": "d",
-            "text": "hungry"
+            "text": "They are flying home."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ben felt amazed because the ants worked together like one big family. Hungry, angry, and sleepy do not match the end of the story."
+        "explanation": "Ben says the ants work together like one big family, which is his idea about their teamwork."
       }
     ]
   },

@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! ✏️ Ngayon, isusulat natin nang tama ang salitang 'paaralan'. Sama ka kay Milo!",
+  "introduction": "Ang tamang baybay ng “paaralan” ay kailangan kapag sumusulat tungkol sa lugar ng pag-aaral. Tingnan ang tunog, letra, at gamit nito sa pangungusap.",
   "vocabulary": [
     {
       "term": "baybay",
-      "definition": "pagkakasulat ng mga titik ng salita"
+      "definition": "Tamang pagkakasunod ng mga titik sa isang salita."
     },
     {
       "term": "malaking titik",
-      "definition": "malaking letra sa simula ng pangungusap at pangalan"
+      "definition": "Titik na ginagamit sa simula ng pangungusap at pangalan."
     },
     {
       "term": "bantas",
-      "definition": "markang tulad ng tuldok at kuwit"
+      "definition": "Markang ginagamit sa hulihan o loob ng pangungusap."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d04-visual",
-      "instruction": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
-      "content": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'paaralan' ay isang halimbawa.",
+      "instruction": "Suriin ang baybay ng “paaralan” bago ito gamitin.",
+      "content": "Ang salitang “paaralan” ay may tamang ayos ng mga letra at pantig. Gamitin ito sa pangungusap tungkol sa lugar ng pag-aaral.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Wastong Pagsulat. 💪"
+        "retry": "Ihambing ang tunog sa pagkakasunod ng mga letra sa “paaralan.” 💪"
       },
       "prompt": "Suriin ang baybay, malaking titik, at bantas bago isulat ang salita.",
       "narration": "Suriin ang baybay, malaking titik, at bantas. Ang salitang 'paaralan' ay isang halimbawa.",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d04-visual",
-      "instruction": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
+      "instruction": "Basahin ang baybay at kahulugan ng bawat salita.",
       "content": {
         "examples": [
           "paaralan",
@@ -73,8 +73,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Wastong Pagsulat. 💪"
+        "correct": "Mahusay! Nakita mo ang mga salitang wasto ang baybay. 🔎",
+        "retry": "Tingnan ang bawat letra, hindi lamang ang tunog ng salita. 💪"
       },
       "prompt": "Tuklasin ang mga salita. Basahin ang baybay at ang kahulugan ng bawat isa.",
       "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
@@ -109,8 +109,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Wastong Pagsulat bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga salitang wasto ang baybay. 🎉",
+        "retry": "Suriin ang nawawala o napalitang letra sa bawat salita. 💪"
       },
       "prompt": "Piliin ang mga salitang may wastong baybay.",
       "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d04-visual",
-      "instruction": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
+      "instruction": "Alin ang wastong baybay sa apat na pagpipilian?",
       "content": {
         "options": [
           "paaralan",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Wastong Pagsulat. 💪"
+        "retry": "Ihambing ang bawat letra mula una hanggang huli. 💪"
       },
       "prompt": "Piliin ang salitang may wastong baybay. Tingnan ang bawat titik.",
       "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
@@ -155,12 +155,12 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d04-visual",
-      "instruction": "Itugma ang bawat salita sa kahulugan nito.",
+      "instruction": "Itugma ang salita sa kahulugan o gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "paaralan",
-            "right": "lugar na pinag-aaralan"
+            "right": "lugar kung saan nag-aaral"
           },
           {
             "left": "kaibigan",
@@ -176,8 +176,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Wastong Pagsulat. 💪"
+        "correct": "Mahusay! Itinugma mo ang salita sa kahulugan o gamit nito. 🔗",
+        "retry": "Suriin kung ang kahulugan ay tumutugma sa salita. 💪"
       },
       "prompt": "Itugma ang bawat salita sa wastong pangkat: baybay, malaking titik, o bantas.",
       "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
@@ -192,21 +192,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d04-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
+      "instruction": "Ayusin ang mga hakbang sa pagsulat ng salita.",
       "content": {
         "steps": [
-          "Basahin ang salita",
-          "Suriin ang baybay",
-          "Suriin ang malaking titik at bantas",
-          "Isulat ito nang maayos"
+          "Basahin ang salitang “paaralan.”",
+          "Bigkasin at hatiin ang mga pantig.",
+          "Suriin ang ayos ng bawat letra.",
+          "Isulat ang salita sa pangungusap."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Wastong Pagsulat. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa wastong pagsulat. 🎉",
+        "retry": "Sundin ang daloy: basahin, hatiin, suriin, at isulat. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Basahin muna ang salita bago suriin ang baybay.",
       "narration": "Suriin ang baybay, malaking titik, at wastong pagkakasulat bago ipasa ang gawain.",
@@ -246,7 +246,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang wastong baybay ng “paaralan” ay “paaralan” — tama ang ayos ng mga letra at pantig.",
+        "explanation": "Ang “paaralan” ay may wastong pagkakasunod ng mga letra at pantig.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -274,7 +274,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "“kaibigan” ang may wastong ayos ng mga letra at pantig.",
+        "explanation": "Ang “kaibigan” ang tanging salitang kumpleto ang wastong ayos ng mga letra.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -302,7 +302,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “kaibigan” ay nangangahulugang taong malapit sa iyo at pinagkakatiwalaan.",
+        "explanation": "Ang kaibigan ay taong malapit sa iyo at pinagkakatiwalaan; iyon ang kahulugan nito.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -330,7 +330,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "“paggalang” ang wastong pagkakasulat — tama ang baybay at ang ayos ng mga letra.",
+        "explanation": "Ang “paggalang” ay may tamang ayos ng mga letra at nangangahulugang pagpapahalaga sa kapwa.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -358,7 +358,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang “paaralan” ang angkop na pangtapos ng pangungusap — tama ang kahulugan nito sa pangungusap.",
+        "explanation": "Ang lugar na pinupuntahan upang mag-aral ay paaralan, kaya iyon ang angkop sa pangungusap.",
         "type": "MULTIPLE_CHOICE"
       }
     ]

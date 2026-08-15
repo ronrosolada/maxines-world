@@ -13,23 +13,23 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is reading about mangrove trees near the sea! Hunt for the topic and the facts that explain it.",
+  "introduction": "Milo reads a short text about mangrove trees near the sea. Can you separate the topic from facts the text gives?",
   "vocabulary": [
     {
-      "term": "topic: mangrove trees",
-      "definition": "The subject of the informational text is mangrove trees."
+      "term": "mangrove",
+      "definition": "a tree that grows in salty coastal water"
     },
     {
-      "term": "fact: roots hold soil",
-      "definition": "A fact explaining that mangrove roots help hold soil in place."
+      "term": "roots",
+      "definition": "underground parts that hold soil in place"
     },
     {
-      "term": "fact: trees provide shelter",
-      "definition": "A fact explaining that trees can provide shelter for living things."
+      "term": "shelter",
+      "definition": "a safe place where living things can hide"
     },
     {
-      "term": "fact: mangroves grow near the sea",
-      "definition": "A fact explaining that mangroves grow in salty water near the sea."
+      "term": "coastal",
+      "definition": "near the sea or ocean"
     }
   ],
   "activities": [
@@ -40,20 +40,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "Listen to how facts tell about a topic!",
+      "instruction": "Read the text and notice its topic and supporting facts.",
       "content": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Find the clue in Fact Finders again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the text and check whether the detail names the topic or supports it."
       },
-      "prompt": "Listen to how facts tell about a topic!",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how facts explain the topic of an informational text.",
+      "narration": "This text is about mangrove trees. It explains that their roots hold soil, the trees shelter living things, and they grow near the sea.",
+      "guideHint": "Ask what the whole text is mostly about, then find facts that support it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "This text is about mangrove trees. It explains that their roots hold soil, the trees shelter living things, and they grow near the sea."
     },
     {
       "activityId": "english-g3-q2-w05-d04-a02",
@@ -62,13 +62,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "Find the topic and the facts.",
+      "instruction": "Tap the topic and facts supported by the text.",
       "content": {
         "examples": [
-          "topic: mangrove trees",
-          "fact: roots hold soil",
-          "fact: trees provide shelter",
-          "fact: mangroves grow near the sea"
+          "mangrove trees",
+          "roots hold soil",
+          "trees provide shelter",
+          "mangroves grow near the sea"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -77,14 +77,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Look at each Fact Finders example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the text for the exact topic or supporting fact."
       },
-      "prompt": "Find the topic and the facts.",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find details that belong to the mangrove text.",
+      "narration": "The topic is the main subject; facts give true details about that subject.",
+      "guideHint": "Look for the repeated subject and the details connected to it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "The topic is the main subject; facts give true details about that subject."
     },
     {
       "activityId": "english-g3-q2-w05-d04-a03",
@@ -93,19 +93,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "Sort each card: is it in the text about mangroves?",
+      "instruction": "Sort mangrove-text details from other statements.",
       "content": {
         "fits": [
-          "topic: mangrove trees",
-          "fact: roots hold soil",
-          "fact: trees provide shelter",
-          "fact: mangroves grow near the sea"
+          "mangrove trees",
+          "roots hold soil",
+          "trees provide shelter",
+          "mangroves grow near the sea"
         ],
         "doesNotFit": [
-          "topic: how kites fly",
-          "fact: cats have whiskers",
-          "opinion: mangroves are boring",
-          "detail: kites need wind"
+          "kites need wind",
+          "cats have whiskers",
+          "mangroves are boring",
+          "snow falls in winter"
         ]
       },
       "completionRule": {
@@ -113,14 +113,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Read the Fact Finders rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the text and find evidence before sorting again."
       },
-      "prompt": "Sort each card: is it in the text about mangroves?",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each card by whether the text supports it.",
+      "narration": "A supported detail matches the mangrove text; other statements belong to a different topic or are opinions.",
+      "guideHint": "Compare the card with the text about mangrove trees.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "A supported detail matches the mangrove text; other statements belong to a different topic or are opinions."
     },
     {
       "activityId": "english-g3-q2-w05-d04-a04",
@@ -129,7 +129,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "What is the topic of the text?",
+      "instruction": "Tap the subject repeated across the informational text.",
       "content": {
         "options": [
           "mangrove trees",
@@ -144,14 +144,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Find the clue in the Fact Finders question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check which choice connects to every fact in the text."
       },
-      "prompt": "What is the topic of the text?",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the topic Milo is reading about.",
+      "narration": "The topic names what the whole text is about, not one unrelated object.",
+      "guideHint": "Look for the subject shared by all the facts.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "The topic names what the whole text is about, not one unrelated object."
     },
     {
       "activityId": "english-g3-q2-w05-d04-a05",
@@ -160,24 +160,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "Match each card: is it the topic or a fact?",
+      "instruction": "Match each detail to the role it plays in the text.",
       "content": {
         "pairs": [
           {
-            "left": "topic: mangrove trees",
-            "right": "the topic"
+            "left": "mangrove trees",
+            "right": "subject discussed throughout the text"
           },
           {
-            "left": "fact: roots hold soil",
-            "right": "a fact about roots"
+            "left": "roots hold soil",
+            "right": "fact about keeping shore soil in place"
           },
           {
-            "left": "fact: trees provide shelter",
-            "right": "a fact about shelter"
+            "left": "trees provide shelter",
+            "right": "fact about safe places for living things"
           },
           {
-            "left": "fact: mangroves grow near the sea",
-            "right": "a fact about where they grow"
+            "left": "mangroves grow near the sea",
+            "right": "fact about where the trees live"
           }
         ]
       },
@@ -185,14 +185,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Read both sides of each Fact Finders pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the detail names the topic or supports it."
       },
-      "prompt": "Match each card: is it the topic or a fact?",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match the topic or fact with the clue it provides.",
+      "narration": "The topic names the subject, while facts explain where mangroves grow and how they help living things.",
+      "guideHint": "Read the detail and ask whether it is the subject or evidence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "The topic names the subject, while facts explain where mangroves grow and how they help living things."
     },
     {
       "activityId": "english-g3-q2-w05-d04-a06",
@@ -201,13 +201,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w05-d04-visual",
-      "instruction": "Follow the steps for finding the topic.",
+      "instruction": "Put the topic-and-fact checks in order.",
       "content": {
         "steps": [
-          "Read the text about mangrove trees.",
-          "Find the topic.",
-          "Find two facts in the text.",
-          "Say why each fact belongs to the topic."
+          "Read the whole text",
+          "Name the repeated topic",
+          "Underline facts that support it",
+          "Explain how each fact connects"
         ]
       },
       "completionRule": {
@@ -215,14 +215,14 @@
         "stepCount": 4
       },
       "feedback": {
-        "correct": "Awesome! You found the topic and the facts about mangroves! 🌱",
-        "retry": "Find the first, next, and last Fact Finders steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you named the topic, found facts, and connected each fact."
       },
-      "prompt": "Follow the steps for finding the topic.",
-      "narration": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for finding the topic and evidence.",
+      "narration": "Readers identify the repeated subject, then choose facts that explain it.",
+      "guideHint": "Begin by reading the whole text.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it."
+      "accessibilityAlternative": "Readers identify the repeated subject, then choose facts that explain it."
     }
   ],
   "assessment": {
@@ -235,7 +235,7 @@
         "itemId": "english-g3-q2-w05-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What is the topic of the text?",
+        "prompt": "Milo tells a friend what his informational text is mostly about. Which topic is correct?",
         "options": [
           {
             "id": "a",
@@ -257,13 +257,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The text is about mangrove trees: that is the topic."
+        "explanation": "Mangrove trees are the subject repeated across the text, so they are the topic."
       },
       {
         "itemId": "english-g3-q2-w05-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is a fact from the text?",
+        "prompt": "Milo underlines a sentence that the text truly states. Which is a fact from the text?",
         "options": [
           {
             "id": "a",
@@ -285,13 +285,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "The text says mangrove roots hold soil in place."
+        "explanation": "The text says mangrove roots hold soil in place; that statement is supported."
       },
       {
         "itemId": "english-g3-q2-w05-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which detail is NOT in the text?",
+        "prompt": "Milo checks whether a detail belongs in his notes. Which detail is NOT in the text?",
         "options": [
           {
             "id": "a",
@@ -313,13 +313,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "The text never says mangroves can fly; it is not a detail from the text."
+        "explanation": "The text describes roots, shelter, and coastal growth, but it never says mangroves can fly."
       },
       {
         "itemId": "english-g3-q2-w05-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is an opinion, not a fact?",
+        "prompt": "Milo sees a statement that tells a feeling instead of evidence. Which is an opinion?",
         "options": [
           {
             "id": "a",
@@ -341,13 +341,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "An opinion tells how someone feels; \"boring\" is a feeling, not a fact."
+        "explanation": "Boring tells someone’s feeling about mangroves; the other choices state information from the text."
       },
       {
         "itemId": "english-g3-q2-w05-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence belongs in a text about mangroves?",
+        "prompt": "Milo adds one sentence to a text about mangroves. Which sentence belongs?",
         "options": [
           {
             "id": "a",
@@ -369,7 +369,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "The other sentences are about kites, cats, and balls — not about mangroves."
+        "explanation": "Mangroves help protect the shore stays on the text’s topic and gives a related fact."
       }
     ]
   },

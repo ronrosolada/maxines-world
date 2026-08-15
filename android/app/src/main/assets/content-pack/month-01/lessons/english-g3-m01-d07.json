@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in More Than One again. 💪"
+        "retry": "Check whether the noun needs -s or -es when it means more than one. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "Text alternative: Many nouns add -s; some nouns ending in s, x, z, sh, or ch add -es. Other nouns follow different patterns."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Retell in Your Own Words. 🔎",
-        "retry": "Look at each Retell in Your Own Words example again. 💪"
+        "retry": "Look at the word ending before choosing the plural ending. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Retell in Your Own Words clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort plurals by the -s or -es rule, and set aside irregular forms. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: boxes",
-        "retry": "Look again! Box ends with -x, so it takes -es. Which one is boxes? 💪"
+        "retry": "Box ends in x, so add -es to make boxes. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d07-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each singular word to its plural!",
+      "instruction": "Match each singular word to its plural rule.",
       "content": {
         "pairs": [
           {
-            "left": "cat → cats",
-            "right": "cats"
+            "left": "cat",
+            "right": "add -s"
           },
           {
-            "left": "box → boxes",
-            "right": "boxes"
+            "left": "box",
+            "right": "add -es after x"
           },
           {
-            "left": "dish → dishes",
-            "right": "dishes"
+            "left": "dish",
+            "right": "add -es after sh"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Retell in Your Own Words explanation. 🔗",
-        "retry": "Read both sides of each Retell in Your Own Words pair again. 💪"
+        "retry": "Match each singular noun to the correctly spelled plural form. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Retell in Your Own Words steps in order. 🎉",
-        "retry": "Find the first, next, and last Retell in Your Own Words steps. 💪"
+        "retry": "Order the check: read the singular, add -s or -es, then say the plural. 💪"
       },
       "assetId": "english-g3-m01-d07-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "cats"
+          },
+          {
+            "id": "d",
+            "text": "cat → catss"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "child → childs"
+          },
+          {
+            "id": "d",
+            "text": "box → boxes"
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "cat → cats"
+          },
+          {
+            "id": "d",
+            "text": "dish → dishes"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "boxen"
+          },
+          {
+            "id": "d",
+            "text": "box → boxies"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "child → childs"
+          },
+          {
+            "id": "d",
+            "text": "box → boxs"
           }
         ],
         "correctOptionIds": [

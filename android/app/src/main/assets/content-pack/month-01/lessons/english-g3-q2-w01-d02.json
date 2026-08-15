@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 📖 Today Milo brought three new words: gentle, clever, and cozy. Let's find what they mean and use them in sentences!",
+  "introduction": "Milo gently helps a puppy, solves a puzzle, and curls up in a cozy corner. Which words tell what each moment is like?",
   "vocabulary": [
     {
       "term": "gentle",
-      "definition": "soft and kind, not rough"
+      "definition": "kind and careful, using a soft touch"
     },
     {
       "term": "clever",
-      "definition": "smart and quick to learn"
+      "definition": "able to think of a smart way to solve a problem"
     },
     {
       "term": "cozy",
-      "definition": "warm, comfortable, and snug"
+      "definition": "warm and comfortable, like a snug place to rest"
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Hear how new words fit in sentences!",
+      "instruction": "Read each sentence and notice the clue for the new word.",
       "content": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Find the clue in Word Explorer again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence again and look for a clue about touch, thinking, or comfort."
       },
-      "prompt": "Learn this skill: Use high-frequency and content-specific words in context.",
-      "narration": "Here are new words to learn! Read each sentence and use the clues to understand the new word.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Learn how sentence clues reveal a word's meaning.",
+      "narration": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to gentle, clever, or cozy.",
+      "guideHint": "Read the nearby action or setting for a clue about touch, thinking, or comfort.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Here are new words to learn! Read each sentence and use the clues to understand the new word."
+      "accessibilityAlternative": "A sentence clue can show a new word's meaning. Read the whole sentence, then connect the clue to gentle, clever, or cozy."
     },
     {
       "activityId": "english-g3-q2-w01-d02-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Tap the sentences that use today's words!",
+      "instruction": "Tap each sentence that gives a clue for gentle, clever, or cozy.",
       "content": {
         "examples": [
           "Milo gives the puppy a gentle pat.",
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Look at each Word Explorer example again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the action or setting that points to the word."
       },
-      "prompt": "Look closely at each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Find sentence clues for today's three words.",
+      "narration": "Look for a soft touch, a smart solution, or a warm and comfortable place.",
+      "guideHint": "Check whether the sentence shows kindness, smart thinking, or comfort.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Look for a soft touch, a smart solution, or a warm and comfortable place."
     },
     {
       "activityId": "english-g3-q2-w01-d02-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Sort the sentences: new word or not!",
+      "instruction": "Sort sentences that use gentle, clever, or cozy.",
       "content": {
         "fits": [
           "Milo gives the puppy a gentle pat.",
-          "The clever fox found a way to reach the grapes.",
+          "The clever fox finds a path through the maze.",
           "The kitten sleeps in a cozy basket.",
-          "The rabbit likes to nibble on carrots."
+          "Ana uses a clever plan to share the crayons."
         ],
         "doesNotFit": [
-          "The curious boy asked many questions.",
-          "Ana is proud of her neat handwriting.",
-          "The library is silent during reading time.",
-          "The tiny ant carried a big leaf."
+          "The shiny coin rolled under the chair.",
+          "The library closes at five o'clock.",
+          "A tiny ant carries a leaf.",
+          "The rain taps on the roof."
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Read the Word Explorer rule before sorting again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence for gentle, clever, or cozy before sorting it again."
       },
-      "prompt": "Sort each example",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each sentence by whether it uses one of today's words.",
+      "narration": "Use the words as evidence: gentle describes touch, clever describes thinking, and cozy describes comfort.",
+      "guideHint": "Read each sentence and look for a touch, solution, or resting-place clue.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Use the words as evidence: gentle describes touch, clever describes thinking, and cozy describes comfort."
     },
     {
       "activityId": "english-g3-q2-w01-d02-a04",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Tap the sentence that uses 'gentle'!",
+      "instruction": "Tap the sentence that uses 'gentle'.",
       "content": {
         "options": [
           "Ana is proud of her neat handwriting.",
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Find the clue in the Word Explorer question. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Find the action that shows a soft, kind touch."
       },
-      "prompt": "Choose the example of words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Choose the sentence that shows a soft, kind touch.",
+      "narration": "A gentle action is careful and not rough, like a soft pat.",
+      "guideHint": "Look for a careful touch that is not rough.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A gentle action is careful and not rough, like a soft pat."
     },
     {
       "activityId": "english-g3-q2-w01-d02-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Match each word with its meaning!",
+      "instruction": "Match each word to the clue it gives.",
       "content": {
         "pairs": [
           {
             "left": "gentle",
-            "right": "soft and kind, not rough"
+            "right": "careful touch that is not rough"
           },
           {
             "left": "clever",
-            "right": "smart and quick to learn"
+            "right": "smart way to solve a problem"
           },
           {
             "left": "cozy",
-            "right": "warm, comfortable, and snug"
+            "right": "warm place made for comfort"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Read both sides of each Word Explorer pair again. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check the clue for the meaning of each word."
       },
-      "prompt": "Match the examples about words in context.",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each word with the clue that reveals its meaning.",
+      "narration": "A word can connect to a clue about touch, smart thinking, or comfort.",
+      "guideHint": "Ask whether the clue shows a soft touch, a smart solution, or a snug place.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "A word can connect to a clue about touch, smart thinking, or comfort."
     },
     {
       "activityId": "english-g3-q2-w01-d02-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q2-w01-d02-visual",
-      "instruction": "Tap the word-hunting steps in order!",
+      "instruction": "Put the context-clue steps in order.",
       "content": {
         "steps": [
-          "Read the sentence",
-          "Find the new word",
-          "Look for clues",
-          "Choose the meaning"
+          "Read the whole sentence",
+          "Circle the new word",
+          "Notice nearby clue words",
+          "Explain the meaning"
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Gentle, clever, cozy — you know them all! 🎉",
-        "retry": "Find the first, next, and last Word Explorer steps. 💪"
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, noticed, and explained the clue."
       },
-      "prompt": "Put the steps in order",
-      "narration": "Context clues and the topic help readers understand and use new words accurately.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the steps for figuring out a new word.",
+      "narration": "Good readers use the whole sentence and its clues before choosing a meaning.",
+      "guideHint": "Start by reading the whole sentence.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Context clues and the topic help readers understand and use new words accurately."
+      "accessibilityAlternative": "Good readers use the whole sentence and its clues before choosing a meaning."
     }
   ],
   "assessment": {
@@ -225,35 +225,35 @@
         "itemId": "english-g3-q2-w01-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What does 'gentle' mean?",
+        "prompt": "Milo carries a sleeping kitten with a soft touch. Which word describes how he handles it?",
         "options": [
           {
             "id": "a",
-            "text": "warm, comfortable, and snug"
+            "text": "cozy"
           },
           {
             "id": "b",
-            "text": "soft and kind, not rough"
+            "text": "gentle"
           },
           {
             "id": "c",
-            "text": "smart and quick to learn"
+            "text": "clever"
           },
           {
             "id": "d",
-            "text": "to take small bites"
+            "text": "nibble"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Gentle means soft and kind, not rough — like a careful touch."
+        "explanation": "A soft, careful touch is gentle; the touch itself is the clue."
       },
       {
         "itemId": "english-g3-q2-w01-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word means 'smart and quick to learn'?",
+        "prompt": "A fox finds a short path through a maze. Which word describes the fox?",
         "options": [
           {
             "id": "a",
@@ -275,41 +275,41 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Clever means smart and quick to learn, like a fox that finds a way."
+        "explanation": "Finding a smart way through the maze shows clever thinking."
       },
       {
         "itemId": "english-g3-q2-w01-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence uses the word 'cozy'?",
+        "prompt": "Rain taps the window while the kitten rests in a warm basket. Which word describes the basket?",
         "options": [
           {
             "id": "a",
-            "text": "The kitten sleeps in a cozy basket."
+            "text": "cozy"
           },
           {
             "id": "b",
-            "text": "The clever fox found a way to reach the grapes."
+            "text": "clever"
           },
           {
             "id": "c",
-            "text": "The rabbit likes to nibble on carrots."
+            "text": "nibble"
           },
           {
             "id": "d",
-            "text": "Milo gives the puppy a gentle pat."
+            "text": "gentle"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Cozy means warm, comfortable, and snug — a kitten’s basket is cozy."
+        "explanation": "A warm, comfortable basket is cozy; the resting place gives the clue."
       },
       {
         "itemId": "english-g3-q2-w01-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which word fits in this sentence: 'Use a ___ touch with the flowers.'",
+        "prompt": "Complete the sentence: 'Use a ___ touch with the flowers.'",
         "options": [
           {
             "id": "a",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Flowers are soft, so they need a gentle touch — not a rough one."
+        "explanation": "Flowers can be damaged by rough handling, so a careful, soft touch is gentle."
       },
       {
         "itemId": "english-g3-q2-w01-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Find the word that means 'to take small bites'.",
+        "prompt": "A rabbit takes tiny bites from a carrot. Which word describes how it eats?",
         "options": [
           {
             "id": "a",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Nibble means to take small bites — that is how a rabbit eats."
+        "explanation": "Taking small bites is to nibble; the rabbit’s eating action is the clue."
       }
     ]
   },

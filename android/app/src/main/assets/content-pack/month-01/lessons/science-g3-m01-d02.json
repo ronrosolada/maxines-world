@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo watches an ice cube melt in a warm room. What happens to materials when they get hot or cold?",
+  "introduction": "Milo watches an ice cube melt on a warm plate and water freeze in a freezer. What clues show a safe change from heat or cold?",
   "vocabulary": [
     {
       "term": "material",
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d02-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows how heating and cooling change materials.",
+      "instruction": "Watch Milo compare safe changes caused by heat and cold.",
       "content": "Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Materials Can Change again. 💪"
+        "retry": "Check whether heat or cold was added, then name the physical change."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "Text alternative: Heating or cooling can cause physical changes; some are reversible and others are not. Use on-screen observations only."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d02-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each observation and identify the heat or cold that caused it.",
       "content": {
         "examples": [
-          "ice melts",
-          "water freezes",
-          "wax softens when warmed"
+          "ice cube melts on a warm plate",
+          "water turns to ice in a freezer",
+          "wax becomes soft near warmth"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Materials Can Change. 🔎",
-        "retry": "Look at each Materials Can Change example again. 💪"
+        "retry": "For each example, identify heat or cold before naming the change."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d02-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is the heating or cooling change safe and correct?",
+      "instruction": "Sort each observation by whether heat or cold caused the change.",
       "content": {
         "fits": [
-          "ice melts",
-          "water freezes",
-          "wax softens when warmed"
+          "an ice cube melts on a warm plate",
+          "water turns to ice in a freezer",
+          "wax becomes soft near warmth"
         ],
         "doesNotFit": [
-          "Every material melts",
-          "Every change reverses",
-          "Touch hot materials"
+          "a stone stays solid on a shelf",
+          "a paper stays dry on a desk",
+          "a child touches a hot pan"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask what changed and whether warming or cooling caused it."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d02-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "What happens to ice in a warm room?",
+      "instruction": "Choose what happens to ice in a warm room.",
       "content": {
         "options": [
           "It can melt.",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: It can melt.",
-        "retry": "Look again — metal and turning into fire are not what ice does."
+        "retry": "A warm room adds heat, so check which choice shows ice changing safely."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d02-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each change to its cause.",
+      "instruction": "Match each material change with its cause or result.",
       "content": {
         "pairs": [
           {
-            "left": "ice melts",
-            "right": "change from heat"
+            "left": "ice",
+            "right": "becomes liquid when warmed"
           },
           {
-            "left": "water freezes",
-            "right": "change from cold"
+            "left": "water",
+            "right": "becomes solid when cooled"
           },
           {
-            "left": "wax softens when warmed",
-            "right": "change from warmth"
+            "left": "wax",
+            "right": "softens as it warms"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Materials Can Change explanation. 🔗",
-        "retry": "Read both sides of each Materials Can Change pair again. 💪"
+        "retry": "Match each change to the heat or cold clue that explains it."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d02-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: look at the material, decide the cause, describe the change.",
+      "instruction": "Order the steps for observing a heat or cold change.",
       "content": {
         "steps": [
           "Look at the material.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Materials Can Change steps in order. 🎉",
-        "retry": "Find the first, next, and last Materials Can Change steps. 💪"
+        "retry": "Check the order: observe the material, identify heat or cold, then describe the change."
       },
       "assetId": "science-g3-m01-d02-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about heating and cooling is true?",
+        "prompt": "Milo sees ice melt and water freeze. Which statement about heating and cooling is true?",
         "options": [
           {
             "id": "a",
@@ -204,66 +204,78 @@
           {
             "id": "c",
             "text": "Every material melts"
+          },
+          {
+            "id": "d",
+            "text": "Cooling makes every material melt"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Heating or cooling can change materials, but not every material melts and not every change can be undone — some changes are reversible and others are not."
+        "explanation": "Heating or cooling can change materials, but not every material melts and not every change can be undone. The observations show why we check the material and the cause."
       },
       {
         "itemId": "science-g3-m01-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a change caused by heat?",
+        "prompt": "Maxine puts an ice cube on a warm plate. Which example shows a change caused by heat?",
         "options": [
           {
             "id": "a",
-            "text": "juice turns into ice pops in the freezer"
+            "text": "Juice turns into ice pops in a freezer"
           },
           {
             "id": "b",
-            "text": "ice melts"
+            "text": "Ice melts"
           },
           {
             "id": "c",
-            "text": "water freezes"
+            "text": "Water freezes"
+          },
+          {
+            "id": "d",
+            "text": "Wax hardens in a freezer"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ice melts when it gets warm, so heat causes the change. Freezing happens when things get cold."
+        "explanation": "Heat from the warm plate makes ice melt. Freezing happens when something cools, such as juice or wax in a freezer."
       },
       {
         "itemId": "science-g3-m01-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement is not true?",
+        "prompt": "Milo reads four claims about changes. Which one is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "ice melts"
+            "text": "Ice melts"
           },
           {
             "id": "b",
-            "text": "water freezes"
+            "text": "Water freezes"
           },
           {
             "id": "c",
             "text": "Every material melts"
+          },
+          {
+            "id": "d",
+            "text": "Wax can soften when warmed"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Not every material melts — some burn, break, or stay the same. Ice melting and water freezing are real changes."
+        "explanation": "Not every material melts; some may soften, burn, break, or stay the same. Ice melting, water freezing, and wax softening are real observations."
       },
       {
         "itemId": "science-g3-m01-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What happens to ice in a warm room?",
+        "prompt": "Maxine leaves an ice cube in a warm room. What is she most likely to observe?",
         "options": [
           {
             "id": "a",
@@ -276,18 +288,22 @@
           {
             "id": "c",
             "text": "It turns into fire."
+          },
+          {
+            "id": "d",
+            "text": "It turns into wood."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A warm room adds heat, so the ice melts into water. Ice does not become metal or turn into fire."
+        "explanation": "A warm room transfers heat to the ice, so it can melt into water. Heat does not turn ice into metal, fire, or wood."
       },
       {
         "itemId": "science-g3-m01-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which change is safe and correct?",
+        "prompt": "With an adult nearby, Milo observes wax warming, ice melting, and a hot pan. Which change is safe and correct to observe?",
         "options": [
           {
             "id": "a",
@@ -299,13 +315,17 @@
           },
           {
             "id": "c",
-            "text": "wax softens when warmed"
+            "text": "Wax softens when warmed"
+          },
+          {
+            "id": "d",
+            "text": "All changes reverse"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Wax softening when warmed is a safe change you can watch. Not every material melts, and touching hot things is unsafe."
+        "explanation": "Wax softening as it warms is a safe observation when an adult supervises. Hot objects should not be touched, and not every change reverses."
       }
     ]
   },

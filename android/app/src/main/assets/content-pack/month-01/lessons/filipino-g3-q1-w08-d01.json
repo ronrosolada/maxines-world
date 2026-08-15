@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Magandang araw! Ako si Milo. Handa ka na bang matutong bumuo ng sarili mong kuwento? Una, makinig ka sa isang kuwento. Pagkatapos, gagawa tayo ng bago na katumbas nito!",
+  "introduction": "Bumuo tayo ng kuwento sa pamamagitan ng simula, gitna, at wakas, mula sa tauhan hanggang sa aral.",
   "vocabulary": [
     {
       "term": "Simula",
-      "definition": "Ang unang bahagi ng kuwento kung saan ipinapakilala ang mga tauhan at tagpuan."
+      "definition": "Unang bahagi kung saan ipinapakilala ang mga tauhan at tagpuan."
     },
     {
       "term": "Gitna",
-      "definition": "Ang bahagi ng kuwento kung saan inilalahad ang suliranin o problema."
+      "definition": "Bahaging nagpapakita ng suliranin at mga pagsubok ng tauhan."
     },
     {
       "term": "Wakas",
-      "definition": "Ang huling bahagi ng kuwento kung saan ipinapakita ang solusyon at katapusan."
+      "definition": "Huling bahagi kung saan ipinapakita ang solusyon, resulta, at aral."
     }
   ],
   "activities": [
@@ -36,18 +36,18 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Panoorin at pakinggan ang kuwento para sa aralin ngayon.",
+      "instruction": "Pakinggan ang halimbawa ng kuwentong may simula, gitna, at wakas.",
       "content": "Ang bawat kuwento ay may tatlong bahagi: Simula, Gitna, at Wakas. Sa Simula, ipinapakilala ang mga tauhan at tagpuan. Sa Gitna, inilalahad ang suliranin o problema ng tauhan. Sa Wakas, ipinapakita ang naging solusyon at ang katapusan ng kuwento. Halimbawa: Sa kuwento ng dalawang batang nagtutulungan, sa simula ay ipinakilala ang batang si Toby at ang kaklase niyang si Sid. Napansin ni Toby na pagod at walang baon si Sid. Sa gitna, ibinahagi ni Toby ang kaniyang meryenda at tubig. Humingi rin sila ng tulong sa guro upang matiyak na may makakain si Sid. Nang minsang tuksuhin si Toby ng ilang bata, lumapit siya sa guro at nanatili sa ligtas na lugar. Tinulungan ni Sid na sabihin sa guro ang nangyari. Sa wakas, natuto silang humingi ng tulong at naging mabuting magkaibigan sina Toby at Sid. Iyan ang tatlong bahagi ng kuwento!",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Mahusay!",
-        "retry": "Balikan ang pahiwatig sa Pagbuo ng Kuwento. 💪"
+        "correct": "Mahusay! Nakita mo ang tatlong bahagi ng kuwento. 🎉",
+        "retry": "Tandaan: simula ang pagpapakilala, gitna ang suliranin, wakas ang resulta."
       },
       "prompt": "Makinig sa aralin tungkol sa pagbuo ng kuwento!",
       "narration": "Ngayon, aalamin natin kung paano bumuo ng isang kuwento. Ang bawat kuwento ay may simula, gitna, at wakas. Pakinggan natin ang isang halimbawa.",
-      "guideHint": "Tandaan ang tatlong bahagi: Simula (pagpapakilala), Gitna (suliranin), Wakas (katapusan).",
+      "guideHint": "Tandaan: simula ang pagpapakilala, gitna ang suliranin, wakas ang resulta.",
       "nextLabel": "Susunod →",
       "accessibilityAlternative": "Paliwanag tungkol sa tatlong bahagi ng kuwento: Simula, Gitna, at Wakas, gamit ang halimbawa ni Toby at Sid."
     },
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Pagbuo ng Kuwento.",
+      "instruction": "Hanapin ang tauhan, tagpuan, suliranin, solusyon, at aral.",
       "content": {
         "examples": [
           "Tauhan",
@@ -73,14 +73,14 @@
         "targetCount": 5
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Tama! Nakita mo ang mahahalagang bahagi ng kuwento. 🎉",
+        "retry": "Hanapin ang mga gumaganap, lugar, problema, sagot, at natutuhan."
       },
-      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Pagbuo ng Kuwento.",
-      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Pagbuo ng Kuwento.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "prompt": "Pindutin ang bawat bahagi ng halimbawa ng kuwento.",
+      "narration": "Hanapin ang mga gumaganap, lugar, problema, sagot, at natutuhan sa kuwento.",
+      "guideHint": "Tanungin: sino, saan, ano ang problema, paano ito nalutas, at ano ang aral?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Pagbuo ng Kuwento."
+      "accessibilityAlternative": "Pindutin ang tauhan, tagpuan, suliranin, solusyon, at aral sa larawan."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a03",
@@ -89,18 +89,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Pagbukud-bukurin kung ang pangyayari ay SIMULA o WAKAS ng kuwento.",
+      "instruction": "Ilagay sa “Simula” o “Wakas” ang bawat pangyayari.",
       "content": {
         "fits": [
-          "Ipinakilala ang pangunahing tauhan — SIMULA",
-          "Inilarawan ang tagpuan — SIMULA",
-          "Ipinakilala ang pangalawang tauhan — SIMULA"
+          "Ipinakilala ang pangunahing tauhan",
+          "Inilarawan ang tagpuan",
+          "Ipinakilala ang pangalawang tauhan"
         ],
         "doesNotFit": [
-          "Nalutas ang suliranin — WAKAS",
-          "Nagtapos ang kuwento nang masaya — WAKAS",
-          "Nagkaroon ng aral ang tauhan — WAKAS",
-          "Naging magkaibigan ang mga tauhan — WAKAS"
+          "Nalutas ang suliranin",
+          "Nagtapos ang kuwento nang masaya",
+          "Natutuhan ng tauhan ang aral",
+          "Naging magkaibigan ang mga tauhan"
         ]
       },
       "completionRule": {
@@ -108,14 +108,14 @@
         "itemCount": 7
       },
       "feedback": {
-        "correct": "Mahusay! Alam mo na ang pagkakaiba ng simula at wakas.",
-        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
+        "correct": "Mahusay! Alam mo na ang kaibahan ng simula at wakas. 🎉",
+        "retry": "Tanungin: may ipinapakilala ba sa simula, o may tinatapos at nilulutas sa wakas?"
       },
-      "prompt": "Simula ba o wakas? Ilagay sa tamang grupo!",
-      "narration": "Subukan mo namang tukuyin kung ang pangyayari ay nasa simula o wakas ng kuwento. Ilagay sa tamang grupo!",
-      "guideHint": "Ang simula ay panimula at pagpapakilala. Ang wakas ay resulta at katapusan.",
+      "prompt": "Suriin: panimula ba o katapusan ang bawat pangyayari?",
+      "narration": "Ihiwalay ang mga pangyayaring nagpapakilala sa mga pangyayaring nagtatapos sa kuwento.",
+      "guideHint": "Sa simula, may pagpapakilala; sa wakas, may resulta, solusyon, o aral.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pagbukud-bukurin ang mga pangyayari kung ito ay simula o wakas ng kuwento."
+      "accessibilityAlternative": "Ilagay ang bawat pangyayari sa grupo ng simula o wakas ng kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a04",
@@ -124,13 +124,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Piliin ang tamang sagot tungkol sa istruktura ng kuwento.",
+      "instruction": "Piliin ang pangyayaring kabilang sa simula.",
       "content": {
         "options": [
-          "Sa simula ipinapakilala ang mga tauhan at tagpuan ng kuwento.",
-          "Sa simula ibinibigay ang wakas ng kuwento.",
-          "Sa simula inilalahad ang solusyon ng kuwento.",
-          "Sa simula walang nangyayari."
+          "Ipinakilala ang tauhan at tagpuan ng kuwento.",
+          "Nalutas ang suliranin sa tulong ng guro.",
+          "Natutuhan ng tauhan ang aral.",
+          "Natapos ang kuwento nang masaya."
         ],
         "correctIndex": 0
       },
@@ -138,14 +138,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Tama! Sa simula ipinapakilala ang tauhan at tagpuan.",
-        "retry": "Isipin mo — ano ang unang bahagi ng isang kuwento?"
+        "correct": "Tama! Sa simula ipinakikilala ang tauhan at tagpuan.",
+        "retry": "Sa simula, ipakilala muna kung sino ang tauhan at saan nagaganap ang kuwento."
       },
-      "prompt": "Ano ang nangyayari sa simula ng kuwento?",
-      "narration": "Ngayon, subukan natin ang iyong kaalaman. Ano ang nangyayari sa simula ng isang kuwento?",
-      "guideHint": "Sa simula, ipinapakilala ang mga tauhan at kung saan sila naroon.",
+      "prompt": "Nagsusulat ka ng kuwento. Alin ang dapat ilagay sa simula?",
+      "narration": "Piliin ang pangyayaring karaniwang nagbubukas ng kuwento.",
+      "guideHint": "Sa simula, ipakilala muna kung sino ang tauhan at saan nagaganap ang kuwento.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pumili ng tamang pahayag tungkol sa simula ng kuwento."
+      "accessibilityAlternative": "Pumili ng pahayag tungkol sa simula ng kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w08-d01-a05",
@@ -154,28 +154,28 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w08-d01-visual",
-      "instruction": "Itapat ang bawat elemento ng kuwento sa tamang tungkulin nito.",
+      "instruction": "Itapat ang bawat elemento sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "Tauhan",
-            "right": "Ang gumaganap o karakter sa kuwento"
+            "right": "Sino ang kumikilos sa kuwento"
           },
           {
             "left": "Tagpuan",
-            "right": "Ang lugar at panahon ng kuwento"
+            "right": "Saan at kailan nagaganap ang kuwento"
           },
           {
             "left": "Suliranin",
-            "right": "Ang problema o pagsubok na kakaharapin"
+            "right": "Problemang humahadlang sa tauhan"
           },
           {
             "left": "Solusyon",
-            "right": "Ang kasagutan sa problema sa kuwento"
+            "right": "Paraan upang malutas ang problema"
           },
           {
             "left": "Aral",
-            "right": "Ang natutuhan o mensahe ng kuwento"
+            "right": "Mensahe o natutuhan mula sa kuwento"
           }
         ]
       },
@@ -183,12 +183,12 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Mahusay! Alam mo na ang gamit ng bawat elemento.",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Naunawaan mo ang tungkulin ng bawat elemento. 🎉",
+        "retry": "Hanapin sa kanan ang sino, saan, problema, paraan ng paglutas, o mensahe."
       },
-      "prompt": "Itapat ang bawat elemento ng kuwento sa tamang tungkulin nito!",
+      "prompt": "Aling tungkulin ang babagay sa bawat elemento ng kuwento?",
       "narration": "Panghuli, itapat mo ang bawat elemento ng kuwento sa tamang tungkulin nito. Ito ang mga mahalagang bahagi ng isang magandang kuwento.",
-      "guideHint": "Basahing mabuti ang tungkulin sa kanan bago pumili ng elemento.",
+      "guideHint": "Hanapin ang sagot sa sino, saan, problema, paraan ng paglutas, at mensahe.",
       "nextLabel": "Tapos na!",
       "accessibilityAlternative": "Itapat ang limang elemento ng kuwento sa kanilang tamang tungkulin."
     },
@@ -202,19 +202,19 @@
       "instruction": "Ayusin ang limang hakbang sa pagbuo ng kuwento.",
       "content": {
         "steps": [
-          "Pumili ng mga tauhan para sa iyong kuwento.",
-          "Tukuyin ang tagpuan — saan mangyayari ang kuwento?",
-          "Ilahad ang suliranin o problema sa gitna ng kuwento.",
-          "Ipakita kung paano nalutas ang suliranin.",
-          "Tapusin ang kuwento sa pamamagitan ng wakas na nagpapakita ng aral."
+          "Pumili ng pangunahing tauhan at kaniyang layunin.",
+          "Itakda kung saan at kailan magaganap ang kuwento.",
+          "Magpakita ng suliraning haharapin ng tauhan.",
+          "Ipakita ang hakbang o solusyong lulutas sa suliranin.",
+          "Tapusin sa resulta at aral na natutuhan."
         ]
       },
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Tama ang iyong pagkakasunod-sunod!",
-        "retry": "Ayusin muli ang mga hakbang."
+        "correct": "Tama ang iyong pagkakasunod-sunod! 🎉",
+        "retry": "Unahin ang tauhan at tagpuan, saka suliranin, solusyon, at aral."
       },
       "prompt": "Ano ang tamang pagkakasunod-sunod ng pagbuo ng kuwento?",
       "narration": "Ngayon naman, ayusin mo ang mga hakbang sa pagbuo ng isang kuwento. Saan tayo magsisimula?",
@@ -233,7 +233,7 @@
         "sequence": 1,
         "itemId": "filipino-g3-q1-w08-d01-q1",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tawag sa simula ng kuwento?",
+        "prompt": "Sa pagsulat ni Mia, ano ang tawag sa unang bahaging nagpapakilala sa tauhan at tagpuan?",
         "options": [
           {
             "id": "a",
@@ -255,13 +255,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang simula ang bahaging nagpapakilala sa tauhan at tagpuan: Simula."
+        "explanation": "Ang unang bahaging nagpapakilala sa tauhan at tagpuan ay simula."
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q1-w08-d01-q2",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tatlong pangunahing bahagi ng isang kuwento?",
+        "prompt": "Kapag nagbabalangkas ka ng kuwento, anu-ano ang tatlong pangunahing bahagi?",
         "options": [
           {
             "id": "a",
@@ -283,13 +283,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Simula, Gitna, Wakas — ito ang tatlong bahagi ng kuwento."
+        "explanation": "Ang kuwento ay may simula, gitna, at wakas: pagpapakilala, suliranin, at resulta."
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q1-w08-d01-q3",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang ipinakita ng pangunahing tauhan sa kuwentong napakinggan?",
+        "prompt": "Sa kuwento nina Toby at Sid, anong mabuting kilos ang ipinakita ni Toby?",
         "options": [
           {
             "id": "a",
@@ -311,13 +311,13 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Pagtulong sa kapwa — ito ang ipinakita ng tauhan sa kuwento."
+        "explanation": "Ibinahagi ni Toby ang meryenda at humingi ng tulong para kay Sid; malinaw itong pagtulong sa kapwa."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q1-w08-d01-q4",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Saang bahagi ng kuwento makikita ang suliranin?",
+        "prompt": "Nagsisimula nang magkaroon ng problema ang tauhan. Saang bahagi ito karaniwang inilalagay?",
         "options": [
           {
             "id": "a",
@@ -339,13 +339,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang suliranin ay lumilitaw sa gitna ng kuwento: Sa gitna."
+        "explanation": "Karaniwang lumilitaw ang suliranin sa gitna, kung saan nagsisimula ang pagsubok."
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q1-w08-d01-q5",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang layunin ng wakas ng kuwento?",
+        "prompt": "Isinulat mo ang huling bahagi ng kuwento. Ano ang layunin nito?",
         "options": [
           {
             "id": "a",
@@ -367,7 +367,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Tapusin ang kuwento at ipakita ang naging resulta."
+        "explanation": "Sa wakas, ipinakikita kung paano natapos ang kuwento at ano ang naging resulta pagkatapos ng suliranin."
       }
     ]
   },

@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "fil-PH",
-  "introduction": "Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito.",
+  "introduction": "Ang maayos na talata ay nakatuon sa isang paksa at may mga detalyeng sumusuporta rito. Ayusin ang mga pangungusap upang malinaw ang ideya.",
   "vocabulary": [
     {
       "term": "maayos",
@@ -33,7 +33,7 @@
       "activityId": "filipino-g3-m01-d18-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "instruction": "Basahin ang paliwanag tungkol sa pagsulat ng talata.",
       "content": "Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-        "retry": "Balikan ang pahiwatig sa Sumulat ng Maayos na Talata. 💪"
+        "retry": "Piliin lamang ang detalyeng kaugnay ng paksa. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "Alternatibong teksto: Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito."
@@ -50,7 +50,7 @@
       "activityId": "filipino-g3-m01-d18-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "instruction": "Tingnan ang paksa at detalyeng kaugnay nito.",
       "content": {
         "examples": [
           "Paksa: hardin",
@@ -64,8 +64,8 @@
         "targetCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Sumulat ng Maayos na Talata. 🔎",
-        "retry": "Suriing muli ang halimbawa ng Sumulat ng Maayos na Talata. 💪"
+        "correct": "Mahusay! Nahanap mo ang paksa at mga detalyeng magkakaugnay. 🔎",
+        "retry": "Hanapin ang ideyang pinag-uugnay ng mga pangungusap. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
@@ -74,12 +74,12 @@
       "activityId": "filipino-g3-m01-d18-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "Ilagay sa angkop na pangkat ang detalyeng kaugnay ng paksa.",
       "content": {
         "fits": [
-          "Paksa: hardin",
-          "Detalye: may gulay at bulaklak",
-          "Wakas: inaalagaan ito araw-araw"
+          "hardin",
+          "may gulay at bulaklak",
+          "inaalagaan araw-araw"
         ],
         "doesNotFit": [
           "Magpalit ng paksa bawat pangungusap",
@@ -93,8 +93,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Sumulat ng Maayos na Talata. 🎉",
-        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+        "correct": "Mahusay! Naipangkat mo ang mga detalyeng sumusuporta sa paksa. 🎉",
+        "retry": "Suriin kung bawat card ay tumutulong sa iisang paksa. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Tama: isang pokus at magkakaugnay na detalye",
-        "retry": "Basahin muli ang tuntunin ng aralin."
+        "retry": "Piliin ang pangangailangang tumutulong sa iisang paksa. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "filipino-g3-m01-d18-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "instruction": "Itambal ang halimbawa sa dahilan o gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "Paksa",
-            "right": "hardin"
+            "right": "ideyang sentro ng talata"
           },
           {
             "left": "Detalye",
-            "right": "may gulay at bulaklak"
+            "right": "sumusuportang impormasyon"
           },
           {
             "left": "Wakas",
-            "right": "inaalagaan ito araw-araw"
+            "right": "pangungusap na nagsasara ng ideya"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "pairCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Sumulat ng Maayos na Talata. 🔗",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Sumulat ng Maayos na Talata. 💪"
+        "correct": "Mahusay! Itinugma mo ang bahagi sa tungkulin nito sa talata. 🔗",
+        "retry": "Itugma ang bahagi sa tungkulin nito sa talata. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
@@ -163,9 +163,9 @@
       "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
+          "Pumili ng isang malinaw na paksa.",
+          "Magdagdag ng detalyeng sumusuporta rito.",
+          "Ayusin ang mga pangungusap sa talata."
         ]
       },
       "required": true,
@@ -174,8 +174,8 @@
         "stepCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Inayos mo ang mga hakbang sa Sumulat ng Maayos na Talata. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Sumulat ng Maayos na Talata. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsulat ng talata. 🎉",
+        "retry": "Sundin ang daloy: pumili, magdagdag, at ayusin. 💪"
       },
       "assetId": "filipino-g3-m01-d18-visual",
       "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
@@ -293,7 +293,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito."
+        "explanation": "Ang pokus ang pangunahing ideya; ang magkakaugnay na detalye ang sumusuporta rito."
       },
       {
         "itemId": "filipino-g3-m01-d18-q05",

@@ -25,7 +25,7 @@
     },
     {
       "term": "story",
-      "definition": "A tale with characters and events; sight words show up in every story."
+      "definition": "A tale with characters and events that can include familiar sight words."
     }
   ],
   "activities": [
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Sight-Word Path again. 💪"
+        "retry": "Check the sentence meaning before choosing the sight word that fits. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "Text alternative: Learn the pronunciation, meaning, and spelling pattern of have, said, please, because, there, and where."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Sight-Word Path. 🔎",
-        "retry": "Look at each Sight-Word Path example again. 💪"
+        "retry": "Tap a sentence and point to the taught word that carries its meaning. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Sight-Word Path clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort meaningful uses of the taught words away from guessing or skipping them. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: have",
-        "retry": "I have a pencil means the pencil is with me. Where asks a place, and because tells why."
+        "retry": "I have a pencil shows possession; where asks a place and because gives a reason. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "english-g3-m01-d15-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each sight word to its sentence.",
+      "instruction": "Match each sentence with the job of its sight word.",
       "content": {
         "pairs": [
           {
             "left": "Please sit there.",
-            "right": "there"
+            "right": "there tells a place"
           },
           {
             "left": "Mina said hello.",
-            "right": "hello"
+            "right": "said shows someone spoke"
           },
           {
             "left": "I have a book.",
-            "right": "have"
+            "right": "have shows possession"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Sight-Word Path explanation. 🔗",
-        "retry": "Read both sides of each Sight-Word Path pair again. 💪"
+        "retry": "Match each sentence with the job its sight word does. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Sight-Word Path steps in order. 🎉",
-        "retry": "Find the first, next, and last Sight-Word Path steps. 💪"
+        "retry": "Order the routine: read the sentence, find the sight word, then explain its meaning. 💪"
       },
       "assetId": "english-g3-m01-d15-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "please"
+          },
+          {
+            "id": "d",
+            "text": "because"
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "Please where sit."
+          },
+          {
+            "id": "d",
+            "text": "Please where there."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "because"
+          },
+          {
+            "id": "d",
+            "text": "said"
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "because"
+          },
+          {
+            "id": "d",
+            "text": "said"
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "I have where."
+          },
+          {
+            "id": "d",
+            "text": "I have please."
           }
         ],
         "correctOptionIds": [

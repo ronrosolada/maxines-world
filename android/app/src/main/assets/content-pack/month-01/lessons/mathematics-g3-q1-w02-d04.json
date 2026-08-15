@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is lining up number cards! Help him put them from least to greatest.",
+  "introduction": "Milo has number cards up to 10,000. Can you line them up from least to greatest or greatest to least?",
   "vocabulary": [
     {
       "term": "120, 210, 201 — least to greatest",
-      "definition": "least to greatest"
+      "definition": "Put numbers from the smallest value to the largest value."
     },
     {
       "term": "900, 450, 90 — greatest to least",
-      "definition": "greatest to least"
+      "definition": "Put numbers from the largest value to the smallest value."
     },
     {
       "term": "1,205 before 1,250",
-      "definition": "uses place value"
+      "definition": "Compare thousands, hundreds, tens, then ones to decide order."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Watch how 120, 201, and 210 line up from least to greatest.",
-      "content": "Compare place values, then arrange the numbers in the requested order.",
+      "instruction": "Watch place values decide the order of number cards.",
+      "content": "Compare place values from left to right, then put the numbers in the requested order.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in Number Line-Up again. 💪"
+        "retry": "Compare thousands, hundreds, tens, and ones before placing a card."
       },
-      "prompt": "Watch how 120, 201, and 210 line up from least to greatest.",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch place values decide the order of number cards.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     },
     {
       "activityId": "mathematics-g3-q1-w02-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Tap each example and read the order.",
+      "instruction": "Tap a list and read the order from its place values.",
       "content": {
         "examples": [
-          "120, 210, 201 — least to greatest",
-          "900, 450, 90 — greatest to least",
-          "1,205 before 1,250",
-          "4,000 after 3,999"
+          "120 < 201 < 210",
+          "900 > 450 > 90",
+          "1,205 < 1,250",
+          "3,999 < 4,000"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Look at each Number Line-Up example again. 💪"
+        "retry": "Read the requested direction, then compare the leftmost place."
       },
-      "prompt": "Tap each example and read the order.",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap a list and read the order from its place values.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     },
     {
       "activityId": "mathematics-g3-q1-w02-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Sort each card: is the order correct?",
+      "instruction": "Sort each list as correctly or incorrectly ordered.",
       "content": {
         "fits": [
-          "120, 210, 201 — least to greatest",
-          "900, 450, 90 — greatest to least",
-          "1,205 before 1,250",
-          "4,000 after 3,999"
+          "120 < 201 < 210",
+          "900 > 450 > 90",
+          "1,205 < 1,250",
+          "3,999 < 4,000"
         ],
         "doesNotFit": [
-          "arrange by color",
-          "add the numbers first",
-          "choose without comparing place values",
-          "reverse the requested order"
+          "210 < 201 < 120",
+          "90 > 450 > 900",
+          "1,250 < 1,205",
+          "4,000 < 3,999"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read the Number Line-Up rule before sorting again. 💪"
+        "retry": "Check each neighboring pair against the requested direction."
       },
-      "prompt": "Sort each card: is the order correct?",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort each list as correctly or incorrectly ordered.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     },
     {
       "activityId": "mathematics-g3-q1-w02-d04-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Tap the correct least-to-greatest order.",
+      "instruction": "Tap the correct least-to-greatest number line.",
       "content": {
         "options": [
-          "210, 201, 120",
-          "120 + 201 + 210 = 531",
-          "120, 210, 201",
-          "120, 201, 210 — least to greatest"
+          "210 < 201 < 120",
+          "120 plus 201 plus 210 equals 531",
+          "210 > 201 > 120",
+          "120 < 201 < 210"
         ],
         "correctIndex": 3
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the clue in the Number Line-Up question. 💪"
+        "retry": "Compare 120, 201, and 210 from the hundreds and tens places."
       },
-      "prompt": "Tap the correct least-to-greatest order.",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the correct least-to-greatest number line.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     },
     {
       "activityId": "mathematics-g3-q1-w02-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Match each list to least-to-greatest or greatest-to-least.",
+      "instruction": "Match each list with the ordering rule it shows.",
       "content": {
         "pairs": [
           {
-            "left": "120, 210, 201",
-            "right": "least to greatest"
+            "left": "120, 201, 210",
+            "right": "smallest value is first"
           },
           {
             "left": "900, 450, 90",
-            "right": "greatest to least"
+            "right": "largest value is first"
           },
           {
-            "left": "1,205 before 1,250",
-            "right": "uses place value"
+            "left": "1,205 and 1,250",
+            "right": "compare tens after earlier places tie"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Read both sides of each Number Line-Up pair again. 💪"
+        "retry": "Use the direction and first place that differs to match the list."
       },
-      "prompt": "Match each list to least-to-greatest or greatest-to-least.",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each list with the ordering rule it shows.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     },
     {
       "activityId": "mathematics-g3-q1-w02-d04-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q1-w02-d04-visual",
-      "instruction": "Put the steps for ordering numbers in order.",
+      "instruction": "Order the checks for lining up number cards.",
       "content": {
         "steps": [
-          "Read the math question about order numbers up to 10,000 from least to greatest and greatest to least.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Read whether the order is least-to-greatest or greatest-to-least",
+          "Compare the leftmost place values",
+          "Move to the next place when values tie",
+          "Write the cards and check every neighboring pair"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Well done! 🐾",
-        "retry": "Find the first, next, and last Number Line-Up steps. 💪"
+        "retry": "Read the direction, compare places, then check every neighbor."
       },
-      "prompt": "Put the steps for ordering numbers in order.",
-      "narration": "Compare place values, then arrange the numbers in the requested order.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for lining up number cards.",
+      "narration": "Compare place values from left to right, then put the numbers in the requested order.",
+      "guideHint": "Read the requested direction, then compare place values from left to right.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Compare place values, then arrange the numbers in the requested order."
+      "accessibilityAlternative": "Compare place values from left to right, then put the numbers in the requested order."
     }
   ],
   "assessment": {

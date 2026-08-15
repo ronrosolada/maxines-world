@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Philippine Money Market again. 💪"
+        "retry": "Check that ₱1.00 equals 100 centavos and compare pesos before centavos. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "Text alternative: One peso equals 100 centavos. Use original tokens, not reproduced banknotes."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Philippine Money Market. 🔎",
-        "retry": "Look at each Philippine Money Market example again. 💪"
+        "retry": "Check each example for this rule: Check that ₱1.00 equals 100 centavos and compare pesos before centavos. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Philippine Money Market clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Check every card against this rule: Check that ₱1.00 equals 100 centavos and compare pesos before centavos. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: 100",
-        "retry": "Look at the example again."
+        "retry": "Check the numbers with this rule: Check that ₱1.00 equals 100 centavos and compare pesos before centavos. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -132,15 +132,15 @@
         "pairs": [
           {
             "left": "₱5.00 is five pesos",
-            "right": "pesos"
+            "right": "whole-peso amount"
           },
           {
             "left": "100 centavos = ₱1.00",
-            "right": "centavos"
+            "right": "100 small units make one peso"
           },
           {
             "left": "₱12.50 > ₱12.05",
-            "right": "comparing money"
+            "right": "compare centavos after equal pesos"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Philippine Money Market explanation. 🔗",
-        "retry": "Read both sides of each Philippine Money Market pair again. 💪"
+        "retry": "Match each pair by the relationship: Check that ₱1.00 equals 100 centavos and compare pesos before centavos. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Philippine Money Market steps in order. 🎉",
-        "retry": "Find the first, next, and last Philippine Money Market steps. 💪"
+        "retry": "Check the order: start with read the peso amount., then read the centavo amount., and finish with compare them using the decimal point.. 💪"
       },
       "assetId": "mathematics-g3-m01-d08-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,11 +191,11 @@
         "itemId": "mathematics-g3-m01-d08-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about money is true?",
+        "prompt": "Milo is choosing prices at the market. Which statement about money is true?",
         "options": [
           {
             "id": "a",
-            "text": "One peso equals 100 centavos. Use original tokens, not reproduced banknotes."
+            "text": "One peso equals 100 centavos."
           },
           {
             "id": "b",
@@ -215,7 +215,7 @@
         "itemId": "mathematics-g3-m01-d08-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which money statement is true?",
+        "prompt": "Milo is choosing prices at the market. Which money statement is true?",
         "options": [
           {
             "id": "a",
@@ -239,7 +239,7 @@
         "itemId": "mathematics-g3-m01-d08-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which money statement is NOT true?",
+        "prompt": "Milo is choosing prices at the market. Which money statement is NOT true?",
         "options": [
           {
             "id": "a",
@@ -287,25 +287,29 @@
         "itemId": "mathematics-g3-m01-d08-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which shows the greater amount of money?",
+        "prompt": "Milo is choosing prices at the market. Which correctly compares ₱12.50 and ₱12.05?",
         "options": [
           {
             "id": "a",
-            "text": "₱12.50 > ₱12.05"
+            "text": "₱12.50 > ₱12.05 (50 centavos is more than 5 centavos)"
           },
           {
             "id": "b",
-            "text": "₱12.50 < ₱12.05"
+            "text": "₱12.50 < ₱12.05 (5 centavos is more than 50 centavos)"
           },
           {
             "id": "c",
-            "text": "50 centavos = ₱50"
+            "text": "₱12.50 = ₱12.05 (both have 12 pesos)"
+          },
+          {
+            "id": "d",
+            "text": "₱12.05 > ₱12.50 (zeros make amounts larger)"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "₱12.50 has 50 centavos and ₱12.05 has only 5 centavos, so ₱12.50 > ₱12.05."
+        "explanation": "Both have ₱12, but 50 centavos is worth more than 5 centavos (.05), so ₱12.50 > ₱12.05."
       }
     ]
   },

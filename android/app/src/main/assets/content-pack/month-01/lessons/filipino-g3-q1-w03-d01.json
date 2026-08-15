@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 📝 May talata tayong aaralin tungkol sa pusa. Hanapin natin ang paksa at mga detalye nito!",
+  "introduction": "Sa talata tungkol sa aking pusa, hanapin ang iisang paksa at ang mga pangungusap na sumusuporta rito. Ayusin ang ideya mula simula hanggang wakas.",
   "vocabulary": [
     {
       "term": "paksa",
-      "definition": "ang pinag-uusapan sa talata"
+      "definition": "Paksa o bagay na pinag-uusapan sa buong talata."
     },
     {
       "term": "pangunahing ideya",
-      "definition": "ang pinakamahalagang mensahe ng talata"
+      "definition": "Pinakamahalagang mensaheng ipinapahayag ng talata."
     },
     {
       "term": "detalye",
-      "definition": "dagdag na impormasyon tungkol sa paksa"
+      "definition": "Impormasyong nagbibigay-linaw at suporta sa paksa."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
-      "content": "Ang aking pusa ay maputi at makapal ang balahibo. Mahilig siyang matulog sa ilalim ng mesa. Mahal na mahal ko ang aking pusa. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
+      "instruction": "Basahin ang talata at hanapin ang iisang paksa.",
+      "content": "Ang aking pusa ay maputi at makapal ang balahibo. Mahilig siyang matulog sa ilalim ng mesa. Mahal na mahal ko ang aking pusa. Iisa ang paksa ng magkakaugnay na pangungusap na ito.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Munting Talata. 💪"
+        "retry": "Itanong kung ano ang pinag-uusapan ng lahat ng pangungusap. 💪"
       },
       "prompt": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
       "narration": "Ang aking pusa ay maputi at makapal ang balahibo. Mahilig siyang matulog sa ilalim ng mesa. Mahal na mahal ko ang aking pusa. Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "instruction": "Tukuyin ang paksa, ideya, detalye, at wakas.",
       "content": {
         "examples": [
           "ang aking pusa",
@@ -73,8 +73,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Munting Talata. 💪"
+        "correct": "Mahusay! Nakita mo ang mga bahagi ng talata tungkol sa ang aking pusa. 🔎",
+        "retry": "Hanapin ang pangungusap na naglilinaw sa paksa at mga detalye. 💪"
       },
       "prompt": "Tuklasin ang talata. Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Piliin ang mga bahagi ng talatang ito.",
+      "instruction": "Piliin ang card na kaugnay ng talata.",
       "content": {
         "fits": [
           "ang aking pusa",
@@ -109,8 +109,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Munting Talata bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga bahaging kaugnay ng talata. 🎉",
+        "retry": "Suriin kung tumutulong ang card sa iisang paksa. 💪"
       },
       "prompt": "Piliin ang mga bahagi ng talatang ito.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -125,7 +125,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
+      "instruction": "Alin ang pangungusap na naglalarawan sa aking pusa?",
       "content": {
         "options": [
           "Maraming puno sa paligid nito.",
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Munting Talata. 💪"
+        "retry": "Piliin ang pangungusap na may sentrong ideya ng paksa. 💪"
       },
       "prompt": "Piliin ang pinakamabuting sagot. Tandaan: ang paksa ang pinag-uusapan.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
+      "instruction": "Itugma ang bahagi ng talata sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "ang aking pusa",
-            "right": "paksa"
+            "right": "paksang tinatalakay"
           },
           {
             "left": "Ang aking pusa ay maputi at makapal ang balahibo.",
-            "right": "pangunahing ideya"
+            "right": "pangunahing mensahe"
           },
           {
             "left": "Mahilig siyang matulog sa ilalim ng mesa.",
-            "right": "detalye"
+            "right": "detalyeng sumusuporta"
           }
         ]
       },
@@ -176,8 +176,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Munting Talata. 💪"
+        "correct": "Mahusay! Itinugma mo ang bawat bahagi sa tungkulin nito. 🔗",
+        "retry": "Tingnan kung paksa, pangunahing mensahe, o suportang detalye ang bahagi. 💪"
       },
       "prompt": "Itugma ang bawat bahagi ng talata sa wastong pangkat: paksa, pangunahing ideya, o detalye.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -192,21 +192,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
+      "instruction": "Ayusin ang mga hakbang sa pagsusuri ng talata.",
       "content": {
         "steps": [
-          "Basahin ang talata",
-          "Hanapin ang paksa",
-          "Hanapin ang pangunahing ideya",
-          "Tukuyin ang mga detalye"
+          "Basahin ang talata tungkol sa pusa.",
+          "Tukuyin ang iisang paksa.",
+          "Hanapin ang pangunahing ideya.",
+          "Piliin ang detalyeng at wakas na kaugnay."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Munting Talata. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsusuri ng talata. 🎉",
+        "retry": "Sundin ang daloy: basahin, tukuyin, hanapin, at piliin. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Basahin muna ang talata bago hanapin ang paksa.",
       "narration": "Ang talata ay binubuo ng magkakaugnay na pangungusap tungkol sa isang paksa.",
@@ -221,7 +221,7 @@
       "capability": "WRITING_PRODUCTION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w03-d01-visual",
-      "instruction": "Buuin ang pangungusap. Simulan sa malaking titik at tapusin sa tuldok!",
+      "instruction": "Buuin ang pangungusap tungkol sa paksa.",
       "content": {
         "tiles": [
           "Ang",
@@ -234,7 +234,7 @@
         "checklist": [
           "Nagsimula sa malaking titik ang pangungusap ko.",
           "May tuldok sa dulo ang pangungusap ko.",
-          "May paksa at detalye ang pangungusap ko."
+          "May iisang paksa at kaugnay na detalye ang pangungusap ko."
         ]
       },
       "completionRule": {
@@ -242,7 +242,7 @@
       },
       "feedback": {
         "correct": "Ang galing! Buo na ang iyong pangungusap! 🎉",
-        "retry": "Suriin muli ang iyong pangungusap. 💪"
+        "retry": "Basahin ang nabuo mong pangungusap at tingnan kung kaugnay ito ng paksa. 💪"
       },
       "prompt": "Buuin ang pangungusap. Simulan sa malaking titik at tapusin sa tuldok!",
       "narration": "Buuin ang pangungusap. Simulan sa malaking titik at tapusin sa tuldok!",
@@ -283,7 +283,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang paksa ay kung tungkol saan ang buong talata. ang aking pusa ang paksa dahil ito ang tinalakay ng lahat ng pangungusap.",
+        "explanation": "Ang paksa ay kung tungkol saan ang talata; lahat ng pangungusap ay tungkol sa aking pusa.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -311,7 +311,7 @@
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang pangunahing ideya ay ang pinakamahalagang sinasabi ng talata. Ang aking pusa ay maputi at makapal ang balahibo. — ito ang pinag-uusapan ng lahat ng pangungusap.",
+        "explanation": "Ang pangunahing ideya ang pinakamahalagang mensahe; dito, inilalarawan ang aking pusa.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -339,7 +339,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang detalye ay sumusuporta sa paksa ng talata. Mahilig siyang matulog sa ilalim ng mesa. ang detalyeng nabanggit sa talata.",
+        "explanation": "Ang pagtulog sa ilalim ng mesa ay detalyeng tuwirang binanggit sa talata.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -367,7 +367,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang wakas ng talata ay ang pangungusap na nagsasara sa paksa. Mahal na mahal ko ang aking pusa. ang nagtatapos sa talata.",
+        "explanation": "Ang wakas ay nagsasara ng ideya; “Mahal na mahal ko ang aking pusa.” ang huling pangungusap.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -395,7 +395,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Pinagsasama ng mga pangungusap ang iisang paksa. Ang talata ay tungkol sa ang aking pusa.",
+        "explanation": "Iisang paksa ang pinagsasama ng talata: ang aking pusa.",
         "type": "MULTIPLE_CHOICE"
       }
     ]

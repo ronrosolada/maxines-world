@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! ⛰️ May komunidad sa kabundukan na gustong ipakita ni Milo. Paano kaya nabubuhay ang mga tao roon? Tara, alamin natin!",
+  "introduction": "Sa kabundukan, umaangkop ang hanapbuhay, pagkain, at bahay sa matarik na lupa at malamig na klima. Tuklasin kung paano hinuhubog ng bundok ang pamumuhay ng komunidad. ⛰️",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "pagsasaka sa gilid ng bundok",
+      "definition": "Pagtatanim sa lupang nasa dalisdis o tabi ng bundok."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "hagdan-hagdang taniman",
+      "definition": "Mga patag na baitang sa dalisdis na ginagamit sa pagtatanim."
     },
     {
       "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "definition": "Disenyong isinasaalang-alang ang lamig, ulan, o hangin sa lugar."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang pamayanan sa kabundukan. Gayundin, sa isang mapa ng paligid.",
+      "instruction": "Pakinggan kung paano hinuhubog ng kabundukan ang pamumuhay.",
+      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawain ng mga tao. Sa kabundukan, maaaring iangkop ang taniman sa dalisdis, ang bahay sa lamig at ulan, at ang pagkain sa lokal na ani.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "retry": "Pakinggan muli ang clue: lupa, klima, hanapbuhay, at pagkain ay magkakaugnay."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang pamayanan sa kabundukan. Gayundin, sa isang mapa ng paligid.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alamin ang ugnayan ng bundok, hanapbuhay, ani, at bahay.",
+      "narration": "Sa kabundukan, umaangkop ang taniman sa dalisdis, ang bahay sa lamig at ulan, at ang pagkain sa lokal na ani.",
+      "guideHint": "Pakinggan ang clue: lupa, klima, hanapbuhay, at pagkain ay magkakaugnay.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang pamayanan sa kabundukan. Gayundin, sa isang mapa ng paligid."
+      "accessibilityAlternative": "Sa kabundukan, umaangkop ang taniman sa dalisdis, ang bahay sa lamig at ulan, at ang pagkain sa lokal na ani."
     },
     {
       "activityId": "makabansa-g3-q2-w02-d04-a02",
@@ -58,12 +58,12 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin ang taniman, bahay, ani, at disenyong angkop sa bundok.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
+          "pagsasaka sa gilid ng bundok",
+          "hagdan-hagdang taniman",
+          "bahay na angkop sa malamig na klima",
           "pagkain mula sa lokal na ani"
         ],
         "visualScene": "🐱🔎✨"
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "retry": "Hanapin ang taniman, bahay, ani, at disenyong angkop sa kabundukan."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "I-tap ang mga halimbawang umaangkop sa kabundukan.",
+      "narration": "Hanapin ang pagsasaka sa dalisdis, hagdan-hagdang taniman, bahay para sa lamig, at pagkaing mula sa ani.",
+      "guideHint": "Hanapin ang apat na pahiwatig na may ugnayan sa bundok o klima.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Hanapin ang pagsasaka sa dalisdis, hagdan-hagdang taniman, bahay para sa lamig, at pagkaing mula sa ani."
     },
     {
       "activityId": "makabansa-g3-q2-w02-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Ilagay ang gawaing umaangkop sa bundok o ang hindi umaangkop.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "pagtatanim sa gilid ng bundok",
+          "hagdan-hagdang taniman",
+          "bahay na may proteksiyon sa malamig na hangin",
+          "pagkaing mula sa lokal na ani"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "damit na hindi akma sa lamig",
+          "pagkaing walang sangkap mula sa lugar",
+          "halamang hindi nabubuhay sa dalisdis",
+          "gawaing hindi kaugnay ng kabundukan"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "retry": "Tanungin: may clue ba sa dalisdis, lamig, ulan, ani, o hanapbuhay?"
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paghiwalayin ang halimbawa ayon sa ugnayan nito sa kabundukan.",
+      "narration": "Ang taniman, bahay, ani, at pagkain ay dapat maiugnay sa lupa at klima; ang hindi angkop ay walang malinaw na ugnayan.",
+      "guideHint": "Tanungin: may clue ba sa dalisdis, lamig, ulan, ani, o hanapbuhay?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Ang taniman, bahay, ani, at pagkain ay dapat maiugnay sa lupa at klima; ang hindi angkop ay walang malinaw na ugnayan."
     },
     {
       "activityId": "makabansa-g3-q2-w02-d04-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang hanapbuhay na gumagamit sa lupang mabundok.",
       "content": {
         "options": [
-          "pagsusuot ng damit na hindi akma sa klima",
+          "damit na hindi akma sa klima",
           "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pangingisda sa baybayin"
+          "halamang hindi nabubuhay sa bundok",
+          "pagsasaka sa gilid ng bundok"
         ],
         "correctIndex": 3
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "retry": "Hanapin ang gawaing gumagamit ng dalisdis o baitang ng taniman."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang halimbawa ng pamumuhay na umaangkop sa kabundukan?",
+      "narration": "Ang pagsasaka sa gilid ng bundok ay gumagamit ng lupang dalisdis at maaaring gumamit ng hagdan-hagdang taniman.",
+      "guideHint": "Hanapin ang gawaing gumagamit ng dalisdis o baitang ng taniman.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Ang pagsasaka sa gilid ng bundok ay gumagamit ng lupang dalisdis at maaaring gumamit ng hagdan-hagdang taniman."
     },
     {
       "activityId": "makabansa-g3-q2-w02-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang katangian ng bundok sa epekto nito sa pamumuhay.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "pagsasaka sa gilid ng bundok",
+            "right": "tanimang gumagamit sa dalisdis"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "hagdan-hagdang taniman",
+            "right": "patag na baitang para sa ani"
           },
           {
             "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "right": "bahay na proteksiyon sa lamig at ulan"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "retry": "Iugnay sa dalisdis, patag na taniman, o proteksiyon sa klima."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Iugnay ang gawain o disenyo sa pakinabang nito.",
+      "narration": "Ang dalisdis ay ginagamit sa taniman, baitang ay nagbibigay ng patag na lupa, at disenyo ay proteksiyon sa lamig at ulan.",
+      "guideHint": "Iugnay sa dalisdis, patag na taniman, o proteksiyon sa klima.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Ang dalisdis ay ginagamit sa taniman, baitang ay nagbibigay ng patag na lupa, at disenyo ay proteksiyon sa lamig at ulan."
     },
     {
       "activityId": "makabansa-g3-q2-w02-d04-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q2-w02-d04-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin mula pagtukoy ng bundok hanggang pagpapaliwanag ng pag-angkop.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tukuyin ang anyong-lupang kabundukan",
+          "Pansinin ang dalisdis at klima",
+          "Iugnay ang mga ito sa taniman o bahay",
+          "Ipaliwanag kung paano umaangkop ang pamumuhay"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "retry": "Unahin ang anyong-lupa, saka dalisdis at klima, halimbawa, at paliwanag."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ilagay sa tamang ayos ang pagsusuri sa pamumuhay sa kabundukan.",
+      "narration": "Tukuyin ang kabundukan, pansinin ang dalisdis at klima, iugnay sa taniman o bahay, at ipaliwanag ang pag-angkop.",
+      "guideHint": "Unahin ang anyong-lupa; huli ang pagpapaliwanag ng pag-angkop.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Tukuyin ang kabundukan, pansinin ang dalisdis at klima, iugnay sa taniman o bahay, at ipaliwanag ang pag-angkop."
     }
   ],
   "assessment": {
@@ -225,7 +225,7 @@
         "itemId": "makabansa-g3-q2-w02-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa isang pamayanang nasa bundok, alin ang halimbawa ng pag-angkop sa lugar?",
         "options": [
           {
             "id": "a",
@@ -233,115 +233,115 @@
           },
           {
             "id": "b",
-            "text": "disenyong angkop sa klima"
+            "text": "hagdan-hagdang taniman sa dalisdis"
           },
           {
             "id": "c",
-            "text": "pagsusuot ng damit na hindi akma sa klima"
+            "text": "pag-aalaga ng kamelyo sa disyerto"
           },
           {
             "id": "d",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "paggawa ng yelo sa dalampasigan"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “disenyong angkop sa klima” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang hagdan-hagdang taniman ay lumilikha ng patag na baitang sa dalisdis para sa pagtatanim."
       },
       {
         "itemId": "makabansa-g3-q2-w02-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa kabundukan, alin ang hanapbuhay na maaaring iangkop sa lupa?",
         "options": [
           {
             "id": "a",
-            "text": "pangingisda sa baybayin"
+            "text": "pagsasaka sa gilid ng bundok"
           },
           {
             "id": "b",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "pangingisda sa malalim na dagat"
           },
           {
             "id": "c",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "pagmimina ng yelo sa dagat"
           },
           {
             "id": "d",
-            "text": "tatak ng sapatos"
+            "text": "pag-aalaga ng kamelyo sa disyerto"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pangingisda sa baybayin” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pagsasaka sa gilid ng bundok ay gumagamit ng lupang nasa dalisdis."
       },
       {
         "itemId": "makabansa-g3-q2-w02-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa kabundukan?",
+        "prompt": "Paano nakaaapekto ang kabundukan sa pamumuhay ng mga tao?",
         "options": [
           {
             "id": "a",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Nagbibigay ito ng lupain at klima na kailangang paghandaan sa gawain."
           },
           {
             "id": "b",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Wala itong epekto sa hanapbuhay o pagkain."
           },
           {
             "id": "c",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Pinipilit nitong pareho ang gawain ng lahat ng komunidad."
           },
           {
             "id": "d",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Inaalis nito ang pangangailangan sa tirahan."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Ang dalisdis at klima ng bundok ay nakaaapekto sa taniman, bahay, at pagkain."
       },
       {
         "itemId": "makabansa-g3-q2-w02-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang mainit na klima sa pamumuhay ng mga tao?",
+        "prompt": "Malamig ang klima sa inyong pamayanang nasa mataas na lugar. Ano ang angkop na kilos?",
         "options": [
           {
             "id": "a",
-            "text": "paggamit ng magaang damit at pag-inom ng maraming tubig"
+            "text": "gumamit ng makapal na damit at tahanang panangga sa lamig"
           },
           {
             "id": "b",
-            "text": "paggawa ng snowman sa bakuran"
+            "text": "magsuot ng basang damit buong araw"
           },
           {
             "id": "c",
-            "text": "pagpapainit ng bahay araw-araw"
+            "text": "iwanang bukas ang lahat ng bintana sa ulan"
           },
           {
             "id": "d",
-            "text": "pagsusuot ng makapal na dyaket palagi"
+            "text": "umiwas sa anumang pagkaing mula sa ani"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang klima ay nakaaapekto sa kasuotan at gawain ng mga tao."
+        "explanation": "Ang malamig na klima ay dahilan upang pumili ng kasuotang at tahanang nagbibigay-init at proteksiyon."
       },
       {
         "itemId": "makabansa-g3-q2-w02-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI angkop na halimbawa ng pamumuhay sa kabundukan?",
         "options": [
           {
             "id": "a",
-            "text": "pagsusuot ng damit na hindi akma sa klima"
+            "text": "pagsusuot ng damit na hindi akma sa malamig na klima"
           },
           {
             "id": "b",
@@ -349,17 +349,17 @@
           },
           {
             "id": "c",
-            "text": "pista ng komunidad"
+            "text": "pagtitipon sa pista ng komunidad"
           },
           {
             "id": "d",
-            "text": "disenyong angkop sa klima"
+            "text": "bahay na may proteksiyon sa hangin at ulan"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pagsusuot ng damit na hindi akma sa klima” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang damit na hindi angkop sa malamig na klima ay hindi umaayon sa kapaligiran ng kabundukan."
       }
     ]
   },

@@ -113,23 +113,36 @@ class TestMathNumerics(unittest.TestCase):
             d = repair(lid)
             items = {it["prompt"]: it for it in d["assessment"]["items"]}
             eq = [a for a in d["activities"] if a["type"] == "SORT_AND_CLASSIFY"][0]["content"]["fits"][0]
-            a, b, s = eq.replace(",", "").replace(" ", "").replace("+", " ").replace("=", " ").split()
-            prompt = f"What is {r.numwords(int(a))} plus {r.numwords(int(b))}?"
-            correct = items[prompt]["correctOptionIds"][0]
-            ans = next(o["text"] for o in items[prompt]["options"] if o["id"] == correct)
-            self.assertEqual(ans, r.fmt(int(s)), lid)
+            numbers = re.findall(r"\d[\d,]*", eq)
+            self.assertGreaterEqual(len(numbers), 3, lid)
+            a, b, s = (int(value.replace(",", "")) for value in numbers[:3])
+            candidates = [
+                it for it in d["assessment"]["items"]
+                if r.numwords(a).lower() in it["prompt"].lower()
+                and r.numwords(b).lower() in it["prompt"].lower()
+            ]
+            self.assertTrue(candidates, lid)
+            correct = candidates[0]["correctOptionIds"][0]
+            ans = next(o["text"] for o in candidates[0]["options"] if o["id"] == correct)
+            self.assertEqual(ans, r.fmt(s), lid)
 
     def test_multiplication_products_correct(self):
         for lid in all_repaired()["math-mul"]:
             d = repair(lid)
             items = {it["prompt"]: it for it in d["assessment"]["items"]}
             eq = [a for a in d["activities"] if a["type"] == "SORT_AND_CLASSIFY"][0]["content"]["fits"][1]
-            f1, rest = eq.replace(" ", "").split("×")
-            f2, prod = rest.split("=")
-            prompt = f"What is {r.numwords(int(f1))} times {r.numwords(int(f2))}?"
-            correct = items[prompt]["correctOptionIds"][0]
-            ans = next(o["text"] for o in items[prompt]["options"] if o["id"] == correct)
-            self.assertEqual(ans, r.fmt(int(f1) * int(f2)), lid)
+            numbers = re.findall(r"\d[\d,]*", eq)
+            self.assertGreaterEqual(len(numbers), 3, lid)
+            f1, f2, product = (int(value.replace(",", "")) for value in numbers[:3])
+            expected = r.fmt(f1 * f2)
+            candidates = []
+            for it in d["assessment"]["items"]:
+                correct = it["correctOptionIds"][0]
+                answer = next(o["text"] for o in it["options"] if o["id"] == correct)
+                explanation = it["explanation"]
+                if answer == expected and str(f1) in explanation and str(f2) in explanation:
+                    candidates.append(it)
+            self.assertTrue(candidates, lid)
 
     def test_distractors_are_wrong(self):
         for lid in all_repaired()["math-add"] + all_repaired()["math-mul"]:

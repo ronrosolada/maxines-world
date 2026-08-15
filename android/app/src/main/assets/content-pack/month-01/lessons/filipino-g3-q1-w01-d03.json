@@ -13,19 +13,22 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🐱✨ May bagong tuklasin si Milo: guro na nagtuturo. Hatiin natin ang pangungusap: sino o ano ang pinag-uusapan? Tara na!",
+  "introduction": "Sa “Ang guro ay nagtuturo,” pansinin ang simuno at ang panaguring kasunod ng “ay.” Suriin kung paano nabubuo ang buong pangungusap.",
   "vocabulary": [
     {
+      "word": "simuno",
       "term": "simuno",
-      "definition": "ang pinag-uusapan sa pangungusap"
+      "definition": "Bahagi ng pangungusap na pinag-uusapan o tinatanong kung sino o ano."
     },
     {
-      "term": "panaguri",
-      "definition": "ang nagsasabi tungkol sa simuno"
+      "word": "pang-uri",
+      "term": "pang-uri",
+      "definition": "Salitang nagsasaad ng kilos o galaw, tulad ng nagbabasa o tumatakbo."
     },
     {
-      "term": "payak na pangungusap",
-      "definition": "pangungusap na may isang simuno at isang panaguri"
+      "word": "di-karaniwang ayos",
+      "term": "di-karaniwang ayos",
+      "definition": "Ayos na may panandang “ay” sa pagitan ng simuno at panaguri."
     }
   ],
   "activities": [
@@ -36,14 +39,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Pakinggan si Milo: hatiin ang pangungusap na 'Ang guro  ay nagtuturo.'.",
-      "content": "Ang simuno ang pinag-uusapan: Ang guro. Ang panaguri ang nagsasabi tungkol sa simuno: nagtuturo. Hatiin sa dalawa: [Ang guro] ay ang simuno, [ay nagtuturo] ay ang panaguri.",
+      "instruction": "Basahin at hatiin ang pangungusap sa dalawang bahagi.",
+      "content": "Ang simuno ay Ang guro. Ang panaguri ay ay nagtuturo; pansinin ang “ay” sa pagitan ng dalawang bahagi.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Bahagi ng Pangungusap. 💪"
+        "retry": "Tingnan ang “ay” at tukuyin ang simuno at panaguri sa magkabilang panig. 💪"
       },
       "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
       "narration": "Ang simuno ang pinag-uusapan: Ang guro. Ang panaguri ang nagsasabi tungkol sa simuno: nagtuturo. Hatiin sa dalawa: [Ang guro] ay ang simuno, [ay nagtuturo] ay ang panaguri.",
@@ -58,7 +61,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Ang guro / ay...",
+      "instruction": "Basahin ang mga halimbawa at markahan ang hati.",
       "content": {
         "examples": [
           "Ang guro / ay nagtuturo.",
@@ -73,8 +76,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Nakita mo ang simuno at panaguring may “ay”. 🔎",
+        "retry": "Pansinin kung paano naghihiwalay ang simuno at panaguri sa “ay”. 💪"
       },
       "prompt": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Ang guro / ay nagtuturo.'.",
       "narration": "Tuklasin ang mga halimbawa. Hanapin ang simuno at panaguri. Magsimula sa 'Ang guro / ay nagtuturo.'.",
@@ -89,7 +92,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Piliin ang buong pangungusap na may tamang hati.",
       "content": {
         "fits": [
           "Ang guro / ay nagtuturo.",
@@ -98,10 +101,10 @@
           "Si Nanay / ay nagluluto."
         ],
         "doesNotFit": [
-          "ang matiyagang sumusulat",
           "sa likod ng bahay",
           "at nagmamadali tuwing gabi",
-          "kasi tuwang-tuwa ang lahat"
+          "kasi tuwang-tuwa ang lahat",
+          "mula sa silid-aralan"
         ]
       },
       "completionRule": {
@@ -109,8 +112,8 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Bahagi ng Pangungusap bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naipangkat mo ang mga pangungusap na may wastong hati sa “ay”. 🎉",
+        "retry": "Suriin kung may simuno, panaguri, at kumpletong diwa ang pangungusap. 💪"
       },
       "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -125,7 +128,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Alin ang wastong hati ng pangungusap tungkol sa guro?",
       "content": {
         "options": [
           "ang matiyagang sumusulat",
@@ -140,7 +143,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Bahagi ng Pangungusap. 💪"
+        "retry": "Tingnan kung ang pangungusap ay may simuno at panaguri sa tamang hati. 💪"
       },
       "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -155,20 +158,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Itugma ang mga halimbawa ng simuno at panaguri.",
+      "instruction": "Itugma ang bahagi ng pangungusap sa tungkulin nito.",
       "content": {
         "pairs": [
           {
             "left": "Ang guro",
-            "right": "simuno"
+            "right": "simunong nasa unahan ng “ay”"
           },
           {
             "left": "ay nagtuturo.",
-            "right": "panaguri"
+            "right": "panaguring nagsasaad ng kilos"
           },
           {
             "left": "Ang guro / ay nagtuturo.",
-            "right": "buong pangungusap"
+            "right": "pangungusap na may simuno at panaguri"
           }
         ]
       },
@@ -176,8 +179,8 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Itinugma mo ang bahagi sa tungkulin nito sa ayos na may “ay”. 🔗",
+        "retry": "Itanong kung sino ang gumagawa at ano ang sinasabi tungkol sa kaniya. 💪"
       },
       "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -192,21 +195,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w01-d03-visual",
-      "instruction": "Ayusin ang mga hakbang.",
+      "instruction": "Ayusin ang mga hakbang sa pagtukoy ng simuno at panaguri.",
       "content": {
         "steps": [
-          "Basahin ang pangungusap",
-          "Hanapin kung sino o ano ang pinag-uusapan",
-          "Hanapin ang sinasabi tungkol dito",
-          "Sabihin: simuno at panaguri"
+          "Basahin ang buong pangungusap.",
+          "Hanapin ang simunong pinag-uusapan.",
+          "Tukuyin ang panaguring kasunod ng “ay.”",
+          "Tukuyin ang di-karaniwang ayos."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Bahagi ng Pangungusap. 💪"
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagsusuri ng ayos na may “ay”. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang ayon sa tanong. 💪"
       },
       "prompt": "Ayusin ang mga hakbang. Magsimula sa pagbasa ng pangungusap tulad ng 'Ang guro / ay nagtuturo.'.",
       "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
@@ -246,7 +249,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang simuno ay ang pinag-uusapan sa pangungusap. Sa “Ang guro / ay nagtuturo.”, Ang guro ang pinag-uusapan, kaya ito ang simuno.",
+        "explanation": "Ang guro ang pinag-uusapan, kaya siya ang simuno.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -274,7 +277,7 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang panaguri ay nagsasabi kung ano ang ginagawa o kalagayan ng simuno. Sa “Ang guro / ay nagtuturo.”, ay nagtuturo. ang nagsasabi tungkol sa simuno.",
+        "explanation": "Ang “ay nagtuturo” ang panaguring nagsasaad ng kilos ng guro.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -285,25 +288,25 @@
         "options": [
           {
             "id": "a",
-            "text": "Si Lolo ay nagbabasa / ng libro."
+            "text": "Simuno: “Si Lolo ay”; panaguri: “nagbabasa ng libro.”"
           },
           {
             "id": "b",
-            "text": "Si / Lolo ay nagbabasa ng libro."
+            "text": "Simuno: “Si”; panaguri: “Lolo ay nagbabasa ng libro.”"
           },
           {
             "id": "c",
-            "text": "Si Lolo ay / nagbabasa ng libro."
+            "text": "Simuno: “Si Lolo ay nagbabasa”; panaguri: “ng libro.”"
           },
           {
             "id": "d",
-            "text": "Si Lolo / ay nagbabasa ng libro."
+            "text": "Simuno: “Si Lolo”; panaguri: “ay nagbabasa ng libro.”"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Si Lolo / ay nagbabasa ng libro."
+        "explanation": "Ang simuno ay “Si Lolo,” at ang panaguri ay “ay nagbabasa ng libro.”"
       },
       {
         "sequence": 4,
@@ -312,7 +315,7 @@
         "options": [
           {
             "id": "a",
-            "text": "ay nagluluto."
+            "text": "ay kumakahol sa bakuran."
           },
           {
             "id": "b",
@@ -320,17 +323,17 @@
           },
           {
             "id": "c",
-            "text": "ay nagbabasa ng libro."
+            "text": "ay nangingitlog."
           },
           {
             "id": "d",
-            "text": "ay tumatakbo pababa."
+            "text": "ay gumagapang sa damuhan."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang panaguri ay dapat tungkol sa simuno. ay nagtuturo. ang nagsasabi ng ginagawa o kalagayan ng Ang guro, kaya ito ang maaaring panaguri.",
+        "explanation": "Ang panaguri ay dapat akma sa guro; ang guro ay nagtuturo.",
         "type": "MULTIPLE_CHOICE"
       },
       {
@@ -341,25 +344,25 @@
         "options": [
           {
             "id": "a",
-            "text": "Ang bata / ay tumatakbo pababa."
+            "text": "Simuno: “Ang bata ay”; panaguri: “tumatakbo pababa.”"
           },
           {
             "id": "b",
-            "text": "Ang / bata ay tumatakbo pababa."
+            "text": "Simuno: “Ang bata”; panaguri: “ay tumatakbo pababa.”"
           },
           {
             "id": "c",
-            "text": "Ang bata ay tumatakbo / pababa."
+            "text": "Simuno: “Ang bata ay tumatakbo”; panaguri: “pababa.”"
           },
           {
             "id": "d",
-            "text": "Ang bata ay / tumatakbo pababa."
+            "text": "Simuno: “Ang”; panaguri: “bata ay tumatakbo pababa.”"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pinakamabuting sagot ay: Ang bata / ay tumatakbo pababa."
+        "explanation": "Ang simuno ay “Ang bata,” at ang panaguri ay “ay tumatakbo pababa.”"
       }
     ]
   },

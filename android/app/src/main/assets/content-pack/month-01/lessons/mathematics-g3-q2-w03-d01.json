@@ -13,7 +13,7 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo fills his water bottle! 💧 Capacity tells how much a container can hold — small amounts in milliliters, big amounts in liters.",
+  "introduction": "Milo is filling containers for a picnic. Which ones need liters, and which small amounts need milliliters?",
   "vocabulary": [
     {
       "term": "water bottle — milliliters",
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Watch Milo measure water in liters and milliliters!",
-      "content": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
+      "instruction": "Watch how container size guides the choice of liters or milliliters.",
+      "content": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in Capacity Lab again. 💪"
+        "retry": "Decide whether the container holds a small or large amount."
       },
-      "prompt": "Learn this skill: Measure capacity in liters or milliliters with an appropriate tool.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Watch how container size guides the choice of liters or milliliters.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Tap the containers that are measured in liters or milliliters!",
+      "instruction": "Tap each container and decide which unit fits its capacity.",
       "content": {
         "examples": [
-          "water bottle — milliliters",
-          "bucket — liters",
-          "measuring cup — milliliters",
-          "jerry can — liters"
+          "a small water bottle",
+          "a large bucket",
+          "a kitchen measuring cup",
+          "a jerry can"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Look at each Capacity Lab example again. 💪"
+        "retry": "Look at the container size before choosing liters or milliliters."
       },
-      "prompt": "Find examples of measuring capacity.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap each container and decide which unit fits its capacity.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Sort the containers from the other measurements!",
+      "instruction": "Sort containers from objects measured in other ways.",
       "content": {
         "fits": [
-          "water bottle — milliliters",
-          "bucket — liters",
-          "measuring cup — milliliters",
-          "jerry can — liters"
+          "a small water bottle",
+          "a large bucket",
+          "a kitchen measuring cup",
+          "a jerry can"
         ],
         "doesNotFit": [
-          "distance in centimeters",
-          "mass in grams",
-          "temperature in degrees",
-          "number of objects"
+          "a road measured in centimeters",
+          "a mango’s mass in grams",
+          "the weather temperature in degrees",
+          "six toy blocks"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read the Capacity Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card is a container or a different measurement."
       },
-      "prompt": "Sort the examples of measuring capacity.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort containers from objects measured in other ways.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d01-a04",
@@ -125,12 +125,12 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Which one is measured in milliliters?",
+      "instruction": "Tap the container best measured in milliliters.",
       "content": {
         "options": [
           "how heavy a mango is (grams)",
-          "how hot the day is (degrees)",
-          "water bottle — milliliters",
+          "how warm the drink is (degrees)",
+          "a small water bottle’s capacity (milliliters)",
           "how long a pencil is (centimeters)"
         ],
         "correctIndex": 2
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the clue in the Capacity Lab question. 💪"
+        "retry": "A small water bottle holds a small amount, so check milliliters."
       },
-      "prompt": "Choose the example of measuring capacity.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Tap the container best measured in milliliters.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Match each container to how much it holds!",
+      "instruction": "Match each container with its suitable capacity clue.",
       "content": {
         "pairs": [
           {
-            "left": "water bottle",
-            "right": "measures a small amount"
+            "left": "a small water bottle",
+            "right": "usually measured in milliliters"
           },
           {
-            "left": "bucket",
-            "right": "measures a large amount"
+            "left": "a large bucket",
+            "right": "usually measured in liters"
           },
           {
-            "left": "measuring cup",
-            "right": "uses a suitable unit"
+            "left": "a measuring cup",
+            "right": "shows a liquid amount"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Read both sides of each Capacity Lab pair again. 💪"
+        "retry": "Match the container size to the unit it can hold."
       },
-      "prompt": "Match the examples about measuring capacity.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each container with its suitable capacity clue.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     },
     {
       "activityId": "mathematics-g3-q2-w03-d01-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "mathematics-g3-q2-w03-d01-visual",
-      "instruction": "Put the problem-solving steps in order!",
+      "instruction": "Order the checks for choosing a capacity unit.",
       "content": {
         "steps": [
-          "Read the math question about measure capacity in liters or milliliters with an appropriate tool.",
-          "Choose the operation or model that matches the problem",
-          "Solve carefully using the given numbers",
-          "Check that the answer matches the question"
+          "Look at the container and estimate how much it holds",
+          "Choose milliliters for a small amount or liters for a large amount",
+          "Select a measuring tool marked with that unit",
+          "Check that the unit fits the container and amount"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Nice job! 🌈",
-        "retry": "Find the first, next, and last Capacity Lab steps. 💪"
+        "retry": "Check the container, estimate its amount, and choose the unit."
       },
-      "prompt": "Put the review steps in order.",
-      "narration": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Order the checks for choosing a capacity unit.",
+      "narration": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts.",
+      "guideHint": "Estimate the amount first: small amounts use mL; larger amounts use L.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "Capacity tells how much a container can hold. Liters measure larger amounts; milliliters measure smaller amounts."
+      "accessibilityAlternative": "Capacity is how much a container can hold. Use milliliters for small amounts and liters for larger amounts."
     }
   ],
   "assessment": {

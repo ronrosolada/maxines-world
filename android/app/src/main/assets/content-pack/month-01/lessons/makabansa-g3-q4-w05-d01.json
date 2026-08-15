@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🌾 Sa malawak na kapatagan, maraming sakahan. Paano kaya nakatutulong ang lupain sa pamumuhay ng mga tao? Tara na!",
+  "introduction": "Kumusta, Maxine! 🌾 Sa malawak at patag na kapatagan, madaling magtanim at maglakbay. Paano nito hinuhubog ang gawain at kultura ng komunidad?",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "kapatagan",
+      "definition": "Malawak na lupang patag at hindi matarik."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "pagsasaka",
+      "definition": "Pag-aalaga ng lupa at mga pananim para sa pagkain."
     },
     {
-      "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "term": "ani",
+      "definition": "Mga butil o gulay na nakolekta mula sa bukid."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang paaralan sa barangay. Gayundin, sa isang parke sa lungsod.",
+      "instruction": "Pakinggan ang paliwanag kung paano nakatutulong ang kapatagan.",
+      "content": "Ang patag na lupa ay madaling bungkalin at lagyan ng kanal. Kaya maraming bukid at tuwid na daan sa kapatagan. Ang ani ay nagbibigay ng pagkain at kabuhayan, at maaari itong maging dahilan ng pamilihan o pista ng komunidad.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naipaliwanag mo ang ugnayan ng kapatagan. 🎉",
+        "retry": "Balikan ang ugnayan ng patag na lupa sa bukid, daan, ani, at pagdiriwang."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang paaralan sa barangay. Gayundin, sa isang parke sa lungsod.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano naaapektuhan ng kapatagan ang pamumuhay ng komunidad?",
+      "narration": "Ang patag na lupa ay madaling bungkalin at lagyan ng kanal.",
+      "guideHint": "Pansinin ang tatlong ugnayan: patag na lupa, bukid, at ani ng komunidad.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Halimbawa, sa isang paaralan sa barangay. Gayundin, sa isang parke sa lungsod."
+      "accessibilityAlternative": "Ang patag na lupa ay madaling bungkalin at lagyan ng kanal."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d01-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin ang mga larawang nagpapakita ng buhay sa kapatagan.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Malawak na palayan sa patag na lupain",
+          "Kanal na nagdadala ng tubig sa bukid",
+          "Karitong dumaraan sa tuwid na daan sa pagitan ng taniman",
+          "Pista pagkatapos ng anihan"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Nakita mo ang mga halimbawa sa kapatagan. 🎉",
+        "retry": "Suriin ang palayan, kanal, kariton, at pista; lahat ay may ugnayan sa kapatagan."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin sa larawan ang nagpapakita ng epekto ng kapatagan?",
+      "narration": "Hanapin ang palayan, kanal, tuwid na daan, at pistang may kaugnayan sa ani.",
+      "guideHint": "Hanapin ang patag na taniman, tubig para sa bukid, daan, at pagdiriwang ng ani.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Hanapin ang palayan, kanal, tuwid na daan, at pistang may kaugnayan sa ani."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d01-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Pangkatin ang mga obserbasyon ayon sa ugnayan nito sa kapatagan.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Malawak na palayan sa patag na lupain",
+          "Kanal na nagdadala ng tubig sa bukid",
+          "Karitong dumaraan sa tuwid na daan sa pagitan ng taniman",
+          "Pista pagkatapos ng anihan"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "Bangkang naglalayag sa malalim na dagat",
+          "Hagdang daan sa matarik na bundok",
+          "Tanimang nasa buhangin ng disyerto",
+          "Pag-aalaga ng kamelyo sa disyerto"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naiuri mo ang mga gawaing may ugnayan sa kapatagan. 🎉",
+        "retry": "Tingnan kung may patag na bukid, kanal, daan, o ani na kaugnay ng kapatagan."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang nagpapakita ng pamumuhay na sinusuportahan ng kapatagan?",
+      "narration": "Pagmasdan kung may patag na bukid, kanal, madaling daan, o ani ng kapatagan.",
+      "guideHint": "Hanapin ang palayan, kanal, tuwid na daan, o pista pagkatapos ng ani.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Pagmasdan kung may patag na bukid, kanal, madaling daan, o ani ng kapatagan."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d01-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang sagot na nagpapakita ng pakinabang ng kapatagan.",
       "content": {
         "options": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pangingisda sa baybayin",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar"
+          "Pangingisda sa malalim na dagat",
+          "Pagsasaka sa palayan sa patag na lupa",
+          "Pag-akyat sa matarik na taluktok",
+          "Pag-aalaga ng kamelyo sa disyerto"
         ],
         "correctIndex": 1
       },
@@ -139,14 +139,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Pinili mo ang tamang sagot tungkol sa kapatagan. ✅",
+        "retry": "Suriin kung aling gawain ang nangangailangan ng malawak at patag na bukid."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Aling gawain ang karaniwang sinusuportahan ng kapatagan?",
+      "narration": "Piliin ang gawaing gumagamit ng malawak at patag na lupa.",
+      "guideHint": "Hanapin ang gawaing nangangailangan ng patag na bukid.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Piliin ang gawaing gumagamit ng malawak at patag na lupa."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d01-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang obserbasyon sa pakinabang ng kapatagan.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "Malawak na palayan sa patag na lupain",
+            "right": "Lugar na madaling bungkalin para sa pananim"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "Kanal na nagdadala ng tubig sa bukid",
+            "right": "Paraan ng pagdidilig sa mga tanim"
           },
           {
-            "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "left": "Pista pagkatapos ng anihan",
+            "right": "Tradisyong nagpapasalamat sa ani"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naiugnay mo ang gawain at pakinabang sa kapatagan. ✅",
+        "retry": "Basahin ang kanang panig at hanapin kung ito ay lupa, pagdidilig, o pagdiriwang."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano nakatutulong ang bawat gawain sa kapatagan?",
+      "narration": "Iugnay ang palayan, kanal, at pista sa lupa, tubig, o ani na ipinapakita nila.",
+      "guideHint": "Hanapin kung ang pares ay tungkol sa lupa, pagdidilig, o pagdiriwang ng ani.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Iugnay ang palayan, kanal, at pista sa lupa, tubig, o ani na ipinapakita nila."
     },
     {
       "activityId": "makabansa-g3-q4-w05-d01-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w05-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng kapatagan at pamumuhay.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tingnan ang hugis ng lupain.",
+          "Tukuyin ang yamang maaaring gamitin.",
+          "Iugnay ang yaman sa hanapbuhay ng komunidad.",
+          "Ipaliwanag kung paano ito nagiging bahagi ng kultura."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagpapaliwanag ng kapatagan. ✅",
+        "retry": "Unahin ang hugis ng lupa, pagkatapos ang yaman, hanapbuhay, at kulturang nabubuo."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ano ang tamang paraan ng pagpapaliwanag sa epekto ng kapatagan?",
+      "narration": "Magsimula sa hugis ng lupa, tukuyin ang yaman, iugnay ito sa hanapbuhay, at ipaliwanag ang kultura.",
+      "guideHint": "Unahin ang pagmamasid sa patag na lupa bago tukuyin ang yaman at gawain.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Magsimula sa hugis ng lupa, tukuyin ang yaman, iugnay ito sa hanapbuhay, at ipaliwanag ang kultura."
     }
   ],
   "assessment": {
@@ -225,141 +225,141 @@
         "itemId": "makabansa-g3-q4-w05-d01-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa Barangay Masagana, malawak at patag ang lupa. Anong hanapbuhay ang maaaring umunlad?",
         "options": [
           {
             "id": "a",
-            "text": "bilang ng mga kapatid"
+            "text": "Pangingisda sa karagatan"
           },
           {
             "id": "b",
-            "text": "pagkain mula sa lokal na ani"
+            "text": "Pagsasaka ng palay"
           },
           {
             "id": "c",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "Pagmimina ng yelo"
           },
           {
             "id": "d",
-            "text": "pagsusuot ng damit na hindi akma sa klima"
+            "text": "Pag-aalaga ng kamelyo sa disyerto"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang “pagkain mula sa lokal na ani” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang malawak at patag na lupa ay madaling bungkalin at taniman ng palay."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d01-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Bakit madaling magdala ng ani sa pamilihan sa kapatagan?",
         "options": [
           {
             "id": "a",
-            "text": "pagtatanim ng palay sa bukid"
+            "text": "Mas patag ang daan kaya mas madaling dumaan ang kariton."
           },
           {
             "id": "b",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Laging may bangka sa palayan."
           },
           {
             "id": "c",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Mataas ang lahat ng bundok."
           },
           {
             "id": "d",
-            "text": "tatak ng sapatos"
+            "text": "May niyebe sa bawat bukid."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pagsasaka sa kapatagan” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang patag na daan ay mas madaling daanan ng kariton na nagdadala ng ani."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d01-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa kapatagan?",
+        "prompt": "Nagdaos ang barangay ng pista matapos anihin ang palay. Ano ang kaugnayan nito?",
         "options": [
           {
             "id": "a",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Walang kinalaman sa lupa."
           },
           {
             "id": "b",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Pista ito para sa mga sasakyan."
           },
           {
             "id": "c",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Nagiging bahagi ng kultura ang pagdiriwang ng ani."
           },
           {
             "id": "d",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Hindi ginagamit ang ani ng komunidad."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Ang pagdiriwang pagkatapos ng anihan ay kulturang nabubuo mula sa kabuhayan ng kapatagan."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d01-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Sa isang pamayanang mangingisda, alin ang malamang na pagkain sa kanilang hapag?",
+        "prompt": "Anong tulong ng kanal sa bukid?",
         "options": [
           {
             "id": "a",
-            "text": "isda at lamang-dagat"
+            "text": "Dinadala nito ang tubig sa mga tanim."
           },
           {
             "id": "b",
-            "text": "gulay lamang na walang isda"
+            "text": "Pinatitigil nito ang paglaki ng palay."
           },
           {
             "id": "c",
-            "text": "karne ng baka mula sa ibang bansa"
+            "text": "Ginagawa nitong bundok ang kapatagan."
           },
           {
             "id": "d",
-            "text": "tinapay na galing sa ibang bayan"
+            "text": "Inilalayo nito ang mga magsasaka sa bukid."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pamayanang mangingisda ay kumakain ng isda at lamang-dagat dahil malapit sila sa dagat."
+        "explanation": "Ang kanal ay daanan ng tubig papunta sa taniman, kaya nakatutulong ito sa paglaki ng palay."
       },
       {
         "itemId": "makabansa-g3-q4-w05-d01-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI karaniwang kaugnay ng pamumuhay sa kapatagan?",
         "options": [
           {
             "id": "a",
-            "text": "pista ng komunidad"
+            "text": "Pagtatanim ng palay"
           },
           {
             "id": "b",
-            "text": "awit at sayaw na lokal"
+            "text": "Pagdadala ng ani sa patag na daan"
           },
           {
             "id": "c",
-            "text": "pagkain mula sa lokal na ani"
+            "text": "Pista pagkatapos ng anihan"
           },
           {
             "id": "d",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "Paglalayag sa malalim na dagat"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang paglalayag sa malalim na dagat ay kaugnay ng dagat, hindi ng patag na lupang tinataniman."
       }
     ]
   },

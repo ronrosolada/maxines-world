@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Kumusta, kaibigan! Ako si Milo. Napansin mo ba kung paano nagsalita ang magkakaibigan? Gumamit sila ng mga salitang AKO, IKAW, at SIYA.",
+  "introduction": "Piliin ang panghalip ayon sa papel ng tao sa usapan: nagsasalita, kinakausap, o pinag-uusapan.",
   "vocabulary": [
     {
       "term": "Ako",
-      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang sarili o ang taong nagsasalita."
+      "definition": "Panghalip para sa taong nagsasalita tungkol sa sarili."
     },
     {
       "term": "Ikaw",
-      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang taong kinakausap."
+      "definition": "Panghalip para sa taong kinakausap."
     },
     {
       "term": "Siya",
-      "definition": "Panghalip na ginagamit kapag ang tinutukoy ay ang taong pinag-uusapan."
+      "definition": "Panghalip para sa taong pinag-uusapan."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Panoorin at pakinggan ang paliwanag tungkol sa panghalip panao na ako, ikaw, at siya.",
+      "instruction": "Basahin kung kailan ginagamit ang ako, ikaw, at siya.",
       "content": "Ang ako, ikaw, at siya ay mga panghalip panao. Ginagamit ang panghalip panao bilang pamalit sa ngalan ng tao upang maiwasan ang paulit-ulit na pagbanggit ng pangalan. Ako — pamalit sa ngalan ng taong nagsasalita. Halimbawa: Ako ay kumakain ng mansanas. Ikaw — pamalit sa ngalan ng taong kinakausap. Halimbawa: Ikaw, Rosa, ano ang kinakain mo? Siya — pamalit sa taong pinag-uusapan. Halimbawa: Siya naman ay kumakain ng bayabas. Tandaan: Lahat ng pangungusap ay nag-uumpisa sa malaking letra. Lahat ng tiyak na ngalan ng tao ay nag-uumpisa sa malaking letra. Ang pangungusap ay nagtatapos sa tamang bantas — tuldok (.), tandang pananong (?), o tandang padamdam (!).",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
         "correct": "Mahusay! Naunawaan mo ang gamit ng ako, ikaw, at siya.",
-        "retry": "Panoorin muli ang paliwanag tungkol sa panghalip panao."
+        "retry": "Tanungin kung nagsasalita, kinakausap, o pinag-uusapan ang tao. 💪"
       },
       "prompt": "Pakinggan si Milo na magpaliwanag tungkol sa ako, ikaw, at siya!",
       "narration": "Alamin natin ang gamit ng ako, ikaw, at siya sa pangungusap!",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Panghalip Panao.",
+      "instruction": "Tukuyin kung sino ang tinutukoy sa bawat sitwasyon.",
       "content": {
         "examples": [
           "Nagsasalita ka tungkol sa iyong sarili",
@@ -72,8 +72,8 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Mahusay! Nahanap mo ang gamit ng ako, ikaw, at siya. 🔎",
+        "retry": "Hanapin ang papel ng tao sa usapan bago pumili ng panghalip. 💪"
       },
       "prompt": "Pindutin ang bawat halimbawang kaugnay ng Panghalip Panao.",
       "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Panghalip Panao.",
@@ -88,7 +88,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng panghalip.",
+      "instruction": "Piliin ang mga pangungusap na gumagamit ng ako.",
       "content": {
         "fits": [
           "Ako ay kumakain ng kanin at isda.",
@@ -106,8 +106,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Magaling! Nakikilala mo na ang pagkakaiba ng ako sa ikaw at siya.",
-        "retry": "Balikan ang paliwanag. Sino ang tinutukoy ng bawat panghalip?"
+        "correct": "Mahusay! Naipangkat mo ang mga pangungusap na gumagamit ng ako. 🎉",
+        "retry": "Suriin kung ang nagsasalita mismo ang tinutukoy. 💪"
       },
       "prompt": "Pangkatin ang mga pangungusap ayon sa gamit ng panghalip!",
       "narration": "Alin sa mga ito ang gumagamit ng 'ako'? Alin ang 'ikaw' o 'siya'?",
@@ -122,7 +122,7 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Sa kuwento, pinag-uusapan si Tiyo Alfredo. Alin ang panghalip na pamalit kay Tiyo Alfredo?",
+      "instruction": "Aling panghalip ang pamalit kay Tiyo Alfredo?",
       "content": {
         "options": [
           "Kami",
@@ -137,7 +137,7 @@
       },
       "feedback": {
         "correct": "Tama! Si 'Tiyo Alfredo' ay pinag-uusapan kaya 'siya' ang tamang panghalip.",
-        "retry": "Isipin mong muli. Ang Tiyo Alfredo ba ay nagsasalita, kinakausap, o pinag-uusapan?"
+        "retry": "Si Tiyo Alfredo ay pinag-uusapan, kaya gamitin ang panghalip para sa pinag-uusapan. 💪"
       },
       "prompt": "Anong panghalip ang maaaring ipalit kay Karla?",
       "narration": "'Si Tiyo Alfredo ay isang enhinyero.' Anong panghalip ang pamalit sa kaniya?",
@@ -152,24 +152,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Itapat ang bawat sitwasyon sa tamang panghalip panao na dapat gamitin.",
+      "instruction": "Itugma ang sitwasyon sa papel ng panghalip.",
       "content": {
         "pairs": [
           {
             "left": "Nagsasalita ka tungkol sa iyong sarili",
-            "right": "Ako — nagsasalita tungkol sa sarili"
+            "right": "pumapalit sa nagsasalita"
           },
           {
             "left": "Kinakausap mo ang iyong kaklase",
-            "right": "Ikaw — kinakausap na kaklase"
+            "right": "pumapalit sa kausap"
           },
           {
             "left": "Pinag-uusapan ninyo ang inyong guro",
-            "right": "Siya — taong pinag-uusapan"
+            "right": "pumapalit sa taong pinag-uusapan"
           },
           {
             "left": "Sinasabi mo ang iyong pangalan sa klase",
-            "right": "Ako — nagsasabi ng sariling pangalan"
+            "right": "tumutukoy sa nagsasalita"
           }
         ]
       },
@@ -177,8 +177,8 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Ang galing! Alam mo na kung kailan gagamitin ang ako, ikaw, at siya.",
-        "retry": "Balikan ang kahulugan ng bawat panghalip panao."
+        "correct": "Mahusay! Itinugma mo ang sitwasyon sa papel ng panghalip. 🔗",
+        "retry": "Tingnan kung sino ang nagsasalita, kinakausap, o pinag-uusapan. 💪"
       },
       "prompt": "Itapat ang sitwasyon sa tamang panghalip!",
       "narration": "Anong panghalip ang dapat gamitin sa bawat sitwasyon?",
@@ -193,21 +193,21 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w05-d01-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang mga hakbang sa pagpili ng panghalip.",
       "content": {
         "steps": [
-          "Tukuyin kung sino ang tinutukoy sa pangungusap — ang nagsasalita, kinakausap, o pinag-uusapan.",
-          "Kung ang tinutukoy ay ang sarili, gamitin ang AKO.",
-          "Kung ang tinutukoy ay ang kausap, gamitin ang IKAW.",
-          "Kung ang tinutukoy ay ang pinag-uusapan, gamitin ang SIYA."
+          "Tukuyin kung sino ang tinutukoy.",
+          "Alamin kung nagsasalita, kinakausap, o pinag-uusapan siya.",
+          "Piliin ang ako, ikaw, o siya.",
+          "Basahin muli ang pangungusap upang suriin ang gamit."
         ]
       },
       "completionRule": {
         "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Tama! Iyan ang tamang hakbang sa pagpili ng panghalip panao.",
-        "retry": "Isipin mong muli. Ano ang unang dapat gawin?"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagpili ng panghalip. 🎉",
+        "retry": "Sundin ang daloy: tukuyin, alamin, piliin, at suriin. 💪"
       },
       "prompt": "Ayusin ang mga hakbang sa pagpili ng tamang panghalip!",
       "narration": "Paano mo malalaman kung anong panghalip ang gagamitin?",
@@ -248,7 +248,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Kapag ang tinutukoy ay ang sarili o ang nagsasalita.."
+        "explanation": "Gamitin ang “ako” kapag ang nagsasalita mismo ang tinutukoy."
       },
       {
         "sequence": 2,
@@ -276,7 +276,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang panghalip ay pumapalit sa pangngalan upang hindi paulit-ulit. Ang pumapalit ay “Siya”."
+        "explanation": "Si Karla ay pinag-uusapan, kaya “siya” ang pamalit sa kaniyang pangalan."
       },
       {
         "sequence": 3,
@@ -304,35 +304,35 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang taong kinakausap.."
+        "explanation": "Gamitin ang “ikaw” para sa taong kausap ng nagsasalita."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q1-w05-d01-q4",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin sa sumusunod ang tamang pangungusap na gumagamit ng 'siya'?",
+        "prompt": "Alin ang wastong pangungusap na gumagamit ng panghalip na 'siya'?",
         "options": [
           {
             "id": "a",
-            "text": "siya ang magdadala ng damit."
+            "text": "Siya ay nagbabasa ng aklat sa silid-aklatan."
           },
           {
             "id": "b",
-            "text": "Siya ang magdadala ng damit"
+            "text": "nagbabasa ng magandang kuwento"
           },
           {
             "id": "c",
-            "text": "siya ang magdadala ng damit"
+            "text": "Sina Marco at Ana ay magkaibigan."
           },
           {
             "id": "d",
-            "text": "Siya ang magdadala ng damit."
+            "text": "Sila ang magdadala ng pagkain."
           }
         ],
         "correctOptionIds": [
-          "d"
+          "a"
         ],
-        "explanation": "“Siya ang magdadala ng damit.” — wasto ang gamit ng panghalip sa pangungusap."
+        "explanation": "Ang “siya” ay panghalip para sa isang taong pinag-uusapan sa pangungusap."
       },
       {
         "sequence": 5,
@@ -360,7 +360,7 @@
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Upang hindi paulit-ulit ang pangalan ng tao sa pangungusap. — kaya mahalaga ang panghalip panao."
+        "explanation": "Nakatutulong ang panghalip upang hindi paulit-ulit banggitin ang pangalan ng tao."
       }
     ]
   },

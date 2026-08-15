@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo is learning kind words! 🐱 Greetings and polite expressions should fit the person, time, and situation. Ready to explore?",
+  "introduction": "Milo is choosing words for a morning visit and a request for help! 🐱 Match each polite expression to the situation, person, and time.",
   "vocabulary": [
     {
       "term": "Good morning.",
-      "definition": "A greeting used in the morning."
+      "definition": "A greeting for someone you meet before noon."
     },
     {
       "term": "Please help me.",
-      "definition": "A polite way to ask for help."
+      "definition": "A respectful request when you need assistance."
     },
     {
       "term": "Thank you.",
-      "definition": "A polite way to show you are grateful."
+      "definition": "Words that show gratitude after someone helps you."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Listen and learn when to use polite words!",
+      "instruction": "Listen for the polite expression that fits each situation.",
       "content": "A greeting and polite expression should fit the person, time, and situation.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in Kind Words, Right Place · Q3 W again. 💪"
+        "retry": "Check whether the words fit the time, request, or thank-you moment."
       },
-      "prompt": "Listen to the explanation about polite expressions.",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Listen for who, when, and what the speaker needs.",
+      "narration": "A polite expression matches the situation: say “Good morning.” before noon, “Please help me.” when asking, and “Thank you.” after help.",
+      "guideHint": "Check the time, the request, or the help received.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "A polite expression matches the situation: say “Good morning.” before noon, “Please help me.” when asking, and “Thank you.” after help."
     },
     {
       "activityId": "english-g3-q3-w12-d04-a02",
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Tap each polite expression!",
+      "instruction": "Tap each expression that could be used politely.",
       "content": {
         "examples": [
           "Good morning.",
@@ -74,13 +74,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Look at each Kind Words, Right Place · Q3 W example again. 💪"
+        "retry": "Read each phrase and decide what respectful situation it fits."
       },
-      "prompt": "Look closely at each example",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Read each expression and think about its use.",
+      "narration": "Polite expressions help us greet, ask for help, get attention, and show gratitude.",
+      "guideHint": "Ask what polite job each phrase can do.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Polite expressions help us greet, ask for help, get attention, and show gratitude."
     },
     {
       "activityId": "english-g3-q3-w12-d04-a03",
@@ -89,7 +89,7 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Sort the polite words into the box!",
+      "instruction": "Sort polite expressions from rude commands.",
       "content": {
         "fits": [
           "Good morning.",
@@ -98,10 +98,10 @@
           "Excuse me."
         ],
         "doesNotFit": [
-          "Umalis ka na!",
-          "Bilisan mo!",
-          "Wala akong pakialam!",
-          "Bigyan mo ako ngayon!"
+          "Go away now!",
+          "Hurry up!",
+          "I do not care!",
+          "Give it to me now!"
         ]
       },
       "completionRule": {
@@ -110,13 +110,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read the Kind Words, Right Place · Q3 W rule before sorting again. 💪"
+        "retry": "Check whether the words are respectful, not just loud or demanding."
       },
-      "prompt": "Sort each example",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Sort respectful expressions away from rude commands.",
+      "narration": "Polite words show respect and fit the situation; rude commands do not show the same care.",
+      "guideHint": "Look for words that greet, ask respectfully, or show thanks.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Polite words show respect and fit the situation; rude commands do not show the same care."
     },
     {
       "activityId": "english-g3-q3-w12-d04-a04",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Which expression fits the situation politely?",
+      "instruction": "Choose the polite greeting for the morning scene.",
       "content": {
         "options": [
           "Good morning.",
           "Go away now!",
           "Hurry up!",
-          "I don't care!"
+          "I do not care!"
         ],
         "correctIndex": 0
       },
@@ -140,13 +140,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in the Kind Words, Right Place · Q3 W question. 💪"
+        "retry": "Check whether the greeting fits a morning meeting."
       },
-      "prompt": "Which expression fits the situation politely?",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "It is 8:00 a.m. You meet your teacher. What should you say?",
+      "narration": "A greeting should match the time and show respect to the person you meet.",
+      "guideHint": "Notice the time first, then choose a greeting.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "A greeting should match the time and show respect to the person you meet."
     },
     {
       "activityId": "english-g3-q3-w12-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Match the polite expressions!",
+      "instruction": "Match each expression to the situation it fits.",
       "content": {
         "pairs": [
           {
             "left": "Good morning.",
-            "right": "telling sentence"
+            "right": "greeting someone before noon"
           },
           {
             "left": "Please help me.",
-            "right": "telling sentence (2)"
+            "right": "asking for help with respect"
           },
           {
             "left": "Thank you.",
-            "right": "telling sentence (3)"
+            "right": "showing gratitude after help"
           }
         ]
       },
@@ -177,13 +177,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read both sides of each Kind Words, Right Place · Q3 W pair again. 💪"
+        "retry": "Check the purpose: morning greeting, respectful request, or thanks."
       },
-      "prompt": "Match each example to the idea it shows about: Choose a polite expression that fits the situation.",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Match each phrase with the polite job it does.",
+      "narration": "Different polite expressions help us greet, ask for help, or show gratitude.",
+      "guideHint": "Read the phrase, then picture the situation where you would say it.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Different polite expressions help us greet, ask for help, or show gratitude."
     },
     {
       "activityId": "english-g3-q3-w12-d04-a06",
@@ -192,13 +192,13 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "english-g3-q3-w12-d04-visual",
-      "instruction": "Put the steps for choosing polite words in order.",
+      "instruction": "Put the polite-expression steps in order.",
       "content": {
         "steps": [
-          "Read the example",
-          "Find the clue",
-          "Choose the idea",
-          "Explain your answer"
+          "Read the situation",
+          "Notice who, when, and what is needed",
+          "Choose the polite expression",
+          "Check that it matches the situation"
         ]
       },
       "completionRule": {
@@ -206,13 +206,13 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Kind Words, Right Place · Q3 W steps. 💪"
+        "retry": "Check that your words match the situation and show respect."
       },
-      "prompt": "Put the steps in order",
-      "narration": "A greeting and polite expression should fit the person, time, and situation.",
-      "guideHint": "Need a hint? Read the example again.",
+      "prompt": "Put the steps for choosing polite words in order.",
+      "narration": "Choose polite words by reading the situation, noticing what is needed, selecting a phrase, and checking its fit.",
+      "guideHint": "Notice the person, time, and need before choosing the expression.",
       "nextLabel": "Next →",
-      "accessibilityAlternative": "A greeting and polite expression should fit the person, time, and situation."
+      "accessibilityAlternative": "Choose polite words by reading the situation, noticing what is needed, selecting a phrase, and checking its fit."
     }
   ],
   "assessment": {
@@ -225,11 +225,11 @@
         "itemId": "english-g3-q3-w12-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which words fit the situation politely?",
+        "prompt": "You meet your teacher at 8:00 a.m. Which words fit?",
         "options": [
           {
             "id": "a",
-            "text": "I don't care!"
+            "text": "I do not care!"
           },
           {
             "id": "b",
@@ -247,13 +247,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'Good morning.' is a polite greeting, so it fits. 'Go away now!', 'Hurry up!', and 'I don't care!' are rude, so they do not fit a polite talk."
+        "explanation": "Good morning is a respectful greeting that fits a meeting before noon."
       },
       {
         "itemId": "english-g3-q3-w12-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice shows respect for the person speaking?",
+        "prompt": "A classmate hands you a pencil. What should you say?",
         "options": [
           {
             "id": "a",
@@ -261,7 +261,7 @@
           },
           {
             "id": "b",
-            "text": "I don't care!"
+            "text": "I do not care!"
           },
           {
             "id": "c",
@@ -275,13 +275,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "'Thank you.' shows you are grateful, and that is respectful. 'Go away now!', 'Hurry up!', and 'I don't care!' are rude."
+        "explanation": "Thank you shows gratitude after someone gives you help or an item."
       },
       {
         "itemId": "english-g3-q3-w12-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which sentence politely asks for help?",
+        "prompt": "You cannot open your art box. Which sentence politely asks for help?",
         "options": [
           {
             "id": "a",
@@ -297,19 +297,19 @@
           },
           {
             "id": "d",
-            "text": "I don't care!"
+            "text": "I do not care!"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'Please help me.' has the polite word 'please', so it is a polite way to ask for help. The other choices are rude commands."
+        "explanation": "Please help me is a respectful request for assistance."
       },
       {
         "itemId": "english-g3-q3-w12-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example uses a polite expression?",
+        "prompt": "You need a friend to move a heavy book. What should you say?",
         "options": [
           {
             "id": "a",
@@ -321,7 +321,7 @@
           },
           {
             "id": "c",
-            "text": "I don't care!"
+            "text": "I do not care!"
           },
           {
             "id": "d",
@@ -331,13 +331,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "'Please help me.' uses the polite word 'please'. 'Hurry up!', 'I don't care!', and 'Go away now!' are not polite."
+        "explanation": "Please help me asks for help without ordering or insulting the friend."
       },
       {
         "itemId": "english-g3-q3-w12-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which choice would sound respectful?",
+        "prompt": "Your neighbor gives you a gift. Which choice sounds respectful?",
         "options": [
           {
             "id": "a",
@@ -345,7 +345,7 @@
           },
           {
             "id": "b",
-            "text": "I don't care!"
+            "text": "I do not care!"
           },
           {
             "id": "c",
@@ -359,7 +359,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "'Thank you.' sounds respectful because it shows you are grateful. Commands like 'Hurry up!' and 'Go away now!' are not respectful."
+        "explanation": "Thank you sounds respectful because it shows gratitude for the gift."
       }
     ]
   },

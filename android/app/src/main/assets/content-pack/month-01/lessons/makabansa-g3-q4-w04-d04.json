@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "fil-PH",
-  "introduction": "Kumusta, Maxine! 🏠 Magsimula tayo sa pinakamalapit: ang tahanan. Paano hinuhubog ng paligid ang pamumuhay ng pamilya? Alamin natin!",
+  "introduction": "Kumusta, Maxine! 🏠 Ang bahay ay nakikibagay sa init, ulan, hangin, at tubig sa paligid. Tingnan natin kung paano naaapektuhan ng kapaligiran ang pamumuhay ng pamilya.",
   "vocabulary": [
     {
-      "term": "pangingisda sa baybayin",
-      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+      "term": "tahanan",
+      "definition": "Lugar kung saan nakatira at namumuhay ang isang pamilya."
     },
     {
-      "term": "pagsasaka sa kapatagan",
-      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+      "term": "kapaligiran",
+      "definition": "Lahat ng nasa paligid ng tao, tulad ng lupa, tubig, halaman, at hangin."
     },
     {
-      "term": "disenyong angkop sa klima",
-      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+      "term": "disenyo ng bahay",
+      "definition": "Paraan ng pagkakaayos at pagkakagawa ng isang bahay."
     }
   ],
   "activities": [
@@ -36,20 +36,20 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Pakinggan ang paliwanag ni Milo.",
-      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Subukan din ito sa bahay. Halimbawa, sa isang pamilihan sa bayan. Gayundin, sa isang tulay na ginagamit ng mga tao.",
+      "instruction": "Pakinggan ang paliwanag kung paano naaangkop ang tahanan.",
+      "content": "Ang bahay at gawain ng pamilya ay inaangkop sa paligid. Matarik na bubong ang tumutulong sa lugar na maulan, maluwang na bintana ang nagpapapasok ng hangin, at mataas na sahig ang nakatutulong sa lugar na binabaha. Ang pagkain at ilang kaugalian ay maaari ring magmula sa yaman ng paligid.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Balikan ang pahiwatig sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naipaliwanag mo ang ugnayan ng tahanan. 🎉",
+        "retry": "Balikan ang halimbawa ng bubong, bintana, at sahig; bawat isa ay tumutugon sa isang kondisyon ng paligid."
       },
-      "prompt": "Pakinggan ang paliwanag tungkol sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Subukan din ito sa bahay. Halimbawa, sa isang pamilihan sa bayan. Gayundin, sa isang tulay na ginagamit ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Paano naaapektuhan ng paligid ang buhay sa tahanan?",
+      "narration": "Ang bahay at gawain ng pamilya ay inaangkop sa paligid.",
+      "guideHint": "Pansinin ang tatlong halimbawa: bubong sa ulan, bintana sa init, at sahig sa baha.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao. Subukan din ito sa bahay. Halimbawa, sa isang pamilihan sa bayan. Gayundin, sa isang tulay na ginagamit ng mga tao."
+      "accessibilityAlternative": "Ang bahay at gawain ng pamilya ay inaangkop sa paligid."
     },
     {
       "activityId": "makabansa-g3-q4-w04-d04-a02",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Hanapin sa larawan ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Hanapin ang mga larawang nagpapakita ng tahanang umaangkop sa paligid.",
       "content": {
         "examples": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Bubong na matarik sa lugar na madalas umulan",
+          "Maluwang na bintana sa mainit na lugar",
+          "Sahig na mataas sa lugar na binabaha",
+          "Pagkaing niluluto mula sa ani sa paligid"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -73,14 +73,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Nakita mo ang mga halimbawa sa tahanan. 🎉",
+        "retry": "Suriin ang bubong, bintana, sahig, at pagkain; bawat isa ay tumutugon sa paligid."
       },
-      "prompt": "Tuklasin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin sa larawan ang nagpapakita ng epekto ng paligid sa tahanan?",
+      "narration": "Hanapin ang bubong, bintana, mataas na sahig, at pagkaing mula sa paligid.",
+      "guideHint": "Hanapin ang palatandaan ng ulan, init, baha, o pagkaing mula sa paligid.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Hanapin ang bubong, bintana, mataas na sahig, at pagkaing mula sa paligid."
     },
     {
       "activityId": "makabansa-g3-q4-w04-d04-a03",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Pangkatin ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Pangkatin ang mga obserbasyon ayon sa ugnayan nito sa tahanan.",
       "content": {
         "fits": [
-          "pangingisda sa baybayin",
-          "pagsasaka sa kapatagan",
-          "disenyong angkop sa klima",
-          "pagkain mula sa lokal na ani"
+          "Bahay na may maluwang na bintana sa mainit na lugar",
+          "Bubong na matarik sa lugar na madalas umulan",
+          "Sahig na mataas sa lugar na binabaha",
+          "Pamilyang nagluluto ng pagkaing mula sa ani sa paligid"
         ],
         "doesNotFit": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          "Bahay na walang bubong sa malakas na ulan",
+          "Sahig na mababa sa lugar na binabaha",
+          "Silid na walang bintana sa napakainit na lugar",
+          "Pagpili ng laruan batay sa kulay"
         ]
       },
       "completionRule": {
@@ -109,14 +109,14 @@
         "itemCount": 8
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang pamantayan ng Kapaligiran at Kultura bago magpangkat muli. 💪"
+        "correct": "Mahusay! Naiuri mo ang mga gawaing may ugnayan sa tahanan. 🎉",
+        "retry": "Tingnan kung ang obserbasyon ay tumutugon sa ulan, init, baha, hangin, o yaman ng paligid."
       },
-      "prompt": "Pagbukud-bukurin ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Alin ang nagpapakita na naaapektuhan ng paligid ang tahanan?",
+      "narration": "Pagmasdan kung may kaugnayan sa panahon, tubig, hangin, o yaman ng paligid.",
+      "guideHint": "Hanapin ang bubong, bintana, sahig, o pagkain na tumutugon sa paligid.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Pagmasdan kung may kaugnayan sa panahon, tubig, hangin, o yaman ng paligid."
     },
     {
       "activityId": "makabansa-g3-q4-w04-d04-a04",
@@ -125,28 +125,28 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Piliin ang tamang sagot.",
+      "instruction": "Piliin ang bahagi ng bahay na tumutugon sa kondisyon ng lugar.",
       "content": {
         "options": [
-          "pagsusuot ng damit na hindi akma sa klima",
-          "pagkain na hindi mula sa lokal na ani",
-          "pagtatanim ng halamang hindi nabubuhay sa klima ng lugar",
-          "pangingisda sa baybayin"
+          "Bubong na walang takip sa maulan na lugar",
+          "Bintanang nagbibigay-daan sa hangin",
+          "Sahig na mababa sa bahain na lugar",
+          "Pader na hindi protektado sa ulan"
         ],
-        "correctIndex": 3
+        "correctIndex": 1
       },
       "completionRule": {
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang pahiwatig sa tanong tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Pinili mo ang tamang sagot tungkol sa tahanan. ✅",
+        "retry": "Suriin kung aling bahagi ang nagpapapasok ng hangin sa silid."
       },
-      "prompt": "Piliin ang tamang halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Sa mainit na lugar, aling bahagi ng bahay ang makatutulong sa pagpasok ng hangin?",
+      "narration": "Piliin ang bahaging nagpapagalaw ng hangin sa loob ng bahay.",
+      "guideHint": "Hanapin ang bahaging may daanan para sa hangin.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Piliin ang bahaging nagpapagalaw ng hangin sa loob ng bahay."
     },
     {
       "activityId": "makabansa-g3-q4-w04-d04-a05",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Itugma ang mga halimbawa ng pamumuhay sa komunidad.",
+      "instruction": "Itugma ang disenyo ng bahay sa pangangailangan nito.",
       "content": {
         "pairs": [
           {
-            "left": "pangingisda sa baybayin",
-            "right": "kabuhayan sa baybayin"
+            "left": "Bubong na matarik sa lugar na madalas umulan",
+            "right": "Paraan ng pag-iwas sa naiipong tubig"
           },
           {
-            "left": "pagsasaka sa kapatagan",
-            "right": "kabuhayan sa kapatagan"
+            "left": "Maluwang na bintana sa mainit na lugar",
+            "right": "Paraan ng pagpapasok ng hangin"
           },
           {
-            "left": "disenyong angkop sa klima",
-            "right": "disenyong tumutugon sa klima"
+            "left": "Sahig na mataas sa lugar na binabaha",
+            "right": "Paraan ng pag-iwas sa tubig-baha"
           }
         ]
       },
@@ -176,14 +176,14 @@
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naiugnay mo ang gawain at pakinabang sa tahanan. ✅",
+        "retry": "Basahin ang kanang panig at hanapin kung ito ay para sa ulan, hangin, o baha."
       },
-      "prompt": "Itapat ang mga halimbawa ng pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Bakit kailangan ang bawat disenyo sa tahanan?",
+      "narration": "Iugnay ang bawat bahagi ng bahay sa panganib o pangangailangan na tinutugunan nito.",
+      "guideHint": "Hanapin kung ang disenyo ay para sa ulan, hangin, o baha.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Iugnay ang bawat bahagi ng bahay sa panganib o pangangailangan na tinutugunan nito."
     },
     {
       "activityId": "makabansa-g3-q4-w04-d04-a06",
@@ -192,27 +192,27 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "makabansa-g3-q4-w04-d04-visual",
-      "instruction": "Ayusin ang mga hakbang nang tama.",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng paligid at tahanan.",
       "content": {
         "steps": [
-          "Tingnan ang halimbawa",
-          "Tukuyin ang mahalagang ideya",
-          "Iugnay sa komunidad",
-          "Ipaliwanag ang sagot"
+          "Tingnan ang lagay ng panahon at lupa sa paligid.",
+          "Piliin ang pangangailangan ng pamilya.",
+          "Iugnay ang pangangailangan sa bahagi ng bahay.",
+          "Ipaliwanag kung paano nakatutulong ang disenyo."
         ]
       },
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
-        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Kapaligiran at Kultura. 💪"
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagpapaliwanag ng tahanan. ✅",
+        "retry": "Unahin ang lagay ng paligid, saka tukuyin ang pangangailangan, disenyo, at tulong nito."
       },
-      "prompt": "Ayusin ang mga hakbang sa pamumuhay sa komunidad.",
-      "narration": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "prompt": "Ano ang tamang paraan ng pagpapaliwanag sa disenyo ng tahanan?",
+      "narration": "Magsimula sa pagmamasid sa paligid, tukuyin ang pangangailangan, iugnay ang disenyo, at ipaliwanag ang tulong nito.",
+      "guideHint": "Unahin ang lagay ng paligid bago piliin ang pangangailangan at bahagi ng bahay.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at gawaing pinipili ng mga tao."
+      "accessibilityAlternative": "Magsimula sa pagmamasid sa paligid, tukuyin ang pangangailangan, iugnay ang disenyo, at ipaliwanag ang tulong nito."
     }
   ],
   "assessment": {
@@ -225,141 +225,141 @@
         "itemId": "makabansa-g3-q4-w04-d04-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa lugar na madalas umulan, aling bubong ang mas angkop?",
         "options": [
           {
             "id": "a",
-            "text": "disenyong angkop sa klima"
+            "text": "Bubong na matarik para mabilis dumaloy ang tubig"
           },
           {
             "id": "b",
-            "text": "pagkain na hindi mula sa lokal na ani"
+            "text": "Bubong na patag at walang kanal"
           },
           {
             "id": "c",
-            "text": "bilang ng mga kapatid"
+            "text": "Bubong na walang takip"
           },
           {
             "id": "d",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "Bubong na may butas para pumasok ang ulan"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “disenyong angkop sa klima” ay halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Sa matarik na bubong, mas madaling dumaloy ang tubig-ulan kaysa sa bubong na walang daanan."
       },
       {
         "itemId": "makabansa-g3-q4-w04-d04-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang isa pang halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Sa mainit na baryo, bakit may maluwang na bintana ang bahay ni Bea?",
         "options": [
           {
             "id": "a",
-            "text": "pagsasaka sa kapatagan"
+            "text": "Para makapasok ang hangin."
           },
           {
             "id": "b",
-            "text": "tatak ng sapatos"
+            "text": "Para hindi makapasok ang liwanag."
           },
           {
             "id": "c",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Para maging mas mabigat ang bubong."
           },
           {
             "id": "d",
-            "text": "pagpili ng pangalan ng alagang pusa"
+            "text": "Para matago ang lahat ng gamit."
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang “pagsasaka sa kapatagan” ay halimbawa rin ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang maluwang na bintana ay nagbibigay-daan sa pagpasok at paggalaw ng hangin sa mainit na bahay."
       },
       {
         "itemId": "makabansa-g3-q4-w04-d04-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Paano nakaaapekto ang kapaligiran sa pamumuhay ng mga tao sa bahay?",
+        "prompt": "Malapit sa ilog at binabaha ang tahanan ni Omar. Aling pagbabago ang makatutulong?",
         "options": [
           {
             "id": "a",
-            "text": "ang tao lamang ang bumubuo ng kapaligiran"
+            "text": "Mababang sahig na madaling abutin ng tubig"
           },
           {
             "id": "b",
-            "text": "hindi kailangan ng tao ang kapaligiran"
+            "text": "Bubong na walang takip"
           },
           {
             "id": "c",
-            "text": "walang epekto ang kapaligiran sa pamumuhay"
+            "text": "Saradong bintana sa lahat ng oras"
           },
           {
             "id": "d",
-            "text": "ang kapaligiran ang nagbibigay ng kanilang hanapbuhay at pagkain"
+            "text": "Mataas na sahig upang hindi agad maabot ng baha"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang kapaligiran ang humuhubog sa hanapbuhay at pagkain ng mga tao."
+        "explanation": "Ang mataas na sahig ay naglalagay sa tirahan sa mas ligtas na taas kapag umaapaw ang tubig."
       },
       {
         "itemId": "makabansa-g3-q4-w04-d04-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ang pista ng pasasalamat para sa masaganang ani. Alin ang pinakatamang pahayag tungkol dito?",
+        "prompt": "Gumagamit ang pamilya ng dahon ng nipa sa bubong dahil...",
         "options": [
           {
             "id": "a",
-            "text": "walang kaugnayan ito sa kapaligiran"
+            "text": "Iyon ang pinakamabigat na materyal."
           },
           {
             "id": "b",
-            "text": "ipinapakita nito ang kaugnayan ng kapaligiran at kultura"
+            "text": "Madali itong makuha sa kanilang paligid at angkop sa bahay."
           },
           {
             "id": "c",
-            "text": "gawa-gawa lamang ito"
+            "text": "Pinipigilan nito ang lahat ng hangin."
           },
           {
             "id": "d",
-            "text": "pampaganda lamang ito sa lugar"
+            "text": "Ginagawa nitong walang pader ang bahay."
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang pista ng pasasalamat ay patunay na ang kultura ay konektado sa kapaligiran."
+        "explanation": "Ang paggamit ng materyal na makukuha sa paligid ay nagpapakita kung paano naaapektuhan ng kapaligiran ang tahanan."
       },
       {
         "itemId": "makabansa-g3-q4-w04-d04-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang HINDI halimbawa ng kultura at pamumuhay ng komunidad?",
+        "prompt": "Alin ang HINDI nagpapakita na naaapektuhan ng paligid ang tahanan?",
         "options": [
           {
             "id": "a",
-            "text": "kulay ng uniporme sa paaralan"
+            "text": "Matarik na bubong sa lugar na maulan"
           },
           {
             "id": "b",
-            "text": "bilang ng mga kapatid"
+            "text": "Mataas na sahig sa lugar na binabaha"
           },
           {
             "id": "c",
-            "text": "disenyong angkop sa klima"
+            "text": "Pagluluto ng pagkaing mula sa ani sa paligid"
           },
           {
             "id": "d",
-            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+            "text": "Pagpili ng kulay ng lapis"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang “pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit” ay hindi halimbawa ng kultura at pamumuhay ng komunidad."
+        "explanation": "Ang pagpili ng kulay ng lapis ay hindi pagbabago sa bahay o gawain dahil sa kondisyon ng paligid."
       }
     ]
   },

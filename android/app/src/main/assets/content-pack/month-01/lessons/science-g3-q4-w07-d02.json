@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
   "language": "en-PH",
-  "introduction": "Hi Maxine! 🥁 Milo wants to show you how a drum makes sound. Let's see how sound behaves — and how to keep our ears safe!",
+  "introduction": "Milo strikes a drum and hears a sound. What vibrates, and how can Maxine protect her ears?",
   "vocabulary": [
     {
+      "term": "vibration",
+      "definition": "A quick back-and-forth movement that can make sound."
+    },
+    {
       "term": "sound",
-      "definition": "what you hear when something vibrates"
+      "definition": "A vibration that travels through air or another material to your ears."
     },
     {
-      "term": "light",
-      "definition": "what helps us see"
-    },
-    {
-      "term": "vibrate",
-      "definition": "to move back and forth quickly"
+      "term": "hearing safety",
+      "definition": "Ways to protect your ears from sounds that are too loud."
     }
   ],
   "activities": [
@@ -36,14 +36,14 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
+      "instruction": "Watch Milo show how a vibrating object makes sound safely.",
       "content": "a drum makes sound when struck. sunlight helps plants grow. Always use light and sound safely.",
       "completionRule": {
         "type": "COMPLETE"
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in Light and Sound Lab again. 💪"
+        "retry": "Check the clue: a vibrating object starts sound, and loud sound can hurt ears."
       },
       "prompt": "Listen to Milo. He will show you how light and sound behave, and how to use them safely.",
       "narration": "a drum makes sound when struck. sunlight helps plants grow. Always use light and sound safely.",
@@ -58,13 +58,13 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Explore each example. a drum makes sound when struck. sunlight helps plants grow.",
+      "instruction": "Tap each sound example and notice the safe hearing choice.",
       "content": {
         "examples": [
-          "a drum makes sound when struck",
-          "sunlight helps plants grow",
-          "use sunglasses to protect your eyes in strong sun",
-          "do not look directly at a bright light"
+          "a drum skin vibrates when struck",
+          "a guitar string vibrates when plucked",
+          "move away from a very loud sound",
+          "use a quiet volume for practice"
         ],
         "visualScene": "🐱🔎✨"
       },
@@ -74,7 +74,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Look at each Light and Sound Lab example again. 💪"
+        "retry": "Look for vibration first, then choose the action that protects hearing."
       },
       "prompt": "Explore each example. a drum makes sound when struck. sunlight helps plants grow.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -89,19 +89,19 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Sort the examples into ways we use light and sound safely.",
+      "instruction": "Sort each observation by whether it shows sound or safe hearing.",
       "content": {
         "fits": [
-          "a drum makes sound when struck",
-          "sunlight helps plants grow",
-          "use sunglasses to protect your eyes in strong sun",
-          "do not look directly at a bright light"
+          "a drum skin vibrates when struck",
+          "a guitar string vibrates when plucked",
+          "a learner moves away from loud sound",
+          "a learner protects ears during loud practice"
         ],
         "doesNotFit": [
-          "stare at the Sun",
-          "put a loud speaker next to your ear",
-          "point a laser at your eyes",
-          "play music at full volume all day"
+          "A still drum makes sound by itself",
+          "Sound travels through empty space",
+          "Put a loud speaker next to an ear",
+          "Play music at maximum volume all day"
         ]
       },
       "completionRule": {
@@ -110,7 +110,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read the Light and Sound Lab rule before sorting again. 💪"
+        "retry": "Ask whether the card shows vibration, sound travel, or safer listening."
       },
       "prompt": "Sort the examples into ways we use light and sound safely.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -125,13 +125,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Tap the example Milo showed today!",
+      "instruction": "Choose the sound example that matches Milo’s demonstration.",
       "content": {
         "options": [
-          "a sponge",
           "a folded towel",
           "a pillow",
-          "a drum"
+          "a sponge",
+          "a drum skin"
         ],
         "correctIndex": 3
       },
@@ -140,7 +140,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the clue in the Light and Sound Lab question. 💪"
+        "retry": "Compare the choices with the object that vibrates to make sound."
       },
       "prompt": "Choose the example of light and sound safety.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -155,20 +155,20 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Match each example: makes sound, helps us see, or protects your eyes and ears.",
+      "instruction": "Match each sound source with its result or safe action.",
       "content": {
         "pairs": [
           {
-            "left": "a drum makes sound when struck",
-            "right": "makes sound"
+            "left": "drum skin",
+            "right": "vibrates and moves air"
           },
           {
-            "left": "sunlight helps plants grow",
-            "right": "helps us see"
+            "left": "guitar string",
+            "right": "vibrates to make sound"
           },
           {
-            "left": "use sunglasses to protect your eyes in strong sun",
-            "right": "protects your eyes"
+            "left": "lower volume",
+            "right": "makes listening gentler on ears"
           }
         ]
       },
@@ -177,7 +177,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Read both sides of each Light and Sound Lab pair again. 💪"
+        "retry": "Match each source to the vibration or hearing-safety result it causes."
       },
       "prompt": "Match each example with what it does: makes sound, helps us see, or protects hearing.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -192,7 +192,7 @@
       "capability": "SEQUENCE_BUILDER_V1",
       "required": true,
       "assetId": "science-g3-q4-w07-d02-visual",
-      "instruction": "Put the steps in order. Observe the light or sound, then decide the safe action.",
+      "instruction": "Order the steps for observing sound and protecting hearing.",
       "content": {
         "steps": [
           "Observe the light or sound",
@@ -206,7 +206,7 @@
       },
       "feedback": {
         "correct": "Super! ✨",
-        "retry": "Find the first, next, and last Light and Sound Lab steps. 💪"
+        "retry": "Check the order: make a gentle sound, observe vibration, then choose a safe volume."
       },
       "prompt": "Put the steps in order. Observe the light or sound, then decide the safe action.",
       "narration": "Light helps us see. Sound comes from vibrations and can travel to our ears. Very bright light and very loud sound can harm us, so use safe levels.",
@@ -225,141 +225,141 @@
         "itemId": "science-g3-q4-w07-d02-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "What makes sound when struck?",
+        "prompt": "Milo strikes a drum. What makes the sound?",
         "options": [
           {
             "id": "a",
-            "text": "a sponge"
+            "text": "A sponge"
           },
           {
             "id": "b",
-            "text": "a folded towel"
+            "text": "A folded towel"
           },
           {
             "id": "c",
-            "text": "a pillow"
+            "text": "A pillow"
           },
           {
             "id": "d",
-            "text": "a drum"
+            "text": "A vibrating drum skin"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Striking the drum makes its top vibrate, and that makes sound. Sponges, towels, and pillows make no sound when struck."
+        "explanation": "Striking makes the drum skin vibrate, and that vibration makes sound. A sponge, towel, or pillow does not vibrate like the drum skin here."
       },
       {
         "itemId": "science-g3-q4-w07-d02-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use sound?",
+        "prompt": "Maxine practices drumming. Which choice protects her hearing?",
         "options": [
           {
             "id": "a",
-            "text": "fold a towel"
+            "text": "Fold a towel"
           },
           {
             "id": "b",
-            "text": "write in a notebook"
+            "text": "Write in a notebook"
           },
           {
             "id": "c",
-            "text": "move away from very loud sounds"
+            "text": "Move away from very loud sound"
           },
           {
             "id": "d",
-            "text": "read a book quietly"
+            "text": "Read a book quietly"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Very loud sound can hurt your ears, so moving away from it keeps your hearing safe."
+        "explanation": "Very loud sound can hurt ears, so moving away reduces the sound reaching them. Quiet unrelated actions do not make loud practice safer."
       },
       {
         "itemId": "science-g3-q4-w07-d02-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which is the SAFE way to use light?",
+        "prompt": "Milo reads four safety claims. Which action is NOT safe?",
         "options": [
           {
             "id": "a",
-            "text": "do not look directly at a bright light"
+            "text": "Put a speaker beside an ear"
           },
           {
             "id": "b",
-            "text": "draw a picture"
+            "text": "Use a quiet practice volume"
           },
           {
             "id": "c",
-            "text": "count the books on a shelf"
+            "text": "Take a break from loud sound"
           },
           {
             "id": "d",
-            "text": "name a color in the room"
+            "text": "Move farther from loud music"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "A very bright light can hurt your eyes, so never look straight at one."
+        "explanation": "A speaker beside an ear can damage hearing. Lower volume, breaks, and moving away reduce the risk from loud sound."
       },
       {
         "itemId": "science-g3-q4-w07-d02-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how sound behaves?",
+        "prompt": "Maxine strikes a drum and feels the top shake. Which example shows how sound behaves?",
         "options": [
           {
             "id": "a",
-            "text": "a lamp lights a dark room"
+            "text": "A lamp lights a dark room"
           },
           {
             "id": "b",
-            "text": "a mirror reflects light"
+            "text": "A mirror reflects light"
           },
           {
             "id": "c",
-            "text": "a flashlight helps us see"
+            "text": "A flashlight helps us see"
           },
           {
             "id": "d",
-            "text": "a drum makes sound when struck"
+            "text": "A drum skin vibrates and makes sound"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Striking the drum makes it vibrate, and that makes sound. Lamps, flashlights, and mirrors are about light."
+        "explanation": "The struck drum skin vibrates and moves air, producing sound. Lamps, mirrors, and flashlights are about light."
       },
       {
         "itemId": "science-g3-q4-w07-d02-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows how light behaves?",
+        "prompt": "Milo hears a drum during practice. Which choice shows safe listening?",
         "options": [
           {
             "id": "a",
-            "text": "a drum makes sound when struck"
+            "text": "Bang the drum beside a baby"
           },
           {
             "id": "b",
-            "text": "a bell rings when shaken"
+            "text": "Turn the volume all the way up"
           },
           {
             "id": "c",
-            "text": "clapping hands makes sound"
+            "text": "Strike as hard as possible for hours"
           },
           {
             "id": "d",
-            "text": "sunlight helps plants grow"
+            "text": "Use a safe volume and take breaks"
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Sunlight gives plants the light energy they need to grow. Bells, drums, and claps make sound."
+        "explanation": "A safe volume and breaks give ears time away from harmful loudness. Very loud, close, or nonstop sound can hurt hearing."
       }
     ]
   },

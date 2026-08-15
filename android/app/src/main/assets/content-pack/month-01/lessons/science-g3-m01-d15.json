@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "en-PH",
-  "introduction": "Milo pushes a toy cart and pulls open a drawer. What makes things move — or stop moving?",
+  "introduction": "Milo pushes a toy cart and pulls a drawer toward himself. How can a force change motion or slow an object?",
   "vocabulary": [
     {
       "term": "force",
-      "definition": "A push or a pull on something."
+      "definition": "A push or pull that can change an object’s motion."
     },
     {
       "term": "push",
-      "definition": "To move something away from you."
+      "definition": "To move something away from you by pressing it."
     },
     {
       "term": "pull",
-      "definition": "To bring something closer to you."
+      "definition": "To move something closer to you by drawing it toward you."
     }
   ],
   "activities": [
@@ -33,7 +33,7 @@
       "activityId": "science-g3-m01-d15-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Watch and listen — Milo shows what pushes and pulls do.",
+      "instruction": "Watch Milo compare pushes, pulls, friction, and their effects.",
       "content": "A force is a push or pull; changes in motion depend on combined forces and constraints.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Pushes and Pulls again. 💪"
+        "retry": "Check the direction of the push or pull, then ask whether motion starts, changes, or slows."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "Text alternative: A force is a push or pull; changes in motion depend on combined forces and constraints."
@@ -50,12 +50,12 @@
       "activityId": "science-g3-m01-d15-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Tap each example and read what it shows.",
+      "instruction": "Tap each motion example and name the force or effect.",
       "content": {
         "examples": [
-          "push a toy cart",
-          "pull a drawer",
-          "friction can slow motion"
+          "a push sends a toy cart away",
+          "a pull brings a drawer closer",
+          "friction slows a rolling ball"
         ]
       },
       "required": true,
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Motion Explorers. 🔎",
-        "retry": "Look at each Motion Explorers example again. 💪"
+        "retry": "For each example, name the force and the motion change you observe."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -74,17 +74,17 @@
       "activityId": "science-g3-m01-d15-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Sort each card: is the force described correctly?",
+      "instruction": "Sort each observation by whether it describes force and motion correctly.",
       "content": {
         "fits": [
-          "push a toy cart",
-          "pull a drawer",
-          "friction can slow motion"
+          "a push sends a toy cart away",
+          "a pull brings a drawer closer",
+          "friction slows a rolling ball"
         ],
         "doesNotFit": [
-          "Any force guarantees movement",
+          "Every force guarantees movement",
           "Mass and force are identical",
-          "Motion has no reference"
+          "A moving object has no reference point"
         ]
       },
       "required": true,
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great sorting! Your groups are correct.",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Ask whether the card describes a real push, pull, or friction effect."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -103,7 +103,7 @@
       "activityId": "science-g3-m01-d15-a04",
       "sequence": 4,
       "type": "MULTIPLE_CHOICE",
-      "instruction": "Opening a drawer toward you is mainly a",
+      "instruction": "Choose the force used to bring a drawer toward you.",
       "content": {
         "options": [
           "sound",
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: pull",
-        "retry": "Look again — sound and color are not forces. Tap the word for bringing closer! 💪"
+        "retry": "The drawer moves toward you, so choose the force that brings an object closer."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "science-g3-m01-d15-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Match each example to the force idea.",
+      "instruction": "Match each force example with the change it can cause.",
       "content": {
         "pairs": [
           {
             "left": "push a toy cart",
-            "right": "push"
+            "right": "can start motion away from you"
           },
           {
             "left": "pull a drawer",
-            "right": "pull"
+            "right": "brings the drawer closer"
           },
           {
-            "left": "friction can slow motion",
-            "right": "friction"
+            "left": "friction on a rolling ball",
+            "right": "slows motion by rubbing"
           }
         ]
       },
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Motion Explorers explanation. 🔗",
-        "retry": "Read both sides of each Motion Explorers pair again. 💪"
+        "retry": "Match each force with the direction or motion change it can produce."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -160,7 +160,7 @@
       "activityId": "science-g3-m01-d15-a06",
       "sequence": 6,
       "type": "SEQUENCE_BUILDER",
-      "instruction": "Put the steps in order: motion, force, effect.",
+      "instruction": "Order the steps for describing a force and its effect.",
       "content": {
         "steps": [
           "Look at the motion.",
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Motion Explorers steps in order. 🎉",
-        "retry": "Find the first, next, and last Motion Explorers steps. 💪"
+        "retry": "Check the order: observe motion, name the force, then predict its effect."
       },
       "assetId": "science-g3-m01-d15-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -191,7 +191,7 @@
         "itemId": "science-g3-m01-d15-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about forces is true?",
+        "prompt": "Milo pushes a cart, pulls a drawer, and watches a ball slow. Which statement about forces is true?",
         "options": [
           {
             "id": "a",
@@ -203,109 +203,129 @@
           },
           {
             "id": "c",
-            "text": "A force is a push or pull; changes in motion depend on combined forces and constraints."
+            "text": "A force is a push or pull; its effect depends on the other forces and constraints."
+          },
+          {
+            "id": "d",
+            "text": "Forces only make objects stop."
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "A force is a push or a pull. Whether something moves depends on the forces acting on it — a push does not always make it move."
+        "explanation": "A force is a push or pull, but an object may not move if other forces or constraints oppose it. Friction, weight, and surfaces can change the result."
       },
       {
         "itemId": "science-g3-m01-d15-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which example shows a push?",
+        "prompt": "Maxine opens a drawer by moving it toward her. Which example shows a push?",
         "options": [
           {
             "id": "a",
-            "text": "push a toy cart"
+            "text": "Push a toy cart away"
           },
           {
             "id": "b",
-            "text": "pull a drawer"
+            "text": "Pull a drawer toward you"
           },
           {
             "id": "c",
-            "text": "let a ball roll on its own"
+            "text": "Let a ball roll without touching it"
+          },
+          {
+            "id": "d",
+            "text": "Watch a shadow move"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Pushing sends the toy cart away from you. Pulling brings a drawer toward you, and a rolling ball is not being pushed."
+        "explanation": "Pushing sends the toy cart away from Maxine. Pulling brings the drawer closer; a rolling ball and shadow are not examples of the push described."
       },
       {
         "itemId": "science-g3-m01-d15-q03",
         "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about forces is NOT true?",
+        "prompt": "Milo reads four force claims. Which statement is NOT true?",
         "options": [
           {
             "id": "a",
-            "text": "pull a drawer"
+            "text": "Pull a drawer toward you"
           },
           {
             "id": "b",
-            "text": "Any force guarantees movement"
+            "text": "Every force guarantees movement"
           },
           {
             "id": "c",
-            "text": "push a toy cart"
+            "text": "Push a toy cart away"
+          },
+          {
+            "id": "d",
+            "text": "Friction can slow a rolling ball"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "A force does not always make something move — a heavy box can stay still even when pushed. Pushing a cart and pulling a drawer are real forces."
+        "explanation": "A force does not always make an object move; a heavy box can stay still when pushed. Pulls, pushes, and friction can still have the effects named."
       },
       {
         "itemId": "science-g3-m01-d15-q04",
         "sequence": 4,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Opening a drawer toward you is mainly a",
+        "prompt": "A drawer moves toward Maxine when she opens it. What force is she mainly using?",
         "options": [
           {
             "id": "a",
-            "text": "pull"
+            "text": "Pull"
           },
           {
             "id": "b",
-            "text": "sound"
+            "text": "Sound"
           },
           {
             "id": "c",
-            "text": "color"
+            "text": "Color"
+          },
+          {
+            "id": "d",
+            "text": "Light"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "You bring the drawer toward you, and pulling means bringing something closer. Color and sound are not forces."
+        "explanation": "Maxine pulls the drawer because she brings it closer to herself. Sound, color, and light do not describe the force direction."
       },
       {
         "itemId": "science-g3-m01-d15-q05",
         "sequence": 5,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Which statement about forces and motion is true?",
+        "prompt": "Milo rolls a ball across a rug and it slows down. Which statement explains what happened?",
         "options": [
           {
             "id": "a",
-            "text": "forces only make things stop"
+            "text": "Forces only make things stop"
           },
           {
             "id": "b",
-            "text": "a push always makes things fly"
+            "text": "A push always makes things fly"
           },
           {
             "id": "c",
-            "text": "friction can slow motion"
+            "text": "Friction can slow motion"
+          },
+          {
+            "id": "d",
+            "text": "Motion never changes on a rug"
           }
         ],
         "correctOptionIds": [
           "c"
         ],
-        "explanation": "Friction rubs against moving things and slows them down. A push does not always make things fly, and forces can start motion too."
+        "explanation": "Friction rubs against the rolling ball and reduces its motion. A push can start motion, and forces do not always make objects fly or stop instantly."
       }
     ]
   },

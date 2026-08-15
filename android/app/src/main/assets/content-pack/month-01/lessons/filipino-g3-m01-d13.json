@@ -13,11 +13,11 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
   "language": "fil-PH",
-  "introduction": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam.",
+  "introduction": "Suriin ang unang letra, tanging ngalan, at hulihang bantas ng bawat pangungusap. Ang bantas ay dapat tumugma sa mensahe.",
   "vocabulary": [
     {
       "term": "payak",
-      "definition": "Simple at hindi tambalan — isang diwa lamang."
+      "definition": "Pangungusap na may iisang diwa at hindi tambalan."
     },
     {
       "term": "pangungusap",
@@ -33,7 +33,7 @@
       "activityId": "filipino-g3-m01-d13-a01",
       "sequence": 1,
       "type": "ANIMATED_EXPLANATION",
-      "instruction": "Pag-aralan ang ideya at pakinggan ang salaysay.",
+      "instruction": "Basahin ang paliwanag tungkol sa malaking titik at bantas.",
       "content": "Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam.",
       "required": true,
       "completionRule": {
@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Mahusay! Ituloy ang susunod na hakbang.",
-        "retry": "Balikan ang pahiwatig sa Malaki, Maliit, at Bantas. 💪"
+        "retry": "Tingnan ang unang letra at ang bantas na angkop sa diwa. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "Alternatibong teksto: Gamitin ang malaking titik sa simula ng pangungusap at tiyak na pangalan; gumamit ng angkop na tuldok, tandang pananong, o tandang padamdam."
@@ -50,7 +50,7 @@
       "activityId": "filipino-g3-m01-d13-a02",
       "sequence": 2,
       "type": "HOTSPOT_IMAGE",
-      "instruction": "Suriin ang bawat halimbawa at basahin nang mabuti.",
+      "instruction": "Tingnan ang malaking titik at bantas sa halimbawa.",
       "content": {
         "examples": [
           "Masaya si Lino.",
@@ -64,8 +64,8 @@
         "targetCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Nahanap mo ang mga halimbawa ng Malaki, Maliit, at Bantas. 🔎",
-        "retry": "Suriing muli ang halimbawa ng Malaki, Maliit, at Bantas. 💪"
+        "correct": "Mahusay! Nahanap mo ang malaking titik at wastong bantas. 🔎",
+        "retry": "Basahin ang diwa upang piliin ang tuldok, pananong, o padamdam. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
@@ -74,7 +74,7 @@
       "activityId": "filipino-g3-m01-d13-a03",
       "sequence": 3,
       "type": "SORT_AND_CLASSIFY",
-      "instruction": "Ilagay ang bawat card sa “angkop” o “hindi angkop.”",
+      "instruction": "Ilagay sa angkop na pangkat ang wastong pangungusap.",
       "content": {
         "fits": [
           "Masaya si Lino.",
@@ -82,9 +82,9 @@
           "Naku! Nahulog ang bola!"
         ],
         "doesNotFit": [
-          "masaya si Lino.",
-          "Nasaan ang aklat.",
-          "Naku nahulog ang bola"
+          "masaya si Lino sa paaralan",
+          "Nasaan aklat ang.",
+          "Naku nahulog bola ang"
         ]
       },
       "required": true,
@@ -93,8 +93,8 @@
         "itemCount": 6
       },
       "feedback": {
-        "correct": "Mahusay! Naipangkat mo ang mga halimbawa ng Malaki, Maliit, at Bantas. 🎉",
-        "retry": "Gamitin ang paliwanag, hindi ang kulay o posisyon."
+        "correct": "Mahusay! Naipangkat mo ang mga pangungusap ayon sa tuntunin. 🎉",
+        "retry": "Suriin ang malaking titik, buong diwa, at angkop na hulihang bantas. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Tama: Masaya si Lino.",
-        "retry": "Basahin muli ang tuntunin ng aralin. masaya si lino at Masaya si Lino ay hindi angkop."
+        "retry": "Basahin ang diwa at hanapin ang bantas na angkop dito. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
@@ -127,20 +127,20 @@
       "activityId": "filipino-g3-m01-d13-a05",
       "sequence": 5,
       "type": "MATCHING_PAIRS",
-      "instruction": "Itambal ang bawat pares na magkaugnay.",
+      "instruction": "Itambal ang halimbawa sa tuntunin o gamit nito.",
       "content": {
         "pairs": [
           {
             "left": "Masaya si Lino.",
-            "right": "nagtatapos sa tuldok"
+            "right": "nagsasalaysay at gumagamit ng tuldok"
           },
           {
             "left": "Nasaan ang aklat?",
-            "right": "nagtatapos sa tandang pananong"
+            "right": "nagtatanong at gumagamit ng pananong"
           },
           {
             "left": "Naku! Nahulog ang bola!",
-            "right": "nagtatapos sa tandang padamdam"
+            "right": "nagpapakita ng damdamin at padamdam"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "pairCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Itinugma mo ang mga halimbawa sa paliwanag ng Malaki, Maliit, at Bantas. 🔗",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Malaki, Maliit, at Bantas. 💪"
+        "correct": "Mahusay! Itinugma mo ang pangungusap sa angkop na bantas. 🔗",
+        "retry": "Itugma ang diwa sa bantas na dapat gamitin. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
@@ -163,9 +163,9 @@
       "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
       "content": {
         "steps": [
-          "Sabihin ang pangunahing ideya.",
-          "Suriin ang isang halimbawa.",
-          "Ipaliwanag kung bakit ito angkop."
+          "Basahin ang pangungusap.",
+          "Tingnan ang unang letra at hulihang bantas.",
+          "Suriin kung tugma ang bantas sa diwa."
         ]
       },
       "required": true,
@@ -174,8 +174,8 @@
         "stepCount": 3
       },
       "feedback": {
-        "correct": "Mahusay! Inayos mo ang mga hakbang sa Malaki, Maliit, at Bantas. 🎉",
-        "retry": "Hanapin ang una, kasunod, at huling hakbang sa Malaki, Maliit, at Bantas. 💪"
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsulat ng pangungusap. 🎉",
+        "retry": "Sundin ang daloy: basahin, tingnan, at suriin. 💪"
       },
       "assetId": "filipino-g3-m01-d13-visual",
       "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
@@ -191,137 +191,141 @@
         "itemId": "filipino-g3-m01-d13-q01",
         "sequence": 1,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang may wastong bantas?",
+        "prompt": "Alin ang wastong pangungusap na nagsasalaysay at nagtatapos sa tuldok?",
         "options": [
           {
             "id": "a",
-            "text": "umuulan na?"
+            "text": "umuulan sa labas"
           },
           {
             "id": "b",
-            "text": "Umuulan na"
+            "text": "Umuulan ba nang malakas?"
           },
           {
             "id": "c",
-            "text": "umuulan na"
+            "text": "Naku, umuulan!"
           },
           {
             "id": "d",
-            "text": "Umuulan na."
+            "text": "Umuulan nang mahinahon sa bakuran."
           }
         ],
         "correctOptionIds": [
           "d"
         ],
-        "explanation": "Ang wastong pangungusap ay nagsisimula sa malaking titik at nagtatapos sa tamang bantas."
+        "explanation": "Ang 'Umuulan nang mahinahon sa bakuran.' ay buong pangungusap na nagsisimula sa malaking titik at nagtatapos sa tuldok."
       },
       {
         "itemId": "filipino-g3-m01-d13-q02",
         "sequence": 2,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong pangungusap na nagtatanong?",
+        "prompt": "Alin ang wastong pangungusap na nagtatanong at gumagamit ng tandang pananong (?)?",
         "options": [
           {
             "id": "a",
-            "text": "Saan ka pupunta"
+            "text": "Pumunta kami sa tindahan."
           },
           {
             "id": "b",
-            "text": "saan ka pupunta?"
+            "text": "Saan kayo pupunta mamayang hapon?"
           },
           {
             "id": "c",
-            "text": "saan ka pupunta."
+            "text": "Mag-ingat sa daan!"
           },
           {
             "id": "d",
-            "text": "Saan ka pupunta?"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Ang pangungusap na nagtatanong ay nagtatapos sa tandang pananong."
-      },
-      {
-        "itemId": "filipino-g3-m01-d13-q03",
-        "sequence": 3,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang dapat laging nasa malaking titik?",
-        "options": [
-          {
-            "id": "a",
-            "text": "unang titik ng bawat salita"
-          },
-          {
-            "id": "b",
-            "text": "mga titik na nasa gitna ng salita"
-          },
-          {
-            "id": "c",
-            "text": "lahat ng titik ng salita"
-          },
-          {
-            "id": "d",
-            "text": "unang titik ng pangungusap at pangalan ng tao"
-          }
-        ],
-        "correctOptionIds": [
-          "d"
-        ],
-        "explanation": "Nagsisimula sa malaking titik ang pangungusap at ang pangalan ng tao, lugar, o bagay."
-      },
-      {
-        "itemId": "filipino-g3-m01-d13-q04",
-        "sequence": 4,
-        "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong pangungusap?",
-        "options": [
-          {
-            "id": "a",
-            "text": "masaya si lino"
-          },
-          {
-            "id": "b",
-            "text": "Masaya si Lino."
-          },
-          {
-            "id": "c",
-            "text": "Masaya si Lino"
+            "text": "sa plasa ng barangay"
           }
         ],
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "“Masaya si Lino.” ang wastong pangungusap — tama ang malaking titik, baybay, at bantas."
+        "explanation": "Ang 'Saan kayo pupunta mamayang hapon?' ay nagtatanong kaya nagtatapos ito sa tandang pananong."
       },
       {
-        "itemId": "filipino-g3-m01-d13-q05",
-        "sequence": 5,
+        "itemId": "filipino-g3-m01-d13-q03",
+        "sequence": 3,
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Alin ang wastong pagkakasulat ng pangalan?",
+        "prompt": "Aling bantas ang dapat ilagay sa hulihan ng pangungusap na nagpapahayag ng matinding saya: 'Napakaganda ng bahaghari'?",
         "options": [
           {
             "id": "a",
-            "text": "Maria Santos"
+            "text": "Tandang padamdam (!)"
           },
           {
             "id": "b",
-            "text": "maria santos"
+            "text": "Tuldok (.)"
           },
           {
             "id": "c",
-            "text": "maria Santos"
+            "text": "Tandang pananong (?)"
           },
           {
             "id": "d",
-            "text": "Maria santos"
+            "text": "Kuwit (,)"
           }
         ],
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang bawat bahagi ng pangalan ng tao ay nagsisimula sa malaking titik."
+        "explanation": "Tandang padamdam (!) ang ginagamit sa mga pangungusap na nagpapahayag ng matinding damdamin o tuwa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d13-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang wastong pangungusap na may tamang malaking titik at bantas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "masaya si lino sa paaralan"
+          },
+          {
+            "id": "b",
+            "text": "Masaya si Lino kasama ang kanyang mga kaibigan."
+          },
+          {
+            "id": "c",
+            "text": "naglalaro sa parke si lino"
+          },
+          {
+            "id": "d",
+            "text": "Masaya ba si Lino."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang 'Masaya si Lino kasama ang kanyang mga kaibigan.' ay gumagamit ng malaking titik sa simula at sa tanging ngalan na 'Lino'."
+      },
+      {
+        "itemId": "filipino-g3-m01-d13-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ang pangalan ay “Maria Santos” at ang pamagat ay “Gng.” Alin ang wastong pagkakasulat?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Gng. Maria Santos"
+          },
+          {
+            "id": "b",
+            "text": "Gng. Maria Santis"
+          },
+          {
+            "id": "c",
+            "text": "Gng. Mario Sontos"
+          },
+          {
+            "id": "d",
+            "text": "Gng. Marla Santos"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang “Gng.”, “Maria,” at “Santos” ay wastong nagsisimula sa malaking titik at tugma sa ibinigay na pangalan."
       }
     ]
   },

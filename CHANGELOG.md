@@ -6,6 +6,24 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.35.0] - 2026-08-15
+
+### Educator Effectiveness, Content Integrity, and Visual Quality
+
+- **Corpus-wide educator remediation**: re-authored and validated all 358 playable lessons, with one documented disposition per lesson and no blocked lessons.
+- **Assessment integrity**: corrected source-alignment, answer-key, duplicate-option, numeric, and scenario-wording defects across Math, Science, and Filipino content; the full Python tooling suite now passes 115 tests.
+- **Visual craft floor**: regenerated the 358-asset SVG corpus to remove emoji-as-icon placeholders, preserve bespoke artwork boundaries, and retain accessible title/description metadata.
+- **Release documentation**: added the educator-effectiveness review report and updated the handoff with the validation evidence and scope caveats.
+
+### Verification
+
+- Strict content validation: 358 lessons/files, 0 errors, 0 warnings.
+- Content quality audit: 0 findings; assessment duplicate groups: 0; similarity pairs: 0; objective pacing violations: 0.
+- Lesson assets: 358/358 valid; missing, orphaned, malformed, and render-failure counts: 0.
+- Python tooling discovery: 115 tests passed.
+- Android release gate: educator approval verification, core-content tests, app unit tests, lint, debug assembly, and signed release assembly passed.
+- Release APK: application ID `com.maxinesworld.app`, version code `37`, version name `0.35.0`, APK Signature Scheme v2 verified.
+
 ## [0.34.0] - 2026-08-15
 
 ### Educator Review, Writing, and Playful Progress

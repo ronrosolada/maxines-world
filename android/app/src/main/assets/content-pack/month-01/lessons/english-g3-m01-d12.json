@@ -41,7 +41,7 @@
       },
       "feedback": {
         "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
-        "retry": "Find the clue in Yesterday, Today, Tomorrow again. 💪"
+        "retry": "Use the time word to choose a past, present, or future verb form. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "Text alternative: Regular past verbs often use -ed; present forms depend on the subject; future can use will plus the base verb."
@@ -65,7 +65,7 @@
       },
       "feedback": {
         "correct": "Great! You found the examples for Yesterday, Today, Tomorrow. 🔎",
-        "retry": "Look at each Yesterday, Today, Tomorrow example again. 💪"
+        "retry": "Look for yesterday, today, or tomorrow before choosing the verb. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
@@ -94,7 +94,7 @@
       },
       "feedback": {
         "correct": "Great! You sorted the examples using the Yesterday, Today, Tomorrow clue. 🎉",
-        "retry": "Use the explanation, not color or position."
+        "retry": "Sort sentences whose verb matches the time clue away from mixed-up forms. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
@@ -118,7 +118,7 @@
       },
       "feedback": {
         "correct": "Correct: We will visit tomorrow.",
-        "retry": "We will visit tomorrow is the future. Visited is past, and visit is present."
+        "retry": "Will visit and tomorrow point to the future; visited points to the past. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
@@ -151,7 +151,7 @@
       },
       "feedback": {
         "correct": "Great! You matched each example with its Yesterday, Today, Tomorrow explanation. 🔗",
-        "retry": "Read both sides of each Yesterday, Today, Tomorrow pair again. 💪"
+        "retry": "Match each sentence with the time it describes and its verb form. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "A list-based matching control replaces drag gestures."
@@ -175,7 +175,7 @@
       },
       "feedback": {
         "correct": "Great! You put the Yesterday, Today, Tomorrow steps in order. 🎉",
-        "retry": "Find the first, next, and last Yesterday, Today, Tomorrow steps. 💪"
+        "retry": "Order the check: read the time clue, name its time, then choose the verb form. 💪"
       },
       "assetId": "english-g3-m01-d12-visual",
       "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
@@ -204,6 +204,10 @@
           {
             "id": "c",
             "text": "Yesterday we will walk."
+          },
+          {
+            "id": "d",
+            "text": "Today we walk."
           }
         ],
         "correctOptionIds": [
@@ -228,6 +232,10 @@
           {
             "id": "c",
             "text": "Tomorrow we walked yesterday."
+          },
+          {
+            "id": "d",
+            "text": "Today we walked."
           }
         ],
         "correctOptionIds": [
@@ -252,6 +260,10 @@
           {
             "id": "c",
             "text": "Yesterday we walked."
+          },
+          {
+            "id": "d",
+            "text": "We walk today."
           }
         ],
         "correctOptionIds": [
@@ -276,6 +288,10 @@
           {
             "id": "c",
             "text": "We visit every Monday."
+          },
+          {
+            "id": "d",
+            "text": "Today we walk."
           }
         ],
         "correctOptionIds": [
@@ -300,6 +316,10 @@
           {
             "id": "c",
             "text": "He walk every day."
+          },
+          {
+            "id": "d",
+            "text": "Tomorrow we walked yesterday."
           }
         ],
         "correctOptionIds": [

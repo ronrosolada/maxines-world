@@ -13,19 +13,19 @@
   "qualifiesForDailyBadge": true,
   "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
   "language": "fil-PH",
-  "introduction": "Magandang araw! Ako si Milo. Ngayong araw, pag-aaralan natin ang mga elemento ng kuwento — tauhan, tagpuan, at banghay. Handa ka na bang makinig sa kuwento nina Ana?",
+  "introduction": "Sa kuwento nina Ana at Ben, hanapin natin ang tauhan, tagpuan, at banghay habang tinutulungan nila ang isang sugatang ibon.",
   "vocabulary": [
     {
       "term": "Tauhan",
-      "definition": "Ang mga taong gumaganap o karakter sa kuwento."
+      "definition": "Mga taong gumaganap sa kuwento, tulad nina Ana at Ben."
     },
     {
       "term": "Tagpuan",
-      "definition": "Ang lugar at panahon kung saan nangyari ang kuwento."
+      "definition": "Lugar at panahong pinangyayarihan ng kuwento."
     },
     {
       "term": "Banghay",
-      "definition": "Ang pagkakasunod-sunod ng mga pangyayari sa kuwento."
+      "definition": "Ayos ng mahahalagang pangyayari mula una hanggang huli."
     }
   ],
   "activities": [
@@ -36,18 +36,18 @@
       "capability": "ANIMATED_EXPLANATION_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Panoorin at pakinggan ang kuwento tungkol kay Ana.",
+      "instruction": "Pakinggan ang kuwento nina Ana at Ben.",
       "content": "Si Ana ay isang masayahing batang nag-aaral sa ikatlong baitang. Isang hapon, kasama niya ang kaniyang matalik na kaibigan na si Ben pauwi mula sa paaralan. Habang sila ay naglalakad sa daan, may nakita silang maliit na ibon na sugatan sa ilalim ng puno. Humingi sila ng tulong sa nanay ni Ana. Maingat itong inilagay ng nanay sa isang ligtas na kahon at tumawag sa beterinaryo. Pagkaraan ng ilang araw, gumaling ang ibon at muli nila itong pinalipad sa tulong ng nakatatanda. Tuwang-tuwa sina Ana at Ben sa kanilang nagawang kabutihan. Ipinangako nilang patuloy na magtutulungan at magmamalasakit sa kapwa.",
       "completionRule": {
         "type": "VIEW_AND_ACKNOWLEDGE"
       },
       "feedback": {
-        "correct": "Magandang kuwento!",
-        "retry": "Balikan ang pahiwatig sa Elemento ng Kuwento. 💪"
+        "correct": "Magandang pakikinig! Ngayon, tuklasin natin ang mga bahagi ng kuwento.",
+        "retry": "Pakinggan kung sino ang gumaganap, saan nagaganap, at ano ang nangyayari."
       },
       "prompt": "Makinig sa kuwento nina Ana at Ben!",
       "narration": "Halika, pakinggan natin ang kuwento nina Ana at ang kaniyang kaibigan. Ano kaya ang kanilang ginawang kabutihan?",
-      "guideHint": "Pakinggang mabuti ang kuwento. Tandaan ang tauhan, tagpuan, at mga pangyayari.",
+      "guideHint": "Pakinggan kung sino ang gumaganap, saan nagaganap, at ano ang nangyayari.",
       "nextLabel": "Susunod →",
       "accessibilityAlternative": "Si Ana at Ben ay naglalakad pauwi. May nakita silang sugatang ibon. Ginamot nila ito at pinakawalan pagkaraan ng ilang araw."
     },
@@ -58,7 +58,7 @@
       "capability": "HOTSPOT_IMAGE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Tuklasin ang mga halimbawang kaugnay ng Elemento ng Kuwento.",
+      "instruction": "Hanapin ang tauhan, tagpuan, banghay, at pamagat sa larawan.",
       "content": {
         "examples": [
           "Tauhan",
@@ -72,14 +72,14 @@
         "targetCount": 4
       },
       "feedback": {
-        "correct": "Mahusay! Natutuhan mo ang mahalagang ideya. 🎉",
-        "retry": "Suriing muli ang halimbawa ng Mga Salitang May Kahulugan. 💪"
+        "correct": "Tama! Nakita mo ang apat na bahagi ng kuwento. 🎉",
+        "retry": "Balikan ang tanong: sino, saan, ano ang nangyari, at ano ang pangalan ng kuwento?"
       },
-      "prompt": "Pindutin ang bawat halimbawang kaugnay ng Elemento ng Kuwento.",
-      "narration": "Hanapin natin ang mahahalagang halimbawa tungkol sa Elemento ng Kuwento.",
-      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "prompt": "Pindutin ang bawat bahagi ng kuwento.",
+      "narration": "Hanapin ang apat na bahaging tumutulong sa pag-unawa sa kuwento.",
+      "guideHint": "Tanungin: sino, saan, ano ang nangyari, at ano ang pangalan ng kuwento?",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Tuklasin ang mga halimbawang kaugnay ng Elemento ng Kuwento."
+      "accessibilityAlternative": "Pindutin ang tauhan, tagpuan, banghay, at pamagat sa larawan."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a03",
@@ -88,18 +88,18 @@
       "capability": "SORT_AND_CLASSIFY_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Pagbukud-bukurin kung ang salita ay tumutukoy sa tauhan, tagpuan, o banghay.",
+      "instruction": "Ilagay sa “Elemento ng kuwento” o “Hindi elemento” ang bawat parirala.",
       "content": {
         "fits": [
-          "Ana — Tauhan",
-          "Sa daan — Tagpuan",
-          "Paghingi ng tulong para sa ibon — Banghay",
-          "Ben — Tauhan",
-          "Bahay ni Ana — Tagpuan"
+          "Ana",
+          "Sa daan",
+          "Paghingi ng tulong sa nanay",
+          "Ben",
+          "Bahay ni Ana"
         ],
         "doesNotFit": [
-          "Saging — Hindi elemento ng kuwento",
-          "Laruan — Hindi elemento ng kuwento"
+          "Saging",
+          "Laruan"
         ]
       },
       "completionRule": {
@@ -107,14 +107,14 @@
         "itemCount": 7
       },
       "feedback": {
-        "correct": "Mahusay! Tama ang pagkakabukod-bukod mo.",
-        "retry": "May mali sa pagkakabukod-bukod. Subukan muli."
+        "correct": "Mahusay! Nakilala mo ang mga elementong nasa kuwento. 🎉",
+        "retry": "Tanungin sa bawat card: tao, lugar, o pangyayari ba ito sa kuwento?"
       },
-      "prompt": "Saan napapabilang ang bawat salita? Ilagay sa tamang grupo!",
-      "narration": "Subukan mo namang pagbukud-bukurin ang mga salita. Alin sa mga ito ang tauhan, tagpuan, o banghay?",
-      "guideHint": "Tandaan: Tauhan=tao, Tagpuan=lugar, Banghay=pangyayari.",
+      "prompt": "Suriin ang bawat parirala at piliin ang tamang grupo.",
+      "narration": "Tingnan ang bawat parirala. Kasali ba ito sa mga elemento ng kuwento?",
+      "guideHint": "Tanungin: tao ba, lugar ba, o pangyayari ba ito sa kuwento?",
       "nextLabel": "Tapos na!",
-      "accessibilityAlternative": "Pagbukud-bukurin ang mga salita kung ito ay tauhan, tagpuan, banghay, o hindi elemento ng kuwento."
+      "accessibilityAlternative": "Ilagay ang bawat parirala sa grupo ng elemento ng kuwento o hindi elemento."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a04",
@@ -123,13 +123,13 @@
       "capability": "MULTIPLE_CHOICE_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Piliin ang tamang sagot tungkol sa elemento ng kuwento.",
+      "instruction": "Piliin ang kahulugan ng tauhan.",
       "content": {
         "options": [
-          "Ang tauhan ay ang pagkakasunod-sunod ng pangyayari.",
-          "Ang tauhan ay ang paksa ng kuwento.",
-          "Ang tauhan ay ang taong gumaganap sa kuwento.",
-          "Ang tauhan ay ang lugar kung saan nangyari ang kuwento."
+          "Ang pagkakasunod-sunod ng mga pangyayari sa kuwento.",
+          "Ang lugar at panahon kung saan nagaganap ang kuwento.",
+          "Ang mga taong gumaganap sa kuwento.",
+          "Ang pangalan na nagsasabi kung tungkol saan ang kuwento."
         ],
         "correctIndex": 2
       },
@@ -137,14 +137,14 @@
         "type": "CORRECT_RESPONSE"
       },
       "feedback": {
-        "correct": "Tama! Ang tauhan ay ang gumaganap sa kuwento.",
-        "retry": "Tingnan ang tauhan: sino ang gumaganap sa kuwento?"
+        "correct": "Tama! Sina Ana at Ben ay mga taong gumaganap sa kuwento.",
+        "retry": "Hanapin ang sagot sa tanong na: sino ang gumaganap sa kuwento?"
       },
-      "prompt": "Ano ang kahulugan ng tauhan?",
-      "narration": "Ngayong alam na natin ang kuwento, alamin naman natin ang mga elemento nito. Piliin mo ang tamang sagot.",
-      "guideHint": "Isipin mo: sino-sino ang mga karakter sa kuwento?",
+      "prompt": "Nabanggit sa kuwento sina Ana at Ben. Ano ang tawag sa mga gumaganap dito?",
+      "narration": "Gamitin ang kuwento upang matukoy kung ano ang tawag sa mga gumaganap.",
+      "guideHint": "Hanapin ang salitang tumutukoy sa mga taong kumikilos sa kuwento.",
       "nextLabel": "Susunod →",
-      "accessibilityAlternative": "Pumili ng tamang kahulugan ng tauhan."
+      "accessibilityAlternative": "Pumili ng kahulugan ng tauhan, ang mga taong gumaganap sa kuwento."
     },
     {
       "activityId": "filipino-g3-q1-w06-d01-a05",
@@ -153,24 +153,24 @@
       "capability": "MATCHING_PAIRS_V1",
       "required": true,
       "assetId": "filipino-g3-q1-w06-d01-visual",
-      "instruction": "Itapat ang bawat elemento ng kuwento sa tamang kahulugan nito.",
+      "instruction": "Itapat ang bahagi ng kuwento sa kahulugang inilalarawan.",
       "content": {
         "pairs": [
           {
             "left": "Tauhan",
-            "right": "Ang taong gumaganap sa kuwento"
+            "right": "Sino ang gumaganap sa kuwento"
           },
           {
             "left": "Tagpuan",
-            "right": "Ang lugar kung saan nangyari ang kuwento"
+            "right": "Saan at kailan nagaganap ang kuwento"
           },
           {
             "left": "Banghay",
-            "right": "Ang pagkakasunod-sunod ng mga pangyayari"
+            "right": "Ano-ano ang nangyari mula una hanggang huli"
           },
           {
             "left": "Pamagat",
-            "right": "Ang paksa o pangalan ng kuwento"
+            "right": "Pangalan na nagsasabi kung tungkol saan ang kuwento"
           }
         ]
       },
@@ -178,12 +178,12 @@
         "type": "ALL_PAIRS_MATCHED"
       },
       "feedback": {
-        "correct": "Naitapat mo nang tama ang lahat!",
-        "retry": "Basahin ang dalawang panig ng bawat pares tungkol sa Mga Salitang May Kahulugan. 💪"
+        "correct": "Naitapat mo nang tama ang lahat! 🎉",
+        "retry": "Hanapin sa kahulugan ang sagot sa sino, saan o kailan, pangyayari, o pangalan."
       },
-      "prompt": "Iugnay ang bawat elemento sa tamang kahulugan nito!",
+      "prompt": "Aling kahulugan ang babagay sa bawat bahagi ng kuwento?",
       "narration": "Ngayon, subukan mo namang itapat ang bawat elemento ng kuwento sa tamang kahulugan nito. Kaya mo iyan!",
-      "guideHint": "Basahing mabuti ang kahulugan sa kanan bago pumili ng elemento.",
+      "guideHint": "Hanapin ang sagot sa sino, saan o kailan, ano ang nangyari, at pangalan.",
       "nextLabel": "Susunod →",
       "accessibilityAlternative": "Itapat ang apat na elemento sa kanilang mga kahulugan."
     },
@@ -208,12 +208,12 @@
         "type": "ALL_STEPS_COMPLETED"
       },
       "feedback": {
-        "correct": "Tama ang pagkakasunod-sunod!",
-        "retry": "Ayusin muli ang pagkakasunod-sunod."
+        "correct": "Tama ang pagkakasunod-sunod! 🎉",
+        "retry": "Hanapin muna ang paglalakad, saka ang ibon, tulong, kahon, at paglipad."
       },
       "prompt": "Alin ang unang nangyari? Ayusin mo ang mga pangyayari.",
       "narration": "Ngayon, subukan mong ayusin ang mga pangyayari sa kuwento. Alin ang una, pangalawa, at hanggang sa huli?",
-      "guideHint": "Simulan sa unang nangyari sa kuwento — ang paglalakad nina Ana pauwi.",
+      "guideHint": "Simulan sa paglalakad, saka ang ibon, paghingi ng tulong, ligtas na kahon, at paglipad.",
       "nextLabel": "Susunod →",
       "accessibilityAlternative": "Limang pangyayari mula sa kuwento ang kailangang ayusin."
     }
@@ -228,7 +228,7 @@
         "sequence": 1,
         "itemId": "filipino-g3-q1-w06-d01-q1",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tawag sa taong gumaganap sa kuwento?",
+        "prompt": "Nang magligtas sina Ana at Ben ng ibon, ano ang tawag sa mga gumaganap sa kuwento?",
         "options": [
           {
             "id": "a",
@@ -250,13 +250,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang tauhan ang gumaganap sa kuwento: Tauhan."
+        "explanation": "Ang tauhan ay mga taong gumaganap; dito, sina Ana at Ben ang gumagawa ng mga kilos."
       },
       {
         "sequence": 2,
         "itemId": "filipino-g3-q1-w06-d01-q2",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tawag sa lugar kung saan nangyari ang kuwento?",
+        "prompt": "Ano ang tawag sa lugar kung saan nangyari ang kuwento nina Ana at Ben?",
         "options": [
           {
             "id": "a",
@@ -278,13 +278,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang tagpuan ang lugar na pinangyarihan ng kuwento: Tagpuan."
+        "explanation": "Tagpuan ang tawag sa lugar at panahong pinangyayarihan ng mga tauhan."
       },
       {
         "sequence": 3,
         "itemId": "filipino-g3-q1-w06-d01-q3",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Sino ang pangunahing tauhan sa kuwentong napakinggan?",
+        "prompt": "Sino ang batang unang ipinakilala at kasama ni Ben sa pagtulong sa ibon?",
         "options": [
           {
             "id": "a",
@@ -306,13 +306,13 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Ang pangunahing tauhan ang pinakamahalagang gumaganap sa kuwento: Ana."
+        "explanation": "Si Ana ang unang ipinakilala at kasama ni Ben sa pagtulong sa ibon; kaya siya ang pangunahing tauhan."
       },
       {
         "sequence": 4,
         "itemId": "filipino-g3-q1-w06-d01-q4",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Ano ang tawag sa pagkakasunod-sunod ng mga pangyayari sa kuwento?",
+        "prompt": "Kapag inayos mula sa unang pangyayari hanggang sa huli, ano ang tawag sa ayos na ito?",
         "options": [
           {
             "id": "a",
@@ -334,13 +334,13 @@
         "correctOptionIds": [
           "b"
         ],
-        "explanation": "Ang banghay ay ang pagkakasunod-sunod ng mga pangyayari: Banghay."
+        "explanation": "Banghay ang tawag sa ayos ng mga pangyayari mula una hanggang huli."
       },
       {
         "sequence": 5,
         "itemId": "filipino-g3-q1-w06-d01-q5",
         "type": "MULTIPLE_CHOICE",
-        "prompt": "Saan nakita nina Ana ang sugatang ibon?",
+        "prompt": "Pagkatapos nilang maglakad, saan nakita nina Ana at Ben ang sugatang ibon?",
         "options": [
           {
             "id": "a",
@@ -362,7 +362,7 @@
         "correctOptionIds": [
           "a"
         ],
-        "explanation": "Sa ilalim ng puno — ito ang nabanggit sa kuwento."
+        "explanation": "Sa ilalim ng puno ang tiyak na lugar na binanggit nang makita nila ang sugatang ibon."
       }
     ]
   },
