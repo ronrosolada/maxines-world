@@ -6,6 +6,26 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.38.0] - 2026-08-15
+
+### Milo's Wildlife Sanctuary Visual Overhaul
+
+- **High-Fidelity Sanctuary Backdrop:** Replaced the flat green gradient background with a stunning panoramic storybook landscape (`sanctuary_backdrop.webp`) featuring rolling emerald Palawan hills, winding nature paths, and sunlit mountain slopes.
+- **12 Illustrated 3D Storybook Piece Tokens:** Replaced generic system vector icons (Parks/Pets) with 12 bespoke, isometric game tokens rendered via ComfyUI (`dreamshaper_8`) on RTX 3070:
+  - `sanctuary_piece_meadow.webp` (Sunny Meadow with blooming wildflowers)
+  - `sanctuary_piece_pond.webp` (Sparkling Little Pond with floating lilies)
+  - `sanctuary_piece_tree.webp` (Ancient leafy Story Tree with sunbeams)
+  - `sanctuary_piece_nest.webp` (Cozy woven twig Bird Nest)
+  - `sanctuary_piece_garden.webp` (Vibrant Kindness Garden with wooden fence)
+  - `sanctuary_piece_path.webp` (Curving cobblestone Forest Path)
+  - `sanctuary_piece_shelter.webp` (Thatched wooden Animal Shelter cottage)
+  - `sanctuary_piece_butterfly.webp` (Dancing tropical Butterfly Corner)
+  - `sanctuary_piece_lookout.webp` (Treehouse Canopy Lookout tower)
+  - `sanctuary_piece_reading_nest.webp` (Leafy outdoor Reading Nest bench)
+  - `sanctuary_piece_flower_bed.webp` (Blooming tropical Flower Bed)
+  - `sanctuary_piece_wildlife_sign.webp` (Carved rustic Wildlife Sanctuary Signpost)
+- **SanctuaryScene Component Integration:** Updated `SanctuaryScene.kt` to dynamically bind the new rendered WebP drawables for earned pieces, locked slots, and next-piece unlocks with crisp alpha clipping.
+
 ## [0.37.0] - 2026-08-15
 
 ### Corpus-Wide AI Storybook Asset Upgrade

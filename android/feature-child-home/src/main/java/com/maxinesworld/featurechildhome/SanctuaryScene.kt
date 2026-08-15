@@ -162,34 +162,12 @@ fun SanctuaryScene(
         val sceneWidth = maxWidth
         val sceneHeight = maxHeight
 
-        // Sky + meadow backdrop.
-        Box(
-            Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.verticalGradient(
-                        listOf(Color(0xFFBFE6F5), Color(0xFFE9F7E4)),
-                    ),
-                ),
-        )
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .height(sceneHeight * 0.55f)
-                .align(Alignment.BottomCenter)
-                .background(
-                    Brush.verticalGradient(
-                        listOf(Color(0xFF9BD99B), Color(0xFF6FB96F)),
-                    ),
-                ),
-        )
-        // Distant sun.
-        Box(
-            Modifier
-                .size(sceneHeight * 0.16f)
-                .offset(x = sceneWidth * 0.78f, y = sceneHeight * 0.08f)
-                .clip(CircleShape)
-                .background(Color(0xFFFFE9A0)),
+        // High-Fidelity Storybook Sanctuary Backdrop
+        Image(
+            painter = painterResource(R.drawable.sanctuary_backdrop),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize(),
         )
 
         fun slotSize(slot: SanctuarySlot) = sceneHeight * slot.sizeFraction
@@ -211,11 +189,13 @@ fun SanctuaryScene(
                 contentAlignment = Alignment.Center,
             ) {
                 if (earned) {
-                    Icon(
-                        imageVector = sanctuarySceneIcon(slot.pieceId),
+                    Image(
+                        painter = painterResource(sanctuaryPieceDrawable(slot.pieceId)),
                         contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.size(slotSize(slot) * 0.52f),
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(2.dp),
                     )
                 } else {
                     Text("?", color = Color.White.copy(alpha = 0.75f), fontWeight = FontWeight.Black, fontSize = (slotSize(slot) * 0.45f).value.sp)
@@ -239,11 +219,13 @@ fun SanctuaryScene(
                 contentAlignment = Alignment.Center,
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Icon(
-                        imageVector = sanctuarySceneIcon(sanctuary.nextPiece?.iconKey ?: "next"),
+                    Image(
+                        painter = painterResource(sanctuaryPieceDrawable(sanctuary.nextPiece?.iconKey ?: "next")),
                         contentDescription = null,
-                        tint = Color(0xFF8FAF9F),
-                        modifier = Modifier.size(slotSize(nextSlot) * 0.4f),
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(4.dp),
                     )
                 }
             }
@@ -276,11 +258,18 @@ fun SanctuaryScene(
     }
 }
 
-private fun sanctuarySceneIcon(pieceId: String): ImageVector = when (pieceId) {
-    "sanctuary-meadow", "sanctuary-garden", "sanctuary-flower-bed" -> Icons.Default.Park
-    "sanctuary-tree" -> Icons.Default.Park
-    "sanctuary-nest", "sanctuary-butterfly" -> Icons.Default.Pets
-    "sanctuary-pond", "sanctuary-path", "sanctuary-shelter",
-    "sanctuary-lookout", "sanctuary-reading-nest", "sanctuary-wildlife-sign", "next" -> Icons.Default.Pets
-    else -> Icons.Default.Pets
+internal fun sanctuaryPieceDrawable(pieceId: String): Int = when (pieceId.removePrefix("sanctuary-")) {
+    "meadow" -> R.drawable.sanctuary_piece_meadow
+    "pond" -> R.drawable.sanctuary_piece_pond
+    "tree" -> R.drawable.sanctuary_piece_tree
+    "nest" -> R.drawable.sanctuary_piece_nest
+    "garden" -> R.drawable.sanctuary_piece_garden
+    "path" -> R.drawable.sanctuary_piece_path
+    "shelter" -> R.drawable.sanctuary_piece_shelter
+    "butterfly" -> R.drawable.sanctuary_piece_butterfly
+    "lookout" -> R.drawable.sanctuary_piece_lookout
+    "reading", "reading-nest" -> R.drawable.sanctuary_piece_reading_nest
+    "flower", "flower-bed" -> R.drawable.sanctuary_piece_flower_bed
+    "sign", "wildlife-sign" -> R.drawable.sanctuary_piece_wildlife_sign
+    else -> R.drawable.sanctuary_piece_meadow
 }
