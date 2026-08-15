@@ -6,6 +6,13 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.39.0] - 2026-08-15
+
+### Child-First Startup & Auth Fix
+
+- **Removed Startup PIN Gate:** Fixed startup flow so the app directly navigates children into their playroom (`ChildSelectScreen` or active `ChildHomeScreen`) on startup without prompting for the parent PIN.
+- **Parent Access Scoped Appropriately:** The parent PIN remains securely enforced only when entering the **Parent Dashboard** / **Parent Gate** (`ParentGateScreen`), ensuring children can learn immediately with zero friction.
+
 ## [0.38.0] - 2026-08-15
 
 ### Milo's Wildlife Sanctuary Visual Overhaul
