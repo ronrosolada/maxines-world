@@ -292,8 +292,8 @@ fun ParentGateScreen(
                 Spacer(Modifier.height(8.dp))
                 Surface(
                     shape = RoundedCornerShape(12.dp),
-                    color = ErrorRed.copy(alpha = 0.08f),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.25f)),
+                    color = SunshineGold.copy(alpha = 0.12f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, SunshineGold.copy(alpha = 0.4f)),
                     modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
                 ) {
                     Column(
@@ -302,20 +302,20 @@ fun ParentGateScreen(
                         verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Text(
-                            "🔒 Keypad Locked (${state.lockRemainingSeconds}s remaining)",
+                            "Please take a short pause (${state.lockRemainingSeconds}s)",
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.Bold,
-                            color = ErrorRed,
+                            color = Teal40,
                             textAlign = TextAlign.Center,
                         )
                         Text(
-                            "Too many attempts. Keypad will unlock automatically in ${state.lockRemainingSeconds} seconds.",
+                            "Keypad will unlock automatically in ${state.lockRemainingSeconds} seconds, or answer a quick math question below.",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center,
                         )
                         Text(
-                            "Kusang magbubukas pagkatapos ng ${state.lockRemainingSeconds} segundo.",
+                            "Kusang magbubukas pagkatapos ng ${state.lockRemainingSeconds} segundo, o sagutan ang simpleng tanong sa ibaba.",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
                             textAlign = TextAlign.Center,
@@ -328,11 +328,20 @@ fun ParentGateScreen(
             }
 
             Spacer(Modifier.height(16.dp))
-            TextButton(
+            Button(
                 onClick = { showResetDialog = true },
-                modifier = Modifier.semantics { contentDescription = "Forgot PIN or restore default" }
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+                    .semantics { contentDescription = "Forgot PIN or restore default using parent math challenge" },
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = if (locked) Teal40 else SurfaceContainer, contentColor = if (locked) White else Teal40)
             ) {
-                Text("Forgot PIN? Restore default", color = Teal40, fontWeight = FontWeight.Medium)
+                Text(
+                    if (locked) "Bypass lockout with quick math question" else "Forgot PIN? Answer quick math question",
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp
+                )
             }
         }
     }

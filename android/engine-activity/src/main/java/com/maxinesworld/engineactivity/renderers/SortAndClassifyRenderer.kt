@@ -98,12 +98,19 @@ fun SortAndClassifyRenderer(
             categories.forEachIndexed { ci, label ->
                 val n = classified.count { it.value == ci }
                 val enabled = selectedItem >= 0 && !submitted
-                Box(Modifier.weight(1f).sizeIn(minHeight = 56.dp)
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(if (enabled) bucketHighlight else SubjectColors.Science.surface)
-                    .clickable(enabled = enabled, role = Role.Button) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
-                    .semantics { contentDescription = "Category $label ($n items)" },
-                    contentAlignment = Alignment.Center) {
+                Box(
+                    Modifier.weight(1f).sizeIn(minHeight = 56.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(if (enabled) bucketHighlight else SubjectColors.Science.surface)
+                        .border(
+                            width = if (enabled) 2.dp else 1.dp,
+                            color = if (enabled) VillageTeal else SubjectColors.Science.outline.copy(alpha = 0.3f),
+                            shape = RoundedCornerShape(12.dp)
+                        )
+                        .clickable(enabled = enabled, role = Role.Button) { classified = classified.toMutableMap().apply { put(selectedItem, ci) }; selectedItem = -1 }
+                        .semantics { contentDescription = "Category $label ($n items)" },
+                    contentAlignment = Alignment.Center
+                ) {
                     Text("$label ($n)", style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(8.dp))
                 }
             }
@@ -147,6 +154,22 @@ fun SortAndClassifyRenderer(
         }
 
         ActivityHint(step = step, onHint = onHint)
+
+        if (submitted && !allCorrect) {
+            val retryFeedbackText = sanitizeLearnerFeedbackText(
+                step.feedback?.incorrect?.takeIf { it.isNotBlank() }
+                    ?: "Some cards need another look. Keep going — you can do it!"
+            )
+            Text(
+                text = retryFeedbackText,
+                style = MaterialTheme.typography.bodyMedium,
+                color = ErrorRed,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { contentDescription = "Retry guidance: $retryFeedbackText" }
+            )
+        }
 
         if (!submitted) {
             Text(

@@ -6,6 +6,22 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.40.0] - 2026-08-15
+
+### Adversarial UX & Touch Ergonomics Overhaul
+
+- **Sort & Classify Renderer Overhaul:**
+  - **Bucket Highlight & Glow:** Added high-contrast `VillageTeal` border pulse (2.dp) and background tint to active category buckets so children have clear visual feedback when a card is selected.
+  - **Tactile Touch Targets:** Upgraded category bucket touch targets to minimum 56dp height and card items to 48dp height to accommodate 8-year-old child ergonomics.
+  - **Educational Retry Guidance:** Populated inline educational feedback (`feedback.incorrect`) in `ErrorRed` on incorrect attempts so learners understand why cards belong in specific categories rather than blindly guessing.
+  - **Clear Progress Indicators:** Embedded visual counter copy (*"Place X more cards to check"*) to prevent premature submissions.
+- **Cognitive Load & Narration Text Cap:**
+  - Enforced a strict 3-line ceiling with `TextOverflow.Ellipsis` on narration instruction cards in `LessonPlayerScreen.kt` to eliminate reading fatigue for early learners.
+- **Parent Gate & Caregiver Accessibility:**
+  - Softened intimidating lock alert into a calm pause prompt (*"Please take a short pause"* in warm gold/teal).
+  - Prominently surfaced the adult mental math bypass button (*"Bypass lockout with quick math question"*) with a 48dp touch surface so non-technical grandparents/caregivers are never stranded during PIN lockouts.
+- **Strict Verification:** Passed all curriculum validation, asset render, and content quality audit gates with 0 errors and 0 warnings.
+
 ## [0.39.0] - 2026-08-15
 
 ### Child-First Startup & Auth Fix

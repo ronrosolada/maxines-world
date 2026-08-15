@@ -34,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coremodel.ActivityStep
@@ -287,8 +288,14 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
             Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
                 colors = CardDefaults.cardColors(containerColor = Cream),
                 elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)) {
-                Text(step.narrationText, modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.bodyLarge, color = Ink)
+                Text(
+                    step.narrationText,
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = Ink,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
+                )
             }
             Spacer(Modifier.height(14.dp))
         }
