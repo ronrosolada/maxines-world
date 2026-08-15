@@ -19,6 +19,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coremodel.childFacingIncorrectFeedback
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.engineactivity.ActivityResult
 
@@ -156,9 +157,9 @@ fun SortAndClassifyRenderer(
         ActivityHint(step = step, onHint = onHint)
 
         if (submitted && !allCorrect) {
-            val retryFeedbackText = sanitizeLearnerFeedbackText(
-                step.feedback?.incorrect?.takeIf { it.isNotBlank() }
-                    ?: "Some cards need another look. Keep going — you can do it!"
+            val retryFeedbackText = childFacingIncorrectFeedback(
+                step.feedback?.incorrect,
+                fallback = "Some cards need another look. Keep going — you can do it!"
             )
             Text(
                 text = retryFeedbackText,
