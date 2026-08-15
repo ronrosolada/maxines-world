@@ -96,17 +96,13 @@ fun MaxinesNavGraph(navController: NavHostController) {
         val childDao = entryPoint.childProfileDao()
         val authManager = entryPoint.authManager()
 
-        val hasPin = authManager.getPinHash() != null
-        if (!hasPin) {
-            startDest = Routes.PARENT_AUTH
+        authManager.getPinHash()
+        val parent = parentDao.getParent()
+        val children = parent?.let { childDao.getByParent(it.id) } ?: emptyList()
+        startDest = if (children.isNotEmpty()) {
+            Routes.childHome(children.first().id)
         } else {
-            val parent = parentDao.getParent()
-            val children = parent?.let { childDao.getByParent(it.id) } ?: emptyList()
-            startDest = if (children.isNotEmpty()) {
-                Routes.childHome(children.first().id)
-            } else {
-                Routes.PARENT_AUTH
-            }
+            Routes.PARENT_AUTH
         }
     }
 

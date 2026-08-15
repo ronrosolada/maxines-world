@@ -1,20 +1,22 @@
 # Maxine's World — Current State & Release Handoff
 
 **Document baseline:** 2026-08-15
-**Release candidate:** `0.35.0` (`versionCode = 37`)
+**Release candidate:** `0.35.1` (`versionCode = 38`)
 **Working branch:** `main`
 **Repository:** `ronrosolada/maxines-world` (public)
 
-## Release 0.35.0 candidate (2026-08-15)
+## Release 0.35.1 candidate (2026-08-15)
 
-- Scope: corpus-wide educator-effectiveness remediation, assessment-integrity fixes, and the 358-asset SVG craft/accessibility pass.
-- Content QA: 358 lessons/files, 0 strict-validation errors/warnings, 0 quality findings, 0 assessment duplicate groups, 0 similarity pairs, 0 pacing violations, and 358/358 valid lesson assets.
-- Tooling QA: full Python discovery passed **115 tests**.
-- Android QA: `verifyPlayableContent`, core-content tests, app unit tests, lint, debug assembly, and signed release assembly all passed.
-- Release APK: `android/app/build/outputs/apk/release/app-release.apk`; `com.maxinesworld.app`, version `0.35.0`, code `37`, APK Signature Scheme v2 verified.
-- Emulator smoke: fresh install showed the PIN onboarding counter `0 of 6 digits`; zero fatal Android runtime exceptions.
+- Scope: fixed parent-access initialization, replaced the generic English visual-shell cluster, corrected confirmed content-integrity defects, and added regression coverage.
+- Content QA: 358 lessons/files, 0 strict-validation errors/warnings, 0 quality findings, 0 similarity pairs, 0 pacing violations, and 358/358 valid/renderable lesson assets.
+- Visual QA: 0 retired generic focus-board SVGs; the Fiesta Picture contains all eight required scene groups; 128 activities still use the optional SVG-only visual path without a `visualScene` JSON payload.
+- Tooling QA: full Python discovery passed **120 tests**.
+- Android QA: `verifyPlayableContent`, offline mini-game gate, app/feature unit tests, lint, debug assembly, signed release assembly, and the release verifier all passed.
+- Release APK: `android/app/build/outputs/apk/release/app-release.apk`; `com.maxinesworld.app`, version `0.35.1`, code `38`, APK Signature Scheme v2 verified.
+- Emulator smoke: clean install showed Create Child Profile rather than PIN setup; after profile creation the requested default PIN opened Parent Dashboard; zero fatal Android runtime exceptions.
+- Review-gap QA: `docs/content-review-gap-analysis-2026-08-15.md` records why the previous structural review missed visual-topic semantics. The stronger audit still reports 56 repeated assessment-prompt groups and 180 overlong learner-facing strings; these remain explicit follow-up work.
 - Signing remains workstation-only through `~/.gradle/maxines-world-signing.properties` (mode `600`); no signing values belong in Git.
-- Remaining release steps: commit, push `main`, wait for CI, push the matching `v0.35.0` tag, and publish the GitHub release with the verified APK.
+- Remaining release steps: commit, push `main`, push the matching `v0.35.1` tag, and publish the GitHub release with the verified APK. CI may remain blocked by the previously recorded GitHub billing/spending-limit restriction.
 
 ## Product goal
 
@@ -91,7 +93,7 @@ All critical blockers, single-letter casing traps, circular definitions, and cro
 A fleet-wide graphics pass was completed against the craft-floor standards (no emoji-as-icons, consistent stroke/ink, real depth, unique seeded scenes):
 
 1. **Duplicate-scene eradication:** 15 normalized-identical SVG groups (71 files — legacy 640×360 board templates) regenerated with the seeded `scene_svg` (800×450, lesson-ID-seeded motifs/layout) → **0 remaining normalized-duplicate groups**.
-2. **Emoji-as-icon eradication:** 287 of 358 SVGs carried raw emoji glyphs (📚 ✏️ 📖 💡 🌸 …) as `<text>` icons. All 277 generator-owned files regenerated with drawn vector motifs; the 10 hand-authored English Q1 W01–W04 hotspot boards had their emoji `<text>` nodes surgically replaced with drawn book-stack/pencil/open-book/lightbulb vector icons (same ink/palette) without touching bespoke art.
+2. **Emoji-as-icon eradication:** 287 of 358 SVGs carried raw emoji glyphs as `<text>` icons. Generator-owned files were regenerated with drawn vector motifs, and the ten hand-authored English Q1 W01–W04 hotspot assets were replaced with lesson-specific drawn scenes rather than retaining the generic focus-board shell.
 3. **Canonical a11y metadata:** `scene_svg` patched to emit byte-identical metadata to `add_svg_accessibility.accessible_svg` (unique `svg-title-*`/`svg-desc-*` IDs, objective-rich descriptions) — the idempotency test that this surfaced is now green.
 4. **Verification:** `test_svg_accessibility.py` 4/4 green; `test_generate_quarterly_assets.py` 3/3 green; `verify_lesson_assets.py` 0 missing/malformed/orphaned; **0 emoji glyphs and 0 duplicate visual layouts across all 358 SVGs**.
 
@@ -102,6 +104,7 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
 - `assessment_duplicate_gate.py`: **0 duplicate groups**
 - `objective_pacing_audit.py --check`: **0 over-fan-out**
 - `./gradlew testDebugUnitTest`: **BUILD SUCCESSFUL (all unit test suites green)**
+- Follow-up `educational_material_audit.py` is intentionally tracked separately: it currently reports 56 repeated assessment-prompt groups and 180 overlong learner-facing strings. These are not claimed as zero in the corrective release.
 
 ## Current product surface
 
@@ -152,9 +155,10 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
   (spec CH-02).
 - Lesson visuals: **358 bundled SVG assets** (month-01 vectors, one per
   lesson). All 358 carry `<title>` and `<desc>` accessibility metadata.
-- One deliberate exception: `english-g3-q1-w01-d01` keeps the pre-revision
-  visual because the revised art dropped 3 of 7 curriculum clues (red flag,
-  parade, lanterns) required by its picture-detective activity.
+- The former generic English hotspot-board exception is retired. The ten English
+  Q1 W01–W04 hotspot assets now use lesson-specific visuals; W01D01 explicitly
+  contains the red flag, dancing people, food table, laughing children, band,
+  streamers, parade, and lanterns required by its picture-detective activity.
 - `tools/content_quality_audit.py --check` and
   `tools/dedupe_lesson_titles.py --check` are read-only and must remain clean.
 - English Q4 remains intentionally deferred until source curriculum is

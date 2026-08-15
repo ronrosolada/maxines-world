@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -56,8 +57,20 @@ class ParentAuthViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val pinHash = authManager.getPinHash()
-            val parent = parentAccountDao.getParent()
+            authManager.getPinHash()
+            var parent = parentAccountDao.getParent()
+            if (parent == null) {
+                val name = authManager.displayName.first()
+                    ?.trim()
+                    .orEmpty()
+                    .ifBlank { ParentAuthManager.DEFAULT_PARENT_NAME }
+                parent = ParentAccountEntity(
+                    id = "parent",
+                    displayName = name,
+                    pinHash = "", // DataStore is the single PIN source.
+                )
+                parentAccountDao.upsert(parent)
+            }
             val children = parent?.let { childProfileDao.getByParent(it.id) } ?: emptyList()
 
             val lockedUntil = authManager.getLockedUntilEpochMillis()
@@ -75,11 +88,10 @@ class ParentAuthViewModel @Inject constructor(
                 _state.update {
                     it.copy(
                         isLoading = false,
-                        hasPin = pinHash != null,
-                        displayName = name ?: parent?.displayName ?: "",
+                        hasPin = true,
+                        displayName = name ?: parent?.displayName ?: ParentAuthManager.DEFAULT_PARENT_NAME,
                         childProfiles = children,
                         currentScreen = when {
-                            pinHash == null -> AuthScreen.PIN_SETUP
                             children.isEmpty() -> AuthScreen.CREATE_PROFILE
                             else -> AuthScreen.PIN_LOGIN
                         }
@@ -113,7 +125,7 @@ class ParentAuthViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                val pinHash = authManager.getPinHash()
+                authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
                 val lockedUntil = authManager.getLockedUntilEpochMillis()
@@ -132,7 +144,7 @@ class ParentAuthViewModel @Inject constructor(
                     return@launch
                 }
 
-                if (pinHash != null && authManager.verifyPin(input)) {
+                if (authManager.verifyPin(input)) {
                     authManager.resetFailedAttempts()
                     _state.update { it.copy(failedAttempts = 0, lockedUntilEpochMillis = 0L) }
                     onAuthenticated()
@@ -249,13 +261,14 @@ class ParentAuthViewModel @Inject constructor(
             authManager.resetPinOnly()
             _state.update {
                 it.copy(
-                    hasPin = false,
+                    hasPin = true,
                     pinInput = "",
                     pinError = null,
                     failedAttempts = 0,
                     lockedUntilEpochMillis = 0L,
                     lockRemainingSeconds = 0,
-                    currentScreen = AuthScreen.PIN_SETUP
+                    currentScreen = if (it.childProfiles.isEmpty()) AuthScreen.CREATE_PROFILE
+                    else AuthScreen.PIN_LOGIN
                 )
             }
         }

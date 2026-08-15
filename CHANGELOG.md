@@ -6,6 +6,26 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.35.1] - 2026-08-15
+
+### Corrective Content and Parent Access Patch
+
+- **Parent access:** initialize the requested fixed default PIN into salted DataStore state on fresh install and after reset; fresh installs no longer enter PIN setup, and existing child profiles retain the parent gate.
+- **English visuals:** replaced the remaining generic English focus-board SVGs with lesson-specific visuals; the Fiesta Picture now visibly contains its eight requested hotspots.
+- **Content integrity:** fixed duplicate matching labels, Filipino password-language bleed, and a Makabansa assessment answer-key mismatch.
+- **Regression coverage:** added checks for generic visual shells, required fiesta scene groups, unique matching labels, Filipino language purity, and fresh-install parent initialization.
+- **Audit transparency:** documented the prior review-gate gap: structural asset/render checks did not verify visual-topic semantics, and the stronger educational audit was not included in CI.
+
+### Verification
+
+- Python tooling discovery: 120 tests passed.
+- Strict content validation: 358 lessons/files, 0 errors, 0 warnings.
+- Rendered lesson assets: 358/358 valid; missing, orphaned, malformed, and render-failure counts: 0. The optional `visualScene` payload remains absent from 128 activities, but each has a valid lesson-specific SVG asset.
+- Generic focus-board visuals: 0 remaining.
+- Android auth/parent unit tests and debug assembly passed.
+- Emulator clean-install smoke test: Create Child Profile on first run; requested default PIN opens Parent Dashboard.
+- The stronger educational audit is intentionally not called clean: 56 repeated assessment-prompt groups and 180 overlong learner-facing strings remain documented follow-up work.
+
 ## [0.35.0] - 2026-08-15
 
 ### Educator Effectiveness, Content Integrity, and Visual Quality

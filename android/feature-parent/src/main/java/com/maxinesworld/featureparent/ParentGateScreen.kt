@@ -91,7 +91,7 @@ class ParentGateViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                val pinHash = authManager.getPinHash()
+                authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
 
@@ -110,7 +110,7 @@ class ParentGateViewModel @Inject constructor(
                     return@launch
                 }
 
-                if (pinHash != null && authManager.verifyPin(input)) {
+                if (authManager.verifyPin(input)) {
                     authManager.resetFailedAttempts()
                     _state.update {
                         it.copy(
@@ -330,9 +330,9 @@ fun ParentGateScreen(
             Spacer(Modifier.height(16.dp))
             TextButton(
                 onClick = { showResetDialog = true },
-                modifier = Modifier.semantics { contentDescription = "Forgot PIN or Reset PIN" }
+                modifier = Modifier.semantics { contentDescription = "Forgot PIN or restore default" }
             ) {
-                Text("Forgot PIN? Reset PIN", color = Teal40, fontWeight = FontWeight.Medium)
+                Text("Forgot PIN? Restore default", color = Teal40, fontWeight = FontWeight.Medium)
             }
         }
     }
@@ -345,12 +345,12 @@ fun ParentGateScreen(
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
             title = {
-                Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
+                Text("Restore Default Parent PIN", fontWeight = FontWeight.Bold)
             },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     Text(
-                        "To set a new PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
+                        "To restore the default parent PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Surface(
@@ -397,7 +397,7 @@ fun ParentGateScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Teal40)
                 ) {
-                    Text("Verify & Reset PIN")
+                    Text("Verify & Restore PIN")
                 }
             },
             dismissButton = {

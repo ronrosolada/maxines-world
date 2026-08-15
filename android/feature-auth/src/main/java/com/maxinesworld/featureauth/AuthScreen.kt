@@ -325,9 +325,9 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
 
         TextButton(
             onClick = { showResetDialog = true },
-            modifier = Modifier.semantics { contentDescription = "Forgot PIN or Reset PIN" }
+            modifier = Modifier.semantics { contentDescription = "Forgot PIN or restore default" }
         ) {
-            Text("Forgot PIN? Reset PIN", color = Teal40, fontWeight = FontWeight.Medium)
+            Text("Forgot PIN? Restore default", color = Teal40, fontWeight = FontWeight.Medium)
         }
 
         Spacer(Modifier.height(16.dp))
@@ -356,12 +356,12 @@ private fun ParentResetPinDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
-            Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
+            Text("Restore Default Parent PIN", fontWeight = FontWeight.Bold)
         },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Text(
-                    "To set a new PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
+                    "To restore the default parent PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Surface(
@@ -405,7 +405,7 @@ private fun ParentResetPinDialog(
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Teal40)
             ) {
-                Text("Verify & Set New PIN")
+                Text("Verify & Restore PIN")
             }
         },
         dismissButton = {

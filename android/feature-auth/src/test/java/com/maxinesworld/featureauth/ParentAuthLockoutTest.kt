@@ -79,6 +79,21 @@ class ParentAuthLockoutTest {
     }
 
     @Test
+    fun `fresh install uses the fixed default PIN and skips PIN setup`() = runTest(dispatcher) {
+        coEvery { parentAccountDao.getParent() } returns null
+        coEvery { childProfileDao.getByParent("parent") } returns emptyList()
+
+        viewModel = createViewModel()
+
+        assertEquals("123456", ParentAuthManager.DEFAULT_PIN)
+        assertTrue(viewModel.state.value.hasPin)
+        assertEquals(AuthScreen.CREATE_PROFILE, viewModel.state.value.currentScreen)
+        coVerify {
+            parentAccountDao.upsert(match { it.id == "parent" && it.displayName == ParentAuthManager.DEFAULT_PARENT_NAME })
+        }
+    }
+
+    @Test
     fun `four failures show remaining attempts but do not lock`() = runTest(dispatcher) {
         var attempts = 0
         coEvery { authManager.recordFailedAttempt(any()) } answers { attempts += 1; 0L }
@@ -195,7 +210,7 @@ class ParentAuthLockoutTest {
     }
 
     @Test
-    fun `resetting PIN clears lockout and returns to PIN_SETUP while preserving child profiles`() = runTest(dispatcher) {
+    fun `restoring default PIN clears lockout and preserves child profiles`() = runTest(dispatcher) {
         coEvery { authManager.resetPinOnly() } coAnswers { }
         viewModel = createViewModel()
 
@@ -204,8 +219,8 @@ class ParentAuthLockoutTest {
 
         coVerify(exactly = 1) { authManager.resetPinOnly() }
         val state = viewModel.state.value
-        assertEquals(AuthScreen.PIN_SETUP, state.currentScreen)
-        assertFalse(state.hasPin)
+        assertEquals(AuthScreen.PIN_LOGIN, state.currentScreen)
+        assertTrue(state.hasPin)
         assertEquals(0, state.failedAttempts)
         assertEquals(0L, state.lockedUntilEpochMillis)
         assertEquals(0, state.lockRemainingSeconds)
