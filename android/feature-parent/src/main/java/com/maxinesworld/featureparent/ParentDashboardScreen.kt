@@ -363,8 +363,14 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                     fontSize = 16.sp,
                                     color = Ink
                                 )
+                                val packageInfo = remember(context) {
+                                    runCatching {
+                                        context.packageManager.getPackageInfo(context.packageName, 0)
+                                    }.getOrNull()
+                                }
+                                val installedVersion = packageInfo?.versionName ?: "Unknown"
                                 Text(
-                                    "Update Maxine's app directly over home Wi-Fi / Guest VLAN without Google Play.",
+                                    "Installed: v$installedVersion · Direct update over Wi-Fi",
                                     fontSize = 13.sp,
                                     color = Ink.copy(alpha = 0.6f)
                                 )

@@ -18,10 +18,12 @@ android {
 
 dependencies {
     implementation(project(":core-model"))
+    implementation(project(":core-network"))
     implementation(project(":core-design-system"))
     implementation(project(":core-database"))
     implementation(project(":engine-mastery"))
     implementation(libs.core.ktx)
+    implementation(libs.workmanager.runtime)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)

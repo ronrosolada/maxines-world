@@ -61,6 +61,9 @@ interface ProgressEventDao {
 
     @Query("SELECT * FROM progress_events WHERE syncStatus = 'PENDING'")
     suspend fun getPendingSync(): List<ProgressEventEntity>
+
+    @Query("SELECT * FROM progress_events WHERE childId = :childId AND syncStatus = 'PENDING'")
+    suspend fun getPendingSyncByChild(childId: String): List<ProgressEventEntity>
 }
 
 @Dao
@@ -216,6 +219,9 @@ interface RewardLedgerDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
 
+    @Query("SELECT * FROM reward_ledger WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<RewardLedgerEntity>
+
     @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE childId = :childId")
     suspend fun fishTreatBalance(childId: String): Int
 }
@@ -224,6 +230,9 @@ interface RewardLedgerDao {
 interface InventoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(item: InventoryEntity): Long
+
+    @Query("SELECT * FROM inventory WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<InventoryEntity>
 
     @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
     suspend fun owns(childId: String, itemId: String): Boolean
@@ -321,6 +330,12 @@ interface ContentSyncRunDao {
 interface VideoWatchLedgerDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdate(entry: VideoWatchLedgerEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: VideoWatchLedgerEntity): Long
+
+    @Query("SELECT * FROM video_watch_ledger WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<VideoWatchLedgerEntity>
 
     @Query("SELECT * FROM video_watch_ledger WHERE childId = :childId AND mediaId = :mediaId")
     suspend fun getEntry(childId: String, mediaId: String): VideoWatchLedgerEntity?

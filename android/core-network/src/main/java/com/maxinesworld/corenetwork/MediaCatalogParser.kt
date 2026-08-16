@@ -71,8 +71,8 @@ class MediaCatalogParser(
         require(assessment.questionCount == assessment.items.size) {
             "Assessment questionCount does not match items for $mediaId"
         }
-        require(assessment.items.size in 5..10) {
-            "Assessment question count must be between 5 and 10 for $mediaId"
+        require(assessment.items.size in 3..10) {
+            "Assessment question count must be between 3 and 10 for $mediaId"
         }
         require(assessment.passingCorrectCount in 1..assessment.items.size) {
             "Assessment passingCorrectCount is invalid for $mediaId"
