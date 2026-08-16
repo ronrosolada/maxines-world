@@ -82,8 +82,8 @@ class VideoLibraryViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, error = null) }
             runCatching { mediaLibrary.refreshCatalog() }
-                .onSuccess { assets ->
-                    rawAssets = assets
+                .onSuccess { catalog ->
+                    rawAssets = catalog.media
                     reorganizeItems(_state.value.passedMediaIds)
                     _state.update { it.copy(isLoading = false) }
                 }

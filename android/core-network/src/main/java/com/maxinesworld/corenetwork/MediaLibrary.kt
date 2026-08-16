@@ -1,15 +1,13 @@
 package com.maxinesworld.corenetwork
 
 import com.maxinesworld.coremodel.MediaAsset
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
+import com.maxinesworld.coremodel.MediaCatalog
 import java.io.File
+import java.io.IOException
 
 /**
- * Application-facing media facade. The lesson player knows only stable media
- * ids; catalog lookup, network access, verification, and private storage stay
- * behind this class.
+ * High-level coordinator for optional lesson media.
+ * Supports primary LAN (10.10.10.33) and guest VLAN (10.10.20.33) fallback.
  */
 class MediaLibrary(
     private val catalogUrl: String,
@@ -18,46 +16,80 @@ class MediaLibrary(
     private val downloader: MediaDownloader,
     private val storage: MediaStorage,
 ) {
-    private val catalogMutex = Mutex()
-    @Volatile
-    private var catalog: List<MediaAsset>? = null
+    private var cachedCatalog: MediaCatalog? = null
+    private var activeBaseUrl: String = mediaBaseUrl
+
+    suspend fun getCatalog(): MediaCatalog {
+        cachedCatalog?.let { return it }
+
+        val cachedRaw = storage.readCatalog()
+        if (cachedRaw != null) {
+            try {
+                val parsed = catalogClient.parse(cachedRaw)
+                cachedCatalog = parsed
+                return parsed
+            } catch (_: Exception) {
+                // If local cached catalog is invalid or stale, refresh from remote
+            }
+        }
+        return refreshCatalog()
+    }
+
+    suspend fun refreshCatalog(): MediaCatalog {
+        val candidateUrls = listOf(
+            catalogUrl,
+            catalogUrl.replace("10.10.10.33", "10.10.20.33")
+        ).distinct()
+
+        var lastError: Exception? = null
+        for (url in candidateUrls) {
+            try {
+                val raw = catalogClient.fetchRaw(url)
+                val parsed = catalogClient.parse(raw)
+                storage.writeCatalog(raw)
+                cachedCatalog = parsed
+                activeBaseUrl = if (url.contains("10.10.20.33")) "http://10.10.20.33" else "http://10.10.10.33"
+                return parsed
+            } catch (e: Exception) {
+                lastError = e
+            }
+        }
+        throw lastError ?: IOException("Failed to load media catalog from all candidate endpoints.")
+    }
 
     suspend fun download(mediaId: String): File {
-        val asset = asset(mediaId)
-            ?: throw IllegalArgumentException("Media asset not found in catalog: $mediaId")
-        return downloader.download(mediaBaseUrl, asset)
-    }
+        val catalog = getCatalog()
+        val asset = catalog.media.firstOrNull { it.mediaId == mediaId }
+            ?: throw IllegalArgumentException("Unknown mediaId: $mediaId")
 
-    suspend fun asset(mediaId: String): MediaAsset? =
-        loadCatalog().firstOrNull { it.mediaId == mediaId }
+        val candidateBaseUrls = listOf(
+            activeBaseUrl,
+            if (activeBaseUrl.contains("10.10.10.33")) "http://10.10.20.33" else "http://10.10.10.33"
+        ).distinct()
 
-    /** Final files are only created by MediaStorage after integrity checks. */
-    fun localFile(mediaId: String): File? =
-        storage.mediaFile(mediaId).takeIf { it.isFile && it.length() > 0L }
-
-    suspend fun refreshCatalog(): List<MediaAsset> {
-        val loaded = loadCatalogWithFallback()
-        catalog = loaded.media
-        return loaded.media
-    }
-
-    private suspend fun loadCatalog(): List<MediaAsset> {
-        catalog?.let { return it }
-        return catalogMutex.withLock {
-            catalog ?: loadCatalogWithFallback().media.also { catalog = it }
+        var lastError: Exception? = null
+        for (base in candidateBaseUrls) {
+            try {
+                return downloader.download(base, asset)
+            } catch (e: Exception) {
+                lastError = e
+            }
         }
+        throw lastError ?: IOException("Failed to download media $mediaId from all endpoints.")
     }
 
-    private suspend fun loadCatalogWithFallback() = try {
-        val raw = catalogClient.fetchRaw(catalogUrl)
-        val fresh = catalogClient.parse(raw)
-        // A cache write must never make a healthy online catalog unusable.
-        runCatching { storage.writeCatalog(raw) }
-        fresh
-    } catch (error: Exception) {
-        if (error is CancellationException) throw error
-        val cached = storage.readCatalog()
-            ?.let { raw -> runCatching { catalogClient.parse(raw) }.getOrNull() }
-        cached ?: throw error
+    fun isDownloaded(mediaId: String): Boolean {
+        val file = storage.mediaFile(mediaId)
+        return file.isFile && file.length() > 0L
+    }
+
+    fun localFile(mediaId: String): File? {
+        val file = storage.mediaFile(mediaId)
+        return if (file.isFile && file.length() > 0L) file else null
+    }
+
+    fun isComplete(): Boolean {
+        val catalog = cachedCatalog ?: return false
+        return catalog.media.all { isDownloaded(it.mediaId) }
     }
 }
