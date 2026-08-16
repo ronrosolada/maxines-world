@@ -265,17 +265,7 @@ private fun ContentLayout(
             onOpenVideos = onVideosClick,
             modifier = Modifier.fillMaxWidth()
         )
-        SanctuaryPreview(
-            sanctuary = content.sanctuary,
-            questTotal = content.quest.pawPrintTotal,
-            onTreatShopClick = onTreatShopClick,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        WildlifeStickersPreview(
-            wildlifeStickers = content.wildlifeStickers,
-            onOpenCollection = onOpenCollection,
-            modifier = Modifier.fillMaxWidth(),
-        )
+        // 6 Subject Cards front and center for curriculum entry
         SubjectGrid(
             subjects = content.subjects,
             columns = columns,
@@ -283,6 +273,17 @@ private fun ContentLayout(
             firstFocusId = firstAvailableId,
             firstFocusRequester = focusRequester,
             onSubjectClick = onSubjectClick,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        WildlifeStickersPreview(
+            wildlifeStickers = content.wildlifeStickers,
+            onOpenCollection = onOpenCollection,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        SanctuaryPreview(
+            sanctuary = content.sanctuary,
+            questTotal = content.quest.pawPrintTotal,
+            onTreatShopClick = onTreatShopClick,
             modifier = Modifier.fillMaxWidth(),
         )
     }
