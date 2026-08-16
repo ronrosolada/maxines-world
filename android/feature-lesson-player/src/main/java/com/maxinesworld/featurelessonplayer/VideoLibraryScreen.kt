@@ -1,17 +1,47 @@
 package com.maxinesworld.featurelessonplayer
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.PlayCircle
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -90,28 +120,24 @@ private fun VideoLibraryContent(
                 title = { Text(titleText, fontWeight = FontWeight.Bold, color = Ink) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back to home",
-                            tint = Ink,
-                        )
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Ink)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = ScreenCream),
             )
         },
-    ) { padding ->
+    ) { innerPadding ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(innerPadding)
                 .padding(horizontal = 24.dp),
         ) {
             when {
-                state.isLoading -> {
+                state.isLoading && state.allItems.isEmpty() -> {
                     CircularProgressIndicator(
-                        color = VillageTeal,
                         modifier = Modifier.align(Alignment.Center),
+                        color = VillageTeal,
                     )
                 }
 
@@ -176,31 +202,29 @@ private fun VideoLibraryContent(
                                             color = Ink,
                                         )
                                         Text(
-                                            "Watch lessons offline to earn wildlife stickers.",
-                                            color = Ink.copy(alpha = 0.7f),
-                                            style = MaterialTheme.typography.bodyMedium,
+                                            "${state.allItems.size} educational video lessons with quizzes",
+                                            fontSize = 13.sp,
+                                            color = Ink.copy(alpha = 0.6f)
                                         )
                                     }
-                                    val undownloadedCount = state.allItems.count { it.localPath == null }
-                                    if (undownloadedCount > 0) {
+
+                                    val unDownloadedCount = state.allItems.count { it.localPath == null }
+                                    if (unDownloadedCount > 0 && !state.isDownloadingAll) {
                                         Button(
                                             onClick = onDownloadAll,
-                                            enabled = !state.isDownloadingAll,
-                                            colors = ButtonDefaults.buttonColors(
-                                                containerColor = VillageTeal,
-                                                disabledContainerColor = VillageTeal.copy(alpha = 0.5f)
-                                            ),
-                                            shape = RoundedCornerShape(14.dp),
+                                            colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                                            shape = RoundedCornerShape(12.dp)
                                         ) {
                                             Text(
-                                                if (state.isDownloadingAll) "Downloading..." else "Download All ($undownloadedCount)",
+                                                "Download All ($unDownloadedCount)",
+                                                color = Color.White,
                                                 fontWeight = FontWeight.Bold,
-                                                color = Color.White
+                                                fontSize = 13.sp
                                             )
                                         }
-                                    } else {
+                                    } else if (unDownloadedCount == 0 && state.allItems.isNotEmpty()) {
                                         Surface(
-                                            shape = RoundedCornerShape(14.dp),
+                                            shape = RoundedCornerShape(12.dp),
                                             color = VillageTeal.copy(alpha = 0.15f),
                                         ) {
                                             Text(
@@ -283,10 +307,13 @@ private fun VideoLibraryContent(
                                 )
                             }
                             items(state.upcomingItems, key = { it.asset.mediaId }) { item ->
+                                val isWatchedOrPassed = item.isPassed || item.asset.mediaId in state.watchedMediaIds
                                 VideoLibraryItemCard(
                                     item = item,
+                                    displayEpisodeNumber = item.asset.episodeNumber,
                                     isPlaying = item.asset.mediaId == state.playingMediaId,
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
+                                    canTakeAssessment = isWatchedOrPassed,
                                     onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
@@ -312,8 +339,10 @@ private fun VideoLibraryContent(
                             items(state.completedItems, key = { "completed-${it.asset.mediaId}" }) { item ->
                                 VideoLibraryItemCard(
                                     item = item,
+                                    displayEpisodeNumber = item.asset.episodeNumber,
                                     isPlaying = item.asset.mediaId == state.playingMediaId,
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
+                                    canTakeAssessment = true,
                                     onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
@@ -340,81 +369,130 @@ private fun MediaAssessmentQuizCard(
     modifier: Modifier = Modifier,
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         modifier = modifier,
     ) {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Column {
+                Column(Modifier.weight(1f)) {
                     Text("What do you remember?", fontWeight = FontWeight.ExtraBold, fontSize = 18.sp, color = Ink)
-                    Text(mediaTitle, fontSize = 13.sp, color = Ink.copy(alpha = 0.7f))
+                    Text(mediaTitle, fontSize = 12.sp, color = Ink.copy(alpha = 0.6f))
                 }
-                TextButton(onClick = onClose) {
-                    Text("Close", color = KindnessTealText, fontWeight = FontWeight.Bold)
+                IconButton(onClick = onClose) {
+                    Icon(Icons.Default.Close, contentDescription = "Close quiz", tint = Ink)
                 }
             }
 
             if (quiz.finished) {
                 val passed = quiz.correctCount >= assessment.passingCorrectCount
-                Text(
-                    if (passed) "Great job! ⭐" else "Nice try! Keep practicing.",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
-                    color = Ink
-                )
-                Text(
-                    "You got ${quiz.correctCount} of ${assessment.items.size} correct.",
-                    fontSize = 14.sp,
-                    color = Ink
-                )
-                Button(
-                    onClick = onRestart,
-                    colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
-                    shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier.fillMaxWidth()
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Text("Try again", color = Color.White, fontWeight = FontWeight.Bold)
+                    Text(
+                        if (passed) "🎉 Great Job, Maxine!" else "Nice try! Let's watch again.",
+                        fontWeight = FontWeight.Black,
+                        fontSize = 18.sp,
+                        color = Ink,
+                    )
+                    Text(
+                        "You answered ${quiz.correctCount} of ${assessment.items.size} correctly.",
+                        fontSize = 14.sp,
+                        color = Ink.copy(alpha = 0.7f)
+                    )
+                    if (passed) {
+                        Text(
+                            "+5 ⭐ Stars Earned! Lesson Completed!",
+                            fontWeight = FontWeight.ExtraBold,
+                            color = VillageTeal,
+                            fontSize = 15.sp,
+                        )
+                    }
+                    Spacer(Modifier.height(4.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Button(
+                            onClick = onRestart,
+                            colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text("Try Again", color = Color.White, fontWeight = FontWeight.Bold)
+                        }
+                        TextButton(onClick = onClose) {
+                            Text("Done", color = Ink, fontWeight = FontWeight.Bold)
+                        }
+                    }
                 }
             } else {
                 val currentItem = assessment.items.getOrNull(quiz.questionIndex)
                 if (currentItem != null) {
                     Text(
                         "Question ${quiz.questionIndex + 1} of ${assessment.items.size}",
-                        fontSize = 12.sp,
+                        fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
-                        color = VillageTeal
+                        color = VillageTeal,
                     )
                     Text(
                         currentItem.prompt,
-                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Ink
+                        fontSize = 16.sp,
+                        color = Ink,
                     )
-
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         currentItem.options.forEach { option ->
                             val isSelected = quiz.selectedOptionId == option.id
+                            val isChecked = quiz.submitted
+                            val isCorrectOption = option.id in currentItem.correctOptionIds
+                            val isChosenWrong = isChecked && isSelected && !isCorrectOption
+
+                            val containerColor = when {
+                                isChecked && isCorrectOption -> VillageTeal.copy(alpha = 0.15f)
+                                isChosenWrong -> Color(0xFFFFEBEE)
+                                isSelected -> VillageTeal.copy(alpha = 0.12f)
+                                else -> Color(0xFFF7F7F7)
+                            }
+                            val borderColor = when {
+                                isChecked && isCorrectOption -> VillageTeal
+                                isChosenWrong -> Color(0xFFE53935)
+                                isSelected -> VillageTeal
+                                else -> Color.Transparent
+                            }
+
                             Surface(
                                 shape = RoundedCornerShape(12.dp),
-                                color = if (isSelected) VillageTeal.copy(alpha = 0.15f) else ScreenCream,
+                                color = containerColor,
+                                border = BorderStroke(1.5.dp, borderColor),
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .clickable { if (!quiz.submitted) onSelectOption(option.id) }
+                                    .clickable(enabled = !isChecked) { onSelectOption(option.id) },
                             ) {
-                                Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-                                    Text(
-                                        "${option.id.uppercase()}.",
-                                        fontWeight = FontWeight.Bold,
-                                        color = VillageTeal,
-                                        modifier = Modifier.width(28.dp)
-                                    )
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(28.dp)
+                                            .clip(CircleShape)
+                                            .background(if (isSelected) VillageTeal else Color.White),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        Text(
+                                            option.id.uppercase(),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 13.sp,
+                                            color = if (isSelected) Color.White else Ink,
+                                        )
+                                    }
                                     Text(
                                         option.text,
+                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                                         fontSize = 14.sp,
                                         color = Ink,
                                         modifier = Modifier.weight(1f)
@@ -426,16 +504,19 @@ private fun MediaAssessmentQuizCard(
 
                     if (quiz.submitted) {
                         val isCorrect = quiz.selectedOptionId in currentItem.correctOptionIds
-                        Text(
-                            if (isCorrect) "✓ Correct!" else "Not quite right.",
-                            fontWeight = FontWeight.Bold,
-                            color = if (isCorrect) VillageTeal else MaterialTheme.colorScheme.error,
-                        )
-                        Text(
-                            currentItem.explanation,
-                            fontSize = 13.sp,
-                            color = Ink.copy(alpha = 0.8f)
-                        )
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = if (isCorrect) VillageTeal.copy(alpha = 0.12f) else Color(0xFFFFF3E0),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                if (isCorrect) "✨ Correct! Awesome job!" else "💡 Learning Clue: ${currentItem.explanation}",
+                                modifier = Modifier.padding(10.dp),
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Ink
+                            )
+                        }
                         Button(
                             onClick = onNextQuestion,
                             colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
@@ -464,8 +545,10 @@ private fun MediaAssessmentQuizCard(
 @Composable
 private fun VideoLibraryItemCard(
     item: VideoLibraryItemUi,
+    displayEpisodeNumber: Int,
     isPlaying: Boolean,
     isAssessmentOpen: Boolean,
+    canTakeAssessment: Boolean,
     onDownload: () -> Unit,
     onPlay: () -> Unit,
     onOpenAssessment: () -> Unit,
@@ -490,42 +573,58 @@ private fun VideoLibraryItemCard(
                         tint = VillageTeal,
                         modifier = Modifier.size(36.dp),
                     )
-                } else if (item.localPath != null) {
-                    Icon(
-                        Icons.Filled.PlayCircle,
-                        contentDescription = "Ready to play",
-                        tint = KindnessTealText,
-                        modifier = Modifier.size(36.dp),
-                    )
                 } else {
-                    Icon(
-                        Icons.Filled.CloudDownload,
-                        contentDescription = "Available for download",
-                        tint = KindnessTealText,
-                        modifier = Modifier.size(36.dp),
-                    )
-                }
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        item.asset.title,
-                        fontWeight = FontWeight.Bold,
-                        color = Ink,
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-                    Text(
-                        if (item.isPassed) "Completed · 480p · ${formatDuration(item.asset.durationSeconds)}"
-                        else "480p · ${formatDuration(item.asset.durationSeconds)}",
-                        color = if (item.isPassed) VillageTeal else Ink,
-                        style = MaterialTheme.typography.bodySmall,
-                    )
-                    if (item.error != null) {
+                    Box(
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(VillageTeal.copy(alpha = 0.12f)),
+                        contentAlignment = Alignment.Center,
+                    ) {
                         Text(
-                            item.error,
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodySmall,
+                            displayEpisodeNumber.toString(),
+                            fontWeight = FontWeight.ExtraBold,
+                            color = VillageTeal,
+                            fontSize = 14.sp,
                         )
                     }
                 }
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        item.asset.title,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = Ink,
+                        maxLines = 2,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        if (item.isPassed) {
+                            Surface(
+                                shape = RoundedCornerShape(6.dp),
+                                color = VillageTeal.copy(alpha = 0.15f),
+                            ) {
+                                Text(
+                                    "✓ Completed",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = VillageTeal,
+                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                )
+                            }
+                        }
+                        Text(
+                            "${formatDuration(item.asset.durationSeconds)} • Quarter ${item.asset.quarter}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Ink.copy(alpha = 0.65f),
+                        )
+                    }
+                }
+
                 when {
                     item.isDownloading -> {
                         CircularProgressIndicator(
@@ -548,7 +647,7 @@ private fun VideoLibraryItemCard(
                     }
                 }
             }
-            if (item.localPath != null && item.asset.assessment != null) {
+            if (item.localPath != null && item.asset.assessment != null && canTakeAssessment) {
                 Spacer(Modifier.height(8.dp))
                 if (isAssessmentOpen) {
                     TextButton(

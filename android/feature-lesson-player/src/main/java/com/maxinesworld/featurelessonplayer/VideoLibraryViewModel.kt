@@ -5,11 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.corenetwork.MediaLibrary
+import com.maxinesworld.coredatabase.CollectedBadgeDao
+import com.maxinesworld.coredatabase.CollectedBadgeEntity
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
+import com.maxinesworld.featurerewards.BadgeLoader
+import com.maxinesworld.featurerewards.VideoWatchRewardPolicy
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.LocalDate
 import java.util.UUID
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,6 +45,7 @@ data class VideoLibraryUiState(
     val downloadAllProgress: Float = 0f,
     val downloadAllCompletedCount: Int = 0,
     val downloadAllTotalCount: Int = 0,
+    val newlyAwardedStickerName: String? = null,
 ) {
     val allItems: List<VideoLibraryItemUi>
         get() = upcomingItems + completedItems
@@ -51,6 +57,8 @@ class VideoLibraryViewModel @Inject constructor(
     private val mediaLibrary: MediaLibrary,
     private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val rewardDao: RewardDao,
+    private val collectedBadgeDao: CollectedBadgeDao,
+    private val badgeLoader: BadgeLoader,
 ) : ViewModel() {
 
     val childId: String = savedStateHandle["childId"] ?: "default_child"
@@ -104,9 +112,7 @@ class VideoLibraryViewModel @Inject constructor(
             rawAssets.filter { it.subjectId.equals(filterSubj, ignoreCase = true) }
         } else {
             rawAssets
-        }).sortedWith(
-            compareBy<MediaAsset>({ it.gradeLevel }, { it.quarter }, { it.episodeNumber }, { it.title })
-        )
+        }).sortedBy { it.episodeNumber }
 
         val upcoming = mutableListOf<VideoLibraryItemUi>()
         val completed = mutableListOf<VideoLibraryItemUi>()
@@ -264,6 +270,12 @@ class VideoLibraryViewModel @Inject constructor(
                 viewModelScope.launch {
                     val score = advanced.correctCount.toFloat() / assessment.items.size.toFloat()
                     val actualChildId = childId.ifBlank { "default_child" }
+                    
+                    // 1. Get previous total accredited seconds BEFORE recording this video
+                    val prevTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
+                    val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
+
+                    // 2. Insert/update video watch ledger with FULL official video duration
                     videoWatchLedgerDao.insertOrUpdate(
                         VideoWatchLedgerEntity(
                             id = "${actualChildId}_${asset.mediaId}",
@@ -277,6 +289,8 @@ class VideoLibraryViewModel @Inject constructor(
                             lastWatchedAtEpochMillis = System.currentTimeMillis(),
                         )
                     )
+
+                    // 3. Award 5 stars for passing quiz
                     rewardDao.insert(
                         RewardEntity(
                             id = UUID.randomUUID().toString(),
@@ -288,6 +302,33 @@ class VideoLibraryViewModel @Inject constructor(
                             metadata = "video_assessment_passed:${asset.mediaId}",
                         )
                     )
+
+                    // 4. Calculate new total seconds across all subjects and award wildlife sticker if 30-min threshold reached
+                    val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
+                    val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
+
+                    if (newEarnedStickers > prevEarnedStickers) {
+                        val stickersToAward = newEarnedStickers - prevEarnedStickers
+                        val allBadges = badgeLoader.loadAll()
+                        val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
+                        val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
+
+                        for (i in 0 until stickersToAward) {
+                            val badgeToAward = availableBadges.getOrNull(i)
+                            if (badgeToAward != null) {
+                                collectedBadgeDao.insert(
+                                    CollectedBadgeEntity(
+                                        id = "${actualChildId}_${badgeToAward.id}",
+                                        childId = actualChildId,
+                                        badgeId = badgeToAward.id,
+                                        biome = badgeToAward.biome,
+                                        earnedDate = LocalDate.now().toString(),
+                                    )
+                                )
+                                _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                            }
+                        }
+                    }
                 }
                 // Immediately update in-memory state
                 val updatedPassed = _state.value.passedMediaIds + asset.mediaId
