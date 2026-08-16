@@ -6,7 +6,7 @@ Android `versionName`.
 
 ## [Unreleased]
 
-## [0.43.0] - 2026-08-16
+## [0.46.0] - 2026-08-16
 
 ### Quick Bits: TikTok-Style Educational Shorts Feed & Offline Engine
 
@@ -27,7 +27,7 @@ Android `versionName`.
   - Integrated dedicated "Quick Bits" launcher card directly on the child Playroom home feed alongside Video Lessons.
   - Displays dynamic "60 Videos" badge and category summary.
 
-## [0.42.0] - 2026-08-16
+## [0.45.9] - 2026-08-16
 
 ### Gamified & Interactive Milo's Wildlife Sanctuary
 
