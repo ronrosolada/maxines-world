@@ -1,5 +1,7 @@
 package com.maxinesworld.app
 
+import com.maxinesworld.featurelessonplayer.AssessmentArenaRoute
+
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -60,6 +62,7 @@ object Routes {
     const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
+    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
@@ -74,6 +77,9 @@ object Routes {
         "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
     fun lessonPlayer(childId: String, lessonId: String) =
         "lesson_player/${segment(childId)}/${segment(lessonId)}"
+    fun assessmentArena(childId: String, subject: String? = null) =
+        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+
     fun videoLibrary(childId: String, subject: String? = null) =
         "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
@@ -196,6 +202,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onVideosClick = {
                     navController.navigate(Routes.videoLibrary(childId))
                 },
+                onAssessmentsClick = {
+                    navController.navigate(Routes.assessmentArena(childId))
+                },
                 onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
@@ -203,6 +212,22 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.parentGate(childId))
                 },
                 onRetry = homeViewModel::retry,
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+                composable(
+            route = Routes.ASSESSMENT_ARENA,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) {
+            AssessmentArenaRoute(
                 onBack = { navController.popBackStack() },
             )
         }

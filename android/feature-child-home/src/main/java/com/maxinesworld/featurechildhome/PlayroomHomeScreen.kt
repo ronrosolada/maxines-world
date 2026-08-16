@@ -144,6 +144,7 @@ fun PlayroomHomeScreen(
     onCollectionClick: () -> Unit,
     onTreatShopClick: () -> Unit = {},
     onVideosClick: () -> Unit = {},
+    onAssessmentsClick: () -> Unit = {},
     onParentsClick: () -> Unit,
     onOpenCollection: () -> Unit = onCollectionClick,
     onRetry: () -> Unit = {},
@@ -203,6 +204,7 @@ fun PlayroomHomeScreen(
                         onOpenCollection = onOpenCollection,
                         onTreatShopClick = onTreatShopClick,
                         onVideosClick = onVideosClick,
+                        onAssessmentsClick = onAssessmentsClick,
                     )
                 }
             }
@@ -230,6 +232,7 @@ private fun ContentLayout(
     onOpenCollection: () -> Unit,
     onTreatShopClick: () -> Unit,
     onVideosClick: () -> Unit,
+    onAssessmentsClick: () -> Unit = {},
 ) {
     // “Choose a subject” moves focus to the first available card (§11.4)
     val firstAvailableId = content.subjects.firstOrNull { it.isAvailable }?.id
@@ -263,6 +266,11 @@ private fun ContentLayout(
         WatchToEarnQuestCard(
             totalAccreditedSeconds = content.totalAccreditedSeconds,
             onOpenVideos = onVideosClick,
+            modifier = Modifier.fillMaxWidth()
+        )
+        // Grade 3 Assessment Arena Entry Card
+        AssessmentArenaBannerCard(
+            onClick = onAssessmentsClick,
             modifier = Modifier.fillMaxWidth()
         )
         // 6 Subject Cards front and center for curriculum entry
@@ -1794,6 +1802,76 @@ private fun WatchToEarnQuestCard(
                 TextButton(onClick = onOpenVideos) {
                     Text("Browse Videos ▶", color = PlayTeal, fontWeight = FontWeight.ExtraBold, fontSize = 13.sp)
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AssessmentArenaBannerCard(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = PlayroomColors.GoldTop),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        border = BorderStroke(1.5.dp, SunshineGold),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(Color.White.copy(alpha = 0.9f)),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text("🏆", fontSize = 26.sp)
+                }
+                Spacer(Modifier.width(14.dp))
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            "Grade 3 Assessment Arena",
+                            color = DeepNight,
+                            fontWeight = FontWeight.Black,
+                            fontSize = 17.sp,
+                        )
+                        Spacer(Modifier.width(6.dp))
+                        Text("🇵🇭 🇸🇬 🇺🇸", fontSize = 14.sp)
+                    }
+                    Text(
+                        "Test your skills across all 6 subjects & earn +10 Stars!",
+                        color = DeepNight.copy(alpha = 0.7f),
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                    )
+                }
+            }
+
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = VillageTeal,
+                modifier = Modifier.padding(start = 8.dp)
+            ) {
+                Text(
+                    "Enter Arena ▶",
+                    fontWeight = FontWeight.ExtraBold,
+                    color = Color.White,
+                    fontSize = 13.sp,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
             }
         }
     }
