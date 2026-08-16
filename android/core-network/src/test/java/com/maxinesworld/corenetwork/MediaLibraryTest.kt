@@ -68,10 +68,10 @@ class MediaLibraryTest {
             storage = storage,
         )
 
-        assertEquals(1, library.refreshCatalog().size)
+        assertEquals(1, library.refreshCatalog().media.size)
         val cached = library.refreshCatalog()
 
-        assertEquals(listOf("kids-tagalog-07-colors"), cached.map { it.mediaId })
+        assertEquals(listOf("kids-tagalog-07-colors"), cached.media.map { it.mediaId })
         assertEquals("/media/catalog.json", server.takeRequest().path)
         assertEquals("/media/catalog.json", server.takeRequest().path)
     }
@@ -102,7 +102,7 @@ class MediaLibraryTest {
 
         val cached = restartedLibrary.refreshCatalog()
 
-        assertEquals(listOf("kids-tagalog-07-colors"), cached.map { it.mediaId })
+        assertEquals(listOf("kids-tagalog-07-colors"), cached.media.map { it.mediaId })
         assertEquals("/media/catalog.json", server.takeRequest().path)
         assertEquals("/media/catalog.json", server.takeRequest().path)
     }
