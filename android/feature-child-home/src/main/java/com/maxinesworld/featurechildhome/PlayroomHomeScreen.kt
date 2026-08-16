@@ -259,10 +259,12 @@ private fun ContentLayout(
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        // Reading order follows the child's learning loop: today's work first,
-        // then the rewards it earns, then the subject catalogue and optional
-        // videos.
-        TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+        // 30-Min Video Watch-to-Earn Quest Header
+        WatchToEarnQuestCard(
+            totalAccreditedSeconds = content.totalAccreditedSeconds,
+            onOpenVideos = onVideosClick,
+            modifier = Modifier.fillMaxWidth()
+        )
         SanctuaryPreview(
             sanctuary = content.sanctuary,
             questTotal = content.quest.pawPrintTotal,
@@ -274,34 +276,15 @@ private fun ContentLayout(
             onOpenCollection = onOpenCollection,
             modifier = Modifier.fillMaxWidth(),
         )
-        if (railBeside) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                SubjectGrid(
-                    subjects = content.subjects,
-                    columns = columns,
-                    openingSubjectId = content.openingSubjectId,
-                    firstFocusId = firstAvailableId,
-                    firstFocusRequester = focusRequester,
-                    onSubjectClick = onSubjectClick,
-                    modifier = Modifier.weight(0.66f),
-                )
-                VideoLibraryCard(
-                    onClick = onVideosClick,
-                    modifier = Modifier.weight(0.34f),
-                )
-            }
-        } else {
-            SubjectGrid(
-                subjects = content.subjects,
-                columns = columns,
-                openingSubjectId = content.openingSubjectId,
-                firstFocusId = firstAvailableId,
-                firstFocusRequester = focusRequester,
-                onSubjectClick = onSubjectClick,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            VideoLibraryCard(onClick = onVideosClick)
-        }
+        SubjectGrid(
+            subjects = content.subjects,
+            columns = columns,
+            openingSubjectId = content.openingSubjectId,
+            firstFocusId = firstAvailableId,
+            firstFocusRequester = focusRequester,
+            onSubjectClick = onSubjectClick,
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 
@@ -1732,5 +1715,85 @@ private fun FlameGlyph(color: Color) {
         drawCircle(c, radius = size.minDimension * .28f, center = Offset(size.width * .5f, size.height * .68f))
         drawCircle(c, radius = size.minDimension * .22f, center = Offset(size.width * .42f, size.height * .42f))
         drawCircle(c, radius = size.minDimension * .15f, center = Offset(size.width * .58f, size.height * .30f))
+    }
+}
+
+
+@Composable
+private fun WatchToEarnQuestCard(
+    totalAccreditedSeconds: Int,
+    onOpenVideos: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val progress = (totalAccreditedSeconds % 1800).toFloat() / 1800f
+    val currentMins = (totalAccreditedSeconds % 1800) / 60
+    
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Column(Modifier.fillMaxWidth().padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier.size(54.dp).clip(RoundedCornerShape(16.dp)).background(PlayTeal.copy(alpha = 0.12f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("🎁", fontSize = 28.sp)
+                }
+                Spacer(Modifier.width(14.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        "Watch-to-Earn Challenge",
+                        color = PlayInk,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 18.sp,
+                    )
+                    Text(
+                        "1 Wildlife Sticker per 30 mins watched + passed quizzes",
+                        color = PlayMuted,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 13.sp,
+                    )
+                }
+                Surface(
+                    shape = RoundedCornerShape(14.dp),
+                    color = PlayTeal.copy(alpha = 0.12f),
+                    modifier = Modifier.padding(start = 8.dp)
+                ) {
+                    Text(
+                        "$currentMins / 30 Mins",
+                        color = PlayTeal,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 13.sp,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                    )
+                }
+            }
+            Spacer(Modifier.height(14.dp))
+            LinearProgressIndicator(
+                progress = { progress.coerceIn(0f, 1f) },
+                modifier = Modifier.fillMaxWidth().height(10.dp).clip(RoundedCornerShape(5.dp)),
+                color = PlayTeal,
+                trackColor = PlayTeal.copy(alpha = 0.15f),
+            )
+            Spacer(Modifier.height(12.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "Next Reward: 🦌 Tamaraw Habitat Sticker",
+                    color = PlayInk,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.sp,
+                )
+                TextButton(onClick = onOpenVideos) {
+                    Text("Browse Videos ▶", color = PlayTeal, fontWeight = FontWeight.ExtraBold, fontSize = 13.sp)
+                }
+            }
+        }
     }
 }

@@ -59,7 +59,7 @@ object Routes {
     const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
     const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
-    const val VIDEO_LIBRARY = "video_library/{childId}"
+    const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
@@ -74,7 +74,8 @@ object Routes {
         "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
     fun lessonPlayer(childId: String, lessonId: String) =
         "lesson_player/${segment(childId)}/${segment(lessonId)}"
-    fun videoLibrary(childId: String) = "video_library/${segment(childId)}"
+    fun videoLibrary(childId: String, subject: String? = null) =
+        "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
     fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
@@ -146,9 +147,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
             PlayroomHomeScreen(
                 state = homeState,
                 onSubjectClick = { subjectId ->
-                    val subject = subjectForPack(subjectId)
-                    if (subject != null && homeViewModel.onSubjectSelected(subjectId)) {
-                        navController.navigate(Routes.subjectModules(childId, subject))
+                    if (homeViewModel.onSubjectSelected(subjectId)) {
+                        navController.navigate(Routes.videoLibrary(childId, subjectId))
                         homeViewModel.onOpenFinished()
                     }
                 },
@@ -209,24 +209,17 @@ fun MaxinesNavGraph(navController: NavHostController) {
 
         composable(
             route = Routes.VIDEO_LIBRARY,
-            arguments = listOf(navArgument("childId") { type = NavType.StringType }),
-        ) { backStackEntry ->
-            val viewModel: VideoLibraryViewModel = hiltViewModel(backStackEntry)
-            val state by viewModel.state.collectAsStateWithLifecycle()
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            ),
+        ) {
             VideoLibraryScreen(
-                state = state,
                 onBack = { navController.popBackStack() },
-                onRetry = viewModel::refresh,
-                onDownload = viewModel::download,
-                onPlay = viewModel::play,
-                onStopPlaying = viewModel::stopPlaying,
-                onVideoCompleted = viewModel::markVideoWatched,
-                onStartAssessment = viewModel::startAssessment,
-                onSelectAssessmentOption = viewModel::selectAssessmentOption,
-                onSubmitAssessment = viewModel::submitAssessment,
-                onNextAssessment = viewModel::nextAssessment,
-                onRestartAssessment = viewModel::restartAssessment,
-                onCloseAssessment = viewModel::closeAssessment,
             )
         }
 

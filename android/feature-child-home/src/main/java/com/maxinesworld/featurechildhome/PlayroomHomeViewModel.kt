@@ -9,8 +9,8 @@ import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.featurerewards.BadgeAwarder
-import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
@@ -25,13 +25,13 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * Drives the Playroom Collections home from real persisted data.
- *
- * The home exposes subject progress, a forgiving weekly Wildlife Expedition,
- * and collected stickers. GMRC is available from the first session; level
- * progression can later unlock cosmetic spaces without blocking curriculum.
- */
+private data class HomeDataTuple(
+    val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
+    val lessonIds: List<String>,
+    val totalAccreditedSeconds: Int,
+    val godModeEnabled: Boolean,
+)
+
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class PlayroomHomeViewModel @Inject constructor(
@@ -42,6 +42,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
+    private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val dailyQuestManager: DailyQuestManager,
     private val godModeManager: GodModeManager,
 ) : ViewModel() {
@@ -62,32 +63,50 @@ class PlayroomHomeViewModel @Inject constructor(
         stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
+        val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
 
         stateJob = viewModelScope.launch {
             try {
-                combine(profileFlow, lessonIdsFlow, godModeManager.enabled) { profile, ids, godModeEnabled ->
-                    Triple(profile, ids, godModeEnabled)
-                }.collect { (profile, lessonIds, godModeEnabled) ->
-                        val dailyQuest = dailyQuestManager.ensureToday(
-                            childId = childId,
-                            completedLessonIds = lessonIds,
-                        )
-                        val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
-                            if (godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded
-                        }
-                        val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
-                        val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
-                        val sanctuaryRewards = rewardDao.getByChildAndType(
-                            childId,
-                            DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE,
-                        )
-                        val sanctuaryPieces = sanctuaryRewards
-                            .mapNotNull { reward -> SanctuaryCatalog.byId(reward.metadata) }
-                            .distinctBy { piece -> piece.id }
-                        val sanctuaryCount = sanctuaryRewards.sumOf { reward -> reward.amount }.coerceAtLeast(0)
-                        val sanctuary = SanctuaryUi(
-                            earnedPieces = sanctuaryCount,
-                            visiblePieces = sanctuaryPieces.map { piece ->
+                combine(
+                    profileFlow,
+                    lessonIdsFlow,
+                    accreditedSecondsFlow,
+                    godModeManager.enabled
+                ) { profile, ids, seconds, godMode ->
+                    HomeDataTuple(profile, ids, seconds, godMode)
+                }.collect { data ->
+                    val dailyQuest = dailyQuestManager.ensureToday(
+                        childId = childId,
+                        completedLessonIds = data.lessonIds,
+                    )
+                    val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
+                        if (data.godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded
+                    }
+                    val stars = rewardDao.getTotalByType(childId, "STAR") ?: 0
+                    val coins = rewardDao.getTotalByType(childId, "COIN") ?: 0
+                    val sanctuaryRewards = rewardDao.getByChildAndType(
+                        childId,
+                        DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE,
+                    )
+                    val sanctuaryPieces = sanctuaryRewards
+                        .mapNotNull { reward -> SanctuaryCatalog.byId(reward.metadata) }
+                        .distinctBy { piece -> piece.id }
+                    val sanctuaryCount = sanctuaryRewards.sumOf { reward -> reward.amount }.coerceAtLeast(0)
+                    val sanctuary = SanctuaryUi(
+                        earnedPieces = sanctuaryCount,
+                        visiblePieces = sanctuaryPieces.map { piece ->
+                            SanctuaryPieceUi(
+                                id = piece.id,
+                                name = piece.name,
+                                description = piece.description,
+                                iconKey = piece.iconKey,
+                                residentWildlife = piece.residentWildlife,
+                                funFact = piece.funFact,
+                            )
+                        },
+                        nextPiece = SanctuaryCatalog.pieces
+                            .getOrNull(sanctuaryCount)
+                            ?.let { piece ->
                                 SanctuaryPieceUi(
                                     id = piece.id,
                                     name = piece.name,
@@ -97,33 +116,29 @@ class PlayroomHomeViewModel @Inject constructor(
                                     funFact = piece.funFact,
                                 )
                             },
-                            nextPiece = SanctuaryCatalog.pieces
-                                .getOrNull(sanctuaryCount)
-                                ?.let { piece ->
-                                    SanctuaryPieceUi(
-                                        id = piece.id,
-                                        name = piece.name,
-                                        description = piece.description,
-                                        iconKey = piece.iconKey,
-                                        residentWildlife = piece.residentWildlife,
-                                        funFact = piece.funFact,
-                                    )
-                                },
-                            totalPieces = SanctuaryCatalog.pieces.size,
-                        )
-                        val keepsakes = inventoryDao.getOwnedItemIds(childId)
-                            .mapNotNull { id -> TreatShopCatalog.byId(id) }
-                            .map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
-                        val visibleKeepsakes = if (godModeEnabled) {
-                            TreatShopCatalog.items.map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
-                        } else {
-                            keepsakes
-                        }
-                        _state.value = buildContent(
-                            profile?.name, lessonIds, dailyQuest, badges,
-                            stars, coins, visibleKeepsakes, sanctuary, godModeEnabled,
-                        )
+                        totalPieces = SanctuaryCatalog.pieces.size,
+                    )
+                    val keepsakes = inventoryDao.getOwnedItemIds(childId)
+                        .mapNotNull { id -> TreatShopCatalog.byId(id) }
+                        .map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
+                    val visibleKeepsakes = if (data.godModeEnabled) {
+                        TreatShopCatalog.items.map { item -> KeepsakeUi(item.id, item.name, item.iconKey) }
+                    } else {
+                        keepsakes
                     }
+                    _state.value = buildContent(
+                        data.profile?.name,
+                        data.lessonIds,
+                        dailyQuest,
+                        badges,
+                        stars,
+                        coins,
+                        data.totalAccreditedSeconds,
+                        visibleKeepsakes,
+                        sanctuary,
+                        data.godModeEnabled,
+                    )
+                }
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (_: Exception) {
@@ -134,11 +149,6 @@ class PlayroomHomeViewModel @Inject constructor(
         }
     }
 
-    /**
-     * @return true when navigation should proceed. The route must only
-     * navigate on true — the guard here prevents rapid double-taps from
-     * stacking duplicate module screens (audit AC12, 2026-08-06).
-     */
     fun onSubjectSelected(subjectId: String): Boolean {
         if (openingSubjectId != null) return false
         val current = _state.value as? PlayroomHomeUiState.Content ?: return false
@@ -167,15 +177,13 @@ class PlayroomHomeViewModel @Inject constructor(
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
         starBalance: Int,
         coinBalance: Int,
+        totalAccreditedSeconds: Int,
         keepsakes: List<KeepsakeUi>,
         sanctuary: SanctuaryUi,
         godModeEnabled: Boolean,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
-        // Per-subject progress: completed in subject ÷ total in catalog.
-        // Makabansa's collection includes the legacy AP lessons, so its
-        // progress counts both lesson prefixes (audit A1, 2026-08-06).
         val subjects = canonicalSubjects.map { subject ->
             val total = runCatching {
                 catalog.modulesFor(subject.destination).sumOf { it.lessons.size }
@@ -203,8 +211,6 @@ class PlayroomHomeViewModel @Inject constructor(
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
         val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
             ?: targets.firstOrNull()?.lessonId
-        // No available subject → honest "Choose a subject" fallback that moves
-        // focus to the grid instead of a dead Continue (audit AC28, 2026-08-06).
         val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
         val questUi = if (godModeEnabled) {
             QuestUi(
@@ -296,6 +302,7 @@ class PlayroomHomeViewModel @Inject constructor(
             offline = false,
             starBalance = starBalance,
             coinBalance = coinBalance,
+            totalAccreditedSeconds = totalAccreditedSeconds,
             ownedKeepsakes = keepsakes,
             sanctuary = visibleSanctuary,
         )

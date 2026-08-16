@@ -291,3 +291,21 @@ data class ContentSyncRunEntity(
     val completedAtEpochMillis: Long? = null,
     val errorMessage: String? = null
 )
+
+// ─── Video Watch Time & Assessment Ledger ───
+
+@Entity(
+    tableName = "video_watch_ledger",
+    indices = [Index(value = ["childId", "mediaId"], unique = true)]
+)
+data class VideoWatchLedgerEntity(
+    @PrimaryKey val id: String,                    // "{childId}_{mediaId}"
+    val childId: String,
+    val mediaId: String,
+    val subjectId: String,
+    val accreditedSeconds: Int = 0,
+    val quizPassed: Boolean = false,
+    val bestQuizScore: Float = 0.0f,
+    val firstPassedAtEpochMillis: Long? = null,
+    val lastWatchedAtEpochMillis: Long = System.currentTimeMillis()
+)

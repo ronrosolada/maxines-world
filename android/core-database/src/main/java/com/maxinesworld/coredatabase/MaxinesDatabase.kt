@@ -27,9 +27,10 @@ import androidx.room.RoomDatabase
         // v7: adopted from v4 lineage (content packages)
         ContentPackageEntity::class,
         ActiveContentPackageEntity::class,
-        ContentSyncRunEntity::class
+        ContentSyncRunEntity::class,
+        VideoWatchLedgerEntity::class
     ],
-    version = 9,
+    version = 10,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {
@@ -54,4 +55,5 @@ abstract class MaxinesDatabase : RoomDatabase() {
     abstract fun contentPackageDao(): ContentPackageDao
     abstract fun activeContentPackageDao(): ActiveContentPackageDao
     abstract fun contentSyncRunDao(): ContentSyncRunDao
+    abstract fun videoWatchLedgerDao(): VideoWatchLedgerDao
 }

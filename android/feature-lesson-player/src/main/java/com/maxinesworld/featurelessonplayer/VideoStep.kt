@@ -146,7 +146,7 @@ internal fun OfflineVideoPlayer(
     val player = remember(file.absolutePath) {
         ExoPlayer.Builder(context).build().apply {
             setMediaItem(MediaItem.fromUri(file.toUri()))
-            playWhenReady = false
+            playWhenReady = true
             prepare()
         }
     }

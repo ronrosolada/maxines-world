@@ -22,7 +22,7 @@ class MediaCatalogParser(
             throw IllegalArgumentException("Invalid media catalog JSON: ${error.message}", error)
         }
 
-        require(catalog.catalogVersion == SUPPORTED_CATALOG_VERSION) {
+        require(catalog.catalogVersion in SUPPORTED_CATALOG_VERSIONS) {
             "Unsupported media catalog version: ${catalog.catalogVersion}"
         }
 
@@ -111,7 +111,7 @@ class MediaCatalogParser(
     }
 
     private companion object {
-        const val SUPPORTED_CATALOG_VERSION = 1
+        val SUPPORTED_CATALOG_VERSIONS = setOf(1, 2)
         val MEDIA_ID_PATTERN = Regex("^[a-z0-9][a-z0-9-]{2,63}$")
         val SHA256_PATTERN = Regex("^[a-f0-9]{64}$")
     }
