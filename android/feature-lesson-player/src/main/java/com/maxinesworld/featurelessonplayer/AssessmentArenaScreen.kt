@@ -129,143 +129,198 @@ private fun ArenaHubView(
     onStartQuiz: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(horizontal = 24.dp, vertical = 16.dp),
-    ) {
-        // App Bar
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+    BoxWithConstraints(modifier = modifier.fillMaxSize()) {
+        val isCompact = maxWidth < 600.dp
+        val horizontalPad = if (isCompact) 16.dp else 24.dp
+        val verticalPad = if (isCompact) 12.dp else 16.dp
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = horizontalPad, vertical = verticalPad),
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onBack) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = VillageTeal)
-                }
-                Spacer(Modifier.width(8.dp))
-                Column {
-                    Text(
-                        "Assessment Arena 🏆",
-                        fontWeight = FontWeight.Black,
-                        fontSize = 24.sp,
-                        color = DeepNight,
-                    )
-                    Text(
-                        "Grade 3 International Challenge Track",
-                        fontSize = 14.sp,
-                        color = DeepNight.copy(alpha = 0.6f),
-                    )
-                }
-            }
-
-            // Reward Chips
-            Surface(
-                shape = RoundedCornerShape(99.dp),
-                color = SunshineGold.copy(alpha = 0.2f),
-                border = BorderStroke(1.dp, SunshineGold),
-            ) {
-                Row(
-                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
+            // App Bar
+            if (isCompact) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Text("⭐", fontSize = 16.sp)
-                    Spacer(Modifier.width(6.dp))
-                    Text(
-                        "+10 Stars on Pass (≥80%)",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp,
-                        color = DeepNight,
-                    )
-                }
-            }
-        }
-
-        Spacer(Modifier.height(16.dp))
-
-        // 6 Subject Selector Tabs
-        val subjects = listOf(
-            "mathematics" to ("Mathematics 🔢" to "Number Fun"),
-            "science" to ("Science 🔬" to "Discovery"),
-            "english" to ("English 📖" to "Story Time"),
-            "gmrc" to ("GMRC 💖" to "Kindness"),
-            "filipino" to ("Filipino 🇵🇭" to "Kwentuhan"),
-            "makabansa" to ("Makabansa 🗺️" to "Bayan at Kultura"),
-        )
-
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            items(subjects) { (id, labelPair) ->
-                val (title, sub) = labelPair
-                val isSelected = state.selectedSubjectId.equals(id, ignoreCase = true)
-                Surface(
-                    shape = RoundedCornerShape(16.dp),
-                    color = if (isSelected) VillageTeal else White,
-                    border = BorderStroke(if (isSelected) 2.dp else 1.dp, if (isSelected) VillageTeal else VillageTeal.copy(alpha = 0.2f)),
-                    modifier = Modifier
-                        .clickable { onSelectSubject(id) }
-                        .height(58.dp),
-                ) {
-                    Column(
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
-                        verticalArrangement = Arrangement.Center,
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Text(
-                            title,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 14.sp,
-                            color = if (isSelected) White else DeepNight,
-                        )
-                        Text(
-                            sub,
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 11.sp,
-                            color = if (isSelected) White.copy(alpha = 0.8f) else DeepNight.copy(alpha = 0.5f),
-                        )
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = VillageTeal)
+                        }
+                        Spacer(Modifier.width(4.dp))
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                "Assessment Arena 🏆",
+                                fontWeight = FontWeight.Black,
+                                fontSize = 18.sp,
+                                color = DeepNight,
+                            )
+                            Text(
+                                "Grade 3 Challenge Track",
+                                fontSize = 12.sp,
+                                color = DeepNight.copy(alpha = 0.6f),
+                            )
+                        }
+                        Surface(
+                            shape = RoundedCornerShape(99.dp),
+                            color = SunshineGold.copy(alpha = 0.2f),
+                            border = BorderStroke(1.dp, SunshineGold),
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text("⭐", fontSize = 12.sp)
+                                Spacer(Modifier.width(4.dp))
+                                Text(
+                                    "+10 (≥80%)",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = DeepNight,
+                                )
+                            }
+                        }
+                    }
+                }
+            } else {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = VillageTeal)
+                        }
+                        Spacer(Modifier.width(8.dp))
+                        Column {
+                            Text(
+                                "Assessment Arena 🏆",
+                                fontWeight = FontWeight.Black,
+                                fontSize = 24.sp,
+                                color = DeepNight,
+                            )
+                            Text(
+                                "Grade 3 International Challenge Track",
+                                fontSize = 14.sp,
+                                color = DeepNight.copy(alpha = 0.6f),
+                            )
+                        }
+                    }
+
+                    // Reward Chips
+                    Surface(
+                        shape = RoundedCornerShape(99.dp),
+                        color = SunshineGold.copy(alpha = 0.2f),
+                        border = BorderStroke(1.dp, SunshineGold),
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("⭐", fontSize = 16.sp)
+                            Spacer(Modifier.width(6.dp))
+                            Text(
+                                "+10 Stars on Pass (≥80%)",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp,
+                                color = DeepNight,
+                            )
+                        }
                     }
                 }
             }
-        }
 
-        Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(if (isCompact) 10.dp else 16.dp))
 
-        // Normalized filter for subjects
-        val currentSubjNormalized = when (state.selectedSubjectId.lowercase().trim()) {
-            "math", "mathematics", "number_fun" -> "mathematics"
-            "sci", "science", "discovery" -> "science"
-            "eng", "english", "story_time" -> "english"
-            "gmrc", "values", "kindness" -> "gmrc"
-            "fil", "filipino", "tagalog", "kwentuhan" -> "filipino"
-            "makabansa", "araling_panlipunan", "ap", "bayan_at_kultura" -> "makabansa"
-            else -> state.selectedSubjectId.lowercase().trim()
-        }
+            // 6 Subject Selector Tabs
+            val subjects = listOf(
+                "mathematics" to ("Mathematics 🔢" to "Number Fun"),
+                "science" to ("Science 🔬" to "Discovery"),
+                "english" to ("English 📖" to "Story Time"),
+                "gmrc" to ("GMRC 💖" to "Kindness"),
+                "filipino" to ("Filipino 🇵🇭" to "Kwentuhan"),
+                "makabansa" to ("Makabansa 🗺️" to "Bayan at Kultura"),
+            )
 
-        val subjectPacks = state.packs.filter { pack ->
-            pack.subjectId.equals(currentSubjNormalized, ignoreCase = true)
-        }
-
-        if (subjectPacks.isEmpty() && state.isLoading) {
-            Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = VillageTeal)
-            }
-        } else if (subjectPacks.isEmpty()) {
-            Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                Text("Select a subject tab above to view available assessments.", color = DeepNight.copy(alpha = 0.6f))
-            }
-        } else {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(14.dp),
-                modifier = Modifier.fillMaxWidth().weight(1f),
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth(),
             ) {
-                items(subjectPacks, key = { it.id }) { pack ->
-                    CurriculumPackCard(
-                        pack = pack,
-                        isPassed = pack.id in state.passedPackIds,
-                        onStart = { onStartQuiz(pack.id) },
-                    )
+                items(subjects) { (id, labelPair) ->
+                    val (title, sub) = labelPair
+                    val isSelected = state.selectedSubjectId.equals(id, ignoreCase = true)
+                    Surface(
+                        shape = RoundedCornerShape(14.dp),
+                        color = if (isSelected) VillageTeal else White,
+                        border = BorderStroke(if (isSelected) 2.dp else 1.dp, if (isSelected) VillageTeal else VillageTeal.copy(alpha = 0.2f)),
+                        modifier = Modifier
+                            .clickable { onSelectSubject(id) }
+                            .height(if (isCompact) 48.dp else 58.dp),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(horizontal = if (isCompact) 12.dp else 16.dp, vertical = 4.dp),
+                            verticalArrangement = Arrangement.Center,
+                        ) {
+                            Text(
+                                title,
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = if (isCompact) 12.sp else 14.sp,
+                                color = if (isSelected) White else DeepNight,
+                            )
+                            Text(
+                                sub,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = if (isCompact) 10.sp else 11.sp,
+                                color = if (isSelected) White.copy(alpha = 0.8f) else DeepNight.copy(alpha = 0.5f),
+                            )
+                        }
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(if (isCompact) 12.dp else 20.dp))
+
+            // Normalized filter for subjects
+            val currentSubjNormalized = when (state.selectedSubjectId.lowercase().trim()) {
+                "math", "mathematics", "number_fun" -> "mathematics"
+                "sci", "science", "discovery" -> "science"
+                "eng", "english", "story_time" -> "english"
+                "gmrc", "values", "kindness" -> "gmrc"
+                "fil", "filipino", "tagalog", "kwentuhan" -> "filipino"
+                "makabansa", "araling_panlipunan", "ap", "bayan_at_kultura" -> "makabansa"
+                else -> state.selectedSubjectId.lowercase().trim()
+            }
+
+            val subjectPacks = state.packs.filter { pack ->
+                pack.subjectId.equals(currentSubjNormalized, ignoreCase = true)
+            }
+
+            if (subjectPacks.isEmpty() && state.isLoading) {
+                Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = VillageTeal)
+                }
+            } else if (subjectPacks.isEmpty()) {
+                Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
+                    Text("Select a subject tab above to view available assessments.", color = DeepNight.copy(alpha = 0.6f))
+                }
+            } else {
+                LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(if (isCompact) 10.dp else 14.dp),
+                    modifier = Modifier.fillMaxWidth().weight(1f),
+                ) {
+                    items(subjectPacks, key = { it.id }) { pack ->
+                        CurriculumPackCard(
+                            pack = pack,
+                            isPassed = pack.id in state.passedPackIds,
+                            onStart = { onStartQuiz(pack.id) },
+                        )
+                    }
                 }
             }
         }
@@ -279,93 +334,187 @@ private fun CurriculumPackCard(
     onStart: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        border = BorderStroke(1.dp, if (isPassed) SuccessGreen else VillageTeal.copy(alpha = 0.15f)),
-        modifier = modifier.fillMaxWidth(),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(18.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+    BoxWithConstraints(modifier = modifier.fillMaxWidth()) {
+        val isCompact = maxWidth < 600.dp
+
+        Card(
+            shape = RoundedCornerShape(18.dp),
+            colors = CardDefaults.cardColors(containerColor = White),
+            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+            border = BorderStroke(1.dp, if (isPassed) SuccessGreen else VillageTeal.copy(alpha = 0.15f)),
+            modifier = Modifier.fillMaxWidth(),
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.weight(1f),
-            ) {
-                // Flag / Badge Container
-                Box(
+            if (isCompact) {
+                Column(
                     modifier = Modifier
-                        .size(54.dp)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(VillageTeal.copy(alpha = 0.1f)),
-                    contentAlignment = Alignment.Center,
+                        .fillMaxWidth()
+                        .padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
                 ) {
-                    Text(pack.flagEmoji, fontSize = 28.sp)
-                }
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(44.dp)
+                                .clip(RoundedCornerShape(12.dp))
+                                .background(VillageTeal.copy(alpha = 0.1f)),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Text(pack.flagEmoji, fontSize = 22.sp)
+                        }
 
-                Spacer(Modifier.width(14.dp))
+                        Spacer(Modifier.width(10.dp))
 
-                Column {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            pack.curriculumName,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 18.sp,
-                            color = DeepNight,
-                        )
-                        if (isPassed) {
-                            Spacer(Modifier.width(8.dp))
-                            Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = SuccessGreen.copy(alpha = 0.15f),
-                            ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
                                 Text(
-                                    "✓ PASSED",
-                                    fontWeight = FontWeight.Black,
-                                    fontSize = 11.sp,
-                                    color = SuccessGreen,
-                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                    pack.curriculumName,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 15.sp,
+                                    color = DeepNight,
                                 )
+                                if (isPassed) {
+                                    Spacer(Modifier.width(6.dp))
+                                    Surface(
+                                        shape = RoundedCornerShape(6.dp),
+                                        color = SuccessGreen.copy(alpha = 0.15f),
+                                    ) {
+                                        Text(
+                                            "✓ PASSED",
+                                            fontWeight = FontWeight.Black,
+                                            fontSize = 9.sp,
+                                            color = SuccessGreen,
+                                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+                                        )
+                                    }
+                                }
                             }
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                pack.description,
+                                fontSize = 12.sp,
+                                color = DeepNight.copy(alpha = 0.6f),
+                                lineHeight = 15.sp,
+                                maxLines = 2,
+                            )
                         }
                     }
-                    Spacer(Modifier.height(2.dp))
-                    Text(
-                        pack.description,
-                        fontSize = 13.sp,
-                        color = DeepNight.copy(alpha = 0.6f),
-                        lineHeight = 17.sp,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        "10 questions • Passing score 8/10",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 11.sp,
-                        color = VillageTeal,
-                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text(
+                            "10 questions • Passing 8/10",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 11.sp,
+                            color = VillageTeal,
+                        )
+
+                        Button(
+                            onClick = onStart,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isPassed) VillageTeal.copy(alpha = 0.15f) else VillageTeal,
+                                contentColor = if (isPassed) VillageTeal else White,
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                            modifier = Modifier.height(36.dp),
+                        ) {
+                            Text(
+                                if (isPassed) "Retake 🔄" else "Take Quiz ▶",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp,
+                            )
+                        }
+                    }
                 }
-            }
+            } else {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(18.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        // Flag / Badge Container
+                        Box(
+                            modifier = Modifier
+                                .size(54.dp)
+                                .clip(RoundedCornerShape(16.dp))
+                                .background(VillageTeal.copy(alpha = 0.1f)),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Text(pack.flagEmoji, fontSize = 28.sp)
+                        }
 
-            Spacer(Modifier.width(16.dp))
+                        Spacer(Modifier.width(14.dp))
 
-            Button(
-                onClick = onStart,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = if (isPassed) VillageTeal.copy(alpha = 0.15f) else VillageTeal,
-                    contentColor = if (isPassed) VillageTeal else White,
-                ),
-                shape = RoundedCornerShape(14.dp),
-            ) {
-                Text(
-                    if (isPassed) "Retake 🔄" else "Take Quiz ▶",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
-                )
+                        Column {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    pack.curriculumName,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 18.sp,
+                                    color = DeepNight,
+                                )
+                                if (isPassed) {
+                                    Spacer(Modifier.width(8.dp))
+                                    Surface(
+                                        shape = RoundedCornerShape(8.dp),
+                                        color = SuccessGreen.copy(alpha = 0.15f),
+                                    ) {
+                                        Text(
+                                            "✓ PASSED",
+                                            fontWeight = FontWeight.Black,
+                                            fontSize = 11.sp,
+                                            color = SuccessGreen,
+                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                        )
+                                    }
+                                }
+                            }
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                pack.description,
+                                fontSize = 13.sp,
+                                color = DeepNight.copy(alpha = 0.6f),
+                                lineHeight = 17.sp,
+                            )
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                "10 questions • Passing score 8/10",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 11.sp,
+                                color = VillageTeal,
+                            )
+                        }
+                    }
+
+                    Spacer(Modifier.width(16.dp))
+
+                    Button(
+                        onClick = onStart,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (isPassed) VillageTeal.copy(alpha = 0.15f) else VillageTeal,
+                            contentColor = if (isPassed) VillageTeal else White,
+                        ),
+                        shape = RoundedCornerShape(14.dp),
+                    ) {
+                        Text(
+                            if (isPassed) "Retake 🔄" else "Take Quiz ▶",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                        )
+                    }
+                }
             }
         }
     }

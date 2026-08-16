@@ -17,8 +17,8 @@ android {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 56
-        versionName = "0.45.8"
+        versionCode = 57
+        versionName = "0.45.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
