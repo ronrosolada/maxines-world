@@ -6,6 +6,27 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.43.0] - 2026-08-16
+
+### Quick Bits: TikTok-Style Educational Shorts Feed & Offline Engine
+
+- **TikTok-Style Vertical Shorts Pager:**
+  - Full-screen `VerticalPager` with smooth snapping gestures (swipe up for next short, swipe down for previous).
+  - Dedicated `ExoPlayer` instance per page with auto-play, looping, tap-to-pause with animated indicator, and strict memory cleanup on page transition.
+  - High-contrast bottom overlays displaying educational short title, creator handle, runtime badge, and category tag.
+  - Tactile top category filter bar (*All Shorts*, *🐾 Animals*, *🚀 Space*, *🔬 Science*, *🔢 Math*).
+- **Curated 60-Video Educational Catalog (480p H.264+AAC):**
+  - Exactly 60 curated, age-appropriate (8–10 years old) educational shorts from trusted channels (Nat Geo Kids, SciShow Kids, NASA Space Place, TED-Ed, BBC Earth Kids, Numberblocks).
+  - Balanced distribution across 4 core domains: 15 Animals, 15 Space, 15 Science, 15 Math (~598 MB total).
+  - Hosted and streamed locally from the Caddy content server (`10.10.10.33` / `10.10.20.33`).
+- **Resilient 1-Tap Offline Download Engine:**
+  - Bulk "Download All" engine with throttled concurrent downloading (`MediaDownloader`), atomic file transfers, and resumable state.
+  - Interactive Offline Storage Manager modal showing live downloaded bytes, total MB count, and single-tap cache clearing.
+  - Seamless automatic fallback: plays directly from local storage if downloaded, streams from local Caddy server if connected.
+- **Playroom Home Launcher Card:**
+  - Integrated dedicated "Quick Bits" launcher card directly on the child Playroom home feed alongside Video Lessons.
+  - Displays dynamic "60 Videos" badge and category summary.
+
 ## [0.42.0] - 2026-08-16
 
 ### Gamified & Interactive Milo's Wildlife Sanctuary

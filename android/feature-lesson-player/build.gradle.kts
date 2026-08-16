@@ -35,6 +35,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+    implementation(libs.okhttp)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)

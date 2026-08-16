@@ -145,6 +145,7 @@ fun PlayroomHomeScreen(
     onTreatShopClick: () -> Unit = {},
     onVideosClick: () -> Unit = {},
     onAssessmentsClick: () -> Unit = {},
+    onQuickBitsClick: () -> Unit = onVideosClick,
     onParentsClick: () -> Unit,
     onOpenCollection: () -> Unit = onCollectionClick,
     onRetry: () -> Unit = {},
@@ -205,6 +206,7 @@ fun PlayroomHomeScreen(
                         onTreatShopClick = onTreatShopClick,
                         onVideosClick = onVideosClick,
                         onAssessmentsClick = onAssessmentsClick,
+                        onQuickBitsClick = onQuickBitsClick,
                     )
                 }
             }
@@ -233,6 +235,7 @@ private fun ContentLayout(
     onTreatShopClick: () -> Unit,
     onVideosClick: () -> Unit,
     onAssessmentsClick: () -> Unit = {},
+    onQuickBitsClick: () -> Unit,
 ) {
     // “Choose a subject” moves focus to the first available card (§11.4)
     val firstAvailableId = content.subjects.firstOrNull { it.isAvailable }?.id
@@ -263,6 +266,7 @@ private fun ContentLayout(
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         // 30-Min Video Watch-to-Earn Quest Header
+        TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
         WatchToEarnQuestCard(
             totalAccreditedSeconds = content.totalAccreditedSeconds,
             onOpenVideos = onVideosClick,
@@ -273,6 +277,20 @@ private fun ContentLayout(
             onClick = onAssessmentsClick,
             modifier = Modifier.fillMaxWidth()
         )
+        // Quick Bits Card & Video Library Card
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            QuickBitsHomeCard(
+                onClick = onQuickBitsClick,
+                modifier = Modifier.weight(1f),
+            )
+            VideoLibraryCard(
+                onClick = onVideosClick,
+                modifier = Modifier.weight(1f),
+            )
+        }
         // 6 Subject Cards front and center for curriculum entry
         SubjectGrid(
             subjects = content.subjects,
@@ -294,6 +312,86 @@ private fun ContentLayout(
             onTreatShopClick = onTreatShopClick,
             modifier = Modifier.fillMaxWidth(),
         )
+    }
+}
+
+@Composable
+private fun QuickBitsHomeCard(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        modifier = Modifier
+            .then(modifier)
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .semantics {
+                contentDescription = "Quick Bits video explorer. Watch 60 fun bite-sized science, space, animals, and math videos offline."
+                role = Role.Button
+            },
+        shape = RoundedCornerShape(18.dp),
+        color = PlayCream,
+        contentColor = PlayInk,
+        border = BorderStroke(1.5.dp, PlayTeal.copy(alpha = 0.5f)),
+        shadowElevation = 2.dp,
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Surface(
+                shape = CircleShape,
+                color = PlayTeal.copy(alpha = 0.15f),
+                modifier = Modifier.size(42.dp),
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        imageVector = Icons.Default.PlayCircle,
+                        contentDescription = null,
+                        tint = PlayTeal,
+                        modifier = Modifier.size(26.dp),
+                    )
+                }
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "Quick Bits",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 18.sp,
+                    )
+                    Spacer(Modifier.width(6.dp))
+                    Surface(
+                        shape = RoundedCornerShape(6.dp),
+                        color = PlaySunshine.copy(alpha = 0.25f),
+                        modifier = Modifier.padding(2.dp),
+                    ) {
+                        Text(
+                            "60 Videos",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = PlayInkDark,
+                            modifier = Modifier.padding(horizontal = 5.dp, vertical = 1.dp),
+                        )
+                    }
+                }
+                Text(
+                    "Animals, Space, Science & Math shorts",
+                    color = PlayMuted,
+                    fontSize = 13.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            Text(
+                stringResource(R.string.home_open),
+                color = PlayTeal,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 15.sp,
+            )
+        }
+>>>>>>> 2cb9f473 (feat(quickbits): v0.43.0 — TikTok-style educational shorts feed with 60 videos and offline bulk download engine)
     }
 }
 
