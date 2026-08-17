@@ -3,6 +3,7 @@ package com.maxinesworld.featurechildhome
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,15 +23,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Park
-import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.Bedtime
+import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,8 +43,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -47,18 +52,15 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.coerceIn
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import com.maxinesworld.featurerewards.SanctuaryCatalog
+import java.util.Calendar
 
 /**
  * Scene placement for Milo's Wildlife Sanctuary (design.md §2).
- *
- * The sanctuary is a fixed 3-row meadow scene on the home card. Earned pieces
- * occupy their own slot; the next piece previews in a shaded outline slot.
- * Positions are fractions of the scene width/height so the layout can scale
- * across phones and tablets.
  */
 data class SanctuarySlot(
     val pieceId: String,
@@ -84,7 +86,6 @@ internal fun sanctuarySceneSlots(): List<SanctuarySlot> = listOf(
     SanctuarySlot("sanctuary-wildlife-sign", 0.90f, 0.30f, 0.20f, SanctuarySceneColors.sign),
 )
 
-/** The single "next piece" preview slot, shown only when not all pieces are earned. */
 internal fun nextSanctuarySlot(): SanctuarySlot = SanctuarySlot(
     pieceId = "sanctuary-next",
     xFraction = 0.64f,
@@ -93,11 +94,9 @@ internal fun nextSanctuarySlot(): SanctuarySlot = SanctuarySlot(
     tint = SanctuarySceneColors.next,
 )
 
-/** Slot for a piece that has not been earned yet (not the preview slot). */
 internal fun earnedSlotIds(visiblePieces: List<SanctuaryPieceUi>): Set<String> =
     visiblePieces.mapTo(mutableSetOf()) { it.id }
 
-/** The 12 canonical piece ids in scene order (first earned → first in scene). */
 internal val sanctuaryPieceOrder: List<String> = listOf(
     "sanctuary-meadow",
     "sanctuary-pond",
@@ -129,7 +128,6 @@ internal object SanctuarySceneColors {
     val next = Color(0xFF9FB8AD)
 }
 
-/** Milo's spot in the scene — drawn on top of the meadow, front-left. */
 internal val miloSanctuarySlot = SanctuarySlot(
     pieceId = "milo",
     xFraction = 0.17f,
@@ -139,27 +137,33 @@ internal val miloSanctuarySlot = SanctuarySlot(
 )
 
 /**
- * A living scene for Milo's Wildlife Sanctuary (design.md §2).
- *
- * The daily quest promise — "grow Milo's sanctuary" — finally becomes
- * something the child can see: each earned piece is placed in the meadow,
- * the next piece previews in an outline slot, and Milo stands guard.
+ * Living Sanctuary Scene with 24-hour Dynamic Ambient shift, Visiting Philippine Wildlife,
+ * tap-to-feed mechanics, and audio storytelling inspections.
  */
 @Composable
 fun SanctuaryScene(
     sanctuary: SanctuaryUi,
     onPieceClick: (SanctuaryPieceUi) -> Unit = {},
+    onVisitorClick: (SanctuaryVisitorUi) -> Unit = {},
     onMiloClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     val earnedIds = earnedSlotIds(sanctuary.visiblePieces)
     val visiblePieceMap = sanctuary.visiblePieces.associateBy { it.id }
     val allSlots = sanctuarySceneSlots()
     val nextSlot = nextSanctuarySlot()
     val showNext = sanctuary.nextPiece != null && earnedIds.size < sanctuary.totalPieces
     val reduceMotion = LocalAnimationsDisabled.current
+
+    // Day/Night State (auto-defaults based on tablet hour 7pm-6am or manual toggle)
+    val currentHour = remember { Calendar.getInstance().get(Calendar.HOUR_OF_DAY) }
+    var isNightMode by remember { mutableStateOf(currentHour >= 19 || currentHour < 6) }
+
     var miloBounced by remember { mutableStateOf(false) }
     var miloSpeechBubble by remember { mutableStateOf<String?>(null) }
+    var fedVisitorId by remember { mutableStateOf<String?>(null) }
+    var selectedTreat by remember { mutableStateOf<String?>("Sweet Fig") }
 
     val miloScale by animateFloatAsState(
         targetValue = if (miloBounced) 1.25f else 1.0f,
@@ -178,27 +182,30 @@ fun SanctuaryScene(
 
     val sceneDescription = buildString {
         append("Milo's Wildlife Sanctuary. ")
+        append(if (isNightMode) "Nighttime mode. " else "Daytime mode. ")
         if (earnedIds.isNotEmpty()) {
             append("Placed: ")
             append(sanctuary.visiblePieces.joinToString { it.name })
             append(". ")
         }
-        if (showNext && sanctuary.nextPiece != null) {
-            append("Next piece: ${sanctuary.nextPiece.name}.")
+        if (sanctuary.visitors.isNotEmpty()) {
+            append("Visiting wildlife: ")
+            append(sanctuary.visitors.joinToString { it.name })
+            append(". ")
         }
     }
 
     BoxWithConstraints(
         modifier = modifier
             .fillMaxWidth()
-            .height(160.dp)
-            .clip(androidx.compose.foundation.shape.RoundedCornerShape(18.dp))
+            .height(240.dp)
+            .clip(RoundedCornerShape(20.dp))
             .semantics { contentDescription = sceneDescription },
     ) {
         val sceneWidth = maxWidth
         val sceneHeight = maxHeight
 
-        // High-Fidelity Storybook Sanctuary Backdrop
+        // Backdrop Base
         Image(
             painter = painterResource(R.drawable.sanctuary_backdrop),
             contentDescription = null,
@@ -206,8 +213,68 @@ fun SanctuaryScene(
             modifier = Modifier.fillMaxSize(),
         )
 
+        // Dynamic Night Mode Overlay
+        if (isNightMode) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.verticalGradient(
+                            listOf(
+                                Color(0xDD0F172A),
+                                Color(0xBB1E293B),
+                                Color(0x99064E3B),
+                            )
+                        )
+                    )
+            )
+
+            // Night Moon Orb
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .offset(x = sceneWidth - 54.dp, y = 14.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFFEF08A))
+            )
+        }
+
+        // Mode Toggle Button (☀️ / 🌙)
+        Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = if (isNightMode) Color(0xFF1E1B4B) else Color.White.copy(alpha = 0.92f),
+            border = BorderStroke(1.dp, if (isNightMode) Color(0xFF6366F1) else Color(0xFFCBD5E1)),
+            modifier = Modifier
+                .offset(x = 12.dp, y = 12.dp)
+                .clickable { isNightMode = !isNightMode }
+                .semantics {
+                    role = Role.Button
+                    contentDescription = if (isNightMode) "Switch to Day mode" else "Switch to Night mode"
+                }
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Icon(
+                    imageVector = if (isNightMode) Icons.Default.Bedtime else Icons.Default.WbSunny,
+                    contentDescription = null,
+                    tint = if (isNightMode) Color(0xFFFDE047) else Color(0xFFEA580C),
+                    modifier = Modifier.size(16.dp)
+                )
+                Text(
+                    text = if (isNightMode) "Cozy Night" else "Sunny Day",
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isNightMode) Color(0xFFE0E7FF) else Color(0xFF0F172A)
+                )
+            }
+        }
+
         fun slotSize(slot: SanctuarySlot) = sceneHeight * slot.sizeFraction
 
+        // Render Habitat Slots
         allSlots.forEach { slot ->
             val earned = slot.pieceId in earnedIds
             val pieceUi = visiblePieceMap[slot.pieceId] ?: SanctuaryCatalog.byId(slot.pieceId)?.let {
@@ -234,7 +301,7 @@ fun SanctuaryScene(
                     .then(clickableModifier)
                     .semantics {
                         if (earned && pieceUi != null) {
-                            role = androidx.compose.ui.semantics.Role.Button
+                            role = Role.Button
                             contentDescription = "${pieceUi.name} in sanctuary. Tap to inspect."
                         }
                     },
@@ -255,40 +322,67 @@ fun SanctuaryScene(
             }
         }
 
-        if (showNext && sanctuary.nextPiece != null) {
-            Box(
-                Modifier
-                    .size(slotSize(nextSlot))
-                    .offset(
-                        x = (sceneWidth * nextSlot.xFraction - slotSize(nextSlot) / 2)
-                            .coerceIn(0.dp, sceneWidth),
-                        y = (sceneHeight * nextSlot.yFraction - slotSize(nextSlot) / 2)
-                            .coerceIn(0.dp, sceneHeight),
-                    )
-                    .clip(CircleShape)
-                    .background(Color.White.copy(alpha = 0.6f))
-                    .border(2.dp, Color(0xFF8FAF9F), CircleShape)
-                    .clickable { onPieceClick(sanctuary.nextPiece) }
-                    .semantics {
-                        role = androidx.compose.ui.semantics.Role.Button
-                        contentDescription = "Next place: ${sanctuary.nextPiece.name}. Tap to preview."
-                    },
-                contentAlignment = Alignment.Center,
-            ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        // Visiting Wildlife Layer
+        sanctuary.visitors.forEach { visitor ->
+            val slot = allSlots.firstOrNull { it.pieceId == visitor.slotId }
+            if (slot != null) {
+                val isAwake = if (isNightMode) visitor.isNocturnal else !visitor.isNocturnal
+                val drawableId = context.resources.getIdentifier(visitor.drawableResName, "drawable", context.packageName)
+                val effectiveDrawable = if (drawableId != 0) drawableId else R.drawable.character_milo
+                val isFed = fedVisitorId == visitor.id
+
+                val visitorX = (sceneWidth * slot.xFraction - 24.dp).coerceIn(0.dp, sceneWidth - 56.dp)
+                val visitorY = (sceneHeight * slot.yFraction - 36.dp).coerceIn(0.dp, sceneHeight - 64.dp)
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .offset(x = visitorX, y = visitorY)
+                        .clickable {
+                            if (selectedTreat != null) {
+                                fedVisitorId = visitor.id
+                            }
+                            onVisitorClick(visitor)
+                        }
+                        .semantics {
+                            role = Role.Button
+                            contentDescription = "${visitor.name}. ${if (isAwake) "Active" else "Resting"}. Tap to feed or inspect."
+                        }
+                ) {
+                    if (isFed) {
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color(0xFFEF4444),
+                            modifier = Modifier.padding(bottom = 2.dp)
+                        ) {
+                            Text("❤️ Fed!", color = Color.White, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp))
+                        }
+                    } else if (!isAwake) {
+                        Text("Zzz...", color = Color(0xFF93C5FD), fontSize = 11.sp, fontWeight = FontWeight.Black)
+                    } else {
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color.White.copy(alpha = 0.9f),
+                            border = BorderStroke(1.dp, Color(0xFFCBD5E1)),
+                            modifier = Modifier.padding(bottom = 2.dp)
+                        ) {
+                            Text(visitor.localName, color = Color(0xFF0F172A), fontSize = 9.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp))
+                        }
+                    }
+
                     Image(
-                        painter = painterResource(sanctuaryPieceDrawable(sanctuary.nextPiece.iconKey)),
-                        contentDescription = null,
+                        painter = painterResource(effectiveDrawable),
+                        contentDescription = visitor.name,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(4.dp),
+                            .size(52.dp)
+                            .clip(RoundedCornerShape(12.dp))
                     )
                 }
             }
         }
 
-        // Milo, drawn last so he stands in front of the meadow.
+        // Milo Mascot Guard
         Box(
             Modifier
                 .size(slotSize(miloSanctuarySlot))
@@ -307,7 +401,7 @@ fun SanctuaryScene(
                     onMiloClick()
                 }
                 .semantics {
-                    role = androidx.compose.ui.semantics.Role.Button
+                    role = Role.Button
                     contentDescription = "Milo, the sanctuary cat. Tap for an encouraging word."
                 },
             contentAlignment = Alignment.Center,
@@ -322,7 +416,7 @@ fun SanctuaryScene(
             )
         }
 
-        // Milo Speech Bubble Overlay when tapped
+        // Milo Speech Bubble Overlay
         miloSpeechBubble?.let { quote ->
             LaunchedEffect(quote) {
                 kotlinx.coroutines.delay(300)
@@ -330,13 +424,13 @@ fun SanctuaryScene(
                 kotlinx.coroutines.delay(2700)
                 miloSpeechBubble = null
             }
-            androidx.compose.material3.Surface(
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+            Surface(
+                shape = RoundedCornerShape(12.dp),
                 color = Color.White.copy(alpha = 0.95f),
-                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF087F83)),
+                border = BorderStroke(1.dp, Color(0xFF087F83)),
                 modifier = Modifier
-                    .offset(x = 12.dp, y = 8.dp)
-                    .widthIn(max = 240.dp)
+                    .offset(x = 12.dp, y = 50.dp)
+                    .widthIn(max = 220.dp)
                     .padding(4.dp)
             ) {
                 Text(
@@ -346,6 +440,41 @@ fun SanctuaryScene(
                     color = Color(0xFF183B4A),
                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp)
                 )
+            }
+        }
+
+        // Bottom Tap-to-Feed Toolbar
+        Surface(
+            shape = RoundedCornerShape(20.dp),
+            color = Color.White.copy(alpha = 0.94f),
+            border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 8.dp)
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text("🧺 Treats:", fontSize = 11.sp, fontWeight = FontWeight.ExtraBold, color = Color(0xFF475569))
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (selectedTreat == "Sweet Fig") Color(0xFFFEF3C7) else Color(0xFFF1F5F9),
+                    border = BorderStroke(1.dp, if (selectedTreat == "Sweet Fig") Color(0xFFF59E0B) else Color.Transparent),
+                    modifier = Modifier.clickable { selectedTreat = "Sweet Fig" }
+                ) {
+                    Text("🍓 Fig", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Color(0xFF92400E), modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp))
+                }
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (selectedTreat == "Jungle Leaf") Color(0xFFDCFCE7) else Color(0xFFF1F5F9),
+                    border = BorderStroke(1.dp, if (selectedTreat == "Jungle Leaf") Color(0xFF10B981) else Color.Transparent),
+                    modifier = Modifier.clickable { selectedTreat = "Jungle Leaf" }
+                ) {
+                    Text("🌿 Leaf", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Color(0xFF065F46), modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp))
+                }
+                Text("Tap animal to feed ✨", fontSize = 10.sp, fontWeight = FontWeight.Bold, color = Color(0xFF059669))
             }
         }
     }

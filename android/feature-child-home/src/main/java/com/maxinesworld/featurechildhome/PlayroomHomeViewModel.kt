@@ -92,6 +92,10 @@ class PlayroomHomeViewModel @Inject constructor(
                         .mapNotNull { reward -> SanctuaryCatalog.byId(reward.metadata) }
                         .distinctBy { piece -> piece.id }
                     val sanctuaryCount = sanctuaryRewards.sumOf { reward -> reward.amount }.coerceAtLeast(0)
+                    val earnedPieceIds = sanctuaryPieces.map { it.id }.toSet()
+                    val visitors = SanctuaryVisitorCatalog.getVisitorsForUnlockedPieces(
+                        if (data.godModeEnabled) SanctuaryCatalog.pieces.map { it.id }.toSet() else earnedPieceIds
+                    )
                     val sanctuary = SanctuaryUi(
                         earnedPieces = sanctuaryCount,
                         visiblePieces = sanctuaryPieces.map { piece ->
@@ -117,6 +121,7 @@ class PlayroomHomeViewModel @Inject constructor(
                                 )
                             },
                         totalPieces = SanctuaryCatalog.pieces.size,
+                        visitors = visitors,
                     )
                     val keepsakes = inventoryDao.getOwnedItemIds(childId)
                         .mapNotNull { id -> TreatShopCatalog.byId(id) }

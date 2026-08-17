@@ -1078,6 +1078,7 @@ private fun SanctuaryPreview(
     modifier: Modifier = Modifier,
 ) {
     var selectedPieceForInspect by remember { mutableStateOf<SanctuaryPieceUi?>(null) }
+    var selectedVisitorForInspect by remember { mutableStateOf<SanctuaryVisitorUi?>(null) }
     var miloTapCount by remember { mutableIntStateOf(0) }
     val progress = if (sanctuary.totalPieces > 0) {
         (sanctuary.earnedPieces.toFloat() / sanctuary.totalPieces).coerceIn(0f, 1f)
@@ -1139,6 +1140,7 @@ private fun SanctuaryPreview(
             SanctuaryScene(
                 sanctuary = sanctuary,
                 onPieceClick = { piece -> selectedPieceForInspect = piece },
+                onVisitorClick = { visitor -> selectedVisitorForInspect = visitor },
                 onMiloClick = { miloTapCount++ },
             )
             Spacer(Modifier.height(10.dp))
@@ -1283,6 +1285,13 @@ private fun SanctuaryPreview(
             piece = piece,
             isEarned = isEarned,
             onDismiss = { selectedPieceForInspect = null },
+        )
+    }
+
+    selectedVisitorForInspect?.let { visitor ->
+        SanctuaryVisitorInspectionDialog(
+            visitor = visitor,
+            onDismiss = { selectedVisitorForInspect = null },
         )
     }
 }
@@ -1501,6 +1510,126 @@ private fun SanctuaryPieceInspectionDialog(
                 shape = RoundedCornerShape(12.dp),
             ) {
                 Text("Close", fontWeight = FontWeight.Bold)
+            }
+        },
+        containerColor = PlayCream,
+        shape = RoundedCornerShape(20.dp),
+    )
+}
+
+@Composable
+private fun SanctuaryVisitorInspectionDialog(
+    visitor: SanctuaryVisitorUi,
+    onDismiss: () -> Unit,
+) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val drawableId = context.resources.getIdentifier(visitor.drawableResName, "drawable", context.packageName)
+    val effectiveDrawable = if (drawableId != 0) drawableId else R.drawable.character_milo
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(54.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.White)
+                        .border(1.5.dp, PlayTeal.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(effectiveDrawable),
+                        contentDescription = null,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier.fillMaxSize().padding(4.dp)
+                    )
+                }
+                Column {
+                    Text(
+                        visitor.name,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = PlayInk,
+                    )
+                    Text(
+                        "${visitor.localName} • ${visitor.nativeRegion}",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = PlayTeal,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+            }
+        },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(14.dp),
+                    color = PlayroomColors.SanctuarySurface,
+                    border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.25f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            "Maxine's Wildlife Field Fact",
+                            style = MaterialTheme.typography.labelLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = PlayTeal
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            visitor.funFact,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = PlayInk,
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Surface(
+                        modifier = Modifier.weight(1f),
+                        shape = RoundedCornerShape(10.dp),
+                        color = Color.White,
+                        border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.2f))
+                    ) {
+                        Column(Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text("FAVORITE TREAT", fontSize = 9.sp, fontWeight = FontWeight.Bold, color = PlayMuted)
+                            Text(visitor.favoriteTreat, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold, color = PlayInk)
+                        }
+                    }
+                    Surface(
+                        modifier = Modifier.weight(1f),
+                        shape = RoundedCornerShape(10.dp),
+                        color = Color.White,
+                        border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.2f))
+                    ) {
+                        Column(Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text("ACTIVITY CYCLE", fontSize = 9.sp, fontWeight = FontWeight.Bold, color = PlayMuted)
+                            Text(if (visitor.isNocturnal) "🌙 Nocturnal" else "☀️ Diurnal", fontSize = 12.sp, fontWeight = FontWeight.ExtraBold, color = PlayTeal)
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = onDismiss,
+                colors = ButtonDefaults.buttonColors(containerColor = PlayTeal),
+                shape = RoundedCornerShape(12.dp),
+            ) {
+                Text("Awesome!", fontWeight = FontWeight.Bold)
             }
         },
         containerColor = PlayCream,

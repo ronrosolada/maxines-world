@@ -101,11 +101,25 @@ data class SanctuaryPieceUi(
 )
 
 @androidx.compose.runtime.Immutable
+data class SanctuaryVisitorUi(
+    val id: String,
+    val name: String,
+    val localName: String,
+    val slotId: String,
+    val drawableResName: String,
+    val isNocturnal: Boolean = false,
+    val favoriteTreat: String = "Berry",
+    val nativeRegion: String = "Philippines",
+    val funFact: String = "",
+)
+
+@androidx.compose.runtime.Immutable
 data class SanctuaryUi(
     val earnedPieces: Int = 0,
     val visiblePieces: List<SanctuaryPieceUi> = emptyList(),
     val nextPiece: SanctuaryPieceUi? = null,
     val totalPieces: Int = 12,
+    val visitors: List<SanctuaryVisitorUi> = emptyList(),
 )
 
 @androidx.compose.runtime.Immutable
