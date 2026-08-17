@@ -15,7 +15,6 @@ import com.maxinesworld.featurerewards.BadgeLoader
 import com.maxinesworld.featurerewards.VideoWatchRewardPolicy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDate
-import java.util.UUID
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -112,23 +111,21 @@ class VideoLibraryViewModel @Inject constructor(
             rawAssets.filter { it.subjectId.equals(filterSubj, ignoreCase = true) }
         } else {
             rawAssets
-        }).sortedBy { it.episodeNumber }
-
-        val upcoming = mutableListOf<VideoLibraryItemUi>()
-        val completed = mutableListOf<VideoLibraryItemUi>()
-
-        filtered.forEach { asset ->
-            val isPassed = asset.mediaId in passedSet
-            val item = VideoLibraryItemUi(
+        })
+        val (upcomingAssets, completedAssets) = partitionMediaAssetsForLibrary(filtered, passedSet)
+        val upcoming = upcomingAssets.map { asset ->
+            VideoLibraryItemUi(
                 asset = asset,
                 localPath = mediaLibrary.localFile(asset.mediaId)?.absolutePath,
-                isPassed = isPassed,
+                isPassed = false,
             )
-            if (isPassed) {
-                completed.add(item)
-            } else {
-                upcoming.add(item)
-            }
+        }
+        val completed = completedAssets.map { asset ->
+            VideoLibraryItemUi(
+                asset = asset,
+                localPath = mediaLibrary.localFile(asset.mediaId)?.absolutePath,
+                isPassed = true,
+            )
         }
 
         _state.update {
@@ -290,18 +287,20 @@ class VideoLibraryViewModel @Inject constructor(
                         )
                     )
 
-                    // 3. Award 5 stars for passing quiz
-                    rewardDao.insert(
-                        RewardEntity(
-                            id = UUID.randomUUID().toString(),
-                            childId = actualChildId,
-                            type = "STARS",
-                            subject = asset.subjectId,
-                            amount = 5,
-                            earnedAt = System.currentTimeMillis(),
-                            metadata = "video_assessment_passed:${asset.mediaId}",
+                    // 3. Award 5 stars only once for this child/video. The
+                    // deterministic id and IGNORE conflict policy also close
+                    // the check-then-insert race when a result is submitted twice.
+                    val rewardMetadata = "video_assessment_passed:${asset.mediaId}"
+                    insertRewardIfAbsent(rewardDao, RewardEntity(
+                                id = "$actualChildId:video_assessment:stars:${asset.mediaId}",
+                                childId = actualChildId,
+                                type = "STARS",
+                                subject = asset.subjectId,
+                                amount = 5,
+                                earnedAt = System.currentTimeMillis(),
+                                metadata = rewardMetadata,
+                            )
                         )
-                    )
 
                     // 4. Calculate new total seconds across all subjects and award wildlife sticker if 30-min threshold reached
                     val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)

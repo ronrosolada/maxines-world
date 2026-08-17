@@ -136,6 +136,9 @@ interface RewardDao {
     @Query("SELECT * FROM rewards WHERE childId = :childId AND type = :type ORDER BY earnedAt ASC")
     suspend fun getByChildAndType(childId: String, type: String): List<RewardEntity>
 
+    @Query("SELECT * FROM rewards WHERE childId = :childId AND metadata = :metadata LIMIT 1")
+    suspend fun getByChildAndMetadata(childId: String, metadata: String): RewardEntity?
+
     @Query("SELECT SUM(amount) FROM rewards WHERE childId = :childId AND type = :type")
     suspend fun getTotalByType(childId: String, type: String): Int?
 }

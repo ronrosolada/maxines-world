@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.util.UUID
+import kotlin.math.ceil
 import javax.inject.Inject
 
 data class AssessmentArenaUiState(
@@ -173,7 +173,8 @@ class AssessmentArenaViewModel @Inject constructor(
             }
         } else {
             // Quiz finished!
-            val passed = quiz.correctCount >= 8 // >= 80%
+            val passingCount = ceil(quiz.items.size * 0.8).toInt()
+            val passed = quiz.correctCount >= passingCount
             val starsAwarded = if (passed) {
                 if (quiz.correctCount == 10) 15 else 10
             } else 0
@@ -200,29 +201,30 @@ class AssessmentArenaViewModel @Inject constructor(
     private fun awardRewards(packId: String, stars: Int, tokens: Int) {
         val actualChildId = childId.ifBlank { "default_child" }
         viewModelScope.launch {
+            val passedMetadata = "assessment_arena_passed:$packId"
             if (stars > 0) {
-                rewardDao.insert(
-                    RewardEntity(
-                        id = UUID.randomUUID().toString(),
+                insertRewardIfAbsent(rewardDao, RewardEntity(
+                        id = "$actualChildId:assessment_arena:stars:$packId",
                         childId = actualChildId,
                         type = "STARS",
                         subject = _state.value.selectedSubjectId,
                         amount = stars,
                         earnedAt = System.currentTimeMillis(),
-                        metadata = "assessment_arena_passed:$packId",
+                        metadata = passedMetadata,
                     )
                 )
             }
+
+            val tokenMetadata = "assessment_arena_tokens:$packId"
             if (tokens > 0) {
-                rewardDao.insert(
-                    RewardEntity(
-                        id = UUID.randomUUID().toString(),
+                insertRewardIfAbsent(rewardDao, RewardEntity(
+                        id = "$actualChildId:assessment_arena:tokens:$packId",
                         childId = actualChildId,
                         type = "COIN",
                         subject = _state.value.selectedSubjectId,
                         amount = tokens,
                         earnedAt = System.currentTimeMillis(),
-                        metadata = "assessment_arena_tokens:$packId",
+                        metadata = tokenMetadata,
                     )
                 )
             }

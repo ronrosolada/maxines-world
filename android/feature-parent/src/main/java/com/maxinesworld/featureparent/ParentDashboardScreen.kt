@@ -427,9 +427,9 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                 // Mastery summary
                 Card {
                     Row(Modifier.padding(16.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                        MasteryChip("Mastered", state.masterySummary.mastered, SuccessGreen)
-                        MasteryChip("Developing", state.masterySummary.developing, SkyBlue)
-                        MasteryChip("Needs Review", state.masterySummary.needsReview, Coral)
+                        MasteryChip("Mastered", state.masterySummary.mastered, SuccessGreenText)
+                        MasteryChip("Developing", state.masterySummary.developing, OnSkyBlue)
+                        MasteryChip("Needs Review", state.masterySummary.needsReview, OnCoral)
                     }
                 }
 
@@ -460,7 +460,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         Column(Modifier.padding(16.dp)) {
                             state.recentActivity.forEach { activity ->
                                 Row(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-                                    Icon(Icons.Default.CheckCircle, "Done", tint = SuccessGreen, modifier = Modifier.size(18.dp))
+                                    Icon(Icons.Default.CheckCircle, "Done", tint = SuccessGreenText, modifier = Modifier.size(18.dp))
                                     Spacer(Modifier.width(8.dp))
                                     Text(activity, fontSize = 14.sp, color = Ink.copy(alpha = 0.8f))
                                 }
@@ -479,10 +479,10 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                 if (state.streakDays > 0) {
                     Card(colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.08f))) {
                         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.LocalFireDepartment, "Streak", tint = Coral, modifier = Modifier.size(32.dp))
+                            Icon(Icons.Default.LocalFireDepartment, "Streak", tint = OnCoral, modifier = Modifier.size(32.dp))
                             Spacer(Modifier.width(12.dp))
                             Column {
-                                Text("${state.streakDays} day streak!", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Coral)
+                                Text("${state.streakDays} day streak!", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = OnCoral)
                                 Text("Keep learning every day to grow your Playroom", fontSize = 14.sp, color = Ink.copy(alpha = 0.6f))
                             }
                         }

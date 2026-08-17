@@ -175,6 +175,7 @@ fun PlayroomHomeScreen(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
+                    .padding(bottom = if (fullWidth < 600.dp || fontScale >= 1.3f) 32.dp else 16.dp)
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {

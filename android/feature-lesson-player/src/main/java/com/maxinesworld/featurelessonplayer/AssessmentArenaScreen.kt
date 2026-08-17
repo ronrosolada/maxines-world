@@ -5,8 +5,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -30,6 +32,12 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -39,6 +47,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.coremodel.AssessmentPackMetadata
 import com.maxinesworld.coremodel.AssessmentQuestionItem
+import kotlin.math.ceil
 
 @Composable
 fun AssessmentArenaRoute(
@@ -260,8 +269,18 @@ private fun ArenaHubView(
                         color = if (isSelected) VillageTeal else White,
                         border = BorderStroke(if (isSelected) 2.dp else 1.dp, if (isSelected) VillageTeal else VillageTeal.copy(alpha = 0.2f)),
                         modifier = Modifier
-                            .clickable { onSelectSubject(id) }
-                            .height(if (isCompact) 48.dp else 58.dp),
+                            .semantics {
+                                role = Role.Tab
+                                selected = isSelected
+                                contentDescription = "$title, $sub, ${if (isSelected) "selected" else "not selected"}"
+                            }
+                            .selectable(
+                                selected = isSelected,
+                                enabled = true,
+                                role = Role.Tab,
+                                onClick = { onSelectSubject(id) },
+                            )
+                            .heightIn(min = 56.dp),
                     ) {
                         Column(
                             modifier = Modifier.padding(horizontal = if (isCompact) 12.dp else 16.dp, vertical = 4.dp),
@@ -282,6 +301,18 @@ private fun ArenaHubView(
                         }
                     }
                 }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    "Swipe horizontally to see all 6 subjects →",
+                    fontSize = 11.sp,
+                    color = OnSkyBlue,
+                    textAlign = TextAlign.Center,
+                )
             }
 
             Spacer(Modifier.height(if (isCompact) 12.dp else 20.dp))
@@ -385,7 +416,7 @@ private fun CurriculumPackCard(
                                             "✓ PASSED",
                                             fontWeight = FontWeight.Black,
                                             fontSize = 9.sp,
-                                            color = SuccessGreen,
+                                            color = SuccessGreenText,
                                             modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
                                         )
                                     }
@@ -475,7 +506,7 @@ private fun CurriculumPackCard(
                                             "✓ PASSED",
                                             fontWeight = FontWeight.Black,
                                             fontSize = 11.sp,
-                                            color = SuccessGreen,
+                                            color = SuccessGreenText,
                                             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
                                         )
                                     }
@@ -520,6 +551,7 @@ private fun CurriculumPackCard(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ActiveQuizView(
     quiz: ActiveAssessmentQuizState,
@@ -531,6 +563,7 @@ private fun ActiveQuizView(
     modifier: Modifier = Modifier,
 ) {
     val currentItem = quiz.items.getOrNull(quiz.currentIndex)
+    val passingCount = ceil(quiz.items.size * 0.8).toInt()
 
     Column(
         modifier = modifier
@@ -548,8 +581,14 @@ private fun ActiveQuizView(
                 Icon(Icons.Default.Close, contentDescription = "Exit Quiz", tint = DeepNight)
             }
 
-            // Question Progress Indicators
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            // Question Progress Indicators. Merge the visual segments and
+            // counter into one concise TalkBack announcement.
+            Row(
+                modifier = Modifier.semantics(mergeDescendants = true) {
+                    contentDescription = "Question ${quiz.currentIndex + 1} of ${quiz.items.size}"
+                },
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
                 quiz.items.indices.forEach { index ->
                     val isPast = index < quiz.currentIndex
                     val isCurrent = index == quiz.currentIndex
@@ -620,7 +659,7 @@ private fun ActiveQuizView(
                         }
                     } else {
                         Text(
-                            "Score at least 8/10 to pass and earn rewards.",
+                            "Score at least $passingCount/${quiz.items.size} to pass and earn rewards.",
                             fontSize = 14.sp,
                             color = OnError,
                             fontWeight = FontWeight.Medium,
@@ -629,22 +668,29 @@ private fun ActiveQuizView(
 
                     Spacer(Modifier.height(24.dp))
 
-                    Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+                    FlowRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
+                        maxItemsInEachRow = 2,
+                    ) {
                         Button(
                             onClick = onRestartQuiz,
                             colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
                             shape = RoundedCornerShape(14.dp),
+                            modifier = Modifier.weight(1f),
                         ) {
                             Icon(Icons.Default.Refresh, null)
                             Spacer(Modifier.width(6.dp))
-                            Text("Try Again")
+                            Text("Try Again", maxLines = 2)
                         }
 
                         OutlinedButton(
                             onClick = onExitQuiz,
                             shape = RoundedCornerShape(14.dp),
+                            modifier = Modifier.weight(1f),
                         ) {
-                            Text("Back to Arena")
+                            Text("Back to Arena", maxLines = 2)
                         }
                     }
                 }
@@ -698,7 +744,23 @@ private fun ActiveQuizView(
                         border = BorderStroke(if (isSelected || isSubmitted) 2.dp else 1.dp, borderColor),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable(enabled = !isSubmitted) { onSelectOption(option.id) },
+                            .selectable(
+                                selected = isSelected,
+                                enabled = !isSubmitted,
+                                role = Role.RadioButton,
+                                onClick = { onSelectOption(option.id) },
+                            )
+                            .semantics {
+                                role = Role.RadioButton
+                                selected = isSelected
+                                contentDescription = option.text
+                                stateDescription = when {
+                                    isSubmitted && isCorrectOption -> "Correct"
+                                    isSubmitted && isSelected -> "Incorrect"
+                                    isSelected -> "Selected"
+                                    else -> "Not selected"
+                                }
+                            },
                     ) {
                         Row(
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),

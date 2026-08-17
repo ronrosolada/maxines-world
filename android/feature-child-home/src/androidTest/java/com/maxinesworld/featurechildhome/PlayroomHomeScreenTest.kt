@@ -103,20 +103,19 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
-    fun todaysQuestCopyRenders() {
+    fun watchToEarnQuestCopyRenders() {
         setHome(stateFor(2))
-        scrollTo("Today’s Quest")
-        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
-        composeRule.onNodeWithText("Complete 3 learning adventures today.").assertIsDisplayed()
-        composeRule.onNodeWithText("Wildlife Stickers").assertExists()
-        composeRule.onNodeWithText("Continue").assertIsDisplayed()
+        composeRule.onNodeWithText("Watch-to-Earn Challenge").assertIsDisplayed()
+        composeRule.onNodeWithText("1 Wildlife Sticker per 30 mins watched + passed quizzes").assertIsDisplayed()
+        composeRule.onNodeWithText("0 / 30 Mins").assertIsDisplayed()
+        composeRule.onNodeWithText("Next Reward: 🦌 Tamaraw Habitat Sticker").assertIsDisplayed()
+        composeRule.onNodeWithText("Browse Videos ▶").assertIsDisplayed()
     }
 
     @Test
-    fun dailyQuestShowsItsRewardBeforeCompletionAndSanctuaryProgress() {
+    fun watchToEarnShowsItsRewardBeforeCompletionAndSanctuaryProgress() {
         setHome(stateFor())
-        composeRule.onNodeWithText("Reward at 3/3: a sanctuary piece + 5-minute play break").assertExists()
-        composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and five minute play break").assertExists()
+        composeRule.onNodeWithText("Next Reward: 🦌 Tamaraw Habitat Sticker").assertExists()
         composeRule.onNodeWithText("Milo’s Wildlife Sanctuary").assertExists()
         composeRule.onNodeWithText("0 / 12 places added").assertExists()
         composeRule.onNodeWithText("Next place to add").assertExists()
@@ -170,8 +169,7 @@ class PlayroomHomeScreenTest {
         // bounds until scrolled into view. The workshop entry is the last
         // child of that card, so scroll the stickers section (just below it)
         // into view first — then the button is placed and clickable.
-        composeRule.onNodeWithText("Wildlife Stickers").performScrollTo()
-        composeRule.onNodeWithText("Sanctuary Workshop").assertIsDisplayed().performClick()
+        composeRule.onNodeWithText("Sanctuary Workshop").performScrollTo().assertIsDisplayed().performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
     }
 
