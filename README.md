@@ -21,6 +21,18 @@ curious rather than distract from understanding.
 - Modular architecture (19 Gradle modules)
 - Bundled HTML reward-break games with CSP-isolated WebViews
 
+## Current learning features
+
+- **DepEd Video Hub:** subject routing, chronological grade/quarter/episode
+  ordering, bulk downloads, watch-to-earn progress, and optional trusted-LAN
+  media catalogs. Bundled lessons remain available offline.
+- **Grade 3 Assessment Arena:** interactive quizzes for six subjects across
+  Philippine, Singapore, and United States tracks, with responsive phone
+  layouts, item-count-aware 80% passing thresholds, and reward integration.
+- **Local OTA updates:** the parent dashboard can discover and hand off a
+  trusted-LAN APK update for installation, while showing the installed app
+  version. This is a local update path—not cloud content sync or telemetry.
+
 ## Project Structure
 ```
 android/

@@ -6,6 +6,108 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.46.0] - 2026-08-17
+
+### Adversarial UX, accessibility, and release hardening
+
+- Completed the release-focused adversarial UX pass for the DepEd Video Hub,
+  Grade 3 Assessment Arena, child home, and parent dashboard.
+- Made assessment pass thresholds item-count aware: passing requires 80% with
+  `ceil(itemCount × 0.8)`, including three-item assessments; retry buttons wrap
+  safely on narrow phones.
+- Added TalkBack semantics for subject tabs and answer choices, explicit
+  selected/correct/incorrect state descriptions, a merged `Question N of M`
+  progress announcement, and a swipe hint for the six-subject arena.
+- Raised interactive arena controls to at least 56dp and added phone/font-scale
+  bottom spacing so content and controls remain reachable.
+- Replaced low-contrast status colors with WCAG-tested text tokens in the arena
+  and parent dashboard; clarified the Fiesta Picture SVG description with its
+  curriculum-relevant visual clues.
+- Made video and assessment rewards idempotent across retries using stable
+  child/source IDs, metadata lookup, and conflict-safe insertion. Video Hub
+  ordering is now deterministic by grade, quarter, episode, and title, with
+  passed videos kept in a separate bottom section.
+
+### Verification
+
+- `:feature-lesson-player:testDebugUnitTest`: passed, including reward
+  idempotency and deterministic video-ordering coverage.
+- `:core-design-system:testDebugUnitTest`: passed, including WCAG AA contrast
+  token coverage.
+- `git diff --check`: passed.
+
+## [0.45.9] - 2026-08-16
+
+### Assessment Arena phone layout
+
+- Added responsive phone scaling and compact layouts for the Grade 3 Assessment
+  Arena so subject cards, questions, answers, and actions remain usable on
+  narrow screens.
+
+## [0.45.8] - 2026-08-16
+
+### Assessment and parent-dashboard reliability
+
+- Added support for three-item assessments and surfaced the installed app
+  version in the parent dashboard.
+- Added the progress-sync repository/worker and its unit-test coverage for the
+  local update and parent-review workflow.
+
+## [0.45.7] - 2026-08-16
+
+### Video Hub rewards and local updates
+
+- Added authentic video-to-assessment coverage across the current DepEd Video
+  Hub catalog, 2× playback, and watch-to-earn fixes.
+- Added the trusted-LAN local APK update flow in the parent dashboard, including
+  version discovery, download, and Android package-install handoff.
+
+## [0.45.1] - 2026-08-16
+
+### Guest-VLAN media connectivity
+
+- Added support for the dual-homed trusted media server endpoints
+  `10.10.10.33` and `10.10.20.33` so guest-VLAN devices can load the optional
+  LAN media catalog and downloads.
+
+## [0.45.0] - 2026-08-16
+
+### Grade 3 Assessment Arena
+
+- Added the interactive Assessment Arena with curriculum packs for six subjects
+  across Philippine, Singapore, and United States tracks (18 bundled packs).
+- Added subject/track navigation, quiz progression, scoring, pass/fail states,
+  badge artwork, and reward integration for the new assessment experience.
+
+## [0.44.1] - 2026-08-16
+
+### Playroom navigation and catalog parsing
+
+- Reordered the subject grid to keep the core learning destinations front and
+  center on the child home screen.
+- Tightened the media catalog parser so malformed or incomplete catalog data is
+  rejected instead of being accepted permissively.
+
+## [0.44.0] - 2026-08-16
+
+### DepEd Video Hub
+
+- Organized the DepEd Video Hub with subject routing, chronological grade/quarter/
+  episode ordering, and bulk media downloads.
+- Added the media-library persistence and database migration support required for
+  catalog-backed downloads and local playback.
+- Preserved optional trusted-LAN media as a supplement to the bundled,
+  offline-first lesson and reward-break experience.
+
+## [0.43.0] - 2026-08-16
+
+### Interim release baseline
+
+- Recorded the interim version boundary preceding the DepEd Video Hub pivot.
+  Repository history contains no separate v0.43.0 feature commit or tag; the
+  next versioned feature commit is v0.44.0.
+
+
 ## [0.42.0] - 2026-08-16
 
 ### Gamified & Interactive Milo's Wildlife Sanctuary
