@@ -23,7 +23,7 @@ curious rather than distract from understanding.
 
 ## Current release
 
-The current signed Android release is **v0.48.1 (versionCode 61)**. The parent
+The current signed Android release is **v0.49.0 (versionCode 62)**. The parent
 Dashboard can obtain it through the trusted-LAN OTA path; the release APK is
 published at the content server root and its `/media/` mirror.
 
@@ -35,6 +35,10 @@ published at the content server root and its `/media/` mirror.
 - **Grade 3 Assessment Arena:** interactive quizzes for six subjects across
   Philippine, Singapore, and United States tracks, with responsive phone
   layouts, item-count-aware 80% passing thresholds, and reward integration.
+- **Quick Bits:** a vertical, short-form educational video feed with 60
+  480p videos across animals, space, science, and math, including tactile
+  spring interactions and offline download/caching for travel or low-connectivity
+  learning.
 - **Local OTA updates:** the parent dashboard can discover and hand off a
   trusted-LAN APK update for installation, while showing the installed app
   version. This is a local update path—not cloud content sync or telemetry.

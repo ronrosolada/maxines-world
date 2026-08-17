@@ -6,6 +6,23 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.49.0] - 2026-08-17
+
+### Quick Bits and release integration
+
+- Added Quick Bits, a TikTok-style vertical video feed with tactile spring UI.
+- Bundled 60 480p educational videos across animals, space, science, and math.
+- Added offline download, local caching, bulk download, and cache management.
+- Preserved the DepEd Video Hub, Grade 3 Assessment Arena, progress sync, and
+  offline-first lesson experience.
+- Bumped the Android release to `versionName` `0.49.0` and `versionCode` `62`.
+
+### Verification
+
+- Quick Bits catalog parsing unit coverage added.
+- Full `testDebugUnitTest` and signed `assembleRelease` gates run for this
+  release; APK metadata and v2 signature verified before distribution.
+
 ## [0.48.1] - 2026-08-17
 
 ### Release synchronization

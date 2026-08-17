@@ -39,6 +39,8 @@ import com.maxinesworld.featurechildhome.ModuleLessonsScreen
 import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
 import com.maxinesworld.featurechildhome.subjectForPack
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
+import com.maxinesworld.featurelessonplayer.QuickBitsScreen
+import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
 import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
 import com.maxinesworld.featurelessonplayer.VideoLibraryViewModel
 import com.maxinesworld.featureparent.ParentDashboardScreen
@@ -63,6 +65,7 @@ object Routes {
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
     const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
+    const val QUICK_BITS = "quick_bits/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
@@ -82,6 +85,8 @@ object Routes {
 
     fun videoLibrary(childId: String, subject: String? = null) =
         "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+
+    fun quickBits(childId: String) = "quick_bits/${segment(childId)}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
     fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
@@ -199,6 +204,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onTreatShopClick = {
                     navController.navigate(Routes.treatShop(childId))
                 },
+                onQuickBitsClick = {
+                    navController.navigate(Routes.quickBits(childId))
+                },
                 onVideosClick = {
                     navController.navigate(Routes.videoLibrary(childId))
                 },
@@ -229,6 +237,25 @@ fun MaxinesNavGraph(navController: NavHostController) {
         ) {
             AssessmentArenaRoute(
                 onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(
+            route = Routes.QUICK_BITS,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType }),
+        ) { backStackEntry ->
+            val viewModel: QuickBitsViewModel = hiltViewModel(backStackEntry)
+            val state by viewModel.state.collectAsStateWithLifecycle()
+            QuickBitsScreen(
+                state = state,
+                onBack = { navController.popBackStack() },
+                onRefresh = { viewModel.loadCatalog(true) },
+                onSelectCategory = viewModel::selectCategory,
+                onPlayVideo = viewModel::playVideo,
+                onStopPlaying = viewModel::stopPlaying,
+                onDownloadSingle = viewModel::downloadSingle,
+                onDownloadAll = viewModel::downloadAll,
+                onClearDownloads = viewModel::clearAllDownloads,
             )
         }
 
