@@ -1,8 +1,16 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.EaseInOutSine
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -289,15 +297,38 @@ fun SanctuaryScene(
         }
 
         // Milo, drawn last so he stands in front of the meadow.
+        val infiniteTransition = rememberInfiniteTransition(label = "MiloIdleBreath")
+        val idleOffset by infiniteTransition.animateFloat(
+            initialValue = -3f,
+            targetValue = 3f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(durationMillis = 1400, easing = EaseInOutSine),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "MiloBob"
+        )
+        val bounceScale by animateFloatAsState(
+            targetValue = if (miloBounced) 1.22f else 1.0f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessMediumLow
+            ),
+            label = "MiloBounce"
+        )
+
         Box(
             Modifier
                 .size(slotSize(miloSanctuarySlot))
                 .offset(
                     x = (sceneWidth * miloSanctuarySlot.xFraction - slotSize(miloSanctuarySlot) / 2)
                         .coerceIn(0.dp, sceneWidth),
-                    y = (sceneHeight * miloSanctuarySlot.yFraction - slotSize(miloSanctuarySlot) / 2)
+                    y = (sceneHeight * miloSanctuarySlot.yFraction - slotSize(miloSanctuarySlot) / 2 + idleOffset.dp)
                         .coerceIn(0.dp, sceneHeight),
                 )
+                .graphicsLayer {
+                    scaleX = bounceScale
+                    scaleY = bounceScale
+                }
                 .clip(CircleShape)
                 .background(Color.White)
                 .border(3.dp, Color.White, CircleShape)

@@ -3,6 +3,12 @@ package com.maxinesworld.featurelessonplayer
 import android.net.Uri
 import android.view.LayoutInflater
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -512,11 +518,29 @@ private fun QuickBitTikTokPage(
             }
         }
 
-        // Bottom Info Gradient Overlay
+        // Bottom Info Gradient Overlay with Emil Kowalski Stagger Animation
+        val overlayAlpha by animateFloatAsState(
+            targetValue = if (isPageActive) 1f else 0f,
+            animationSpec = tween(durationMillis = 350, easing = LinearOutSlowInEasing),
+            label = "OverlayAlpha"
+        )
+        val overlaySlide by animateFloatAsState(
+            targetValue = if (isPageActive) 0f else 30f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioLowBouncy,
+                stiffness = Spring.StiffnessLow
+            ),
+            label = "OverlaySlide"
+        )
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
+                .graphicsLayer {
+                    alpha = overlayAlpha
+                    translationY = overlaySlide
+                }
                 .background(
                     Brush.verticalGradient(
                         colors = listOf(

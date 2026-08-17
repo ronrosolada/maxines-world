@@ -6,6 +6,19 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.47.0] - 2026-08-17
+
+### Tactile Micro-Interactions & Animation Polish
+
+- **Spring-Physics Tactile Feedback (`emilkowalski-motion`):**
+  - Added physical spring compression feedback (`scale 0.96f` on press) across `QuickBitsHomeCard`, `VideoLibraryCard`, and interactive Assessment choices.
+- **Milo Idle Breathing Animation & Bounce:**
+  - Added continuous sine-wave idle breathing motion (`±3dp` bobbing) to Milo in `SanctuaryScene`, plus a spring bounce animation on tap.
+- **Quick Bits Overlay Stagger:**
+  - Added entrance slide-and-fade animation on video info overlays when scrolling between shorts in `QuickBitsScreen`.
+- **Assessment Arena Responsive 2-Column Grid:**
+  - Upgraded Assessment Arena multiple-choice options on tablet displays to an ergonomic 2-column grid layout with per-item press physics.
+
 ## [0.46.0] - 2026-08-16
 
 ### Quick Bits: TikTok-Style Educational Shorts Feed & Offline Engine

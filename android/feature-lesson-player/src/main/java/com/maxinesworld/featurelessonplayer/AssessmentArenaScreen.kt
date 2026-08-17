@@ -1,6 +1,12 @@
 package com.maxinesworld.featurelessonplayer
 
 import androidx.compose.animation.*
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -671,64 +677,94 @@ private fun ActiveQuizView(
 
             Spacer(Modifier.height(16.dp))
 
-            // Options List (A, B, C, D)
+            // Options Layout (2-Column Grid on Tablet/Wide, 1-Column on Phone)
+            val chunkedOptions = currentItem.options.chunked(2)
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                currentItem.options.forEach { option ->
-                    val isSelected = quiz.selectedOptionId == option.id
-                    val isSubmitted = quiz.isAnswerSubmitted
-                    val isCorrectOption = option.id in currentItem.correctOptionIds
-
-                    val containerColor = when {
-                        isSubmitted && isCorrectOption -> SuccessGreen.copy(alpha = 0.15f)
-                        isSubmitted && isSelected && !isCorrectOption -> OnError.copy(alpha = 0.15f)
-                        isSelected -> VillageTeal.copy(alpha = 0.12f)
-                        else -> White
-                    }
-
-                    val borderColor = when {
-                        isSubmitted && isCorrectOption -> SuccessGreen
-                        isSubmitted && isSelected && !isCorrectOption -> OnError
-                        isSelected -> VillageTeal
-                        else -> DeepNight.copy(alpha = 0.15f)
-                    }
-
-                    Surface(
-                        shape = RoundedCornerShape(16.dp),
-                        color = containerColor,
-                        border = BorderStroke(if (isSelected || isSubmitted) 2.dp else 1.dp, borderColor),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable(enabled = !isSubmitted) { onSelectOption(option.id) },
+                chunkedOptions.forEach { rowOptions ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            // Letter Bubble
-                            Box(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .clip(CircleShape)
-                                    .background(if (isSelected) VillageTeal else DeepNight.copy(alpha = 0.08f)),
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                Text(
-                                    option.id.uppercase(),
-                                    fontWeight = FontWeight.ExtraBold,
-                                    fontSize = 14.sp,
-                                    color = if (isSelected) White else DeepNight,
-                                )
+                        rowOptions.forEach { option ->
+                            val isSelected = quiz.selectedOptionId == option.id
+                            val isSubmitted = quiz.isAnswerSubmitted
+                            val isCorrectOption = option.id in currentItem.correctOptionIds
+
+                            val containerColor = when {
+                                isSubmitted && isCorrectOption -> SuccessGreen.copy(alpha = 0.15f)
+                                isSubmitted && isSelected && !isCorrectOption -> OnError.copy(alpha = 0.15f)
+                                isSelected -> VillageTeal.copy(alpha = 0.12f)
+                                else -> White
                             }
 
-                            Spacer(Modifier.width(14.dp))
+                            val borderColor = when {
+                                isSubmitted && isCorrectOption -> SuccessGreen
+                                isSubmitted && isSelected && !isCorrectOption -> OnError
+                                isSelected -> VillageTeal
+                                else -> DeepNight.copy(alpha = 0.15f)
+                            }
 
-                            Text(
-                                option.text,
-                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                                fontSize = 16.sp,
-                                color = DeepNight,
-                                modifier = Modifier.weight(1f),
+                            val interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }
+                            val isPressed by interactionSource.collectIsPressedAsState()
+                            val optionScale by animateFloatAsState(
+                                targetValue = if (isPressed) 0.97f else 1.0f,
+                                animationSpec = spring(
+                                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                                    stiffness = Spring.StiffnessMediumLow
+                                ),
+                                label = "QuizOptionPress"
                             )
+
+                            Surface(
+                                shape = RoundedCornerShape(16.dp),
+                                color = containerColor,
+                                border = BorderStroke(if (isSelected || isSubmitted) 2.dp else 1.dp, borderColor),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .graphicsLayer {
+                                        scaleX = optionScale
+                                        scaleY = optionScale
+                                    }
+                                    .clickable(
+                                        interactionSource = interactionSource,
+                                        indication = null,
+                                        enabled = !isSubmitted
+                                    ) { onSelectOption(option.id) },
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    // Letter Bubble
+                                    Box(
+                                        modifier = Modifier
+                                            .size(32.dp)
+                                            .clip(CircleShape)
+                                            .background(if (isSelected) VillageTeal else DeepNight.copy(alpha = 0.08f)),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        Text(
+                                            option.id.uppercase(),
+                                            fontWeight = FontWeight.ExtraBold,
+                                            fontSize = 14.sp,
+                                            color = if (isSelected) White else DeepNight,
+                                        )
+                                    }
+
+                                    Spacer(Modifier.width(14.dp))
+
+                                    Text(
+                                        option.text,
+                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                        fontSize = 16.sp,
+                                        color = DeepNight,
+                                        modifier = Modifier.weight(1f),
+                                    )
+                                }
+                            }
+                        }
+                        if (rowOptions.size == 1) {
+                            Spacer(Modifier.weight(1f))
                         }
                     }
                 }

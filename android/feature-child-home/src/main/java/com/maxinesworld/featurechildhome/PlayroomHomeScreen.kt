@@ -2,6 +2,11 @@ package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -320,11 +325,26 @@ private fun QuickBitsHomeCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.96f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMediumLow
+        ),
+        label = "QuickBitsCardPress"
+    )
+
     Surface(
         modifier = Modifier
             .then(modifier)
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
+            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
             .semantics {
                 contentDescription = "Quick Bits video explorer. Watch 60 fun bite-sized science, space, animals, and math videos offline."
                 role = Role.Button
@@ -391,7 +411,6 @@ private fun QuickBitsHomeCard(
                 fontSize = 15.sp,
             )
         }
->>>>>>> 2cb9f473 (feat(quickbits): v0.43.0 — TikTok-style educational shorts feed with 60 videos and offline bulk download engine)
     }
 }
 
@@ -400,11 +419,26 @@ private fun VideoLibraryCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.96f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMediumLow
+        ),
+        label = "VideoLibraryCardPress"
+    )
+
     Surface(
         modifier = Modifier
             .then(modifier)
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
+            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
             .semantics {
                 contentDescription = "Video lesson library. Open videos to download and watch offline."
                 role = Role.Button
