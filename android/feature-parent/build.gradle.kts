@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":core-design-system"))
     implementation(project(":core-database"))
     implementation(project(":core-content"))
+    implementation(project(":feature-rewards"))
     implementation(project(":feature-auth"))
     implementation(project(":engine-mastery"))
     implementation(libs.core.ktx)

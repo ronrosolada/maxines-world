@@ -29,6 +29,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.featurerewards.BadgeLoader
 import com.maxinesworld.coredesignsystem.theme.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -39,6 +40,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.time.LocalDate
 import javax.inject.Inject
 
 data class ParentDashboardState(
@@ -55,6 +57,7 @@ data class ParentDashboardState(
     val isUpdatingApp: Boolean = false,
     val updateProgress: Float = 0f,
     val updateStatusMessage: String? = null,
+    val grantStatusMessage: String? = null,
     val isLoading: Boolean = true
 )
 
@@ -110,6 +113,8 @@ class ParentDashboardViewModel @Inject constructor(
     private val lessonCompletionDao: LessonCompletionDao,
     private val moduleCatalog: ModuleCatalog,
     private val godModeManager: GodModeManager,
+    private val collectedBadgeDao: CollectedBadgeDao,
+    private val badgeLoader: BadgeLoader,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ParentDashboardState())
@@ -170,7 +175,7 @@ class ParentDashboardViewModel @Inject constructor(
                 titleByLessonId[lessonId] ?: "Lesson"
             }
 
-            _state.value = ParentDashboardState(
+            _state.value = _state.value.copy(
                 childName = child?.name ?: "Learner",
                 grade = child?.grade ?: 3,
                 totalStars = starsTotal,
@@ -183,6 +188,53 @@ class ParentDashboardViewModel @Inject constructor(
                 isLoading = false
             )
         }
+    }
+
+    fun grantStars(childId: String, amount: Int) {
+        viewModelScope.launch {
+            val now = System.currentTimeMillis()
+            rewardDao.insert(
+                RewardEntity(
+                    id = "$childId:parent_grant:star:$now",
+                    childId = childId,
+                    type = "STAR",
+                    subject = "general",
+                    amount = amount,
+                    earnedAt = now,
+                    metadata = "parent_manual_grant",
+                )
+            )
+            load(childId)
+            _state.update { it.copy(grantStatusMessage = "Granted +$amount Stars!") }
+        }
+    }
+
+    fun grantNextSticker(childId: String) {
+        viewModelScope.launch {
+            val allBadges = badgeLoader.loadAll().filter { it.biome != "milestone" }
+            val earned = collectedBadgeDao.getAllByChild(childId).map { it.badgeId }.toSet()
+            val next = allBadges.firstOrNull { it.id !in earned }
+            if (next == null) {
+                _state.update { it.copy(grantStatusMessage = "All wildlife stickers already collected!") }
+                return@launch
+            }
+            collectedBadgeDao.insert(
+                CollectedBadgeEntity(
+                    id = "${childId}_${next.id}",
+                    childId = childId,
+                    badgeId = next.id,
+                    biome = next.biome,
+                    earnedDate = LocalDate.now().toString(),
+                    earnedAtEpochMillis = System.currentTimeMillis(),
+                )
+            )
+            load(childId)
+            _state.update { it.copy(grantStatusMessage = "Granted Wildlife Sticker: ${next.name}!") }
+        }
+    }
+
+    fun clearGrantStatusMessage() {
+        _state.update { it.copy(grantStatusMessage = null) }
     }
 
     fun setGodModeEnabled(enabled: Boolean) {
@@ -295,11 +347,22 @@ class ParentDashboardViewModel @Inject constructor(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: ParentDashboardViewModel = androidx.hilt.navigation.compose.hiltViewModel()) {
+fun ParentDashboardScreen(
+    childId: String,
+    onBack: () -> Unit,
+    viewModel: ParentDashboardViewModel = androidx.hilt.navigation.compose.hiltViewModel()
+) {
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
 
     LaunchedEffect(childId) { viewModel.load(childId) }
+
+    LaunchedEffect(state.grantStatusMessage) {
+        state.grantStatusMessage?.let { msg ->
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+            viewModel.clearGrantStatusMessage()
+        }
+    }
 
     Column(Modifier.fillMaxSize()) {
         TopAppBar(
@@ -307,7 +370,11 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
             navigationIcon = {
                 IconButton(onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") }
             },
-            colors = TopAppBarDefaults.topAppBarColors(containerColor = VillageTeal, titleContentColor = Color.White, navigationIconContentColor = Color.White)
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = VillageTeal,
+                titleContentColor = Color.White,
+                navigationIconContentColor = Color.White
+            )
         )
 
         if (state.isLoading) {
@@ -332,6 +399,93 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                             StatBadge("Star", state.totalStars, SunshineGold)
                             StatBadge("Coin", state.totalCoins, VillageTeal)
+                        }
+                    }
+                }
+
+                // Parent Reward Hub: Grant Stars & Wildlife Stickers
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    shape = RoundedCornerShape(18.dp),
+                ) {
+                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(44.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(SunshineGold.copy(alpha = 0.15f)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(Icons.Default.CardGiftcard, contentDescription = null, tint = SunshineGold)
+                            }
+                            Column(Modifier.weight(1f)) {
+                                Text(
+                                    "Grant Rewards",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp,
+                                    color = Ink
+                                )
+                                Text(
+                                    "Award stars or unlock wildlife stickers for ${state.childName}",
+                                    fontSize = 13.sp,
+                                    color = Ink.copy(alpha = 0.6f)
+                                )
+                            }
+                        }
+
+                        // Star Quick-Grant Row
+                        Text("Grant Stars", fontWeight = FontWeight.SemiBold, fontSize = 14.sp, color = Ink)
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Button(
+                                onClick = { viewModel.grantStars(childId, 5) },
+                                colors = ButtonDefaults.buttonColors(containerColor = SunshineGold.copy(alpha = 0.15f)),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.weight(1f).height(48.dp)
+                            ) {
+                                Text("+5 ⭐", fontWeight = FontWeight.Bold, color = Ink, fontSize = 14.sp)
+                            }
+                            Button(
+                                onClick = { viewModel.grantStars(childId, 10) },
+                                colors = ButtonDefaults.buttonColors(containerColor = SunshineGold.copy(alpha = 0.15f)),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.weight(1f).height(48.dp)
+                            ) {
+                                Text("+10 ⭐", fontWeight = FontWeight.Bold, color = Ink, fontSize = 14.sp)
+                            }
+                            Button(
+                                onClick = { viewModel.grantStars(childId, 25) },
+                                colors = ButtonDefaults.buttonColors(containerColor = SunshineGold.copy(alpha = 0.15f)),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.weight(1f).height(48.dp)
+                            ) {
+                                Text("+25 ⭐", fontWeight = FontWeight.Bold, color = Ink, fontSize = 14.sp)
+                            }
+                        }
+
+                        Spacer(Modifier.height(4.dp))
+
+                        // Wildlife Sticker Grant Button
+                        Button(
+                            onClick = { viewModel.grantNextSticker(childId) },
+                            colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.fillMaxWidth().height(48.dp)
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                Icon(Icons.Default.Pets, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                Text("Grant Next Wildlife Sticker 🐾", fontWeight = FontWeight.Bold, color = Color.White, fontSize = 14.sp)
+                            }
                         }
                     }
                 }
