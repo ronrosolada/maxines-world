@@ -283,7 +283,10 @@ fun SanctuaryScene(
             val clickableModifier = if (earned && pieceUi != null) {
                 Modifier.clickable { onPieceClick(pieceUi) }
             } else {
-                Modifier
+                Modifier.clickable {
+                    miloBounced = true
+                    miloSpeechBubble = "Finish today's quest to unlock this habitat for visiting wildlife!"
+                }
             }
 
             Box(

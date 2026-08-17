@@ -181,7 +181,6 @@ fun PlayroomHomeScreen(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
-                    .padding(bottom = if (fullWidth < 600.dp || fontScale >= 1.3f) 32.dp else 16.dp)
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
@@ -215,6 +214,9 @@ fun PlayroomHomeScreen(
                         onQuickBitsClick = onQuickBitsClick,
                     )
                 }
+
+                // Generous bottom spacer so all 12 sanctuary slots & bottom cards clear the bottom navigation completely
+                Spacer(Modifier.height(180.dp))
             }
 
             Spacer(Modifier.height(16.dp))
@@ -838,7 +840,14 @@ private fun SubjectCard(
                     }
                     Spacer(Modifier.width(8.dp))
                     Box(
-                        Modifier.size(44.dp).clip(CircleShape).background(if (opening) pale else accent, CircleShape),
+                        Modifier
+                            .size(44.dp)
+                            .clip(CircleShape)
+                            .background(if (opening) pale else accent, CircleShape)
+                            .semantics {
+                                role = Role.Button
+                                contentDescription = "Start ${subject.formalName} lessons"
+                            },
                         contentAlignment = Alignment.Center,
                     ) {
                         if (opening) {
@@ -1396,38 +1405,64 @@ private fun SanctuaryPieceInspectionDialog(
         onDismissRequest = onDismiss,
         title = {
             Row(
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(CircleShape)
-                        .background(if (isEarned) PlayTeal.copy(alpha = 0.15f) else PlaySunshine.copy(alpha = 0.3f)),
-                    contentAlignment = Alignment.Center
+                Row(
+                    modifier = Modifier.weight(1f),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    Image(
-                        painter = painterResource(sanctuaryPieceDrawable(piece.iconKey)),
-                        contentDescription = null,
-                        contentScale = ContentScale.Fit,
+                    Box(
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(4.dp)
-                    )
+                            .size(48.dp)
+                            .clip(CircleShape)
+                            .background(if (isEarned) PlayTeal.copy(alpha = 0.15f) else PlaySunshine.copy(alpha = 0.3f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(sanctuaryPieceDrawable(piece.iconKey)),
+                            contentDescription = null,
+                            contentScale = ContentScale.Fit,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(4.dp)
+                        )
+                    }
+                    Column {
+                        Text(
+                            piece.name,
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = PlayInk,
+                        )
+                        Text(
+                            if (isEarned) "Sanctuary Habitat • Unlocked" else "Next Habitat Unlock",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = if (isEarned) PlayTeal else PlayroomColors.KeepsakeHeading,
+                            fontWeight = FontWeight.Bold,
+                        )
+                    }
                 }
-                Column {
-                    Text(
-                        piece.name,
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = PlayInk,
-                    )
-                    Text(
-                        if (isEarned) "Sanctuary Habitat • Unlocked" else "Next Habitat Unlock",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = if (isEarned) PlayTeal else PlayroomColors.KeepsakeHeading,
-                        fontWeight = FontWeight.Bold,
-                    )
+
+                // Explicit top-right close 'X' button for early-child & guardian ergonomics
+                Surface(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .clickable(onClick = onDismiss)
+                        .semantics {
+                            role = androidx.compose.ui.semantics.Role.Button
+                            contentDescription = "Close ${piece.name} dialog"
+                        },
+                    color = PlayroomColors.SanctuarySurface,
+                    shape = CircleShape,
+                    border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.3f))
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text("✕", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = PlayInk)
+                    }
                 }
             }
         },
@@ -1530,37 +1565,62 @@ private fun SanctuaryVisitorInspectionDialog(
         onDismissRequest = onDismiss,
         title = {
             Row(
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(54.dp)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(Color.White)
-                        .border(1.5.dp, PlayTeal.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
-                    contentAlignment = Alignment.Center
+                Row(
+                    modifier = Modifier.weight(1f),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Image(
-                        painter = painterResource(effectiveDrawable),
-                        contentDescription = null,
-                        contentScale = ContentScale.Fit,
-                        modifier = Modifier.fillMaxSize().padding(4.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .size(54.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(Color.White)
+                            .border(1.5.dp, PlayTeal.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(effectiveDrawable),
+                            contentDescription = null,
+                            contentScale = ContentScale.Fit,
+                            modifier = Modifier.fillMaxSize().padding(4.dp)
+                        )
+                    }
+                    Column {
+                        Text(
+                            visitor.name,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = PlayInk,
+                        )
+                        Text(
+                            "${visitor.localName} • ${visitor.nativeRegion}",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = PlayTeal,
+                            fontWeight = FontWeight.Bold,
+                        )
+                    }
                 }
-                Column {
-                    Text(
-                        visitor.name,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = PlayInk,
-                    )
-                    Text(
-                        "${visitor.localName} • ${visitor.nativeRegion}",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = PlayTeal,
-                        fontWeight = FontWeight.Bold,
-                    )
+
+                Surface(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .clickable(onClick = onDismiss)
+                        .semantics {
+                            role = androidx.compose.ui.semantics.Role.Button
+                            contentDescription = "Close ${visitor.name} dialog"
+                        },
+                    color = PlayroomColors.SanctuarySurface,
+                    shape = CircleShape,
+                    border = BorderStroke(1.dp, PlayTeal.copy(alpha = 0.3f))
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text("✕", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = PlayInk)
+                    }
                 }
             }
         },
