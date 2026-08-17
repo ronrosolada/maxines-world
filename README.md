@@ -21,6 +21,12 @@ curious rather than distract from understanding.
 - Modular architecture (19 Gradle modules)
 - Bundled HTML reward-break games with CSP-isolated WebViews
 
+## Current release
+
+The current signed Android release is **v0.48.1 (versionCode 61)**. The parent
+Dashboard can obtain it through the trusted-LAN OTA path; the release APK is
+published at the content server root and its `/media/` mirror.
+
 ## Current learning features
 
 - **DepEd Video Hub:** subject routing, chronological grade/quarter/episode

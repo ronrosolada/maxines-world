@@ -6,6 +6,37 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.48.1] - 2026-08-17
+
+### Release synchronization
+
+- Bumped the Android release to `versionName` `0.48.1` and `versionCode` `61`,
+  superseding the `0.48.0` / `60` build installed on the target device.
+- Synchronized the signed APK and both trusted-LAN OTA distribution paths with
+  the version reported by the parent dashboard.
+
+### Recent features and adversarial UX fixes included
+
+- Continued the DepEd Video Hub with subject routing, deterministic
+  grade/quarter/episode ordering, bulk downloads, optional dual-homed trusted-LAN
+  media, watch-to-earn progress, and local parent-dashboard updates.
+- Continued the Grade 3 Assessment Arena across six subjects and three tracks,
+  including item-count-aware 80% passing thresholds, responsive narrow-phone
+  layouts, retry-safe rewards, and curriculum-linked badge artwork.
+- Included the adversarial UX hardening for child-sized touch targets, TalkBack
+  tab/radio/progress semantics, WCAG AA text contrast, reachable bottom actions,
+  clear artwork descriptions, and deterministic passed-video grouping.
+- Preserved the offline-first lesson and reward-break experience; LAN media and
+  OTA installation remain optional and local rather than cloud synchronization
+  or telemetry.
+
+### Verification
+
+- Required focused Gradle unit-test modules passed.
+- Signed release APK metadata and v2 signature were verified.
+- DreamNAS root and media OTA APK paths were synchronized.
+
+
 ## [0.46.0] - 2026-08-17
 
 ### Adversarial UX, accessibility, and release hardening
