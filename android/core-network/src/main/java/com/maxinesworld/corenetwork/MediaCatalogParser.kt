@@ -22,7 +22,7 @@ class MediaCatalogParser(
             throw IllegalArgumentException("Invalid media catalog JSON: ${error.message}", error)
         }
 
-        require(catalog.catalogVersion == SUPPORTED_CATALOG_VERSION) {
+        require(catalog.catalogVersion >= 1) {
             "Unsupported media catalog version: ${catalog.catalogVersion}"
         }
 
@@ -71,8 +71,8 @@ class MediaCatalogParser(
         require(assessment.questionCount == assessment.items.size) {
             "Assessment questionCount does not match items for $mediaId"
         }
-        require(assessment.items.size in 5..10) {
-            "Assessment question count must be between 5 and 10 for $mediaId"
+        require(assessment.items.size in 3..10) {
+            "Assessment question count must be between 3 and 10 for $mediaId"
         }
         require(assessment.passingCorrectCount in 1..assessment.items.size) {
             "Assessment passingCorrectCount is invalid for $mediaId"
@@ -111,7 +111,7 @@ class MediaCatalogParser(
     }
 
     private companion object {
-        const val SUPPORTED_CATALOG_VERSION = 1
+        val SUPPORTED_CATALOG_VERSIONS = setOf(1, 2, 3)
         val MEDIA_ID_PATTERN = Regex("^[a-z0-9][a-z0-9-]{2,63}$")
         val SHA256_PATTERN = Regex("^[a-f0-9]{64}$")
     }

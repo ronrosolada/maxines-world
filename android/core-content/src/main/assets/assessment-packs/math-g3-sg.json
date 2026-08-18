@@ -1,0 +1,272 @@
+{
+  "id": "math-g3-sg",
+  "subjectId": "mathematics",
+  "curriculum": "sg",
+  "curriculumName": "Singapore MOE",
+  "flagEmoji": "🇸🇬",
+  "title": "Grade 3 Math: Singapore Bar Modeling",
+  "description": "Heuristic problem solving, model method, multi-step word problems & fractions.",
+  "badgeKey": "badge_math_sg",
+  "items": [
+    {
+      "sequence": 1,
+      "prompt": "Milo has 4 boxes of crayons. Each box contains 8 crayons. He gives away 14 crayons to his friends. How many crayons does Milo have left?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18"
+        },
+        {
+          "id": "b",
+          "text": "22"
+        },
+        {
+          "id": "c",
+          "text": "32"
+        },
+        {
+          "id": "d",
+          "text": "46"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Total crayons = 4 × 8 = 32. Remaining crayons = 32 - 14 = 18."
+    },
+    {
+      "sequence": 2,
+      "prompt": "A bakery baked 540 buns in the morning and 285 buns in the afternoon. 612 buns were sold. How many buns were left unsold?",
+      "options": [
+        {
+          "id": "a",
+          "text": "203"
+        },
+        {
+          "id": "b",
+          "text": "213"
+        },
+        {
+          "id": "c",
+          "text": "225"
+        },
+        {
+          "id": "d",
+          "text": "825"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Total baked = 540 + 285 = 825 buns. Unsold = 825 - 612 = 213 buns."
+    },
+    {
+      "sequence": 3,
+      "prompt": "Maxine and Milo have 120 stickers altogether. Maxine has 3 times as many stickers as Milo. How many stickers does Milo have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "30"
+        },
+        {
+          "id": "c",
+          "text": "40"
+        },
+        {
+          "id": "d",
+          "text": "90"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Total units = 1 (Milo) + 3 (Maxine) = 4 units. 4 units = 120, so 1 unit (Milo) = 120 ÷ 4 = 30 stickers."
+    },
+    {
+      "sequence": 4,
+      "prompt": "Which fraction is equivalent to 2/3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4/6"
+        },
+        {
+          "id": "b",
+          "text": "3/6"
+        },
+        {
+          "id": "c",
+          "text": "2/6"
+        },
+        {
+          "id": "d",
+          "text": "4/9"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Multiply numerator and denominator by 2: (2 × 2) / (3 × 2) = 4/6."
+    },
+    {
+      "sequence": 5,
+      "prompt": "Find the sum of 3/8 and 2/8 in its simplest form.",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/16"
+        },
+        {
+          "id": "b",
+          "text": "5/8"
+        },
+        {
+          "id": "c",
+          "text": "1/8"
+        },
+        {
+          "id": "d",
+          "text": "6/8"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Same denominator: (3 + 2) / 8 = 5/8."
+    },
+    {
+      "sequence": 6,
+      "prompt": "A rectangle has a length of 9 cm and a breadth of 4 cm. What is its area?",
+      "options": [
+        {
+          "id": "a",
+          "text": "13 cm²"
+        },
+        {
+          "id": "b",
+          "text": "26 cm²"
+        },
+        {
+          "id": "c",
+          "text": "36 cm²"
+        },
+        {
+          "id": "d",
+          "text": "45 cm²"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Area = Length × Breadth = 9 cm × 4 cm = 36 cm²."
+    },
+    {
+      "sequence": 7,
+      "prompt": "Convert 3 km 45 m into meters.",
+      "options": [
+        {
+          "id": "a",
+          "text": "345 m"
+        },
+        {
+          "id": "b",
+          "text": "3,045 m"
+        },
+        {
+          "id": "c",
+          "text": "3,450 m"
+        },
+        {
+          "id": "d",
+          "text": "30,045 m"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "1 km = 1,000 m, so 3 km = 3,000 m. 3,000 m + 45 m = 3,045 m."
+    },
+    {
+      "sequence": 8,
+      "prompt": "What is the remainder when 87 is divided by 5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "87 = (17 × 5) + 2, so the remainder is 2."
+    },
+    {
+      "sequence": 9,
+      "prompt": "Milo buys a toy for $14.60 and pays with a $50 note. How much change does he receive?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$35.40"
+        },
+        {
+          "id": "b",
+          "text": "$36.40"
+        },
+        {
+          "id": "c",
+          "text": "$35.60"
+        },
+        {
+          "id": "d",
+          "text": "$45.40"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "$50.00 - $14.60 = $35.40."
+    },
+    {
+      "sequence": 10,
+      "prompt": "A jug contains 2 liters of juice. Maxine drinks 650 ml. How much juice is left in the jug?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1,350 ml"
+        },
+        {
+          "id": "b",
+          "text": "1,450 ml"
+        },
+        {
+          "id": "c",
+          "text": "1,550 ml"
+        },
+        {
+          "id": "d",
+          "text": "2,350 ml"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "2 L = 2,000 ml. 2,000 ml - 650 ml = 1,350 ml."
+    }
+  ]
+}

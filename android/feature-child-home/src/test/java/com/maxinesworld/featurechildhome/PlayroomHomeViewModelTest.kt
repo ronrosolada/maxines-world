@@ -10,6 +10,7 @@ import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
@@ -218,6 +219,9 @@ class PlayroomHomeViewModelTest {
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
+        val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
+        every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
+        coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
         val godModeManager = mockk<GodModeManager>()
         every { godModeManager.enabled } returns flowOf(godModeEnabled)
         return PlayroomHomeViewModel(
@@ -228,6 +232,7 @@ class PlayroomHomeViewModelTest {
             badgeAwarder = awarder,
             rewardDao = rewardDao,
             inventoryDao = inventoryDao,
+            videoWatchLedgerDao = videoWatchLedgerDao,
             dailyQuestManager = dailyQuestManager,
             godModeManager = godModeManager,
         )

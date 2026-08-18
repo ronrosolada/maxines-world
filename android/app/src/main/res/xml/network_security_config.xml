@@ -5,5 +5,6 @@
          before exposing the endpoint outside the home network. -->
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="false">10.10.10.33</domain>
+        <domain includeSubdomains="false">10.10.20.33</domain>
     </domain-config>
 </network-security-config>

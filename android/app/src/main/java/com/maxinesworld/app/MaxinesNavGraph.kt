@@ -1,5 +1,7 @@
 package com.maxinesworld.app
 
+import com.maxinesworld.featurelessonplayer.AssessmentArenaRoute
+
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,6 +39,8 @@ import com.maxinesworld.featurechildhome.ModuleLessonsScreen
 import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
 import com.maxinesworld.featurechildhome.subjectForPack
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
+import com.maxinesworld.featurelessonplayer.QuickBitsScreen
+import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
 import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
 import com.maxinesworld.featurelessonplayer.VideoLibraryViewModel
 import com.maxinesworld.featureparent.ParentDashboardScreen
@@ -59,7 +63,9 @@ object Routes {
     const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
     const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
     const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
-    const val VIDEO_LIBRARY = "video_library/{childId}"
+    const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
+    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
+    const val QUICK_BITS = "quick_bits/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
@@ -74,7 +80,13 @@ object Routes {
         "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
     fun lessonPlayer(childId: String, lessonId: String) =
         "lesson_player/${segment(childId)}/${segment(lessonId)}"
-    fun videoLibrary(childId: String) = "video_library/${segment(childId)}"
+    fun assessmentArena(childId: String, subject: String? = null) =
+        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+
+    fun videoLibrary(childId: String, subject: String? = null) =
+        "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+
+    fun quickBits(childId: String) = "quick_bits/${segment(childId)}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
     fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
@@ -146,9 +158,8 @@ fun MaxinesNavGraph(navController: NavHostController) {
             PlayroomHomeScreen(
                 state = homeState,
                 onSubjectClick = { subjectId ->
-                    val subject = subjectForPack(subjectId)
-                    if (subject != null && homeViewModel.onSubjectSelected(subjectId)) {
-                        navController.navigate(Routes.subjectModules(childId, subject))
+                    if (homeViewModel.onSubjectSelected(subjectId)) {
+                        navController.navigate(Routes.videoLibrary(childId, subjectId))
                         homeViewModel.onOpenFinished()
                     }
                 },
@@ -193,8 +204,14 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onTreatShopClick = {
                     navController.navigate(Routes.treatShop(childId))
                 },
+                onQuickBitsClick = {
+                    navController.navigate(Routes.quickBits(childId))
+                },
                 onVideosClick = {
                     navController.navigate(Routes.videoLibrary(childId))
+                },
+                onAssessmentsClick = {
+                    navController.navigate(Routes.assessmentArena(childId))
                 },
                 onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
@@ -207,26 +224,54 @@ fun MaxinesNavGraph(navController: NavHostController) {
             )
         }
 
+                composable(
+            route = Routes.ASSESSMENT_ARENA,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) {
+            AssessmentArenaRoute(
+                onBack = { navController.popBackStack() },
+            )
+        }
+
         composable(
-            route = Routes.VIDEO_LIBRARY,
+            route = Routes.QUICK_BITS,
             arguments = listOf(navArgument("childId") { type = NavType.StringType }),
         ) { backStackEntry ->
-            val viewModel: VideoLibraryViewModel = hiltViewModel(backStackEntry)
+            val viewModel: QuickBitsViewModel = hiltViewModel(backStackEntry)
             val state by viewModel.state.collectAsStateWithLifecycle()
-            VideoLibraryScreen(
+            QuickBitsScreen(
                 state = state,
                 onBack = { navController.popBackStack() },
-                onRetry = viewModel::refresh,
-                onDownload = viewModel::download,
-                onPlay = viewModel::play,
+                onRefresh = { viewModel.loadCatalog(true) },
+                onSelectCategory = viewModel::selectCategory,
+                onPlayVideo = viewModel::playVideo,
                 onStopPlaying = viewModel::stopPlaying,
-                onVideoCompleted = viewModel::markVideoWatched,
-                onStartAssessment = viewModel::startAssessment,
-                onSelectAssessmentOption = viewModel::selectAssessmentOption,
-                onSubmitAssessment = viewModel::submitAssessment,
-                onNextAssessment = viewModel::nextAssessment,
-                onRestartAssessment = viewModel::restartAssessment,
-                onCloseAssessment = viewModel::closeAssessment,
+                onDownloadSingle = viewModel::downloadSingle,
+                onDownloadAll = viewModel::downloadAll,
+                onClearDownloads = viewModel::clearAllDownloads,
+            )
+        }
+
+        composable(
+            route = Routes.VIDEO_LIBRARY,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("subject") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            ),
+        ) {
+            VideoLibraryScreen(
+                onBack = { navController.popBackStack() },
             )
         }
 

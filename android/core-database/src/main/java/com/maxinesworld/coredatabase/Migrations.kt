@@ -6,19 +6,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 /**
  * All Room migrations for MaxinesDatabase, in one place so both the app
  * (DatabaseModule) and instrumented migration tests can use them.
- *
- * Migration history:
- *  v1 → v2: reward_break_entitlements + mini_game_results
- *  v2 → v3: daily_challenges + collected_badges
- *  v3 → v7: adopt v6-lineage tables (lesson_completions, reward_ledger, inventory,
- *           daily_quest_sets, daily_quest_completions, playground_unlock_receipts)
- *           + v4-lineage tables (content_packages, active_content_package,
- *           content_sync_runs) + collected_badges composite index fix
- *  v4 → v7: alpha builds already had content tables; add v6 set + index fix
- *  v6 → v7: next.10 builds already had playground set + composite index; add content tables
- *
- * Shared core tables are byte-identical across v3/v4/v6 (verified against the
- * exported schema JSONs), so all three migrations are purely additive.
  */
 object MaxinesMigrations {
 
@@ -41,13 +28,6 @@ object MaxinesMigrations {
         }
     }
 
-    /**
-     * v3 → v7 (2026-08): adopt the playground/quest/ledger tables (v6 lineage) and
-     * content-package tables (v4 lineage) so devices on ANY shipped build (v3, v4, v6)
-     * can upgrade data-preserving. Shared core tables are byte-identical across
-     * v3/v4/v6 (verified against exported schema JSONs), so migrations are additive.
-     * Also fixes collected_badges indices to the composite unique(childId, badgeId).
-     */
     val MIGRATION_3_7 = object : Migration(3, 7) {
         override fun migrate(db: SupportSQLiteDatabase) {
             fixCollectedBadgesIndices(db)
@@ -56,7 +36,6 @@ object MaxinesMigrations {
         }
     }
 
-    /** v4 → v7: alpha builds already had content-pack tables; add the v6 playground set + badge index fix. */
     val MIGRATION_4_7 = object : Migration(4, 7) {
         override fun migrate(db: SupportSQLiteDatabase) {
             fixCollectedBadgesIndices(db)
@@ -64,14 +43,12 @@ object MaxinesMigrations {
         }
     }
 
-    /** v6 → v7: next.10 builds already had the playground set + composite badge index; add content-pack tables. */
     val MIGRATION_6_7 = object : Migration(6, 7) {
         override fun migrate(db: SupportSQLiteDatabase) {
             createV4Tables(db)
         }
     }
 
-    /** v7 → v8: persist one non-resetting Wildlife Expedition per local week. */
     val MIGRATION_7_8 = object : Migration(7, 8) {
         override fun migrate(db: SupportSQLiteDatabase) {
             db.execSQL("CREATE TABLE IF NOT EXISTS `wildlife_expeditions` (`id` TEXT NOT NULL, `childId` TEXT NOT NULL, `weekKey` TEXT NOT NULL, `completedLessonIds` TEXT NOT NULL, `subjectKeys` TEXT NOT NULL, `badgeAwarded` INTEGER NOT NULL, `awardedBadgeId` TEXT, `createdAtEpochMillis` INTEGER NOT NULL, `updatedAtEpochMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))")
@@ -81,12 +58,44 @@ object MaxinesMigrations {
 
     val MIGRATION_8_9 = object : Migration(8, 9) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            // Record whether a completion was a first-attempt pass (spec CH-04).
-            // Additive; existing rows default to first-attempt (the historical
-            // behaviour was a single completion row regardless of retries).
             db.execSQL("ALTER TABLE `lesson_completions` ADD COLUMN `passedOnFirstAttempt` INTEGER NOT NULL DEFAULT 1")
         }
     }
+
+    val MIGRATION_9_10 = object : Migration(9, 10) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `video_watch_ledger` (
+                    `id` TEXT NOT NULL,
+                    `childId` TEXT NOT NULL,
+                    `mediaId` TEXT NOT NULL,
+                    `subjectId` TEXT NOT NULL,
+                    `accreditedSeconds` INTEGER NOT NULL,
+                    `quizPassed` INTEGER NOT NULL,
+                    `bestQuizScore` REAL NOT NULL,
+                    `firstPassedAtEpochMillis` INTEGER,
+                    `lastWatchedAtEpochMillis` INTEGER NOT NULL,
+                    PRIMARY KEY(`id`)
+                )
+                """.trimIndent()
+            )
+            db.execSQL(
+                "CREATE UNIQUE INDEX IF NOT EXISTS `index_video_watch_ledger_childId_mediaId` ON `video_watch_ledger` (`childId`, `mediaId`)"
+            )
+        }
+    }
+
+    val ALL_MIGRATIONS = arrayOf(
+        MIGRATION_1_2,
+        MIGRATION_2_3,
+        MIGRATION_3_7,
+        MIGRATION_4_7,
+        MIGRATION_6_7,
+        MIGRATION_7_8,
+        MIGRATION_8_9,
+        MIGRATION_9_10,
+    )
 
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {
         db.execSQL("DROP INDEX IF EXISTS `index_collected_badges_badgeId`")

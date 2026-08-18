@@ -61,6 +61,9 @@ interface ProgressEventDao {
 
     @Query("SELECT * FROM progress_events WHERE syncStatus = 'PENDING'")
     suspend fun getPendingSync(): List<ProgressEventEntity>
+
+    @Query("SELECT * FROM progress_events WHERE childId = :childId AND syncStatus = 'PENDING'")
+    suspend fun getPendingSyncByChild(childId: String): List<ProgressEventEntity>
 }
 
 @Dao
@@ -216,6 +219,9 @@ interface RewardLedgerDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(entry: RewardLedgerEntity): Long
 
+    @Query("SELECT * FROM reward_ledger WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<RewardLedgerEntity>
+
     @Query("SELECT COALESCE(SUM(amount), 0) FROM reward_ledger WHERE childId = :childId")
     suspend fun fishTreatBalance(childId: String): Int
 }
@@ -224,6 +230,9 @@ interface RewardLedgerDao {
 interface InventoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(item: InventoryEntity): Long
+
+    @Query("SELECT * FROM inventory WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<InventoryEntity>
 
     @Query("SELECT EXISTS(SELECT 1 FROM inventory WHERE childId = :childId AND itemId = :itemId)")
     suspend fun owns(childId: String, itemId: String): Boolean
@@ -315,4 +324,31 @@ interface ContentSyncRunDao {
 
     @Query("UPDATE content_sync_runs SET state = :state, completedAtEpochMillis = :completedAt, errorMessage = :error WHERE id = :id")
     suspend fun complete(id: String, state: String, completedAt: Long, error: String?)
+}
+
+@Dao
+interface VideoWatchLedgerDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOrUpdate(entry: VideoWatchLedgerEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertIgnoring(entry: VideoWatchLedgerEntity): Long
+
+    @Query("SELECT * FROM video_watch_ledger WHERE childId = :childId")
+    suspend fun getAllByChild(childId: String): List<VideoWatchLedgerEntity>
+
+    @Query("SELECT * FROM video_watch_ledger WHERE childId = :childId AND mediaId = :mediaId")
+    suspend fun getEntry(childId: String, mediaId: String): VideoWatchLedgerEntity?
+
+    @Query("SELECT * FROM video_watch_ledger WHERE childId = :childId")
+    fun observeLedger(childId: String): kotlinx.coroutines.flow.Flow<List<VideoWatchLedgerEntity>>
+
+    @Query("SELECT COALESCE(SUM(accreditedSeconds), 0) FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
+    fun observeTotalAccreditedSeconds(childId: String): kotlinx.coroutines.flow.Flow<Int>
+
+    @Query("SELECT COALESCE(SUM(accreditedSeconds), 0) FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
+    suspend fun getTotalAccreditedSeconds(childId: String): Int
+
+    @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
+    fun observePassedMediaIds(childId: String): kotlinx.coroutines.flow.Flow<List<String>>
 }

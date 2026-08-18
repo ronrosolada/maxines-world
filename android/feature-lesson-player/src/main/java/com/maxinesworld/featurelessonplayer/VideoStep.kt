@@ -1,37 +1,50 @@
 package com.maxinesworld.featurelessonplayer
 
 import android.view.LayoutInflater
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloudDownload
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
 import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackParameters
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
@@ -39,6 +52,7 @@ import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.Cream
 import com.maxinesworld.coredesignsystem.theme.Ink
 import com.maxinesworld.coredesignsystem.theme.Teal40
+import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import com.maxinesworld.coremodel.ActivityStep
 import java.io.File
 
@@ -143,13 +157,21 @@ internal fun OfflineVideoPlayer(
 ) {
     val context = LocalContext.current
     val currentOnCompleted = androidx.compose.runtime.rememberUpdatedState(onCompleted)
+    var currentSpeed by androidx.compose.runtime.saveable.rememberSaveable { mutableFloatStateOf(1.0f) }
+    var savedPosition by androidx.compose.runtime.saveable.rememberSaveable(file.absolutePath) { androidx.compose.runtime.mutableLongStateOf(0L) }
+
     val player = remember(file.absolutePath) {
         ExoPlayer.Builder(context).build().apply {
             setMediaItem(MediaItem.fromUri(file.toUri()))
-            playWhenReady = false
+            playbackParameters = PlaybackParameters(currentSpeed)
+            playWhenReady = true
+            if (savedPosition > 0L) {
+                seekTo(savedPosition)
+            }
             prepare()
         }
     }
+
     DisposableEffect(player) {
         val listener = object : Player.Listener {
             override fun onPlaybackStateChanged(playbackState: Int) {
@@ -158,25 +180,79 @@ internal fun OfflineVideoPlayer(
         }
         player.addListener(listener)
         onDispose {
+            savedPosition = player.currentPosition
             player.removeListener(listener)
             player.release()
         }
     }
 
-    AndroidView(
-        modifier = Modifier
-            .fillMaxWidth()
-            .aspectRatio(16f / 9f)
-            .clip(RoundedCornerShape(16.dp)),
-        factory = { viewContext ->
-            (LayoutInflater.from(viewContext)
-                .inflate(R.layout.view_offline_video_player, null, false) as PlayerView).apply {
-                this.player = player
-                contentDescription = "Offline lesson video player"
-                setShowNextButton(false)
-                setShowPreviousButton(false)
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(16f / 9f)
+                .clip(RoundedCornerShape(16.dp))
+        ) {
+            AndroidView(
+                modifier = Modifier.matchParentSize(),
+                factory = { viewContext ->
+                    (LayoutInflater.from(viewContext)
+                        .inflate(R.layout.view_offline_video_player, null, false) as PlayerView).apply {
+                        this.player = player
+                        contentDescription = "Offline lesson video player"
+                        setShowNextButton(false)
+                        setShowPreviousButton(false)
+                    }
+                },
+                update = { it.player = player },
+            )
+        }
+
+        // Playback speed control bar (1.0x, 1.25x, 1.5x, 2.0x)
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                Icon(
+                    Icons.Default.Speed,
+                    contentDescription = "Playback Speed",
+                    tint = VillageTeal,
+                    modifier = Modifier.size(18.dp)
+                )
+                Text(
+                    "Speed:",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Ink.copy(alpha = 0.7f)
+                )
             }
-        },
-        update = { it.player = player },
-    )
+
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                listOf(1.0f, 1.25f, 1.5f, 2.0f).forEach { speed ->
+                    val isSelected = currentSpeed == speed
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = if (isSelected) VillageTeal else VillageTeal.copy(alpha = 0.10f),
+                        modifier = Modifier.clickable {
+                            currentSpeed = speed
+                            player.playbackParameters = PlaybackParameters(speed)
+                        }
+                    ) {
+                        Text(
+                            text = if (speed == 1.0f) "1.0x" else "${speed}x",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp,
+                            color = if (isSelected) Color.White else VillageTeal,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
