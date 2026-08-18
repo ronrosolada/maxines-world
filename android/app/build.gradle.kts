@@ -10,6 +10,22 @@ plugins {
 import java.io.File
 import java.util.Properties
 
+fun getGitVersionCode(): Int {
+    return try {
+        val process = ProcessBuilder("git", "rev-list", "--count", "HEAD").start()
+        val count = process.inputStream.bufferedReader().readText().trim().toInt()
+        count
+    } catch (_: Exception) { 70 }
+}
+
+fun getGitVersionName(): String {
+    return try {
+        val process = ProcessBuilder("git", "describe", "--tags", "--always").start()
+        val tag = process.inputStream.bufferedReader().readText().trim().removePrefix("v")
+        if (tag.isNotBlank()) tag else "0.51.0"
+    } catch (_: Exception) { "0.51.0" }
+}
+
 android {
     namespace = "com.maxinesworld.app"
     compileSdk = 35
@@ -17,8 +33,8 @@ android {
         applicationId = "com.maxinesworld.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 70
-        versionName = "0.51.0"
+        versionCode = getGitVersionCode()
+        versionName = getGitVersionName()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
