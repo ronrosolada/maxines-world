@@ -12,7 +12,9 @@ import com.maxinesworld.coremodel.LessonManifest
 import com.maxinesworld.engineactivity.ActivityResult
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
+import com.maxinesworld.featurerewards.DailyQuestRewardResult
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featurerewards.LessonReward
 import com.maxinesworld.featurerewards.LessonRewardPolicy
 import java.time.LocalDate
 import java.time.ZoneId
@@ -131,39 +133,54 @@ class LessonCompletionRepository @Inject constructor(
             failureInjector.after(CompletionWriteStage.PROGRESS_EVENTS_INSERTED)
 
             val rewardKey = "lesson-first:$childId:${lesson.id}"
-            val lessonReward = LessonRewardPolicy.forAccuracy(accuracy)
-
-            rewardDao.insertIgnoring(
-                RewardEntity(
-                    id = "$rewardKey:STAR",
-                    childId = childId,
-                    type = "STAR",
-                    subject = lesson.subject,
-                    amount = lessonReward.stars,
-                    metadata = rewardKey,
+            // Reward contract: only ASSESSED lessons earn stars/coins, expedition
+            // progress, and quest rewards. An assessmentless lesson still records
+            // its completion + progress events so the child advances, but it grants
+            // no currency or level/quest rewards (the 30-min watch / >=80% quiz
+            // contract has nothing to validate against).
+            val rewardsEligible = lesson.assessment != null
+            val lessonReward = if (rewardsEligible) {
+                LessonRewardPolicy.forAccuracy(accuracy)
+            } else {
+                LessonReward(stars = 0, coins = 0)
+            }
+            if (rewardsEligible) {
+                rewardDao.insertIgnoring(
+                    RewardEntity(
+                        id = "$rewardKey:STAR",
+                        childId = childId,
+                        type = "STAR",
+                        subject = lesson.subject,
+                        amount = lessonReward.stars,
+                        metadata = rewardKey,
+                    )
                 )
-            )
-            failureInjector.after(CompletionWriteStage.STARS_INSERTED)
-            rewardDao.insertIgnoring(
-                RewardEntity(
-                    id = "$rewardKey:COIN",
-                    childId = childId,
-                    type = "COIN",
-                    subject = lesson.subject,
-                    amount = lessonReward.coins,
-                    metadata = rewardKey,
+                failureInjector.after(CompletionWriteStage.STARS_INSERTED)
+                rewardDao.insertIgnoring(
+                    RewardEntity(
+                        id = "$rewardKey:COIN",
+                        childId = childId,
+                        type = "COIN",
+                        subject = lesson.subject,
+                        amount = lessonReward.coins,
+                        metadata = rewardKey,
+                    )
                 )
-            )
-            failureInjector.after(CompletionWriteStage.COINS_INSERTED)
+                failureInjector.after(CompletionWriteStage.COINS_INSERTED)
+            }
 
-            val expedition = badgeAwarder.recordLessonCompletion(
-                childId = childId,
-                subject = lesson.subject,
-                lessonId = lesson.id,
-                badgeCatalog = badgeCatalog,
-            )
+            val expedition = if (rewardsEligible) {
+                badgeAwarder.recordLessonCompletion(
+                    childId = childId,
+                    subject = lesson.subject,
+                    lessonId = lesson.id,
+                    badgeCatalog = badgeCatalog,
+                )
+            } else {
+                ChallengeProgress()
+            }
             failureInjector.after(CompletionWriteStage.EXPEDITION_WRITTEN)
-            val firstStepsSticker = if (isFirstLessonEver) {
+            val firstStepsSticker = if (rewardsEligible && isFirstLessonEver) {
                 badgeAwarder.recordFirstLessonCompletion(childId, badgeCatalog)
             } else {
                 null
@@ -172,11 +189,15 @@ class LessonCompletionRepository @Inject constructor(
                 failureInjector.after(CompletionWriteStage.BADGE_INSERTED)
             }
 
-            val dailyQuestReward = dailyQuestRewardWriter.reconcileInTransaction(
-                childId = childId,
-                dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
-                completedLessonId = lesson.id,
-            )
+            val dailyQuestReward = if (rewardsEligible) {
+                dailyQuestRewardWriter.reconcileInTransaction(
+                    childId = childId,
+                    dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
+                    completedLessonId = lesson.id,
+                )
+            } else {
+                DailyQuestRewardResult()
+            }
             failureInjector.after(CompletionWriteStage.DAILY_QUEST_WRITTEN)
 
             LessonCompletionPersistenceResult(

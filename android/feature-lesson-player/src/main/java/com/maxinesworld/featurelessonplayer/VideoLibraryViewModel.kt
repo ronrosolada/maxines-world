@@ -265,67 +265,86 @@ class VideoLibraryViewModel @Inject constructor(
         val advanced = advanceQuiz(quiz, assessment)
 
         if (advanced.finished) {
-            val passed = advanced.correctCount >= assessment.passingCorrectCount
+            // Enforce the >=80% quiz contract even if a catalog entry authored a
+            // looser passingCorrectCount. floor(80% of items).
+            val requiredCorrect = maxOf(
+                assessment.passingCorrectCount,
+                Math.ceil(assessment.items.size * 0.80).toInt(),
+            )
+            val passed = advanced.correctCount >= requiredCorrect
             if (passed) {
                 viewModelScope.launch {
                     val score = advanced.correctCount.toFloat() / assessment.items.size.toFloat()
                     val actualChildId = childId.ifBlank { "default_child" }
-                    
-                    // 1. Get previous total accredited seconds BEFORE recording this video
-                    val prevTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
-                    val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
-
-                    // 2. Insert/update video watch ledger with FULL official video duration
-                    videoWatchLedgerDao.insertOrUpdate(
-                        VideoWatchLedgerEntity(
-                            id = "${actualChildId}_${asset.mediaId}",
-                            childId = actualChildId,
-                            mediaId = asset.mediaId,
-                            subjectId = asset.subjectId,
-                            accreditedSeconds = asset.durationSeconds,
-                            quizPassed = true,
-                            bestQuizScore = score,
-                            firstPassedAtEpochMillis = System.currentTimeMillis(),
-                            lastWatchedAtEpochMillis = System.currentTimeMillis(),
-                        )
-                    )
-
-                    // 3. Award 5 stars for passing quiz
-                    rewardDao.insert(
-                        RewardEntity(
-                            id = UUID.randomUUID().toString(),
-                            childId = actualChildId,
-                            type = "STARS",
-                            subject = asset.subjectId,
-                            amount = 5,
-                            earnedAt = System.currentTimeMillis(),
-                            metadata = "video_assessment_passed:${asset.mediaId}",
-                        )
-                    )
-
-                    // 4. Calculate new total seconds across all subjects and award wildlife sticker if 30-min threshold reached
-                    val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
-                    val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
-
-                    if (newEarnedStickers > prevEarnedStickers) {
-                        val stickersToAward = newEarnedStickers - prevEarnedStickers
-                        val allBadges = badgeLoader.loadAll()
-                        val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
-                        val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
-
-                        for (i in 0 until stickersToAward) {
-                            val badgeToAward = availableBadges.getOrNull(i)
-                            if (badgeToAward != null) {
-                                collectedBadgeDao.insert(
-                                    CollectedBadgeEntity(
-                                        id = "${actualChildId}_${badgeToAward.id}",
-                                        childId = actualChildId,
-                                        badgeId = badgeToAward.id,
-                                        biome = badgeToAward.biome,
-                                        earnedDate = LocalDate.now().toString(),
-                                    )
+                    val existing = videoWatchLedgerDao.getEntry(actualChildId, asset.mediaId)
+                    if (existing?.quizPassed == true) {
+                        // Replay pass: refresh the best score only, never re-award.
+                        if (score > existing.bestQuizScore) {
+                            videoWatchLedgerDao.insertOrUpdate(
+                                existing.copy(
+                                    bestQuizScore = score,
+                                    lastWatchedAtEpochMillis = System.currentTimeMillis(),
                                 )
-                                _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                            )
+                        }
+                    } else {
+                        // Genuine first pass — award 5 stars + wildlife stickers exactly once.
+                        // 1. Previous total accredited seconds BEFORE recording this video
+                        val prevTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
+                        val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
+
+                        // 2. Record the watch ledger with FULL official video duration (idempotent upsert)
+                        videoWatchLedgerDao.insertOrUpdate(
+                            VideoWatchLedgerEntity(
+                                id = "${actualChildId}_${asset.mediaId}",
+                                childId = actualChildId,
+                                mediaId = asset.mediaId,
+                                subjectId = asset.subjectId,
+                                accreditedSeconds = asset.durationSeconds,
+                                quizPassed = true,
+                                bestQuizScore = score,
+                                firstPassedAtEpochMillis = System.currentTimeMillis(),
+                                lastWatchedAtEpochMillis = System.currentTimeMillis(),
+                            )
+                        )
+
+                        // 3. Award 5 stars — deterministic id + IGNORE makes this a one-time reward
+                        rewardDao.insertIgnoring(
+                            RewardEntity(
+                                id = "video-assessment:$actualChildId:${asset.mediaId}:STAR",
+                                childId = actualChildId,
+                                type = "STAR",
+                                subject = asset.subjectId,
+                                amount = 5,
+                                earnedAt = System.currentTimeMillis(),
+                                metadata = "video_assessment_passed:${asset.mediaId}",
+                            )
+                        )
+
+                        // 4. Award wildlife sticker(s) if 30-min cumulative threshold reached
+                        val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
+                        val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
+
+                        if (newEarnedStickers > prevEarnedStickers) {
+                            val stickersToAward = newEarnedStickers - prevEarnedStickers
+                            val allBadges = badgeLoader.loadAll()
+                            val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
+                            val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
+
+                            for (i in 0 until stickersToAward) {
+                                val badgeToAward = availableBadges.getOrNull(i)
+                                if (badgeToAward != null) {
+                                    collectedBadgeDao.insert(
+                                        CollectedBadgeEntity(
+                                            id = "${actualChildId}_${badgeToAward.id}",
+                                            childId = actualChildId,
+                                            badgeId = badgeToAward.id,
+                                            biome = badgeToAward.biome,
+                                            earnedDate = LocalDate.now().toString(),
+                                        )
+                                    )
+                                    _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                                }
                             }
                         }
                     }

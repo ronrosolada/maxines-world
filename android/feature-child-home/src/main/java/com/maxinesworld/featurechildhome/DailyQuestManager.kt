@@ -45,10 +45,13 @@ object DailyQuestPlanner {
         if (count <= 0 || availableLessonIds.isEmpty()) return emptyList()
         val uniqueAvailable = availableLessonIds.distinct()
         val unfinished = uniqueAvailable.filterNot(completedLessonIds::contains)
-        val prioritized = (unfinished + uniqueAvailable.filter(completedLessonIds::contains)).distinct()
-        val start = questStartIndex("$childId:$dayKey".hashCode(), prioritized.size)
-        return (0 until minOf(count, prioritized.size))
-            .map { offset -> prioritized[(start + offset) % prioritized.size] }
+        // Only unfinished lessons may be daily targets. Padding with
+        // already-completed lessons let a child recycle previous days'
+        // completions into today's quest and mint rewards without new learning.
+        if (unfinished.isEmpty()) return emptyList()
+        val start = questStartIndex("$childId:$dayKey".hashCode(), unfinished.size)
+        return (0 until minOf(count, unfinished.size))
+            .map { offset -> unfinished[(start + offset) % unfinished.size] }
     }
 }
 
@@ -72,19 +75,11 @@ class DailyQuestManager @Inject constructor(
         val set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, completed, availableLessonIdsOverride)
         val assigned = parseIds(set.assignedQuestIds)
-        assigned.filter(completed::contains).forEach { lessonId ->
-            dailyQuestCompletionDao.insertIgnoring(
-                DailyQuestCompletionEntity(
-                    id = "$childId:$dayKey:$lessonId",
-                    childId = childId,
-                    dayKey = dayKey,
-                    questId = lessonId,
-                    completionEventId = "lesson-completion:$childId:$lessonId",
-                )
-            )
-        }
-        // Repair rewards after a process death or when the child completed a
-        // target before the home screen reconciled today's quest.
+        // Never pre-fill today's quest from the child's GLOBAL completion set: a
+        // lesson finished on a previous day must not complete today's quest or mint
+        // today's sanctuary/break reward. Today's quest targets are credited only by
+        // the lesson-completion path (DailyQuestRewardWriter), so a stale historical
+        // completion cannot auto-complete a fresh day.
         dailyQuestRewardWriter.reconcile(childId, dayKey)
         val completedQuestIds = dailyQuestCompletionDao.getCompletedQuestIds(childId, dayKey)
         return DailyQuestProgress(dayKey, assigned, completedQuestIds)

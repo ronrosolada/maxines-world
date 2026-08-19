@@ -86,6 +86,16 @@ object MaxinesMigrations {
         }
     }
 
+    val MIGRATION_10_11 = object : Migration(10, 11) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // Canonicalize video-quiz star rewards: the writer used type "STARS"
+            // (plural) which the balance queries (type "STAR") never read, silently
+            // hiding earned stars. Rewrite existing rows so previously-earned stars
+            // become visible; new awards use the canonical "STAR" type.
+            db.execSQL("UPDATE `rewards` SET `type` = 'STAR' WHERE `type` = 'STARS'")
+        }
+    }
+
     val ALL_MIGRATIONS = arrayOf(
         MIGRATION_1_2,
         MIGRATION_2_3,
@@ -95,6 +105,7 @@ object MaxinesMigrations {
         MIGRATION_7_8,
         MIGRATION_8_9,
         MIGRATION_9_10,
+        MIGRATION_10_11,
     )
 
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {

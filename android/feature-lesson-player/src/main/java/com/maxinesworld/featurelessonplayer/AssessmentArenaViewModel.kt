@@ -199,30 +199,35 @@ class AssessmentArenaViewModel @Inject constructor(
 
     private fun awardRewards(packId: String, stars: Int, tokens: Int) {
         val actualChildId = childId.ifBlank { "default_child" }
+        val subject = _state.value.selectedSubjectId
+        val now = System.currentTimeMillis()
         viewModelScope.launch {
+            // Deterministic ids + IGNORE make an arena pack's stars/coins a ONE-TIME
+            // reward — Retake after a pass is reward-free (no replay farming), and
+            // the canonical "STAR" type is what the balances actually read.
             if (stars > 0) {
-                rewardDao.insert(
+                rewardDao.insertIgnoring(
                     RewardEntity(
-                        id = UUID.randomUUID().toString(),
+                        id = "assessment-arena:$actualChildId:$packId:STAR",
                         childId = actualChildId,
-                        type = "STARS",
-                        subject = _state.value.selectedSubjectId,
+                        type = "STAR",
+                        subject = subject,
                         amount = stars,
-                        earnedAt = System.currentTimeMillis(),
+                        earnedAt = now,
                         metadata = "assessment_arena_passed:$packId",
                     )
                 )
             }
             if (tokens > 0) {
-                rewardDao.insert(
+                rewardDao.insertIgnoring(
                     RewardEntity(
-                        id = UUID.randomUUID().toString(),
+                        id = "assessment-arena:$actualChildId:$packId:COIN",
                         childId = actualChildId,
                         type = "COIN",
-                        subject = _state.value.selectedSubjectId,
+                        subject = subject,
                         amount = tokens,
-                        earnedAt = System.currentTimeMillis(),
-                        metadata = "assessment_arena_tokens:$packId",
+                        earnedAt = now,
+                        metadata = "assessment_arena_passed:$packId",
                     )
                 )
             }

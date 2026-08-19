@@ -166,17 +166,11 @@ class RewardBreakViewModel @Inject constructor(
                     collectibleId = result.collectibleId,
                 )
             )
+            // Mini-games are a FINITE reward break, not a currency source. The play
+            // itself is the reward, so no spendable COIN is minted from in-game
+            // tokens (prevents farming Treat Shop currency by replaying games).
             if (result.pawTokensEarned > 0) {
-                rewardDao.insertIgnoring(
-                    RewardEntity(
-                        id = "mini-game:${result.idempotencyKey}:tokens",
-                        childId = result.childId,
-                        type = "COIN",
-                        amount = result.pawTokensEarned,
-                        subject = "reward-break",
-                        metadata = "mini-game:${result.gameId}:${result.idempotencyKey}",
-                    )
-                )
+                // Intentionally no rewardDao.insert — results are telemetry only.
             }
             result.collectibleId
                 ?.takeIf { it.isNotBlank() }
