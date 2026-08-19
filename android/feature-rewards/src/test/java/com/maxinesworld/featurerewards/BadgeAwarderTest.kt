@@ -199,7 +199,7 @@ class BadgeAwarderTest {
     @Test
     fun `god mode projects the whole badge catalog as collected without writing rows`() = runTest {
         val godMode = mockk<GodModeManager>()
-        coEvery { godMode.isEnabled() } returns true
+        coEvery { godMode.isEnabledNow(childId) } returns true
         val result = BadgeAwarder(expeditionDao, collectedBadgeDao, badgeLoader, godMode)
             .getCollectedBadges(childId)
 

@@ -71,7 +71,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     profileFlow,
                     lessonIdsFlow,
                     accreditedSecondsFlow,
-                    godModeManager.enabled
+                    godModeManager.isEnabled(childId)
                 ) { profile, ids, seconds, godMode ->
                     HomeDataTuple(profile, ids, seconds, godMode)
                 }.collect { data ->

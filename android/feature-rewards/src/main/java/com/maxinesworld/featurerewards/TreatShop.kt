@@ -69,7 +69,7 @@ class TreatShopRepository @Inject constructor(
         rewardDao.getTotalByType(childId, "COIN") ?: 0
 
     suspend fun ownedItemIds(childId: String): Set<String> =
-        if (godModeManager?.isEnabled() == true) {
+        if (godModeManager?.isEnabledNow(childId) == true) {
             TreatShopCatalog.items.mapTo(mutableSetOf()) { it.id }
         } else {
             inventoryDao.getOwnedItemIds(childId).toSet()
@@ -77,7 +77,7 @@ class TreatShopRepository @Inject constructor(
 
     suspend fun purchase(childId: String, item: TreatShopItem): PurchaseResult =
         database.withTransaction {
-            if (godModeManager?.isEnabled() == true) {
+            if (godModeManager?.isEnabledNow(childId) == true) {
                 return@withTransaction PurchaseResult.AlreadyOwned
             }
             if (inventoryDao.owns(childId, item.id)) {

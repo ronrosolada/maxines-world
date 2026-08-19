@@ -223,7 +223,7 @@ class PlayroomHomeViewModelTest {
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
         val godModeManager = mockk<GodModeManager>()
-        every { godModeManager.enabled } returns flowOf(godModeEnabled)
+        every { godModeManager.isEnabled("child_1") } returns flowOf(godModeEnabled)
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,

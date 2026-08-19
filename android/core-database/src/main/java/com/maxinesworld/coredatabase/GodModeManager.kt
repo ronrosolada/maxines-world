@@ -27,19 +27,23 @@ class GodModeManager @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
     companion object {
-        private val KEY_ENABLED = booleanPreferencesKey("enabled")
         const val GOD_MODE_REWARD_BREAK_ID = "god-mode-playground"
     }
 
-    val enabled: Flow<Boolean> = context.godModeDataStore.data.map { preferences ->
-        preferences[KEY_ENABLED] ?: false
-    }
+    private fun keyFor(childId: String) = booleanPreferencesKey("enabled_$childId")
 
-    suspend fun isEnabled(): Boolean = enabled.first()
+    /** God-mode preview state for ONE child — scoped so it never leaks across profiles. */
+    fun isEnabled(childId: String): Flow<Boolean> =
+        context.godModeDataStore.data.map { preferences ->
+            preferences[keyFor(childId)] ?: false
+        }
 
-    suspend fun setEnabled(value: Boolean) {
+    suspend fun isEnabledNow(childId: String): Boolean =
+        context.godModeDataStore.data.first()[keyFor(childId)] ?: false
+
+    suspend fun setEnabled(childId: String, enabled: Boolean) {
         context.godModeDataStore.edit { preferences ->
-            preferences[KEY_ENABLED] = value
+            if (enabled) preferences[keyFor(childId)] = true else preferences.remove(keyFor(childId))
         }
     }
 }

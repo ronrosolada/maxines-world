@@ -124,7 +124,7 @@ class ParentDashboardViewModel @Inject constructor(
 
     fun load(childId: String) {
         viewModelScope.launch {
-            val godModeEnabled = godModeManager.isEnabled()
+            val godModeEnabled = godModeManager.isEnabledNow(childId)
             val child = childProfileDao.getById(childId)
             val starsTotal = rewardDao.getTotalByType(childId, "STAR") ?: 0
             val coinsTotal = rewardDao.getTotalByType(childId, "COIN") ?: 0
@@ -190,7 +190,7 @@ class ParentDashboardViewModel @Inject constructor(
                 subjectProgress = subjectProgress,
                 masterySummary = MasterySummary(mastered, developing, needsReview),
                 recentActivity = recentActivity,
-                streakDays = longestStreak(localDatesFromEpochMillis(progress.map { it.timestamp })),
+                streakDays = currentStreak(localDatesFromEpochMillis(progress.map { it.timestamp })),
                 godModeEnabled = godModeEnabled,
                 isLoading = false
             )
@@ -225,9 +225,9 @@ class ParentDashboardViewModel @Inject constructor(
         }
     }
 
-    fun setGodModeEnabled(enabled: Boolean) {
+    fun setGodModeEnabled(childId: String, enabled: Boolean) {
         viewModelScope.launch {
-            godModeManager.setEnabled(enabled)
+            godModeManager.setEnabled(childId, enabled)
             _state.update { it.copy(godModeEnabled = enabled) }
         }
     }
@@ -297,15 +297,41 @@ class ParentDashboardViewModel @Inject constructor(
             }
 
             if (downloadedFile != null && downloadedFile.exists() && downloadedFile.length() > 0) {
-                _state.update {
-                    it.copy(
-                        isUpdatingApp = false,
-                        updateProgress = 1.0f,
-                        updateStatusMessage = "Download complete! Opening package installer..."
-                    )
+                // Reject a stale/tampered/incompatible candidate BEFORE handing it to
+                // the installer: versionCode is git-derived and NOT monotonic across
+                // divergent release branches, so a newer tag can carry a lower
+                // versionCode and a downgrade install would fail or wipe the DB.
+                @Suppress("DEPRECATION")
+                val installedCode = runCatching {
+                    context.packageManager.getPackageInfo(context.packageName, 0).versionCode
+                }.getOrNull() ?: 0
+                @Suppress("DEPRECATION")
+                val candidate = runCatching {
+                    context.packageManager.getPackageArchiveInfo(downloadedFile.absolutePath, 0)
+                }.getOrNull()
+
+                val candidateCode = candidate?.versionCode ?: Int.MIN_VALUE
+                val rejectReason = when {
+                    candidate == null -> "Update rejected: APK could not be read (invalid or corrupt package)."
+                    candidateCode <= installedCode ->
+                        "Update rejected: candidate v$candidateCode is not newer than installed v$installedCode."
+                    else -> null
                 }
-                withContext(Dispatchers.Main) {
-                    launchPackageInstaller(context, downloadedFile)
+                if (rejectReason != null) {
+                    _state.update {
+                        it.copy(isUpdatingApp = false, updateStatusMessage = rejectReason)
+                    }
+                } else {
+                    _state.update {
+                        it.copy(
+                            isUpdatingApp = false,
+                            updateProgress = 1.0f,
+                            updateStatusMessage = "Download complete! Opening package installer...",
+                        )
+                    }
+                    withContext(Dispatchers.Main) {
+                        launchPackageInstaller(context, downloadedFile)
+                    }
                 }
             } else {
                 _state.update {
@@ -411,9 +437,13 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                         context.packageManager.getPackageInfo(context.packageName, 0)
                                     }.getOrNull()
                                 }
+                                @Suppress("DEPRECATION")
+                                val installedVersionCode = runCatching {
+                                    context.packageManager.getPackageInfo(context.packageName, 0).versionCode
+                                }.getOrNull()
                                 val installedVersion = packageInfo?.versionName ?: "Unknown"
                                 Text(
-                                    "Installed: v$installedVersion · Direct update over Wi-Fi",
+                                    "Installed: v$installedVersion (code ${installedVersionCode ?: "?"}) · Direct update over Wi-Fi",
                                     fontSize = 13.sp,
                                     color = Ink.copy(alpha = 0.6f)
                                 )
@@ -603,7 +633,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         }
                         Switch(
                             checked = state.godModeEnabled,
-                            onCheckedChange = viewModel::setGodModeEnabled,
+                            onCheckedChange = { enabled -> viewModel.setGodModeEnabled(childId, enabled) },
                             modifier = Modifier.semantics {
                                 contentDescription = if (state.godModeEnabled) "God mode enabled" else "God mode disabled"
                             },

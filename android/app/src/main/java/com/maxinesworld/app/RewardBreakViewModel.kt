@@ -57,7 +57,7 @@ class RewardBreakViewModel @Inject constructor(
         tickerJob?.cancel()
         _state.value = RewardBreakUiState.Loading
         viewModelScope.launch {
-            if (godModeManager.isEnabled()) {
+            if (godModeManager.isEnabledNow(childId)) {
                 publishGodModeReady()
                 return@launch
             }
@@ -88,7 +88,7 @@ class RewardBreakViewModel @Inject constructor(
 
     /** Starts a CREATED entitlement, or resumes a still-active one. */
     suspend fun begin(childId: String, rewardBreakId: String): Long? {
-        if (godModeManager.isEnabled()) {
+        if (godModeManager.isEnabledNow(childId)) {
             publishGodModeReady()
             return RewardBreakPolicy.DEFAULT_DURATION_MILLIS
         }
@@ -128,7 +128,7 @@ class RewardBreakViewModel @Inject constructor(
     }
 
     suspend fun saveResult(result: MiniGameResult): Boolean {
-        if (godModeManager.isEnabled()) return true
+        if (godModeManager.isEnabledNow(result.childId)) return true
         val entitlement = rewardBreakDao.getById(result.rewardBreakId)
         val now = System.currentTimeMillis()
         if (
@@ -188,7 +188,7 @@ class RewardBreakViewModel @Inject constructor(
     }
 
     suspend fun consume(childId: String, rewardBreakId: String) {
-        if (godModeManager.isEnabled()) {
+        if (godModeManager.isEnabledNow(childId)) {
             tickerJob?.cancel()
             unavailable("Playground complete.")
             return

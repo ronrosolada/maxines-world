@@ -168,7 +168,7 @@ class BadgeAwarder @Inject constructor(
     suspend fun getCollectedBadges(childId: String): List<CollectibleBadge> {
         val earned = collectedBadgeDao.getAllByChild(childId).associateBy { it.badgeId }
         val all = badgeLoader.loadAll()
-        val godMode = godModeManager?.isEnabled() == true
+        val godMode = godModeManager?.isEnabledNow(childId) == true
         return all.map { badge ->
             val record = earned[badge.id]
             badge.copy(

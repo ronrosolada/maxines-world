@@ -30,7 +30,7 @@ class RewardBreakViewModelTest {
             .allowMainThreadQueries()
             .build()
         godModeManager = GodModeManager(context)
-        godModeManager.setEnabled(false)
+        godModeManager.setEnabled("child-1", false)
         viewModel = RewardBreakViewModel(
             rewardBreakDao = database.rewardBreakDao(),
             miniGameResultDao = database.miniGameResultDao(),
@@ -77,14 +77,16 @@ class RewardBreakViewModelTest {
 
         assertTrue(viewModel.saveResult(result))
         assertTrue(viewModel.saveResult(result))
-        assertEquals(4, database.rewardDao().getTotalByType("child-1", "COIN"))
+        // Mini-games are a reward break, not a currency source: no spendable COIN
+        // is minted from in-game tokens. The collectible + idempotency still hold.
+        assertEquals(0, database.rewardDao().getTotalByType("child-1", "COIN"))
         assertTrue(database.inventoryDao().owns("child-1", "milo-blue-paw"))
         assertTrue(database.miniGameResultDao().getByIdempotencyKey(result.idempotencyKey) != null)
     }
 
     @Test
     fun godModeOpensPlaygroundWithoutCreatingOrConsumingAnEntitlement() = runBlocking {
-        godModeManager.setEnabled(true)
+        godModeManager.setEnabled("child-god", true)
 
         val remaining = viewModel.begin("child-god", "missing-break")
 

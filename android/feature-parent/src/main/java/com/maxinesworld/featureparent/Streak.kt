@@ -27,6 +27,24 @@ internal fun longestStreak(localDates: Set<String>): Int {
 }
 
 /**
+ * Current daily-run length, shown only while it is actually live: the trailing
+ * consecutive run counts only when the most recent learning date is TODAY or
+ * YESTERDAY. A gap of a full day (child hasn't learned today or yesterday)
+ * means the run is stale and must not be presented as a live "day streak".
+ */
+internal fun currentStreak(
+    localDates: Set<String>,
+    today: LocalDate = LocalDate.now(),
+): Int {
+    if (localDates.isEmpty()) return 0
+    val days = localDates.mapNotNull { runCatching { LocalDate.parse(it) }.getOrNull() }
+    if (days.isEmpty()) return 0
+    val distinct = days.toSet()
+    if (distinct.max() < today.minusDays(1)) return 0
+    return longestStreak(localDates)
+}
+
+/**
  * Local-date strings for a list of epoch-millis timestamps, in the device's
  * current timezone. SQL-side date bucketing is deliberately avoided — it
  * applies UTC, which shifts early-morning (pre-8am Manila) completions to
