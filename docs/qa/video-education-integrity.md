@@ -64,11 +64,14 @@ Deployed catalog now serves **337 videos × 5 content-based questions each** (wa
 - Together with the guard rail (§1), the Grade-3 learner now progresses through each
   subject's curriculum in correct order; non-Grade-3 content is relegated to the tail.
 
-## 4. Deployment plan (after Wave 2 + validation)
+## 4. Release v0.55.0 (DONE)
 
-1. Merge expanded catalog → write to
-   `/mnt/user/appdata/maxines-world-content/server/content/catalog.json` (DreamNAS);
-   served immediately at `http://10.10.10.33/catalog.json`.
-2. Safe for existing clients: 5..10 passes the current 3..10 validator floor.
-3. Release v0.55.0: bump app `validateAssessment` floor `3..10` → `5..10`,
-   include the sequence guard rail. Verify on emulator (Pixel-C/API35).
+1. Expanded catalog deployed to `.../server/content/catalog.json` (DreamNAS), served
+   at `http://10.10.10.33/catalog.json` — 337 videos × 5 questions, curriculum-ordered.
+2. App `validateAssessment` floor `3..10` → `5..10`; sequence guard rail included.
+3. Merged `fix/video-sequence-guardrail` → `main`; tagged **`v0.55.0`**
+   (`versionCode 283`, monotonic, upgrade-safe from v0.52/0.53/0.54).
+4. Signed release verified (CN=Maxines World), installed on emulator as a clean
+   upgrade over v0.54.0, launches with no catalog/assessment errors.
+5. Published GitHub release + repointed OTA (`.33/app-release.apk` & `.33/media/`
+   served v0.55.0; prior APKs backed up as `*.bak-v054`).
