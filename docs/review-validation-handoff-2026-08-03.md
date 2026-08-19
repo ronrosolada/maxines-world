@@ -1,6 +1,6 @@
-# Maxine's World — Review Validation Handoff
+# Maxine's World, Review Validation Handoff
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 **Created:** 2026-08-03 17:52 Asia/Singapore  
 **Purpose:** Preserve the current conversation context for continuation in a fresh thread.
@@ -16,7 +16,7 @@ The repository must remain clean, synchronized, and ready for review by another 
 - **Workspace:** `/home/ron/workspace`
 - **Repository:** `/home/ron/workspace/maxines-world/repo`
 - **Branch:** `main`
-- **HEAD:** `11b49af` — `fix: close educational content review P0s (#26)`
+- **HEAD:** `11b49af`, `fix: close educational content review P0s (#26)`
 - **Remote:** `origin/main`
 - **Branch state before creating this handoff:** clean and synchronized with `origin/main`
 - **Review report:** [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md)
@@ -124,7 +124,7 @@ Relevant guidance: [`educator-content-review-brief.md`](educator-content-review-
 
 ## Findings Fixed by PR #26
 
-### Makabansa reachability — fixed
+### Makabansa reachability, fixed
 
 The original review found 26 Makabansa lessons unreachable from the Playroom.
 
@@ -149,10 +149,10 @@ gmrc
 The Playroom now exposes:
 
 ```text
-Makabansa — Bayan at Kultura
+Makabansa, Bayan at Kultura
 ```
 
-### Live Math filler — fixed
+### Live Math filler, fixed
 
 The original live activity filler included terms such as:
 
@@ -169,7 +169,7 @@ Current scans found no remaining occurrences of those original filler terms in t
 
 One remaining `responsableng gawain` occurrence is associated with an educator-reviewed Araling Panlipunan lesson and was previously assessed as legitimate rather than generated filler.
 
-### Activity MCQ answer-position exploit — fixed at runtime
+### Activity MCQ answer-position exploit, fixed at runtime
 
 The original review found that every activity MCQ placed the correct option first and that the renderer did not shuffle it.
 
@@ -186,7 +186,7 @@ index 3: 10
 
 That static bias is not currently equivalent to a learner-facing exploit because the renderer reorders displayed options. The future assessment path should still shuffle and rebalance its own options before exposure.
 
-### Legacy `ph-matatag` tree claim — STILL VALID (handoff correction)
+### Legacy `ph-matatag` tree claim, STILL VALID (handoff correction)
 
 The original review reported 250 JSON files under a legacy `ph-matatag` tree. Re-verification against current `main` (2026-08-03, this thread):
 
@@ -195,19 +195,19 @@ find app/src/main/assets -path "*ph-matatag*" -name "*.json" | wc -l
 250
 ```
 
-The earlier handoff claim of "count: 0" was an error — that check was scoped to the wrong root (`content-pack/` instead of `assets/content/`). The finding remains valid, with one nuance: the tree is not entirely unreachable — `ContentLessonLoader.tryPath()` (path 3) falls back to `content/ph-matatag/grade-3/{lessonId}.json`, and `ModuleCatalog` reads `content/ph-matatag/grade-3/manifest.json` for legacy m01 module titles. All 349 bundled IDs resolve via path 1, so the 250 lesson JSONs are fallback-only APK weight today.
+The earlier handoff claim of "count: 0" was an error, that check was scoped to the wrong root (`content-pack/` instead of `assets/content/`). The finding remains valid, with one nuance: the tree is not entirely unreachable, `ContentLessonLoader.tryPath()` (path 3) falls back to `content/ph-matatag/grade-3/{lessonId}.json`, and `ModuleCatalog` reads `content/ph-matatag/grade-3/manifest.json` for legacy m01 module titles. All 349 bundled IDs resolve via path 1, so the 250 lesson JSONs are fallback-only APK weight today.
 
 ## Additional Current Code Follow-ups
 
 These were identified during validation and remain unresolved.
 
-### Reduced-motion support — ✅ DONE (commit `8f3c43a`, 2026-08-03)
+### Reduced-motion support, ✅ DONE (commit `8f3c43a`, 2026-08-03)
 
 The lesson player previously hard-coded `reducedMotion = false // TODO: wire system setting`; the celebration confetti now honors `Settings.Global.ANIMATOR_DURATION_SCALE == 0` (Android reduced-motion preference). Particle generation and the infinite animation are skipped entirely when disabled.
 
-### Lesson resume and completion UX — ✅ DONE (commit `347494f`, 2026-08-03)
+### Lesson resume and completion UX, ✅ DONE (commit `347494f`, 2026-08-03)
 
-The module lesson list now layers persisted completion state (`LessonCompletionDao.observeDistinctLessonIds`) over the catalog: header shows "X of Y complete · keep going! / module done! 🎉"; completed rows show a ✓ chip, green tint, and check icon; the first incomplete lesson in module order gets a gold border and "Up next — tap to continue" as the child's resume point. 7 unit tests for the `nextLessonId()` helper.
+The module lesson list now layers persisted completion state (`LessonCompletionDao.observeDistinctLessonIds`) over the catalog: header shows "X of Y complete · keep going! / module done! 🎉"; completed rows show a ✓ chip, green tint, and check icon; the first incomplete lesson in module order gets a gold border and "Up next, tap to continue" as the child's resume point. 7 unit tests for the `nextLessonId()` helper.
 
 Relevant files:
 
@@ -216,7 +216,7 @@ android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/Modul
 android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/ModuleLessonsViewModel.kt
 ```
 
-### Parent streak calculation — ✅ DONE (commit `3fad627`, 2026-08-03)
+### Parent streak calculation, ✅ DONE (commit `3fad627`, 2026-08-03)
 
 The dashboard now computes a real consecutive-day streak in the child's local timezone. Old logic counted distinct recent-activity strings (which contained no dates) as "streak days"; new logic uses `longestStreak()` over local dates derived from event timestamps, breaking on gaps and handling duplicates. The UTC date bucketing that shifted pre-8am Manila completions to the previous day is fixed. 11 unit tests incl. month/year boundaries and Manila timezone cases.
 
@@ -226,7 +226,7 @@ Relevant file:
 android/feature-parent/src/main/java/com/maxinesworld/featureparent/ParentDashboardScreen.kt
 ```
 
-### PIN brute-force protection — ✅ DONE (commit `34aef08`, 2026-08-03)
+### PIN brute-force protection, ✅ DONE (commit `34aef08`, 2026-08-03)
 
 Lockout implemented: persistent failed-attempt counter + lockout deadline in DataStore (survives process restarts). Policy: lock after 5 consecutive failures, escalating 30s → 60s → 120s → 240s, capped 300s. Correct PIN rejected while locked; counter resets on success. 6 regression tests in `ParentAuthLockoutTest.kt`.
 
@@ -236,7 +236,7 @@ Relevant file:
 android/feature-auth/src/main/java/com/maxinesworld/featureauth/ParentAuthViewModel.kt
 ```
 
-### Coins documentation contradiction — ✅ DONE (2026-08-03)
+### Coins documentation contradiction, ✅ DONE (2026-08-03)
 
 Reconciled `docs/grand-ux-gamification-implementation.md`: coins ARE awarded by the lesson flow (10 per lesson at `>=80%` accuracy, idempotent via the reward ledger) and shown as a balance in the rewards hub, but there is no spend mechanism in code. Policy documented: the balance stays informational until a cosmetic use (e.g., Kindness Garden decorations) ships.
 
@@ -296,7 +296,7 @@ Static content checks performed:
 
 This handoff file was committed and pushed to `main` in `b0e5cc2`; the continuation update below is the next documentation revision.
 
-## Current Continuation Update — assessment P1s completed (2026-08-03)
+## Current Continuation Update, assessment P1s completed (2026-08-03)
 
 The next continuation work was completed on `main` in commit `9da1ffc` (`fix(content): replace assessment filler and duplicate prompts`).
 
@@ -321,7 +321,7 @@ Connected Android tests: 30/30 passed, 0 failed, 0 skipped
 
 The release gate still reports 349 educator-reviewed lessons because the approval metadata was intentionally not changed. Automated checks do not constitute independent educator approval.
 
-## Current Continuation Update — quarterly visual assets completed (2026-08-03)
+## Current Continuation Update, quarterly visual assets completed (2026-08-03)
 
 The quarterly visual-asset follow-up was completed on `main` in commit `d34f4e7` (`feat(content): add quarterly visual learning boards`).
 
@@ -348,13 +348,13 @@ Connected Android tests: 30/30 passed, 0 failed, 0 skipped
 
 The new boards are deterministic topic-grounded visual scaffolds, not a substitute for independent educator or illustrator review. The release gate remains unchanged at 349 educator-reviewed lessons.
 
-## Current Continuation Update — English Q4 boundary documented (2026-08-03)
+## Current Continuation Update, English Q4 boundary documented (2026-08-03)
 
 The English Q4 finding is now resolved as a documented content boundary rather than being filled with invented curriculum. The live inventory contains 73 English quarterly lessons across Q1–Q3 and no Q4 source material. `HANDOFF.md` now records Q1–Q3 as the current bundled English scope and defers Q4 until source SLM curriculum is available and independently reviewed.
 
 This is intentional scope documentation, not a claim that English Q4 content exists. No lesson JSON was fabricated or modified.
 
-## Current Continuation Update — repeated lesson titles resolved (2026-08-03)
+## Current Continuation Update, repeated lesson titles resolved (2026-08-03)
 
 The repeated lesson-title follow-up was completed in the bundled content pack.
 
@@ -392,12 +392,12 @@ The remaining code follow-ups listed below are unchanged and remain owned by the
 
 ---
 
-## Current Continuation Update — Filipino assessment correction (2026-08-03)
+## Current Continuation Update, Filipino assessment correction (2026-08-03)
 
 The assessment prompt correction for the 32 Filipino simuno/panaguri lessons was completed on `main` across two commits:
 
-- `1c7c8d4` — first pass replacing generic title-substituted prompts
-- `916efa9` — corrected pass fixing convention and distractor defects found in review
+- `1c7c8d4`, first pass replacing generic title-substituted prompts
+- `916efa9`, corrected pass fixing convention and distractor defects found in review
 
 ### Fixed
 
@@ -407,7 +407,7 @@ The assessment prompt correction for the 32 Filipino simuno/panaguri lessons was
 - **Wrong-key fixes:** two templates keyed the wrong option (e.g., marking `nagtuturo` correct when asking for the simuno `Ang guro`); both were corrected.
 - **Answer-position variety:** correct positions now span a/b/c/d (distribution across the 160 items: a=43, b=53, c=32, d=32).
 - **Tooling:** `android/tools/fix_filipino_simuno_panguri_assessment.py` (idempotent regenerator) + `android/tools/test_fix_filipino_simuno_panguri_assessment.py` (7 regression tests: structure, uniqueness, key validity, no generic prompts, complete-predicate convention, position variety, objective specificity).
-- **Scope discipline:** programmatic diff-scope check confirmed the 32 lesson files differ from `1c7c8d4` **only** in `assessment.items` — no other lesson fields changed.
+- **Scope discipline:** programmatic diff-scope check confirmed the 32 lesson files differ from `1c7c8d4` **only** in `assessment.items`, no other lesson fields changed.
 - **Full-rewrite experiment discarded:** a broader activity-shell rewrite was rejected mid-flight (it regressed assessment variety and would have rewritten narration/vocabulary wholesale); the working tree was restored to the committed assessment-only state. The defect this avoids is documented in the test suite's convention checks.
 
 ### Current validation
@@ -435,14 +435,14 @@ GMRC:         120
 
 These still use the title-substituted template prompts and need per-subject objective-specific rewrites following the Filipino pattern (convention → templates → tests → diff-scope check).
 
-## Current Continuation Update — First Steps sticker feature (2026-08-03)
+## Current Continuation Update, First Steps sticker feature (2026-08-03)
 
 Completed on `main` in commit `2630347` (`feat: First Steps sticker for the child's first completed lesson`).
 
 ### What shipped
 
 - **New `milestone` biome** in `core-model/CollectibleBadge.kt` (gold, "Milestones") and a new catalog sticker: `milestone_first_steps` ("First Steps" / "Bright Beginning", 🌟) in `android/app/src/main/assets/badge_catalog.json`.
-- **`BadgeAwarder.recordFirstLessonCompletion(childId)`** — mutex-guarded, idempotent: a child can only earn the First Steps sticker once, replays never double-award. The weekly wildlife expedition now explicitly skips milestone stickers (`biome != MILESTONE_BIOME`) so it can never leak a milestone award.
+- **`BadgeAwarder.recordFirstLessonCompletion(childId)`**, mutex-guarded, idempotent: a child can only earn the First Steps sticker once, replays never double-award. The weekly wildlife expedition now explicitly skips milestone stickers (`biome != MILESTONE_BIOME`) so it can never leak a milestone award.
 - **First-lesson detection:** `LessonCompletionDao.countDistinctLessons(childId)` (new suspend query; Flow variant already existed). `LessonPlayerViewModel.saveProgress()` checks it *before* inserting the completion; on the child's very first lesson ever it awards the sticker and prioritizes it in the reveal.
 - **`BadgeRevealScreen` celebration:** milestone-aware copy ("Your First Sticker! You finished your very first lesson! Milo is cheering for you! 🐱🎉") plus a fun reward animation for **every** sticker reveal: confetti rain, bouncy spring pop-in of the sticker token, and six orbiting ✨ sparkles. Reduced-motion (animator scale = 0) skips all animation and jumps straight to the reveal.
 - **Field guide counters now dynamic:** the header counter was hardcoded `/50` and per-biome `/10`; both now derive from the catalog size (`${biomeBadges.size}`, `allBadges.size`).
@@ -465,7 +465,7 @@ Completed on `main` in commit `2630347` (`feat: First Steps sticker for the chil
 3. **Sticker economics:** stars/coins still award alongside the sticker. Is the sticker the primary reward signal, and are stars/coins the right secondary currency?
 4. **Confetti intensity:** the reveal screen confetti mirrors the lesson-complete screen. Review for overstimulation risk with the reduced-motion fallback in mind.
 
-## Current Continuation Update — repository state for external LLM review (2026-08-03)
+## Current Continuation Update, repository state for external LLM review (2026-08-03)
 
 This handoff doc is the current review-validation context. HEAD of `main` is `2630347`; working tree is clean and synchronized with `origin/main`.
 
@@ -502,37 +502,37 @@ This handoff doc is the current review-validation context. HEAD of `main` is `26
 
 ### Assessment integrity status
 
-- All 1,745 items carry valid `correctOptionIds` (schema field is the plural array — a common audit false-positive source).
+- All 1,745 items carry valid `correctOptionIds` (schema field is the plural array, a common audit false-positive source).
 - The 32 Filipino simuno/panaguri lessons now have objective-specific, convention-correct, position-varied items (see update above).
 - The remaining 984 generic items are tracked but not yet rewritten; they are a P1 content task, not a release blocker for the debug test build.
 
 ### What the external reviewer should focus on
 
-1. **Correctness of the 32 corrected Filipino assessments** — verify the complete-predicate panaguri convention, distractor quality, and Filipino grammar (templates live in `android/tools/fix_filipino_simuno_panguri_assessment.py`).
-2. **First Steps sticker feature** — behavior, idempotency, expedition isolation, and the reveal animation (see open questions above).
-3. **Remaining 984 generic assessment prompts** — confirm the per-subject rewrite plan and that the Filipino pattern (convention → templates → tests → diff-scope check) is the right template.
-4. **Activity-shell monotony** — all 349 lessons still share the same 6-activity sequence with identical per-lesson narration; this is the largest remaining pedagogical concern.
-5. **Vocabulary quality** — ~60% of 1,047 vocabulary entries are example sentences or equations rather than term+definition pairs.
-6. **Factual/pedagogical review of lesson bodies** — automated checks cannot prove educational correctness; the educator review report remains conditional pending independent human review.
+1. **Correctness of the 32 corrected Filipino assessments**, verify the complete-predicate panaguri convention, distractor quality, and Filipino grammar (templates live in `android/tools/fix_filipino_simuno_panguri_assessment.py`).
+2. **First Steps sticker feature**, behavior, idempotency, expedition isolation, and the reveal animation (see open questions above).
+3. **Remaining 984 generic assessment prompts**, confirm the per-subject rewrite plan and that the Filipino pattern (convention → templates → tests → diff-scope check) is the right template.
+4. **Activity-shell monotony**, all 349 lessons still share the same 6-activity sequence with identical per-lesson narration; this is the largest remaining pedagogical concern.
+5. **Vocabulary quality**, ~60% of 1,047 vocabulary entries are example sentences or equations rather than term+definition pairs.
+6. **Factual/pedagogical review of lesson bodies**, automated checks cannot prove educational correctness; the educator review report remains conditional pending independent human review.
 
 ### Historical review artifacts (preserved)
 
-- [`educator-content-review-2026-08-03.md`](educator-content-review-2026-08-03.md) — corrected educator review on `main`.
-- [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md) — historical review on `review/content-2026-08-03` (PR #25).
-- [`educator-content-review-brief.md`](educator-content-review-brief.md) — review rubric.
-- `docs/educator-review-{baseline,detailed,sample}-2026-08-03.json` — static audit exports.
+- [`educator-content-review-2026-08-03.md`](educator-content-review-2026-08-03.md), corrected educator review on `main`.
+- [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md), historical review on `review/content-2026-08-03` (PR #25).
+- [`educator-content-review-brief.md`](educator-content-review-brief.md), review rubric.
+- `docs/educator-review-{baseline,detailed,sample}-2026-08-03.json`, static audit exports.
 
 ## Recommended Next Steps
 
 Prioritize the remaining work in this order:
 
-1. ✅ Replace all assessment filler in the 38 quarterly Math lessons — completed in `9da1ffc`.
-2. ✅ Remove duplicate assessment prompts across the 230 affected lessons — completed in `9da1ffc`.
-3. ✅ Add quarterly visual assets for all 249 dangling quarterly IDs — completed in `d34f4e7`.
-4. ✅ Document English Q1–Q3 as the current bundled boundary; defer Q4 until source SLM curriculum is available — completed in this handoff update.
-5. ✅ Reduce repeated lesson/module titles where repetition harms navigation — completed in this handoff update.
-6. ✅ Correct the 32 Filipino simuno/panaguri assessments (convention, distractors, keys, position variety) — completed in `916efa9`.
-7. ✅ Ship the First Steps sticker milestone + celebration reveal — completed in `2630347` (release `v0.20.2-tablet-test`).
+1. ✅ Replace all assessment filler in the 38 quarterly Math lessons, completed in `9da1ffc`.
+2. ✅ Remove duplicate assessment prompts across the 230 affected lessons, completed in `9da1ffc`.
+3. ✅ Add quarterly visual assets for all 249 dangling quarterly IDs, completed in `d34f4e7`.
+4. ✅ Document English Q1–Q3 as the current bundled boundary; defer Q4 until source SLM curriculum is available, completed in this handoff update.
+5. ✅ Reduce repeated lesson/module titles where repetition harms navigation, completed in this handoff update.
+6. ✅ Correct the 32 Filipino simuno/panaguri assessments (convention, distractors, keys, position variety), completed in `916efa9`.
+7. ✅ Ship the First Steps sticker milestone + celebration reveal, completed in `2630347` (release `v0.20.2-tablet-test`).
 8. Rewrite the remaining **984 generic assessment prompts** (198 lessons) subject by subject, following the Filipino pattern.
 9. Add PIN attempt throttling and temporary lockout.
 10. Implement proper reduced-motion support in the lesson-complete screen (the reveal screen already respects it).
@@ -541,7 +541,7 @@ Prioritize the remaining work in this order:
 13. Reconcile the coin-award implementation with product documentation.
 14. Conduct genuine independent educator review for factual accuracy, pedagogy, language, safety, and the new visual boards.
 
-## Current Continuation Update — external adversarial review received and verified (2026-08-03 evening)
+## Current Continuation Update, external adversarial review received and verified (2026-08-03 evening)
 
 An external LLM adversarial educational-content review was received and archived verbatim at [`docs/external-llm-review-adversarial-2026-08-03.md`](external-llm-review-adversarial-2026-08-03.md). Its claims were verified against current `main` (HEAD `0ee9eee`) before being accepted.
 
@@ -549,36 +549,36 @@ An external LLM adversarial educational-content review was received and archived
 
 | Review claim | Code evidence |
 |---|---|
-| Authored assessment items are never played | `LessonManifest.assessment` exists (core-model/Models.kt:40) but `convertToLessonManifest()` never populates it — `steps = m1.activities.map { ... }` only (LessonPlayerViewModel.kt:215); `totalSteps = lesson.steps.size` (line 90), so completion happens after the 6 activities |
+| Authored assessment items are never played | `LessonManifest.assessment` exists (core-model/Models.kt:40) but `convertToLessonManifest()` never populates it, `steps = m1.activities.map { ... }` only (LessonPlayerViewModel.kt:215); `totalSteps = lesson.steps.size` (line 90), so completion happens after the 6 activities |
 | Vocabulary card shown on every step | `LessonContent` renders `VocabularyCard` above every step when terms exist (LessonPlayerScreen.kt:131–135) |
 | Narration repeated on explanation screens | Generic narration card (LessonPlayerScreen.kt:173–181) **and** `ExplanationStep` both render `step.narrationText` (line 262) |
-| English chrome on Filipino lessons | "New Words" (line 51), "Read Along" (line 222), "Continue" (line 270), "Next"/"Try Next" (line 287), "Lesson Complete!" (line 340) — all hardcoded English |
+| English chrome on Filipino lessons | "New Words" (line 51), "Read Along" (line 222), "Continue" (line 270), "Next"/"Try Next" (line 287), "Lesson Complete!" (line 340), all hardcoded English |
 | Generic sort labels ("Fits the lesson" / "Does not fit") | Hardcoded in `toActivityStep` (LessonPlayerViewModel.kt:275) |
 | Reduced-motion not wired in lesson-complete | `val reducedMotion = false // TODO: wire system setting` (LessonPlayerScreen.kt:323) |
 | Six-activity universal shell | `rendererType()` maps exactly ANIMATED_EXPLANATION, MULTIPLE_CHOICE, SORT_AND_CLASSIFY, HOTSPOT_IMAGE, MATCHING_PAIRS, SEQUENCE_BUILDER, INTERACTIVE_SPEC (LessonPlayerViewModel.kt:221–230); all 349 lessons carry 6 activities |
-| Deterministic shuffle for SORT only; MCQ positions not runtime-randomized | SORT items are shuffled deterministically (line 277); MULTIPLE_CHOICE uses the authored `correctIndex` verbatim (lines 280–284) — no runtime option remap |
+| Deterministic shuffle for SORT only; MCQ positions not runtime-randomized | SORT items are shuffled deterministically (line 277); MULTIPLE_CHOICE uses the authored `correctIndex` verbatim (lines 280–284), no runtime option remap |
 
 No contradicted claims were found. The review is accepted as a current-state assessment.
 
 ### Response plan
 
-1. **P0 — assessment delivery path:** map `m1.assessment.items` into a distinct playable assessment phase appended after activities; track a `phase` in the player state instead of treating every screen as an equivalent step; only scored practice contributes to accuracy (the first-steps/wildlife badge reveal already uses scored results).
-2. **P0 — chrome and narration fixes (quick wins):** show vocabulary once (or on demand), remove the duplicated narration card on explanation steps, localize lesson chrome strings per `languageOfInstruction`.
-3. **P0 — content blocking:** block known contradictory/profile-mismatched lessons; add a normalized-content similarity gate across the 349 lessons; create source-to-lesson traces for quarterly conversions.
-4. **P1 — distractor/feedback quality:** misconception-based distractors, actionable corrective feedback, at least one transfer item per assessment, runtime-deterministic option remapping.
-5. **P1 — semantic QA pipeline + golden lessons per subject** with educator sign-off; child tests.
+1. **P0, assessment delivery path:** map `m1.assessment.items` into a distinct playable assessment phase appended after activities; track a `phase` in the player state instead of treating every screen as an equivalent step; only scored practice contributes to accuracy (the first-steps/wildlife badge reveal already uses scored results).
+2. **P0, chrome and narration fixes (quick wins):** show vocabulary once (or on demand), remove the duplicated narration card on explanation steps, localize lesson chrome strings per `languageOfInstruction`.
+3. **P0, content blocking:** block known contradictory/profile-mismatched lessons; add a normalized-content similarity gate across the 349 lessons; create source-to-lesson traces for quarterly conversions.
+4. **P1, distractor/feedback quality:** misconception-based distractors, actionable corrective feedback, at least one transfer item per assessment, runtime-deterministic option remapping.
+5. **P1, semantic QA pipeline + golden lessons per subject** with educator sign-off; child tests.
 6. **Process:** release approval must reference a reviewed commit, not metadata; keep incremental subject/module releases.
 
 ### Recommended next steps (updated)
 
-1. ✅ through ✅ — all previously completed items unchanged (see list above).
+1. ✅ through ✅, all previously completed items unchanged (see list above).
 2. **Deliver the authored assessment phase in the lesson player** (P0, review item 1).
 3. **Fix lesson chrome: vocabulary once, no narration duplication, localized labels** (P0, review item 5).
-4. **Build the semantic QA pipeline** — objective-verb vs task checks, duplication gate, assessment alignment (P1, review item 5).
+4. **Build the semantic QA pipeline**, objective-verb vs task checks, duplication gate, assessment alignment (P1, review item 5).
 5. **Golden lessons + educator sign-off** for one module per subject (P2, review rollout phase 2).
 6. Then the remaining code follow-ups (PIN throttling, reduced motion, resume UX, streaks, coins).
 
-## Current Continuation Update — P0 assessment delivery shipped (2026-08-03)
+## Current Continuation Update, P0 assessment delivery shipped (2026-08-03)
 
 The adversarial review's headline finding was fixed on `main` in commit `fd7cfb4` (`feat(lesson-player): deliver the authored assessment phase (P0)`).
 
@@ -593,26 +593,26 @@ The adversarial review's headline finding was fixed on `main` in commit `fd7cfb4
 ### Tests
 
 - 4 new `ActivityStepConversionTest` cases: key maps by option id, order preserved, malformed options/missing key degrade safely, blank explanation falls back to default feedback.
-- New connected `everyPlayroomSubjectAssessmentIsConvertible` in `OfflineLessonLoadTest` — proves every Playroom-reachable subject's real bundled assessment block parses into the converter's contract (≥2 options, keyed `correctOptionIds`, non-blank explanation).
+- New connected `everyPlayroomSubjectAssessmentIsConvertible` in `OfflineLessonLoadTest`, proves every Playroom-reachable subject's real bundled assessment block parses into the converter's contract (≥2 options, keyed `correctOptionIds`, non-blank explanation).
 - Full gate: `testDebugUnitTest` + `lintDebug` + `:app:verifyPlayableContent` + `:app:assembleDebug` BUILD SUCCESSFUL; `:app:connectedDebugAndroidTest` 6/6 green.
 
 ### Remaining from the review (updated 2026-08-03, second content wave)
 
 **DONE this wave (commits `af52f9a`, `dba7d76`):**
 
-- **English (22 lessons, 4 skill groups)** — stock junk ("an unrelated guess", "a random symbol", …) fully removed. Each lesson now has authored vocabulary (real word + definition), concept-faithful sort/options/matching, skill-specific assessment prompts. Word Explorer lessons received real G3 word sets (28 words with definitions, sentences, cloze); story lessons received 5 authored Milo-world mini-stories with detail items.
-- **Mathematics + Science (43 lessons, 5 skill groups)** — per-instance content sets (9 addition, 9 multiplication, 7 living/non-living, 11 material properties, 7 light/sound). Math assessments are now real computation items generated from the lesson's own equations with near-miss numeric distractors (±10, ±100, off-by-one factors), prompts use number words; science items use cross-set real examples and safe-action rules as correct answers.
-- **Lesson-specific shells** — instructions, hotspot examples, sort fits, sequence steps, animated intros now reference each lesson's own content instead of the universal stamp.
+- **English (22 lessons, 4 skill groups)**, stock junk ("an unrelated guess", "a random symbol", …) fully removed. Each lesson now has authored vocabulary (real word + definition), concept-faithful sort/options/matching, skill-specific assessment prompts. Word Explorer lessons received real G3 word sets (28 words with definitions, sentences, cloze); story lessons received 5 authored Milo-world mini-stories with detail items.
+- **Mathematics + Science (43 lessons, 5 skill groups)**, per-instance content sets (9 addition, 9 multiplication, 7 living/non-living, 11 material properties, 7 light/sound). Math assessments are now real computation items generated from the lesson's own equations with near-miss numeric distractors (±10, ±100, off-by-one factors), prompts use number words; science items use cross-set real examples and safe-action rules as correct answers.
+- **Lesson-specific shells**, instructions, hotspot examples, sort fits, sequence steps, animated intros now reference each lesson's own content instead of the universal stamp.
 - **Similarity gate upgraded** (`tools/content_similarity_gate.py`): digits are content tokens (math equations count); same-objective pairs flagged only ≥0.95 (spiraling practice groups are expected to share objective+shell); cross-objective ≥0.70. Result: **flagged pairs 1,154 → 473 (−59%)**; all repaired groups cleared. Final report: `docs/content-similarity-report-2026-08-03-final.json`.
 - All tools have regression tests (54 tool tests OK); `verifyPlayableContent` + `testDebugUnitTest` green.
 
 **Remaining flagged clusters (updated 2026-08-03, third content wave):**
-- ~~Filipino bodies: Munting Talata (16), simuno/panaguri activity bodies (10+7+4+4)~~ — **DONE, see below.**
-- Makabansa (134 pairs) and GMRC (109 pairs) — untouched.
+- ~~Filipino bodies: Munting Talata (16), simuno/panaguri activity bodies (10+7+4+4)~~, **DONE, see below.**
+- Makabansa (134 pairs) and GMRC (109 pairs), untouched.
 - Small leftovers: English q2-w06/q2-w07 groups (22 pairs), math rounding/place-value groups (9 pairs).
 - P0 #2 residual: the universal 6-activity shell still exists in unrepaired groups (content-side, not a player bug).
 
-## Current Continuation Update — Filipino content repair (2026-08-03, third content wave)
+## Current Continuation Update, Filipino content repair (2026-08-03, third content wave)
 
 **DONE this wave (commit `d443fef`):** `android/tools/repair_filipino_content.py` +
 `test_repair_filipino_content.py` (14 tests) rebuilt all six Filipino skill groups
@@ -623,7 +623,7 @@ All 63 lessons junk-free, 0 broken items, idempotent; `verifyPlayableContent` +
 
 | Group | Lessons | Content |
 |---|---|---|
-| simuno/panaguri | 32 | 64-sentence pool, lesson i takes window `[2i..2i+4)` — unique 4-set per lesson, adjacent share only 2. All assessment options derive from the lesson's own block. |
+| simuno/panaguri | 32 | 64-sentence pool, lesson i takes window `[2i..2i+4)`, unique 4-set per lesson, adjacent share only 2. All assessment options derive from the lesson's own block. |
 | munting talata | 12 | 12 authored G3 paragraphs; paksa/ideya/detalye/wakas items verbatim from each lesson's own paragraph. |
 | wastong pagsulat | 7 | 7 word sets (spelling, definition, cloze, authored misspellings never equal to real words). |
 | salitang-ugat | 4 | 4 root→related pair sets incl. a "HINDI galing sa ugat" discriminator item. |
@@ -639,7 +639,7 @@ halimbawa", "malinaw na gamit", "tamang ideya", "paksang iba sa aralin".
    1.00 for genuinely different lessons. Rotate windows per lesson index.
 2. Windows of (n−1) from an n-set still converge (3-of-4 stories = all others).
    Use windows ≤ n/2 plus fixed/cross-element fillers.
-3. Options drawn from a shared pool leak pool tokens into every lesson — options
+3. Options drawn from a shared pool leak pool tokens into every lesson, options
    must come from the lesson's own content block.
 4. Static fragment strings must not collide with pool vocabulary.
 5. Answer sentences must be exact substrings of the lesson text (mind sentence
@@ -674,15 +674,15 @@ python3 tools/mark_lessons_reviewed.py
 
 ## Key Reference Files
 
-- [`HANDOFF.md`](../HANDOFF.md) — older general project handoff; some baseline details are stale.
-- [`educator-content-review-brief.md`](educator-content-review-brief.md) — independent educator review rubric and required output.
-- [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md) — historical review being validated.
-- [`grand-ux-gamification-implementation.md`](grand-ux-gamification-implementation.md) — UX/gamification implementation notes.
-- `android/app/src/main/assets/content-pack/month-01/lessons/` — bundled lesson content.
-- `android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/PlayroomHomeUiState.kt` — canonical subject list.
-- `android/feature-lesson-player/src/main/java/com/maxinesworld/featurelessonplayer/LessonPlayerScreen.kt` — lesson-player UI and motion behavior.
-- `android/feature-auth/src/main/java/com/maxinesworld/featureauth/ParentAuthViewModel.kt` — PIN verification.
-- `android/feature-parent/src/main/java/com/maxinesworld/featureparent/ParentDashboardScreen.kt` — parent progress/streak UI.
+- [`HANDOFF.md`](../HANDOFF.md), older general project handoff; some baseline details are stale.
+- [`educator-content-review-brief.md`](educator-content-review-brief.md), independent educator review rubric and required output.
+- [`content-review-2026-08-03.md`](https://github.com/ronrosolada/maxines-world/blob/review/content-2026-08-03/docs/content-review-2026-08-03.md), historical review being validated.
+- [`grand-ux-gamification-implementation.md`](grand-ux-gamification-implementation.md), UX/gamification implementation notes.
+- `android/app/src/main/assets/content-pack/month-01/lessons/`, bundled lesson content.
+- `android/feature-child-home/src/main/java/com/maxinesworld/featurechildhome/PlayroomHomeUiState.kt`, canonical subject list.
+- `android/feature-lesson-player/src/main/java/com/maxinesworld/featurelessonplayer/LessonPlayerScreen.kt`, lesson-player UI and motion behavior.
+- `android/feature-auth/src/main/java/com/maxinesworld/featureauth/ParentAuthViewModel.kt`, PIN verification.
+- `android/feature-parent/src/main/java/com/maxinesworld/featureparent/ParentDashboardScreen.kt`, parent progress/streak UI.
 
 ## Continuation Rule
 

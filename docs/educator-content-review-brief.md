@@ -1,6 +1,6 @@
-# Maxine's World — Independent Educator Content Review Brief
+# Maxine's World, Independent Educator Content Review Brief
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 **Purpose:** Give a separate LLM or human educator enough context to review the bundled Grade 3 lesson content without relying on chat history.
 
@@ -61,9 +61,9 @@ Current pack-wide facts verified at this baseline:
 
 The branch is a large content pass, not a small documentation-only change. It modifies the bundled JSON content and adds:
 
-- `android/tools/content_review.py` — deterministic curation, shell normalization, assessment generation, and heuristic flags;
-- `android/tools/test_content_review.py` — five unit tests for representative curation behavior;
-- `android/tools/convert_slm_to_pack.py` — conversion-side changes.
+- `android/tools/content_review.py`, deterministic curation, shell normalization, assessment generation, and heuristic flags;
+- `android/tools/test_content_review.py`, five unit tests for representative curation behavior;
+- `android/tools/convert_slm_to_pack.py`, conversion-side changes.
 
 The curation script intentionally does **not** establish official approval. It can make a lesson structurally clean while still leaving a human question about source fidelity, nuance, cultural accuracy, or engagement.
 
@@ -132,7 +132,7 @@ Use the source SLM or official curriculum competency when making an alignment cl
 
 ### 4. Apply the educator rubric
 
-#### A. Factual accuracy — blocking when wrong
+#### A. Factual accuracy, blocking when wrong
 
 - Is every definition, example, rule, calculation, historical statement, and science claim correct?
 - Are exceptions and uncertainty handled honestly at Grade 3 level?
@@ -147,7 +147,7 @@ Use the source SLM or official curriculum competency when making an alignment cl
 - Do examples, activities, and assessments practice that same skill?
 - Is the difficulty appropriate for the stated quarter/module?
 - Does the assessment reward understanding rather than guessing a keyword?
-- Are distractors plausible but clearly wrong for a defensible reason—not nonsense or unrelated filler?
+- Are distractors plausible but clearly wrong for a defensible reason - not nonsense or unrelated filler?
 
 #### C. Language quality
 
@@ -162,7 +162,7 @@ Use the source SLM or official curriculum competency when making an alignment cl
 - Does Milo add warmth without replacing the learning task?
 - Are examples concrete and connected to a child's life in the Philippines?
 - Do activities vary the learner's thinking rather than repeat the same interaction six times?
-- Is the learner asked to explain, compare, classify, predict, or apply—not only recall?
+- Is the learner asked to explain, compare, classify, predict, or apply - not only recall?
 - Does feedback tell the learner what to revisit, instead of only saying “correct” or “try again”?
 - Is the reading load small enough for a tablet lesson and Grade 3 independent use?
 
@@ -210,7 +210,7 @@ docs/educator-content-review-<date>.md
 Use this minimum format:
 
 ```markdown
-# Educator Content Review — <date>
+# Educator Content Review, <date>
 
 ## Baseline
 - Commit:

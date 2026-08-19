@@ -1,6 +1,6 @@
-# Educator Content Review — 2026-08-06
+# Educator Content Review, 2026-08-06
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 ## Baseline
 
@@ -43,7 +43,7 @@
 
 ## Current unresolved conditions
 
-### Source traceability / factual sign-off — blocking for `ACCEPT`
+### Source traceability / factual sign-off, blocking for `ACCEPT`
 
 - 249 quarterly lessons have no `sourceRecords` in the bundled JSON.
 - 100 legacy lessons retain `sourceRecords.reviewStatus = "PENDING_HUMAN_REVIEW"`.
@@ -52,7 +52,7 @@
 
 This is why the verdict is conditional rather than `ACCEPT`; it is an evidence/accountability gap, not a remaining placeholder or schema defect.
 
-### Curriculum progression — requires curriculum-owner decision
+### Curriculum progression, requires curriculum-owner decision
 
 The pack still contains 40 duplicate-objective groups covering 216 lessons; the largest is the Filipino `simuno at panaguri` objective at 32 lessons. Exact pedagogical payload duplicates and similarity violations are fixed, and each repeated lesson now has distinct transfer context, but repeated source objectives still need an educator to decide whether they represent intentional practice, a spiral, or overproduction. That decision cannot be made safely from the generated JSON alone.
 

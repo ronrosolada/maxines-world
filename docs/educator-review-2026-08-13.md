@@ -1,4 +1,4 @@
-# Educator Content Review — 2026-08-13 (RonBot as educator)
+# Educator Content Review, 2026-08-13 (RonBot as educator)
 
 Scope: full corpus educator review (all 358 lessons, 2,148 activities,
 1,790 assessment items). Videos excluded per instruction. Review + fix +
@@ -15,7 +15,7 @@ author as needed.
    gmrc, ARALING_PANLIPUNAN), Math/Science/AP lane.
 4. Fixes applied in waves; every wave re-validated by all gates.
 
-## Findings & fixes (wave 1 — mechanical)
+## Findings & fixes (wave 1, mechanical)
 
 | # | Severity | Finding | Fix | Status |
 |---|----------|---------|-----|--------|
@@ -26,7 +26,7 @@ author as needed.
 | 5 | P1 | english q1-w01-d05 q05 was off-objective story recall in a telling-sentence lesson | Authored q06 production item (period-ending telling sentence) | DONE |
 | 6 | P1 | 4 maikling-buod lessons: q5 explanations didn't teach summary construction | Rewrote all 4 to teach tauhan+suliranin+pangyayari+wakas | DONE |
 | 7 | P1 | 18 legacy explanations carried the meta-wrapper "Ang tamang sagot ay X dahil sumusunod ito sa paliwanag ng aralin:" | Stripped wrapper, kept teaching clause (11 exact forms; 7 variants queued) | PARTIAL → wave 2 |
-| 8 | P0/P1 | 62 cross-lesson verbatim assessment groups (66 items) — near-identical re-issues across quarters (e.g. english q2-w03-d04 ≡ q3-w10-d03) | Re-author later-lesson items with fresh scenarios | QUEUED wave 2 |
+| 8 | P0/P1 | 62 cross-lesson verbatim assessment groups (66 items), near-identical re-issues across quarters (e.g. english q2-w03-d04 ≡ q3-w10-d03) | Re-author later-lesson items with fresh scenarios | QUEUED wave 2 |
 | 9 | P1 | 299 remaining "Ang tamang sagot ay…" Filipino explanations | Per-item rewrite teaching reasoning | QUEUED wave 2 |
 
 ## Policy change
@@ -64,11 +64,11 @@ author as needed.
 
 ## Status
 
-**Round 1 (semantic lanes):** math lane complete (290 items, 37 findings — all fixed).
-English lanes complete (466 items, 29 findings — all fixed).
+**Round 1 (semantic lanes):** math lane complete (290 items, 37 findings, all fixed).
+English lanes complete (466 items, 29 findings, all fixed).
 **Round 2:** science/AP/makabansa/gmrc lanes timed out with zero emissions; two
 recoverable P0s fixed (science q4-w08-d04 q02/q03 safety items).
-**Round 3:** persistence-mode lanes running — findings stream to
+**Round 3:** persistence-mode lanes running, findings stream to
 /tmp/edu_*.jsonl so timeouts cannot lose work.
 
 ## Duplicate assessments (verbatim re-issue)

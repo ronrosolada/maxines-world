@@ -4,9 +4,66 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
-## [Unreleased]
+## [0.52.0] - 2026-08-19
 
-## [0.42.0] - 2026-08-16
+### Unslop Review & Design System Purification
+- **Code Hardening & Swallowed Error Remediation:**
+  - Patched `MediaLibrary.kt` to explicitly rethrow coroutine `CancellationException` and prevent silent disk catalog corruption.
+  - Hardened Python validator tools (`repair_educator_findings.py`, `packager_validator.py`) with explicit exception types.
+  - Stripped leftover LLM narrative artifacts from `MatchingPairsRenderer.kt` and `make_avatar.py`.
+- **UI & Brand Color Unification:**
+  - Removed AI-default Tailwind violet/indigo palettes (`#7c3aed`, `#6d28d9`, `#7e22ce`) across all 29 embedded HTML5 mini-game assets.
+  - Unified color styles to Maxine's Warm Village palette (`VillageTeal`, `Coral`, `HeritageGold`, `Cream`).
+  - Eradicated unprompted neon glow drop shadows and gradient heading texts.
+- **Documentation Register Alignment:**
+  - Unslopped repository documentation, converting corporate em-dash ticks and AI listicle scaffolding into clean technical specifications.
+
+## [0.48.0] - 2026-08-17
+
+### Home Screen Layout Alignment & Hierarchy Unification
+
+- **Removed Redundant Video Lessons Shortcut Card:**
+  - Removed top-level `VideoLibraryCard` / `WatchToEarnQuestCard` from Playroom home screen, as curriculum video lessons are directly integrated and accessed within their respective subject modules.
+- **Full-Width Quick Bits Hero Placement:**
+  - Converted `QuickBitsHomeCard` into a clean, full-width feature banner styled consistently with the `AssessmentArenaBannerCard` (matching 20dp radii, padded layout, 48dp leading icon container, and action pill button).
+- **Aligned Rhythm & Grid Consistency:**
+  - Unified vertical layout hierarchy: Today's Quest -> Assessment Arena -> Quick Bits -> 6-Subject Grid.
+
+## [0.47.0] - 2026-08-17
+
+### Tactile Micro-Interactions & Animation Polish
+
+- **Spring-Physics Tactile Feedback (`emilkowalski-motion`):**
+  - Added physical spring compression feedback (`scale 0.96f` on press) across `QuickBitsHomeCard`, `VideoLibraryCard`, and interactive Assessment choices.
+- **Milo Idle Breathing Animation & Bounce:**
+  - Added continuous sine-wave idle breathing motion (`±3dp` bobbing) to Milo in `SanctuaryScene`, plus a spring bounce animation on tap.
+- **Quick Bits Overlay Stagger:**
+  - Added entrance slide-and-fade animation on video info overlays when scrolling between shorts in `QuickBitsScreen`.
+- **Assessment Arena Responsive 2-Column Grid:**
+  - Upgraded Assessment Arena multiple-choice options on tablet displays to an ergonomic 2-column grid layout with per-item press physics.
+
+## [0.46.0] - 2026-08-16
+
+### Quick Bits: TikTok-Style Educational Shorts Feed & Offline Engine
+
+- **TikTok-Style Vertical Shorts Pager:**
+  - Full-screen `VerticalPager` with smooth snapping gestures (swipe up for next short, swipe down for previous).
+  - Dedicated `ExoPlayer` instance per page with auto-play, looping, tap-to-pause with animated indicator, and strict memory cleanup on page transition.
+  - High-contrast bottom overlays displaying educational short title, creator handle, runtime badge, and category tag.
+  - Tactile top category filter bar (*All Shorts*, *🐾 Animals*, *🚀 Space*, *🔬 Science*, *🔢 Math*).
+- **Curated 60-Video Educational Catalog (480p H.264+AAC):**
+  - Exactly 60 curated, age-appropriate (8–10 years old) educational shorts from trusted channels (Nat Geo Kids, SciShow Kids, NASA Space Place, TED-Ed, BBC Earth Kids, Numberblocks).
+  - Balanced distribution across 4 core domains: 15 Animals, 15 Space, 15 Science, 15 Math (~598 MB total).
+  - Hosted and streamed locally from the Caddy content server (`10.10.10.33` / `10.10.20.33`).
+- **Resilient 1-Tap Offline Download Engine:**
+  - Bulk "Download All" engine with throttled concurrent downloading (`MediaDownloader`), atomic file transfers, and resumable state.
+  - Interactive Offline Storage Manager modal showing live downloaded bytes, total MB count, and single-tap cache clearing.
+  - Seamless automatic fallback: plays directly from local storage if downloaded, streams from local Caddy server if connected.
+- **Playroom Home Launcher Card:**
+  - Integrated dedicated "Quick Bits" launcher card directly on the child Playroom home feed alongside Video Lessons.
+  - Displays dynamic "60 Videos" badge and category summary.
+
+## [0.45.9] - 2026-08-16
 
 ### Gamified & Interactive Milo's Wildlife Sanctuary
 

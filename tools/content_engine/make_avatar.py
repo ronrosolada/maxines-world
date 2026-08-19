@@ -5,7 +5,6 @@ source_path = Path("/home/ron/projects/maxines-world/.hermes/desktop-attachments
 output_path = Path("/home/ron/workspace/maxines-world/tools/content_engine/milo_icon_anchor.png")
 
 img = Image.open(source_path).convert("RGBA")
-# Create circular mask
 mask = Image.new("L", img.size, 0)
 draw = ImageDraw.Draw(mask)
 draw.ellipse((0, 0, img.size[0], img.size[1]), fill=255)

@@ -66,9 +66,8 @@ fun MatchingPairsRenderer(
     } else {
         "Tap an example, then tap its match"
     }
-    // NOTE: matching is positional (right[i] == right[selectedLeft] checks
-    // same-authored-index pairing). Content authors must keep left/right
-    // lists index-aligned; identical right labels act as a shared category.
+    // Positional matching checks index alignment (right[i] == right[selectedLeft]).
+    // Content authors must keep left/right lists aligned; identical right labels act as a shared category.
 
     LaunchedEffect(mismatch) {
         if (mismatch != null) { kotlinx.coroutines.delay(800); mismatch = null; selectedLeft = -1 }

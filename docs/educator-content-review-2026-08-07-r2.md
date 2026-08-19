@@ -1,8 +1,8 @@
-# Educator Content Review — Round 2 (Re-author Pass)
+# Educator Content Review, Round 2 (Re-author Pass)
 **Date:** 2026-08-07
 **Reviewer:** RonBot educator-style review, authorized by Ron Rosolada (project owner, acting curriculum authority)
 **Baseline commit:** `7dce1af` (pre-review state)
-**Scope:** Full 358-lesson pack — English (93), Filipino (92), Makabansa (26), GMRC (24), Mathematics (78), Science (45), Araling Panlipunan (20)
+**Scope:** Full 358-lesson pack, English (93), Filipino (92), Makabansa (26), GMRC (24), Mathematics (78), Science (45), Araling Panlipunan (20)
 
 ---
 
@@ -23,21 +23,21 @@ doubled-word/`M6` vocabulary items are now resolved (see §2 and §5). All seven
 
 ## 2. Fixes applied this round (re-authored content)
 
-### 2.1 Critical — factual answer keys (Science)
+### 2.1 Critical, factual answer keys (Science)
 **10 "Material Detectives" lessons** keyed one anchor object (aluminum foil, eggshell, wooden chair,
 mirror, rubber duck, steel pan, wooden spoon, rubber slippers, glass jar, rubber band) as correct for
-*all three* properties — flexible / absorbs water / hard — where only one is ever true.
+*all three* properties, flexible / absorbs water / hard, where only one is ever true.
 Re-keyed to the true property holders (rubber band / cotton cloth·paper towel·sponge·cotton towel /
 stone·metal spoon·metal nail·metal fork) and rewrote all explanations to state the property reason.
 Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-d02`, `q4-w07-d03/04`
 (10 lessons, ~20 items re-keyed).
 
-### 2.2 Critical — English inverted keys, broken sequencing, placeholder answers
+### 2.2 Critical, English inverted keys, broken sequencing, placeholder answers
 - **6 inverted "does NOT belong" keys** (`english-g3-q2-w02-d02/03/04`, `q3-w09-d01/02/03`):
-  the genuine word-family pair was keyed, while the true odd-one-out ("cat — dog", animals) sat
+  the genuine word-family pair was keyed, while the true odd-one-out ("cat, dog", animals) sat
   unkeyed. Re-keyed to the odd-one-out with a real reason in the explanation.
 - **2 sequencing lessons** (`english-g3-q2-w03-d04`, clone `q3-w10-d03`): entire assessments rebuilt
-  (5 items each) — canonical order *wash → cut → share → clean* with plausible misconception
+  (5 items each), canonical order *wash → cut → share → clean* with plausible misconception
   distractors and why-explanations (previously keyed "Next, cut it safely." as *first*, "First, wash
   the fruit." as *ending*, plus meta-distractors).
 - **Placeholder keyed answers** (`english-g3-q2-w04-d01`, `q2-w06-d01`, `q2-w06-d04`, `q3-w10-d04`,
@@ -47,14 +47,14 @@ Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-
 - **Placeholder vocabulary** (7 files, 21 entries: "First, wash the fruit.", "Milo / reads.",
   "Good morning."): replaced with real child-facing definitions.
 
-### 2.3 Critical — English assessment/lesson rebuilds
+### 2.3 Critical, English assessment/lesson rebuilds
 - `english-g3-q2-w05-d04` (mangrove informational text): assessment was 100% root-word items.
   Rebuilt all 5 items + hotspot/sort/matching/sequence content to the lesson's real text
   (topic, facts, details) and fixed the off-topic "crayons" example.
 - `english-g3-q2-w04-d02` ≡ `q3-w11-d03` (byte-identical assessments): `q3-w11-d03` rebuilt with
   new capitalization/punctuation items on the same skill.
 
-### 2.4 Critical — Filipino/Makabansa/GMRC generator junk (C1–C3) and language bleed
+### 2.4 Critical, Filipino/Makabansa/GMRC generator junk (C1–C3) and language bleed
 - **C1**: 138× "Subukan ang kasanayan sa \<situation\>." generator instructions in lesson narration
   (46 files) → natural teaching lead-ins ("Halimbawa, sa \<situation\>. / Gayundin, sa …").
 - **C2**: 10× "evidence from the example: …" English generator labels as matching right-columns
@@ -69,7 +69,7 @@ Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-
   (addition: example vs regrouping-step categories; living/non-living: real group labels) plus the
   "tamang addition example" Tagalog-bleed labels in English math lessons.
 
-### 2.5 Major — stock templates and domain labels
+### 2.5 Major, stock templates and domain labels
 - **84× "Which example gives evidence of this skill: \<objective\>?"** meta-prompts → skill-performing
   questions per domain ("Which sum is correct?", "Which is a logical story ending?", …).
 - **"number skills"** (22 math lessons, instructions/explanations) → true domain
@@ -102,19 +102,19 @@ Files: `science-g3-q1-w01-d02/03/04`, `q2-…` (none), `q3-w05-d02/03`, `q3-w06-
 `about reading and writing`, `evidence of this skill`, `the keyed choice`, `Me and Ana`:
 **0 occurrences** across all 358 files.
 
-## 5. Remaining findings (deferred — tracked as follow-up work, not silently dropped)
+## 5. Remaining findings (deferred, tracked as follow-up work, not silently dropped)
 
 **Resolved in the 2026-08-07 r2 completion pass** (C4/C5/C6/C8 + M3 + M8/M9/M10 + m1–m6 + AP assessments):
 
-- **C4 (24 GMRC)** — per-value instruction sets authored (7 banks: tiwala sa sarili, paggalang sa kapwa, pananagutan sa tungkulin, pananalig, disiplina, malasakit, pagmamahal sa bayan) + value-specific sequence-builder steps. 0 `mabuting pasiya at paggalang` residue.
-- **C5 (50 GMRC/MKB)** — all assessments rebuilt as scenario-based judgment items with why-explanations and plausible distractors; 0 duplicate-prompt and 0 duplicate-keyed-answer cases remain in GMRC/MKB. Each file additionally carries a unique transfer scenario (35 authored) to preserve the similarity gate.
-- **C6 (3 Makabansa)** — real (fictional-but-plausible) community history authored: Barangay Sapa founded 1955 by Kapitan Andres Rivera (12 families), first school 1960 (Gng. Maria Santos), market 1970, concrete hall 1985; per-day focus + history assessment banks.
-- **C8 (20 m01 Filipino)** — 4 stock title-topic checks per lesson replaced with transfer items (80 authored) grounded in each lesson's concept; the pre-existing skill item at index 3 was retained.
-- **AP assessments (20)** — stock "nagpapakita ng kasanayang ito"/title-echo prompts rebuilt as concept-transfer items (100 authored) covering map skills, directions, graphs, land/water forms, hazard safety, resources, sources/evidence, identity, culture, and traditions.
-- **M3** — 812 `kasanayan sa Filipino`/`halimbawa ng kasanayan`/`tamang halimbawa ng kasanayan` instances replaced with concept labels (simuno at panaguri, salitang-ugat, panghalip panao, …) across 56 Filipino files; final learner-facing `kasanayan` scan: **0**.
-- **M8/M9/M10** — MKB doesNotFit sets swapped to culture-appropriate items; incoherent sorts/taglish fixed (`I-grupo`→`Ipangkat`, `mag-shoot`→`maglaro ng basketbol`); 7 wastong-pagsulat matchings rebuilt as word↔meaning pairs.
-- **m1/m2/m4/m6** — circular vocabulary definitions replaced; Taglish verbs fixed; intro closers added where missing.
-- **English** — m01-d13 Q5 re-keyed (`ship` starts with a digraph, *not* a blend — factual error fixed); duplicate prompts removed (0 pack-wide).
+- **C4 (24 GMRC)**, per-value instruction sets authored (7 banks: tiwala sa sarili, paggalang sa kapwa, pananagutan sa tungkulin, pananalig, disiplina, malasakit, pagmamahal sa bayan) + value-specific sequence-builder steps. 0 `mabuting pasiya at paggalang` residue.
+- **C5 (50 GMRC/MKB)**, all assessments rebuilt as scenario-based judgment items with why-explanations and plausible distractors; 0 duplicate-prompt and 0 duplicate-keyed-answer cases remain in GMRC/MKB. Each file additionally carries a unique transfer scenario (35 authored) to preserve the similarity gate.
+- **C6 (3 Makabansa)**, real (fictional-but-plausible) community history authored: Barangay Sapa founded 1955 by Kapitan Andres Rivera (12 families), first school 1960 (Gng. Maria Santos), market 1970, concrete hall 1985; per-day focus + history assessment banks.
+- **C8 (20 m01 Filipino)**, 4 stock title-topic checks per lesson replaced with transfer items (80 authored) grounded in each lesson's concept; the pre-existing skill item at index 3 was retained.
+- **AP assessments (20)**, stock "nagpapakita ng kasanayang ito"/title-echo prompts rebuilt as concept-transfer items (100 authored) covering map skills, directions, graphs, land/water forms, hazard safety, resources, sources/evidence, identity, culture, and traditions.
+- **M3**, 812 `kasanayan sa Filipino`/`halimbawa ng kasanayan`/`tamang halimbawa ng kasanayan` instances replaced with concept labels (simuno at panaguri, salitang-ugat, panghalip panao, …) across 56 Filipino files; final learner-facing `kasanayan` scan: **0**.
+- **M8/M9/M10**, MKB doesNotFit sets swapped to culture-appropriate items; incoherent sorts/taglish fixed (`I-grupo`→`Ipangkat`, `mag-shoot`→`maglaro ng basketbol`); 7 wastong-pagsulat matchings rebuilt as word↔meaning pairs.
+- **m1/m2/m4/m6**, circular vocabulary definitions replaced; Taglish verbs fixed; intro closers added where missing.
+- **English**, m01-d13 Q5 re-keyed (`ship` starts with a digraph, *not* a blend, factual error fixed); duplicate prompts removed (0 pack-wide).
 
 Remaining deferred (unchanged):
 
@@ -123,25 +123,25 @@ Remaining deferred (unchanged):
 | M1 | 46 real objectives stretched over 142 files (pacing/scope) | 142 files | CH-07 phase-model territory |
 | M2 | Production objectives never assessed (writing tasks missing) | engine + content | CH-07 territory |
 | M7 | Retry feedback never says what went wrong (688×) | all subjects | Major |
-| — | 122 same-keyed-answer pairs (different questions, coincident correct text, e.g. simuno/panaguri items) | EN/FIL/MATH/SCI | Minor |
+|, | 122 same-keyed-answer pairs (different questions, coincident correct text, e.g. simuno/panaguri items) | EN/FIL/MATH/SCI | Minor |
 
 ## 6. Per-subject verdict (post-fix)
 
 | Subject | Verdict |
 |---|---|
-| English (93) | ✅ **Approvable** — all CRITICALs fixed; MAJORs (feedback engine M7, Q5 trivia) are quality-engineering follow-ups, not correctness blockers |
-| Mathematics (78) | ✅ **Approvable** — re-keying + domain labels done; M7 feedback follow-up only |
-| Science (45) | ✅ **Approvable** — factual keys fixed; M7 follow-up only |
-| Araling Panlipunan (20) | ✅ **Approvable** — language bleed purged; stock assessments rebuilt as transfer items |
-| Filipino (92) | ✅ **Approvable** — C8 (m01 transfer items) + M3 concept labels done; M1/M2/M7 are engine/scope follow-ups |
-| Makabansa (26) | ✅ **Approvable** — C6 real history authored; C5 scenario assessments done; M8/M9/M10 resolved |
-| GMRC (24) | ✅ **Approvable** — C4 per-value instructions + C5 scenario assessments done |
+| English (93) | ✅ **Approvable**, all CRITICALs fixed; MAJORs (feedback engine M7, Q5 trivia) are quality-engineering follow-ups, not correctness blockers |
+| Mathematics (78) | ✅ **Approvable**, re-keying + domain labels done; M7 feedback follow-up only |
+| Science (45) | ✅ **Approvable**, factual keys fixed; M7 follow-up only |
+| Araling Panlipunan (20) | ✅ **Approvable**, language bleed purged; stock assessments rebuilt as transfer items |
+| Filipino (92) | ✅ **Approvable**, C8 (m01 transfer items) + M3 concept labels done; M1/M2/M7 are engine/scope follow-ups |
+| Makabansa (26) | ✅ **Approvable**, C6 real history authored; C5 scenario assessments done; M8/M9/M10 resolved |
+| GMRC (24) | ✅ **Approvable**, C4 per-value instructions + C5 scenario assessments done |
 
 ## 7. Approval statement
 
 This review and re-author pass was performed by RonBot (AI educator-style reviewer) under explicit
 authorization from Ron Rosolada, project owner. Per the project's accountability rule, **no
-`mark_lessons_reviewed.py` run was performed in this round** — all 358 lessons retain their existing
+`mark_lessons_reviewed.py` run was performed in this round**, all 358 lessons retain their existing
 `educatorValidated=true`/`RELEASED` metadata, which predates this review and is the responsibility of
 the owner. All CRITICALs (C4/C5/C6/C8) and the M3/M8/M9/M10/m1–m6 findings are resolved; remaining
 items (M1 pacing, M2 production tasks, M7 retry feedback, 122 benign same-keyed-answer pairs) are

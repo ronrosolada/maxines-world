@@ -29,8 +29,9 @@ class MediaLibrary(
                 val parsed = catalogClient.parse(cachedRaw)
                 cachedCatalog = parsed
                 return parsed
-            } catch (_: Exception) {
-                // If local cached catalog is invalid or stale, refresh from remote
+            } catch (e: Exception) {
+                if (e is CancellationException) throw e
+                // If local cached catalog is invalid or unparseable, fall through to remote refresh
             }
         }
         return refreshCatalog()
@@ -69,7 +70,9 @@ class MediaLibrary(
                 val parsed = catalogClient.parse(cachedRaw)
                 cachedCatalog = parsed
                 return parsed
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                if (e is CancellationException) throw e
+            }
         }
 
         throw lastError ?: IOException("Failed to load media catalog from all candidate endpoints.")

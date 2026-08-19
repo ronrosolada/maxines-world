@@ -1,4 +1,4 @@
-# Release Review — v0.31.0 (2026-08-13)
+# Release Review, v0.31.0 (2026-08-13)
 
 QA/review of `ronrosolada/maxines-world` at v0.30.0, evaluated against the
 stated product goal: **learning comes first, facts must be trustworthy, and
@@ -21,30 +21,30 @@ understanding.**
 ## Findings fixed in this release
 
 1. **HANDOFF.md was three releases stale** (described v0.27.0, wrong DB
-   version, wrong SVG accessibility flag, stale deferred list) — rewritten to
+   version, wrong SVG accessibility flag, stale deferred list), rewritten to
    the 0.31.0 baseline; deferred educator items now link to issues #76–#79.
-2. **PR #75 (media assessment gates) unmerged** — rebased onto main, CI-green,
+2. **PR #75 (media assessment gates) unmerged**, rebased onto main, CI-green,
    squash-merged (#75). Tagalog memory checks now gate on video playback
    completion.
-3. **CI instrumented-test gap** — the emulator job now also runs
+3. **CI instrumented-test gap**, the emulator job now also runs
    `feature-child-home`, `feature-rewards`, and `feature-lesson-player`
    connected tests (six modules total).
-4. **Silent renderer fallback** — `rendererType()` now returns null for
+4. **Silent renderer fallback**, `rendererType()` now returns null for
    unknown types; conversion drops the step with a log; a lesson with no
    playable steps fails to load. Unit tests added.
-5. **Dependency drift** — AGP 8.7.3→8.9.2, Gradle 8.9→8.11.1, Kotlin
+5. **Dependency drift**, AGP 8.7.3→8.9.2, Gradle 8.9→8.11.1, Kotlin
    2.1.0→2.1.20, KSP 2.1.20-1.0.32, Room 2.6.1→2.7.1. The Compose BOM bump
    was attempted and reverted: Compose 1.8 changes IME inset propagation and
    broke the PIN keypad UI test under injected insets (reproduced on CI and
-   local emulator) — a Compose bump requires physical-device validation
+   local emulator), a Compose bump requires physical-device validation
    first.
-6. **Dead code and APK bloat** — removed `VillageHomeScreen`, `VillageHomeV17`,
+6. **Dead code and APK bloat**, removed `VillageHomeScreen`, `VillageHomeV17`,
    `VillageChromeV16` and their unreferenced assets; mascot + subject artwork
    converted to WebP (≈9.7 MB smaller APK).
-7. **Content formatting** — 9 Filipino story lessons re-serialized with the
+7. **Content formatting**, 9 Filipino story lessons re-serialized with the
    canonical top-level key order (values unchanged; content gates re-verified
    clean).
-8. **Educator debt visibility** — M1, M2, M7, and the 122 same-keyed-pair
+8. **Educator debt visibility**, M1, M2, M7, and the 122 same-keyed-pair
    finding are now tracked GitHub issues instead of living only in a review
    document.
 

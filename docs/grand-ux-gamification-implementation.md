@@ -1,6 +1,6 @@
-# Grand UX, UI, and Gamification Review — Implementation Status
+# Grand UX, UI, and Gamification Review, Implementation Status
 
-**Status: Historical — superseded by `HANDOFF.md` (canonical).** Describes DB v8 and the wildlife expedition as current; its follow-up list overlaps with newer briefs. Kept for the record (spec CH-13).
+**Status: Historical, superseded by `HANDOFF.md` (canonical).** Describes DB v8 and the wildlife expedition as current; its follow-up list overlaps with newer briefs. Kept for the record (spec CH-13).
 
 **Review baseline:** 6 August 2026
 **Implementation branch:** `feat/lesson-concept-visuals`
@@ -38,7 +38,7 @@ This note records the implemented child-facing policy and the remaining visual/p
   idempotent through the reward ledger) and shown as a balance in the rewards
   hub, but there is no spend mechanism yet: no purchase, redeem, or exchange
   flow exists in code. The intended policy is that coins become meaningful only
-  when a cosmetic use (e.g., Kindness Garden decorations) ships — until then
+  when a cosmetic use (e.g., Kindness Garden decorations) ships, until then
   the balance is purely informational.
 - The Room database is now version 8 with a migration for `wildlife_expeditions`.
 

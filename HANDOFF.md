@@ -1,4 +1,4 @@
-# Maxine's World — Current State & Release Handoff
+# Maxine's World, Current State & Release Handoff
 
 **Document baseline:** 2026-08-15
 **Release candidate:** `0.35.1` (`versionCode = 38`)
@@ -55,13 +55,13 @@ verdicts. All seven subjects are **Approvable**.
 
 Remaining follow-ups are tracked as GitHub issues, not silently dropped:
 
-- [#76](https://github.com/ronrosolada/maxines-world/issues/76) — M1: 46 real
+- [#76](https://github.com/ronrosolada/maxines-world/issues/76), M1: 46 real
   objectives stretched over 142 Filipino/Makabansa files (pacing/scope)
-- [#77](https://github.com/ronrosolada/maxines-world/issues/77) — M2:
+- [#77](https://github.com/ronrosolada/maxines-world/issues/77), M2:
   production objectives never assessed (writing tasks missing)
-- [#78](https://github.com/ronrosolada/maxines-world/issues/78) — M7: retry
+- [#78](https://github.com/ronrosolada/maxines-world/issues/78), M7: retry
   feedback never says what went wrong (688 occurrences)
-- [#79](https://github.com/ronrosolada/maxines-world/issues/79) — 122
+- [#79](https://github.com/ronrosolada/maxines-world/issues/79), 122
   same-keyed-answer pairs across EN/FIL/MATH/SCI (minor)
 
 No `mark_lessons_reviewed.py` run was performed in this round; all 358 lessons
@@ -88,13 +88,13 @@ All critical blockers, single-letter casing traps, circular definitions, and cro
    - Filipino *Simuno* cluster (32 lessons) diversified across multiple grammar facets (*pandiwa*, *pang-uri*, *karaniwang ayos*, *di-karaniwang ayos*).
    - Science giveaway sorting/matching cards in `science-g3-m01-d01` updated to observation-based descriptions.
 
-### Graphics Asset Overhaul — Emoji Eradication & Scene Uniqueness (2026-08-15)
+### Graphics Asset Overhaul, Emoji Eradication & Scene Uniqueness (2026-08-15)
 
 A fleet-wide graphics pass was completed against the craft-floor standards (no emoji-as-icons, consistent stroke/ink, real depth, unique seeded scenes):
 
-1. **Duplicate-scene eradication:** 15 normalized-identical SVG groups (71 files — legacy 640×360 board templates) regenerated with the seeded `scene_svg` (800×450, lesson-ID-seeded motifs/layout) → **0 remaining normalized-duplicate groups**.
+1. **Duplicate-scene eradication:** 15 normalized-identical SVG groups (71 files, legacy 640×360 board templates) regenerated with the seeded `scene_svg` (800×450, lesson-ID-seeded motifs/layout) → **0 remaining normalized-duplicate groups**.
 2. **Emoji-as-icon eradication:** 287 of 358 SVGs carried raw emoji glyphs as `<text>` icons. Generator-owned files were regenerated with drawn vector motifs, and the ten hand-authored English Q1 W01–W04 hotspot assets were replaced with lesson-specific drawn scenes rather than retaining the generic focus-board shell.
-3. **Canonical a11y metadata:** `scene_svg` patched to emit byte-identical metadata to `add_svg_accessibility.accessible_svg` (unique `svg-title-*`/`svg-desc-*` IDs, objective-rich descriptions) — the idempotency test that this surfaced is now green.
+3. **Canonical a11y metadata:** `scene_svg` patched to emit byte-identical metadata to `add_svg_accessibility.accessible_svg` (unique `svg-title-*`/`svg-desc-*` IDs, objective-rich descriptions), the idempotency test that this surfaced is now green.
 4. **Verification:** `test_svg_accessibility.py` 4/4 green; `test_generate_quarterly_assets.py` 3/3 green; `verify_lesson_assets.py` 0 missing/malformed/orphaned; **0 emoji glyphs and 0 duplicate visual layouts across all 358 SVGs**.
 
 ### Verification Status
@@ -180,7 +180,7 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
   network path is not used for telemetry, cloud content sync, or lesson
   delivery; the core lessons remain bundled.
 - Pre-Playroom village screens (`VillageHomeScreen`, `VillageHomeV17`,
-  `VillageChromeV16`) and their assets were removed in 0.31.0 — the Playroom is
+  `VillageChromeV16`) and their assets were removed in 0.31.0, the Playroom is
   the only child home.
 
 ## Assessment policy
@@ -189,7 +189,7 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
   first scoring** (4/5 on the standard five-item check; `0.8` matches the
   accuracy tiers used for stars). Enforced two ways: `content_pack_validation.py`
   errors on any lesson whose `passingCorrectCount / itemCount < 0.8`, and the
-  player has no silent default — a malformed (zero-item) assessment fails
+  player has no silent default, a malformed (zero-item) assessment fails
   closed.
 - **Only the authored assessment contributes to accuracy and mastery.**
   Every practice activity step is `scored = false` by contract
@@ -257,7 +257,7 @@ Before tagging `v0.31.0`:
 MoA completed the corpus-wide educator effectiveness review and in-place re-authoring.
 Every lesson has exactly one final disposition; no lesson is blocked:
 
-- **358/358 lessons dispositioned** — 358 FIXED, 0 OK, 0 BLOCKED.
+- **358/358 lessons dispositioned**, 358 FIXED, 0 OK, 0 BLOCKED.
 - Subject totals: Mathematics 58, English 93, Filipino 92, Science 45,
   Makabansa 26, GMRC 24, Araling Panlipunan 20.
 - Durable per-lesson report: `docs/educator-effectiveness-review-2026-08-15.md`.

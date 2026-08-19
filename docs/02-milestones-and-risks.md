@@ -1,6 +1,6 @@
-# Maxine's World — Implementation Milestones & Risks
+# Maxine's World, Implementation Milestones & Risks
 
-**Status: Historical — superseded by `HANDOFF.md` (canonical).** M3's five-subject village home, Lottie animations, and WorkManager download-on-demand are superseded (Playroom replaced the village home; content is bundled-only). R8's download mitigation contradicts the bundled-only decision (ADR-004). Kept for the record; do not implement from this file without checking code (spec CH-13).
+**Status: Historical, superseded by `HANDOFF.md` (canonical).** M3's five-subject village home, Lottie animations, and WorkManager download-on-demand are superseded (Playroom replaced the village home; content is bundled-only). R8's download mitigation contradicts the bundled-only decision (ADR-004). Kept for the record; do not implement from this file without checking code (spec CH-13).
 
 ## Milestones
 
@@ -118,7 +118,7 @@ M1 (scaffold)
  │                   └─→ M6 (progress/mastery)
  │                        ├─→ M7 (parent dashboard)
  │                        └─→ M8 (rewards)
- └─→ M9 (tests) — runs alongside all milestones, final pass after M8
+ └─→ M9 (tests), runs alongside all milestones, final pass after M8
 ```
 
 ---
@@ -141,9 +141,9 @@ M1 (scaffold)
 **Risk:** Lesson content must be validated by qualified Philippine educators before release. The handoff explicitly forbids inventing DepEd competency codes.
 **Mitigation:** Pilot lessons use skill-based objectives without DepEd codes. Curriculum metadata fields exist in the JSON schema but are left empty or marked `educatorValidated: false`. Content CMS review workflow is designed but not staffed.
 
-### R5: Backend Absence (MEDIUM — RESOLVED for content)
+### R5: Backend Absence (MEDIUM, RESOLVED for content)
 **Risk:** The handoff describes a full backend (auth, content API, sync, reporting), but implementing it alongside the Android app is a parallel project.
-**Mitigation (decided 2026-08-01):** MVP is fully offline. **Content delivery is bundled-only — there is no content API or server.** Content is authored in `ronrosolada/maxines-world-content` and bundled into APK releases (month/quarter packs). "Sync" stubs log to console. Parent dashboard reads local Room data. A backend can be added incrementally if ever needed.
+**Mitigation (decided 2026-08-01):** MVP is fully offline. **Content delivery is bundled-only, there is no content API or server.** Content is authored in `ronrosolada/maxines-world-content` and bundled into APK releases (month/quarter packs). "Sync" stubs log to console. Parent dashboard reads local Room data. A backend can be added incrementally if ever needed.
 
 ### R6: Physical Device Testing (MEDIUM)
 **Risk:** The app targets a specific child (age 8, Grade 3). Her actual device, reading level, touch precision, and engagement patterns are unknown until tested.

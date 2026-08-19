@@ -1,6 +1,6 @@
-# Maxine's World — Release Review Brief (2026-08-07)
+# Maxine's World, Release Review Brief (2026-08-07)
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 **Scope:** Independent review of `main` after PR #71
 (`6dc51f0`, squash-merged 2026-08-07: "fix: child feedback and keyboard-safe PIN setup").
@@ -60,7 +60,7 @@ results) from **flags** (open items, judgment calls).
 
 ## 4. Suggested independent review checklist
 
-1. `git log --oneline main -8` — confirm `6dc51f0` (PR #71) sits on `61e922f` (#70).
+1. `git log --oneline main -8`, confirm `6dc51f0` (PR #71) sits on `61e922f` (#70).
 2. Read the four issue fixes in the squash diff; check the IME test's
    assertion semantics (`AuthImeLayoutTest.kt`) and the sanitization table
    parity between `Models.kt` and `tools/content_review.py`.
@@ -88,20 +88,20 @@ results) from **flags** (open items, judgment calls).
 
 An external LLM review (Opus 5.0) confirmed four findings; remediation status:
 
-### C3 — unreviewed content shipping in the APK — RESOLVED
+### C3, unreviewed content shipping in the APK, RESOLVED
 
 The review verified (and this session re-verified) that the release APK bundled
 **254 unreviewed lessons**: 249 legacy `assets/content/ph-matatag/grade-3/`
 fallback lessons (`educatorValidated=false`, `REQUIRES_EDUCATOR_REVIEW`,
 explicitly BLOCKED by the 2026-08-07 educator review) **plus 5 pilot lessons**
-in `content-packs/ph-grade3-v1/` (no approval metadata at all — manifest
+in `content-packs/ph-grade3-v1/` (no approval metadata at all, manifest
 self-declares `"educatorValidated": false`). The release gate only scanned
 `content-pack/month-01/lessons`, and `LessonLoader` resolves paths in the
 unreviewed trees.
 
 Fix (commit `[pending]`):
 
-1. **Removed all unreviewed lesson content from the APK** — 263 files deleted
+1. **Removed all unreviewed lesson content from the APK**, 263 files deleted
    from `src/main/assets` (ph-matatag tree, pilot lessons, pilot manifest/
    modules/checksums, and the 5 pilot SVGs that were only referenced by the
    removed lessons). Everything remains recoverable in git history.
@@ -110,7 +110,7 @@ Fix (commit `[pending]`):
    `activities` list) lacks `educatorValidated=true` + `releaseStatus=RELEASED`.
    The "release gate" now means what it says.
 3. **Added `ContentPackIntegrityTest` coverage**: `every lesson JSON shipped in
-   app assets is educator-reviewed` — a JVM test that walks all app assets and
+   app assets is educator-reviewed`, a JVM test that walks all app assets and
    asserts exactly 358 lessons, all approved. Runs in CI without an emulator.
 4. Because no unreviewed lesson can now exist in the APK, `LessonLoader`
    cannot resolve one (its legacy paths miss); the loader itself needs no
@@ -120,7 +120,7 @@ Verified: `:app:verifyPlayableContent` → "Release gate OK: 358 playable lesson
 are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
 `ph-matatag` or `ph-grade3-v1` entries.
 
-### C2 — assessment semantics — VERIFIED, decisions documented
+### C2, assessment semantics, VERIFIED, decisions documented
 
 - **Pass threshold**: `passThreshold = passingCorrectCount / itemCount` (authored
   per lesson; baseline allows 3/5 = 60%) with 0.8 fallback when itemCount is 0.
@@ -131,7 +131,7 @@ are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
   (review C4) lands; documented here so it is a decision, not an artifact.
 - **Practice contamination**: none. `saveProgress()` filters `it.scored`
   (exploration activities are never scored), and `Scorer.evaluateAssessment`
-  filters `it.scored && it.activityId in assessmentIds` — only authored
+  filters `it.scored && it.activityId in assessmentIds`, only authored
   assessment items count toward the assessment verdict.
 - **Retry honesty**: `retryAssessment()` restarts only the assessment and
   replaces prior assessment results. A retry-pass child is persisted as a pass
@@ -139,10 +139,10 @@ are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
   first-pass from retry-pass. **Decision**: acceptable for the parent dashboard
   today; if "effort" metrics are wanted, add an attempts column (v9 migration).
 
-### Assessment semantics (spec CH-03/CH-04) — DONE
+### Assessment semantics (spec CH-03/CH-04), DONE
 - Pass policy pinned at **80%** (4/5): validation errors below it, no silent
   runtime default (fail-closed on malformed), baseline `[4]`.
-- **Practice excluded from accuracy**: `ActivityStep.scored` contract —
+- **Practice excluded from accuracy**: `ActivityStep.scored` contract  - 
   practice steps unscored, assessment scored; enforced at the single
   `onActivityResult` normalization point; `saveProgress`, completion screen,
   and `Scorer` consume scored results only.
@@ -153,7 +153,7 @@ are educator-reviewed"; new test PASS; rebuilt release APK no longer contains
   deleted; single bundled path; `parseBundledLesson` rejects non-`RELEASED`
   lessons (unit-tested).
 
-### Other review findings — status
+### Other review findings, status
 
 - **C1** (6-activity shell is CI-enforced; pedagogy ceiling): acknowledged,
   confirmed (`ContentPackIntegrityTest` asserts the literal type sequence).
