@@ -3,6 +3,7 @@
 **Scope:** educational-video correctness for the Grade-3 (DepEd/MATATAG) media hub
 (337-video catalog served from the homelab content server at `10.10.10.33`).
 **Status:** remediation in progress (2026-08-20). Branch `fix/video-sequence-guardrail`.
+Deployed catalog now serves **337 videos × 5 content-based questions each** (was 3).
 
 ## 1. Guard rail — out-of-sequence playback (DONE, app code)
 
@@ -30,7 +31,12 @@
   - Wave 1 ✅ — Mathematics (43 vids, +86), Science (36, +72), English (36, +72) → 5 ea.
     - Merged + validated with **zero structural issues**; read-back sample confirmed
       content-accurate and pedagogically sound.
-  - Wave 2 ⏳ — Filipino (81), GMRC (36), Makabansa (105). Filipino-language.
+  - Wave 2 ✅ — Filipino (81), GMRC (36), Makabansa (105) → 5 ea. Filipino-language.
+    - Merged + validated: **all 337 videos at 5 questions (674 new items), 0 issues**;
+      read-back samples across all 6 subjects confirmed content-accurate.
+    - **Deployed** to `server/content/catalog.json` on DreamNAS (backup
+      `catalog.json.bak-20260820`); live at `http://10.10.10.33/catalog.json`,
+      verified `{5: 337}`, 0 under floor.
 - **Schema (canonical, matches app `MediaAssessmentItem`):**
   - option `{ "id": "a".."d", "text": ... }`
   - item-level `"correctOptionIds": ["<one of a-d>"]`
