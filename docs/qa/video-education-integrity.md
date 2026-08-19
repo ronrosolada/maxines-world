@@ -47,12 +47,22 @@ Deployed catalog now serves **337 videos × 5 content-based questions each** (wa
   rejects duplicate prompts + malformed options, emits an issue report.
   Artifacts staged under `/tmp/mw_new/*.json` and `/tmp/mw_catalog_expanded.json`.
 
-## 3. Pending: canonical curriculum ordering
+## 3. Canonical curriculum ordering (DONE)
 
-- The catalog `episodeNumber` <-> `mediaId -epNN` <-> title episode index are **three
-  disagreeing schemes** (331/337 mismatch); subjects/grade-levels are also mixed
-  (Grade 1/2, and non-English content tagged English). Recommended: regenerate the
-  catalog with a per-subject curriculum sequence (Q1→Q4 by week) + validation gate.
+- The catalog `episodeNumber` <-> `mediaId -epNN` <-> title episode index were **three
+  disagreeing schemes** (331/337 mismatch); Grade 1/2/other-grade and off-subject
+  content was mixed into the Grade-3 subjects (e.g. a science/religion video tagged
+  English, a Grade-2 lesson inside Grade-3 Filipino).
+- **Fix (non-destructive ordering, per subject):** classify each lesson by
+  grade/quarter/week/episode from its title, then order genuine **Grade-3 lessons
+  Q1→Q4 by week first**, and quarantine all non-Grade-3 / off-curriculum content
+  after them. `episodeNumber` renumbered to contiguous 1..N per subject (every
+  subject verified contiguous; assessments untouched; 0 validation problems).
+- **Deployed** to `server/content/catalog.json` on DreamNAS; local copy vs live
+  `.33` md5 identical (`36af37d8…`). Prior 5-question catalog backed up as
+  `catalog.json-ordering.bak-20260820`.
+- Together with the guard rail (§1), the Grade-3 learner now progresses through each
+  subject's curriculum in correct order; non-Grade-3 content is relegated to the tail.
 
 ## 4. Deployment plan (after Wave 2 + validation)
 
