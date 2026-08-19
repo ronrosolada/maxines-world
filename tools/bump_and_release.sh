@@ -8,7 +8,7 @@ set -euo pipefail
 # ─────────────────────────────────────────────────────────────────────────────
 
 echo "🔍 1. Fetching latest tags and commits from GitHub..."
-git fetch --tags origin
+git fetch --tags -f origin
 git pull origin main
 
 LATEST_RELEASE=$(gh release list --limit 1 | awk '{print $1}')
