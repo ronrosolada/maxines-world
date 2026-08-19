@@ -1,4 +1,4 @@
-# Maxine's World — Release Review Brief (`v0.27.0`)
+# Maxine's World, Release Review Brief (`v0.27.0`)
 
 **Status:** Release candidate; commit `b093370` pushed, pending remote CI and tag.
 

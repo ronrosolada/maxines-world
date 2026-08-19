@@ -1,6 +1,6 @@
-# Maxine's World — Architecture Decisions
+# Maxine's World, Architecture Decisions
 
-**Status: Historical — superseded by `HANDOFF.md` (canonical).** Several ADRs below describe superseded designs; they are kept for the record. Read code over these docs (verified 2026-08-07, spec CH-13).
+**Status: Historical, superseded by `HANDOFF.md` (canonical).** Several ADRs below describe superseded designs; they are kept for the record. Read code over these docs (verified 2026-08-07, spec CH-13).
 
 ## ADR-001: Modular Gradle Architecture
 
@@ -95,7 +95,7 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 ---
 
-## ADR-004: Offline-Only — Bundled Content, Local Progress
+## ADR-004: Offline-Only, Bundled Content, Local Progress
 
 **Decision:** The app works fully offline.
 
@@ -109,13 +109,13 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
   configured server.
 
 **Mechanism:**
-1. Lessons are bundled in the APK — installed, never downloaded
+1. Lessons are bundled in the APK, installed, never downloaded
 2. Lesson completion and reward rows are written to the local Room database
 3. Mastery and reward eligibility are recomputed locally
-4. Content package downloads: **removed** — no runtime content acquisition
+4. Content package downloads: **removed**, no runtime content acquisition
 
 **Conflict resolution:**
-- Progress events are append-only — no update conflicts
+- Progress events are append-only, no update conflicts
 - Mastery is always computed from the complete event stream
 - Last-write-wins for profile/avatar changes (low risk)
 - Content is validated by the pack integrity test at build time (no runtime checksum needed)
@@ -262,15 +262,15 @@ fun ActivityEngine(
 ```
 
 **Initial engines (MVP):**
-1. `AnimatedExplanationEngine` — story/narration with image slides
-2. `MultipleChoiceEngine` — tap-to-select
-3. `DragAndDropEngine` — drag items to targets
-4. `SortAndClassifyEngine` — sort into categories
-5. `SentenceBuilderEngine` — tap words to build sentences
-6. `StoryComprehensionEngine` — read/listen + answer
-7. `ArrayBuilderEngine` — build equal groups (math)
-8. `PredictionObservationEngine` — predict, observe, explain (science)
-9. `TimelineBuilderEngine` — sequence events (history)
+1. `AnimatedExplanationEngine`, story/narration with image slides
+2. `MultipleChoiceEngine`, tap-to-select
+3. `DragAndDropEngine`, drag items to targets
+4. `SortAndClassifyEngine`, sort into categories
+5. `SentenceBuilderEngine`, tap words to build sentences
+6. `StoryComprehensionEngine`, read/listen + answer
+7. `ArrayBuilderEngine`, build equal groups (math)
+8. `PredictionObservationEngine`, predict, observe, explain (science)
+9. `TimelineBuilderEngine`, sequence events (history)
 
 **Result contract:**
 ```kotlin
@@ -312,7 +312,7 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
 
 ## ADR-011: Testing Strategy
 
-**Decision:** Test pyramid — unit tests (heavy), integration tests (medium), UI tests (light).
+**Decision:** Test pyramid, unit tests (heavy), integration tests (medium), UI tests (light).
 
 **Layers:**
 1. **Unit tests** (JUnit5 + MockK):
@@ -332,12 +332,12 @@ NOT_STARTED → INTRODUCED → PRACTICING → PROFICIENT → MASTERED
    - Touch target accessibility (minimum 48dp verification)
 
 **Test module structure:**
-- `:core-database:test` — Room DAO tests
-- `:core-content:test` — JSON loading tests
-- `:engine-mastery:test` — mastery logic tests
-- `:feature-auth:test` — login flow tests
-- `:feature-lesson-player:test` — activity engine tests
-- `:app:test`, `:app:androidTest` — integration and UI tests
+- `:core-database:test`, Room DAO tests
+- `:core-content:test`, JSON loading tests
+- `:engine-mastery:test`, mastery logic tests
+- `:feature-auth:test`, login flow tests
+- `:feature-lesson-player:test`, activity engine tests
+- `:app:test`, `:app:androidTest`, integration and UI tests
 
 ---
 

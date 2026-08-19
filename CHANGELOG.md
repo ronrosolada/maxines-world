@@ -4,7 +4,30 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
-## [Unreleased]
+## [0.52.0] - 2026-08-19
+
+### Unslop Review & Design System Purification
+- **Code Hardening & Swallowed Error Remediation:**
+  - Patched `MediaLibrary.kt` to explicitly rethrow coroutine `CancellationException` and prevent silent disk catalog corruption.
+  - Hardened Python validator tools (`repair_educator_findings.py`, `packager_validator.py`) with explicit exception types.
+  - Stripped leftover LLM narrative artifacts from `MatchingPairsRenderer.kt` and `make_avatar.py`.
+- **UI & Brand Color Unification:**
+  - Removed AI-default Tailwind violet/indigo palettes (`#7c3aed`, `#6d28d9`, `#7e22ce`) across all 29 embedded HTML5 mini-game assets.
+  - Unified color styles to Maxine's Warm Village palette (`VillageTeal`, `Coral`, `HeritageGold`, `Cream`).
+  - Eradicated unprompted neon glow drop shadows and gradient heading texts.
+- **Documentation Register Alignment:**
+  - Unslopped repository documentation, converting corporate em-dash ticks and AI listicle scaffolding into clean technical specifications.
+
+## [0.48.0] - 2026-08-17
+
+### Home Screen Layout Alignment & Hierarchy Unification
+
+- **Removed Redundant Video Lessons Shortcut Card:**
+  - Removed top-level `VideoLibraryCard` / `WatchToEarnQuestCard` from Playroom home screen, as curriculum video lessons are directly integrated and accessed within their respective subject modules.
+- **Full-Width Quick Bits Hero Placement:**
+  - Converted `QuickBitsHomeCard` into a clean, full-width feature banner styled consistently with the `AssessmentArenaBannerCard` (matching 20dp radii, padded layout, 48dp leading icon container, and action pill button).
+- **Aligned Rhythm & Grid Consistency:**
+  - Unified vertical layout hierarchy: Today's Quest -> Assessment Arena -> Quick Bits -> 6-Subject Grid.
 
 ## [0.47.0] - 2026-08-17
 

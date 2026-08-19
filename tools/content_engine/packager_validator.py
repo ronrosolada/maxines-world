@@ -128,7 +128,7 @@ class ContentPackager:
             try:
                 with open(catalog_path, "r", encoding="utf-8") as f:
                     catalog_data = json.load(f)
-            except Exception:
+            except (json.JSONDecodeError, OSError):
                 pass
 
         # Upsert package entry

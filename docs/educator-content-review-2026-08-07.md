@@ -1,6 +1,6 @@
-# Educator Content Review — 2026-08-07
+# Educator Content Review, 2026-08-07
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 ## Scope and decision
 
@@ -73,7 +73,7 @@ The first connected run exposed one stale test/content contract (`VIEW_AND_ACKNO
 
 The fallback bundle contains 249 pending JSON lessons. It was restored to its pre-review state after detecting that wholesale mirroring would incorrectly copy canonical release metadata into the fallback queue. No fallback approval metadata or learner-facing fallback file is being claimed as reviewed or released by this report.
 
-The fallback bundle remains blocked until it receives a separate source-traceability, factual, language, pedagogical, safety, assessment, and human educator review—or is proven unreachable and removed/deprecated safely.
+The fallback bundle remains blocked until it receives a separate source-traceability, factual, language, pedagogical, safety, assessment, and human educator review - or is proven unreachable and removed/deprecated safely.
 
 ## Approval statement
 

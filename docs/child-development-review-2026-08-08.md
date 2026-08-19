@@ -1,10 +1,10 @@
-# Maxine's World — Child-Development Content Review (2026-08-08)
+# Maxine's World, Child-Development Content Review (2026-08-08)
 
 **Role:** Expert child-development specialist review against the product goal:
 *"factual, age-appropriate, learning-first, encouraging, privacy-preserving,
 and fun ... for Maxine, an animal-loving eight-year-old."*
 **Scope:** all 358 bundled lessons (`content-pack/month-01/lessons/`), 7 subjects.
-**Status:** complete — findings + remediation landed, all gates green.
+**Status:** complete, findings + remediation landed, all gates green.
 
 ---
 
@@ -24,21 +24,21 @@ generator/sanitizer tooling that produces lesson text
 | F1 | Curriculum objective pasted into assessment stems ("Which example best shows this skill: Recognize and describe points, lines, line segments, rays, and special line relationships?") | 24 lessons (20 math, 4 english) | Working-memory overload; unreadable by an 8-year-old; tests meta-awareness, not the skill |
 | F2 | Meta/template assessment items ("Which statement best matches 'Rounding Road'?", "Which one matches the lesson idea?", "Which choice does not follow the lesson idea?") | 60 lessons (all 60 legacy EN/MATH/SCI m01) | Tests title-matching, not skill transfer; teaches test-taking, not content |
 | F3 | Abstract/garbage distractors ("a place value that was not named", "a color with no location", "Yesterday"/"Square" as feelings, "matches the lesson") | 47 lessons | No real discrimination; children succeed/fail by luck or pattern, not understanding |
-| F4 | Scrambled answer keys (story-character question keyed "beginning"/"result"/"ending") | english-g3-q3-w13-d03/d04 | **Teaches false facts** — a child is told "beginning" is a character |
-| F5 | Ambiguous items with 2+ defensible answers ("Which is NOT a living thing?" — rock AND water both non-living) | science-g3-q1-w01-d01 (and similar) | Unfair; child cannot learn from a question with two right answers |
+| F4 | Scrambled answer keys (story-character question keyed "beginning"/"result"/"ending") | english-g3-q3-w13-d03/d04 | **Teaches false facts**, a child is told "beginning" is a character |
+| F5 | Ambiguous items with 2+ defensible answers ("Which is NOT a living thing?", rock AND water both non-living) | science-g3-q1-w01-d01 (and similar) | Unfair; child cannot learn from a question with two right answers |
 | F6 | Generic explanations ("The answer is X. It uses what we learned about Y.") | 392 items / 81 lessons | Feedback teaches nothing; no reasoning path |
 | F7 | "Great thinking! You found the key idea. 🎉" correct-feedback placeholder | 696 instances / 116 lessons | Hollow praise; not task-specific |
 | F8 | Identical boilerplate hooks ("Milo has a new mission! 🐱✨ ... Ready to explore?") | 201 lessons | Template parroting; hook stops engaging after lesson 1 |
 | F9 | Definition-dump intros (legacy m01: "Locate the number between two multiples and choose the nearer benchmark...") | ~60 legacy lessons | Formal register; no hook; adult vocabulary |
 | F10 | Template activity instructions ("Study the idea and listen to the narration.", "Pagbukud-bukurin ang mga halimbawa ng X") | ~444 (Filipino trio) + EN/MATH/SCI | Monotony; advanced verbs for 8-year-olds ("Pagbukud-bukurin" → "Pangkatin") |
-| F11 | English/mixed-language titles in fil-PH lessons ("Caring for Natural Repinagmulans" — typo; "Change at Continuity") | 14 AP titles | Language confusion; typo undermines trust |
+| F11 | English/mixed-language titles in fil-PH lessons ("Caring for Natural Repinagmulans", typo; "Change at Continuity") | 14 AP titles | Language confusion; typo undermines trust |
 | F12 | Stem-leak items (correct option = verbatim copy of the stem) | filipino-g3-q1-w01-d01 Q3/Q5 | Trivial matching; no skill practice |
 | F13 | Tooling regenerates the bad patterns ("shows the skill" → "matches the lesson idea" sanitizer; "{objective}" pasting generator) | 2 tools + app sanitizer | Any future content run re-introduces F1/F2 |
 
 **Not found (good):** English bleed in Filipino lessons (0), answer-position
-bias (positions 621/422/423/324 — no A-bias), multi-key items (0), duplicate
+bias (positions 621/422/423/324, no A-bias), multi-key items (0), duplicate
 titles (0), GMRC/Makabansa/Filipino assessments (already re-authored in the
-2026-08-07 r2 round — scenario-based, concrete, kid-real).
+2026-08-07 r2 round, scenario-based, concrete, kid-real).
 
 ## 3. Remediation
 
@@ -48,7 +48,7 @@ titles (0), GMRC/Makabansa/Filipino assessments (already re-authored in the
   "Pagbabago at Pagpapatuloy").
 - **F12**: filipino-g3-q1-w01-d01 Q3/Q5 re-authored as split-choice items
   (candidate splits of the same sentence; stem no longer leaks the key).
-- **F10 (trio)**: 91 Filipino/GMRC/Makabansa lessons — instruction verbs
+- **F10 (trio)**: 91 Filipino/GMRC/Makabansa lessons, instruction verbs
   simplified to 8-year-old register ("Pagbukud-bukurin" → "Pangkatin",
   "Tuklasin" → "Hanapin sa larawan", "Pakinggan ang paliwanag tungkol sa X" →
   "Pakinggan ang paliwanag ni Milo").
@@ -68,7 +68,7 @@ titles (0), GMRC/Makabansa/Filipino assessments (already re-authored in the
 - **English 93/93, Mathematics 58/58, Science 45/45** re-authored across four
   parallel worker waves (each file: prompts, options, keys, explanations,
   activity instructions, intros, vocab, feedback).
-- Scrambled keys fully rebuilt (english-g3-q3-w13-d03/d04 — new prompts,
+- Scrambled keys fully rebuilt (english-g3-q3-w13-d03/d04, new prompts,
   options, keys, explanations; e.g. story-character items keyed to real
   characters).
 - Ambiguous keys fixed (science living/non-living: water removed from
@@ -101,7 +101,7 @@ titles (0), GMRC/Makabansa/Filipino assessments (already re-authored in the
 
 | Gate | Result |
 |---|---|
-| `/tmp/final_gate.py` — meta stems / abstract options / generic whys / key-idea feedback | **0 / 0 / 0 / 0** (only documented trio ritual hooks remain) |
+| `/tmp/final_gate.py`, meta stems / abstract options / generic whys / key-idea feedback | **0 / 0 / 0 / 0** (only documented trio ritual hooks remain) |
 | Content pack validation `--strict` | 358 lessons, 0 errors, 0 warnings |
 | Content quality audit | 0 errors, 0 warnings |
 | Title dedupe | 0 duplicate groups |

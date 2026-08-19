@@ -1,13 +1,13 @@
-# Educator Content Review — Maxine's World Grade 3 / Primary 3
+# Educator Content Review, Maxine's World Grade 3 / Primary 3
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 **Review Date:** 2026-08-03  
 **Repository Commit:** `3ea2545` (main)  
 **Scope:** 349 bundled lessons in `android/app/src/main/assets/content-pack/month-01/lessons/`  
 **Curriculum Alignment Target:** Philippines DepEd MATATAG Grade 3 (primary); US Common Core Grade 3 (secondary crosswalk only)  
 **Review Type:** Automated structural audit + educator pedagogical analysis  
-**Status:** **Not approved for production release** — pedagogical concerns identified; **debug test build available for tablet testing**
+**Status:** **Not approved for production release**, pedagogical concerns identified; **debug test build available for tablet testing**
 
 ---
 
@@ -21,8 +21,8 @@ As a seasoned early childhood educator reviewing for **pedagogical quality, fact
 
 | # | Initial Finding | **Corrected Finding** |
 |---|-----------------|----------------------|
-| 1 | **All assessment items lack answer keys** (`correctOptionId: null`) | **FALSE** — All 1,745 items have valid `correctOptionIds` (plural array). Legacy Module 1: 500/500; Quarterly: 1,245/1,245. The schema uses `correctOptionIds: string[]`, not `correctOptionId`. Assessment scoring works. |
-| 7 | **100 missing asset references** | **MISLEADING** — 1,994/2,094 non-null asset references resolve. The 100 remaining are intentional `null` `assetId` values in legacy Module 1 lessons (fallback behavior), not broken file references. All 349 SVG files exist. |
+| 1 | **All assessment items lack answer keys** (`correctOptionId: null`) | **FALSE**, All 1,745 items have valid `correctOptionIds` (plural array). Legacy Module 1: 500/500; Quarterly: 1,245/1,245. The schema uses `correctOptionIds: string[]`, not `correctOptionId`. Assessment scoring works. |
+| 7 | **100 missing asset references** | **MISLEADING**, 1,994/2,094 non-null asset references resolve. The 100 remaining are intentional `null` `assetId` values in legacy Module 1 lessons (fallback behavior), not broken file references. All 349 SVG files exist. |
 
 ### Valid Pedagogical Concerns (Remain as Concerns)
 
@@ -49,7 +49,7 @@ As a seasoned early childhood educator reviewing for **pedagogical quality, fact
 
 ## Detailed Findings by Category
 
-### 1. Assessment Integrity — **CORRECTED: Not a Blocker**
+### 1. Assessment Integrity, **CORRECTED: Not a Blocker**
 
 **Initial Finding (INCORRECT):** Every assessment item has `"correctOptionId": null`.
 
@@ -77,15 +77,15 @@ As a seasoned early childhood educator reviewing for **pedagogical quality, fact
 ```
 
 **Breakdown:**
-- Legacy Module 1 (100 lessons): 500 items — 100% have `correctOptionIds`
-- Quarterly (249 lessons): 1,245 items — 100% have `correctOptionIds`
+- Legacy Module 1 (100 lessons): 500 items, 100% have `correctOptionIds`
+- Quarterly (249 lessons): 1,245 items, 100% have `correctOptionIds`
 - Schema field: `correctOptionIds: string[]` (not `correctOptionId`)
 
 **Impact:** Assessment scoring, feedback, and mastery detection are functional. This is **not a release blocker** for the debug test build.
 
 ---
 
-### 2. Activity Design Monotony — **VALID CONCERN**
+### 2. Activity Design Monotony, **VALID CONCERN**
 
 **Finding:** All 349 lessons use the **exact same 6-activity sequence** in the exact same order:
 
@@ -121,7 +121,7 @@ As a seasoned early childhood educator reviewing for **pedagogical quality, fact
 
 ---
 
-### 3. Within-Lesson Repetition — **VALID CONCERN**
+### 3. Within-Lesson Repetition, **VALID CONCERN**
 
 **Finding:** Within each lesson, all 6 activities share **identical narration text** and near-identical prompts.
 
@@ -143,13 +143,13 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
 - Activity 1: Explicit teaching ("I do")
 - Activity 2: Guided practice ("We do")  
 - Activity 3: Collaborative/categorical thinking
-- Activity 4: Independent check ("You do" — MCQ)
+- Activity 4: Independent check ("You do", MCQ)
 - Activity 5: Connection-making
 - Activity 6: Synthesis/transfer
 
 ---
 
-### 4. Objective Duplication & Flat Progression — **VALID CONCERN**
+### 4. Objective Duplication & Flat Progression, **VALID CONCERN**
 
 **Finding:** 40 duplicate-objective groups cover 200+ lessons. Top offenders:
 
@@ -180,7 +180,7 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
 
 ---
 
-### 5. Generic Assessment Prompts — **VALID CONCERN**
+### 5. Generic Assessment Prompts, **VALID CONCERN**
 
 **Finding:** All 1,745 assessment items use **5 identical prompt templates** with only the lesson title swapped:
 
@@ -214,16 +214,16 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
 
 ---
 
-### 6. Vocabulary Quality — **VALID CONCERN**
+### 6. Vocabulary Quality, **VALID CONCERN**
 
 **Finding:** All 349 lessons have exactly 3 vocabulary terms. Sample quality varies:
 
 | Lesson | Terms | Quality Assessment |
 |--------|-------|-------------------|
-| filipino-g3-q1-w01-d01 | "Si Ana / ay nagbabasa.", "Ang aso / ay tumatakbo.", "Si Milo / ay natututo." | **Definitions are not definitions** — they're example sentences labeled "angkop na halimbawa" |
+| filipino-g3-q1-w01-d01 | "Si Ana / ay nagbabasa.", "Ang aso / ay tumatakbo.", "Si Milo / ay natututo." | **Definitions are not definitions**, they're example sentences labeled "angkop na halimbawa" |
 | mathematics-g3-q3-w06-d01 | "3 groups of 4 = 12", "6 × 5 = 30", "2 × 14 = 28" | Equations as "terms"; definitions describe the equation, not the concept |
-| english-g3-q1-w01-d05 | "Telling sentence", "Period", "sentence" | **Good** — clear, age-appropriate definitions |
-| science-g3-q1-w01-d02 | "metal spoon — hard and shiny", "rubber band — flexible", "paper towel — absorbs water" | **Good** — observable property examples |
+| english-g3-q1-w01-d05 | "Telling sentence", "Period", "sentence" | **Good**, clear, age-appropriate definitions |
+| science-g3-q1-w01-d02 | "metal spoon, hard and shiny", "rubber band, flexible", "paper towel, absorbs water" | **Good**, observable property examples |
 
 **Pattern:** ~60% of vocabulary entries appear to be **example sentences or equations** rather than terms with definitions. This violates explicit vocabulary instruction principles (Beck, McKeown, Kucan).
 
@@ -238,32 +238,32 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
 
 #### English (93 lessons: 20 m01 + 20 Q1 + 27 Q2 + 26 Q3)
 - **Strengths:** Legacy m01 lessons have distinct, progressive objectives (phonics → grammar → comprehension)
-- **Critical Gap:** **No Q4 content** — documented as deferred, but Grade 3 English needs Q4 competencies (e.g., persuasive writing, research basics, oral presentation)
+- **Critical Gap:** **No Q4 content**, documented as deferred, but Grade 3 English needs Q4 competencies (e.g., persuasive writing, research basics, oral presentation)
 - **Duplication:** 7 lessons on "Use high-frequency and content-specific words in context" across Q2–Q3 with no visible differentiation
-- **Legacy vs. Quarterly overlap:** "Picture Detective" appears in both m01-d01 and q1-w01-d01 with different objectives but same activity shell — ModuleCatalog hides m01, but content duplication remains
+- **Legacy vs. Quarterly overlap:** "Picture Detective" appears in both m01-d01 and q1-w01-d01 with different objectives but same activity shell, ModuleCatalog hides m01, but content duplication remains
 
 #### Filipino (83 lessons: 20 m01 + 15 Q1 + 16 Q2 + 15 Q3 + 17 Q4)
-- **Critical Issue:** 32 lessons on **identical simuno/panaguri objective** — this is not spiraling, this is copy-paste
-- **Writing objectives:** 12 lessons on "Nakabubuo ng maikling talata..." and 7 on "Naisusulat nang maayos..." — same flat duplication
+- **Critical Issue:** 32 lessons on **identical simuno/panaguri objective**, this is not spiraling, this is copy-paste
+- **Writing objectives:** 12 lessons on "Nakabubuo ng maikling talata..." and 7 on "Naisusulat nang maayos...", same flat duplication
 - **Strengths:** Legacy m01 has clean progression (pangngalan → panghalip → pangungusap → talata → buod)
 - **Orthography:** Vocabulary capitalization inconsistent (e.g., "nakikinig" vs "Nakikinig")
 
 #### Mathematics (58 lessons: 20 m01 + 8 Q1 + 10 Q2 + 12 Q3 + 8 Q4)
 - **Strengths:** Legacy m01 has excellent progression (place value → operations → multiplication → division)
 - **Quarterly concerns:** 
-  - 9 lessons on "Add numbers up to 10,000" (Q2–Q4) — no visible complexity ladder
-  - 9 lessons on "Multiply using place value/algorithm" (Q3–Q4) — same
+  - 9 lessons on "Add numbers up to 10,000" (Q2–Q4), no visible complexity ladder
+  - 9 lessons on "Multiply using place value/algorithm" (Q3–Q4), same
   - Q4 introduces fractions and transformations but only 8 lessons total
 - **Activity mismatch:** Computation-heavy objectives forced into sort/classify/matching shells designed for categorization
 
 #### Science (45 lessons: 20 m01 + 7 Q1 + 5 Q2 + 5 Q3 + 8 Q4)
-- **Strengths:** Legacy m01 covers matter, organisms, ecosystems, forces, light/sound — good breadth
-- **Safety gaps:** "Choose safe uses or handling" and "Identify safe ways to protect people" are vague — need specific hazards (e.g., "Do not touch hot metal," "Wear eye protection when...")
-- **Living/non-living:** 7 lessons on same objective — no progression from basic needs → body parts → life cycles
-- **Light/sound:** 7 lessons on same objective across Q3–Q4 — no behavior → properties → protection progression
+- **Strengths:** Legacy m01 covers matter, organisms, ecosystems, forces, light/sound, good breadth
+- **Safety gaps:** "Choose safe uses or handling" and "Identify safe ways to protect people" are vague, need specific hazards (e.g., "Do not touch hot metal," "Wear eye protection when...")
+- **Living/non-living:** 7 lessons on same objective, no progression from basic needs → body parts → life cycles
+- **Light/sound:** 7 lessons on same objective across Q3–Q4, no behavior → properties → protection progression
 
 #### GMRC (24 lessons: 6 per quarter)
-- **Critical Issue:** 15/24 lessons share **"Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa"** — this is the *entire GMRC curriculum* reduced to one objective
+- **Critical Issue:** 15/24 lessons share **"Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa"**, this is the *entire GMRC curriculum* reduced to one objective
 - **Missing competencies:** No visible lessons on:
   - Self-awareness (only 1: q1-w01-d01)
   - Responsibility (2 lessons)
@@ -271,22 +271,22 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
   - Patriotism (1 lesson)
   - Discipline (1 lesson)
   - Malasakit (1 lesson)
-- **Values education needs:** Observable behavioral indicators, dilemma discussions, reflection — not MCQ on "respect"
+- **Values education needs:** Observable behavioral indicators, dilemma discussions, reflection, not MCQ on "respect"
 
 #### Makabansa (26 lessons: 3 Q1 + 4 Q2 + 3 Q3 + 16 Q4)
 - **Critical Issue:** 16/26 lessons in Q4 alone; 16 share "Naipaliliwanag kung paano nakaaapekto ang kapaligiran sa kultura..."
 - **Q1–Q3 extremely thin:** Only 10 lessons across first three quarters
 - **Cultural authenticity:** Vocabulary uses good local examples ("pangingisda," "pagsasaka") but objectives don't require their use
-- **Identity strand:** 5 lessons on "Naiuugnay ang sariling katangian..." — good but all same objective
+- **Identity strand:** 5 lessons on "Naiuugnay ang sariling katangian...", good but all same objective
 
 #### Araling Panlipunan (20 lessons: legacy m01 only)
-- **No quarterly content at all** — only 20 legacy Module 1 lessons
-- **Legacy m01 is strong:** Map skills, landforms, hazard overlay, cultural mapping, evidence-based reasoning — excellent competencies
+- **No quarterly content at all**, only 20 legacy Module 1 lessons
+- **Legacy m01 is strong:** Map skills, landforms, hazard overlay, cultural mapping, evidence-based reasoning, excellent competencies
 - **Gap:** Entire Grade 3 AP curriculum (geography, history, civics, culture, economics) compressed into 20 lessons with no quarterly unfolding
 
 ---
 
-### 8. Curriculum Alignment — DepEd MATATAG Grade 3
+### 8. Curriculum Alignment, DepEd MATATAG Grade 3
 
 **Mapping Status:** No explicit competency code mapping found in lesson data (no `competencyCode` or `depedCode` field).
 
@@ -318,7 +318,7 @@ Activity 3 narration: "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi 
 |-------|--------|----------|
 | Filipino lessons use Filipino only | ⚠️ Partial | Vocabulary includes English terms in definitions (e.g., "angkop na halimbawa" mixed with English examples) |
 | Cultural authenticity (Filipino context) | ✅ Good | Local examples: sari-sari store, jeepney, baybayin, pangingisda, bayanihan |
-| English phonics scope for PH context | ⚠️ Needs review | Short vowels, blends, digraphs taught — but no explicit PH English phonology considerations (e.g., /ɪ/ vs /i/, /f/ vs /p/) |
+| English phonics scope for PH context | ⚠️ Needs review | Short vowels, blends, digraphs taught, but no explicit PH English phonology considerations (e.g., /ɪ/ vs /i/, /f/ vs /p/) |
 | Gender/inclusivity representation | Not audited | No systematic audit performed |
 | Safety content accuracy | ⚠️ Vague | "Safe handling" without specific hazards; light/sound protection without decibel levels or distance rules |
 
@@ -350,17 +350,17 @@ Applying the educator review rubric to the 62-lesson stratified sample:
 
 | Criterion | Weight | Sample Result | Overall Projection |
 |-----------|--------|---------------|-------------------|
-| Standard/Competency Alignment | 20% | 45% pass | **NEEDS WORK** — no explicit codes, flat progression |
-| Prerequisite Skills Mapping | 10% | 0% pass | **NEEDS WORK** — no prerequisite data |
-| Cognitive Demand Appropriateness | 15% | 30% pass | **NEEDS WORK** — same demand repeated |
-| Factual Accuracy | 15% | 75% pass | **CONDITIONAL** — spot-checks OK, no systematic verification |
-| Language Quality | 10% | 60% pass | **NEEDS REWORK** — vocabulary definitions, orthography |
-| Activity–Objective Alignment | 10% | 20% pass | **NEEDS WORK** — generic activities |
-| Assessment–Objective Alignment | 10% | 20% pass | **NEEDS WORK** — generic prompts (but keys exist) |
-| Safety/Cultural Sensitivity | 5% | 70% pass | **CONDITIONAL** — vague safety language |
-| Engagement & Disposition | 10% | 10% pass | **NEEDS WORK** — monotony guaranteed |
+| Standard/Competency Alignment | 20% | 45% pass | **NEEDS WORK**, no explicit codes, flat progression |
+| Prerequisite Skills Mapping | 10% | 0% pass | **NEEDS WORK**, no prerequisite data |
+| Cognitive Demand Appropriateness | 15% | 30% pass | **NEEDS WORK**, same demand repeated |
+| Factual Accuracy | 15% | 75% pass | **CONDITIONAL**, spot-checks OK, no systematic verification |
+| Language Quality | 10% | 60% pass | **NEEDS REWORK**, vocabulary definitions, orthography |
+| Activity–Objective Alignment | 10% | 20% pass | **NEEDS WORK**, generic activities |
+| Assessment–Objective Alignment | 10% | 20% pass | **NEEDS WORK**, generic prompts (but keys exist) |
+| Safety/Cultural Sensitivity | 5% | 70% pass | **CONDITIONAL**, vague safety language |
+| Engagement & Disposition | 10% | 10% pass | **NEEDS WORK**, monotony guaranteed |
 
-**Projected Overall Score: ~45/100 — NOT PRODUCTION-READY; DEBUG TEST BUILD ACCEPTABLE**
+**Projected Overall Score: ~45/100, NOT PRODUCTION-READY; DEBUG TEST BUILD ACCEPTABLE**
 
 ---
 
@@ -370,35 +370,35 @@ Applying the educator review rubric to the 62-lesson stratified sample:
 
 1. **Redesign activity patterns by subject** (3–5 patterns each, not 1 universal)
 2. **Write unique narration/prompts per activity per lesson** (scaffolded: I do → We do → You do)
-3. **Audit and differentiate all 40 duplicate-objective groups** — add visible progression or consolidate
+3. **Audit and differentiate all 40 duplicate-objective groups**, add visible progression or consolidate
 4. **Replace all 1,745 generic assessment prompts** with objective-specific items
 5. **Add English Q4 lessons** (~20 lessons) or formally document as out-of-scope with stakeholder sign-off
 6. **Add Araling Panlipunan quarterly content** or document as legacy-only with migration plan
 
 ### Tier 2: Major Revisions (Should Fix)
 
-7. **Audit all 1,047 vocabulary entries** — separate term/definition/example; remove placeholder definitions
+7. **Audit all 1,047 vocabulary entries**, separate term/definition/example; remove placeholder definitions
 8. **Add competency code mapping** (DepEd MATATAG codes) to every lesson
 9. **Define prerequisite chains** within and across quarters
-10. **Strengthen GMRC** — expand beyond "respect" to full values framework with behavioral indicators
+10. **Strengthen GMRC**, expand beyond "respect" to full values framework with behavioral indicators
 11. **Specify safety hazards concretely** in Science and Makabansa lessons
-12. **Differentiate Mathematics computation lessons** — increasing number ranges, representations, problem types
-13. **Balance Makabansa quarterly distribution** — move content from Q4 dump to Q1–Q3
+12. **Differentiate Mathematics computation lessons**, increasing number ranges, representations, problem types
+13. **Balance Makabansa quarterly distribution**, move content from Q4 dump to Q1–Q3
 
 ### Tier 3: Quality Polish (Nice to Have)
 
 14. **Add metacognitive reflection prompts** in Activity 6 (Sequence Builder)
 15. **Include home-extension suggestions** for parent involvement
 16. **Create teacher-facing competency map** document
-17. **Accessibility review** — TTS narration quality, visual contrast, motor demands
+17. **Accessibility review**, TTS narration quality, visual contrast, motor demands
 
 ---
 
-## Debug Test Build — Ready for Tablet
+## Debug Test Build, Ready for Tablet
 
 **APK:** `/home/ron/workspace/maxines-world/repo/android/app/build/outputs/apk/debug/app-debug.apk`  
 **Size:** 49.7 MB  
-**SHA-256:** `4a3b2c1d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1` (example — run `sha256sum` for actual)  
+**SHA-256:** `4a3b2c1d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1` (example, run `sha256sum` for actual)  
 **Installed on:** `emulator-5554` (success)  
 **Target for physical tablet:** Your device via USB debugging
 
@@ -445,13 +445,13 @@ These are **tracked, not blockers** for this test round. Your feedback will driv
 
 ## Recommended Review Process
 
-1. **This corrected automated+educator audit** (complete — this document)
+1. **This corrected automated+educator audit** (complete, this document)
 2. **Your tablet testing** (this build)
-3. **Subject-matter expert review** — 6 specialists (English, Filipino, Math, Science, GMRC, AP/Makabansa) each audit their domain's 62-lesson sample
-4. **Child usability testing** — 8–10 children, 3–5 lessons each, observe engagement/comprehension
-5. **Parent/teacher focus group** — review objectives, vocabulary, assessment transparency
-6. **Independent educator sign-off** — 2+ certified teachers per subject, formal approval recorded via `mark_lessons_reviewed.py`
-7. **Production release gate** — `:app:verifyPlayableContent` passes only after step 6
+3. **Subject-matter expert review**, 6 specialists (English, Filipino, Math, Science, GMRC, AP/Makabansa) each audit their domain's 62-lesson sample
+4. **Child usability testing**, 8–10 children, 3–5 lessons each, observe engagement/comprehension
+5. **Parent/teacher focus group**, review objectives, vocabulary, assessment transparency
+6. **Independent educator sign-off**, 2+ certified teachers per subject, formal approval recorded via `mark_lessons_reviewed.py`
+7. **Production release gate**, `:app:verifyPlayableContent` passes only after step 6
 
 **Do not run `mark_lessons_reviewed.py` until Step 6 is complete.** Agent review ≠ independent educator approval.
 
@@ -474,7 +474,7 @@ These are **tracked, not blockers** for this test round. Your feedback will driv
 
 ---
 
-## Addendum — 2026-08-03 evening revision (post-review changes)
+## Addendum, 2026-08-03 evening revision (post-review changes)
 
 This addendum records changes made *after* the review above was written. It does not rewrite the historical findings.
 
@@ -504,8 +504,8 @@ A new learner now earns their **first sticker after completing their very first 
 
 | Finding | Status after these commits |
 |---------|----------------------------|
-| #5 Generic assessment prompts (1,745 items) | **Partially fixed** — 160 items (32 Filipino lessons) rewritten; 984 remain across 198 lessons |
-| #2 Identical 6-activity sequence | **Unchanged** — still the largest pedagogical concern |
+| #5 Generic assessment prompts (1,745 items) | **Partially fixed**, 160 items (32 Filipino lessons) rewritten; 984 remain across 198 lessons |
+| #2 Identical 6-activity sequence | **Unchanged**, still the largest pedagogical concern |
 | #3 Within-lesson narration repetition | **Unchanged** |
 | #4 Objective duplication | **Unchanged** (32-lesson Filipino group now at least has varied assessment depth) |
 | #8 Vocabulary placeholder definitions | **Unchanged** |
@@ -520,7 +520,7 @@ A new learner now earns their **first sticker after completing their very first 
 
 **Reviewer:** AI Educator Agent (simulated seasoned early childhood educator)  
 **Date:** 2026-08-03  
-**Recommendation:** **DEBUG TEST BUILD READY FOR TABLET TESTING** — Production release blocked until Tier 1 fixes and independent human educator review completed.
+**Recommendation:** **DEBUG TEST BUILD READY FOR TABLET TESTING**, Production release blocked until Tier 1 fixes and independent human educator review completed.
 
 **Next Review:** After Tier 1 fixes applied and human educator panel convened.
 

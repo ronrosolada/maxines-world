@@ -1,6 +1,6 @@
-# External LLM Review — Adversarial Educational Content Review (2026-08-03)
+# External LLM Review, Adversarial Educational Content Review (2026-08-03)
 
-**Status: Record — dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
+**Status: Record, dated review document; current canonical status lives in `HANDOFF.md` (spec CH-13).**
 
 **Received:** 2026-08-03 (evening), delivered to the project as a standalone adversarial review.
 **Reviewed state:** current public `main` branch at the time of writing.
@@ -31,7 +31,7 @@ steps = m1.activities.map { act -> toActivityStep(act) }
 
 It does not append or otherwise map `m1.assessment.items`. The UI calculates `totalSteps` from `lesson.steps`, so completion occurs after the six activities. The separately authored knowledge check is not a distinct playable phase.
 
-This explains the perceived "straight to tests" behavior. The six activities themselves frequently function like tests—sorting, multiple choice, matching, and sequencing—because there is little substantive teaching before them. The intended final assessment is then absent.
+This explains the perceived "straight to tests" behavior. The six activities themselves frequently function like tests - sorting, multiple choice, matching, and sequencing - because there is little substantive teaching before them. The intended final assessment is then absent.
 
 ## Top five improvements
 
@@ -71,7 +71,7 @@ Acceptance criteria:
 
 Priority: P0
 
-The pack repeatedly forces the same sequence—animated explanation, hotspot, sort, multiple choice, matching, sequence builder—onto objectives for which those interactions do not make pedagogical sense. This creates cosmetic variety while repeating the same cognitive demand: recognize the already-shown answer.
+The pack repeatedly forces the same sequence - animated explanation, hotspot, sort, multiple choice, matching, sequence builder - onto objectives for which those interactions do not make pedagogical sense. This creates cosmetic variety while repeating the same cognitive demand: recognize the already-shown answer.
 
 Examples:
 
@@ -117,7 +117,7 @@ Acceptance criteria:
 
 * Every released lesson links to the exact source evidence used.
 * No two lessons may be near-identical unless a documented spiral-learning rationale explains the changed demand.
-* Quarter progression is visible in difficulty, independence, vocabulary, and transfer—not only metadata.
+* Quarter progression is visible in difficulty, independence, vocabulary, and transfer - not only metadata.
 * A reviewer can trace every assessment item to the objective and taught content.
 
 ### 4. Replace fake questions with diagnostic practice and feedback
@@ -214,7 +214,7 @@ High risk. Lessons frequently classify pre-labelled statements rather than use o
 
 ### GMRC
 
-High risk. The material often reduces contextual values decisions to choosing a clearly good action over teasing, stealing, disobedience, or unsafe behavior. Behavior objectives require realistic dilemmas, perspective taking, consequences, boundaries, asking for help, and justification—not only moral recognition questions.
+High risk. The material often reduces contextual values decisions to choosing a clearly good action over teasing, stealing, disobedience, or unsafe behavior. Behavior objectives require realistic dilemmas, perspective taking, consequences, boundaries, asking for help, and justification - not only moral recognition questions.
 
 ### Makabansa and Araling Panlipunan
 

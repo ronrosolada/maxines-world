@@ -182,7 +182,7 @@ def english_key(lesson: dict[str, Any]) -> str:
     try:
         import content_review  # type: ignore
         key = content_review.topic_key(lesson)
-    except Exception:
+    except (ImportError, AttributeError, KeyError):
         key = "general"
     return key if key in ENGLISH_WRONGS else "general"
 
@@ -637,7 +637,7 @@ def repair_generic_shell_copy(lesson: dict[str, Any]) -> bool:
     try:
         import content_review  # type: ignore
         topic = str(content_review.profile_for(lesson).get("title") or clean_title(lesson)).strip()[:30]
-    except Exception:
+    except (ImportError, AttributeError, KeyError):
         topic = (clean_title(lesson) or "the lesson").strip()[:30]
     prompts = {
         "ANIMATED_EXPLANATION": (f"Pakinggan kung paano ginagamit ang {topic}.", f"Listen for the clue in {topic}."),

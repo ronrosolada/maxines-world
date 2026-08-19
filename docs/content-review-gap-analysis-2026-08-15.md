@@ -1,4 +1,4 @@
-# Content Review Gap Analysis — 2026-08-15
+# Content Review Gap Analysis, 2026-08-15
 
 ## Finding
 

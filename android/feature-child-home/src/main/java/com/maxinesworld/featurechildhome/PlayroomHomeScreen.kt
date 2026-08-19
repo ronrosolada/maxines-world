@@ -270,32 +270,21 @@ private fun ContentLayout(
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        // 30-Min Video Watch-to-Earn Quest Header
+        // Today's Quest Card (Primary action)
         TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
-        WatchToEarnQuestCard(
-            totalAccreditedSeconds = content.totalAccreditedSeconds,
-            onOpenVideos = onVideosClick,
-            modifier = Modifier.fillMaxWidth()
-        )
+
         // Grade 3 Assessment Arena Entry Card
         AssessmentArenaBannerCard(
             onClick = onAssessmentsClick,
             modifier = Modifier.fillMaxWidth()
         )
-        // Quick Bits Card & Video Library Card
-        Row(
+
+        // Quick Bits Full-Width Feature Card
+        QuickBitsHomeCard(
+            onClick = onQuickBitsClick,
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            QuickBitsHomeCard(
-                onClick = onQuickBitsClick,
-                modifier = Modifier.weight(1f),
-            )
-            VideoLibraryCard(
-                onClick = onVideosClick,
-                modifier = Modifier.weight(1f),
-            )
-        }
+        )
+
         // 6 Subject Cards front and center for curriculum entry
         SubjectGrid(
             subjects = content.subjects,
@@ -306,6 +295,8 @@ private fun ContentLayout(
             onSubjectClick = onSubjectClick,
             modifier = Modifier.fillMaxWidth(),
         )
+
+        // Rewards and Sanctuary
         WildlifeStickersPreview(
             wildlifeStickers = content.wildlifeStickers,
             onOpenCollection = onOpenCollection,
@@ -349,67 +340,84 @@ private fun QuickBitsHomeCard(
                 contentDescription = "Quick Bits video explorer. Watch 60 fun bite-sized science, space, animals, and math videos offline."
                 role = Role.Button
             },
-        shape = RoundedCornerShape(18.dp),
+        shape = RoundedCornerShape(20.dp),
         color = PlayCream,
         contentColor = PlayInk,
-        border = BorderStroke(1.5.dp, PlayTeal.copy(alpha = 0.5f)),
+        border = BorderStroke(1.5.dp, PlayTeal.copy(alpha = 0.45f)),
         shadowElevation = 2.dp,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Surface(
-                shape = CircleShape,
-                color = PlayTeal.copy(alpha = 0.15f),
-                modifier = Modifier.size(42.dp),
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
             ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(
-                        imageVector = Icons.Default.PlayCircle,
-                        contentDescription = null,
-                        tint = PlayTeal,
-                        modifier = Modifier.size(26.dp),
-                    )
-                }
-            }
-            Spacer(Modifier.width(12.dp))
-            Column(Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "Quick Bits",
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 18.sp,
-                    )
-                    Spacer(Modifier.width(6.dp))
-                    Surface(
-                        shape = RoundedCornerShape(6.dp),
-                        color = PlaySunshine.copy(alpha = 0.25f),
-                        modifier = Modifier.padding(2.dp),
-                    ) {
-                        Text(
-                            "60 Videos",
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                            color = PlayInkDark,
-                            modifier = Modifier.padding(horizontal = 5.dp, vertical = 1.dp),
+                Surface(
+                    shape = RoundedCornerShape(14.dp),
+                    color = PlayTeal.copy(alpha = 0.15f),
+                    modifier = Modifier.size(48.dp),
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.PlayCircle,
+                            contentDescription = null,
+                            tint = PlayTeal,
+                            modifier = Modifier.size(30.dp),
                         )
                     }
                 }
+                Spacer(Modifier.width(16.dp))
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            "Quick Bits",
+                            fontWeight = FontWeight.Black,
+                            fontSize = 17.sp,
+                            color = PlayInk,
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = SunshineGold.copy(alpha = 0.3f),
+                            modifier = Modifier.padding(2.dp),
+                        ) {
+                            Text(
+                                "60 Videos",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.ExtraBold,
+                                color = PlayInkDark,
+                                modifier = Modifier.padding(horizontal = 7.dp, vertical = 2.dp),
+                            )
+                        }
+                    }
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        "Animals, Space, Science & Math educational shorts",
+                        color = PlayMuted,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+
+            Surface(
+                shape = RoundedCornerShape(14.dp),
+                color = PlayTeal,
+                modifier = Modifier.padding(start = 12.dp)
+            ) {
                 Text(
-                    "Animals, Space, Science & Math shorts",
-                    color = PlayMuted,
+                    "Watch Shorts ▶",
+                    fontWeight = FontWeight.ExtraBold,
+                    color = Color.White,
                     fontSize = 13.sp,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)
                 )
             }
-            Text(
-                stringResource(R.string.home_open),
-                color = PlayTeal,
-                fontWeight = FontWeight.ExtraBold,
-                fontSize = 15.sp,
-            )
         }
     }
 }
@@ -1948,13 +1956,13 @@ private fun AssessmentArenaBannerCard(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(22.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = PlayroomColors.GoldTop),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         border = BorderStroke(1.5.dp, SunshineGold),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
@@ -1971,7 +1979,7 @@ private fun AssessmentArenaBannerCard(
                 ) {
                     Text("🏆", fontSize = 26.sp)
                 }
-                Spacer(Modifier.width(14.dp))
+                Spacer(Modifier.width(16.dp))
                 Column {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
@@ -1980,12 +1988,13 @@ private fun AssessmentArenaBannerCard(
                             fontWeight = FontWeight.Black,
                             fontSize = 17.sp,
                         )
-                        Spacer(Modifier.width(6.dp))
+                        Spacer(Modifier.width(8.dp))
                         Text("🇵🇭 🇸🇬 🇺🇸", fontSize = 14.sp)
                     }
+                    Spacer(Modifier.height(2.dp))
                     Text(
                         "Test your skills across all 6 subjects & earn +10 Stars!",
-                        color = DeepNight.copy(alpha = 0.7f),
+                        color = DeepNight.copy(alpha = 0.75f),
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Medium,
                     )
@@ -1993,16 +2002,16 @@ private fun AssessmentArenaBannerCard(
             }
 
             Surface(
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(14.dp),
                 color = VillageTeal,
-                modifier = Modifier.padding(start = 8.dp)
+                modifier = Modifier.padding(start = 12.dp)
             ) {
                 Text(
                     "Enter Arena ▶",
                     fontWeight = FontWeight.ExtraBold,
                     color = Color.White,
                     fontSize = 13.sp,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)
                 )
             }
         }
