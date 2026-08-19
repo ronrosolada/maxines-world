@@ -28,6 +28,7 @@ data class VideoLibraryItemUi(
     val isDownloading: Boolean = false,
     val localPath: String? = null,
     val isPassed: Boolean = false,
+    val isLocked: Boolean = false,
     val error: String? = null,
 )
 
@@ -114,6 +115,11 @@ class VideoLibraryViewModel @Inject constructor(
             rawAssets
         }).sortedBy { it.episodeNumber }
 
+        // Sequence guard rail: a lesson video is LOCKED until every earlier video
+        // in its subject's curriculum order has been passed. Prevents a child from
+        // jumping ahead of the learning sequence.
+        val lockedMediaIds = computeSequencedLockedIds(passedSet)
+
         val upcoming = mutableListOf<VideoLibraryItemUi>()
         val completed = mutableListOf<VideoLibraryItemUi>()
 
@@ -123,6 +129,7 @@ class VideoLibraryViewModel @Inject constructor(
                 asset = asset,
                 localPath = mediaLibrary.localFile(asset.mediaId)?.absolutePath,
                 isPassed = isPassed,
+                isLocked = !isPassed && asset.mediaId in lockedMediaIds,
             )
             if (isPassed) {
                 completed.add(item)
@@ -137,6 +144,27 @@ class VideoLibraryViewModel @Inject constructor(
                 completedItems = completed,
             )
         }
+    }
+
+    /**
+     * Returns the set of mediaIds that are locked because a predecessor in their
+     * subject's curriculum sequence (ordered by episodeNumber) is not yet passed.
+     * Computed across the full catalog per subject so the gate is stable whether
+     * the hub is viewed filtered or global.
+     */
+    private fun computeSequencedLockedIds(passedSet: Set<String>): Set<String> {
+        val locked = mutableSetOf<String>()
+        rawAssets.groupBy { it.subjectId.orEmpty() }.forEach { (subject, assets) ->
+            if (subject.isBlank()) return@forEach
+            val ordered = assets.sortedBy { it.episodeNumber }
+            var allPreviousPassed = true
+            ordered.forEach { asset ->
+                val isPassed = asset.mediaId in passedSet
+                if (!isPassed && !allPreviousPassed) locked += asset.mediaId
+                if (!isPassed) allPreviousPassed = false
+            }
+        }
+        return locked
     }
 
     fun download(mediaId: String) {
@@ -223,7 +251,11 @@ class VideoLibraryViewModel @Inject constructor(
     }
 
     fun play(mediaId: String) {
-        if (_state.value.allItems.any { it.asset.mediaId == mediaId && it.localPath != null }) {
+        val item = _state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }
+        // Sequence guard rail: do not start a lesson that is locked behind an
+        // un-passed predecessor.
+        if (item == null || item.isLocked) return
+        if (item.localPath != null) {
             _state.update { it.copy(playingMediaId = mediaId) }
         }
     }
@@ -241,6 +273,8 @@ class VideoLibraryViewModel @Inject constructor(
         val asset = _state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }?.asset ?: return
         val assessment = asset.assessment ?: return
         if (assessment.items.isEmpty()) return
+        // Sequence guard rail: a locked lesson cannot jump ahead to its quiz.
+        if (_state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }?.isLocked == true) return
         _state.update {
             it.copy(assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId))
         }

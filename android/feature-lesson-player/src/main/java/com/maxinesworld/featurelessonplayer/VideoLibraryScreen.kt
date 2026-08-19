@@ -314,6 +314,7 @@ private fun VideoLibraryContent(
                                     isPlaying = item.asset.mediaId == state.playingMediaId,
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
                                     canTakeAssessment = isWatchedOrPassed,
+                                    isLocked = item.isLocked,
                                     onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
@@ -343,6 +344,7 @@ private fun VideoLibraryContent(
                                     isPlaying = item.asset.mediaId == state.playingMediaId,
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
                                     canTakeAssessment = true,
+                                    isLocked = item.isLocked,
                                     onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
@@ -549,6 +551,7 @@ private fun VideoLibraryItemCard(
     isPlaying: Boolean,
     isAssessmentOpen: Boolean,
     canTakeAssessment: Boolean,
+    isLocked: Boolean = false,
     onDownload: () -> Unit,
     onPlay: () -> Unit,
     onOpenAssessment: () -> Unit,
@@ -626,6 +629,19 @@ private fun VideoLibraryItemCard(
                 }
 
                 when {
+                    item.isLocked -> {
+                        // Sequence guard rail: locked until the previous lesson passes.
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("🔒", style = MaterialTheme.typography.bodyLarge)
+                            Spacer(Modifier.width(6.dp))
+                            Text(
+                                "Complete the previous lesson first",
+                                color = Ink.copy(alpha = 0.55f),
+                                fontWeight = FontWeight.Bold,
+                            )
+                        }
+                    }
+
                     item.isDownloading -> {
                         CircularProgressIndicator(
                             modifier = Modifier.size(24.dp),
