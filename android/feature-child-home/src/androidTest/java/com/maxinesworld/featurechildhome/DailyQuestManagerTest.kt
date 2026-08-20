@@ -82,6 +82,7 @@ class DailyQuestManagerTest {
             dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
             rewardDao = database.rewardDao(),
             rewardBreakDao = database.rewardBreakDao(),
+            playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
         ),
     )
 }
