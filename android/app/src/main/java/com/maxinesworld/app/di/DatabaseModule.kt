@@ -66,7 +66,7 @@ object DatabaseModule {
             // appears (e.g. a build that shipped and was later rolled back),
             // reset the database rather than permanently bricking the app.
             // Progress loss is preferable to a child being unable to open it.
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration(dropAllTables = false)
             .build()
     }
 
