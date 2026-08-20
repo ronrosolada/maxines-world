@@ -64,6 +64,14 @@ curriculum-ordered.
   `catalog.json-ordering.bak-20260820`.
 - Together with the guard rail (§1), the Grade-3 learner now progresses through each
   subject's curriculum in correct order; non-Grade-3 content is relegated to the tail.
+- **Educator clean-up (Option A, 2026-08-20):** a read-only review classified all
+  337 rows (artifact: `educator-review-2026-08-20.json`). Applied the safe wins:
+  fixed 6 subject mis-tags (science/math videos under *English* → correct subject)
+  and removed 27 clearly non-lesson clips (quiz-bees, opinion, teaching demos,
+  religion songs, bedtime story, TVET). KEPT the 146 MOVE-GRADE + 15 REVIEW rows
+  quarantined at the tail — **not** evicted (user: keep real lessons, only remove
+  non-lesson content). Result: **310 videos** deployed (`md5 2868f0f5…`), backup
+  `catalog.json.precuration.bak`.
 
 ## 4. Release v0.55.0 (DONE)
 
