@@ -72,6 +72,7 @@ data class QuestUi(
     val nextLessonId: String? = null,
     val godModeEnabled: Boolean = false,
     val sanctuaryComplete: Boolean = false,
+    val playgroundUnlocked: Boolean = false,
 )
 
 enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson, OpenPlayground }

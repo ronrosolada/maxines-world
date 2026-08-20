@@ -7,6 +7,7 @@ import com.maxinesworld.coredatabase.InventoryEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.MiniGameResultDao
 import com.maxinesworld.coredatabase.MiniGameResultEntity
+import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.RewardBreakDao
 import com.maxinesworld.coredatabase.RewardBreakEntitlementEntity
 import com.maxinesworld.coredatabase.RewardBreakPolicy
@@ -15,6 +16,8 @@ import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.RoomTransactionRunner
 import com.maxinesworld.engineminigame.MiniGameResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -42,6 +45,7 @@ sealed interface RewardBreakUiState {
 @HiltViewModel
 class RewardBreakViewModel @Inject constructor(
     private val rewardBreakDao: RewardBreakDao,
+    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
     private val miniGameResultDao: MiniGameResultDao,
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
@@ -59,6 +63,13 @@ class RewardBreakViewModel @Inject constructor(
         viewModelScope.launch {
             if (godModeManager.isEnabledNow(childId)) {
                 publishGodModeReady()
+                return@launch
+            }
+            // Playground day-pass: once the daily quest receipt exists, the
+            // playground is re-enterable for the rest of the local calendar day
+            // without another 5-minute countdown expiring it.
+            if (isPlaygroundUnlockedToday(childId)) {
+                publishPlaygroundDayPass(childId, rewardBreakId)
                 return@launch
             }
             val entitlement = rewardBreakDao.getById(rewardBreakId)
@@ -91,6 +102,15 @@ class RewardBreakViewModel @Inject constructor(
         if (godModeManager.isEnabledNow(childId)) {
             publishGodModeReady()
             return RewardBreakPolicy.DEFAULT_DURATION_MILLIS
+        }
+        // Playground day-pass: re-enterable until midnight, each launch gets a
+        // fresh 5-minute session without consuming the day pass.
+        if (isPlaygroundUnlockedToday(childId)) {
+            val remaining = ensurePlaygroundSession(childId, rewardBreakId)
+            if (remaining != null) {
+                startTicker(childId, rewardBreakId)
+            }
+            return remaining
         }
         val entitlement = rewardBreakDao.getById(rewardBreakId)
         if (entitlement == null || entitlement.childId != childId) {
@@ -129,6 +149,12 @@ class RewardBreakViewModel @Inject constructor(
 
     suspend fun saveResult(result: MiniGameResult): Boolean {
         if (godModeManager.isEnabledNow(result.childId)) return true
+        // Playground day-pass: allow results for the whole local day without
+        // requiring a still-ACTIVE 5-minute window. The 5-minute window still
+        // gates the non-pass path so deep-link farming stays blocked.
+        if (isPlaygroundUnlockedToday(result.childId)) {
+            return saveResultInternal(result)
+        }
         val entitlement = rewardBreakDao.getById(result.rewardBreakId)
         val now = System.currentTimeMillis()
         if (
@@ -187,10 +213,51 @@ class RewardBreakViewModel @Inject constructor(
         }
     }
 
+    private suspend fun saveResultInternal(result: MiniGameResult): Boolean = transactionRunner.run {
+        if (miniGameResultDao.getByIdempotencyKey(result.idempotencyKey) != null) {
+            return@run true
+        }
+        miniGameResultDao.insert(
+            MiniGameResultEntity(
+                sessionId = result.sessionId,
+                idempotencyKey = result.idempotencyKey,
+                rewardBreakId = result.rewardBreakId,
+                childId = result.childId,
+                gameId = result.gameId,
+                startedAtEpochMillis = result.startedAtEpochMillis,
+                endedAtEpochMillis = result.endedAtEpochMillis,
+                roundsCompleted = result.roundsCompleted,
+                successfulActions = result.correctOrders,
+                pawTokensEarned = result.pawTokensEarned.coerceAtLeast(0),
+                collectibleId = result.collectibleId,
+            )
+        )
+        result.collectibleId
+            ?.takeIf { it.isNotBlank() }
+            ?.let { collectibleId ->
+                inventoryDao.insertIgnoring(
+                    InventoryEntity(
+                        id = "mini-game-collectible:${result.childId}:$collectibleId",
+                        childId = result.childId,
+                        itemId = collectibleId,
+                    )
+                )
+            }
+        true
+    }
+
     suspend fun consume(childId: String, rewardBreakId: String) {
         if (godModeManager.isEnabledNow(childId)) {
             tickerJob?.cancel()
             unavailable("Playground complete.")
+            return
+        }
+        // Playground day-pass: do NOT consume the entitlement on exit — the child
+        // stays unlocked for the rest of the local day and can re-enter.
+        if (isPlaygroundUnlockedToday(childId)) {
+            tickerJob?.cancel()
+            // Keep entitlement ACTIVE for re-entry; just show hub exit message.
+            _state.value = RewardBreakUiState.Unavailable("Playground is open — come back anytime today!")
             return
         }
         val entitlement = rewardBreakDao.getById(rewardBreakId)
@@ -218,6 +285,60 @@ class RewardBreakViewModel @Inject constructor(
             remainingMillis = duration,
             started = true,
         )
+    }
+
+    private suspend fun isPlaygroundUnlockedToday(childId: String): Boolean {
+        val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
+        return playgroundUnlockReceiptDao.getByChildAndDay(childId, dayKey) != null
+    }
+
+    private suspend fun publishPlaygroundDayPass(childId: String, rewardBreakId: String) {
+        // Ensure an ACTIVE session exists so the hub can show Ready; create or refresh one.
+        val remaining = ensurePlaygroundSession(childId, rewardBreakId) ?: RewardBreakPolicy.DEFAULT_DURATION_MILLIS
+        _state.value = RewardBreakUiState.Ready(
+            entitlementId = rewardBreakId,
+            durationMillis = RewardBreakPolicy.DEFAULT_DURATION_MILLIS,
+            remainingMillis = remaining,
+            started = true,
+        )
+        startTicker(childId, rewardBreakId)
+    }
+
+    private suspend fun ensurePlaygroundSession(childId: String, rewardBreakId: String): Long? {
+        val now = System.currentTimeMillis()
+        var entitlement = rewardBreakDao.getById(rewardBreakId)
+        if (entitlement == null || entitlement.childId != childId) {
+            val dailyQuestCompletionId = RewardBreakPolicy.dailyQuestCompletionId(childId, LocalDate.now(ZoneId.systemDefault()).toString())
+            rewardBreakDao.insertIgnoring(
+                RewardBreakPolicy.newEntitlement(
+                    id = rewardBreakId,
+                    childId = childId,
+                    dailyQuestCompletionId = dailyQuestCompletionId,
+                    nowEpochMillis = now,
+                )
+            )
+            entitlement = rewardBreakDao.getById(rewardBreakId) ?: return null
+            // New entitlement is CREATED — activate it immediately for the day-pass.
+            rewardBreakDao.startIfCreated(rewardBreakId, childId, now)
+            entitlement = rewardBreakDao.getById(rewardBreakId) ?: return null
+        }
+        // Day-pass: each re-entry refreshes to a full 5-minute window. Use
+        // reactivateForDayPass so CONSUMED / expired sessions cleanly re-arm
+        // (resets startedAt + remaining + state in one atomic update).
+        rewardBreakDao.reactivateForDayPass(
+            id = rewardBreakId,
+            childId = childId,
+            startedAtEpochMillis = now,
+            remaining = RewardBreakPolicy.DEFAULT_DURATION_MILLIS,
+        )
+        val refreshed = rewardBreakDao.getById(rewardBreakId) ?: entitlement
+        _state.value = RewardBreakUiState.Ready(
+            entitlementId = refreshed.id,
+            durationMillis = refreshed.durationMillis,
+            remainingMillis = RewardBreakPolicy.DEFAULT_DURATION_MILLIS,
+            started = true,
+        )
+        return RewardBreakPolicy.DEFAULT_DURATION_MILLIS
     }
 
     private fun startTicker(childId: String, rewardBreakId: String) {

@@ -17,9 +17,10 @@ Learning remains the purpose of the app. Rewards never gate curriculum access, p
 | `COIN` | First distinct lesson completion and valid mini-game result | Yes | Sanctuary token used only for cosmetic workshop items |
 | `SANCTUARY_PIECE` | Daily Quest completion at 3/3 | No | A permanent piece that grows Milo's Wildlife Sanctuary |
 | Wildlife sticker | Weekly expedition | No | Collection item plus a factual animal card |
-| Reward-break entitlement | Daily Quest completion at 3/3 | One use | A bounded 5-minute play break |
+| Reward-break entitlement | Daily Quest completion at 3/3 | One 5-min window | A bounded 5-minute play session, re-armed while the day-pass holds |
+| Playground day-pass | Daily Quest completion at 3/3 | One per child/day | Re-enterable playground unlock for the rest of the local day |
 
-The database retains `COIN` as the compatibility name for the existing balance. Child-facing copy calls it `Tokens` or `sanctuary tokens`.
+The database retains `COIN` as the compatibility name for the existing balance. Child-facing copy calls it `Tokens` or `sanctuary tokens`. The playground day-pass lives in `playground_unlock_receipts {id="$childId:$dayKey", childId, dayKey, sourceQuestSetHash, unlockedAt}` with `insertIgnoring` (first-write-wins) and `dayKey = LocalDate.now(ZoneId.systemDefault()).toString()` midnight expiry.
 
 ## Lesson policy
 
@@ -48,7 +49,8 @@ The reward is deliberately not a spendable balance. It gives the child immediate
 The current Daily Quest has three assigned lesson targets. A target is recorded when its lesson completion is committed. At 3/3, one transaction creates:
 
 - one `SANCTUARY_PIECE` grant;
-- one `CREATED` reward-break entitlement;
+- one `CREATED` reward-break entitlement (5-minute window);
+- one `playground_unlock_receipts` day-pass (`"$childId:$dayKey"` → rest of local day, re-enterable);
 - the corresponding idempotent Daily Quest completion state.
 
 The source keys are deterministic:
@@ -56,9 +58,14 @@ The source keys are deterministic:
 ```text
 daily-quest:{childId}:{dayKey}:piece
 reward-break:{childId}:{dayKey}
+playground-unlock:{childId}:{dayKey}   // receipt id "$childId:$dayKey"
 ```
 
-Completing only 1/3 or 2/3 must not create the Daily Quest bonus or reward break. Reconciliation from the child home can safely repair an interrupted completion.
+Completing only 1/3 or 2/3 must not create the Daily Quest bonus, reward break, or day-pass. Reconciliation from the child home can safely repair an interrupted completion.
+
+## Playground day-pass
+
+Once 3/3 is reached, the playground is **re-enterable for the rest of the local calendar day**. Every hub entry re-arms the 5-minute session via `RewardBreakDao.reactivateForDayPass(id, childId, now, 5 min)` (atomic `ACTIVE` + `startedAt=now` + `remaining=5 min` + clear `consumedAt`). `RewardBreakViewModel.consume()` keeps the entitlement `ACTIVE` while the day-pass holds; `saveResult()` bypasses the `ACTIVE`-window check while the day-pass holds and relies on `idempotencyKey` duplicate suppression to prevent farming. `PlayroomHomeViewModel` observes `playground_unlock_receipts` via Flow and flips the quest card to `Open Playground` when `playgroundUnlocked` is true. Midnight (`LocalDate.now(ZoneId.systemDefault())`) expires the pass.
 
 ## Sanctuary
 
@@ -78,7 +85,7 @@ A valid, in-window mini-game result is persisted once by idempotency key. In the
 - `pawTokensEarned` becomes a `COIN` grant with a stable source key;
 - `collectibleId` becomes an idempotent inventory item.
 
-A duplicate result cannot create duplicate tokens or collectibles.
+A duplicate result cannot create duplicate tokens or collectibles. While the playground day-pass holds (until midnight local), `RewardBreakViewModel.saveResult()` accepts results via the same idempotency gate without requiring a still-`ACTIVE` 5-minute window, and `consume()` does not set `CONSUMED` — keeping the playground re-enterable.
 
 ## Verification invariants
 
@@ -90,7 +97,8 @@ Tests should continue to cover:
 - lesson replay idempotency;
 - Daily Quest behavior at 1/3, 2/3, and 3/3;
 - reward-break creation only at 3/3;
-- mini-game result idempotency;
+- playground day-pass creation only at 3/3 and re-enterability until midnight;
+- mini-game result idempotency (including day-pass path);
 - sanctuary progress and reward preview visibility;
 - offline/restart safety;
 - TalkBack labels, large text, and reduced-motion behavior.

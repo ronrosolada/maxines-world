@@ -4,6 +4,15 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
+## [Unreleased] - 2026-08-20
+
+### Playground Day-Pass — Re-Enterable Reward Break
+
+- **Playground unlocked for the rest of the day after Daily Quest (3/3):** completing the Daily Quest now mints an idempotent `playground_unlock_receipts {childId:dayKey}` day-pass (`DailyQuestRewardWriter`) alongside the existing `SANCTUARY_PIECE` + 5-minute break. The receipt is keyed by `"$childId:$dayKey"` with first-write-wins `insertIgnoring`, so process death or retries cannot double-mint.
+- **Re-enterable until midnight (local):** `RewardBreakViewModel` checks `isPlaygroundUnlockedToday()` on `load()`/`begin()`/`saveResult()`/`consume()`. When the day-pass exists, each hub entry re-arms to a fresh `5 min` window via atomic `RewardBreakDao.reactivateForDayPass()` (resets `state=ACTIVE`, `startedAt=now`, `remaining=5 min`, clears `consumedAt`). `consume()` no longer sets `CONSUMED` while the pass holds — shows `Playground is open — come back anytime today!` instead.
+- **Playroom home:** `PlayroomHomeViewModel` now observes `PlaygroundUnlockReceiptDao.observeByChildAndDay()` and flips the Daily Quest card from `OpenSanctuary / ViewReward` to `Open Playground / OpenPlayground` when the day-pass exists (`QuestUi.playgroundUnlocked`).
+- **Midnight expiry:** `dayKey = LocalDate.now(ZoneId.systemDefault()).toString()` — a new day requires a new 3/3 quest. No cleanup job.
+
 ## [0.52.0] - 2026-08-19
 
 ### Unslop Review & Design System Purification

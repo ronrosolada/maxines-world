@@ -5,6 +5,8 @@ import com.maxinesworld.coredatabase.DailyQuestCompletionDao
 import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetDao
 import com.maxinesworld.coredatabase.MaxinesDatabase
+import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
+import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptEntity
 import com.maxinesworld.coredatabase.RewardBreakDao
 import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardDao
@@ -38,6 +40,7 @@ class DailyQuestRewardWriter @Inject constructor(
     private val dailyQuestCompletionDao: DailyQuestCompletionDao,
     private val rewardDao: RewardDao,
     private val rewardBreakDao: RewardBreakDao,
+    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -111,6 +114,18 @@ class DailyQuestRewardWriter @Inject constructor(
                 )
             )
         }
+        // Day-pass: playground unlocked for the rest of this local calendar day
+        // once the daily quest is complete. First-write-wins, idempotent within
+        // the same transaction so retries / process death cannot double-mint.
+        playgroundUnlockReceiptDao.insertIgnoring(
+            PlaygroundUnlockReceiptEntity(
+                id = "$childId:$dayKey",
+                childId = childId,
+                dayKey = dayKey,
+                sourceQuestSetHash = assigned.hashCode().toString(),
+                unlockedAtEpochMillis = now,
+            )
+        )
         val usableBreak = rewardBreakDao.getByQuestCompletion(dailyQuestCompletionId)
             ?.takeIf { RewardBreakPolicy.canUse(it, now) }
 

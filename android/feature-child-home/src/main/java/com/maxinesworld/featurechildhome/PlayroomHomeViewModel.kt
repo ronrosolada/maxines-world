@@ -8,6 +8,7 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -15,6 +16,8 @@ import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.LocalDate
+import java.time.ZoneId
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
@@ -30,6 +33,7 @@ private data class HomeDataTuple(
     val lessonIds: List<String>,
     val totalAccreditedSeconds: Int,
     val godModeEnabled: Boolean,
+    val playgroundUnlocked: Boolean = false,
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -45,6 +49,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val dailyQuestManager: DailyQuestManager,
     private val godModeManager: GodModeManager,
+    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -67,13 +72,19 @@ class PlayroomHomeViewModel @Inject constructor(
 
         stateJob = viewModelScope.launch {
             try {
+                val playgroundUnlockFlow = playgroundUnlockReceiptDao.observeByChildAndDay(
+                    childId = childId,
+                    dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
+                )
                 combine(
                     profileFlow,
                     lessonIdsFlow,
                     accreditedSecondsFlow,
-                    godModeManager.isEnabled(childId)
-                ) { profile, ids, seconds, godMode ->
-                    HomeDataTuple(profile, ids, seconds, godMode)
+                    godModeManager.isEnabled(childId),
+                    playgroundUnlockFlow,
+                ) { profile, ids, seconds, godMode, playgroundReceipt ->
+                    val playgroundUnlocked = playgroundReceipt != null
+                    HomeDataTuple(profile, ids, seconds, godMode, playgroundUnlocked)
                 }.collect { data ->
                     val dailyQuest = dailyQuestManager.ensureToday(
                         childId = childId,
@@ -137,6 +148,7 @@ class PlayroomHomeViewModel @Inject constructor(
                         visibleKeepsakes,
                         sanctuary,
                         data.godModeEnabled,
+                        data.playgroundUnlocked,
                     )
                 }
             } catch (cancelled: CancellationException) {
@@ -181,6 +193,7 @@ class PlayroomHomeViewModel @Inject constructor(
         keepsakes: List<KeepsakeUi>,
         sanctuary: SanctuaryUi,
         godModeEnabled: Boolean,
+        playgroundUnlocked: Boolean = false,
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -227,17 +240,19 @@ class PlayroomHomeViewModel @Inject constructor(
                 sanctuaryComplete = true,
             )
         } else if (dailyQuest.isComplete) {
+            val showPlayground = playgroundUnlocked || godModeEnabled
             QuestUi(
                 task = QuestTaskCopy.CompleteToday,
                 pawPrintsCompleted = questTotal,
                 pawPrintTotal = questTotal,
                 isComplete = true,
                 recommendedSubjectId = availableFirst?.id,
-                buttonLabel = QuestButtonLabel.OpenSanctuary,
-                buttonAction = QuestAction.ViewReward,
+                buttonLabel = if (showPlayground) QuestButtonLabel.OpenPlayground else QuestButtonLabel.OpenSanctuary,
+                buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.ViewReward,
                 targets = targets,
                 nextLessonId = nextLessonId,
                 sanctuaryComplete = sanctuaryComplete,
+                playgroundUnlocked = playgroundUnlocked,
             )
         } else {
             val hasQuestTarget = nextLessonId != null

@@ -35,6 +35,21 @@ interface RewardBreakDao {
 
     @Query("UPDATE reward_break_entitlements SET remainingMillis = :remaining, state = :state WHERE id = :id AND childId = :childId")
     suspend fun updateRemaining(id: String, childId: String, remaining: Long, state: String): Int
+
+    @Query("""
+        UPDATE reward_break_entitlements
+        SET state = 'ACTIVE',
+            startedAtEpochMillis = :startedAtEpochMillis,
+            remainingMillis = :remaining,
+            consumedAtEpochMillis = NULL
+        WHERE id = :id AND childId = :childId
+    """)
+    suspend fun reactivateForDayPass(
+        id: String,
+        childId: String,
+        startedAtEpochMillis: Long,
+        remaining: Long
+    ): Int
 }
 
 @Dao
