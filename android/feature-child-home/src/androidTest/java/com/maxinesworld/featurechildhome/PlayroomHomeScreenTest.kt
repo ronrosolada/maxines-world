@@ -170,8 +170,10 @@ class PlayroomHomeScreenTest {
         // bounds until scrolled into view. The workshop entry is the last
         // child of that card, so scroll the stickers section (just below it)
         // into view first — then the button is placed and clickable.
-        composeRule.onNodeWithText("Wildlife Stickers").performScrollTo()
-        composeRule.onNodeWithText("Sanctuary Workshop").assertIsDisplayed().performClick()
+        composeRule.onNodeWithContentDescription("Sanctuary Workshop")
+            .performScrollTo()
+            .assertIsDisplayed()
+            .performClick()
         composeRule.runOnIdle { assertEquals(1, opens) }
     }
 

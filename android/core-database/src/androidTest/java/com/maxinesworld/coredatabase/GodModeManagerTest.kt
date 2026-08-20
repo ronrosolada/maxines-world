@@ -11,16 +11,17 @@ class GodModeManagerTest {
     @Test
     fun enabledStatePersistsAcrossManagerInstances() = runBlocking {
         val context = ApplicationProvider.getApplicationContext<Context>()
+        val childId = "god-mode-test-child"
         val manager = GodModeManager(context)
         try {
-            manager.setEnabled(false)
-            assertFalse(manager.isEnabled())
+            manager.setEnabled(childId, false)
+            assertFalse(manager.isEnabledNow(childId))
 
-            manager.setEnabled(true)
+            manager.setEnabled(childId, true)
             val newManagerInstance = GodModeManager(context)
-            assertTrue(newManagerInstance.isEnabled())
+            assertTrue(newManagerInstance.isEnabledNow(childId))
         } finally {
-            manager.setEnabled(false)
+            manager.setEnabled(childId, false)
         }
     }
 }

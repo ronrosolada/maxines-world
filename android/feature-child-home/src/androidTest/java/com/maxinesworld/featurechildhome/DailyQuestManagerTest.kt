@@ -4,6 +4,7 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
@@ -50,6 +51,15 @@ class DailyQuestManagerTest {
                 lessonId = completed,
                 attemptId = "attempt-1",
                 accuracy = 1.0,
+            )
+        )
+        database.dailyQuestCompletionDao().insertIgnoring(
+            DailyQuestCompletionEntity(
+                id = "child-1:2026-08-04:$completed",
+                childId = "child-1",
+                dayKey = "2026-08-04",
+                questId = completed,
+                completionEventId = "lesson-completion:child-1:$completed",
             )
         )
 

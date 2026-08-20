@@ -79,7 +79,7 @@ class RewardBreakViewModelTest {
         assertTrue(viewModel.saveResult(result))
         // Mini-games are a reward break, not a currency source: no spendable COIN
         // is minted from in-game tokens. The collectible + idempotency still hold.
-        assertEquals(0, database.rewardDao().getTotalByType("child-1", "COIN"))
+        assertEquals(0, database.rewardDao().getTotalByType("child-1", "COIN") ?: 0)
         assertTrue(database.inventoryDao().owns("child-1", "milo-blue-paw"))
         assertTrue(database.miniGameResultDao().getByIdempotencyKey(result.idempotencyKey) != null)
     }
