@@ -2,8 +2,9 @@
 
 **Scope:** educational-video correctness for the Grade-3 (DepEd/MATATAG) media hub
 (337-video catalog served from the homelab content server at `10.10.10.33`).
-**Status:** remediation in progress (2026-08-20). Branch `fix/video-sequence-guardrail`.
-Deployed catalog now serves **337 videos × 5 content-based questions each** (was 3).
+**Status:** remediation DONE (2026-08-20), released as **v0.55.0**.
+Deployed catalog serves **337 videos × 5 content-based questions each** (was 3),
+curriculum-ordered.
 
 ## 1. Guard rail — out-of-sequence playback (DONE, app code)
 
@@ -75,3 +76,22 @@ Deployed catalog now serves **337 videos × 5 content-based questions each** (wa
    upgrade over v0.54.0, launches with no catalog/assessment errors.
 5. Published GitHub release + repointed OTA (`.33/app-release.apk` & `.33/media/`
    served v0.55.0; prior APKs backed up as `*.bak-v054`).
+
+## 5. Today's Video Quest (cross-subject, 30-40 min) — in progress
+
+- **Requirement:** a quest that presents **video lessons from different subjects**
+  totalling **30-40 minutes**, completed (watch + 80% quiz on each) for the reward.
+- **Design:** deterministic-per-day (`childId`+`dayKey`), derived entirely from the
+  existing ledger — **no DB migration**.
+  - `VideoQuestPlanner` (pure, unit-tested): picks 2-3 **next-unlocked** lessons from
+    different subjects whose combined accredited seconds are in `[1800, 2400]`
+    (MIN 30m / MAX 40m; ceiling is hard, cross-subject is best-effort).
+  - `VideoLibraryViewModel.recomputeVideoQuest`: builds the frontier (first unpassed
+    lesson per subject, guard-rail compliant), runs the planner, exposes
+    `state.videoQuest`; on completion grants a **once-per-day +3 ⭐ bonus**
+    (`rewardDao.insertIgnoring`, id `video-quest:<child>:<day>` — idempotent).
+  - `VideoLibraryScreen.VideoQuestCard`: "Today's Video Quest" header — subjects,
+    total minutes, progress bar, Start/Continue → first pending selected video.
+- Per-video stickers still flow through the existing 30-min policy; the quest adds a
+  daily cross-subject goal + completion bonus on top.
+- Status: implemented; build + unit tests in progress.
