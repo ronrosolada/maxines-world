@@ -27,4 +27,5 @@ data class QuickBitItem(
     val resolution: String = "854x480",
     val videoUrl: String,
     val thumbnailUrl: String? = null,
+    val sha256: String? = null,
 )

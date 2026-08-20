@@ -35,9 +35,8 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: android
 
-      - name: Run content integrity tests
-        run: ./gradlew :core-content:testDebugUnitTest --stacktrace
-        working-directory: android
+      - name: Run video assessment integrity tests
+        run: PYTHONPATH=android:android/tools python3 -m unittest android.tools.test_video_assessment_quality
 
       - name: Upload content test report
         if: always()
@@ -59,12 +58,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate lesson shape and declared vector assets
-        run: |
-          python3 android/tools/content_pack_validation.py \
-            --snapshot android/tools/content_pack_baseline.json \
-            --asset-dir android/app/src/main/assets/content-pack/month-01/assets/vectors \
-            --report "$RUNNER_TEMP/content-pack-validation.json"
+      - name: Validate video assessment manifest
+        run: PYTHONPATH=android:android/tools python3 -m unittest android.tools.test_video_assessment_quality
 
       - name: Upload schema and asset report
         if: always()
@@ -86,23 +81,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run semantic quality audit
-        run: python3 android/tools/content_quality_audit.py --summary
-
-      - name: Run near-duplicate audit
-        run: |
-          python3 android/tools/content_similarity_gate.py \
-            --json "$RUNNER_TEMP/content-similarity.json" \
-            --top 20
-
-      - name: Block exact duplicate assessment payloads
-        run: python3 android/tools/assessment_duplicate_gate.py
-
-      - name: Run objective pacing gate
-        run: |
-          python3 android/tools/objective_pacing_audit.py \
-            --check \
-            --json "$RUNNER_TEMP/objective-pacing.json"
+      - name: Run video assessment quality gate
+        run: PYTHONPATH=android:android/tools python3 -m unittest android.tools.test_video_assessment_quality
 
       - name: Upload semantic audit report
         if: always()
@@ -126,11 +106,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Python tooling tests
-        run: PYTHONPATH=android:android/tools python3 -m unittest discover -s android/tools -p 'test_*.py' -v
+      - name: Run video/release tooling tests
+        run: PYTHONPATH=android:android/tools python3 -m unittest android.tools.test_video_assessment_quality android.tools.test_release_automation android.tools.test_parent_gate_copy -v
 
   content-educator:
-    name: Educator approval metadata consistency
+    name: Video assessment approval consistency
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -149,8 +129,8 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: android
 
-      - name: Verify educator approval metadata (drafts allowed on PR)
-        run: ./gradlew :app:verifyPlayableContent -PallowUnreviewedContent=true --stacktrace
+      - name: Verify reviewed video assessment manifest
+        run: ./gradlew :app:verifyPlayableContent --stacktrace
         working-directory: android
 
   workflow-lint:

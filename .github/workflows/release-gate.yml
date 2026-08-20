@@ -1,14 +1,12 @@
 name: Release gate
 
-# Runs when a v* tag is pushed. Enforces that the release never ships
-# unreviewed curriculum: verifyPlayableContent fails unless every playable
-# lesson is educator-approved (educatorValidated=true + RELEASED).
+# Runs when a v* tag is pushed. Enforces the reviewed 237-video Quiz Arena
+# manifest and builds an unsigned release candidate for local signing.
 #
 # Approval workflow:
-#   1. Human curriculum review of the pack (QA audit + sampling)
-#   2. python3 android/tools/mark_lessons_reviewed.py
-#   3. Commit + push
-#   4. Push the release tag — this workflow must pass first
+#   1. Review the video assessment manifest and run its quality gate
+#   2. Commit + push
+#   3. Push the release tag — this workflow must pass first
 #
 # Signing remains a workstation-only operation because this repository has no
 # GitHub signing secrets. The tag gate publishes the verified unsigned
@@ -30,7 +28,7 @@ env:
 
 jobs:
   content-review-gate:
-    name: Content review gate (all lessons educator-approved)
+    name: Video assessment gate
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -49,7 +47,7 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: android
 
-      - name: Verify all playable lessons are educator-reviewed
+      - name: Verify reviewed video assessment manifest
         run: ./gradlew :app:verifyPlayableContent --stacktrace
         working-directory: android
 

@@ -5,6 +5,7 @@ import com.maxinesworld.coremodel.QuickBitsCatalog
 import kotlinx.serialization.json.Json
 import org.junit.Assert.*
 import org.junit.Test
+import java.io.File
 
 class QuickBitsCatalogParsingTest {
 
@@ -67,6 +68,68 @@ class QuickBitsCatalogParsingTest {
         assertEquals("space", catalog.items[1].category)
         assertEquals(15000000L, catalog.items[1].sizeBytes)
     }
+
+    @Test
+    fun `quick bits accepts only bounded trusted LAN media paths`() {
+        val valid = QuickBitItem(
+            id = "qb_animals_valid",
+            title = "Animals",
+            category = "animals",
+            durationSeconds = 75,
+            sizeBytes = 10_000_000,
+            videoUrl = "http://10.10.10.33/quickbits/qb_animals_valid.mp4",
+            thumbnailUrl = "http://10.10.10.33/quickbits/qb_animals_valid.jpg",
+        )
+        assertTrue(validateQuickBitsItem(valid).isEmpty())
+        assertFalse(
+            validateQuickBitsItem(valid.copy(videoUrl = "https://example.com/video.mp4")).isEmpty()
+        )
+        assertFalse(
+            validateQuickBitsItem(valid.copy(sizeBytes = 101L * 1024L * 1024L)).isEmpty()
+        )
+        assertFalse(
+            validateQuickBitsItem(valid.copy(videoUrl = "http://10.10.10.33/other/video.mp4")).isEmpty()
+        )
+    }
+
+
+    @Test
+    fun `quick bits rejects traversal paths including encoded traversal`() {
+        val valid = QuickBitItem(
+            id = "qb_animals_valid",
+            title = "Animals",
+            category = "animals",
+            durationSeconds = 75,
+            sizeBytes = 10_000_000,
+            videoUrl = "http://10.10.10.33/quickbits/qb_animals_valid.mp4",
+            thumbnailUrl = "http://10.10.10.33/quickbits/qb_animals_valid.jpg",
+        )
+        assertFalse(validateQuickBitsItem(valid.copy(videoUrl = "http://10.10.10.33/quickbits/../private.mp4")).isEmpty())
+        assertFalse(validateQuickBitsItem(valid.copy(videoUrl = "http://10.10.10.33/quickbits/%2e%2e/private.mp4")).isEmpty())
+    }
+
+    @Test
+    fun `cached quick bits require exact size and matching hash`() {
+        val file = File.createTempFile("quick-bits", ".mp4")
+        try {
+            file.writeText("abc")
+            val item = QuickBitItem(
+                id = "qb_animals_valid",
+                title = "Animals",
+                category = "animals",
+                durationSeconds = 75,
+                sizeBytes = 3,
+                videoUrl = "http://10.10.10.33/quickbits/qb_animals_valid.mp4",
+                sha256 = "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+            )
+            assertTrue(isQuickBitsFileValid(file, item))
+            file.writeText("abd")
+            assertFalse(isQuickBitsFileValid(file, item))
+        } finally {
+            file.delete()
+        }
+    }
+
 
     @Test
     fun `category filtering works as expected`() {

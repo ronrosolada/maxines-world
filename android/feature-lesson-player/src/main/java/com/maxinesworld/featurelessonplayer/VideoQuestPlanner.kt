@@ -10,7 +10,8 @@ import kotlin.math.abs
  * [30, 40] minute band. Selection is deterministic per (childId, dayKey) and
  * derived entirely from the current frontier (the first not-yet-passed lesson
  * of each subject), so no additional persistence is required — completion is
- * derived from the existing video-watch ledger pass state.
+ * derived from the existing video-watch ledger pass state. If the contract
+ * cannot be satisfied, no quest is proposed.
  */
 object VideoQuestPlanner {
 
@@ -47,29 +48,59 @@ object VideoQuestPlanner {
      */
     fun select(childId: String, dayKey: String, frontier: List<Candidate>): List<String> {
         if (frontier.isEmpty()) return emptyList()
-        val bySubject = frontier.groupBy { it.subjectId }
+
+        val bySubject = frontier
+            .filter { it.subjectId.isNotBlank() }
+            .distinctBy { it.subjectId }
+            .associateBy { it.subjectId }
+        if (bySubject.size < MIN_SUBJECTS) return emptyList()
+
         val subjects = bySubject.keys.toList()
-        if (subjects.isEmpty()) return emptyList()
-
         val start = startIndex("$childId:$dayKey".hashCode(), subjects.size)
-        val rotated = (0 until subjects.size).map { subjects[(start + it) % subjects.size] }
+        val rotated = (0 until subjects.size)
+            .map { subjects[(start + it) % subjects.size] }
+        var best: List<Candidate>? = null
 
-        val selected = mutableListOf<Candidate>()
-        var total = 0
-        for (subject in rotated) {
-            if (selected.size >= MAX_SUBJECTS) break
-            val candidate = bySubject.getValue(subject).first()
-            // Hard rule: never exceed the 40-minute ceiling. A video that would
-            // push the quest over 40m is skipped (try the next subject instead).
-            if (total + candidate.durationSeconds > MAX_SECONDS) continue
-            // Stop once we have both the duration floor AND the cross-subject floor.
-            val pastFloor = total >= MIN_SECONDS && selected.size >= MIN_SUBJECTS
-            if (pastFloor) break
-            selected += candidate
-            total += candidate.durationSeconds
+        fun consider(selection: List<Candidate>) {
+            val total = selection.sumOf { it.durationSeconds }
+            if (selection.size !in MIN_SUBJECTS..MAX_SUBJECTS ||
+                total !in MIN_SECONDS..MAX_SECONDS
+            ) {
+                return
+            }
+            val currentBest = best
+            val currentTotal = currentBest?.sumOf { it.durationSeconds }
+            if (currentBest == null ||
+                selection.size > currentBest.size ||
+                (selection.size == currentBest.size &&
+                    kotlin.math.abs(total - MIN_SECONDS) <
+                    kotlin.math.abs((currentTotal ?: Int.MAX_VALUE) - MIN_SECONDS))
+            ) {
+                best = selection
+            }
         }
 
-        return selected.map { it.mediaId }
+        fun choose(nextIndex: Int, targetSize: Int, selected: List<Candidate>) {
+            if (selected.size == targetSize) {
+                consider(selected)
+                return
+            }
+            val remaining = targetSize - selected.size
+            val lastStart = rotated.size - remaining
+            for (index in nextIndex..lastStart) {
+                choose(
+                    nextIndex = index + 1,
+                    targetSize = targetSize,
+                    selected = selected + bySubject.getValue(rotated[index]),
+                )
+            }
+        }
+
+        for (targetSize in MAX_SUBJECTS downTo MIN_SUBJECTS) {
+            choose(nextIndex = 0, targetSize = targetSize, selected = emptyList())
+        }
+
+        return best?.map { it.mediaId }.orEmpty()
     }
 
     /** Quest is complete when every selected video has been passed. */

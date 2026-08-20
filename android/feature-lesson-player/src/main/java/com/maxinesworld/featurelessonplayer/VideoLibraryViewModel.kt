@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.isEligibleForCurriculumVideo
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.coredatabase.CollectedBadgeDao
 import com.maxinesworld.coredatabase.CollectedBadgeEntity
@@ -112,9 +113,18 @@ class VideoLibraryViewModel @Inject constructor(
             _state.update { it.copy(isLoading = true, error = null) }
             runCatching { mediaLibrary.refreshCatalog() }
                 .onSuccess { catalog ->
-                    rawAssets = catalog.media
+                    rawAssets = catalog.media.filter { it.isEligibleForCurriculumVideo() }
                     reorganizeItems(_state.value.passedMediaIds)
-                    _state.update { it.copy(isLoading = false) }
+                    _state.update {
+                        it.copy(
+                            isLoading = false,
+                            error = if (rawAssets.isEmpty() && catalog.media.isNotEmpty()) {
+                                "No released curriculum video lessons are available yet."
+                            } else {
+                                null
+                            },
+                        )
+                    }
                 }
                 .onFailure { error ->
                     _state.update {

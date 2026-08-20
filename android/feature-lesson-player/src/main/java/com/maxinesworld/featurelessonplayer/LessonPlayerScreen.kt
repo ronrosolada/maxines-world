@@ -31,7 +31,10 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -673,7 +676,12 @@ private fun FeedbackBanner(
     onNext: () -> Unit,
     onReview: (() -> Unit)? = null,
 ) {
-    Card(modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f))) {
+    Card(
+        modifier
+            .fillMaxWidth()
+            .semantics { liveRegion = LiveRegionMode.Polite },
+        colors = CardDefaults.cardColors(containerColor = if (correct) SuccessGreen.copy(alpha = 0.1f) else ErrorRed.copy(alpha = 0.1f)),
+    ) {
         Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(if (correct) Icons.Default.CheckCircle else Icons.Default.Info, null, tint = if (correct) SuccessGreen else ErrorRed)
             Spacer(Modifier.width(12.dp))

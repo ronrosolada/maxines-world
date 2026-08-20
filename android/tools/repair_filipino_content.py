@@ -32,6 +32,16 @@ FIL_JUNK_PREFIXES = [
     "Aling sagot ang nagpapakita ng",
 ]
 
+FIL_JUNK_REPLACEMENTS = {
+    "salitang walang kaugnayan": "isang pangyayaring hindi binanggit sa teksto",
+    "hindi magalang na pahayag": "isang pahayag na hindi angkop sa sitwasyon",
+    "hula na walang pahiwatig": "isang sagot na walang patunay",
+    "paksang iba sa aralin": "isang paksang hindi binanggit sa teksto",
+    "angkop na halimbawa": "halimbawang tumutugma sa aralin",
+    "malinaw na gamit": "gamit na nagpapakita ng konsepto",
+    "tamang ideya": "ideyang sinusuportahan ng teksto",
+}
+
 # ---------------------------------------------------------------------------
 # Skill data
 # ---------------------------------------------------------------------------
@@ -412,6 +422,18 @@ def build_items(skill, idx, data):
     return items, day
 
 
+def clean_stock_junk(value):
+    if isinstance(value, str):
+        for old, new in FIL_JUNK_REPLACEMENTS.items():
+            value = value.replace(old, new)
+        return value
+    if isinstance(value, list):
+        return [clean_stock_junk(item) for item in value]
+    if isinstance(value, dict):
+        return {key: clean_stock_junk(item) for key, item in value.items()}
+    return value
+
+
 def repair_lesson(lesson):
     skill = find_skill(lesson)
     if skill is None:
@@ -524,6 +546,12 @@ def repair_lesson(lesson):
                 or (isinstance(content, dict) and any(str(v).strip() for v in content.values()))
                 or (isinstance(content, list) and len(content) > 0)
             )
+            and not (
+                skill == "talata"
+                and t == "ANIMATED_EXPLANATION"
+                and isinstance(content, str)
+                and len(content.split(". ")) <= 2
+            )
         )
         if well_formed:
             continue
@@ -600,7 +628,7 @@ def repair_lesson(lesson):
             "explanation": f"Ang pinakamabuting sagot ay: {correct_text}",
         })
     lesson["assessment"]["items"] = new_items
-    return lesson
+    return clean_stock_junk(lesson)
 
 
 def main(argv=None):

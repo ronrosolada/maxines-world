@@ -5,6 +5,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -100,6 +101,20 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("GMRC").assertIsDisplayed()
         listOf("Mathematics", "English", "Science", "Filipino", "Makabansa", "GMRC")
             .forEach { composeRule.onNodeWithText(it).assertExists() }
+    }
+
+    @Test
+    fun bottomSubjectRowStopsAboveFixedBottomNavigation() {
+        setHome(stateFor())
+        scrollTo("GMRC")
+
+        val subjectBottom = composeRule.onNodeWithText("GMRC").getUnclippedBoundsInRoot().bottom
+        val navigationTop = composeRule
+            .onNodeWithContentDescription("Home", useUnmergedTree = true)
+            .getUnclippedBoundsInRoot()
+            .top
+
+        assertTrue("GMRC card must remain above the fixed navigation", subjectBottom <= navigationTop)
     }
 
     @Test

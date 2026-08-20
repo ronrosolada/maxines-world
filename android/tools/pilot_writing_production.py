@@ -17,8 +17,9 @@ lessons that already carry a WRITING_PRODUCTION activity are skipped.
 import json
 import os
 import sys
+from pathlib import Path
 
-ROOT = "/home/ron/workspace/maxines-world/android/app/src/main/assets/content-pack/month-01/lessons"
+ROOT = str(Path(__file__).resolve().parent.parent / "app" / "src" / "main" / "assets" / "content-pack" / "month-01" / "lessons")
 
 # lesson_id -> (instruction, tiles, checklist, hint, accessibility)
 PILOT = {

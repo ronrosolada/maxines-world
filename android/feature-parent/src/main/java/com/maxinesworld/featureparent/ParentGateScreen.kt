@@ -17,13 +17,8 @@ import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.PinDots
 import com.maxinesworld.featureauth.PinPad
-import com.maxinesworld.featureauth.generateParentChallenge
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -92,7 +87,6 @@ class ParentGateViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
 
@@ -232,7 +226,6 @@ fun ParentGateScreen(
 ) {
     val state by viewModel.state.collectAsState()
     val locked = state.lockRemainingSeconds > 0
-    var showResetDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(state.isAuthenticated) {
         if (state.isAuthenticated) onAuthenticated()
@@ -310,13 +303,13 @@ fun ParentGateScreen(
                             textAlign = TextAlign.Center,
                         )
                         Text(
-                            "Keypad will unlock automatically in ${state.lockRemainingSeconds} seconds, or answer a quick math question below.",
+                            "The keypad will unlock automatically when the pause ends.",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center,
                         )
                         Text(
-                            "Kusang magbubukas pagkatapos ng ${state.lockRemainingSeconds} segundo, o sagutan ang simpleng tanong sa ibaba.",
+                            "Kusang magbubukas ang keypad kapag tapos na ang pahinga.",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.75f),
                             textAlign = TextAlign.Center,
@@ -329,92 +322,6 @@ fun ParentGateScreen(
             }
 
             Spacer(Modifier.height(16.dp))
-            Button(
-                onClick = { showResetDialog = true },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .semantics { contentDescription = "Forgot PIN or restore default using parent math challenge" },
-                shape = RoundedCornerShape(12.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = if (locked) Teal40 else SurfaceContainer, contentColor = if (locked) White else Teal40)
-            ) {
-                Text(
-                    if (locked) "Bypass lockout with quick math question" else "Forgot PIN? Answer quick math question",
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp
-                )
-            }
         }
-    }
-
-    if (showResetDialog) {
-        val challenge = remember { generateParentChallenge() }
-        var answerInput by remember { mutableStateOf("") }
-        var errorText by remember { mutableStateOf<String?>(null) }
-
-        AlertDialog(
-            onDismissRequest = { showResetDialog = false },
-            title = {
-                Text("Restore Default Parent PIN", fontWeight = FontWeight.Bold)
-            },
-            text = {
-                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Text(
-                        "To restore the default parent PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = Teal90.copy(alpha = 0.5f),
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
-                    ) {
-                        Text(
-                            challenge.questionPromptEn,
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = Teal40,
-                            modifier = Modifier.padding(12.dp),
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                    OutlinedTextField(
-                        value = answerInput,
-                        onValueChange = {
-                            answerInput = it
-                            errorText = null
-                        },
-                        label = { Text("Answer") },
-                        singleLine = true,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                    if (errorText != null) {
-                        Text(errorText!!, color = ErrorRed, style = MaterialTheme.typography.bodySmall)
-                    }
-                }
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        if (challenge.verify(answerInput)) {
-                            showResetDialog = false
-                            viewModel.onResetPin {
-                                onBack()
-                            }
-                        } else {
-                            errorText = "Incorrect answer. Please try again."
-                        }
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = Teal40)
-                ) {
-                    Text("Verify & Restore PIN")
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showResetDialog = false }) {
-                    Text("Cancel")
-                }
-            }
-        )
     }
 }

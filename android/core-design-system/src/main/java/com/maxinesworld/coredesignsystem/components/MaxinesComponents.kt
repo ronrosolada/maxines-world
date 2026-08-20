@@ -29,6 +29,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -140,11 +143,15 @@ enum class AnswerCardState {
     DISABLED
 }
 
+internal fun answerCardEnabled(state: AnswerCardState): Boolean =
+    state != AnswerCardState.DISABLED
+
 @Composable
 fun MaxinesAnswerCard(
     state: AnswerCardState = AnswerCardState.IDLE,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = answerCardEnabled(state),
     content: @Composable () -> Unit
 ) {
     val haptic = LocalHapticFeedback.current
@@ -160,7 +167,9 @@ fun MaxinesAnswerCard(
             haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
             onClick()
         },
+        enabled = enabled,
         modifier = modifier
+            .semantics { role = Role.Button }
             .shadow(
                 elevation = when (state) {
                     AnswerCardState.SELECTED, AnswerCardState.CORRECT, AnswerCardState.INCORRECT -> 4.dp
@@ -221,7 +230,7 @@ fun MaxinesQuestCard(
 
     Card(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.semantics { role = Role.Button },
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Cream),
         elevation = CardDefaults.cardElevation(2.dp)

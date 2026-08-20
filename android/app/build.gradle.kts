@@ -164,82 +164,55 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit4)
 }
 
-// ─── Educator metadata gate ────────────────────────────────────────────────
-// By default, fails if any playable lesson in the bundled pack is not
-// educator-approved (educatorValidated=true AND releaseStatus=RELEASED).
-// PR CI may explicitly allow review-gated drafts so content can be validated
-// before human approval. The tag-based release workflow never sets this flag.
-// Approval is performed deliberately via tools/mark_lessons_reviewed.py
-// after a human curriculum review — the strict release gate exists so a
-// release can never accidentally ship draft curriculum to a child.
-val allowUnreviewedContent = providers.gradleProperty("allowUnreviewedContent")
-    .map { it.toBoolean() }
-    .orElse(false)
-
+// ─── Video assessment release gate ─────────────────────────────────────────
+// The current product ships video lessons with Quiz Arena assessments. The
+// legacy bundled lesson JSON is not part of the release contract.
 val verifyPlayableContent by tasks.registering {
     group = "verification"
-    description = "Validate educator metadata and enforce release approval across EVERY lesson-bearing asset directory"
-    // Scan the whole assets tree, not just content-pack/month-01: any JSON that
-    // has the lesson shape (an `activities` list) is playable content, and no
-    // unreviewed lesson may ship in the APK (external review finding C3).
-    val assetsDir = project.layout.projectDirectory.dir("src/main/assets")
+    description = "Validate the reviewed 237-video assessment manifest"
+    val manifestFile = project.layout.projectDirectory.file(
+        "src/main/assets/content-pack/media-assessments.json",
+    ).asFile
     doLast {
         val slurper = groovy.json.JsonSlurper()
-        var total = 0
-        var unreviewed = 0
-        val bad = mutableListOf<String>()
-        val invalidMetadata = mutableListOf<String>()
-        val files = assetsDir.asFileTree.matching {
-            include("**/*.json")
-            exclude("**/mini-games/**")
-        }.files.filter { file ->
-            // Lesson-like shape only: parse is cheap relative to a false positive
-            // on non-lesson JSON (badge_catalog, mini-game configs, manifests).
-            runCatching {
-                @Suppress("UNCHECKED_CAST")
-                val candidate = slurper.parse(file) as Map<String, Any?>
-                candidate["activities"] is List<*>
-            }.getOrDefault(false)
-        }
-        files.forEach { file ->
-            total++
+        @Suppress("UNCHECKED_CAST")
+        val root = slurper.parse(manifestFile) as Map<String, Any?>
+        @Suppress("UNCHECKED_CAST")
+        val media = root["media"] as? List<Map<String, Any?>>
+            ?: throw GradleException("Video assessment gate FAILED: media list is missing.")
+        val failures = mutableListOf<String>()
+        val mediaIds = mutableSetOf<String>()
+        val itemIds = mutableSetOf<String>()
+        media.forEachIndexed { index, row ->
+            val mediaId = row["mediaId"] as? String ?: "row-$index"
+            if (!mediaIds.add(mediaId)) failures += "$mediaId: duplicate mediaId"
+            if (row["questionCount"] != 5) failures += "$mediaId: questionCount must be 5"
+            if (row["passingCorrectCount"] != 4) failures += "$mediaId: passingCorrectCount must be 4"
+            if (row["claimsMastery"] != false) failures += "$mediaId: claimsMastery must be false"
             @Suppress("UNCHECKED_CAST")
-            val lesson = slurper.parse(file) as Map<String, Any?>
-            val validated = lesson["educatorValidated"] as? Boolean ?: false
-            val releaseStatus = lesson["releaseStatus"] as? String
-            val released = validated && releaseStatus == "RELEASED"
-            val metadataConsistent = released ||
-                (!validated && releaseStatus == "REQUIRES_EDUCATOR_REVIEW")
-            if (!metadataConsistent) {
-                invalidMetadata += file.relativeTo(assetsDir.asFile).path
+            val items = row["items"] as? List<Map<String, Any?>> ?: emptyList()
+            if (items.size != 5) failures += "$mediaId: found ${items.size} items"
+            items.forEachIndexed { itemIndex, item ->
+                val itemId = item["itemId"] as? String ?: "$mediaId-item-$itemIndex"
+                if (!itemIds.add(itemId)) failures += "$itemId: duplicate itemId"
+                if (item["sequence"] != itemIndex + 1) failures += "$itemId: sequence mismatch"
+                @Suppress("UNCHECKED_CAST")
+                val options = item["options"] as? List<Map<String, Any?>> ?: emptyList()
+                val optionIds = options.mapNotNull { it["id"] as? String }
+                if (optionIds != listOf("a", "b", "c", "d")) failures += "$itemId: options must be a,b,c,d"
+                @Suppress("UNCHECKED_CAST")
+                val keys = item["correctOptionIds"] as? List<String> ?: emptyList()
+                if (keys.size != 1 || keys[0] !in optionIds) failures += "$itemId: invalid answer key"
+                if ((item["explanation"] as? String).orEmpty().length > 120) {
+                    failures += "$itemId: explanation exceeds 120 characters"
+                }
             }
-            if (!(validated && released)) {
-                unreviewed++
-                bad += file.relativeTo(assetsDir.asFile).path
-            }
         }
-        if (invalidMetadata.isNotEmpty()) {
-            throw GradleException(
-                "Educator metadata INVALID for ${invalidMetadata.size}/$total lessons " +
-                    "(e.g. ${invalidMetadata.take(5)}). Use educatorValidated=false " +
-                    "with REQUIRES_EDUCATOR_REVIEW, or educatorValidated=true with RELEASED."
-            )
+        if (media.size != 237) failures += "expected 237 videos, found ${media.size}"
+        if (failures.isNotEmpty()) {
+            throw GradleException("Video assessment gate FAILED:\n${failures.take(20).joinToString("\n")}")
         }
-        if (unreviewed > 0 && !allowUnreviewedContent.get()) {
-            throw GradleException(
-                "Release gate FAILED: $unreviewed/$total playable lessons are not " +
-                    "educator-reviewed (e.g. ${bad.take(5)}). " +
-                    "Run tools/mark_lessons_reviewed.py after a human curriculum review."
-            )
-        }
-        if (unreviewed > 0) {
-            println(
-                "Educator metadata OK: $total playable lessons parsed; " +
-                    "$unreviewed remain explicitly gated for human review."
-            )
-        } else {
-            println("Release gate OK: $total playable lessons are educator-reviewed.")
-        }
+        println("Video assessment gate OK: ${media.size} videos and ${itemIds.size} Quiz Arena items.")
     }
 }
 

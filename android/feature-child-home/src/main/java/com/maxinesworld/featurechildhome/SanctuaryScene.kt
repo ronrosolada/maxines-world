@@ -169,12 +169,6 @@ fun SanctuaryScene(
     var miloBounced by remember { mutableStateOf(false) }
     var miloSpeechBubble by remember { mutableStateOf<String?>(null) }
 
-    val miloScale by animateFloatAsState(
-        targetValue = if (miloBounced) 1.25f else 1.0f,
-        animationSpec = if (reduceMotion) snap() else tween(180),
-        label = "miloBounce",
-    )
-
     val miloQuotes = remember {
         listOf(
             "Salamat sa pag-aaral! Milo loves our sanctuary!",
@@ -297,16 +291,19 @@ fun SanctuaryScene(
         }
 
         // Milo, drawn last so he stands in front of the meadow.
-        val infiniteTransition = rememberInfiniteTransition(label = "MiloIdleBreath")
-        val idleOffset by infiniteTransition.animateFloat(
-            initialValue = -3f,
-            targetValue = 3f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(durationMillis = 1400, easing = EaseInOutSine),
-                repeatMode = RepeatMode.Reverse
-            ),
-            label = "MiloBob"
-        )
+        val idleOffset by if (reduceMotion) {
+            remember { mutableStateOf(0f) }
+        } else {
+            rememberInfiniteTransition(label = "MiloIdleBreath").animateFloat(
+                initialValue = -3f,
+                targetValue = 3f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(durationMillis = 1400, easing = EaseInOutSine),
+                    repeatMode = RepeatMode.Reverse,
+                ),
+                label = "MiloBob",
+            )
+        }
         val bounceScale by animateFloatAsState(
             targetValue = if (miloBounced) 1.22f else 1.0f,
             animationSpec = spring(

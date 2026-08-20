@@ -93,6 +93,10 @@ object Routes {
         "wildlife_field_guide/${segment(childId)}?badgeId=${segment(badgeId.orEmpty())}"
 }
 
+/** Canonical child-home destination for a video subject card. */
+internal fun subjectCardDestination(childId: String, subjectId: String): String =
+    Routes.videoLibrary(childId, subjectId)
+
 @Composable
 fun MaxinesNavGraph(navController: NavHostController) {
     var startDest by remember { mutableStateOf<String?>(null) }
@@ -108,7 +112,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
         val childDao = entryPoint.childProfileDao()
         val authManager = entryPoint.authManager()
 
-        authManager.getPinHash()
         val parent = parentDao.getParent()
         val children = parent?.let { childDao.getByParent(it.id) } ?: emptyList()
         startDest = if (children.isNotEmpty()) {
@@ -159,7 +162,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 state = homeState,
                 onSubjectClick = { subjectId ->
                     if (homeViewModel.onSubjectSelected(subjectId)) {
-                        navController.navigate(Routes.videoLibrary(childId, subjectId))
+                        navController.navigate(subjectCardDestination(childId, subjectId))
                         homeViewModel.onOpenFinished()
                     }
                 },

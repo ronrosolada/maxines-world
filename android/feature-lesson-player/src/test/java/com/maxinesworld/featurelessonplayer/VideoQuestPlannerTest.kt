@@ -64,10 +64,18 @@ class VideoQuestPlannerTest {
     }
 
     @Test
-    fun `single available subject still yields a quest (cross-subject is best-effort)`() {
+    fun `single available subject does not yield a quest`() {
         val frontier = listOf(cand("math-ep1", "mathematics", 1800))
-        val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
-        assertEquals(listOf("math-ep1"), selected)
+        assertTrue(VideoQuestPlanner.select("c1", "2026-08-20", frontier).isEmpty())
+    }
+
+    @Test
+    fun `frontier below thirty minutes does not yield a quest`() {
+        val frontier = listOf(
+            cand("math-ep1", "mathematics", 900),
+            cand("eng-ep1", "english", 600),
+        )
+        assertTrue(VideoQuestPlanner.select("c1", "2026-08-20", frontier).isEmpty())
     }
 
     @Test

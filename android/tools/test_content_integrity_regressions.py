@@ -31,6 +31,19 @@ class ContentIntegrityRegressionTest(unittest.TestCase):
                 failures.append(path.name)
         self.assertEqual([], failures)
 
+    def test_mirror_lesson_never_teaches_direct_glare_as_safe(self):
+        path = LESSON_DIR / "science-g3-q4-w08-d01.json"
+        lesson = json.loads(path.read_text(encoding="utf-8"))
+        sort_activity = lesson["activities"][2]
+        safe_fit_text = json.dumps(sort_activity["content"]["fits"], ensure_ascii=False).lower()
+        matching_rights = json.dumps(
+            [pair["right"] for pair in lesson["activities"][4]["content"]["pairs"]],
+            ensure_ascii=False,
+        ).lower()
+        self.assertNotIn("bounces light into eyes", safe_fit_text)
+        self.assertNotIn("bounces light toward your eyes", matching_rights)
+        self.assertNotIn("point a bright light into someone’s eyes", safe_fit_text)
+
     def test_known_makabansa_key_matches_its_explanation(self):
         path = LESSON_DIR / "makabansa-g3-q2-w02-d03.json"
         lesson = json.loads(path.read_text(encoding="utf-8"))

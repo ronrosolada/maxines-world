@@ -32,6 +32,22 @@ data class MediaAsset(
     val assessment: MediaAssessment? = null,
 )
 
+/** Only explicitly released curriculum media for a supported subject/grade may enter the video UI. */
+fun MediaAsset.isEligibleForCurriculumVideo(): Boolean {
+    val normalizedSubject = subjectId
+        .lowercase()
+        .replace('_', '-')
+    val gradeAllowed = when (normalizedSubject) {
+        "english", "mathematics", "science" -> gradeLevel in 3..4
+        "filipino", "gmrc", "makabansa", "araling-panlipunan" -> gradeLevel in 1..4
+        else -> false
+    }
+    val statusAllowed = releaseStatus.equals("RELEASED", ignoreCase = true) ||
+        (releaseStatus.equals("PREVIEW", ignoreCase = true) &&
+            licenseStatus.equals("PERSONAL_USE", ignoreCase = true))
+    return gradeAllowed && statusAllowed
+}
+
 /** A short, child-facing comprehension check attached to one media asset. */
 @Serializable
 data class MediaAssessment(

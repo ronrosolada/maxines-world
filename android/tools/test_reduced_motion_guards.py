@@ -21,6 +21,14 @@ class ReducedMotionGuardTest(unittest.TestCase):
                 offenders.append(f"{path.name}: {', '.join(missing)}")
         self.assertEqual([], offenders)
 
+    def test_infinite_transitions_are_not_created_when_motion_is_disabled(self):
+        sanctuary = (ROOT / "feature-child-home/src/main/java/com/maxinesworld/featurechildhome/SanctuaryScene.kt").read_text(encoding="utf-8")
+        hotspot = (RENDERER_DIR / "HotspotImageRenderer.kt").read_text(encoding="utf-8")
+        self.assertIn("val idleOffset by if (reduceMotion)", sanctuary)
+        self.assertIn("val pulseScale by if (animationsDisabled)", hotspot)
+        self.assertIn("rememberInfiniteTransition", sanctuary)
+        self.assertIn("rememberInfiniteTransition", hotspot)
+
 
 if __name__ == "__main__":
     unittest.main()

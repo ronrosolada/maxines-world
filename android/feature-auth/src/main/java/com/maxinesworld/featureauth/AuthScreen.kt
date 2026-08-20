@@ -232,7 +232,6 @@ internal fun PinSetupContent(
 @Composable
 private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
     val locked = state.lockRemainingSeconds > 0
-    var showResetDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -322,98 +321,7 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         }
 
         Spacer(Modifier.height(16.dp))
-
-        TextButton(
-            onClick = { showResetDialog = true },
-            modifier = Modifier.semantics { contentDescription = "Forgot PIN or restore default" }
-        ) {
-            Text("Forgot PIN? Restore default", color = Teal40, fontWeight = FontWeight.Medium)
-        }
-
-        Spacer(Modifier.height(16.dp))
     }
-
-    if (showResetDialog) {
-        ParentResetPinDialog(
-            onDismiss = { showResetDialog = false },
-            onConfirmReset = {
-                showResetDialog = false
-                viewModel.onResetPin()
-            }
-        )
-    }
-}
-
-@Composable
-private fun ParentResetPinDialog(
-    onDismiss: () -> Unit,
-    onConfirmReset: () -> Unit,
-) {
-    val challenge = remember { generateParentChallenge() }
-    var answerInput by remember { mutableStateOf("") }
-    var errorText by remember { mutableStateOf<String?>(null) }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text("Restore Default Parent PIN", fontWeight = FontWeight.Bold)
-        },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    "To restore the default parent PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Surface(
-                    shape = RoundedCornerShape(8.dp),
-                    color = Teal90.copy(alpha = 0.5f),
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
-                ) {
-                    Text(
-                        challenge.questionPromptEn,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = Teal40,
-                        modifier = Modifier.padding(12.dp),
-                        textAlign = TextAlign.Center
-                    )
-                }
-                OutlinedTextField(
-                    value = answerInput,
-                    onValueChange = {
-                        answerInput = it
-                        errorText = null
-                    },
-                    label = { Text("Answer") },
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    modifier = Modifier.fillMaxWidth()
-                )
-                if (errorText != null) {
-                    Text(errorText!!, color = ErrorRed, style = MaterialTheme.typography.bodySmall)
-                }
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    if (challenge.verify(answerInput)) {
-                        onConfirmReset()
-                    } else {
-                        errorText = "Incorrect answer. Please try again."
-                    }
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Teal40)
-            ) {
-                Text("Verify & Restore PIN")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-        }
-    )
 }
 
 @Composable

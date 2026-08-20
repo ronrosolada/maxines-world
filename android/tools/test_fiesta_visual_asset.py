@@ -29,9 +29,12 @@ class FiestaVisualAssetTest(unittest.TestCase):
 
         root = ET.parse(ASSET_PATH).getroot()
         self.assertEqual(root.attrib.get("role"), "img")
-        self.assertEqual(root.attrib.get("aria-labelledby"), "fiesta-title fiesta-desc")
-        self.assertEqual(root.findtext(f"{SVG_NS}title"), "The Fiesta Picture")
-        self.assertIn("fiesta scene", root.findtext(f"{SVG_NS}desc", "").lower())
+        self.assertEqual(
+            root.attrib.get("aria-labelledby"),
+            f"svg-title-{asset_id} svg-desc-{asset_id}",
+        )
+        self.assertTrue(root.findtext(f"{SVG_NS}title", "").endswith("The Fiesta Picture"))
+        self.assertIn("fiesta picture", root.findtext(f"{SVG_NS}desc", "").lower())
 
         elements_by_id = {
             element.attrib["id"]: element

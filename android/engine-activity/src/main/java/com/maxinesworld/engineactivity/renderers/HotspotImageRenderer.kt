@@ -248,16 +248,19 @@ fun HotspotImageRenderer(
                 // Gentle pulse on remaining tappable badges — only while motion
                 // is allowed and the badge is still unvisited/unfinished.
                 val isUnvisited = result == null && (!allTargetsRequired || index !in hotspotProgress.visited)
-                val pulseScale by rememberInfiniteTransition(label = "hotspotPulse$index")
-                    .animateFloat(
+                val pulseScale by if (animationsDisabled) {
+                    remember { mutableStateOf(1f) }
+                } else {
+                    rememberInfiniteTransition(label = "hotspotPulse$index").animateFloat(
                         initialValue = 1f,
-                        targetValue = if (isUnvisited && !animationsDisabled) 1.08f else 1f,
+                        targetValue = if (isUnvisited) 1.08f else 1f,
                         animationSpec = infiniteRepeatable(
                             animation = tween(durationMillis = 900),
-                            repeatMode = RepeatMode.Reverse
+                            repeatMode = RepeatMode.Reverse,
                         ),
-                        label = "pulse$index"
+                        label = "pulse$index",
                     )
+                }
                 Box(
                     modifier = Modifier
                         .offset(
