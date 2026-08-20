@@ -94,4 +94,7 @@ curriculum-ordered.
     total minutes, progress bar, Start/Continue → first pending selected video.
 - Per-video stickers still flow through the existing 30-min policy; the quest adds a
   daily cross-subject goal + completion bonus on top.
-- Status: implemented; build + unit tests in progress.
+- Status: **released in v0.56.0** (merged `feat/video-quest` → main, monotonic
+  versionCode 286). Planner 7/7 unit tests + full lesson-player suite green. Full
+  visual card walkthrough pending on the tablet — the emulator's preview home does
+  not expose the video-hub tile.
