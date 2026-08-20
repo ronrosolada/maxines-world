@@ -1,9 +1,22 @@
 # Maxine's World, Current State & Release Handoff
 
-**Document baseline:** 2026-08-15
-**Release candidate:** `0.35.1` (`versionCode = 38`)
-**Working branch:** `main`
+**Document baseline:** 2026-08-20
+**Release candidate:** `0.56.0-6-g8647a8ae` (`versionCode = 292`)
+**Working branch:** `feat/playlist-video-replacement`
 **Repository:** `ronrosolada/maxines-world` (public)
+
+## Release 0.56.0 playlist replacement (2026-08-20)
+
+- Scope: replaced the optional video catalog with 237 workbook-selected Grade 1–4 videos across Filipino, Makabansa, Mathematics, English, GMRC, and Science.
+- Subject totals: Filipino 100, Makabansa 51, Mathematics 24, English 22, GMRC 20, Science 20.
+- Grade totals: Grade 1 29, Grade 2 53, Grade 3 95, Grade 4 60.
+- Assessment policy: five subject-specific multiple-choice memory checks per video, 1,185 total items, 4/5 required, `claimsMastery=false`.
+- Language policy: English for English/Mathematics/Science; Filipino for Filipino/Makabansa/GMRC.
+- Media status: `PREVIEW` / `PERSONAL_USE`; MP4s and both catalogs are deployed to DreamNAS at `10.10.10.33`.
+- Release APK SHA-256: `549e93357753c0570108984ec4ae5dca552b4d0982715f2db8a477203dc23795`.
+- APK delivery: `http://10.10.10.33/app-release.apk`; prior APK retained as `app-release.apk.bak-playlist-20260820-121500`.
+- Full implementation, validation, deployment, and rollback details: [`docs/video-playlist-replacement-2026-08-20.md`](docs/video-playlist-replacement-2026-08-20.md).
+- The feature branch contains the media manifest, documentation, and emulator-test fixture updates; push it and open a PR before merging to `main`.
 
 ## Release 0.35.1 candidate (2026-08-15)
 
@@ -140,9 +153,15 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
 
 ### Video lessons
 
-- 8 full-length Tagalog videos with 10-question memory checks are available
-  through optional LAN media; the memory check gates on playback completion
-  (media assessment gate).
+- 237 workbook-selected Grade 1–4 videos are available through optional LAN media.
+- Subject totals are Filipino 100, Makabansa 51, Mathematics 24, English 22,
+  GMRC 20, and Science 20; the app filters by subject and orders by episode.
+- Each video has five subject-appropriate memory-check questions; 4/5 is the
+  pass threshold and playback completion gates the check.
+- The media catalog is `PREVIEW` / `PERSONAL_USE`; it is not a public content
+  release and must remain LAN-only until HTTPS and licensing are reviewed.
+- See `docs/video-playlist-replacement-2026-08-20.md` for deployment, hashes,
+  rollback, and verification evidence.
 
 ## Content
 
