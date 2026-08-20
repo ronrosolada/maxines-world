@@ -33,6 +33,7 @@ class RewardBreakViewModelTest {
         godModeManager.setEnabled("child-1", false)
         viewModel = RewardBreakViewModel(
             rewardBreakDao = database.rewardBreakDao(),
+            playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
             miniGameResultDao = database.miniGameResultDao(),
             rewardDao = database.rewardDao(),
             inventoryDao = database.inventoryDao(),
