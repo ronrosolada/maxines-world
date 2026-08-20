@@ -4,9 +4,21 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
-## [Unreleased] - 2026-08-20
+## [Unreleased]
+
+## [0.57.0] - 2026-08-20
+
+### Playlist Replacement and Release Hardening
+
+- Replaced the in-app video lesson catalog with the verified 237-video workbook selection across Filipino, Makabansa, Mathematics, English, GMRC, and Science.
+- Enforced subject and grade filtering, topic ordering, episode ordering, visible video titles, LAN media playback, offline downloads, and catalog-backed assessment metadata.
+- Added five subject-appropriate assessment questions per video with the existing watch plus 4/5 pass-and-reward flow.
+- Added the re-enterable playground day-pass after Daily Quest completion, scoped by child and local calendar day.
+- Kept release gates strict for educator approval metadata and the 29 bundled offline mini-games.
+- Updated release documentation, media contracts, rollback notes, and the connected-test fixture for the playground unlock receipt DAO.
 
 ### Playground Day-Pass — Re-Enterable Reward Break
+
 
 - **Playground unlocked for the rest of the day after Daily Quest (3/3):** completing the Daily Quest now mints an idempotent `playground_unlock_receipts {childId:dayKey}` day-pass (`DailyQuestRewardWriter`) alongside the existing `SANCTUARY_PIECE` + 5-minute break. The receipt is keyed by `"$childId:$dayKey"` with first-write-wins `insertIgnoring`, so process death or retries cannot double-mint.
 - **Re-enterable until midnight (local):** `RewardBreakViewModel` checks `isPlaygroundUnlockedToday()` on `load()`/`begin()`/`saveResult()`/`consume()`. When the day-pass exists, each hub entry re-arms to a fresh `5 min` window via atomic `RewardBreakDao.reactivateForDayPass()` (resets `state=ACTIVE`, `startedAt=now`, `remaining=5 min`, clears `consumedAt`). `consume()` no longer sets `CONSUMED` while the pass holds — shows `Playground is open — come back anytime today!` instead.
