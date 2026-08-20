@@ -3,6 +3,8 @@ package com.maxinesworld.featureparent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -244,8 +246,11 @@ class ParentDashboardViewModel @Inject constructor(
 
         viewModelScope.launch {
             val candidateEndpoints = listOf(
+                // Guest-VLAN local endpoint first; it avoids a cross-VLAN hop.
+                "http://10.10.20.33/app-release.apk",
                 "http://10.10.10.33/app-release.apk",
-                "http://10.10.20.33/app-release.apk"
+                // Internet fallback for isolated guest networks.
+                "https://github.com/ronrosolada/maxines-world/releases/latest/download/MaxinesWorld-latest-release.apk",
             )
 
             var downloadedFile: File? = null
@@ -260,12 +265,20 @@ class ParentDashboardViewModel @Inject constructor(
                             connectTimeout = 8000
                             readTimeout = 15000
                             requestMethod = "GET"
+                            instanceFollowRedirects = true
                         }
                         conn.connect()
                         if (conn.responseCode !in 200..299) {
                             throw Exception("HTTP ${conn.responseCode}")
                         }
+                        val contentType = conn.contentType
+                        if (!isAllowedUpdateContentType(contentType)) {
+                            throw Exception("unexpected content type ${contentType ?: "unknown"}")
+                        }
                         val contentLength = conn.contentLength.toLong()
+                        if (contentLength in 1 until 1_000_000) {
+                            throw Exception("response is too small to be an APK (${contentLength} bytes)")
+                        }
                         val cacheDir = context.externalCacheDir ?: context.cacheDir
                         val apkFile = File(cacheDir, "maxines_world_update.apk")
                         if (apkFile.exists()) apkFile.delete()
@@ -305,13 +318,28 @@ class ParentDashboardViewModel @Inject constructor(
                 val installedCode = runCatching {
                     context.packageManager.getPackageInfo(context.packageName, 0).versionCode
                 }.getOrNull() ?: 0
+                val apkHasZipSignature = runCatching {
+                    downloadedFile.inputStream().use { input ->
+                        val header = ByteArray(4)
+                        input.read(header)
+                        hasApkZipSignature(header)
+                    }
+                }.getOrDefault(false)
                 @Suppress("DEPRECATION")
                 val candidate = runCatching {
                     context.packageManager.getPackageArchiveInfo(downloadedFile.absolutePath, 0)
                 }.getOrNull()
 
-                val candidateCode = candidate?.versionCode ?: Int.MIN_VALUE
+                val candidateCode = if (candidate == null) {
+                    Int.MIN_VALUE
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    candidate.longVersionCode.coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
+                } else {
+                    @Suppress("DEPRECATION")
+                    candidate.versionCode
+                }
                 val rejectReason = when {
+                    !apkHasZipSignature -> "Update rejected: downloaded response is not an APK. Check guest-network access."
                     candidate == null -> "Update rejected: APK could not be read (invalid or corrupt package)."
                     candidateCode <= installedCode ->
                         "Update rejected: candidate v$candidateCode is not newer than installed v$installedCode."
@@ -320,6 +348,23 @@ class ParentDashboardViewModel @Inject constructor(
                 if (rejectReason != null) {
                     _state.update {
                         it.copy(isUpdatingApp = false, updateStatusMessage = rejectReason)
+                    }
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                    !context.packageManager.canRequestPackageInstalls()
+                ) {
+                    _state.update {
+                        it.copy(
+                            isUpdatingApp = false,
+                            updateStatusMessage = "Allow Maxine's World to install updates, then try again.",
+                        )
+                    }
+                    withContext(Dispatchers.Main) {
+                        context.startActivity(
+                            Intent(
+                                Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
+                                Uri.parse("package:${context.packageName}"),
+                            ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                        )
                     }
                 } else {
                     _state.update {
