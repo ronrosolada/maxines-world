@@ -4,17 +4,17 @@ The Android app remains lesson-offline-first. `VIDEO_V1` activities reference a
 stable `mediaId`; the corresponding MP4 is downloaded explicitly, verified, and
 played from private app storage.
 
-## Current personal-use pilot
+## Current personal-use playlist replacement
 
-- Source playlists:
-  - `Kids Tagalog Lessons` — `Tagalog Time with Pat` (media 01–18)
-  - `Full-Length Tagalog Lessons` — `Tagalog Time with Pat` (media 19–26)
-- Requested quality: best H.264/AAC format up to 480p (the new playlist's last four videos are source-limited to 640×360)
+- Source: the four-sheet `Video Lesson Sorting - Updated.xlsx` workbook (Grade 1–4)
+- Scope: 237 videos across Filipino, GMRC, Makabansa, Mathematics, Science, and English
+- Requested quality: H.264/AAC MP4 up to 480p; the Android YouTube client currently exposes 640×360 progressive MP4 for these sources
 - Media endpoint: `http://10.10.10.33/media/catalog.json`
 - Media root on DreamNAS: `/mnt/user/appdata/maxines-world-content/server/content/media/`
 - App storage: `filesDir/maxines-media/`
 - Catalog status: `PREVIEW`
 - License status: `PERSONAL_USE`
+- Assessment policy: five subject-specific multiple-choice items per video; 4/5 required; `claimsMastery=false`
 
 The endpoint is LAN-only and currently uses HTTP. The Android network security
 configuration permits cleartext traffic only to `10.10.10.33`; do not expose
@@ -118,11 +118,12 @@ rsync -av --partial /home/ron/maxines-media-catalog.json \
 ```
 
 `app/src/main/assets/content-pack/media-assessments.json` is the tracked
-assessment source of truth. The current 26-video pilot has ten memory-check
-items per video. Always pass this file to `build_media_catalog.py`; omitting
-`--assessments` produces a structurally valid catalog that silently drops all
-existing comprehension items. For an intentionally unassessed supplementary
-video, use `--allow-unassessed-media` while still passing the assessment source.
+assessment source of truth. The current replacement contains 237 videos with
+five memory-check items per video and a 4/5 passing score. Always pass this file
+to `build_media_catalog.py`; omitting `--assessments` produces a structurally
+valid catalog that silently drops all existing comprehension items. For an
+intentionally unassessed supplementary video, use `--allow-unassessed-media`
+while still passing the assessment source.
 
 Verify after deployment with a bounded header request and a SHA-256 comparison
 against the local catalog. The app must be able to skip the video when the
