@@ -9,6 +9,12 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
 
+/**
+ * Content compatibility audit, not a navigation test. The bundled lesson ID
+ * mappings and files remain intentionally available to ContentLessonLoader and
+ * offline/assessment compatibility checks; child-home subject exploration is
+ * verified by VideoFirstRouteAuditTest and routes to video-library only.
+ */
 class LessonRouteTest {
 
     private fun lessonsDir(): File {

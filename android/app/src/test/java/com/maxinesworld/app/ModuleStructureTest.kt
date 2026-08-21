@@ -6,11 +6,10 @@ import org.junit.Test
 import java.io.File
 
 /**
- * Verifies the subject → module → lesson hierarchy against the REAL
- * bundled content pack, using the same ID rules as ModuleCatalog.
- *
- * This pins the user-facing promise: tapping "Number Fun" must show a
- * list of math modules, never dump straight into a lesson.
+ * Verifies the subject → module → lesson hierarchy remains intact in the
+ * bundled content pack. This is a content-integrity test only: child-home
+ * subject exploration now routes to the video library and does not use this
+ * text-module hierarchy as a navigation target.
  */
 class ModuleStructureTest {
 

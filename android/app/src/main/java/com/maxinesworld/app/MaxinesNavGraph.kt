@@ -33,11 +33,6 @@ import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
 import com.maxinesworld.featurechildhome.PlayroomHomeUiState
 import com.maxinesworld.featurechildhome.QuestAction
-import com.maxinesworld.featurechildhome.SubjectModulesScreen
-import com.maxinesworld.featurechildhome.SubjectModulesViewModel
-import com.maxinesworld.featurechildhome.ModuleLessonsScreen
-import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
-import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
 import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
@@ -59,9 +54,6 @@ object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val TREAT_SHOP = "treat_shop/{childId}"
-    const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
-    const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
-    const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
     const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
     const val QUICK_BITS = "quick_bits/{childId}"
@@ -73,12 +65,6 @@ object Routes {
 
     fun childHome(childId: String) = "child_home/${segment(childId)}"
     fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
-    fun subjectModules(childId: String, subject: String) =
-        "subject_modules/${segment(childId)}/${segment(subject)}"
-    fun moduleLessons(childId: String, subject: String, moduleKey: String) =
-        "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
-    fun lessonPlayer(childId: String, lessonId: String) =
-        "lesson_player/${segment(childId)}/${segment(lessonId)}"
     fun assessmentArena(childId: String, subject: String? = null) =
         "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}"
 
@@ -151,7 +137,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
             arguments = listOf(navArgument("childId") { type = NavType.StringType })
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             val homeViewModel: PlayroomHomeViewModel = hiltViewModel(backStackEntry)
             val homeState by homeViewModel.state.collectAsStateWithLifecycle()
             PlayroomHomeScreen(
@@ -285,78 +270,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
             TreatShopScreen(
                 childId = childId,
                 onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(
-            route = Routes.SUBJECT_MODULES,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("subject") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
-            val viewModel: SubjectModulesViewModel = hiltViewModel(backStackEntry)
-            val state by viewModel.state.collectAsStateWithLifecycle()
-            SubjectModulesScreen(
-                subject = subject,
-                state = state,
-                onModuleClick = { moduleKey ->
-                    navController.navigate(Routes.moduleLessons(childId, subject, moduleKey))
-                },
-                onBack = { navController.popBackStack() }
-            )
-        }
-
-        composable(
-            route = Routes.MODULE_LESSONS,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("subject") { type = NavType.StringType },
-                navArgument("moduleKey") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
-            val moduleKey = backStackEntry.arguments?.getString("moduleKey") ?: return@composable
-            val viewModel: ModuleLessonsViewModel = hiltViewModel(backStackEntry)
-            val state by viewModel.state.collectAsStateWithLifecycle()
-            ModuleLessonsScreen(
-                moduleTitle = state.moduleTitle.ifEmpty { moduleKey },
-                state = state,
-                onLessonClick = { lessonId ->
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                },
-                onBack = { navController.popBackStack() },
-                onRetry = viewModel::retry,
-            )
-        }
-
-        composable(
-            route = Routes.LESSON_PLAYER,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("lessonId") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val lessonId = backStackEntry.arguments?.getString("lessonId") ?: return@composable
-            LessonPlayerScreen(
-                lessonId = lessonId,
-                childId = childId,
-                onBack = { navController.popBackStack() },
-                onComplete = {
-                    navController.navigate(Routes.childHome(childId)) {
-                        popUpTo(Routes.CHILD_HOME) { inclusive = true }
-                    }
-                },
-                onViewFieldGuide = { badgeId ->
-                    navController.navigate(Routes.wildlifeFieldGuide(childId, badgeId))
-                },
-                onRewardBreak = { cId, breakId ->
-                    navController.navigate(MiniGameRoutes.hub(cId, breakId))
-                }
             )
         }
 

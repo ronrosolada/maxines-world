@@ -11,9 +11,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * On-device contract for the subject → module → lesson hierarchy:
- * tapping a subject must produce a real module list from the bundled
- * pack, and each module must have loadable lessons.
+ * On-device contract for the bundled subject → module → lesson content
+ * hierarchy. This keeps offline/content-loader compatibility intact; child-home
+ * subject navigation is video-first and is audited separately.
  */
 @RunWith(AndroidJUnit4::class)
 class ModuleCatalogTest {
