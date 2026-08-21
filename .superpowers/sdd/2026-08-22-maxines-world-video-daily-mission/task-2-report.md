@@ -157,3 +157,22 @@ The implementation is committed with the required `feat:` message; the finalized
 
 - No implementation concerns remain after the corrected connected-test run.
 - The initial connected-test failure was a test expectation mismatch caused by the intentional duration-inclusive accessibility label; the rerun passed all 36 tests.
+
+## Fix round 1 — subject-aware target-row routing
+
+The scoped review finding was fixed without changing the enum-based primary CTA. Target rows now use an explicit `onQuestTargetClick(subjectId)` callback, wired through `TodayQuestCard` → `PlayroomHomeScreen` → `MaxinesNavGraph`, where the callback navigates only to `Routes.videoLibrary(childId, subjectId)`. `QuestAction.OpenVideoQuest` remains unchanged for the primary CTA and still resolves the current `nextMediaId`; `Continue` remains the unfiltered video-library route.
+
+The interaction contract now renders English and Science target rows, taps the non-next Science row first, and asserts the callback receives `science` followed by `english` when the English row is tapped. It also asserts neither target-row tap dispatches `QuestAction.OpenVideoQuest` and that the primary Continue action remains unchanged. This proves a row cannot fall back to the next target's subject.
+
+Fresh JDK 17 verification for this fix round:
+
+```text
+:feature-child-home:testDebugUnitTest       BUILD SUCCESSFUL (97 actionable tasks)
+:feature-child-home:lintDebug               BUILD SUCCESSFUL (265 actionable tasks)
+:feature-child-home:connectedDebugAndroidTest
+                                             BUILD SUCCESSFUL (36 tests, 0 skipped, 0 failed)
+:app:assembleDebug                          BUILD SUCCESSFUL (422 actionable tasks)
+git diff --check                            exit 0; no output
+```
+
+No lesson JSON, renderer, schema, migration, duplicate Video Library quest, or legitimate non-mission lesson flow was modified. The pre-existing untracked `docs/superpowers/` content remains untouched and unstaged.

@@ -165,6 +165,7 @@ fun PlayroomHomeScreen(
     state: PlayroomHomeUiState,
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
+    onQuestTargetClick: (String) -> Unit = {},
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
     onTreatShopClick: () -> Unit = {},
@@ -227,6 +228,7 @@ fun PlayroomHomeScreen(
                         railBeside = showRailBeside,
                         onSubjectClick = onSubjectClick,
                         onQuestAction = onQuestAction,
+                        onQuestTargetClick = onQuestTargetClick,
                         onOpenCollection = onOpenCollection,
                         onTreatShopClick = onTreatShopClick,
                         onVideosClick = onVideosClick,
@@ -256,6 +258,7 @@ private fun ContentLayout(
     railBeside: Boolean,
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
+    onQuestTargetClick: (String) -> Unit,
     onOpenCollection: () -> Unit,
     onTreatShopClick: () -> Unit,
     onVideosClick: () -> Unit,
@@ -291,7 +294,12 @@ private fun ContentLayout(
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         // Today's Quest Card (Primary action)
-        TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+        TodayQuestCard(
+            quest = content.quest,
+            onQuestAction = questAction,
+            onQuestTargetClick = onQuestTargetClick,
+            modifier = Modifier.fillMaxWidth(),
+        )
 
         // Concrete learning progress follows the primary Today action.
         LearningStreakCard(content.streakDays, Modifier.fillMaxWidth())

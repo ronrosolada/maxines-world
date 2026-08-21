@@ -100,6 +100,7 @@ import kotlin.math.roundToInt
 internal fun TodayQuestCard(
     quest: QuestUi,
     onQuestAction: (QuestAction) -> Unit,
+    onQuestTargetClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val taskText = when (quest.task) {
@@ -285,7 +286,7 @@ internal fun TodayQuestCard(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
                                     .background(Color.White.copy(alpha = 0.72f))
-                                    .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenVideoQuest) })
+                                    .clickable(role = Role.Button, onClick = { onQuestTargetClick(target.subjectId) })
                                     .semantics { contentDescription = targetCd }
                                     .heightIn(min = 48.dp)
                                     .padding(horizontal = 10.dp, vertical = 8.dp),

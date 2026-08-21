@@ -196,6 +196,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         }
                     }
                 },
+                onQuestTargetClick = { subjectId ->
+                    navController.navigate(Routes.videoLibrary(childId, subjectId))
+                },
                 onHomeClick = { /* Home is the current destination — no push */ },
                 onCollectionClick = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))

@@ -105,6 +105,7 @@ class PlayroomHomeInteractionContractTest {
         onCollectionClick: () -> Unit = {},
         onParentsClick: () -> Unit = {},
         onQuestAction: (QuestAction) -> Unit = {},
+        onQuestTargetClick: (String) -> Unit = {},
     ) {
         composeRule.setContent {
             CompositionLocalProvider(
@@ -115,6 +116,7 @@ class PlayroomHomeInteractionContractTest {
                         state = stateForContract(targets),
                         onSubjectClick = {},
                         onQuestAction = onQuestAction,
+                        onQuestTargetClick = onQuestTargetClick,
                         onHomeClick = {},
                         onCollectionClick = onCollectionClick,
                         onParentsClick = onParentsClick,
@@ -125,8 +127,9 @@ class PlayroomHomeInteractionContractTest {
     }
 
     @Test
-    fun todayQuestExposesExactlyOnePrimaryAction() {
+    fun todayQuestExposesExactlyOnePrimaryActionAndPreservesTargetSubject() {
         val actions = mutableListOf<QuestAction>()
+        val targetSubjects = mutableListOf<String>()
         setHome(
             targets = listOf(
                 QuestTargetUi(
@@ -138,8 +141,18 @@ class PlayroomHomeInteractionContractTest {
                     durationLabel = "01:00",
                     isCompleted = false,
                 ),
+                QuestTargetUi(
+                    mediaId = "science-video-2",
+                    title = "Living Things",
+                    subjectId = "science",
+                    displaySubject = "Science",
+                    durationSeconds = 120,
+                    durationLabel = "02:00",
+                    isCompleted = false,
+                ),
             ),
             onQuestAction = { actions += it },
+            onQuestTargetClick = { targetSubjects += it },
         )
 
         val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
@@ -151,17 +164,29 @@ class PlayroomHomeInteractionContractTest {
         todayQuest.performClick()
         composeRule.runOnIdle { assertEquals(listOf(QuestAction.Continue), actions) }
 
+        // Clicking a non-next target must preserve that row's subject instead
+        // of dispatching the enum CTA, which resolves the next target.
+        composeRule.onNodeWithContentDescription(
+            "Quest target: Science: Living Things · 02:00",
+        ).assertHasClickAction().performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf("science"), targetSubjects)
+            assertEquals(listOf(QuestAction.Continue), actions)
+        }
+
         composeRule.onNodeWithContentDescription(
             "Quest target: English: Word Roots · 01:00",
         ).assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenVideoQuest), actions)
+            assertEquals(listOf("science", "english"), targetSubjects)
+            assertEquals(listOf(QuestAction.Continue), actions)
         }
         composeRule.onNodeWithText("01:00").assertExists()
+        composeRule.onNodeWithText("02:00").assertExists()
 
         composeRule.onNodeWithText("Continue").assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenVideoQuest, QuestAction.Continue), actions)
+            assertEquals(listOf(QuestAction.Continue, QuestAction.Continue), actions)
         }
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
     }
