@@ -6,6 +6,17 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.62.0] - 2026-08-21
+
+### Child Home Clarity and Learning Streak
+
+- Reorganized the child home into focused, maintainable UI components without changing navigation behavior.
+- Consolidated Today’s Quest presentation around one clear child-facing action.
+- Added concrete video progress counts, readable lock explanations, selected navigation semantics, and whole-card subject destinations.
+- Added shared, timezone-aware learning-day streak calculation for parent and child surfaces.
+- Added profile-safe child streak data with local-midnight rollover handling and an informational child-visible streak card.
+- Kept the release video-first: legacy text-lesson content and renderers were not changed.
+
 ## [0.58.0] - 2026-08-21
 
 ### Milo Celebration & Delight System
