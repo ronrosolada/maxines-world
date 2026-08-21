@@ -30,8 +30,10 @@ import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coremodel.CollectibleBadge
-import com.maxinesworld.featurerewards.BadgeLoader
+import com.maxinesworld.coremodel.currentLearningStreak
+import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredesignsystem.theme.*
+import com.maxinesworld.featurerewards.BadgeLoader
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -41,6 +43,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 
 data class ParentDashboardState(
@@ -190,7 +194,10 @@ class ParentDashboardViewModel @Inject constructor(
                 subjectProgress = subjectProgress,
                 masterySummary = MasterySummary(mastered, developing, needsReview),
                 recentActivity = recentActivity,
-                streakDays = currentStreak(localDatesFromEpochMillis(progress.map { it.timestamp })),
+                streakDays = currentLearningStreak(
+                    localDates = localLearningDates(progress.map { it.timestamp }, ZoneId.systemDefault()),
+                    today = LocalDate.now(),
+                ),
                 godModeEnabled = godModeEnabled,
                 isLoading = false
             )

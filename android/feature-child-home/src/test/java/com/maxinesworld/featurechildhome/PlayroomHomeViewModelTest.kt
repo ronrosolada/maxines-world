@@ -4,24 +4,39 @@ import androidx.lifecycle.SavedStateHandle
 import com.maxinesworld.corecontent.ContentModule
 import com.maxinesworld.corecontent.ContentModuleLesson
 import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
+import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.*
+import java.time.Clock
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.util.concurrent.atomic.AtomicInteger
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -74,6 +89,96 @@ class PlayroomHomeViewModelTest {
         )
         advanceUntilIdle()
         assertEquals(50, content(vm).subjects.first { it.id == "mathematics" }.progressPercent)
+    }
+
+    @Test
+    fun `per-subject video progress uses passed media ids and active media total`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = listOf("mathematics-g3-m01-d01", "mathematics-g3-m01-d02", "mathematics-g3-m01-d03"),
+            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 6),
+            passedVideoMediaIds = (1..3).map { "mathematics-video-$it" },
+        )
+        advanceUntilIdle()
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(3, mathematics.completedVideos)
+        assertEquals(6, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = (1..3).map { "mathematics-g3-m01-d%02d".format(it) },
+            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
+            videoCatalogLoadFails = true,
+        )
+        advanceUntilIdle()
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(null, mathematics.completedVideos)
+        assertEquals(null, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `video progress helper applies latest values without changing home content`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
+            passedVideoMediaIds = listOf("mathematics-video-1"),
+        )
+        advanceUntilIdle()
+
+        val base = content(vm).copy(subjects = canonicalSubjects)
+        val derived = withVideoProgress(
+            baseContent = base,
+            assets = mediaCatalogWithTotals("mathematics" to 2).media,
+            passedMediaIds = setOf("mathematics-video-1", "mathematics-video-2"),
+        )
+
+        val mathematics = derived.subjects.first { it.id == "mathematics" }
+        assertEquals(2, mathematics.completedVideos)
+        assertEquals(2, mathematics.totalVideos)
+        assertEquals(base.quest, derived.quest)
+        assertEquals(base.childName, derived.childName)
+    }
+
+    @Test
+    fun `latest passed ids win when an older base content emission completes later`() = runTest(dispatcher) {
+        val profiles = MutableStateFlow<ChildProfileEntity?>(profile("Maxine"))
+        val passedIds = MutableStateFlow(listOf("mathematics-video-1"))
+        val rebuildStarted = CompletableDeferred<Unit>()
+        val releaseRebuild = CompletableDeferred<Unit>()
+        val catalogCalls = AtomicInteger()
+        var initialCallCount = Int.MAX_VALUE
+        val catalog = mockk<ModuleCatalog>()
+        coEvery { catalog.modulesFor(any()) } coAnswers {
+            val call = catalogCalls.incrementAndGet()
+            if (call > initialCallCount && rebuildStarted.complete(Unit)) {
+                releaseRebuild.await()
+            }
+            emptyList()
+        }
+
+        val vm = buildViewModel(
+            catalog = catalog,
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
+            profileFlow = profiles,
+            passedVideoMediaIdsFlow = passedIds,
+        )
+        advanceUntilIdle()
+        initialCallCount = catalogCalls.get()
+        assertEquals(1, content(vm).subjects.first { it.id == "mathematics" }.completedVideos)
+
+        profiles.value = profile("Updated Maxine")
+        runCurrent()
+        rebuildStarted.await()
+
+        passedIds.value = listOf("mathematics-video-1", "mathematics-video-2")
+        runCurrent()
+        releaseRebuild.complete(Unit)
+        advanceUntilIdle()
+
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(2, mathematics.completedVideos)
+        assertEquals(2, mathematics.totalVideos)
     }
 
     @Test
@@ -145,6 +250,121 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `child home exposes the live streak from progress timestamps`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val today = LocalDate.now(zone)
+        val vm = buildViewModel(
+            streakTimestamps = listOf(
+                timestampFor(today, zone),
+                timestampFor(today.minusDays(1), zone),
+            ),
+        )
+        advanceUntilIdle()
+
+        assertEquals(2, content(vm).streakDays)
+    }
+
+    @Test
+    fun `stale progress becomes a zero streak`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val vm = buildViewModel(
+            streakTimestamps = listOf(timestampFor(LocalDate.now(zone).minusDays(3), zone)),
+        )
+        advanceUntilIdle()
+
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `streak timestamp database errors leave usable home content with zero streak`() = runTest(dispatcher) {
+        val vm = buildViewModel(streakTimestampLoadFails = true)
+        advanceUntilIdle()
+
+        assertTrue(vm.state.value is PlayroomHomeUiState.Content)
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `missing child and empty progress use safe empty streak state`() = runTest(dispatcher) {
+        val vm = buildViewModel(childName = null)
+        advanceUntilIdle()
+
+        assertEquals("", content(vm).childName)
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `missing child profile hides today's progress from the streak`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val vm = buildViewModel(
+            childName = null,
+            streakTimestamps = listOf(timestampFor(LocalDate.now(zone), zone)),
+        )
+        advanceUntilIdle()
+
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `streak adapter uses the shared live streak definition deterministically`() {
+        val zone = ZoneId.of("Asia/Manila")
+        val today = LocalDate.of(2026, 8, 5)
+
+        assertEquals(
+            0,
+            streakDaysFromTimestamps(
+                timestamps = listOf(timestampFor(today.minusDays(3), zone)),
+                zone = zone,
+                today = today,
+            ),
+        )
+    }
+
+    @Test
+    fun `same timestamps become stale when evaluated on the next local date`() {
+        val zone = ZoneId.of("Asia/Manila")
+        val today = LocalDate.of(2026, 8, 5)
+        val timestamps = listOf(timestampFor(today.minusDays(1), zone))
+
+        assertEquals(1, streakDaysFromTimestamps(timestamps, zone, today))
+        assertEquals(0, streakDaysFromTimestamps(timestamps, zone, today.plusDays(1)))
+    }
+
+    @Test
+    fun `local date trigger advances at scheduled local midnights without sleeping`() = runTest {
+        val zone = ZoneId.of("Asia/Manila")
+        val clock = MutableTestClock(Instant.parse("2026-08-05T15:59:59Z"), zone)
+        val scheduledDelays = mutableListOf<Long>()
+
+        val dates = localDateChanges(
+            zone = zone,
+            clock = clock,
+            delayUntilNextMidnight = { delayMillis ->
+                scheduledDelays += delayMillis
+                clock.advanceByMillis(delayMillis)
+            },
+        ).take(2).toList()
+
+        assertEquals(listOf(LocalDate.of(2026, 8, 5), LocalDate.of(2026, 8, 6)), dates)
+        assertEquals(1, scheduledDelays.size)
+        assertEquals(1_000L, scheduledDelays.single())
+    }
+
+    @Test
+    fun `next local midnight delay follows daylight saving transitions`() {
+        val zone = ZoneId.of("America/New_York")
+
+        assertEquals(
+            23L * 60 * 60 * 1000,
+            millisUntilNextLocalMidnight(Instant.parse("2026-03-08T05:00:00Z"), zone),
+        )
+        assertEquals(
+            25L * 60 * 60 * 1000,
+            millisUntilNextLocalMidnight(Instant.parse("2026-11-01T04:00:00Z"), zone),
+        )
+    }
+
+    @Test
     fun `load failure enters error and retry creates one fresh content collector`() = runTest(dispatcher) {
         var shouldFail = true
         val vm = buildViewModel(shouldFailExpedition = { shouldFail })
@@ -163,10 +383,13 @@ class PlayroomHomeViewModelTest {
         val vm = buildViewModel()
         advanceUntilIdle()
         vm.onSubjectSelected("mathematics")
+        advanceUntilIdle()
         assertEquals("mathematics", content(vm).openingSubjectId)
         vm.onSubjectSelected("english")
+        advanceUntilIdle()
         assertEquals("mathematics", content(vm).openingSubjectId)
         vm.onOpenFinished()
+        advanceUntilIdle()
         assertNull(content(vm).openingSubjectId)
     }
 
@@ -175,6 +398,7 @@ class PlayroomHomeViewModelTest {
         val vm = buildViewModel()
         advanceUntilIdle()
         vm.onSubjectSelected("gmrc")
+        advanceUntilIdle()
         assertEquals("gmrc", content(vm).openingSubjectId)
     }
 
@@ -184,23 +408,37 @@ class PlayroomHomeViewModelTest {
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
         catalog: ModuleCatalog = emptyCatalog(),
+        videoCatalog: MediaCatalog = MediaCatalog(1, "", emptyList()),
+        passedVideoMediaIds: List<String> = emptyList(),
+        passedVideoMediaIdsFlow: Flow<List<String>> = flowOf(passedVideoMediaIds),
+        profileFlow: Flow<ChildProfileEntity?>? = null,
+        videoCatalogLoadFails: Boolean = false,
         starBalance: Int = 0,
         coinBalance: Int = 0,
+        streakTimestamps: List<Long> = emptyList(),
+        streakTimestampLoadFails: Boolean = false,
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
-        coEvery { profileDao.observeById("child_1") } returns flowOf(
-            childName?.let {
-                ChildProfileEntity(
-                    id = "child_1", parentId = "parent_1", name = it,
-                    avatarId = "cat_orange_default", grade = 3, curriculum = "ph-matatag",
-                    createdAt = 0L,
-                )
-            }
+        coEvery { profileDao.observeById("child_1") } returns (
+            profileFlow ?: flowOf(childName?.let(::profile))
         )
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
+        val progressEventDao = mockk<ProgressEventDao>()
+        if (streakTimestampLoadFails) {
+            every { progressEventDao.observeTimestampsByChild("child_1") } throws
+                IllegalStateException("streak timestamps unavailable")
+        } else {
+            every { progressEventDao.observeTimestampsByChild("child_1") } returns flowOf(streakTimestamps)
+        }
+        val mediaLibrary = mockk<MediaLibrary>()
+        if (videoCatalogLoadFails) {
+            coEvery { mediaLibrary.getCatalog() } throws IllegalStateException("media catalog unavailable")
+        } else {
+            coEvery { mediaLibrary.getCatalog() } returns videoCatalog
+        }
         val awarder = mockk<BadgeAwarder>()
         coEvery { awarder.getExpeditionProgress("child_1") } coAnswers {
             if (shouldFailExpedition()) throw IllegalStateException("expedition load failed")
@@ -221,6 +459,7 @@ class PlayroomHomeViewModelTest {
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
         val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
+        every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns passedVideoMediaIdsFlow
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
         val playgroundUnlockReceiptDao = mockk<PlaygroundUnlockReceiptDao>()
@@ -229,11 +468,15 @@ class PlayroomHomeViewModelTest {
         } returns flowOf(null)
         val godModeManager = mockk<GodModeManager>()
         every { godModeManager.isEnabled("child_1") } returns flowOf(godModeEnabled)
+        val localDateChangeSource = mockk<LocalDateChangeSource>()
+        every { localDateChangeSource.observe(any()) } returns flowOf(LocalDate.now())
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
+            mediaLibrary = mediaLibrary,
             childProfileDao = profileDao,
             lessonCompletionDao = completionDao,
+            progressEventDao = progressEventDao,
             badgeAwarder = awarder,
             rewardDao = rewardDao,
             inventoryDao = inventoryDao,
@@ -241,6 +484,7 @@ class PlayroomHomeViewModelTest {
             dailyQuestManager = dailyQuestManager,
             godModeManager = godModeManager,
             playgroundUnlockReceiptDao = playgroundUnlockReceiptDao,
+            localDateChangeSource = localDateChangeSource,
         )
     }
 
@@ -275,8 +519,52 @@ class PlayroomHomeViewModelTest {
         return catalog
     }
 
+    private fun mediaCatalogWithTotals(vararg subjectAndCount: Pair<String, Int>): MediaCatalog {
+        val assets = subjectAndCount.flatMap { (subject, count) ->
+            (1..count).map { index ->
+                MediaAsset(
+                    mediaId = "$subject-video-$index",
+                    title = "Video $index",
+                    file = "$subject/$index.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = subject,
+                    episodeNumber = index,
+                )
+            }
+        }
+        return MediaCatalog(catalogVersion = 1, generatedAt = "test", media = assets)
+    }
+
+    private fun profile(name: String) = ChildProfileEntity(
+        id = "child_1", parentId = "parent_1", name = name,
+        avatarId = "cat_orange_default", grade = 3, curriculum = "ph-matatag",
+        createdAt = 0L,
+    )
+
+    private fun timestampFor(date: LocalDate, zone: ZoneId): Long =
+        date.atStartOfDay(zone).toInstant().toEpochMilli()
+
     private fun badge(id: String, collected: Boolean) = com.maxinesworld.coremodel.CollectibleBadge(
         id = id, biome = "test", name = "Badge $id", title = "T", funFact = "F",
         isCollected = collected,
     )
+
+    private class MutableTestClock(
+        private var current: Instant,
+        private val zone: ZoneId,
+    ) : Clock() {
+        override fun getZone(): ZoneId = zone
+
+        override fun withZone(zone: ZoneId): Clock = MutableTestClock(current, zone)
+
+        override fun instant(): Instant = current
+
+        fun advanceByMillis(millis: Long) {
+            current = current.plusMillis(millis)
+        }
+    }
 }

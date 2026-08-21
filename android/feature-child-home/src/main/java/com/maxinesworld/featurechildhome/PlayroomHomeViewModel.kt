@@ -4,18 +4,27 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.currentLearningStreak
+import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
+import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.Clock
+import java.time.Duration
+import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import kotlinx.coroutines.CancellationException
@@ -25,8 +34,58 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+internal fun streakDaysFromTimestamps(
+    timestamps: Iterable<Long>,
+    zone: ZoneId,
+    today: LocalDate,
+): Int = currentLearningStreak(
+    localDates = localLearningDates(timestamps, zone),
+    today = today,
+)
+
+internal fun streakDaysForProfile(
+    profile: ChildProfileEntity?,
+    timestamps: Iterable<Long>,
+    zone: ZoneId,
+    today: LocalDate,
+): Int = profile?.let { streakDaysFromTimestamps(timestamps, zone, today) } ?: 0
+
+internal fun millisUntilNextLocalMidnight(now: Instant, zone: ZoneId): Long {
+    val today = now.atZone(zone).toLocalDate()
+    val nextMidnight = today.plusDays(1).atStartOfDay(zone).toInstant()
+    return Duration.between(now, nextMidnight).toMillis().coerceAtLeast(1L)
+}
+
+/** Emits the current local date, then wakes at each following local midnight. */
+internal fun localDateChanges(
+    zone: ZoneId,
+    clock: Clock = Clock.system(zone),
+    delayUntilNextMidnight: suspend (Long) -> Unit = { millis -> delay(millis) },
+): Flow<LocalDate> = flow {
+    var emittedDate: LocalDate? = null
+    while (currentCoroutineContext().isActive) {
+        val now = Instant.now(clock)
+        val today = now.atZone(zone).toLocalDate()
+        if (today != emittedDate) {
+            emit(today)
+            emittedDate = today
+        }
+        delayUntilNextMidnight(millisUntilNextLocalMidnight(now, zone))
+    }
+}
+
+class LocalDateChangeSource @Inject constructor() {
+    fun observe(zone: ZoneId): Flow<LocalDate> = localDateChanges(zone)
+}
 
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
@@ -41,8 +100,10 @@ private data class HomeDataTuple(
 class PlayroomHomeViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val catalog: ModuleCatalog,
+    private val mediaLibrary: MediaLibrary,
     private val childProfileDao: ChildProfileDao,
     private val lessonCompletionDao: LessonCompletionDao,
+    private val progressEventDao: ProgressEventDao,
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
@@ -50,6 +111,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val dailyQuestManager: DailyQuestManager,
     private val godModeManager: GodModeManager,
     private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
+    private val localDateChangeSource: LocalDateChangeSource,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -59,9 +121,82 @@ class PlayroomHomeViewModel @Inject constructor(
 
     private var openingSubjectId: String? = null
     private var stateJob: Job? = null
+    private var streakJob: Job? = null
+    private var videoProgressJob: Job? = null
+    private var finalContentJob: Job? = null
+    private val baseContent = MutableStateFlow<PlayroomHomeUiState.Content?>(null)
+    private val streakDays = MutableStateFlow(0)
+    private val videoAssets = MutableStateFlow<List<MediaAsset>?>(null)
+    private val passedVideoIds = MutableStateFlow<Set<String>>(emptySet())
 
     init {
         collectState()
+        collectStreak()
+        collectVideoProgress()
+        collectFinalContent()
+    }
+
+    private fun collectStreak() {
+        streakJob?.cancel()
+        streakDays.value = 0
+        streakJob = viewModelScope.launch {
+            try {
+                val zone = ZoneId.systemDefault()
+                combine(
+                    childProfileDao.observeById(childId),
+                    progressEventDao.observeTimestampsByChild(childId),
+                    localDateChangeSource.observe(zone),
+                ) { profile, timestamps, today ->
+                    streakDaysForProfile(profile, timestamps, zone, today)
+                }.collect { streak ->
+                    streakDays.value = streak
+                }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                // Streaks are informational; a database read failure must not
+                // replace a usable child home or fabricate a non-zero value.
+                streakDays.value = 0
+            }
+        }
+    }
+
+    private fun collectVideoProgress() {
+        videoProgressJob?.cancel()
+        videoAssets.value = null
+        videoProgressJob = viewModelScope.launch {
+            launch {
+                videoWatchLedgerDao.observePassedMediaIds(childId).collect { ids ->
+                    passedVideoIds.value = ids.toSet()
+                }
+            }
+            launch {
+                // Video progress is optional for the home screen. A missing LAN
+                // catalog must not turn a usable home into an error state, and
+                // legacy lesson completion must never be shown as video progress.
+                try {
+                    videoAssets.value = mediaLibrary.getCatalog().media
+                } catch (cancelled: CancellationException) {
+                    throw cancelled
+                } catch (_: Exception) {
+                    // Keep the home usable and explicitly show unavailable
+                    // progress instead of substituting legacy lesson counts.
+                }
+            }
+        }
+    }
+
+    private fun collectFinalContent() {
+        finalContentJob?.cancel()
+        finalContentJob = viewModelScope.launch {
+            combine(baseContent, videoAssets, passedVideoIds, streakDays) { content, assets, passed, streak ->
+                content?.let {
+                    withVideoProgress(it, assets, passed).copy(streakDays = streak)
+                }
+            }.collect { content ->
+                if (content != null) _state.value = content
+            }
+        }
     }
 
     private fun collectState() {
@@ -137,7 +272,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     } else {
                         keepsakes
                     }
-                    _state.value = buildContent(
+                    baseContent.value = buildContent(
                         data.profile?.name,
                         data.lessonIds,
                         dailyQuest,
@@ -149,11 +284,12 @@ class PlayroomHomeViewModel @Inject constructor(
                         sanctuary,
                         data.godModeEnabled,
                         data.playgroundUnlocked,
-                    )
+                    ).copy(openingSubjectId = openingSubjectId)
                 }
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (_: Exception) {
+                baseContent.value = null
                 _state.value = PlayroomHomeUiState.Error(
                     message = "We couldn't load your Playroom. Try again."
                 )
@@ -167,19 +303,22 @@ class PlayroomHomeViewModel @Inject constructor(
         val subject = current.subjects.firstOrNull { it.id == subjectId } ?: return false
         if (!subject.isAvailable) return false
         openingSubjectId = subjectId
-        _state.value = current.copy(openingSubjectId = subjectId)
+        baseContent.value = baseContent.value?.copy(openingSubjectId = subjectId)
         return true
     }
 
     fun onOpenFinished() {
         openingSubjectId = null
-        val current = _state.value as? PlayroomHomeUiState.Content ?: return
-        _state.value = current.copy(openingSubjectId = null)
+        baseContent.value = baseContent.value?.copy(openingSubjectId = null)
     }
 
     fun retry() {
+        openingSubjectId = null
+        baseContent.value = null
         _state.value = PlayroomHomeUiState.Loading
         collectState()
+        collectStreak()
+        collectVideoProgress()
     }
 
     private suspend fun buildContent(
@@ -207,6 +346,8 @@ class PlayroomHomeViewModel @Inject constructor(
             }
             val progress = if (total > 0) (done * 100 / total) else null
             subject.copy(
+                // Kept for compatibility with internal/legacy calculations only;
+                // the child-facing card renders video counts below.
                 progressPercent = if (progress == 0) null else progress,
                 availability = SubjectAvailability.Available,
                 lockReason = null,

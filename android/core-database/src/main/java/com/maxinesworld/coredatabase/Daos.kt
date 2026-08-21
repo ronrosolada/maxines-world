@@ -44,6 +44,10 @@ interface ProgressEventDao {
     @Query("SELECT * FROM progress_events WHERE childId = :childId ORDER BY timestamp DESC")
     fun observeByChild(childId: String): Flow<List<ProgressEventEntity>>
 
+    /** Timestamp-only read for date-based presentation signals such as streaks. */
+    @Query("SELECT timestamp FROM progress_events WHERE childId = :childId ORDER BY timestamp DESC")
+    fun observeTimestampsByChild(childId: String): Flow<List<Long>>
+
     @Query("SELECT * FROM progress_events WHERE childId = :childId AND skillId = :skillId ORDER BY timestamp DESC")
     suspend fun getByChildAndSkill(childId: String, skillId: String): List<ProgressEventEntity>
 

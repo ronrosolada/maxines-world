@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":core-design-system"))
     implementation(project(":core-content"))
     implementation(project(":core-database"))
+    implementation(project(":core-network"))
     implementation(project(":feature-rewards"))
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)

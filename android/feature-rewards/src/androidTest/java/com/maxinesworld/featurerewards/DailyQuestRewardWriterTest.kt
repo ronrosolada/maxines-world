@@ -34,6 +34,7 @@ class DailyQuestRewardWriterTest {
             dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
             rewardDao = database.rewardDao(),
             rewardBreakDao = database.rewardBreakDao(),
+            playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
         )
         runBlocking {
             database.dailyQuestSetDao().insertIgnoring(
