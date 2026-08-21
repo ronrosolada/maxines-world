@@ -165,7 +165,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onQuestAction = { action ->
                     when (action) {
-                        QuestAction.OpenLesson -> {
+                        QuestAction.OpenVideoQuest -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
                             val target = quest?.targets?.firstOrNull { !it.isCompleted }
                                 ?: quest?.targets?.firstOrNull()
@@ -175,6 +175,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                                 navController.navigate(Routes.videoLibrary(childId, subjectId))
                             }
                         }
+                        QuestAction.RetryMission -> homeViewModel.retry()
                         QuestAction.Continue -> {
                             val subject = (homeState as? PlayroomHomeUiState.Content)
                                 ?.quest?.recommendedSubjectId

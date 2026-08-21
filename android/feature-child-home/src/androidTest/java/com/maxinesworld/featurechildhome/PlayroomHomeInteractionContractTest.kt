@@ -155,12 +155,12 @@ class PlayroomHomeInteractionContractTest {
             "Quest target: English: Word Roots",
         ).assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson), actions)
+            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenVideoQuest), actions)
         }
 
         composeRule.onNodeWithText("Continue").assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson, QuestAction.Continue), actions)
+            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenVideoQuest, QuestAction.Continue), actions)
         }
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
     }

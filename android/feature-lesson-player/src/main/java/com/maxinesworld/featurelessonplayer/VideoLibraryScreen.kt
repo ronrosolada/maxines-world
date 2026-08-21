@@ -296,13 +296,6 @@ private fun VideoLibraryContent(
                             }
                         }
 
-                        // Today's Video Quest (cross-subject, 30-40 min)
-                        state.videoQuest?.let { quest ->
-                            item(key = "video-quest") {
-                                VideoQuestCard(quest = quest, onPlay = onPlay)
-                            }
-                        }
-
                         // Next / Up Next Section
                         if (state.upcomingItems.isNotEmpty()) {
                             item {
@@ -552,81 +545,6 @@ private fun MediaAssessmentQuizCard(
     }
 }
 
-@Composable
-private fun VideoQuestCard(quest: VideoQuestUi, onPlay: (String) -> Unit) {
-    val firstPending = quest.items.firstOrNull { !it.isPassed }
-    val complete = quest.isComplete
-    Card(
-        colors = CardDefaults.cardColors(containerColor = Ink.copy(alpha = 0.08f)),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 6.dp, bottom = 6.dp),
-    ) {
-        Column(Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    Icons.Filled.PlayCircle,
-                    contentDescription = null,
-                    tint = VillageTeal,
-                    modifier = Modifier.size(22.dp),
-                )
-                Spacer(Modifier.width(8.dp))
-                Text("Today's Video Quest", fontWeight = FontWeight.Bold, fontSize = 16.sp)
-            }
-            Spacer(Modifier.height(4.dp))
-            Text(
-                "${quest.subjectCount} ${if (quest.subjectCount > 1) "subjects" else "subject"} • " +
-                    "${quest.totalSeconds / 60} min total (30–40 min)",
-                color = Ink.copy(alpha = 0.6f),
-                fontSize = 12.sp,
-            )
-            Spacer(Modifier.height(8.dp))
-            quest.items.forEach { qi ->
-                Row(
-                    Modifier.fillMaxWidth().padding(vertical = 2.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Icon(
-                        if (qi.isPassed) Icons.Filled.CheckCircle else Icons.Filled.PlayCircle,
-                        contentDescription = null,
-                        tint = if (qi.isPassed) VillageTeal else Ink.copy(alpha = 0.5f),
-                        modifier = Modifier.size(16.dp),
-                    )
-                    Spacer(Modifier.width(6.dp))
-                    Text(
-                        "${qi.title} (${qi.durationSeconds / 60} min)",
-                        fontSize = 12.sp,
-                        color = Ink,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-            LinearProgressIndicator(
-                progress = {
-                    if (quest.items.isEmpty()) 0f else quest.completedCount.toFloat() / quest.items.size
-                },
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 6.dp),
-            )
-            Text(
-                if (complete) "Quest complete! +3 ⭐ bonus earned"
-                else "${quest.completedCount} of ${quest.items.size} done — watch & pass each to earn the reward",
-                fontSize = 12.sp,
-                color = if (complete) VillageTeal else Ink.copy(alpha = 0.6f),
-            )
-            if (firstPending != null) {
-                Spacer(Modifier.height(8.dp))
-                Button(
-                    onClick = { onPlay(firstPending.mediaId) },
-                    colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
-                ) {
-                    Text(if (quest.completedCount == 0) "Start Quest" else "Continue Quest")
-                }
-            }
-        }
-    }
-}
 
 @Composable
 private fun VideoLibraryItemCard(

@@ -141,6 +141,18 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `empty video mission is truthful and retryable when catalog is unavailable`() = runTest(dispatcher) {
+        val vm = buildViewModel(videoCatalogLoadFails = true)
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
+    }
+
+    @Test
     fun `video progress helper applies latest values without changing home content`() = runTest(dispatcher) {
         val vm = buildViewModel(
             videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
@@ -478,7 +490,11 @@ class PlayroomHomeViewModelTest {
         val dailyQuestManager = mockk<DailyQuestManager>()
         val inventoryDao = mockk<InventoryDao>()
         coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()
-        val assignedQuestIds = listOf("mathematics-video-1", "english-video-1", "science-video-1")
+        val assignedQuestIds = if (videoCatalogLoadFails) {
+            emptyList()
+        } else {
+            listOf("mathematics-video-1", "english-video-1", "science-video-1")
+        }
         val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
         coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")

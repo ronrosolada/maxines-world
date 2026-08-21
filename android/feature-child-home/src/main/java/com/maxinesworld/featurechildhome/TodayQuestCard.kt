@@ -113,6 +113,7 @@ internal fun TodayQuestCard(
             R.string.home_quest_task_incomplete,
             quest.pawPrintTotal,
         )
+        QuestTaskCopy.Unavailable -> stringResource(R.string.home_quest_unavailable)
     }
     val buttonText = when (quest.buttonLabel) {
         QuestButtonLabel.OpenPlayground -> stringResource(R.string.home_quest_open_playground)
@@ -122,6 +123,7 @@ internal fun TodayQuestCard(
         QuestButtonLabel.ContinueQuest -> stringResource(R.string.home_quest_continue)
         QuestButtonLabel.Start -> stringResource(R.string.home_start)
         QuestButtonLabel.Continue -> stringResource(R.string.home_continue)
+        QuestButtonLabel.Retry -> stringResource(R.string.home_retry)
     }
     MaxinesQuestCardSurface(
         modifier = modifier
@@ -219,6 +221,8 @@ internal fun TodayQuestCard(
                                 "Reward: five minute play break; Milo's home is complete"
                             } else if (quest.isComplete) {
                                 "Reward earned: sanctuary piece and five minute play break"
+                            } else if (quest.task == QuestTaskCopy.Unavailable) {
+                                "Video mission unavailable until the video catalog is ready"
                             } else {
                                 "Quest reward: one sanctuary piece and five minute play break"
                             }
@@ -252,6 +256,7 @@ internal fun TodayQuestCard(
                                 quest.godModeEnabled -> stringResource(R.string.home_quest_reward_parent)
                                 quest.sanctuaryComplete -> stringResource(R.string.home_quest_reward_sanctuary_complete)
                                 quest.isComplete -> stringResource(R.string.home_quest_reward_earned)
+                                quest.task == QuestTaskCopy.Unavailable -> stringResource(R.string.home_quest_reward_unavailable)
                                 else -> stringResource(
                                     R.string.home_quest_reward_pending,
                                     quest.pawPrintTotal,
@@ -285,7 +290,7 @@ internal fun TodayQuestCard(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
                                     .background(Color.White.copy(alpha = 0.72f))
-                                    .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenLesson) })
+                                    .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenVideoQuest) })
                                     .semantics { contentDescription = targetCd }
                                     .heightIn(min = 48.dp)
                                     .padding(horizontal = 10.dp, vertical = 8.dp),

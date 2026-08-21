@@ -383,12 +383,12 @@ class PlayroomHomeViewModel @Inject constructor(
             completed = passedMediaIds,
             assets = mediaAssets,
         )
-        val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
+        val questTotal = dailyQuest.totalCount
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
         val nextMediaId = targets.firstOrNull { !it.isCompleted }?.mediaId
             ?: targets.firstOrNull()?.mediaId
-        val noSubjectFallback = availableFirst == null || (dailyQuest.assignedMediaIds.isNotEmpty() && targets.isEmpty())
+        val missionUnavailable = dailyQuest.assignedMediaIds.isEmpty()
         val questUi = if (godModeEnabled) {
             QuestUi(
                 task = QuestTaskCopy.ParentMode,
@@ -418,6 +418,17 @@ class PlayroomHomeViewModel @Inject constructor(
                 sanctuaryComplete = sanctuaryComplete,
                 playgroundUnlocked = playgroundUnlocked,
             )
+        } else if (missionUnavailable) {
+            QuestUi(
+                task = QuestTaskCopy.Unavailable,
+                pawPrintsCompleted = 0,
+                pawPrintTotal = 0,
+                recommendedSubjectId = availableFirst?.id,
+                buttonLabel = QuestButtonLabel.Retry,
+                buttonAction = QuestAction.RetryMission,
+                targets = emptyList(),
+                sanctuaryComplete = sanctuaryComplete,
+            )
         } else {
             val hasQuestTarget = nextMediaId != null
             QuestUi(
@@ -426,15 +437,13 @@ class PlayroomHomeViewModel @Inject constructor(
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = when {
-                    noSubjectFallback -> QuestButtonLabel.ChooseSubject
                     hasQuestTarget && completedCount == 0 -> QuestButtonLabel.StartQuest
                     hasQuestTarget -> QuestButtonLabel.ContinueQuest
                     completedCount == 0 -> QuestButtonLabel.Start
                     else -> QuestButtonLabel.Continue
                 },
                 buttonAction = when {
-                    noSubjectFallback -> QuestAction.ChooseSubject
-                    hasQuestTarget -> QuestAction.OpenLesson
+                    hasQuestTarget -> QuestAction.OpenVideoQuest
                     else -> QuestAction.Continue
                 },
                 targets = targets,

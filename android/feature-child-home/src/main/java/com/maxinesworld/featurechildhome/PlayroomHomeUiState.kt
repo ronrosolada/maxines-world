@@ -85,6 +85,7 @@ enum class QuestTaskCopy {
     ParentMode,
     CompleteToday,
     IncompleteToday,
+    Unavailable,
 }
 
 enum class QuestButtonLabel {
@@ -95,6 +96,7 @@ enum class QuestButtonLabel {
     ContinueQuest,
     Start,
     Continue,
+    Retry,
 }
 
 @androidx.compose.runtime.Immutable
@@ -113,7 +115,7 @@ data class QuestUi(
     val playgroundUnlocked: Boolean = false,
 )
 
-enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson, OpenPlayground }
+enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenVideoQuest, RetryMission, OpenPlayground }
 
 @androidx.compose.runtime.Immutable
 data class StickerUi(

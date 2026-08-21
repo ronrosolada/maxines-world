@@ -48,19 +48,25 @@ class DailyQuestManagerTest {
     @Test
     fun releasedGradeThreeFrontierFiltersMixedCatalogAndCreditsPassedMedia() = runBlocking {
         val catalog = listOf(
-            asset("math-valid", "mathematics", 1, 900),
+            asset("math-valid-episode-1", "mathematics", 1, 900),
+            asset("math-valid-episode-2", "mathematics", 2, 900),
             asset("english-valid", "english", 1, 900),
-            asset("science-valid", "science", 1, 900),
+            asset("zero-duration", "science", 1, 0),
             asset("grade-four", "filipino", 1, 900, grade = 4),
-            asset("preview-video", "filipino", 1, 900, releaseStatus = "PREVIEW"),
+            asset("preview-video", "filipino", 2, 900, releaseStatus = "PREVIEW"),
             asset("blank-subject", "", 1, 900),
         )
         val manager = manager(catalog)
 
         val first = manager.ensureToday("child-1", "2026-08-04")
         assertEquals(2, first.totalCount)
-        assertTrue(first.assignedMediaIds.all { it in setOf("math-valid", "english-valid", "science-valid") })
-        assertFalse(first.assignedMediaIds.any { it in setOf("grade-four", "preview-video", "zero-duration", "blank-subject") })
+        assertEquals(
+            setOf("math-valid-episode-1", "english-valid"),
+            first.assignedMediaIds.toSet(),
+        )
+        assertFalse(first.assignedMediaIds.any {
+            it in setOf("math-valid-episode-2", "grade-four", "preview-video", "zero-duration", "blank-subject")
+        })
         assertNotNull(database.dailyQuestSetDao().getByChildAndDay("child-1", "2026-08-04"))
 
         val afterPass = manager.ensureToday(
@@ -75,6 +81,17 @@ class DailyQuestManagerTest {
             1,
             database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE),
         )
+
+        val nextDay = manager.ensureToday(
+            childId = "child-1",
+            dayKey = "2026-08-05",
+            passedMediaIds = setOf("math-valid-episode-1"),
+        )
+        assertTrue(
+            "the lowest unpassed episode must become the next frontier",
+            "math-valid-episode-2" in nextDay.assignedMediaIds,
+        )
+        assertFalse("math-valid-episode-1" in nextDay.assignedMediaIds)
     }
 
     @Test
@@ -88,6 +105,39 @@ class DailyQuestManagerTest {
         val persisted = database.dailyQuestSetDao().getByChildAndDay("child-1", "2026-08-05")
         assertNotNull(persisted)
         assertEquals("[]", persisted?.assignedQuestIds)
+    }
+
+    @Test
+    fun recoveredCatalogRetriesAnEmptyPersistedMissionWithoutLessonIds() = runBlocking {
+        val manager = managerWithRawCatalog("not valid json")
+        val dayKey = "2026-08-06"
+
+        val unavailable = manager.ensureToday("child-1", dayKey)
+        assertTrue(unavailable.assignedMediaIds.isEmpty())
+        assertEquals("[]", database.dailyQuestSetDao().getByChildAndDay("child-1", dayKey)?.assignedQuestIds)
+
+        MediaStorage(storageRoot).writeCatalog(
+            Json.encodeToString(
+                MediaCatalog(
+                    catalogVersion = 1,
+                    generatedAt = "recovered",
+                    media = listOf(
+                        asset("recovered-math", "mathematics", 1, 900),
+                        asset("recovered-english", "english", 1, 900),
+                    ),
+                ),
+            ),
+        )
+
+        val recovered = manager.ensureToday("child-1", dayKey)
+        assertEquals(2, recovered.totalCount)
+        assertTrue(recovered.assignedMediaIds.all { it.startsWith("recovered-") })
+        assertFalse(recovered.assignedMediaIds.any { it.contains("lesson") })
+        assertTrue(
+            database.dailyQuestSetDao()
+                .getByChildAndDay("child-1", dayKey)
+                ?.assignedQuestIds != "[]",
+        )
     }
 
     private fun manager(catalog: List<MediaAsset>): DailyQuestManager =

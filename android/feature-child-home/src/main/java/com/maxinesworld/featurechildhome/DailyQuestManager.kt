@@ -39,8 +39,21 @@ class DailyQuestManager @Inject constructor(
         passedMediaIds: Set<String> = emptySet(),
         availableMediaOverride: List<String>? = null,
     ): DailyQuestProgress {
-        val set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
+        var set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, passedMediaIds, availableMediaOverride)
+        if (parseIds(set.assignedQuestIds).isEmpty()) {
+            // An unavailable catalog must remain truthful, but an empty mission
+            // is retryable when the catalog recovers later the same day.
+            val retry = createSelection(childId, dayKey, passedMediaIds, availableMediaOverride)
+            if (retry.isNotEmpty()) {
+                dailyQuestSetDao.updateAssignedQuestIds(
+                    childId = childId,
+                    dayKey = dayKey,
+                    assignedQuestIds = json.encodeToString(retry),
+                )
+                set = checkNotNull(dailyQuestSetDao.getByChildAndDay(childId, dayKey))
+            }
+        }
         val assigned = parseIds(set.assignedQuestIds)
         creditPassedMediaIds(childId, dayKey, assigned, passedMediaIds)
         // The reward writer remains the only daily-mission reward minter. It
@@ -58,6 +71,27 @@ class DailyQuestManager @Inject constructor(
         passedMediaIds: Set<String>,
         availableMediaOverride: List<String>?,
     ): DailyQuestSetEntity {
+        val selected = createSelection(childId, dayKey, passedMediaIds, availableMediaOverride)
+
+        dailyQuestSetDao.insertIgnoring(
+            DailyQuestSetEntity(
+                id = "$childId:$dayKey",
+                childId = childId,
+                dayKey = dayKey,
+                assignedQuestIds = json.encodeToString(selected),
+            )
+        )
+        // insertIgnoring handles a concurrent creator; always read the durable
+        // row rather than returning an in-memory candidate set.
+        return checkNotNull(dailyQuestSetDao.getByChildAndDay(childId, dayKey))
+    }
+
+    private suspend fun createSelection(
+        childId: String,
+        dayKey: String,
+        passedMediaIds: Set<String>,
+        availableMediaOverride: List<String>?,
+    ): List<String> {
         val catalogMedia = runCatching { mediaLibrary.getCatalog().media }
             .getOrElse { emptyList() }
         val eligibleMedia = catalogMedia
@@ -87,18 +121,7 @@ class DailyQuestManager @Inject constructor(
                     }
             }
         val selected = VideoQuestPlanner.select(childId, dayKey, frontier)
-
-        dailyQuestSetDao.insertIgnoring(
-            DailyQuestSetEntity(
-                id = "$childId:$dayKey",
-                childId = childId,
-                dayKey = dayKey,
-                assignedQuestIds = json.encodeToString(selected),
-            )
-        )
-        // insertIgnoring handles a concurrent creator; always read the durable
-        // row rather than returning an in-memory candidate set.
-        return checkNotNull(dailyQuestSetDao.getByChildAndDay(childId, dayKey))
+        return selected
     }
 
     private suspend fun creditPassedMediaIds(

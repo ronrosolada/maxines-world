@@ -252,6 +252,9 @@ interface DailyQuestSetDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(entry: DailyQuestSetEntity): Long
 
+    @Query("UPDATE daily_quest_sets SET assignedQuestIds = :assignedQuestIds WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun updateAssignedQuestIds(childId: String, dayKey: String, assignedQuestIds: String): Int
+
     @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
     suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
 
