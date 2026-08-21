@@ -146,7 +146,7 @@ private fun maxColumns(widthClass: HomeWidthClass, maxWidth: Dp): Int {
     val fontScale = LocalDensity.current.fontScale
     return when {
         fontScale >= 1.8f -> 1
-        fontScale >= 1.3f -> 2
+        fontScale >= 1.3f -> if (widthClass == HomeWidthClass.Compact) 1 else 2
         else -> when (widthClass) {
             HomeWidthClass.Wide -> 3
             HomeWidthClass.Medium -> 2

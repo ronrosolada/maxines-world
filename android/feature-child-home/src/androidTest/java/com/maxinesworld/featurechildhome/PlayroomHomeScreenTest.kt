@@ -233,6 +233,42 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun compactLargeFontUsesFullWidthSubjectCardAndDisplaysBothSubjectLabels() {
+        composeRule.setContent {
+            CompositionLocalProvider(
+                LocalDensity provides Density(density = 1f, fontScale = 1.3f),
+            ) {
+                Box(Modifier.requiredSize(width = 360.dp, height = 720.dp)) {
+                    PlayroomHomeScreen(
+                        state = stateFor(),
+                        onSubjectClick = {},
+                        onQuestAction = {},
+                        onHomeClick = {},
+                        onCollectionClick = {},
+                        onParentsClick = {},
+                    )
+                }
+            }
+        }
+
+        composeRule.onNodeWithText("Mathematics", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Number Fun", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+
+        val gridBounds = composeRule.onNodeWithTag(PlayroomHomeTestTags.SubjectGrid)
+            .fetchSemanticsNode()
+            .boundsInRoot
+        val cardBounds = composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("mathematics"))
+            .fetchSemanticsNode()
+            .boundsInRoot
+        assertEquals(gridBounds.left, cardBounds.left, 0.5f)
+        assertEquals(gridBounds.right, cardBounds.right, 0.5f)
+    }
+
+    @Test
     fun todaysQuestCopyRenders() {
         setHome(stateFor(2))
         scrollTo("Today’s mission")
