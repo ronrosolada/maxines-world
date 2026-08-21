@@ -22,6 +22,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -68,6 +69,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
@@ -75,6 +77,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.onClick
 
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.selected
@@ -125,7 +128,27 @@ internal fun TodayQuestCard(
         QuestButtonLabel.Continue -> stringResource(R.string.home_continue)
     }
     MaxinesQuestCardSurface(
-        modifier = modifier.fillMaxWidth().testTag(PlayroomHomeTestTags.TodayQuest),
+        modifier = modifier
+            .fillMaxWidth()
+            .testTag(PlayroomHomeTestTags.TodayQuest)
+            // Keep the card and its visible button on the same quest action.
+            // The card is the generous child-sized target; the button remains
+            // visible so the intended next step is still obvious.
+            // Use a separate gesture + semantics action rather than
+            // clickable(), whose default descendant merging hides the stable
+            // child test/accessibility anchors inside this expanded card.
+            .pointerInput(quest.buttonAction) {
+                detectTapGestures(onTap = { onQuestAction(quest.buttonAction) })
+            }
+            .semantics {
+                contentDescription = "Today's mission. ${quest.pawPrintsCompleted} of ${quest.pawPrintTotal} complete"
+                stateDescription = "${quest.pawPrintsCompleted} of ${quest.pawPrintTotal} complete"
+                role = Role.Button
+                onClick(label = "Open today's mission") {
+                    onQuestAction(quest.buttonAction)
+                    true
+                }
+            },
     ) {
         Column(Modifier.fillMaxWidth()) {
             MaxinesQuestCardHeader(

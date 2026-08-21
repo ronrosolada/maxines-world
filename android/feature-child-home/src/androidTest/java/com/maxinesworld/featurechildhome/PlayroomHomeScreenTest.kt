@@ -16,6 +16,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.runtime.mutableStateOf
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -26,16 +27,30 @@ class PlayroomHomeScreenTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private fun stateFor(completed: Int = 0): PlayroomHomeUiState.Content =
+    private fun stateFor(
+        completed: Int = 0,
+        task: QuestTaskCopy = QuestTaskCopy.IncompleteToday,
+        isComplete: Boolean = false,
+        buttonLabel: QuestButtonLabel = QuestButtonLabel.Continue,
+        buttonAction: QuestAction = QuestAction.Continue,
+        godModeEnabled: Boolean = false,
+        playgroundUnlocked: Boolean = false,
+        targets: List<QuestTargetUi> = emptyList(),
+    ): PlayroomHomeUiState.Content =
         PlayroomHomeUiState.Content(
             childName = "Maxine",
             subjects = canonicalSubjects,
             quest = QuestUi(
-                task = QuestTaskCopy.IncompleteToday,
+                task = task,
                 pawPrintsCompleted = completed,
                 pawPrintTotal = 3,
+                isComplete = isComplete,
                 recommendedSubjectId = canonicalSubjects.first().id,
-                buttonLabel = QuestButtonLabel.Continue,
+                buttonLabel = buttonLabel,
+                buttonAction = buttonAction,
+                godModeEnabled = godModeEnabled,
+                playgroundUnlocked = playgroundUnlocked,
+                targets = targets,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
             sanctuary = SanctuaryUi(
@@ -53,12 +68,13 @@ class PlayroomHomeScreenTest {
         onSubjectClick: (String) -> Unit = {},
         onCollectionClick: () -> Unit = {},
         onTreatShopClick: () -> Unit = {},
+        onQuestAction: (QuestAction) -> Unit = {},
     ) {
         composeRule.setContent {
             PlayroomHomeScreen(
                 state = state,
                 onSubjectClick = onSubjectClick,
-                onQuestAction = {},
+                onQuestAction = onQuestAction,
                 onHomeClick = {},
                 onCollectionClick = onCollectionClick,
                 onTreatShopClick = onTreatShopClick,
@@ -107,9 +123,12 @@ class PlayroomHomeScreenTest {
     @Test
     fun todaysQuestCopyRenders() {
         setHome(stateFor(2))
-        scrollTo("Today’s Quest")
-        composeRule.onNodeWithText("Today’s Quest").assertIsDisplayed()
+        scrollTo("Today’s mission")
+        composeRule.onNodeWithText("Today’s mission").assertIsDisplayed()
         composeRule.onNodeWithText("Complete 3 learning adventures today.").assertIsDisplayed()
+        composeRule.onNodeWithText("2 of 3").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("Today's mission. 2 of 3 complete", useUnmergedTree = true)
+            .assertHasClickAction()
         composeRule.onNodeWithText("Wildlife Stickers").assertExists()
         composeRule.onNodeWithText("Continue").assertIsDisplayed()
     }
@@ -117,7 +136,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun dailyQuestShowsItsRewardBeforeCompletionAndSanctuaryProgress() {
         setHome(stateFor())
-        composeRule.onNodeWithText("Reward at 3/3: a sanctuary piece + 5-minute play break").assertExists()
+        composeRule.onNodeWithText("Reward after all 3 adventures: a sanctuary piece + 5-minute play break").assertExists()
         composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and five minute play break").assertExists()
         composeRule.onNodeWithText("Milo’s Wildlife Sanctuary").assertExists()
         composeRule.onNodeWithText("0 / 12 places added").assertExists()
@@ -154,7 +173,7 @@ class PlayroomHomeScreenTest {
         )
         composeRule.onNodeWithText("12 / 12 places added").assertExists()
         composeRule.onNodeWithText("Milo’s home is complete! You built every place.").assertExists()
-        composeRule.onAllNodesWithText("Finish all 3 lessons in Today’s Quest to add this place.").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Finish all 3 lessons in Today’s mission to add this place.").assertCountEquals(0)
     }
 
     @Test
@@ -200,8 +219,18 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
-    fun stableHomeInteractionTagsArePresent() {
-        setHome(stateFor())
+    fun questPresentationCoversCompletePlaygroundParentAndNoTargetStates() {
+        val state = mutableStateOf<PlayroomHomeUiState>(stateFor())
+        composeRule.setContent {
+            PlayroomHomeScreen(
+                state = state.value,
+                onSubjectClick = {},
+                onQuestAction = {},
+                onHomeClick = {},
+                onCollectionClick = {},
+                onParentsClick = {},
+            )
+        }
         composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest).assertExists()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertExists()
         canonicalSubjects.forEach { subject ->
@@ -210,6 +239,53 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Collection).assertHasClickAction()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Parents).assertHasClickAction()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.SelectedNavigation).assertIsSelected()
+
+        // No-target state: the card remains actionable without inventing a
+        // target row; the visible action is still the quest state-machine
+        // action supplied by the caller.
+        composeRule.onNodeWithContentDescription("Today's mission. 0 of 3 complete", useUnmergedTree = true)
+            .assertHasClickAction()
+
+        composeRule.runOnIdle {
+            state.value = stateFor(
+                completed = 3,
+                task = QuestTaskCopy.CompleteToday,
+                isComplete = true,
+                buttonLabel = QuestButtonLabel.OpenSanctuary,
+                buttonAction = QuestAction.ViewReward,
+            )
+        }
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText("Today’s mission is complete — Milo’s sanctuary is growing!").assertExists()
+        composeRule.onNodeWithText("Open Sanctuary").assertExists()
+        composeRule.onNodeWithText("3 of 3").assertExists()
+
+        composeRule.runOnIdle {
+            state.value = stateFor(
+                completed = 3,
+                task = QuestTaskCopy.CompleteToday,
+                isComplete = true,
+                buttonLabel = QuestButtonLabel.OpenPlayground,
+                buttonAction = QuestAction.OpenPlayground,
+                playgroundUnlocked = true,
+            )
+        }
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText("Open Playground").assertExists()
+        composeRule.onNodeWithContentDescription("Today's mission. 3 of 3 complete", useUnmergedTree = true)
+            .assertHasClickAction()
+
+        composeRule.runOnIdle {
+            state.value = stateFor(
+                task = QuestTaskCopy.ParentMode,
+                buttonLabel = QuestButtonLabel.OpenPlayground,
+                buttonAction = QuestAction.OpenPlayground,
+                godModeEnabled = true,
+            )
+        }
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText("Parent mode: the Playground and all rewards are unlocked!").assertExists()
+        composeRule.onNodeWithText("Open Playground").assertExists()
     }
 
     @Test

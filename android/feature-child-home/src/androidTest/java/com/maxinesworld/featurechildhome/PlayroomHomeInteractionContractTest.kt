@@ -12,9 +12,6 @@ import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsSelected
-import androidx.compose.ui.test.hasAnyAncestor
-import androidx.compose.ui.test.hasClickAction
-import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
@@ -87,6 +84,7 @@ class PlayroomHomeInteractionContractTest {
         fontScale: Float = 1f,
         onCollectionClick: () -> Unit = {},
         onParentsClick: () -> Unit = {},
+        onQuestAction: (QuestAction) -> Unit = {},
     ) {
         composeRule.setContent {
             CompositionLocalProvider(
@@ -96,7 +94,7 @@ class PlayroomHomeInteractionContractTest {
                     PlayroomHomeScreen(
                         state = stateForContract(),
                         onSubjectClick = {},
-                        onQuestAction = {},
+                        onQuestAction = onQuestAction,
                         onHomeClick = {},
                         onCollectionClick = onCollectionClick,
                         onParentsClick = onParentsClick,
@@ -108,17 +106,17 @@ class PlayroomHomeInteractionContractTest {
 
     @Test
     fun todayQuestExposesExactlyOnePrimaryAction() {
-        setHome()
+        var action: QuestAction? = null
+        setHome(onQuestAction = { action = it })
 
         val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
         todayQuest.assertExists()
 
-        // TodayQuest is the tagged card surface. Its production modifier does
-        // not merge descendants or make the surface itself clickable; the
-        // single primary target is the descendant button rendered by the card.
-        composeRule.onAllNodes(
-            hasAnyAncestor(hasTestTag(PlayroomHomeTestTags.TodayQuest)) and hasClickAction(),
-        ).assertCountEquals(1)
+        // The whole tagged card is the generous primary target. The visible
+        // button remains as a discoverable affordance for the same action.
+        todayQuest.assertHasClickAction()
+        todayQuest.performClick()
+        composeRule.runOnIdle { assertEquals(QuestAction.Continue, action) }
         composeRule.onNodeWithText("Continue").assertHasClickAction()
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
     }
