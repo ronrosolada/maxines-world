@@ -43,7 +43,6 @@ fun MiloCelebration(
     modifier: Modifier = Modifier,
 ) {
     val reduceMotion = LocalAnimationsDisabled.current
-    val density = LocalDensity.current
 
     // ── Bouncy entry ──
     val entryScale by animateFloatAsState(
@@ -138,12 +137,14 @@ private fun Modifier.graphicsLayerCompat(
     rotationZ: Float,
     overallScale: Float,
     overallAlpha: Float,
-): Modifier = this.alpha(overallAlpha).graphicsLayer {
-    scaleX = overallScale
-    scaleY = overallScale * scaleY
-    rotationZ = rotationZ
-    transformOrigin = TransformOrigin(0.5f, 0.92f)
-}
+): Modifier = this
+    .alpha(overallAlpha)
+    .graphicsLayer {
+        this.scaleX = overallScale
+        this.scaleY = overallScale * scaleY
+        this.rotationZ = rotationZ
+        this.transformOrigin = TransformOrigin(0.5f, 0.92f)
+    }
 
 private fun drawMiloCelebrate(scope: DrawScope, sx: Float, sy: Float, isMilestone: Boolean, accent: Color) {
     with(scope) {
