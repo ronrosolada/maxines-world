@@ -8,6 +8,7 @@ import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredatabase.ChildProfileDao
+import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
@@ -21,6 +22,9 @@ import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.time.Clock
+import java.time.Duration
+import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import kotlinx.coroutines.CancellationException
@@ -31,6 +35,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -42,6 +51,41 @@ internal fun streakDaysFromTimestamps(
     localDates = localLearningDates(timestamps, zone),
     today = today,
 )
+
+internal fun streakDaysForProfile(
+    profile: ChildProfileEntity?,
+    timestamps: Iterable<Long>,
+    zone: ZoneId,
+    today: LocalDate,
+): Int = profile?.let { streakDaysFromTimestamps(timestamps, zone, today) } ?: 0
+
+internal fun millisUntilNextLocalMidnight(now: Instant, zone: ZoneId): Long {
+    val today = now.atZone(zone).toLocalDate()
+    val nextMidnight = today.plusDays(1).atStartOfDay(zone).toInstant()
+    return Duration.between(now, nextMidnight).toMillis().coerceAtLeast(1L)
+}
+
+/** Emits the current local date, then wakes at each following local midnight. */
+internal fun localDateChanges(
+    zone: ZoneId,
+    clock: Clock = Clock.system(zone),
+    delayUntilNextMidnight: suspend (Long) -> Unit = { millis -> delay(millis) },
+): Flow<LocalDate> = flow {
+    var emittedDate: LocalDate? = null
+    while (currentCoroutineContext().isActive) {
+        val now = Instant.now(clock)
+        val today = now.atZone(zone).toLocalDate()
+        if (today != emittedDate) {
+            emit(today)
+            emittedDate = today
+        }
+        delayUntilNextMidnight(millisUntilNextLocalMidnight(now, zone))
+    }
+}
+
+class LocalDateChangeSource @Inject constructor() {
+    fun observe(zone: ZoneId): Flow<LocalDate> = localDateChanges(zone)
+}
 
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
@@ -67,6 +111,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val dailyQuestManager: DailyQuestManager,
     private val godModeManager: GodModeManager,
     private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
+    private val localDateChangeSource: LocalDateChangeSource,
 ) : ViewModel() {
 
     private val childId: String = checkNotNull(savedStateHandle["childId"])
@@ -96,13 +141,15 @@ class PlayroomHomeViewModel @Inject constructor(
         streakDays.value = 0
         streakJob = viewModelScope.launch {
             try {
-                progressEventDao.observeTimestampsByChild(childId).collect { timestamps ->
-                    val zone = ZoneId.systemDefault()
-                    streakDays.value = streakDaysFromTimestamps(
-                        timestamps = timestamps,
-                        zone = zone,
-                        today = LocalDate.now(zone),
-                    )
+                val zone = ZoneId.systemDefault()
+                combine(
+                    childProfileDao.observeById(childId),
+                    progressEventDao.observeTimestampsByChild(childId),
+                    localDateChangeSource.observe(zone),
+                ) { profile, timestamps, today ->
+                    streakDaysForProfile(profile, timestamps, zone, today)
+                }.collect { streak ->
+                    streakDays.value = streak
                 }
             } catch (cancelled: CancellationException) {
                 throw cancelled

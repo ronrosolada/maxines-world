@@ -20,6 +20,8 @@ import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.*
+import java.time.Clock
+import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.concurrent.atomic.AtomicInteger
@@ -29,6 +31,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
@@ -290,6 +294,18 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `missing child profile hides today's progress from the streak`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val vm = buildViewModel(
+            childName = null,
+            streakTimestamps = listOf(timestampFor(LocalDate.now(zone), zone)),
+        )
+        advanceUntilIdle()
+
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
     fun `streak adapter uses the shared live streak definition deterministically`() {
         val zone = ZoneId.of("Asia/Manila")
         val today = LocalDate.of(2026, 8, 5)
@@ -301,6 +317,50 @@ class PlayroomHomeViewModelTest {
                 zone = zone,
                 today = today,
             ),
+        )
+    }
+
+    @Test
+    fun `same timestamps become stale when evaluated on the next local date`() {
+        val zone = ZoneId.of("Asia/Manila")
+        val today = LocalDate.of(2026, 8, 5)
+        val timestamps = listOf(timestampFor(today.minusDays(1), zone))
+
+        assertEquals(1, streakDaysFromTimestamps(timestamps, zone, today))
+        assertEquals(0, streakDaysFromTimestamps(timestamps, zone, today.plusDays(1)))
+    }
+
+    @Test
+    fun `local date trigger advances at scheduled local midnights without sleeping`() = runTest {
+        val zone = ZoneId.of("Asia/Manila")
+        val clock = MutableTestClock(Instant.parse("2026-08-05T15:59:59Z"), zone)
+        val scheduledDelays = mutableListOf<Long>()
+
+        val dates = localDateChanges(
+            zone = zone,
+            clock = clock,
+            delayUntilNextMidnight = { delayMillis ->
+                scheduledDelays += delayMillis
+                clock.advanceByMillis(delayMillis)
+            },
+        ).take(2).toList()
+
+        assertEquals(listOf(LocalDate.of(2026, 8, 5), LocalDate.of(2026, 8, 6)), dates)
+        assertEquals(1, scheduledDelays.size)
+        assertEquals(1_000L, scheduledDelays.single())
+    }
+
+    @Test
+    fun `next local midnight delay follows daylight saving transitions`() {
+        val zone = ZoneId.of("America/New_York")
+
+        assertEquals(
+            23L * 60 * 60 * 1000,
+            millisUntilNextLocalMidnight(Instant.parse("2026-03-08T05:00:00Z"), zone),
+        )
+        assertEquals(
+            25L * 60 * 60 * 1000,
+            millisUntilNextLocalMidnight(Instant.parse("2026-11-01T04:00:00Z"), zone),
         )
     }
 
@@ -408,6 +468,8 @@ class PlayroomHomeViewModelTest {
         } returns flowOf(null)
         val godModeManager = mockk<GodModeManager>()
         every { godModeManager.isEnabled("child_1") } returns flowOf(godModeEnabled)
+        val localDateChangeSource = mockk<LocalDateChangeSource>()
+        every { localDateChangeSource.observe(any()) } returns flowOf(LocalDate.now())
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
@@ -422,6 +484,7 @@ class PlayroomHomeViewModelTest {
             dailyQuestManager = dailyQuestManager,
             godModeManager = godModeManager,
             playgroundUnlockReceiptDao = playgroundUnlockReceiptDao,
+            localDateChangeSource = localDateChangeSource,
         )
     }
 
@@ -489,4 +552,19 @@ class PlayroomHomeViewModelTest {
         id = id, biome = "test", name = "Badge $id", title = "T", funFact = "F",
         isCollected = collected,
     )
+
+    private class MutableTestClock(
+        private var current: Instant,
+        private val zone: ZoneId,
+    ) : Clock() {
+        override fun getZone(): ZoneId = zone
+
+        override fun withZone(zone: ZoneId): Clock = MutableTestClock(current, zone)
+
+        override fun instant(): Instant = current
+
+        fun advanceByMillis(millis: Long) {
+            current = current.plusMillis(millis)
+        }
+    }
 }
