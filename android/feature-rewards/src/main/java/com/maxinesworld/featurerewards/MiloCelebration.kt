@@ -11,7 +11,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import com.maxinesworld.coredesignsystem.theme.*
@@ -136,16 +138,12 @@ private fun Modifier.graphicsLayerCompat(
     rotationZ: Float,
     overallScale: Float,
     overallAlpha: Float,
-): Modifier = this.then(
-    androidx.compose.ui.draw.alpha(overallAlpha)
-).then(
-    androidx.compose.ui.graphics.graphicsLayer {
-        scaleX = overallScale
-        scaleY = overallScale * scaleY
-        rotationZ = rotationZ
-        transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 0.92f)
-    }
-)
+): Modifier = this.alpha(overallAlpha).graphicsLayer {
+    scaleX = overallScale
+    scaleY = overallScale * scaleY
+    rotationZ = rotationZ
+    transformOrigin = TransformOrigin(0.5f, 0.92f)
+}
 
 private fun drawMiloCelebrate(scope: DrawScope, sx: Float, sy: Float, isMilestone: Boolean, accent: Color) {
     with(scope) {
