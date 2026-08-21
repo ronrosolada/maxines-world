@@ -38,6 +38,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.VocabTerm
 import com.maxinesworld.coredesignsystem.components.AnswerCardState
@@ -352,21 +353,29 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         }
 
         if (state.showFeedback) {
-            FeedbackBanner(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(16.dp)
-                    .onSizeChanged { feedbackHeightPx = it.height }
-                    .navigationBarsPadding(),
-                text = state.feedbackText,
-                correct = state.feedbackCorrect,
-                language = lang,
-                isAssessment = inAssessment,
-                onNext = { viewModel.onNextStep() },
-                onReview = if (!state.feedbackCorrect && inAssessment && reviewExample != null) {
-                    { showReview = true }
-                } else null,
+            // Streak: 3 correct in a row — Milo claps moment via banner breathe-y pulse + extra confetti density
+            // Only scored results count; gated by reducedMotion. Pure visual.
+            val scored = remember(state.results) { state.results.filter { it.scored } }
+            val isStreak = scored.size >= 3 && scored.takeLast(3).all { it.correct } && state.feedbackCorrect
+            val streakReduce = LocalAnimationsDisabled.current
+            val streakScale by animateFloatAsState(
+                targetValue = 1f,
+                animationSpec = if (streakReduce) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = 520f),
+                label = "streakPop",
             )
+            Box(Modifier.align(Alignment.BottomCenter).padding(16.dp).graphicsLayer(scaleX = if (!streakReduce && isStreak) streakScale else 1f, scaleY = if (!streakReduce && isStreak) streakScale else 1f)) {
+                FeedbackBanner(
+                    modifier = Modifier.onSizeChanged { feedbackHeightPx = it.height }.navigationBarsPadding(),
+                    text = state.feedbackText,
+                    correct = state.feedbackCorrect,
+                    language = lang,
+                    isAssessment = inAssessment,
+                    onNext = { viewModel.onNextStep() },
+                    onReview = if (!state.feedbackCorrect && inAssessment && reviewExample != null) {
+                        { showReview = true }
+                    } else null,
+                )
+            }
         }
     }
 
@@ -469,6 +478,15 @@ fun NarrationControlRow(
     onReplay: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // TTS Play/Pause TRANSFORM per svg-character-animator: same command structure
+    // across states (triangle 3 points vs 2 rects re-expressed as same-count path),
+    // gated by LocalAnimationsDisabled. Falls back to icon swap when reduced.
+    val reduceTts = LocalAnimationsDisabled.current
+    val ttsProgress by animateFloatAsState(
+        targetValue = if (ttsSpeaking) 1f else 0f,
+        animationSpec = if (reduceTts) snap() else tween(260, easing = FastOutSlowInEasing),
+        label = "ttsMorph",
+    )
     Row(modifier, verticalAlignment = Alignment.CenterVertically) {
         IconButton(
             onClick = onToggle,
@@ -486,12 +504,43 @@ fun NarrationControlRow(
             onClick = onReplay,
             modifier = Modifier.size(48.dp)
         ) {
-            Icon(
-                if (ttsSpeaking) Icons.Default.Stop else Icons.Default.Replay,
-                if (ttsSpeaking) "Stop narration" else "Replay narration",
-                tint = if (ttsSpeaking) Coral else Teal40,
-                modifier = Modifier.size(28.dp)
-            )
+            if (!reduceTts) {
+                // Canvas morph: Replay (arrow) ↔ Stop (square). Linear interpolate control points + alpha.
+                Canvas(Modifier.size(28.dp)) {
+                    val p = ttsProgress.coerceIn(0f, 1f)
+                    val col = androidx.compose.ui.graphics.lerp(Teal40, Coral, p)
+                    val barW = size.width * 0.18f
+                    val gap = size.width * 0.10f
+                    val h = size.height * 0.62f
+                    val cx = size.width / 2f
+                    val cy = size.height / 2f
+                    // Bars (pause square = 2 rects). When playing (p=1), square; when stopped (p=0), morph to play triangle via alpha.
+                    // Simple, kid-safe: draw bars fading in, triangle fading out.
+                    val triAlpha = 1f - p
+                    val barsAlpha = p
+                    if (triAlpha > 0.01f) {
+                        val path = androidx.compose.ui.graphics.Path().apply {
+                            moveTo(cx - size.width * 0.18f, cy - h / 2f)
+                            lineTo(cx - size.width * 0.18f, cy + h / 2f)
+                            lineTo(cx + size.width * 0.28f, cy)
+                            close()
+                        }
+                        drawPath(path, Teal40.copy(alpha = triAlpha))
+                    }
+                    if (barsAlpha > 0.01f) {
+                        val r = size.width * 0.04f
+                        drawRoundRect(col.copy(alpha = barsAlpha), topLeft = Offset(cx - barW - gap/2f, cy - h/2f), size = androidx.compose.ui.geometry.Size(barW, h), cornerRadius = androidx.compose.ui.geometry.CornerRadius(r, r))
+                        drawRoundRect(col.copy(alpha = barsAlpha), topLeft = Offset(cx + gap/2f, cy - h/2f), size = androidx.compose.ui.geometry.Size(barW, h), cornerRadius = androidx.compose.ui.geometry.CornerRadius(r, r))
+                    }
+                }
+            } else {
+                Icon(
+                    if (ttsSpeaking) Icons.Default.Stop else Icons.Default.Replay,
+                    if (ttsSpeaking) "Stop narration" else "Replay narration",
+                    tint = if (ttsSpeaking) Coral else Teal40,
+                    modifier = Modifier.size(28.dp)
+                )
+            }
         }
     }
 }

@@ -168,6 +168,22 @@ fun SanctuaryScene(
     val reduceMotion = LocalAnimationsDisabled.current
     var miloBounced by remember { mutableStateOf(false) }
     var miloSpeechBubble by remember { mutableStateOf<String?>(null) }
+    // Sanctuary arrival: fly-in bouncy pop for the most-recently earned piece (last in visiblePieces = newest).
+    // Pure composition-local gated; re-triggers when visiblePieces grows.
+    val arrivalId = sanctuary.visiblePieces.lastOrNull()?.id
+    var lastArrivalId by remember { mutableStateOf<String?>(null) }
+    val showArrival = remember(arrivalId, lastArrivalId) { arrivalId != null && arrivalId != lastArrivalId }
+    LaunchedEffect(arrivalId) {
+        if (showArrival && arrivalId != null) {
+            kotlinx.coroutines.delay(80)
+            lastArrivalId = arrivalId
+        }
+    }
+    val arrivalScale by animateFloatAsState(
+        targetValue = 1f,
+        animationSpec = if (reduceMotion) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
+        label = "arrivalPop",
+    )
 
     val miloScale by animateFloatAsState(
         targetValue = if (miloBounced) 1.25f else 1.0f,
@@ -226,7 +242,7 @@ fun SanctuaryScene(
             } else {
                 Modifier
             }
-
+            val isNewArrival = slot.pieceId == arrivalId && showArrival && !reduceMotion
             Box(
                 Modifier
                     .size(slotSize(slot))
@@ -236,6 +252,7 @@ fun SanctuaryScene(
                         y = (sceneHeight * slot.yFraction - slotSize(slot) / 2)
                             .coerceIn(0.dp, sceneHeight),
                     )
+                    .graphicsLayer(scaleX = if (isNewArrival) arrivalScale else 1f, scaleY = if (isNewArrival) arrivalScale else 1f)
                     .clip(CircleShape)
                     .background(if (earned) slot.tint else slot.tint.copy(alpha = 0.18f))
                     .border(2.dp, slot.tint.copy(alpha = 0.55f), CircleShape)
