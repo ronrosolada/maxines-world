@@ -162,23 +162,24 @@ fun MaxinesAnswerCard(
         when (state) {
             AnswerCardState.CORRECT -> {
                 shakeAnim.snapTo(0f)
-                scaleAnim.snapTo(0.97f)
-                scaleAnim.animateTo(1.06f, spring(dampingRatio = 0.52f, stiffness = 720f))
+                scaleAnim.snapTo(0.98f)
+                scaleAnim.animateTo(1.025f, spring(dampingRatio = 0.58f, stiffness = 700f))
                 scaleAnim.animateTo(1f, spring(dampingRatio = 0.72f, stiffness = 700f))
             }
             AnswerCardState.INCORRECT -> {
                 scaleAnim.snapTo(1f)
                 shakeAnim.snapTo(0f)
+                // P2 soften: reduced from +/-6dp to +/-3dp so adjoining options don't appear to overlap at 1.3x fontScale
                 shakeAnim.animateTo(
                     0f,
                     keyframes {
-                        durationMillis = 420
+                        durationMillis = 380
                         0f at 0
-                        -6f at 70
-                        6f at 140
-                        -4f at 210
-                        4f at 280
-                        0f at 420
+                        -3f at 70
+                        3f at 140
+                        -2.5f at 210
+                        2.5f at 280
+                        0f at 380
                     }
                 )
             }
@@ -196,10 +197,14 @@ fun MaxinesAnswerCard(
         AnswerCardState.DISABLED -> SurfaceContainer.copy(alpha = 0.5f)
         AnswerCardState.IDLE -> SurfaceContainer
     }
+    val enabled = state != AnswerCardState.DISABLED
     Card(
+        enabled = enabled,
         onClick = {
-            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-            onClick()
+            if (enabled) {
+                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                onClick()
+            }
         },
         modifier = modifier
             .offset(x = shakeAnim.value.dp)

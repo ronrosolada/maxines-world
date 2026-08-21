@@ -90,6 +90,8 @@ fun RewardBreakRouteGuard(
             if (current.started) content(current.remainingMillis)
             else RewardBreakUnavailable(
                 message = "Open the reward break from the Playroom first.",
+                remainingMillis = current.remainingMillis,
+                durationMillis = current.durationMillis,
                 onReturnToVillage = onReturnToVillage,
             )
         }
@@ -104,8 +106,18 @@ private fun RewardBreakLoading() {
 }
 
 @Composable
-private fun RewardBreakUnavailable(message: String, onReturnToVillage: () -> Unit) {
+private fun RewardBreakUnavailable(
+    message: String,
+    remainingMillis: Long? = null,
+    durationMillis: Long? = null,
+    onReturnToVillage: () -> Unit,
+) {
     val reduceMotion = LocalAnimationsDisabled.current
+    val gateProgress = if (remainingMillis != null && durationMillis != null && durationMillis > 0L) {
+        (remainingMillis.toFloat() / durationMillis.toFloat()).coerceIn(0f, 1f)
+    } else {
+        0.7f
+    }
     // Reward gate: lock icon → controller via crossfade + ring breathes; gated by ANIMATOR_DURATION_SCALE.
     val unlocked = remember(message) {
         message.contains("Open the reward break from the Playroom first.", ignoreCase = true)
@@ -131,6 +143,13 @@ private fun RewardBreakUnavailable(message: String, onReturnToVillage: () -> Uni
                 .alpha(gateAlpha),
             contentAlignment = Alignment.Center,
         ) {
+            CircularProgressIndicator(
+                progress = { gateProgress },
+                modifier = Modifier.fillMaxSize(),
+                color = VillageTeal,
+                trackColor = VillageTeal.copy(alpha = 0.15f),
+                strokeWidth = 4.dp,
+            )
             Icon(
                 Icons.Default.Lock,
                 "Reward break unavailable",

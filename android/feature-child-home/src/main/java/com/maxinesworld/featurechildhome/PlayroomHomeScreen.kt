@@ -44,9 +44,9 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -536,14 +536,18 @@ private fun PlayroomHeader(
 @Composable
 private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) {
     val reduceMotion = LocalAnimationsDisabled.current
-    // Odometer pop when either value changes — gated
-    val popScale by animateFloatAsState(
-        targetValue = 1f,
-        animationSpec = if (reduceMotion) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
-        label = "balancePop",
-    )
-    // Use LaunchedEffect on the total to retrigger; Compose will animate on value change
-    Row(modifier.graphicsLayer(scaleX = popScale, scaleY = popScale), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
+    // P2 fix: odometer pop keyed to value change so it actually animates; was always 1f->1f.
+    // Animate on stars/coins change via keyed Animatable
+    val balScale = remember { androidx.compose.animation.core.Animatable(1f) }
+    LaunchedEffect(stars, coins) {
+        if (reduceMotion) {
+            balScale.snapTo(1f)
+        } else {
+            balScale.snapTo(0.88f)
+            balScale.animateTo(1f, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow))
+        }
+    }
+    Row(modifier.graphicsLayer(scaleX = balScale.value, scaleY = balScale.value), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
         BalanceChip("stars", "★", stars, PlaySunshine)
         BalanceChip("sanctuary tokens", "●", coins, PlayTeal)
     }
@@ -997,15 +1001,17 @@ private fun TodayQuestCard(
                     }
                 }
 
-                // Reward banner: when quest is complete, gentle pulse — gated by reducedMotion.
+                // P1 fix: quest banner no longer infinite pulse; single gentle pop on complete, then still (avoids motion sickness on home).
                 val bannerReduce = LocalAnimationsDisabled.current
-                val bannerScale by if (bannerReduce || !quest.isComplete) remember(quest.isComplete) { mutableStateOf(1f) } else rememberInfiniteTransition(label = "questBanner").animateFloat(
-                    1f, 1.02f, infiniteRepeatable(tween(1400, easing = FastOutSlowInEasing), RepeatMode.Reverse), "pulse"
-                ).let { s -> s as State<Float>; s }
+                val bannerScale by animateFloatAsState(
+                    targetValue = 1f,
+                    animationSpec = if (bannerReduce) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
+                    label = "questBanner",
+                )
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .graphicsLayer(scaleX = if (!bannerReduce && quest.isComplete) bannerScale else 1f, scaleY = if (!bannerReduce && quest.isComplete) bannerScale else 1f)
+                        .graphicsLayer(scaleX = bannerScale, scaleY = bannerScale)
                         .clip(RoundedCornerShape(14.dp))
                         .semantics {
                             contentDescription = if (quest.godModeEnabled) {
@@ -1024,14 +1030,16 @@ private fun TodayQuestCard(
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        // When quest completes, gift icon popped transform
+                        // P2 fix: gift pop now keyed to isComplete so it fires once on completion
                         val questCompleteReduce = LocalAnimationsDisabled.current
-                        val giftScale by animateFloatAsState(
-                            targetValue = 1f,
-                            animationSpec = if (questCompleteReduce) snap() else tween(620, easing = FastOutSlowInEasing),
-                            label = "giftPop",
-                        )
-                        Box(Modifier.graphicsLayer(scaleX = if (!questCompleteReduce && quest.isComplete) giftScale else 1f, scaleY = if (!questCompleteReduce && quest.isComplete) giftScale else 1f)) {
+                        val giftScaleState = remember(quest.isComplete) { androidx.compose.animation.core.Animatable(if (quest.isComplete && !questCompleteReduce) 0.92f else 1f) }
+                        LaunchedEffect(quest.isComplete) {
+                            if (!questCompleteReduce && quest.isComplete) {
+                                giftScaleState.snapTo(0.92f)
+                                giftScaleState.animateTo(1f, spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = 600f))
+                            } else giftScaleState.snapTo(1f)
+                        }
+                        Box(Modifier.graphicsLayer(scaleX = giftScaleState.value, scaleY = giftScaleState.value)) {
                             Icon(
                                 Icons.Default.CardGiftcard,
                                 contentDescription = null,
@@ -1977,12 +1985,34 @@ private fun WatchToEarnQuestCard(
                 }
             }
             Spacer(Modifier.height(14.dp))
-            LinearProgressIndicator(
-                progress = { animatedProgress.coerceIn(0f, 1f) },
-                modifier = Modifier.fillMaxWidth().height(10.dp).clip(RoundedCornerShape(5.dp)),
-                color = PlayTeal,
-                trackColor = PlayTeal.copy(alpha = 0.15f),
-            )
+            Box(
+                modifier = Modifier
+                    .size(56.dp)
+                    .align(Alignment.CenterHorizontally),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator(
+                    progress = { animatedProgress.coerceIn(0f, 1f) },
+                    modifier = Modifier.fillMaxSize(),
+                    color = PlayTeal,
+                    trackColor = PlayTeal.copy(alpha = 0.15f),
+                    strokeWidth = 7.dp,
+                )
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Default.CardGiftcard,
+                        contentDescription = null,
+                        tint = PlayTeal,
+                        modifier = Modifier.size(16.dp),
+                    )
+                    Text(
+                        text = "$currentMins",
+                        color = PlayInk,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 11.sp,
+                    )
+                }
+            }
             Spacer(Modifier.height(12.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),

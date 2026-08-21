@@ -353,17 +353,18 @@ private fun LessonContent(state: LessonUiState, viewModel: LessonPlayerViewModel
         }
 
         if (state.showFeedback) {
-            // Streak: 3 correct in a row — Milo claps moment via banner breathe-y pulse + extra confetti density
-            // Only scored results count; gated by reducedMotion. Pure visual.
+            // Streak: 3 correct in a row — one-shot banner pop; keyed to streak entry, no infinite pulse
             val scored = remember(state.results) { state.results.filter { it.scored } }
             val isStreak = scored.size >= 3 && scored.takeLast(3).all { it.correct } && state.feedbackCorrect
             val streakReduce = LocalAnimationsDisabled.current
-            val streakScale by animateFloatAsState(
-                targetValue = 1f,
-                animationSpec = if (streakReduce) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = 520f),
-                label = "streakPop",
-            )
-            Box(Modifier.align(Alignment.BottomCenter).padding(16.dp).graphicsLayer(scaleX = if (!streakReduce && isStreak) streakScale else 1f, scaleY = if (!streakReduce && isStreak) streakScale else 1f)) {
+            val streakScale = remember { androidx.compose.animation.core.Animatable(1f) }
+            LaunchedEffect(isStreak) {
+                if (!streakReduce && isStreak) {
+                    streakScale.snapTo(0.92f)
+                    streakScale.animateTo(1f, spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = 520f))
+                } else streakScale.snapTo(1f)
+            }
+            Box(Modifier.align(Alignment.BottomCenter).padding(16.dp).graphicsLayer(scaleX = streakScale.value, scaleY = streakScale.value)) {
                 FeedbackBanner(
                     modifier = Modifier.onSizeChanged { feedbackHeightPx = it.height }.navigationBarsPadding(),
                     text = state.feedbackText,
@@ -505,19 +506,15 @@ fun NarrationControlRow(
             modifier = Modifier.size(48.dp)
         ) {
             if (!reduceTts) {
-                // Canvas morph: Replay (arrow) ↔ Stop (square). Linear interpolate control points + alpha.
+                // Canvas morph: Replay triangle ↔ Stop square. Stop action (not pause), so square not bars.
                 Canvas(Modifier.size(28.dp)) {
                     val p = ttsProgress.coerceIn(0f, 1f)
                     val col = androidx.compose.ui.graphics.lerp(Teal40, Coral, p)
-                    val barW = size.width * 0.18f
-                    val gap = size.width * 0.10f
                     val h = size.height * 0.62f
                     val cx = size.width / 2f
                     val cy = size.height / 2f
-                    // Bars (pause square = 2 rects). When playing (p=1), square; when stopped (p=0), morph to play triangle via alpha.
-                    // Simple, kid-safe: draw bars fading in, triangle fading out.
                     val triAlpha = 1f - p
-                    val barsAlpha = p
+                    val stopAlpha = p
                     if (triAlpha > 0.01f) {
                         val path = androidx.compose.ui.graphics.Path().apply {
                             moveTo(cx - size.width * 0.18f, cy - h / 2f)
@@ -527,10 +524,10 @@ fun NarrationControlRow(
                         }
                         drawPath(path, Teal40.copy(alpha = triAlpha))
                     }
-                    if (barsAlpha > 0.01f) {
+                    if (stopAlpha > 0.01f) {
                         val r = size.width * 0.04f
-                        drawRoundRect(col.copy(alpha = barsAlpha), topLeft = Offset(cx - barW - gap/2f, cy - h/2f), size = androidx.compose.ui.geometry.Size(barW, h), cornerRadius = androidx.compose.ui.geometry.CornerRadius(r, r))
-                        drawRoundRect(col.copy(alpha = barsAlpha), topLeft = Offset(cx + gap/2f, cy - h/2f), size = androidx.compose.ui.geometry.Size(barW, h), cornerRadius = androidx.compose.ui.geometry.CornerRadius(r, r))
+                        val sq = h * 0.88f
+                        drawRoundRect(col.copy(alpha = stopAlpha), topLeft = Offset(cx - sq/2f, cy - sq/2f), size = androidx.compose.ui.geometry.Size(sq, sq), cornerRadius = androidx.compose.ui.geometry.CornerRadius(r, r))
                     }
                 }
             } else {
@@ -859,7 +856,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             }
         }
 
-        Column(Modifier.fillMaxSize().padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             val lang = state.lesson?.languageOfInstruction
             Text(uiText(lang, "Lesson Complete!", "Tapos na ang Aralin!"), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Teal40)
             Text(uiText(lang, "You got $correct out of $total correct!", "Nakuha mo ang $correct sa $total!"), style = MaterialTheme.typography.bodyLarge)
