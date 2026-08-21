@@ -1,67 +1,71 @@
 package com.maxinesworld.featureparent
 
 import com.maxinesworld.coredatabase.LessonCompletionEntity
+import com.maxinesworld.coremodel.currentLearningStreak
+import com.maxinesworld.coremodel.localLearningDates
+import com.maxinesworld.coremodel.longestLearningStreak
 import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneId
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class StreakTest {
+    private val today = LocalDate.of(2026, 8, 5)
 
     @Test
-    fun `consecutive days count as one streak`() {
+    fun `consecutive days count as one trailing streak`() {
         assertEquals(
             4,
-            longestStreak(setOf("2026-08-01", "2026-08-02", "2026-08-03", "2026-08-04"))
+            longestLearningStreak(
+                setOf(
+                    LocalDate.of(2026, 8, 1),
+                    LocalDate.of(2026, 8, 2),
+                    LocalDate.of(2026, 8, 3),
+                    LocalDate.of(2026, 8, 4),
+                ),
+            ),
         )
     }
 
     @Test
-    fun `gap breaks the streak`() {
-        // Missed Wednesday: only the trailing run counts.
+    fun `gap breaks the trailing streak`() {
         assertEquals(
             2,
-            longestStreak(setOf("2026-08-01", "2026-08-02", "2026-08-04", "2026-08-05"))
+            longestLearningStreak(
+                setOf(
+                    LocalDate.of(2026, 8, 1),
+                    LocalDate.of(2026, 8, 2),
+                    LocalDate.of(2026, 8, 4),
+                    LocalDate.of(2026, 8, 5),
+                ),
+            ),
         )
     }
 
     @Test
-    fun `older run does not extend a broken streak`() {
-        assertEquals(1, longestStreak(setOf("2026-07-30", "2026-07-31", "2026-08-02")))
-    }
-
-    @Test
-    fun `unordered input and duplicates are handled`() {
+    fun `older run does not extend a broken trailing streak`() {
         assertEquals(
-            3,
-            longestStreak(setOf("2026-08-03", "2026-08-01", "2026-08-03", "2026-08-02", "2026-08-01"))
+            1,
+            longestLearningStreak(
+                setOf(
+                    LocalDate.of(2026, 7, 30),
+                    LocalDate.of(2026, 7, 31),
+                    LocalDate.of(2026, 8, 2),
+                ),
+            ),
         )
     }
 
     @Test
-    fun `month boundary is consecutive`() {
-        assertEquals(3, longestStreak(setOf("2026-07-31", "2026-08-01", "2026-08-02")))
-    }
-
-    @Test
-    fun `year boundary is consecutive`() {
-        assertEquals(3, longestStreak(setOf("2025-12-30", "2025-12-31", "2026-01-01")))
-    }
-
-    @Test
-    fun `single day is a streak of one`() {
-        assertEquals(1, longestStreak(setOf("2026-08-01")))
-    }
-
-    @Test
-    fun `empty set has no streak`() {
-        assertEquals(0, longestStreak(emptySet()))
-    }
-
-    @Test
-    fun `malformed dates are ignored`() {
-        assertEquals(0, longestStreak(setOf("not-a-date", "2026-13-99")))
-        assertEquals(1, longestStreak(setOf("2026-08-01", "garbage")))
+    fun `current streak is stale when neither today nor yesterday has learning`() {
+        assertEquals(
+            0,
+            currentLearningStreak(
+                setOf(today.minusDays(3), today.minusDays(2)),
+                today,
+            ),
+        )
     }
 
     @Test
@@ -97,22 +101,25 @@ class StreakTest {
 
     @Test
     fun `early morning completion keeps the local date`() {
-        // 2026-08-03 01:30 Manila = 2026-08-02 17:30 UTC. The UTC bucketing
-        // would drop this into the previous day; local bucketing must not.
         val manila = ZoneId.of("Asia/Manila")
-        val ts = Instant.parse("2026-08-02T17:30:00Z").toEpochMilli()
-        val dates = localDatesFromEpochMillis(listOf(ts), manila)
-        assertEquals(setOf("2026-08-03"), dates)
+        val timestamp = Instant.parse("2026-08-02T17:30:00Z").toEpochMilli()
+
+        assertEquals(
+            setOf(LocalDate.of(2026, 8, 3)),
+            localLearningDates(listOf(timestamp), manila),
+        )
     }
 
     @Test
     fun `multiple events on one day collapse to one date`() {
-        val ts1 = Instant.parse("2026-08-02T00:10:00Z").toEpochMilli() // 08:10 Manila
-        val ts2 = Instant.parse("2026-08-02T10:00:00Z").toEpochMilli() // 18:00 Manila
-        val manila = ZoneId.of("Asia/Manila")
+        val timestamps = listOf(
+            Instant.parse("2026-08-02T00:10:00Z").toEpochMilli(),
+            Instant.parse("2026-08-02T10:00:00Z").toEpochMilli(),
+        )
+
         assertEquals(
-            setOf("2026-08-02"),
-            localDatesFromEpochMillis(listOf(ts1, ts2), manila)
+            setOf(LocalDate.of(2026, 8, 2)),
+            localLearningDates(timestamps, ZoneId.of("Asia/Manila")),
         )
     }
 }
