@@ -176,3 +176,22 @@ git diff --check                            exit 0; no output
 ```
 
 No lesson JSON, renderer, schema, migration, duplicate Video Library quest, or legitimate non-mission lesson flow was modified. The pre-existing untracked `docs/superpowers/` content remains untouched and unstaged.
+
+## Fix round 2 — required target callback seam
+
+The remaining review correction removes the silent no-op default from the public `PlayroomHomeScreen` callback seam. `ContentLayout` and `TodayQuestCard` already required `onQuestTargetClick`; all production and test callers now pass an explicit callback, using `{}` only where a caller intentionally does not exercise target-row navigation. The existing route wiring remains unchanged: target rows emit their own `subjectId`, and `MaxinesNavGraph` routes that value to `Routes.videoLibrary(childId, subjectId)`.
+
+The interaction contract continues to prove both required behaviors: tapping the non-next Science target records `science` (and the English target records `english`), while target-row taps leave the primary CTA action list unchanged at `Continue`; tapping the primary card and visible Continue CTA records only the expected Continue actions.
+
+Fresh JDK 17 verification for this fix round:
+
+```text
+:feature-child-home:testDebugUnitTest       BUILD SUCCESSFUL (97 actionable tasks)
+:feature-child-home:lintDebug               BUILD SUCCESSFUL (265 actionable tasks)
+:feature-child-home:connectedDebugAndroidTest
+                                             BUILD SUCCESSFUL (36 tests, 0 skipped, 0 failed)
+:app:assembleDebug                          BUILD SUCCESSFUL (422 actionable tasks)
+git diff --check                            exit 0; no output
+```
+
+Only the required callback signature/call-site test updates and this evidence section were changed in this fix round. The pre-existing untracked `docs/superpowers/` content remains untouched and unstaged.

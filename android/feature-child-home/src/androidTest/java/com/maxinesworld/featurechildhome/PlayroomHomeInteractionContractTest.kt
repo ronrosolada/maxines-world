@@ -255,6 +255,7 @@ class PlayroomHomeInteractionContractTest {
                         state = stateForContract(),
                         onSubjectClick = {},
                         onQuestAction = {},
+                        onQuestTargetClick = {},
                         onHomeClick = {},
                         onCollectionClick = { collectionClicks++ },
                         onParentsClick = { parentsClicks++ },

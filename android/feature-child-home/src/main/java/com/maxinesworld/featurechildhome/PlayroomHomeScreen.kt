@@ -165,7 +165,7 @@ fun PlayroomHomeScreen(
     state: PlayroomHomeUiState,
     onSubjectClick: (String) -> Unit,
     onQuestAction: (QuestAction) -> Unit,
-    onQuestTargetClick: (String) -> Unit = {},
+    onQuestTargetClick: (String) -> Unit,
     onHomeClick: () -> Unit,
     onCollectionClick: () -> Unit,
     onTreatShopClick: () -> Unit = {},
