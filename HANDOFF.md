@@ -1,9 +1,20 @@
 # Maxine's World, Current State & Release Handoff
 
-**Document baseline:** 2026-08-20
-**Release candidate:** `0.56.0-6-g8647a8ae` (`versionCode = 292`)
+**Document baseline:** 2026-08-21
+**Release candidate:** `0.58.0` (`versionCode = 300`, `git describe = v0.58.0`)
 **Working branch:** `feat/playlist-video-replacement`
 **Repository:** `ronrosolada/maxines-world` (public)
+
+## Release 0.58.0 Milo Celebration & Delight System (2026-08-21)
+
+- Scope: Milo hero on sticker reveal, design-system motion tokens, lesson answer delight, sanctuary twinkle, and content-shape fixes for the strict gate.
+- Milo hero: `BadgeRevealScreen` now renders `MiloCelebration` (Canvas state-machine mirroring `milo.states.js`, `bouncy 800ms easeOutBack`, `breathe-y + sway` idle, 6 orbiting sparkles + lightweight confetti), gated by `LocalAnimationsDisabled`.
+- Motion tokens: `DelightMotion` in `core-design-system` (`EaseOutBack`, `EaseOutCubic`, `BouncyMs`, `QuickPopMs`), shared by Milo / answer / sanctuary so the SVG preview curve drives Compose.
+- Answer feedback: `MaxinesAnswerCard` pops on `CORRECT` and waggles on `INCORRECT` (snapped under reduced-motion).
+- Sanctuary: `SanctuaryScene` next-slot twinkle (`0.92 → 1.0`, `1100ms EaseInOutSine`) and reduced-motion gated bob/bounce.
+- Sketches: `sketches/milo-reward-proto/` with Milo 4-state preview (full `svg-character-animator` harness, bezier/duration/idle-anchor/X-ray/exports) and `delight-lab.html` (8 moments, zero-build, `prefers-reduced-motion` gated).
+- Content fixes: deduped 2 title collisions (`Telling Sentences ×2`, `Munting Talata ×2`) and corrected `english-g3-q1-w01-d05` assessment `5/4 → 6/5` (missing telling-sentence check added) so `content_pack_validation --strict` is `0 errors, 0 warnings` (358 lessons); `dedupe_lesson_titles --check` clean.
+- Remaining release steps: push `main` (or PR), push annotated tag `v0.58.0`, publish GitHub release with verified APK via `tools/bump_and_release.sh` (workstation JDK 17) or manual `gh release create` — signing stays workstation-only (`~/.gradle/maxines-world-signing.properties`).
 
 ## Release 0.56.0 playlist replacement (2026-08-20)
 

@@ -6,6 +6,39 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.58.0] - 2026-08-21
+
+### Milo Celebration & Delight System
+
+- **Hero sticker reveal:** Milo now celebrates inside `BadgeRevealScreen`
+  as a Canvas state-machine mirroring `sketches/milo-reward-proto/milo.states.js`
+  (`idle → celebrate` with bouncy `easeOutBack 800ms`, `breathe-y` + `sway` idle,
+  6 orbiting sparkles and lightweight confetti), gated by `LocalAnimationsDisabled`
+  / `prefers-reduced-motion`. The prior orbiting-star ring is replaced by
+  `MiloCelebration(badgeBiomeColor, isMilestone)` plus a bouncy sticker token.
+- **Design-system motion tokens:** `DelightMotion` in `core-design-system`
+  (`EaseOutBack`, `EaseOutCubic`, `BouncyMs`, `QuickPopMs`) shared by Milo,
+  answer feedback, and sanctuary so the SVG preview curve drives Compose.
+- **Lesson answer feedback:** `MaxinesAnswerCard` now pops on `CORRECT`
+  (`0.97 → 1.06 → 1.0` spring) and waggles on `INCORRECT` (420ms keyframe shimmy),
+  snapped when reduced-motion is enabled.
+- **Sanctuary scene:** `SanctuaryScene` Milo bob/bounce and the next-piece
+  preview now respect reduced-motion; the next slot twinkles (`0.92 → 1.0`,
+  `1100ms EaseInOutSine`).
+- **Prototyping harness:** `sketches/milo-reward-proto/` with the full
+  `svg-character-animator` preview (4-state Milo, drag bezier curve, duration,
+  idle-anchor, X-ray, background swatches, PNG/Swift/Web exports) and
+  `delight-lab.html` (8 moments interactive, zero-build, `prefers-reduced-motion` gated).
+- **Skills:** `svg-character-animator` per-path `TRANSFORM` + preview harness.
+
+### Content Fixes
+
+- Deduped two lesson-title collisions (`Telling Sentences ×2 → · Q1 W01 D05 / · Q2 W04 D02`;
+  `Munting Talata ×2 → · Q1 W03 D01 / · Q1 W03 D03`) so `dedupe_lesson_titles.py --check` is clean.
+- Corrected `english-g3-q1-w01-d05` assessment shape from `5/4` to the baseline-expected
+  `6` items / `5` to pass, adding the missing sixth telling-sentence check
+  (`We walk home.`) so `content_pack_validation.py --strict` is `0 errors, 0 warnings` (358 lessons).
+
 ## [0.57.0] - 2026-08-20
 
 ### Playlist Replacement and Release Hardening
