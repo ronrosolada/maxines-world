@@ -6,6 +6,16 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.63.0] - 2026-08-22
+
+### Video-Based Daily Mission
+
+- Replaced the child-facing Daily Mission’s legacy text-lesson assignments with active video media assignments from the Grade 3 released catalog.
+- Added video titles, durations, subject-aware target navigation, passed-video completion, and retryable catalog-unavailable states.
+- Preserved the existing sanctuary-piece, five-minute break, and playground day-pass reward transaction, now keyed only by passed media IDs.
+- Removed orphaned child-facing subject/module/text-lesson routes and screens while retaining Quiz Arena, Assessment Arena, lesson content assets, loaders, and renderers for compatibility.
+- Added recovery coverage for legacy persisted quest rows, catalog outages, stale/inactive media, and prevention of legacy lesson completions from satisfying video missions.
+
 ## [0.62.0] - 2026-08-21
 
 ### Child Home Clarity and Learning Streak
