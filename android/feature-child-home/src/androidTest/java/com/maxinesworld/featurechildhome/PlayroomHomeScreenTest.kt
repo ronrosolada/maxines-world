@@ -232,7 +232,7 @@ class PlayroomHomeScreenTest {
             )
         }
         composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest).assertExists()
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertExists()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak, useUnmergedTree = true).assertExists()
         canonicalSubjects.forEach { subject ->
             composeRule.onNodeWithTag(PlayroomHomeTestTags.subject(subject.id)).assertExists()
         }

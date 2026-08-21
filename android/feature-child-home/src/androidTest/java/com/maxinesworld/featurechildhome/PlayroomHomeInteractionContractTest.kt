@@ -14,6 +14,7 @@ import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -59,7 +60,9 @@ class PlayroomHomeInteractionContractTest {
             node.config[SemanticsProperties.TestTag].startsWith("home_subject_")
     }
 
-    private fun stateForContract(): PlayroomHomeUiState.Content =
+    private fun stateForContract(
+        targets: List<QuestTargetUi> = emptyList(),
+    ): PlayroomHomeUiState.Content =
         PlayroomHomeUiState.Content(
             childName = "Maxine",
             subjects = canonicalSubjects.mapIndexed { index, subject ->
@@ -75,6 +78,7 @@ class PlayroomHomeInteractionContractTest {
                 pawPrintTotal = 3,
                 recommendedSubjectId = canonicalSubjects.first().id,
                 buttonLabel = QuestButtonLabel.Continue,
+                targets = targets,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 2, totalCount = 12),
         )
@@ -82,6 +86,7 @@ class PlayroomHomeInteractionContractTest {
     private fun setHome(
         width: Dp = 411.dp,
         fontScale: Float = 1f,
+        targets: List<QuestTargetUi> = emptyList(),
         onCollectionClick: () -> Unit = {},
         onParentsClick: () -> Unit = {},
         onQuestAction: (QuestAction) -> Unit = {},
@@ -92,7 +97,7 @@ class PlayroomHomeInteractionContractTest {
             ) {
                 Box(Modifier.requiredSize(width = width, height = 720.dp)) {
                     PlayroomHomeScreen(
-                        state = stateForContract(),
+                        state = stateForContract(targets),
                         onSubjectClick = {},
                         onQuestAction = onQuestAction,
                         onHomeClick = {},
@@ -106,8 +111,20 @@ class PlayroomHomeInteractionContractTest {
 
     @Test
     fun todayQuestExposesExactlyOnePrimaryAction() {
-        var action: QuestAction? = null
-        setHome(onQuestAction = { action = it })
+        val actions = mutableListOf<QuestAction>()
+        setHome(
+            targets = listOf(
+                QuestTargetUi(
+                    lessonId = "english-g3-q1-w01-d01",
+                    title = "Word Roots",
+                    subject = "english",
+                    displaySubject = "English",
+                    moduleKey = null,
+                    isCompleted = false,
+                ),
+            ),
+            onQuestAction = { actions += it },
+        )
 
         val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
         todayQuest.assertExists()
@@ -116,8 +133,19 @@ class PlayroomHomeInteractionContractTest {
         // button remains as a discoverable affordance for the same action.
         todayQuest.assertHasClickAction()
         todayQuest.performClick()
-        composeRule.runOnIdle { assertEquals(QuestAction.Continue, action) }
-        composeRule.onNodeWithText("Continue").assertHasClickAction()
+        composeRule.runOnIdle { assertEquals(listOf(QuestAction.Continue), actions) }
+
+        composeRule.onNodeWithContentDescription(
+            "Quest target: English: Word Roots",
+        ).assertHasClickAction().performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson), actions)
+        }
+
+        composeRule.onNodeWithText("Continue").assertHasClickAction().performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson, QuestAction.Continue), actions)
+        }
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
     }
 
@@ -218,7 +246,7 @@ class PlayroomHomeInteractionContractTest {
     fun streakProgressAnchorIsPresentWithConcreteQuestProgress() {
         setHome()
 
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertExists()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak, useUnmergedTree = true).assertExists()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest).assertExists()
         composeRule.onNodeWithText("2 of 3").assertExists()
     }
