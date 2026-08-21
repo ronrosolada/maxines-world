@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import com.maxinesworld.coremodel.AssessmentPackMetadata
 import com.maxinesworld.coremodel.MediaAsset
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -39,6 +40,34 @@ class QuestTargetResolverTest {
                 assets = null,
             ).isEmpty(),
         )
+    }
+
+    @Test
+    fun `arena ids resolve from bundled grade three pack metadata without video catalog`() {
+        val pack = AssessmentPackMetadata(
+            id = "science-g3-ph",
+            subjectId = "science",
+            curriculum = "ph",
+            curriculumName = "Philippine DepEd",
+            flagEmoji = "",
+            title = "Grade 3 Science: Philippine DepEd",
+            description = "",
+            badgeKey = "badge_science_ph",
+            file = "assessment-packs/science-g3-ph.json",
+        )
+
+        val targets = QuestTargetResolver.resolve(
+            assigned = listOf("arena:science-g3-ph"),
+            completed = setOf("arena:science-g3-ph"),
+            assets = null,
+            arenaPacks = listOf(pack),
+        )
+
+        assertEquals(1, targets.size)
+        assertEquals(QuestTargetType.ARENA, targets.single().type)
+        assertEquals("Grade 3 Science: Philippine DepEd", targets.single().title)
+        assertEquals("science-g3-ph", targets.single().arenaPackId)
+        assertTrue(targets.single().isCompleted)
     }
 
     private fun asset(mediaId: String, subject: String, title: String, seconds: Int) = MediaAsset(

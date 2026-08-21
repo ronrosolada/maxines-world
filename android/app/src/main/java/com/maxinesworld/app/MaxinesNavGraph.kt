@@ -151,11 +151,15 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     when (action) {
                         QuestAction.OpenVideoQuest -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
-                            val target = quest?.nextMediaId?.let { nextMediaId ->
-                                quest.targets.firstOrNull { it.mediaId == nextMediaId }
+                            val target = quest?.nextTargetId?.let { nextTargetId ->
+                                quest.targets.firstOrNull { it.mediaId == nextTargetId }
                             }
                             if (target != null) {
-                                navController.navigate(Routes.videoLibrary(childId, target.subjectId))
+                                if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
+                                    navController.navigate(Routes.assessmentArena(childId, target.subjectId))
+                                } else {
+                                    navController.navigate(Routes.videoLibrary(childId, target.subjectId))
+                                }
                             }
                         }
                         QuestAction.RetryMission -> homeViewModel.retry()
@@ -181,8 +185,12 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         }
                     }
                 },
-                onQuestTargetClick = { subjectId ->
-                    navController.navigate(Routes.videoLibrary(childId, subjectId))
+                onQuestTargetClick = { target ->
+                    if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
+                        navController.navigate(Routes.assessmentArena(childId, target.subjectId))
+                    } else {
+                        navController.navigate(Routes.videoLibrary(childId, target.subjectId))
+                    }
                 },
                 onHomeClick = { /* Home is the current destination — no push */ },
                 onCollectionClick = {

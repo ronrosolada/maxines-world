@@ -64,6 +64,14 @@ class DailyQuestRewardWriter @Inject constructor(
         val assigned = parseIds(set.assignedQuestIds).distinct()
         if (assigned.isEmpty()) return DailyQuestRewardResult()
         val passedMediaIds = videoWatchLedgerDao.getPassedMediaIds(childId).toSet()
+        val passedArenaQuestIds = rewardDao.getByChild(childId)
+            .asSequence()
+            .mapNotNull { reward ->
+                reward.metadata.takeIf { it.startsWith(ARENA_REWARD_PREFIX) }
+                    ?.removePrefix(ARENA_REWARD_PREFIX)
+                    ?.let { "$ARENA_PREFIX$it" }
+            }
+            .toSet()
 
         if (completedLessonId != null && completedLessonId in assigned && completedLessonId in passedMediaIds) {
             dailyQuestCompletionDao.insertIgnoring(
@@ -79,7 +87,7 @@ class DailyQuestRewardWriter @Inject constructor(
 
         val completed = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
-            .filter { it in passedMediaIds }
+            .filter { it in passedMediaIds || it in passedArenaQuestIds }
             .toSet()
         if (!assigned.all(completed::contains)) return DailyQuestRewardResult()
 
@@ -147,5 +155,7 @@ class DailyQuestRewardWriter @Inject constructor(
 
     companion object {
         const val SANCTUARY_PIECE_TYPE = "SANCTUARY_PIECE"
+        private const val ARENA_PREFIX = "arena:"
+        private const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
     }
 }

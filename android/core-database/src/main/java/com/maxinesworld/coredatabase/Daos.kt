@@ -128,6 +128,9 @@ interface RewardDao {
     @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")
     fun observeByChild(childId: String): Flow<List<RewardEntity>>
 
+    @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")
+    suspend fun getByChild(childId: String): List<RewardEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(reward: RewardEntity)
 

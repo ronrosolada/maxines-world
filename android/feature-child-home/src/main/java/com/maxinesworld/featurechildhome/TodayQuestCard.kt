@@ -100,7 +100,7 @@ import kotlin.math.roundToInt
 internal fun TodayQuestCard(
     quest: QuestUi,
     onQuestAction: (QuestAction) -> Unit,
-    onQuestTargetClick: (String) -> Unit,
+    onQuestTargetClick: (QuestTargetUi) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val taskText = when (quest.task) {
@@ -277,7 +277,9 @@ internal fun TodayQuestCard(
                         quest.targets.forEach { target ->
                             val targetDone = target.isCompleted
                             val displayTitle = target.title
-                            val targetCd = if (targetDone) {
+                            val targetCd = if (target.type == QuestTargetType.ARENA) {
+                                if (targetDone) "Quiz target done: $displayTitle" else "Quiz target: $displayTitle"
+                            } else if (targetDone) {
                                 "Quest target done: $displayTitle · ${target.durationLabel}"
                             } else {
                                 "Quest target: ${target.displaySubject}: $displayTitle · ${target.durationLabel}"
@@ -286,7 +288,7 @@ internal fun TodayQuestCard(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
                                     .background(Color.White.copy(alpha = 0.72f))
-                                    .clickable(role = Role.Button, onClick = { onQuestTargetClick(target.subjectId) })
+                                    .clickable(role = Role.Button, onClick = { onQuestTargetClick(target) })
                                     .semantics { contentDescription = targetCd }
                                     .heightIn(min = 48.dp)
                                     .padding(horizontal = 10.dp, vertical = 8.dp),
@@ -320,12 +322,12 @@ internal fun TodayQuestCard(
                                         Spacer(Modifier.width(8.dp))
                                         Surface(
                                             shape = RoundedCornerShape(8.dp),
-                                            color = PlayTeal.copy(alpha = 0.12f),
+                                            color = if (target.type == QuestTargetType.ARENA) PlaySunshine.copy(alpha = 0.2f) else PlayTeal.copy(alpha = 0.12f),
                                         ) {
                                             Text(
-                                                target.durationLabel,
+                                                if (target.type == QuestTargetType.ARENA) "Quiz" else target.durationLabel,
                                                 modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp),
-                                                color = PlayTeal,
+                                                color = if (target.type == QuestTargetType.ARENA) PlayInkDark else PlayTeal,
                                                 fontSize = 12.sp,
                                                 fontWeight = FontWeight.Bold,
                                             )

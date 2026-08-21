@@ -380,13 +380,14 @@ class PlayroomHomeViewModel @Inject constructor(
         val availableFirst = subjects.firstOrNull { it.isAvailable }
         val targets = QuestTargetResolver.resolve(
             assigned = dailyQuest.assignedMediaIds,
-            completed = passedMediaIds,
+            completed = passedMediaIds + dailyQuest.completedMediaIds,
             assets = mediaAssets,
+            arenaPacks = dailyQuest.arenaPacks,
         )
         val questTotal = dailyQuest.totalCount
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
-        val nextMediaId = targets.firstOrNull { !it.isCompleted }?.mediaId
+        val nextTargetId = targets.firstOrNull { !it.isCompleted }?.mediaId
             ?: targets.firstOrNull()?.mediaId
         val assignedMediaIds = dailyQuest.assignedMediaIds.distinct()
         val resolvedMediaIds = targets.map { it.mediaId }.toSet()
@@ -402,7 +403,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = QuestButtonLabel.OpenPlayground,
                 buttonAction = QuestAction.OpenPlayground,
                 targets = targets,
-                nextMediaId = nextMediaId,
+                nextTargetId = nextTargetId,
                 godModeEnabled = true,
                 sanctuaryComplete = true,
             )
@@ -428,12 +429,12 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = if (showPlayground) QuestButtonLabel.OpenPlayground else QuestButtonLabel.OpenSanctuary,
                 buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.ViewReward,
                 targets = targets,
-                nextMediaId = nextMediaId,
+                nextTargetId = nextTargetId,
                 sanctuaryComplete = sanctuaryComplete,
                 playgroundUnlocked = playgroundUnlocked,
             )
         } else {
-            val hasQuestTarget = nextMediaId != null
+            val hasQuestTarget = nextTargetId != null
             QuestUi(
                 task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completedCount,
@@ -450,7 +451,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     else -> QuestAction.Continue
                 },
                 targets = targets,
-                nextMediaId = nextMediaId,
+                nextTargetId = nextTargetId,
                 sanctuaryComplete = sanctuaryComplete,
             )
         }

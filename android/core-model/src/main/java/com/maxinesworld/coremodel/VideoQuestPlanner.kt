@@ -14,8 +14,8 @@ object VideoQuestPlanner {
     /** Lower bound: quest must total at least 30 minutes (1800s). */
     const val MIN_SECONDS = 1800
 
-    /** Upper bound: quest must not total more than 40 minutes (2400s). */
-    const val MAX_SECONDS = 2400
+    /** Upper bound: quest must not total more than 50 minutes (3000s). */
+    const val MAX_SECONDS = 3000
 
     /** Prefer 2 subjects minimum, 3 maximum, always from different subjects. */
     const val MIN_SUBJECTS = 2

@@ -33,7 +33,7 @@ class VideoQuestPlannerTest {
     }
 
     @Test
-    fun `never exceeds 40 minutes - a video that would overflow is skipped`() {
+    fun `never exceeds 50 minutes - a video that would overflow is skipped`() {
         val frontier = listOf(
             cand("math-ep1", "mathematics", 1500),
             cand("eng-ep1", "english", 1200),
@@ -42,13 +42,13 @@ class VideoQuestPlannerTest {
         val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
         val total = totalOf(selected, frontier)
         assertTrue("selected size = ${selected.size}", selected.size == 2)
-        assertTrue("total $total must not exceed 40m", total <= VideoQuestPlanner.MAX_SECONDS)
+        assertTrue("total $total must not exceed 50m", total <= VideoQuestPlanner.MAX_SECONDS)
         val subjects = frontier.filter { it.mediaId in selected }.map { it.subjectId }.distinct()
         assertTrue(subjects.size >= 2)
     }
 
     @Test
-    fun `three short subjects can fill a 30-40 minute quest`() {
+    fun `three short subjects can fill a 30-50 minute quest`() {
         val frontier = listOf(
             cand("math-ep1", "mathematics", 700),
             cand("eng-ep1", "english", 650),

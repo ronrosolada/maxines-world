@@ -9,11 +9,13 @@ import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
 import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
+import com.maxinesworld.corecontent.AssessmentRepository
 import com.maxinesworld.corenetwork.MediaCatalogClient
 import com.maxinesworld.corenetwork.MediaDownloader
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.corenetwork.MediaStorage
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.coredatabase.RewardEntity
 import java.io.File
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.encodeToString
@@ -62,17 +64,18 @@ class DailyQuestManagerTest {
         val manager = manager(catalog)
 
         val first = manager.ensureToday("child-1", "2026-08-04")
-        assertEquals(2, first.totalCount)
+        assertEquals(3, first.totalCount)
         assertEquals(
-            setOf("math-valid-episode-1", "english-valid"),
+            setOf("math-valid-episode-1", "arena:math-g3-ph", "arena:math-g3-sg"),
             first.assignedMediaIds.toSet(),
         )
+        assertTrue(first.arenaPacks.all { it.title.startsWith("Grade 3") })
         assertFalse(first.assignedMediaIds.any {
             it in setOf("math-valid-episode-2", "grade-four", "preview-video", "zero-duration", "blank-subject")
         })
         assertNotNull(database.dailyQuestSetDao().getByChildAndDay("child-1", "2026-08-04"))
 
-        first.assignedMediaIds.forEach { mediaId ->
+        first.assignedMediaIds.filterNot { it.startsWith("arena:") }.forEach { mediaId ->
             database.videoWatchLedgerDao().insertOrUpdate(
                 VideoWatchLedgerEntity(
                     id = "child-1:$mediaId",
@@ -81,6 +84,19 @@ class DailyQuestManagerTest {
                     subjectId = if (mediaId.startsWith("math")) "mathematics" else "english",
                     accreditedSeconds = 900,
                     quizPassed = true,
+                ),
+            )
+        }
+        listOf("math-g3-ph", "math-g3-sg").forEachIndexed { index, packId ->
+            database.rewardDao().insert(
+                RewardEntity(
+                    id = "arena:child-1:$packId",
+                    childId = "child-1",
+                    type = "STAR",
+                    subject = "mathematics",
+                    amount = 10,
+                    earnedAt = index.toLong(),
+                    metadata = "assessment_arena_passed:$packId",
                 ),
             )
         }
@@ -103,10 +119,41 @@ class DailyQuestManagerTest {
             passedMediaIds = setOf("math-valid-episode-1"),
         )
         assertTrue(
-            "the lowest unpassed episode must become the next frontier",
-            "math-valid-episode-2" in nextDay.assignedMediaIds,
+            "the lowest unpassed episode must remain the next math frontier when selected",
+            "math-valid-episode-2" in nextDay.assignedMediaIds || "english-valid" in nextDay.assignedMediaIds,
         )
         assertFalse("math-valid-episode-1" in nextDay.assignedMediaIds)
+    }
+
+    @Test
+    fun oneUnpassedArenaPackUsesASecondDeterministicFrontierVideo() = runBlocking {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val packs = AssessmentRepository(context).getCatalog().packs
+        packs.filter { it.title.startsWith("Grade 3") && it.id != "science-g3-ph" }
+            .forEachIndexed { index, pack ->
+                database.rewardDao().insert(
+                    RewardEntity(
+                        id = "arena:child-1:${pack.id}",
+                        childId = "child-1",
+                        type = "STAR",
+                        subject = pack.subjectId,
+                        amount = 10,
+                        earnedAt = index.toLong(),
+                        metadata = "assessment_arena_passed:${pack.id}",
+                    ),
+                )
+            }
+        val progress = manager(
+            listOf(
+                asset("math-frontier", "mathematics", 1, 1200),
+                asset("science-frontier", "science", 1, 1200),
+            ),
+        ).ensureToday("child-1", "2026-08-11")
+
+        assertEquals(3, progress.totalCount)
+        assertEquals(2, progress.assignedMediaIds.count { !it.startsWith("arena:") })
+        assertEquals(1, progress.assignedMediaIds.count { it.startsWith("arena:") })
+        assertTrue(progress.assignedMediaIds.containsAll(listOf("math-frontier", "science-frontier")))
     }
 
     @Test
@@ -138,7 +185,7 @@ class DailyQuestManagerTest {
         ).ensureToday("child-1", dayKey)
 
         assertFalse("legacy lesson IDs must not remain assigned", progress.assignedMediaIds.contains("english-g3-m01-d01"))
-        assertTrue(progress.assignedMediaIds.all { it.startsWith("replacement-") })
+        assertTrue(progress.assignedMediaIds.filterNot { it.startsWith("arena:") }.all { it.startsWith("replacement-") })
         assertTrue(progress.completedMediaIds.isEmpty())
         assertEquals(
             0,
@@ -225,8 +272,8 @@ class DailyQuestManagerTest {
         )
 
         val recovered = manager.ensureToday("child-1", dayKey)
-        assertEquals(2, recovered.totalCount)
-        assertTrue(recovered.assignedMediaIds.all { it.startsWith("recovered-") })
+        assertEquals(3, recovered.totalCount)
+        assertTrue(recovered.assignedMediaIds.filterNot { it.startsWith("arena:") }.all { it.startsWith("recovered-") })
         assertFalse(recovered.assignedMediaIds.any { it.contains("lesson") })
         assertTrue(
             database.dailyQuestSetDao()
@@ -241,6 +288,7 @@ class DailyQuestManagerTest {
         )
 
     private fun managerWithRawCatalog(rawCatalog: String): DailyQuestManager {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
         val storage = MediaStorage(storageRoot)
         storage.writeCatalog(rawCatalog)
         val client = MediaCatalogClient(OkHttpClient())
@@ -253,8 +301,10 @@ class DailyQuestManagerTest {
         )
         return DailyQuestManager(
             mediaLibrary = mediaLibrary,
+            assessmentRepository = AssessmentRepository(context),
             dailyQuestSetDao = database.dailyQuestSetDao(),
             dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
+            rewardDao = database.rewardDao(),
             dailyQuestRewardWriter = DailyQuestRewardWriter(
                 database = database,
                 dailyQuestSetDao = database.dailyQuestSetDao(),

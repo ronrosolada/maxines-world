@@ -105,7 +105,7 @@ class PlayroomHomeInteractionContractTest {
         onCollectionClick: () -> Unit = {},
         onParentsClick: () -> Unit = {},
         onQuestAction: (QuestAction) -> Unit = {},
-        onQuestTargetClick: (String) -> Unit = {},
+        onQuestTargetClick: (QuestTargetUi) -> Unit = {},
     ) {
         composeRule.setContent {
             CompositionLocalProvider(
@@ -152,7 +152,7 @@ class PlayroomHomeInteractionContractTest {
                 ),
             ),
             onQuestAction = { actions += it },
-            onQuestTargetClick = { targetSubjects += it },
+            onQuestTargetClick = { targetSubjects += it.subjectId },
         )
 
         val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
@@ -189,6 +189,32 @@ class PlayroomHomeInteractionContractTest {
             assertEquals(listOf(QuestAction.Continue, QuestAction.Continue), actions)
         }
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
+    }
+
+    @Test
+    fun arenaTargetShowsQuizIndicatorAndCarriesPackIdentityToItsRouteCallback() {
+        val clicked = mutableListOf<QuestTargetUi>()
+        val target = QuestTargetUi(
+            mediaId = "arena:science-g3-ph",
+            title = "Grade 3 Science: Philippine DepEd",
+            subjectId = "science",
+            displaySubject = "Science",
+            durationSeconds = 0,
+            durationLabel = "",
+            isCompleted = false,
+            type = QuestTargetType.ARENA,
+            arenaPackId = "science-g3-ph",
+        )
+        setHome(targets = listOf(target), onQuestTargetClick = { clicked += it })
+
+        composeRule.onNodeWithText("Grade 3 Science: Philippine DepEd").assertExists()
+        composeRule.onNodeWithText("Quiz").assertExists()
+        composeRule.onNodeWithContentDescription("Quiz target: Grade 3 Science: Philippine DepEd")
+            .performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf("science-g3-ph"), clicked.map { it.arenaPackId })
+            assertEquals(QuestTargetType.ARENA, clicked.single().type)
+        }
     }
 
     @Test

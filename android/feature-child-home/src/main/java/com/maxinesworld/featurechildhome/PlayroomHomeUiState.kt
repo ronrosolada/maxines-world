@@ -79,7 +79,11 @@ data class QuestTargetUi(
     val durationSeconds: Int,
     val durationLabel: String,
     val isCompleted: Boolean,
+    val type: QuestTargetType = QuestTargetType.VIDEO,
+    val arenaPackId: String? = null,
 )
+
+enum class QuestTargetType { VIDEO, ARENA }
 
 enum class QuestTaskCopy {
     ParentMode,
@@ -109,7 +113,7 @@ data class QuestUi(
     val buttonLabel: QuestButtonLabel = QuestButtonLabel.Continue,
     val buttonAction: QuestAction = QuestAction.Continue,
     val targets: List<QuestTargetUi> = emptyList(),
-    val nextMediaId: String? = null,
+    val nextTargetId: String? = null,
     val godModeEnabled: Boolean = false,
     val sanctuaryComplete: Boolean = false,
     val playgroundUnlocked: Boolean = false,

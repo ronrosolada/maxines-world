@@ -125,7 +125,7 @@ class PlayroomHomeViewModelTest {
         assertEquals(60, quest.targets.first().durationSeconds)
         assertEquals("01:00", quest.targets.first().durationLabel)
         assertTrue(quest.targets.first().isCompleted)
-        assertEquals("english-video-1", quest.nextMediaId)
+        assertEquals("english-video-1", quest.nextTargetId)
     }
     @Test
     fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
