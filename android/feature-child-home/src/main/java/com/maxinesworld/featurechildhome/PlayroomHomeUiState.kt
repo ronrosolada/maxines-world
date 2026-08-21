@@ -52,6 +52,24 @@ internal fun videoProgressForSubject(
     return subjectAssets.count { it.mediaId in passedMediaIds } to subjectAssets.size
 }
 
+/**
+ * Publishes the latest video progress on top of one stable home snapshot.
+ * Non-video fields are intentionally copied unchanged from [baseContent].
+ */
+internal fun withVideoProgress(
+    baseContent: PlayroomHomeUiState.Content,
+    assets: List<MediaAsset>?,
+    passedMediaIds: Set<String>,
+): PlayroomHomeUiState.Content = baseContent.copy(
+    subjects = baseContent.subjects.map { subject ->
+        val progress = videoProgressForSubject(subject.destination, assets, passedMediaIds)
+        subject.copy(
+            completedVideos = progress?.first,
+            totalVideos = progress?.second,
+        )
+    },
+)
+
 @androidx.compose.runtime.Immutable
 data class QuestTargetUi(
     val lessonId: String,

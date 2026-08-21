@@ -64,21 +64,24 @@ class PlayroomHomeViewModel @Inject constructor(
     private var openingSubjectId: String? = null
     private var stateJob: Job? = null
     private var videoProgressJob: Job? = null
+    private var finalContentJob: Job? = null
+    private val baseContent = MutableStateFlow<PlayroomHomeUiState.Content?>(null)
     private val videoAssets = MutableStateFlow<List<MediaAsset>?>(null)
     private val passedVideoIds = MutableStateFlow<Set<String>>(emptySet())
 
     init {
         collectState()
         collectVideoProgress()
+        collectFinalContent()
     }
 
     private fun collectVideoProgress() {
         videoProgressJob?.cancel()
+        videoAssets.value = null
         videoProgressJob = viewModelScope.launch {
             launch {
                 videoWatchLedgerDao.observePassedMediaIds(childId).collect { ids ->
                     passedVideoIds.value = ids.toSet()
-                    refreshSubjectVideoProgress()
                 }
             }
             launch {
@@ -87,7 +90,6 @@ class PlayroomHomeViewModel @Inject constructor(
                 // legacy lesson completion must never be shown as video progress.
                 try {
                     videoAssets.value = mediaLibrary.getCatalog().media
-                    refreshSubjectVideoProgress()
                 } catch (cancelled: CancellationException) {
                     throw cancelled
                 } catch (_: Exception) {
@@ -98,19 +100,15 @@ class PlayroomHomeViewModel @Inject constructor(
         }
     }
 
-    private fun refreshSubjectVideoProgress() {
-        val current = _state.value as? PlayroomHomeUiState.Content ?: return
-        val assets = videoAssets.value
-        val passed = passedVideoIds.value
-        _state.value = current.copy(
-            subjects = current.subjects.map { subject ->
-                val progress = videoProgressForSubject(subject.destination, assets, passed)
-                subject.copy(
-                    completedVideos = progress?.first,
-                    totalVideos = progress?.second,
-                )
-            },
-        )
+    private fun collectFinalContent() {
+        finalContentJob?.cancel()
+        finalContentJob = viewModelScope.launch {
+            combine(baseContent, videoAssets, passedVideoIds) { content, assets, passed ->
+                content?.let { withVideoProgress(it, assets, passed) }
+            }.collect { content ->
+                if (content != null) _state.value = content
+            }
+        }
     }
 
     private fun collectState() {
@@ -186,7 +184,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     } else {
                         keepsakes
                     }
-                    _state.value = buildContent(
+                    baseContent.value = buildContent(
                         data.profile?.name,
                         data.lessonIds,
                         dailyQuest,
@@ -198,13 +196,12 @@ class PlayroomHomeViewModel @Inject constructor(
                         sanctuary,
                         data.godModeEnabled,
                         data.playgroundUnlocked,
-                        videoAssets.value,
-                        passedVideoIds.value,
-                    )
+                    ).copy(openingSubjectId = openingSubjectId)
                 }
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (_: Exception) {
+                baseContent.value = null
                 _state.value = PlayroomHomeUiState.Error(
                     message = "We couldn't load your Playroom. Try again."
                 )
@@ -218,17 +215,18 @@ class PlayroomHomeViewModel @Inject constructor(
         val subject = current.subjects.firstOrNull { it.id == subjectId } ?: return false
         if (!subject.isAvailable) return false
         openingSubjectId = subjectId
-        _state.value = current.copy(openingSubjectId = subjectId)
+        baseContent.value = baseContent.value?.copy(openingSubjectId = subjectId)
         return true
     }
 
     fun onOpenFinished() {
         openingSubjectId = null
-        val current = _state.value as? PlayroomHomeUiState.Content ?: return
-        _state.value = current.copy(openingSubjectId = null)
+        baseContent.value = baseContent.value?.copy(openingSubjectId = null)
     }
 
     fun retry() {
+        openingSubjectId = null
+        baseContent.value = null
         _state.value = PlayroomHomeUiState.Loading
         collectState()
         collectVideoProgress()
@@ -246,8 +244,6 @@ class PlayroomHomeViewModel @Inject constructor(
         sanctuary: SanctuaryUi,
         godModeEnabled: Boolean,
         playgroundUnlocked: Boolean = false,
-        videoAssets: List<MediaAsset>? = null,
-        passedVideoIds: Set<String> = emptySet(),
     ): PlayroomHomeUiState.Content {
         val completed = lessonIds.toSet()
 
@@ -260,13 +256,10 @@ class PlayroomHomeViewModel @Inject constructor(
                     (subject.id == "makabansa" && it.startsWith("araling-panlipunan-g3-"))
             }
             val progress = if (total > 0) (done * 100 / total) else null
-            val videoProgress = videoProgressForSubject(subject.destination, videoAssets, passedVideoIds)
             subject.copy(
                 // Kept for compatibility with internal/legacy calculations only;
                 // the child-facing card renders video counts below.
                 progressPercent = if (progress == 0) null else progress,
-                completedVideos = videoProgress?.first,
-                totalVideos = videoProgress?.second,
                 availability = SubjectAvailability.Available,
                 lockReason = null,
             )

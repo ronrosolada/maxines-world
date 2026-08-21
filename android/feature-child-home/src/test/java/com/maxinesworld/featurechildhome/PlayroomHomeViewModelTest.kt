@@ -19,12 +19,17 @@ import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.*
+import java.util.concurrent.atomic.AtomicInteger
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -104,6 +109,69 @@ class PlayroomHomeViewModelTest {
         val mathematics = content(vm).subjects.first { it.id == "mathematics" }
         assertEquals(null, mathematics.completedVideos)
         assertEquals(null, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `video progress helper applies latest values without changing home content`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
+            passedVideoMediaIds = listOf("mathematics-video-1"),
+        )
+        advanceUntilIdle()
+
+        val base = content(vm).copy(subjects = canonicalSubjects)
+        val derived = withVideoProgress(
+            baseContent = base,
+            assets = mediaCatalogWithTotals("mathematics" to 2).media,
+            passedMediaIds = setOf("mathematics-video-1", "mathematics-video-2"),
+        )
+
+        val mathematics = derived.subjects.first { it.id == "mathematics" }
+        assertEquals(2, mathematics.completedVideos)
+        assertEquals(2, mathematics.totalVideos)
+        assertEquals(base.quest, derived.quest)
+        assertEquals(base.childName, derived.childName)
+    }
+
+    @Test
+    fun `latest passed ids win when an older base content emission completes later`() = runTest(dispatcher) {
+        val profiles = MutableStateFlow<ChildProfileEntity?>(profile("Maxine"))
+        val passedIds = MutableStateFlow(listOf("mathematics-video-1"))
+        val rebuildStarted = CompletableDeferred<Unit>()
+        val releaseRebuild = CompletableDeferred<Unit>()
+        val catalogCalls = AtomicInteger()
+        var initialCallCount = Int.MAX_VALUE
+        val catalog = mockk<ModuleCatalog>()
+        coEvery { catalog.modulesFor(any()) } coAnswers {
+            val call = catalogCalls.incrementAndGet()
+            if (call > initialCallCount && rebuildStarted.complete(Unit)) {
+                releaseRebuild.await()
+            }
+            emptyList()
+        }
+
+        val vm = buildViewModel(
+            catalog = catalog,
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
+            profileFlow = profiles,
+            passedVideoMediaIdsFlow = passedIds,
+        )
+        advanceUntilIdle()
+        initialCallCount = catalogCalls.get()
+        assertEquals(1, content(vm).subjects.first { it.id == "mathematics" }.completedVideos)
+
+        profiles.value = profile("Updated Maxine")
+        runCurrent()
+        rebuildStarted.await()
+
+        passedIds.value = listOf("mathematics-video-1", "mathematics-video-2")
+        runCurrent()
+        releaseRebuild.complete(Unit)
+        advanceUntilIdle()
+
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(2, mathematics.completedVideos)
+        assertEquals(2, mathematics.totalVideos)
     }
 
     @Test
@@ -193,10 +261,13 @@ class PlayroomHomeViewModelTest {
         val vm = buildViewModel()
         advanceUntilIdle()
         vm.onSubjectSelected("mathematics")
+        advanceUntilIdle()
         assertEquals("mathematics", content(vm).openingSubjectId)
         vm.onSubjectSelected("english")
+        advanceUntilIdle()
         assertEquals("mathematics", content(vm).openingSubjectId)
         vm.onOpenFinished()
+        advanceUntilIdle()
         assertNull(content(vm).openingSubjectId)
     }
 
@@ -205,6 +276,7 @@ class PlayroomHomeViewModelTest {
         val vm = buildViewModel()
         advanceUntilIdle()
         vm.onSubjectSelected("gmrc")
+        advanceUntilIdle()
         assertEquals("gmrc", content(vm).openingSubjectId)
     }
 
@@ -216,6 +288,8 @@ class PlayroomHomeViewModelTest {
         catalog: ModuleCatalog = emptyCatalog(),
         videoCatalog: MediaCatalog = MediaCatalog(1, "", emptyList()),
         passedVideoMediaIds: List<String> = emptyList(),
+        passedVideoMediaIdsFlow: Flow<List<String>> = flowOf(passedVideoMediaIds),
+        profileFlow: Flow<ChildProfileEntity?>? = null,
         videoCatalogLoadFails: Boolean = false,
         starBalance: Int = 0,
         coinBalance: Int = 0,
@@ -223,14 +297,8 @@ class PlayroomHomeViewModelTest {
         shouldFailExpedition: () -> Boolean = { false },
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
-        coEvery { profileDao.observeById("child_1") } returns flowOf(
-            childName?.let {
-                ChildProfileEntity(
-                    id = "child_1", parentId = "parent_1", name = it,
-                    avatarId = "cat_orange_default", grade = 3, curriculum = "ph-matatag",
-                    createdAt = 0L,
-                )
-            }
+        coEvery { profileDao.observeById("child_1") } returns (
+            profileFlow ?: flowOf(childName?.let(::profile))
         )
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
@@ -260,7 +328,7 @@ class PlayroomHomeViewModelTest {
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
         val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
-        every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns flowOf(passedVideoMediaIds)
+        every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns passedVideoMediaIdsFlow
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
         val playgroundUnlockReceiptDao = mockk<PlaygroundUnlockReceiptDao>()
@@ -335,6 +403,12 @@ class PlayroomHomeViewModelTest {
         }
         return MediaCatalog(catalogVersion = 1, generatedAt = "test", media = assets)
     }
+
+    private fun profile(name: String) = ChildProfileEntity(
+        id = "child_1", parentId = "parent_1", name = name,
+        avatarId = "cat_orange_default", grade = 3, curriculum = "ph-matatag",
+        createdAt = 0L,
+    )
 
     private fun badge(id: String, collected: Boolean) = com.maxinesworld.coremodel.CollectibleBadge(
         id = id, biome = "test", name = "Badge $id", title = "T", funFact = "F",
