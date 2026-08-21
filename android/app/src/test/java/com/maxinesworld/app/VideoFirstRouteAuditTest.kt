@@ -89,4 +89,21 @@ class VideoFirstRouteAuditTest {
         assertTrue(source.contains("AssessmentArenaRoute("))
         assertTrue(source.contains("route = Routes.VIDEO_LIBRARY"))
     }
+
+    @Test
+    fun `mixed mission targets preserve distinct video and arena destinations`() {
+        val source = navGraph().readText()
+        val childHomeStart = source.indexOf("route = Routes.CHILD_HOME")
+        val arenaRoute = source.indexOf("route = Routes.ASSESSMENT_ARENA", childHomeStart)
+        val childHomeBlock = source.substring(childHomeStart, arenaRoute)
+
+        assertTrue(childHomeBlock.contains("Routes.videoLibrary(childId, target.subjectId)"))
+        assertTrue(
+            childHomeBlock.contains(
+                "Routes.assessmentArena(childId, target.subjectId, target.arenaPackId)",
+            ),
+        )
+        assertTrue(source.contains("assessment_arena/{childId}?subject={subject}&packId={packId}"))
+        assertTrue(source.contains("packId: String? = null"))
+    }
 }

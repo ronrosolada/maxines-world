@@ -5,6 +5,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
+import com.maxinesworld.coremodel.VideoQuestPlanner
 import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
@@ -154,6 +155,66 @@ class DailyQuestManagerTest {
         assertEquals(2, progress.assignedMediaIds.count { !it.startsWith("arena:") })
         assertEquals(1, progress.assignedMediaIds.count { it.startsWith("arena:") })
         assertTrue(progress.assignedMediaIds.containsAll(listOf("math-frontier", "science-frontier")))
+    }
+
+    @Test
+    fun orderedFallbackAddsASecondVideoWhenPlannerReturnsOne() {
+        val frontier = listOf(
+            VideoQuestPlanner.Candidate("planner-video", "mathematics", 900),
+            VideoQuestPlanner.Candidate("fallback-video", "english", 900),
+        )
+
+        assertEquals(
+            listOf("planner-video", "fallback-video"),
+            composeDailyQuestIds(
+                plannerVideoIds = listOf("planner-video"),
+                frontier = frontier,
+                arenaIds = emptyList(),
+            ),
+        )
+    }
+
+    @Test
+    fun zeroUnpassedArenaPacksUsesOnlyThePlannerVideoFrontier() = runBlocking {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        AssessmentRepository(context).getCatalog().packs
+            .filter { it.title.startsWith("Grade 3") }
+            .forEachIndexed { index, pack ->
+                database.rewardDao().insert(
+                    RewardEntity(
+                        id = "arena:child-1:${pack.id}",
+                        childId = "child-1",
+                        type = "STAR",
+                        subject = pack.subjectId,
+                        amount = 10,
+                        earnedAt = index.toLong(),
+                        metadata = "assessment_arena_passed:${pack.id}",
+                    ),
+                )
+            }
+
+        val progress = manager(
+            listOf(
+                asset("math-frontier", "mathematics", 1, 900),
+                asset("english-frontier", "english", 1, 900),
+                asset("science-frontier", "science", 1, 900),
+            ),
+        ).ensureToday("child-1", "2026-08-12")
+
+        assertEquals(3, progress.totalCount)
+        assertEquals(3, progress.assignedMediaIds.count { !it.startsWith("arena:") })
+        assertTrue(progress.assignedMediaIds.none { it.startsWith("arena:") })
+    }
+
+    @Test
+    fun sparseOneVideoWithTwoUnpassedArenaPacksStillComposesMission() = runBlocking {
+        val progress = manager(
+            listOf(asset("only-frontier", "science", 1, 600)),
+        ).ensureToday("child-1", "2026-08-13")
+
+        assertEquals(3, progress.totalCount)
+        assertEquals(listOf("only-frontier"), progress.assignedMediaIds.filterNot { it.startsWith("arena:") })
+        assertEquals(2, progress.assignedMediaIds.count { it.startsWith("arena:") })
     }
 
     @Test

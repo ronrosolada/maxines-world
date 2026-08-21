@@ -43,6 +43,8 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
+
 internal fun streakDaysFromTimestamps(
     timestamps: Iterable<Long>,
     zone: ZoneId,
@@ -95,6 +97,7 @@ private data class HomeDataTuple(
     val totalAccreditedSeconds: Int,
     val godModeEnabled: Boolean,
     val playgroundUnlocked: Boolean = false,
+    val passedArenaPackIds: Set<String> = emptySet(),
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -207,6 +210,7 @@ class PlayroomHomeViewModel @Inject constructor(
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
         val passedMediaIdsFlow = videoWatchLedgerDao.observePassedMediaIds(childId)
         val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
+        val arenaRewardsFlow = rewardDao.observeByChild(childId)
 
         stateJob = viewModelScope.launch {
             try {
@@ -214,7 +218,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     childId = childId,
                     dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
                 )
-                val questInputs = combine(
+                val coreQuestInputs = combine(
                     profileFlow,
                     lessonIdsFlow,
                     passedMediaIdsFlow,
@@ -230,6 +234,18 @@ class PlayroomHomeViewModel @Inject constructor(
                         godModeEnabled = false,
                     )
                 }
+                val questInputs = combine(coreQuestInputs, arenaRewardsFlow) { data, rewards ->
+                    data.copy(
+                        passedArenaPackIds = rewards.asSequence()
+                            .mapNotNull { reward ->
+                                reward.metadata
+                                    .takeIf { it.startsWith(ARENA_REWARD_PREFIX) }
+                                    ?.removePrefix(ARENA_REWARD_PREFIX)
+                                    ?.takeIf(String::isNotBlank)
+                            }
+                            .toSet(),
+                    )
+                }
                 combine(
                     questInputs,
                     godModeManager.isEnabled(childId),
@@ -243,6 +259,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     val dailyQuest = dailyQuestManager.ensureToday(
                         childId = childId,
                         passedMediaIds = data.passedMediaIds,
+                        passedArenaPackIdsOverride = data.passedArenaPackIds,
                     )
                     val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
                         if (data.godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded

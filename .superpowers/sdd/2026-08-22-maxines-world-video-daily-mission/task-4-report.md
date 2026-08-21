@@ -126,3 +126,73 @@ Result: exit 0; no output.
 - The initial connected run was an expected test-adjustment failure after changing the contract from video-only to mixed targets; the final gate is green at 39/39.
 - Assessment Arena's existing route API is subject-based, so mixed target navigation enters the existing Assessment Arena route for the target pack's subject without modifying Arena internals.
 - Pre-existing untracked `docs/superpowers/` and `android/tools/mark_media_released.py` were not staged by this task.
+
+## Task 4 fix-round evidence
+
+All commands below ran from `/home/ron/projects/maxines-world/android` with JDK 17. The report is intentionally append-only for this fix round.
+
+```bash
+export JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem
+export PATH="$JAVA_HOME/bin:$PATH"
+java -version
+```
+
+Result: OpenJDK 17.0.16 (`17.0.16`, Temurin).
+
+### Regression test written first (RED)
+
+```bash
+./gradlew :feature-child-home:testDebugUnitTest --tests com.maxinesworld.featurechildhome.PlayroomHomeViewModelTest --no-daemon
+```
+
+Result: expected failure in the new `arena reward metadata emission refreshes daily mission inputs` test (1 failed); this reproduced the missing reactive RewardDao observation before the production fix.
+
+### Corrected JVM/unit and route-contract gates
+
+```bash
+./gradlew :core-model:testDebugUnitTest :feature-child-home:testDebugUnitTest :app:testDebugUnitTest --no-daemon
+```
+
+Result: `BUILD SUCCESSFUL in 17s`; core-model, feature-child-home, and app unit tests passed.
+
+### Android-test compilation gate
+
+```bash
+export PATH="$JAVA_HOME/bin:/home/ron/android-sdk/platform-tools:$PATH"
+./gradlew :feature-child-home:compileDebugAndroidTestKotlin --no-daemon
+```
+
+Result: `BUILD SUCCESSFUL in 17s`.
+
+### Required connected Android gate
+
+```bash
+./gradlew :feature-child-home:connectedDebugAndroidTest --no-daemon
+```
+
+Result: `BUILD SUCCESSFUL in 1m 49s`; 42/42 tests completed, 0 skipped, 0 failed.
+
+### Required unit, lint, and debug assemble gates
+
+```bash
+./gradlew :core-model:testDebugUnitTest :feature-child-home:testDebugUnitTest :feature-child-home:lintDebug :app:assembleDebug --no-daemon
+```
+
+Result: `BUILD SUCCESSFUL in 1m`; all requested tasks passed, including `:feature-child-home:lintDebug` and `:app:assembleDebug`.
+
+### Required whitespace gate
+
+```bash
+cd /home/ron/projects/maxines-world
+git diff --check
+```
+
+Result: exit 0; no output.
+
+### Fix-round coverage
+
+- `PlayroomHomeViewModel` now combines `RewardDao.observeByChild(childId)` and passes the observed Arena pack IDs into daily-quest reconciliation, so an asynchronous `assessment_arena_passed:<packId>` reward refreshes the home mission.
+- Arena route construction carries nullable `packId`; both mission CTA and target-row actions preserve `target.arenaPackId`, while null pack IDs retain normal subject browsing. The route starts the assigned pack through the existing Arena ViewModel API without changing Arena internals.
+- Sparse planner rejection now composes one deterministic valid frontier video when Arena slots exist; multi-video planner fallback remains ordered and deterministic.
+- Added coverage for planner-one-video ordered fallback, zero unpassed Arena packs, sparse one-video plus two-Arena composition, reactive Arena reward refresh, and distinct video/Arena route contracts.
+- Updated stale 40-minute planner comments to 50 minutes. No schema, content, renderer, sticker-policy, or R8 keep-rule changes were made.

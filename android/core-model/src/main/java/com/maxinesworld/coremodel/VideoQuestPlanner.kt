@@ -59,8 +59,8 @@ object VideoQuestPlanner {
         for (subject in rotated) {
             if (selected.size >= MAX_SUBJECTS) break
             val candidate = bySubject.getValue(subject).first()
-            // Hard rule: never exceed the 40-minute ceiling. A video that would
-            // push the quest over 40m is skipped (try the next subject instead).
+            // Hard rule: never exceed the 50-minute ceiling. A video that would
+            // push the quest over 50m is skipped (try the next subject instead).
             if (total + candidate.durationSeconds > MAX_SECONDS) continue
             // Stop once we have both the duration floor AND the subject floor.
             val pastFloor = total >= MIN_SECONDS && selected.size >= MIN_SUBJECTS

@@ -16,6 +16,8 @@ import javax.inject.Inject
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
+private const val MAX_ARENA_SLOTS = 2
+
 /** Persisted daily mission progress. IDs are opaque quest IDs, not lesson IDs. */
 data class DailyQuestProgress(
     val dayKey: String,
@@ -29,6 +31,29 @@ data class DailyQuestProgress(
     val completedCount: Int get() = completedMediaIds.size
     val totalCount: Int get() = assignedMediaIds.size
     val isComplete: Boolean get() = totalCount > 0 && completedCount >= totalCount
+}
+
+/**
+ * Combines the planner's valid selection with deterministic frontier recovery.
+ * A planner rejection may still leave one usable video when Arena slots exist;
+ * that sparse video is intentionally not treated as a full planner selection.
+ */
+internal fun composeDailyQuestIds(
+    plannerVideoIds: List<String>,
+    frontier: List<VideoQuestPlanner.Candidate>,
+    arenaIds: List<String>,
+): List<String> {
+    val assignedArenaIds = arenaIds.distinct().take(MAX_ARENA_SLOTS)
+    val videoCount = 1 + (MAX_ARENA_SLOTS - assignedArenaIds.size)
+    val orderedFallback = frontier
+        .sortedWith(compareBy({ it.subjectId }, { it.mediaId }))
+        .map { it.mediaId }
+    val videoIds = if (plannerVideoIds.isEmpty()) {
+        if (assignedArenaIds.isNotEmpty()) orderedFallback.take(1) else emptyList()
+    } else {
+        (plannerVideoIds + orderedFallback).distinct().take(videoCount)
+    }
+    return videoIds + assignedArenaIds
 }
 
 @ViewModelScoped
@@ -47,8 +72,9 @@ class DailyQuestManager @Inject constructor(
         dayKey: String = LocalDate.now().toString(),
         passedMediaIds: Set<String> = emptySet(),
         availableMediaOverride: List<String>? = null,
+        passedArenaPackIdsOverride: Set<String>? = null,
     ): DailyQuestProgress {
-        val passedArenaPackIds = passedArenaPackIds(childId)
+        val passedArenaPackIds = passedArenaPackIdsOverride ?: passedArenaPackIds(childId)
         val selection = createSelection(childId, dayKey, passedMediaIds, passedArenaPackIds, availableMediaOverride)
         var set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, selection.ids)
@@ -135,21 +161,14 @@ class DailyQuestManager @Inject constructor(
                         VideoQuestPlanner.Candidate(asset.mediaId, asset.subjectId, asset.durationSeconds)
                     }
             }
-        val plannerVideoIds = VideoQuestPlanner.select(childId, dayKey, frontier)
-        if (plannerVideoIds.isEmpty()) return Selection(emptyList())
-
         val arenaPacks = runCatching { assessmentRepository.getCatalog().packs }
             .getOrElse { emptyList() }
             .filter { it.id.isNotBlank() && it.title.trim().startsWith(GRADE_THREE_PREFIX) }
             .filterNot { it.id in passedArenaPackIds }
         val arenaIds = arenaPacks.take(MAX_ARENA_SLOTS).map { "$ARENA_PREFIX${it.id}" }
-        val videoCount = 1 + (MAX_ARENA_SLOTS - arenaIds.size)
-        val orderedFallback = frontier
-            .sortedWith(compareBy({ it.subjectId }, { it.mediaId }))
-            .map { it.mediaId }
-        val videoIds = (plannerVideoIds + orderedFallback)
-            .distinct()
-            .take(videoCount)
+        val plannerVideoIds = VideoQuestPlanner.select(childId, dayKey, frontier)
+        val videoIds = composeDailyQuestIds(plannerVideoIds, frontier, arenaIds)
+            .filterNot { it.startsWith(ARENA_PREFIX) }
         if (videoIds.isEmpty()) return Selection(emptyList())
         return Selection(videoIds + arenaIds)
     }
@@ -218,7 +237,6 @@ class DailyQuestManager @Inject constructor(
         const val ARENA_PREFIX = "arena:"
         const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
         const val GRADE_THREE_PREFIX = "Grade 3"
-        const val MAX_ARENA_SLOTS = 2
         val LEGACY_LESSON_ID = Regex(
             "^(?:[a-z-]+-g3-(?:m\\d+|q\\d-w\\d+)-d\\d+|(?:eng|fil|math|sci|mkb|gmrc)-g3-m\\d+-l\\d+)$",
         )

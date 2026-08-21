@@ -1,6 +1,7 @@
 package com.maxinesworld.app
 
 import com.maxinesworld.featurelessonplayer.AssessmentArenaRoute
+import com.maxinesworld.featurelessonplayer.AssessmentArenaViewModel
 
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
@@ -55,7 +56,7 @@ object Routes {
     const val CHILD_HOME = "child_home/{childId}"
     const val TREAT_SHOP = "treat_shop/{childId}"
     const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
-    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
+    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}&packId={packId}"
     const val QUICK_BITS = "quick_bits/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
@@ -65,8 +66,8 @@ object Routes {
 
     fun childHome(childId: String) = "child_home/${segment(childId)}"
     fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
-    fun assessmentArena(childId: String, subject: String? = null) =
-        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+    fun assessmentArena(childId: String, subject: String? = null, packId: String? = null) =
+        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}&packId=${segment(packId.orEmpty())}"
 
     fun videoLibrary(childId: String, subject: String? = null) =
         "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
@@ -156,7 +157,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                             }
                             if (target != null) {
                                 if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
-                                    navController.navigate(Routes.assessmentArena(childId, target.subjectId))
+                                    navController.navigate(
+                                        Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
+                                    )
                                 } else {
                                     navController.navigate(Routes.videoLibrary(childId, target.subjectId))
                                 }
@@ -187,7 +190,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onQuestTargetClick = { target ->
                     if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
-                        navController.navigate(Routes.assessmentArena(childId, target.subjectId))
+                        navController.navigate(
+                            Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
+                        )
                     } else {
                         navController.navigate(Routes.videoLibrary(childId, target.subjectId))
                     }
@@ -227,11 +232,22 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     type = NavType.StringType
                     nullable = true
                     defaultValue = null
-                }
+                },
+                navArgument("packId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
             )
-        ) {
+        ) { backStackEntry ->
+            val arenaPackId = backStackEntry.arguments?.getString("packId")?.takeIf(String::isNotBlank)
+            val arenaViewModel: AssessmentArenaViewModel = hiltViewModel(backStackEntry)
+            LaunchedEffect(arenaPackId) {
+                arenaPackId?.let(arenaViewModel::startQuiz)
+            }
             AssessmentArenaRoute(
                 onBack = { navController.popBackStack() },
+                viewModel = arenaViewModel,
             )
         }
 

@@ -14,6 +14,7 @@ import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -127,6 +128,33 @@ class PlayroomHomeViewModelTest {
         assertTrue(quest.targets.first().isCompleted)
         assertEquals("english-video-1", quest.nextTargetId)
     }
+
+    @Test
+    fun `arena reward metadata emission refreshes daily mission inputs`() = runTest(dispatcher) {
+        val rewards = MutableStateFlow<List<RewardEntity>>(emptyList())
+        val ensureCalls = AtomicInteger()
+        val vm = buildViewModel(
+            arenaRewardsFlow = rewards,
+            dailyQuestEnsureObserver = { ensureCalls.incrementAndGet() },
+        )
+        advanceUntilIdle()
+        val callsBeforeArenaPass = ensureCalls.get()
+
+        rewards.value = listOf(
+            RewardEntity(
+                id = "assessment-arena:child_1:science-g3-ph:STAR",
+                childId = "child_1",
+                type = "STAR",
+                subject = "science",
+                amount = 10,
+                metadata = "assessment_arena_passed:science-g3-ph",
+            ),
+        )
+        advanceUntilIdle()
+
+        assertTrue(ensureCalls.get() > callsBeforeArenaPass)
+    }
+
     @Test
     fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
         val vm = buildViewModel(
@@ -518,6 +546,8 @@ class PlayroomHomeViewModelTest {
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
         persistedQuestIds: List<String>? = null,
+        arenaRewardsFlow: Flow<List<RewardEntity>> = flowOf(emptyList()),
+        dailyQuestEnsureObserver: (() -> Unit)? = null,
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
         coEvery { profileDao.observeById("child_1") } returns (
@@ -545,6 +575,7 @@ class PlayroomHomeViewModelTest {
         }
         coEvery { awarder.getCollectedBadges("child_1") } returns badges
         val rewardDao = mockk<RewardDao>()
+        every { rewardDao.observeByChild("child_1") } returns arenaRewardsFlow
         coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
         coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
         coEvery { rewardDao.getByChildAndType("child_1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) } returns emptyList()
@@ -557,7 +588,8 @@ class PlayroomHomeViewModelTest {
             listOf("mathematics-video-1", "english-video-1", "science-video-1")
         }
         val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
-        coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
+        coEvery { dailyQuestManager.ensureToday("child_1", any(), any(), any(), any()) } coAnswers {
+            dailyQuestEnsureObserver?.invoke()
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
