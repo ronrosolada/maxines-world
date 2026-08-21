@@ -210,7 +210,7 @@ fun PlayroomHomeScreen(
                     wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
                     starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
                     coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
-                    streakDays = (state as? PlayroomHomeUiState.Content)?.streakDays ?: 0,
+                    streakDays = (state as? PlayroomHomeUiState.Content)?.streakDays,
                     keepsakes = (state as? PlayroomHomeUiState.Content)?.ownedKeepsakes.orEmpty(),
                 )
 

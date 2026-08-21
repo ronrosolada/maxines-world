@@ -13,8 +13,8 @@ The home presents information in this order:
    child what to do now and exposes one Start/Continue action.
 2. **Concrete progress** — Quest progress is shown as a count (for example,
    `2 of 3`) and the reward preview remains visible before completion. The
-   child-visible daily progress/streak anchor is kept stable for future streak
-   work.
+   child-visible learning-day streak card explains `N days learning` (or
+   its zero state) separately from the Quest paw-row count.
 3. **Subject destinations** — The six canonical subject cards are stable
    destinations. Each card has a formal label, a playful label, a progress
    state, and an availability/lock state.
@@ -36,7 +36,7 @@ refactoring the home layout:
 | Tag | Required target |
 | --- | --- |
 | `home_today_quest` | Today’s Quest card and its primary action region |
-| `home_streak` | Child-visible daily progress/streak anchor (`N of M`) |
+| `home_streak` | Learning-day streak card (`N days learning`, or its zero-state copy) |
 | `home_subject_<id>` | Subject card, where `<id>` is the stable subject ID (for example `home_subject_mathematics`) |
 | `home_collection` | Collection item in home navigation |
 | `home_parents` | Parent-gate item in home navigation |

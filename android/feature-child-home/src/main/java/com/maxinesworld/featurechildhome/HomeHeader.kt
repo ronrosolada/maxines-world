@@ -111,7 +111,7 @@ internal fun PlayroomHeader(
     wide: Boolean,
     starBalance: Int = 0,
     coinBalance: Int = 0,
-    streakDays: Int = 0,
+    streakDays: Int? = null,
     keepsakes: List<KeepsakeUi> = emptyList(),
 ) {
     if (wide) {
@@ -128,7 +128,7 @@ internal fun PlayroomHeader(
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
     KeepsakesStrip(keepsakes)
-    LearningStreakCard(streakDays)
+    streakDays?.let { LearningStreakCard(it) }
     if (offline) {
         Surface(
             shape = RoundedCornerShape(99.dp),
@@ -182,7 +182,7 @@ internal fun LearningStreakCard(
     val accessibleLabel = if (days > 0) {
         "$title. $explanation"
     } else {
-        "No learning days yet. $title. $explanation"
+        "${stringResource(R.string.home_streak_no_learning_days)} $title. $explanation"
     }
 
     Card(
@@ -255,7 +255,7 @@ internal fun LearningStreakCard(
             text = {
                 Text(
                     if (days > 0) {
-                        stringResource(R.string.home_streak_dialog_positive, days)
+                        pluralStringResource(R.plurals.home_streak_dialog_positive, days, days)
                     } else {
                         stringResource(R.string.home_streak_dialog_zero)
                     },

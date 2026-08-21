@@ -11,10 +11,14 @@
         <item quantity="other">%d days learning</item>
     </plurals>
     <string name="home_streak_zero_title">Start your learning streak today</string>
+    <string name="home_streak_no_learning_days">No learning days yet.</string>
     <string name="home_streak_explanation">Each day you learn counts toward your learning days.</string>
     <string name="home_streak_tap_label">Learn about your learning days</string>
     <string name="home_streak_dialog_title">Your learning days</string>
-    <string name="home_streak_dialog_positive">You have learned on %1$d days in a row. Learning today keeps your learning days going.</string>
+    <plurals name="home_streak_dialog_positive">
+        <item quantity="one">You have learned on %1$d day in a row. Learning today keeps your learning days going.</item>
+        <item quantity="other">You have learned on %1$d days in a row. Learning today keeps your learning days going.</item>
+    </plurals>
     <string name="home_streak_dialog_zero">Start with one learning adventure today. Each learning day adds to your count.</string>
     <string name="home_streak_dialog_dismiss">Got it</string>
     <string name="home_xp_earned">XP earned</string>

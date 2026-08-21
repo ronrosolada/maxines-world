@@ -12,6 +12,7 @@ import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -115,6 +116,14 @@ class PlayroomHomeScreenTest {
         setHome(PlayroomHomeUiState.Loading)
         composeRule.onNodeWithText("Loading your adventures…").assertIsDisplayed()
         composeRule.onNodeWithText("Milo is getting your adventures ready.").assertIsDisplayed()
+        composeRule.onAllNodesWithTag(PlayroomHomeTestTags.Streak).assertCountEquals(0)
+    }
+
+    @Test
+    fun errorStateDoesNotShowFabricatedStreakCard() {
+        setHome(PlayroomHomeUiState.Error("We couldn't load your Playroom."))
+        composeRule.onNodeWithText("We couldn't load your Playroom.").assertIsDisplayed()
+        composeRule.onAllNodesWithTag(PlayroomHomeTestTags.Streak).assertCountEquals(0)
     }
 
     @Test
@@ -466,6 +475,15 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("Your learning days").assertIsDisplayed()
         composeRule.onNodeWithText("Got it").performClick()
         composeRule.runOnIdle { assertEquals(0, parentClicks) }
+    }
+
+    @Test
+    fun learningStreakDialogUsesSingularCopyForOneDay() {
+        setHome(stateFor(streakDays = 1))
+
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).performClick()
+        composeRule.onNodeWithText("You have learned on 1 day in a row. Learning today keeps your learning days going.")
+            .assertIsDisplayed()
     }
 
     @Test
