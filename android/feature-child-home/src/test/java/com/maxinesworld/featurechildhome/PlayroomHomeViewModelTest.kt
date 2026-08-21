@@ -9,6 +9,7 @@ import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -222,6 +223,10 @@ class PlayroomHomeViewModelTest {
         val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
+        val playgroundUnlockReceiptDao = mockk<PlaygroundUnlockReceiptDao>()
+        every {
+            playgroundUnlockReceiptDao.observeByChildAndDay("child_1", any())
+        } returns flowOf(null)
         val godModeManager = mockk<GodModeManager>()
         every { godModeManager.isEnabled("child_1") } returns flowOf(godModeEnabled)
         return PlayroomHomeViewModel(
@@ -235,6 +240,7 @@ class PlayroomHomeViewModelTest {
             videoWatchLedgerDao = videoWatchLedgerDao,
             dailyQuestManager = dailyQuestManager,
             godModeManager = godModeManager,
+            playgroundUnlockReceiptDao = playgroundUnlockReceiptDao,
         )
     }
 

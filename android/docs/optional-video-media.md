@@ -2,51 +2,54 @@
 
 The Android app remains lesson-offline-first. `VIDEO_V1` activities reference a
 stable `mediaId`; the corresponding MP4 is downloaded explicitly, verified, and
-played from private app storage.
+played from private app storage. Video lessons are optional media and are never
+a prerequisite for the bundled curriculum.
 
-## Current personal-use pilot
+## Current playlist replacement
 
-- Source playlists:
-  - `Kids Tagalog Lessons` — `Tagalog Time with Pat` (media 01–18)
-  - `Full-Length Tagalog Lessons` — `Tagalog Time with Pat` (media 19–26)
-- Requested quality: best H.264/AAC format up to 480p (the new playlist's last four videos are source-limited to 640×360)
+The current personal-use preview catalog is documented in full at
+[`docs/video-playlist-replacement-2026-08-20.md`](../../docs/video-playlist-replacement-2026-08-20.md).
+
+- Source: `Video Lesson Sorting - Updated.xlsx`, Grade 1–4 workbook
+- Scope: 237 selected videos from 464 source playlist rows
+- Subjects: Filipino 100, Makabansa 51, Mathematics 24, English 22, GMRC 20, Science 20
+- Grades: Grade 1 29, Grade 2 53, Grade 3 95, Grade 4 60
+- Media: H.264/AAC MP4, downloaded on demand from the trusted home LAN
 - Media endpoint: `http://10.10.10.33/media/catalog.json`
 - Media root on DreamNAS: `/mnt/user/appdata/maxines-world-content/server/content/media/`
 - App storage: `filesDir/maxines-media/`
+- Catalog version: `1`
 - Catalog status: `PREVIEW`
 - License status: `PERSONAL_USE`
+- Assessment policy: five subject-specific multiple-choice items per video; 4/5 required; `claimsMastery=false`
 
 The endpoint is LAN-only and currently uses HTTP. The Android network security
-configuration permits cleartext traffic only to `10.10.10.33`; do not expose
-this endpoint outside the home network. Use an HTTPS Caddy route before any
-broader distribution.
-
-After a successful refresh, the app stores the raw catalog atomically at
-`filesDir/maxines-media/catalog.json`. A later refresh falls back to that
-validated catalog when DreamNAS is unavailable, so already-downloaded videos
-remain discoverable after navigation or an app restart. If no catalog has ever
-been cached, the screen shows a retry action instead of pretending that the
-library is empty.
+configuration permits cleartext traffic only to `10.10.10.33`; do not expose this
+endpoint outside the home network. Use an HTTPS Caddy route before any broader
+distribution.
 
 ## Catalog contract
 
-`media/catalog.json` is version 1 and contains individual assets, not a giant
-archive:
+`media/catalog.json` contains individual assets rather than a giant archive:
 
 ```json
 {
   "catalogVersion": 1,
-  "generatedAt": "2026-08-09T00:00:00+08:00",
+  "generatedAt": "2026-08-20T00:00:00+08:00",
   "media": [
     {
-      "mediaId": "kids-tagalog-01-introductions",
-      "title": "Kids Tagalog Lesson Ep.1",
-      "file": "media/kids-tagalog/01-O6mA_5-JPaw.mp4",
+      "mediaId": "yt-kr4unsat2yk",
+      "title": "Grade 3 English Q1 Ep1: Picture Talk",
+      "file": "media/playlists/english/g3/yt-kr4unsat2yk.mp4",
       "sha256": "<64 lowercase hex characters>",
       "sizeBytes": 123,
-      "durationSeconds": 600,
-      "width": 854,
-      "height": 480,
+      "durationSeconds": 1266,
+      "width": 490,
+      "height": 360,
+      "subjectId": "english",
+      "gradeLevel": 3,
+      "quarter": 1,
+      "episodeNumber": 1,
       "mimeType": "video/mp4",
       "releaseStatus": "PREVIEW",
       "licenseStatus": "PERSONAL_USE"
@@ -56,74 +59,95 @@ archive:
 ```
 
 The parser rejects duplicate IDs, unsafe paths, non-MP4 files, invalid hashes,
-zero sizes/durations, and unsupported MIME types. The downloader supports
-HTTP range resume and promotes a `.part` file only after size and SHA-256
-verification.
+zero sizes/durations, and unsupported MIME types. The downloader supports HTTP
+range resume and promotes a `.part` file only after size and SHA-256 verification.
+The catalog is cached atomically at `filesDir/maxines-media/catalog.json` and a
+validated cached catalog remains usable when DreamNAS is unavailable.
 
-## Optional comprehension checks
+The app sorts entries by subject and episode number. The workbook `Subject`
+column is the canonical tag source; titles are real source titles, not generated
+placeholders. Grade 1 and Grade 2 are limited to Filipino, Makabansa, and GMRC.
+Grade 3 and Grade 4 also include Mathematics, Science, and English.
 
-Each media asset may include an `assessment` block. The current personal-use
-pack uses ten `MULTIPLE_CHOICE` items per video and an 8/10 formative pass mark.
-`claimsMastery` remains `false`: this checks whether Maxine remembers the video,
-not whether she has mastered the broader language skill.
+## Assessment contract
 
-Published assessment items contain only child-facing fields:
+The tracked assessment source is:
+
+```text
+app/src/main/assets/content-pack/media-assessments.json
+```
+
+The replacement contains five items for every one of the 237 videos (1,185
+items total):
 
 ```json
 {
-  "questionCount": 10,
-  "passingCorrectCount": 8,
-  "claimsMastery": false,
-  "items": [
+  "schemaVersion": 1,
+  "assessmentPolicy": {
+    "itemsPerVideo": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false
+  },
+  "media": [
     {
-      "itemId": "kids-tagalog-01-introductions-q01",
-      "sequence": 1,
-      "type": "MULTIPLE_CHOICE",
-      "prompt": "Which Tagalog word means nose?",
-      "options": [
-        {"id": "a", "text": "ilong"},
-        {"id": "b", "text": "mata"},
-        {"id": "c", "text": "tenga"},
-        {"id": "d", "text": "baba"}
-      ],
-      "correctOptionIds": ["a"],
-      "explanation": "Ilong means nose."
+      "mediaId": "yt-kr4unsat2yk",
+      "questionCount": 5,
+      "passingCorrectCount": 4,
+      "claimsMastery": false,
+      "items": [
+        {
+          "itemId": "yt-kr4unsat2yk-q01",
+          "sequence": 1,
+          "type": "MULTIPLE_CHOICE",
+          "prompt": "Which sentence is complete?",
+          "options": [
+            {"id": "a", "text": "The bird sings."},
+            {"id": "b", "text": "Because the bird"},
+            {"id": "c", "text": "Singing in the"},
+            {"id": "d", "text": "The blue"}
+          ],
+          "correctOptionIds": ["a"],
+          "explanation": "The correct answer is The bird sings."
+        }
+      ]
     }
   ]
 }
 ```
 
-Authoring evidence such as transcript timestamps and source quotes stays in the
-local review draft and is stripped by `build_media_catalog.py` before publish.
-The assessment is supplemental and never blocks a lesson or video download. Once
-a video is downloaded, `VideoLibraryScreen` shows a child-facing `What do you
-remember?` check with one-question-at-a-time feedback, explanations, retry, and
-a final score. It does not award lesson rewards or claim mastery.
+Assessment language follows subject:
 
-## Deployment rule
+- English for English, Mathematics, and Science
+- Filipino for Filipino, Makabansa, and GMRC
 
-Stage and inspect the files locally first. Copy only the MP4 files and the
-catalog to the Caddy read-only content root. Do not publish yt-dlp `.info.json`
-sidecars; they are source metadata, not app content.
+The check is supplemental memory feedback. It preserves the existing watch
+completion, 80% pass, reward, retry, and progress behavior without claiming
+mastery of the broader subject.
+
+## Deployment
+
+Stage and inspect locally first. Copy only the MP4 files and catalog into the
+Caddy read-only content root. Do not publish yt-dlp `.info.json` sidecars.
 
 ```bash
 python3 android/tools/build_media_catalog.py \
   --staging /home/ron/maxines-media-staging \
   --assessments android/app/src/main/assets/content-pack/media-assessments.json \
-  --output /home/ron/maxines-media-catalog.json
-rsync -av --partial /home/ron/maxines-media-staging/*.mp4 \
-  root@10.10.10.5:/mnt/user/appdata/maxines-world-content/server/content/media/kids-tagalog/
-rsync -av --partial /home/ron/maxines-media-catalog.json \
+  --output /home/ron/maxines-video-catalog.json
+
+rsync -av --partial /home/ron/maxines-media-staging/ \
+  root@10.10.10.5:/mnt/user/appdata/maxines-world-content/server/content/media/
+rsync -av --partial /home/ron/maxines-video-catalog.json \
   root@10.10.10.5:/mnt/user/appdata/maxines-world-content/server/content/media/catalog.json
 ```
 
-`app/src/main/assets/content-pack/media-assessments.json` is the tracked
-assessment source of truth. The current 26-video pilot has ten memory-check
-items per video. Always pass this file to `build_media_catalog.py`; omitting
-`--assessments` produces a structurally valid catalog that silently drops all
-existing comprehension items. For an intentionally unassessed supplementary
-video, use `--allow-unassessed-media` while still passing the assessment source.
+Always pass `--assessments`. Omitting it produces a structurally valid catalog
+that silently drops the comprehension items. For a deliberately unassessed
+supplementary video, use `--allow-unassessed-media` while still passing the
+assessment source.
 
-Verify after deployment with a bounded header request and a SHA-256 comparison
-against the local catalog. The app must be able to skip the video when the
-server is unavailable; the video is never a lesson-completion prerequisite.
+The deployed root catalog and `/media/catalog.json` must describe the same 237
+assets. After deployment, verify HTTP 200, subject counts, catalog SHA-256, and
+at least one `video/mp4` response. The full release procedure, APK deployment,
+rollback, and current verified hashes are in
+[`docs/video-playlist-replacement-2026-08-20.md`](../../docs/video-playlist-replacement-2026-08-20.md).

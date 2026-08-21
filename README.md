@@ -82,6 +82,15 @@ commands, educator rubric, high-risk patterns, and required findings format.
 Approval metadata and passing structural tests are not substitutes for factual,
 pedagogical, language, and safety review.
 
+## Optional video lessons
+
+The current personal-use preview catalog contains 237 workbook-selected videos
+across Filipino, Makabansa, Mathematics, English, GMRC, and Science. It keeps
+core lessons offline-first while offering verified LAN downloads, subject tags,
+episode ordering, and five-question memory checks with a 4/5 pass threshold.
+See the complete [playlist replacement and release documentation](docs/video-playlist-replacement-2026-08-20.md)
+and the [optional media contract](android/docs/optional-video-media.md).
+
 ## Architecture
 See [docs/01-architecture-decisions.md](docs/01-architecture-decisions.md)  
 See [docs/02-milestones-and-risks.md](docs/02-milestones-and-risks.md)

@@ -1,9 +1,33 @@
 # Maxine's World, Current State & Release Handoff
 
-**Document baseline:** 2026-08-15
-**Release candidate:** `0.35.1` (`versionCode = 38`)
-**Working branch:** `main`
+**Document baseline:** 2026-08-21
+**Release candidate:** `0.58.0` (`versionCode = 300`, `git describe = v0.58.0`)
+**Working branch:** `feat/playlist-video-replacement`
 **Repository:** `ronrosolada/maxines-world` (public)
+
+## Release 0.58.0 Milo Celebration & Delight System (2026-08-21)
+
+- Scope: Milo hero on sticker reveal, design-system motion tokens, lesson answer delight, sanctuary twinkle, and content-shape fixes for the strict gate.
+- Milo hero: `BadgeRevealScreen` now renders `MiloCelebration` (Canvas state-machine mirroring `milo.states.js`, `bouncy 800ms easeOutBack`, `breathe-y + sway` idle, 6 orbiting sparkles + lightweight confetti), gated by `LocalAnimationsDisabled`.
+- Motion tokens: `DelightMotion` in `core-design-system` (`EaseOutBack`, `EaseOutCubic`, `BouncyMs`, `QuickPopMs`), shared by Milo / answer / sanctuary so the SVG preview curve drives Compose.
+- Answer feedback: `MaxinesAnswerCard` pops on `CORRECT` and waggles on `INCORRECT` (snapped under reduced-motion).
+- Sanctuary: `SanctuaryScene` next-slot twinkle (`0.92 → 1.0`, `1100ms EaseInOutSine`) and reduced-motion gated bob/bounce.
+- Sketches: `sketches/milo-reward-proto/` with Milo 4-state preview (full `svg-character-animator` harness, bezier/duration/idle-anchor/X-ray/exports) and `delight-lab.html` (8 moments, zero-build, `prefers-reduced-motion` gated).
+- Content fixes: deduped 2 title collisions (`Telling Sentences ×2`, `Munting Talata ×2`) and corrected `english-g3-q1-w01-d05` assessment `5/4 → 6/5` (missing telling-sentence check added) so `content_pack_validation --strict` is `0 errors, 0 warnings` (358 lessons); `dedupe_lesson_titles --check` clean.
+- Remaining release steps: push `main` (or PR), push annotated tag `v0.58.0`, publish GitHub release with verified APK via `tools/bump_and_release.sh` (workstation JDK 17) or manual `gh release create` — signing stays workstation-only (`~/.gradle/maxines-world-signing.properties`).
+
+## Release 0.56.0 playlist replacement (2026-08-20)
+
+- Scope: replaced the optional video catalog with 237 workbook-selected Grade 1–4 videos across Filipino, Makabansa, Mathematics, English, GMRC, and Science.
+- Subject totals: Filipino 100, Makabansa 51, Mathematics 24, English 22, GMRC 20, Science 20.
+- Grade totals: Grade 1 29, Grade 2 53, Grade 3 95, Grade 4 60.
+- Assessment policy: five subject-specific multiple-choice memory checks per video, 1,185 total items, 4/5 required, `claimsMastery=false`.
+- Language policy: English for English/Mathematics/Science; Filipino for Filipino/Makabansa/GMRC.
+- Media status: `PREVIEW` / `PERSONAL_USE`; MP4s and both catalogs are deployed to DreamNAS at `10.10.10.33`.
+- Release APK SHA-256: `549e93357753c0570108984ec4ae5dca552b4d0982715f2db8a477203dc23795`.
+- APK delivery: `http://10.10.10.33/app-release.apk`; prior APK retained as `app-release.apk.bak-playlist-20260820-121500`.
+- Full implementation, validation, deployment, and rollback details: [`docs/video-playlist-replacement-2026-08-20.md`](docs/video-playlist-replacement-2026-08-20.md).
+- The feature branch contains the media manifest, documentation, and emulator-test fixture updates; push it and open a PR before merging to `main`.
 
 ## Release 0.35.1 candidate (2026-08-15)
 
@@ -140,9 +164,15 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
 
 ### Video lessons
 
-- 8 full-length Tagalog videos with 10-question memory checks are available
-  through optional LAN media; the memory check gates on playback completion
-  (media assessment gate).
+- 237 workbook-selected Grade 1–4 videos are available through optional LAN media.
+- Subject totals are Filipino 100, Makabansa 51, Mathematics 24, English 22,
+  GMRC 20, and Science 20; the app filters by subject and orders by episode.
+- Each video has five subject-appropriate memory-check questions; 4/5 is the
+  pass threshold and playback completion gates the check.
+- The media catalog is `PREVIEW` / `PERSONAL_USE`; it is not a public content
+  release and must remain LAN-only until HTTPS and licensing are reviewed.
+- See `docs/video-playlist-replacement-2026-08-20.md` for deployment, hashes,
+  rollback, and verification evidence.
 
 ## Content
 

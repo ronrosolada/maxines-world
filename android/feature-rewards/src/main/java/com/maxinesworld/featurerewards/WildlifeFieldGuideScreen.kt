@@ -363,28 +363,23 @@ fun BadgeRevealScreen(
                         Text("Discovering...", fontSize = 18.sp, color = accent, fontWeight = FontWeight.Medium)
                     }
                     2 -> {
-                        // Orbiting sparkles around the sticker
-                        Box(Modifier.size(220.dp), contentAlignment = Alignment.Center) {
-                            val density = LocalDensity.current
-                            val orbitRadius = with(density) { 100.dp.toPx() }
-                            repeat(6) { i ->
-                                val rad = Math.toRadians((sparkleSpin + i * 60f).toDouble())
-                                val dx = with(density) { (orbitRadius * kotlin.math.cos(rad)).toFloat().toDp() }
-                                val dy = with(density) { (orbitRadius * kotlin.math.sin(rad)).toFloat().toDp() }
-                                Icon(Icons.Default.Star, contentDescription = null, tint = accent,
-                                    modifier = Modifier.offset(x = dx, y = dy).size(18.dp))
-                            }
-                            // Bouncy pop-in sticker token
-                            Box(Modifier.size(150.dp)
-                                .graphicsLayer { scaleX = popScale; scaleY = popScale }
-                                .clip(CircleShape).background(accent.copy(alpha = 0.12f)),
-                                contentAlignment = Alignment.Center) {
-                                BadgeArtwork(
-                                    badge = badge,
-                                    modifier = Modifier.size(112.dp),
-                                    fallbackTint = accent,
-                                )
-                            }
+                        // Milo celebrates your sticker — hero moment
+                        MiloCelebration(
+                            badgeBiomeColor = accent,
+                            isMilestone = isMilestone,
+                            modifier = Modifier.size(220.dp),
+                        )
+                        Spacer(Modifier.height(10.dp))
+                        // Bouncy pop-in sticker token (kept beneath Milo for taxonomy)
+                        Box(Modifier.size(112.dp)
+                            .graphicsLayer { scaleX = popScale; scaleY = popScale }
+                            .clip(CircleShape).background(accent.copy(alpha = 0.12f)),
+                            contentAlignment = Alignment.Center) {
+                            BadgeArtwork(
+                                badge = badge,
+                                modifier = Modifier.size(84.dp),
+                                fallbackTint = accent,
+                            )
                         }
                         Spacer(Modifier.height(16.dp))
                         Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 24.sp, color = accent, textAlign = TextAlign.Center)

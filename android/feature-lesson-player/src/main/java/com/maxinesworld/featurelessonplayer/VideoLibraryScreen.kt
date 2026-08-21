@@ -280,7 +280,7 @@ private fun VideoLibraryContent(
                                 }
                             }
                         }
-                        if (assessment != null && currentAssessment != null && assessmentAsset != null) {
+                        if (assessment != null && currentAssessment != null) {
                             item(key = "assessment-${assessment.mediaId}") {
                                 MediaAssessmentQuizCard(
                                     quiz = assessment,

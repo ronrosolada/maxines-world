@@ -263,6 +263,33 @@ fun SanctuaryScene(
             }
         }
 
+        // Milo, drawn last so he stands in front of the meadow.
+        val reduceMotionSanctuary = LocalAnimationsDisabled.current
+        val idleOffset by if (reduceMotionSanctuary) remember { mutableStateOf(0f) } else rememberInfiniteTransition(label = "MiloIdleBreath").animateFloat(
+            initialValue = -3f,
+            targetValue = 3f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(durationMillis = 1400, easing = EaseInOutSine),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "MiloBob"
+        )
+        // Next-piece twinkle: defined BEFORE its use so compose scope resolves
+        val nextPulse by if (reduceMotionSanctuary || !showNext) remember { mutableStateOf(1f) } else rememberInfiniteTransition(label = "nextPulse").animateFloat(
+            initialValue = 0.92f,
+            targetValue = 1f,
+            animationSpec = infiniteRepeatable(tween(1100, easing = EaseInOutSine), RepeatMode.Reverse),
+            label = "nextPulseVal"
+        )
+        val bounceScale by animateFloatAsState(
+            targetValue = if (miloBounced) 1.22f else 1.0f,
+            animationSpec = if (reduceMotionSanctuary) snap() else spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessMediumLow
+            ),
+            label = "MiloBounce"
+        )
+
         if (showNext && sanctuary.nextPiece != null) {
             Box(
                 Modifier
@@ -273,6 +300,7 @@ fun SanctuaryScene(
                         y = (sceneHeight * nextSlot.yFraction - slotSize(nextSlot) / 2)
                             .coerceIn(0.dp, sceneHeight),
                     )
+                    .graphicsLayer { scaleX = nextPulse; scaleY = nextPulse }
                     .clip(CircleShape)
                     .background(Color.White.copy(alpha = 0.6f))
                     .border(2.dp, Color(0xFF8FAF9F), CircleShape)
@@ -295,26 +323,6 @@ fun SanctuaryScene(
                 }
             }
         }
-
-        // Milo, drawn last so he stands in front of the meadow.
-        val infiniteTransition = rememberInfiniteTransition(label = "MiloIdleBreath")
-        val idleOffset by infiniteTransition.animateFloat(
-            initialValue = -3f,
-            targetValue = 3f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(durationMillis = 1400, easing = EaseInOutSine),
-                repeatMode = RepeatMode.Reverse
-            ),
-            label = "MiloBob"
-        )
-        val bounceScale by animateFloatAsState(
-            targetValue = if (miloBounced) 1.22f else 1.0f,
-            animationSpec = spring(
-                dampingRatio = Spring.DampingRatioMediumBouncy,
-                stiffness = Spring.StiffnessMediumLow
-            ),
-            label = "MiloBounce"
-        )
 
         Box(
             Modifier
