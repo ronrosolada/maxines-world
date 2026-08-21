@@ -1,10 +1,13 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertAny
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsNotSelected
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
@@ -17,6 +20,8 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.test.SemanticsMatcher
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -36,10 +41,11 @@ class PlayroomHomeScreenTest {
         godModeEnabled: Boolean = false,
         playgroundUnlocked: Boolean = false,
         targets: List<QuestTargetUi> = emptyList(),
+        subjects: List<SubjectCardUi> = canonicalSubjects,
     ): PlayroomHomeUiState.Content =
         PlayroomHomeUiState.Content(
             childName = "Maxine",
-            subjects = canonicalSubjects,
+            subjects = subjects,
             quest = QuestUi(
                 task = task,
                 pawPrintsCompleted = completed,
@@ -108,7 +114,13 @@ class PlayroomHomeScreenTest {
 
     @Test
     fun allSixCanonicalSubjectsRender() {
-        setHome(stateFor())
+        val lockedSubject = canonicalSubjects.first().copy(
+            availability = SubjectAvailability.Locked,
+            lockReason = "Complete 3 videos",
+            completedVideos = 1,
+            totalVideos = 5,
+        )
+        setHome(stateFor(subjects = listOf(lockedSubject) + canonicalSubjects.drop(1)))
         // Makabansa is the Matatag successor of Araling Panlipunan — legacy
         // AP lessons ship inside the Makabansa collection (2026-08-06 merge).
         // The grid is a plain Column: every card exists in the tree even when
@@ -118,6 +130,24 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithText("GMRC").assertIsDisplayed()
         listOf("Mathematics", "English", "Science", "Filipino", "Makabansa", "GMRC")
             .forEach { composeRule.onNodeWithText(it).assertExists() }
+
+        scrollTo("Mathematics")
+        val lockedCard = composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("mathematics"))
+        lockedCard.assertIsNotEnabled()
+            .assert(
+                SemanticsMatcher.expectValue(
+                    SemanticsProperties.ContentDescription,
+                    listOf("Mathematics, Number Fun. Locked. Complete 3 videos."),
+                ),
+            )
+            .assert(
+                SemanticsMatcher.expectValue(
+                    SemanticsProperties.StateDescription,
+                    "1 of 5 videos",
+                ),
+            )
+        composeRule.onNodeWithText("Why it’s locked: Complete 3 videos").assertIsDisplayed()
+        composeRule.onNodeWithText("1 of 5 videos").assertIsDisplayed()
     }
 
     @Test
@@ -239,6 +269,8 @@ class PlayroomHomeScreenTest {
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Collection).assertHasClickAction()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Parents).assertHasClickAction()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.SelectedNavigation).assertIsSelected()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Collection).assertIsNotSelected()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Parents).assertIsNotSelected()
 
         // No-target state: the card remains actionable without inventing a
         // target row; the visible action is still the quest state-machine
@@ -291,7 +323,7 @@ class PlayroomHomeScreenTest {
     @Test
     fun primaryActionsHaveTalkBackLabels() {
         setHome(stateFor())
-        listOf("Sanctuary Workshop", "Collection", "Parents").forEach { label ->
+        listOf("Sanctuary Workshop", "Collection", "Parents, locked").forEach { label ->
             composeRule.onNodeWithContentDescription(label, useUnmergedTree = true).assertHasClickAction()
         }
     }

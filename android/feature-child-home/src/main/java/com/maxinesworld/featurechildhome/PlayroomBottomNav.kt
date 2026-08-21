@@ -35,6 +35,8 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.Collections
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.PlayCircle
@@ -112,13 +114,20 @@ internal fun PlayroomBottomNav(
             .padding(horizontal = 8.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
-        NavItem("Home", isSelected = true, onClick = onHomeClick, compact = compact)
+        NavItem(
+            label = stringResource(R.string.nav_home),
+            isSelected = true,
+            onClick = onHomeClick,
+            compact = compact,
+            icon = Icons.Filled.Home,
+        )
         NavItem(
             stringResource(R.string.nav_collection),
             isSelected = false,
             onClick = onCollectionClick,
             compact = compact,
             testTag = PlayroomHomeTestTags.Collection,
+            icon = Icons.Filled.Collections,
         )
         NavItem(
             stringResource(R.string.nav_parents),
@@ -126,7 +135,10 @@ internal fun PlayroomBottomNav(
             onClick = onParentsClick,
             compact = compact,
             testTag = PlayroomHomeTestTags.Parents,
-            leadingIcon = { Icon(Icons.Filled.Lock, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
+            accessibilityLabel = stringResource(R.string.nav_parents_description),
+            leadingIcon = {
+                Icon(Icons.Filled.Lock, null, tint = PlayMuted, modifier = Modifier.size(24.dp))
+            },
         )
     }
 }
@@ -139,6 +151,8 @@ private fun RowScope.NavItem(
     compact: Boolean,
     comingSoon: Boolean = false,
     testTag: String? = null,
+    accessibilityLabel: String = label,
+    icon: ImageVector? = null,
     leadingIcon: (@Composable () -> Unit)? = null,
 ) {
     val enabled = onClick != null
@@ -151,10 +165,15 @@ private fun RowScope.NavItem(
             .heightIn(min = 56.dp)
             .clip(RoundedCornerShape(20.dp))
             .background(if (isSelected) PlayTeal.copy(alpha = 0.14f) else Color.Transparent)
+            .border(
+                width = if (isSelected) 2.dp else 0.dp,
+                color = if (isSelected) PlayTeal else Color.Transparent,
+                shape = RoundedCornerShape(20.dp),
+            )
             .semantics(mergeDescendants = true) {
-                contentDescription = label
+                contentDescription = accessibilityLabel
                 role = Role.Button
-                if (isSelected) selected = true
+                selected = isSelected
                 if (!enabled) disabled()
             }
             .then(if (isSelected) Modifier.testTag(PlayroomHomeTestTags.SelectedNavigation) else Modifier)
@@ -169,8 +188,15 @@ private fun RowScope.NavItem(
     ) {
         if (leadingIcon != null) {
             leadingIcon()
+        } else if (icon != null) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = if (isSelected) PlayTeal else if (enabled) PlayMuted else PlayMuted.copy(alpha = 0.5f),
+                modifier = Modifier.size(24.dp),
+            )
         } else {
-            Text("●", color = if (isSelected) PlayTeal else if (enabled) PlayMuted else PlayMuted.copy(alpha = 0.5f), fontSize = 16.sp)
+            Spacer(Modifier.size(24.dp))
         }
         Spacer(Modifier.height(2.dp))
         Text(

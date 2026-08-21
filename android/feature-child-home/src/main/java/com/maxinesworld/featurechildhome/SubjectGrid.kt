@@ -256,6 +256,52 @@ private fun SubjectCard(
                     }
                 }
 
+                // Keep the locked explanation in normal layout flow. It must
+                // remain readable beside the lock icon instead of covering
+                // the illustration with an overlaid chip.
+                if (subject.availability == SubjectAvailability.Locked) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 48.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(PlayInkDark)
+                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Icon(
+                            Icons.Filled.Lock,
+                            contentDescription = null,
+                            tint = PlayroomColors.LockedSurfaceText,
+                            modifier = Modifier.size(22.dp),
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Column(
+                            modifier = Modifier.weight(1f),
+                            verticalArrangement = Arrangement.spacedBy(2.dp),
+                        ) {
+                            Text(
+                                stringResource(R.string.home_locked),
+                                color = PlayroomColors.LockedSurfaceText,
+                                fontWeight = FontWeight.Black,
+                                fontSize = 14.sp,
+                                lineHeight = 18.sp,
+                            )
+                            subject.lockReason
+                                ?.takeIf { it.isNotBlank() }
+                                ?.let { reason ->
+                                    Text(
+                                        stringResource(R.string.home_locked_reason_label, reason),
+                                        color = PlayroomColors.LockedSurfaceText,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 14.sp,
+                                        lineHeight = 18.sp,
+                                    )
+                                }
+                        }
+                    }
+                }
+
                 // Bottom row: progress bar + arrow
                 Row(
                     Modifier.fillMaxWidth().heightIn(min = 48.dp),
@@ -311,22 +357,6 @@ private fun SubjectCard(
                 }
             }
 
-            // Locked reason chip (visible, not low-opacity-only)
-            if (subject.availability == SubjectAvailability.Locked) {
-                Surface(
-                    shape = RoundedCornerShape(99.dp),
-                    color = PlayInkDark,
-                    contentColor = PlayroomColors.LockedSurfaceText,
-                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 10.dp, end = 10.dp),
-                ) {
-                    Text(
-                        subject.lockReason ?: stringResource(R.string.home_locked),
-                        fontSize = 15.sp, fontWeight = FontWeight.Black,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
-                        maxLines = 2, overflow = TextOverflow.Ellipsis,
-                    )
-                }
-            }
         }
     }
 }
