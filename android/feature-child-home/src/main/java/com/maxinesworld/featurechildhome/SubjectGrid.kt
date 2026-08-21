@@ -110,7 +110,10 @@ internal fun SubjectGrid(
     onSubjectClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(14.dp)) {
+    Column(
+        modifier = modifier.testTag(PlayroomHomeTestTags.SubjectGrid),
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+    ) {
         subjects.chunked(columns).forEach { rowSubjects ->
             Row(
                 Modifier.fillMaxWidth(),
@@ -209,6 +212,7 @@ private fun SubjectCard(
                 interactionSource = interaction,
                 indication = null,
                 role = Role.Button,
+                onClickLabel = "Open ${subject.formalName}",
                 onClick = onClick,
             ),
         shape = RoundedCornerShape(22.dp),

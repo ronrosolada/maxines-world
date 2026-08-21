@@ -19,9 +19,17 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -148,6 +156,67 @@ class PlayroomHomeScreenTest {
             )
         composeRule.onNodeWithText("Why it’s locked: Complete 3 videos").assertIsDisplayed()
         composeRule.onNodeWithText("1 of 5 videos").assertIsDisplayed()
+    }
+
+    @Test
+    fun subjectHeadingAndWholeCardTargetAreDiscoverable() {
+        var openedSubject: String? = null
+        setHome(stateFor(), onSubjectClick = { openedSubject = it })
+
+        composeRule.onNodeWithText("Explore subjects")
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.SubjectGrid).assertExists()
+
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("gmrc"))
+            .performScrollTo()
+            .assertIsDisplayed()
+            .assertHasClickAction()
+            .performClick()
+        composeRule.runOnIdle { assertEquals("gmrc", openedSubject) }
+    }
+
+    @Test
+    fun finalSubjectAndBottomNavigationRemainReachableAtResponsiveWidthsAndLargeFont() {
+        val width = mutableStateOf(360.dp)
+        val fontScale = mutableFloatStateOf(1f)
+        composeRule.setContent {
+            CompositionLocalProvider(
+                LocalDensity provides Density(density = 1f, fontScale = fontScale.floatValue),
+            ) {
+                Box(Modifier.requiredSize(width = width.value, height = 720.dp)) {
+                    PlayroomHomeScreen(
+                        state = stateFor(),
+                        onSubjectClick = {},
+                        onQuestAction = {},
+                        onHomeClick = {},
+                        onCollectionClick = {},
+                        onParentsClick = {},
+                    )
+                }
+            }
+        }
+
+        listOf(360.dp, 840.dp, 1100.dp).forEach { responsiveWidth ->
+            listOf(1f, 1.3f).forEach { responsiveFontScale ->
+                composeRule.runOnIdle {
+                    width.value = responsiveWidth
+                    fontScale.floatValue = responsiveFontScale
+                }
+                composeRule.waitForIdle()
+
+                // The grid is vertical, so reachability is provided by the
+                // existing home scroll rather than an invisible horizontal
+                // gesture or a clipped map row.
+                composeRule.onNodeWithTag(PlayroomHomeTestTags.SubjectsHeading)
+                    .performScrollTo()
+                    .assertIsDisplayed()
+                composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("gmrc"))
+                    .performScrollTo()
+                    .assertIsDisplayed()
+                composeRule.onNodeWithTag(PlayroomHomeTestTags.Parents).assertIsDisplayed()
+            }
+        }
     }
 
     @Test

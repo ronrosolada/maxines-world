@@ -74,6 +74,7 @@ import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.disabled
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 
 import androidx.compose.ui.semantics.role
@@ -122,6 +123,8 @@ internal object PlayroomHomeTestTags {
     const val Collection = "home_collection"
     const val Parents = "home_parents"
     const val SelectedNavigation = "home_nav_selected"
+    const val SubjectGrid = "home_subjects"
+    const val SubjectsHeading = "home_subjects_heading"
 
     fun subject(id: String): String = "home_subject_$id"
 }
@@ -302,16 +305,32 @@ private fun ContentLayout(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        // 6 Subject Cards front and center for curriculum entry
-        SubjectGrid(
-            subjects = content.subjects,
-            columns = columns,
-            openingSubjectId = content.openingSubjectId,
-            firstFocusId = firstAvailableId,
-            firstFocusRequester = focusRequester,
-            onSubjectClick = onSubjectClick,
+        // The active home uses a responsive vertical subject grid, not the
+        // retired illustrated map or a horizontally clipped subject row.
+        Column(
             modifier = Modifier.fillMaxWidth(),
-        )
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.home_explore_subjects),
+                modifier = Modifier
+                    .testTag(PlayroomHomeTestTags.SubjectsHeading)
+                    .semantics { heading() },
+                color = PlayInk,
+                fontWeight = FontWeight.Black,
+                fontSize = 22.sp,
+                lineHeight = 28.sp,
+            )
+            SubjectGrid(
+                subjects = content.subjects,
+                columns = columns,
+                openingSubjectId = content.openingSubjectId,
+                firstFocusId = firstAvailableId,
+                firstFocusRequester = focusRequester,
+                onSubjectClick = onSubjectClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
 
         // Rewards and Sanctuary
         WildlifeStickersPreview(
