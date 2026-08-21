@@ -12,6 +12,7 @@ import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
+import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
@@ -19,6 +20,8 @@ import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
 import io.mockk.*
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
@@ -243,6 +246,65 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `child home exposes the live streak from progress timestamps`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val today = LocalDate.now(zone)
+        val vm = buildViewModel(
+            streakTimestamps = listOf(
+                timestampFor(today, zone),
+                timestampFor(today.minusDays(1), zone),
+            ),
+        )
+        advanceUntilIdle()
+
+        assertEquals(2, content(vm).streakDays)
+    }
+
+    @Test
+    fun `stale progress becomes a zero streak`() = runTest(dispatcher) {
+        val zone = ZoneId.systemDefault()
+        val vm = buildViewModel(
+            streakTimestamps = listOf(timestampFor(LocalDate.now(zone).minusDays(3), zone)),
+        )
+        advanceUntilIdle()
+
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `streak timestamp database errors leave usable home content with zero streak`() = runTest(dispatcher) {
+        val vm = buildViewModel(streakTimestampLoadFails = true)
+        advanceUntilIdle()
+
+        assertTrue(vm.state.value is PlayroomHomeUiState.Content)
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `missing child and empty progress use safe empty streak state`() = runTest(dispatcher) {
+        val vm = buildViewModel(childName = null)
+        advanceUntilIdle()
+
+        assertEquals("", content(vm).childName)
+        assertEquals(0, content(vm).streakDays)
+    }
+
+    @Test
+    fun `streak adapter uses the shared live streak definition deterministically`() {
+        val zone = ZoneId.of("Asia/Manila")
+        val today = LocalDate.of(2026, 8, 5)
+
+        assertEquals(
+            0,
+            streakDaysFromTimestamps(
+                timestamps = listOf(timestampFor(today.minusDays(3), zone)),
+                zone = zone,
+                today = today,
+            ),
+        )
+    }
+
+    @Test
     fun `load failure enters error and retry creates one fresh content collector`() = runTest(dispatcher) {
         var shouldFail = true
         val vm = buildViewModel(shouldFailExpedition = { shouldFail })
@@ -293,6 +355,8 @@ class PlayroomHomeViewModelTest {
         videoCatalogLoadFails: Boolean = false,
         starBalance: Int = 0,
         coinBalance: Int = 0,
+        streakTimestamps: List<Long> = emptyList(),
+        streakTimestampLoadFails: Boolean = false,
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
     ): PlayroomHomeViewModel {
@@ -302,6 +366,13 @@ class PlayroomHomeViewModelTest {
         )
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
+        val progressEventDao = mockk<ProgressEventDao>()
+        if (streakTimestampLoadFails) {
+            every { progressEventDao.observeTimestampsByChild("child_1") } throws
+                IllegalStateException("streak timestamps unavailable")
+        } else {
+            every { progressEventDao.observeTimestampsByChild("child_1") } returns flowOf(streakTimestamps)
+        }
         val mediaLibrary = mockk<MediaLibrary>()
         if (videoCatalogLoadFails) {
             coEvery { mediaLibrary.getCatalog() } throws IllegalStateException("media catalog unavailable")
@@ -343,6 +414,7 @@ class PlayroomHomeViewModelTest {
             mediaLibrary = mediaLibrary,
             childProfileDao = profileDao,
             lessonCompletionDao = completionDao,
+            progressEventDao = progressEventDao,
             badgeAwarder = awarder,
             rewardDao = rewardDao,
             inventoryDao = inventoryDao,
@@ -409,6 +481,9 @@ class PlayroomHomeViewModelTest {
         avatarId = "cat_orange_default", grade = 3, curriculum = "ph-matatag",
         createdAt = 0L,
     )
+
+    private fun timestampFor(date: LocalDate, zone: ZoneId): Long =
+        date.atStartOfDay(zone).toInstant().toEpochMilli()
 
     private fun badge(id: String, collected: Boolean) = com.maxinesworld.coremodel.CollectibleBadge(
         id = id, biome = "test", name = "Badge $id", title = "T", funFact = "F",

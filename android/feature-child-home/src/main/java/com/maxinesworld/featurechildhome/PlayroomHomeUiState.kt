@@ -173,6 +173,8 @@ sealed interface PlayroomHomeUiState {
         val starBalance: Int = 0,
         val coinBalance: Int = 0,
         val totalAccreditedSeconds: Int = 0,
+        /** Consecutive local learning days; informational only. */
+        val streakDays: Int = 0,
         /** Treat Shop keepsakes this child owns — rendered on the home so a
          *  purchase always produces something visible. */
         val ownedKeepsakes: List<KeepsakeUi> = emptyList(),

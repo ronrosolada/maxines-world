@@ -5,11 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.currentLearningStreak
+import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
 import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
+import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
@@ -31,6 +34,15 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+internal fun streakDaysFromTimestamps(
+    timestamps: Iterable<Long>,
+    zone: ZoneId,
+    today: LocalDate,
+): Int = currentLearningStreak(
+    localDates = localLearningDates(timestamps, zone),
+    today = today,
+)
+
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
     val lessonIds: List<String>,
@@ -47,6 +59,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val mediaLibrary: MediaLibrary,
     private val childProfileDao: ChildProfileDao,
     private val lessonCompletionDao: LessonCompletionDao,
+    private val progressEventDao: ProgressEventDao,
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
     private val inventoryDao: InventoryDao,
@@ -63,16 +76,42 @@ class PlayroomHomeViewModel @Inject constructor(
 
     private var openingSubjectId: String? = null
     private var stateJob: Job? = null
+    private var streakJob: Job? = null
     private var videoProgressJob: Job? = null
     private var finalContentJob: Job? = null
     private val baseContent = MutableStateFlow<PlayroomHomeUiState.Content?>(null)
+    private val streakDays = MutableStateFlow(0)
     private val videoAssets = MutableStateFlow<List<MediaAsset>?>(null)
     private val passedVideoIds = MutableStateFlow<Set<String>>(emptySet())
 
     init {
         collectState()
+        collectStreak()
         collectVideoProgress()
         collectFinalContent()
+    }
+
+    private fun collectStreak() {
+        streakJob?.cancel()
+        streakDays.value = 0
+        streakJob = viewModelScope.launch {
+            try {
+                progressEventDao.observeTimestampsByChild(childId).collect { timestamps ->
+                    val zone = ZoneId.systemDefault()
+                    streakDays.value = streakDaysFromTimestamps(
+                        timestamps = timestamps,
+                        zone = zone,
+                        today = LocalDate.now(zone),
+                    )
+                }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                // Streaks are informational; a database read failure must not
+                // replace a usable child home or fabricate a non-zero value.
+                streakDays.value = 0
+            }
+        }
     }
 
     private fun collectVideoProgress() {
@@ -103,8 +142,10 @@ class PlayroomHomeViewModel @Inject constructor(
     private fun collectFinalContent() {
         finalContentJob?.cancel()
         finalContentJob = viewModelScope.launch {
-            combine(baseContent, videoAssets, passedVideoIds) { content, assets, passed ->
-                content?.let { withVideoProgress(it, assets, passed) }
+            combine(baseContent, videoAssets, passedVideoIds, streakDays) { content, assets, passed, streak ->
+                content?.let {
+                    withVideoProgress(it, assets, passed).copy(streakDays = streak)
+                }
             }.collect { content ->
                 if (content != null) _state.value = content
             }
@@ -229,6 +270,7 @@ class PlayroomHomeViewModel @Inject constructor(
         baseContent.value = null
         _state.value = PlayroomHomeUiState.Loading
         collectState()
+        collectStreak()
         collectVideoProgress()
     }
 
