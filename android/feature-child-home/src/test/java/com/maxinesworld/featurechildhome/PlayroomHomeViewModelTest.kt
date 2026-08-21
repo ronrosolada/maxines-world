@@ -4,6 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import com.maxinesworld.corecontent.ContentModule
 import com.maxinesworld.corecontent.ContentModuleLesson
 import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
@@ -12,6 +14,7 @@ import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
@@ -74,6 +77,33 @@ class PlayroomHomeViewModelTest {
         )
         advanceUntilIdle()
         assertEquals(50, content(vm).subjects.first { it.id == "mathematics" }.progressPercent)
+    }
+
+    @Test
+    fun `per-subject video progress uses passed media ids and active media total`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = listOf("mathematics-g3-m01-d01", "mathematics-g3-m01-d02", "mathematics-g3-m01-d03"),
+            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
+            videoCatalog = mediaCatalogWithTotals("mathematics" to 6),
+            passedVideoMediaIds = (1..3).map { "mathematics-video-$it" },
+        )
+        advanceUntilIdle()
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(3, mathematics.completedVideos)
+        assertEquals(6, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            completedLessons = (1..3).map { "mathematics-g3-m01-d%02d".format(it) },
+            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
+            videoCatalogLoadFails = true,
+        )
+        advanceUntilIdle()
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(null, mathematics.completedVideos)
+        assertEquals(null, mathematics.totalVideos)
     }
 
     @Test
@@ -184,6 +214,9 @@ class PlayroomHomeViewModelTest {
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
         catalog: ModuleCatalog = emptyCatalog(),
+        videoCatalog: MediaCatalog = MediaCatalog(1, "", emptyList()),
+        passedVideoMediaIds: List<String> = emptyList(),
+        videoCatalogLoadFails: Boolean = false,
         starBalance: Int = 0,
         coinBalance: Int = 0,
         godModeEnabled: Boolean = false,
@@ -201,6 +234,12 @@ class PlayroomHomeViewModelTest {
         )
         val completionDao = mockk<LessonCompletionDao>()
         coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
+        val mediaLibrary = mockk<MediaLibrary>()
+        if (videoCatalogLoadFails) {
+            coEvery { mediaLibrary.getCatalog() } throws IllegalStateException("media catalog unavailable")
+        } else {
+            coEvery { mediaLibrary.getCatalog() } returns videoCatalog
+        }
         val awarder = mockk<BadgeAwarder>()
         coEvery { awarder.getExpeditionProgress("child_1") } coAnswers {
             if (shouldFailExpedition()) throw IllegalStateException("expedition load failed")
@@ -221,6 +260,7 @@ class PlayroomHomeViewModelTest {
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
         val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
+        every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns flowOf(passedVideoMediaIds)
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
         val playgroundUnlockReceiptDao = mockk<PlaygroundUnlockReceiptDao>()
@@ -232,6 +272,7 @@ class PlayroomHomeViewModelTest {
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
             catalog = catalog,
+            mediaLibrary = mediaLibrary,
             childProfileDao = profileDao,
             lessonCompletionDao = completionDao,
             badgeAwarder = awarder,
@@ -273,6 +314,26 @@ class PlayroomHomeViewModelTest {
             )
         }
         return catalog
+    }
+
+    private fun mediaCatalogWithTotals(vararg subjectAndCount: Pair<String, Int>): MediaCatalog {
+        val assets = subjectAndCount.flatMap { (subject, count) ->
+            (1..count).map { index ->
+                MediaAsset(
+                    mediaId = "$subject-video-$index",
+                    title = "Video $index",
+                    file = "$subject/$index.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = subject,
+                    episodeNumber = index,
+                )
+            }
+        }
+        return MediaCatalog(catalogVersion = 1, generatedAt = "test", media = assets)
     }
 
     private fun badge(id: String, collected: Boolean) = com.maxinesworld.coremodel.CollectibleBadge(

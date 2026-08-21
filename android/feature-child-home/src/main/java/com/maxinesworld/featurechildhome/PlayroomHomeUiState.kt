@@ -1,6 +1,7 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
+import com.maxinesworld.coremodel.MediaAsset
 
 /**
  * Option 3 Playroom Collections homepage state (design.md §14).
@@ -27,11 +28,29 @@ data class SubjectCardUi(
     val formalName: String,
     val playfulName: String,
     @DrawableRes val illustrationRes: Int,
-    val progressPercent: Int?,            // null = not started
+    val progressPercent: Int?,            // compatibility/internal calculations only
+    /** Completed videos from the active media catalog; null means unavailable. */
+    val completedVideos: Int? = null,
+    /** Total videos from the active media catalog; null means unavailable. */
+    val totalVideos: Int? = null,
     val availability: SubjectAvailability = SubjectAvailability.Available,
     val lockReason: String? = null,       // visible reason when locked
     val destination: String = id,         // pack subject key for navigation
 )
+
+/**
+ * Returns the truthful video count for one subject. A null asset list means the
+ * media catalog is unavailable; an empty subject match is a real 0-of-0 result.
+ */
+internal fun videoProgressForSubject(
+    subjectId: String,
+    assets: List<MediaAsset>?,
+    passedMediaIds: Set<String>,
+): Pair<Int, Int>? {
+    if (assets == null) return null
+    val subjectAssets = assets.filter { it.subjectId.equals(subjectId, ignoreCase = true) }
+    return subjectAssets.count { it.mediaId in passedMediaIds } to subjectAssets.size
+}
 
 @androidx.compose.runtime.Immutable
 data class QuestTargetUi(

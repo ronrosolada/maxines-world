@@ -146,11 +146,34 @@ private fun SubjectCard(
     val enabled = subject.isAvailable && !opening
     val interaction = remember { MutableInteractionSource() }
     var focused by remember { mutableStateOf(false) }
-    val progress = subject.progressPercent?.coerceIn(0, 100)
+    val completedVideos = subject.completedVideos
+    val totalVideos = subject.totalVideos
+    val videoProgress = if (completedVideos != null && totalVideos != null) {
+        completedVideos.coerceIn(0, totalVideos.coerceAtLeast(0)) to totalVideos.coerceAtLeast(0)
+    } else {
+        null
+    }
+    val progressFraction = videoProgress?.let { (completed, total) ->
+        if (total > 0) completed.toFloat() / total.toFloat() else 0f
+    } ?: 0f
     val progressLabel = when {
-        progress == null -> stringResource(R.string.home_not_started)
-        progress >= 100 -> stringResource(R.string.home_complete)
-        else -> "$progress% complete"
+        videoProgress == null -> stringResource(R.string.home_progress_unavailable)
+        videoProgress.second == 0 -> stringResource(R.string.home_no_videos)
+        videoProgress.first >= videoProgress.second -> stringResource(
+            R.string.home_video_progress_complete,
+            videoProgress.first,
+            videoProgress.second,
+        )
+        videoProgress.first == 0 -> stringResource(
+            R.string.home_video_progress_not_started,
+            videoProgress.first,
+            videoProgress.second,
+        )
+        else -> stringResource(
+            R.string.home_video_progress,
+            videoProgress.first,
+            videoProgress.second,
+        )
     }
     val spoken = buildString {
         append(subject.formalName).append(", ").append(subject.playfulName)
@@ -244,15 +267,18 @@ private fun SubjectCard(
                                 .clip(RoundedCornerShape(99.dp))
                                 .background(pale, RoundedCornerShape(99.dp)),
                         ) {
-                            if (progress != null && progress > 0) {
+                            if (videoProgress != null && videoProgress.first > 0 && videoProgress.second > 0) {
                                 Box(
-                                    Modifier.fillMaxWidth(progress / 100f).fillMaxHeight()
+                                    Modifier.fillMaxWidth(progressFraction).fillMaxHeight()
                                         .background(accent, RoundedCornerShape(99.dp)),
                                 )
                             }
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            if (progress != null && progress >= 100) {
+                            if (videoProgress != null &&
+                                videoProgress.second > 0 &&
+                                videoProgress.first >= videoProgress.second
+                            ) {
                                 Icon(Icons.Filled.CheckCircle, null, tint = PlaySuccess, modifier = Modifier.size(16.dp))
                                 Spacer(Modifier.width(4.dp))
                             }

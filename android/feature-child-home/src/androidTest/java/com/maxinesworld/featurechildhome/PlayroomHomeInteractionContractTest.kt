@@ -66,11 +66,23 @@ class PlayroomHomeInteractionContractTest {
         PlayroomHomeUiState.Content(
             childName = "Maxine",
             subjects = canonicalSubjects.mapIndexed { index, subject ->
-                subject.copy(progressPercent = when (index) {
-                    0 -> null
-                    1 -> 42
-                    else -> 100
-                })
+                subject.copy(
+                    progressPercent = when (index) {
+                        0 -> null
+                        1 -> 42
+                        else -> 100
+                    },
+                    completedVideos = when (index) {
+                        0 -> 0
+                        1 -> 2
+                        else -> 3
+                    },
+                    totalVideos = when (index) {
+                        0 -> 4
+                        1 -> 5
+                        else -> 3
+                    },
+                )
             },
             quest = QuestUi(
                 task = QuestTaskCopy.IncompleteToday,
@@ -163,9 +175,9 @@ class PlayroomHomeInteractionContractTest {
 
         expectedSubjects.forEachIndexed { index, subject ->
             val expectedProgress = when (index) {
-                0 -> "Not started"
-                1 -> "42% complete"
-                else -> "Complete"
+                0 -> "Not started · 0 of 4 videos"
+                1 -> "2 of 5 videos"
+                else -> "Complete · 3 of 3 videos"
             }
             composeRule.onNodeWithTag(PlayroomHomeTestTags.subject(subject.id))
                 .assert(
