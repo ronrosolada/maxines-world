@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 
@@ -269,5 +270,22 @@ class PlayroomHomeInteractionContractTest {
             "2 days learning. Each day you learn counts toward your learning days.",
             useUnmergedTree = true,
         ).assertExists()
+    }
+
+    @Test
+    fun todayQuestPrecedesStreakCardInChildHomeSemantics() {
+        setHome()
+
+        val todayQuestBounds = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
+            .fetchSemanticsNode()
+            .boundsInRoot
+        val streakBounds = composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak)
+            .fetchSemanticsNode()
+            .boundsInRoot
+
+        assertTrue(
+            "Today’s Quest must precede the learning-day streak card",
+            todayQuestBounds.top < streakBounds.top,
+        )
     }
 }

@@ -210,7 +210,6 @@ fun PlayroomHomeScreen(
                     wide = widthClass == HomeWidthClass.Wide && fontScale < 1.3f,
                     starBalance = (state as? PlayroomHomeUiState.Content)?.starBalance ?: 0,
                     coinBalance = (state as? PlayroomHomeUiState.Content)?.coinBalance ?: 0,
-                    streakDays = (state as? PlayroomHomeUiState.Content)?.streakDays,
                     keepsakes = (state as? PlayroomHomeUiState.Content)?.ownedKeepsakes.orEmpty(),
                 )
 
@@ -293,6 +292,9 @@ private fun ContentLayout(
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         // Today's Quest Card (Primary action)
         TodayQuestCard(content.quest, questAction, Modifier.fillMaxWidth())
+
+        // Concrete learning progress follows the primary Today action.
+        LearningStreakCard(content.streakDays, Modifier.fillMaxWidth())
 
         // Grade 3 Assessment Arena Entry Card
         AssessmentArenaBannerCard(

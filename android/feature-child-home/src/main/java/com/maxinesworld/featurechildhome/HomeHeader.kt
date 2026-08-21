@@ -111,7 +111,6 @@ internal fun PlayroomHeader(
     wide: Boolean,
     starBalance: Int = 0,
     coinBalance: Int = 0,
-    streakDays: Int? = null,
     keepsakes: List<KeepsakeUi> = emptyList(),
 ) {
     if (wide) {
@@ -128,7 +127,6 @@ internal fun PlayroomHeader(
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
     KeepsakesStrip(keepsakes)
-    streakDays?.let { LearningStreakCard(it) }
     if (offline) {
         Surface(
             shape = RoundedCornerShape(99.dp),

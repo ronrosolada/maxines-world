@@ -18,3 +18,17 @@
   - `./gradlew :feature-child-home:connectedDebugAndroidTest` — **BUILD SUCCESSFUL**, 32/32 tests passed, 0 failed
   - `./gradlew :app:assembleDebug` — **BUILD SUCCESSFUL**
 - **Note:** The first connected-test compile caught a missing `onAllNodesWithTag` import in the new assertions; the import was added and the full connected suite was rerun successfully. The standalone `adb` command was not on PATH, but Gradle’s managed AVD executed the connected suite.
+
+## Final fix
+
+- **Status:** PASS
+- **Finding addressed:** Removed the child-visible learning-day streak card from `PlayroomHeader` and placed it immediately after Today’s Quest inside the Content-only `ContentLayout` flow. Header balance, keepsakes, offline presentation, and all existing streak behavior remain unchanged.
+- **Regression coverage:** Added deterministic Compose semantics-bound coverage asserting Today’s Quest precedes `home_streak`; existing zero-state, positive-state, tap-dialog, reduced-motion, and Loading/Error coverage remains in place.
+- **Verification environment:** JDK 17 via `JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem`.
+- **Exact verification commands/results:**
+  - `export JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew :feature-child-home:testDebugUnitTest` — **BUILD SUCCESSFUL**
+  - `export JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew :feature-child-home:lintDebug` — **BUILD SUCCESSFUL**
+  - `export JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew :feature-child-home:connectedDebugAndroidTest` — **BUILD SUCCESSFUL**, **34/34 tests passed**, 0 skipped, 0 failed
+  - `export JAVA_HOME=/home/ron/.sdkman/candidates/java/17.0.16-tem; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew :app:assembleDebug` — **BUILD SUCCESSFUL**
+  - `git diff --check` — **PASS**
+- **Concerns:** None for this final fix wave. Existing untracked `docs/superpowers/` workspace content was left untouched.
