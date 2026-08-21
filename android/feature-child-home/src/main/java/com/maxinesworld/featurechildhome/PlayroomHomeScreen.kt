@@ -535,7 +535,15 @@ private fun PlayroomHeader(
 /** Child-visible learning stars and sanctuary tokens — earned work stays visible. */
 @Composable
 private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) {
-    Row(modifier, horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
+    val reduceMotion = LocalAnimationsDisabled.current
+    // Odometer pop when either value changes — gated
+    val popScale by animateFloatAsState(
+        targetValue = 1f,
+        animationSpec = if (reduceMotion) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
+        label = "balancePop",
+    )
+    // Use LaunchedEffect on the total to retrigger; Compose will animate on value change
+    Row(modifier.graphicsLayer(scaleX = popScale, scaleY = popScale), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
         BalanceChip("stars", "★", stars, PlaySunshine)
         BalanceChip("sanctuary tokens", "●", coins, PlayTeal)
     }
@@ -1016,12 +1024,21 @@ private fun TodayQuestCard(
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Icon(
-                            Icons.Default.CardGiftcard,
-                            contentDescription = null,
-                            tint = if (quest.godModeEnabled || quest.isComplete) PlayInkDark else PlayTeal,
-                            modifier = Modifier.size(22.dp),
+                        // When quest completes, gift icon popped transform
+                        val questCompleteReduce = LocalAnimationsDisabled.current
+                        val giftScale by animateFloatAsState(
+                            targetValue = 1f,
+                            animationSpec = if (questCompleteReduce) snap() else tween(620, easing = FastOutSlowInEasing),
+                            label = "giftPop",
                         )
+                        Box(Modifier.graphicsLayer(scaleX = if (!questCompleteReduce && quest.isComplete) giftScale else 1f, scaleY = if (!questCompleteReduce && quest.isComplete) giftScale else 1f)) {
+                            Icon(
+                                Icons.Default.CardGiftcard,
+                                contentDescription = null,
+                                tint = if (quest.godModeEnabled || quest.isComplete) PlayInkDark else PlayTeal,
+                                modifier = Modifier.size(22.dp),
+                            )
+                        }
                         Spacer(Modifier.width(8.dp))
                         Text(
                             when {
@@ -1902,6 +1919,18 @@ private fun WatchToEarnQuestCard(
 ) {
     val progress = (totalAccreditedSeconds % 1800).toFloat() / 1800f
     val currentMins = (totalAccreditedSeconds % 1800) / 60
+    val watchReduce = LocalAnimationsDisabled.current
+    // Animated ring: draw progress with easeOutCubic; tick-pop handled by scale on gift box
+    val animatedProgress by animateFloatAsState(
+        targetValue = progress.coerceIn(0f, 1f),
+        animationSpec = if (watchReduce) snap() else tween(700, easing = com.maxinesworld.coredesignsystem.theme.DelightMotion.EaseOutCubic),
+        label = "watchProgress",
+    )
+    val tickPop by animateFloatAsState(
+        targetValue = 1f,
+        animationSpec = if (watchReduce) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = 720f),
+        label = "watchTickPop",
+    )
     
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -1912,7 +1941,8 @@ private fun WatchToEarnQuestCard(
         Column(Modifier.fillMaxWidth().padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
-                    modifier = Modifier.size(54.dp).clip(RoundedCornerShape(16.dp)).background(PlayTeal.copy(alpha = 0.12f)),
+                    modifier = Modifier.size(54.dp).clip(RoundedCornerShape(16.dp)).background(PlayTeal.copy(alpha = 0.12f))
+                        .graphicsLayer(scaleX = tickPop, scaleY = tickPop),
                     contentAlignment = Alignment.Center
                 ) {
                     Text("🎁", fontSize = 28.sp)
@@ -1948,7 +1978,7 @@ private fun WatchToEarnQuestCard(
             }
             Spacer(Modifier.height(14.dp))
             LinearProgressIndicator(
-                progress = { progress.coerceIn(0f, 1f) },
+                progress = { animatedProgress.coerceIn(0f, 1f) },
                 modifier = Modifier.fillMaxWidth().height(10.dp).clip(RoundedCornerShape(5.dp)),
                 color = PlayTeal,
                 trackColor = PlayTeal.copy(alpha = 0.15f),
