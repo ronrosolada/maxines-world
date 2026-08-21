@@ -67,6 +67,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
@@ -116,6 +117,17 @@ internal val SubjectPale = PlayroomColors.SubjectPale
 
 private fun subjectAccent(id: String): Color = SubjectAccent[id] ?: PlayTeal
 private fun subjectPale(id: String): Color = SubjectPale[id] ?: PlayroomColors.FallbackSurface
+
+/** Stable semantics hooks for child-home interaction and accessibility tests. */
+internal object PlayroomHomeTestTags {
+    const val TodayQuest = "home_today_quest"
+    const val Streak = "home_streak"
+    const val Collection = "home_collection"
+    const val Parents = "home_parents"
+    const val SelectedNavigation = "home_nav_selected"
+
+    fun subject(id: String): String = "home_subject_$id"
+}
 
 // ─── Width classes (design.md §7.1) ───
 private enum class HomeWidthClass { Wide, Medium, Narrow, Compact }
@@ -772,6 +784,7 @@ private fun SubjectCard(
         modifier = modifier
             .fillMaxWidth()
             .heightIn(min = 150.dp)
+            .testTag(PlayroomHomeTestTags.subject(subject.id))
             .semantics(mergeDescendants = true) {
                 contentDescription = spoken
                 role = Role.Button
@@ -939,7 +952,9 @@ private fun TodayQuestCard(
         QuestButtonLabel.Start -> stringResource(R.string.home_start)
         QuestButtonLabel.Continue -> stringResource(R.string.home_continue)
     }
-    MaxinesQuestCardSurface(modifier = modifier.fillMaxWidth()) {
+    MaxinesQuestCardSurface(
+        modifier = modifier.fillMaxWidth().testTag(PlayroomHomeTestTags.TodayQuest),
+    ) {
         Column(Modifier.fillMaxWidth()) {
             MaxinesQuestCardHeader(
                 title = stringResource(R.string.home_today_quest),
@@ -971,7 +986,10 @@ private fun TodayQuestCard(
                         Spacer(Modifier.height(6.dp))
                         // Animated paw bar: each newly-earned paw pops (scale) as pawPrintsCompleted grows.
                         // Reduced-motion: snap, no pop. Idle twinkle on complete handled below.
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                        Row(
+                            modifier = Modifier.testTag(PlayroomHomeTestTags.Streak),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
                             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 repeat(quest.pawPrintTotal) { i ->
                                     val filled = i < quest.pawPrintsCompleted
@@ -1707,12 +1725,14 @@ private fun PlayroomBottomNav(
             isSelected = false,
             onClick = onCollectionClick,
             compact = compact,
+            testTag = PlayroomHomeTestTags.Collection,
         )
         NavItem(
             stringResource(R.string.nav_parents),
             isSelected = false,
             onClick = onParentsClick,
             compact = compact,
+            testTag = PlayroomHomeTestTags.Parents,
             leadingIcon = { Icon(Icons.Filled.Lock, null, tint = PlayTeal, modifier = Modifier.size(20.dp)) },
         )
     }
@@ -1725,6 +1745,7 @@ private fun RowScope.NavItem(
     onClick: (() -> Unit)?,
     compact: Boolean,
     comingSoon: Boolean = false,
+    testTag: String? = null,
     leadingIcon: (@Composable () -> Unit)? = null,
 ) {
     val enabled = onClick != null
@@ -1743,6 +1764,8 @@ private fun RowScope.NavItem(
                 if (isSelected) selected = true
                 if (!enabled) disabled()
             }
+            .then(if (isSelected) Modifier.testTag(PlayroomHomeTestTags.SelectedNavigation) else Modifier)
+            .then(testTag?.let { Modifier.testTag(it) } ?: Modifier)
             .focusable(enabled = enabled, interactionSource = interaction)
             .then(
                 if (enabled) Modifier.clickable(interactionSource = interaction, indication = null, role = Role.Button, onClick = onClick)
