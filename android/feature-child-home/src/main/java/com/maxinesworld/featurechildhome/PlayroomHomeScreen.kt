@@ -2,9 +2,16 @@ package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.foundation.BorderStroke
@@ -81,6 +88,7 @@ import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.components.MaxinesQuestCardHeader
 import com.maxinesworld.coredesignsystem.components.MaxinesQuestCardSurface
+import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import kotlin.math.roundToInt
@@ -949,13 +957,25 @@ private fun TodayQuestCard(
                             maxLines = 3, overflow = TextOverflow.Ellipsis,
                         )
                         Spacer(Modifier.height(6.dp))
+                        // Animated paw bar: each newly-earned paw pops (scale) as pawPrintsCompleted grows.
+                        // Reduced-motion: snap, no pop. Idle twinkle on complete handled below.
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 repeat(quest.pawPrintTotal) { i ->
-                                    PawGlyph(
-                                        if (i < quest.pawPrintsCompleted) PlaySunshine else PlayInk.copy(alpha = 0.18f),
-                                        size = 18.dp,
+                                    val filled = i < quest.pawPrintsCompleted
+                                    val reduceMotionQuest = LocalAnimationsDisabled.current
+                                    val pawScale by animateFloatAsState(
+                                        targetValue = if (filled) 1f else 0.95f,
+                                        animationSpec = if (reduceMotionQuest) snap() else spring(dampingRatio = 0.62f, stiffness = 720f),
+                                        label = "pawScale$i",
                                     )
+                                    // Only pop the paw that just filled: stagger hint via index
+                                    Box(Modifier.graphicsLayer(scaleX = if (!reduceMotionQuest && filled) pawScale else 1f, scaleY = if (!reduceMotionQuest && filled) pawScale else 1f)) {
+                                        PawGlyph(
+                                            if (filled) PlaySunshine else PlayInk.copy(alpha = 0.18f),
+                                            size = 18.dp,
+                                        )
+                                    }
                                 }
                             }
                             Spacer(Modifier.width(10.dp))
@@ -969,9 +989,15 @@ private fun TodayQuestCard(
                     }
                 }
 
+                // Reward banner: when quest is complete, gentle pulse — gated by reducedMotion.
+                val bannerReduce = LocalAnimationsDisabled.current
+                val bannerScale by if (bannerReduce || !quest.isComplete) remember(quest.isComplete) { mutableStateOf(1f) } else rememberInfiniteTransition(label = "questBanner").animateFloat(
+                    1f, 1.02f, infiniteRepeatable(tween(1400, easing = FastOutSlowInEasing), RepeatMode.Reverse), "pulse"
+                ).let { s -> s as State<Float>; s }
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .graphicsLayer(scaleX = if (!bannerReduce && quest.isComplete) bannerScale else 1f, scaleY = if (!bannerReduce && quest.isComplete) bannerScale else 1f)
                         .clip(RoundedCornerShape(14.dp))
                         .semantics {
                             contentDescription = if (quest.godModeEnabled) {

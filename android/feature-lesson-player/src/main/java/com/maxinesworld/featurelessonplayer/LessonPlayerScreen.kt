@@ -24,6 +24,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -789,12 +790,13 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
     val starsEarned = state.starsEarned.takeIf { it > 0 } ?: calculatedReward.stars
     val coinsEarned = state.coinsEarned.takeIf { it > 0 } ?: calculatedReward.coins
 
-    // Confetti — respect reduced motion (ANIMATOR_DURATION_SCALE == 0 on
-    // Android disables system animations; children with this preference get
-    // a static celebration screen instead of falling confetti).
+    // Confetti — respect reduced motion. Reduced = 6-particle lite for LessonComplete (non-badge)
+    // to keep momentum without devaluing the Milo hero. Gated by ANIMATOR_DURATION_SCALE == 0.
     val reducedMotion = LocalAnimationsDisabled.current
+    val isLiteConfetti = true // LessonComplete (non-badge) is always the lite 6-particle variant
+    val confettiCount = if (reducedMotion) 0 else if (isLiteConfetti) 6 else 40
     val confettiColors = if (!reducedMotion) listOf(Coral, SunshineGold, SkyBlue, StoryPurple, LeafGreen, VillageTeal) else emptyList()
-    val particles = remember { List(if (reducedMotion) 0 else 40) { Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat()) } }
+    val particles = remember(reducedMotion) { List(confettiCount) { Offset((Math.random() * 1000).toFloat(), (-Math.random() * 800).toFloat()) } }
     val confettiAnim = rememberConfettiProgress(enabled = !reducedMotion)
 
     Box(Modifier.fillMaxSize()) {
@@ -853,21 +855,29 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             }
 
             Spacer(Modifier.height(24.dp))
+            val rewardGateReduce = LocalAnimationsDisabled.current
+            val rewardPop by animateFloatAsState(
+                targetValue = if (state.rewardBreakId != null) 1f else 0.92f,
+                animationSpec = if (rewardGateReduce) snap() else spring(dampingRatio = 0.62f, stiffness = 520f),
+                label = "rewardGatePop",
+            )
             MaxinesPrimaryButton(onClick = onComplete, text = "Continue", modifier = Modifier.fillMaxWidth())
             if (state.rewardBreakId != null) {
                 Spacer(Modifier.height(12.dp))
-                Button(
-                    onClick = onPlayGames,
-                    modifier = Modifier.fillMaxWidth().height(56.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = SunshineGold,
-                        contentColor = OnGold,
-                    ),
-                ) {
-                    Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
-                    Spacer(Modifier.width(8.dp))
-                    Text("Play a Reward Game", fontSize = 18.sp)
+                Box(Modifier.fillMaxWidth().graphicsLayer(scaleX = rewardPop, scaleY = rewardPop)) {
+                    Button(
+                        onClick = onPlayGames,
+                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = SunshineGold,
+                            contentColor = OnGold,
+                        ),
+                    ) {
+                        Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.size(22.dp))
+                        Spacer(Modifier.width(8.dp))
+                        Text("Play a Reward Game", fontSize = 18.sp)
+                    }
                 }
             }
         }

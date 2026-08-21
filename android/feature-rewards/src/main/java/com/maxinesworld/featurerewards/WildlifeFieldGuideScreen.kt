@@ -18,7 +18,8 @@ import androidx.compose.ui.draw.*
 import androidx.compose.ui.geometry.*
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.role
@@ -179,9 +180,58 @@ private fun PokemonStyleBadgeSlot(
     onClick: () -> Unit
 ) {
     val stateLabel = if (badge.isCollected) "Collected" else "Undiscovered"
+    val reduceMotion = LocalAnimationsDisabled.current
+    // Collected = gentle breathe-y idle. Locked + just-tapped = shake deny.
+    // All gated by LocalAnimationsDisabled / prefers reducedMotion contract.
+    var shakeTick by remember { mutableIntStateOf(0) }
+    val shakeX = remember { Animatable(0f) }
+    LaunchedEffect(shakeTick, reduceMotion) {
+        if (reduceMotion || shakeTick == 0) {
+            shakeX.snapTo(0f)
+            return@LaunchedEffect
+        }
+        shakeX.animateTo(0f, keyframes {
+            durationMillis = 420
+            0f at 0; -5f at 70; 5f at 140; -4f at 210; 4f at 280; 0f at 420
+        })
+    }
+    val breatheScale by if (reduceMotion || !badge.isCollected) remember { mutableStateOf(1f) } else rememberInfiniteTransition(label = "fieldBreathe").animateFloat(
+        1f, 1.025f, infiniteRepeatable(tween(2200, easing = FastOutSlowInEasing), RepeatMode.Reverse), "breathe"
+    ).let { s -> s as State<Float>; s }
+    val popEntered = remember { mutableStateOf(false) }
+    val popScale by animateFloatAsState(
+        targetValue = 1f,
+        animationSpec = if (reduceMotion) snap()
+        else if (!popEntered.value) tween(durationMillis = 420, easing = EaseOutCubic) else spring(dampingRatio = 0.72f, stiffness = 600f),
+        label = "fieldPop",
+    )
+    LaunchedEffect(badge.id, reduceMotion) {
+        if (badge.isCollected && !reduceMotion) {
+            // Suppress popIn when reducedMotion, else one-time settle
+            popEntered.value = false
+            // Next frame so popScale animates from 0.92 -> 1.0
+            kotlinx.coroutines.delay(10)
+            popEntered.value = true
+        } else {
+            popEntered.value = true
+        }
+    }
+    val collectedScale = if (badge.isCollected && !reduceMotion) {
+        (if (!popEntered.value) 0.92f else 1f) * breatheScale
+    } else 1f
     Card(
         modifier
-            .clickable(enabled = badge.isCollected, onClick = onClick)
+            // Locked shake is horizontal; collected breathe is scale around center
+            .offset(x = if (!badge.isCollected) shakeX.value.dp else 0.dp)
+            .graphicsLayer(
+                scaleX = if (badge.isCollected) collectedScale else 1f,
+                scaleY = if (badge.isCollected) collectedScale else 1f,
+                transformOrigin = TransformOrigin(0.5f, 0.5f),
+            )
+            .clickable(enabled = true, onClick = {
+                if (badge.isCollected) onClick()
+                else if (!reduceMotion) shakeTick++
+            })
             .semantics(mergeDescendants = true) {
                 contentDescription = "${badge.name}, $stateLabel"
                 if (badge.isCollected) role = Role.Button
