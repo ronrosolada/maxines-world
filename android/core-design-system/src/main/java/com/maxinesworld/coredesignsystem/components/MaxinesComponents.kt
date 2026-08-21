@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -148,6 +149,46 @@ fun MaxinesAnswerCard(
     content: @Composable () -> Unit
 ) {
     val haptic = LocalHapticFeedback.current
+    val reduceMotion = LocalAnimationsDisabled.current
+    val scaleAnim = remember { Animatable(1f) }
+    val shakeAnim = remember { Animatable(0f) }
+
+    LaunchedEffect(state, reduceMotion) {
+        if (reduceMotion) {
+            scaleAnim.snapTo(1f)
+            shakeAnim.snapTo(0f)
+            return@LaunchedEffect
+        }
+        when (state) {
+            AnswerCardState.CORRECT -> {
+                shakeAnim.snapTo(0f)
+                scaleAnim.snapTo(0.97f)
+                scaleAnim.animateTo(1.06f, spring(dampingRatio = 0.52f, stiffness = 720f))
+                scaleAnim.animateTo(1f, spring(dampingRatio = 0.72f, stiffness = 700f))
+            }
+            AnswerCardState.INCORRECT -> {
+                scaleAnim.snapTo(1f)
+                shakeAnim.snapTo(0f)
+                shakeAnim.animateTo(
+                    0f,
+                    keyframes {
+                        durationMillis = 420
+                        0f at 0
+                        -6f at 70
+                        6f at 140
+                        -4f at 210
+                        4f at 280
+                        0f at 420
+                    }
+                )
+            }
+            else -> {
+                scaleAnim.animateTo(1f, spring(dampingRatio = 0.85f, stiffness = 600f))
+                shakeAnim.animateTo(0f, tween(180, easing = FastOutSlowInEasing))
+            }
+        }
+    }
+
     val bgColor = when (state) {
         AnswerCardState.CORRECT -> SuccessGreen.copy(alpha = 0.15f)
         AnswerCardState.INCORRECT -> ErrorRed.copy(alpha = 0.1f)
@@ -161,6 +202,8 @@ fun MaxinesAnswerCard(
             onClick()
         },
         modifier = modifier
+            .offset(x = shakeAnim.value.dp)
+            .graphicsLayer(scaleX = scaleAnim.value, scaleY = scaleAnim.value)
             .shadow(
                 elevation = when (state) {
                     AnswerCardState.SELECTED, AnswerCardState.CORRECT, AnswerCardState.INCORRECT -> 4.dp
