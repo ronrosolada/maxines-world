@@ -51,5 +51,6 @@ class QuestTargetResolverTest {
         width = 1,
         height = 1,
         subjectId = subject,
+        releaseStatus = "RELEASED",
     )
 }

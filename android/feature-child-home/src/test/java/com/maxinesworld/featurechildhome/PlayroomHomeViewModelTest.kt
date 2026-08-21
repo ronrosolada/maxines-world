@@ -153,6 +153,66 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `non empty persisted video mission is retryable when catalog metadata is unavailable`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            videoCatalogLoadFails = true,
+            persistedQuestIds = listOf("mathematics-video-1", "english-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
+    }
+
+    @Test
+    fun `disappeared or inactive assigned media cannot route to continue`() = runTest(dispatcher) {
+        val catalog = MediaCatalog(
+            catalogVersion = 1,
+            generatedAt = "refreshed",
+            media = listOf(
+                MediaAsset(
+                    mediaId = "mathematics-video-1",
+                    title = "Video 1",
+                    file = "mathematics/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "english-video-1",
+                    title = "Retired video",
+                    file = "english/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "english",
+                    releaseStatus = "PREVIEW",
+                ),
+            ),
+        )
+        val vm = buildViewModel(
+            videoCatalog = catalog,
+            persistedQuestIds = listOf("mathematics-video-1", "english-video-1", "science-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
+    }
+
+    @Test
     fun `video progress helper applies latest values without changing home content`() = runTest(dispatcher) {
         val vm = buildViewModel(
             videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
@@ -457,6 +517,7 @@ class PlayroomHomeViewModelTest {
         streakTimestampLoadFails: Boolean = false,
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
+        persistedQuestIds: List<String>? = null,
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
         coEvery { profileDao.observeById("child_1") } returns (
@@ -490,7 +551,7 @@ class PlayroomHomeViewModelTest {
         val dailyQuestManager = mockk<DailyQuestManager>()
         val inventoryDao = mockk<InventoryDao>()
         coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()
-        val assignedQuestIds = if (videoCatalogLoadFails) {
+        val assignedQuestIds = persistedQuestIds ?: if (videoCatalogLoadFails) {
             emptyList()
         } else {
             listOf("mathematics-video-1", "english-video-1", "science-video-1")
@@ -575,6 +636,7 @@ class PlayroomHomeViewModelTest {
                     height = 1,
                     subjectId = subject,
                     episodeNumber = index,
+                    releaseStatus = "RELEASED",
                 )
             }
         }

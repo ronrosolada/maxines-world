@@ -388,7 +388,10 @@ class PlayroomHomeViewModel @Inject constructor(
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
         val nextMediaId = targets.firstOrNull { !it.isCompleted }?.mediaId
             ?: targets.firstOrNull()?.mediaId
-        val missionUnavailable = dailyQuest.assignedMediaIds.isEmpty()
+        val assignedMediaIds = dailyQuest.assignedMediaIds.distinct()
+        val resolvedMediaIds = targets.map { it.mediaId }.toSet()
+        val missionUnavailable = assignedMediaIds.isEmpty() ||
+            resolvedMediaIds != assignedMediaIds.toSet()
         val questUi = if (godModeEnabled) {
             QuestUi(
                 task = QuestTaskCopy.ParentMode,
@@ -402,6 +405,17 @@ class PlayroomHomeViewModel @Inject constructor(
                 nextMediaId = nextMediaId,
                 godModeEnabled = true,
                 sanctuaryComplete = true,
+            )
+        } else if (missionUnavailable) {
+            QuestUi(
+                task = QuestTaskCopy.Unavailable,
+                pawPrintsCompleted = 0,
+                pawPrintTotal = 0,
+                recommendedSubjectId = availableFirst?.id,
+                buttonLabel = QuestButtonLabel.Retry,
+                buttonAction = QuestAction.RetryMission,
+                targets = emptyList(),
+                sanctuaryComplete = sanctuaryComplete,
             )
         } else if (dailyQuest.isComplete) {
             val showPlayground = playgroundUnlocked || godModeEnabled
@@ -417,17 +431,6 @@ class PlayroomHomeViewModel @Inject constructor(
                 nextMediaId = nextMediaId,
                 sanctuaryComplete = sanctuaryComplete,
                 playgroundUnlocked = playgroundUnlocked,
-            )
-        } else if (missionUnavailable) {
-            QuestUi(
-                task = QuestTaskCopy.Unavailable,
-                pawPrintsCompleted = 0,
-                pawPrintTotal = 0,
-                recommendedSubjectId = availableFirst?.id,
-                buttonLabel = QuestButtonLabel.Retry,
-                buttonAction = QuestAction.RetryMission,
-                targets = emptyList(),
-                sanctuaryComplete = sanctuaryComplete,
             )
         } else {
             val hasQuestTarget = nextMediaId != null

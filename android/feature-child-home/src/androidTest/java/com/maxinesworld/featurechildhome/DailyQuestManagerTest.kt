@@ -5,7 +5,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
+import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
+import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
+import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
 import com.maxinesworld.corenetwork.MediaCatalogClient
 import com.maxinesworld.corenetwork.MediaDownloader
 import com.maxinesworld.corenetwork.MediaLibrary
@@ -69,6 +72,18 @@ class DailyQuestManagerTest {
         })
         assertNotNull(database.dailyQuestSetDao().getByChildAndDay("child-1", "2026-08-04"))
 
+        first.assignedMediaIds.forEach { mediaId ->
+            database.videoWatchLedgerDao().insertOrUpdate(
+                VideoWatchLedgerEntity(
+                    id = "child-1:$mediaId",
+                    childId = "child-1",
+                    mediaId = mediaId,
+                    subjectId = if (mediaId.startsWith("math")) "mathematics" else "english",
+                    accreditedSeconds = 900,
+                    quizPassed = true,
+                ),
+            )
+        }
         val afterPass = manager.ensureToday(
             childId = "child-1",
             dayKey = "2026-08-04",
@@ -92,6 +107,86 @@ class DailyQuestManagerTest {
             "math-valid-episode-2" in nextDay.assignedMediaIds,
         )
         assertFalse("math-valid-episode-1" in nextDay.assignedMediaIds)
+    }
+
+    @Test
+    fun legacyLessonAssignmentIsUpgradedBeforeDisplayOrReward() = runBlocking {
+        val dayKey = "2026-08-07"
+        database.dailyQuestSetDao().insertIgnoring(
+            DailyQuestSetEntity(
+                id = "child-1:$dayKey",
+                childId = "child-1",
+                dayKey = dayKey,
+                assignedQuestIds = "[\"english-g3-m01-d01\"]",
+            ),
+        )
+        database.dailyQuestCompletionDao().insertIgnoring(
+            DailyQuestCompletionEntity(
+                id = "child-1:$dayKey:english-g3-m01-d01",
+                childId = "child-1",
+                dayKey = dayKey,
+                questId = "english-g3-m01-d01",
+                completionEventId = "lesson-completion:child-1:english-g3-m01-d01",
+            ),
+        )
+
+        val progress = manager(
+            listOf(
+                asset("replacement-math", "mathematics", 1, 900),
+                asset("replacement-english", "english", 1, 900),
+            ),
+        ).ensureToday("child-1", dayKey)
+
+        assertFalse("legacy lesson IDs must not remain assigned", progress.assignedMediaIds.contains("english-g3-m01-d01"))
+        assertTrue(progress.assignedMediaIds.all { it.startsWith("replacement-") })
+        assertTrue(progress.completedMediaIds.isEmpty())
+        assertEquals(
+            0,
+            database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) ?: 0,
+        )
+    }
+
+    @Test
+    fun nonEmptyPersistedVideoMissionSurvivesCatalogOutage() = runBlocking {
+        val dayKey = "2026-08-08"
+        val assigned = listOf("persisted-math-video", "persisted-english-video")
+        database.dailyQuestSetDao().insertIgnoring(
+            DailyQuestSetEntity(
+                id = "child-1:$dayKey",
+                childId = "child-1",
+                dayKey = dayKey,
+                assignedQuestIds = Json.encodeToString(assigned),
+            ),
+        )
+
+        val progress = managerWithRawCatalog("not valid json").ensureToday("child-1", dayKey)
+
+        assertEquals(assigned, progress.assignedMediaIds)
+        assertEquals(Json.encodeToString(assigned), database.dailyQuestSetDao()
+            .getByChildAndDay("child-1", dayKey)?.assignedQuestIds)
+        assertEquals(0, database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) ?: 0)
+    }
+
+    @Test
+    fun disappearedOrInactiveAssignedMediaKeepsDurableAssignmentDeterministically() = runBlocking {
+        val dayKey = "2026-08-10"
+        val assigned = listOf("persisted-math-video", "persisted-english-video")
+        database.dailyQuestSetDao().insertIgnoring(
+            DailyQuestSetEntity(
+                id = "child-1:$dayKey",
+                childId = "child-1",
+                dayKey = dayKey,
+                assignedQuestIds = Json.encodeToString(assigned),
+            ),
+        )
+
+        val refreshed = manager(
+            listOf(asset("persisted-math-video", "mathematics", 1, 900, releaseStatus = "PREVIEW")),
+        ).ensureToday("child-1", dayKey)
+
+        assertEquals(assigned, refreshed.assignedMediaIds)
+        assertTrue(refreshed.completedMediaIds.isEmpty())
+        assertEquals(0, database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) ?: 0)
     }
 
     @Test
@@ -167,6 +262,7 @@ class DailyQuestManagerTest {
                 rewardDao = database.rewardDao(),
                 rewardBreakDao = database.rewardBreakDao(),
                 playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
+                videoWatchLedgerDao = database.videoWatchLedgerDao(),
             ),
         )
     }

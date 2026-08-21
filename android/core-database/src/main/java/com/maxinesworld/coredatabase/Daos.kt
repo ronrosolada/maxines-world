@@ -358,4 +358,7 @@ interface VideoWatchLedgerDao {
 
     @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
     fun observePassedMediaIds(childId: String): kotlinx.coroutines.flow.Flow<List<String>>
+
+    @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
+    suspend fun getPassedMediaIds(childId: String): List<String>
 }

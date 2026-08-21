@@ -14,6 +14,7 @@ object QuestTargetResolver {
         val assetById = assets.associateBy { it.mediaId }
         return assigned.distinct().mapNotNull { mediaId ->
             val asset = assetById[mediaId] ?: return@mapNotNull null
+            if (asset.releaseStatus != RELEASED) return@mapNotNull null
             val subjectId = asset.subjectId.takeIf(String::isNotBlank) ?: return@mapNotNull null
             QuestTargetUi(
                 mediaId = mediaId,
@@ -31,4 +32,6 @@ object QuestTargetResolver {
         val safeSeconds = durationSeconds.coerceAtLeast(0)
         return "%02d:%02d".format(safeSeconds / 60, safeSeconds % 60)
     }
+
+    private const val RELEASED = "RELEASED"
 }

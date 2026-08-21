@@ -41,7 +41,24 @@ class DailyQuestManager @Inject constructor(
     ): DailyQuestProgress {
         var set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, passedMediaIds, availableMediaOverride)
-        if (parseIds(set.assignedQuestIds).isEmpty()) {
+        val persistedIds = parseIds(set.assignedQuestIds)
+        val upgradedLegacyAssignment = persistedIds.any(::isLegacyLessonId)
+        if (upgradedLegacyAssignment) {
+            // The table predates video missions and has no assignment-kind
+            // column. Treat recognizable lesson IDs as stale legacy data and
+            // replace the whole assignment before either displaying or
+            // rewarding it. An empty replacement is still truthful and can be
+            // retried on a later refresh.
+            dailyQuestSetDao.updateAssignedQuestIds(
+                childId = childId,
+                dayKey = dayKey,
+                assignedQuestIds = json.encodeToString(
+                    createSelection(childId, dayKey, passedMediaIds, availableMediaOverride),
+                ),
+            )
+            set = checkNotNull(dailyQuestSetDao.getByChildAndDay(childId, dayKey))
+        }
+        if (!upgradedLegacyAssignment && parseIds(set.assignedQuestIds).isEmpty()) {
             // An unavailable catalog must remain truthful, but an empty mission
             // is retryable when the catalog recovers later the same day.
             val retry = createSelection(childId, dayKey, passedMediaIds, availableMediaOverride)
@@ -61,7 +78,7 @@ class DailyQuestManager @Inject constructor(
         dailyQuestRewardWriter.reconcile(childId, dayKey)
         val completedMediaIds = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
-            .filter { it in assigned }
+            .filter { it in assigned && it in passedMediaIds }
         return DailyQuestProgress(dayKey, assigned, completedMediaIds)
     }
 
@@ -152,5 +169,10 @@ class DailyQuestManager @Inject constructor(
 
     private companion object {
         const val RELEASED = "RELEASED"
+        val LEGACY_LESSON_ID = Regex(
+            "^(?:[a-z-]+-g3-(?:m\\d+|q\\d-w\\d+)-d\\d+|(?:eng|fil|math|sci|mkb|gmrc)-g3-m\\d+-l\\d+)$",
+        )
+
+        fun isLegacyLessonId(id: String): Boolean = LEGACY_LESSON_ID.matches(id)
     }
 }
