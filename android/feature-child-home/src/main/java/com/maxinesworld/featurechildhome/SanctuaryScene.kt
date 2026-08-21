@@ -1,10 +1,8 @@
 package com.maxinesworld.featurechildhome
 
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.EaseInOutSine
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.snap
@@ -15,6 +13,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -179,11 +178,23 @@ fun SanctuaryScene(
             lastArrivalId = arrivalId
         }
     }
-    val arrivalScale by animateFloatAsState(
-        targetValue = 1f,
-        animationSpec = if (reduceMotion) snap() else spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMediumLow),
-        label = "arrivalPop",
-    )
+    val arrivalScale = remember { Animatable(1f) }
+    LaunchedEffect(showArrival, arrivalId) {
+        if (showArrival && arrivalId != null) {
+            if (reduceMotion) {
+                arrivalScale.snapTo(1f)
+            } else {
+                arrivalScale.snapTo(0.92f)
+                arrivalScale.animateTo(
+                    targetValue = 1f,
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessMediumLow,
+                    ),
+                )
+            }
+        }
+    }
 
     val miloScale by animateFloatAsState(
         targetValue = if (miloBounced) 1.25f else 1.0f,
@@ -246,13 +257,14 @@ fun SanctuaryScene(
             Box(
                 Modifier
                     .size(slotSize(slot))
+                    .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
                     .offset(
                         x = (sceneWidth * slot.xFraction - slotSize(slot) / 2)
                             .coerceIn(0.dp, sceneWidth),
                         y = (sceneHeight * slot.yFraction - slotSize(slot) / 2)
                             .coerceIn(0.dp, sceneHeight),
                     )
-                    .graphicsLayer(scaleX = if (isNewArrival) arrivalScale else 1f, scaleY = if (isNewArrival) arrivalScale else 1f)
+                    .graphicsLayer(scaleX = if (isNewArrival) arrivalScale.value else 1f, scaleY = if (isNewArrival) arrivalScale.value else 1f)
                     .clip(CircleShape)
                     .background(if (earned) slot.tint else slot.tint.copy(alpha = 0.18f))
                     .border(2.dp, slot.tint.copy(alpha = 0.55f), CircleShape)
@@ -280,24 +292,12 @@ fun SanctuaryScene(
             }
         }
 
-        // Milo, drawn last so he stands in front of the meadow.
+        // Milo, drawn last so he stands in front of the meadow. P1 fix: continuous infinite bob/twinkle
+        // replaced by static idle (arrival pop covers delight); respects reducedMotion and avoids motion sickness on home.
         val reduceMotionSanctuary = LocalAnimationsDisabled.current
-        val idleOffset by if (reduceMotionSanctuary) remember { mutableStateOf(0f) } else rememberInfiniteTransition(label = "MiloIdleBreath").animateFloat(
-            initialValue = -3f,
-            targetValue = 3f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(durationMillis = 1400, easing = EaseInOutSine),
-                repeatMode = RepeatMode.Reverse
-            ),
-            label = "MiloBob"
-        )
-        // Next-piece twinkle: defined BEFORE its use so compose scope resolves
-        val nextPulse by if (reduceMotionSanctuary || !showNext) remember { mutableStateOf(1f) } else rememberInfiniteTransition(label = "nextPulse").animateFloat(
-            initialValue = 0.92f,
-            targetValue = 1f,
-            animationSpec = infiniteRepeatable(tween(1100, easing = EaseInOutSine), RepeatMode.Reverse),
-            label = "nextPulseVal"
-        )
+        val idleOffset = 0f
+        // Next-piece: static 1f; the slot itself uses arrivalScale when newly earned, otherwise still.
+        val nextPulse = 1f
         val bounceScale by animateFloatAsState(
             targetValue = if (miloBounced) 1.22f else 1.0f,
             animationSpec = if (reduceMotionSanctuary) snap() else spring(
@@ -311,6 +311,7 @@ fun SanctuaryScene(
             Box(
                 Modifier
                     .size(slotSize(nextSlot))
+                    .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
                     .offset(
                         x = (sceneWidth * nextSlot.xFraction - slotSize(nextSlot) / 2)
                             .coerceIn(0.dp, sceneWidth),
