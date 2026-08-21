@@ -272,20 +272,15 @@ internal fun TodayQuestCard(
 
                 if (quest.targets.isNotEmpty()) {
                     Spacer(Modifier.height(4.dp))
-                    // When daily targets share the same title (e.g. three
-                    // sequential "Word Roots" lessons), an 8yo sees a dupe.
-                    // Only then, show the week/day distinguisher so titles feel
-                    // like Part 1/2/3 instead of a copy-paste bug.
-                    val titleCounts = quest.targets.groupingBy { it.title }.eachCount()
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         quest.targets.forEach { target ->
                             val targetDone = target.isCompleted
-                            val needsDisambiguation = (titleCounts[target.title] ?: 0) > 1
-                            val displayTitle = if (needsDisambiguation) {
-                                "${target.title} · ${target.durationLabel}"
-                            } else target.title
-                            val targetCd = if (targetDone) "Quest target done: $displayTitle"
-                            else "Quest target: ${target.displaySubject}: $displayTitle"
+                            val displayTitle = target.title
+                            val targetCd = if (targetDone) {
+                                "Quest target done: $displayTitle · ${target.durationLabel}"
+                            } else {
+                                "Quest target: ${target.displaySubject}: $displayTitle · ${target.durationLabel}"
+                            }
                             Row(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
@@ -307,7 +302,34 @@ internal fun TodayQuestCard(
                                 Spacer(Modifier.width(10.dp))
                                 Column(Modifier.weight(1f)) {
                                     Text(target.displaySubject, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
-                                    Text(displayTitle, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        Text(
+                                            displayTitle,
+                                            modifier = Modifier.weight(1f),
+                                            fontSize = 15.sp,
+                                            lineHeight = 20.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = PlayInk,
+                                            maxLines = 2,
+                                            overflow = TextOverflow.Ellipsis,
+                                        )
+                                        Spacer(Modifier.width(8.dp))
+                                        Surface(
+                                            shape = RoundedCornerShape(8.dp),
+                                            color = PlayTeal.copy(alpha = 0.12f),
+                                        ) {
+                                            Text(
+                                                target.durationLabel,
+                                                modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp),
+                                                color = PlayTeal,
+                                                fontSize = 12.sp,
+                                                fontWeight = FontWeight.Bold,
+                                            )
+                                        }
+                                    }
                                 }
                                 if (targetDone) {
                                     Box(Modifier.size(22.dp).clip(CircleShape).background(PlaySunshine.copy(alpha = 0.9f)), contentAlignment = Alignment.Center) {

@@ -37,7 +37,6 @@ import com.maxinesworld.featurechildhome.SubjectModulesScreen
 import com.maxinesworld.featurechildhome.SubjectModulesViewModel
 import com.maxinesworld.featurechildhome.ModuleLessonsScreen
 import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
-import com.maxinesworld.featurechildhome.subjectForPack
 import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
@@ -167,22 +166,16 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     when (action) {
                         QuestAction.OpenVideoQuest -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
-                            val target = quest?.targets?.firstOrNull { !it.isCompleted }
-                                ?: quest?.targets?.firstOrNull()
-                            val subjectId = target?.subjectId
-                                ?: quest?.recommendedSubjectId
-                            if (subjectId != null) {
-                                navController.navigate(Routes.videoLibrary(childId, subjectId))
+                            val target = quest?.nextMediaId?.let { nextMediaId ->
+                                quest.targets.firstOrNull { it.mediaId == nextMediaId }
+                            }
+                            if (target != null) {
+                                navController.navigate(Routes.videoLibrary(childId, target.subjectId))
                             }
                         }
                         QuestAction.RetryMission -> homeViewModel.retry()
                         QuestAction.Continue -> {
-                            val subject = (homeState as? PlayroomHomeUiState.Content)
-                                ?.quest?.recommendedSubjectId
-                            navController.navigate(
-                                if (subject.isNullOrBlank()) Routes.videoLibrary(childId)
-                                else Routes.videoLibrary(childId, subject),
-                            )
+                            navController.navigate(Routes.videoLibrary(childId))
                         }
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {

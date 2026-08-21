@@ -152,11 +152,12 @@ class PlayroomHomeInteractionContractTest {
         composeRule.runOnIdle { assertEquals(listOf(QuestAction.Continue), actions) }
 
         composeRule.onNodeWithContentDescription(
-            "Quest target: English: Word Roots",
+            "Quest target: English: Word Roots · 01:00",
         ).assertHasClickAction().performClick()
         composeRule.runOnIdle {
             assertEquals(listOf(QuestAction.Continue, QuestAction.OpenVideoQuest), actions)
         }
+        composeRule.onNodeWithText("01:00").assertExists()
 
         composeRule.onNodeWithText("Continue").assertHasClickAction().performClick()
         composeRule.runOnIdle {
