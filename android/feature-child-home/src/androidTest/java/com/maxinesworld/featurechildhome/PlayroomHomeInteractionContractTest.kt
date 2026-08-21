@@ -12,6 +12,9 @@ import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.hasAnyAncestor
+import androidx.compose.ui.test.hasClickAction
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
@@ -36,6 +39,28 @@ import org.junit.Test
 class PlayroomHomeInteractionContractTest {
     @get:Rule
     val composeRule = createComposeRule()
+
+    private data class ExpectedSubject(
+        val id: String,
+        val formalName: String,
+        val playfulName: String,
+    )
+
+    // Keep these values independent from canonicalSubjects so an accidental
+    // rename, removal, or reorder cannot update both the fixture and contract.
+    private val expectedSubjects = listOf(
+        ExpectedSubject("mathematics", "Mathematics", "Number Fun"),
+        ExpectedSubject("english", "English", "Story Time"),
+        ExpectedSubject("science", "Science", "Discovery"),
+        ExpectedSubject("filipino", "Filipino", "Kwentuhan"),
+        ExpectedSubject("makabansa", "Makabansa", "Bayan at Kultura"),
+        ExpectedSubject("gmrc", "GMRC", "Kindness"),
+    )
+
+    private val subjectCardTag = SemanticsMatcher("a child-home subject card tag") { node ->
+        node.config.contains(SemanticsProperties.TestTag) &&
+            node.config[SemanticsProperties.TestTag].startsWith("home_subject_")
+    }
 
     private fun stateForContract(): PlayroomHomeUiState.Content =
         PlayroomHomeUiState.Content(
@@ -85,7 +110,15 @@ class PlayroomHomeInteractionContractTest {
     fun todayQuestExposesExactlyOnePrimaryAction() {
         setHome()
 
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest).assertExists()
+        val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
+        todayQuest.assertExists()
+
+        // TodayQuest is the tagged card surface. Its production modifier does
+        // not merge descendants or make the surface itself clickable; the
+        // single primary target is the descendant button rendered by the card.
+        composeRule.onAllNodes(
+            hasAnyAncestor(hasTestTag(PlayroomHomeTestTags.TodayQuest)) and hasClickAction(),
+        ).assertCountEquals(1)
         composeRule.onNodeWithText("Continue").assertHasClickAction()
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
     }
@@ -94,7 +127,15 @@ class PlayroomHomeInteractionContractTest {
     fun eachSubjectExposesStableLabelAndProgressState() {
         setHome()
 
-        canonicalSubjects.forEachIndexed { index, subject ->
+        val renderedSubjectTags = composeRule.onAllNodes(subjectCardTag)
+            .fetchSemanticsNodes()
+            .map { it.config[SemanticsProperties.TestTag] }
+        assertEquals(
+            expectedSubjects.map { PlayroomHomeTestTags.subject(it.id) },
+            renderedSubjectTags,
+        )
+
+        expectedSubjects.forEachIndexed { index, subject ->
             val expectedProgress = when (index) {
                 0 -> "Not started"
                 1 -> "42% complete"
