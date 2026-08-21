@@ -276,11 +276,8 @@ internal fun TodayQuestCard(
                         quest.targets.forEach { target ->
                             val targetDone = target.isCompleted
                             val needsDisambiguation = (titleCounts[target.title] ?: 0) > 1
-                            val displayTitle = if (needsDisambiguation && target.moduleKey != null) {
-                                val suffix = com.maxinesworld.corecontent.questTargetDisambiguator(
-                                    target.moduleKey, target.lessonId,
-                                )
-                                if (suffix != null) "${target.title} · $suffix" else target.title
+                            val displayTitle = if (needsDisambiguation) {
+                                "${target.title} · ${target.durationLabel}"
                             } else target.title
                             val targetCd = if (targetDone) "Quest target done: $displayTitle"
                             else "Quest target: ${target.displaySubject}: $displayTitle"

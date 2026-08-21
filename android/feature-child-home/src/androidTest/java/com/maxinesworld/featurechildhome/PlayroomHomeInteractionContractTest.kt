@@ -130,11 +130,12 @@ class PlayroomHomeInteractionContractTest {
         setHome(
             targets = listOf(
                 QuestTargetUi(
-                    lessonId = "english-g3-q1-w01-d01",
+                    mediaId = "english-video-1",
                     title = "Word Roots",
-                    subject = "english",
+                    subjectId = "english",
                     displaySubject = "English",
-                    moduleKey = null,
+                    durationSeconds = 60,
+                    durationLabel = "01:00",
                     isCompleted = false,
                 ),
             ),

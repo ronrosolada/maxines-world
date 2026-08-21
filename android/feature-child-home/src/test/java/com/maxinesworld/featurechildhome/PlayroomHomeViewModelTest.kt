@@ -106,6 +106,28 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `daily mission targets use media titles durations and passed media state`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            quest = ChallengeProgress(completedCount = 1, subjectCount = 2),
+            videoCatalog = mediaCatalogWithTotals(
+                "mathematics" to 1,
+                "english" to 1,
+                "science" to 1,
+            ),
+            passedVideoMediaIds = listOf("mathematics-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(3, quest.targets.size)
+        assertEquals("mathematics-video-1", quest.targets.first().mediaId)
+        assertEquals("Video 1", quest.targets.first().title)
+        assertEquals(60, quest.targets.first().durationSeconds)
+        assertEquals("01:00", quest.targets.first().durationLabel)
+        assertTrue(quest.targets.first().isCompleted)
+        assertEquals("english-video-1", quest.nextMediaId)
+    }
+    @Test
     fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
         val vm = buildViewModel(
             completedLessons = (1..3).map { "mathematics-g3-m01-d%02d".format(it) },
@@ -408,7 +430,11 @@ class PlayroomHomeViewModelTest {
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
         catalog: ModuleCatalog = emptyCatalog(),
-        videoCatalog: MediaCatalog = MediaCatalog(1, "", emptyList()),
+        videoCatalog: MediaCatalog = mediaCatalogWithTotals(
+            "mathematics" to 1,
+            "english" to 1,
+            "science" to 1,
+        ),
         passedVideoMediaIds: List<String> = emptyList(),
         passedVideoMediaIdsFlow: Flow<List<String>> = flowOf(passedVideoMediaIds),
         profileFlow: Flow<ChildProfileEntity?>? = null,
@@ -452,7 +478,7 @@ class PlayroomHomeViewModelTest {
         val dailyQuestManager = mockk<DailyQuestManager>()
         val inventoryDao = mockk<InventoryDao>()
         coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()
-        val assignedQuestIds = (0 until 3).map { "daily-quest-$it" }
+        val assignedQuestIds = listOf("mathematics-video-1", "english-video-1", "science-video-1")
         val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
         coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")

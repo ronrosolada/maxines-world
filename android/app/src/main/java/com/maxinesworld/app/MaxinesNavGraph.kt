@@ -167,24 +167,21 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     when (action) {
                         QuestAction.OpenLesson -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
-                            val lessonId = quest?.nextLessonId
-                                ?: quest?.targets?.firstOrNull { !it.isCompleted }?.lessonId
-                                ?: quest?.targets?.firstOrNull()?.lessonId
-                            if (lessonId != null) {
-                                navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                            } else {
-                                val fallback = (homeState as? PlayroomHomeUiState.Content)
-                                    ?.quest?.recommendedSubjectId?.let(::subjectForPack)
-                                if (fallback != null) navController.navigate(Routes.subjectModules(childId, fallback))
+                            val target = quest?.targets?.firstOrNull { !it.isCompleted }
+                                ?: quest?.targets?.firstOrNull()
+                            val subjectId = target?.subjectId
+                                ?: quest?.recommendedSubjectId
+                            if (subjectId != null) {
+                                navController.navigate(Routes.videoLibrary(childId, subjectId))
                             }
                         }
                         QuestAction.Continue -> {
-                            val target = (homeState as? PlayroomHomeUiState.Content)
+                            val subject = (homeState as? PlayroomHomeUiState.Content)
                                 ?.quest?.recommendedSubjectId
-                            val subject = target?.let(::subjectForPack)
-                            if (subject != null) {
-                                navController.navigate(Routes.subjectModules(childId, subject))
-                            }
+                            navController.navigate(
+                                if (subject.isNullOrBlank()) Routes.videoLibrary(childId)
+                                else Routes.videoLibrary(childId, subject),
+                            )
                         }
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {

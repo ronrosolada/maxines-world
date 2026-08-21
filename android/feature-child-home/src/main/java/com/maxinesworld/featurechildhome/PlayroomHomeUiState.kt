@@ -72,11 +72,12 @@ internal fun withVideoProgress(
 
 @androidx.compose.runtime.Immutable
 data class QuestTargetUi(
-    val lessonId: String,
+    val mediaId: String,
     val title: String,
-    val subject: String,
+    val subjectId: String,
     val displaySubject: String,
-    val moduleKey: String?,
+    val durationSeconds: Int,
+    val durationLabel: String,
     val isCompleted: Boolean,
 )
 
@@ -106,7 +107,7 @@ data class QuestUi(
     val buttonLabel: QuestButtonLabel = QuestButtonLabel.Continue,
     val buttonAction: QuestAction = QuestAction.Continue,
     val targets: List<QuestTargetUi> = emptyList(),
-    val nextLessonId: String? = null,
+    val nextMediaId: String? = null,
     val godModeEnabled: Boolean = false,
     val sanctuaryComplete: Boolean = false,
     val playgroundUnlocked: Boolean = false,

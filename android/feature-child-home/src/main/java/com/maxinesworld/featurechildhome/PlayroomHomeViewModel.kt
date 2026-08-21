@@ -90,6 +90,8 @@ class LocalDateChangeSource @Inject constructor() {
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
     val lessonIds: List<String>,
+    val passedMediaIds: Set<String>,
+    val mediaAssets: List<MediaAsset>?,
     val totalAccreditedSeconds: Int,
     val godModeEnabled: Boolean,
     val playgroundUnlocked: Boolean = false,
@@ -203,6 +205,7 @@ class PlayroomHomeViewModel @Inject constructor(
         stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
+        val passedMediaIdsFlow = videoWatchLedgerDao.observePassedMediaIds(childId)
         val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
 
         stateJob = viewModelScope.launch {
@@ -211,19 +214,35 @@ class PlayroomHomeViewModel @Inject constructor(
                     childId = childId,
                     dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
                 )
-                combine(
+                val questInputs = combine(
                     profileFlow,
                     lessonIdsFlow,
+                    passedMediaIdsFlow,
+                    videoAssets,
                     accreditedSecondsFlow,
+                ) { profile, lessonIds, passedMediaIds, assets, seconds ->
+                    HomeDataTuple(
+                        profile = profile,
+                        lessonIds = lessonIds,
+                        passedMediaIds = passedMediaIds.toSet(),
+                        mediaAssets = assets,
+                        totalAccreditedSeconds = seconds,
+                        godModeEnabled = false,
+                    )
+                }
+                combine(
+                    questInputs,
                     godModeManager.isEnabled(childId),
                     playgroundUnlockFlow,
-                ) { profile, ids, seconds, godMode, playgroundReceipt ->
-                    val playgroundUnlocked = playgroundReceipt != null
-                    HomeDataTuple(profile, ids, seconds, godMode, playgroundUnlocked)
+                ) { data, godMode, playgroundReceipt ->
+                    data.copy(
+                        godModeEnabled = godMode,
+                        playgroundUnlocked = playgroundReceipt != null,
+                    )
                 }.collect { data ->
                     val dailyQuest = dailyQuestManager.ensureToday(
                         childId = childId,
-                        completedLessonIds = data.lessonIds,
+                        passedMediaIds = data.passedMediaIds,
                     )
                     val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
                         if (data.godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded
@@ -275,6 +294,8 @@ class PlayroomHomeViewModel @Inject constructor(
                     baseContent.value = buildContent(
                         data.profile?.name,
                         data.lessonIds,
+                        data.passedMediaIds,
+                        data.mediaAssets,
                         dailyQuest,
                         badges,
                         stars,
@@ -324,6 +345,8 @@ class PlayroomHomeViewModel @Inject constructor(
     private suspend fun buildContent(
         childName: String?,
         lessonIds: List<String>,
+        passedMediaIds: Set<String>,
+        mediaAssets: List<MediaAsset>?,
         dailyQuest: DailyQuestProgress,
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
         starBalance: Int,
@@ -356,16 +379,16 @@ class PlayroomHomeViewModel @Inject constructor(
 
         val availableFirst = subjects.firstOrNull { it.isAvailable }
         val targets = QuestTargetResolver.resolve(
-            assigned = dailyQuest.assignedQuestIds,
-            completed = completed,
-            catalog = catalog,
+            assigned = dailyQuest.assignedMediaIds,
+            completed = passedMediaIds,
+            assets = mediaAssets,
         )
-        val questTotal = targets.size.coerceAtLeast(1)
+        val questTotal = dailyQuest.totalCount.coerceAtLeast(1)
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
-        val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
-            ?: targets.firstOrNull()?.lessonId
-        val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
+        val nextMediaId = targets.firstOrNull { !it.isCompleted }?.mediaId
+            ?: targets.firstOrNull()?.mediaId
+        val noSubjectFallback = availableFirst == null || (dailyQuest.assignedMediaIds.isNotEmpty() && targets.isEmpty())
         val questUi = if (godModeEnabled) {
             QuestUi(
                 task = QuestTaskCopy.ParentMode,
@@ -376,7 +399,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = QuestButtonLabel.OpenPlayground,
                 buttonAction = QuestAction.OpenPlayground,
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextMediaId = nextMediaId,
                 godModeEnabled = true,
                 sanctuaryComplete = true,
             )
@@ -391,12 +414,12 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = if (showPlayground) QuestButtonLabel.OpenPlayground else QuestButtonLabel.OpenSanctuary,
                 buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.ViewReward,
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextMediaId = nextMediaId,
                 sanctuaryComplete = sanctuaryComplete,
                 playgroundUnlocked = playgroundUnlocked,
             )
         } else {
-            val hasQuestTarget = nextLessonId != null
+            val hasQuestTarget = nextMediaId != null
             QuestUi(
                 task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completedCount,
@@ -415,7 +438,7 @@ class PlayroomHomeViewModel @Inject constructor(
                     else -> QuestAction.Continue
                 },
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextMediaId = nextMediaId,
                 sanctuaryComplete = sanctuaryComplete,
             )
         }
