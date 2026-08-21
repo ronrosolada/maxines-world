@@ -6,6 +6,17 @@ Android `versionName`.
 
 ## [Unreleased]
 
+## [0.63.0] - 2026-08-22
+
+### Video-Based Daily Mission
+
+- Replaced the child-facing Daily Mission’s legacy text-lesson assignments with one active Grade 3 released video plus up to two unpassed Grade 3 Assessment Arena packs.
+- Added video titles, durations, quiz indicators, subject-aware video navigation, pack-aware Arena navigation, passed-video/Arena completion, and retryable unavailable states.
+- Added deterministic fallback to additional frontier videos when Arena packs are exhausted, while preserving the 30-minute sticker ledger policy.
+- Preserved the existing sanctuary-piece, five-minute break, and playground day-pass reward transaction.
+- Removed orphaned child-facing subject/module/text-lesson routes and screens while retaining Quiz Arena, Assessment Arena, lesson content assets, loaders, and renderers for compatibility.
+- Added recovery coverage for legacy persisted quest rows, catalog outages, stale/inactive media, reward-flow updates, and prevention of legacy lesson completions from satisfying missions.
+
 ## [0.62.0] - 2026-08-21
 
 ### Child Home Clarity and Learning Streak

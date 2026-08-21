@@ -72,18 +72,24 @@ internal fun withVideoProgress(
 
 @androidx.compose.runtime.Immutable
 data class QuestTargetUi(
-    val lessonId: String,
+    val mediaId: String,
     val title: String,
-    val subject: String,
+    val subjectId: String,
     val displaySubject: String,
-    val moduleKey: String?,
+    val durationSeconds: Int,
+    val durationLabel: String,
     val isCompleted: Boolean,
+    val type: QuestTargetType = QuestTargetType.VIDEO,
+    val arenaPackId: String? = null,
 )
+
+enum class QuestTargetType { VIDEO, ARENA }
 
 enum class QuestTaskCopy {
     ParentMode,
     CompleteToday,
     IncompleteToday,
+    Unavailable,
 }
 
 enum class QuestButtonLabel {
@@ -94,6 +100,7 @@ enum class QuestButtonLabel {
     ContinueQuest,
     Start,
     Continue,
+    Retry,
 }
 
 @androidx.compose.runtime.Immutable
@@ -106,13 +113,13 @@ data class QuestUi(
     val buttonLabel: QuestButtonLabel = QuestButtonLabel.Continue,
     val buttonAction: QuestAction = QuestAction.Continue,
     val targets: List<QuestTargetUi> = emptyList(),
-    val nextLessonId: String? = null,
+    val nextTargetId: String? = null,
     val godModeEnabled: Boolean = false,
     val sanctuaryComplete: Boolean = false,
     val playgroundUnlocked: Boolean = false,
 )
 
-enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenLesson, OpenPlayground }
+enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenVideoQuest, RetryMission, OpenPlayground }
 
 @androidx.compose.runtime.Immutable
 data class StickerUi(

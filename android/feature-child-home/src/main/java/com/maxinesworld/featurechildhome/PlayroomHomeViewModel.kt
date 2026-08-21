@@ -43,6 +43,8 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
+
 internal fun streakDaysFromTimestamps(
     timestamps: Iterable<Long>,
     zone: ZoneId,
@@ -90,9 +92,12 @@ class LocalDateChangeSource @Inject constructor() {
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
     val lessonIds: List<String>,
+    val passedMediaIds: Set<String>,
+    val mediaAssets: List<MediaAsset>?,
     val totalAccreditedSeconds: Int,
     val godModeEnabled: Boolean,
     val playgroundUnlocked: Boolean = false,
+    val passedArenaPackIds: Set<String> = emptySet(),
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -203,7 +208,9 @@ class PlayroomHomeViewModel @Inject constructor(
         stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
+        val passedMediaIdsFlow = videoWatchLedgerDao.observePassedMediaIds(childId)
         val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
+        val arenaRewardsFlow = rewardDao.observeByChild(childId)
 
         stateJob = viewModelScope.launch {
             try {
@@ -211,19 +218,48 @@ class PlayroomHomeViewModel @Inject constructor(
                     childId = childId,
                     dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
                 )
-                combine(
+                val coreQuestInputs = combine(
                     profileFlow,
                     lessonIdsFlow,
+                    passedMediaIdsFlow,
+                    videoAssets,
                     accreditedSecondsFlow,
+                ) { profile, lessonIds, passedMediaIds, assets, seconds ->
+                    HomeDataTuple(
+                        profile = profile,
+                        lessonIds = lessonIds,
+                        passedMediaIds = passedMediaIds.toSet(),
+                        mediaAssets = assets,
+                        totalAccreditedSeconds = seconds,
+                        godModeEnabled = false,
+                    )
+                }
+                val questInputs = combine(coreQuestInputs, arenaRewardsFlow) { data, rewards ->
+                    data.copy(
+                        passedArenaPackIds = rewards.asSequence()
+                            .mapNotNull { reward ->
+                                reward.metadata
+                                    .takeIf { it.startsWith(ARENA_REWARD_PREFIX) }
+                                    ?.removePrefix(ARENA_REWARD_PREFIX)
+                                    ?.takeIf(String::isNotBlank)
+                            }
+                            .toSet(),
+                    )
+                }
+                combine(
+                    questInputs,
                     godModeManager.isEnabled(childId),
                     playgroundUnlockFlow,
-                ) { profile, ids, seconds, godMode, playgroundReceipt ->
-                    val playgroundUnlocked = playgroundReceipt != null
-                    HomeDataTuple(profile, ids, seconds, godMode, playgroundUnlocked)
+                ) { data, godMode, playgroundReceipt ->
+                    data.copy(
+                        godModeEnabled = godMode,
+                        playgroundUnlocked = playgroundReceipt != null,
+                    )
                 }.collect { data ->
                     val dailyQuest = dailyQuestManager.ensureToday(
                         childId = childId,
-                        completedLessonIds = data.lessonIds,
+                        passedMediaIds = data.passedMediaIds,
+                        passedArenaPackIdsOverride = data.passedArenaPackIds,
                     )
                     val badges = badgeAwarder.getCollectedBadges(childId).let { loaded ->
                         if (data.godModeEnabled) loaded.map { badge -> badge.copy(isCollected = true) } else loaded
@@ -275,6 +311,8 @@ class PlayroomHomeViewModel @Inject constructor(
                     baseContent.value = buildContent(
                         data.profile?.name,
                         data.lessonIds,
+                        data.passedMediaIds,
+                        data.mediaAssets,
                         dailyQuest,
                         badges,
                         stars,
@@ -324,6 +362,8 @@ class PlayroomHomeViewModel @Inject constructor(
     private suspend fun buildContent(
         childName: String?,
         lessonIds: List<String>,
+        passedMediaIds: Set<String>,
+        mediaAssets: List<MediaAsset>?,
         dailyQuest: DailyQuestProgress,
         badges: List<com.maxinesworld.coremodel.CollectibleBadge>,
         starBalance: Int,
@@ -356,16 +396,20 @@ class PlayroomHomeViewModel @Inject constructor(
 
         val availableFirst = subjects.firstOrNull { it.isAvailable }
         val targets = QuestTargetResolver.resolve(
-            assigned = dailyQuest.assignedQuestIds,
-            completed = completed,
-            catalog = catalog,
+            assigned = dailyQuest.assignedMediaIds,
+            completed = passedMediaIds + dailyQuest.completedMediaIds,
+            assets = mediaAssets,
+            arenaPacks = dailyQuest.arenaPacks,
         )
-        val questTotal = targets.size.coerceAtLeast(1)
+        val questTotal = dailyQuest.totalCount
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
         val sanctuaryComplete = sanctuary.earnedPieces >= SanctuaryCatalog.pieces.size
-        val nextLessonId = targets.firstOrNull { !it.isCompleted }?.lessonId
-            ?: targets.firstOrNull()?.lessonId
-        val noSubjectFallback = availableFirst == null || (targets.isNotEmpty() && nextLessonId == null)
+        val nextTargetId = targets.firstOrNull { !it.isCompleted }?.mediaId
+            ?: targets.firstOrNull()?.mediaId
+        val assignedMediaIds = dailyQuest.assignedMediaIds.distinct()
+        val resolvedMediaIds = targets.map { it.mediaId }.toSet()
+        val missionUnavailable = assignedMediaIds.isEmpty() ||
+            resolvedMediaIds != assignedMediaIds.toSet()
         val questUi = if (godModeEnabled) {
             QuestUi(
                 task = QuestTaskCopy.ParentMode,
@@ -376,9 +420,20 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = QuestButtonLabel.OpenPlayground,
                 buttonAction = QuestAction.OpenPlayground,
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextTargetId = nextTargetId,
                 godModeEnabled = true,
                 sanctuaryComplete = true,
+            )
+        } else if (missionUnavailable) {
+            QuestUi(
+                task = QuestTaskCopy.Unavailable,
+                pawPrintsCompleted = 0,
+                pawPrintTotal = 0,
+                recommendedSubjectId = availableFirst?.id,
+                buttonLabel = QuestButtonLabel.Retry,
+                buttonAction = QuestAction.RetryMission,
+                targets = emptyList(),
+                sanctuaryComplete = sanctuaryComplete,
             )
         } else if (dailyQuest.isComplete) {
             val showPlayground = playgroundUnlocked || godModeEnabled
@@ -391,31 +446,29 @@ class PlayroomHomeViewModel @Inject constructor(
                 buttonLabel = if (showPlayground) QuestButtonLabel.OpenPlayground else QuestButtonLabel.OpenSanctuary,
                 buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.ViewReward,
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextTargetId = nextTargetId,
                 sanctuaryComplete = sanctuaryComplete,
                 playgroundUnlocked = playgroundUnlocked,
             )
         } else {
-            val hasQuestTarget = nextLessonId != null
+            val hasQuestTarget = nextTargetId != null
             QuestUi(
                 task = QuestTaskCopy.IncompleteToday,
                 pawPrintsCompleted = completedCount,
                 pawPrintTotal = questTotal,
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = when {
-                    noSubjectFallback -> QuestButtonLabel.ChooseSubject
                     hasQuestTarget && completedCount == 0 -> QuestButtonLabel.StartQuest
                     hasQuestTarget -> QuestButtonLabel.ContinueQuest
                     completedCount == 0 -> QuestButtonLabel.Start
                     else -> QuestButtonLabel.Continue
                 },
                 buttonAction = when {
-                    noSubjectFallback -> QuestAction.ChooseSubject
-                    hasQuestTarget -> QuestAction.OpenLesson
+                    hasQuestTarget -> QuestAction.OpenVideoQuest
                     else -> QuestAction.Continue
                 },
                 targets = targets,
-                nextLessonId = nextLessonId,
+                nextTargetId = nextTargetId,
                 sanctuaryComplete = sanctuaryComplete,
             )
         }

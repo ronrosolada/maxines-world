@@ -11,6 +11,7 @@ import com.maxinesworld.coredatabase.RewardBreakDao
 import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.RewardEntity
+import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
@@ -41,6 +42,7 @@ class DailyQuestRewardWriter @Inject constructor(
     private val rewardDao: RewardDao,
     private val rewardBreakDao: RewardBreakDao,
     private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
+    private val videoWatchLedgerDao: VideoWatchLedgerDao,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -61,8 +63,17 @@ class DailyQuestRewardWriter @Inject constructor(
         val set = dailyQuestSetDao.getByChildAndDay(childId, dayKey) ?: return DailyQuestRewardResult()
         val assigned = parseIds(set.assignedQuestIds).distinct()
         if (assigned.isEmpty()) return DailyQuestRewardResult()
+        val passedMediaIds = videoWatchLedgerDao.getPassedMediaIds(childId).toSet()
+        val passedArenaQuestIds = rewardDao.getByChild(childId)
+            .asSequence()
+            .mapNotNull { reward ->
+                reward.metadata.takeIf { it.startsWith(ARENA_REWARD_PREFIX) }
+                    ?.removePrefix(ARENA_REWARD_PREFIX)
+                    ?.let { "$ARENA_PREFIX$it" }
+            }
+            .toSet()
 
-        if (completedLessonId != null && completedLessonId in assigned) {
+        if (completedLessonId != null && completedLessonId in assigned && completedLessonId in passedMediaIds) {
             dailyQuestCompletionDao.insertIgnoring(
                 DailyQuestCompletionEntity(
                     id = "$childId:$dayKey:$completedLessonId",
@@ -76,6 +87,7 @@ class DailyQuestRewardWriter @Inject constructor(
 
         val completed = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
+            .filter { it in passedMediaIds || it in passedArenaQuestIds }
             .toSet()
         if (!assigned.all(completed::contains)) return DailyQuestRewardResult()
 
@@ -143,5 +155,7 @@ class DailyQuestRewardWriter @Inject constructor(
 
     companion object {
         const val SANCTUARY_PIECE_TYPE = "SANCTUARY_PIECE"
+        private const val ARENA_PREFIX = "arena:"
+        private const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
     }
 }

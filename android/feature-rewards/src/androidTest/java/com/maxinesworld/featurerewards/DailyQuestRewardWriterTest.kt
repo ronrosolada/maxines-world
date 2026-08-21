@@ -3,10 +3,12 @@ package com.maxinesworld.featurerewards
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
 import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardEntity
+import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -35,6 +37,7 @@ class DailyQuestRewardWriterTest {
             rewardDao = database.rewardDao(),
             rewardBreakDao = database.rewardBreakDao(),
             playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
+            videoWatchLedgerDao = database.videoWatchLedgerDao(),
         )
         runBlocking {
             database.dailyQuestSetDao().insertIgnoring(
@@ -42,9 +45,21 @@ class DailyQuestRewardWriterTest {
                     id = "child-1:2026-08-09",
                     childId = "child-1",
                     dayKey = "2026-08-09",
-                    assignedQuestIds = "[\"lesson-1\",\"lesson-2\",\"lesson-3\"]",
+                    assignedQuestIds = "[\"video-1\",\"video-2\",\"video-3\"]",
                 )
             )
+            listOf("video-1", "video-2", "video-3").forEach { mediaId ->
+                database.videoWatchLedgerDao().insertOrUpdate(
+                    VideoWatchLedgerEntity(
+                        id = "child-1:$mediaId",
+                        childId = "child-1",
+                        mediaId = mediaId,
+                        subjectId = "mathematics",
+                        accreditedSeconds = 900,
+                        quizPassed = true,
+                    ),
+                )
+            }
         }
     }
 
@@ -55,15 +70,15 @@ class DailyQuestRewardWriterTest {
 
     @Test
     fun rewardBreakAndSanctuaryPieceAppearOnlyAtThreeOfThree() = runBlocking {
-        val first = writer.reconcile("child-1", "2026-08-09", "lesson-1")
-        val second = writer.reconcile("child-1", "2026-08-09", "lesson-2")
+        val first = writer.reconcile("child-1", "2026-08-09", "video-1")
+        val second = writer.reconcile("child-1", "2026-08-09", "video-2")
 
         assertTrue(!first.questComplete)
         assertTrue(!second.questComplete)
         assertNull(database.rewardBreakDao().getByQuestCompletion("child-1:2026-08-09"))
         assertEquals(0, database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) ?: 0)
 
-        val third = writer.reconcile("child-1", "2026-08-09", "lesson-3")
+        val third = writer.reconcile("child-1", "2026-08-09", "video-3")
 
         assertTrue(third.questComplete)
         assertTrue(third.newlyAwarded)
@@ -77,10 +92,10 @@ class DailyQuestRewardWriterTest {
 
     @Test
     fun completingTheThirdTargetAgainIsIdempotent() = runBlocking {
-        writer.reconcile("child-1", "2026-08-09", "lesson-1")
-        writer.reconcile("child-1", "2026-08-09", "lesson-2")
-        val first = writer.reconcile("child-1", "2026-08-09", "lesson-3")
-        val retry = writer.reconcile("child-1", "2026-08-09", "lesson-3")
+        writer.reconcile("child-1", "2026-08-09", "video-1")
+        writer.reconcile("child-1", "2026-08-09", "video-2")
+        val first = writer.reconcile("child-1", "2026-08-09", "video-3")
+        val retry = writer.reconcile("child-1", "2026-08-09", "video-3")
 
         assertTrue(first.newlyAwarded)
         assertTrue(!retry.newlyAwarded)
@@ -103,9 +118,9 @@ class DailyQuestRewardWriterTest {
             )
         }
 
-        writer.reconcile("child-1", "2026-08-09", "lesson-1")
-        writer.reconcile("child-1", "2026-08-09", "lesson-2")
-        val result = writer.reconcile("child-1", "2026-08-09", "lesson-3")
+        writer.reconcile("child-1", "2026-08-09", "video-1")
+        writer.reconcile("child-1", "2026-08-09", "video-2")
+        val result = writer.reconcile("child-1", "2026-08-09", "video-3")
 
         assertTrue(result.questComplete)
         assertTrue(!result.newlyAwarded)
@@ -113,5 +128,23 @@ class DailyQuestRewardWriterTest {
         assertEquals(SanctuaryCatalog.pieces.size, database.rewardDao()
             .getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE))
         assertNotNull(result.rewardBreakId)
+    }
+
+    @Test
+    fun lessonCompletionRowsCannotCompleteVideoMission() = runBlocking {
+        database.dailyQuestCompletionDao().insertIgnoring(
+            DailyQuestCompletionEntity(
+                id = "child-1:2026-08-09:english-g3-m01-d01",
+                childId = "child-1",
+                dayKey = "2026-08-09",
+                questId = "english-g3-m01-d01",
+                completionEventId = "lesson-completion:child-1:english-g3-m01-d01",
+            ),
+        )
+
+        val result = writer.reconcile("child-1", "2026-08-09", "english-g3-m01-d01")
+
+        assertTrue(!result.questComplete)
+        assertEquals(0, database.rewardDao().getTotalByType("child-1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) ?: 0)
     }
 }

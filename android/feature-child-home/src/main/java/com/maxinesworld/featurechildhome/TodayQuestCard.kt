@@ -100,6 +100,7 @@ import kotlin.math.roundToInt
 internal fun TodayQuestCard(
     quest: QuestUi,
     onQuestAction: (QuestAction) -> Unit,
+    onQuestTargetClick: (QuestTargetUi) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val taskText = when (quest.task) {
@@ -113,6 +114,7 @@ internal fun TodayQuestCard(
             R.string.home_quest_task_incomplete,
             quest.pawPrintTotal,
         )
+        QuestTaskCopy.Unavailable -> stringResource(R.string.home_quest_unavailable)
     }
     val buttonText = when (quest.buttonLabel) {
         QuestButtonLabel.OpenPlayground -> stringResource(R.string.home_quest_open_playground)
@@ -122,6 +124,7 @@ internal fun TodayQuestCard(
         QuestButtonLabel.ContinueQuest -> stringResource(R.string.home_quest_continue)
         QuestButtonLabel.Start -> stringResource(R.string.home_start)
         QuestButtonLabel.Continue -> stringResource(R.string.home_continue)
+        QuestButtonLabel.Retry -> stringResource(R.string.home_retry)
     }
     MaxinesQuestCardSurface(
         modifier = modifier
@@ -219,6 +222,8 @@ internal fun TodayQuestCard(
                                 "Reward: five minute play break; Milo's home is complete"
                             } else if (quest.isComplete) {
                                 "Reward earned: sanctuary piece and five minute play break"
+                            } else if (quest.task == QuestTaskCopy.Unavailable) {
+                                "Video mission unavailable until the video catalog is ready"
                             } else {
                                 "Quest reward: one sanctuary piece and five minute play break"
                             }
@@ -252,6 +257,7 @@ internal fun TodayQuestCard(
                                 quest.godModeEnabled -> stringResource(R.string.home_quest_reward_parent)
                                 quest.sanctuaryComplete -> stringResource(R.string.home_quest_reward_sanctuary_complete)
                                 quest.isComplete -> stringResource(R.string.home_quest_reward_earned)
+                                quest.task == QuestTaskCopy.Unavailable -> stringResource(R.string.home_quest_reward_unavailable)
                                 else -> stringResource(
                                     R.string.home_quest_reward_pending,
                                     quest.pawPrintTotal,
@@ -267,28 +273,22 @@ internal fun TodayQuestCard(
 
                 if (quest.targets.isNotEmpty()) {
                     Spacer(Modifier.height(4.dp))
-                    // When daily targets share the same title (e.g. three
-                    // sequential "Word Roots" lessons), an 8yo sees a dupe.
-                    // Only then, show the week/day distinguisher so titles feel
-                    // like Part 1/2/3 instead of a copy-paste bug.
-                    val titleCounts = quest.targets.groupingBy { it.title }.eachCount()
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         quest.targets.forEach { target ->
                             val targetDone = target.isCompleted
-                            val needsDisambiguation = (titleCounts[target.title] ?: 0) > 1
-                            val displayTitle = if (needsDisambiguation && target.moduleKey != null) {
-                                val suffix = com.maxinesworld.corecontent.questTargetDisambiguator(
-                                    target.moduleKey, target.lessonId,
-                                )
-                                if (suffix != null) "${target.title} · $suffix" else target.title
-                            } else target.title
-                            val targetCd = if (targetDone) "Quest target done: $displayTitle"
-                            else "Quest target: ${target.displaySubject}: $displayTitle"
+                            val displayTitle = target.title
+                            val targetCd = if (target.type == QuestTargetType.ARENA) {
+                                if (targetDone) "Quiz target done: $displayTitle" else "Quiz target: $displayTitle"
+                            } else if (targetDone) {
+                                "Quest target done: $displayTitle · ${target.durationLabel}"
+                            } else {
+                                "Quest target: ${target.displaySubject}: $displayTitle · ${target.durationLabel}"
+                            }
                             Row(
                                 modifier = Modifier.fillMaxWidth()
                                     .clip(RoundedCornerShape(14.dp))
                                     .background(Color.White.copy(alpha = 0.72f))
-                                    .clickable(role = Role.Button, onClick = { onQuestAction(QuestAction.OpenLesson) })
+                                    .clickable(role = Role.Button, onClick = { onQuestTargetClick(target) })
                                     .semantics { contentDescription = targetCd }
                                     .heightIn(min = 48.dp)
                                     .padding(horizontal = 10.dp, vertical = 8.dp),
@@ -305,7 +305,34 @@ internal fun TodayQuestCard(
                                 Spacer(Modifier.width(10.dp))
                                 Column(Modifier.weight(1f)) {
                                     Text(target.displaySubject, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Black, color = PlayMuted, maxLines = 1)
-                                    Text(displayTitle, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Bold, color = PlayInk, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        Text(
+                                            displayTitle,
+                                            modifier = Modifier.weight(1f),
+                                            fontSize = 15.sp,
+                                            lineHeight = 20.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = PlayInk,
+                                            maxLines = 2,
+                                            overflow = TextOverflow.Ellipsis,
+                                        )
+                                        Spacer(Modifier.width(8.dp))
+                                        Surface(
+                                            shape = RoundedCornerShape(8.dp),
+                                            color = if (target.type == QuestTargetType.ARENA) PlaySunshine.copy(alpha = 0.2f) else PlayTeal.copy(alpha = 0.12f),
+                                        ) {
+                                            Text(
+                                                if (target.type == QuestTargetType.ARENA) "Quiz" else target.durationLabel,
+                                                modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp),
+                                                color = if (target.type == QuestTargetType.ARENA) PlayInkDark else PlayTeal,
+                                                fontSize = 12.sp,
+                                                fontWeight = FontWeight.Bold,
+                                            )
+                                        }
+                                    }
                                 }
                                 if (targetDone) {
                                     Box(Modifier.size(22.dp).clip(CircleShape).background(PlaySunshine.copy(alpha = 0.9f)), contentAlignment = Alignment.Center) {

@@ -105,6 +105,7 @@ class PlayroomHomeInteractionContractTest {
         onCollectionClick: () -> Unit = {},
         onParentsClick: () -> Unit = {},
         onQuestAction: (QuestAction) -> Unit = {},
+        onQuestTargetClick: (QuestTargetUi) -> Unit = {},
     ) {
         composeRule.setContent {
             CompositionLocalProvider(
@@ -115,6 +116,7 @@ class PlayroomHomeInteractionContractTest {
                         state = stateForContract(targets),
                         onSubjectClick = {},
                         onQuestAction = onQuestAction,
+                        onQuestTargetClick = onQuestTargetClick,
                         onHomeClick = {},
                         onCollectionClick = onCollectionClick,
                         onParentsClick = onParentsClick,
@@ -125,20 +127,32 @@ class PlayroomHomeInteractionContractTest {
     }
 
     @Test
-    fun todayQuestExposesExactlyOnePrimaryAction() {
+    fun todayQuestExposesExactlyOnePrimaryActionAndPreservesTargetSubject() {
         val actions = mutableListOf<QuestAction>()
+        val targetSubjects = mutableListOf<String>()
         setHome(
             targets = listOf(
                 QuestTargetUi(
-                    lessonId = "english-g3-q1-w01-d01",
+                    mediaId = "english-video-1",
                     title = "Word Roots",
-                    subject = "english",
+                    subjectId = "english",
                     displaySubject = "English",
-                    moduleKey = null,
+                    durationSeconds = 60,
+                    durationLabel = "01:00",
+                    isCompleted = false,
+                ),
+                QuestTargetUi(
+                    mediaId = "science-video-2",
+                    title = "Living Things",
+                    subjectId = "science",
+                    displaySubject = "Science",
+                    durationSeconds = 120,
+                    durationLabel = "02:00",
                     isCompleted = false,
                 ),
             ),
             onQuestAction = { actions += it },
+            onQuestTargetClick = { targetSubjects += it.subjectId },
         )
 
         val todayQuest = composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest)
@@ -150,18 +164,57 @@ class PlayroomHomeInteractionContractTest {
         todayQuest.performClick()
         composeRule.runOnIdle { assertEquals(listOf(QuestAction.Continue), actions) }
 
+        // Clicking a non-next target must preserve that row's subject instead
+        // of dispatching the enum CTA, which resolves the next target.
         composeRule.onNodeWithContentDescription(
-            "Quest target: English: Word Roots",
+            "Quest target: Science: Living Things · 02:00",
         ).assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson), actions)
+            assertEquals(listOf("science"), targetSubjects)
+            assertEquals(listOf(QuestAction.Continue), actions)
         }
+
+        composeRule.onNodeWithContentDescription(
+            "Quest target: English: Word Roots · 01:00",
+        ).assertHasClickAction().performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf("science", "english"), targetSubjects)
+            assertEquals(listOf(QuestAction.Continue), actions)
+        }
+        composeRule.onNodeWithText("01:00").assertExists()
+        composeRule.onNodeWithText("02:00").assertExists()
 
         composeRule.onNodeWithText("Continue").assertHasClickAction().performClick()
         composeRule.runOnIdle {
-            assertEquals(listOf(QuestAction.Continue, QuestAction.OpenLesson, QuestAction.Continue), actions)
+            assertEquals(listOf(QuestAction.Continue, QuestAction.Continue), actions)
         }
         composeRule.onAllNodesWithText("Continue").assertCountEquals(1)
+    }
+
+    @Test
+    fun arenaTargetShowsQuizIndicatorAndCarriesPackIdentityToItsRouteCallback() {
+        val clicked = mutableListOf<QuestTargetUi>()
+        val target = QuestTargetUi(
+            mediaId = "arena:science-g3-ph",
+            title = "Grade 3 Science: Philippine DepEd",
+            subjectId = "science",
+            displaySubject = "Science",
+            durationSeconds = 0,
+            durationLabel = "",
+            isCompleted = false,
+            type = QuestTargetType.ARENA,
+            arenaPackId = "science-g3-ph",
+        )
+        setHome(targets = listOf(target), onQuestTargetClick = { clicked += it })
+
+        composeRule.onNodeWithText("Grade 3 Science: Philippine DepEd").assertExists()
+        composeRule.onNodeWithText("Quiz").assertExists()
+        composeRule.onNodeWithContentDescription("Quiz target: Grade 3 Science: Philippine DepEd")
+            .performClick()
+        composeRule.runOnIdle {
+            assertEquals(listOf("science-g3-ph"), clicked.map { it.arenaPackId })
+            assertEquals(QuestTargetType.ARENA, clicked.single().type)
+        }
     }
 
     @Test
@@ -228,6 +281,7 @@ class PlayroomHomeInteractionContractTest {
                         state = stateForContract(),
                         onSubjectClick = {},
                         onQuestAction = {},
+                        onQuestTargetClick = {},
                         onHomeClick = {},
                         onCollectionClick = { collectionClicks++ },
                         onParentsClick = { parentsClicks++ },

@@ -32,25 +32,6 @@ data class VideoLibraryItemUi(
     val error: String? = null,
 )
 
-/** A single lesson inside the "Today's Video Quest" (cross-subject set). */
-data class VideoQuestItemUi(
-    val mediaId: String,
-    val title: String,
-    val subjectId: String,
-    val durationSeconds: Int,
-    val isPassed: Boolean,
-)
-
-/** "Today's Video Quest": 2-3 next-unlocked lessons from different subjects. */
-data class VideoQuestUi(
-    val items: List<VideoQuestItemUi>,
-    val totalSeconds: Int,
-    val completedCount: Int,
-    val isComplete: Boolean,
-) {
-    val subjectCount: Int get() = items.map { it.subjectId }.distinct().size
-}
-
 data class VideoLibraryUiState(
     val isLoading: Boolean = true,
     val upcomingItems: List<VideoLibraryItemUi> = emptyList(),
@@ -66,7 +47,6 @@ data class VideoLibraryUiState(
     val downloadAllCompletedCount: Int = 0,
     val downloadAllTotalCount: Int = 0,
     val newlyAwardedStickerName: String? = null,
-    val videoQuest: VideoQuestUi? = null,
 ) {
     val allItems: List<VideoLibraryItemUi>
         get() = upcomingItems + completedItems
@@ -162,67 +142,6 @@ class VideoLibraryViewModel @Inject constructor(
             it.copy(
                 upcomingItems = upcoming,
                 completedItems = completed,
-            )
-        }
-        recomputeVideoQuest(passedSet)
-    }
-
-    /**
-     * Builds the deterministic "Today's Video Quest": the next-unlocked lesson of
-     * each subject (frontier) is fed to [VideoQuestPlanner], which picks 2-3 lessons
-     * from different subjects whose total is within [30, 40] minutes. Completion is
-     * derived from the ledger pass state; a one-time bonus is granted when done.
-     */
-    private var videoQuestBonusGranted = false
-
-    private fun recomputeVideoQuest(passedSet: Set<String>) {
-        val candidates = rawAssets
-            .groupBy { it.subjectId.orEmpty() }
-            .mapNotNull { (subject, assets) ->
-                if (subject.isBlank()) return@mapNotNull null
-                val frontier = assets.sortedBy { it.episodeNumber }.firstOrNull { it.mediaId !in passedSet }
-                    ?: return@mapNotNull null
-                VideoQuestPlanner.Candidate(frontier.mediaId, subject, frontier.durationSeconds)
-            }
-        val selectedIds = VideoQuestPlanner.select(childId, LocalDate.now().toString(), candidates)
-        if (selectedIds.isEmpty()) {
-            _state.update { it.copy(videoQuest = null) }
-            return
-        }
-        val byId = rawAssets.associateBy { it.mediaId }
-        val items = selectedIds.map { id ->
-            val asset = byId.getValue(id)
-            VideoQuestItemUi(
-                mediaId = id,
-                title = asset.title,
-                subjectId = asset.subjectId.orEmpty(),
-                durationSeconds = asset.durationSeconds,
-                isPassed = id in passedSet,
-            )
-        }
-        val total = items.sumOf { it.durationSeconds }
-        val completedCount = items.count { it.isPassed }
-        val isComplete = items.isNotEmpty() && items.all { it.isPassed }
-        _state.update { it.copy(videoQuest = VideoQuestUi(items, total, completedCount, isComplete)) }
-        if (isComplete && !videoQuestBonusGranted) {
-            videoQuestBonusGranted = true
-            grantVideoQuestBonus()
-        }
-    }
-
-    private fun grantVideoQuestBonus() {
-        val today = LocalDate.now().toString()
-        viewModelScope.launch {
-            rewardDao.insertIgnoring(
-                RewardEntity(
-                    id = "video-quest:$childId:$today",
-                    childId = childId,
-                    type = "STAR",
-                    subject = "video_quest",
-                    amount = 3,
-                    earnedAt = System.currentTimeMillis(),
-                    metadata = "daily_video_quest_completed:$today",
-                )
             )
         }
     }

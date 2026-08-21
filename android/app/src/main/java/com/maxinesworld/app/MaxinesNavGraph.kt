@@ -1,6 +1,7 @@
 package com.maxinesworld.app
 
 import com.maxinesworld.featurelessonplayer.AssessmentArenaRoute
+import com.maxinesworld.featurelessonplayer.AssessmentArenaViewModel
 
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
@@ -33,12 +34,6 @@ import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
 import com.maxinesworld.featurechildhome.PlayroomHomeUiState
 import com.maxinesworld.featurechildhome.QuestAction
-import com.maxinesworld.featurechildhome.SubjectModulesScreen
-import com.maxinesworld.featurechildhome.SubjectModulesViewModel
-import com.maxinesworld.featurechildhome.ModuleLessonsScreen
-import com.maxinesworld.featurechildhome.ModuleLessonsViewModel
-import com.maxinesworld.featurechildhome.subjectForPack
-import com.maxinesworld.featurelessonplayer.LessonPlayerScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
 import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
@@ -60,11 +55,8 @@ object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val TREAT_SHOP = "treat_shop/{childId}"
-    const val SUBJECT_MODULES = "subject_modules/{childId}/{subject}"
-    const val MODULE_LESSONS = "module_lessons/{childId}/{subject}/{moduleKey}"
-    const val LESSON_PLAYER = "lesson_player/{childId}/{lessonId}"
     const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
-    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}"
+    const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}&packId={packId}"
     const val QUICK_BITS = "quick_bits/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
@@ -74,14 +66,8 @@ object Routes {
 
     fun childHome(childId: String) = "child_home/${segment(childId)}"
     fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
-    fun subjectModules(childId: String, subject: String) =
-        "subject_modules/${segment(childId)}/${segment(subject)}"
-    fun moduleLessons(childId: String, subject: String, moduleKey: String) =
-        "module_lessons/${segment(childId)}/${segment(subject)}/${segment(moduleKey)}"
-    fun lessonPlayer(childId: String, lessonId: String) =
-        "lesson_player/${segment(childId)}/${segment(lessonId)}"
-    fun assessmentArena(childId: String, subject: String? = null) =
-        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+    fun assessmentArena(childId: String, subject: String? = null, packId: String? = null) =
+        "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}&packId=${segment(packId.orEmpty())}"
 
     fun videoLibrary(childId: String, subject: String? = null) =
         "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
@@ -152,7 +138,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
             arguments = listOf(navArgument("childId") { type = NavType.StringType })
         ) { backStackEntry ->
             val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val badgeAwarder: BadgeAwarder = entryPoint.badgeAwarder()
             val homeViewModel: PlayroomHomeViewModel = hiltViewModel(backStackEntry)
             val homeState by homeViewModel.state.collectAsStateWithLifecycle()
             PlayroomHomeScreen(
@@ -165,26 +150,24 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 },
                 onQuestAction = { action ->
                     when (action) {
-                        QuestAction.OpenLesson -> {
+                        QuestAction.OpenVideoQuest -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
-                            val lessonId = quest?.nextLessonId
-                                ?: quest?.targets?.firstOrNull { !it.isCompleted }?.lessonId
-                                ?: quest?.targets?.firstOrNull()?.lessonId
-                            if (lessonId != null) {
-                                navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                            } else {
-                                val fallback = (homeState as? PlayroomHomeUiState.Content)
-                                    ?.quest?.recommendedSubjectId?.let(::subjectForPack)
-                                if (fallback != null) navController.navigate(Routes.subjectModules(childId, fallback))
+                            val target = quest?.nextTargetId?.let { nextTargetId ->
+                                quest.targets.firstOrNull { it.mediaId == nextTargetId }
+                            }
+                            if (target != null) {
+                                if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
+                                    navController.navigate(
+                                        Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
+                                    )
+                                } else {
+                                    navController.navigate(Routes.videoLibrary(childId, target.subjectId))
+                                }
                             }
                         }
+                        QuestAction.RetryMission -> homeViewModel.retry()
                         QuestAction.Continue -> {
-                            val target = (homeState as? PlayroomHomeUiState.Content)
-                                ?.quest?.recommendedSubjectId
-                            val subject = target?.let(::subjectForPack)
-                            if (subject != null) {
-                                navController.navigate(Routes.subjectModules(childId, subject))
-                            }
+                            navController.navigate(Routes.videoLibrary(childId))
                         }
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
                         QuestAction.ViewReward -> {
@@ -203,6 +186,15 @@ fun MaxinesNavGraph(navController: NavHostController) {
                                 MiniGameRoutes.hub(childId, GodModeManager.GOD_MODE_REWARD_BREAK_ID)
                             )
                         }
+                    }
+                },
+                onQuestTargetClick = { target ->
+                    if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
+                        navController.navigate(
+                            Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
+                        )
+                    } else {
+                        navController.navigate(Routes.videoLibrary(childId, target.subjectId))
                     }
                 },
                 onHomeClick = { /* Home is the current destination — no push */ },
@@ -240,11 +232,22 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     type = NavType.StringType
                     nullable = true
                     defaultValue = null
-                }
+                },
+                navArgument("packId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
             )
-        ) {
+        ) { backStackEntry ->
+            val arenaPackId = backStackEntry.arguments?.getString("packId")?.takeIf(String::isNotBlank)
+            val arenaViewModel: AssessmentArenaViewModel = hiltViewModel(backStackEntry)
+            LaunchedEffect(arenaPackId) {
+                arenaPackId?.let(arenaViewModel::startQuiz)
+            }
             AssessmentArenaRoute(
                 onBack = { navController.popBackStack() },
+                viewModel = arenaViewModel,
             )
         }
 
@@ -291,78 +294,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
             TreatShopScreen(
                 childId = childId,
                 onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(
-            route = Routes.SUBJECT_MODULES,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("subject") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
-            val viewModel: SubjectModulesViewModel = hiltViewModel(backStackEntry)
-            val state by viewModel.state.collectAsStateWithLifecycle()
-            SubjectModulesScreen(
-                subject = subject,
-                state = state,
-                onModuleClick = { moduleKey ->
-                    navController.navigate(Routes.moduleLessons(childId, subject, moduleKey))
-                },
-                onBack = { navController.popBackStack() }
-            )
-        }
-
-        composable(
-            route = Routes.MODULE_LESSONS,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("subject") { type = NavType.StringType },
-                navArgument("moduleKey") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val subject = backStackEntry.arguments?.getString("subject") ?: return@composable
-            val moduleKey = backStackEntry.arguments?.getString("moduleKey") ?: return@composable
-            val viewModel: ModuleLessonsViewModel = hiltViewModel(backStackEntry)
-            val state by viewModel.state.collectAsStateWithLifecycle()
-            ModuleLessonsScreen(
-                moduleTitle = state.moduleTitle.ifEmpty { moduleKey },
-                state = state,
-                onLessonClick = { lessonId ->
-                    navController.navigate(Routes.lessonPlayer(childId, lessonId))
-                },
-                onBack = { navController.popBackStack() },
-                onRetry = viewModel::retry,
-            )
-        }
-
-        composable(
-            route = Routes.LESSON_PLAYER,
-            arguments = listOf(
-                navArgument("childId") { type = NavType.StringType },
-                navArgument("lessonId") { type = NavType.StringType }
-            )
-        ) { backStackEntry ->
-            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
-            val lessonId = backStackEntry.arguments?.getString("lessonId") ?: return@composable
-            LessonPlayerScreen(
-                lessonId = lessonId,
-                childId = childId,
-                onBack = { navController.popBackStack() },
-                onComplete = {
-                    navController.navigate(Routes.childHome(childId)) {
-                        popUpTo(Routes.CHILD_HOME) { inclusive = true }
-                    }
-                },
-                onViewFieldGuide = { badgeId ->
-                    navController.navigate(Routes.wildlifeFieldGuide(childId, badgeId))
-                },
-                onRewardBreak = { cId, breakId ->
-                    navController.navigate(MiniGameRoutes.hub(cId, breakId))
-                }
             )
         }
 

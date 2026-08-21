@@ -128,6 +128,9 @@ interface RewardDao {
     @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")
     fun observeByChild(childId: String): Flow<List<RewardEntity>>
 
+    @Query("SELECT * FROM rewards WHERE childId = :childId ORDER BY earnedAt DESC")
+    suspend fun getByChild(childId: String): List<RewardEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(reward: RewardEntity)
 
@@ -252,6 +255,9 @@ interface DailyQuestSetDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIgnoring(entry: DailyQuestSetEntity): Long
 
+    @Query("UPDATE daily_quest_sets SET assignedQuestIds = :assignedQuestIds WHERE childId = :childId AND dayKey = :dayKey")
+    suspend fun updateAssignedQuestIds(childId: String, dayKey: String, assignedQuestIds: String): Int
+
     @Query("SELECT * FROM daily_quest_sets WHERE childId = :childId AND dayKey = :dayKey")
     suspend fun getByChildAndDay(childId: String, dayKey: String): DailyQuestSetEntity?
 
@@ -355,4 +361,7 @@ interface VideoWatchLedgerDao {
 
     @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
     fun observePassedMediaIds(childId: String): kotlinx.coroutines.flow.Flow<List<String>>
+
+    @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
+    suspend fun getPassedMediaIds(childId: String): List<String>
 }

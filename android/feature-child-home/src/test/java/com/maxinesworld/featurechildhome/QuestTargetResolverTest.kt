@@ -1,16 +1,85 @@
 package com.maxinesworld.featurechildhome
 
+import com.maxinesworld.coremodel.AssessmentPackMetadata
+import com.maxinesworld.coremodel.MediaAsset
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class QuestTargetResolverTest {
     @Test
-    fun `duplicate assigned lessons are shown once`() {
-        assertEquals(
-            listOf("lesson-a", "lesson-b"),
-            QuestTargetResolver.uniqueAssignedLessonIds(
-                listOf("lesson-a", "lesson-b", "lesson-a")
-            )
+    fun `media assets map to title subject duration and passed state`() {
+        val assets = listOf(
+            asset("math-video", "mathematics", "Building Numbers", 125),
+            asset("english-video", "english", "Picture Detective", 60),
+        )
+
+        val targets = QuestTargetResolver.resolve(
+            assigned = listOf("math-video", "english-video", "math-video"),
+            completed = setOf("math-video"),
+            assets = assets,
+        )
+
+        assertEquals(2, targets.size)
+        assertEquals("math-video", targets[0].mediaId)
+        assertEquals("Building Numbers", targets[0].title)
+        assertEquals("mathematics", targets[0].subjectId)
+        assertEquals(125, targets[0].durationSeconds)
+        assertEquals("02:05", targets[0].durationLabel)
+        assertTrue(targets[0].isCompleted)
+        assertFalse(targets[1].isCompleted)
+    }
+
+    @Test
+    fun `missing catalog renders no targets instead of lesson fallback`() {
+        assertTrue(
+            QuestTargetResolver.resolve(
+                assigned = listOf("video-1"),
+                completed = emptySet(),
+                assets = null,
+            ).isEmpty(),
         )
     }
+
+    @Test
+    fun `arena ids resolve from bundled grade three pack metadata without video catalog`() {
+        val pack = AssessmentPackMetadata(
+            id = "science-g3-ph",
+            subjectId = "science",
+            curriculum = "ph",
+            curriculumName = "Philippine DepEd",
+            flagEmoji = "",
+            title = "Grade 3 Science: Philippine DepEd",
+            description = "",
+            badgeKey = "badge_science_ph",
+            file = "assessment-packs/science-g3-ph.json",
+        )
+
+        val targets = QuestTargetResolver.resolve(
+            assigned = listOf("arena:science-g3-ph"),
+            completed = setOf("arena:science-g3-ph"),
+            assets = null,
+            arenaPacks = listOf(pack),
+        )
+
+        assertEquals(1, targets.size)
+        assertEquals(QuestTargetType.ARENA, targets.single().type)
+        assertEquals("Grade 3 Science: Philippine DepEd", targets.single().title)
+        assertEquals("science-g3-ph", targets.single().arenaPackId)
+        assertTrue(targets.single().isCompleted)
+    }
+
+    private fun asset(mediaId: String, subject: String, title: String, seconds: Int) = MediaAsset(
+        mediaId = mediaId,
+        title = title,
+        file = "$mediaId.mp4",
+        sha256 = "",
+        sizeBytes = 1L,
+        durationSeconds = seconds,
+        width = 1,
+        height = 1,
+        subjectId = subject,
+        releaseStatus = "RELEASED",
+    )
 }

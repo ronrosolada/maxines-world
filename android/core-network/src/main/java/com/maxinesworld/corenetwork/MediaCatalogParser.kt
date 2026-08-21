@@ -55,7 +55,9 @@ class MediaCatalogParser(
             "Invalid sha256 for ${asset.mediaId}"
         }
         require(asset.sizeBytes > 0) { "Media size must be positive: ${asset.mediaId}" }
-        require(asset.durationSeconds > 0) { "Media duration must be positive: ${asset.mediaId}" }
+        // Zero-duration catalog entries are structurally readable but are not
+        // eligible for a daily video mission; DailyQuestManager filters them.
+        require(asset.durationSeconds >= 0) { "Media duration must not be negative: ${asset.mediaId}" }
         require(asset.width > 0 && asset.height > 0) {
             "Media dimensions must be positive: ${asset.mediaId}"
         }

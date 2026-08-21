@@ -1,4 +1,4 @@
-package com.maxinesworld.featurelessonplayer
+package com.maxinesworld.coremodel
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -20,8 +20,8 @@ class VideoQuestPlannerTest {
     @Test
     fun `two subjects totalling 32 minutes are both selected`() {
         val frontier = listOf(
-            cand("math-ep1", "mathematics", 960),   // 16 min
-            cand("eng-ep1", "english", 960),        // 16 min -> 32 min
+            cand("math-ep1", "mathematics", 960),
+            cand("eng-ep1", "english", 960),
             cand("sci-ep1", "science", 900),
         )
         val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
@@ -33,27 +33,26 @@ class VideoQuestPlannerTest {
     }
 
     @Test
-    fun `never exceeds 40 minutes - a video that would overflow is skipped`() {
+    fun `never exceeds 50 minutes - a video that would overflow is skipped`() {
         val frontier = listOf(
-            cand("math-ep1", "mathematics", 1500),  // 25 min
-            cand("eng-ep1", "english", 1200),       // 20 min
-            cand("sci-ep1", "science", 600),        // 10 min
+            cand("math-ep1", "mathematics", 1500),
+            cand("eng-ep1", "english", 1200),
+            cand("sci-ep1", "science", 600),
         )
         val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
         val total = totalOf(selected, frontier)
         assertTrue("selected size = ${selected.size}", selected.size == 2)
-        assertTrue("total $total must not exceed 40m", total <= VideoQuestPlanner.MAX_SECONDS)
-        // Avoiding overflow must not collapse cross-subject when a 3rd fits within bounds.
+        assertTrue("total $total must not exceed 50m", total <= VideoQuestPlanner.MAX_SECONDS)
         val subjects = frontier.filter { it.mediaId in selected }.map { it.subjectId }.distinct()
         assertTrue(subjects.size >= 2)
     }
 
     @Test
-    fun `three short subjects can fill a 30-40 minute quest`() {
+    fun `three short subjects can fill a 30-50 minute quest`() {
         val frontier = listOf(
             cand("math-ep1", "mathematics", 700),
             cand("eng-ep1", "english", 650),
-            cand("fil-ep1", "filipino", 600),       // 700+650+600 = 1950 (32.5 min)
+            cand("fil-ep1", "filipino", 600),
             cand("sci-ep1", "science", 200),
         )
         val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
@@ -64,10 +63,54 @@ class VideoQuestPlannerTest {
     }
 
     @Test
-    fun `single available subject still yields a quest (cross-subject is best-effort)`() {
-        val frontier = listOf(cand("math-ep1", "mathematics", 1800))
-        val selected = VideoQuestPlanner.select("c1", "2026-08-20", frontier)
-        assertEquals(listOf("math-ep1"), selected)
+    fun `single subject frontier is rejected because it cannot satisfy the contract`() {
+        val selected = VideoQuestPlanner.select(
+            "c1",
+            "2026-08-20",
+            listOf(cand("math-ep1", "mathematics", 1800)),
+        )
+        assertTrue(selected.isEmpty())
+    }
+
+    @Test
+    fun `sparse frontier below 30 minutes produces no partial quest`() {
+        val selected = VideoQuestPlanner.select(
+            "c1",
+            "2026-08-20",
+            listOf(
+                cand("math-ep1", "mathematics", 500),
+                cand("eng-ep1", "english", 500),
+            ),
+        )
+        assertTrue(selected.isEmpty())
+    }
+
+    @Test
+    fun `overlong frontier with no valid combination produces no quest`() {
+        val selected = VideoQuestPlanner.select(
+            "c1",
+            "2026-08-20",
+            listOf(
+                cand("math-ep1", "mathematics", 1700),
+                cand("eng-ep1", "english", 1700),
+                cand("sci-ep1", "science", 1700),
+            ),
+        )
+        assertTrue(selected.isEmpty())
+    }
+
+    @Test
+    fun `invalid frontier candidates do not create a mission`() {
+        val selected = VideoQuestPlanner.select(
+            "c1",
+            "2026-08-20",
+            listOf(
+                cand("", "mathematics", 900),
+                cand("eng-ep1", "english", 0),
+                cand("sci-ep1", "science", -1),
+            ),
+        )
+        assertTrue(selected.isEmpty())
     }
 
     @Test

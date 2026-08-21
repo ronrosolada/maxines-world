@@ -14,6 +14,7 @@ import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
@@ -106,6 +107,55 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
+    fun `daily mission targets use media titles durations and passed media state`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            quest = ChallengeProgress(completedCount = 1, subjectCount = 2),
+            videoCatalog = mediaCatalogWithTotals(
+                "mathematics" to 1,
+                "english" to 1,
+                "science" to 1,
+            ),
+            passedVideoMediaIds = listOf("mathematics-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(3, quest.targets.size)
+        assertEquals("mathematics-video-1", quest.targets.first().mediaId)
+        assertEquals("Video 1", quest.targets.first().title)
+        assertEquals(60, quest.targets.first().durationSeconds)
+        assertEquals("01:00", quest.targets.first().durationLabel)
+        assertTrue(quest.targets.first().isCompleted)
+        assertEquals("english-video-1", quest.nextTargetId)
+    }
+
+    @Test
+    fun `arena reward metadata emission refreshes daily mission inputs`() = runTest(dispatcher) {
+        val rewards = MutableStateFlow<List<RewardEntity>>(emptyList())
+        val ensureCalls = AtomicInteger()
+        val vm = buildViewModel(
+            arenaRewardsFlow = rewards,
+            dailyQuestEnsureObserver = { ensureCalls.incrementAndGet() },
+        )
+        advanceUntilIdle()
+        val callsBeforeArenaPass = ensureCalls.get()
+
+        rewards.value = listOf(
+            RewardEntity(
+                id = "assessment-arena:child_1:science-g3-ph:STAR",
+                childId = "child_1",
+                type = "STAR",
+                subject = "science",
+                amount = 10,
+                metadata = "assessment_arena_passed:science-g3-ph",
+            ),
+        )
+        advanceUntilIdle()
+
+        assertTrue(ensureCalls.get() > callsBeforeArenaPass)
+    }
+
+    @Test
     fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
         val vm = buildViewModel(
             completedLessons = (1..3).map { "mathematics-g3-m01-d%02d".format(it) },
@@ -116,6 +166,78 @@ class PlayroomHomeViewModelTest {
         val mathematics = content(vm).subjects.first { it.id == "mathematics" }
         assertEquals(null, mathematics.completedVideos)
         assertEquals(null, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `empty video mission is truthful and retryable when catalog is unavailable`() = runTest(dispatcher) {
+        val vm = buildViewModel(videoCatalogLoadFails = true)
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
+    }
+
+    @Test
+    fun `non empty persisted video mission is retryable when catalog metadata is unavailable`() = runTest(dispatcher) {
+        val vm = buildViewModel(
+            videoCatalogLoadFails = true,
+            persistedQuestIds = listOf("mathematics-video-1", "english-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
+    }
+
+    @Test
+    fun `disappeared or inactive assigned media cannot route to continue`() = runTest(dispatcher) {
+        val catalog = MediaCatalog(
+            catalogVersion = 1,
+            generatedAt = "refreshed",
+            media = listOf(
+                MediaAsset(
+                    mediaId = "mathematics-video-1",
+                    title = "Video 1",
+                    file = "mathematics/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "english-video-1",
+                    title = "Retired video",
+                    file = "english/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "english",
+                    releaseStatus = "PREVIEW",
+                ),
+            ),
+        )
+        val vm = buildViewModel(
+            videoCatalog = catalog,
+            persistedQuestIds = listOf("mathematics-video-1", "english-video-1", "science-video-1"),
+        )
+        advanceUntilIdle()
+
+        val quest = content(vm).quest
+        assertEquals(QuestTaskCopy.Unavailable, quest.task)
+        assertEquals(QuestButtonLabel.Retry, quest.buttonLabel)
+        assertEquals(QuestAction.RetryMission, quest.buttonAction)
+        assertTrue(quest.targets.isEmpty())
     }
 
     @Test
@@ -408,7 +530,11 @@ class PlayroomHomeViewModelTest {
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
         catalog: ModuleCatalog = emptyCatalog(),
-        videoCatalog: MediaCatalog = MediaCatalog(1, "", emptyList()),
+        videoCatalog: MediaCatalog = mediaCatalogWithTotals(
+            "mathematics" to 1,
+            "english" to 1,
+            "science" to 1,
+        ),
         passedVideoMediaIds: List<String> = emptyList(),
         passedVideoMediaIdsFlow: Flow<List<String>> = flowOf(passedVideoMediaIds),
         profileFlow: Flow<ChildProfileEntity?>? = null,
@@ -419,6 +545,9 @@ class PlayroomHomeViewModelTest {
         streakTimestampLoadFails: Boolean = false,
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
+        persistedQuestIds: List<String>? = null,
+        arenaRewardsFlow: Flow<List<RewardEntity>> = flowOf(emptyList()),
+        dailyQuestEnsureObserver: (() -> Unit)? = null,
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
         coEvery { profileDao.observeById("child_1") } returns (
@@ -446,15 +575,21 @@ class PlayroomHomeViewModelTest {
         }
         coEvery { awarder.getCollectedBadges("child_1") } returns badges
         val rewardDao = mockk<RewardDao>()
+        every { rewardDao.observeByChild("child_1") } returns arenaRewardsFlow
         coEvery { rewardDao.getTotalByType("child_1", "STAR") } returns starBalance
         coEvery { rewardDao.getTotalByType("child_1", "COIN") } returns coinBalance
         coEvery { rewardDao.getByChildAndType("child_1", DailyQuestRewardWriter.SANCTUARY_PIECE_TYPE) } returns emptyList()
         val dailyQuestManager = mockk<DailyQuestManager>()
         val inventoryDao = mockk<InventoryDao>()
         coEvery { inventoryDao.getOwnedItemIds("child_1") } returns emptyList()
-        val assignedQuestIds = (0 until 3).map { "daily-quest-$it" }
+        val assignedQuestIds = persistedQuestIds ?: if (videoCatalogLoadFails) {
+            emptyList()
+        } else {
+            listOf("mathematics-video-1", "english-video-1", "science-video-1")
+        }
         val completedQuestIds = assignedQuestIds.take(quest.completedCount.coerceIn(0, 3))
-        coEvery { dailyQuestManager.ensureToday("child_1", any(), any()) } coAnswers {
+        coEvery { dailyQuestManager.ensureToday("child_1", any(), any(), any(), any()) } coAnswers {
+            dailyQuestEnsureObserver?.invoke()
             if (shouldFailExpedition()) throw IllegalStateException("daily quest load failed")
             DailyQuestProgress("2026-08-04", assignedQuestIds, completedQuestIds)
         }
@@ -533,6 +668,7 @@ class PlayroomHomeViewModelTest {
                     height = 1,
                     subjectId = subject,
                     episodeNumber = index,
+                    releaseStatus = "RELEASED",
                 )
             }
         }
