@@ -169,7 +169,6 @@ internal fun TodayQuestCard(
                         // Animated paw bar: each newly-earned paw pops (scale) as pawPrintsCompleted grows.
                         // Reduced-motion: snap, no pop. Idle twinkle on complete handled below.
                         Row(
-                            modifier = Modifier.testTag(PlayroomHomeTestTags.Streak),
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {

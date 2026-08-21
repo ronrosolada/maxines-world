@@ -30,6 +30,7 @@ import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
+import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -48,6 +49,7 @@ class PlayroomHomeScreenTest {
         buttonAction: QuestAction = QuestAction.Continue,
         godModeEnabled: Boolean = false,
         playgroundUnlocked: Boolean = false,
+        streakDays: Int = 0,
         targets: List<QuestTargetUi> = emptyList(),
         subjects: List<SubjectCardUi> = canonicalSubjects,
     ): PlayroomHomeUiState.Content =
@@ -67,6 +69,7 @@ class PlayroomHomeScreenTest {
                 targets = targets,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 0, totalCount = 0),
+            streakDays = streakDays,
             sanctuary = SanctuaryUi(
                 nextPiece = SanctuaryPieceUi(
                     id = "sunny-meadow",
@@ -83,6 +86,7 @@ class PlayroomHomeScreenTest {
         onCollectionClick: () -> Unit = {},
         onTreatShopClick: () -> Unit = {},
         onQuestAction: (QuestAction) -> Unit = {},
+        onParentsClick: () -> Unit = {},
     ) {
         composeRule.setContent {
             PlayroomHomeScreen(
@@ -92,7 +96,7 @@ class PlayroomHomeScreenTest {
                 onHomeClick = {},
                 onCollectionClick = onCollectionClick,
                 onTreatShopClick = onTreatShopClick,
-                onParentsClick = {},
+                onParentsClick = onParentsClick,
             )
         }
     }
@@ -422,5 +426,64 @@ class PlayroomHomeScreenTest {
     fun greetingUsesChildName() {
         setHome(stateFor())
         composeRule.onNodeWithText("Hi, Maxine!").assertIsDisplayed()
+    }
+
+    @Test
+    fun learningStreakZeroStateExplainsWhatToDo() {
+        setHome(stateFor(streakDays = 0))
+
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak)
+            .assertIsDisplayed()
+            .assertHasClickAction()
+        composeRule.onNodeWithText("Start your learning streak today").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription(
+            "No learning days yet. Start your learning streak today. Each day you learn counts toward your learning days.",
+            useUnmergedTree = true,
+        ).assertIsDisplayed()
+    }
+
+    @Test
+    fun learningStreakPositiveStateShowsNumberAndMeaning() {
+        setHome(stateFor(streakDays = 7))
+
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak)
+            .assertIsDisplayed()
+            .assertHasClickAction()
+        composeRule.onNodeWithText("7 days learning").assertIsDisplayed()
+        composeRule.onNodeWithText("Each day you learn counts toward your learning days.").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription(
+            "7 days learning. Each day you learn counts toward your learning days.",
+            useUnmergedTree = true,
+        ).assertIsDisplayed()
+    }
+
+    @Test
+    fun learningStreakTapOpensChildExplanationNotParentDashboard() {
+        var parentClicks = 0
+        setHome(stateFor(streakDays = 7), onParentsClick = { parentClicks++ })
+
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).performClick()
+        composeRule.onNodeWithText("Your learning days").assertIsDisplayed()
+        composeRule.onNodeWithText("Got it").performClick()
+        composeRule.runOnIdle { assertEquals(0, parentClicks) }
+    }
+
+    @Test
+    fun learningStreakReducedMotionStillRendersWithoutCelebrationRequirement() {
+        composeRule.setContent {
+            CompositionLocalProvider(LocalAnimationsDisabled provides true) {
+                PlayroomHomeScreen(
+                    state = stateFor(streakDays = 7),
+                    onSubjectClick = {},
+                    onQuestAction = {},
+                    onHomeClick = {},
+                    onCollectionClick = {},
+                    onParentsClick = {},
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("7 days learning").assertIsDisplayed()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertHasClickAction()
     }
 }

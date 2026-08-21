@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.PlayCircle
@@ -69,6 +70,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
@@ -109,6 +111,7 @@ internal fun PlayroomHeader(
     wide: Boolean,
     starBalance: Int = 0,
     coinBalance: Int = 0,
+    streakDays: Int = 0,
     keepsakes: List<KeepsakeUi> = emptyList(),
 ) {
     if (wide) {
@@ -125,6 +128,7 @@ internal fun PlayroomHeader(
         GreetingBlock(childName, Modifier.fillMaxWidth().padding(top = 8.dp))
     }
     KeepsakesStrip(keepsakes)
+    LearningStreakCard(streakDays)
     if (offline) {
         Surface(
             shape = RoundedCornerShape(99.dp),
@@ -137,6 +141,132 @@ internal fun PlayroomHeader(
                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
             )
         }
+    }
+}
+
+/** True only when a positive streak may use the optional celebratory pop. */
+internal fun shouldCelebrateStreak(streakDays: Int, animationsDisabled: Boolean): Boolean =
+    streakDays > 0 && !animationsDisabled
+
+/** Child-facing, informational learning-day progress; it never gates or rewards. */
+@Composable
+internal fun LearningStreakCard(
+    streakDays: Int,
+    modifier: Modifier = Modifier,
+) {
+    val days = streakDays.coerceAtLeast(0)
+    val animationsDisabled = LocalAnimationsDisabled.current
+    var showDetails by rememberSaveable { mutableStateOf(false) }
+    val cardScale = remember { androidx.compose.animation.core.Animatable(1f) }
+    LaunchedEffect(days, animationsDisabled) {
+        if (shouldCelebrateStreak(days, animationsDisabled)) {
+            cardScale.snapTo(0.96f)
+            cardScale.animateTo(
+                1f,
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessMediumLow,
+                ),
+            )
+        } else {
+            cardScale.snapTo(1f)
+        }
+    }
+
+    val title = if (days > 0) {
+        pluralStringResource(R.plurals.home_streak_days_learning, days, days)
+    } else {
+        stringResource(R.string.home_streak_zero_title)
+    }
+    val explanation = stringResource(R.string.home_streak_explanation)
+    val accessibleLabel = if (days > 0) {
+        "$title. $explanation"
+    } else {
+        "No learning days yet. $title. $explanation"
+    }
+
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .graphicsLayer(scaleX = cardScale.value, scaleY = cardScale.value)
+            .testTag(PlayroomHomeTestTags.Streak)
+            .clickable(
+                role = Role.Button,
+                onClickLabel = stringResource(R.string.home_streak_tap_label),
+                onClick = { showDetails = true },
+            )
+            .semantics(mergeDescendants = true) {
+                contentDescription = accessibleLabel
+            },
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = PlayCream.copy(alpha = 0.94f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+                    .clip(CircleShape)
+                    .background(PlayCoral.copy(alpha = 0.14f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    imageVector = Icons.Default.LocalFireDepartment,
+                    contentDescription = null,
+                    tint = PlayCoral,
+                    modifier = Modifier.size(30.dp),
+                )
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    title,
+                    color = PlayInk,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp,
+                    lineHeight = 23.sp,
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    explanation,
+                    color = PlayMuted,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 14.sp,
+                    lineHeight = 19.sp,
+                )
+            }
+            Text(
+                "›",
+                color = PlayTeal,
+                fontWeight = FontWeight.Black,
+                fontSize = 28.sp,
+                modifier = Modifier.padding(start = 8.dp),
+            )
+        }
+    }
+
+    if (showDetails) {
+        AlertDialog(
+            onDismissRequest = { showDetails = false },
+            title = { Text(stringResource(R.string.home_streak_dialog_title)) },
+            text = {
+                Text(
+                    if (days > 0) {
+                        stringResource(R.string.home_streak_dialog_positive, days)
+                    } else {
+                        stringResource(R.string.home_streak_dialog_zero)
+                    },
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = { showDetails = false }) {
+                    Text(stringResource(R.string.home_streak_dialog_dismiss))
+                }
+            },
+        )
     }
 }
 

@@ -62,6 +62,7 @@ class PlayroomHomeInteractionContractTest {
 
     private fun stateForContract(
         targets: List<QuestTargetUi> = emptyList(),
+        streakDays: Int = 2,
     ): PlayroomHomeUiState.Content =
         PlayroomHomeUiState.Content(
             childName = "Maxine",
@@ -93,6 +94,7 @@ class PlayroomHomeInteractionContractTest {
                 targets = targets,
             ),
             wildlifeStickers = WildlifeStickersUi(collectedCount = 2, totalCount = 12),
+            streakDays = streakDays,
         )
 
     private fun setHome(
@@ -258,8 +260,14 @@ class PlayroomHomeInteractionContractTest {
     fun streakProgressAnchorIsPresentWithConcreteQuestProgress() {
         setHome()
 
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak, useUnmergedTree = true).assertExists()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak, useUnmergedTree = true)
+            .assertExists()
+            .assertHasClickAction()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.TodayQuest).assertExists()
-        composeRule.onNodeWithText("2 of 3").assertExists()
+        composeRule.onNodeWithText("2 days learning").assertExists()
+        composeRule.onNodeWithContentDescription(
+            "2 days learning. Each day you learn counts toward your learning days.",
+            useUnmergedTree = true,
+        ).assertExists()
     }
 }
