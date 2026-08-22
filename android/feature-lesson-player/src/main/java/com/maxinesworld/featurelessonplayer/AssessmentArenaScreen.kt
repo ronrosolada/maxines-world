@@ -554,6 +554,34 @@ private fun ActiveQuizView(
                 Icon(Icons.Default.Close, contentDescription = "Exit Quiz", tint = DeepNight)
             }
 
+            // Audio Read-Aloud Speaker for Question Prompt
+            val ttsContext = androidx.compose.ui.platform.LocalContext.current
+            val ttsPlayer = remember { LessonTtsPlayer(ttsContext) }
+            DisposableEffect(Unit) {
+                onDispose { ttsPlayer.stop() }
+            }
+
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = VillageTeal.copy(alpha = 0.12f),
+                modifier = Modifier.clickable {
+                    if (currentItem != null) {
+                        val fullSpeechText = "${currentItem.prompt}. Option A: ${currentItem.options.getOrNull(0)?.text.orEmpty()}. Option B: ${currentItem.options.getOrNull(1)?.text.orEmpty()}. Option C: ${currentItem.options.getOrNull(2)?.text.orEmpty()}. Option D: ${currentItem.options.getOrNull(3)?.text.orEmpty()}."
+                        val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
+                        ttsPlayer.speak(fullSpeechText, lang)
+                    }
+                }
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text("🔊", fontSize = 16.sp)
+                    Spacer(Modifier.width(4.dp))
+                    Text("Listen", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = VillageTeal)
+                }
+            }
+
             // Question Progress Indicators
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 quiz.items.indices.forEach { index ->

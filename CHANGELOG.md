@@ -4,7 +4,13 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
-## [Unreleased]
+## [0.64.0] - 2026-08-22
+
+### Resilient Daily Mission Fallback & Arena Audio Read-Aloud
+
+- **Resilient Daily Mission Fallback:** When the LAN video catalog is unreachable or unindexed, the Daily Mission automatically falls back to Grade 3 Assessment Arena challenge packs, eliminating dead-end mission states.
+- **Assessment Arena Audio Read-Aloud:** Added a child-friendly "🔊 Listen" action on Assessment Arena questions with native offline Text-to-Speech (supporting both `en-US` and `fil-PH`), reading questions and answer options for emerging readers.
+- **Automated Verification:** Added test coverage for offline fallback in `DailyQuestManagerTest` ensuring zero-interruption daily mission generation.
 
 ## [0.63.0] - 2026-08-22
 

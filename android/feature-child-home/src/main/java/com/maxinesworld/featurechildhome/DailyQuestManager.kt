@@ -169,7 +169,14 @@ class DailyQuestManager @Inject constructor(
         val plannerVideoIds = VideoQuestPlanner.select(childId, dayKey, frontier)
         val videoIds = composeDailyQuestIds(plannerVideoIds, frontier, arenaIds)
             .filterNot { it.startsWith(ARENA_PREFIX) }
-        if (videoIds.isEmpty()) return Selection(emptyList())
+        if (videoIds.isEmpty()) {
+            // When video catalog/LAN is offline or unindexed, fall back to pure Assessment Arena daily missions
+            val allArenaIds = arenaPacks.take(3).map { "$ARENA_PREFIX${it.id}" }
+            if (allArenaIds.isNotEmpty()) {
+                return Selection(allArenaIds)
+            }
+            return Selection(emptyList())
+        }
         return Selection(videoIds + arenaIds)
     }
 

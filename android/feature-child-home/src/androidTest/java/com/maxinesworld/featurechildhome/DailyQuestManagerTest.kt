@@ -175,6 +175,15 @@ class DailyQuestManagerTest {
     }
 
     @Test
+    fun emptyVideoCatalogFallsBackToAssessmentArenaDailyQuests() = runBlocking {
+        val progress = manager(emptyList()).ensureToday("child-1", "2026-08-23")
+
+        assertEquals(3, progress.totalCount)
+        assertTrue("All assigned quests should be arena packs when video is offline", progress.assignedMediaIds.all { it.startsWith("arena:") })
+        assertEquals(3, progress.arenaPacks.size)
+    }
+
+    @Test
     fun zeroUnpassedArenaPacksUsesOnlyThePlannerVideoFrontier() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         AssessmentRepository(context).getCatalog().packs
@@ -298,26 +307,34 @@ class DailyQuestManagerTest {
     }
 
     @Test
-    fun unavailableCatalogPersistsEmptyVideoMissionWithoutLessonFallback() = runBlocking {
+    fun unavailableCatalogFallsBackToAssessmentArenaWithoutCrash() = runBlocking {
         val manager = managerWithRawCatalog("not valid json")
 
         val progress = manager.ensureToday("child-1", "2026-08-05")
 
-        assertTrue(progress.assignedMediaIds.isEmpty())
-        assertTrue(progress.completedMediaIds.isEmpty())
+        assertEquals(3, progress.totalCount)
+        assertTrue("Fallback to Assessment Arena when video catalog is unavailable", progress.assignedMediaIds.all { it.startsWith("arena:") })
         val persisted = database.dailyQuestSetDao().getByChildAndDay("child-1", "2026-08-05")
         assertNotNull(persisted)
-        assertEquals("[]", persisted?.assignedQuestIds)
     }
 
     @Test
     fun recoveredCatalogRetriesAnEmptyPersistedMissionWithoutLessonIds() = runBlocking {
         val manager = managerWithRawCatalog("not valid json")
         val dayKey = "2026-08-06"
+        // Seed an empty persisted mission explicitly
+        database.dailyQuestSetDao().insertIgnoring(
+            DailyQuestSetEntity(
+                id = "child-1:$dayKey",
+                childId = "child-1",
+                dayKey = dayKey,
+                assignedQuestIds = "[]",
+            ),
+        )
 
-        val unavailable = manager.ensureToday("child-1", dayKey)
-        assertTrue(unavailable.assignedMediaIds.isEmpty())
-        assertEquals("[]", database.dailyQuestSetDao().getByChildAndDay("child-1", dayKey)?.assignedQuestIds)
+        val unrecovered = manager.ensureToday("child-1", dayKey)
+        // With empty persisted mission and valid arena packs, it upgrades cleanly
+        assertTrue(unrecovered.assignedMediaIds.isNotEmpty())
 
         MediaStorage(storageRoot).writeCatalog(
             Json.encodeToString(
