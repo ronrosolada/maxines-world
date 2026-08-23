@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.*
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
@@ -537,6 +538,61 @@ private fun ActiveQuizView(
     modifier: Modifier = Modifier,
 ) {
     val currentItem = quiz.items.getOrNull(quiz.currentIndex)
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    val handleExitRequest = {
+        if (!quiz.isFinished && (quiz.currentIndex > 0 || quiz.selectedOptionId != null || quiz.isAnswerSubmitted)) {
+            showExitDialog = true
+        } else {
+            onExitQuiz()
+        }
+    }
+
+    BackHandler(enabled = true) {
+        handleExitRequest()
+    }
+
+    if (showExitDialog) {
+        AlertDialog(
+            onDismissRequest = { showExitDialog = false },
+            title = {
+                Text(
+                    "Leave Quiz?",
+                    fontWeight = FontWeight.Bold,
+                    color = DeepNight,
+                )
+            },
+            text = {
+                Text(
+                    "Are you sure you want to leave this quiz? Your current question progress will not be saved.",
+                    fontSize = 15.sp,
+                    color = DeepNight.copy(alpha = 0.8f),
+                )
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showExitDialog = false
+                        onExitQuiz()
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = OnError),
+                    shape = RoundedCornerShape(12.dp),
+                ) {
+                    Text("Leave Quiz", fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                OutlinedButton(
+                    onClick = { showExitDialog = false },
+                    shape = RoundedCornerShape(12.dp),
+                ) {
+                    Text("Stay & Keep Playing")
+                }
+            },
+            containerColor = White,
+            shape = RoundedCornerShape(20.dp),
+        )
+    }
 
     Column(
         modifier = modifier
@@ -550,7 +606,7 @@ private fun ActiveQuizView(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            IconButton(onClick = onExitQuiz) {
+            IconButton(onClick = handleExitRequest) {
                 Icon(Icons.Default.Close, contentDescription = "Exit Quiz", tint = DeepNight)
             }
 
@@ -744,6 +800,8 @@ private fun ActiveQuizView(
                             )
 
                             Surface(
+                                onClick = { onSelectOption(option.id) },
+                                enabled = !isSubmitted,
                                 shape = RoundedCornerShape(16.dp),
                                 color = containerColor,
                                 border = BorderStroke(if (isSelected || isSubmitted) 2.dp else 1.dp, borderColor),
@@ -752,12 +810,8 @@ private fun ActiveQuizView(
                                     .graphicsLayer {
                                         scaleX = optionScale
                                         scaleY = optionScale
-                                    }
-                                    .clickable(
-                                        interactionSource = interactionSource,
-                                        indication = null,
-                                        enabled = !isSubmitted
-                                    ) { onSelectOption(option.id) },
+                                    },
+                                interactionSource = interactionSource,
                             ) {
                                 Row(
                                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),

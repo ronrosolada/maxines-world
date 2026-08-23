@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """Unit tests for validate_arena_packs.py."""
+import sys
 import unittest
 from pathlib import Path
+
+# Ensure android root is in python path for tools imports
+ANDROID_ROOT = Path(__file__).resolve().parents[1]
+if str(ANDROID_ROOT) not in sys.path:
+    sys.path.insert(0, str(ANDROID_ROOT))
+
 from tools.validate_arena_packs import validate_arena
 
 
 class TestValidateArenaPacks(unittest.TestCase):
     def setUp(self):
-        self.packs_dir = Path(__file__).resolve().parents[1] / "app/src/main/assets/assessment-packs"
+        self.packs_dir = ANDROID_ROOT / "app/src/main/assets/assessment-packs"
 
     def test_live_assessment_packs_are_valid(self):
         is_valid, errors, metrics = validate_arena(self.packs_dir)
