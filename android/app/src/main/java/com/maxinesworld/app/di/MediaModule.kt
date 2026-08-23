@@ -25,12 +25,17 @@ object MediaModule {
 
     @Provides
     @Singleton
-    fun provideMediaLibrary(@ApplicationContext context: Context): MediaLibrary {
+    fun provideMediaStorage(@ApplicationContext context: Context): MediaStorage {
+        return MediaStorage(File(context.filesDir, "maxines-media"))
+    }
+
+    @Provides
+    @Singleton
+    fun provideMediaLibrary(@ApplicationContext context: Context, storage: MediaStorage): MediaLibrary {
         val client = OkHttpClient.Builder()
             .followRedirects(false)
             .followSslRedirects(false)
             .build()
-        val storage = MediaStorage(File(context.filesDir, "maxines-media"))
         return MediaLibrary(
             catalogUrl = MEDIA_CATALOG_URL,
             mediaBaseUrl = MEDIA_BASE_URL,

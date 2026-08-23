@@ -34,6 +34,8 @@ import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.BadgeLoader
+import com.maxinesworld.corenetwork.VideoPrefetchManager
+import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -63,6 +65,9 @@ data class ParentDashboardState(
     val updateStatusMessage: String? = null,
     val storageUsedMb: Float = 0f,
     val isPreloadingMedia: Boolean = false,
+    val prefetchStatusMessage: String? = null,
+    val accreditedWatchSeconds: Int = 0,
+    val passedVideoCount: Int = 0,
     val isLoading: Boolean = true
 )
 
@@ -121,6 +126,8 @@ class ParentDashboardViewModel @Inject constructor(
     private val godModeManager: GodModeManager,
     private val badgeLoader: BadgeLoader,
     private val collectedBadgeDao: CollectedBadgeDao,
+    private val videoWatchLedgerDao: VideoWatchLedgerDao,
+    private val videoPrefetchManager: VideoPrefetchManager,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ParentDashboardState())
@@ -189,6 +196,10 @@ class ParentDashboardViewModel @Inject constructor(
             availableBadges.value = allBadges
             earnedBadgeIds.value = earned
 
+            val accreditedSeconds = runCatching { videoWatchLedgerDao.getTotalAccreditedSeconds(childId) }.getOrDefault(0)
+            val passedVideos = runCatching { videoWatchLedgerDao.getPassedMediaIds(childId) }.getOrDefault(emptyList())
+            val storageMb = calculateStorageUsedMb()
+
             _state.value = ParentDashboardState(
                 childName = child?.name ?: "Learner",
                 grade = child?.grade ?: 3,
@@ -202,6 +213,9 @@ class ParentDashboardViewModel @Inject constructor(
                     today = LocalDate.now(),
                 ),
                 godModeEnabled = godModeEnabled,
+                storageUsedMb = storageMb,
+                accreditedWatchSeconds = accreditedSeconds,
+                passedVideoCount = passedVideos.size,
                 isLoading = false
             )
         }
@@ -243,26 +257,34 @@ class ParentDashboardViewModel @Inject constructor(
     }
 
     fun clearMediaCache() {
-        val root = File(context.filesDir, "media")
-        if (root.exists() && root.isDirectory) {
-            root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.forEach { it.delete() }
-        }
+        videoPrefetchManager.clearStorage()
         val storageMb = calculateStorageUsedMb()
-        _state.update { it.copy(storageUsedMb = storageMb) }
+        _state.update { it.copy(storageUsedMb = storageMb, prefetchStatusMessage = "Storage cleared") }
     }
 
-    fun prefetchMedia() {
+    fun prefetchMedia(count: Int = 3) {
+        if (_state.value.isPreloadingMedia) return
         viewModelScope.launch {
-            _state.update { it.copy(isPreloadingMedia = true) }
+            _state.update { it.copy(isPreloadingMedia = true, prefetchStatusMessage = "Prefetching next $count video lessons...") }
+            val countPrefetched = videoPrefetchManager.prefetchNextVideos(count)
             val storageMb = calculateStorageUsedMb()
-            _state.update { it.copy(isPreloadingMedia = false, storageUsedMb = storageMb) }
+            val message = if (countPrefetched > 0) {
+                "Downloaded $countPrefetched lesson(s) for offline use"
+            } else {
+                "Videos are already cached or network unavailable"
+            }
+            _state.update {
+                it.copy(
+                    isPreloadingMedia = false,
+                    storageUsedMb = storageMb,
+                    prefetchStatusMessage = message
+                )
+            }
         }
     }
 
     private fun calculateStorageUsedMb(): Float {
-        val root = File(context.filesDir, "media")
-        if (!root.exists() || !root.isDirectory) return 0f
-        val bytes = root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.sumOf { it.length() } ?: 0L
+        val bytes = videoPrefetchManager.getStorageUsedBytes()
         return bytes / (1024f * 1024f)
     }
 
@@ -652,10 +674,48 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                     }
                 }
 
+                // Accredited Video Learning Stats Card
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    shape = RoundedCornerShape(18.dp),
+                ) {
+                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(44.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(VillageTeal.copy(alpha = 0.15f)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(Icons.Default.PlayCircle, contentDescription = null, tint = VillageTeal)
+                            }
+                            Column(Modifier.weight(1f)) {
+                                Text(
+                                    "Accredited Video Learning",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp,
+                                    color = Ink
+                                )
+                                val watchMinutes = state.accreditedWatchSeconds / 60
+                                Text(
+                                    "$watchMinutes mins accredited · ${state.passedVideoCount} videos mastered",
+                                    fontSize = 13.sp,
+                                    color = Ink.copy(alpha = 0.6f)
+                                )
+                            }
+                        }
+                    }
+                }
+
                 // Smart Media Storage Management
                 Text("Offline Video Storage", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink)
                 Card(colors = CardDefaults.cardColors(containerColor = Color.White)) {
-                    Column(Modifier.fillMaxWidth().padding(16.dp)) {
+                    Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         Row(
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -675,6 +735,22 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                 )
                             }
                             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                Button(
+                                    onClick = { viewModel.prefetchMedia(3) },
+                                    enabled = !state.isPreloadingMedia,
+                                    colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                                    shape = RoundedCornerShape(10.dp),
+                                ) {
+                                    if (state.isPreloadingMedia) {
+                                        CircularProgressIndicator(
+                                            modifier = Modifier.size(14.dp),
+                                            color = Color.White,
+                                            strokeWidth = 2.dp
+                                        )
+                                    } else {
+                                        Text("Pre-cache Next 3", fontSize = 13.sp, color = Color.White)
+                                    }
+                                }
                                 if (state.storageUsedMb > 0f) {
                                     OutlinedButton(
                                         onClick = { viewModel.clearMediaCache() },
@@ -684,6 +760,16 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                     }
                                 }
                             }
+                        }
+
+                        val statusMsg = state.prefetchStatusMessage
+                        if (statusMsg != null) {
+                            Text(
+                                statusMsg,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = VillageTeal
+                            )
                         }
                     }
                 }

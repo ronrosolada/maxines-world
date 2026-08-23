@@ -3,9 +3,11 @@ package com.maxinesworld.featureparent
 import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.CollectibleBadge
+import com.maxinesworld.corenetwork.VideoPrefetchManager
 import com.maxinesworld.featurerewards.BadgeLoader
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,6 +34,8 @@ class ParentDashboardViewModelTest {
     private val godModeManager = mockk<GodModeManager>(relaxed = true)
     private val badgeLoader = mockk<BadgeLoader>(relaxed = true)
     private val collectedBadgeDao = mockk<CollectedBadgeDao>(relaxed = true)
+    private val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>(relaxed = true)
+    private val videoPrefetchManager = mockk<VideoPrefetchManager>(relaxed = true)
     private val context = mockk<android.content.Context>(relaxed = true)
 
     private lateinit var viewModel: ParentDashboardViewModel
@@ -50,6 +54,8 @@ class ParentDashboardViewModelTest {
             godModeManager = godModeManager,
             badgeLoader = badgeLoader,
             collectedBadgeDao = collectedBadgeDao,
+            videoWatchLedgerDao = videoWatchLedgerDao,
+            videoPrefetchManager = videoPrefetchManager,
         )
     }
 
@@ -118,5 +124,31 @@ class ParentDashboardViewModelTest {
             })
         }
         assertTrue(viewModel.earnedBadgeIds.value.contains("badge_eagle"))
+    }
+
+    @Test
+    fun `prefetchMedia calls videoPrefetchManager and updates state message`() = runTest {
+        coEvery { videoPrefetchManager.prefetchNextVideos(3) } returns 2
+        every { videoPrefetchManager.getStorageUsedBytes() } returns 10485760L // 10 MB
+
+        viewModel.prefetchMedia(3)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify { videoPrefetchManager.prefetchNextVideos(3) }
+        assertEquals("Downloaded 2 lesson(s) for offline use", viewModel.state.value.prefetchStatusMessage)
+        assertEquals(10f, viewModel.state.value.storageUsedMb, 0.01f)
+    }
+
+    @Test
+    fun `clearMediaCache delegates to videoPrefetchManager`() = runTest {
+        every { videoPrefetchManager.clearStorage() } returns 3
+        every { videoPrefetchManager.getStorageUsedBytes() } returns 0L
+
+        viewModel.clearMediaCache()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        every { videoPrefetchManager.clearStorage() }
+        assertEquals(0f, viewModel.state.value.storageUsedMb, 0.01f)
+        assertEquals("Storage cleared", viewModel.state.value.prefetchStatusMessage)
     }
 }
