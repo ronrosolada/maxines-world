@@ -4,11 +4,13 @@ import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
 import java.io.File
 import java.io.IOException
+import java.util.concurrent.ConcurrentHashMap
 import kotlinx.coroutines.CancellationException
 
 /**
  * High-level coordinator for optional lesson media.
  * Supports primary LAN (10.10.10.33) and guest VLAN (10.10.20.33) fallback.
+ * Implements local-first cached catalog access and fast local file verification.
  */
 class MediaLibrary(
     private val catalogUrl: String,
@@ -17,9 +19,15 @@ class MediaLibrary(
     private val downloader: MediaDownloader,
     private val storage: MediaStorage,
 ) {
+    @Volatile
     private var cachedCatalog: MediaCatalog? = null
     private var activeBaseUrl: String = mediaBaseUrl
+    private val verifiedLocalFiles = ConcurrentHashMap<String, File>()
 
+    /**
+     * Fast local-first catalog retrieval: returns in-memory cached catalog immediately,
+     * or reads and parses persisted disk catalog without network delays.
+     */
     suspend fun getCatalog(): MediaCatalog {
         cachedCatalog?.let { return it }
 
@@ -35,6 +43,21 @@ class MediaLibrary(
             }
         }
         return refreshCatalog()
+    }
+
+    /**
+     * Synchronous / non-blocking check to retrieve cached catalog if already available.
+     */
+    fun getCachedCatalog(): MediaCatalog? {
+        if (cachedCatalog != null) return cachedCatalog
+        val cachedRaw = storage.readCatalog() ?: return null
+        return try {
+            val parsed = catalogClient.parse(cachedRaw)
+            cachedCatalog = parsed
+            parsed
+        } catch (_: Exception) {
+            null
+        }
     }
 
     suspend fun refreshCatalog(): MediaCatalog {
@@ -92,7 +115,9 @@ class MediaLibrary(
         var lastError: Exception? = null
         for (base in candidateBaseUrls) {
             try {
-                return downloader.download(base, asset)
+                val file = downloader.download(base, asset)
+                verifiedLocalFiles[mediaId] = file
+                return file
             } catch (e: Exception) {
                 if (e is CancellationException) throw e
                 lastError = e
@@ -102,13 +127,19 @@ class MediaLibrary(
     }
 
     fun isDownloaded(mediaId: String): Boolean {
-        val file = storage.mediaFile(mediaId)
-        return file.isFile && file.length() > 0L
+        return localFile(mediaId) != null
     }
 
     fun localFile(mediaId: String): File? {
+        verifiedLocalFiles[mediaId]?.let {
+            if (it.isFile && it.length() > 0L) return it
+            verifiedLocalFiles.remove(mediaId)
+        }
         val file = storage.mediaFile(mediaId)
-        return if (file.isFile && file.length() > 0L) file else null
+        return if (file.isFile && file.length() > 0L) {
+            verifiedLocalFiles[mediaId] = file
+            file
+        } else null
     }
 
     fun isComplete(): Boolean {

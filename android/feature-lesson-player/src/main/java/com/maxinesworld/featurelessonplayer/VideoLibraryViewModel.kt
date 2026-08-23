@@ -17,11 +17,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDate
 import java.util.UUID
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 data class VideoLibraryItemUi(
     val asset: MediaAsset,
@@ -72,7 +74,7 @@ class VideoLibraryViewModel @Inject constructor(
 
     init {
         observePassedVideos()
-        refresh()
+        loadLocalFirstAndSync()
     }
 
     private fun observePassedVideos() {
@@ -82,26 +84,75 @@ class VideoLibraryViewModel @Inject constructor(
                 _state.update { current ->
                     current.copy(passedMediaIds = passedSet)
                 }
-                reorganizeItems(passedSet)
+                if (rawAssets.isNotEmpty()) {
+                    reorganizeItems(passedSet)
+                }
             }
+        }
+    }
+
+    /**
+     * Stale-While-Revalidate pattern:
+     * 1. Immediately renders from cached memory or local disk catalog without network delays (0ms).
+     * 2. Silently triggers background catalog refresh if network is available, updating state seamlessly.
+     */
+    private fun loadLocalFirstAndSync() {
+        // Fast synchronous attempt from in-memory cache
+        val fastCache = runCatching { mediaLibrary.getCachedCatalog() }.getOrNull()
+        if (fastCache != null) {
+            rawAssets = fastCache.media
+            reorganizeItems(_state.value.passedMediaIds)
+            _state.update { it.copy(isLoading = false) }
+        }
+
+        viewModelScope.launch {
+            if (rawAssets.isEmpty()) {
+                val cached = runCatching { mediaLibrary.getCatalog() }.getOrNull()
+                if (cached != null) {
+                    rawAssets = cached.media
+                    reorganizeItems(_state.value.passedMediaIds)
+                    _state.update { it.copy(isLoading = false) }
+                }
+            }
+
+            // Background network synchronization (non-blocking and off the UI thread)
+            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
+                .onSuccess { freshCatalog ->
+                    rawAssets = freshCatalog.media
+                    reorganizeItems(_state.value.passedMediaIds)
+                    _state.update { it.copy(isLoading = false, error = null) }
+                }
+                .onFailure { error ->
+                    // Only surface an error if we had nothing cached locally
+                    if (rawAssets.isEmpty()) {
+                        _state.update {
+                            it.copy(
+                                isLoading = false,
+                                error = error.message ?: "The video list could not be loaded.",
+                            )
+                        }
+                    }
+                }
         }
     }
 
     fun refresh() {
         viewModelScope.launch {
-            _state.update { it.copy(isLoading = true, error = null) }
-            runCatching { mediaLibrary.refreshCatalog() }
+            _state.update { it.copy(isLoading = rawAssets.isEmpty(), error = null) }
+            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
                 .onSuccess { catalog ->
                     rawAssets = catalog.media
                     reorganizeItems(_state.value.passedMediaIds)
                     _state.update { it.copy(isLoading = false) }
                 }
                 .onFailure { error ->
-                    _state.update {
-                        it.copy(
-                            isLoading = false,
-                            error = error.message ?: "The video list could not be loaded.",
-                        )
+                    if (rawAssets.isEmpty()) {
+                        _state.update {
+                            it.copy(
+                                isLoading = false,
+                                error = error.message ?: "The video list could not be loaded.",
+                            )
+                        }
                     }
                 }
         }
@@ -173,7 +224,7 @@ class VideoLibraryViewModel @Inject constructor(
         updateItemInState(mediaId) { it.copy(isDownloading = true, error = null) }
 
         viewModelScope.launch {
-            runCatching { mediaLibrary.download(mediaId) }
+            runCatching { withContext(Dispatchers.IO) { mediaLibrary.download(mediaId) } }
                 .onSuccess { file ->
                     updateItemInState(mediaId) {
                         it.copy(isDownloading = false, localPath = file.absolutePath)
@@ -220,7 +271,7 @@ class VideoLibraryViewModel @Inject constructor(
             for (item in pendingItems) {
                 val mediaId = item.asset.mediaId
                 updateItemInState(mediaId) { it.copy(isDownloading = true, error = null) }
-                runCatching { mediaLibrary.download(mediaId) }
+                runCatching { withContext(Dispatchers.IO) { mediaLibrary.download(mediaId) } }
                     .onSuccess { file ->
                         completed++
                         _state.update { current ->
@@ -275,8 +326,9 @@ class VideoLibraryViewModel @Inject constructor(
         if (assessment.items.isEmpty()) return
         // Sequence guard rail: a locked lesson cannot jump ahead to its quiz.
         if (_state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }?.isLocked == true) return
+        val isAlreadyPassed = mediaId in _state.value.passedMediaIds
         _state.update {
-            it.copy(assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId))
+            it.copy(assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId, isReplay = isAlreadyPassed))
         }
     }
 
@@ -310,6 +362,7 @@ class VideoLibraryViewModel @Inject constructor(
                 viewModelScope.launch {
                     val score = advanced.correctCount.toFloat() / assessment.items.size.toFloat()
                     val actualChildId = childId.ifBlank { "default_child" }
+                    val now = System.currentTimeMillis()
                     val existing = videoWatchLedgerDao.getEntry(actualChildId, asset.mediaId)
                     if (existing?.quizPassed == true) {
                         // Replay pass: refresh the best score only, never re-award.
@@ -317,68 +370,87 @@ class VideoLibraryViewModel @Inject constructor(
                             videoWatchLedgerDao.insertOrUpdate(
                                 existing.copy(
                                     bestQuizScore = score,
-                                    lastWatchedAtEpochMillis = System.currentTimeMillis(),
+                                    lastWatchedAtEpochMillis = now,
                                 )
                             )
                         }
+                        _state.update { current ->
+                            current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
+                        }
                     } else {
-                        // Genuine first pass — award 5 stars + wildlife stickers exactly once.
-                        // 1. Previous total accredited seconds BEFORE recording this video
+                        // Snapshot the total before this video's first pass. The current
+                        // video's official duration is included only after the claim.
                         val prevTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
                         val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
 
-                        // 2. Record the watch ledger with FULL official video duration (idempotent upsert)
-                        videoWatchLedgerDao.insertOrUpdate(
-                            VideoWatchLedgerEntity(
-                                id = "${actualChildId}_${asset.mediaId}",
-                                childId = actualChildId,
-                                mediaId = asset.mediaId,
-                                subjectId = asset.subjectId,
-                                accreditedSeconds = asset.durationSeconds,
-                                quizPassed = true,
-                                bestQuizScore = score,
-                                firstPassedAtEpochMillis = System.currentTimeMillis(),
-                                lastWatchedAtEpochMillis = System.currentTimeMillis(),
+                        // Seed an unpassed row when needed. The unique child/media index
+                        // makes this safe if two completion callbacks arrive together.
+                        if (existing == null) {
+                            videoWatchLedgerDao.insertIgnoring(
+                                VideoWatchLedgerEntity(
+                                    id = "${actualChildId}_${asset.mediaId}",
+                                    childId = actualChildId,
+                                    mediaId = asset.mediaId,
+                                    subjectId = asset.subjectId,
+                                    accreditedSeconds = asset.durationSeconds,
+                                    quizPassed = false,
+                                    bestQuizScore = 0.0f,
+                                    firstPassedAtEpochMillis = null,
+                                    lastWatchedAtEpochMillis = now,
+                                )
                             )
-                        )
+                        }
 
-                        // 3. Award 5 stars — deterministic id + IGNORE makes this a one-time reward
-                        rewardDao.insertIgnoring(
-                            RewardEntity(
-                                id = "video-assessment:$actualChildId:${asset.mediaId}:STAR",
-                                childId = actualChildId,
-                                type = "STAR",
-                                subject = asset.subjectId,
-                                amount = 5,
-                                earnedAt = System.currentTimeMillis(),
-                                metadata = "video_assessment_passed:${asset.mediaId}",
+                        // This is the sole reward gate. Only the caller that changes
+                        // quizPassed false -> true may mint first-pass rewards.
+                        val firstPassClaimed = videoWatchLedgerDao.claimFirstPassingAssessment(
+                            childId = actualChildId,
+                            mediaId = asset.mediaId,
+                            score = score,
+                            passedAt = now,
+                        ) == 1
+
+                        if (firstPassClaimed) {
+                            rewardDao.insertIgnoring(
+                                RewardEntity(
+                                    id = "video-assessment:$actualChildId:${asset.mediaId}:STAR",
+                                    childId = actualChildId,
+                                    type = "STAR",
+                                    subject = asset.subjectId,
+                                    amount = 5,
+                                    earnedAt = now,
+                                    metadata = "video_assessment_passed:${asset.mediaId}",
+                                )
                             )
-                        )
 
-                        // 4. Award wildlife sticker(s) if 30-min cumulative threshold reached
-                        val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
-                        val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
+                            val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
+                            val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
 
-                        if (newEarnedStickers > prevEarnedStickers) {
-                            val stickersToAward = newEarnedStickers - prevEarnedStickers
-                            val allBadges = badgeLoader.loadAll()
-                            val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
-                            val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
+                            if (newEarnedStickers > prevEarnedStickers) {
+                                val stickersToAward = newEarnedStickers - prevEarnedStickers
+                                val allBadges = badgeLoader.loadAll()
+                                val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
+                                val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
 
-                            for (i in 0 until stickersToAward) {
-                                val badgeToAward = availableBadges.getOrNull(i)
-                                if (badgeToAward != null) {
-                                    collectedBadgeDao.insert(
-                                        CollectedBadgeEntity(
-                                            id = "${actualChildId}_${badgeToAward.id}",
-                                            childId = actualChildId,
-                                            badgeId = badgeToAward.id,
-                                            biome = badgeToAward.biome,
-                                            earnedDate = LocalDate.now().toString(),
+                                for (i in 0 until stickersToAward) {
+                                    val badgeToAward = availableBadges.getOrNull(i)
+                                    if (badgeToAward != null) {
+                                        collectedBadgeDao.insert(
+                                            CollectedBadgeEntity(
+                                                id = "${actualChildId}_${badgeToAward.id}",
+                                                childId = actualChildId,
+                                                badgeId = badgeToAward.id,
+                                                biome = badgeToAward.biome,
+                                                earnedDate = LocalDate.now().toString(),
+                                            )
                                         )
-                                    )
-                                    _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                                        _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                                    }
                                 }
+                            }
+                        } else {
+                            _state.update { current ->
+                                current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
                             }
                         }
                     }

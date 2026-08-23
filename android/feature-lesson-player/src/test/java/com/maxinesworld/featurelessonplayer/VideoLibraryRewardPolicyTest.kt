@@ -83,6 +83,10 @@ class VideoLibraryRewardPolicyTest {
         Dispatchers.setMain(testDispatcher)
         coEvery { mediaLibrary.refreshCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
         coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
+        every { mediaLibrary.getCachedCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
+        coEvery { collectedBadgeDao.insert(any()) } returns Unit
+        coEvery { rewardDao.insertIgnoring(any()) } returns 1L
+        coEvery { videoWatchLedgerDao.insertOrUpdate(any()) } returns Unit
         every { mediaLibrary.localFile(any()) } returns java.io.File("/tmp/test.mp4")
         every { videoWatchLedgerDao.observePassedMediaIds(any()) } returns flowOf(emptyList())
         coEvery { badgeLoader.loadAll() } returns sampleBadges
@@ -108,6 +112,7 @@ class VideoLibraryRewardPolicyTest {
     @Test
     fun `first time video assessment pass awards exactly 1 sticker for 1800 seconds`() = runTest(testDispatcher) {
         coEvery { videoWatchLedgerDao.getEntry("maxine", "test-video-1") } returns null
+        coEvery { videoWatchLedgerDao.claimFirstPassingAssessment("maxine", "test-video-1", any(), any()) } returns 1
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("maxine") } returnsMany listOf(0, 1800)
 
         val vm = createViewModel()

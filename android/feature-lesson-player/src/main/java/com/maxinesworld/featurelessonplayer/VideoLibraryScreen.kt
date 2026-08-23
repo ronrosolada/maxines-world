@@ -410,12 +410,21 @@ private fun MediaAssessmentQuizCard(
                         color = Ink.copy(alpha = 0.7f)
                     )
                     if (passed) {
-                        Text(
-                            "+5 ⭐ Stars Earned! Lesson Completed!",
-                            fontWeight = FontWeight.ExtraBold,
-                            color = VillageTeal,
-                            fontSize = 15.sp,
-                        )
+                        if (quiz.isReplay) {
+                            Text(
+                                "Practice complete! Great memory review! ✨",
+                                fontWeight = FontWeight.Bold,
+                                color = VillageTeal,
+                                fontSize = 14.sp,
+                            )
+                        } else {
+                            Text(
+                                "+5 ⭐ Stars Earned! Lesson Completed!",
+                                fontWeight = FontWeight.ExtraBold,
+                                color = VillageTeal,
+                                fontSize = 15.sp,
+                            )
+                        }
                     }
                     Spacer(Modifier.height(4.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {

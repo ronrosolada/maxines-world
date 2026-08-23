@@ -196,4 +196,43 @@ class UniquenessInvariantTest {
         // Duplicate attempt not double-counted
         assertEquals("two distinct attempts", 1, dao.observeDistinctLessonCount("child_1").first())
     }
+
+    @Test
+    fun firstPassingAssessmentClaimIsAtomicAndReplaySafe() = runBlocking {
+        val dao = db.videoWatchLedgerDao()
+        dao.insertIgnoring(
+            VideoWatchLedgerEntity(
+                id = "child_1_video_001",
+                childId = "child_1",
+                mediaId = "video_001",
+                subjectId = "science",
+                accreditedSeconds = 1800,
+                quizPassed = false,
+                bestQuizScore = 0.0f,
+                firstPassedAtEpochMillis = null,
+                lastWatchedAtEpochMillis = 1L,
+            )
+        )
+
+        val firstClaim = dao.claimFirstPassingAssessment(
+            childId = "child_1",
+            mediaId = "video_001",
+            score = 1.0f,
+            passedAt = 2L,
+        )
+        val replayClaim = dao.claimFirstPassingAssessment(
+            childId = "child_1",
+            mediaId = "video_001",
+            score = 1.0f,
+            passedAt = 3L,
+        )
+
+        assertEquals("only the first pass claims the reward gate", 1, firstClaim)
+        assertEquals("replay cannot claim the reward gate", 0, replayClaim)
+        val entry = dao.getEntry("child_1", "video_001")
+        assertTrue(entry!!.quizPassed)
+        assertEquals(1.0f, entry.bestQuizScore)
+        assertEquals(2L, entry.firstPassedAtEpochMillis)
+    }
+
 }

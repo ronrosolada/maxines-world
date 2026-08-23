@@ -364,4 +364,25 @@ interface VideoWatchLedgerDao {
 
     @Query("SELECT mediaId FROM video_watch_ledger WHERE childId = :childId AND quizPassed = 1")
     suspend fun getPassedMediaIds(childId: String): List<String>
+
+    /**
+     * Atomically claims the first passing assessment for a video.
+     * Returns 1 only for the first successful claim; replay/concurrent claims return 0.
+     */
+    @Query("""
+        UPDATE video_watch_ledger
+        SET quizPassed = 1,
+            bestQuizScore = :score,
+            firstPassedAtEpochMillis = COALESCE(firstPassedAtEpochMillis, :passedAt),
+            lastWatchedAtEpochMillis = :passedAt
+        WHERE childId = :childId
+          AND mediaId = :mediaId
+          AND quizPassed = 0
+    """)
+    suspend fun claimFirstPassingAssessment(
+        childId: String,
+        mediaId: String,
+        score: Float,
+        passedAt: Long,
+    ): Int
 }
