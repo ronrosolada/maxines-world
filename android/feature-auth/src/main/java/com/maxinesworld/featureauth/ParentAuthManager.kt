@@ -31,7 +31,7 @@ class ParentAuthManager @Inject constructor(
         private val KEY_LOCKED_UNTIL = longPreferencesKey("pin_locked_until_epoch_millis")
 
         /** Fixed offline parent PIN requested for the shipped child-first build. */
-        const val DEFAULT_PIN = "123456"
+        const val DEFAULT_PIN = "421988"
         const val DEFAULT_PARENT_NAME = "Parent"
 
         /** Brute-force policy: lock after 5 consecutive failures, escalate. */
