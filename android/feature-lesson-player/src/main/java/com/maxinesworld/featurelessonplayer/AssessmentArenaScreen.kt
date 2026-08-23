@@ -62,6 +62,7 @@ fun AssessmentArenaRoute(
         onSelectCurriculum = viewModel::selectCurriculum,
         onStartQuiz = viewModel::startQuiz,
         onSelectOption = viewModel::selectOption,
+        onToggleHint = viewModel::toggleHint,
         onSubmitAnswer = viewModel::submitAnswer,
         onNextQuestion = viewModel::nextQuestion,
         onRestartQuiz = viewModel::restartQuiz,
@@ -79,6 +80,7 @@ fun AssessmentArenaScreen(
     onSelectCurriculum: (String) -> Unit,
     onStartQuiz: (String) -> Unit,
     onSelectOption: (String) -> Unit,
+    onToggleHint: () -> Unit,
     onSubmitAnswer: () -> Unit,
     onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit,
@@ -97,6 +99,7 @@ fun AssessmentArenaScreen(
             ActiveQuizView(
                 quiz = state.activeQuiz,
                 onSelectOption = onSelectOption,
+                onToggleHint = onToggleHint,
                 onSubmitAnswer = onSubmitAnswer,
                 onNextQuestion = onNextQuestion,
                 onRestartQuiz = onRestartQuiz,
@@ -531,6 +534,7 @@ private fun CurriculumPackCard(
 private fun ActiveQuizView(
     quiz: ActiveAssessmentQuizState,
     onSelectOption: (String) -> Unit,
+    onToggleHint: () -> Unit,
     onSubmitAnswer: () -> Unit,
     onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit,
@@ -539,6 +543,12 @@ private fun ActiveQuizView(
 ) {
     val currentItem = quiz.items.getOrNull(quiz.currentIndex)
     var showExitDialog by remember { mutableStateOf(false) }
+
+    val ttsContext = androidx.compose.ui.platform.LocalContext.current
+    val ttsPlayer = remember { LessonTtsPlayer(ttsContext) }
+    DisposableEffect(Unit) {
+        onDispose { ttsPlayer.stop() }
+    }
 
     val handleExitRequest = {
         if (!quiz.isFinished && (quiz.currentIndex > 0 || quiz.selectedOptionId != null || quiz.isAnswerSubmitted)) {
@@ -610,31 +620,44 @@ private fun ActiveQuizView(
                 Icon(Icons.Default.Close, contentDescription = "Exit Quiz", tint = DeepNight)
             }
 
-            // Audio Read-Aloud Speaker for Question Prompt
-            val ttsContext = androidx.compose.ui.platform.LocalContext.current
-            val ttsPlayer = remember { LessonTtsPlayer(ttsContext) }
-            DisposableEffect(Unit) {
-                onDispose { ttsPlayer.stop() }
-            }
-
-            Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = VillageTeal.copy(alpha = 0.12f),
-                modifier = Modifier.clickable {
-                    if (currentItem != null) {
-                        val fullSpeechText = "${currentItem.prompt}. Option A: ${currentItem.options.getOrNull(0)?.text.orEmpty()}. Option B: ${currentItem.options.getOrNull(1)?.text.orEmpty()}. Option C: ${currentItem.options.getOrNull(2)?.text.orEmpty()}. Option D: ${currentItem.options.getOrNull(3)?.text.orEmpty()}."
-                        val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
-                        ttsPlayer.speak(fullSpeechText, lang)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = VillageTeal.copy(alpha = 0.12f),
+                    modifier = Modifier.clickable {
+                        if (currentItem != null) {
+                            val fullSpeechText = "${currentItem.prompt}. Option A: ${currentItem.options.getOrNull(0)?.text.orEmpty()}. Option B: ${currentItem.options.getOrNull(1)?.text.orEmpty()}. Option C: ${currentItem.options.getOrNull(2)?.text.orEmpty()}. Option D: ${currentItem.options.getOrNull(3)?.text.orEmpty()}."
+                            val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
+                            ttsPlayer.speak(fullSpeechText, lang)
+                        }
+                    }
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text("🔊", fontSize = 16.sp)
+                        Spacer(Modifier.width(4.dp))
+                        Text("Listen", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = VillageTeal)
                     }
                 }
-            ) {
-                Row(
-                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text("🔊", fontSize = 16.sp)
-                    Spacer(Modifier.width(4.dp))
-                    Text("Listen", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = VillageTeal)
+
+                if (!quiz.isAnswerSubmitted) {
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = if (quiz.isHintVisible) SunshineGold.copy(alpha = 0.35f) else SunshineGold.copy(alpha = 0.15f),
+                        border = if (quiz.isHintVisible) BorderStroke(1.dp, SunshineGold) else null,
+                        modifier = Modifier.clickable { onToggleHint() }
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text("💡", fontSize = 16.sp)
+                            Spacer(Modifier.width(4.dp))
+                            Text(if (quiz.isHintVisible) "Hide Hint" else "Hint", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = DeepNight)
+                        }
+                    }
                 }
             }
 
@@ -854,7 +877,44 @@ private fun ActiveQuizView(
 
             Spacer(Modifier.height(16.dp))
 
-            // Feedback / Explanation Box (on submission)
+            // Interactive Tiered Hint Box (before submission)
+            if (!quiz.isAnswerSubmitted && quiz.isHintVisible) {
+                Surface(
+                    shape = RoundedCornerShape(16.dp),
+                    color = SunshineGold.copy(alpha = 0.2f),
+                    border = BorderStroke(1.5.dp, SunshineGold),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.Top,
+                    ) {
+                        Text("💡", fontSize = 22.sp)
+                        Spacer(Modifier.width(10.dp))
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                "Milo's Smart Hint",
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 15.sp,
+                                color = DeepNight,
+                            )
+                            Spacer(Modifier.height(4.dp))
+                            val hintText = currentItem.hint.ifBlank {
+                                "Read each choice carefully and eliminate options that do not match the question requirements!"
+                            }
+                            Text(
+                                hintText,
+                                fontSize = 14.sp,
+                                color = DeepNight.copy(alpha = 0.85f),
+                                lineHeight = 20.sp,
+                            )
+                        }
+                    }
+                }
+                Spacer(Modifier.height(16.dp))
+            }
+
+            // Feedback / Explanation Box (on submission) with TTS Audio Read-Aloud
             if (quiz.isAnswerSubmitted) {
                 Surface(
                     shape = RoundedCornerShape(16.dp),
@@ -863,13 +923,38 @@ private fun ActiveQuizView(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Column(Modifier.padding(16.dp)) {
-                        Text(
-                            if (quiz.isCorrect) "✨ Correct! Awesome job!" else "💡 Milo's Learning Clue:",
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 15.sp,
-                            color = DeepNight,
-                        )
-                        Spacer(Modifier.height(4.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text(
+                                if (quiz.isCorrect) "✨ Correct! Awesome job!" else "💡 Milo's Learning Clue:",
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 15.sp,
+                                color = DeepNight,
+                            )
+
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = if (quiz.isCorrect) SuccessGreen.copy(alpha = 0.25f) else SunshineGold.copy(alpha = 0.35f),
+                                modifier = Modifier.clickable {
+                                    val prefix = if (quiz.isCorrect) "Correct! " else "Milo's Learning Clue: "
+                                    val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
+                                    ttsPlayer.speak(prefix + currentItem.explanation, lang)
+                                }
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Text("🔊", fontSize = 14.sp)
+                                    Spacer(Modifier.width(4.dp))
+                                    Text("Read Explanation", fontWeight = FontWeight.Bold, fontSize = 12.sp, color = DeepNight)
+                                }
+                            }
+                        }
+                        Spacer(Modifier.height(6.dp))
                         Text(
                             currentItem.explanation,
                             fontSize = 14.sp,

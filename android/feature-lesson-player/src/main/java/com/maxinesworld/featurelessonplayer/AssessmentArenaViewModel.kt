@@ -38,6 +38,7 @@ data class ActiveAssessmentQuizState(
     val selectedOptionId: String? = null,
     val isAnswerSubmitted: Boolean = false,
     val isCorrect: Boolean = false,
+    val isHintVisible: Boolean = false,
     val correctCount: Int = 0,
     val isFinished: Boolean = false,
     val isPassed: Boolean = false,
@@ -126,6 +127,14 @@ class AssessmentArenaViewModel @Inject constructor(
             } else {
                 _state.update { it.copy(isLoading = false) }
             }
+        }
+    }
+
+    
+    fun toggleHint() {
+        val quiz = _state.value.activeQuiz ?: return
+        _state.update {
+            it.copy(activeQuiz = quiz.copy(isHintVisible = !quiz.isHintVisible))
         }
     }
 

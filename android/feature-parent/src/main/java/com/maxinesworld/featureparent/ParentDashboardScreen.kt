@@ -61,6 +61,8 @@ data class ParentDashboardState(
     val isUpdatingApp: Boolean = false,
     val updateProgress: Float = 0f,
     val updateStatusMessage: String? = null,
+    val storageUsedMb: Float = 0f,
+    val isPreloadingMedia: Boolean = false,
     val isLoading: Boolean = true
 )
 
@@ -109,6 +111,7 @@ data class MasterySummary(
 
 @HiltViewModel
 class ParentDashboardViewModel @Inject constructor(
+    @dagger.hilt.android.qualifiers.ApplicationContext private val context: Context,
     private val childProfileDao: ChildProfileDao,
     private val rewardDao: RewardDao,
     private val masteryRecordDao: MasteryRecordDao,
@@ -237,6 +240,30 @@ class ParentDashboardViewModel @Inject constructor(
             godModeManager.setEnabled(childId, enabled)
             _state.update { it.copy(godModeEnabled = enabled) }
         }
+    }
+
+    fun clearMediaCache() {
+        val root = File(context.filesDir, "media")
+        if (root.exists() && root.isDirectory) {
+            root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.forEach { it.delete() }
+        }
+        val storageMb = calculateStorageUsedMb()
+        _state.update { it.copy(storageUsedMb = storageMb) }
+    }
+
+    fun prefetchMedia() {
+        viewModelScope.launch {
+            _state.update { it.copy(isPreloadingMedia = true) }
+            val storageMb = calculateStorageUsedMb()
+            _state.update { it.copy(isPreloadingMedia = false, storageUsedMb = storageMb) }
+        }
+    }
+
+    private fun calculateStorageUsedMb(): Float {
+        val root = File(context.filesDir, "media")
+        if (!root.exists() || !root.isDirectory) return 0f
+        val bytes = root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.sumOf { it.length() } ?: 0L
+        return bytes / (1024f * 1024f)
     }
 
     fun downloadAndInstallUpdate(context: Context) {
@@ -624,6 +651,44 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         }
                     }
                 }
+
+                // Smart Media Storage Management
+                Text("Offline Video Storage", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink)
+                Card(colors = CardDefaults.cardColors(containerColor = Color.White)) {
+                    Column(Modifier.fillMaxWidth().padding(16.dp)) {
+                        Row(
+                            Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Column {
+                                Text(
+                                    "Cached Video Lessons",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 15.sp,
+                                    color = Ink,
+                                )
+                                Text(
+                                    "%.1f MB on device".format(state.storageUsedMb),
+                                    fontSize = 14.sp,
+                                    color = Ink.copy(alpha = 0.6f),
+                                )
+                            }
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                if (state.storageUsedMb > 0f) {
+                                    OutlinedButton(
+                                        onClick = { viewModel.clearMediaCache() },
+                                        shape = RoundedCornerShape(10.dp),
+                                    ) {
+                                        Text("Free Space", fontSize = 13.sp)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(16.dp))
 
                 Card(colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.10f))) {
                     Row(

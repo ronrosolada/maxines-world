@@ -103,6 +103,23 @@ class MediaStorage(
         return digest.digest().joinToString("") { "%02x".format(it) }
     }
 
+    
+    fun totalStorageUsedBytes(): Long {
+        if (!root.exists() || !root.isDirectory) return 0L
+        return root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.sumOf { it.length() } ?: 0L
+    }
+
+    fun clearDownloadedMedia(): Int {
+        if (!root.exists() || !root.isDirectory) return 0
+        var deletedCount = 0
+        root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.forEach { file ->
+            if (file.delete()) {
+                deletedCount++
+            }
+        }
+        return deletedCount
+    }
+
     private companion object {
         val MEDIA_ID_PATTERN = Regex("^[a-z0-9][a-z0-9-]{2,63}$")
 
