@@ -16,9 +16,11 @@ import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeLoader
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -81,6 +83,8 @@ class VideoLibraryRewardPolicyTest {
         Dispatchers.setMain(testDispatcher)
         coEvery { mediaLibrary.refreshCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
         coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
+        coEvery { mediaLibrary.localFileFor(any()) } returns java.io.File("/tmp/test.mp4")
+        every { videoWatchLedgerDao.observePassedMediaIds(any()) } returns flowOf(emptyList())
         coEvery { badgeLoader.loadAll() } returns sampleBadges
         coEvery { collectedBadgeDao.getAllByChild(any()) } returns emptyList()
     }
