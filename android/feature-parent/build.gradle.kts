@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":core-design-system"))
     implementation(project(":core-database"))
     implementation(project(":core-content"))
+    implementation(project(":core-network"))
     implementation(project(":feature-auth"))
     implementation(project(":feature-rewards"))
     implementation(project(":engine-mastery"))
