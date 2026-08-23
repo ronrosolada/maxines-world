@@ -51,7 +51,7 @@ class ParentAuthLockoutTest {
         every { authManager.displayName } returns flowOf(null)
         coEvery { authManager.getPinHash() } returns "hash"
         coEvery { authManager.verifyPin(any()) } returns false
-        coEvery { authManager.verifyPin("123456") } returns true
+        coEvery { authManager.verifyPin("421988") } returns true
         coEvery { authManager.getFailedAttempts() } returns 0
         coEvery { authManager.getLockedUntilEpochMillis() } returns 0L
         // Parent with a child profile so init lands on PIN_LOGIN (auto-verify active).
@@ -85,7 +85,7 @@ class ParentAuthLockoutTest {
 
         viewModel = createViewModel()
 
-        assertEquals("123456", ParentAuthManager.DEFAULT_PIN)
+        assertEquals("421988", ParentAuthManager.DEFAULT_PIN)
         assertTrue(viewModel.state.value.hasPin)
         assertEquals(AuthScreen.CREATE_PROFILE, viewModel.state.value.currentScreen)
         coVerify {
@@ -136,7 +136,7 @@ class ParentAuthLockoutTest {
         coEvery { authManager.getLockedUntilEpochMillis() } returns (now + 60_000L)
         viewModel = createViewModel()
 
-        enterPin(viewModel, "123456")
+        enterPin(viewModel, "421988")
         runCurrent()
 
         assertFalse(viewModel.state.value.isAuthenticated)
@@ -151,7 +151,7 @@ class ParentAuthLockoutTest {
         coEvery { authManager.getLockedUntilEpochMillis() } returns (now - 1_000L)
         viewModel = createViewModel()
 
-        enterPin(viewModel, "123456")
+        enterPin(viewModel, "421988")
         advanceUntilIdle()
 
         assertTrue(viewModel.state.value.isAuthenticated)

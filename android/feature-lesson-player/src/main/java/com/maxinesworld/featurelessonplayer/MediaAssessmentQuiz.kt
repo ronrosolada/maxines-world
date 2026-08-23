@@ -9,6 +9,7 @@ data class MediaAssessmentQuizState(
     val submitted: Boolean = false,
     val correctCount: Int = 0,
     val finished: Boolean = false,
+    val isReplay: Boolean = false,
 )
 
 internal fun selectQuizOption(
@@ -54,4 +55,5 @@ internal fun restartQuiz(state: MediaAssessmentQuizState): MediaAssessmentQuizSt
         submitted = false,
         correctCount = 0,
         finished = false,
+        isReplay = true,
     )

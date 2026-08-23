@@ -7,6 +7,7 @@ import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.corenetwork.MediaStorage
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
@@ -38,4 +39,11 @@ object MediaModule {
             storage = storage,
         )
     }
+}
+
+
+@EntryPoint
+@InstallIn(SingletonComponent::class)
+interface MediaLibraryEntryPoint {
+    fun mediaLibrary(): MediaLibrary
 }
