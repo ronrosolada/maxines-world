@@ -83,7 +83,7 @@ class VideoLibraryRewardPolicyTest {
         Dispatchers.setMain(testDispatcher)
         coEvery { mediaLibrary.refreshCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
         coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
-        coEvery { mediaLibrary.localFileFor(any()) } returns java.io.File("/tmp/test.mp4")
+        every { mediaLibrary.localFile(any()) } returns java.io.File("/tmp/test.mp4")
         every { videoWatchLedgerDao.observePassedMediaIds(any()) } returns flowOf(emptyList())
         coEvery { badgeLoader.loadAll() } returns sampleBadges
         coEvery { collectedBadgeDao.getAllByChild(any()) } returns emptyList()
