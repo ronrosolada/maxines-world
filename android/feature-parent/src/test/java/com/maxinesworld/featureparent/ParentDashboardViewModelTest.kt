@@ -32,6 +32,7 @@ class ParentDashboardViewModelTest {
     private val godModeManager = mockk<GodModeManager>(relaxed = true)
     private val badgeLoader = mockk<BadgeLoader>(relaxed = true)
     private val collectedBadgeDao = mockk<CollectedBadgeDao>(relaxed = true)
+    private val context = mockk<android.content.Context>(relaxed = true)
 
     private lateinit var viewModel: ParentDashboardViewModel
 
@@ -39,6 +40,7 @@ class ParentDashboardViewModelTest {
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
         viewModel = ParentDashboardViewModel(
+            context = context,
             childProfileDao = childProfileDao,
             rewardDao = rewardDao,
             masteryRecordDao = masteryRecordDao,

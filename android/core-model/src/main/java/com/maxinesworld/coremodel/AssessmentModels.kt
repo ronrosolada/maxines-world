@@ -43,6 +43,7 @@ data class AssessmentQuestionItem(
     val options: List<AssessmentQuestionOption> = emptyList(),
     val correctOptionIds: List<String> = emptyList(),
     val explanation: String = "",
+    val hint: String = "",
 )
 
 @Serializable
