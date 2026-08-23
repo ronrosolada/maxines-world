@@ -1,19 +1,19 @@
 package com.maxinesworld.featurelessonplayer
 
+import androidx.lifecycle.SavedStateHandle
+import com.maxinesworld.coremodel.CollectibleBadge
+import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaAssessment
 import com.maxinesworld.coremodel.MediaAssessmentItem
 import com.maxinesworld.coremodel.MediaAssessmentOption
-import com.maxinesworld.coremodel.MediaAsset
+import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.coredatabase.CollectedBadgeDao
 import com.maxinesworld.coredatabase.CollectedBadgeEntity
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
-import com.maxinesworld.coremodel.CollectibleBadge
-import com.maxinesworld.corenetwork.MediaCatalog
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeLoader
-import androidx.lifecycle.SavedStateHandle
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -42,11 +42,16 @@ class VideoLibraryRewardPolicyTest {
     private val testAsset = MediaAsset(
         mediaId = "test-video-1",
         title = "Test Video",
+        file = "media/test.mp4",
+        sha256 = "dummy",
+        sizeBytes = 1000L,
+        durationSeconds = 1800,
+        width = 1280,
+        height = 720,
         subjectId = "science",
         episodeNumber = 1,
-        durationSeconds = 1800,
         assessment = MediaAssessment(
-            mediaId = "test-video-1",
+            questionCount = 5,
             passingCorrectCount = 4,
             items = (1..5).map { seq ->
                 MediaAssessmentItem(
@@ -67,15 +72,15 @@ class VideoLibraryRewardPolicyTest {
     )
 
     private val sampleBadges = listOf(
-        CollectibleBadge(id = "badge_tarsier", name = "Philippine Tarsier", biome = "rainforest"),
-        CollectibleBadge(id = "badge_eagle", name = "Philippine Eagle", biome = "mountain"),
+        CollectibleBadge(id = "badge_tarsier", biome = "rainforest", name = "Philippine Tarsier", title = "Tarsier", funFact = "Small primate"),
+        CollectibleBadge(id = "badge_eagle", biome = "mountain", name = "Philippine Eagle", title = "Eagle", funFact = "Great bird"),
     )
 
     @Before
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
-        coEvery { mediaLibrary.refreshCatalog() } returns MediaCatalog(schemaVersion = 1, media = listOf(testAsset))
-        coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(schemaVersion = 1, media = listOf(testAsset))
+        coEvery { mediaLibrary.refreshCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
+        coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "2026-08-23", media = listOf(testAsset))
         coEvery { badgeLoader.loadAll() } returns sampleBadges
         coEvery { collectedBadgeDao.getAllByChild(any()) } returns emptyList()
     }
