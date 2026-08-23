@@ -1,0 +1,407 @@
+{
+  "lessonId": "filipino-g3-q1-w04-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "filipino",
+  "title": "Paggamit ng Diksyunaryo",
+  "objective": "Nakagagamit ng diksyunaryo sa pagbibigay kahulugan ng mga salita (F3EP-Id6.1).",
+  "estimatedMinutes": 15,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "DERIVED_ACTIVITY_REVIEW_PENDING",
+  "language": "fil-PH",
+  "introduction": "Gamitin ang diksyunaryo kapag may salitang hindi pamilyar. Hanapin ito ayon sa alpabeto at basahin ang kahulugan sa tabi nito.",
+  "vocabulary": [
+    {
+      "term": "Diksyunaryo",
+      "definition": "Aklat na naglilista ng mga salita sa alpabetikong ayos at nagbibigay ng kahulugan."
+    },
+    {
+      "term": "Paalpabeto",
+      "definition": "Ayos ng mga salita mula sa A hanggang Z."
+    },
+    {
+      "term": "Kahulugan",
+      "definition": "Ibig sabihin o paliwanag ng isang salita."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Basahin kung paano hanapin ang salita at kahulugan sa diksyunaryo.",
+      "content": "Ang diksyunaryo ay isang aklat na binubuo ng mga salita ng isang wika. Ang mga salita ay isinasaayos nang paalpabeto — mula A hanggang Z. Bawat salita ay may kasamang paliwanag, pagpapakahulugan, o pagbibigay ng katuturan. Halimbawa ng mga salita at kahulugan sa diksyunaryo: marikit — maganda, mabilis — matulin, matatag — matibay, maligaya — masaya, marunong — matalino. Kapag naghahanap ng salita sa diksyunaryo, tingnan ang unang titik ng salita at hanapin ito sa tamang bahagi ng aklat. Halimbawa, ang salitang 'bulaklak' ay nasa titik B. Mahalaga ang diksyunaryo upang malaman ang tamang baybay, kahulugan, at pagpapantig ng mga salita.",
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Alam mo na ngayon kung ano ang diksyunaryo at kung paano ito gamitin.",
+        "retry": "Tingnan ang unang letra, hanapin ang bahagi, at basahin ang kahulugan. 💪"
+      },
+      "prompt": "Pakinggan ang paliwanag ni Milo tungkol sa diksyunaryo!",
+      "narration": "Alamin natin kung paano gumamit ng diksyunaryo!",
+      "guideHint": "Pansinin kung paano nakaayos ang mga salita — mula A hanggang Z.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Paliwanag tungkol sa diksyunaryo. Ito ay aklat na naglalaman ng mga salitang nakaayos nang paalpabeto mula A hanggang Z kasama ang kanilang kahulugan."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Hanapin ang mga bahagi ng pahina ng diksyunaryo.",
+      "content": {
+        "examples": [
+          "Pamagat",
+          "Katawan",
+          "Glosari",
+          "Talaan",
+          "Indeks"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 5
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang mga bahagi ng diksyunaryo. 🔎",
+        "retry": "Tingnan kung pamagat, katawan, glosari, talaan, o indeks ang bahagi. 💪"
+      },
+      "prompt": "Pindutin ang bawat bahagi ng pahina ng diksyunaryo!",
+      "narration": "Tuklasin natin ang mga bahagi ng isang pahina ng diksyunaryo!",
+      "guideHint": "May apat na bahagi na dapat mong makita at mapindot.",
+      "nextLabel": "Tapos na!",
+      "accessibilityAlternative": "Isang pahina ng diksyunaryo na may apat na bahagi: ang pamagat, ang titik ng alpabeto sa itaas, ang salitang hinahanap na nakasulat nang makapal, at ang kahulugan sa tabi nito."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Piliin ang mga pahayag na tama tungkol sa diksyunaryo.",
+      "content": {
+        "fits": [
+          "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto.",
+          "Nakaayos nang paalpabeto mula A hanggang Z.",
+          "mabait = mabuti",
+          "Kasunod ito ng 'buhay' dahil nauuna ang h sa l.",
+          "ahas, agham, apoy"
+        ],
+        "doesNotFit": [
+          "Isang aklat ng mga kuwento at tula.",
+          "Isang aklat na may mga larawan lamang.",
+          "Isang aklat na nagtuturo ng pagluluto.",
+          "Nakaayos ayon sa haba ng salita.",
+          "Nakaayos ayon sa kulay ng pahina.",
+          "Nakaayos ayon sa bilang ng pantig."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 11
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang wastong gamit ng diksyunaryo. 🎉",
+        "retry": "Suriin ang alpabetikong ayos at ang impormasyong ibinibigay nito. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga pahayag sa TAMANG SAGOT at HINDI TAMANG SAGOT.",
+      "narration": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang panuto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang bawat pahayag. Ilagay sa TAMANG SAGOT kung tumutugma ito sa aralin; ilagay sa HINDI TAMANG SAGOT kung hindi."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Alin ang unang hakbang sa paghahanap ng “mata”?",
+      "content": {
+        "options": [
+          "Hanapin ang titik Z at bumalik sa simula.",
+          "Hanapin ang titik M at basahin nang paalpabeto ang mga salita.",
+          "Hanapin ang titik S at basahin ang lahat ng salita.",
+          "Hanapin ang titik A at magsimula sa simula ng aklat."
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang salitang 'mata' ay hahanapin sa titik M.",
+        "retry": "Unang letra ng “mata” ang M; doon dapat magsimula. 💪"
+      },
+      "prompt": "Hinahanap mo ang salitang 'mata'. Alin ang unang hakbang sa paggamit ng diksyunaryo?",
+      "narration": "Kung hahanapin mo ang salitang 'matatag,' saan ka titingin?",
+      "guideHint": "Ano ang unang titik ng salitang 'mata'?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Tanong: Paano mo hahanapin ang salitang 'mata' sa diksyunaryo? Ang tamang sagot ay hanapin ang titik M at basahin nang paalpabeto."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Itugma ang salita sa paglalarawan ng kahulugan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "marikit",
+            "right": "naglalarawan ng kagandahan"
+          },
+          {
+            "left": "mabilis",
+            "right": "naglalarawan ng bilis"
+          },
+          {
+            "left": "matatag",
+            "right": "naglalarawan ng tibay"
+          },
+          {
+            "left": "maligaya",
+            "right": "naglalarawan ng saya"
+          },
+          {
+            "left": "marunong",
+            "right": "naglalarawan ng talino"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED"
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang salita sa kahulugan nito. 🔗",
+        "retry": "Basahin ang kahulugan at hanapin ang salitang inilalarawan. 💪"
+      },
+      "prompt": "Itapat ang salita sa kahulugan nito!",
+      "narration": "Ano ang kahulugan ng bawat salita?",
+      "guideHint": "Gamitin ang iyong nalalaman tungkol sa diksyunaryo.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Itapat ang limang salita sa kanilang kahulugan. Marikit ay maganda, mabilis ay matulin, matatag ay matibay, maligaya ay masaya, marunong ay matalino."
+    },
+    {
+      "activityId": "filipino-g3-q1-w04-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w04-d02-visual",
+      "instruction": "Ayusin ang mga hakbang sa paggamit ng diksyunaryo.",
+      "content": {
+        "steps": [
+          "Tingnan ang unang titik ng salita.",
+          "Hanapin ang bahagi para sa titik na iyon.",
+          "Basahin nang paalpabeto hanggang makita ang salita.",
+          "Basahin ang kahulugan sa tabi nito."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa paggamit ng diksyunaryo. 🎉",
+        "retry": "Sundin ang daloy: unang titik, bahagi, salita, kahulugan. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa paggamit ng diksyunaryo!",
+      "narration": "Ano ang unang hakbang sa paghahanap ng salita sa diksyunaryo?",
+      "guideHint": "Isipin — saan ka unang titingin sa diksyunaryo?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ayusin ang apat na hakbang sa paggamit ng diksyunaryo. Una, tingnan ang unang titik ng salita. Pangalawa, hanapin ang tamang bahagi. Pangatlo, basahin nang paalpabeto. Panghuli, basahin ang kahulugan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w04-d02-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang diksyunaryo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Isang aklat na may mga larawan lamang."
+          },
+          {
+            "id": "b",
+            "text": "Isang aklat ng mga kuwento at tula."
+          },
+          {
+            "id": "c",
+            "text": "Isang aklat na nagtuturo ng pagluluto."
+          },
+          {
+            "id": "d",
+            "text": "Isang aklat na nagbibigay kahulugan ng mga salita nang paalpabeto."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang diksyunaryo ay aklat na naglilista ng mga salita sa alpabetikong ayos at nagbibigay ng kahulugan."
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w04-d02-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano nakaayos ang mga salita sa diksyunaryo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nakaayos ayon sa haba ng salita."
+          },
+          {
+            "id": "b",
+            "text": "Nakaayos ayon sa bilang ng pantig."
+          },
+          {
+            "id": "c",
+            "text": "Nakaayos nang paalpabeto mula A hanggang Z."
+          },
+          {
+            "id": "d",
+            "text": "Nakaayos ayon sa kulay ng pahina."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagkakaayos mula A hanggang Z ang tumutulong upang madaling mahanap ang salita."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w04-d02-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang kahulugan ng salitang 'marikit'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mabilis"
+          },
+          {
+            "id": "b",
+            "text": "Maganda"
+          },
+          {
+            "id": "c",
+            "text": "Malakas"
+          },
+          {
+            "id": "d",
+            "text": "Matalino"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “marikit” ay nangangahulugang maganda; iyon ang kahulugang dapat basahin sa diksyunaryo."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w04-d02-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang paglalarawan sa ayos ng salitang 'bulaklak'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nauuna ito sa 'buhay' dahil nauuna ang l sa h."
+          },
+          {
+            "id": "b",
+            "text": "Nasa pagitan ito ng 'ahas' at 'bintana'."
+          },
+          {
+            "id": "c",
+            "text": "Kasunod ito ng 'buhay' dahil nauuna ang h sa l."
+          },
+          {
+            "id": "d",
+            "text": "Nasa titik P ito kasama ng 'pagong'."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang “bulaklak” ay kasunod ng “buhay” dahil parehong b ang una at ang h ay nauuna sa l."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w04-d02-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin sa sumusunod ang tamang pagkakasunod-sunod ng mga salita sa diksyunaryo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ahas, agham, apoy"
+          },
+          {
+            "id": "b",
+            "text": "apoy, agham, ahas"
+          },
+          {
+            "id": "c",
+            "text": "agham, apoy, ahas"
+          },
+          {
+            "id": "d",
+            "text": "apoy, ahas, agham"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Sa mga salitang a, ang “ahas” ay nauuna sa “agham,” at ang “agham” ay nauuna sa “apoy.”"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "storyIntro": "Isang araw, may bagong salita ang narinig ni Ana mula sa balita — \"epidemya.\" Hindi niya alam kung ano ang ibig sabihin nito. Pumunta siya sa silid-aklatan at kumuha ng diksyunaryo. Tiningnan niya ang titik \"E\" at hinanap ang salita. Nakita niya — \"Epidemya: isang malawakang paglaganap ng sakit sa isang komunidad.\" Ngayon, alam na ni Ana! Tuwang-tuwa siya dahil natuto siyang gumamit ng diksyunaryo.",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "accessibility": {
+    "narrationAvailable": true,
+    "captionsAvailable": true,
+    "reducedMotionSupported": true,
+    "dragAlternativeAvailable": true,
+    "colorIndependent": true
+  }
+}

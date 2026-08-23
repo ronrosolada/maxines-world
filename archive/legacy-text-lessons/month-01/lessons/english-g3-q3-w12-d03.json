@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w12-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 3,
+  "subject": "english",
+  "title": "Mangrove Facts Review",
+  "objective": "Find the topic and important facts in a short informational text.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is exploring mangrove trees! 🌿 Read the short text to find its topic and the facts that explain how mangroves help living things.",
+  "vocabulary": [
+    {
+      "term": "topic",
+      "definition": "The main subject an informational text is about."
+    },
+    {
+      "term": "roots hold soil",
+      "definition": "Mangrove roots help keep soil from washing away."
+    },
+    {
+      "term": "shelter",
+      "definition": "A safe place where a living thing can stay."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w12-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Listen for the topic and facts about mangrove trees.",
+      "content": "Informational texts teach about a real topic. Look for the topic, facts, and details that explain it.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check the subject first, then the facts that explain it."
+      },
+      "prompt": "Listen for the topic and two facts.",
+      "narration": "Mangrove trees grow near water. Their roots help hold soil in place, and their branches can give living things shelter.",
+      "guideHint": "Ask: What is the text mostly about? Which details explain it?",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Mangrove trees grow near water. Their roots help hold soil in place, and their branches can give living things shelter."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Tap details that belong in the mangrove text.",
+      "content": {
+        "examples": [
+          "mangrove trees grow near water",
+          "roots help hold soil",
+          "trees give living things shelter",
+          "mangroves live in coastal areas"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check whether the detail teaches about mangrove trees."
+      },
+      "prompt": "Tap the topic and facts you would read in the text.",
+      "narration": "An informational text names a real topic and gives facts that explain it.",
+      "guideHint": "Look for the subject and details that teach something true about it.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "An informational text names a real topic and gives facts that explain it."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Sort details that fit a mangrove information text.",
+      "content": {
+        "fits": [
+          "mangrove trees",
+          "roots hold soil in place",
+          "trees provide shelter",
+          "mangroves grow near water"
+        ],
+        "doesNotFit": [
+          "a dragon in a swamp",
+          "a recipe for noodles",
+          "a soccer score",
+          "a birthday song"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check whether the card teaches a fact about mangroves."
+      },
+      "prompt": "Sort mangrove details away from unrelated ideas.",
+      "narration": "Facts and details in an informational text should explain the real topic.",
+      "guideHint": "Compare each card with the topic of mangrove trees.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Facts and details in an informational text should explain the real topic."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Choose the topic of the mangrove text.",
+      "content": {
+        "options": [
+          "cat — dog",
+          "book — read",
+          "tree — leaf",
+          "mangrove trees"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Choose the subject, not a pair of unrelated words."
+      },
+      "prompt": "Milo reads about roots and shelter near water. What is the topic?",
+      "narration": "The topic is the subject the informational text explains.",
+      "guideHint": "Look for the subject that all the facts describe.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The topic is the subject the informational text explains."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Match each mangrove detail to what it teaches.",
+      "content": {
+        "pairs": [
+          {
+            "left": "mangrove trees",
+            "right": "subject the text is about"
+          },
+          {
+            "left": "mangrove roots hold soil",
+            "right": "helps keep soil from washing away"
+          },
+          {
+            "left": "mangrove trees provide shelter",
+            "right": "gives living things a safe place"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check whether the right side explains the detail’s meaning or effect."
+      },
+      "prompt": "Match each detail with its role in the text.",
+      "narration": "A topic names the subject; facts explain what is true about that subject.",
+      "guideHint": "Read the left detail, then find the fact or idea it supports.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A topic names the subject; facts explain what is true about that subject."
+    },
+    {
+      "activityId": "english-g3-q3-w12-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w12-d03-visual",
+      "instruction": "Put the fact-finding steps in order.",
+      "content": {
+        "steps": [
+          "Read the mangrove paragraph",
+          "Name what the text is about",
+          "Pick facts that explain the topic",
+          "Tell how a fact supports the topic"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check that your chosen fact really teaches about mangroves."
+      },
+      "prompt": "Put the steps for finding the topic and facts in order.",
+      "narration": "Readers identify an informational text’s topic, then choose facts that explain it.",
+      "guideHint": "Name the topic before deciding which details support it.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers identify an informational text’s topic, then choose facts that explain it."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w12-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo reads a paragraph about trees that grow near water. Which topic fits?",
+        "options": [
+          {
+            "id": "a",
+            "text": "coconut trees"
+          },
+          {
+            "id": "b",
+            "text": "banana trees"
+          },
+          {
+            "id": "c",
+            "text": "mango trees"
+          },
+          {
+            "id": "d",
+            "text": "mangrove trees"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The text is about mangrove trees; the other tree names are different topics."
+      },
+      {
+        "itemId": "english-g3-q3-w12-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which fact belongs in an informational text about mangrove trees?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mangoes are sweet and yellow."
+          },
+          {
+            "id": "b",
+            "text": "Coconuts float on water."
+          },
+          {
+            "id": "c",
+            "text": "Bananas grow in bunches."
+          },
+          {
+            "id": "d",
+            "text": "Mangrove roots help hold soil in place."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Mangrove roots help hold soil in place is a fact about the topic, so it belongs in the text."
+      },
+      {
+        "itemId": "english-g3-q3-w12-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A bird needs a safe place near the mangroves. What can the trees provide?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a red balloon"
+          },
+          {
+            "id": "b",
+            "text": "hot soup"
+          },
+          {
+            "id": "c",
+            "text": "a new phone"
+          },
+          {
+            "id": "d",
+            "text": "shelter"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The text says mangrove trees can provide shelter, a safe place for living things."
+      },
+      {
+        "itemId": "english-g3-q3-w12-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence could be a real fact in a mangrove information text?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mangrove trees grow near water."
+          },
+          {
+            "id": "b",
+            "text": "A dragon lives in the swamp."
+          },
+          {
+            "id": "c",
+            "text": "The chair can sing."
+          },
+          {
+            "id": "d",
+            "text": "The cat flew to the moon."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Mangrove trees growing near water is a checkable fact; the other choices are make-believe."
+      },
+      {
+        "itemId": "english-g3-q3-w12-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo copies this sentence: “Mangrove roots hold soil in place.” What kind of detail is it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a shopping list"
+          },
+          {
+            "id": "b",
+            "text": "a fact from the text"
+          },
+          {
+            "id": "c",
+            "text": "a make-believe story"
+          },
+          {
+            "id": "d",
+            "text": "a greeting"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The sentence tells something real about mangrove roots, so it is a fact from the text."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

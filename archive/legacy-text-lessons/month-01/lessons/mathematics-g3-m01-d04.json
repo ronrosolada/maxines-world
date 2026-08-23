@@ -1,0 +1,372 @@
+{
+  "lessonId": "mathematics-g3-m01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "MATHEMATICS",
+  "title": "Greater, Less, or Equal",
+  "objective": "Compare whole numbers by place value.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is weighing two baskets of fruit! Help him compare 4,210 and 4,201.",
+  "vocabulary": [
+    {
+      "term": "compare",
+      "definition": "To look at two numbers and tell which is greater, less, or equal."
+    },
+    {
+      "term": "number",
+      "definition": "A symbol or word that tells how many, like 4,210."
+    },
+    {
+      "term": "place value",
+      "definition": "What a digit is worth by its position."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how comparing digits from the left finds the greater number.",
+      "content": "Compare digits from the greatest place to the ones place.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Compare from the greatest place first; move right only when earlier digits match. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "Text alternative: Compare digits from the greatest place to the ones place."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the comparison.",
+      "content": {
+        "examples": [
+          "4,210 > 4,201",
+          "3,500 = 3,500",
+          "2,999 < 3,000"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Greater, Less, or Equal. 🔎",
+        "retry": "Check each example for this rule: Compare from the greatest place first; move right only when earlier digits match. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the comparison true?",
+      "content": {
+        "fits": [
+          "4,210 > 4,201",
+          "3,500 = 3,500",
+          "2,999 < 3,000"
+        ],
+        "doesNotFit": [
+          "Compare only the last digit",
+          "Use digit color",
+          "Assume the wider text is greater"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Greater, Less, or Equal clue. 🎉",
+        "retry": "Check every card against this rule: Compare from the greatest place first; move right only when earlier digits match. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Which is true?",
+      "content": {
+        "options": [
+          "4,210 < 4,201",
+          "4,210 = 4,201",
+          "4,210 > 4,201"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 4,210 > 4,201",
+        "retry": "Check the numbers with this rule: Compare from the greatest place first; move right only when earlier digits match. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each pair to >, <, or =.",
+      "content": {
+        "pairs": [
+          {
+            "left": "4,210 > 4,201",
+            "right": "greater than"
+          },
+          {
+            "left": "3,500 = 3,500",
+            "right": "equal to"
+          },
+          {
+            "left": "2,999 < 3,000",
+            "right": "less than"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Greater, Less, or Equal explanation. 🔗",
+        "retry": "Match each pair by the relationship: Compare from the greatest place first; move right only when earlier digits match. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the comparing steps in order.",
+      "content": {
+        "steps": [
+          "Line up the numbers by place value.",
+          "Compare the largest place first.",
+          "Choose >, =, or <."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Greater, Less, or Equal steps in order. 🎉",
+        "retry": "Check the order: start with line up the numbers by place value., then compare the largest place first., and finish with choose >, =, or <.. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is comparing two number cards. Which statement about comparing numbers is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Compare only the last digit"
+          },
+          {
+            "id": "b",
+            "text": "Use digit color"
+          },
+          {
+            "id": "c",
+            "text": "Compare digits from the greatest place to the ones place."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Start at the greatest place and compare each digit until one is different, then continue to the next place if they are the same."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is comparing two number cards. Which statement correctly compares 4,210 and 4,201?",
+        "options": [
+          {
+            "id": "a",
+            "text": "4,210 > 4,201 (1 ten is greater than 0 tens)"
+          },
+          {
+            "id": "b",
+            "text": "4,210 < 4,201 (0 tens is greater than 1 ten)"
+          },
+          {
+            "id": "c",
+            "text": "4,210 = 4,201 (both have 4 thousands)"
+          },
+          {
+            "id": "d",
+            "text": "4,210 < 4,200 (tens place does not matter)"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Both numbers have 4 thousands and 2 hundreds, but 4,210 has 1 ten while 4,201 has 0 tens. So 4,210 > 4,201."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is comparing two number cards. Which is NOT a good way to compare numbers?",
+        "options": [
+          {
+            "id": "a",
+            "text": "4,210 > 4,201"
+          },
+          {
+            "id": "b",
+            "text": "Compare only the last digit"
+          },
+          {
+            "id": "c",
+            "text": "3,500 = 3,500"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Looking only at the ones digit can trick you: 4,210 > 4,201 even though 0 < 1. Compare from the greatest place."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is comparing two number cards. Which comparison sentence is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5,640 is greater than 5,460"
+          },
+          {
+            "id": "b",
+            "text": "5,640 is equal to 5,460"
+          },
+          {
+            "id": "c",
+            "text": "5,640 is less than 5,460"
+          },
+          {
+            "id": "d",
+            "text": "5,460 is greater than 5,640"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "5,640 has 6 hundreds while 5,460 has 4 hundreds, so 5,640 is greater than 5,460."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is comparing two number cards. Which comparison between 2,999 and 3,000 is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "2,999 < 3,000 (2 thousands is less than 3 thousands)"
+          },
+          {
+            "id": "b",
+            "text": "3,000 < 2,999 (9 hundreds is more than 0 hundreds)"
+          },
+          {
+            "id": "c",
+            "text": "2,999 > 3,000 (more digits are nonzero)"
+          },
+          {
+            "id": "d",
+            "text": "2,999 = 3,000 (they are one number apart)"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "2,999 has 2 thousands while 3,000 has 3 thousands. Since 2,000 is less than 3,000, 2,999 < 3,000."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d04-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d04-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Greater, Less, or Equal; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Greater, Less, or Equal.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f3f645f2ceb36bd4bf92fc4bdc9646ff7bd550208049d3340093f2d1d3a438bb",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}

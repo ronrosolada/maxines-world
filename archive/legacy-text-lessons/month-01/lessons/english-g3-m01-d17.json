@@ -1,0 +1,374 @@
+{
+  "lessonId": "english-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "ENGLISH",
+  "title": "Cause-and-Effect Garden · M01 D17",
+  "objective": "Distinguish cause from effect and connect them clearly.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Why did the leaves move? Find the wind as the cause and the moving leaves as the effect.",
+  "vocabulary": [
+    {
+      "term": "cause",
+      "definition": "The reason an event happens, such as rain making a path wet."
+    },
+    {
+      "term": "effect",
+      "definition": "What happens because of a cause."
+    },
+    {
+      "term": "sequence",
+      "definition": "The order of events; the cause comes first, and the effect follows."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "See how a cause makes an effect happen!",
+      "content": "A cause helps make something happen; an effect is what happens. Sequence alone does not prove causation.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Find what happened first and what happened because of it. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "Text alternative: A cause helps make something happen; an effect is what happens. Sequence alone does not prove causation."
+    },
+    {
+      "activityId": "english-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each sentence and name the cause and effect.",
+      "content": {
+        "examples": [
+          "It rained, so the path became wet.",
+          "The plant wilted because it lacked water.",
+          "The bell rang, so learners lined up."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Cause-and-Effect Garden. 🔎",
+        "retry": "Look for the cause-and-effect link signaled by because or so. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "english-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it connect a cause and an effect clearly?",
+      "content": {
+        "fits": [
+          "It rained, so the path became wet.",
+          "The plant wilted because it lacked water.",
+          "The bell rang, so learners lined up."
+        ],
+        "doesNotFit": [
+          "Because it rained, so the path got wet.",
+          "Two events with no link",
+          "Calling the effect the cause"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Cause-and-Effect Garden clue. 🎉",
+        "retry": "Sort linked causes and effects away from sentences with no clear connection. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "english-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "What is the effect in “The wind blew, so the leaves moved”?",
+      "content": {
+        "options": [
+          "The word so.",
+          "The leaves moved.",
+          "The wind blew."
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: The leaves moved.",
+        "retry": "The leaves moved happened after the wind blew, so it is the effect. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "english-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each effect with the cause that made it happen.",
+      "content": {
+        "pairs": [
+          {
+            "left": "wet path",
+            "right": "rain caused it"
+          },
+          {
+            "left": "wilted plant",
+            "right": "lack of water caused it"
+          },
+          {
+            "left": "learners lined up",
+            "right": "bell ringing caused it"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Cause-and-Effect Garden explanation. 🔗",
+        "retry": "Match each effect with the cause that made it happen. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "english-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the cause-and-effect steps in order.",
+      "content": {
+        "steps": [
+          "Find what happened first.",
+          "Find what happened because of it.",
+          "Connect them with because or so."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Cause-and-Effect Garden steps in order. 🎉",
+        "retry": "Order the reasoning: find the cause, find the effect, then connect them with because or so. 💪"
+      },
+      "assetId": "english-g3-m01-d17-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "In “It rained, so the path got wet,” what is the cause?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The path"
+          },
+          {
+            "id": "b",
+            "text": "The word so"
+          },
+          {
+            "id": "c",
+            "text": "The rain"
+          },
+          {
+            "id": "d",
+            "text": "The wet path"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "The rain made the path wet, so the rain is the cause. The wet path is the effect, and so just connects them."
+      },
+      {
+        "itemId": "english-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence has a cause and an effect?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The bird sang, and the sun was warm."
+          },
+          {
+            "id": "b",
+            "text": "It rained, so the path became wet."
+          },
+          {
+            "id": "c",
+            "text": "The bell rang twice."
+          },
+          {
+            "id": "d",
+            "text": "The path was wet."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The rain caused the path to become wet, so this sentence has a cause and an effect. The other two just tell facts with no link."
+      },
+      {
+        "itemId": "english-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence has NO cause-and-effect link?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Milo ate lunch, and the dog barked."
+          },
+          {
+            "id": "b",
+            "text": "The plant wilted because it had no water."
+          },
+          {
+            "id": "c",
+            "text": "It rained, so the path became wet."
+          },
+          {
+            "id": "d",
+            "text": "Milo watered the plant, so it grew."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Eating lunch and a dog barking have no link, so there is no cause and effect. The other two sentences clearly connect a cause to an effect."
+      },
+      {
+        "itemId": "english-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the effect in “The wind blew, so the leaves moved”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The leaves moved."
+          },
+          {
+            "id": "b",
+            "text": "The wind blew."
+          },
+          {
+            "id": "c",
+            "text": "The word so."
+          },
+          {
+            "id": "d",
+            "text": "The wind"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The wind blew first (cause), and then the leaves moved — that is the effect. The word so just connects the two parts."
+      },
+      {
+        "itemId": "english-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which sentence connects a cause and an effect?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The bell is loud."
+          },
+          {
+            "id": "b",
+            "text": "The bell rang, so learners lined up."
+          },
+          {
+            "id": "c",
+            "text": "The bell rang, and it was Tuesday."
+          },
+          {
+            "id": "d",
+            "text": "The bell is blue."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The bell (cause) made the learners line up (effect). “And it was Tuesday” has no effect, and “The bell is loud” is just one fact."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "english-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/english-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Cause-and-Effect Garden; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Cause-and-Effect Garden.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading and Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "672759e71f0778357327c4c30e44a999f4cfd6a187959181db16e3a4012b7691",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  }
+}

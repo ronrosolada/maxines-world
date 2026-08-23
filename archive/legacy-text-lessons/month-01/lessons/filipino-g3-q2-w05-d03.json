@@ -1,0 +1,392 @@
+{
+  "lessonId": "filipino-g3-q2-w05-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 3,
+  "subject": "filipino",
+  "title": "Dina ay Nagwawalis",
+  "objective": "Natutukoy ang simuno at panaguri sa pangungusap na 'Si Dina  ay nagwawalis.'",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Si Dina ay nagwawalis sa silid-aralan. Tukuyin natin ang simuno at panaguri sa pangungusap!",
+  "vocabulary": [
+    {
+      "word": "simuno",
+      "term": "simuno",
+      "definition": "Tao, hayop, bagay, o lugar na pinag-uusapan sa pangungusap."
+    },
+    {
+      "word": "panaguri",
+      "term": "panaguri",
+      "definition": "Bahagi ng pangungusap na nagsasabi ng kilos o katangian ng simuno."
+    },
+    {
+      "word": "payak na simuno",
+      "term": "payak na simuno",
+      "definition": "Isang tao, hayop, bagay, o lugar na pinag-uusapan."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Hatiin ang “Si Dina ay nagwawalis” sa simuno at panaguri.",
+      "content": "Sa “Si Dina ay nagwawalis”, si dina ang simuno dahil siya ang pinag-uusapan. “ay nagwawalis.” ang panaguri dahil sinasabi nito ang ginagawa niya.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: itanong, “Sino ang pinag-uusapan?” at “Ano ang ginagawa niya?” 💪"
+      },
+      "prompt": "Sa pangungusap, sino ang pinag-uusapan at ano ang ginagawa niya?",
+      "narration": "Sa “Si Dina ay nagwawalis”, si dina ang simuno dahil siya ang pinag-uusapan. “ay nagwawalis.” ang panaguri dahil sinasabi nito ang ginagawa niya.",
+      "guideHint": "Pahiwatig: itanong, “Sino ang pinag-uusapan?” at “Ano ang ginagawa niya?”",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa “Si Dina ay nagwawalis”, si dina ang simuno dahil siya ang pinag-uusapan. “ay nagwawalis.” ang panaguri dahil sinasabi nito ang ginagawa niya."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Basahin ang bawat pangungusap at tukuyin ang simuno at panaguri.",
+      "content": {
+        "examples": [
+          "Si Dina / ay nagwawalis.",
+          "Ang sasakyan / ay humihinto sa tawiran.",
+          "Si Jose / ay nag-eehersisyo.",
+          "Ang mga isda / ay lumalangoy sa ilog."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin muna kung sino o ano ang pinag-uusapan, saka ang kilos nito. 💪"
+      },
+      "prompt": "Hanapin ang bahagi bago at pagkatapos ng pahilis na guhit.",
+      "narration": "Basahin ang bawat pangungusap. Ang bahagi bago ang guhit ang simuno; ang bahagi pagkatapos nito ang panaguri.",
+      "guideHint": "Pahiwatig: ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang bawat pangungusap. Ang bahagi bago ang guhit ang simuno; ang bahagi pagkatapos nito ang panaguri."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Pag-uriin ang buong pangungusap at mga bahaging kulang sa diwa.",
+      "content": {
+        "fits": [
+          "Si Dina / ay nagwawalis.",
+          "Ang sasakyan / ay humihinto sa tawiran.",
+          "Si Jose / ay nag-eehersisyo.",
+          "Ang mga isda / ay lumalangoy sa ilog."
+        ],
+        "doesNotFit": [
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "at nagmamadali tuwing gabi",
+          "kasi tuwang-tuwa ang lahat"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tingnan kung may simuno at panaguri at nabubuo ang buong diwa. 💪"
+      },
+      "prompt": "Alin ang kumpletong pangungusap na may simuno at panaguri?",
+      "narration": "Ang buong pangungusap ay may simuno at panaguri at nagpapahayag ng buong diwa. Ang maiikling bahagi ay kulang sa isa sa mga ito.",
+      "guideHint": "Pahiwatig: tingnan kung may pinag-uusapan at may sinasabi tungkol dito.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang buong pangungusap ay may simuno at panaguri at nagpapahayag ng buong diwa. Ang maiikling bahagi ay kulang sa isa sa mga ito."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Piliin ang buong pangungusap na may simuno at panaguri.",
+      "content": {
+        "options": [
+          "Si Dina / ay nagwawalis.",
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "kasi tuwang-tuwa ang lahat"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang pangungusap na may simuno, panaguri, at buong diwa. 💪"
+      },
+      "prompt": "Alin ang kumpletong pangungusap na may simuno at panaguri?",
+      "narration": "Hanapin ang pagpipiliang nagsasabi kung sino o ano ang pinag-uusapan at kung ano ang ginagawa o kalagayan nito.",
+      "guideHint": "Pahiwatig: ang tamang sagot ay may dalawang bahagi at buong diwa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang pagpipiliang nagsasabi kung sino o ano ang pinag-uusapan at kung ano ang ginagawa o kalagayan nito."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Itugma ang bawat bahagi sa ginagampanan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Si Dina",
+            "right": "bahaging pinag-uusapan"
+          },
+          {
+            "left": "ay nagwawalis.",
+            "right": "sinasabi tungkol sa simuno"
+          },
+          {
+            "left": "Si Dina / ay nagwawalis.",
+            "right": "kumpletong diwa"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: ang simuno ay pinag-uusapan, at ang panaguri ay nagsasabi tungkol dito. 💪"
+      },
+      "prompt": "Itugma ang bahagi sa simuno, panaguri, o buong pangungusap.",
+      "narration": "Ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito; magkasama silang bumubuo ng buong pangungusap.",
+      "guideHint": "Pahiwatig: itanong kung sino ang pinag-uusapan at ano ang sinasabi tungkol sa kanya.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan; ang panaguri ang nagsasabi tungkol dito; magkasama silang bumubuo ng buong pangungusap."
+    },
+    {
+      "activityId": "filipino-g3-q2-w05-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q2-w05-d03-visual",
+      "instruction": "Ayusin ang proseso ng paghahanap ng simuno at panaguri.",
+      "content": {
+        "steps": [
+          "Basahin ang pangungusap",
+          "Hanapin kung sino o ano ang pinag-uusapan",
+          "Hanapin ang sinasabi tungkol dito",
+          "Sabihin: simuno at panaguri"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, saka pangalanan ang mga bahagi. 💪"
+      },
+      "prompt": "Paano mo susuriin ang isang pangungusap?",
+      "narration": "Basahin ang pangungusap, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, at pangalanan ang dalawang bahagi.",
+      "guideHint": "Pahiwatig: magsimula sa pagbasa, pagkatapos ay itanong kung sino o ano ang pinag-uusapan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang pangungusap, hanapin ang pinag-uusapan, hanapin ang sinasabi tungkol dito, at pangalanan ang dalawang bahagi."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q2-w05-d03-q1",
+        "prompt": "Habang nagwawalis si Dina sa silid-aralan, sino ang pinag-uusapan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang mga isda"
+          },
+          {
+            "id": "b",
+            "text": "Si Dina"
+          },
+          {
+            "id": "c",
+            "text": "Ang sasakyan"
+          },
+          {
+            "id": "d",
+            "text": "Si Jose"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Si Dina ang pinag-uusapan sa pangungusap, kaya siya ang simuno.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q2-w05-d03-q2",
+        "prompt": "Ano ang ginagawa ni Dina sa silid-aralan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay humihinto sa tawiran."
+          },
+          {
+            "id": "b",
+            "text": "ay lumalangoy sa ilog."
+          },
+          {
+            "id": "c",
+            "text": "ay nag-eehersisyo."
+          },
+          {
+            "id": "d",
+            "text": "ay nagwawalis."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang panaguring “ay nagwawalis.” ang nagsasabi ng kilos ni Dina.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q2-w05-d03-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa gawain, binasa ang “Ang sasakyan ay humihinto sa tawiran.” Alin ang wastong paghahati?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Simuno: Ang sasakyan; panaguri: ay humihinto sa tawiran."
+          },
+          {
+            "id": "b",
+            "text": "Simuno: Ang sasakyan ay; panaguri: humihinto sa tawiran."
+          },
+          {
+            "id": "c",
+            "text": "Simuno: Ang; panaguri: sasakyan ay humihinto sa tawiran."
+          },
+          {
+            "id": "d",
+            "text": "Simuno: Ang sasakyan ay humihinto; panaguri: sa tawiran."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang “Ang sasakyan” ang simuno at “ay humihinto sa tawiran.” ang panaguri."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q2-w05-d03-q4",
+        "prompt": "May walis si Dina at nililinis niya ang silid-aralan. Alin ang panaguring tumutugma sa sitwasyon?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay lumalangoy sa ilog."
+          },
+          {
+            "id": "b",
+            "text": "ay humihinto sa tawiran."
+          },
+          {
+            "id": "c",
+            "text": "ay nagwawalis."
+          },
+          {
+            "id": "d",
+            "text": "ay nag-eehersisyo."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang kilos na tumutugma sa walis at paglilinis ng silid-aralan ay “ay nagwawalis.”",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q2-w05-d03-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa kuwento, si Jose ay nag-eehersisyo. Alin ang wastong paghahati ng pangungusap?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Simuno: Si Jose ay; panaguri: nag-eehersisyo."
+          },
+          {
+            "id": "b",
+            "text": "Simuno: Si Jose; panaguri: ay nag-eehersisyo."
+          },
+          {
+            "id": "c",
+            "text": "Simuno: Si; panaguri: Jose ay nag-eehersisyo."
+          },
+          {
+            "id": "d",
+            "text": "Simuno: Si Jose ay nag-eehersisyo; panaguri: wala."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “Si Jose” ang simuno at “ay nag-eehersisyo.” ang panaguri."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b1a-2026-08-15"
+}

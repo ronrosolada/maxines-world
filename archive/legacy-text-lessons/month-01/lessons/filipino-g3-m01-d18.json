@@ -1,0 +1,370 @@
+{
+  "lessonId": "filipino-g3-m01-d18",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 18,
+  "subject": "FILIPINO",
+  "title": "Sumulat ng Maayos na Talata",
+  "objective": "Bumuo ng maikling talatang may pokus at magkakaugnay na pangungusap.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ang maayos na talata ay nakatuon sa isang paksa at may mga detalyeng sumusuporta rito. Ayusin ang mga pangungusap upang malinaw ang ideya.",
+  "vocabulary": [
+    {
+      "term": "maayos",
+      "definition": "Ang pagiging malinis at tama ang ayos."
+    },
+    {
+      "term": "talata",
+      "definition": "Grupo ng mga pangungusap tungkol sa isang paksa."
+    },
+    {
+      "term": "pangungusap",
+      "definition": "Grupo ng mga salita na may buong diwa."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d18-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Basahin ang paliwanag tungkol sa pagsulat ng talata.",
+      "content": "Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Piliin lamang ang detalyeng kaugnay ng paksa. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Ang talata ay may pangunahing ideya at mga pangungusap na sumusuporta rito. Ang tatlo hanggang limang pangungusap ay gabay lamang sa gawaing ito."
+    },
+    {
+      "activityId": "filipino-g3-m01-d18-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tingnan ang paksa at detalyeng kaugnay nito.",
+      "content": {
+        "examples": [
+          "Paksa: hardin",
+          "Detalye: may gulay at bulaklak",
+          "Wakas: inaalagaan ito araw-araw"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang paksa at mga detalyeng magkakaugnay. 🔎",
+        "retry": "Hanapin ang ideyang pinag-uugnay ng mga pangungusap. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d18-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa angkop na pangkat ang detalyeng kaugnay ng paksa.",
+      "content": {
+        "fits": [
+          "hardin",
+          "may gulay at bulaklak",
+          "inaalagaan araw-araw"
+        ],
+        "doesNotFit": [
+          "Magpalit ng paksa bawat pangungusap",
+          "Maglista ng salitang walang ugnayan",
+          "Ulitin lamang ang pamagat"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga detalyeng sumusuporta sa paksa. 🎉",
+        "retry": "Suriin kung bawat card ay tumutulong sa iisang paksa. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d18-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Ano ang kailangan ng maayos na talata?",
+      "content": {
+        "options": [
+          "isang pokus at magkakaugnay na detalye",
+          "maraming di-kaugnay na paksa",
+          "mga salitang walang pangungusap"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: isang pokus at magkakaugnay na detalye",
+        "retry": "Piliin ang pangangailangang tumutulong sa iisang paksa. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d18-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang halimbawa sa dahilan o gamit nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Paksa",
+            "right": "ideyang sentro ng talata"
+          },
+          {
+            "left": "Detalye",
+            "right": "sumusuportang impormasyon"
+          },
+          {
+            "left": "Wakas",
+            "right": "pangungusap na nagsasara ng ideya"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang bahagi sa tungkulin nito sa talata. 🔗",
+        "retry": "Itugma ang bahagi sa tungkulin nito sa talata. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d18-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Pumili ng isang malinaw na paksa.",
+          "Magdagdag ng detalyeng sumusuporta rito.",
+          "Ayusin ang mga pangungusap sa talata."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagsulat ng talata. 🎉",
+        "retry": "Sundin ang daloy: pumili, magdagdag, at ayusin. 💪"
+      },
+      "assetId": "filipino-g3-m01-d18-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d18-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang maaaring maging paksa ng isang talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang aking pamilya"
+          },
+          {
+            "id": "b",
+            "text": "lahat ng bagay sa mundo"
+          },
+          {
+            "id": "c",
+            "text": "bawat salita sa diksyunaryo"
+          },
+          {
+            "id": "d",
+            "text": "lahat ng pangyayari sa isang taon"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang isang talata ay nakatuon sa isang paksa lamang, tulad ng aking pamilya."
+      },
+      {
+        "itemId": "filipino-g3-m01-d18-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pangungusap na naaangkop sa talatang tungkol sa pag-aalaga ng halaman?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang pusa ay mahilig sa isda."
+          },
+          {
+            "id": "b",
+            "text": "Ang paaralan ay malaki."
+          },
+          {
+            "id": "c",
+            "text": "Dinidiligan ko ang halaman tuwing umaga."
+          },
+          {
+            "id": "d",
+            "text": "Ang eroplano ay mabilis lumipad."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagdidilig ng halaman ay kaugnay ng paksang pag-aalaga ng halaman."
+      },
+      {
+        "itemId": "filipino-g3-m01-d18-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang dapat na nasa isang maayos na talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mga larawan lamang na walang salita"
+          },
+          {
+            "id": "b",
+            "text": "mga pangungusap na magkakaugnay tungkol sa isang paksa"
+          },
+          {
+            "id": "c",
+            "text": "isang mahabang salita lamang"
+          },
+          {
+            "id": "d",
+            "text": "mga pangungusap na walang kaugnayan sa isa't isa"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang maayos na talata ay may mga pangungusap na lahat tungkol sa isang paksa."
+      },
+      {
+        "itemId": "filipino-g3-m01-d18-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang kailangan ng maayos na talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "isang pokus at magkakaugnay na detalye"
+          },
+          {
+            "id": "b",
+            "text": "maraming di-kaugnay na paksa"
+          },
+          {
+            "id": "c",
+            "text": "mga salitang walang pangungusap"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pokus ang pangunahing ideya; ang magkakaugnay na detalye ang sumusuporta rito."
+      },
+      {
+        "itemId": "filipino-g3-m01-d18-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang angkop na unang pangungusap ng talatang tungkol sa aking alaga?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Kaya naman mahal ko siya."
+          },
+          {
+            "id": "b",
+            "text": "Pagkatapos, natulog na kami."
+          },
+          {
+            "id": "c",
+            "text": "May alaga akong aso na nagngangalang Bantay."
+          },
+          {
+            "id": "d",
+            "text": "Samantala, sa paaralan naman."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang unang pangungusap ang nagpapakilala ng paksa ng talata."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d18-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d18-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Sumulat ng Maayos na Talata; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Sumulat ng Maayos na Talata.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "7d8aef1a22a981b3a5c5b11f5e1f5c4a15251214c40cddb57acead2e74ef3e1e",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
+}

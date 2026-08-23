@@ -1,0 +1,382 @@
+{
+  "lessonId": "science-g3-m01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "SCIENCE",
+  "title": "Animals Around Us",
+  "objective": "Relate familiar animals to suitable habitats without disturbing wildlife.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "A fish swims in a pond, a bird finds food near a nest, and a frog rests in a damp place. Why do these habitats fit?",
+  "vocabulary": [
+    {
+      "term": "water",
+      "definition": "A place where living things find the resources they need."
+    },
+    {
+      "term": "shelter",
+      "definition": "A safe place that protects a living thing from danger."
+    },
+    {
+      "term": "animal",
+      "definition": "A living thing that grows, moves, and needs food."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch Milo match animals with habitats that meet their needs.",
+      "content": "Habitats provide resources such as food, water, shelter, and space.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Check the animal's needs for food, water, shelter, and space."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Text alternative: Habitats provide resources such as food, water, shelter, and space."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each animal and find the resource its habitat provides.",
+      "content": {
+        "examples": [
+          "a fish swims where water provides oxygen",
+          "a bird finds food near its nest",
+          "a frog rests where the ground stays damp"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Animals Around Us. 🔎",
+        "retry": "For each animal, name the resource its habitat supplies."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each observation by whether the habitat match is suitable and kind.",
+      "content": {
+        "fits": [
+          "a fish swims where water provides oxygen",
+          "a bird finds food near its nest",
+          "a frog rests where the ground stays damp"
+        ],
+        "doesNotFit": [
+          "a child takes a wild bird home",
+          "a frog is placed on dry hot sand",
+          "a fish is kept away from water"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Ask whether the place provides the animal's needs without disturbing it."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Choose why a pond can suit a tadpole.",
+      "content": {
+        "options": [
+          "It gives the animal a school grade.",
+          "It changes every animal into a pet.",
+          "It provides needed resources."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: It provides needed resources.",
+        "retry": "A tadpole needs water and other resources, so check the choice that names them."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each animal with a resource its habitat provides.",
+      "content": {
+        "pairs": [
+          {
+            "left": "fish",
+            "right": "water with oxygen for breathing"
+          },
+          {
+            "left": "bird",
+            "right": "nesting space and nearby food"
+          },
+          {
+            "left": "frog",
+            "right": "moist ground and shelter"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Animals Around Us explanation. 🔗",
+        "retry": "Match each animal to a resource it can actually find in that habitat."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Order the steps for matching an animal with a suitable habitat.",
+      "content": {
+        "steps": [
+          "Meet the animal.",
+          "Think about what it needs.",
+          "Match it to a suitable habitat without disturbing it."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Animals Around Us steps in order. 🎉",
+        "retry": "Check the order: identify the animal, list its needs, then match its habitat."
+      },
+      "assetId": "science-g3-m01-d04-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo sees a fish in a pond, a bird near a nest, and a frog on damp ground. Which statement is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Habitats provide resources such as food, water, shelter, and space."
+          },
+          {
+            "id": "b",
+            "text": "Take wildlife home"
+          },
+          {
+            "id": "c",
+            "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "d",
+            "text": "A habitat is only a sleeping place"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A habitat gives an animal resources such as food, water, shelter, and space. Different animals need different places, and a habitat is more than a sleeping spot."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine helps an adult observe a tadpole. Which habitat is suitable for it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Fish—desert habitat"
+          },
+          {
+            "id": "b",
+            "text": "Fish—water habitat"
+          },
+          {
+            "id": "c",
+            "text": "Fish—tree habitat"
+          },
+          {
+            "id": "d",
+            "text": "Tadpole—dry sand"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Tadpoles and fish need water, so a water habitat can meet their needs. A tree, desert, or dry sand cannot provide the needed water."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo has four habitat cards. Which statement is NOT true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Every animal fits one habitat only"
+          },
+          {
+            "id": "b",
+            "text": "Fish can live in water"
+          },
+          {
+            "id": "c",
+            "text": "Birds can find nesting places in trees"
+          },
+          {
+            "id": "d",
+            "text": "Frogs need a moist place"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "One habitat does not suit every animal because animals have different needs. Water can suit fish, trees can offer birds nesting space, and damp places suit frogs."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine sees a tadpole swimming in a pond. Why might the pond suit it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "It provides water and resources it needs."
+          },
+          {
+            "id": "b",
+            "text": "All animals must live there."
+          },
+          {
+            "id": "c",
+            "text": "It is made of paper."
+          },
+          {
+            "id": "d",
+            "text": "It gives the tadpole a school grade."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A pond provides water and other resources a tadpole needs while it grows. It is not made of paper, and not every animal can live there."
+      },
+      {
+        "itemId": "science-g3-m01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "An earthworm is found under damp soil. Which environment suits it best?",
+        "options": [
+          {
+            "id": "a",
+            "text": "An icebox"
+          },
+          {
+            "id": "b",
+            "text": "The dry ocean surface"
+          },
+          {
+            "id": "c",
+            "text": "Damp soil"
+          },
+          {
+            "id": "d",
+            "text": "Hot desert sand"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Earthworms need moist soil for air, food, and shelter. An icebox, dry ocean surface, or hot sand does not provide the right conditions."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d04-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d04-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Animals Around Us; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Animals Around Us.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "7408b8dd0097d00eb9474d49089729d5e6937856e5f6306b7b3f9e01e65563ab",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
+}

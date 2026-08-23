@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q4-w06-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 3,
+  "subject": "makabansa",
+  "title": "Pamumuhay sa Pamilihan",
+  "objective": "Naipaliliwanag kung paano nakaaapekto ang paligid sa pamumuhay sa pamilihan ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "🧺 Sa pamilihan, ang mga produkto at hanapbuhay ay nakaugnay sa mga kailangan ng komunidad. Alamin natin kung paano naaapektuhan ng paligid ang buhay ng mga nagtitinda at namimili.",
+  "vocabulary": [
+    {
+      "term": "pamilihan",
+      "definition": "Lugar kung saan nagtitinda at bumibili ng mga produkto ang mga tao."
+    },
+    {
+      "term": "produkto",
+      "definition": "Bagay o pagkaing ipinagbibili sa pamilihan."
+    },
+    {
+      "term": "nagbebenta",
+      "definition": "Taong nag-aalok ng produkto kapalit ng bayad."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Pakinggan kung paano hinuhubog ng pamilihan ang buhay ng komunidad.",
+      "content": "Sa pamilihan, nagkikita ang nagbebenta at bumibili upang magpalitan ng produkto at bayad. Ang mga ani, isda, at gamit na dumarating ay nakaaapekto sa pagkain, hanapbuhay, at gawain ng komunidad. Kaya ang paligid at pangangailangan ng mga tao ay humuhubog sa buhay sa pamilihan.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ang palitan ng produkto at bayad ay bahagi ng pamumuhay sa pamilihan. 🎉",
+        "retry": "Balikan ang ugnayan ng produkto, nagbebenta, bumibili, at pangangailangan."
+      },
+      "prompt": "Alamin kung paano nakaaapekto ang pamilihan sa pamumuhay.",
+      "narration": "Sa pamilihan, nagkikita ang nagbebenta at bumibili upang magpalitan ng produkto at bayad. Ang mga ani, isda, at gamit na dumarating ay nakaaapekto sa pagkain, hanapbuhay, at gawain ng komunidad. Kaya ang paligid at pangangailangan ng mga tao ay humuhubog sa buhay sa pamilihan.",
+      "guideHint": "Pansinin kung paano nagkikita ang nagbebenta, bumibili, at produkto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Paliwanag tungkol sa palitan ng produkto at bayad sa pagitan ng nagbebenta at bumibili."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Hanapin sa larawan ang mga gawain sa pamilihan.",
+      "content": {
+        "examples": [
+          "nagtitinda ng gulay na galing sa sakahan",
+          "bumibili ng isda para sa hapunan",
+          "nagpapalit ng produkto sa tamang bayad",
+          "gumagamit ng bayong sa pag-uwi ng binili"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Natukoy mo ang mga gawaing nag-uugnay sa pamilihan. 🎉",
+        "retry": "Hanapin ang larawang may produkto, bayad, mamimili, o nagtitinda."
+      },
+      "prompt": "Tuklasin ang produkto, nagbebenta, at mamimiling bumubuo sa pamilihan.",
+      "narration": "Hanapin ang mga gawaing ipinapakita sa larawan at isipin kung paano nakatutulong ang mga ito sa komunidad.",
+      "guideHint": "Hanapin ang produktong ipinagbibili o taong bumibili at nagbebenta.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Larawan ng gulay, isda, bayong, nagtitinda, at mamimili."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Pangkatin ang mga gawaing kaugnay ng pamilihan.",
+      "content": {
+        "fits": [
+          "nagtitinda ng gulay na inani sa bukid",
+          "bumibili ng isda para sa hapunan",
+          "nagpapalit ng produkto sa tamang bayad",
+          "gumagamit ng bayong sa pag-uwi ng binili"
+        ],
+        "doesNotFit": [
+          "nagdidilig ng halaman sa hardin ng bahay",
+          "nagbabasa ng kuwento sa silid-aralan",
+          "naglalaro ng sipa sa parke",
+          "nag-aalaga ng alagang hayop sa bahay"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Napangkat mo ang mga gawaing may kaugnayan sa pamilihan. 🎉",
+        "retry": "Suriin kung may produkto, mamimili, nagtitinda, o bayad na kaugnay ng kard."
+      },
+      "prompt": "Pagbukud-bukurin ang mga gawain ayon sa ugnayan nito sa pamilihan.",
+      "narration": "Pangkatin ang mga kard ayon sa malinaw na ugnayan ng gawain sa lugar at pamumuhay ng komunidad.",
+      "guideHint": "Tanungin: may produkto, mamimili, nagtitinda, o bayad ba sa kard?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga kard tungkol sa pagbili, pagtitinda, bayong, at ibang gawain sa komunidad."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Piliin ang gawaing nagpapakita ng buhay sa pamilihan.",
+      "content": {
+        "options": [
+          "nagtitinda ng gulay sa mamimili",
+          "nagtatanim ng puno sa bakuran",
+          "naglalaro ng habulan sa parke",
+          "nagsusulat ng aralin sa kuwaderno"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang pagtitinda ay nag-uugnay ng produkto sa taong nangangailangan nito. 🎉",
+        "retry": "Hanapin ang gawaing may produkto at taong bumibili o nagbebenta."
+      },
+      "prompt": "Alin ang nagpapakita ng pag-uugnay ng produkto at mamimili?",
+      "narration": "Gamitin ang paliwanag tungkol sa lugar upang piliin ang iisang gawaing may tamang ugnayan dito.",
+      "guideHint": "Hanapin ang gawaing may nagbebenta, produkto, at mamimili.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga pagpipilian tungkol sa pagtitinda, paaralan, bakuran, at paso."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Itugma ang gawain sa tungkulin o bunga nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pagtitinda ng gulay na galing sa bukid",
+            "right": "pagdadala ng ani sa mamimili"
+          },
+          {
+            "left": "pagbili ng isda para sa hapunan",
+            "right": "pagtugon sa pangangailangan ng pamilya"
+          },
+          {
+            "left": "paggamit ng bayong sa pag-uwi",
+            "right": "pagdadala ng binili nang maayos"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipares mo ang gawain sa tungkulin o bungang mahalaga sa pamilihan. 🎉",
+        "retry": "Basahin ang gawain at itanong kung sino ang natutulungan at anong produkto ang gumagalaw."
+      },
+      "prompt": "Itapat ang gawain sa pamilihan sa tungkulin o bunga nito.",
+      "narration": "Iugnay ang bawat gawain sa tungkulin, bunga, o kategoryang ipinapakita nito sa komunidad.",
+      "guideHint": "Basahin ang gawain at itanong kung paano ito nakatutulong sa mamimili.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga pares tungkol sa ani, mamimili, bayong, at tungkulin ng mga ito."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d03-visual",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng pamilihan at pamumuhay.",
+      "content": {
+        "steps": [
+          "Tingnan ang produkto o gawain sa pamilihan",
+          "Tukuyin kung sino ang nagbebenta o bumibili",
+          "Iugnay ito sa pangangailangan ng komunidad",
+          "Ipaliwanag kung paano naaapektuhan ang pamumuhay"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nagsimula ka sa produkto, tinukoy ang tao, at naipaliwanag ang ugnayan. 🎉",
+        "retry": "Unahin ang produkto, tukuyin ang nagbebenta o bumibili, saka ipaliwanag ang pangangailangan."
+      },
+      "prompt": "Ayusin ang mga hakbang sa pagpapaliwanag ng ugnayan ng pamilihan at pamumuhay.",
+      "narration": "Ayusin ang mga hakbang mula sa pagmamasid sa lugar hanggang sa pagpapaliwanag ng ugnayan nito sa pamumuhay.",
+      "guideHint": "Magsimula sa produkto, tukuyin ang tao, iugnay sa pangangailangan, at ipaliwanag ang bunga.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga hakbang mula sa pagtukoy ng produkto hanggang sa pagpapaliwanag ng ugnayan sa pamilihan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q4-w06-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa pamilihan, alin ang nagpapakita ng pag-uugnay ng paligid at hanapbuhay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nagsusulat ng liham sa silid-aralan"
+          },
+          {
+            "id": "b",
+            "text": "naglalaro ng sipa sa bakuran"
+          },
+          {
+            "id": "c",
+            "text": "nagtatanim ng halaman sa paso sa bahay"
+          },
+          {
+            "id": "d",
+            "text": "nagtitinda ng gulay na inani sa kalapit na bukid"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagtitinda ng gulay na inani sa kalapit na bukid ay nag-uugnay sa ani ng paligid at hanapbuhay sa pamilihan."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalaga ang pamilihan sa komunidad na malapit sa bukid?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Doon lamang naglalaro ang mga bata."
+          },
+          {
+            "id": "b",
+            "text": "Pinipigilan nitong magbenta ang mga magsasaka."
+          },
+          {
+            "id": "c",
+            "text": "Wala itong kinalaman sa pagkain ng pamilya."
+          },
+          {
+            "id": "d",
+            "text": "Doon naibebenta ang ani sa mga pamilyang nangangailangan nito."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Mahalaga ang pamilihan dahil doon naipagbibili ng magsasaka ang ani at nakakabili ang mga pamilya ng pagkain."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May mga isdang dumarating mula sa baybayin. Ano ang maaaring mabili sa pamilihan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "buto ng puno ng bundok"
+          },
+          {
+            "id": "b",
+            "text": "sariwang isda para sa pagkain"
+          },
+          {
+            "id": "c",
+            "text": "tiket ng tren"
+          },
+          {
+            "id": "d",
+            "text": "niyebeng pampalamig"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Kapag may isdang dumarating mula sa baybayin, sariwang isda ang produktong maaaring bilhin para kainin o ipagbili."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Si Rosa ay may dalang bayong at listahan ng pagkain. Ano ang ginagawa niya?",
+        "options": [
+          {
+            "id": "a",
+            "text": "naghahanda ng bukid"
+          },
+          {
+            "id": "b",
+            "text": "namimili ng kailangan sa pamilihan"
+          },
+          {
+            "id": "c",
+            "text": "nagmamaneho ng barko"
+          },
+          {
+            "id": "d",
+            "text": "nagtatayo ng paaralan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang bayong at listahan ng pagkain ay palatandaang namimili si Rosa ng mga kailangan sa pamilihan."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI karaniwang gawain sa pamilihan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagbasa ng kuwento sa silid-aklatan"
+          },
+          {
+            "id": "b",
+            "text": "pagtitimbang ng gulay"
+          },
+          {
+            "id": "c",
+            "text": "pagbabayad sa nagtitinda"
+          },
+          {
+            "id": "d",
+            "text": "pagpili ng isda para sa hapunan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pagbasa ng kuwento sa silid-aklatan ay gawain sa lugar ng pagbabasa, hindi gawain ng pagbili o pagtitinda sa pamilihan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

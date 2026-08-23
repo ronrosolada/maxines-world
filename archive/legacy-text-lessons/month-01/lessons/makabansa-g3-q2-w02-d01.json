@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q2-w02-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 1,
+  "subject": "makabansa",
+  "title": "Pamumuhay sa Baybayin",
+  "objective": "Naipaliliwanag kung paano nakaaapekto ang baybayin sa kultura at pamumuhay ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa baybayin, nakatutulong ang dagat sa hanapbuhay, pagkain, at disenyo ng tahanan. Tuklasin kung paano umaangkop ang pamumuhay sa kapaligiran. 🏝️",
+  "vocabulary": [
+    {
+      "term": "pangingisda sa baybayin",
+      "definition": "Kabuhayang umaasa sa paghuli ng isda malapit sa dagat."
+    },
+    {
+      "term": "pagsasaka sa kapatagan",
+      "definition": "Kabuhayang umaasa sa pagtatanim sa patag na lupa."
+    },
+    {
+      "term": "disenyong angkop sa klima",
+      "definition": "Disenyong isinasaalang-alang ang init, ulan, o hangin sa lugar."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Pakinggan kung paano hinuhubog ng baybayin ang pamumuhay.",
+      "content": "Nakaaapekto ang kapaligiran sa hanapbuhay, pagkain, tahanan, at mga gawaing pinipili ng tao. Sa baybayin, maaaring maiugnay ang dagat sa pangingisda, pagkaing-dagat, at disenyong angkop sa hangin at ulan.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli ang clue: hanapbuhay, pagkain, at tahanan ay umaangkop sa baybayin."
+      },
+      "prompt": "Alamin ang ugnayan ng dagat, hanapbuhay, pagkain, at tahanan.",
+      "narration": "Sa baybayin, maaaring maiugnay ang dagat sa pangingisda, pagkaing-dagat, at disenyong angkop sa hangin at ulan.",
+      "guideHint": "Pakinggan ang clue: hanapbuhay, pagkain, at tahanan ay umaangkop sa lugar.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa baybayin, maaaring maiugnay ang dagat sa pangingisda, pagkaing-dagat, at disenyong angkop sa hangin at ulan."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Hanapin ang hanapbuhay, disenyo, at pagkaing kaugnay ng lugar.",
+      "content": {
+        "examples": [
+          "pangingisda sa baybayin",
+          "pagsasaka sa kapatagan",
+          "disenyong angkop sa klima",
+          "pagkain mula sa lokal na ani"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pangingisda, pagsasaka, disenyong angkop, at pagkaing mula sa ani."
+      },
+      "prompt": "I-tap ang mga halimbawa ng pamumuhay na umaangkop sa kapaligiran.",
+      "narration": "Hanapin ang pangingisda sa baybayin, pagsasaka sa kapatagan, disenyong angkop sa klima, at pagkaing mula sa ani.",
+      "guideHint": "Hanapin ang apat na halimbawang nag-uugnay sa gawain at kapaligiran.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang pangingisda sa baybayin, pagsasaka sa kapatagan, disenyong angkop sa klima, at pagkaing mula sa ani."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Ilagay ang gawaing umaangkop sa lugar o ang hindi umaangkop.",
+      "content": {
+        "fits": [
+          "bangkang gamit sa pangingisda sa baybayin",
+          "pagtatanim sa patag na bukid",
+          "bahay na may disenyo para sa hangin at ulan",
+          "pagkaing mula sa lokal na ani"
+        ],
+        "doesNotFit": [
+          "damit na hindi akma sa klima",
+          "pagkaing walang sangkap mula sa lugar",
+          "halamang hindi nabubuhay sa klima",
+          "gawaing hindi kaugnay ng kapaligiran"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: may clue ba sa lugar, klima, ani, o hanapbuhay?"
+      },
+      "prompt": "Paghiwalayin ang halimbawa ayon sa ugnayan nito sa kapaligiran.",
+      "narration": "Ang pangingisda, ani, pagkain, at disenyo ay dapat maiugnay sa kapaligiran; ang hindi angkop ay walang malinaw na ugnayan.",
+      "guideHint": "Tanungin: may clue ba sa lugar, klima, ani, o hanapbuhay?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pangingisda, ani, pagkain, at disenyo ay dapat maiugnay sa kapaligiran; ang hindi angkop ay walang malinaw na ugnayan."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Piliin ang hanapbuhay na tuwirang kaugnay ng baybayin.",
+      "content": {
+        "options": [
+          "pangingisda sa baybayin",
+          "pagtatanim ng gulay sa mataas na bukid",
+          "pag-aalaga ng kamelyo sa tuyong disyerto",
+          "pagmimina sa mataas na bundok"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang gawaing gumagamit ng yamang-dagat."
+      },
+      "prompt": "Alin ang maaaring hanapbuhay ng pamayanang malapit sa dagat?",
+      "narration": "Ang pangingisda sa baybayin ay gumagamit ng yamang-dagat bilang hanapbuhay at pagkain.",
+      "guideHint": "Hanapin ang gawaing gumagamit ng yamang-dagat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pangingisda sa baybayin ay gumagamit ng yamang-dagat bilang hanapbuhay at pagkain."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Itugma ang gawain sa epekto nito sa pamumuhay.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pangingisda sa baybayin",
+            "right": "isda para sa pagkain at kabuhayan"
+          },
+          {
+            "left": "pagsasaka sa kapatagan",
+            "right": "ani mula sa patag na bukid"
+          },
+          {
+            "left": "disenyong angkop sa klima",
+            "right": "tahanan na proteksiyon sa init at ulan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay ang gawain sa isda, ani, o proteksiyon sa klima."
+      },
+      "prompt": "Iugnay ang hanapbuhay o disenyo sa pakinabang nito.",
+      "narration": "Ang pangingisda ay nagbibigay ng isda, pagsasaka ng ani, at ang angkop na disenyo ay proteksiyon sa klima.",
+      "guideHint": "Iugnay ang gawain sa isda, ani, o proteksiyon sa klima.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pangingisda ay nagbibigay ng isda, pagsasaka ng ani, at ang angkop na disenyo ay proteksiyon sa klima."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d01-visual",
+      "instruction": "Ayusin mula pagtukoy ng lugar hanggang pagpapaliwanag ng ugnayan.",
+      "content": {
+        "steps": [
+          "Tukuyin kung baybayin ang lugar",
+          "Iugnay ang dagat sa pangingisda",
+          "Pansinin ang pagkain o bahay na angkop sa kapaligiran",
+          "Ipaliwanag kung paano hinuhubog ng baybayin ang pamumuhay"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang lugar, saka iugnay ang dagat, pansinin ang halimbawa, at ipaliwanag ang ugnayan."
+      },
+      "prompt": "Ilagay sa tamang ayos ang pagsusuri sa pamumuhay sa baybayin.",
+      "narration": "Tukuyin ang baybayin, iugnay ang dagat sa pangingisda, pansinin ang angkop na pagkain o bahay, at ipaliwanag ang ugnayan.",
+      "guideHint": "Unahin ang lugar; huli ang pagpapaliwanag kung paano ito nakaaapekto.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Tukuyin ang baybayin, iugnay ang dagat sa pangingisda, pansinin ang angkop na pagkain o bahay, at ipaliwanag ang ugnayan."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q2-w02-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa pamayanang malapit sa dagat, alin ang hanapbuhay na umaasa sa kapaligiran?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pangingisda sa baybayin"
+          },
+          {
+            "id": "b",
+            "text": "pagtatanim ng gulay sa mataas na bukid"
+          },
+          {
+            "id": "c",
+            "text": "pag-aalaga ng kamelyo sa tuyong disyerto"
+          },
+          {
+            "id": "d",
+            "text": "pagmimina sa mataas na bundok"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pangingisda sa baybayin ay tuwirang gumagamit ng yamang-dagat ng lugar."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa pista ng baryo, alin ang halimbawa ng pagkaing nagmumula sa lokal na kapaligiran?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagkaing binili nang walang alam na pinagmulan"
+          },
+          {
+            "id": "b",
+            "text": "pagkain mula sa lokal na ani"
+          },
+          {
+            "id": "c",
+            "text": "pagkaing ginawa lamang upang maging makulay"
+          },
+          {
+            "id": "d",
+            "text": "pagkaing hindi karaniwang tumutubo sa lugar"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagkaing mula sa lokal na ani ay nagpapakitang nakaaapekto ang lugar sa pagkain ng komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano maaaring makaapekto ang kapaligiran sa pamumuhay ng mga tao sa baybayin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nagbibigay ito ng yamang ginagamit sa hanapbuhay at pagkain."
+          },
+          {
+            "id": "b",
+            "text": "Wala itong kaugnayan sa gawain ng tao."
+          },
+          {
+            "id": "c",
+            "text": "Pinipilit nitong pareho ang gawain ng lahat."
+          },
+          {
+            "id": "d",
+            "text": "Inaalis nito ang pangangailangan sa pagkain."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang yamang-dagat at lagay ng panahon ay nakaaapekto sa hanapbuhay at pagkain."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa komunidad na katabi ng ilog, alin ang maaaring maging bahagi ng kanilang pamumuhay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paggawa ng yelo sa bundok"
+          },
+          {
+            "id": "b",
+            "text": "pagsusuot ng makapal na dyaket araw-araw"
+          },
+          {
+            "id": "c",
+            "text": "pag-aalaga ng kamelyo sa disyerto"
+          },
+          {
+            "id": "d",
+            "text": "pangingisda sa ilog at paggamit ng tubig nito"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang ilog ay nagbibigay ng isda at tubig kaya maaari itong maiugnay sa pamumuhay."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa poster tungkol sa kultura ng komunidad, alin ang HINDI angkop na halimbawa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsasaka sa kapatagan"
+          },
+          {
+            "id": "b",
+            "text": "awit at sayaw na lokal"
+          },
+          {
+            "id": "c",
+            "text": "pag-awit ng awiting pambansa ng ibang bansa sa halip na lokal na awit"
+          },
+          {
+            "id": "d",
+            "text": "pista ng komunidad"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagpapalit sa lokal na awit ng awiting pambansa ng ibang bansa ay hindi halimbawa ng lokal na kultura."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

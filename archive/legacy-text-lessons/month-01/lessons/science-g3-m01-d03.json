@@ -1,0 +1,382 @@
+{
+  "lessonId": "science-g3-m01-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "SCIENCE",
+  "title": "Five Sense Helpers",
+  "objective": "Connect primary sense organs with observations while recognizing senses work together.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo hears a bird, smells a mango, and feels a cool breeze. Which sense organs give him each clue?",
+  "vocabulary": [
+    {
+      "term": "sense",
+      "definition": "A way your body learns about the world through an organ."
+    },
+    {
+      "term": "sound",
+      "definition": "A vibration that travels to your ears and lets you hear."
+    },
+    {
+      "term": "hearing",
+      "definition": "Using your ears to notice sounds around you."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch Milo connect each sense organ with its job.",
+      "content": "Eyes, ears, nose, tongue, and skin are primary helpers, and senses often work together.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Check the clue: eyes see, ears hear, the nose smells, the tongue tastes, and skin feels."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "Text alternative: Eyes, ears, nose, tongue, and skin are primary helpers, and senses often work together."
+    },
+    {
+      "activityId": "science-g3-m01-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each observation and identify the organ that notices it.",
+      "content": {
+        "examples": [
+          "eyes notice light and color",
+          "ears notice a bird song",
+          "skin feels a cool breeze"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Five Sense Helpers. 🔎",
+        "retry": "For each observation, name the organ that receives its clue."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each observation by whether the organ and sense match.",
+      "content": {
+        "fits": [
+          "eyes notice light and color",
+          "ears notice a bird song",
+          "skin feels a cool breeze"
+        ],
+        "doesNotFit": [
+          "a tongue hears a bell",
+          "eyes taste a mango",
+          "touch an unknown substance"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Ask which organ would receive each sight, sound, or touch clue."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Choose the organ that primarily detects sound.",
+      "content": {
+        "options": [
+          "tongue",
+          "ears",
+          "eyes"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: ears",
+        "retry": "A sound travels to the ears, so compare the choices with that clue."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each sense organ with the clue it detects.",
+      "content": {
+        "pairs": [
+          {
+            "left": "eyes",
+            "right": "detect light and color"
+          },
+          {
+            "left": "ears",
+            "right": "detect sound vibrations"
+          },
+          {
+            "left": "skin",
+            "right": "feel touch and temperature"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Five Sense Helpers explanation. 🔗",
+        "retry": "Match each organ to the kind of information it receives."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Order the steps for identifying a sense organ.",
+      "content": {
+        "steps": [
+          "Look at the observation.",
+          "Name the sense organ that made it.",
+          "Explain what it tells you."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Five Sense Helpers steps in order. 🎉",
+        "retry": "Check the order: notice the clue, name the organ, then explain its message."
+      },
+      "assetId": "science-g3-m01-d03-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo hears a bird and smells a mango. Which statement about senses is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Eyes, ears, nose, tongue, and skin are primary helpers, and senses often work together."
+          },
+          {
+            "id": "b",
+            "text": "Everyone senses identically"
+          },
+          {
+            "id": "c",
+            "text": "Taste works without smell in every way"
+          },
+          {
+            "id": "d",
+            "text": "Each sense organ works alone all the time"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Eyes, ears, nose, tongue, and skin each help you sense, and they can work together. Smell helps flavor, and people may sense the same event differently."
+      },
+      {
+        "itemId": "science-g3-m01-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine sees a rainbow through a window. Which pair matches an organ to its job?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tongue—sound"
+          },
+          {
+            "id": "b",
+            "text": "Ears—light and color"
+          },
+          {
+            "id": "c",
+            "text": "Eyes—light and color"
+          },
+          {
+            "id": "d",
+            "text": "Nose—touch"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Eyes detect light and color, which is why Maxine can notice a rainbow. Ears detect sound, the tongue tastes, and the nose smells."
+      },
+      {
+        "itemId": "science-g3-m01-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo writes four claims about senses. Which one is NOT true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Taste works without smell in every way"
+          },
+          {
+            "id": "b",
+            "text": "Eyes notice light and color"
+          },
+          {
+            "id": "c",
+            "text": "Ears notice sound"
+          },
+          {
+            "id": "d",
+            "text": "Skin can feel a cool breeze"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Taste and smell work together, so taste is often weaker when you cannot smell. Eyes, ears, and skin still have the jobs named in the other cards."
+      },
+      {
+        "itemId": "science-g3-m01-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A bell rings beside Maxine. Which organ primarily detects the sound?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Eyes"
+          },
+          {
+            "id": "b",
+            "text": "Tongue"
+          },
+          {
+            "id": "c",
+            "text": "Ears"
+          },
+          {
+            "id": "d",
+            "text": "Nose"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ears receive sound vibrations from the bell. Eyes notice light, the tongue tastes, and the nose detects smells."
+      },
+      {
+        "itemId": "science-g3-m01-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine feels a soft blanket with her hand. Which pair matches the organ to the clue?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Skin—touch"
+          },
+          {
+            "id": "b",
+            "text": "Eyes—sound"
+          },
+          {
+            "id": "c",
+            "text": "Skin—sound"
+          },
+          {
+            "id": "d",
+            "text": "Ears—light"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Skin detects touch, so it helps Maxine feel the blanket. Ears detect sound, and eyes detect light."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d03-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d03-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Five Sense Helpers; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Five Sense Helpers.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "d56f5ba1630311a5942d1dc7cbcf3474cd454deca8bce06722df6323d3bf7df8",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
+}

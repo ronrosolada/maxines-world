@@ -1,0 +1,360 @@
+{
+  "lessonId": "mathematics-g3-m01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "MATHEMATICS",
+  "title": "Place and Value Detectives",
+  "objective": "Identify the place and value of a digit.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is spying on digits! Help him find the place and value of each digit in 4,352.",
+  "vocabulary": [
+    {
+      "term": "digit",
+      "definition": "One symbol used to write a number, like 0-9."
+    },
+    {
+      "term": "order",
+      "definition": "The position of a digit from right to left: ones, tens, hundreds, or thousands."
+    },
+    {
+      "term": "value",
+      "definition": "What a digit is worth because of its place, like the 3 in 4,352 is worth 300."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how the 3 in 4,352 sits in the hundreds place.",
+      "content": "Place names a position; value is what the digit represents in that position.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Check both position and value: the 3 is in the hundreds place and is worth 300. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "Text alternative: Place names a position; value is what the digit represents in that position."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the place-value clue.",
+      "content": {
+        "examples": [
+          "3 in 4,352 is hundreds",
+          "Its value is 300",
+          "5 is in the tens place"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Place and Value Detectives. 🔎",
+        "retry": "Check each example for this rule: Check both position and value: the 3 is in the hundreds place and is worth 300. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: does it name the place and value of a digit correctly?",
+      "content": {
+        "fits": [
+          "3 in 4,352 is hundreds",
+          "Its value is 300",
+          "5 is in the tens place"
+        ],
+        "doesNotFit": [
+          "Calling place and value identical",
+          "3 has value 3",
+          "5 is in hundreds"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Hooray! You sorted the examples correctly. 🎉",
+        "retry": "Check every card against this rule: Check both position and value: the 3 is in the hundreds place and is worth 300. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "In 4,352, what is the value of 3?",
+      "content": {
+        "options": [
+          "300",
+          "30",
+          "3"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 300",
+        "retry": "In 300, the 3 is in the hundreds place, not 30 or 3. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each digit to its place and value.",
+      "content": {
+        "pairs": [
+          {
+            "left": "3 in 4,352 is hundreds",
+            "right": "third place from the right"
+          },
+          {
+            "left": "Its value is 300",
+            "right": "3 groups of 100"
+          },
+          {
+            "left": "5 is in the tens place",
+            "right": "second place from the right"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Place and Value Detectives explanation. 🔗",
+        "retry": "Match each pair by the relationship: Check both position and value: the 3 is in the hundreds place and is worth 300. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the steps for finding a digit's value in order.",
+      "content": {
+        "steps": [
+          "Pick a digit in 4,352.",
+          "Name its place.",
+          "Name its value."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Place and Value Detectives steps in order. 🎉",
+        "retry": "Check the order: start with pick a digit in 4,352., then name its place., and finish with name its value.. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is inspecting the digits in 4,352. Which statement about place and value is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Calling place and value identical"
+          },
+          {
+            "id": "b",
+            "text": "A digit's value never depends on its place"
+          },
+          {
+            "id": "c",
+            "text": "Place names a position; value is what the digit represents in that position."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Place names a position, and value is what the digit is worth there. The 3 in 4,352 is in the hundreds place, so its value is 300."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is inspecting the digits in 4,352. In 4,352, where is the digit 3?",
+        "options": [
+          {
+            "id": "a",
+            "text": "3 in 4,352 is in the tens place"
+          },
+          {
+            "id": "b",
+            "text": "3 in 4,352 is in the ones place"
+          },
+          {
+            "id": "c",
+            "text": "3 in 4,352 is in the hundreds place"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "In 4,352, the 3 is the third digit from the right, so it is in the hundreds place."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is inspecting the digits in 4,352. Which statement is NOT true about place and value?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Calling place and value identical"
+          },
+          {
+            "id": "b",
+            "text": "Its value is 300"
+          },
+          {
+            "id": "c",
+            "text": "3 in 4,352 is hundreds"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Place and value are different: the 3 in 4,352 is in the hundreds place, and its value is 300. Saying they are identical is NOT true."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is inspecting the digits in 4,352. In 4,352, what is the value of 3?",
+        "options": [
+          {
+            "id": "a",
+            "text": "30"
+          },
+          {
+            "id": "b",
+            "text": "300"
+          },
+          {
+            "id": "c",
+            "text": "3"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The 3 is in the hundreds place, so it stands for 3 hundreds, or 300."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is inspecting the digits in 4,352. Which statement about place value is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5 is in the tens place"
+          },
+          {
+            "id": "b",
+            "text": "Calling place and value identical"
+          },
+          {
+            "id": "c",
+            "text": "5 is in hundreds"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "In 4,352, the 5 is the second digit from the right, so it is in the tens place with a value of 50."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d02-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d02-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Place and Value Detectives; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Place and Value Detectives.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "fa99d7a698ff0b992b09b458dd1629586c2a3191b493bee3ce7405486b52646d",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}

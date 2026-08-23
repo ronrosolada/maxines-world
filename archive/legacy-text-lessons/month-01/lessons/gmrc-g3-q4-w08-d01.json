@@ -1,0 +1,389 @@
+{
+  "lessonId": "gmrc-g3-q4-w08-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 1,
+  "subject": "gmrc",
+  "title": "Magalang sa Kapitbahayan",
+  "objective": "Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa sa kapitbahayan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa kapitbahayan, nakikisalamuha tayo sa mga taong may iba’t ibang edad at paniniwala. 🏘️ Ipakita ang paggalang sa pagbati, pakikinig, paghingi ng pahintulot, at pag-aalaga sa paligid.",
+  "vocabulary": [
+    {
+      "term": "nakikinig",
+      "definition": "Binibigyang-pansin ang sinasabi ng kausap bago sumagot o kumilos."
+    },
+    {
+      "term": "nagsasabi ng po at opo kung angkop",
+      "definition": "Gumagamit ng magalang na pananalita ayon sa kausap at sitwasyon."
+    },
+    {
+      "term": "humihingi ng pahintulot",
+      "definition": "Nagtatanong muna bago gumamit ng gamit o gumawa ng kilos na may epekto sa iba."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Pakinggan ang mga hakbang sa magalang na kapitbahayan.",
+      "content": "Ang paggalang ay makikita sa pakikinig, paggamit ng magagalang na salita, at pag-iingat sa damdamin ng iba. Gamitin ang ideya sa isang bagong sitwasyon. Halimbawa, sa pagbibigay ng mahinahong sagot.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung may pagbati, pakikinig, pahintulot, at pag-aalaga sa lugar."
+      },
+      "prompt": "Pakinggan kung paano gumalang sa kapitbahay.",
+      "narration": "Sa kapitbahayan, bumati nang maayos, makinig sa pakiusap, humingi ng pahintulot bago gumamit ng gamit, at panatilihing maayos ang paligid.",
+      "guideHint": "Alalahanin: bumati, makinig, magpaalam, at mag-ingat sa paligid.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa kapitbahayan, bumati nang maayos, makinig sa pakiusap, humingi ng pahintulot bago gumamit ng gamit, at panatilihing maayos ang paligid."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Hanapin ang magagalang na kilos sa kapitbahayan.",
+      "content": {
+        "examples": [
+          "bumabati sa kapitbahay nang magalang",
+          "nakikinig sa pakiusap ng kapitbahay",
+          "humihingi ng pahintulot bago manghiram",
+          "gumagalang sa pagkakaiba"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kilos ay bumabati, nakikinig, o nagpapaalam."
+      },
+      "prompt": "Tuklasin ang bawat magalang na kilos sa paligid.",
+      "narration": "Ang mabuting kapitbahay ay bumabati, nakikinig, humihingi ng pahintulot, at gumagalang sa pagkakaiba.",
+      "guideHint": "Hanapin ang kilos na nakatutulong sa maayos na samahan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang mabuting kapitbahay ay bumabati, nakikinig, humihingi ng pahintulot, at gumagalang sa pagkakaiba."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Pangkatin ang magalang at di-magalang na kilos sa kapitbahayan.",
+      "content": {
+        "fits": [
+          "bumabati sa kapitbahay nang magalang",
+          "nakikinig sa pakiusap ng kapitbahay",
+          "humihingi ng pahintulot bago manghiram",
+          "gumagalang sa pagkakaiba"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapitbahay",
+          "kumukuha ng gamit nang walang paalam",
+          "nagtatapon ng basura sa daan",
+          "sumisigaw sa nagpapahinga"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung may paggalang sa tao, gamit, at paligid."
+      },
+      "prompt": "Pagbukud-bukurin ang kilos sa paligid ng bahay.",
+      "narration": "Ang magalang na kapitbahay ay nakikinig, nagpapaalam, hindi nanunukso, at inaalagaan ang shared na paligid.",
+      "guideHint": "Ihambing ang bawat kilos sa tuntunin ng mabuting pakikitungo sa kapitbahay.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang magalang na kapitbahay ay nakikinig, nagpapaalam, hindi nanunukso, at inaalagaan ang shared na paligid."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Piliin ang magalang na kilos sa kapitbahayan.",
+      "content": {
+        "options": [
+          "Kumuha ng gamit nang walang paalam.",
+          "Sumuway sa ligtas na tuntunin.",
+          "Makinig sa pakiusap ng kapitbahay.",
+          "Nanunukso sa kapitbahay."
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kilos ay nakikinig at hindi nang-iistorbo."
+      },
+      "prompt": "May pakiusap ang kapitbahay. Ano ang dapat mong gawin?",
+      "narration": "Ang pakikinig sa pakiusap ay nagpapakita ng paggalang at tumutulong sa maayos na samahan.",
+      "guideHint": "Pakinggan muna ang kapitbahay bago sumagot o kumilos.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig sa pakiusap ay nagpapakita ng paggalang at tumutulong sa maayos na samahan."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Itugma ang kilos sa mabuting bunga nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "bumabati sa kapitbahay",
+            "right": "magandang simula ng maayos na usapan"
+          },
+          {
+            "left": "nakikinig sa pakiusap",
+            "right": "naiintindihan ang kailangan ng kapitbahay"
+          },
+          {
+            "left": "humihingi ng pahintulot",
+            "right": "hindi ginagamit ang gamit ng iba nang basta-basta"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kanang panig ay bunga ng kilos."
+      },
+      "prompt": "Itugma ang kilos sa ipinapakitang paggalang sa kapitbahay.",
+      "narration": "Ang mabuting pakikitungo ay nagdudulot ng tiwala, maayos na usapan, at pag-iingat sa gamit ng iba.",
+      "guideHint": "Basahin ang kilos at hanapin ang bunga nito sa kapitbahayan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang mabuting pakikitungo ay nagdudulot ng tiwala, maayos na usapan, at pag-iingat sa gamit ng iba."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w08-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w08-d01-visual",
+      "instruction": "Ayusin ang mga hakbang sa paggalang sa kapitbahayan.",
+      "content": {
+        "steps": [
+          "Batiin ang kapitbahay",
+          "Pakinggan ang pakiusap",
+          "Humingi ng pahintulot bago gumamit",
+          "Panatilihing maayos ang paligid"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang huling hakbang ay pag-iingat sa paligid."
+      },
+      "prompt": "Ayusin ang mga hakbang sa mabuting pakikitungo sa kapitbahay.",
+      "narration": "Bumati, makinig, humingi ng pahintulot, at panatilihing maayos ang paligid.",
+      "guideHint": "Isipin ang kilos mula pagbati hanggang pag-aalaga sa lugar.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Bumati, makinig, humingi ng pahintulot, at panatilihing maayos ang paligid."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q4-w08-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bagong kapitbahay na bumabati sa iyo. Ano ang magalang na tugon?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pag-utusan siya."
+          },
+          {
+            "id": "b",
+            "text": "Kunin ang gamit niya."
+          },
+          {
+            "id": "c",
+            "text": "Tawanan siya."
+          },
+          {
+            "id": "d",
+            "text": "Batiin siya nang maayos at igalang ang pagkakaiba."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang maayos na pagbati at paggalang sa pagkakaiba ay mabuting simula ng pakikipagkapwa."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w08-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa pila para sa programa sa barangay, ano ang magalang na kilos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sumingit sa usapan."
+          },
+          {
+            "id": "b",
+            "text": "Tumawa sa nagsasalita."
+          },
+          {
+            "id": "c",
+            "text": "Pumila nang maayos."
+          },
+          {
+            "id": "d",
+            "text": "Agawin ang gamit ng iba."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang maayos na pagpila ay nagbibigay ng patas na pagkakataon sa bawat kapitbahay."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w08-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nakasalubong mo si Milo sa kapitbahayan. Ano ang magalang mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Batiin siya nang may ngiti: “Magandang araw po!”"
+          },
+          {
+            "id": "b",
+            "text": "Tingnan lamang siya at dumaan."
+          },
+          {
+            "id": "c",
+            "text": "Pag-usapan siya sa katabi."
+          },
+          {
+            "id": "d",
+            "text": "Tumakbo papalayo."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang magalang na pagbati ay nagpapakita ng pagkilala at paggalang sa kapitbahay."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w08-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May kapitbahay na nagpapahinga sa tabi ng bahay. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Magtapon ng basura sa sahig."
+          },
+          {
+            "id": "b",
+            "text": "Manahimik at maging magalang sa lahat."
+          },
+          {
+            "id": "c",
+            "text": "Magpatakbo sa loob."
+          },
+          {
+            "id": "d",
+            "text": "Mag-ingay."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagiging tahimik habang may nagpapahinga ay paggalang sa kaniyang pangangailangan."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w08-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI magalang na kilos sa kapitbahayan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nagpapasalamat."
+          },
+          {
+            "id": "b",
+            "text": "Gumagalang sa pagkakaiba."
+          },
+          {
+            "id": "c",
+            "text": "Nakikinig nang mabuti."
+          },
+          {
+            "id": "d",
+            "text": "Nanunukso sa kapitbahay."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang panunukso ay nakasasakit at hindi nagpapakita ng paggalang sa kapitbahay."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

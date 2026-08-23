@@ -1,0 +1,389 @@
+{
+  "lessonId": "filipino-g3-q4-w14-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 16,
+  "day": 2,
+  "subject": "filipino",
+  "title": "Talata: Si Lola Nena",
+  "objective": "Nakabubuo ng maikling talata tungkol kay Lola Nena na malinaw ang paksa at mga detalye.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Masarap magluto si Lola Nena para sa pamilya. Basahin natin ang talata at hanapin ang paksa, ideya, detalye, at wakas!",
+  "vocabulary": [
+    {
+      "term": "paksa",
+      "definition": "Tao o bagay na pinag-uusapan sa talata."
+    },
+    {
+      "term": "pangunahing ideya",
+      "definition": "Pinakamahalagang mensahe tungkol sa paksa."
+    },
+    {
+      "term": "detalye",
+      "definition": "Karagdagang impormasyong tumutulong magpaliwanag sa paksa."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Basahin ang talata at hanapin ang paksa at mga sumusuportang detalye.",
+      "content": "Masarap magluto si Lola Nena. Ang kanyang ginataan ay paborito ng buong pamilya. Tuwing may handaan, siya ang nagluluto. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “si Lola Nena”.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang ideyang inuulit o sinusuportahan ng ibang pangungusap. 💪"
+      },
+      "prompt": "Tungkol saan ang talata, at anong detalye ang sumusuporta rito?",
+      "narration": "Masarap magluto si Lola Nena. Ang kanyang ginataan ay paborito ng buong pamilya. Tuwing may handaan, siya ang nagluluto. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “si Lola Nena”.",
+      "guideHint": "Pahiwatig: hanapin ang ideyang inuulit o sinusuportahan ng ibang pangungusap.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Masarap magluto si Lola Nena. Ang kanyang ginataan ay paborito ng buong pamilya. Tuwing may handaan, siya ang nagluluto. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “si Lola Nena”."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Basahin ang mga bahagi at tukuyin ang papel ng bawat isa.",
+      "content": {
+        "examples": [
+          "si Lola Nena",
+          "Masarap magluto si Lola Nena.",
+          "Ang kanyang ginataan ay paborito ng buong pamilya.",
+          "Tuwing may handaan, siya ang nagluluto."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tingnan kung ang bahagi ay paksa, pinakamahalagang mensahe, detalye, o wakas. 💪"
+      },
+      "prompt": "Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "narration": "Ang paksa ang pinag-uusapan. Ang pangunahing ideya ang pinakamahalagang mensahe. Ang detalye ay dagdag na impormasyon, at ang wakas ang huling pangyayari o ideya.",
+      "guideHint": "Pahiwatig: tanungin kung pinag-uusapan, pinakamahalaga, dagdag na impormasyon, o huling ideya ang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paksa ang pinag-uusapan. Ang pangunahing ideya ang pinakamahalagang mensahe. Ang detalye ay dagdag na impormasyon, at ang wakas ang huling pangyayari o ideya."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Pag-uriin ang mga parirala at pangungusap ayon sa talata.",
+      "content": {
+        "fits": [
+          "si Lola Nena",
+          "Masarap magluto si Lola Nena.",
+          "Ang kanyang ginataan ay paborito ng buong pamilya.",
+          "Tuwing may handaan, siya ang nagluluto."
+        ],
+        "doesNotFit": [
+          "May nagtitinda ng gulay, isda, at prutas.",
+          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
+          "Mahilig siyang matulog sa ilalim ng mesa.",
+          "Nagluluto ng adobo si Nanay habang naglilinis si Tatay."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: piliin ang mga pahayag na may kaugnayan sa “si Lola Nena”. 💪"
+      },
+      "prompt": "Alin ang mga bahaging kabilang sa talata?",
+      "narration": "Kabilang sa talata ang mga pahayag na tungkol sa iisang paksa at magkakaugnay ang ideya.",
+      "guideHint": "Pahiwatig: piliin ang mga pahayag na may kaugnayan sa “si Lola Nena”.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Kabilang sa talata ang mga pahayag na tungkol sa iisang paksa at magkakaugnay ang ideya."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Piliin ang pangungusap na kaugnay sa talata.",
+      "content": {
+        "options": [
+          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
+          "Masarap magluto si Lola Nena.",
+          "Mahilig siyang matulog sa ilalim ng mesa.",
+          "May nagtitinda ng gulay, isda, at prutas."
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang pahayag na tumutukoy sa “si Lola Nena”. 💪"
+      },
+      "prompt": "Alin ang pangungusap na tumutulong magpaliwanag sa paksa?",
+      "narration": "Ang tamang pangungusap ay may ideyang kaugnay sa paksa ng talata.",
+      "guideHint": "Pahiwatig: hanapin ang pahayag na tumutukoy sa “si Lola Nena”.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tamang pangungusap ay may ideyang kaugnay sa paksa ng talata."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Itugma ang bahagi sa papel nito sa talata.",
+      "content": {
+        "pairs": [
+          {
+            "left": "si Lola Nena",
+            "right": "pinag-uusapan"
+          },
+          {
+            "left": "Masarap magluto si Lola Nena.",
+            "right": "pinakamahalagang mensahe"
+          },
+          {
+            "left": "Ang kanyang ginataan ay paborito ng buong pamilya.",
+            "right": "sumusuportang impormasyon"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tukuyin kung paksa, pangunahing ideya, o detalyeng sumusuporta ang bawat bahagi. 💪"
+      },
+      "prompt": "Itugma ang paksa, pangunahing ideya, at detalye sa kahulugan.",
+      "narration": "Ang paksa ang pinag-uusapan; ang pangunahing ideya ang pinakamahalagang mensahe; ang detalye ang sumusuportang impormasyon.",
+      "guideHint": "Pahiwatig: tanungin kung pinag-uusapan, pinakamahalaga, o dagdag na impormasyon ang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paksa ang pinag-uusapan; ang pangunahing ideya ang pinakamahalagang mensahe; ang detalye ang sumusuportang impormasyon."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d02-visual",
+      "instruction": "Ayusin ang pagbasa ng talata mula paksa hanggang detalye.",
+      "content": {
+        "steps": [
+          "Basahin ang talata",
+          "Hanapin ang paksa",
+          "Hanapin ang pangunahing ideya",
+          "Tukuyin ang mga detalye"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin, hanapin ang paksa, tukuyin ang ideya, saka piliin ang mga detalye. 💪"
+      },
+      "prompt": "Ano ang susuriin pagkatapos basahin ang talata?",
+      "narration": "Basahin ang talata, hanapin ang paksa, tukuyin ang pangunahing ideya, at piliin ang mahahalagang detalye.",
+      "guideHint": "Pahiwatig: magsimula sa kabuuang paksa bago hanapin ang mga detalyeng sumusuporta.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang talata, hanapin ang paksa, tukuyin ang pangunahing ideya, at piliin ang mahahalagang detalye."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q4-w14-d02-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa talatang binasa ni Mia, tungkol saan ang lahat ng pangungusap?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang palengke"
+          },
+          {
+            "id": "b",
+            "text": "si Jose"
+          },
+          {
+            "id": "c",
+            "text": "si Lola Nena"
+          },
+          {
+            "id": "d",
+            "text": "ang aking pusa"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang mga pangungusap ay tungkol kay Lola Nena, kaya siya ang paksa."
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q4-w14-d02-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pangunahing ideya na maaaring sabihin ni Mia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang palengke ay puno ng tao tuwing umaga."
+          },
+          {
+            "id": "b",
+            "text": "Maaga gumigising si Jose para mag-ehersisyo."
+          },
+          {
+            "id": "c",
+            "text": "Masarap magluto si Lola Nena."
+          },
+          {
+            "id": "d",
+            "text": "Ang aking pusa ay maputi at makapal ang balahibo."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pangunahing ideya ang pinakamahalagang mensahe; dito, masarap magluto si Lola Nena."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q4-w14-d02-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nagsusulat si Mia ng isang detalye. Alin ang nabasa niya sa talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "May nagtitinda ng gulay, isda, at prutas."
+          },
+          {
+            "id": "b",
+            "text": "Tumatakbo siya sa parke kasama ang kanyang kuya."
+          },
+          {
+            "id": "c",
+            "text": "Ang kanyang ginataan ay paborito ng buong pamilya."
+          },
+          {
+            "id": "d",
+            "text": "Mahilig siyang matulog sa ilalim ng mesa."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paboritong ginataan ng pamilya ay detalyeng sumusuporta sa paksa tungkol kay Lola Nena."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q4-w14-d02-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang huling pangungusap na isinulat ni Mia sa talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Abala ngunit masaya ang mga mamimili."
+          },
+          {
+            "id": "b",
+            "text": "Malusog at masigla siya araw-araw."
+          },
+          {
+            "id": "c",
+            "text": "Tuwing may handaan, siya ang nagluluto."
+          },
+          {
+            "id": "d",
+            "text": "Mahal na mahal ko ang aking pusa."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagluluto ni Lola Nena tuwing handaan ang wakas dahil ito ang huling ideya sa talata."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q4-w14-d02-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gagawa si Mia ng pamagat para sa talata. Alin ang pinakatumpak?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang Palengke"
+          },
+          {
+            "id": "b",
+            "text": "Si Jose"
+          },
+          {
+            "id": "c",
+            "text": "Si Lola Nena"
+          },
+          {
+            "id": "d",
+            "text": "Ang Aking Pusa"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pamagat na “Si Lola Nena” ay tumutukoy sa paksa ng talata."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

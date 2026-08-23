@@ -1,0 +1,388 @@
+{
+  "lessonId": "gmrc-g3-q3-w06-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 1,
+  "subject": "gmrc",
+  "title": "Mabuting Mamamayan",
+  "objective": "Naipakikita ang pagmamahal sa bayan sa maliit at makabuluhang gawain.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ang pagiging mabuting mamamayan ay nagsisimula sa maliliit na gawaing ligtas at kapaki-pakinabang. Tuklasin kung paano alagaan ang paligid, pampublikong gamit, at komunidad. 🇵🇭",
+  "vocabulary": [
+    {
+      "term": "nagtatapon sa tamang basurahan",
+      "definition": "Paglalagay ng basura sa lalagyan na para rito upang manatiling malinis ang paligid."
+    },
+    {
+      "term": "nangangalaga sa pampublikong gamit",
+      "definition": "Maingat na paggamit at pagprotekta sa gamit na pinagsasaluhan ng lahat."
+    },
+    {
+      "term": "tumutulong sa komunidad",
+      "definition": "Paggawa ng ligtas na kabutihan para sa mga tao sa inyong lugar."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Pakinggan kung paano maging mabuting mamamayan.",
+      "content": "Maaaring maging mabuting mamamayan sa pag-aalaga sa kapaligiran, pagsunod sa tuntunin, at pagtulong sa komunidad.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli: malinis na paligid, maingat na gamit, at ligtas na tulong."
+      },
+      "prompt": "Alamin ang ligtas na pag-aalaga, pagsunod, at pagtulong.",
+      "narration": "Ang mabuting mamamayan ay nag-aalaga sa kapaligiran, sumusunod sa tuntunin, nangangalaga sa pampublikong gamit, at tumutulong nang ligtas.",
+      "guideHint": "Pakinggan ang clue: malinis na paligid, maingat na gamit, at ligtas na tulong.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang mabuting mamamayan ay nag-aalaga sa kapaligiran, sumusunod sa tuntunin, nangangalaga sa pampublikong gamit, at tumutulong nang ligtas."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Hanapin ang basurahan, pampublikong gamit, pagtulong, at sagisag.",
+      "content": {
+        "examples": [
+          "nagtatapon sa tamang basurahan",
+          "nangangalaga sa pampublikong gamit",
+          "tumutulong sa komunidad",
+          "gumagalang sa sagisag ng bayan"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang basurahan, pampublikong gamit, pagtulong, at sagisag ng bayan."
+      },
+      "prompt": "I-tap ang mga kilos ng mabuting mamamayan.",
+      "narration": "Hanapin ang tamang pagtatapon, pag-iingat sa gamit ng lahat, pagtulong sa komunidad, at paggalang sa sagisag ng bayan.",
+      "guideHint": "Hanapin ang apat na kilos na may pakinabang sa lahat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang tamang pagtatapon, pag-iingat sa gamit ng lahat, pagtulong sa komunidad, at paggalang sa sagisag ng bayan."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Ilagay ang kilos sa pagmamahal sa bayan o ang hindi.",
+      "content": {
+        "fits": [
+          "nagtatapon sa tamang basurahan",
+          "nangangalaga sa pampublikong gamit",
+          "tumutulong sa komunidad",
+          "gumagalang sa sagisag ng bayan"
+        ],
+        "doesNotFit": [
+          "nanunukso sa kapwa",
+          "kumukuha ng gamit ng lahat",
+          "sumusuway sa ligtas na tuntunin",
+          "hindi nakikinig sa paalala"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: nakapaglilinis, nakapoprotekta, o nakatutulong ba ito?"
+      },
+      "prompt": "Paghiwalayin ang nakatutulong sa lahat at ang nakapipinsala.",
+      "narration": "Ang tamang pagtatapon, pag-iingat sa gamit, pagtulong, at paggalang sa sagisag ay nakatutulong sa lahat.",
+      "guideHint": "Tanungin: nakapaglilinis, nakapoprotekta, o nakatutulong ba ito?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tamang pagtatapon, pag-iingat sa gamit, pagtulong, at paggalang sa sagisag ay nakatutulong sa lahat."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Piliin ang kilos na nagpapanatiling malinis ang paligid.",
+      "content": {
+        "options": [
+          "nanunukso sa kapwa",
+          "kumukuha ng hindi kanya",
+          "sumusuway sa ligtas na tuntunin",
+          "nagtatapon sa tamang basurahan"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Piliin ang kilos na naglalagay ng basura sa tamang lalagyan."
+      },
+      "prompt": "Alin ang maliit ngunit makabuluhang gawa para sa bayan?",
+      "narration": "Ang pagtatapon sa tamang basurahan ay simpleng gawaing nagpapanatiling malinis ang lugar na ginagamit ng lahat.",
+      "guideHint": "Piliin ang kilos na naglalagay ng basura sa tamang lalagyan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagtatapon sa tamang basurahan ay simpleng gawaing nagpapanatiling malinis ang lugar na ginagamit ng lahat."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Itugma ang gawaing pansarili sa pakinabang ng komunidad.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nagtatapon sa tamang basurahan",
+            "right": "malinis na paligid para sa lahat"
+          },
+          {
+            "left": "nangangalaga sa pampublikong gamit",
+            "right": "matagal na nagagamit ng komunidad"
+          },
+          {
+            "left": "tumutulong sa komunidad",
+            "right": "natutugunan ang ligtas na pangangailangan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa kalinisan, tagal ng gamit, o pangangailangan."
+      },
+      "prompt": "Iugnay ang bawat kilos sa mabuting bunga nito.",
+      "narration": "Ang tamang pagtatapon ay kalinisan, pag-aalaga ay nagpapatagal sa gamit, at pagtulong ay tumutugon sa pangangailangan.",
+      "guideHint": "Iugnay sa kalinisan, tagal ng gamit, o pangangailangan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tamang pagtatapon ay kalinisan, pag-aalaga ay nagpapatagal sa gamit, at pagtulong ay tumutugon sa pangangailangan."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w06-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w06-d01-visual",
+      "instruction": "Ayusin mula pagpansin sa pangangailangan hanggang pagpapatuloy.",
+      "content": {
+        "steps": [
+          "Pansinin ang pangangailangan ng lugar",
+          "Pumili ng gawaing kaya at ligtas",
+          "Humingi ng pahintulot kung kailangan",
+          "Ipagpatuloy ang mabuting gawi"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang pangangailangan, saka ligtas na gawain, pahintulot, at pagpapatuloy."
+      },
+      "prompt": "Ilagay sa tamang ayos ang pagiging mabuting mamamayan.",
+      "narration": "Pansinin ang pangangailangan, pumili ng ligtas na gawain, humingi ng pahintulot kung kailangan, at ipagpatuloy ang gawi.",
+      "guideHint": "Unahin ang pagpansin; huli ang pagpapatuloy ng mabuting gawi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Pansinin ang pangangailangan, pumili ng ligtas na gawain, humingi ng pahintulot kung kailangan, at ipagpatuloy ang gawi."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q3-w06-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gutom ang mga pusang ligaw malapit sa inyong bahay. Ano ang ligtas na gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "humingi ng pahintulot sa nakatatanda at pakainin sila nang ligtas"
+          },
+          {
+            "id": "b",
+            "text": "pakainin sila ng sirang pagkain"
+          },
+          {
+            "id": "c",
+            "text": "habulin sila"
+          },
+          {
+            "id": "d",
+            "text": "magtapon ng bato sa kanila"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pag-aalaga sa hayop ay dapat may pahintulot, angkop na pagkain, at ligtas na paraan."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w06-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bagong tanim ang paaralan. Ano ang mabuting gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "iwan itong malanta"
+          },
+          {
+            "id": "b",
+            "text": "yurakan ito"
+          },
+          {
+            "id": "c",
+            "text": "diligin at alagaan ito ayon sa panuto"
+          },
+          {
+            "id": "d",
+            "text": "bunutin ito"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pag-aalaga sa tanim ay pangangalaga sa lugar na ginagamit ng buong paaralan."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w06-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May proyekto ang barangay para sa kalinisan. Ano ang maaari mong gawin bilang bata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "magpaiwan sa palaruan"
+          },
+          {
+            "id": "b",
+            "text": "manatili sa bahay at huwag pansinin"
+          },
+          {
+            "id": "c",
+            "text": "sumali sa ligtas na bahagi tulad ng pagpupulot ng tuyong dahon"
+          },
+          {
+            "id": "d",
+            "text": "pintasan ang proyekto"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang batang tumutulong sa ligtas na gawain ay nakapag-aambag sa kalinisan ng komunidad."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w06-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May basura sa bakuran ng paaralan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sabihing hindi mo basura iyon"
+          },
+          {
+            "id": "b",
+            "text": "iwanan ito"
+          },
+          {
+            "id": "c",
+            "text": "sipain ito sa gilid"
+          },
+          {
+            "id": "d",
+            "text": "kunin at itapon sa tamang lalagyan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang tamang pagtatapon ay maliit na gawaing naglilinis sa lugar para sa lahat."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w06-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Halos mahulog na ang bandila sa paaralan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hayaan itong mahulog"
+          },
+          {
+            "id": "b",
+            "text": "laruin ito"
+          },
+          {
+            "id": "c",
+            "text": "hilahin ito nang malakas"
+          },
+          {
+            "id": "d",
+            "text": "sabihin agad sa guro o nakatatanda"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pag-uulat ng panganib sa nakatatanda ay nag-iingat sa sagisag at sa batang maaaring masaktan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  }
+}

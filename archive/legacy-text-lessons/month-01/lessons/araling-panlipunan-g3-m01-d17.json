@@ -1,0 +1,380 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d17",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 17,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Kultura sa Araw-araw na Pamumuhay",
+  "objective": "Ihambing ang gawi nang may paggalang at walang pagraranggo.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa isang silid-aralan, may iba’t ibang pagbati, pagkain, at wikang ginagamit ng mga pamilya. Ihahambing mo ang mga gawi sa paraang mapagmasid at magalang, nang hindi nagsasabing may mas mataas o mas mababa.",
+  "vocabulary": [
+    {
+      "term": "kultura",
+      "definition": "Mga gawi, pagkain, wika, sining, at paraan ng pamumuhay ng isang pangkat."
+    },
+    {
+      "term": "gawi",
+      "definition": "Nakasanayang paraan ng pagkilos o pamumuhay."
+    },
+    {
+      "term": "tradisyon",
+      "definition": "Gawaing ipinapasa ng mga nakatatanda sa mga susunod na henerasyon."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Pagmasdan ang gawi, tukuyin ang pinagmulan, at magsalita nang magalang.",
+      "content": "Ang pagbati, pagkain, wika, at iba pang gawi ay maaaring magkaiba sa bawat pamilya o pamayanan. Ilarawan ang napansin at iwasang gawing tuntunin para sa lahat.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naghambing ka ng gawi nang may paggalang. 🌈",
+        "retry": "Tukuyin ang mismong gawi at pinagmulan nito bago magbigay ng magalang na paghahambing."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Basahin ang paliwanag tungkol sa gawi, pinagmulan, at paggalang."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Hanapin ang halimbawa ng pagbati, pagkain, at wikang ginagamit sa pamayanan.",
+      "content": {
+        "examples": [
+          "May iba’t ibang pagbati sa magkakaibang pamilya.",
+          "May iba’t ibang pagkaing inihahanda sa mga pagtitipon.",
+          "May iba’t ibang wikang ginagamit sa pamayanan."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Natukoy mo ang iba’t ibang gawi sa araw-araw. 🔎",
+        "retry": "Tingnan kung anong gawi ang inilalarawan at iwasang husgahan ito."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Basahin ang talaan ng mga halimbawa sa halip na hanapin sa larawan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa tamang pangkat ang mga obserbasyon sa kultura.",
+      "content": {
+        "fits": [
+          "May batang gumagamit ng “po” at “opo” sa nakatatanda.",
+          "May pamilyang naghahanda ng pagkain para sa pista.",
+          "May mga salitang ginagamit sa sariling wika."
+        ],
+        "doesNotFit": [
+          "Tinatawag na kakaiba ang gawi bilang insulto.",
+          "Sinasabing lahat ng tao ay pareho.",
+          "Nagsasalita para sa grupong hindi kinonsulta."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiba mo ang pagmamasid na may paggalang sa mapanlait na paglalahat. 🎉",
+        "retry": "Suriin kung inilalarawan ng card ang gawi nang maayos o nilalait at nilalahat ang grupo."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Pumili ng card at pangkat gamit ang mga button sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang magalang na pahayag tungkol sa gawi?",
+      "content": {
+        "options": [
+          "Mali ang kanilang paraan.",
+          "Lahat sila ay pareho.",
+          "May iba’t ibang paraan ng pagbati."
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Kinikilala ng pahayag ang pagkakaiba-iba nang walang panlalait.",
+        "retry": "Hanapin ang pahayag na naglalarawan ng pagkakaiba nang hindi humuhusga."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Makikita ang mga pagpipilian at maaaring pumili gamit ang pantulong na pagbasa."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang gawi sa sitwasyong pinaggagamitan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Iba’t ibang pagbati",
+            "right": "gawi sa pakikipagkita"
+          },
+          {
+            "left": "Iba’t ibang pagkain",
+            "right": "gawi sa paghahanda at pagsasalo"
+          },
+          {
+            "left": "Iba’t ibang wika",
+            "right": "paraan ng pakikipag-usap"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiugnay mo ang bawat gawi sa araw-araw na sitwasyon. 🔗",
+        "retry": "Isipin kung ang gawi ay ginagamit sa pagbati, pagkain, o pakikipag-usap."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "May talaan ng magkabilang panig na maaaring piliin sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d17-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa magalang na paghahambing ng gawi.",
+      "content": {
+        "steps": [
+          "Ilarawan ang mismong gawi na napansin.",
+          "Tukuyin ang pinagmulan o taong nagkuwento nito.",
+          "Ihambing ang mga gawi nang walang panlalait o pagraranggo."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakapaghambing ka ng kultura nang may pag-unawa. 🎉",
+        "retry": "Unahin ang obserbasyon at pinagmulan, saka maghambing nang walang paghusga."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "accessibilityAlternative": "Gamitin ang mga button na pataas at pababa sa halip na ayusin sa pamamagitan ng paghila."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang halimbawa ng gawi nang may paggalang?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-uutos sa kapwa"
+          },
+          {
+            "id": "b",
+            "text": "pagsasabi ng “po” at “opo” sa nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "pagsingit sa usapan"
+          },
+          {
+            "id": "d",
+            "text": "pagtawa sa iba"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang paggamit ng “po” at “opo” ay magalang na pakikipag-usap sa nakatatanda."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalagang igalang ang gawi ng ibang komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang maging sikat"
+          },
+          {
+            "id": "b",
+            "text": "upang magkaisa at magtulungan ang lahat"
+          },
+          {
+            "id": "c",
+            "text": "upang magkaaway"
+          },
+          {
+            "id": "d",
+            "text": "upang may pag-usapan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang paggalang at pakikinig ay tumutulong sa pagkakaisa at pagtutulungan ng magkakaibang tao."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang tamang paraan ng paghahambing ng kultura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paghahambing nang may paggalang at pag-unawa"
+          },
+          {
+            "id": "b",
+            "text": "paghahambing upang pintasan ang iba"
+          },
+          {
+            "id": "c",
+            "text": "paghahambing upang mag-away"
+          },
+          {
+            "id": "d",
+            "text": "paghahambing upang malaman kung alin ang mas mahusay"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang paghahambing ay para maunawaan ang pagkakatulad at pagkakaiba, hindi para mang-insulto o magranggo."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang pagpapakita ng paggalang sa kultura ng iba?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagbabawal sa kanilang pista"
+          },
+          {
+            "id": "b",
+            "text": "pakikinig at pag-unawa sa kanilang kaugalian"
+          },
+          {
+            "id": "c",
+            "text": "pamimintas sa kanilang gawi"
+          },
+          {
+            "id": "d",
+            "text": "pagtatawanan ang kanilang tradisyon"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pakikinig at pag-unawa ay nagpapakita na iginagalang natin ang karanasan ng ibang komunidad."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d17-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang ibig sabihin ng walang pagraranggo ng kultura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang kultura ay nauubos"
+          },
+          {
+            "id": "b",
+            "text": "walang kultura na mas mataas o mas mababa kaysa iba"
+          },
+          {
+            "id": "c",
+            "text": "ang kultura ay parehong-pareho"
+          },
+          {
+            "id": "d",
+            "text": "ang kultura ay nabibili"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang walang pagraranggo ay pagkilala na walang kulturang dapat ituring na mas mataas o mas mababa."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d17-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d17-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Cultural Practices in Daily Life; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Cultural Practices in Daily Life.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f454fa3ca226a24ee9442cd1fd667616c09f38fc2d17afe8a3c53eb7cb87bc5d",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
+}

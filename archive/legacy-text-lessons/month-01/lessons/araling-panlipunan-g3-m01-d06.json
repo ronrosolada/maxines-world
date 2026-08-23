@@ -1,0 +1,380 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d06",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 6,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Mahahalagang Anyong Lupa at Tubig",
+  "objective": "Ipaliwanag ang posibleng ugnayan ng anyong lupa/tubig sa pagkain, biyahe, habitat, at libangan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa kathang-isip na Barangay Daloy, maaaring magbigay ng pagkakataon ang anyong lupa at tubig sa pagkain, biyahe, tirahan, at libangan. Gagamit tayo ng ebidensya at ng salitang “maaaring” upang hindi maglahat sa mga tao.",
+  "vocabulary": [
+    {
+      "term": "komunidad",
+      "definition": "Pangkat ng mga taong nakatira at nagtutulungan sa isang lugar."
+    },
+    {
+      "term": "anyong lupa",
+      "definition": "Hugis at katangian ng ibabaw ng lupa, gaya ng bundok at kapatagan."
+    },
+    {
+      "term": "ebidensya",
+      "definition": "Tanda o impormasyon na sumusuporta sa isang pahayag."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Suriin ang anyong lupa o tubig at ang posibleng gamit nito.",
+      "content": "Sa Barangay Daloy, maaaring makaapekto ang anyong lupa at tubig sa pagkain, biyahe, tirahan, at libangan. Hindi nito tinutukoy ang trabaho ng bawat tao.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Gumamit ka ng ebidensya at maingat na salitang “maaaring.” 🌈",
+        "retry": "Hanapin ang nakikitang ebidensya bago sabihin kung ano ang maaaring maiugnay sa lugar."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "Basahin ang paliwanag tungkol sa anyong lupa, anyong tubig, at maingat na paglalahat."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Hanapin ang ilog, kapatagan, at baybayin sa mga halimbawa.",
+      "content": {
+        "examples": [
+          "May bangkang maaaring dumaan sa ilog.",
+          "May patag na lupa na maaaring taniman.",
+          "May mga kabibe at halamang malapit sa baybayin."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang posibleng ugnayan ng anyong lupa o tubig at gawain. 🔎",
+        "retry": "Tingnan ang mismong gawain o bagay na nagbibigay ng ebidensya sa bawat halimbawa."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "Basahin ang talaan ng mga halimbawa sa halip na hanapin sa larawan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa tamang pangkat ang mga obserbasyon sa komunidad.",
+      "content": {
+        "fits": [
+          "May bangkang dumaraan sa ilog.",
+          "May tanim na palay sa patag na lupa.",
+          "May kabibe at halamang malapit sa baybayin."
+        ],
+        "doesNotFit": [
+          "Sinabing lahat ng taga-ilog ay bangkero.",
+          "Sinabing walang nakatira sa bundok.",
+          "Sinabing walang panganib sa dagat."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiba mo ang ebidensyang nakikita sa mga pahayag na naglalahat. 🎉",
+        "retry": "Suriin kung may nakikitang ebidensya at kung gumagamit ng maingat na “maaaring.”"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "Pumili ng card at pangkat gamit ang mga button sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Alin ang maingat na pahayag tungkol sa maaaring gamit ng ilog?",
+      "content": {
+        "options": [
+          "Maaaring makatulong ang ilog sa biyahe.",
+          "Lahat ng tao sa ilog ay bangkero.",
+          "Walang ibang gamit ang ilog."
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang salitang “maaaring” ay nag-uugnay sa ilog at biyahe nang hindi naglalahat.",
+        "retry": "Hanapin ang pahayag na may ebidensya at hindi nagsasabing pare-pareho ang lahat."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "Makikita ang mga pagpipilian at maaaring pumili gamit ang pantulong na pagbasa."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang anyong lupa o tubig sa posibleng ugnayan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ilog",
+            "right": "maaaring daanan ng bangka"
+          },
+          {
+            "left": "Kapatagan",
+            "right": "maaaring taniman ng palay"
+          },
+          {
+            "left": "Baybayin",
+            "right": "maaaring tirahan ng kabibe at halamang-tubig"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipakita mo ang posibleng ugnayan nang walang stereotype. 🔗",
+        "retry": "Basahin ang obserbasyon at gamitin ang salitang “maaaring” bago itambal."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "May talaan ng magkabilang panig na maaaring piliin sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d06-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa pag-uugnay ng anyong lupa at gawain.",
+      "content": {
+        "steps": [
+          "Tukuyin ang anyong lupa o tubig.",
+          "Maghanap ng nakikitang ebidensya ng pagkain, biyahe, tirahan, o libangan.",
+          "Sabihin ang posibleng ugnayan gamit ang “maaaring.”"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakapagbigay ka ng ugnayang may ebidensya at pag-iingat. 🎉",
+        "retry": "Unahin ang anyong lupa o tubig, saka hanapin ang ebidensya bago gumamit ng “maaaring.”"
+      },
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "accessibilityAlternative": "Gamitin ang mga button na pataas at pababa sa halip na ayusin sa pamamagitan ng paghila."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d06-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May pantalan sa tabi ng dagat. Bakit maaaring doon ito itinayo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "upang madaling magdaong ang mga bangka"
+          },
+          {
+            "id": "b",
+            "text": "upang malayo sa mga bahay"
+          },
+          {
+            "id": "c",
+            "text": "upang maganda ang tanawin"
+          },
+          {
+            "id": "d",
+            "text": "upang malamig ang bahay"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tubig sa tabi ng pantalan ay nagbibigay-daan sa mga bangkang dumaong; hindi nito sinasabing lahat ng tao ay mandaragat."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d06-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May ilog na ginagamit sa baryo. Alin ang posibleng tulong nito sa mga tao?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pinagtatayuan ng bahay"
+          },
+          {
+            "id": "b",
+            "text": "pinagkukunan ng bato"
+          },
+          {
+            "id": "c",
+            "text": "pinagkukunan ng tubig at isda at daanan ng bangka"
+          },
+          {
+            "id": "d",
+            "text": "pinaglalaruan ng mga bata"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang tubig at lokasyon ng ilog ay maaaring magbigay ng tubig, isda, at daanan ng bangka."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d06-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May malawak at patag na lupa sa Barangay Daloy. Ano ang posibleng kaugnayan nito sa pagkain?",
+        "options": [
+          {
+            "id": "a",
+            "text": "maaaring taniman ng palay at gulay"
+          },
+          {
+            "id": "b",
+            "text": "doon lumilipad ang eroplano"
+          },
+          {
+            "id": "c",
+            "text": "doon kinukuha ang bato"
+          },
+          {
+            "id": "d",
+            "text": "doon nahuhuli ang isda"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang patag na lupa ay maaaring gamitin sa pagtatanim; hindi nito tinutukoy ang trabaho ng lahat ng residente."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d06-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bukal sa bundok na dumadaloy pababa. Ano ang maaaring maibigay nito sa komunidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pinagtatayuan ng mga mall"
+          },
+          {
+            "id": "b",
+            "text": "pinagkukunan ng asin"
+          },
+          {
+            "id": "c",
+            "text": "pinagkukunan ng tubig at tirahan ng mga halaman at hayop"
+          },
+          {
+            "id": "d",
+            "text": "pinaglalaruan ng mga bata"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang bundok ay maaaring maging pinagmumulan ng tubig at tahanan ng mga halaman at hayop."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d06-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa malawak na talampas, may damuhang ginagamit ng ilang pamilya. Aling gawain ang maaaring maiugnay dito?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagtuturo ng awit"
+          },
+          {
+            "id": "b",
+            "text": "pag-aalaga ng hayop sa malawak na lupa"
+          },
+          {
+            "id": "c",
+            "text": "paglalayag"
+          },
+          {
+            "id": "d",
+            "text": "pangingisda sa malalim na tubig"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang malawak na damuhan sa talampas ay maaaring gamitin sa pag-aalaga ng hayop; hindi ito para sa lahat ng pamilya."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d06-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d06-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Mahahalagang Anyong Lupa at Tubig; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Mahahalagang Anyong Lupa at Tubig.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "563ae6003a69298dd84df7d9c42b1ea7effd047ffc2bccccf0cd3fd0ef896b89",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
+}

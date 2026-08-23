@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w14-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 12,
+  "day": 2,
+  "subject": "english",
+  "title": "Text Type Toolbox Review",
+  "objective": "Choose a text type that fits the writer's purpose.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has three messages to sort! 🐱 A story entertains, instructions guide actions, and an informational text teaches facts.",
+  "vocabulary": [
+    {
+      "term": "story",
+      "definition": "A text that tells events involving characters or a situation."
+    },
+    {
+      "term": "instructions",
+      "definition": "A text that gives ordered steps for doing something."
+    },
+    {
+      "term": "informational text",
+      "definition": "A text that teaches true facts about a topic."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w14-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Listen for the purpose of each text type.",
+      "content": "A story entertains or tells events, instructions explain steps, and an informational text teaches facts.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the writer’s purpose before naming the text type."
+      },
+      "prompt": "Listen for what each text helps the reader do.",
+      "narration": "A story entertains through events, instructions tell steps, and an informational text teaches facts.",
+      "guideHint": "Ask: does the text entertain, guide an action, or teach facts?",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A story entertains through events, instructions tell steps, and an informational text teaches facts."
+    },
+    {
+      "activityId": "english-g3-q3-w14-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Tap a sample and think about its purpose.",
+      "content": {
+        "examples": [
+          "A tale about an imaginary dragon",
+          "Steps for planting a seed",
+          "Facts about mangrove roots",
+          "A page about animal habitats"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the sample entertains, guides, or teaches."
+      },
+      "prompt": "Tap each sample and ask what its purpose is.",
+      "narration": "A sample’s purpose helps you tell whether it is a story, instructions, or an informational text.",
+      "guideHint": "Picture what the reader would do with each sample.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A sample’s purpose helps you tell whether it is a story, instructions, or an informational text."
+    },
+    {
+      "activityId": "english-g3-q3-w14-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Sort real text samples from non-text things.",
+      "content": {
+        "fits": [
+          "A story about an imaginary dragon",
+          "Steps for planting a seed",
+          "Facts about mangrove roots",
+          "A page about animal habitats"
+        ],
+        "doesNotFit": [
+          "a red kite",
+          "a loud sound",
+          "a secret thought",
+          "a bowl of mangoes"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the card is a text sample, not an object, sound, or thought."
+      },
+      "prompt": "Sort text samples away from things that are not texts.",
+      "narration": "Texts use words to entertain, guide an action, or teach facts; objects and sounds do not have a text purpose.",
+      "guideHint": "Look for a group of words a reader could read for a purpose.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Texts use words to entertain, guide an action, or teach facts; objects and sounds do not have a text purpose."
+    },
+    {
+      "activityId": "english-g3-q3-w14-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Choose the text that teaches facts.",
+      "content": {
+        "options": [
+          "a book that teaches facts about animals",
+          "a story about an imaginary dragon",
+          "a list of groceries",
+          "a greeting card"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the text teaches information, not just a greeting or a story."
+      },
+      "prompt": "Lia wants facts about animals. Which text should she choose?",
+      "narration": "An informational text teaches true facts about a topic.",
+      "guideHint": "Look for the choice whose purpose is to teach facts.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "An informational text teaches true facts about a topic."
+    },
+    {
+      "activityId": "english-g3-q3-w14-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Match each text type to the purpose it serves.",
+      "content": {
+        "pairs": [
+          {
+            "left": "story",
+            "right": "entertains by telling events"
+          },
+          {
+            "left": "instructions",
+            "right": "guides a reader through steps"
+          },
+          {
+            "left": "informational text",
+            "right": "teaches facts about a topic"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the purpose: entertain, guide steps, or teach facts."
+      },
+      "prompt": "Match each text type with its writer’s purpose.",
+      "narration": "The writer’s purpose tells readers how a text type is meant to help them.",
+      "guideHint": "Read the text type, then choose what it helps the reader do.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The writer’s purpose tells readers how a text type is meant to help them."
+    },
+    {
+      "activityId": "english-g3-q3-w14-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w14-d02-visual",
+      "instruction": "Put the text-purpose steps in order.",
+      "content": {
+        "steps": [
+          "Read the sample text",
+          "Ask what the writer wants the reader to do",
+          "Match the purpose to a text type",
+          "Explain the clue in the text"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that the text type matches the purpose you named."
+      },
+      "prompt": "Put the steps for choosing a text type in order.",
+      "narration": "Readers identify a text type by asking what the writer wants the reader to do.",
+      "guideHint": "Find the writer’s purpose before choosing the text type.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers identify a text type by asking what the writer wants the reader to do."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w14-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Lia wants facts about mangrove trees. Which text should she read?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "a greeting only"
+          },
+          {
+            "id": "d",
+            "text": "an informational text about mangrove trees"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "An informational text about mangrove trees is written to teach facts about that topic."
+      },
+      {
+        "itemId": "english-g3-q3-w14-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A class book says, “Mangrove roots hold soil in place.” What kind of text fits?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "an informational text about mangroves"
+          },
+          {
+            "id": "d",
+            "text": "a greeting only"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "The sentence teaches a fact about mangroves, so it fits an informational text."
+      },
+      {
+        "itemId": "english-g3-q3-w14-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants to learn how trees help animals. Which text would help?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a greeting only"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "d",
+            "text": "an informational page about how trees help animals"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "An informational page would teach facts about how trees help animals; the other choices have different purposes."
+      },
+      {
+        "itemId": "english-g3-q3-w14-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Your teacher asks you to learn true facts about animals. Which text informs?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a shopping list"
+          },
+          {
+            "id": "b",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "c",
+            "text": "a book that teaches facts about animals"
+          },
+          {
+            "id": "d",
+            "text": "a greeting only"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A book that teaches facts about animals is written to inform the reader."
+      },
+      {
+        "itemId": "english-g3-q3-w14-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "You want to read about where animals live. Which choice belongs in an information book?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a greeting only"
+          },
+          {
+            "id": "b",
+            "text": "a shopping list"
+          },
+          {
+            "id": "c",
+            "text": "a story about an imaginary dragon"
+          },
+          {
+            "id": "d",
+            "text": "Facts about where animals live."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Facts about where animals live teach the reader about a topic, so they belong in an information book."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

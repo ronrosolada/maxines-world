@@ -1,0 +1,392 @@
+{
+  "lessonId": "filipino-g3-q1-w02-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "filipino",
+  "title": "Lola ay Nagbabasa ng pahayagan",
+  "objective": "Natutukoy ang simuno at panaguri sa pangungusap na 'Si Lola  ay nagbabasa ng pahayagan.'",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa “Si Lola ay nagbabasa ng pahayagan,” tukuyin ang simuno at ang buong panaguri. Isama sa panaguri ang bagay na binabasa.",
+  "vocabulary": [
+    {
+      "word": "simuno",
+      "term": "simuno",
+      "definition": "Bahagi ng pangungusap na pinag-uusapan o tinatanong kung sino o ano."
+    },
+    {
+      "word": "pandiwa",
+      "term": "pandiwa",
+      "definition": "Salitang nagsasaad ng kilos o galaw, tulad ng nagbabasa o tumatakbo."
+    },
+    {
+      "word": "karaniwang ayos",
+      "term": "karaniwang ayos",
+      "definition": "Ayos kung nauuna ang panaguri bago ang simuno."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Basahin at hatiin ang pangungusap sa dalawang bahagi.",
+      "content": "Ang simuno ay Si Lola. Ang buong panaguri ay ay nagbabasa ng pahayagan, kasama ang binabasang bagay.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Isama sa panaguri ang kilos at ang bagay na binabasa. 💪"
+      },
+      "prompt": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "narration": "Ang simuno ang pinag-uusapan: Si Lola. Ang panaguri ang nagsasabi tungkol sa simuno: nagbabasa ng pahayagan. Hatiin sa dalawa: [Si Lola] ay ang simuno, [ay nagbabasa ng pahayagan] ay ang panaguri.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan: Si Lola. Ang panaguri ang nagsasabi tungkol sa simuno: nagbabasa ng pahayagan. Hatiin sa dalawa: [Si Lola] ay ang simuno, [ay nagbabasa ng pahayagan] ay ang panaguri."
+    },
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Basahin ang mga halimbawa at markahan ang hati.",
+      "content": {
+        "examples": [
+          "Si Lola / ay nagbabasa ng pahayagan.",
+          "Ang mga ibon / ay umaawit.",
+          "Si Ben / ay sumasayaw.",
+          "Ang pusa / ay natutulog."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang simuno at buong panaguri ni Lola. 🔎",
+        "retry": "Suriin kung kasama sa panaguri ang binabasang bagay. 💪"
+      },
+      "prompt": "Tuklasin ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Piliin ang buong pangungusap na may tamang hati.",
+      "content": {
+        "fits": [
+          "Si Lola / ay nagbabasa ng pahayagan.",
+          "Ang mga ibon / ay umaawit.",
+          "Si Ben / ay sumasayaw.",
+          "Ang pusa / ay natutulog."
+        ],
+        "doesNotFit": [
+          "sa likod ng bahay",
+          "at nagmamadali tuwing gabi",
+          "kasi tuwang-tuwa ang lahat",
+          "mula sa tahimik na silid"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga pangungusap na may buong panaguri. 🎉",
+        "retry": "Suriin kung may simuno, panaguri, at kumpletong diwa ang pangungusap. 💪"
+      },
+      "prompt": "Pagbukud-bukurin ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Alin ang wastong hati ng pangungusap tungkol kay Lola?",
+      "content": {
+        "options": [
+          "Si Lola / ay nagbabasa ng pahayagan.",
+          "ang matiyagang sumusulat",
+          "sa likod ng bahay",
+          "kasi tuwang-tuwa ang lahat"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tingnan kung ang pangungusap ay may simuno at panaguri sa tamang hati. 💪"
+      },
+      "prompt": "Piliin ang tamang halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Itugma ang bahagi ng pangungusap sa tungkulin nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Si Lola",
+            "right": "simunong pinag-uusapan"
+          },
+          {
+            "left": "ay nagbabasa ng pahayagan.",
+            "right": "panaguring may kilos at layon"
+          },
+          {
+            "left": "Si Lola / ay nagbabasa ng pahayagan.",
+            "right": "kumpletong pangungusap"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang simuno sa buong panaguri ni Lola. 🔗",
+        "retry": "Itanong kung sino ang gumagawa at ano ang sinasabi tungkol sa kaniya. 💪"
+      },
+      "prompt": "Itapat ang mga halimbawa ng simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    },
+    {
+      "activityId": "filipino-g3-q1-w02-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q1-w02-d03-visual",
+      "instruction": "Ayusin ang mga hakbang sa pagtukoy ng simuno at panaguri.",
+      "content": {
+        "steps": [
+          "Basahin ang buong pangungusap.",
+          "Hanapin kung sino ang pinag-uusapan.",
+          "Isama sa panaguri ang kilos at binabasang bagay.",
+          "Tukuyin ang simuno at buong panaguri."
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagtukoy ng buong panaguri. 🎉",
+        "retry": "Hanapin ang una, kasunod, at huling hakbang ayon sa tanong. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang sa simuno at panaguri.",
+      "narration": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno.",
+      "guideHint": "Kailangan ng pahiwatig? Basahin muli ang halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q1-w02-d03-q1",
+        "prompt": "Alin ang simuno sa 'Si Lola / ay nagbabasa ng pahayagan.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang mga ibon"
+          },
+          {
+            "id": "b",
+            "text": "Ang pusa"
+          },
+          {
+            "id": "c",
+            "text": "Si Ben"
+          },
+          {
+            "id": "d",
+            "text": "Si Lola"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Si Lola ang pinag-uusapan, kaya siya ang simuno.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q1-w02-d03-q2",
+        "prompt": "Alin ang panaguri sa 'Si Lola / ay nagbabasa ng pahayagan.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay umaawit."
+          },
+          {
+            "id": "b",
+            "text": "ay natutulog."
+          },
+          {
+            "id": "c",
+            "text": "ay nagbabasa ng pahayagan."
+          },
+          {
+            "id": "d",
+            "text": "ay sumasayaw."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang “ay nagbabasa ng pahayagan” ang buong panaguri ng pangungusap.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q1-w02-d03-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano wastong hatiin ang pangungusap na 'Ang mga ibon ay umaawit.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Simuno: “Ang mga ibon”; panaguri: “ay umaawit.”"
+          },
+          {
+            "id": "b",
+            "text": "Simuno: “Ang”; panaguri: “mga ibon ay umaawit.”"
+          },
+          {
+            "id": "c",
+            "text": "Simuno: “Ang mga ibon ay”; panaguri: “umaawit.”"
+          },
+          {
+            "id": "d",
+            "text": "Simuno: “Ang mga ibon ay umaawit”; panaguri: wala"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang simuno ay “Ang mga ibon” at ang panaguri ay “ay umaawit.”"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q1-w02-d03-q4",
+        "prompt": "Kung ang simuno ay 'Si Lola', alin ang maaaring panaguri?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ay nagbabasa ng pahayagan."
+          },
+          {
+            "id": "b",
+            "text": "ay tumatahol sa bakuran."
+          },
+          {
+            "id": "c",
+            "text": "ay nangingitlog."
+          },
+          {
+            "id": "d",
+            "text": "ay lumalangoy sa lawa."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang panaguring may “ng pahayagan” ay akma kay Lola na nagbabasa.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q1-w02-d03-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano wastong hatiin ang pangungusap na 'Si Ben ay sumasayaw.'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Simuno: “Si Ben ay”; panaguri: “sumasayaw.”"
+          },
+          {
+            "id": "b",
+            "text": "Simuno: “Si Ben”; panaguri: “ay sumasayaw.”"
+          },
+          {
+            "id": "c",
+            "text": "Simuno: “Si Ben ay sumasayaw”; panaguri: wala"
+          },
+          {
+            "id": "d",
+            "text": "Simuno: “Si”; panaguri: “Ben ay sumasayaw.”"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang simuno ay “Si Ben,” at ang panaguri ay “ay sumasayaw.”"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b1a-2026-08-15"
+}

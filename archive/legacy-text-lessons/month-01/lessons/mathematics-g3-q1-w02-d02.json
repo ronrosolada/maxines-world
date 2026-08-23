@@ -1,0 +1,389 @@
+{
+  "lessonId": "mathematics-g3-q1-w02-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "mathematics",
+  "title": "Round 47 to 50",
+  "objective": "Round numbers to the nearest ten, hundred, or thousand.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is rolling number cards to the nearest ten, hundred, or thousand. Which place will each card land on?",
+  "vocabulary": [
+    {
+      "term": "47 rounds to 50",
+      "definition": "The ones digit is 7, so 47 moves up to 50."
+    },
+    {
+      "term": "342 rounds to 300",
+      "definition": "The tens digit is 4, so 342 stays at the lower hundred, 300."
+    },
+    {
+      "term": "3,650 rounds to 4,000",
+      "definition": "The hundreds digit is 6, so 3,650 moves up to 4,000."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Watch the digit that decides each rounding move.",
+      "content": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Point to the digit right of the named place: 5–9 goes up and 0–4 stays."
+      },
+      "prompt": "Watch the digit that decides each rounding move.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Tap a card and find the digit that decides its rounding.",
+      "content": {
+        "examples": [
+          "47 → 50 (ones digit 7)",
+          "342 → 300 (tens digit 4)",
+          "3,650 → 4,000 (hundreds digit 6)",
+          "1,241 → 1,200 (tens digit 4)"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Circle the place named in the question, then inspect the next digit."
+      },
+      "prompt": "Tap a card and find the digit that decides its rounding.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Check the deciding digit before sorting each equation.",
+      "content": {
+        "fits": [
+          "47 → 50",
+          "342 → 300",
+          "3,650 → 4,000",
+          "1,241 → 1,200"
+        ],
+        "doesNotFit": [
+          "47 → 40",
+          "342 → 400",
+          "3,650 → 3,000",
+          "1,241 → 1,300"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Read the target place and its neighboring digit before sorting."
+      },
+      "prompt": "Check the deciding digit before sorting each equation.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Tap the equation that rounds 47 to the nearest ten.",
+      "content": {
+        "options": [
+          "47 → 40",
+          "47 → 50",
+          "47 → 47",
+          "47 → 60"
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "For 47 to the nearest ten, inspect the ones digit 7."
+      },
+      "prompt": "Tap the equation that rounds 47 to the nearest ten.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Match each rounding problem to its deciding clue.",
+      "content": {
+        "pairs": [
+          {
+            "left": "47 to the nearest ten",
+            "right": "ones digit 7 makes it round up"
+          },
+          {
+            "left": "342 to the nearest hundred",
+            "right": "tens digit 4 keeps it at 300"
+          },
+          {
+            "left": "3,650 to the nearest thousand",
+            "right": "hundreds digit 6 makes it round up"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Use the next digit to explain why each number goes up or stays down."
+      },
+      "prompt": "Match each rounding problem to its deciding clue.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w02-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w02-d02-visual",
+      "instruction": "Order the checks for rounding a number.",
+      "content": {
+        "steps": [
+          "Read the number and the requested place",
+          "Find the digit immediately to the right",
+          "Use 5–9 up or 0–4 down",
+          "Rewrite the remaining places as zeros and check"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Name the place, inspect the next digit, and check the zeros."
+      },
+      "prompt": "Order the checks for rounding a number.",
+      "narration": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down.",
+      "guideHint": "Circle the named place, then inspect the digit to its right.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "To round, find the named place and look one digit to its right. A 5–9 rounds up; a 0–4 stays down."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q1-w02-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Round 47 to the nearest ten.",
+        "options": [
+          {
+            "id": "a",
+            "text": "47 rounds to 50"
+          },
+          {
+            "id": "b",
+            "text": "47 rounds to 40"
+          },
+          {
+            "id": "c",
+            "text": "40 rounds to 50"
+          },
+          {
+            "id": "d",
+            "text": "47 stays exactly 47"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "47 is between 40 and 50. The ones digit is 7, and 5 or more rounds up, so 47 rounds to 50."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Round 342 to the nearest hundred.",
+        "options": [
+          {
+            "id": "a",
+            "text": "342 stays exactly 342"
+          },
+          {
+            "id": "b",
+            "text": "342 rounds to 300"
+          },
+          {
+            "id": "c",
+            "text": "342 rounds to 400"
+          },
+          {
+            "id": "d",
+            "text": "300 rounds to 400"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "342 is between 300 and 400. The tens digit is 4, and 4 or less stays down, so 342 rounds to 300."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Round 3,650 to the nearest thousand.",
+        "options": [
+          {
+            "id": "a",
+            "text": "3,650 rounds to 4,000"
+          },
+          {
+            "id": "b",
+            "text": "3,650 rounds to 3,000"
+          },
+          {
+            "id": "c",
+            "text": "3,000 rounds to 4,000"
+          },
+          {
+            "id": "d",
+            "text": "3,650 stays exactly 3,650"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "3,650 is between 3,000 and 4,000. The hundreds digit is 6, and 5 or more rounds up, so 3,650 rounds to 4,000."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Round 1,241 to the nearest hundred.",
+        "options": [
+          {
+            "id": "a",
+            "text": "1,200 rounds to 1,300"
+          },
+          {
+            "id": "b",
+            "text": "1,241 rounds to 1,300"
+          },
+          {
+            "id": "c",
+            "text": "1,241 rounds to 1,200"
+          },
+          {
+            "id": "d",
+            "text": "1,241 stays exactly 1,241"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "1,241 is between 1,200 and 1,300. The tens digit is 4, and 4 or less stays down, so 1,241 rounds to 1,200."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w02-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which statement about rounding is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "47 rounds to 40"
+          },
+          {
+            "id": "b",
+            "text": "43 rounds to 50"
+          },
+          {
+            "id": "c",
+            "text": "47 stays 47"
+          },
+          {
+            "id": "d",
+            "text": "47 rounds to 50"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "47 has a ones digit of 7, so it rounds up to 50. A ones digit of 0–4 would round down instead."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

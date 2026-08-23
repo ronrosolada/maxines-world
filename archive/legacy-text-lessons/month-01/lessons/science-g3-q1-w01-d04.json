@@ -1,0 +1,389 @@
+{
+  "lessonId": "science-g3-q1-w01-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 4,
+  "subject": "science",
+  "title": "Plastic Cup Detective",
+  "objective": "Describe the observable properties of a plastic cup and choose its safe use or handling.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "plastic cup",
+  "vocabulary": [
+    {
+      "term": "property",
+      "definition": "A way to describe how a material looks, feels, or behaves."
+    },
+    {
+      "term": "flexible",
+      "definition": "Able to bend without breaking easily."
+    },
+    {
+      "term": "absorb",
+      "definition": "To soak up a liquid."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-q1-w01-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Watch Milo observe a material and describe its properties safely.",
+      "content": "Materials have properties. aluminum foil is shiny and bends easily, and rope is strong.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look at the object, then name what you can see, feel, or safely test."
+      },
+      "prompt": "Listen to Milo. He will show you how to describe materials by their properties.",
+      "narration": "Materials have properties. aluminum foil is shiny and bends easily, and rope is strong.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Materials have properties. aluminum foil is shiny and bends easily, and rope is strong."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Tap each object and notice the property Milo describes.",
+      "content": {
+        "examples": [
+          "aluminum foil bends and reflects light",
+          "rope feels strong when pulled gently",
+          "clay can be soft and molded",
+          "a plastic cup feels light in the hand"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the object and the observation before naming its property."
+      },
+      "prompt": "Explore each example. aluminum foil is shiny and bends easily, and rope is strong.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Sort each observation by whether it describes a material property.",
+      "content": {
+        "fits": [
+          "aluminum foil bends and reflects light",
+          "rope feels strong when pulled gently",
+          "clay can be soft and molded",
+          "a plastic cup feels light in the hand"
+        ],
+        "doesNotFit": [
+          "a loud sound fills the room",
+          "a happy feeling changes mood",
+          "a fast race uses time",
+          "a mountain has a height"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Ask whether each card describes something observable about a material."
+      },
+      "prompt": "Sort the examples. Keep the ones that describe a material's property.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Choose the object that shows the cup lesson’s focus on material properties.",
+      "content": {
+        "options": [
+          "aluminum foil",
+          "metal spoon",
+          "rubber band",
+          "paper towel"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Compare each choice with the property clue from the material."
+      },
+      "prompt": "Choose the example of material properties.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Match each material with the evidence for its property.",
+      "content": {
+        "pairs": [
+          {
+            "left": "aluminum foil",
+            "right": "bends and reflects light"
+          },
+          {
+            "left": "rope",
+            "right": "holds together when pulled gently"
+          },
+          {
+            "left": "clay",
+            "right": "can be shaped while soft"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Match the material to the observable evidence that supports its property."
+      },
+      "prompt": "Match each material with the property it shows.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    },
+    {
+      "activityId": "science-g3-q1-w01-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "science-g3-q1-w01-d04-visual",
+      "instruction": "Order the steps for safely investigating a material.",
+      "content": {
+        "steps": [
+          "Observe the material safely",
+          "Name its property",
+          "Compare with other materials",
+          "Choose the safe use"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the order: observe safely, name the property, compare, then choose a safe use."
+      },
+      "prompt": "Put the steps in order. Observe the material safely, then name its property.",
+      "narration": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water.",
+      "guideHint": "Need a hint? Read the example again.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Observe materials without tasting or touching unknown substances. Properties include hardness, flexibility, shine, texture, and whether a material absorbs water."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-q1-w01-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine tests objects with an adult. Which one bends easily without breaking?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A rock"
+          },
+          {
+            "id": "b",
+            "text": "A wooden stick"
+          },
+          {
+            "id": "c",
+            "text": "A glass bottle"
+          },
+          {
+            "id": "d",
+            "text": "A rubber band"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "A rubber band bends and returns to shape without shattering. Rocks, glass, and wooden sticks resist bending or can break."
+      },
+      {
+        "itemId": "science-g3-q1-w01-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo compares a cloth, foil, glass, and ruler after a spill. Which material absorbs water?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aluminum foil"
+          },
+          {
+            "id": "b",
+            "text": "Cotton cloth"
+          },
+          {
+            "id": "c",
+            "text": "Glass jar"
+          },
+          {
+            "id": "d",
+            "text": "Wooden ruler"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Cotton cloth has fibers that soak up water. Foil and glass repel water, and a ruler does not absorb it as readily."
+      },
+      {
+        "itemId": "science-g3-q1-w01-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine presses four objects gently. Which material is hard?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sponge"
+          },
+          {
+            "id": "b",
+            "text": "Stone"
+          },
+          {
+            "id": "c",
+            "text": "Rubber ball"
+          },
+          {
+            "id": "d",
+            "text": "Aluminum foil"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A stone stays firm and resists bending, showing hardness. A sponge, rubber ball, and foil are softer or more flexible."
+      },
+      {
+        "itemId": "science-g3-q1-w01-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A child carries a plastic cup without much effort. Which property does it show?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Strong"
+          },
+          {
+            "id": "b",
+            "text": "Shiny and bends easily"
+          },
+          {
+            "id": "c",
+            "text": "Soft and moldable"
+          },
+          {
+            "id": "d",
+            "text": "Light"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The cup is easy to lift because it has little weight, so light is the observed property."
+      },
+      {
+        "itemId": "science-g3-q1-w01-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Before studying the plastic cup, which action is safe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Leave it in rain"
+          },
+          {
+            "id": "b",
+            "text": "Taste it"
+          },
+          {
+            "id": "c",
+            "text": "Throw it"
+          },
+          {
+            "id": "d",
+            "text": "Look at it and touch it gently"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Looking and gentle touching allow a safe observation. Tasting, throwing, and damaging the cup are not safe ways to investigate."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

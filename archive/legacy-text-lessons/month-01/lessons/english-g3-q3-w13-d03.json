@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w13-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 12,
+  "day": 3,
+  "subject": "english",
+  "title": "Ana Shares Her Umbrella",
+  "objective": "Identify story characters and support ideas about them with actions or words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Ana shares her umbrella when rain starts! 🐱 Read what each character says and does to learn what they are like.",
+  "vocabulary": [
+    {
+      "term": "Ana",
+      "definition": "A character who shares her umbrella with someone in the rain."
+    },
+    {
+      "term": "puppy",
+      "definition": "A character who hides under a chair when feeling shy."
+    },
+    {
+      "term": "Lola",
+      "definition": "A character who tells a funny story."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w13-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Listen for each character’s words and actions.",
+      "content": "Characters are the people, animals, or make-believe beings who act in a story. Use their words or actions as clues.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check who said or did the action before choosing."
+      },
+      "prompt": "Listen for actions that reveal a character.",
+      "narration": "Characters are people or animals in a story. Their words and actions give clues: Ana shares an umbrella, the puppy hides under a chair, and Lola tells a funny story.",
+      "guideHint": "Match each action to the character who does it.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Characters are people or animals in a story. Their words and actions give clues: Ana shares an umbrella, the puppy hides under a chair, and Lola tells a funny story."
+    },
+    {
+      "activityId": "english-g3-q3-w13-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Tap the characters and their actions in the story.",
+      "content": {
+        "examples": [
+          "Ana shares her umbrella",
+          "the puppy hides under a chair",
+          "Lola tells a funny story",
+          "the bird carries a twig"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check which character performs each action."
+      },
+      "prompt": "Tap each character-and-action clue.",
+      "narration": "A character is someone or an animal who acts in the story; actions help readers describe them.",
+      "guideHint": "Read the action and name the character connected to it.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A character is someone or an animal who acts in the story; actions help readers describe them."
+    },
+    {
+      "activityId": "english-g3-q3-w13-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Sort people and animals who act in the story.",
+      "content": {
+        "fits": [
+          "Ana",
+          "the puppy",
+          "Lola",
+          "the bird"
+        ],
+        "doesNotFit": [
+          "the rain",
+          "the blue chair",
+          "a mango tree",
+          "the color red"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check whether the card names a character or only a thing, place, or weather detail."
+      },
+      "prompt": "Sort story characters away from things that do not act.",
+      "narration": "Characters take part in a story through their words or actions.",
+      "guideHint": "Look for a person or animal who can act in the story.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Characters take part in a story through their words or actions."
+    },
+    {
+      "activityId": "english-g3-q3-w13-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Choose the character named in the action.",
+      "content": {
+        "options": [
+          "Ana",
+          "the rain",
+          "the blue chair",
+          "a mango tree"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check whether the choice can act in the story."
+      },
+      "prompt": "Ana shares an umbrella. Who is the character?",
+      "narration": "A character is the person or animal who performs an action in the story.",
+      "guideHint": "Find who is doing the action in the sentence.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A character is the person or animal who performs an action in the story."
+    },
+    {
+      "activityId": "english-g3-q3-w13-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Match each character to the action that reveals them.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ana",
+            "right": "shares her umbrella with someone in the rain"
+          },
+          {
+            "left": "the puppy",
+            "right": "hides under a chair when feeling shy"
+          },
+          {
+            "left": "Lola",
+            "right": "tells a funny story to make others laugh"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check that the action belongs to the same character, not a different one."
+      },
+      "prompt": "Match each character with the action the story gives.",
+      "narration": "Readers use a character’s actions as evidence for describing that character.",
+      "guideHint": "Find the action that belongs to the named character.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use a character’s actions as evidence for describing that character."
+    },
+    {
+      "activityId": "english-g3-q3-w13-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w13-d03-visual",
+      "instruction": "Put the character-clue steps in order.",
+      "content": {
+        "steps": [
+          "Name the character",
+          "Notice what the character says",
+          "Notice what the character does",
+          "Describe the character with a story clue"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Super! ✨",
+        "retry": "Check that your description is supported by something the character says or does."
+      },
+      "prompt": "Put the steps for describing a character in order.",
+      "narration": "Readers name the character, notice words and actions, and use one clue to describe what the character is like.",
+      "guideHint": "Use an action or spoken line as evidence for your description.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers name the character, notice words and actions, and use one clue to describe what the character is like."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w13-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A story says a curious puppy hides under a chair. Which one is a character?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the curious puppy"
+          },
+          {
+            "id": "b",
+            "text": "a mango tree"
+          },
+          {
+            "id": "c",
+            "text": "the rain"
+          },
+          {
+            "id": "d",
+            "text": "the blue chair"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The puppy is an animal who acts in the story, so it is a character; the other choices are things or weather."
+      },
+      {
+        "itemId": "english-g3-q3-w13-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Rain begins while Ana and her friends are outside. What does Ana do?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hides under a chair"
+          },
+          {
+            "id": "b",
+            "text": "shares her umbrella"
+          },
+          {
+            "id": "c",
+            "text": "carries a twig"
+          },
+          {
+            "id": "d",
+            "text": "tells a funny story"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ana shares her umbrella. The other actions belong to the puppy, the bird, or Lola."
+      },
+      {
+        "itemId": "english-g3-q3-w13-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "The puppy hides under a chair when visitors arrive. What trait does this action suggest?",
+        "options": [
+          {
+            "id": "a",
+            "text": "shy"
+          },
+          {
+            "id": "b",
+            "text": "generous"
+          },
+          {
+            "id": "c",
+            "text": "adventurous"
+          },
+          {
+            "id": "d",
+            "text": "noisy"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Hiding under a chair suggests the puppy is shy; the action is evidence for that trait."
+      },
+      {
+        "itemId": "english-g3-q3-w13-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Who tells a funny story to make the others laugh?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the puppy"
+          },
+          {
+            "id": "b",
+            "text": "the bird"
+          },
+          {
+            "id": "c",
+            "text": "Lola"
+          },
+          {
+            "id": "d",
+            "text": "the hungry cat"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Lola tells the funny story, so her action identifies her as the storyteller."
+      },
+      {
+        "itemId": "english-g3-q3-w13-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which action is evidence that Lola likes to make people laugh?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the bird carries a twig"
+          },
+          {
+            "id": "b",
+            "text": "the puppy hides under a chair"
+          },
+          {
+            "id": "c",
+            "text": "Ana shares her umbrella"
+          },
+          {
+            "id": "d",
+            "text": "Lola tells a funny story"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Lola telling a funny story is the action that supports the idea that she likes making people laugh."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

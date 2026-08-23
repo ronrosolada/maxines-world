@@ -1,0 +1,360 @@
+{
+  "lessonId": "mathematics-g3-m01-d12",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 12,
+  "subject": "MATHEMATICS",
+  "title": "Quick Differences",
+  "objective": "Estimate differences and use mental strategies.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is counting change at the corner shop! Help him estimate differences.",
+  "vocabulary": [
+    {
+      "term": "estimate",
+      "definition": "A close guess, like 500 − 200 = 300 for 503 − 198."
+    },
+    {
+      "term": "round",
+      "definition": "To change a number to a nearby friendly number, like 503 to 500."
+    },
+    {
+      "term": "difference",
+      "definition": "The answer when you subtract."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d12-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how 503 − 198 is about 500 − 200 = 300.",
+      "content": "Rounding and counting up can check whether an exact difference is reasonable.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Round both numbers or use a stated mental strategy, then check the difference. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "Text alternative: Rounding and counting up can check whether an exact difference is reasonable."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d12-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the estimate.",
+      "content": {
+        "examples": [
+          "503-198 ≈ 500-200=300",
+          "70-29=41",
+          "1,000-498=502"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Quick Differences. 🔎",
+        "retry": "Check each example for this rule: Round both numbers or use a stated mental strategy, then check the difference. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d12-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the strategy labeled correctly?",
+      "content": {
+        "fits": [
+          "503-198 ≈ 500-200=300",
+          "70-29=41",
+          "1,000-498=502"
+        ],
+        "doesNotFit": [
+          "Call estimate exact",
+          "Subtract in wrong order",
+          "Ignore specified rounding"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Quick Differences clue. 🎉",
+        "retry": "Check every card against this rule: Round both numbers or use a stated mental strategy, then check the difference. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d12-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Using nearest hundreds, 503 - 198 is about",
+      "content": {
+        "options": [
+          "30",
+          "300",
+          "700"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 300",
+        "retry": "Check the numbers with this rule: Round both numbers or use a stated mental strategy, then check the difference. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d12-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each estimate to its strategy.",
+      "content": {
+        "pairs": [
+          {
+            "left": "503-198 ≈ 500-200=300",
+            "right": "round to hundreds before subtracting"
+          },
+          {
+            "left": "70-29=41",
+            "right": "subtract 29 from 70"
+          },
+          {
+            "left": "1,000-498=502",
+            "right": "adjust 498 to 500, then add 2 back"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Quick Differences explanation. 🔗",
+        "retry": "Match each pair by the relationship: Round both numbers or use a stated mental strategy, then check the difference. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d12-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the estimating steps in order.",
+      "content": {
+        "steps": [
+          "Round the numbers.",
+          "Subtract the rounded numbers.",
+          "Compare with the exact answer."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Quick Differences steps in order. 🎉",
+        "retry": "Check the order: start with round the numbers., then subtract the rounded numbers., and finish with compare with the exact answer.. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d12-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is checking change at the corner shop. Which statement about estimating differences is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Call estimate exact"
+          },
+          {
+            "id": "b",
+            "text": "Rounding and counting up can check whether an exact difference is reasonable."
+          },
+          {
+            "id": "c",
+            "text": "Subtract in wrong order"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Round both numbers, subtract, then compare the estimate with the exact answer to see if it makes sense."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d12-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is checking change at the corner shop. Which estimate is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "503-198 ≈ 500-200=300"
+          },
+          {
+            "id": "b",
+            "text": "503 − 198 ≈ 500 − 100 = 400"
+          },
+          {
+            "id": "c",
+            "text": "503 − 198 ≈ 200 − 500 = −300"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "503 rounds to 500 and 198 rounds to 200, so 500 − 200 = 300."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d12-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is checking change at the corner shop. Which is NOT true about estimating?",
+        "options": [
+          {
+            "id": "a",
+            "text": "503-198 ≈ 500-200=300"
+          },
+          {
+            "id": "b",
+            "text": "70-29=41"
+          },
+          {
+            "id": "c",
+            "text": "Call estimate exact"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "An estimate is close but not exact, so do not call it the exact answer."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d12-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is checking change at the corner shop. Using nearest hundreds, 503 - 198 is about",
+        "options": [
+          {
+            "id": "a",
+            "text": "30"
+          },
+          {
+            "id": "b",
+            "text": "700"
+          },
+          {
+            "id": "c",
+            "text": "300"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "503 rounds to 500 and 198 rounds to 200, so 500 − 200 = 300."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d12-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is checking change at the corner shop. Which shows 1,000 − 498 using compensation?",
+        "options": [
+          {
+            "id": "a",
+            "text": "498 is 2 less than 500: 1,000 − 500 + 2 = 502"
+          },
+          {
+            "id": "b",
+            "text": "498 is 2 less than 500: 1,000 − 500 = 500"
+          },
+          {
+            "id": "c",
+            "text": "1,000 − 498 = 500 exactly"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Compensation: subtract 500 (that is 2 too many), then add the 2 back: 1,000 − 500 = 500, and 500 + 2 = 502."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d12-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d12-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Quick Differences; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Quick Differences.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "b428d6d15163fd2229c30414544a8d9d395e2fd756fef688a46d4023ceeee94d",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "lessonId": "gmrc-g3-q3-w05-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 3,
+  "subject": "gmrc",
+  "title": "Magalang sa Silid-Aklatan",
+  "objective": "Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa sa silid-aklatan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa silid-aklatan, nakatutulong ang tahimik na kilos upang makapagbasa ang lahat. Sanayin ang pakikinig, paghingi ng pahintulot, at maingat na paggamit ng mga aklat. 📚",
+  "vocabulary": [
+    {
+      "term": "nakikinig",
+      "definition": "Pagbibigay-pansin sa nagsasalita bago tumugon."
+    },
+    {
+      "term": "nagsasabi ng po at opo kung angkop",
+      "definition": "Magalang na pananalitang ginagamit ayon sa kausap at sitwasyon."
+    },
+    {
+      "term": "humihingi ng pahintulot",
+      "definition": "Pagtatanong muna bago gumamit o gumawa ng isang bagay."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Pakinggan kung paano maging magalang sa silid-aklatan.",
+      "content": "Sa silid-aklatan, ipinakikita ang paggalang sa tahimik na pakikinig, paggamit ng magagalang na salita, paghingi ng pahintulot bago kumuha ng aklat, at maingat na pagbabalik nito.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli: manahimik, magpaalam, at mag-ingat sa aklat."
+      },
+      "prompt": "Alamin ang tahimik na pakikinig, pahintulot, at pag-iingat sa aklat.",
+      "narration": "Sa silid-aklatan, ipinakikita ang paggalang sa tahimik na pakikinig, magalang na salita, pahintulot bago kumuha ng aklat, at maingat na pagbabalik.",
+      "guideHint": "Pakinggan ang clue: manahimik, magpaalam, at mag-ingat sa aklat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa silid-aklatan, ipinakikita ang paggalang sa tahimik na pakikinig, magalang na salita, pahintulot bago kumuha ng aklat, at maingat na pagbabalik."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Hanapin ang pakikinig, magalang na salita, pahintulot, at katahimikan.",
+      "content": {
+        "examples": [
+          "nakikinig sa tagapangalaga",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago kumuha",
+          "gumagalang sa tahimik na nagbabasa"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pakikinig, magalang na salita, pahintulot, at katahimikan."
+      },
+      "prompt": "I-tap ang mga kilos na nagpapakita ng paggalang sa silid-aklatan.",
+      "narration": "Hanapin ang nakikinig sa tagapangalaga, nagsasalita nang magalang, nagpapaalam bago kumuha, at gumagalang sa mambabasa.",
+      "guideHint": "Hanapin ang apat na kilos na nag-iingat sa aklat at katahimikan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang nakikinig sa tagapangalaga, nagsasalita nang magalang, nagpapaalam bago kumuha, at gumagalang sa mambabasa."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Ilagay ang kilos sa magalang o hindi magalang sa aklatan.",
+      "content": {
+        "fits": [
+          "nakikinig sa tagapangalaga",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago kumuha",
+          "gumagalang sa tahimik na nagbabasa"
+        ],
+        "doesNotFit": [
+          "sumisigaw sa loob ng silid",
+          "kumukuha ng aklat nang walang paalam",
+          "pumupunit ng pahina",
+          "hindi nakikinig sa tuntunin"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: nakatutulong ba ito sa aklat at tahimik na pag-aaral?"
+      },
+      "prompt": "Paghiwalayin ang nag-iingat sa aklat at katahimikan at ang hindi.",
+      "narration": "Ang pakikinig, pahintulot, mahinang boses, at pag-iingat ay tumutulong sa lahat ng nagbabasa.",
+      "guideHint": "Tanungin: nakatutulong ba ito sa aklat at tahimik na pag-aaral?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig, pahintulot, mahinang boses, at pag-iingat ay tumutulong sa lahat ng nagbabasa."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Piliin ang kilos na nagbibigay-pansin sa tuntunin ng aklatan.",
+      "content": {
+        "options": [
+          "nakikinig sa tagapangalaga",
+          "nanunukso sa mambabasa",
+          "kumukuha ng aklat nang walang paalam",
+          "sumisigaw sa loob ng silid"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Piliin ang kilos na nagbibigay-pansin sa tuntunin."
+      },
+      "prompt": "Alin ang halimbawa ng paggalang sa silid-aklatan?",
+      "narration": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman ang tuntunin sa paggamit at pagbabalik ng aklat.",
+      "guideHint": "Piliin ang kilos na nagbibigay-pansin sa tuntunin.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman ang tuntunin sa paggamit at pagbabalik ng aklat."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Itugma ang kilos sa mabuting bunga nito sa aklatan.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nakikinig sa tagapangalaga",
+            "right": "nalalaman ang tuntunin ng aklatan"
+          },
+          {
+            "left": "nagsasabi ng po at opo kung angkop",
+            "right": "nagiging mahinahon ang usapan"
+          },
+          {
+            "left": "humihingi ng pahintulot bago kumuha",
+            "right": "napangangalagaan ang aklat"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa tuntunin, mahinahong usapan, o pag-iingat sa aklat."
+      },
+      "prompt": "Iugnay ang bawat kilos sa naitutulong nito sa mambabasa.",
+      "narration": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nangangalaga sa aklat.",
+      "guideHint": "Iugnay sa tuntunin, mahinahong usapan, o pag-iingat sa aklat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nangangalaga sa aklat."
+    },
+    {
+      "activityId": "gmrc-g3-q3-w05-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q3-w05-d03-visual",
+      "instruction": "Ayusin mula pakikinig sa tuntunin hanggang pagsasauli ng aklat.",
+      "content": {
+        "steps": [
+          "Makinig sa tuntunin ng aklatan",
+          "Humingi ng pahintulot bago kumuha ng aklat",
+          "Magbasa nang tahimik at maingat",
+          "Ibalik ang aklat sa tamang lugar"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang tuntunin, saka pahintulot, tahimik na pagbasa, at pagsasauli."
+      },
+      "prompt": "Ilagay sa tamang ayos ang maingat na pagbabasa.",
+      "narration": "Makinig sa tuntunin, humingi ng pahintulot, magbasa nang tahimik, at ibalik ang aklat sa tamang lugar.",
+      "guideHint": "Unahin ang tuntunin; huli ang pagsasauli ng aklat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Makinig sa tuntunin, humingi ng pahintulot, magbasa nang tahimik, at ibalik ang aklat sa tamang lugar."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q3-w05-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May tagapangalaga na nagpapaliwanag ng tuntunin sa silid-aklatan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-uutos sa kaniya"
+          },
+          {
+            "id": "b",
+            "text": "gumalang sa pagkakaiba"
+          },
+          {
+            "id": "c",
+            "text": "hindi makinig"
+          },
+          {
+            "id": "d",
+            "text": "makinig nang tahimik at magtanong nang maayos"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang tahimik na pakikinig at maayos na tanong ay tumutulong maunawaan ang tuntunin."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May kaklase kang nagbabasa nang tahimik. Ano ang magalang na kilos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sumingit sa usapan"
+          },
+          {
+            "id": "b",
+            "text": "magbigay ng upuan sa nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "panatilihing mahinahon ang boses at huwag mang-abala"
+          },
+          {
+            "id": "d",
+            "text": "tawanan ang kaniyang aklat"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang mahinang boses at hindi panggugulo ay paggalang sa nagbabasa."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nakasalubong mo si Milo sa silid-aklatan. Ano ang magalang mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-usapan siya sa katabi"
+          },
+          {
+            "id": "b",
+            "text": "tingnan lamang siya at dumaan"
+          },
+          {
+            "id": "c",
+            "text": "batiin siya nang may ngiti at mahinang boses"
+          },
+          {
+            "id": "d",
+            "text": "tumakbo papalayo"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang mahinang pagbati ay pagkilala sa kakilala nang hindi nakaaabala sa mambabasa."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May ipinapakita sa iyo ang kaklase niyang larawan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "agawin ang papel"
+          },
+          {
+            "id": "b",
+            "text": "pintasan agad ang larawan"
+          },
+          {
+            "id": "c",
+            "text": "tawanan ang larawan"
+          },
+          {
+            "id": "d",
+            "text": "tingnan ito nang may interes at purihin ang ginawa niya"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagtingin nang may interes at maayos na papuri ay paggalang sa gawa ng iba."
+      },
+      {
+        "itemId": "gmrc-g3-q3-w05-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng paggalang sa silid-aklatan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nakikinig nang mabuti"
+          },
+          {
+            "id": "b",
+            "text": "nagpapasalamat"
+          },
+          {
+            "id": "c",
+            "text": "gumagalang sa tahimik na nagbabasa"
+          },
+          {
+            "id": "d",
+            "text": "kumukuha ng aklat nang walang pahintulot"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagkuha ng aklat nang walang pahintulot ay hindi pag-iingat sa gamit ng aklatan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

@@ -1,0 +1,370 @@
+{
+  "lessonId": "filipino-g3-m01-d16",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 16,
+  "subject": "FILIPINO",
+  "title": "Ang Angkop na Wakas",
+  "objective": "Pumili ng wakas na suportado ng mga pahiwatig sa kuwento.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ang wakas ay dapat magpakita ng mangyayaring kaugnay ng suliranin at mga pahiwatig. Suriin kung makatwiran ang resulta bago pumili.",
+  "vocabulary": [
+    {
+      "term": "wakas",
+      "definition": "Ang huling bahagi ng kuwento."
+    },
+    {
+      "term": "pahiwatig",
+      "definition": "Palatandaang tumutulong sa paghinuha ng maaaring mangyari."
+    },
+    {
+      "term": "kuwento",
+      "definition": "Isang salaysay tungkol sa mga tauhan at pangyayari."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d16-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Basahin ang paliwanag tungkol sa angkop na wakas.",
+      "content": "Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Hanapin ang pahiwatig na susuporta sa wakas. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Ang angkop na wakas ay kaugnay ng tauhan, suliranin, at mga naunang pangyayari."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Basahin ang pahiwatig at posibleng wakas.",
+      "content": {
+        "examples": [
+          "Nahanap ang susi matapos hanapin sa mesa.",
+          "Nabuhay ang halaman matapos diligan.",
+          "Naibalik ang aklat matapos makita."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang wakas na suportado ng pahiwatig. 🔎",
+        "retry": "Itanong kung ang wakas ay bunga ng suliranin at pahiwatig. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa angkop na pangkat ang wakas na may batayan.",
+      "content": {
+        "fits": [
+          "Nahanap ang susi matapos hanapin sa mesa.",
+          "Nabuhay ang halaman matapos diligan.",
+          "Naibalik ang aklat matapos makita."
+        ],
+        "doesNotFit": [
+          "Biglang naging planeta ang silid",
+          "Lumabas ang tauhang di ipinakilala",
+          "Hindi nalutas ngunit sinabing nalutas"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga wakas ayon sa pahiwatig. 🎉",
+        "retry": "Piliin ang wakas na maaaring mangyari ayon sa suliranin. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Natuyo ang halaman at diniligan ni Bea. Alin ang angkop na wakas?",
+      "content": {
+        "options": [
+          "Nawala ang buong paaralan.",
+          "Unti-unting sumigla ang halaman.",
+          "Naging eroplano ang paso."
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Unti-unting sumigla ang halaman.",
+        "retry": "Hanapin ang wakas na natural na bunga ng pagdidilig. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang halimbawa sa dahilan o gamit nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Nahanap ang susi",
+            "right": "bunga ng paghahanap sa mesa"
+          },
+          {
+            "left": "Nabuhay ang halaman",
+            "right": "bunga ng pagdidilig"
+          },
+          {
+            "left": "Naibalik ang aklat",
+            "right": "bunga ng pagkakita nito"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang pahiwatig sa angkop na wakas. 🔗",
+        "retry": "Itugma ang suliranin o kilos sa wakas na bunga nito. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d16-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Basahin ang suliranin at mga pahiwatig.",
+          "Isipin ang posibleng mangyari pagkatapos.",
+          "Piliin ang wakas na may malinaw na kaugnayan."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagpili ng wakas. 🎉",
+        "retry": "Sundin ang daloy: basahin, isipin, at piliin. 💪"
+      },
+      "assetId": "filipino-g3-m01-d16-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d16-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nagpaaraw si Ben at nakalimutang magdala ng payong. Alin ang angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Lumipad ang payong papuntang buwan."
+          },
+          {
+            "id": "b",
+            "text": "Nabasa siya nang umulan."
+          },
+          {
+            "id": "c",
+            "text": "Hindi na muling umulan kailanman."
+          },
+          {
+            "id": "d",
+            "text": "Tumubo ang payong sa lupa."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Dahil walang payong si Ben, nabasa siya nang umulan — ito ang wakas na suportado ng mga pahiwatig."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nag-aral nang mabuti si Mia sa pagsusulit. Alin ang angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nakakuha siya ng mataas na marka."
+          },
+          {
+            "id": "b",
+            "text": "Nakalimutan niya ang kaniyang pangalan."
+          },
+          {
+            "id": "c",
+            "text": "Natulog siya sa ilalim ng mesa."
+          },
+          {
+            "id": "d",
+            "text": "Tumakas siya sa silid-aralan."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pag-aaral nang mabuti ay humahantong sa magandang resulta — mataas na marka."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Pinakain ni Ana ang aso bago umalis. Alin ang angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nawala ang pagkain ng pusa."
+          },
+          {
+            "id": "b",
+            "text": "Umalis ang bahay."
+          },
+          {
+            "id": "c",
+            "text": "Hindi nagutom ang aso habang wala siya."
+          },
+          {
+            "id": "d",
+            "text": "Tumahol ang mesa."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Dahil pinakain ang aso, hindi ito magugutom habang wala si Ana."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Natuyo ang halaman at diniligan ni Bea. Alin ang angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unti-unting sumigla ang halaman."
+          },
+          {
+            "id": "b",
+            "text": "Nawala ang buong paaralan."
+          },
+          {
+            "id": "c",
+            "text": "Naging eroplano ang paso."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pagdidilig ay tumutulong sa tuyong halaman, kaya makatuwiran na unti-unti itong sumigla."
+      },
+      {
+        "itemId": "filipino-g3-m01-d16-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang dapat mong gamitin upang pumili ng angkop na wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang haba ng kuwento"
+          },
+          {
+            "id": "b",
+            "text": "ang kulay ng pabalat"
+          },
+          {
+            "id": "c",
+            "text": "ang mga pahiwatig sa kuwento"
+          },
+          {
+            "id": "d",
+            "text": "ang pangalan ng may-akda"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang mga pahiwatig sa kuwento ang gabay sa pagpili ng angkop na wakas."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d16-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d16-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Ang Angkop na Wakas; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Ang Angkop na Wakas.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "6304ba4ea8aa23aa2b7e419fb596c248230578498bb748ee1aabb36d69156dab",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "lessonId": "filipino-g3-q3-w10-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 5,
+  "subject": "filipino",
+  "title": "Talata: Ang Aso ni Milo",
+  "objective": "Nakabubuo ng maikling talata tungkol sa aso ni Milo na malinaw ang paksa at mga detalye.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Tapat at mapagmahal ang aso ni Milo. Basahin natin ang talata at hanapin ang paksa, ideya, detalye, at wakas!",
+  "vocabulary": [
+    {
+      "term": "paksa",
+      "definition": "Tao o bagay na pinag-uusapan sa talata."
+    },
+    {
+      "term": "pangunahing ideya",
+      "definition": "Pinakamahalagang mensahe tungkol sa paksa."
+    },
+    {
+      "term": "detalye",
+      "definition": "Karagdagang impormasyong tumutulong magpaliwanag sa paksa."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Basahin ang talata at hanapin ang paksa at mga sumusuportang detalye.",
+      "content": "Ang aso ni Milo ay tapat at mapagmahal. Sumasalubong ito sa kanya tuwing uuwi siya. Kaya naman lagi siyang masaya sa kanyang aso. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “aso ni Milo”.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang ideyang inuulit o sinusuportahan ng ibang pangungusap. 💪"
+      },
+      "prompt": "Tungkol saan ang talata, at anong detalye ang sumusuporta rito?",
+      "narration": "Ang aso ni Milo ay tapat at mapagmahal. Sumasalubong ito sa kanya tuwing uuwi siya. Kaya naman lagi siyang masaya sa kanyang aso. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “aso ni Milo”.",
+      "guideHint": "Pahiwatig: hanapin ang ideyang inuulit o sinusuportahan ng ibang pangungusap.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang aso ni Milo ay tapat at mapagmahal. Sumasalubong ito sa kanya tuwing uuwi siya. Kaya naman lagi siyang masaya sa kanyang aso. Ang magkakaugnay na pangungusap ay bumubuo ng talata tungkol sa “aso ni Milo”."
+    },
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Basahin ang mga bahagi at tukuyin ang papel ng bawat isa.",
+      "content": {
+        "examples": [
+          "ang aso ni Milo",
+          "Ang aso ni Milo ay tapat at mapagmahal.",
+          "Sumasalubong ito sa kanya tuwing uuwi siya.",
+          "Kaya naman lagi siyang masaya sa kanyang aso."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tingnan kung ang bahagi ay paksa, pinakamahalagang mensahe, detalye, o wakas. 💪"
+      },
+      "prompt": "Hanapin ang paksa, pangunahing ideya, detalye, at wakas.",
+      "narration": "Ang paksa ang pinag-uusapan. Ang pangunahing ideya ang pinakamahalagang mensahe. Ang detalye ay dagdag na impormasyon, at ang wakas ang huling pangyayari o ideya.",
+      "guideHint": "Pahiwatig: tanungin kung pinag-uusapan, pinakamahalaga, dagdag na impormasyon, o huling ideya ang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paksa ang pinag-uusapan. Ang pangunahing ideya ang pinakamahalagang mensahe. Ang detalye ay dagdag na impormasyon, at ang wakas ang huling pangyayari o ideya."
+    },
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Pag-uriin ang mga parirala at pangungusap ayon sa talata.",
+      "content": {
+        "fits": [
+          "ang aso ni Milo",
+          "Ang aso ni Milo ay tapat at mapagmahal.",
+          "Sumasalubong ito sa kanya tuwing uuwi siya.",
+          "Kaya naman lagi siyang masaya sa kanyang aso."
+        ],
+        "doesNotFit": [
+          "Ang kanyang ginataan ay paborito ng buong pamilya.",
+          "May nagtitinda ng gulay, isda, at prutas.",
+          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
+          "Mahilig siyang matulog sa ilalim ng mesa."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: piliin ang mga pahayag na may kaugnayan sa “aso ni Milo”. 💪"
+      },
+      "prompt": "Alin ang mga bahaging kabilang sa talata?",
+      "narration": "Kabilang sa talata ang mga pahayag na tungkol sa iisang paksa at magkakaugnay ang ideya.",
+      "guideHint": "Pahiwatig: piliin ang mga pahayag na may kaugnayan sa “aso ni Milo”.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Kabilang sa talata ang mga pahayag na tungkol sa iisang paksa at magkakaugnay ang ideya."
+    },
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Piliin ang pangungusap na kaugnay sa talata.",
+      "content": {
+        "options": [
+          "May nagtitinda ng gulay, isda, at prutas.",
+          "Tumatakbo siya sa parke kasama ang kanyang kuya.",
+          "Ang kanyang ginataan ay paborito ng buong pamilya.",
+          "Ang aso ni Milo ay tapat at mapagmahal."
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang pahayag na tumutukoy sa “aso ni Milo”. 💪"
+      },
+      "prompt": "Alin ang pangungusap na tumutulong magpaliwanag sa paksa?",
+      "narration": "Ang tamang pangungusap ay may ideyang kaugnay sa paksa ng talata.",
+      "guideHint": "Pahiwatig: hanapin ang pahayag na tumutukoy sa “aso ni Milo”.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tamang pangungusap ay may ideyang kaugnay sa paksa ng talata."
+    },
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Itugma ang bahagi sa papel nito sa talata.",
+      "content": {
+        "pairs": [
+          {
+            "left": "ang aso ni Milo",
+            "right": "pinag-uusapan"
+          },
+          {
+            "left": "Ang aso ni Milo ay tapat at mapagmahal.",
+            "right": "pinakamahalagang mensahe"
+          },
+          {
+            "left": "Sumasalubong ito sa kanya tuwing uuwi siya.",
+            "right": "sumusuportang impormasyon"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tukuyin kung paksa, pangunahing ideya, o detalyeng sumusuporta ang bawat bahagi. 💪"
+      },
+      "prompt": "Itugma ang paksa, pangunahing ideya, at detalye sa kahulugan.",
+      "narration": "Ang paksa ang pinag-uusapan; ang pangunahing ideya ang pinakamahalagang mensahe; ang detalye ang sumusuportang impormasyon.",
+      "guideHint": "Pahiwatig: tanungin kung pinag-uusapan, pinakamahalaga, o dagdag na impormasyon ang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paksa ang pinag-uusapan; ang pangunahing ideya ang pinakamahalagang mensahe; ang detalye ang sumusuportang impormasyon."
+    },
+    {
+      "activityId": "filipino-g3-q3-w10-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w10-d05-visual",
+      "instruction": "Ayusin ang pagbasa ng talata mula paksa hanggang detalye.",
+      "content": {
+        "steps": [
+          "Basahin ang talata",
+          "Hanapin ang paksa",
+          "Hanapin ang pangunahing ideya",
+          "Tukuyin ang mga detalye"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin, hanapin ang paksa, tukuyin ang ideya, saka piliin ang mga detalye. 💪"
+      },
+      "prompt": "Ano ang susuriin pagkatapos basahin ang talata?",
+      "narration": "Basahin ang talata, hanapin ang paksa, tukuyin ang pangunahing ideya, at piliin ang mahahalagang detalye.",
+      "guideHint": "Pahiwatig: magsimula sa kabuuang paksa bago hanapin ang mga detalyeng sumusuporta.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang talata, hanapin ang paksa, tukuyin ang pangunahing ideya, at piliin ang mahahalagang detalye."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q3-w10-d05-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa talatang binasa ni Bea, tungkol saan ang lahat ng pangungusap?",
+        "options": [
+          {
+            "id": "a",
+            "text": "si Lola Nena"
+          },
+          {
+            "id": "b",
+            "text": "ang aso ni Milo"
+          },
+          {
+            "id": "c",
+            "text": "ang palengke"
+          },
+          {
+            "id": "d",
+            "text": "si Jose"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang mga pangungusap ay tungkol sa aso ni Milo, kaya iyon ang paksa."
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q3-w10-d05-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pangunahing ideya na maaaring sabihin ni Bea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Masarap magluto si Lola Nena."
+          },
+          {
+            "id": "b",
+            "text": "Ang aso ni Milo ay tapat at mapagmahal."
+          },
+          {
+            "id": "c",
+            "text": "Ang palengke ay puno ng tao tuwing umaga."
+          },
+          {
+            "id": "d",
+            "text": "Maaga gumigising si Jose para mag-ehersisyo."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pangunahing ideya ang pinakamahalagang mensahe; dito, tapat at mapagmahal ang aso ni Milo."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q3-w10-d05-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nagsusulat si Bea ng isang detalye. Alin ang nabasa niya sa talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ang ginataan ay paborito ng buong pamilya."
+          },
+          {
+            "id": "b",
+            "text": "Sumasalubong ito sa kanya tuwing uuwi siya."
+          },
+          {
+            "id": "c",
+            "text": "May nagtitinda ng gulay sa palengke."
+          },
+          {
+            "id": "d",
+            "text": "Tumatakbo si Jose sa parke."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagsalubong ng aso sa pag-uwi ni Milo ay detalyeng sumusuporta sa talata."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q3-w10-d05-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang huling pangungusap na isinulat ni Bea sa talata?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tuwing may handaan, siya ang nagluluto."
+          },
+          {
+            "id": "b",
+            "text": "Kaya naman lagi siyang masaya sa kanyang aso."
+          },
+          {
+            "id": "c",
+            "text": "Masaya ang mga mamimili sa palengke."
+          },
+          {
+            "id": "d",
+            "text": "Malusog at masigla si Jose araw-araw."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagiging masaya ni Milo dahil sa aso ang wakas ng talata."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q3-w10-d05-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gagawa si Bea ng pamagat para sa talata. Alin ang pinakatumpak?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si Lola Nena"
+          },
+          {
+            "id": "b",
+            "text": "Ang Aso ni Milo"
+          },
+          {
+            "id": "c",
+            "text": "Ang Palengke"
+          },
+          {
+            "id": "d",
+            "text": "Si Jose"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pamagat na “Ang Aso ni Milo” ay tuwirang nagsasabi ng paksa."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

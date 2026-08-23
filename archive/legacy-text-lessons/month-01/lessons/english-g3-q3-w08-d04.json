@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w08-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 4,
+  "subject": "english",
+  "title": "Word Twins Review",
+  "objective": "Identify synonyms and antonyms by comparing word meanings.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo compares word cards about feelings, actions, temperature, and time. Can you tell whether each pair has a similar or opposite meaning?",
+  "vocabulary": [
+    {
+      "term": "happy — glad",
+      "definition": "a pair whose words name nearly the same idea"
+    },
+    {
+      "term": "begin — start",
+      "definition": "a pair whose words both describe starting an action"
+    },
+    {
+      "term": "hot — cold",
+      "definition": "a pair whose words point in opposite directions"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w08-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Read each pair and compare the ideas the words name.",
+      "content": "Synonyms have similar meanings; antonyms have opposite meanings.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Compare both meanings again before naming the relationship."
+      },
+      "prompt": "Learn how synonyms share meaning and antonyms show opposites.",
+      "narration": "Synonyms have similar meanings; antonyms have opposite meanings. Compare the ideas, not just the spelling.",
+      "guideHint": "Ask whether the words match or point in opposite directions.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Synonyms have similar meanings; antonyms have opposite meanings. Compare the ideas, not just the spelling."
+    },
+    {
+      "activityId": "english-g3-q3-w08-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Tap pairs whose meanings match or oppose each other.",
+      "content": {
+        "examples": [
+          "happy — glad",
+          "begin — start",
+          "hot — cold",
+          "early — late"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the pair is similar or opposite."
+      },
+      "prompt": "Find word pairs with a clear meaning relationship.",
+      "narration": "Happy and glad share a meaning; hot and cold show opposites.",
+      "guideHint": "Say what each word means before comparing them.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Happy and glad share a meaning; hot and cold show opposites."
+    },
+    {
+      "activityId": "english-g3-q3-w08-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Sort related word pairs from unrelated pairs.",
+      "content": {
+        "fits": [
+          "happy — glad",
+          "begin — start",
+          "hot — cold",
+          "early — late"
+        ],
+        "doesNotFit": [
+          "hot — table",
+          "begin — window",
+          "early — chair",
+          "happy — river"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Name the relationship before sorting again."
+      },
+      "prompt": "Sort each pair by whether its meanings connect clearly.",
+      "narration": "A related pair has a same-meaning or opposite-meaning rule; an unrelated pair does not.",
+      "guideHint": "Try to state the relationship between the two meanings.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A related pair has a same-meaning or opposite-meaning rule; an unrelated pair does not."
+    },
+    {
+      "activityId": "english-g3-q3-w08-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Tap the pair with the requested meaning relationship.",
+      "content": {
+        "options": [
+          "early — chair",
+          "happy — glad",
+          "hot — table",
+          "begin — window"
+        ],
+        "correctIndex": 1
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look for two words that name nearly the same idea."
+      },
+      "prompt": "Choose the pair whose words share a meaning.",
+      "narration": "Synonyms name nearly the same idea, so happy and glad belong together.",
+      "guideHint": "Say what both words mean and compare.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Synonyms name nearly the same idea, so happy and glad belong together."
+    },
+    {
+      "activityId": "english-g3-q3-w08-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Match each word pair to the rule it shows.",
+      "content": {
+        "pairs": [
+          {
+            "left": "happy — glad",
+            "right": "synonyms: both describe feeling good"
+          },
+          {
+            "left": "begin — start",
+            "right": "synonyms: both mean getting started"
+          },
+          {
+            "left": "hot — cold",
+            "right": "antonyms: opposite temperatures"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the two ideas match or oppose."
+      },
+      "prompt": "Match each pair with its meaning relationship.",
+      "narration": "The rule explains whether the pair shares an idea or shows an opposite.",
+      "guideHint": "Read both words, then choose the same-meaning or opposite-meaning rule.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The rule explains whether the pair shares an idea or shows an opposite."
+    },
+    {
+      "activityId": "english-g3-q3-w08-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w08-d04-visual",
+      "instruction": "Put the word-comparing steps in order.",
+      "content": {
+        "steps": [
+          "Read both words",
+          "Say what each word means",
+          "Compare the two ideas",
+          "Name the relationship"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, compared, named, and explained."
+      },
+      "prompt": "Order the steps for comparing two word meanings.",
+      "narration": "Readers compare each word’s idea before naming the relationship.",
+      "guideHint": "Begin by reading both words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers compare each word’s idea before naming the relationship."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w08-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After good news, Ana feels happy. Which pair gives the same meaning?",
+        "options": [
+          {
+            "id": "a",
+            "text": "early — chair"
+          },
+          {
+            "id": "b",
+            "text": "begin — window"
+          },
+          {
+            "id": "c",
+            "text": "happy — glad"
+          },
+          {
+            "id": "d",
+            "text": "hot — table"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Happy and glad both describe feeling good, so they are synonyms."
+      },
+      {
+        "itemId": "english-g3-q3-w08-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A sign says begin the game, and another says start the game. Which pair matches?",
+        "options": [
+          {
+            "id": "a",
+            "text": "early — chair"
+          },
+          {
+            "id": "b",
+            "text": "begin — start"
+          },
+          {
+            "id": "c",
+            "text": "hot — table"
+          },
+          {
+            "id": "d",
+            "text": "begin — window"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Begin and start both tell someone to get an action going, so their meanings match."
+      },
+      {
+        "itemId": "english-g3-q3-w08-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo drinks hot cocoa and eats cold ice. Which pair shows opposites?",
+        "options": [
+          {
+            "id": "a",
+            "text": "early — chair"
+          },
+          {
+            "id": "b",
+            "text": "begin — window"
+          },
+          {
+            "id": "c",
+            "text": "hot — cold"
+          },
+          {
+            "id": "d",
+            "text": "hot — table"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Hot and cold point in opposite directions on temperature."
+      },
+      {
+        "itemId": "english-g3-q3-w08-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "The bell rings early, but the bus arrives late. Which pair are antonyms?",
+        "options": [
+          {
+            "id": "a",
+            "text": "early — late"
+          },
+          {
+            "id": "b",
+            "text": "early — chair"
+          },
+          {
+            "id": "c",
+            "text": "hot — table"
+          },
+          {
+            "id": "d",
+            "text": "begin — window"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Early means before a time and late means after it, so they are opposites."
+      },
+      {
+        "itemId": "english-g3-q3-w08-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Jo feels happy after a win. Which pair has the same meaning?",
+        "options": [
+          {
+            "id": "a",
+            "text": "begin — window"
+          },
+          {
+            "id": "b",
+            "text": "happy — glad"
+          },
+          {
+            "id": "c",
+            "text": "early — chair"
+          },
+          {
+            "id": "d",
+            "text": "hot — table"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Happy and glad both name a good feeling, so they are synonyms."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

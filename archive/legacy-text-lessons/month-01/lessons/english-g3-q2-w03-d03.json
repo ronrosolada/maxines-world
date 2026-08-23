@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w03-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 3,
+  "subject": "english",
+  "title": "Voice Clues",
+  "objective": "Use pitch and pauses to show the meaning of a sentence.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo practices a question and an excited sentence with Maxine. Can your voice follow each end mark?",
+  "vocabulary": [
+    {
+      "term": "Are you ready?",
+      "definition": "a sentence that asks for information and ends with a question mark"
+    },
+    {
+      "term": "I am ready.",
+      "definition": "a sentence that gives information and ends with a period"
+    },
+    {
+      "term": "What a surprise!",
+      "definition": "a sentence that shows strong feeling and ends with an exclamation mark"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w03-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Read each sentence and let the end mark guide your voice.",
+      "content": "Our voice changes to help listeners hear whether a sentence asks, tells, or exclaims.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Match the end mark with the sentence’s purpose before reading again."
+      },
+      "prompt": "Learn how end marks shape a sentence’s voice.",
+      "narration": "A question mark asks for information, a period gives information, and an exclamation mark shows strong feeling.",
+      "guideHint": "Look at the last mark: ?, ., or !",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A question mark asks for information, a period gives information, and an exclamation mark shows strong feeling."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Tap each sentence that matches its end mark.",
+      "content": {
+        "examples": [
+          "Are you ready for the race?",
+          "I packed my bag.",
+          "What a surprise!",
+          "Please listen."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check both the sentence purpose and its final mark."
+      },
+      "prompt": "Find sentences whose meaning matches the mark.",
+      "narration": "Ask whether each sentence asks, tells, or shows strong feeling, then check its ending mark.",
+      "guideHint": "Read the words and compare their purpose with the last mark.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ask whether each sentence asks, tells, or shows strong feeling, then check its ending mark."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Sort sentences with a matching mark from mismatched ones.",
+      "content": {
+        "fits": [
+          "Are you ready for the race?",
+          "I packed my bag.",
+          "What a surprise!",
+          "Please listen."
+        ],
+        "doesNotFit": [
+          "Are you ready for the race.",
+          "I packed my bag!",
+          "What a surprise.",
+          "please listen"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Read the sentence aloud and check whether the final mark fits."
+      },
+      "prompt": "Sort each sentence by whether its end mark fits its meaning.",
+      "narration": "Questions need ?, telling sentences need ., and strong feelings or warnings often need !.",
+      "guideHint": "Ask what the speaker means before checking the mark.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Questions need ?, telling sentences need ., and strong feelings or warnings often need !."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Tap the sentence that asks a question.",
+      "content": {
+        "options": [
+          "I am ready.",
+          "What a surprise!",
+          "Are you ready?",
+          "Please listen."
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the sentence that asks and ends with a question mark."
+      },
+      "prompt": "Choose the sentence that asks for information.",
+      "narration": "A question asks something and ends with a question mark.",
+      "guideHint": "Look for words that ask, then check for ?.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A question asks something and ends with a question mark."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Match each sentence to the purpose its mark signals.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Are you ready?",
+            "right": "asks for information"
+          },
+          {
+            "left": "I am ready.",
+            "right": "gives information calmly"
+          },
+          {
+            "left": "What a surprise!",
+            "right": "shows strong feeling"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the sentence purpose and its end mark."
+      },
+      "prompt": "Match each sentence with the clue shown by its end mark.",
+      "narration": "The end mark signals whether the speaker asks, tells, or shows strong feeling.",
+      "guideHint": "Read the sentence and look at its last mark.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The end mark signals whether the speaker asks, tells, or shows strong feeling."
+    },
+    {
+      "activityId": "english-g3-q2-w03-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w03-d03-visual",
+      "instruction": "Put the voice-reading checks in order.",
+      "content": {
+        "steps": [
+          "Read the whole sentence",
+          "Notice the end mark",
+          "Decide: ask, tell, or exclaim",
+          "Use a matching voice"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found the mark, named the purpose, and chose a voice."
+      },
+      "prompt": "Order the steps for reading a sentence with feeling.",
+      "narration": "Readers identify the purpose and end mark before choosing a voice.",
+      "guideHint": "Begin by reading the whole sentence.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers identify the purpose and end mark before choosing a voice."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w03-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "At circle time, Milo asks a friend about the race. Which sentence should he read as a question?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I am ready."
+          },
+          {
+            "id": "b",
+            "text": "Please listen."
+          },
+          {
+            "id": "c",
+            "text": "What a surprise!"
+          },
+          {
+            "id": "d",
+            "text": "Are you ready?"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Are you ready? asks for information and ends with a question mark, so the voice rises at the end."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo tells the class that he is ready. Which sentence uses a calm, telling voice?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "b",
+            "text": "I am ready."
+          },
+          {
+            "id": "c",
+            "text": "Where is my bag?"
+          },
+          {
+            "id": "d",
+            "text": "What a mess!"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "I am ready. gives information and ends with a period, so it uses a calm telling voice."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo sees a surprise gift and shows strong excitement. Which sentence matches?",
+        "options": [
+          {
+            "id": "a",
+            "text": "What a surprise!"
+          },
+          {
+            "id": "b",
+            "text": "Please listen."
+          },
+          {
+            "id": "c",
+            "text": "I am ready."
+          },
+          {
+            "id": "d",
+            "text": "Where is my bag?"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "What a surprise! shows strong feeling and ends with an exclamation mark."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo gives a calm direction to a friend. Which sentence should end with a period?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Please listen."
+          },
+          {
+            "id": "b",
+            "text": "What a surprise!"
+          },
+          {
+            "id": "c",
+            "text": "Where is my bag?"
+          },
+          {
+            "id": "d",
+            "text": "Are you ready?"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Please listen. gives a direction without asking or exclaiming, so a period fits."
+      },
+      {
+        "itemId": "english-g3-q2-w03-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants to know where his bag is. Which sentence is a question?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Please listen."
+          },
+          {
+            "id": "b",
+            "text": "I am ready."
+          },
+          {
+            "id": "c",
+            "text": "Are you ready?"
+          },
+          {
+            "id": "d",
+            "text": "What a surprise!"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Are you ready? is the only choice that asks for information and uses a question mark."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

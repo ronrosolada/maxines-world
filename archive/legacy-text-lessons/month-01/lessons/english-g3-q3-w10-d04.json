@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w10-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 4,
+  "subject": "english",
+  "title": "Sentence Parts Review",
+  "objective": "Identify who or what the sentence is about and what that subject does or is.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo and his friends are doing a project. Can you find who or what each sentence is about and what that subject does?",
+  "vocabulary": [
+    {
+      "term": "Milo / reads.",
+      "definition": "the person being discussed and the action that person does"
+    },
+    {
+      "term": "The plants / grow.",
+      "definition": "the things being discussed and the action they do"
+    },
+    {
+      "term": "Maxine / draws.",
+      "definition": "the person being discussed and the action she does"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w10-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Read each sentence and find its subject and predicate.",
+      "content": "The subject tells who or what. The predicate tells what the subject does or is.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check for both the subject and its action."
+      },
+      "prompt": "Learn how a sentence has a subject and a predicate.",
+      "narration": "The subject names who or what. The predicate tells what that subject does or is.",
+      "guideHint": "Ask who or what first, then ask what it does or is.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The subject names who or what. The predicate tells what that subject does or is."
+    },
+    {
+      "activityId": "english-g3-q3-w10-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Tap sentences that show a doer and an action.",
+      "content": {
+        "examples": [
+          "Milo / reads.",
+          "The plants / grow.",
+          "Maxine / draws.",
+          "The bell / rings."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that both a subject and a predicate are present."
+      },
+      "prompt": "Find examples with both sentence parts.",
+      "narration": "A complete sentence pairs a subject with a predicate that tells an action or state.",
+      "guideHint": "Look for who or what, then find its action.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A complete sentence pairs a subject with a predicate that tells an action or state."
+    },
+    {
+      "activityId": "english-g3-q3-w10-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Sort complete subject-and-predicate pairs from fragments.",
+      "content": {
+        "fits": [
+          "Milo / reads.",
+          "The plants / grow.",
+          "Maxine / draws.",
+          "The bell / rings."
+        ],
+        "doesNotFit": [
+          "under the table",
+          "running quickly",
+          "blue and shiny",
+          "after school"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the missing subject or predicate before sorting again."
+      },
+      "prompt": "Sort each card by whether it has both sentence parts.",
+      "narration": "A complete sentence has a subject and a predicate; a fragment leaves out a needed part.",
+      "guideHint": "Ask who or what and what it does or is.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A complete sentence has a subject and a predicate; a fragment leaves out a needed part."
+    },
+    {
+      "activityId": "english-g3-q3-w10-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Tap the sentence that shows who acts and what happens.",
+      "content": {
+        "options": [
+          "running quickly",
+          "blue and shiny",
+          "Milo / reads.",
+          "under the table"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check for a clear subject and predicate."
+      },
+      "prompt": "Choose the sentence with a subject and predicate.",
+      "narration": "The subject tells who or what, and the predicate tells the action or state.",
+      "guideHint": "Find the doer first, then find its action.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The subject tells who or what, and the predicate tells the action or state."
+    },
+    {
+      "activityId": "english-g3-q3-w10-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Match each sentence to the clue about its parts.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Milo / reads.",
+            "right": "person who performs an action"
+          },
+          {
+            "left": "The plants / grow.",
+            "right": "things showing a growing action"
+          },
+          {
+            "left": "Maxine / draws.",
+            "right": "person making a picture"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check both parts and the job each one does."
+      },
+      "prompt": "Match each sentence with its subject-and-predicate clue.",
+      "narration": "The subject and predicate work together to make a complete idea.",
+      "guideHint": "Read the sentence, then identify the doer and action.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The subject and predicate work together to make a complete idea."
+    },
+    {
+      "activityId": "english-g3-q3-w10-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w10-d04-visual",
+      "instruction": "Put the sentence-part checks in order.",
+      "content": {
+        "steps": [
+          "Read the whole sentence",
+          "Ask who or what",
+          "Find the action or state",
+          "Name the predicate"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found the subject, found the predicate, and explained."
+      },
+      "prompt": "Order the steps for finding subject and predicate.",
+      "narration": "Readers find who or what before naming the action or state.",
+      "guideHint": "Begin by reading the whole sentence.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers find who or what before naming the action or state."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w10-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants to tell what Ana does in music class. Which sentence shows a subject and action?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ana sings."
+          },
+          {
+            "id": "b",
+            "text": "under the table"
+          },
+          {
+            "id": "c",
+            "text": "blue and shiny"
+          },
+          {
+            "id": "d",
+            "text": "running quickly"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ana is the subject, and sings is the predicate that tells her action."
+      },
+      {
+        "itemId": "english-g3-q3-w10-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo describes a dog in the park. Which choice tells who acts and what happens?",
+        "options": [
+          {
+            "id": "a",
+            "text": "running quickly"
+          },
+          {
+            "id": "b",
+            "text": "blue and shiny"
+          },
+          {
+            "id": "c",
+            "text": "under the table"
+          },
+          {
+            "id": "d",
+            "text": "The dog barks."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The dog names who, and barks tells what it does."
+      },
+      {
+        "itemId": "english-g3-q3-w10-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo watches the wind move the leaves. Which sentence has a clear doer and action?",
+        "options": [
+          {
+            "id": "a",
+            "text": "under the table"
+          },
+          {
+            "id": "b",
+            "text": "blue and shiny"
+          },
+          {
+            "id": "c",
+            "text": "running quickly"
+          },
+          {
+            "id": "d",
+            "text": "The wind blows."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The wind is the doer, and blows is its action."
+      },
+      {
+        "itemId": "english-g3-q3-w10-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo sees children at recess. Which example shows the subject doing something?",
+        "options": [
+          {
+            "id": "a",
+            "text": "under the table"
+          },
+          {
+            "id": "b",
+            "text": "running quickly"
+          },
+          {
+            "id": "c",
+            "text": "blue and shiny"
+          },
+          {
+            "id": "d",
+            "text": "The children play."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The children are the subject, and play tells what they do."
+      },
+      {
+        "itemId": "english-g3-q3-w10-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which choice identifies a subject and predicate for Milo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "blue and shiny"
+          },
+          {
+            "id": "b",
+            "text": "running quickly"
+          },
+          {
+            "id": "c",
+            "text": "The children play."
+          },
+          {
+            "id": "d",
+            "text": "under the table"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "The children is the subject and play is the predicate; together they make a complete thought."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

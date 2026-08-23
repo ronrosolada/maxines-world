@@ -21,6 +21,11 @@ curious rather than distract from understanding.
 - Modular architecture (19 Gradle modules)
 - Bundled HTML reward-break games with CSP-isolated WebViews
 
+## Content Architecture Evolution
+- **Legacy Text Lessons (Archived):** The 358 hand-authored / converted SLM text-based lessons are archived in `archive/legacy-text-lessons/month-01/`. A compatibility copy remains in `android/app/src/main/assets/content-pack/month-01/` for offline/fallback compatibility.
+- **Active Video-First Lessons:** Video lessons streamed/cached from the homelab Caddy hub with real-time Whisper subtitle sync and post-watch video quizzes (`android/app/src/main/assets/content-pack/media-assessments.json`).
+- **Active Assessment Arena:** Multi-curriculum quiz packs (`android/app/src/main/assets/assessment-packs/`) covering Philippine DepEd, Singapore MOE, and US standards.
+
 ## Project Structure
 ```
 android/

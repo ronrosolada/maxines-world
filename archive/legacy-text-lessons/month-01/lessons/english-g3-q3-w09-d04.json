@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w09-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 4,
+  "subject": "english",
+  "title": "Loud and Clear: Complete?",
+  "objective": "Tell whether groups of words like 'loud and clear' express a complete idea.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo hears “loud and clear” in a message and checks it against “The dog barks.” Which group gives a complete thought?",
+  "vocabulary": [
+    {
+      "term": "sentence",
+      "definition": "words that tell a complete thought about someone or something"
+    },
+    {
+      "term": "subject",
+      "definition": "the person, animal, place, or thing being discussed"
+    },
+    {
+      "term": "verb",
+      "definition": "the action or state of the subject"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w09-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Read each group and check for a subject and an action.",
+      "content": "A sentence expresses a complete idea and usually begins with a capital letter and ends with punctuation.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check for both a subject and an action before trying again."
+      },
+      "prompt": "Learn the clues that make a complete sentence.",
+      "narration": "A complete sentence tells who or what and what happens. It begins with a capital and ends with punctuation.",
+      "guideHint": "Ask who or what, then ask what it does or is.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A complete sentence tells who or what and what happens. It begins with a capital and ends with punctuation."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Tap each group that tells a complete thought.",
+      "content": {
+        "examples": [
+          "The dog barks.",
+          "Nena waters the plants.",
+          "near the river",
+          "loud and clear"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check for both sentence parts."
+      },
+      "prompt": "Find groups with a subject and an action.",
+      "narration": "A complete group names who or what and tells its action or state.",
+      "guideHint": "Look for the subject and then its action.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A complete group names who or what and tells its action or state."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Sort complete sentences from incomplete groups.",
+      "content": {
+        "fits": [
+          "The dog barks.",
+          "Nena waters the plants.",
+          "We eat lunch.",
+          "The bus stops here."
+        ],
+        "doesNotFit": [
+          "near the river",
+          "loud and clear",
+          "every Saturday",
+          "the hungry cat"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the missing subject or action before sorting again."
+      },
+      "prompt": "Sort each group by whether it has a subject and action.",
+      "narration": "A complete sentence has both sentence parts; a fragment leaves out a needed clue.",
+      "guideHint": "Ask who or what and what it does or is.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A complete sentence has both sentence parts; a fragment leaves out a needed clue."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Tap the group that gives a complete thought.",
+      "content": {
+        "options": [
+          "loud and clear",
+          "every Saturday",
+          "The dog barks.",
+          "near the river"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check for a subject and a verb."
+      },
+      "prompt": "Choose the group with a subject and an action.",
+      "narration": "A subject tells who or what, and a verb tells the action or state.",
+      "guideHint": "Find who or what, then find its action.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A subject tells who or what, and a verb tells the action or state."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Match each group to the clue it shows or misses.",
+      "content": {
+        "pairs": [
+          {
+            "left": "The dog barks.",
+            "right": "names a doer and tells an action"
+          },
+          {
+            "left": "Nena waters the plants.",
+            "right": "complete thought with subject and verb"
+          },
+          {
+            "left": "near the river",
+            "right": "place words without an action"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the group for a subject and an action."
+      },
+      "prompt": "Match each group with its sentence-part clue.",
+      "narration": "A subject and action work together to make a complete thought.",
+      "guideHint": "Read the group and ask which part is present or missing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A subject and action work together to make a complete thought."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d04-visual",
+      "instruction": "Put the complete-sentence checks in order.",
+      "content": {
+        "steps": [
+          "Read the whole group",
+          "Find who or what it names",
+          "Find the action or state",
+          "Decide if the thought is complete"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found the subject, found the action, and decided."
+      },
+      "prompt": "Order the steps for testing a group of words.",
+      "narration": "Readers check the subject and action before deciding whether the thought is complete.",
+      "guideHint": "Begin by reading the whole group.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers check the subject and action before deciding whether the thought is complete."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w09-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants to write what the dog does. Which group is a complete sentence?",
+        "options": [
+          {
+            "id": "a",
+            "text": "near the river"
+          },
+          {
+            "id": "b",
+            "text": "loud and clear"
+          },
+          {
+            "id": "c",
+            "text": "every Saturday"
+          },
+          {
+            "id": "d",
+            "text": "The dog barks."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The dog names who, and barks tells its action, so the group is complete."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo writes where the dog is: “near the river.” Why is this NOT complete?",
+        "options": [
+          {
+            "id": "a",
+            "text": "We eat lunch."
+          },
+          {
+            "id": "b",
+            "text": "near the river"
+          },
+          {
+            "id": "c",
+            "text": "Nena waters the plants."
+          },
+          {
+            "id": "d",
+            "text": "The dog barks."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Near the river names a place but does not tell who or what acts."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo describes a sound as “loud and clear.” What is missing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a louder voice"
+          },
+          {
+            "id": "b",
+            "text": "who or what is doing the action"
+          },
+          {
+            "id": "c",
+            "text": "a new color"
+          },
+          {
+            "id": "d",
+            "text": "a longer word"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Loud and clear describes, but it does not name who or what does an action."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nena wants to tell what she does in the garden. Which group is complete?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the hungry cat"
+          },
+          {
+            "id": "b",
+            "text": "Nena waters the plants."
+          },
+          {
+            "id": "c",
+            "text": "every Saturday"
+          },
+          {
+            "id": "d",
+            "text": "loud and clear"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Nena names who, and waters the plants tells her action."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which note could Milo use as a complete sentence?",
+        "options": [
+          {
+            "id": "a",
+            "text": "We eat lunch."
+          },
+          {
+            "id": "b",
+            "text": "loud and clear"
+          },
+          {
+            "id": "c",
+            "text": "the hungry cat"
+          },
+          {
+            "id": "d",
+            "text": "near the river"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "We names who, and eat lunch tells what happens, so it is complete."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

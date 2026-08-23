@@ -1,0 +1,360 @@
+{
+  "lessonId": "mathematics-g3-m01-d13",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 13,
+  "subject": "MATHEMATICS",
+  "title": "Plan, Solve, Check",
+  "objective": "Solve one- and two-step addition or subtraction problems.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo's shelf has 120 books and gets 80 more! Help him plan, solve, and check.",
+  "vocabulary": [
+    {
+      "term": "one",
+      "definition": "A single thing, such as a book left on a shelf."
+    },
+    {
+      "term": "addition",
+      "definition": "Putting numbers together to find a total."
+    },
+    {
+      "term": "subtraction",
+      "definition": "Taking away to find what is left."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d13-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how adding 120 and 80 solves the shelf problem.",
+      "content": "Identify what is known, choose operations, solve, and check the result against the situation.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Read what changes, choose addition or subtraction, keep units, and estimate to check. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "Text alternative: Identify what is known, choose operations, solve, and check the result against the situation."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d13-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the plan.",
+      "content": {
+        "examples": [
+          "120+80=200",
+          "200-35=165",
+          "Estimate to check reasonableness"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Plan, Solve, Check. 🔎",
+        "retry": "Check each example for this rule: Read what changes, choose addition or subtraction, keep units, and estimate to check. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d13-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is it a correct step of the problem?",
+      "content": {
+        "fits": [
+          "120+80=200",
+          "200-35=165",
+          "Estimate to check reasonableness"
+        ],
+        "doesNotFit": [
+          "Use every number without meaning",
+          "Skip units",
+          "Accept negative objects in an unsuitable context"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Plan, Solve, Check clue. 🎉",
+        "retry": "Check every card against this rule: Read what changes, choose addition or subtraction, keep units, and estimate to check. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d13-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "A shelf has 120 books and gets 80 more. How many?",
+      "content": {
+        "options": [
+          "40",
+          "180",
+          "200"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 200",
+        "retry": "Check the numbers with this rule: Read what changes, choose addition or subtraction, keep units, and estimate to check. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d13-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each problem step to its job.",
+      "content": {
+        "pairs": [
+          {
+            "left": "120+80=200",
+            "right": "find the total after 80 more books"
+          },
+          {
+            "left": "200-35=165",
+            "right": "find what remains after 35 are removed"
+          },
+          {
+            "left": "Estimate to check reasonableness",
+            "right": "compare with an estimate"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Plan, Solve, Check explanation. 🔗",
+        "retry": "Match each pair by the relationship: Read what changes, choose addition or subtraction, keep units, and estimate to check. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d13-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the plan-solve-check steps in order.",
+      "content": {
+        "steps": [
+          "Read the question and identify what changes.",
+          "Choose addition or subtraction and solve the first step.",
+          "Solve any second step, then estimate to check."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Plan, Solve, Check steps in order. 🎉",
+        "retry": "Check the order: start with read the question and identify what changes., then choose addition or subtraction and solve the first step., and finish with solve any second step, then estimate to check.. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d13-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is solving a shelf story. Which statement about solving word problems is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Use every number without meaning"
+          },
+          {
+            "id": "b",
+            "text": "Identify what is known, choose operations, solve, and check the result against the situation."
+          },
+          {
+            "id": "c",
+            "text": "Skip units"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Read the problem, find what is known, pick the operation, solve, and check that the answer fits the story."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d13-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A shelf has 120 books and gets 80 more. Which number sentence solves it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "120 × 80 = 9,600"
+          },
+          {
+            "id": "b",
+            "text": "120+80=200"
+          },
+          {
+            "id": "c",
+            "text": "120 − 80 = 40"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The shelf gains 80 books, so add: 120 + 80 = 200."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d13-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is solving a shelf story. Which is NOT a good problem-solving step?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Use every number without meaning"
+          },
+          {
+            "id": "b",
+            "text": "120+80=200"
+          },
+          {
+            "id": "c",
+            "text": "200-35=165"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Only use numbers that matter for the question. Using every number blindly can give a wrong answer."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d13-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A shelf has 120 books and gets 80 more. How many?",
+        "options": [
+          {
+            "id": "a",
+            "text": "40"
+          },
+          {
+            "id": "b",
+            "text": "200"
+          },
+          {
+            "id": "c",
+            "text": "180"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Getting 80 more books means adding: 120 + 80 = 200 books."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d13-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is solving a shelf story. Which is a good way to check your answer?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Use any operation that gives a big number"
+          },
+          {
+            "id": "b",
+            "text": "Use every number in the problem"
+          },
+          {
+            "id": "c",
+            "text": "Estimate to check reasonableness"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "After solving, check with an estimate: 200 − 35 is about 160, so the answer should be near 160."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d13-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d13-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Plan, Solve, Check; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Plan, Solve, Check.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "503e6dd52babb63d17e11604a52c7ea0d75b494e5dd5b8875cba2b4fe25b31f6",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}

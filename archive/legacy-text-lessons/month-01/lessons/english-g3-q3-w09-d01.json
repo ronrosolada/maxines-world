@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q3-w09-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 11,
+  "day": 1,
+  "subject": "english",
+  "title": "Roots: Look, Paint, Fast",
+  "objective": "Identify the base words look, paint, and fast in common related words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo looked at a painting and watched a fast runner. Can you find the base words inside related words?",
+  "vocabulary": [
+    {
+      "term": "look",
+      "definition": "to use your eyes to notice something"
+    },
+    {
+      "term": "paint",
+      "definition": "to cover a surface with color using a brush"
+    },
+    {
+      "term": "fast",
+      "definition": "moving at a high speed"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q3-w09-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Read the pair and find the word that carries the main meaning.",
+      "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Read both words again and find the part that stays the same."
+      },
+      "prompt": "Learn how a base word stays inside a related word.",
+      "narration": "A base word carries the main meaning. An ending can change the word’s job or time.",
+      "guideHint": "Read both words and look for the part that stays the same.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A base word carries the main meaning. An ending can change the word’s job or time."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Tap each pair that keeps the same base word.",
+      "content": {
+        "examples": [
+          "look — looked",
+          "paint — painter",
+          "fast — faster",
+          "look — looking"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the letters that stay the same."
+      },
+      "prompt": "Find pairs with a shared base word.",
+      "narration": "In a related pair, the base-word letters stay while an ending is added.",
+      "guideHint": "Compare the letters at the beginning of both words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "In a related pair, the base-word letters stay while an ending is added."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Sort pairs that share a base word from unrelated pairs.",
+      "content": {
+        "fits": [
+          "look — looked",
+          "paint — painter",
+          "fast — faster",
+          "look — looking"
+        ],
+        "doesNotFit": [
+          "cat — dog",
+          "big — small",
+          "run — jump",
+          "apple — orange"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the word part that stays before sorting again."
+      },
+      "prompt": "Sort each pair by whether one word grows from the other.",
+      "narration": "A word family shares a base word; an unrelated pair has no word part that carries both meanings.",
+      "guideHint": "Check whether one word keeps the main word part from the other.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A word family shares a base word; an unrelated pair has no word part that carries both meanings."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Tap the pair that shares a base word.",
+      "content": {
+        "options": [
+          "cat — dog",
+          "big — small",
+          "run — jump",
+          "look — looked"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check which pair shares the same base-word letters."
+      },
+      "prompt": "Choose the pair with one word grown from the other.",
+      "narration": "A shared base word keeps its letters when an ending is added.",
+      "guideHint": "Look for one word inside the other without its ending.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A shared base word keeps its letters when an ending is added."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Match each pair to the ending rule it shows.",
+      "content": {
+        "pairs": [
+          {
+            "left": "look — looked",
+            "right": "add -ed to show a past action"
+          },
+          {
+            "left": "paint — painter",
+            "right": "add -er to name a person who paints"
+          },
+          {
+            "left": "fast — faster",
+            "right": "add -er to compare speed"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the ending rule and the letters that stay."
+      },
+      "prompt": "Match each word pair with the rule that explains its connection.",
+      "narration": "The ending tells what changed, while the base word keeps the central meaning.",
+      "guideHint": "Read the ending and ask what it tells about the word.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The ending tells what changed, while the base word keeps the central meaning."
+    },
+    {
+      "activityId": "english-g3-q3-w09-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q3-w09-d01-visual",
+      "instruction": "Put the base-word steps in order.",
+      "content": {
+        "steps": [
+          "Read both words",
+          "Find the letters that stay",
+          "Notice the ending",
+          "State the base word"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, compared, noticed, and named the base word."
+      },
+      "prompt": "Order the steps for finding a base word.",
+      "narration": "Compare the letters that stay before naming the base word.",
+      "guideHint": "Begin by reading both words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare the letters that stay before naming the base word."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q3-w09-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo looked at a painting. Which pair shows a base word and a related word?",
+        "options": [
+          {
+            "id": "a",
+            "text": "look — looked"
+          },
+          {
+            "id": "b",
+            "text": "cat — dog"
+          },
+          {
+            "id": "c",
+            "text": "big — small"
+          },
+          {
+            "id": "d",
+            "text": "run — jump"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Look is the base word, and -ed changes it to looked for a past action."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After removing -ed from 'looked,' which base word remains?",
+        "options": [
+          {
+            "id": "a",
+            "text": "fast"
+          },
+          {
+            "id": "b",
+            "text": "look"
+          },
+          {
+            "id": "c",
+            "text": "paint"
+          },
+          {
+            "id": "d",
+            "text": "cat"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Removing -ed leaves look, the part that carries the main meaning."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word is made by adding -ed to 'look'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "desk"
+          },
+          {
+            "id": "b",
+            "text": "painter"
+          },
+          {
+            "id": "c",
+            "text": "water"
+          },
+          {
+            "id": "d",
+            "text": "looked"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Adding -ed to look makes looked; the ending shows a past action."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which pair is NOT a word family?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hope — hopeful"
+          },
+          {
+            "id": "b",
+            "text": "cat — dog"
+          },
+          {
+            "id": "c",
+            "text": "fast — faster"
+          },
+          {
+            "id": "d",
+            "text": "paint — painter"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Cat and dog name two animals, but neither grows from the other. The other pairs share a base word."
+      },
+      {
+        "itemId": "english-g3-q3-w09-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the base word in 'painter'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "fast"
+          },
+          {
+            "id": "b",
+            "text": "look"
+          },
+          {
+            "id": "c",
+            "text": "table"
+          },
+          {
+            "id": "d",
+            "text": "paint"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The letters paint stay when -er is added, so paint is the base word."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

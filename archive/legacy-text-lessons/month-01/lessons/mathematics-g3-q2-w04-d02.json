@@ -1,0 +1,388 @@
+{
+  "lessonId": "mathematics-g3-q2-w04-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 2,
+  "subject": "mathematics",
+  "title": "Take-Away Trail",
+  "objective": "Subtract numbers below 10,000 with or without regrouping.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo has 458 beads and gives away 123. How many beads remain after the take-away?",
+  "vocabulary": [
+    {
+      "term": "458 − 123 = 335",
+      "definition": "Taking 123 away from 458 leaves a difference of 335."
+    },
+    {
+      "term": "700 − 245 = 455",
+      "definition": "Regroup before subtracting when a top place has too few units."
+    },
+    {
+      "term": "regroup one hundred as ten tens",
+      "definition": "Trade 1 hundred for 10 tens so the next subtraction can continue."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Watch how regrouping helps Milo subtract from the ones place.",
+      "content": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Compare the top and bottom digits in each place before subtracting."
+      },
+      "prompt": "Watch how regrouping helps Milo subtract from the ones place.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    },
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Tap each subtraction example and follow the place-value changes.",
+      "content": {
+        "examples": [
+          "458 − 123 = 335",
+          "700 − 245 = 455",
+          "335 + 123 = 458",
+          "trade 1 hundred for 10 tens"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Find the place that needs a trade, then continue from ones upward."
+      },
+      "prompt": "Tap each subtraction example and follow the place-value changes.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    },
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Sort subtraction results from addition, multiplication, and comparison.",
+      "content": {
+        "fits": [
+          "458 − 123 = 335",
+          "700 − 245 = 455",
+          "335 + 123 = 458",
+          "trade 1 hundred for 10 tens"
+        ],
+        "doesNotFit": [
+          "458 + 123 = 581",
+          "458 × 123",
+          "458 > 123 without a difference",
+          "123 ÷ 3 = 41"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Look for a minus sign and a result that fits taking away."
+      },
+      "prompt": "Sort subtraction results from addition, multiplication, and comparison.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    },
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Tap the correct difference for 458 − 123.",
+      "content": {
+        "options": [
+          "458 − 123 = 335",
+          "458 − 123 = 576",
+          "458 − 123 = 333",
+          "458 − 123 = 321"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Subtract 3 ones, 2 tens, and 1 hundred from 458."
+      },
+      "prompt": "Tap the correct difference for 458 − 123.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    },
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Match each subtraction expression with its regrouping clue.",
+      "content": {
+        "pairs": [
+          {
+            "left": "458 − 123",
+            "right": "takes away 123"
+          },
+          {
+            "left": "700 − 245",
+            "right": "needs regrouping"
+          },
+          {
+            "left": "1 hundred → 10 tens",
+            "right": "prepares the next place"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Match the expression to the amount taken away or the trade it needs."
+      },
+      "prompt": "Match each subtraction expression with its regrouping clue.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    },
+    {
+      "activityId": "mathematics-g3-q2-w04-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q2-w04-d02-visual",
+      "instruction": "Order the checks for subtracting and verifying a difference.",
+      "content": {
+        "steps": [
+          "Line up the minuend and subtrahend by place value",
+          "Subtract the ones, regrouping if the top digit is too small",
+          "Continue through tens and hundreds",
+          "Add the difference back to check the starting number"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Well done! 🐾",
+        "retry": "Subtract, record any regrouping, then add back to check."
+      },
+      "prompt": "Order the checks for subtracting and verifying a difference.",
+      "narration": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting.",
+      "guideHint": "Start at ones; trade from the next place only when needed.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Subtract from ones toward thousands. If a top digit is too small, regroup from the next place before subtracting."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q2-w04-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is 458 minus 123?",
+        "options": [
+          {
+            "id": "a",
+            "text": "321"
+          },
+          {
+            "id": "b",
+            "text": "333"
+          },
+          {
+            "id": "c",
+            "text": "335"
+          },
+          {
+            "id": "d",
+            "text": "576"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Subtract 1 hundred, 2 tens, and 3 ones: 458 − 123 = 335. It is the same as taking 123 away from 458."
+      },
+      {
+        "itemId": "mathematics-g3-q2-w04-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is 700 minus 245?",
+        "options": [
+          {
+            "id": "a",
+            "text": "445"
+          },
+          {
+            "id": "b",
+            "text": "565"
+          },
+          {
+            "id": "c",
+            "text": "945"
+          },
+          {
+            "id": "d",
+            "text": "455"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "700 − 245 = 455. Subtract the ones: 0 − 5 needs regrouping, so trade 1 ten for 10 ones, then subtract step by step."
+      },
+      {
+        "itemId": "mathematics-g3-q2-w04-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "To subtract 700 − 245, the ones place has 0 ones and we need to take away 5. What should you do first?",
+        "options": [
+          {
+            "id": "a",
+            "text": "compare 700 and 245 without subtracting"
+          },
+          {
+            "id": "b",
+            "text": "write 5 − 4 = 1 and stop"
+          },
+          {
+            "id": "c",
+            "text": "regroup 1 hundred as 10 tens"
+          },
+          {
+            "id": "d",
+            "text": "add 700 and 245"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "700 has 0 ones, so we cannot take 5 ones yet. Regroup 1 hundred as 10 tens first, then trade 1 ten for 10 ones to subtract."
+      },
+      {
+        "itemId": "mathematics-g3-q2-w04-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "How can you check that 458 − 123 = 335 is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "multiply 458 by 123"
+          },
+          {
+            "id": "b",
+            "text": "add 458 and 123"
+          },
+          {
+            "id": "c",
+            "text": "count the numbers in order"
+          },
+          {
+            "id": "d",
+            "text": "add the difference to 123"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Add the difference back to the number you took away: 335 + 123 = 458. It matches the starting number, so the answer is correct."
+      },
+      {
+        "itemId": "mathematics-g3-q2-w04-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo has 458 beads and gives away 123 beads. How many beads are left?",
+        "options": [
+          {
+            "id": "a",
+            "text": "333"
+          },
+          {
+            "id": "b",
+            "text": "335"
+          },
+          {
+            "id": "c",
+            "text": "321"
+          },
+          {
+            "id": "d",
+            "text": "576"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Take away 1 hundred, 2 tens, and 3 ones from 458: 458 − 123 = 335, so 335 beads are left."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}

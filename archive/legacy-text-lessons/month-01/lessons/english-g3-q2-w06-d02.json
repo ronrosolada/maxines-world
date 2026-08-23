@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w06-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 2,
+  "subject": "english",
+  "title": "Ana's Story",
+  "objective": "Use details from a story about Ana to explain characters, events, and ideas.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Ana loses her red pencil during drawing time and searches the classroom. Can you use story evidence to explain who, where, and what happened?",
+  "vocabulary": [
+    {
+      "term": "character",
+      "definition": "a person or animal who takes part in a story"
+    },
+    {
+      "term": "setting",
+      "definition": "the place and time where a story happens"
+    },
+    {
+      "term": "event",
+      "definition": "an action or change that happens in a story"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w06-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Read the story and find who, where, and what happened.",
+      "content": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the story and point to the detail answering who, where, or what happened."
+      },
+      "prompt": "Learn how story details reveal Ana’s character, setting, and event.",
+      "narration": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue.",
+      "guideHint": "Look for the person, place, and action named in the story.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Ana lost her red pencil in the classroom. She looked under her desk and found it. She smiled because her drawing could continue."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Tap details that come from Ana’s story.",
+      "content": {
+        "examples": [
+          "Ana",
+          "the classroom",
+          "Ana lost her red pencil and found it under her desk",
+          "Ana found the pencil under her desk."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look back at the story for a matching detail."
+      },
+      "prompt": "Find story evidence instead of making a guess.",
+      "narration": "Readers use story details to explain who was there, where events happened, and what happened.",
+      "guideHint": "Ask whether the exact idea appears in the story.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers use story details to explain who was there, where events happened, and what happened."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Sort story details from made-up details.",
+      "content": {
+        "fits": [
+          "Ana",
+          "the classroom",
+          "Ana lost her red pencil and found it under her desk",
+          "Ana found the pencil under her desk."
+        ],
+        "doesNotFit": [
+          "Ana found the pencil in her bag.",
+          "Ana lost her blue crayon.",
+          "The pencil was on the teacher’s table.",
+          "Ana stopped drawing."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Reread the matching sentence before sorting again."
+      },
+      "prompt": "Sort each card by whether Ana’s story supports it.",
+      "narration": "A supported detail matches the story; a made-up detail changes a character, place, or event.",
+      "guideHint": "Compare each card with the story sentences.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A supported detail matches the story; a made-up detail changes a character, place, or event."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Tap the choice that names the story’s character.",
+      "content": {
+        "options": [
+          "Ana",
+          "Ana lost her blue crayon.",
+          "The pencil was on the teacher’s table.",
+          "Ana found the pencil in her bag."
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the story for the person who appears."
+      },
+      "prompt": "Choose the person who takes part in Ana’s story.",
+      "narration": "A character is a person or animal named in the story, not an invented event.",
+      "guideHint": "Look for who appears in the story.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A character is a person or animal named in the story, not an invented event."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Match each story detail to what it tells.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Ana",
+            "right": "person who takes part"
+          },
+          {
+            "left": "the classroom",
+            "right": "place where events happen"
+          },
+          {
+            "left": "Ana lost her red pencil and found it under her desk",
+            "right": "main event in the story"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the detail against the story and its role."
+      },
+      "prompt": "Match each detail with character, setting, or event.",
+      "narration": "Characters are who, setting is where, and events tell what happens.",
+      "guideHint": "Ask whether the detail answers who, where, or what happened.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Characters are who, setting is where, and events tell what happens."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d02-visual",
+      "instruction": "Put the story-clue checks in order.",
+      "content": {
+        "steps": [
+          "Read the story once",
+          "Name who appears",
+          "Find where it happens",
+          "Retell what happened"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, named who, found where, and retold the event."
+      },
+      "prompt": "Order the steps for finding evidence in Ana’s story.",
+      "narration": "Readers identify who and where before retelling the important action.",
+      "guideHint": "Begin by reading the story once.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers identify who and where before retelling the important action."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w06-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ana asks who takes part in her pencil story. Which answer uses story evidence?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the cook"
+          },
+          {
+            "id": "b",
+            "text": "Ana"
+          },
+          {
+            "id": "c",
+            "text": "the mailman"
+          },
+          {
+            "id": "d",
+            "text": "the teacher"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ana is the person named in the story, so she is the character."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ana asks where she lost the pencil. Which choice names the setting?",
+        "options": [
+          {
+            "id": "a",
+            "text": "the market"
+          },
+          {
+            "id": "b",
+            "text": "the beach"
+          },
+          {
+            "id": "c",
+            "text": "the school"
+          },
+          {
+            "id": "d",
+            "text": "the classroom"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "The story says Ana lost the pencil in the classroom, so that is the setting."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ana wants to retell the main event. Which detail belongs?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The pencil was on the teacher's table."
+          },
+          {
+            "id": "b",
+            "text": "Ana lost her red pencil and found it under her desk"
+          },
+          {
+            "id": "c",
+            "text": "Ana found the pencil in her bag."
+          },
+          {
+            "id": "d",
+            "text": "Ana lost her blue crayon."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The story tells that Ana lost and found the red pencil; that is the main event."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ana points to one detail as evidence. Which detail is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ana found the pencil under her desk."
+          },
+          {
+            "id": "b",
+            "text": "The pencil was on the teacher's table."
+          },
+          {
+            "id": "c",
+            "text": "Ana found the pencil in her bag."
+          },
+          {
+            "id": "d",
+            "text": "Ana lost her blue crayon."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The story specifically says Ana found the pencil under her desk."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After Ana finds the pencil, how does she feel?",
+        "options": [
+          {
+            "id": "a",
+            "text": "glad"
+          },
+          {
+            "id": "b",
+            "text": "hungry"
+          },
+          {
+            "id": "c",
+            "text": "sleepy"
+          },
+          {
+            "id": "d",
+            "text": "angry"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ana smiles because she can continue drawing, which supports feeling glad."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

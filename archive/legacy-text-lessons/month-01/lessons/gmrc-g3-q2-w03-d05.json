@@ -1,0 +1,389 @@
+{
+  "lessonId": "gmrc-g3-q2-w03-d05",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 5,
+  "subject": "gmrc",
+  "title": "Magalang sa Hardin",
+  "objective": "Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa sa hardin.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa hardin, napapangalagaan ang mga halaman at katahimikan kapag maingat ang kilos natin. Matutong makinig, magpaalam, at gumalang sa ibang nag-aalaga o namamasyal. 🌷",
+  "vocabulary": [
+    {
+      "term": "nakikinig",
+      "definition": "Pagbibigay-pansin sa nagsasalita bago tumugon."
+    },
+    {
+      "term": "nagsasabi ng po at opo kung angkop",
+      "definition": "Magalang na pananalitang ginagamit ayon sa kausap at sitwasyon."
+    },
+    {
+      "term": "humihingi ng pahintulot",
+      "definition": "Pagtatanong muna bago gumamit o gumawa ng isang bagay."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Pakinggan kung paano gumalang sa hardin at sa mga halaman.",
+      "content": "Sa hardin, ipinakikita ang paggalang sa pakikinig sa tagapangalaga at kasama, paggamit ng magagalang na salita, paghingi ng pahintulot bago humawak, at pag-iingat sa halaman at espasyo.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli: makinig, magpaalam, at huwag manira sa hardin."
+      },
+      "prompt": "Alamin ang pakikinig, pahintulot, at maingat na kilos.",
+      "narration": "Sa hardin, ipinakikita ang paggalang sa pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman at espasyo.",
+      "guideHint": "Pakinggan ang clue: makinig, magpaalam, at huwag manira.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa hardin, ipinakikita ang paggalang sa pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman at espasyo."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Hanapin ang pakikinig, salita, pahintulot, at pag-iingat sa hardin.",
+      "content": {
+        "examples": [
+          "nakikinig sa tagapangalaga",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago humawak",
+          "gumagalang sa ibang namamasyal"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pakikinig, magalang na salita, pahintulot, at pag-iingat sa halaman."
+      },
+      "prompt": "I-tap ang mga kilos na nagpapakita ng paggalang sa hardin.",
+      "narration": "Hanapin ang nakikinig sa tagapangalaga, gumagamit ng magalang na salita, nagpapaalam bago humawak, at gumagalang sa namamasyal.",
+      "guideHint": "Hanapin ang apat na kilos na nag-iingat sa halaman at tao.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang nakikinig sa tagapangalaga, gumagamit ng magalang na salita, nagpapaalam bago humawak, at gumagalang sa namamasyal."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Ilagay ang kilos sa maingat o hindi maingat sa hardin.",
+      "content": {
+        "fits": [
+          "nakikinig sa tagapangalaga",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago humawak",
+          "gumagalang sa ibang namamasyal"
+        ],
+        "doesNotFit": [
+          "pumipitas nang walang pahintulot",
+          "nanunukso sa namamasyal",
+          "sumisigaw sa tahimik na hardin",
+          "tumatapak sa taniman"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: nag-iingat ba ito sa halaman o sa damdamin ng iba?"
+      },
+      "prompt": "Paghiwalayin ang nag-iingat sa halaman at kapwa at ang hindi.",
+      "narration": "Ang pakikinig, pahintulot, magalang na salita, at pag-iingat ay tumutulong protektahan ang halaman at tahimik na espasyo.",
+      "guideHint": "Tanungin: nag-iingat ba ito sa halaman o sa damdamin ng iba?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig, pahintulot, magalang na salita, at pag-iingat ay tumutulong protektahan ang halaman at tahimik na espasyo."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Piliin ang kilos na nagbibigay-pansin sa tagapangalaga.",
+      "content": {
+        "options": [
+          "pumipitas nang walang pahintulot",
+          "nanunukso sa namamasyal",
+          "tumatapak sa taniman",
+          "nakikinig sa tagapangalaga"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Piliin ang kilos na nagbibigay-pansin sa paalala."
+      },
+      "prompt": "Alin ang halimbawa ng paggalang sa hardin?",
+      "narration": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman kung paano iingatan ang mga halaman.",
+      "guideHint": "Piliin ang kilos na nagbibigay-pansin sa paalala.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig sa tagapangalaga ay tumutulong upang malaman kung paano iingatan ang mga halaman."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Itugma ang kilos sa mabuting bunga nito sa hardin.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nakikinig sa tagapangalaga",
+            "right": "nalalaman ang tuntunin sa halaman"
+          },
+          {
+            "left": "nagsasabi ng po at opo kung angkop",
+            "right": "nagiging mahinahon ang usapan"
+          },
+          {
+            "left": "humihingi ng pahintulot bago humawak",
+            "right": "napoprotektahan ang halaman"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa tuntunin, mahinahong usapan, o proteksiyon sa halaman."
+      },
+      "prompt": "Iugnay ang bawat kilos sa naitutulong nito sa halaman o kapwa.",
+      "narration": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nagpoprotekta sa halaman.",
+      "guideHint": "Iugnay sa tuntunin, mahinahong usapan, o proteksiyon sa halaman.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig ay tumutulong malaman ang tuntunin, magalang na salita ay nagpapahinahon ng usapan, at pahintulot ay nagpoprotekta sa halaman."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w03-d05-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w03-d05-visual",
+      "instruction": "Ayusin mula pakikinig sa tuntunin hanggang pag-iwan ng maayos na hardin.",
+      "content": {
+        "steps": [
+          "Makinig sa tuntunin ng hardin",
+          "Magpaalam bago humawak o pumasok sa taniman",
+          "Maglakad nang maingat",
+          "Magpasalamat at iwanang maayos ang lugar"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang pakikinig, saka pahintulot, maingat na paglalakad, at pagliligpit."
+      },
+      "prompt": "Ilagay sa tamang ayos ang maingat na pagbisita sa hardin.",
+      "narration": "Makinig sa tuntunin, magpaalam, maglakad nang maingat, at magpasalamat bago iwanang maayos ang hardin.",
+      "guideHint": "Unahin ang pakikinig; huli ang pag-iwan ng lugar na maayos.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Makinig sa tuntunin, magpaalam, maglakad nang maingat, at magpasalamat bago iwanang maayos ang hardin."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q2-w03-d05-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May tagapangalaga na nagpapaliwanag kung paano iingatan ang hardin. Ano ang magalang na kilos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-uutos sa kaniya"
+          },
+          {
+            "id": "b",
+            "text": "gumagalang sa pagkakaiba"
+          },
+          {
+            "id": "c",
+            "text": "sumusuway sa ligtas na tuntunin"
+          },
+          {
+            "id": "d",
+            "text": "nanunukso sa kaniya"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pakikinig at paggalang sa tagapangalaga ay tumutulong sa pag-iingat ng hardin."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w03-d05-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gusto mong gumamit ng pandilig sa hardin. Ano ang dapat mong gawin muna?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kunin ito nang walang paalam"
+          },
+          {
+            "id": "b",
+            "text": "pumitas ng bulaklak"
+          },
+          {
+            "id": "c",
+            "text": "humingi ng pahintulot bago gumamit"
+          },
+          {
+            "id": "d",
+            "text": "iwan itong nakabukas"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paghingi ng pahintulot ay paggalang sa gamit at sa taong nag-aalaga ng hardin."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w03-d05-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nakasalubong mo si Milo sa hardin. Ano ang magalang mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "batiin siya nang may ngiti: “Magandang araw po!”"
+          },
+          {
+            "id": "b",
+            "text": "tumakbo papalayo"
+          },
+          {
+            "id": "c",
+            "text": "pag-usapan siya sa katabi"
+          },
+          {
+            "id": "d",
+            "text": "tingnan lamang siya at dumaan"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang magalang na pagbati ay pagkilala sa kakilala habang iniingatan ang tahimik na lugar."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w03-d05-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Hinihintay mo ang nanay mo sa hardin nang dumating ang kapitbahay. Ano ang magalang mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "magkunwaring hindi mo siya nakikita"
+          },
+          {
+            "id": "b",
+            "text": "tumakbo papalayo"
+          },
+          {
+            "id": "c",
+            "text": "batiin siya: “Magandang hapon po!”"
+          },
+          {
+            "id": "d",
+            "text": "tumitig lamang sa kaniya"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagbati sa kapitbahay ay maayos na pagkilala sa kakilala."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w03-d05-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng paggalang sa hardin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nagpapasalamat"
+          },
+          {
+            "id": "b",
+            "text": "sumusuway sa tuntunin at pumipitas nang walang pahintulot"
+          },
+          {
+            "id": "c",
+            "text": "gumagalang sa ibang namamasyal"
+          },
+          {
+            "id": "d",
+            "text": "nakikinig nang mabuti"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagsuway at pagkuha ng bulaklak nang walang pahintulot ay nakapipinsala sa hardin."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

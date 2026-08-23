@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q3-w03-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 9,
+  "day": 2,
+  "subject": "makabansa",
+  "title": "Bahagi ng Pagkakakilanlan Ko",
+  "objective": "Naiuugnay ang sariling karanasan sa mga bahagi ng pagkakakilanlang Pilipino.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Ang iyong karanasan sa pamilya at komunidad ay bahagi ng iyong pagkakakilanlan. Tuklasin kung paano nagiging pahiwatig ang wika, kaugalian, at mga gawaing pinagsasaluhan. 🇵🇭",
+  "vocabulary": [
+    {
+      "term": "paggalang sa kapwa",
+      "definition": "Maayos na pakikitungo na nagpapakita na mahalaga ang ibang tao."
+    },
+    {
+      "term": "pag-aalaga sa komunidad",
+      "definition": "Pagkilos upang mapanatiling malinis, ligtas, at maayos ang lugar."
+    },
+    {
+      "term": "pagpapahalaga sa wika",
+      "definition": "Paggamit at pag-iingat sa wikang nag-uugnay sa isang pangkat."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Pakinggan kung paano nauugnay ang karanasan sa pagkakakilanlan.",
+      "content": "Ang karanasan sa pamilya at komunidad ay maaaring magpakita ng pagkakakilanlang Pilipino. Halimbawa, ang paggamit ng salitang natutuhan sa bahay, pagtutulungan sa kapitbahay, at pakikilahok sa lokal na gawain ay mga kuwentong maaari mong iugnay sa sarili.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli ang clue: bahay, wika, pagtutulungan, at lokal na gawain."
+      },
+      "prompt": "Alamin ang mga karanasang maaaring maging bahagi ng sariling kuwento.",
+      "narration": "Ang salitang natutuhan sa bahay, pagtutulungan sa kapitbahay, at pakikilahok sa lokal na gawain ay mga karanasang maaaring iugnay sa pagkakakilanlan.",
+      "guideHint": "Pakinggan ang clue: bahay, wika, pagtutulungan, at lokal na gawain.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang salitang natutuhan sa bahay, pagtutulungan sa kapitbahay, at pakikilahok sa lokal na gawain ay mga karanasang maaaring iugnay sa pagkakakilanlan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Hanapin ang wika, pagtutulungan, paggalang, at lokal na gawain.",
+      "content": {
+        "examples": [
+          "paggalang sa kapwa",
+          "pagtutulungan sa komunidad",
+          "paggamit ng salitang natutuhan sa bahay",
+          "pakikilahok sa lokal na gawain"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang wika, pagtutulungan, paggalang, at lokal na gawain."
+      },
+      "prompt": "I-tap ang mga karanasang maaaring iugnay sa sarili.",
+      "narration": "Ang paggalang, pagtutulungan, salitang natutuhan sa bahay, at lokal na gawain ay mga karanasang nag-uugnay sa iyo sa komunidad.",
+      "guideHint": "Hanapin ang apat na karanasang may ugnayan sa bahay o komunidad.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paggalang, pagtutulungan, salitang natutuhan sa bahay, at lokal na gawain ay mga karanasang nag-uugnay sa iyo sa komunidad."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Ilagay ang karanasang may ugnayan sa pagkakakilanlan o ang hindi.",
+      "content": {
+        "fits": [
+          "paggalang sa kapwa",
+          "pagtutulungan sa komunidad",
+          "paggamit ng salitang natutuhan sa bahay",
+          "pakikilahok sa lokal na gawain"
+        ],
+        "doesNotFit": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "numero sa isang resibo",
+          "kulay ng isang kuwaderno"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: may kaugnayan ba ito sa bahay, wika, o komunidad?"
+      },
+      "prompt": "Paghiwalayin ang personal na pahiwatig at walang kaugnayang detalye.",
+      "narration": "Ang wika, paggalang, pagtutulungan, at lokal na gawain ay may ugnayan sa karanasan; presyo o kulay ng bagay ay wala.",
+      "guideHint": "Tanungin: may kaugnayan ba ito sa bahay, wika, o komunidad?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang wika, paggalang, pagtutulungan, at lokal na gawain ay may ugnayan sa karanasan; presyo o kulay ng bagay ay wala."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Piliin ang karanasang nag-uugnay sa iyo sa komunidad.",
+      "content": {
+        "options": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "numero sa isang resibo",
+          "pagtutulungan sa komunidad"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang gawaing may tunay na ugnayan sa komunidad."
+      },
+      "prompt": "Alin ang maaaring maging bahagi ng iyong pagkakakilanlan?",
+      "narration": "Ang pagtutulungan sa komunidad ay karanasang maaaring magpakita ng ugnayan mo sa mga tao at lugar na iyong tinitirhan.",
+      "guideHint": "Hanapin ang gawaing may tunay na ugnayan sa komunidad.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagtutulungan sa komunidad ay karanasang maaaring magpakita ng ugnayan mo sa mga tao at lugar na iyong tinitirhan."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Itugma ang bahagi sa karanasang ipinakikita nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "paggalang sa kapwa",
+            "right": "maayos na karanasan sa pakikipag-ugnayan"
+          },
+          {
+            "left": "pag-aalaga sa komunidad",
+            "right": "ligtas na lugar na pinagsasaluhan"
+          },
+          {
+            "left": "pagpapahalaga sa wika",
+            "right": "salitang nag-uugnay sa pamilya"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa ugnayan, kaligtasan, o wikang ginagamit sa bahay."
+      },
+      "prompt": "Iugnay ang bawat gawi sa karanasang nabubuo nito.",
+      "narration": "Ang paggalang ay maayos na ugnayan, pangangalaga ay ligtas na lugar, at wika ay salitang nag-uugnay sa pamilya.",
+      "guideHint": "Iugnay sa ugnayan, kaligtasan, o wikang ginagamit sa bahay.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paggalang ay maayos na ugnayan, pangangalaga ay ligtas na lugar, at wika ay salitang nag-uugnay sa pamilya."
+    },
+    {
+      "activityId": "makabansa-g3-q3-w03-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q3-w03-d02-visual",
+      "instruction": "Ayusin mula pagpili ng karanasan hanggang pagpapaliwanag.",
+      "content": {
+        "steps": [
+          "Pumili ng sariling karanasan",
+          "Tukuyin ang ugnayan nito sa pamilya o komunidad",
+          "Iugnay sa wika, kaugalian, o pagpapahalaga",
+          "Ipaliwanag kung bakit mahalaga ito sa iyo"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang karanasan, saka ugnayan, bahagi, at paliwanag."
+      },
+      "prompt": "Ilagay sa tamang ayos ang pag-uugnay ng karanasan sa sarili.",
+      "narration": "Pumili ng karanasan, tukuyin ang ugnayan, iugnay sa wika o kaugalian, at ipaliwanag kung bakit mahalaga ito.",
+      "guideHint": "Unahin ang karanasan; huli ang pagpapaliwanag ng kahulugan nito.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Pumili ng karanasan, tukuyin ang ugnayan, iugnay sa wika o kaugalian, at ipaliwanag kung bakit mahalaga ito."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q3-w03-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa kuwento tungkol sa iyong barangay, alin ang maaaring bahagi ng iyong pagkakakilanlan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "bilang ng iyong mga laruan"
+          },
+          {
+            "id": "b",
+            "text": "kulay ng iyong bag"
+          },
+          {
+            "id": "c",
+            "text": "tatak ng iyong sapatos"
+          },
+          {
+            "id": "d",
+            "text": "karanasan mo sa pagtutulungan ng komunidad"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang karanasan sa pagtutulungan ay konkretong ugnayan sa mga tao at lugar ng iyong komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Kapag bumabati ka sa nakatatanda sa inyong lugar, alin ang gawi ng pagka-Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsasabi ng “po” at “opo”"
+          },
+          {
+            "id": "b",
+            "text": "hindi pakikipaglaro sa kapitbahay"
+          },
+          {
+            "id": "c",
+            "text": "pagtapon ng basura sa daan"
+          },
+          {
+            "id": "d",
+            "text": "pagsigaw sa lugar ng pagsamba"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang “po” at “opo” ay magalang na pananalitang nagpapakita ng natutuhan sa kultura."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalagang iugnay ang sariling karanasan sa pagkakakilanlang Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Para malaman ang pinagmulan at mga pagpapahalagang humubog sa iyo."
+          },
+          {
+            "id": "b",
+            "text": "Para magkaroon ng maraming laruan."
+          },
+          {
+            "id": "c",
+            "text": "Para maging sikat sa klase."
+          },
+          {
+            "id": "d",
+            "text": "Para manalo sa laro."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pag-uugnay sa karanasan ay tumutulong makita ang pinagmulan at pagpapahalagang humubog sa iyo."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa isang maikling kuwento, ano ang maaari mong ibahagi tungkol sa iyong pagkakakilanlan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kaugalian at awit ng inyong lugar"
+          },
+          {
+            "id": "b",
+            "text": "lihim na salitang pambukas ng talaan"
+          },
+          {
+            "id": "c",
+            "text": "sikretong sinabi ng kaibigan"
+          },
+          {
+            "id": "d",
+            "text": "gamit ng iyong kapatid"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang kaugalian at awit ng lugar ay mga pampublikong karanasang maaaring ibahagi nang may paggalang."
+      },
+      {
+        "itemId": "makabansa-g3-q3-w03-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang nagpapakita ng pagiging Pilipino sa araw-araw?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsasalita lamang ng ibang wika upang mang-insulto"
+          },
+          {
+            "id": "b",
+            "text": "pagsuot ng damit ayon sa tatak"
+          },
+          {
+            "id": "c",
+            "text": "paglimot sa sariling kultura"
+          },
+          {
+            "id": "d",
+            "text": "paggamit ng Filipino at paggalang sa nakatatanda"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang wika at paggalang sa nakatatanda ay mga gawi na nag-uugnay sa pagkakakilanlang Pilipino."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

@@ -1,0 +1,370 @@
+{
+  "lessonId": "filipino-g3-m01-d19",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 19,
+  "subject": "FILIPINO",
+  "title": "Paghinuha Mula sa Pahiwatig",
+  "objective": "Bumuo ng makatwirang hinuha mula sa pahiwatig at kaugnay na kaalaman.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Bumuo ng hinuha sa pagsasama ng pahiwatig at kaugnay na kaalaman. Ang makatwirang hinuha ay may batayan, hindi basta hula.",
+  "vocabulary": [
+    {
+      "term": "pahiwatig",
+      "definition": "Palatandaang nagbibigay ng batayan sa isang hinuha."
+    },
+    {
+      "term": "paghinuha",
+      "definition": "Pagbuo ng sagot batay sa pahiwatig at sariling kaalaman."
+    },
+    {
+      "term": "kaalaman",
+      "definition": "Ang mga alam o natutuhang impormasyon."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-m01-d19-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Basahin ang paliwanag tungkol sa paghinuha.",
+      "content": "Pahiwatig sa teksto o larawan kasama ang kaugnay na kaalaman ay bumubuo ng makatwirang hinuha, hindi basta hula.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ituloy ang susunod na hakbang.",
+        "retry": "Hanapin ang ebidensiyang kasama ng iyong kaalaman. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "Alternatibong teksto: Pahiwatig sa teksto o larawan kasama ang kaugnay na kaalaman ay bumubuo ng makatwirang hinuha, hindi basta hula."
+    },
+    {
+      "activityId": "filipino-g3-m01-d19-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tingnan ang pahiwatig at hinuha sa bawat halimbawa.",
+      "content": {
+        "examples": [
+          "Basang payong at patak sa bintana—maaaring umuulan",
+          "Walang laman ang mangkok at busog ang pusa—maaaring kumain ito",
+          "May putik ang sapatos—maaaring dumaan sa basang lupa"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nahanap mo ang hinuha at batayan nito. 🔎",
+        "retry": "Iugnay ang nakikitang palatandaan sa posibleng pangyayari. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "May listahan ng parehong halimbawa bilang alternatibong paraan ng paggamit."
+    },
+    {
+      "activityId": "filipino-g3-m01-d19-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa angkop na pangkat ang hinuha na may pahiwatig.",
+      "content": {
+        "fits": [
+          "Basang payong at patak sa bintana—maaaring umuulan",
+          "Walang laman ang mangkok at busog ang pusa—maaaring kumain ito",
+          "May putik ang sapatos—maaaring dumaan sa basang lupa"
+        ],
+        "doesNotFit": [
+          "Hinuha na walang pahiwatig",
+          "Tiyak na pahayag kahit kulang ang ebidensya",
+          "Di-kaugnay na sagot"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipangkat mo ang mga hinuha ayon sa batayan. 🎉",
+        "retry": "Piliin lamang ang hinuha na may malinaw na pahiwatig. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "Pumili ng item at kategorya; hindi kailangang mag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d19-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Basang-basa ang kapote ni Lira. Ano ang makatwirang hinuha?",
+      "content": {
+        "options": [
+          "Gawa sa kahoy ang ulan.",
+          "Maaaring galing siya sa ulan.",
+          "Nasa buwan siya."
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama: Maaaring galing siya sa ulan.",
+        "retry": "Iugnay ang basang kapote sa posibleng ulan. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "Makikita ang lahat ng pagpipilian at maaaring piliin gamit ang TalkBack."
+    },
+    {
+      "activityId": "filipino-g3-m01-d19-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang halimbawa sa dahilan o gamit nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Basang payong at patak sa bintana",
+            "right": "pahiwatig ng posibleng ulan"
+          },
+          {
+            "left": "Walang laman ang mangkok at busog ang pusa",
+            "right": "pahiwatig na maaaring kumain ito"
+          },
+          {
+            "left": "May putik ang sapatos",
+            "right": "pahiwatig ng pagdaan sa basang lupa"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Itinugma mo ang pahiwatig sa makatwirang hinuha. 🔗",
+        "retry": "Itugma ang pahiwatig sa hinuha na sinusuportahan nito. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "May listahang paraan ng pagtutugma bilang kapalit ng pag-drag."
+    },
+    {
+      "activityId": "filipino-g3-m01-d19-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa tamang pagkakasunod-sunod.",
+      "content": {
+        "steps": [
+          "Hanapin ang pahiwatig sa teksto o larawan.",
+          "Idagdag ang kaugnay na kaalaman.",
+          "Bumuo ng hinuha na may batayan."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang mga hakbang sa pagbuo ng hinuha. 🎉",
+        "retry": "Sundin ang daloy: hanapin, iugnay, at bumuo. 💪"
+      },
+      "assetId": "filipino-g3-m01-d19-visual",
+      "accessibilityAlternative": "Maaaring gamitin ang mga button pataas at pababa sa halip na mag-drag."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "filipino-g3-m01-d19-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Kumakain si Ana nang nagmamadali bago pumasok. Ano ang makatwirang hinuha?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring ayaw niyang kumain."
+          },
+          {
+            "id": "b",
+            "text": "Maaaring walang pasok ngayon."
+          },
+          {
+            "id": "c",
+            "text": "Maaaring gabi na."
+          },
+          {
+            "id": "d",
+            "text": "Maaaring malapit na siyang ma-late."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagmamadaling kumain ay pahiwatig na maaaring malapit na siyang ma-late."
+      },
+      {
+        "itemId": "filipino-g3-m01-d19-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Natutulog ang mga bata at madilim ang buong bahay. Ano ang makatwirang hinuha?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring gabi na at tulog na ang lahat."
+          },
+          {
+            "id": "b",
+            "text": "Maaaring naglalaro ang mga bata."
+          },
+          {
+            "id": "c",
+            "text": "Maaaring may pista sa labas."
+          },
+          {
+            "id": "d",
+            "text": "Maaaring umaga na."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang dilim at pagkakatulog ng lahat ay pahiwatig na gabi na."
+      },
+      {
+        "itemId": "filipino-g3-m01-d19-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May malakas na ulan at nagsuot ng kapote ang mga tao. Ano ang makatwirang hinuha?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring mainit ang panahon."
+          },
+          {
+            "id": "b",
+            "text": "Maaaring tag-araw."
+          },
+          {
+            "id": "c",
+            "text": "Maaaring maaraw na."
+          },
+          {
+            "id": "d",
+            "text": "Maaaring lumalakas pa ang ulan."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang malakas na ulan at mga kapoteng suot ay batayan sa hinuha na maaaring lumalakas pa ang ulan."
+      },
+      {
+        "itemId": "filipino-g3-m01-d19-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Basang-basa ang kapote ni Lira. Ano ang makatwirang hinuha?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring galing siya sa ulan."
+          },
+          {
+            "id": "b",
+            "text": "Gawa sa kahoy ang ulan."
+          },
+          {
+            "id": "c",
+            "text": "Nasa buwan siya."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang basang kapote ay pahiwatig na maaaring galing si Lira sa ulan; hindi nito pinatutunayan ang ibang pagpipilian."
+      },
+      {
+        "itemId": "filipino-g3-m01-d19-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nakangiti si Lolo at may dala siyang pasalubong. Ano ang makatwirang hinuha?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Maaaring umiyak siyang pagod."
+          },
+          {
+            "id": "b",
+            "text": "Maaaring masaya si Lolo at may ipinagdiwang."
+          },
+          {
+            "id": "c",
+            "text": "Maaaring nawala ang kaniyang gamit."
+          },
+          {
+            "id": "d",
+            "text": "Maaaring galit si Lolo."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang ngiti at pasalubong ay pahiwatig na masaya si Lolo."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "filipino-g3-m01-d19-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/filipino-g3-m01-d19-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Paghinuha Mula sa Pahiwatig; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Paghinuha Mula sa Pahiwatig.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Reading at Literacy Curriculum Guide",
+      "sourceUrl": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Reading-and-Literacy-CG.pdf",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "43a65c66e2b5ab9db84b38fd7e3df68a5b2f17c99412e515d2798e1559d34473",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  }
+}

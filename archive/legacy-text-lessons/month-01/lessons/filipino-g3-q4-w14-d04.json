@@ -1,0 +1,388 @@
+{
+  "lessonId": "filipino-g3-q4-w14-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 16,
+  "day": 4,
+  "subject": "filipino",
+  "title": "Buod: Ang Jacket ni Marco",
+  "objective": "Nakabubuo ng maikling buod ng kuwentong 'Ang Jacket ni Marco'.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Umuulan nang malakas at may matandang walang payong. Basahin natin ang kuwento at piliin ang mahahalagang bahagi para sa buod!",
+  "vocabulary": [
+    {
+      "term": "tauhan",
+      "definition": "Tao o hayop na gumaganap sa kuwento."
+    },
+    {
+      "term": "suliranin",
+      "definition": "Problemang kailangang harapin ng tauhan."
+    },
+    {
+      "term": "buod",
+      "definition": "Maikling pagsasalaysay ng tauhan, problema, mahahalagang pangyayari, at wakas."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Basahin ang kuwento at piliin ang mahahalagang pangyayari.",
+      "content": "Umuulan nang malakas. Hindi makauwi si Marco. May nakasalubong siyang matandang walang payong. Ibinalot ni Marco ang kanyang jacket sa matanda. Nakarating silang dalawa nang ligtas sa kanilang bahay.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang tauhan, problema, mahalagang ginawa, at wakas. 💪"
+      },
+      "prompt": "Sino ang tauhan, ano ang problema, at paano ito natapos?",
+      "narration": "Umuulan nang malakas at hindi makauwi si Marco. Nakita niya ang matandang walang payong at ibinalot ang kanyang jacket sa matanda. Nakarating silang ligtas sa bahay. Sa buod, isinasama ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli.",
+      "guideHint": "Pahiwatig: hanapin ang gumaganap, problemang hinaharap, mahalagang ginawa, at wakas.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Umuulan nang malakas at hindi makauwi si Marco. Nakita niya ang matandang walang payong at ibinalot ang kanyang jacket sa matanda. Nakarating silang ligtas sa bahay. Sa buod, isinasama ang tauhan, suliranin, mahahalagang pangyayari, at wakas nang maikli."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Basahin ang kuwento at tukuyin ang mahahalagang bahagi.",
+      "content": {
+        "examples": [
+          "Marco at isang matanda",
+          "Umuulan nang malakas.",
+          "Ibinalot ni Marco ang kanyang jacket sa matanda.",
+          "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin kung sino, problema, mahalagang ginawa, at wakas. 💪"
+      },
+      "prompt": "Hanapin ang tauhan, suliranin, pangyayari, at wakas.",
+      "narration": "Sina Marco at ang matanda ang mga tauhan. Ang malakas na ulan at kawalan ng payong ang suliranin. Ang pagbabahagi ng jacket ang mahalagang pangyayari. Ang ligtas na pag-uwi ang wakas.",
+      "guideHint": "Pahiwatig: itanong kung sino, ano ang problema, ano ang ginawa, at paano nagtapos.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sina Marco at ang matanda ang mga tauhan. Ang malakas na ulan at kawalan ng payong ang suliranin. Ang pagbabahagi ng jacket ang mahalagang pangyayari. Ang ligtas na pag-uwi ang wakas."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Pag-uriin ang mga pahayag ayon sa bahagi ng kuwento.",
+      "content": {
+        "fits": [
+          "Marco at isang matanda",
+          "Umuulan nang malakas.",
+          "Ibinalot ni Marco ang kanyang jacket sa matanda.",
+          "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+        ],
+        "doesNotFit": [
+          "Hinanap ito nina Milo at Ana sa sala at sa kusina.",
+          "Naghintay siya hanggang hapon.",
+          "Tinulungan ni Nena si Aling Rosa na magtanim ng bagong halaman."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tukuyin kung tao, problema, o mahalagang kilos ang pahayag. 💪"
+      },
+      "prompt": "Ilagay sa pangkat ang tauhan, suliranin, o pangyayari.",
+      "narration": "Ang tauhan ang gumaganap; ang suliranin ang problemang hinaharap; ang pangyayari ang mahalagang ginawa o nangyari.",
+      "guideHint": "Pahiwatig: tukuyin kung tao, problema, o mahalagang kilos ang pahayag.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tauhan ang gumaganap; ang suliranin ang problemang hinaharap; ang pangyayari ang mahalagang ginawa o nangyari."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Piliin ang mga tauhan ng kuwento.",
+      "content": {
+        "options": [
+          "Lola Rosa, Milo, at Ana",
+          "Ben",
+          "Aling Rosa at Nena",
+          "Marco at isang matanda"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang mga taong gumagawa o nakararanas ng kilos. 💪"
+      },
+      "prompt": "Sino ang gumaganap sa kuwento tungkol sa ulan at jacket?",
+      "narration": "Ang tauhan ang gumaganap sa mga pangyayari ng kuwento.",
+      "guideHint": "Pahiwatig: hanapin ang mga taong gumagawa o nakararanas ng kilos.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tauhan ang gumaganap sa mga pangyayari ng kuwento."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Itugma ang bahagi sa papel nito sa kuwento.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Marco at isang matanda",
+            "right": "gumaganap sa kuwento"
+          },
+          {
+            "left": "Umuulan nang malakas.",
+            "right": "problemang hinaharap"
+          },
+          {
+            "left": "Ibinalot ni Marco ang kanyang jacket sa matanda.",
+            "right": "mahalagang kilos sa kuwento"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: tukuyin kung tauhan, suliranin, o mahalagang pangyayari ang bawat bahagi. 💪"
+      },
+      "prompt": "Itugma ang tauhan, suliranin, at pangyayari sa kahulugan.",
+      "narration": "Ang tauhan ang gumaganap; ang suliranin ang problemang hinaharap; ang mahalagang pangyayari ang kilos na nagtutulak sa kuwento.",
+      "guideHint": "Pahiwatig: hanapin kung gumaganap, humaharap sa problema, o kumikilos ang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang tauhan ang gumaganap; ang suliranin ang problemang hinaharap; ang mahalagang pangyayari ang kilos na nagtutulak sa kuwento."
+    },
+    {
+      "activityId": "filipino-g3-q4-w14-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q4-w14-d04-visual",
+      "instruction": "Ayusin ang mga hakbang sa pagsulat ng maikling buod.",
+      "content": {
+        "steps": [
+          "Basahin ang kuwento",
+          "Tukuyin ang tauhan",
+          "Hanapin ang suliranin at pangyayari",
+          "Isulat ang maikling buod"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin, hanapin ang tauhan at problema, piliin ang pangyayari, saka ibuod. 💪"
+      },
+      "prompt": "Ano ang susuriin bago isulat ang buod?",
+      "narration": "Basahin ang kuwento, tukuyin ang tauhan, hanapin ang suliranin at pangyayari, saka isulat ang maikling buod.",
+      "guideHint": "Pahiwatig: huwag magsulat agad; hanapin muna ang pinakamahahalagang bahagi.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin ang kuwento, tukuyin ang tauhan, hanapin ang suliranin at pangyayari, saka isulat ang maikling buod."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q4-w14-d04-q1",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa kuwentong binasa ni Maxine, sino ang mga tauhang naglakad sa ulan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Marco at isang matanda"
+          },
+          {
+            "id": "b",
+            "text": "Lola Rosa, Milo, at Ana"
+          },
+          {
+            "id": "c",
+            "text": "Ben at Liza"
+          },
+          {
+            "id": "d",
+            "text": "Aling Rosa at Nena"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Sina Marco at ang matanda ang gumaganap sa mga pangyayari, kaya sila ang mga tauhan."
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q4-w14-d04-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang suliraning kailangang harapin nina Marco at ng matanda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Umuulan nang malakas."
+          },
+          {
+            "id": "b",
+            "text": "Nawala ang alampay ni Lola Rosa."
+          },
+          {
+            "id": "c",
+            "text": "Gustong maglaro ni Ben pero mainit ang araw."
+          },
+          {
+            "id": "d",
+            "text": "Nabasag ang paso ng halaman ni Aling Rosa."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang malakas na ulan at kawalan ng payong ang problemang kailangang harapin sa kuwento."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q4-w14-d04-q3",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang mahalagang ginawa ni Marco sa ilalim ng ulan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ibinalot ni Marco ang kanyang jacket sa matanda."
+          },
+          {
+            "id": "b",
+            "text": "Hinahanap niya ang alampay sa ilalim ng unan."
+          },
+          {
+            "id": "c",
+            "text": "Naghintay siya hanggang hapon bago maglaro."
+          },
+          {
+            "id": "d",
+            "text": "Nagtanim siya ng bagong halaman kasama si Nena."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pagbabahagi ng jacket kay Marco ang mahalagang pangyayaring tumulong sa matanda."
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q4-w14-d04-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano natapos ang kuwento tungkol kay Marco at sa matanda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nakarating silang dalawa nang ligtas sa kanilang bahay."
+          },
+          {
+            "id": "b",
+            "text": "Natagpuan nila ang alampay sa ilalim ng unan."
+          },
+          {
+            "id": "c",
+            "text": "Naglaro si Ben nang masaya sa labas."
+          },
+          {
+            "id": "d",
+            "text": "Natuwa si Aling Rosa sa kabaitan ni Nena."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang ligtas na pag-uwi nina Marco at ng matanda ang wakas ng kuwento."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q4-w14-d04-q5",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang maikling buod na may tauhan, suliranin, pangyayari, at wakas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Malakas ang ulan, at tinulungan ni Marco ang matandang walang payong upang makauwi nang ligtas."
+          },
+          {
+            "id": "b",
+            "text": "Nawala ang alampay ni Lola Rosa, at natagpuan ito nina Milo at Ana sa ilalim ng unan."
+          },
+          {
+            "id": "c",
+            "text": "Mainit noong tanghali, kaya naghintay si Ben hanggang hapon bago naglaro."
+          },
+          {
+            "id": "d",
+            "text": "Nabasag ang paso ni Aling Rosa, at tinulungan siya ni Nena na magtanim ng bago."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tamang buod ay binabanggit sina Marco at ang matanda, ang ulan at kawalan ng payong, ang jacket, at ang ligtas na pag-uwi."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

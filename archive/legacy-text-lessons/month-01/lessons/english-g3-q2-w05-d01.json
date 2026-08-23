@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w05-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 1,
+  "subject": "english",
+  "title": "Signal Words",
+  "objective": "Identify words that show order, reason, contrast, or result in a text.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is writing about his school day and needs words that connect each idea. Can you spot order, reason, contrast, and result clues?",
+  "vocabulary": [
+    {
+      "term": "first",
+      "definition": "a word that tells where an event falls in a sequence"
+    },
+    {
+      "term": "because",
+      "definition": "a word that explains why something happens"
+    },
+    {
+      "term": "but",
+      "definition": "a word that places two different ideas side by side"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w05-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Read the sentences and notice each word that connects ideas.",
+      "content": "Signal words help readers understand how ideas connect: first shows order, because shows a reason, and so shows a result.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Name the relationship before choosing the signal word."
+      },
+      "prompt": "Learn how signal words show relationships between ideas.",
+      "narration": "Signal words give readers a map: first shows order, because gives a reason, but shows a contrast, and so shows a result.",
+      "guideHint": "Ask whether the word shows order, a reason, a contrast, or a result.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Signal words give readers a map: first shows order, because gives a reason, but shows a contrast, and so shows a result."
+    },
+    {
+      "activityId": "english-g3-q2-w05-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Tap sentences that use a signal word to connect ideas.",
+      "content": {
+        "examples": [
+          "First, I packed my bag.",
+          "I stayed inside because it rained.",
+          "I wanted to play, but homework came first.",
+          "It rained, so the game moved indoors."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check what relationship the signal word shows."
+      },
+      "prompt": "Find signal words inside connected sentences.",
+      "narration": "A signal word helps explain how one idea relates to another.",
+      "guideHint": "Read both ideas around the connecting word.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A signal word helps explain how one idea relates to another."
+    },
+    {
+      "activityId": "english-g3-q2-w05-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Sort connected signal-word sentences from unrelated phrases.",
+      "content": {
+        "fits": [
+          "First, I packed my bag.",
+          "I stayed inside because it rained.",
+          "I wanted to play, but homework came first.",
+          "It rained, so the game moved indoors."
+        ],
+        "doesNotFit": [
+          "The tall tree beside the gate.",
+          "A red balloon floated away.",
+          "The school gate was blue.",
+          "A yellow mango on the plate."
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the connecting word and name its relationship."
+      },
+      "prompt": "Sort each card by whether it shows a clear idea connection.",
+      "narration": "A signal-word sentence tells order, reason, contrast, or result; an unrelated phrase does not.",
+      "guideHint": "Read the whole card and look for a relationship between ideas.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A signal-word sentence tells order, reason, contrast, or result; an unrelated phrase does not."
+    },
+    {
+      "activityId": "english-g3-q2-w05-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Tap the sentence with a word that connects ideas.",
+      "content": {
+        "options": [
+          "The tall tree beside the gate.",
+          "A red balloon floated away.",
+          "First, I packed my bag.",
+          "A yellow mango on the plate."
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the word that links the two ideas."
+      },
+      "prompt": "Choose the sentence that shows how ideas are related.",
+      "narration": "First, because, but, and so connect ideas by showing order, reason, contrast, or result.",
+      "guideHint": "Read the two parts and look for their relationship word.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "First, because, but, and so connect ideas by showing order, reason, contrast, or result."
+    },
+    {
+      "activityId": "english-g3-q2-w05-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Match each signal word to the relationship it shows.",
+      "content": {
+        "pairs": [
+          {
+            "left": "first",
+            "right": "puts an event at the beginning"
+          },
+          {
+            "left": "because",
+            "right": "answers the question “why?”"
+          },
+          {
+            "left": "but",
+            "right": "shows two ideas differ"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the word shows order, reason, or contrast."
+      },
+      "prompt": "Match each signal word with its job in a sentence.",
+      "narration": "Signal words help readers see order, reason, and contrast between ideas.",
+      "guideHint": "Read the word in a sentence and ask what it explains.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Signal words help readers see order, reason, and contrast between ideas."
+    },
+    {
+      "activityId": "english-g3-q2-w05-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w05-d01-visual",
+      "instruction": "Put the signal-word checks in order.",
+      "content": {
+        "steps": [
+          "Read both ideas",
+          "Circle the signal word",
+          "Name the relationship",
+          "Explain how it connects"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, found, named, and explained the connection."
+      },
+      "prompt": "Order the steps for finding a signal word’s job.",
+      "narration": "Readers compare the ideas around a signal word before naming the relationship.",
+      "guideHint": "Begin by reading both ideas.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Readers compare the ideas around a signal word before naming the relationship."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w05-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo explains why his game moved indoors after rain. Which sentence links the ideas with a result word?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The plants grew tall."
+          },
+          {
+            "id": "b",
+            "text": "It rained, so the plants grew."
+          },
+          {
+            "id": "c",
+            "text": "The sun came out at noon."
+          },
+          {
+            "id": "d",
+            "text": "The rain fell all day."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "So links the rain to what happened afterward: the plants grew as a result."
+      },
+      {
+        "itemId": "english-g3-q2-w05-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo leaves ice in the sun. Which sentence shows the result?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The ice is in a cup."
+          },
+          {
+            "id": "b",
+            "text": "The ice is very cold."
+          },
+          {
+            "id": "c",
+            "text": "The ice cream is sweet."
+          },
+          {
+            "id": "d",
+            "text": "The ice warmed, so it melted."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "So connects the reason, warming ice, to the result, melting."
+      },
+      {
+        "itemId": "english-g3-q2-w05-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo practices drawing every day. Which sentence shows the result of his practice?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Milo likes to draw."
+          },
+          {
+            "id": "b",
+            "text": "Milo practiced, so he improved."
+          },
+          {
+            "id": "c",
+            "text": "Milo has a blue ball."
+          },
+          {
+            "id": "d",
+            "text": "Milo ate a mango."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "So shows that improving happened as a result of practicing."
+      },
+      {
+        "itemId": "english-g3-q2-w05-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "The school bell rings. Which sentence connects the bell to what happens next?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The bell is very old."
+          },
+          {
+            "id": "b",
+            "text": "The bell hangs on the wall."
+          },
+          {
+            "id": "c",
+            "text": "The bell rang, so class began."
+          },
+          {
+            "id": "d",
+            "text": "The bell is shiny."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "So connects the bell ringing with the result that class began."
+      },
+      {
+        "itemId": "english-g3-q2-w05-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo chooses a sentence that uses a connection word correctly. Which choice works?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The sun came out at noon."
+          },
+          {
+            "id": "b",
+            "text": "The rain fell all day."
+          },
+          {
+            "id": "c",
+            "text": "It rained, so the plants grew."
+          },
+          {
+            "id": "d",
+            "text": "The plants grew tall."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "So joins the rain and the plant growth, showing that the growth followed as a result."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

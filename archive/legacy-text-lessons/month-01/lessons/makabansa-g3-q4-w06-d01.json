@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q4-w06-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 1,
+  "subject": "makabansa",
+  "title": "Pamumuhay sa Isla",
+  "objective": "Naipaliliwanag kung paano nakaaapekto ang isla sa kultura at pamumuhay ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "🏝️ Ang isla ay lupang napaliligiran ng tubig. Paano naaapektuhan ng dagat ang hanapbuhay, paglalakbay, at tahanan ng mga tao roon?",
+  "vocabulary": [
+    {
+      "term": "isla",
+      "definition": "Lupang napaliligiran ng tubig sa lahat ng panig."
+    },
+    {
+      "term": "bangka",
+      "definition": "Maliit na sasakyang ginagamit sa paglalakbay sa tubig."
+    },
+    {
+      "term": "damong-dagat",
+      "definition": "Halaman sa dagat na maaaring pagkain o pagkakitaan."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Pakinggan ang paliwanag kung paano nakaaapekto ang isla.",
+      "content": "Dahil napaliligiran ng tubig ang isla, mahalaga ang pangingisda, pag-aalaga ng damong-dagat, at paglalakbay sa bangka. Ang mga tahanan ay maaaring magkaroon ng matibay na bubong dahil mahangin, at ang pagkaing dagat ay nagiging bahagi ng pagkain at kabuhayan.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipaliwanag mo ang ugnayan ng isla. 🎉",
+        "retry": "Balikan ang ugnayan ng tubig sa pangingisda, bangka, damong-dagat, pagkain, at tahanan."
+      },
+      "prompt": "Paano naaapektuhan ng tubig sa paligid ang pamumuhay sa isla?",
+      "narration": "Dahil napaliligiran ng tubig ang isla, mahalaga ang pangingisda at paglalakbay sa bangka.",
+      "guideHint": "Pansinin ang tubig, bangka, pangingisda, damong-dagat, at matibay na bubong.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Dahil napaliligiran ng tubig ang isla, mahalaga ang pangingisda at paglalakbay sa bangka."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Hanapin ang mga larawang nagpapakita ng buhay sa isla.",
+      "content": {
+        "examples": [
+          "Bangkang nagdadala ng tao sa kalapit na isla",
+          "Mangingisdang gumagamit ng lambat sa dagat",
+          "Taniman ng damong-dagat",
+          "Bahay na may matibay na bubong dahil mahangin"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mga halimbawa sa isla. 🎉",
+        "retry": "Suriin ang bangka, lambat, damong-dagat, at matibay na bubong; bawat isa ay may ugnayan sa isla."
+      },
+      "prompt": "Alin sa larawan ang nagpapakita ng epekto ng tubig sa isla?",
+      "narration": "Hanapin ang bangka, mangingisda, damong-dagat, at tahanang matibay sa hangin.",
+      "guideHint": "Hanapin ang paglalakbay sa tubig, hanapbuhay sa dagat, halaman sa dagat, at bubong laban sa hangin.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang bangka, mangingisda, damong-dagat, at tahanang matibay sa hangin."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Pangkatin ang mga obserbasyon ayon sa ugnayan nito sa isla.",
+      "content": {
+        "fits": [
+          "Bangkang nagdadala ng tao sa kalapit na isla",
+          "Mangingisdang gumagamit ng lambat sa dagat",
+          "Pagpapatuyo ng damong-dagat para ibenta",
+          "Pista ng dagat sa barangay"
+        ],
+        "doesNotFit": [
+          "Kariton na nagdadala ng ani sa malawak na kapatagan",
+          "Pagmimina sa mataas na bundok",
+          "Pag-aalaga ng kamelyo sa disyerto",
+          "Tren na tumatawid sa malayong kapatagan"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiuri mo ang mga gawaing may ugnayan sa isla. 🎉",
+        "retry": "Tingnan kung may tubig-alat, bangka, yamang dagat, o pista na kaugnay ng isla."
+      },
+      "prompt": "Alin ang nagpapakita ng pamumuhay na sinusuportahan ng isla?",
+      "narration": "Pagmasdan kung may tubig-alat, bangka, yamang dagat, o gawaing kaugnay ng isla.",
+      "guideHint": "Hanapin ang bangka, pangingisda, damong-dagat, o pistang may kaugnayan sa dagat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Pagmasdan kung may tubig-alat, bangka, yamang dagat, o gawaing kaugnay ng isla."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Piliin ang hanapbuhay na gumagamit ng dagat.",
+      "content": {
+        "options": [
+          "Pagtatanim ng palay sa tuyong disyerto",
+          "Pag-akyat sa nagyeyelong taluktok",
+          "Pangingisda sa dagat",
+          "Pag-aalaga ng kamelyo sa buhanginan"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Pinili mo ang tamang sagot tungkol sa isla. ✅",
+        "retry": "Suriin kung aling gawain ang tuwirang ginagawa sa dagat."
+      },
+      "prompt": "Sa isang isla, aling hanapbuhay ang maaaring umunlad?",
+      "narration": "Piliin ang gawaing gumagamit ng tubig at yamang dagat.",
+      "guideHint": "Hanapin ang gawaing ginagawa sa dagat at nagbibigay ng pagkain o kita.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Piliin ang gawaing gumagamit ng tubig at yamang dagat."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Itugma ang obserbasyon sa pakinabang ng isla.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Bangkang nagdadala ng tao sa kalapit na isla",
+            "right": "Paraan ng paglalakbay sa pagitan ng mga pulo"
+          },
+          {
+            "left": "Mangingisdang gumagamit ng lambat sa dagat",
+            "right": "Hanapbuhay mula sa tubig-alat"
+          },
+          {
+            "left": "Pagpapatuyo ng damong-dagat para ibenta",
+            "right": "Produktong nakukuha sa dagat"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiugnay mo ang gawain at pakinabang sa isla. ✅",
+        "retry": "Basahin ang kanang panig at hanapin kung ito ay paglalakbay, hanapbuhay, o produkto."
+      },
+      "prompt": "Paano nakatutulong ang bawat gawain sa pamumuhay sa isla?",
+      "narration": "Iugnay ang bangka, mangingisda, at damong-dagat sa paglalakbay, hanapbuhay, o produkto.",
+      "guideHint": "Hanapin kung ang pares ay tungkol sa paglalakbay sa pulo, hanapbuhay, o produktong dagat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Iugnay ang bangka, mangingisda, at damong-dagat sa paglalakbay, hanapbuhay, o produkto."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w06-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w06-d01-visual",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng isla at pamumuhay.",
+      "content": {
+        "steps": [
+          "Tingnan ang tubig at hangin sa paligid.",
+          "Tukuyin ang yamang dagat o hamon sa paglalakbay.",
+          "Iugnay ang mga ito sa gawain o tahanan.",
+          "Ipaliwanag kung paano ito nagiging bahagi ng kultura."
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang hakbang sa pagpapaliwanag ng isla. ✅",
+        "retry": "Unahin ang tubig at hangin, pagkatapos ang yaman o hamon, gawain, at kulturang nabubuo."
+      },
+      "prompt": "Ano ang tamang paraan ng pagpapaliwanag sa epekto ng pagiging isla?",
+      "narration": "Magsimula sa tubig at hangin, tukuyin ang yaman o hamon, iugnay sa gawain, at ipaliwanag ang kultura.",
+      "guideHint": "Unahin ang tubig at hangin bago tukuyin ang yamang dagat, gawain, at tahanan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Magsimula sa tubig at hangin, tukuyin ang yaman o hamon, iugnay sa gawain, at ipaliwanag ang kultura."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q4-w06-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa isla ni Toma, aling hanapbuhay ang maaaring umunlad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pangingisda sa dagat"
+          },
+          {
+            "id": "b",
+            "text": "Paghuhukay ng yelo"
+          },
+          {
+            "id": "c",
+            "text": "Pag-aalaga ng kamelyo"
+          },
+          {
+            "id": "d",
+            "text": "Pagmimina sa disyerto"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Dahil napaliligiran ng tubig ang isla, maaaring maging hanapbuhay ang pangingisda sa dagat."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano nakatutulong ang dagat sa paglalakbay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ginagawa nitong tuyo ang daan."
+          },
+          {
+            "id": "b",
+            "text": "Nagagamit ang bangka upang makarating sa kalapit na pulo."
+          },
+          {
+            "id": "c",
+            "text": "Pinatitigil nito ang paggalaw."
+          },
+          {
+            "id": "d",
+            "text": "Gumagawa ito ng bundok sa gitna ng tubig."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang bangka ay sasakyang dumaraan sa tubig upang maghatid ng tao sa ibang pulo."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Mahangin sa isla. Aling pagbabago sa bahay ang makatutulong?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bubong na walang pagkakabit"
+          },
+          {
+            "id": "b",
+            "text": "Matibay na bubong na maayos ang pagkakabit"
+          },
+          {
+            "id": "c",
+            "text": "Walang dingding ang bahay"
+          },
+          {
+            "id": "d",
+            "text": "Bintanang laging bukas sa bagyo"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang matibay at maayos na pagkakabit ng bubong ay tumutulong laban sa malakas na hangin."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ano ang pagkaing maaaring makita sa pamilyang nakatira sa isla?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Isda at damong-dagat"
+          },
+          {
+            "id": "b",
+            "text": "Niyebe at yelo"
+          },
+          {
+            "id": "c",
+            "text": "Buhangin at bato"
+          },
+          {
+            "id": "d",
+            "text": "Dahon lamang"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang isda at damong-dagat ay yamang tubig na maaaring maging pagkain ng mga pamilyang nasa isla."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w06-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng ugnayan ng isla at pamumuhay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Paglalakbay sa bangka"
+          },
+          {
+            "id": "b",
+            "text": "Pangingisda"
+          },
+          {
+            "id": "c",
+            "text": "Pagpapatuyo ng damong-dagat"
+          },
+          {
+            "id": "d",
+            "text": "Pagpili ng kulay ng lapis"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagpili ng kulay ng lapis ay walang kaugnayan sa tubig, yamang dagat, o paglalakbay sa isla."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

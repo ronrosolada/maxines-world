@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q1-w01-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 3,
+  "subject": "makabansa",
+  "title": "Ang Unang Pamilihan",
+  "objective": "Natutukoy ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Nang magkaroon ng pamilihan ang Barangay Sapa, mas napalapit sa mga pamilya ang pagbili ng kailangan. Sundan ang mga tala tungkol sa paglaki at pagbabago ng komunidad. 🧺",
+  "vocabulary": [
+    {
+      "term": "pamilihan",
+      "definition": "Lugar kung saan bumibili at nagbebenta ng pang-araw-araw na kailangan."
+    },
+    {
+      "term": "tala",
+      "definition": "Nakasulat na impormasyon tungkol sa tao, lugar, o pangyayari."
+    },
+    {
+      "term": "komunidad",
+      "definition": "Pangkat ng mga taong nakatira at nagtutulungan sa isang lugar."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Pakinggan ang mga tala tungkol sa paglaki ng Barangay Sapa.",
+      "content": "Patuloy ang kasaysayan ng Barangay Sapa. Noong 1970, itinayo ang pamilihan upang hindi na maglakbay pa ang mga tao sa kalapit na bayan upang bumili. Noong 1985, pinalitan ng konkretong gusali ang lumang barangay hall. Mula sa labindalawang pamilya noong 1955, mahigit limang daang pamilya na ang nakatira sa Barangay Sapa ngayon. Ang mga tala, lumang larawan, at kuwento ng mga nakatatanda ang nagtuturo sa atin ng mga pangyayaring ito.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli ang taon ng pamilihan, pagbabago ng bulwagan, at dami ng pamilya."
+      },
+      "prompt": "Tuklasin ang pamilihan, bagong bulwagan, at paglaki ng pamilya.",
+      "narration": "Itinayo ang pamilihan noong 1970, naging konkreto ang bulwagan noong 1985, at lumaki ang komunidad hanggang sa mahigit 500 pamilya.",
+      "guideHint": "Pakinggan ang tatlong pahiwatig: 1970, 1985, at mahigit 500 pamilya.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Itinayo ang pamilihan noong 1970, naging konkreto ang bulwagan noong 1985, at lumaki ang komunidad hanggang sa mahigit 500 pamilya."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Hanapin ang pamilihan, tindahan, bagong bulwagan, at mga pamilya sa larawan.",
+      "content": {
+        "examples": [
+          "pamilihan",
+          "mga tindahan",
+          "bagong barangay hall",
+          "mga pamilya ngayon"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pamilihan, tindahan, bagong bulwagan, at mas maraming pamilya."
+      },
+      "prompt": "I-tap ang mga pahiwatig ng pagbabagong naganap sa barangay.",
+      "narration": "Ang pamilihan, mga tindahan, bagong bulwagan, at mas maraming pamilya ay nagpapakita ng pagbabago sa komunidad.",
+      "guideHint": "Hanapin ang apat na bagay na tumutulong magkuwento ng pagbabago.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pamilihan, mga tindahan, bagong bulwagan, at mas maraming pamilya ay nagpapakita ng pagbabago sa komunidad."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Ilagay sa kasaysayan o hindi ang bawat detalye tungkol sa pagbabago.",
+      "content": {
+        "fits": [
+          "pamilihan noong 1970",
+          "konkretong bulwagan noong 1985",
+          "mahigit limang daang pamilya ngayon",
+          "mga tindahang nagbebenta"
+        ],
+        "doesNotFit": [
+          "presyo ng kendi",
+          "kulay ng sapatos",
+          "kuwento tungkol sa ibang planeta",
+          "pangalan ng artista"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang detalyeng may taon, lugar, gusali, o pamilyang nasa kuwento."
+      },
+      "prompt": "Piliin ang detalyeng bahagi ng tala ng Barangay Sapa.",
+      "narration": "Kasama sa tala ang mga gusali, taon, tindahan, at paglaki ng pamilya; hindi kasama ang personal na hilig.",
+      "guideHint": "Hanapin ang detalyeng may taon, lugar, gusali, o pamilyang nasa kuwento.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Kasama sa tala ang mga gusali, taon, tindahan, at paglaki ng pamilya; hindi kasama ang personal na hilig."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Piliin ang gusaling itinayo noong 1970.",
+      "content": {
+        "options": [
+          "ang pamilihan",
+          "ang unang paaralan",
+          "ang unang barangay hall",
+          "ang palaruan"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang gusaling kaugnay ng pagbili ng mga kailangan noong 1970."
+      },
+      "prompt": "Alin ang itinayo upang mapalapit ang bilihan sa mga tao?",
+      "narration": "Ang pamilihan ang itinayo noong 1970 upang hindi na lumayo ang mga tao sa pagbili.",
+      "guideHint": "Hanapin ang gusaling kaugnay ng pagbili ng mga kailangan noong 1970.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pamilihan ang itinayo noong 1970 upang hindi na lumayo ang mga tao sa pagbili."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Itugma ang taon o bilang sa pagbabagong inilalarawan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "1970",
+            "right": "pagtatayo ng pamilihan"
+          },
+          {
+            "left": "1985",
+            "right": "pagpapalit sa konkretong bulwagan"
+          },
+          {
+            "left": "mahigit 500",
+            "right": "bilang ng pamilya ngayon"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay ang bawat taon o bilang sa tamang pagbabago."
+      },
+      "prompt": "Iugnay ang bawat pahiwatig sa pangyayari sa komunidad.",
+      "narration": "Ang 1970 ay taon ng pamilihan, 1985 ng konkretong bulwagan, at mahigit 500 ang bilang ng pamilya ngayon.",
+      "guideHint": "Iugnay ang bawat taon o bilang sa tamang pagbabago.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang 1970 ay taon ng pamilihan, 1985 ng konkretong bulwagan, at mahigit 500 ang bilang ng pamilya ngayon."
+    },
+    {
+      "activityId": "makabansa-g3-q1-w01-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q1-w01-d03-visual",
+      "instruction": "Ayusin ang mga pangyayari mula pamilihan hanggang paglaki ng barangay.",
+      "content": {
+        "steps": [
+          "Itinayo ang pamilihan noong 1970",
+          "Bumili ang mga tao nang hindi na lumalayo",
+          "Pinalitan ang barangay hall noong 1985",
+          "Lumago ang Barangay Sapa hanggang ngayon"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang pamilihan noong 1970, saka ang bulwagan noong 1985, at huli ang paglaki ngayon."
+      },
+      "prompt": "Ilagay sa tamang ayos ang mga pagbabago sa Barangay Sapa.",
+      "narration": "Itinayo ang pamilihan, ginawang konkreto ang bulwagan, at patuloy na dumami ang mga pamilya sa barangay.",
+      "guideHint": "Unahin ang pamilihan noong 1970, saka ang bulwagan noong 1985, at huli ang paglaki ngayon.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Itinayo ang pamilihan, ginawang konkreto ang bulwagan, at patuloy na dumami ang mga pamilya sa barangay."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q1-w01-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa timeline ng Barangay Sapa, anong taon mo ilalagay sa pagtatayo ng pamilihan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "1970"
+          },
+          {
+            "id": "b",
+            "text": "1960"
+          },
+          {
+            "id": "c",
+            "text": "1985"
+          },
+          {
+            "id": "d",
+            "text": "2000"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tala ay nag-uugnay sa pamilihan at sa taong 1970."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit nakatulong sa mga pamilya ang pagkakaroon ng pamilihan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Napalapit ang bilihan kaya hindi na kailangang bumiyahe sa kalapit na bayan."
+          },
+          {
+            "id": "b",
+            "text": "Nagkaroon ng lugar para sa palaruan ng mga bata."
+          },
+          {
+            "id": "c",
+            "text": "Naging tirahan ito ng mga bisita."
+          },
+          {
+            "id": "d",
+            "text": "Dito lamang maaaring magdaos ng pista."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pamilihan ay itinayo upang paikliin ang paglalakbay ng mga taong bibili ng kailangan."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa larawan ng Barangay Sapa noong 1985, ano ang dapat mong makita sa tabi ng lumang gusali?",
+        "options": [
+          {
+            "id": "a",
+            "text": "isang bagong palaruan"
+          },
+          {
+            "id": "b",
+            "text": "isang bagong konkretong barangay hall"
+          },
+          {
+            "id": "c",
+            "text": "isang bagong bahay ng kapitan"
+          },
+          {
+            "id": "d",
+            "text": "isang bagong tindahan ng laruan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Sinasabi ng tala na pinalitan ng konkretong gusali ang lumang barangay hall noong 1985."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Habang binabasa mo ang tala, ilang pamilya ang nakatira sa Barangay Sapa ngayon?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mahigit limang daan"
+          },
+          {
+            "id": "b",
+            "text": "limampu lamang"
+          },
+          {
+            "id": "c",
+            "text": "wala na"
+          },
+          {
+            "id": "d",
+            "text": "labindalawa pa rin"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Mula sa labindalawang pamilya, lumaki ang komunidad hanggang mahigit limang daang pamilya."
+      },
+      {
+        "itemId": "makabansa-g3-q1-w01-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nais mong patunayan ang kuwento ng paglaki ng barangay. Alin ang pinakamainam na sanggunian?",
+        "options": [
+          {
+            "id": "a",
+            "text": "panonood ng palabas na walang kaugnayan"
+          },
+          {
+            "id": "b",
+            "text": "pagsasaulo ng awitin"
+          },
+          {
+            "id": "c",
+            "text": "mga tala, lumang larawan, at kuwento ng mga nakatatanda"
+          },
+          {
+            "id": "d",
+            "text": "pagbilang ng mga bahay nang walang tala"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang tala, lumang larawan, at salaysay ng nakatatanda ay magkakasamang nagbibigay ng ebidensiya sa kasaysayan."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

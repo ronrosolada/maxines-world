@@ -1,0 +1,390 @@
+{
+  "lessonId": "filipino-g3-q3-w08-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 10,
+  "day": 1,
+  "subject": "filipino",
+  "title": "Baybay: Pangarap",
+  "objective": "Naisusulat nang wasto ang salitang 'pangarap' at nagagamit ito sa pangungusap.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May salitang “pangarap” sa ating gawain. Basahin natin ito, suriin ang mga titik, at gamitin sa pangungusap!",
+  "vocabulary": [
+    {
+      "term": "baybay",
+      "definition": "pagkakasulat ng mga titik ng salita"
+    },
+    {
+      "term": "malaking titik",
+      "definition": "malaking letra sa simula ng pangungusap at pangalan"
+    },
+    {
+      "term": "bantas",
+      "definition": "markang tulad ng tuldok at kuwit"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Basahin ang halimbawa at hanapin ang tamang baybay ng “pangarap.”",
+      "content": "Ang “pangarap” ay binubuo ng mga pantig na pa-nga-rap. Suriin ang bawat titik bago ito isulat.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hatiin ang “pangarap” sa mga pantig at tingnan ang bawat titik. 💪"
+      },
+      "prompt": "Basahin ang halimbawa: ang “pangarap” ay may tamang baybay.",
+      "narration": "Ang “pangarap” ay binubuo ng mga pantig na pa-nga-rap. Suriin ang bawat titik bago ito isulat.",
+      "guideHint": "Pahiwatig: hatiin ang salita sa mga pantig at tingnan ang bawat titik.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang “pangarap” ay binubuo ng mga pantig na pa-nga-rap. Suriin ang bawat titik bago ito isulat."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Basahin ang bawat salita at ihambing ang mga titik.",
+      "content": {
+        "examples": [
+          "pangarap",
+          "kaarawan",
+          "palengke",
+          "sapatos"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: ihambing ang bawat salita sa tamang ayos ng mga titik. 💪"
+      },
+      "prompt": "Hanapin sa mga halimbawa ang salitang may tamang baybay.",
+      "narration": "Basahin nang mabuti ang bawat halimbawa: pangarap, kaarawan, palengke, at sapatos.",
+      "guideHint": "Pahiwatig: basahin nang dahan-dahan ang bawat salita at ihambing ang mga titik.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Basahin nang mabuti ang bawat halimbawa: pangarap, kaarawan, palengke, at sapatos."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Ilagay sa pangkat ang wastong baybay at maling baybay.",
+      "content": {
+        "fits": [
+          "pangarap",
+          "kaarawan",
+          "palengke",
+          "sapatos"
+        ],
+        "doesNotFit": [
+          "pangrap",
+          "kaarwan",
+          "palenge",
+          "sapatoss"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: hanapin ang nawawala, nadagdag, o napalitang titik. 💪"
+      },
+      "prompt": "Pag-uriin ang mga salita ayon sa wastong baybay.",
+      "narration": "Ihambing ang pagkakasunod-sunod ng mga titik. Ang maling dagdag, bawas, o palit na titik ay nagbabago sa baybay.",
+      "guideHint": "Pahiwatig: hanapin ang nawawala, nadagdag, o napalitang titik.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ihambing ang pagkakasunod-sunod ng mga titik. Ang maling dagdag, bawas, o palit na titik ay nagbabago sa baybay."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Piliin ang salitang tama ang ayos ng mga titik.",
+      "content": {
+        "options": [
+          "sapatoss",
+          "kaarwan",
+          "pangarap",
+          "palenge"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin nang dahan-dahan ang bawat titik sa mga pagpipilian. 💪"
+      },
+      "prompt": "Alin ang salitang may tamang baybay?",
+      "narration": "Hanapin ang salitang kumpleto at tama ang pagkakasunod ng mga titik.",
+      "guideHint": "Pahiwatig: basahin nang dahan-dahan ang bawat titik sa mga pagpipilian.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang salitang kumpleto at tama ang pagkakasunod ng mga titik."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Itugma ang salita sa kahulugan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pangarap",
+            "right": "nais na makamit sa hinaharap"
+          },
+          {
+            "left": "kaarawan",
+            "right": "araw ng kapanganakan"
+          },
+          {
+            "left": "palengke",
+            "right": "lugar na may mga tindahan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: isipin kung ano ang ibig sabihin ng bawat salita. 💪"
+      },
+      "prompt": "Itugma ang bawat salita sa kahulugan nito.",
+      "narration": "Ang pangarap ay nais na makamit sa hinaharap; ang kaarawan ay araw ng kapanganakan; ang palengke ay lugar na may mga tindahan.",
+      "guideHint": "Pahiwatig: isipin kung ano ang ibig sabihin ng bawat salita.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pangarap ay nais na makamit sa hinaharap; ang kaarawan ay araw ng kapanganakan; ang palengke ay lugar na may mga tindahan."
+    },
+    {
+      "activityId": "filipino-g3-q3-w08-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "filipino-g3-q3-w08-d01-visual",
+      "instruction": "Ayusin ang hakbang sa pagsuri at pagsulat ng salita.",
+      "content": {
+        "steps": [
+          "Basahin ang salita",
+          "Suriin ang baybay",
+          "Suriin ang malaking titik at bantas",
+          "Isulat ito nang maayos"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pahiwatig: basahin muna, suriin ang baybay, saka isulat. 💪"
+      },
+      "prompt": "Ayusin ang mga hakbang mula pagbasa hanggang pagsulat.",
+      "narration": "Magsimula sa pagbasa. Suriin ang mga titik, malaking titik, at bantas; saka isulat ang salita.",
+      "guideHint": "Pahiwatig: basahin muna, suriin ang baybay, saka isulat.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Magsimula sa pagbasa. Suriin ang mga titik, malaking titik, at bantas; saka isulat ang salita."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "sequence": 1,
+        "itemId": "filipino-g3-q3-w08-d01-q1",
+        "prompt": "Sa poster ni Nena, isinulat niya ang nais niyang maging guro. Alin ang wastong baybay ng “pangarap”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pangarap"
+          },
+          {
+            "id": "b",
+            "text": "pangrap"
+          },
+          {
+            "id": "c",
+            "text": "pangarapp"
+          },
+          {
+            "id": "d",
+            "text": "pangaraf"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tamang ayos ng mga pantig ay pa-nga-rap. Walang nawawala o nadagdag na titik sa “pangarap.”",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 2,
+        "itemId": "filipino-g3-q3-w08-d01-q2",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa kard ni Ben, isinulat niya ang araw ng kanyang kapanganakan. Alin ang wastong baybay ng “kaarawan”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kaarwan"
+          },
+          {
+            "id": "b",
+            "text": "kaarawan"
+          },
+          {
+            "id": "c",
+            "text": "kaarawen"
+          },
+          {
+            "id": "d",
+            "text": "kaarawann"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang “kaarawan” ang may tamang ayos ng mga titik at tumutukoy sa araw ng kapanganakan."
+      },
+      {
+        "sequence": 3,
+        "itemId": "filipino-g3-q3-w08-d01-q3",
+        "prompt": "May handaan si Ana para sa araw ng kanyang kapanganakan. Ano ang ibig sabihin ng “kaarawan”?",
+        "options": [
+          {
+            "id": "a",
+            "text": "inaasam na makamit sa buhay"
+          },
+          {
+            "id": "b",
+            "text": "pantakip sa paa"
+          },
+          {
+            "id": "c",
+            "text": "lugar na pinagbibilhan ng pagkain"
+          },
+          {
+            "id": "d",
+            "text": "araw ng kapanganakan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “kaarawan” ay araw ng kapanganakan, kaya iyon ang tinutukoy ng handaan.",
+        "type": "MULTIPLE_CHOICE"
+      },
+      {
+        "sequence": 4,
+        "itemId": "filipino-g3-q3-w08-d01-q4",
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bumili si Jo ng gulay at prutas sa lugar na maraming tindahan. Alin ang wastong baybay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "palenge"
+          },
+          {
+            "id": "b",
+            "text": "palengke"
+          },
+          {
+            "id": "c",
+            "text": "palengki"
+          },
+          {
+            "id": "d",
+            "text": "palengkee"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang tamang baybay ay pa-leng-ke: “palengke.” Suriin ang titik k bago ang hulíng e."
+      },
+      {
+        "sequence": 5,
+        "itemId": "filipino-g3-q3-w08-d01-q5",
+        "prompt": "Nais maging guro ni Nena paglaki. Kumpletuhin: “Ang maging guro ang ___ ni Nena.”",
+        "options": [
+          {
+            "id": "a",
+            "text": "kaarawan"
+          },
+          {
+            "id": "b",
+            "text": "pangarap"
+          },
+          {
+            "id": "c",
+            "text": "sapatos"
+          },
+          {
+            "id": "d",
+            "text": "palengke"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pangarap ay bagay na nais makamit sa hinaharap, kaya ito ang angkop sa pangungusap.",
+        "type": "MULTIPLE_CHOICE"
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "storyIntro": "Kumusta, Maxine! 🐱✨ Samahan si Milo sa isang masayang pakikipagsapalaran tungkol sa Wastong Pagsulat · Q3 W08 D01. Handa ka na bang matuto at maglaro?",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Filipino)",
+    "visualScene": "🌸🇵🇭📜🌟"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

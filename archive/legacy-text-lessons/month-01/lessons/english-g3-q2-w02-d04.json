@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w02-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 4,
+  "subject": "english",
+  "title": "Roots: Clean, Sing, Slow",
+  "objective": "Identify the base words clean, sing, and slow in common related words.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "A cleaned desk, a singer, and a slowly moving turtle each hide a base word. Can you find the word beneath the ending?",
+  "vocabulary": [
+    {
+      "term": "clean",
+      "definition": "free from dirt after something is washed or wiped"
+    },
+    {
+      "term": "sing",
+      "definition": "to make music with your voice"
+    },
+    {
+      "term": "slow",
+      "definition": "moving with less speed than something fast"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w02-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Read the pair and find the word that carries the main meaning.",
+      "content": "A root or base word carries the central meaning. Word endings can change how the word is used.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Read both words again and find the part that stays the same."
+      },
+      "prompt": "Learn how a base word stays inside a related word.",
+      "narration": "A base word carries the main meaning. An ending can change the word's job or time.",
+      "guideHint": "Read both words and look for the part that stays the same.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A base word carries the main meaning. An ending can change the word's job or time."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Tap each pair that keeps the same base word.",
+      "content": {
+        "examples": [
+          "clean — cleaned",
+          "sing — singer",
+          "slow — slowly",
+          "clean — cleaner"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Look for the letters that stay the same in both words."
+      },
+      "prompt": "Find pairs with a shared base word.",
+      "narration": "In a related pair, the base-word letters stay while an ending is added.",
+      "guideHint": "Compare the letters at the beginning of both words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "In a related pair, the base-word letters stay while an ending is added."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Sort pairs that share a base word from unrelated pairs.",
+      "content": {
+        "fits": [
+          "clean — cleaned",
+          "sing — singer",
+          "slow — slowly",
+          "clean — cleaner"
+        ],
+        "doesNotFit": [
+          "cat — dog",
+          "big — small",
+          "run — jump",
+          "apple — orange"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Find the word part that stays before sorting again."
+      },
+      "prompt": "Sort each pair by whether one word grows from the other.",
+      "narration": "A word family shares a base word; an unrelated pair has no word part that carries both meanings.",
+      "guideHint": "Check whether one word keeps the main word part from the other.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A word family shares a base word; an unrelated pair has no word part that carries both meanings."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Tap the pair that shares a base word.",
+      "content": {
+        "options": [
+          "big — small",
+          "run — jump",
+          "clean — cleaned",
+          "cat — dog"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check which pair shares the same base-word letters."
+      },
+      "prompt": "Choose the pair with one word grown from the other.",
+      "narration": "A shared base word keeps its letters when an ending is added.",
+      "guideHint": "Look for one word inside the other without its ending.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A shared base word keeps its letters when an ending is added."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Match each pair to the ending rule it shows.",
+      "content": {
+        "pairs": [
+          {
+            "left": "clean — cleaned",
+            "right": "add -ed to show a past action"
+          },
+          {
+            "left": "sing — singer",
+            "right": "add -er to name a person who sings"
+          },
+          {
+            "left": "slow — slowly",
+            "right": "add -ly to tell how an action happens"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the ending rule and the letters that stay."
+      },
+      "prompt": "Match each word pair with the rule that explains its connection.",
+      "narration": "The ending tells what changed, while the base word keeps the central meaning.",
+      "guideHint": "Read the ending and ask what it tells about the word.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "The ending tells what changed, while the base word keeps the central meaning."
+    },
+    {
+      "activityId": "english-g3-q2-w02-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w02-d04-visual",
+      "instruction": "Put the base-word steps in order.",
+      "content": {
+        "steps": [
+          "Read both words",
+          "Find the letters that stay",
+          "Notice the ending",
+          "State the base word"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you read, compared, noticed, and named the base word."
+      },
+      "prompt": "Order the steps for finding a base word.",
+      "narration": "Compare the letters that stay before naming the base word.",
+      "guideHint": "Begin by reading both words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Compare the letters that stay before naming the base word."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w02-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After the desk was cleaned, which pair shows a base word and a word made from it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "cat — dog"
+          },
+          {
+            "id": "b",
+            "text": "run — jump"
+          },
+          {
+            "id": "c",
+            "text": "big — small"
+          },
+          {
+            "id": "d",
+            "text": "clean — cleaned"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Clean is the base word, and -ed changes it to cleaned for a past action."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "After you remove -ed from 'cleaned,' what base word remains?",
+        "options": [
+          {
+            "id": "a",
+            "text": "slow"
+          },
+          {
+            "id": "b",
+            "text": "sing"
+          },
+          {
+            "id": "c",
+            "text": "clean"
+          },
+          {
+            "id": "d",
+            "text": "cat"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Removing -ed leaves clean, the part that carries the main meaning."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which word can be made by adding -ed to 'clean'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "water"
+          },
+          {
+            "id": "b",
+            "text": "cleaned"
+          },
+          {
+            "id": "c",
+            "text": "singer"
+          },
+          {
+            "id": "d",
+            "text": "desk"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Adding -ed to clean makes cleaned; the ending shows the action happened before now."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Which pair is unrelated to a base-word family?",
+        "options": [
+          {
+            "id": "a",
+            "text": "care — careful"
+          },
+          {
+            "id": "b",
+            "text": "sing — singer"
+          },
+          {
+            "id": "c",
+            "text": "slow — slowly"
+          },
+          {
+            "id": "d",
+            "text": "cat — dog"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Cat and dog name two animals, but neither word is made from the other. The other pairs share a base word."
+      },
+      {
+        "itemId": "english-g3-q2-w02-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "What is the base word in 'singer'?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sing"
+          },
+          {
+            "id": "b",
+            "text": "slow"
+          },
+          {
+            "id": "c",
+            "text": "clean"
+          },
+          {
+            "id": "d",
+            "text": "table"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The letters sing stay when -er is added, so sing is the base word."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

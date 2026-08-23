@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w06-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 4,
+  "subject": "english",
+  "title": "Kind Words: Please and Thank You",
+  "objective": "Choose a polite expression that fits the situation.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo asks a friend for a turn and thanks her for sharing. Can you choose polite words for asking, getting attention, and replying?",
+  "vocabulary": [
+    {
+      "term": "Excuse me.",
+      "definition": "polite words used to get someone’s attention or pass by"
+    },
+    {
+      "term": "Please.",
+      "definition": "a polite word added when asking for something"
+    },
+    {
+      "term": "You are welcome.",
+      "definition": "a polite reply after someone says thank you"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w06-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Read each scene and choose respectful words for it.",
+      "content": "A greeting and polite expression should fit the person, time, and situation.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Match the polite expression to the conversation purpose."
+      },
+      "prompt": "Learn how please, excuse me, and you are welcome fit a conversation.",
+      "narration": "Excuse me gets attention kindly, please softens a request, and you are welcome replies to thanks.",
+      "guideHint": "Ask whether Milo needs attention, a request, or a reply.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Excuse me gets attention kindly, please softens a request, and you are welcome replies to thanks."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Tap the polite expression that fits each scene.",
+      "content": {
+        "examples": [
+          "Excuse me, may I pass?",
+          "Please share the crayons.",
+          "Thank you for your help.",
+          "You are welcome."
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the expression’s job in the scene."
+      },
+      "prompt": "Find kind words for asking, passing, and replying.",
+      "narration": "Use excuse me before interrupting or passing, please when asking, and you are welcome after thanks.",
+      "guideHint": "Look for the action Milo needs to perform.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Use excuse me before interrupting or passing, please when asking, and you are welcome after thanks."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Sort respectful expressions from rude commands.",
+      "content": {
+        "fits": [
+          "Excuse me.",
+          "Please.",
+          "You are welcome.",
+          "Thank you."
+        ],
+        "doesNotFit": [
+          "Go away now!",
+          "Hurry up!",
+          "I do not care!",
+          "Give it to me now!"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the words show respect."
+      },
+      "prompt": "Sort each phrase by whether it treats the listener kindly.",
+      "narration": "Respectful phrases ask or reply kindly; rude commands push or insult the listener.",
+      "guideHint": "Read the phrase as if a classmate said it to you.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Respectful phrases ask or reply kindly; rude commands push or insult the listener."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Tap the polite phrase for asking to pass.",
+      "content": {
+        "options": [
+          "Hurry up!",
+          "I do not care!",
+          "Please.",
+          "Go away now!"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that the phrase is respectful and fits passing."
+      },
+      "prompt": "Choose the words Milo can use to get attention kindly.",
+      "narration": "Excuse me is a respectful way to get someone’s attention or pass by.",
+      "guideHint": "Look for the phrase that gets attention without ordering.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Excuse me is a respectful way to get someone’s attention or pass by."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Match each phrase to its conversation job.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Excuse me.",
+            "right": "gets attention before speaking"
+          },
+          {
+            "left": "Please.",
+            "right": "makes a request sound respectful"
+          },
+          {
+            "left": "You are welcome.",
+            "right": "replies after someone says thanks"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the phrase’s conversation job."
+      },
+      "prompt": "Match each polite expression with the moment it fits.",
+      "narration": "Polite expressions help speakers get attention, ask, or reply after thanks.",
+      "guideHint": "Read the phrase and ask what it helps the speaker do.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Polite expressions help speakers get attention, ask, or reply after thanks."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d04-visual",
+      "instruction": "Put the polite-conversation checks in order.",
+      "content": {
+        "steps": [
+          "Notice the situation",
+          "Choose the conversation purpose",
+          "Say a polite expression",
+          "Listen for the reply"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you noticed, chose, spoke, and listened respectfully."
+      },
+      "prompt": "Order the steps for choosing respectful words.",
+      "narration": "Speakers notice the situation, choose a purpose, and use a kind expression.",
+      "guideHint": "Begin by noticing what the other person needs.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Speakers notice the situation, choose a purpose, and use a kind expression."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w06-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants to pass a classmate carrying books. Which phrase should he use?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I do not care!"
+          },
+          {
+            "id": "b",
+            "text": "Excuse me."
+          },
+          {
+            "id": "c",
+            "text": "Go away now!"
+          },
+          {
+            "id": "d",
+            "text": "Hurry up!"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Excuse me gets the classmate’s attention politely before Milo passes."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo asks a friend to share crayons. Which word makes the request respectful?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Please."
+          },
+          {
+            "id": "b",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "c",
+            "text": "Go away now!"
+          },
+          {
+            "id": "d",
+            "text": "I do not care!"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Please makes Milo’s request sound kind and respectful."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo needs help opening a box. Which sentence asks politely?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Go away now!"
+          },
+          {
+            "id": "b",
+            "text": "I do not care!"
+          },
+          {
+            "id": "c",
+            "text": "Could you help me, please?"
+          },
+          {
+            "id": "d",
+            "text": "Hurry up!"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Could you help me, please? asks gently and includes the polite word please."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A friend says thank you after Milo shares. Which reply fits?",
+        "options": [
+          {
+            "id": "a",
+            "text": "You are welcome."
+          },
+          {
+            "id": "b",
+            "text": "I do not care!"
+          },
+          {
+            "id": "c",
+            "text": "Go away now!"
+          },
+          {
+            "id": "d",
+            "text": "Hurry up!"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "You are welcome is a polite reply after someone says thank you."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo receives help with his project. Which choice shows respect?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I do not care!"
+          },
+          {
+            "id": "b",
+            "text": "Go away now!"
+          },
+          {
+            "id": "c",
+            "text": "Thank you very much."
+          },
+          {
+            "id": "d",
+            "text": "Hurry up!"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Thank you very much shows gratitude and respect after receiving help."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

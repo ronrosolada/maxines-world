@@ -1,0 +1,397 @@
+{
+  "lessonId": "mathematics-g3-q1-w01-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 1,
+  "subject": "mathematics",
+  "title": "Point Detective",
+  "objective": "Recognize and describe points, lines, line segments, rays, and special line relationships.",
+  "estimatedMinutes": 15,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is planning a beach map. Can you spot the dot, segment, and ray in his route?",
+  "vocabulary": [
+    {
+      "word": "point",
+      "term": "point",
+      "definition": "An exact dot on a paper or screen that marks a specific location."
+    },
+    {
+      "word": "line segment",
+      "term": "line segment",
+      "definition": "A straight path with two definite endpoints that stop."
+    },
+    {
+      "word": "ray",
+      "term": "ray",
+      "definition": "A straight path with one starting point that goes on forever in one direction."
+    },
+    {
+      "word": "line",
+      "term": "line",
+      "definition": "A straight path with no endpoints that goes on forever in both directions."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Watch the endpoints and arrows that define each figure.",
+      "content": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Check the number of endpoints: a segment has two and a ray has one."
+      },
+      "prompt": "Watch the endpoints and arrows that define each figure.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Tap a mark, then count its endpoints or arrows.",
+      "content": {
+        "examples": [
+          "a dot labeled A",
+          "a straight path ending at B and C",
+          "a path starting at D with an arrow at one end",
+          "two straight paths that stay the same distance apart"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "For each mark, count endpoints and look for an arrow."
+      },
+      "prompt": "Tap a mark, then count its endpoints or arrows.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Sort each drawing by endpoints, arrows, or line spacing.",
+      "content": {
+        "fits": [
+          "a dot labeled A",
+          "a straight path ending at B and C",
+          "a path starting at D with an arrow at one end",
+          "two straight paths that stay the same distance apart"
+        ],
+        "doesNotFit": [
+          "a curved path joining two dots",
+          "a number sentence such as 3 + 4 = 7",
+          "a colored shape with no line marks",
+          "a zigzag path with several bends"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Check endpoints and arrows before placing each card."
+      },
+      "prompt": "Sort each drawing by endpoints, arrows, or line spacing.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Tap the drawing that marks only one location.",
+      "content": {
+        "options": [
+          "a straight path with arrows at both ends",
+          "a curved path joining two dots",
+          "a path with two endpoints",
+          "a dot labeled A"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Ask whether the drawing marks one location or shows a path."
+      },
+      "prompt": "Tap the drawing that marks only one location.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Match each drawing with its defining feature.",
+      "content": {
+        "pairs": [
+          {
+            "left": "a dot labeled A",
+            "right": "marks one location"
+          },
+          {
+            "left": "a straight path ending at B and C",
+            "right": "has two endpoints"
+          },
+          {
+            "left": "a path starting at D with an arrow at one end",
+            "right": "continues one way"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Compare each figure with its number of endpoints."
+      },
+      "prompt": "Match each drawing with its defining feature.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    },
+    {
+      "activityId": "mathematics-g3-q1-w01-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "mathematics-g3-q1-w01-d01-visual",
+      "instruction": "Order the checks for naming a line figure.",
+      "content": {
+        "steps": [
+          "Look at the endpoints and arrows in the drawing",
+          "Name the figure or line relationship",
+          "State the feature that proves the name",
+          "Check that the name fits the whole drawing"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Awesome work! ⭐",
+        "retry": "Start with endpoints, then name the figure and check the drawing."
+      },
+      "prompt": "Order the checks for naming a line figure.",
+      "narration": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle.",
+      "guideHint": "Look for endpoints, arrows, or equal spacing.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A dot marks one location. A segment stops at two endpoints. A ray starts at one endpoint and continues with an arrow. A line has no endpoints; parallel lines stay apart, while perpendicular lines meet at a right angle."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-q1-w01-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "On Milo’s map, which mark names one exact location?",
+        "options": [
+          {
+            "id": "a",
+            "text": "point A"
+          },
+          {
+            "id": "b",
+            "text": "a wavy curve with no endpoints"
+          },
+          {
+            "id": "c",
+            "text": "a segment with two endpoints"
+          },
+          {
+            "id": "d",
+            "text": "a long straight path that never ends"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A point marks one exact location; the other choices show paths, not a single dot."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo draws a straight path that stops at both ends. What is it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a ray with one endpoint"
+          },
+          {
+            "id": "b",
+            "text": "a point with no length"
+          },
+          {
+            "id": "c",
+            "text": "segment AB"
+          },
+          {
+            "id": "d",
+            "text": "a wavy curve with no endpoints"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A segment is straight and stops at two endpoints. A ray has one endpoint, and a line continues both ways."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A kite string starts at one point and continues in one direction. Which figure is it?",
+        "options": [
+          {
+            "id": "a",
+            "text": "a segment with two endpoints"
+          },
+          {
+            "id": "b",
+            "text": "a long straight path that never ends"
+          },
+          {
+            "id": "c",
+            "text": "ray CD"
+          },
+          {
+            "id": "d",
+            "text": "a point with no length"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A ray starts at one endpoint and continues in one direction. The other figures have zero or two endpoints."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo draws two straight roads that stay the same distance apart. What are they?",
+        "options": [
+          {
+            "id": "a",
+            "text": "parallel lines"
+          },
+          {
+            "id": "b",
+            "text": "coincident lines that overlap everywhere"
+          },
+          {
+            "id": "c",
+            "text": "perpendicular lines that meet at one point"
+          },
+          {
+            "id": "d",
+            "text": "intersecting lines that cross once"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Parallel lines stay the same distance apart and never meet. The other line pairs meet or overlap."
+      },
+      {
+        "itemId": "mathematics-g3-q1-w01-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo labels a dot A. Which statement about points and lines is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "point A marks one location"
+          },
+          {
+            "id": "b",
+            "text": "a line has exactly one endpoint"
+          },
+          {
+            "id": "c",
+            "text": "a ray has two endpoints"
+          },
+          {
+            "id": "d",
+            "text": "a segment goes on forever in both directions"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "A point marks one location. A line has no endpoints, a ray has one, and a segment has two."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

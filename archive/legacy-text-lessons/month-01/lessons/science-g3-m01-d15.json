@@ -1,0 +1,382 @@
+{
+  "lessonId": "science-g3-m01-d15",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 15,
+  "subject": "SCIENCE",
+  "title": "Pushes and Pulls",
+  "objective": "Identify forces and possible effects.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo pushes a toy cart and pulls a drawer toward himself. How can a force change motion or slow an object?",
+  "vocabulary": [
+    {
+      "term": "force",
+      "definition": "A push or pull that can change an object’s motion."
+    },
+    {
+      "term": "push",
+      "definition": "To move something away from you by pressing it."
+    },
+    {
+      "term": "pull",
+      "definition": "To move something closer to you by drawing it toward you."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d15-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch Milo compare pushes, pulls, friction, and their effects.",
+      "content": "A force is a push or pull; changes in motion depend on combined forces and constraints.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Check the direction of the push or pull, then ask whether motion starts, changes, or slows."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "Text alternative: A force is a push or pull; changes in motion depend on combined forces and constraints."
+    },
+    {
+      "activityId": "science-g3-m01-d15-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each motion example and name the force or effect.",
+      "content": {
+        "examples": [
+          "a push sends a toy cart away",
+          "a pull brings a drawer closer",
+          "friction slows a rolling ball"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Motion Explorers. 🔎",
+        "retry": "For each example, name the force and the motion change you observe."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d15-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each observation by whether it describes force and motion correctly.",
+      "content": {
+        "fits": [
+          "a push sends a toy cart away",
+          "a pull brings a drawer closer",
+          "friction slows a rolling ball"
+        ],
+        "doesNotFit": [
+          "Every force guarantees movement",
+          "Mass and force are identical",
+          "A moving object has no reference point"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Ask whether the card describes a real push, pull, or friction effect."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d15-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Choose the force used to bring a drawer toward you.",
+      "content": {
+        "options": [
+          "sound",
+          "pull",
+          "color"
+        ],
+        "correctIndex": 1
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: pull",
+        "retry": "The drawer moves toward you, so choose the force that brings an object closer."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d15-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each force example with the change it can cause.",
+      "content": {
+        "pairs": [
+          {
+            "left": "push a toy cart",
+            "right": "can start motion away from you"
+          },
+          {
+            "left": "pull a drawer",
+            "right": "brings the drawer closer"
+          },
+          {
+            "left": "friction on a rolling ball",
+            "right": "slows motion by rubbing"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Motion Explorers explanation. 🔗",
+        "retry": "Match each force with the direction or motion change it can produce."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d15-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Order the steps for describing a force and its effect.",
+      "content": {
+        "steps": [
+          "Look at the motion.",
+          "Name the force that caused it.",
+          "Predict the effect."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Motion Explorers steps in order. 🎉",
+        "retry": "Check the order: observe motion, name the force, then predict its effect."
+      },
+      "assetId": "science-g3-m01-d15-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d15-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo pushes a cart, pulls a drawer, and watches a ball slow. Which statement about forces is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Any force guarantees movement"
+          },
+          {
+            "id": "b",
+            "text": "Mass and force are identical"
+          },
+          {
+            "id": "c",
+            "text": "A force is a push or pull; its effect depends on the other forces and constraints."
+          },
+          {
+            "id": "d",
+            "text": "Forces only make objects stop."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A force is a push or pull, but an object may not move if other forces or constraints oppose it. Friction, weight, and surfaces can change the result."
+      },
+      {
+        "itemId": "science-g3-m01-d15-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine opens a drawer by moving it toward her. Which example shows a push?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Push a toy cart away"
+          },
+          {
+            "id": "b",
+            "text": "Pull a drawer toward you"
+          },
+          {
+            "id": "c",
+            "text": "Let a ball roll without touching it"
+          },
+          {
+            "id": "d",
+            "text": "Watch a shadow move"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Pushing sends the toy cart away from Maxine. Pulling brings the drawer closer; a rolling ball and shadow are not examples of the push described."
+      },
+      {
+        "itemId": "science-g3-m01-d15-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo reads four force claims. Which statement is NOT true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pull a drawer toward you"
+          },
+          {
+            "id": "b",
+            "text": "Every force guarantees movement"
+          },
+          {
+            "id": "c",
+            "text": "Push a toy cart away"
+          },
+          {
+            "id": "d",
+            "text": "Friction can slow a rolling ball"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "A force does not always make an object move; a heavy box can stay still when pushed. Pulls, pushes, and friction can still have the effects named."
+      },
+      {
+        "itemId": "science-g3-m01-d15-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A drawer moves toward Maxine when she opens it. What force is she mainly using?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pull"
+          },
+          {
+            "id": "b",
+            "text": "Sound"
+          },
+          {
+            "id": "c",
+            "text": "Color"
+          },
+          {
+            "id": "d",
+            "text": "Light"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Maxine pulls the drawer because she brings it closer to herself. Sound, color, and light do not describe the force direction."
+      },
+      {
+        "itemId": "science-g3-m01-d15-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo rolls a ball across a rug and it slows down. Which statement explains what happened?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Forces only make things stop"
+          },
+          {
+            "id": "b",
+            "text": "A push always makes things fly"
+          },
+          {
+            "id": "c",
+            "text": "Friction can slow motion"
+          },
+          {
+            "id": "d",
+            "text": "Motion never changes on a rug"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Friction rubs against the rolling ball and reduces its motion. A push can start motion, and forces do not always make objects fly or stop instantly."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d15-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d15-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Pushes and Pulls; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Pushes and Pulls.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "f35bd742b2ad937486f49f68f34a8636dfced9be3226341015841ef202ba5a88",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
+}

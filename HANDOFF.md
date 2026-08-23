@@ -175,6 +175,10 @@ A fleet-wide graphics pass was completed against the craft-floor standards (no e
   rollback, and verification evidence.
 
 ## Content
+- **Video-First Hub (Active):** High-definition video lessons streamed/cached from local Caddy (`10.10.10.33` / `10.10.20.33`). Gated behind 30-minute watch verification for reward stickers.
+- **Media Assessments (Active):** Defined in `android/app/src/main/assets/content-pack/media-assessments.json` for post-watch comprehension checks.
+- **Assessment Arena (Active):** Multi-curriculum quiz packs in `android/app/src/main/assets/assessment-packs/` (Philippine DepEd, Singapore MOE, US NGSS/CCSS).
+- **Legacy Text Lessons (Archived):** The 358 hand-authored text activity JSONs and companion SVGs are archived in `archive/legacy-text-lessons/month-01/` with a bundled copy retained in assets for backwards-compatibility.
 
 - The APK bundles **358 playable lesson JSON files** under
   `android/app/src/main/assets/content-pack/month-01/lessons/`.

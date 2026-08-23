@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q2-w02-d03",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 3,
+  "subject": "makabansa",
+  "title": "Maibabahagi Ko ang Pagka-Pilipino",
+  "objective": "Naiuugnay ang sariling katangian sa pagbabahagi ng pagkakakilanlang Pilipino.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "May sarili kang kuwento tungkol sa pamilya, wika, pagkain, at kaugalian. Piliin ang mga detalyeng maaari mong ibahagi upang maipakita ang pagka-Pilipino. 🇵🇭",
+  "vocabulary": [
+    {
+      "term": "paggalang sa kapwa",
+      "definition": "Maayos na pakikitungo na nagpapakita na mahalaga ang ibang tao."
+    },
+    {
+      "term": "pag-aalaga sa komunidad",
+      "definition": "Pagkilos upang mapanatiling malinis, ligtas, at maayos ang lugar."
+    },
+    {
+      "term": "pagpapahalaga sa wika",
+      "definition": "Paggamit at pag-iingat sa wikang nag-uugnay sa isang pangkat."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Pakinggan kung paano maibabahagi ang pagka-Pilipino.",
+      "content": "Maibabahagi ng isang bata ang pagkakakilanlang Pilipino sa kuwento ng pamilya, lokal na pagkain, wikang ginagamit, awit, o pakikilahok sa gawain ng komunidad. Dapat itong ibahagi nang may paggalang at hindi kasama ang pribadong lihim.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli ang clue: pamilya, pagkain, wika, awit, at komunidad."
+      },
+      "prompt": "Alamin ang ligtas at makabuluhang kuwentong maaaring ibahagi.",
+      "narration": "Maibabahagi ang pagka-Pilipino sa kuwento ng pamilya, lokal na pagkain, wikang ginagamit, awit, o gawain ng komunidad.",
+      "guideHint": "Pakinggan ang clue: pamilya, pagkain, wika, awit, at komunidad.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Maibabahagi ang pagka-Pilipino sa kuwento ng pamilya, lokal na pagkain, wikang ginagamit, awit, o gawain ng komunidad."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Hanapin ang pagbati, pagkain, pista, at pangangalaga sa larawan.",
+      "content": {
+        "examples": [
+          "pagbati sa Filipino",
+          "pag-aalaga sa komunidad",
+          "pagpapahalaga sa lokal na pagkain",
+          "pakikilahok sa pista"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pagbati, lokal na pagkain, pista, at pangangalaga sa komunidad."
+      },
+      "prompt": "I-tap ang mga pahiwatig ng pagka-Pilipino na maaaring ibahagi.",
+      "narration": "Ang pagbati sa Filipino, lokal na pagkain, pista, at pag-aalaga sa komunidad ay ligtas na halimbawa ng pagka-Pilipino.",
+      "guideHint": "Hanapin ang apat na halimbawa na maaaring ikuwento nang walang pribadong lihim.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagbati sa Filipino, lokal na pagkain, pista, at pag-aalaga sa komunidad ay ligtas na halimbawa ng pagka-Pilipino."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Ilagay ang maaaring ibahagi tungkol sa pagka-Pilipino o ang hindi.",
+      "content": {
+        "fits": [
+          "pagbati sa Filipino",
+          "pag-aalaga sa komunidad",
+          "pagpapahalaga sa lokal na pagkain",
+          "pakikilahok sa pista"
+        ],
+        "doesNotFit": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "numero sa isang resibo",
+          "kulay ng isang kuwaderno"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: may ugnayan ba ito sa wika, kaugalian, pagkain, o komunidad?"
+      },
+      "prompt": "Paghiwalayin ang makabuluhang halimbawa at pribadong walang ugnayan.",
+      "narration": "Ang wika, pagkain, pista, at pangangalaga ay may ugnayan sa komunidad; ang presyo at kulay ng bagay ay hindi.",
+      "guideHint": "Tanungin: may ugnayan ba ito sa wika, kaugalian, pagkain, o komunidad?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang wika, pagkain, pista, at pangangalaga ay may ugnayan sa komunidad; ang presyo at kulay ng bagay ay hindi."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Piliin ang gawaing maaaring ibahagi bilang pagka-Pilipino.",
+      "content": {
+        "options": [
+          "presyo ng isang laruan",
+          "pangalan ng isang planeta",
+          "pakikilahok sa pista ng barangay",
+          "numero sa isang resibo"
+        ],
+        "correctIndex": 2
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang gawaing may kaugnayan sa komunidad."
+      },
+      "prompt": "Alin ang ligtas at makabuluhang halimbawa ng kultura?",
+      "narration": "Ang pakikilahok sa pista ng barangay ay gawaing pangkomunidad na maaaring ibahagi sa kuwento ng pagka-Pilipino.",
+      "guideHint": "Hanapin ang gawaing may kaugnayan sa komunidad.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikilahok sa pista ng barangay ay gawaing pangkomunidad na maaaring ibahagi sa kuwento ng pagka-Pilipino."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Itugma ang pagpapahalaga sa naitutulong nito sa pagbabahagi.",
+      "content": {
+        "pairs": [
+          {
+            "left": "paggalang sa kapwa",
+            "right": "nakikinig at maayos na nakikitungo"
+          },
+          {
+            "left": "pag-aalaga sa komunidad",
+            "right": "napapanatiling maayos ang paligid"
+          },
+          {
+            "left": "pagpapahalaga sa wika",
+            "right": "naibabahagi ang sariling kuwento"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa pakikitungo, paligid, o pagbabahagi ng kuwento."
+      },
+      "prompt": "Iugnay ang kilos sa mabuting ugnayan o kuwentong naibabahagi.",
+      "narration": "Ang paggalang ay maayos na pakikitungo, pangangalaga ay maayos na paligid, at wika ay daan sa pagbabahagi ng kuwento.",
+      "guideHint": "Iugnay sa pakikitungo, paligid, o pagbabahagi ng kuwento.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paggalang ay maayos na pakikitungo, pangangalaga ay maayos na paligid, at wika ay daan sa pagbabahagi ng kuwento."
+    },
+    {
+      "activityId": "makabansa-g3-q2-w02-d03-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q2-w02-d03-visual",
+      "instruction": "Ayusin mula pagpili ng halimbawa hanggang magalang na pagbabahagi.",
+      "content": {
+        "steps": [
+          "Pumili ng ligtas na halimbawa",
+          "Tukuyin ang ugnayan nito sa pamilya o komunidad",
+          "Ipaliwanag kung paano ito nagpapakita ng pagka-Pilipino",
+          "Ibahagi ang kuwento nang may paggalang"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang pagpili, saka ugnayan, paliwanag, at magalang na pagbabahagi."
+      },
+      "prompt": "Ilagay sa tamang ayos ang paghahanda ng sariling kuwento.",
+      "narration": "Pumili ng ligtas na halimbawa, iugnay ito sa pamilya o komunidad, ipaliwanag ang kahulugan, at ibahagi nang may paggalang.",
+      "guideHint": "Unahin ang pagpili; huli ang pagbabahagi nang may paggalang.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Pumili ng ligtas na halimbawa, iugnay ito sa pamilya o komunidad, ipaliwanag ang kahulugan, at ibahagi nang may paggalang."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q2-w02-d03-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa maikling pagbabahagi sa klase, alin ang maaari mong ikuwento tungkol sa iyong pagka-Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pamilya, wikang ginagamit, at kaugaliang natutuhan"
+          },
+          {
+            "id": "b",
+            "text": "lihim na salitang pambukas ng talaan"
+          },
+          {
+            "id": "c",
+            "text": "sikretong sinabi ng kaibigan"
+          },
+          {
+            "id": "d",
+            "text": "gamit ng iyong kapatid"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang pamilya, wika, at kaugalian ay makabuluhang halimbawa at hindi pribadong lihim ng iba."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d03-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bakit mahalagang maibahagi ang pagka-Pilipino nang may paggalang?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Para makalimutan ang ibang kultura."
+          },
+          {
+            "id": "b",
+            "text": "Para malaman at mapahalagahan ang ating pinagmulan."
+          },
+          {
+            "id": "c",
+            "text": "Para mapilit ang lahat na maging pareho."
+          },
+          {
+            "id": "d",
+            "text": "Para manalo sa paligsahan."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagbabahagi nang may paggalang ay tumutulong sa pag-unawa at pagpapahalaga sa pinagmulan."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d03-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Gumagawa ka ng mapa ng mga karanasan sa iyong lugar. Alin ang ilalagay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kulay ng iyong bag"
+          },
+          {
+            "id": "b",
+            "text": "mga karanasan mo sa komunidad"
+          },
+          {
+            "id": "c",
+            "text": "bilang ng iyong laruan"
+          },
+          {
+            "id": "d",
+            "text": "tatak ng iyong sapatos"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang mga karanasan sa komunidad ay nag-uugnay sa iyo sa mga tao, gawain, at kaugalian ng lugar."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d03-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bumabati ka sa nakatatanda sa inyong barangay. Alin ang nagpapakita ng pagka-Pilipino?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hindi pagpansin sa kaniya"
+          },
+          {
+            "id": "b",
+            "text": "pagsigaw sa gitna ng usapan"
+          },
+          {
+            "id": "c",
+            "text": "pagkuha ng gamit niya nang walang paalam"
+          },
+          {
+            "id": "d",
+            "text": "paggamit ng magalang na “po” at “opo”"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang “po” at “opo” ay magalang na pananalitang ginagamit sa angkop na pakikipag-usap sa nakatatanda."
+      },
+      {
+        "itemId": "makabansa-g3-q2-w02-d03-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang kilos na nagpapakita ng pagiging Pilipino sa araw-araw?",
+        "options": [
+          {
+            "id": "a",
+            "text": "paglimot sa sariling kultura"
+          },
+          {
+            "id": "b",
+            "text": "paggamit ng Filipino at paggalang sa nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "pagsasalita lamang ng ibang wika upang mang-insulto"
+          },
+          {
+            "id": "d",
+            "text": "pagtatapon ng basura sa komunidad"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang paggamit ng Filipino at paggalang sa nakatatanda ay mga gawi na nag-uugnay sa pagkakakilanlang Pilipino."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

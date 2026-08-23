@@ -1,0 +1,389 @@
+{
+  "lessonId": "gmrc-g3-q2-w04-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 5,
+  "day": 1,
+  "subject": "gmrc",
+  "title": "Magalang sa Tarangkahan",
+  "objective": "Naipakikita ang paggalang sa salita, kilos, at pakikinig sa kapwa sa tarangkahan.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa tarangkahan, unang nakikita ang bisita at kapitbahay. Sanayin ang magalang na pagbati, pakikinig, at paghingi ng pahintulot bago magpapasok o magpahiram. 🚪",
+  "vocabulary": [
+    {
+      "term": "nakikinig",
+      "definition": "Pagbibigay-pansin sa nagsasalita bago tumugon."
+    },
+    {
+      "term": "nagsasabi ng po at opo kung angkop",
+      "definition": "Magalang na pananalitang ginagamit ayon sa kausap at sitwasyon."
+    },
+    {
+      "term": "humihingi ng pahintulot",
+      "definition": "Pagtatanong muna bago gumamit o gumawa ng isang bagay."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Pakinggan kung paano gumalang sa bisita sa tarangkahan.",
+      "content": "Sa tarangkahan, ipinakikita ang paggalang sa pagbati sa bisita, pakikinig sa kaniyang pakay, paggamit ng magagalang na salita, at paghingi ng pahintulot bago magpapasok o magpahiram.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Pakinggan muli: bumati, makinig, magtanong, at magpaalam bago magpasok."
+      },
+      "prompt": "Alamin ang pagbati, pakikinig, at pahintulot sa pagpasok.",
+      "narration": "Sa tarangkahan, ipinakikita ang paggalang sa pagbati sa bisita, pakikinig sa kaniyang pakay, magalang na salita, at pahintulot.",
+      "guideHint": "Pakinggan ang clue: bumati, makinig, magtanong, at magpaalam.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Sa tarangkahan, ipinakikita ang paggalang sa pagbati sa bisita, pakikinig sa kaniyang pakay, magalang na salita, at pahintulot."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Hanapin ang pagbati, pakikinig, pahintulot, at paggalang sa bisita.",
+      "content": {
+        "examples": [
+          "nakikinig sa bisita",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago magpapasok",
+          "gumagalang sa taong naghihintay"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Hanapin ang pagbati, pakikinig, pahintulot, at paggalang sa naghihintay."
+      },
+      "prompt": "I-tap ang mga kilos na angkop sa tarangkahan.",
+      "narration": "Hanapin ang nakikinig sa bisita, gumagamit ng magalang na salita, nagtatanong muna, at gumagalang sa naghihintay.",
+      "guideHint": "Hanapin ang apat na kilos na nag-iingat sa bisita at tahanan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Hanapin ang nakikinig sa bisita, gumagamit ng magalang na salita, nagtatanong muna, at gumagalang sa naghihintay."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Ilagay ang kilos sa magalang o hindi magalang sa tarangkahan.",
+      "content": {
+        "fits": [
+          "nakikinig sa bisita",
+          "nagsasabi ng po at opo kung angkop",
+          "humihingi ng pahintulot bago magpapasok",
+          "gumagalang sa taong naghihintay"
+        ],
+        "doesNotFit": [
+          "sumisigaw sa bisita",
+          "nagpapapasok nang walang pahintulot",
+          "tinatapunan ang naghihintay",
+          "hindi nakikinig sa pakay"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Tanungin: ligtas ba at magalang ang kilos sa bisita?"
+      },
+      "prompt": "Paghiwalayin ang nag-iingat sa bisita at tahanan at ang hindi.",
+      "narration": "Ang pagbati, pakikinig, pahintulot, at paggalang ay nag-iingat sa bisita at sa tahanan; pagsigaw at pagpapasok nang basta-basta ay hindi.",
+      "guideHint": "Tanungin: ligtas ba at magalang ang kilos sa bisita?",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagbati, pakikinig, pahintulot, at paggalang ay nag-iingat sa bisita at sa tahanan; pagsigaw at pagpapasok nang basta-basta ay hindi."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Piliin ang kilos na nagbibigay-pansin sa bisita.",
+      "content": {
+        "options": [
+          "nakikinig sa bisita",
+          "nanunukso sa naghihintay",
+          "kumukuha ng gamit nang walang paalam",
+          "sumusuway sa tuntunin ng tahanan"
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Piliin ang kilos na nagbibigay-pansin bago tumugon."
+      },
+      "prompt": "Alin ang halimbawa ng paggalang sa tarangkahan?",
+      "narration": "Ang pakikinig sa bisita ay tumutulong upang maunawaan ang kaniyang pakay bago magpasya.",
+      "guideHint": "Piliin ang kilos na nagbibigay-pansin bago tumugon.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig sa bisita ay tumutulong upang maunawaan ang kaniyang pakay bago magpasya."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Itugma ang kilos sa mabuting bunga nito sa tarangkahan.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nakikinig sa bisita",
+            "right": "nauunawaan ang kaniyang pakay"
+          },
+          {
+            "left": "nagsasabi ng po at opo kung angkop",
+            "right": "nagiging mahinahon ang pagbati"
+          },
+          {
+            "left": "humihingi ng pahintulot bago magpapasok",
+            "right": "napapanatili ang kaligtasan ng tahanan"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Iugnay sa pakay, mahinahong pagbati, o kaligtasan."
+      },
+      "prompt": "Iugnay ang bawat kilos sa naitutulong nito sa bisita at tahanan.",
+      "narration": "Ang pakikinig ay tumutulong umunawa, magalang na salita ay nagpapahinahon ng pagbati, at pahintulot ay nag-iingat sa tahanan.",
+      "guideHint": "Iugnay sa pakay, mahinahong pagbati, o kaligtasan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pakikinig ay tumutulong umunawa, magalang na salita ay nagpapahinahon ng pagbati, at pahintulot ay nag-iingat sa tahanan."
+    },
+    {
+      "activityId": "gmrc-g3-q2-w04-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q2-w04-d01-visual",
+      "instruction": "Ayusin mula pagbati hanggang maingat na pagsasara ng tarangkahan.",
+      "content": {
+        "steps": [
+          "Batiin ang bisita",
+          "Makinig sa kaniyang pakay",
+          "Humingi ng pahintulot bago magpapasok",
+          "Magpasalamat at magsara nang maayos"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Unahin ang pagbati, saka pakikinig, pahintulot, at pasasalamat."
+      },
+      "prompt": "Ilagay sa tamang ayos ang pagtanggap sa bisita.",
+      "narration": "Batiin ang bisita, makinig sa pakay, humingi ng pahintulot bago magpasok, at magpasalamat bago magsara.",
+      "guideHint": "Unahin ang pagbati; huli ang pasasalamat at maayos na pagsasara.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Batiin ang bisita, makinig sa pakay, humingi ng pahintulot bago magpasok, at magpasalamat bago magsara."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q2-w04-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bisitang naghihintay sa tarangkahan. Ano ang magalang na unang gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "kumuha ng gamit niya"
+          },
+          {
+            "id": "b",
+            "text": "tawanan siya"
+          },
+          {
+            "id": "c",
+            "text": "utosan siyang umalis"
+          },
+          {
+            "id": "d",
+            "text": "batiin siya at pakinggan ang kaniyang pakay"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pagbati at pakikinig ay maayos na unang hakbang sa pagtanggap sa bisita."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w04-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May nakatatandang naghihintay sa pila sa tarangkahan. Ano ang maaari mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsingit sa unahan"
+          },
+          {
+            "id": "b",
+            "text": "pagbibigay-daan sa nakatatanda"
+          },
+          {
+            "id": "c",
+            "text": "pagtawa sa kaniya"
+          },
+          {
+            "id": "d",
+            "text": "pagharang sa daan"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang pagbibigay-daan ay paggalang sa taong naghihintay at umiiwas sa siksikan."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w04-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nakasalubong mo si Milo sa tarangkahan. Ano ang magalang mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pag-usapan siya sa katabi"
+          },
+          {
+            "id": "b",
+            "text": "batiin siya nang may ngiti: “Magandang araw po!”"
+          },
+          {
+            "id": "c",
+            "text": "tingnan lamang siya at dumaan"
+          },
+          {
+            "id": "d",
+            "text": "tumakbo papalayo"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang magalang na pagbati ay pagkilala sa kakilala sa tarangkahan."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w04-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "May bisitang bata na gustong laruin ang paborito mong laruan. Ano ang dapat mong gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "agawin ito at itago"
+          },
+          {
+            "id": "b",
+            "text": "patayin ang ilaw at magtago"
+          },
+          {
+            "id": "c",
+            "text": "sumigaw sa bisita"
+          },
+          {
+            "id": "d",
+            "text": "ipahiram ito nang may kondisyon o ialok ang ibang laruan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang mahinahong pagpapahiram o pag-aalok ng ibang laruan ay paggalang sa bisita at gamit."
+      },
+      {
+        "itemId": "gmrc-g3-q2-w04-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng paggalang sa tarangkahan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nagpapasalamat"
+          },
+          {
+            "id": "b",
+            "text": "kumukuha ng hindi kanya"
+          },
+          {
+            "id": "c",
+            "text": "humihingi ng pahintulot"
+          },
+          {
+            "id": "d",
+            "text": "nakikinig nang mabuti"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang pagkuha ng hindi iyo ay hindi paggalang sa gamit at hangganan ng iba."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

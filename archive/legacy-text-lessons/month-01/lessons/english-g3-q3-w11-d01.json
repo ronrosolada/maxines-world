@@ -1,0 +1,384 @@
+{
+ "lessonId": "english-g3-q3-w11-d01",
+ "schemaVersion": 1,
+ "grade": 3,
+ "month": 11,
+ "day": 1,
+ "subject": "english",
+ "title": "Sentence Polishing",
+ "objective": "Use a capital letter and correct end punctuation in a simple sentence.",
+ "estimatedMinutes": 12,
+ "educatorValidated": true,
+ "releaseStatus": "RELEASED",
+ "qualifiesForDailyBadge": true,
+ "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+ "language": "en-PH",
+ "introduction": "Milo has a new mission! 🐱✨ Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning. Ready to explore?",
+ "vocabulary": [
+  {
+   "term": "Milo reads.",
+   "definition": "a correct example"
+  },
+  {
+   "term": "Where is the book?",
+   "definition": "a related example"
+  },
+  {
+   "term": "Look out!",
+   "definition": "another example"
+  }
+ ],
+ "activities": [
+  {
+   "activityId": "english-g3-q3-w11-d01-a01",
+   "sequence": 1,
+   "type": "ANIMATED_EXPLANATION",
+   "capability": "ANIMATED_EXPLANATION_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Listen for the clue in Sentence Polishing.",
+   "content": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You noticed the clue in Sentence Polishing. 🎉",
+    "retry": "Find the clue in Sentence Polishing again. 💪"
+   },
+   "prompt": "Listen for the clue in Sentence Polishing.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d01-a02",
+   "sequence": 2,
+   "type": "HOTSPOT_IMAGE",
+   "capability": "HOTSPOT_IMAGE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Find the examples for Sentence Polishing.",
+   "content": {
+    "examples": [
+     "Milo reads.",
+     "Where is the book?",
+     "Look out!",
+     "We are ready."
+    ],
+    "visualScene": "🐱🔎✨"
+   },
+   "completionRule": {
+    "type": "ALL_TARGETS_VISITED",
+    "targetCount": 4
+   },
+   "feedback": {
+    "correct": "Great! You found the examples for Sentence Polishing. 🔎",
+    "retry": "Look at each Sentence Polishing example again. 💪"
+   },
+   "prompt": "Find the examples for Sentence Polishing.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d01-a03",
+   "sequence": 3,
+   "type": "SORT_AND_CLASSIFY",
+   "capability": "SORT_AND_CLASSIFY_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Sort the examples by the Sentence Polishing clue.",
+   "content": {
+    "fits": [
+     "Milo reads.",
+     "Where is the book?",
+     "Look out!",
+     "We are ready."
+    ],
+    "doesNotFit": [
+     "an unrelated guess",
+     "a random symbol",
+     "a detail not in the lesson",
+     "a different topic"
+    ]
+   },
+   "completionRule": {
+    "type": "ALL_ITEMS_SORTED",
+    "itemCount": 8
+   },
+   "feedback": {
+    "correct": "Great! You sorted the examples using the Sentence Polishing clue. 🎉",
+    "retry": "Read the Sentence Polishing rule before sorting again. 💪"
+   },
+   "prompt": "Sort the examples by the Sentence Polishing clue.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d01-a04",
+   "sequence": 4,
+   "type": "MULTIPLE_CHOICE",
+   "capability": "MULTIPLE_CHOICE_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Choose the answer that fits Sentence Polishing.",
+   "content": {
+    "options": [
+     "a random symbol",
+     "a detail not in the lesson",
+     "Milo reads.",
+     "an unrelated guess"
+    ],
+    "correctIndex": 2
+   },
+   "completionRule": {
+    "type": "CORRECT_RESPONSE"
+   },
+   "feedback": {
+    "correct": "Great! You chose an answer that fits Sentence Polishing. 🎉",
+    "retry": "Find the clue in the Sentence Polishing question. 💪"
+   },
+   "prompt": "Choose the answer that fits Sentence Polishing.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d01-a05",
+   "sequence": 5,
+   "type": "MATCHING_PAIRS",
+   "capability": "MATCHING_PAIRS_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Match each example with its Sentence Polishing explanation.",
+   "content": {
+    "pairs": [
+     {
+      "left": "Milo reads.",
+      "right": "a correct example"
+     },
+     {
+      "left": "Where is the book?",
+      "right": "a related example"
+     },
+     {
+      "left": "Look out!",
+      "right": "another example"
+     }
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You matched each example with its Sentence Polishing explanation. 🔗",
+    "retry": "Read both sides of each Sentence Polishing pair again. 💪"
+   },
+   "prompt": "Match each example with its Sentence Polishing explanation.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  },
+  {
+   "activityId": "english-g3-q3-w11-d01-a06",
+   "sequence": 6,
+   "type": "SEQUENCE_BUILDER",
+   "capability": "SEQUENCE_BUILDER_V1",
+   "required": true,
+   "assetId": "english-g3-q3-w11-d01-visual",
+   "instruction": "Put the Sentence Polishing steps in order.",
+   "content": {
+    "steps": [
+     "Read the example",
+     "Find the clue",
+     "Choose the idea",
+     "Explain your answer"
+    ]
+   },
+   "completionRule": {
+    "type": "COMPLETE"
+   },
+   "feedback": {
+    "correct": "Great! You put the Sentence Polishing steps in order. 🎉",
+    "retry": "Find the first, next, and last Sentence Polishing steps. 💪"
+   },
+   "prompt": "Put the Sentence Polishing steps in order.",
+   "narration": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning.",
+   "guideHint": "Need a hint? Read the example again.",
+   "nextLabel": "Next →",
+   "accessibilityAlternative": "Begin a sentence with a capital letter. Use a period, question mark, or exclamation mark that matches the meaning."
+  }
+ ],
+ "assessment": {
+  "purpose": "FORMATIVE_MODULE_CHECK",
+  "itemCount": 5,
+  "passingCorrectCount": 4,
+  "claimsMastery": false,
+  "items": [
+   {
+    "itemId": "english-g3-q3-w11-d01-q01",
+    "sequence": 1,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which example belongs to Sentence Polishing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "Milo reads."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Milo reads."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d01-q02",
+    "sequence": 2,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which choice shows the skill in Sentence Polishing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "Where is the book?"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "a detail not in the lesson"
+     }
+    ],
+    "correctOptionIds": [
+     "b"
+    ],
+    "explanation": "The best answer is: Where is the book?"
+   },
+   {
+    "itemId": "english-g3-q3-w11-d01-q03",
+    "sequence": 3,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "What is one example from Sentence Polishing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Look out!"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "a different topic"
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "a"
+    ],
+    "explanation": "The best answer is: Look out!"
+   },
+   {
+    "itemId": "english-g3-q3-w11-d01-q04",
+    "sequence": 4,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which situation matches Sentence Polishing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a different topic"
+     },
+     {
+      "id": "b",
+      "text": "an unrelated guess"
+     },
+     {
+      "id": "c",
+      "text": "a random symbol"
+     },
+     {
+      "id": "d",
+      "text": "We are ready."
+     }
+    ],
+    "correctOptionIds": [
+     "d"
+    ],
+    "explanation": "The best answer is: We are ready."
+   },
+   {
+    "itemId": "english-g3-q3-w11-d01-q05",
+    "sequence": 5,
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Which answer demonstrates Sentence Polishing?",
+    "options": [
+     {
+      "id": "a",
+      "text": "a random symbol"
+     },
+     {
+      "id": "b",
+      "text": "a detail not in the lesson"
+     },
+     {
+      "id": "c",
+      "text": "Milo reads."
+     },
+     {
+      "id": "d",
+      "text": "an unrelated guess"
+     }
+    ],
+    "correctOptionIds": [
+     "c"
+    ],
+    "explanation": "The best answer is: Milo reads."
+   }
+  ]
+ },
+ "contentReview": {
+  "reviewer": "RonBot — seasoned educator pass",
+  "focus": [
+   "factual accuracy",
+   "Grade 3 appropriateness",
+   "child safety",
+   "engagement"
+  ],
+  "source": "competency/objective and local examples; no unsafe experiment required",
+  "rewritten": true
+ },
+ "reviewedAt": "2026-08-13T21:30:00+08:00",
+ "scene": {
+  "character": "Milo the Cat",
+  "setting": "Milo's Learning World (English)",
+  "visualScene": "📚📖🏰✨"
+ },
+ "pacingPass": "pacing-b2-2026-08-15"
+}

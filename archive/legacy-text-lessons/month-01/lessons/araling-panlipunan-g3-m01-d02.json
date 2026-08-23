@@ -1,0 +1,380 @@
+{
+  "lessonId": "araling-panlipunan-g3-m01-d02",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 2,
+  "subject": "ARALING_PANLIPUNAN",
+  "title": "Nasaan ang Lalawigan?",
+  "objective": "Gamitin ang hilaga, timog, silangan, kanluran, katabi, at pagitan sa kathang-isip na mapa.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Sa kathang-isip na mapa ng Bayan Sapa, gagamitin mo ang kompas upang malaman kung aling lugar ang hilaga, timog, silangan, o kanluran ng iba. Susuriin mo rin kung ang lugar ay katabi o nasa pagitan.",
+  "vocabulary": [
+    {
+      "term": "kathang-isip",
+      "definition": "Gawa ng imahinasyon at hindi tunay na lugar."
+    },
+    {
+      "term": "mapa",
+      "definition": "Guhit o larawan na nagpapakita ng mga lugar."
+    },
+    {
+      "term": "direksiyon",
+      "definition": "Gabay kung nasaan ang hilaga, timog, silangan, at kanluran."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Basahin ang kompas at tukuyin ang ugnayan ng mga bayan.",
+      "content": "Sa mapa ng Bayan Sapa, ginagamit ang kompas upang ihambing ang puwesto ng mga lugar. Ang salitang katabi ay tumutukoy sa lugar na nasa tabi, at ang pagitan ay nasa gitna.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nagamit mo ang kompas upang ihambing ang puwesto ng mga lugar. 🌈",
+        "retry": "Tingnan ang N sa kompas at ihambing ang puwesto ng dalawang lugar."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Basahin ang paliwanag tungkol sa kompas, katabi, at pagitan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Hanapin ang tatlong halimbawa ng direksiyon, katabi, at pagitan.",
+      "content": {
+        "examples": [
+          "Bayan A ay nasa hilaga ng Bayan B.",
+          "Ang ilog ay nasa gitna ng Bayan C at Bayan D.",
+          "Ang baybayin ay nasa silangan ayon sa kompas."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Natukoy mo ang hilaga, pagitan, at silangan sa mapa. 🔎",
+        "retry": "Hanapin ang N at tingnan kung nasa itaas, gitna, o tabi ang lugar."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Basahin ang talaan ng tatlong halimbawa sa halip na hanapin sa larawan."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Ilagay sa tamang pangkat ang mga obserbasyon sa mapa.",
+      "content": {
+        "fits": [
+          "A ay nasa itaas ng B at N ay nasa itaas ng mapa.",
+          "Ilog ay nasa gitna ng Bayan C at Bayan D.",
+          "Kompas ay may silangan sa kanan ng mapa."
+        ],
+        "doesNotFit": [
+          "Sinasabing hilaga ang lugar kahit walang kompas.",
+          "Inilipat ang kompas nang hindi sinusuri ang direksiyon.",
+          "Tinawag na katabi ang lugar na malayo sa mapa."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Mahusay! Naayos mo ang mga obserbasyong may wastong pahiwatig. 🎉",
+        "retry": "Suriin ang kompas at ang layo o puwesto ng mga lugar bago pumili."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Pumili ng card at pangkat gamit ang mga button sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Nasa itaas ang A ng B at nasa itaas ang N. Nasaan ang A?",
+      "content": {
+        "options": [
+          "timog ng B",
+          "kanluran ng B",
+          "hilaga ng B"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang nasa itaas ng B kapag N ang nasa itaas ay nasa hilaga.",
+        "retry": "Tingnan ang N at ihambing ang itaas at ibaba ng dalawang lugar."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Makikita ang mga pagpipilian at maaaring pumili gamit ang pantulong na pagbasa."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Itambal ang lugar sa ugnayan nito sa mapa.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Bayan A",
+            "right": "nasa hilaga ng Bayan B"
+          },
+          {
+            "left": "Ilog",
+            "right": "naghahati sa pagitan ng dalawang bayan"
+          },
+          {
+            "left": "Baybayin",
+            "right": "nasa silangan ayon sa kompas"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipakita mo ang ugnayan ng mga lugar at direksiyon. 🔗",
+        "retry": "Hanapin ang N, silangan, at gitna bago itambal ang bawat lugar."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "May talaan ng magkabilang panig na maaaring piliin sa halip na hilahin."
+    },
+    {
+      "activityId": "araling-panlipunan-g3-m01-d02-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Ayusin ang mga hakbang sa pagtukoy ng direksiyon sa mapa.",
+      "content": {
+        "steps": [
+          "Tingnan ang N o kompas.",
+          "Ihambing ang puwesto ng dalawang lugar.",
+          "Sabihin kung hilaga, timog, silangan, kanluran, katabi, o pagitan."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Mahusay! Nasunod mo ang paraan ng pagbasa ng ugnayan sa mapa. 🎉",
+        "retry": "Unahin ang kompas, saka ihambing ang puwesto bago pangalanan ang ugnayan."
+      },
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "accessibilityAlternative": "Gamitin ang mga button na pataas at pababa sa halip na ayusin sa pamamagitan ng paghila."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nasa pagitan ng paaralan at simbahan ang palengke. Alin ang nasa gitna ng dalawang lugar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ang lahat ng lugar"
+          },
+          {
+            "id": "b",
+            "text": "ang paaralan"
+          },
+          {
+            "id": "c",
+            "text": "ang palengke"
+          },
+          {
+            "id": "d",
+            "text": "ang simbahan"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang salitang pagitan ay nangangahulugang nasa gitna; kaya palengke ang sagot."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa mapa, ang ilog ay nasa silangan ng bahay. Aling direksiyon ang ilog mula sa bahay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "hilaga"
+          },
+          {
+            "id": "b",
+            "text": "kanluran"
+          },
+          {
+            "id": "c",
+            "text": "silangan"
+          },
+          {
+            "id": "d",
+            "text": "timog"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Nakasaad sa mapa na nasa silangan ang ilog mula sa bahay."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ang Sapa ay nasa timog ng bundok. Saan ang bundok kung nasa Sapa ka?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sa kanluran"
+          },
+          {
+            "id": "b",
+            "text": "sa hilaga"
+          },
+          {
+            "id": "c",
+            "text": "sa timog"
+          },
+          {
+            "id": "d",
+            "text": "sa silangan"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Magkasalungat ang hilaga at timog; kaya hilaga ang bundok mula sa Sapa."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ang paaralan ay nasa kanluran ng simbahan. Saan ang simbahan kung mula sa paaralan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "sa hilaga"
+          },
+          {
+            "id": "b",
+            "text": "sa timog"
+          },
+          {
+            "id": "c",
+            "text": "sa kanluran"
+          },
+          {
+            "id": "d",
+            "text": "sa silangan"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Magkasalungat ang kanluran at silangan; kaya silangan ang simbahan mula sa paaralan."
+      },
+      {
+        "itemId": "araling-panlipunan-g3-m01-d02-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa mapa, ang klinika ay nasa tabi mismo ng bulwagan ng barangay. Ano ang ugnayan ng klinika sa bulwagan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "nasa hilaga"
+          },
+          {
+            "id": "b",
+            "text": "nasa ibaba"
+          },
+          {
+            "id": "c",
+            "text": "malayo"
+          },
+          {
+            "id": "d",
+            "text": "nasa katabi"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang katabi ay nasa tabi mismo ng isang lugar, kaya katabi ang klinika."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "araling-panlipunan-g3-m01-d02-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/araling-panlipunan-g3-m01-d02-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Where Is the Province?; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-iskrin layout. Compose overlays provide labels at interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Where Is the Province?.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum repinagmulans",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NAMRIA Map Awareness",
+      "sourceUrl": "https://www.namria.gov.ph/",
+      "claimScope": "Curriculum at subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "5a488fee25c6f5bf45b83ff4f56c5f5a1ba09b06be3c9116b83a7f851b3f978f",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Araling_panlipunan)",
+    "visualScene": "🗺️🏛️⛵🌟"
+  }
+}

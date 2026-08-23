@@ -1,0 +1,389 @@
+{
+  "lessonId": "makabansa-g3-q4-w07-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 1,
+  "subject": "makabansa",
+  "title": "Pamumuhay sa Probinsiya",
+  "objective": "Naipaliliwanag kung paano nakaaapekto ang probinsiya sa kultura at pamumuhay ng komunidad.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "🌄 Sa probinsiya, ang mga bayan, bukirin, at likas na yaman ay bahagi ng araw-araw na buhay. Tuklasin natin kung paano nito hinuhubog ang mga tradisyon at hanapbuhay.",
+  "vocabulary": [
+    {
+      "term": "probinsiya",
+      "definition": "Malawak na lugar na binubuo ng mga bayan at nayon."
+    },
+    {
+      "term": "tradisyon",
+      "definition": "Gawaing minana sa mga ninuno at patuloy na ginagawa."
+    },
+    {
+      "term": "lokal na ani",
+      "definition": "Mga pagkaing itinanim at inani sa sariling lugar."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Pakinggan kung paano hinuhubog ng probinsiya ang buhay ng komunidad.",
+      "content": "Sa probinsiya, ang bukirin, ilog, bundok, at likas na yaman ay nakatutulong sa mga pamilya. Ang pag-aani, paghahanda ng lokal na pagkain, at pista ng bayan ay maaaring maging bahagi ng kultura. Ipinapakita nito na hinuhubog ng lugar ang hanapbuhay at mga tradisyon.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Ang likas na yaman sa probinsiya ay nakatutulong sa hanapbuhay at tradisyon. 🎉",
+        "retry": "Balikan ang ugnayan ng bukirin, likas na yaman, hanapbuhay, at tradisyon sa probinsiya."
+      },
+      "prompt": "Alamin kung paano nakaaapekto ang probinsiya sa pamumuhay.",
+      "narration": "Sa probinsiya, ang bukirin, ilog, bundok, at likas na yaman ay nakatutulong sa mga pamilya. Ang pag-aani, paghahanda ng lokal na pagkain, at pista ng bayan ay maaaring maging bahagi ng kultura. Ipinapakita nito na hinuhubog ng lugar ang hanapbuhay at mga tradisyon.",
+      "guideHint": "Pansinin kung paano nagiging hanapbuhay o tradisyon ang likas na yaman.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Paliwanag tungkol sa bukirin, ilog, likas na yaman, hanapbuhay, at tradisyon sa probinsiya."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Hanapin sa larawan ang mga gawaing kaugnay ng probinsiya.",
+      "content": {
+        "examples": [
+          "nag-aani ng palay sa bukirin",
+          "naghahanda ng lokal na prutas sa tahanan",
+          "sumasali sa pista ng bayan",
+          "nagtutulungan sa pag-aayos ng patubig sa bukirin"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Natukoy mo ang mga gawaing bahagi ng buhay sa probinsiya. 🎉",
+        "retry": "Hanapin ang larawang may bukirin, lokal na ani, o tradisyon ng bayan."
+      },
+      "prompt": "Tuklasin ang ani, gawain, at tradisyong makikita sa probinsiya.",
+      "narration": "Hanapin ang mga gawaing ipinapakita sa larawan at isipin kung paano nakatutulong ang mga ito sa komunidad.",
+      "guideHint": "Hanapin ang likas na yaman, ani, o tradisyong nag-uugnay sa komunidad.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Larawan ng bukirin, lokal na prutas, pista ng bayan, at gawaing pagtutulungan."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Pangkatin ang mga gawaing kaugnay ng probinsiya.",
+      "content": {
+        "fits": [
+          "nag-aani ng palay sa bukirin",
+          "naghahanda ng kakanin mula sa lokal na prutas",
+          "sumasali sa pista ng bayan",
+          "nagtutulungan sa pag-aayos ng patubig sa bukirin"
+        ],
+        "doesNotFit": [
+          "sumasakay sa tren sa ilalim ng lungsod",
+          "nagtatrabaho sa gusaling maraming palapag",
+          "nagkakarga ng kahon sa daungan",
+          "sumasakay sa pampublikong sasakyan sa masikip na kalsada ng siyudad"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Napangkat mo ang mga gawaing kaugnay ng probinsiya. 🎉",
+        "retry": "Tingnan kung ang gawain ay may ugnayan sa bukirin, likas na yaman, ani, o tradisyon."
+      },
+      "prompt": "Pagbukud-bukurin ang mga gawain ayon sa ugnayan nito sa probinsiya.",
+      "narration": "Pangkatin ang mga kard ayon sa malinaw na ugnayan ng gawain sa lugar at pamumuhay ng komunidad.",
+      "guideHint": "Suriin kung ang gawain ay nakaugnay sa likas na yaman, ani, o tradisyon ng probinsiya.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga kard tungkol sa bukirin, pista, lokal na pagkain, at ibang kapaligiran."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Piliin ang gawaing nagpapakita ng buhay sa probinsiya.",
+      "content": {
+        "options": [
+          "sumasakay sa tren sa ilalim ng lungsod",
+          "nagtatrabaho sa mataas na gusali",
+          "nagkakarga ng kahon sa daungan",
+          "nag-aani ng palay na itinanim sa bukirin"
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Tama! Ang pag-aani ng palay ay hanapbuhay na umaasa sa lupa ng probinsiya. 🎉",
+        "retry": "Suriin kung aling gawain ang gumagamit ng ani o likas na yaman ng sariling lugar."
+      },
+      "prompt": "Alin ang nagpapakita na may kaugnayan ang likas na yaman sa pamumuhay?",
+      "narration": "Gamitin ang paliwanag tungkol sa lugar upang piliin ang iisang gawaing may tamang ugnayan dito.",
+      "guideHint": "Hanapin ang gawaing gumagamit ng ani o yaman mula sa sariling lugar.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga pagpipilian tungkol sa bukirin, gusali, daungan, at lungsod."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Itugma ang gawain sa tradisyon o ugnayan nito.",
+      "content": {
+        "pairs": [
+          {
+            "left": "pag-aani ng palay sa bukirin",
+            "right": "hanapbuhay na umaasa sa lupa"
+          },
+          {
+            "left": "pagdiriwang ng pista ng bayan",
+            "right": "tradisyong pinagsasaluhan ng komunidad"
+          },
+          {
+            "left": "pagluluto gamit ang lokal na prutas",
+            "right": "pagkaing nagmumula sa sariling lugar"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naipares mo ang gawain sa hanapbuhay, pagkain, o tradisyon nito. 🎉",
+        "retry": "Basahin ang gawain at hanapin ang kaugnay na lupa, pagkain, o tradisyong pinagsasaluhan."
+      },
+      "prompt": "Itapat ang gawain sa probinsiya sa tradisyon o ugnayan nito.",
+      "narration": "Iugnay ang bawat gawain sa tungkulin, bunga, o kategoryang ipinapakita nito sa komunidad.",
+      "guideHint": "Basahin ang gawain at itanong kung anong hanapbuhay, pagkain, o tradisyon ang ipinapakita.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga pares tungkol sa bukirin, pista, lokal na prutas, at kahulugan ng mga ito."
+    },
+    {
+      "activityId": "makabansa-g3-q4-w07-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "makabansa-g3-q4-w07-d01-visual",
+      "instruction": "Ayusin ang hakbang sa pag-uugnay ng probinsiya at pamumuhay.",
+      "content": {
+        "steps": [
+          "Tingnan ang likas na yaman sa probinsiya",
+          "Tukuyin ang gawain o tradisyong nabubuo rito",
+          "Iugnay ito sa buhay ng mga pamilya",
+          "Ipaliwanag ang ugnayan ng lugar at kultura"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Naiugnay mo ang likas na yaman sa gawain at kultura ng probinsiya. 🎉",
+        "retry": "Unahin ang likas na yaman, tukuyin ang gawain, iugnay sa buhay ng pamilya, saka ipaliwanag ang kultura."
+      },
+      "prompt": "Ayusin ang mga hakbang sa pagpapaliwanag ng ugnayan ng probinsiya at pamumuhay.",
+      "narration": "Ayusin ang mga hakbang mula sa pagmamasid sa lugar hanggang sa pagpapaliwanag ng ugnayan nito sa pamumuhay.",
+      "guideHint": "Magsimula sa likas na yaman, tukuyin ang gawain, iugnay sa pamilya, at ipaliwanag ang kultura.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Mga hakbang mula sa pagtukoy ng likas na yaman hanggang sa pagpapaliwanag ng kultura sa probinsiya."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "makabansa-g3-q4-w07-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa isang bayan sa probinsiya, alin ang nagpapakita na may kaugnayan ang likas na yaman sa hanapbuhay?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagmamaneho ng tren sa ilalim ng lungsod"
+          },
+          {
+            "id": "b",
+            "text": "pagtatrabaho sa mataas na gusali"
+          },
+          {
+            "id": "c",
+            "text": "pagkakarga ng kahon sa daungan"
+          },
+          {
+            "id": "d",
+            "text": "pag-aani ng palay mula sa bukirin"
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pag-aani ng palay ay hanapbuhay na umaasa sa lupa at tubig na matatagpuan sa paligid ng probinsiya."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w07-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Sa pista ng bayan, may sayaw na minana sa mga ninuno. Ano ang ipinapakita nito?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Walang tradisyon ang komunidad."
+          },
+          {
+            "id": "b",
+            "text": "Naipapasa ang tradisyon sa mga tao ng komunidad."
+          },
+          {
+            "id": "c",
+            "text": "Ang sayaw ay para lamang sa isang pamilya."
+          },
+          {
+            "id": "d",
+            "text": "Hindi mahalaga ang mga gawain ng mga ninuno."
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Ang sayaw na minana at ginagawa pa rin ay patunay na naipapasa ang tradisyon sa komunidad."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w07-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Paano nakaaapekto ang mga ilog at bukirin sa pamumuhay sa probinsiya?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pinipigilan nila ang mga pamilya na maghanapbuhay."
+          },
+          {
+            "id": "b",
+            "text": "Ginagawa nilang pare-pareho ang lahat ng tradisyon."
+          },
+          {
+            "id": "c",
+            "text": "Nagbibigay sila ng tubig, pagkain, at hanapbuhay."
+          },
+          {
+            "id": "d",
+            "text": "Wala silang kinalaman sa pamumuhay ng mga tao."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang ilog at bukirin ay nagbibigay ng tubig, ani, at mga gawaing maaaring maging hanapbuhay ng pamilya."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w07-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Naghanda ang pamilya ng kakanin mula sa prutas na inani sa kanilang lugar. Ano ang ipinapakita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Walang ugnayan ang pagkain at kapaligiran."
+          },
+          {
+            "id": "b",
+            "text": "Gawa lamang sa ibang bansa ang pagkain ng probinsiya."
+          },
+          {
+            "id": "c",
+            "text": "Ang lokal na ani ay nagiging bahagi ng pagkain at kultura."
+          },
+          {
+            "id": "d",
+            "text": "Hindi kailangan ng pamilya ang mga ani sa paligid."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ginamit ang lokal na ani sa kakanin, kaya makikitang nakauugnay ang pagkain sa yaman at kultura ng lugar."
+      },
+      {
+        "itemId": "makabansa-g3-q4-w07-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng pamumuhay sa probinsiya?",
+        "options": [
+          {
+            "id": "a",
+            "text": "pagsakay sa tren sa ilalim ng napakasiksik na lungsod"
+          },
+          {
+            "id": "b",
+            "text": "pag-aani ng palay sa bukirin"
+          },
+          {
+            "id": "c",
+            "text": "pagdiriwang ng pista ng bayan"
+          },
+          {
+            "id": "d",
+            "text": "pagluluto ng lokal na prutas"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Ang tren sa ilalim ng napakasiksik na lungsod ay halimbawa ng kapaligirang urban, hindi ng mga gawaing iniuugnay sa probinsiya."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Makabansa)",
+    "visualScene": "🏛️🗺️🌳✨"
+  },
+  "pacingPass": "pacing-b2-2026-08-15"
+}

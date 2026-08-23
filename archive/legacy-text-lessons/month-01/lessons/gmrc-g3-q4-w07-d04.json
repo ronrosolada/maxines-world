@@ -1,0 +1,389 @@
+{
+  "lessonId": "gmrc-g3-q4-w07-d04",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 14,
+  "day": 4,
+  "subject": "gmrc",
+  "title": "Pananalig at Paggalang Review",
+  "objective": "Naipakikita ang pananalig habang iginagalang ang sariling paniniwala at paniniwala ng iba.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "fil-PH",
+  "introduction": "Maaaring ipakita ang pananalig sa tahimik na panalangin o pagninilay, pasasalamat, at paggawa ng mabuti. 🙏 Igalang din natin na iba-iba ang paniniwala at paraan ng pagsamba.",
+  "vocabulary": [
+    {
+      "term": "nagpapasalamat",
+      "definition": "Sinasabi o ipinapakita ang pagkilala sa kabutihang natanggap."
+    },
+    {
+      "term": "gumagalang sa paniniwala ng iba",
+      "definition": "Tumatanggap sa karapatan ng iba na magkaroon ng sariling paniniwala."
+    },
+    {
+      "term": "humihingi ng gabay",
+      "definition": "Nagtatanong sa mapagkakatiwalaang nakatatanda kapag kailangan ng tulong sa pasiya."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Pakinggan ang mga paraan ng pananalig at paggalang.",
+      "content": "Maaaring ipakita ang pananalig sa tahimik na panalangin, pasasalamat, at paggalang sa kapwa. Halimbawa, sa pagpapanatili ng maayos na usapan. Gayundin, sa pagbibigay ng mahinahong sagot.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kilos ay may paggalang at hindi namimilit sa iba."
+      },
+      "prompt": "Pakinggan kung paano igalang ang iba’t ibang paniniwala.",
+      "narration": "Iba-iba ang paraan ng pagpapakita ng pananalig: maaaring manalangin o magnilay nang tahimik, magpasalamat, gumawa ng mabuti, at igalang ang paniniwala ng iba.",
+      "guideHint": "Alalahanin: maging mabuti, makinig, at huwag mamilit.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Iba-iba ang paraan ng pagpapakita ng pananalig: maaaring manalangin o magnilay nang tahimik, magpasalamat, gumawa ng mabuti, at igalang ang paniniwala ng iba."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Hanapin ang mga kilos ng pananalig at paggalang.",
+      "content": {
+        "examples": [
+          "nagpapasalamat sa kabutihang natanggap",
+          "nakikinig sa paniniwala ng iba",
+          "humihingi ng gabay sa nakatatanda",
+          "gumagawa ng mabuti nang walang pamimilit"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kilos ay nakikinig, nagpapasalamat, gumagawa ng mabuti, o humihingi ng gabay."
+      },
+      "prompt": "Tuklasin ang bawat kilos na nagpapakita ng paggalang.",
+      "narration": "Ang pananalig ay maaaring makita sa pasasalamat, tahimik na pagninilay, paggawa ng mabuti, at paggalang sa paraan ng iba.",
+      "guideHint": "Hanapin ang kilos na nagpapakita ng kabutihan nang may paggalang.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pananalig ay maaaring makita sa pasasalamat, tahimik na pagninilay, paggawa ng mabuti, at paggalang sa paraan ng iba."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Pangkatin ang magalang at di-magalang na kilos.",
+      "content": {
+        "fits": [
+          "nagpapasalamat sa kabutihang natanggap",
+          "nakikinig sa paniniwala ng iba",
+          "humihingi ng gabay sa nakatatanda",
+          "gumagawa ng mabuti nang walang pamimilit"
+        ],
+        "doesNotFit": [
+          "tumatawa sa paraan ng pagsamba ng iba",
+          "namimilit sa iba",
+          "nanunukso sa paniniwala ng iba",
+          "hindi nakikinig sa kausap"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung pinahihintulutan ng kilos ang iba na magkaroon ng sariling paniniwala."
+      },
+      "prompt": "Pagbukud-bukurin ang kilos ayon sa paggalang sa paniniwala.",
+      "narration": "Ang paggalang sa paniniwala ay nakikinig, hindi nanunukso, at hindi namimilit sa paraan ng iba.",
+      "guideHint": "Ihambing ang bawat kilos sa tuntunin ng paggalang sa pagkakaiba.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paggalang sa paniniwala ay nakikinig, hindi nanunukso, at hindi namimilit sa paraan ng iba."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Piliin ang kilos na nagpapakita ng pananalig.",
+      "content": {
+        "options": [
+          "Nagpapasalamat sa kabutihang natanggap.",
+          "Nanunukso sa kapwa.",
+          "Kumukuha ng hindi kanya.",
+          "Sumusuway sa ligtas na tuntunin."
+        ],
+        "correctIndex": 0
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kilos ay nagpapasalamat, hindi nanunukso o kumukuha ng hindi kanya."
+      },
+      "prompt": "May tumulong sa iyo. Ano ang maaari mong gawin ayon sa iyong paniniwala?",
+      "narration": "Ang pagpapasalamat ay pagkilala sa kabutihang natanggap at maaaring gawin ng sinuman ayon sa sariling paniniwala.",
+      "guideHint": "Isipin kung aling kilos ang nagpapakita ng pagkilala at kabutihan.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang pagpapasalamat ay pagkilala sa kabutihang natanggap at maaaring gawin ng sinuman ayon sa sariling paniniwala."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Itugma ang kilos sa ipinapakitang paggalang.",
+      "content": {
+        "pairs": [
+          {
+            "left": "nagpapasalamat",
+            "right": "kinikilala ang kabutihang natanggap"
+          },
+          {
+            "left": "gumagalang sa paniniwala ng iba",
+            "right": "hinahayaang pumili ang iba nang walang pamimilit"
+          },
+          {
+            "left": "humihingi ng gabay",
+            "right": "nakagagawa ng maingat na pasiya"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang kanang panig ay bunga o epekto ng kilos."
+      },
+      "prompt": "Itugma ang bawat kilos sa mabuting bunga nito.",
+      "narration": "Ang paggalang sa paniniwala ay nagbubunga ng pasasalamat, kalayaan sa pagpili, at maingat na pasiya.",
+      "guideHint": "Basahin ang kilos at hanapin ang bunga nito sa pakikipagkapwa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Ang paggalang sa paniniwala ay nagbubunga ng pasasalamat, kalayaan sa pagpili, at maingat na pasiya."
+    },
+    {
+      "activityId": "gmrc-g3-q4-w07-d04-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "gmrc-g3-q4-w07-d04-visual",
+      "instruction": "Ayusin ang mga hakbang sa pananalig at paggalang.",
+      "content": {
+        "steps": [
+          "Kilalanin ang sariling paniniwala",
+          "Makinig sa paniniwala ng iba",
+          "Huwag pilitin ang iba",
+          "Maging mabuting halimbawa"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Mahusay! Nakita mo ang mahalagang ideya. 🎉",
+        "retry": "Suriin kung ang huling hakbang ay kabutihang nakikita sa kilos."
+      },
+      "prompt": "Ayusin ang mga hakbang sa paggalang sa paniniwala.",
+      "narration": "Kilalanin ang sariling paniniwala, makinig sa iba, huwag mamilit, at maging mabuting halimbawa.",
+      "guideHint": "Isipin ang tamang kilos mula pagkilala hanggang mabuting halimbawa.",
+      "nextLabel": "Susunod →",
+      "accessibilityAlternative": "Kilalanin ang sariling paniniwala, makinig sa iba, huwag mamilit, at maging mabuting halimbawa."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "gmrc-g3-q4-w07-d04-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang nagpapakita ng pananalig at paggalang sa paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagtawa sa pagsamba ng iba."
+          },
+          {
+            "id": "b",
+            "text": "Pagsuway sa ligtas na tuntunin."
+          },
+          {
+            "id": "c",
+            "text": "Hindi pakikinig sa kausap."
+          },
+          {
+            "id": "d",
+            "text": "Paggawa ng mabuti."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang paggawa ng mabuti ay nagpapakita ng kabutihan habang iginagalang ang sariling paniniwala at ang iba."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w07-d04-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Nalilito ka sa tamang gagawin. Ano ang maaari mong gawin nang may pananalig?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pilitin ang kaibigan sa iyong paraan."
+          },
+          {
+            "id": "b",
+            "text": "Tawanan ang paniniwala ng iba."
+          },
+          {
+            "id": "c",
+            "text": "Humingi ng gabay sa mapagkakatiwalaang nakatatanda."
+          },
+          {
+            "id": "d",
+            "text": "Sumigaw upang masunod."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Ang paghingi ng gabay sa mapagkakatiwalaang nakatatanda ay maingat at hindi namimilit sa iba."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w07-d04-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Bago matulog, ano ang maaari mong gawin ayon sa iyong paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Humingi ng sagot sa iba."
+          },
+          {
+            "id": "b",
+            "text": "Mag-alala nang malakas."
+          },
+          {
+            "id": "c",
+            "text": "Guluhin ang katabi."
+          },
+          {
+            "id": "d",
+            "text": "Manalangin nang tahimik ayon sa iyong paniniwala."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang tahimik na pananalangin ay nagbibigay ng sariling sandali ng pananalig nang hindi nakaiistorbo sa iba."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w07-d04-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Ipinagmamalaki ng kaibigan mo ang pista sa kanilang lugar. Ano ang dapat gawin?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tumawa sa kaniyang kuwento."
+          },
+          {
+            "id": "b",
+            "text": "Pintasan ang kanilang pista."
+          },
+          {
+            "id": "c",
+            "text": "Sabihing walang saysay ito."
+          },
+          {
+            "id": "d",
+            "text": "Makinig nang may interes at igalang ang kaniyang pagdiriwang."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang pakikinig nang may interes at paggalang ay tumatanggap na may sariling tradisyon at paniniwala ang iba."
+      },
+      {
+        "itemId": "gmrc-g3-q4-w07-d04-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Alin ang HINDI nagpapakita ng pananalig at paggalang sa paniniwala?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Iginagalang ang pagsamba ng iba."
+          },
+          {
+            "id": "b",
+            "text": "Humihingi ng gabay."
+          },
+          {
+            "id": "c",
+            "text": "Gumagawa ng mabuti."
+          },
+          {
+            "id": "d",
+            "text": "Hindi nakikinig sa paniniwala ng iba."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Ang hindi pakikinig sa paniniwala ng iba ay hindi paggalang sa pagkakaiba."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Gmrc)",
+    "visualScene": "💛🙏👨‍👩‍👧✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

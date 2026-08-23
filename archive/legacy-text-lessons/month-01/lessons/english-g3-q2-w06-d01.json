@@ -1,0 +1,389 @@
+{
+  "lessonId": "english-g3-q2-w06-d01",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 6,
+  "day": 1,
+  "subject": "english",
+  "title": "Kind Words: Good Morning",
+  "objective": "Choose a polite expression that fits the situation.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_TOPIC_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo greets his teacher in the morning, asks for a pencil, and thanks a friend. Which kind words fit each moment?",
+  "vocabulary": [
+    {
+      "term": "Good morning.",
+      "definition": "a respectful greeting used when you meet someone before noon"
+    },
+    {
+      "term": "Please help me.",
+      "definition": "polite words for asking another person to assist you"
+    },
+    {
+      "term": "Thank you.",
+      "definition": "polite words that show gratitude after someone helps or gives something"
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "english-g3-q2-w06-d01-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "capability": "ANIMATED_EXPLANATION_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Read each scene and choose words that show respect.",
+      "content": "A greeting and polite expression should fit the person, time, and situation.",
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the situation and choose the expression that shows respect."
+      },
+      "prompt": "Learn how polite expressions fit time, need, and gratitude.",
+      "narration": "A greeting fits the time of day, please makes a request kinder, and thank you shows gratitude.",
+      "guideHint": "Ask what Milo needs to say: greet, request help, or show thanks.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A greeting fits the time of day, please makes a request kinder, and thank you shows gratitude."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d01-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "capability": "HOTSPOT_IMAGE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Tap the polite expression that fits each scene.",
+      "content": {
+        "examples": [
+          "Good morning, Teacher.",
+          "Please help me with this box.",
+          "Thank you for the pencil.",
+          "Excuse me, may I pass?"
+        ],
+        "visualScene": "🐱🔎✨"
+      },
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 4
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Match the expression to the purpose of the scene."
+      },
+      "prompt": "Find kind words for greeting, asking, and thanking.",
+      "narration": "Good morning greets someone early, please helps make a request kind, and thank you shows gratitude.",
+      "guideHint": "Look for the scene’s purpose before choosing words.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Good morning greets someone early, please helps make a request kind, and thank you shows gratitude."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d01-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "capability": "SORT_AND_CLASSIFY_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Sort respectful expressions from rude commands.",
+      "content": {
+        "fits": [
+          "Good morning.",
+          "Please help me.",
+          "Thank you.",
+          "Excuse me."
+        ],
+        "doesNotFit": [
+          "Go away now!",
+          "Hurry up!",
+          "I do not care!",
+          "Give it to me now!"
+        ]
+      },
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 8
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check whether the words greet, ask kindly, or show thanks."
+      },
+      "prompt": "Sort each phrase by whether it treats the listener kindly.",
+      "narration": "Respectful words greet, ask, or thank without ordering or insulting someone.",
+      "guideHint": "Read the phrase as if someone said it to you.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Respectful words greet, ask, or thank without ordering or insulting someone."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d01-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "capability": "MULTIPLE_CHOICE_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Tap the polite expression for a morning greeting.",
+      "content": {
+        "options": [
+          "Go away now!",
+          "Hurry up!",
+          "I do not care!",
+          "Good morning."
+        ],
+        "correctIndex": 3
+      },
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that the phrase is a morning greeting."
+      },
+      "prompt": "Choose the words Milo can use when he meets someone early.",
+      "narration": "Good morning is a respectful greeting used at the start of the day.",
+      "guideHint": "Look for the phrase that greets someone kindly.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Good morning is a respectful greeting used at the start of the day."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d01-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "capability": "MATCHING_PAIRS_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Match each kind phrase to the moment it fits.",
+      "content": {
+        "pairs": [
+          {
+            "left": "Good morning.",
+            "right": "greets someone at the start of the day"
+          },
+          {
+            "left": "Please help me.",
+            "right": "asks for assistance with respect"
+          },
+          {
+            "left": "Thank you.",
+            "right": "shows gratitude after receiving help"
+          }
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check the phrase’s purpose before matching."
+      },
+      "prompt": "Match each expression with its purpose in a conversation.",
+      "narration": "Polite expressions have different jobs: greeting, asking for help, or showing gratitude.",
+      "guideHint": "Read the phrase and ask what it helps Milo do.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "Polite expressions have different jobs: greeting, asking for help, or showing gratitude."
+    },
+    {
+      "activityId": "english-g3-q2-w06-d01-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "capability": "SEQUENCE_BUILDER_V1",
+      "required": true,
+      "assetId": "english-g3-q2-w06-d01-visual",
+      "instruction": "Put the kind-word choices in order.",
+      "content": {
+        "steps": [
+          "Notice the situation",
+          "Decide what you need to say",
+          "Choose a polite expression",
+          "Say it with a kind voice"
+        ]
+      },
+      "completionRule": {
+        "type": "COMPLETE"
+      },
+      "feedback": {
+        "correct": "Nice job! 🌈",
+        "retry": "Check that you noticed, named, chose, and spoke kindly."
+      },
+      "prompt": "Order the steps for choosing a respectful expression.",
+      "narration": "A speaker notices the situation before choosing words that fit the need.",
+      "guideHint": "Begin by noticing what is happening.",
+      "nextLabel": "Next →",
+      "accessibilityAlternative": "A speaker notices the situation before choosing words that fit the need."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "english-g3-q2-w06-d01-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo meets his teacher before class begins. Which greeting is respectful?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Go away now!"
+          },
+          {
+            "id": "b",
+            "text": "I do not care!"
+          },
+          {
+            "id": "c",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "d",
+            "text": "Good morning."
+          }
+        ],
+        "correctOptionIds": [
+          "d"
+        ],
+        "explanation": "Good morning is a respectful greeting for meeting someone early in the day."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d01-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A classmate gives Milo a pencil. What should Milo say to show gratitude?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Go away now!"
+          },
+          {
+            "id": "b",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "c",
+            "text": "Thank you."
+          },
+          {
+            "id": "d",
+            "text": "I do not care!"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Thank you shows that Milo is grateful for the pencil."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d01-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo cannot reach a book on a high shelf. Which sentence asks for help politely?",
+        "options": [
+          {
+            "id": "a",
+            "text": "I do not care!"
+          },
+          {
+            "id": "b",
+            "text": "Please help me."
+          },
+          {
+            "id": "c",
+            "text": "Go away now!"
+          },
+          {
+            "id": "d",
+            "text": "Hurry up!"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Please help me asks for assistance with the respectful word please."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d01-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo wants a friend to move so he can pass. Which expression is polite?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Go away now!"
+          },
+          {
+            "id": "b",
+            "text": "Please help me."
+          },
+          {
+            "id": "c",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "d",
+            "text": "I do not care!"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Please help me uses a polite request instead of ordering or insulting the friend."
+      },
+      {
+        "itemId": "english-g3-q2-w06-d01-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo receives help carrying his art supplies. Which choice sounds respectful?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Thank you."
+          },
+          {
+            "id": "b",
+            "text": "Hurry up!"
+          },
+          {
+            "id": "c",
+            "text": "Go away now!"
+          },
+          {
+            "id": "d",
+            "text": "I do not care!"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "Thank you shows respect and gratitude after someone helps."
+      }
+    ]
+  },
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (English)",
+    "visualScene": "📚📖🏰✨"
+  },
+  "titlePass": "titles-b3-2026-08-15"
+}

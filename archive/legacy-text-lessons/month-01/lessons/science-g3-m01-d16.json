@@ -1,0 +1,383 @@
+{
+  "lessonId": "science-g3-m01-d16",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 16,
+  "subject": "SCIENCE",
+  "title": "Motion from a Reference Point",
+  "objective": "Describe position and motion relative to a named reference point.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo marks a cone as a reference point; the ball moves from beside it to farther away. How can Maxine describe that motion?",
+  "vocabulary": [
+    {
+      "term": "point",
+      "definition": "An exact spot used to mark where something is."
+    },
+    {
+      "term": "motion",
+      "definition": "A change in position compared with a reference point over time."
+    },
+    {
+      "term": "reference",
+      "definition": "A named object or spot used for comparing position or motion."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "science-g3-m01-d16-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch Milo describe motion by comparing an object with a reference point.",
+      "content": "Motion is change in position relative to a reference point over time.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Name the reference point, compare positions, and describe the change over time."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "Text alternative: Motion is change in position relative to a reference point over time."
+    },
+    {
+      "activityId": "science-g3-m01-d16-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each scene and compare the object with its reference point.",
+      "content": {
+        "examples": [
+          "a ball moves farther from a cone",
+          "a cart passes a tree",
+          "a book stays beside a box"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Motion Explorers. 🔎",
+        "retry": "For each scene, name the reference point and compare the object’s position."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "science-g3-m01-d16-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each observation by whether it uses a reference point to describe motion.",
+      "content": {
+        "fits": [
+          "a ball moves farther from a cone",
+          "a cart passes a tree",
+          "a book stays beside a box"
+        ],
+        "doesNotFit": [
+          "A ball changes color",
+          "No comparison object is named",
+          "A book moves because it wants to"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great sorting! Your groups are correct.",
+        "retry": "Check that the card names an object and a point for comparison."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "science-g3-m01-d16-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "Choose what changed when the ball moved farther from the cone.",
+      "content": {
+        "options": [
+          "changed color",
+          "became heavier",
+          "moved",
+          "started making sound"
+        ],
+        "correctIndex": 2
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: moved",
+        "retry": "The ball’s position changed compared with the cone, which is the motion clue."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "science-g3-m01-d16-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each object with its position compared with a reference point.",
+      "content": {
+        "pairs": [
+          {
+            "left": "ball",
+            "right": "position changes farther from cone"
+          },
+          {
+            "left": "cart",
+            "right": "position changes past tree"
+          },
+          {
+            "left": "book",
+            "right": "position stays beside box"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Motion Explorers explanation. 🔗",
+        "retry": "Match each object to the position change or staying-place described from its reference point."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "science-g3-m01-d16-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Order the steps for describing motion from a reference point.",
+      "content": {
+        "steps": [
+          "Name the reference point.",
+          "Describe where the object is.",
+          "Describe how it moves from there."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Motion Explorers steps in order. 🎉",
+        "retry": "Check the order: name the reference point, describe position, then describe motion."
+      },
+      "assetId": "science-g3-m01-d16-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "science-g3-m01-d16-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo compares a ball with a cone before and after it rolls. Which statement about motion is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Motion is a change in position relative to a reference point over time."
+          },
+          {
+            "id": "b",
+            "text": "No reference point is needed"
+          },
+          {
+            "id": "c",
+            "text": "Use color as position"
+          },
+          {
+            "id": "d",
+            "text": "Motion means an object changes material."
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "To tell whether the ball moved, compare its position with the cone over time. Color and material changes do not describe this motion."
+      },
+      {
+        "itemId": "science-g3-m01-d16-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A ball starts beside a cone and rolls away from it. Which example shows motion?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The ball moves away from the cone"
+          },
+          {
+            "id": "b",
+            "text": "The ball stays in a box all day"
+          },
+          {
+            "id": "c",
+            "text": "The cone changes color"
+          },
+          {
+            "id": "d",
+            "text": "The ball feels happy"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "The ball changes position compared with the cone, so it is moving. Staying still, changing color, or feeling happy does not show motion."
+      },
+      {
+        "itemId": "science-g3-m01-d16-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Maxine wants to describe a cart’s motion. Which piece of information is NOT needed for a position comparison?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A cart moves past a tree"
+          },
+          {
+            "id": "b",
+            "text": "A cart is beside a cone"
+          },
+          {
+            "id": "c",
+            "text": "No reference point is named"
+          },
+          {
+            "id": "d",
+            "text": "A cart is farther from a box"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "A reference point such as a tree, cone, or box is needed for comparison. Without one, a position change cannot be described clearly."
+      },
+      {
+        "itemId": "science-g3-m01-d16-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "A ball changes from beside a cone to far from it. Relative to the cone, what happened?",
+        "options": [
+          {
+            "id": "a",
+            "text": "It became heavier"
+          },
+          {
+            "id": "b",
+            "text": "It moved"
+          },
+          {
+            "id": "c",
+            "text": "It changed color"
+          },
+          {
+            "id": "d",
+            "text": "It became louder"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "The ball’s position changed compared with the cone, so it moved. Weight, color, and loudness do not tell whether its position changed."
+      },
+      {
+        "itemId": "science-g3-m01-d16-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo says, “The book is beside the box.” What does that sentence describe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The book’s position compared with a box"
+          },
+          {
+            "id": "b",
+            "text": "The book moves because it wants to"
+          },
+          {
+            "id": "c",
+            "text": "The book is happy"
+          },
+          {
+            "id": "d",
+            "text": "The book changes into a box"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "“Beside the box” names a reference point and the book’s position relative to it. Feelings and wishes are not position evidence."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "science-g3-m01-d16-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/science-g3-m01-d16-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Motion from a Reference Point; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Motion from a Reference Point.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [
+    "Use the on-screen activity only; no unsupervised physical experiment is required."
+  ],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "Smithsonian Science Education Center",
+      "sourceUrl": "https://ssec.si.edu/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "c049ae922a562a3984176e93fe7b90c535c3960890625298c8daac718ab979b8",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Science)",
+    "visualScene": "🌿🔬🐾✨"
+  }
+}

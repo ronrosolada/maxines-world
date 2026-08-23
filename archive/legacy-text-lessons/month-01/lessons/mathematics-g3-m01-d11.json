@@ -1,0 +1,360 @@
+{
+  "lessonId": "mathematics-g3-m01-d11",
+  "schemaVersion": 1,
+  "grade": 3,
+  "month": 1,
+  "day": 11,
+  "subject": "MATHEMATICS",
+  "title": "Subtraction Workshop",
+  "objective": "Subtract with place-value regrouping.",
+  "estimatedMinutes": 12,
+  "educatorValidated": true,
+  "releaseStatus": "RELEASED",
+  "qualifiesForDailyBadge": true,
+  "alignmentStatus": "EDUCATOR_CURATED_STRUCTURAL_REVIEW",
+  "language": "en-PH",
+  "introduction": "Milo is sharing out bread rolls! Help him subtract 742 − 318 with regrouping.",
+  "vocabulary": [
+    {
+      "term": "regroup",
+      "definition": "To trade ten ones for one ten when adding or subtracting."
+    },
+    {
+      "term": "subtraction",
+      "definition": "Taking away to find what is left."
+    },
+    {
+      "term": "one",
+      "definition": "A single item, such as a bread roll left after subtracting."
+    }
+  ],
+  "activities": [
+    {
+      "activityId": "mathematics-g3-m01-d11-a01",
+      "sequence": 1,
+      "type": "ANIMATED_EXPLANATION",
+      "instruction": "Watch how 742 − 318 borrows from the tens.",
+      "content": "Regroup one unit of a larger place as ten of the next smaller place while preserving total value.",
+      "required": true,
+      "completionRule": {
+        "type": "VIEW_AND_ACKNOWLEDGE"
+      },
+      "feedback": {
+        "correct": "Hooray! Fantastic job, Maxine! 🎉⭐",
+        "retry": "Subtract matching places and regroup a larger place when the top digit is too small. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "Text alternative: Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d11-a02",
+      "sequence": 2,
+      "type": "HOTSPOT_IMAGE",
+      "instruction": "Tap each example and read the difference.",
+      "content": {
+        "examples": [
+          "5,000-1=4,999",
+          "742-318=424",
+          "900-250=650"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_TARGETS_VISITED",
+        "targetCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You found the examples for Subtraction Workshop. 🔎",
+        "retry": "Check each example for this rule: Subtract matching places and regroup a larger place when the top digit is too small. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "A numbered list of the same examples is available for keyboard and screen-reader use."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d11-a03",
+      "sequence": 3,
+      "type": "SORT_AND_CLASSIFY",
+      "instruction": "Sort each card: is the difference correct with regrouping?",
+      "content": {
+        "fits": [
+          "5,000-1=4,999",
+          "742-318=424",
+          "900-250=650"
+        ],
+        "doesNotFit": [
+          "Subtract smaller top digit only",
+          "Lose value during regrouping",
+          "Ignore zeros"
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_ITEMS_SORTED",
+        "itemCount": 6
+      },
+      "feedback": {
+        "correct": "Great! You sorted the examples using the Subtraction Workshop clue. 🎉",
+        "retry": "Check every card against this rule: Subtract matching places and regroup a larger place when the top digit is too small. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "Tap an item and then tap a labeled category; dragging is optional."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d11-a04",
+      "sequence": 4,
+      "type": "MULTIPLE_CHOICE",
+      "instruction": "742 - 318 =",
+      "content": {
+        "options": [
+          "424",
+          "434",
+          "524"
+        ],
+        "correctIndex": 0
+      },
+      "required": true,
+      "completionRule": {
+        "type": "CORRECT_RESPONSE"
+      },
+      "feedback": {
+        "correct": "Correct: 424",
+        "retry": "Check the numbers with this rule: Subtract matching places and regroup a larger place when the top digit is too small. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "All choices are visible text and selectable with TalkBack."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d11-a05",
+      "sequence": 5,
+      "type": "MATCHING_PAIRS",
+      "instruction": "Match each subtraction to its difference.",
+      "content": {
+        "pairs": [
+          {
+            "left": "5,000-1=4,999",
+            "right": "regroup across zeros"
+          },
+          {
+            "left": "742-318=424",
+            "right": "regroup one ten"
+          },
+          {
+            "left": "900-250=650",
+            "right": "regroup one hundred"
+          }
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_PAIRS_MATCHED",
+        "pairCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You matched each example with its Subtraction Workshop explanation. 🔗",
+        "retry": "Match each pair by the relationship: Subtract matching places and regroup a larger place when the top digit is too small. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "A list-based matching control replaces drag gestures."
+    },
+    {
+      "activityId": "mathematics-g3-m01-d11-a06",
+      "sequence": 6,
+      "type": "SEQUENCE_BUILDER",
+      "instruction": "Put the subtracting steps in order.",
+      "content": {
+        "steps": [
+          "Subtract the ones.",
+          "Regroup when the top digit is too small.",
+          "Subtract the tens and hundreds."
+        ]
+      },
+      "required": true,
+      "completionRule": {
+        "type": "ALL_STEPS_COMPLETED",
+        "stepCount": 3
+      },
+      "feedback": {
+        "correct": "Great! You put the Subtraction Workshop steps in order. 🎉",
+        "retry": "Check the order: start with subtract the ones., then regroup when the top digit is too small., and finish with subtract the tens and hundreds.. 💪"
+      },
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "accessibilityAlternative": "Up and down buttons provide an alternative to dragging."
+    }
+  ],
+  "assessment": {
+    "purpose": "FORMATIVE_MODULE_CHECK",
+    "itemCount": 5,
+    "passingCorrectCount": 4,
+    "claimsMastery": false,
+    "items": [
+      {
+        "itemId": "mathematics-g3-m01-d11-q01",
+        "sequence": 1,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is sharing bread rolls with friends. Which statement about subtracting with regrouping is true?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Subtract smaller top digit only"
+          },
+          {
+            "id": "b",
+            "text": "Lose value during regrouping"
+          },
+          {
+            "id": "c",
+            "text": "Regroup one unit of a larger place as ten of the next smaller place while preserving total value."
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "To subtract, trade one ten for ten ones (or one hundred for ten tens) so the top digit is big enough."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d11-q02",
+        "sequence": 2,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is sharing bread rolls with friends. Which difference is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5,000 − 1 = 5,001"
+          },
+          {
+            "id": "b",
+            "text": "5,000-1=4,999"
+          },
+          {
+            "id": "c",
+            "text": "5,000 − 1 = 4,000"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "Regroup 5,000 as 4 thousands, 9 hundreds, 9 tens, and 10 ones, then take away 1: 4,999."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d11-q03",
+        "sequence": 3,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is sharing bread rolls with friends. Which is NOT a correct way to subtract?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Subtract smaller top digit only"
+          },
+          {
+            "id": "b",
+            "text": "5,000-1=4,999"
+          },
+          {
+            "id": "c",
+            "text": "742-318=424"
+          }
+        ],
+        "correctOptionIds": [
+          "a"
+        ],
+        "explanation": "When the top digit is too small, regroup — never just subtract the smaller top digit."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d11-q04",
+        "sequence": 4,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "742 - 318 =",
+        "options": [
+          {
+            "id": "a",
+            "text": "524"
+          },
+          {
+            "id": "b",
+            "text": "434"
+          },
+          {
+            "id": "c",
+            "text": "424"
+          }
+        ],
+        "correctOptionIds": [
+          "c"
+        ],
+        "explanation": "Regroup: 12 − 8 = 4 ones, 3 − 1 = 2 tens, 7 − 3 = 4 hundreds, so 742 − 318 = 424."
+      },
+      {
+        "itemId": "mathematics-g3-m01-d11-q05",
+        "sequence": 5,
+        "type": "MULTIPLE_CHOICE",
+        "prompt": "Milo is sharing bread rolls with friends. Which subtraction answer is correct?",
+        "options": [
+          {
+            "id": "a",
+            "text": "900 − 250 = 750"
+          },
+          {
+            "id": "b",
+            "text": "900-250=650"
+          },
+          {
+            "id": "c",
+            "text": "900 − 250 = 850"
+          }
+        ],
+        "correctOptionIds": [
+          "b"
+        ],
+        "explanation": "0 − 0 = 0; regroup a hundred, then 10 − 5 = 5 and 8 − 2 = 6, so 900 − 250 = 650."
+      }
+    ]
+  },
+  "assetSpecs": [
+    {
+      "assetId": "mathematics-g3-m01-d11-visual",
+      "type": "INTERACTIVE_SPEC",
+      "path": "assets/vectors/mathematics-g3-m01-d11-visual.svg",
+      "prompt": "Friendly Grade 3 cartoon storybook concept board for Subtraction Workshop; rounded shapes, warm dark-brown outlines, tropical palette, no embedded text, uncluttered small-screen layout. Compose overlays provide labels and interactive targets.",
+      "contentDescription": "Five connected learning tokens for exploring examples in Subtraction Workshop.",
+      "decorative": false
+    }
+  ],
+  "safetyNotes": [],
+  "sourceRecords": [
+    {
+      "sourceTitle": "DepEd MATATAG Curriculum resources",
+      "sourceUrl": "https://www.deped.gov.ph/matatag-curriculum/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "sourceTitle": "NCTM Principles and Standards",
+      "sourceUrl": "https://www.nctm.org/Standards-and-Positions/Principles-and-Standards/",
+      "claimScope": "Curriculum and subject-matter review reference",
+      "reviewStatus": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "contentHash": "568cd13f234e887cc06bd012cd64f94ec7400b9cea28b08e5a88980456eb1953",
+  "contentReview": {
+    "reviewer": "RonBot — educator pass 2026-08-14 (release 0.33.0)",
+    "focus": [
+      "factual accuracy",
+      "Grade 3 appropriateness",
+      "child safety",
+      "engagement",
+      "matching-pair integrity",
+      "answer-position balance",
+      "feedback quality",
+      "language purity (fil/en)"
+    ],
+    "source": "competency/objective + deterministic gate audits (content_quality_audit, content_pack_validation, educational_material_audit, content_similarity_gate, dedupe_lesson_titles, verify_lesson_assets)",
+    "rewritten": true,
+    "date": "2026-08-14"
+  },
+  "reviewedAt": "2026-08-13T21:30:00+08:00",
+  "scene": {
+    "character": "Milo the Cat",
+    "setting": "Milo's Learning World (Mathematics)",
+    "visualScene": "🔢📐🪙🌟"
+  }
+}
