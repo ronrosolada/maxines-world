@@ -1,8 +1,5 @@
 package com.maxinesworld.featureparent
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -24,7 +21,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
@@ -34,20 +30,35 @@ import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.BadgeLoader
+import com.maxinesworld.corenetwork.AppUpdateManager
+import com.maxinesworld.corenetwork.AppUpdateResult
 import com.maxinesworld.corenetwork.VideoPrefetchManager
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.File
-import java.io.FileOutputStream
-import java.net.HttpURLConnection
-import java.net.URL
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
+
+/** LAN / guest-VLAN endpoints serving self-hosted update APKs, tried in order. */
+private val APP_UPDATE_ENDPOINTS = listOf(
+    "http://10.10.10.33/app-release.apk",
+    "http://10.10.20.33/app-release.apk",
+)
+
+/** Number of feed rows shown in Recent Activity. */
+internal const val RECENT_ACTIVITY_LIMIT = 5
+
+/** Fallback child id when the dashboard is opened without a profile (defensive parity). */
+internal const val DEFAULT_CHILD_ID = "default_child"
+
+private val SUBJECT_LABELS = mapOf(
+    "english" to "English", "filipino" to "Filipino",
+    "mathematics" to "Math", "science" to "Science",
+    "araling-panlipunan" to "Araling Panlipunan",
+    "makabansa" to "Makabansa", "gmrc" to "GMRC"
+)
 
 data class ParentDashboardState(
     val childName: String = "",
@@ -116,7 +127,6 @@ data class MasterySummary(
 
 @HiltViewModel
 class ParentDashboardViewModel @Inject constructor(
-    @dagger.hilt.android.qualifiers.ApplicationContext private val context: Context,
     private val childProfileDao: ChildProfileDao,
     private val rewardDao: RewardDao,
     private val masteryRecordDao: MasteryRecordDao,
@@ -128,48 +138,75 @@ class ParentDashboardViewModel @Inject constructor(
     private val collectedBadgeDao: CollectedBadgeDao,
     private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val videoPrefetchManager: VideoPrefetchManager,
+    private val appUpdateManager: AppUpdateManager,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(ParentDashboardState())
+    /**
+     * DB-independent UI state (update / prefetch / storage / god-mode toggle). Kept separate
+     * from the Room-derived dashboard snapshot so imperative actions can patch their own
+     * fields without fighting the reactive pipeline.
+     */
+    private data class UiExtras(
+        val godModeEnabled: Boolean = false,
+        val isUpdatingApp: Boolean = false,
+        val updateProgress: Float = 0f,
+        val updateStatusMessage: String? = null,
+        val storageUsedMb: Float = 0f,
+        val isPreloadingMedia: Boolean = false,
+        val prefetchStatusMessage: String? = null,
+    )
+
+    /** Snapshot of the Room-backed tables the dashboard derives its numbers from. */
+    private data class AcademicSnapshot(
+        val child: ChildProfileEntity?,
+        val rewards: List<RewardEntity>,
+        val mastery: List<MasteryRecordEntity>,
+        val progress: List<ProgressEventEntity>,
+    )
+
+    private data class ActivitySnapshot(
+        val completions: List<LessonCompletionEntity>,
+        val accreditedSeconds: Int,
+        val passedMediaIds: List<String>,
+    )
+
+    private val extras = MutableStateFlow(UiExtras())
+
+    /** The child whose reactive dashboard pipeline is currently wired, if any. */
+    private var observedChildId: String? = null
+
+    private val _state = MutableStateFlow(ParentDashboardState(isLoading = true))
     val state: StateFlow<ParentDashboardState> = _state.asStateFlow()
 
     val availableBadges = MutableStateFlow<List<CollectibleBadge>>(emptyList())
-    val earnedBadgeIds = MutableStateFlow<Set<String>>(emptySet())
 
+    /** Driven by [CollectedBadgeDao.observeBadgeIdsByChild]; awards/revokes propagate automatically. */
+    private val _earnedBadgeIds = MutableStateFlow(emptySet<String>())
+    val earnedBadgeIds: StateFlow<Set<String>> = _earnedBadgeIds.asStateFlow()
+
+    /**
+     * Starts observing this child's data. Every stat on the dashboard now updates in
+     * real time as Room rows change (rewards, completions, watch ledger, stickers);
+     * no manual reload is needed while the screen is open.
+     */
     fun load(childId: String) {
+        if (observedChildId == childId) return
+        observedChildId = childId
         viewModelScope.launch {
-            val godModeEnabled = godModeManager.isEnabledNow(childId)
-            val child = childProfileDao.getById(childId)
-            val starsTotal = rewardDao.getTotalByType(childId, "STAR") ?: 0
-            val coinsTotal = rewardDao.getTotalByType(childId, "COIN") ?: 0
-            val mastery = masteryRecordDao.getByChild(childId)
-            val progress = progressEventDao.getByChild(childId)
-            val completions = lessonCompletionDao.getRecentByChild(childId, limit = 5)
-
-            // Subject progress
-            val bySubject = progress.groupBy { event ->
-                subjectKeyForLessonId(event.lessonId) ?: event.lessonId.substringBefore("-")
-            }
-            val subjectLabels = mapOf(
-                "english" to "English", "filipino" to "Filipino",
-                "mathematics" to "Math", "science" to "Science",
-                "araling-panlipunan" to "Araling Panlipunan",
-                "makabansa" to "Makabansa", "gmrc" to "GMRC"
-            )
-
-            val subjectProgress = bySubject.map { (subj, events) ->
-                SubjectProgress(
-                    subject = subj,
-                    label = subjectLabels[subj] ?: subj,
-                    lessonsCompleted = events.map { it.lessonId }.distinct().size,
-                    accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average().toFloat() else 0f
+            extras.update {
+                it.copy(
+                    godModeEnabled = runCatching { godModeManager.isEnabledNow(childId) }.getOrDefault(false),
+                    storageUsedMb = calculateStorageUsedMb(),
                 )
-            }.sortedByDescending { it.lessonsCompleted }
+            }
+            availableBadges.value = runCatching { badgeLoader.loadAll() }.getOrDefault(emptyList())
 
-            // Mastery summary
-            val mastered = mastery.count { it.state == "MASTERED" }
-            val developing = mastery.count { it.state == "DEVELOPING" }
-            val needsReview = mastery.count { it.state == "NEEDS_REVIEW" || it.state == "NOT_STARTED" }
+            // Sticker stream drives earnedBadgeIds directly, so parent awards and revocations
+            // propagate to every collector without manual re-reads.
+            collectedBadgeDao.observeBadgeIdsByChild(childId)
+                .catch { emit(emptyList()) }
+                .onEach { badgeIds -> _earnedBadgeIds.value = badgeIds.toSet() }
+                .launchIn(viewModelScope)
 
             val titleByLessonId = mutableMapOf<String, String>()
             suspend fun friendlyTitle(lessonId: String): String {
@@ -183,47 +220,89 @@ class ParentDashboardViewModel @Inject constructor(
                 titleByLessonId[lessonId] = title
                 return title
             }
-            completions
-                .map { it.lessonId }
-                .distinct()
-                .forEach { lessonId -> friendlyTitle(lessonId) }
-            val recentActivity = recentActivityLabels(completions) { lessonId ->
-                titleByLessonId[lessonId] ?: "Lesson"
+
+            val academic = combine(
+                childProfileDao.observeById(childId),
+                rewardDao.observeByChild(childId),
+                masteryRecordDao.observeByChild(childId),
+                progressEventDao.observeByChild(childId),
+            ) { child, rewards, mastery, progress ->
+                AcademicSnapshot(child, rewards, mastery, progress)
             }
 
-            val allBadges = runCatching { badgeLoader.loadAll() }.getOrDefault(emptyList())
-            val earned = runCatching { collectedBadgeDao.getAllByChild(childId) }.getOrDefault(emptyList()).map { it.badgeId }.toSet()
-            availableBadges.value = allBadges
-            earnedBadgeIds.value = earned
+            val activity = combine(
+                lessonCompletionDao.observeRecentByChild(childId, limit = RECENT_ACTIVITY_LIMIT),
+                videoWatchLedgerDao.observeTotalAccreditedSeconds(childId),
+                videoWatchLedgerDao.observePassedMediaIds(childId),
+            ) { completions, accreditedSeconds, passedMediaIds ->
+                ActivitySnapshot(completions, accreditedSeconds, passedMediaIds)
+            }
 
-            val accreditedSeconds = runCatching { videoWatchLedgerDao.getTotalAccreditedSeconds(childId) }.getOrDefault(0)
-            val passedVideos = runCatching { videoWatchLedgerDao.getPassedMediaIds(childId) }.getOrDefault(emptyList())
-            val storageMb = calculateStorageUsedMb()
-
-            _state.value = ParentDashboardState(
-                childName = child?.name ?: "Learner",
-                grade = child?.grade ?: 3,
-                totalStars = starsTotal,
-                totalCoins = coinsTotal,
-                subjectProgress = subjectProgress,
-                masterySummary = MasterySummary(mastered, developing, needsReview),
-                recentActivity = recentActivity,
-                streakDays = currentLearningStreak(
-                    localDates = localLearningDates(progress.map { it.timestamp }, ZoneId.systemDefault()),
-                    today = LocalDate.now(),
-                ),
-                godModeEnabled = godModeEnabled,
-                storageUsedMb = storageMb,
-                accreditedWatchSeconds = accreditedSeconds,
-                passedVideoCount = passedVideos.size,
-                isLoading = false
-            )
+            combine(academic, activity, extras) { a, act, ui ->
+                act.completions.map { it.lessonId }.distinct().forEach { lessonId -> friendlyTitle(lessonId) }
+                buildDashboardState(ui, a, act) { lessonId -> titleByLessonId[lessonId] ?: "Lesson" }
+            }
+                .catch { emit(ParentDashboardState(isLoading = false)) }
+                .onEach { dashboardState -> _state.value = dashboardState }
+                .launchIn(viewModelScope)
         }
+    }
+
+    /** Pure projection of Room snapshots + imperative UI extras into screen state. */
+    private fun buildDashboardState(
+        ui: UiExtras,
+        academic: AcademicSnapshot,
+        activity: ActivitySnapshot,
+        titleForLesson: (String) -> String,
+    ): ParentDashboardState {
+        val child = academic.child
+
+        // Subject progress
+        val bySubject = academic.progress.groupBy { event ->
+            subjectKeyForLessonId(event.lessonId) ?: event.lessonId.substringBefore("-")
+        }
+        val subjectProgress = bySubject.map { (subj, events) ->
+            SubjectProgress(
+                subject = subj,
+                label = SUBJECT_LABELS[subj] ?: subj,
+                lessonsCompleted = events.map { it.lessonId }.distinct().size,
+                accuracy = if (events.isNotEmpty()) events.map { it.accuracy }.average().toFloat() else 0f
+            )
+        }.sortedByDescending { it.lessonsCompleted }
+
+        // Mastery summary
+        val mastered = academic.mastery.count { it.state == "MASTERED" }
+        val developing = academic.mastery.count { it.state == "DEVELOPING" }
+        val needsReview = academic.mastery.count { it.state == "NEEDS_REVIEW" || it.state == "NOT_STARTED" }
+
+        return ParentDashboardState(
+            childName = child?.name ?: "Learner",
+            grade = child?.grade ?: 3,
+            totalStars = academic.rewards.filter { it.type == "STAR" }.sumOf { it.amount },
+            totalCoins = academic.rewards.filter { it.type == "COIN" }.sumOf { it.amount },
+            subjectProgress = subjectProgress,
+            masterySummary = MasterySummary(mastered, developing, needsReview),
+            recentActivity = recentActivityLabels(activity.completions, titleForLesson),
+            streakDays = currentLearningStreak(
+                localDates = localLearningDates(academic.progress.map { it.timestamp }, ZoneId.systemDefault()),
+                today = LocalDate.now(),
+            ),
+            godModeEnabled = ui.godModeEnabled,
+            isUpdatingApp = ui.isUpdatingApp,
+            updateProgress = ui.updateProgress,
+            updateStatusMessage = ui.updateStatusMessage,
+            storageUsedMb = ui.storageUsedMb,
+            isPreloadingMedia = ui.isPreloadingMedia,
+            prefetchStatusMessage = ui.prefetchStatusMessage,
+            accreditedWatchSeconds = activity.accreditedSeconds,
+            passedVideoCount = activity.passedMediaIds.size,
+            isLoading = false
+        )
     }
 
     fun awardSticker(childId: String, badge: CollectibleBadge) {
         viewModelScope.launch {
-            val actualChildId = childId.ifBlank { "default_child" }
+            val actualChildId = childId.ifBlank { DEFAULT_CHILD_ID }
             collectedBadgeDao.insert(
                 CollectedBadgeEntity(
                     id = "${actualChildId}_${badge.id}",
@@ -234,38 +313,37 @@ class ParentDashboardViewModel @Inject constructor(
                     earnedAtEpochMillis = System.currentTimeMillis()
                 )
             )
-            // Reload badges
-            val earned = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
-            earnedBadgeIds.value = earned
+            // earnedBadgeIds refreshes via collectedBadgeDao.observeBadgeIdsByChild.
         }
     }
 
     fun revokeSticker(childId: String, badgeId: String) {
         viewModelScope.launch {
-            val actualChildId = childId.ifBlank { "default_child" }
-            // Note: Since CollectedBadgeDao might not have delete, we can also award other rewards or manage it
-            val earned = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
-            earnedBadgeIds.value = earned
+            val actualChildId = childId.ifBlank { DEFAULT_CHILD_ID }
+            // Actually delete the row — previously this only re-read the earned set,
+            // so revoked stickers reappeared on every reload.
+            collectedBadgeDao.deleteByChildAndBadgeId(actualChildId, badgeId)
+            // earnedBadgeIds refreshes via collectedBadgeDao.observeBadgeIdsByChild.
         }
     }
 
     fun setGodModeEnabled(childId: String, enabled: Boolean) {
         viewModelScope.launch {
             godModeManager.setEnabled(childId, enabled)
-            _state.update { it.copy(godModeEnabled = enabled) }
+            extras.update { it.copy(godModeEnabled = enabled) }
         }
     }
 
     fun clearMediaCache() {
         videoPrefetchManager.clearStorage()
         val storageMb = calculateStorageUsedMb()
-        _state.update { it.copy(storageUsedMb = storageMb, prefetchStatusMessage = "Storage cleared") }
+        extras.update { it.copy(storageUsedMb = storageMb, prefetchStatusMessage = "Storage cleared") }
     }
 
     fun prefetchMedia(count: Int = 3) {
-        if (_state.value.isPreloadingMedia) return
+        if (extras.value.isPreloadingMedia) return
         viewModelScope.launch {
-            _state.update { it.copy(isPreloadingMedia = true, prefetchStatusMessage = "Prefetching next $count video lessons...") }
+            extras.update { it.copy(isPreloadingMedia = true, prefetchStatusMessage = "Prefetching next $count video lessons...") }
             val countPrefetched = videoPrefetchManager.prefetchNextVideos(count)
             val storageMb = calculateStorageUsedMb()
             val message = if (countPrefetched > 0) {
@@ -273,7 +351,7 @@ class ParentDashboardViewModel @Inject constructor(
             } else {
                 "Videos are already cached or network unavailable"
             }
-            _state.update {
+            extras.update {
                 it.copy(
                     isPreloadingMedia = false,
                     storageUsedMb = storageMb,
@@ -288,9 +366,13 @@ class ParentDashboardViewModel @Inject constructor(
         return bytes / (1024f * 1024f)
     }
 
-    fun downloadAndInstallUpdate(context: Context) {
-        if (_state.value.isUpdatingApp) return
-        _state.update {
+    /**
+     * Delegates the download/verify pipeline to [AppUpdateManager] and only translates the
+     * outcome into UI state. The screen itself contains no networking or installer logic.
+     */
+    fun downloadAndInstallUpdate() {
+        if (extras.value.isUpdatingApp) return
+        extras.update {
             it.copy(
                 isUpdatingApp = true,
                 updateProgress = 0f,
@@ -299,118 +381,28 @@ class ParentDashboardViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            val candidateEndpoints = listOf(
-                "http://10.10.10.33/app-release.apk",
-                "http://10.10.20.33/app-release.apk"
-            )
-
-            var downloadedFile: File? = null
-            var lastError: Exception? = null
-
-            for (endpoint in candidateEndpoints) {
-                try {
-                    _state.update { it.copy(updateStatusMessage = "Downloading APK from $endpoint...") }
-                    val file = withContext(Dispatchers.IO) {
-                        val url = URL(endpoint)
-                        val conn = (url.openConnection() as HttpURLConnection).apply {
-                            connectTimeout = 8000
-                            readTimeout = 15000
-                            requestMethod = "GET"
-                        }
-                        conn.connect()
-                        if (conn.responseCode !in 200..299) {
-                            throw Exception("HTTP ${conn.responseCode}")
-                        }
-                        val contentLength = conn.contentLength.toLong()
-                        val cacheDir = context.externalCacheDir ?: context.cacheDir
-                        val apkFile = File(cacheDir, "maxines_world_update.apk")
-                        if (apkFile.exists()) apkFile.delete()
-
-                        conn.inputStream.use { input ->
-                            FileOutputStream(apkFile).use { output ->
-                                val buffer = ByteArray(8192)
-                                var totalBytes = 0L
-                                while (true) {
-                                    val read = input.read(buffer)
-                                    if (read < 0) break
-                                    output.write(buffer, 0, read)
-                                    totalBytes += read
-                                    if (contentLength > 0) {
-                                        val progress = totalBytes.toFloat() / contentLength.toFloat()
-                                        _state.update { s -> s.copy(updateProgress = progress) }
-                                    }
-                                }
-                            }
-                        }
-                        conn.disconnect()
-                        apkFile
-                    }
-                    downloadedFile = file
-                    break
-                } catch (e: Exception) {
-                    lastError = e
-                }
-            }
-
-            if (downloadedFile != null && downloadedFile.exists() && downloadedFile.length() > 0) {
-                // Reject a stale/tampered/incompatible candidate BEFORE handing it to
-                // the installer: versionCode is git-derived and NOT monotonic across
-                // divergent release branches, so a newer tag can carry a lower
-                // versionCode and a downgrade install would fail or wipe the DB.
-                @Suppress("DEPRECATION")
-                val installedCode = runCatching {
-                    context.packageManager.getPackageInfo(context.packageName, 0).versionCode
-                }.getOrNull() ?: 0
-                @Suppress("DEPRECATION")
-                val candidate = runCatching {
-                    context.packageManager.getPackageArchiveInfo(downloadedFile.absolutePath, 0)
-                }.getOrNull()
-
-                val candidateCode = candidate?.versionCode ?: Int.MIN_VALUE
-                val rejectReason = when {
-                    candidate == null -> "Update rejected: APK could not be read (invalid or corrupt package)."
-                    candidateCode <= installedCode ->
-                        "Update rejected: candidate v$candidateCode is not newer than installed v$installedCode."
-                    else -> null
-                }
-                if (rejectReason != null) {
-                    _state.update {
-                        it.copy(isUpdatingApp = false, updateStatusMessage = rejectReason)
-                    }
-                } else {
-                    _state.update {
+            when (val result = appUpdateManager.downloadVerifiedApk(
+                candidateEndpoints = APP_UPDATE_ENDPOINTS,
+                onStatus = { message -> extras.update { it.copy(updateStatusMessage = message) } },
+                onProgress = { fraction -> extras.update { it.copy(updateProgress = fraction) } },
+            )) {
+                is AppUpdateResult.ReadyToInstall -> {
+                    extras.update {
                         it.copy(
                             isUpdatingApp = false,
                             updateProgress = 1.0f,
                             updateStatusMessage = "Download complete! Opening package installer...",
                         )
                     }
-                    withContext(Dispatchers.Main) {
-                        launchPackageInstaller(context, downloadedFile)
-                    }
+                    appUpdateManager.install(result.apkFile)
                 }
-            } else {
-                _state.update {
-                    it.copy(
-                        isUpdatingApp = false,
-                        updateStatusMessage = "Failed to download update: ${lastError?.localizedMessage ?: "Unknown error"}"
-                    )
+                is AppUpdateResult.Rejected -> extras.update {
+                    it.copy(isUpdatingApp = false, updateStatusMessage = result.reason)
+                }
+                is AppUpdateResult.Failed -> extras.update {
+                    it.copy(isUpdatingApp = false, updateStatusMessage = result.reason)
                 }
             }
-        }
-    }
-
-    private fun launchPackageInstaller(context: Context, apkFile: File) {
-        try {
-            val authority = "${context.packageName}.fileprovider"
-            val uri: Uri = FileProvider.getUriForFile(context, authority, apkFile)
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                setDataAndType(uri, "application/vnd.android.package-archive")
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_GRANT_READ_URI_PERMISSION
-            }
-            context.startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(context, "Could not launch installer: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
 }
@@ -526,7 +518,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         }
 
                         Button(
-                            onClick = { viewModel.downloadAndInstallUpdate(context) },
+                            onClick = { viewModel.downloadAndInstallUpdate() },
                             enabled = !state.isUpdatingApp,
                             colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
                             shape = RoundedCornerShape(12.dp),

@@ -107,6 +107,17 @@ interface CollectedBadgeDao {
     @Query("SELECT * FROM collected_badges WHERE childId = :childId ORDER BY earnedAtEpochMillis ASC")
     suspend fun getAllByChild(childId: String): List<CollectedBadgeEntity>
 
+    /** Reactive stream of earned sticker IDs so dashboards update without manual reloads. */
+    @Query("SELECT badgeId FROM collected_badges WHERE childId = :childId ORDER BY earnedAtEpochMillis ASC")
+    fun observeBadgeIdsByChild(childId: String): Flow<List<String>>
+
+    /**
+     * Revokes (deletes) a single sticker for a child. Returns the number of rows
+     * removed — 0 means the child did not own the badge.
+     */
+    @Query("DELETE FROM collected_badges WHERE childId = :childId AND badgeId = :badgeId")
+    suspend fun deleteByChildAndBadgeId(childId: String, badgeId: String): Int
+
     @Query("SELECT COUNT(*) FROM collected_badges WHERE childId = :childId")
     suspend fun countByChild(childId: String): Int
 
@@ -202,6 +213,32 @@ interface LessonCompletionDao {
         """
     )
     suspend fun getRecentByChild(childId: String, limit: Int): List<LessonCompletionEntity>
+
+    /** Reactive variant of [getRecentByChild] for always-live dashboards. */
+    @Query(
+        """
+        SELECT lc.*
+        FROM lesson_completions AS lc
+        WHERE lc.childId = :childId
+          AND length(trim(lc.lessonId)) > 0
+          AND NOT EXISTS (
+              SELECT 1
+              FROM lesson_completions AS newer
+              WHERE newer.childId = lc.childId
+                AND newer.lessonId = lc.lessonId
+                AND (
+                    newer.completedAtEpochMillis > lc.completedAtEpochMillis
+                    OR (
+                        newer.completedAtEpochMillis = lc.completedAtEpochMillis
+                        AND newer.id > lc.id
+                    )
+                )
+          )
+        ORDER BY lc.completedAtEpochMillis DESC, lc.id DESC
+        LIMIT :limit
+        """
+    )
+    fun observeRecentByChild(childId: String, limit: Int): Flow<List<LessonCompletionEntity>>
 
     @Query("SELECT COUNT(DISTINCT lessonId) FROM lesson_completions WHERE childId = :childId AND length(trim(lessonId)) > 0")
     fun observeDistinctLessonCount(childId: String): Flow<Int>
