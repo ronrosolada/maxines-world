@@ -400,7 +400,7 @@ class PlayroomHomeViewModel @Inject constructor(
             completed = passedMediaIds + dailyQuest.completedMediaIds,
             assets = mediaAssets,
             arenaPacks = dailyQuest.arenaPacks,
-            isAssetDownloaded = { asset -> mediaLibrary.isDownloaded(asset) },
+            isAssetDownloaded = { asset -> mediaLibrary.isDownloaded(asset.mediaId) },
         )
         val questTotal = dailyQuest.totalCount
         val completedCount = dailyQuest.completedCount.coerceIn(0, questTotal)
