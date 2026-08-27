@@ -1,11 +1,27 @@
 package com.maxinesworld.featurelessonplayer
 
 import android.content.Context
+import android.media.AudioAttributes
+import android.media.AudioFocusRequest
+import android.media.AudioManager
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import java.util.Locale
 
 class LessonTtsPlayer(context: Context) {
+    private val audioManager = context.applicationContext
+        .getSystemService(Context.AUDIO_SERVICE) as AudioManager
+    private val audioFocusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+        .setAudioAttributes(
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_ACCESSIBILITY)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .build()
+        )
+        .setOnAudioFocusChangeListener { change ->
+            if (change == AudioManager.AUDIOFOCUS_LOSS) stop()
+        }
+        .build()
     private var tts: TextToSpeech? = null
     private var initialized = false
     private var isSpeaking = false
@@ -51,28 +67,19 @@ class LessonTtsPlayer(context: Context) {
             return
         }
         if (isSpeaking) return
+        if (audioManager.requestAudioFocus(audioFocusRequest) != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+            onUnavailable?.invoke()
+            return
+        }
         onDone = onComplete
         isSpeaking = true
 
-        // Set locale based on language. Lessons carry BCP-47 tags
-        // ("fil-PH" / "en-PH"); match by prefix so legacy literal values
-        // ("filipino" / "english") keep working. Anything else is surfaced
-        // as an explicit unavailability instead of silently speaking the
-        // wrong language (review 2026-08-06: Filipino lessons were being
-        // narrated with an English voice because the literal match never
-        // fired for "fil-PH").
         when {
             language.startsWith("fil") -> {
-                val filLocale = Locale.Builder()
-                    .setLanguage("fil")
-                    .setRegion("PH")
-                    .build()
+                val filLocale = Locale.Builder().setLanguage("fil").setRegion("PH").build()
                 val result = engine.setLanguage(filLocale)
-                if (result == TextToSpeech.LANG_MISSING_DATA ||
-                    result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    isSpeaking = false
-                    onDone = null
-                    onUnavailable?.invoke()
+                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    failSpeech(onUnavailable)
                     return
                 }
             }
@@ -83,34 +90,31 @@ class LessonTtsPlayer(context: Context) {
                     else Locale.US
             }
             else -> {
-                isSpeaking = false
-                onDone = null
-                onUnavailable?.invoke()
+                failSpeech(onUnavailable)
                 return
             }
         }
 
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
-            override fun onStart(utteranceId: String?) {}
+            override fun onStart(utteranceId: String?) = Unit
+
             override fun onDone(utteranceId: String?) {
                 isSpeaking = false
                 val callback = onDone
                 onDone = null
+                abandonAudioFocus()
                 callback?.invoke()
             }
+
             @Deprecated("")
             @Suppress("DEPRECATION")
             override fun onError(utteranceId: String?) {
-                isSpeaking = false
-                onDone = null
-                onUnavailable?.invoke()
+                failSpeech(onUnavailable)
             }
         })
 
         if (engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "lesson_narration") == TextToSpeech.ERROR) {
-            isSpeaking = false
-            onDone = null
-            onUnavailable?.invoke()
+            failSpeech(onUnavailable)
         }
     }
 
@@ -118,6 +122,8 @@ class LessonTtsPlayer(context: Context) {
         pendingRequest = null
         tts?.stop()
         isSpeaking = false
+        onDone = null
+        abandonAudioFocus()
     }
 
     fun isSpeaking(): Boolean = isSpeaking
@@ -128,5 +134,19 @@ class LessonTtsPlayer(context: Context) {
         tts?.stop()
         tts?.shutdown()
         tts = null
+        isSpeaking = false
+        onDone = null
+        abandonAudioFocus()
+    }
+
+    private fun failSpeech(onUnavailable: (() -> Unit)?) {
+        isSpeaking = false
+        onDone = null
+        abandonAudioFocus()
+        onUnavailable?.invoke()
+    }
+
+    private fun abandonAudioFocus() {
+        audioManager.abandonAudioFocusRequest(audioFocusRequest)
     }
 }

@@ -430,6 +430,7 @@ private fun QuickBitTikTokPage(
     // ExoPlayer dedicated to this page
     val player = remember {
         ExoPlayer.Builder(context).build().apply {
+            setAudioAttributes(mediaAudioAttributes(), true)
             repeatMode = Player.REPEAT_MODE_ONE
             playWhenReady = true
         }
