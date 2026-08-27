@@ -11,6 +11,7 @@ object QuestTargetResolver {
         completed: Set<String>,
         assets: List<MediaAsset>?,
         arenaPacks: List<AssessmentPackMetadata> = emptyList(),
+        isAssetDownloaded: (MediaAsset) -> Boolean = { false },
     ): List<QuestTargetUi> {
         if (assigned.isEmpty()) return emptyList()
         val assetById = assets.orEmpty().associateBy { it.mediaId }
@@ -29,6 +30,7 @@ object QuestTargetResolver {
                     isCompleted = mediaId in completed,
                     type = QuestTargetType.ARENA,
                     arenaPackId = pack.id,
+                    isReadyOffline = true,
                 )
             }
             if (assets == null) return@mapNotNull null
@@ -43,6 +45,7 @@ object QuestTargetResolver {
                 durationSeconds = asset.durationSeconds,
                 durationLabel = formatDuration(asset.durationSeconds),
                 isCompleted = mediaId in completed,
+                isReadyOffline = isAssetDownloaded(asset),
             )
         }
     }

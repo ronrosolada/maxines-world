@@ -320,6 +320,21 @@ internal fun TodayQuestCard(
                                             overflow = TextOverflow.Ellipsis,
                                         )
                                         Spacer(Modifier.width(8.dp))
+                                        if (target.isReadyOffline && !targetDone) {
+                                            Surface(
+                                                shape = RoundedCornerShape(8.dp),
+                                                color = PlaySuccess.copy(alpha = 0.15f),
+                                            ) {
+                                                Text(
+                                                    "🐾 Offline",
+                                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
+                                                    color = PlaySuccess,
+                                                    fontSize = 11.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                )
+                                            }
+                                            Spacer(Modifier.width(6.dp))
+                                        }
                                         Surface(
                                             shape = RoundedCornerShape(8.dp),
                                             color = if (target.type == QuestTargetType.ARENA) PlaySunshine.copy(alpha = 0.2f) else PlayTeal.copy(alpha = 0.12f),

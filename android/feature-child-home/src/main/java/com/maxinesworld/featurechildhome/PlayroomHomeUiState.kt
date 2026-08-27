@@ -81,6 +81,7 @@ data class QuestTargetUi(
     val isCompleted: Boolean,
     val type: QuestTargetType = QuestTargetType.VIDEO,
     val arenaPackId: String? = null,
+    val isReadyOffline: Boolean = false,
 )
 
 enum class QuestTargetType { VIDEO, ARENA }

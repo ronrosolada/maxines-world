@@ -19,6 +19,7 @@ class QuestTargetResolverTest {
             assigned = listOf("math-video", "english-video", "math-video"),
             completed = setOf("math-video"),
             assets = assets,
+            isAssetDownloaded = { it.mediaId == "math-video" },
         )
 
         assertEquals(2, targets.size)
@@ -28,7 +29,9 @@ class QuestTargetResolverTest {
         assertEquals(125, targets[0].durationSeconds)
         assertEquals("02:05", targets[0].durationLabel)
         assertTrue(targets[0].isCompleted)
+        assertTrue(targets[0].isReadyOffline)
         assertFalse(targets[1].isCompleted)
+        assertFalse(targets[1].isReadyOffline)
     }
 
     @Test
