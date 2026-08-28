@@ -12,6 +12,12 @@ data class ParentAccount(
     val createdAt: Long = System.currentTimeMillis()
 )
 
+enum class FilipinoProficiency {
+    BEGINNER,
+    INTERMEDIATE,
+    ADVANCED
+}
+
 data class ChildProfile(
     val id: String,
     val parentId: String,
@@ -19,6 +25,7 @@ data class ChildProfile(
     val avatarId: String = "cat_orange_default",
     val grade: Int = 3,
     val curriculum: String = "ph-matatag",
+    val filipinoProficiency: FilipinoProficiency = FilipinoProficiency.BEGINNER,
     val createdAt: Long = System.currentTimeMillis()
 )
 
