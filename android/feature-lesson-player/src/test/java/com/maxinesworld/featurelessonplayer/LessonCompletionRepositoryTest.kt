@@ -71,6 +71,8 @@ class LessonCompletionRepositoryTest {
         return LessonCompletionRepository(
             transactionRunner = ImmediateRunner(),
             progressEventDao = progressDao,
+            masteryRecordDao = mockk(relaxed = true),
+            masteryEngine = com.maxinesworld.enginemastery.MasteryEngine(),
             rewardDao = rewardDao,
             lessonCompletionDao = completionDao,
             badgeAwarder = badgeAwarder,

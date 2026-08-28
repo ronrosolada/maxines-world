@@ -2,11 +2,16 @@ package com.maxinesworld.featurechildhome
 
 import com.maxinesworld.corecontent.AssessmentRepository
 import com.maxinesworld.coremodel.AssessmentPackMetadata
+import com.maxinesworld.coremodel.MasteryRecord
+import com.maxinesworld.coremodel.MasteryState
+import com.maxinesworld.coremodel.MiloReviewQueueResolver
 import com.maxinesworld.coremodel.VideoQuestPlanner
 import com.maxinesworld.coredatabase.DailyQuestCompletionDao
 import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetDao
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
+import com.maxinesworld.coredatabase.MasteryRecordDao
+import com.maxinesworld.coredatabase.MasteryRecordEntity
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
@@ -17,6 +22,28 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 private const val MAX_ARENA_SLOTS = 2
+
+internal fun injectDueSpacedReviews(
+    records: List<MasteryRecordEntity>,
+    regularQuestIds: List<String>,
+    nowEpochMillis: Long = System.currentTimeMillis(),
+    limit: Int = 3,
+): List<String> {
+    val modelRecords = records.map { record ->
+        MasteryRecord(
+            childId = record.childId,
+            skillId = record.skillId,
+            state = runCatching { MasteryState.valueOf(record.state) }.getOrDefault(MasteryState.PRACTICING),
+            accuracy = record.accuracy,
+            totalAttempts = record.totalAttempts,
+            lastActivityAt = record.lastActivityAt,
+            nextReviewAt = record.nextReviewAt,
+        )
+    }
+    val reviewIds = MiloReviewQueueResolver.resolveDueItems(modelRecords, nowEpochMillis, limit)
+        .map { it.id }
+    return (reviewIds + regularQuestIds).distinct().take(limit)
+}
 
 /**
  * Prioritizes Foundations micro-lessons before native Grade 3 Filipino media targets
@@ -86,6 +113,7 @@ class DailyQuestManager @Inject constructor(
     private val assessmentRepository: AssessmentRepository,
     private val dailyQuestSetDao: DailyQuestSetDao,
     private val dailyQuestCompletionDao: DailyQuestCompletionDao,
+    private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
     private val dailyQuestRewardWriter: DailyQuestRewardWriter,
 ) {
@@ -99,7 +127,13 @@ class DailyQuestManager @Inject constructor(
         passedArenaPackIdsOverride: Set<String>? = null,
     ): DailyQuestProgress {
         val passedArenaPackIds = passedArenaPackIdsOverride ?: passedArenaPackIds(childId)
-        val selection = createSelection(childId, dayKey, passedMediaIds, passedArenaPackIds, availableMediaOverride)
+        val regularSelection = createSelection(childId, dayKey, passedMediaIds, passedArenaPackIds, availableMediaOverride)
+        val selection = Selection(
+            injectDueSpacedReviews(
+                records = masteryRecordDao.getByChild(childId),
+                regularQuestIds = regularSelection.ids,
+            )
+        )
         var set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, selection.ids)
         val persistedIds = parseIds(set.assignedQuestIds)
