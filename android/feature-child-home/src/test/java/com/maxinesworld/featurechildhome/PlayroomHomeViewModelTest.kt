@@ -563,6 +563,7 @@ class PlayroomHomeViewModelTest {
             every { progressEventDao.observeTimestampsByChild("child_1") } returns flowOf(streakTimestamps)
         }
         val mediaLibrary = mockk<MediaLibrary>()
+        every { mediaLibrary.isDownloaded(any()) } returns false
         if (videoCatalogLoadFails) {
             coEvery { mediaLibrary.getCatalog() } throws IllegalStateException("media catalog unavailable")
         } else {

@@ -695,7 +695,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                 )
                                 val watchMinutes = state.accreditedWatchSeconds / 60
                                 Text(
-                                    "$watchMinutes mins accredited · ${state.passedVideoCount} videos mastered",
+                                    "$watchMinutes mins accredited · ${state.passedVideoCount} video checks passed",
                                     fontSize = 13.sp,
                                     color = Ink.copy(alpha = 0.6f)
                                 )

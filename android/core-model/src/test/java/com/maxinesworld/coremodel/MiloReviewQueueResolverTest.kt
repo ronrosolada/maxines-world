@@ -16,7 +16,7 @@ class MiloReviewQueueResolverTest {
                 skillId = "math-place-value",
                 state = MasteryState.NEEDS_REVIEW,
                 accuracy = 0.4,
-                lastPracticed = now - TimeUnit.DAYS.toMillis(2),
+                lastActivityAt = now - TimeUnit.DAYS.toMillis(2),
                 nextReviewAt = now - TimeUnit.DAYS.toMillis(1),
             ),
             MasteryRecord(
@@ -24,7 +24,7 @@ class MiloReviewQueueResolverTest {
                 skillId = "sci-living-things",
                 state = MasteryState.PRACTICING,
                 accuracy = 0.8,
-                lastPracticed = now - TimeUnit.DAYS.toMillis(4),
+                lastActivityAt = now - TimeUnit.DAYS.toMillis(4),
                 nextReviewAt = now - TimeUnit.DAYS.toMillis(1),
             )
         )
@@ -46,7 +46,7 @@ class MiloReviewQueueResolverTest {
                 skillId = "eng-rhyming",
                 state = MasteryState.MASTERED,
                 accuracy = 0.95,
-                lastPracticed = now,
+                lastActivityAt = now,
                 nextReviewAt = now + TimeUnit.DAYS.toMillis(30),
             )
         )
