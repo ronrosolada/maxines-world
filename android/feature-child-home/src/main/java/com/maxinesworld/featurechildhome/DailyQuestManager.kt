@@ -18,6 +18,30 @@ import kotlinx.serialization.json.Json
 
 private const val MAX_ARENA_SLOTS = 2
 
+/**
+ * Prioritizes Foundations micro-lessons before native Grade 3 Filipino media targets
+ * when a child profile is classified as BEGINNER in Filipino proficiency.
+ */
+internal fun prioritizeFilipinoFoundations(
+    proficiency: com.maxinesworld.coremodel.FilipinoProficiency,
+    foundationIds: List<String>,
+    regularQuestIds: List<String>,
+    passedQuestIds: Set<String>,
+    limit: Int = 3,
+): List<String> {
+    if (proficiency != com.maxinesworld.coremodel.FilipinoProficiency.BEGINNER) {
+        return regularQuestIds
+    }
+    val unpassedFoundations = foundationIds.filter { it !in passedQuestIds }
+    if (unpassedFoundations.isEmpty()) {
+        return regularQuestIds
+    }
+    val nonFilipinoRegular = regularQuestIds.filterNot { it.contains("filipino", ignoreCase = true) }
+    val combined = (unpassedFoundations + nonFilipinoRegular).distinct()
+    return combined.take(limit)
+}
+
+
 /** Persisted daily mission progress. IDs are opaque quest IDs, not lesson IDs. */
 data class DailyQuestProgress(
     val dayKey: String,

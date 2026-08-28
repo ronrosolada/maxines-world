@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 11,
-    "identityHash": "34440705e6f98e09e82675e621204dc7",
+    "identityHash": "2af56da035bf2417e979c27ede2c37fe",
     "entities": [
       {
         "tableName": "parent_accounts",
@@ -48,7 +48,7 @@
       },
       {
         "tableName": "child_profiles",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `parentId` TEXT NOT NULL, `name` TEXT NOT NULL, `avatarId` TEXT NOT NULL, `grade` INTEGER NOT NULL, `curriculum` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `parentId` TEXT NOT NULL, `name` TEXT NOT NULL, `avatarId` TEXT NOT NULL, `grade` INTEGER NOT NULL, `curriculum` TEXT NOT NULL, `filipinoProficiency` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -83,6 +83,12 @@
           {
             "fieldPath": "curriculum",
             "columnName": "curriculum",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filipinoProficiency",
+            "columnName": "filipinoProficiency",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -1386,7 +1392,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '34440705e6f98e09e82675e621204dc7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2af56da035bf2417e979c27ede2c37fe')"
     ]
   }
 }

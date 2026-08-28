@@ -10,3 +10,6 @@
 | Task 3 (Video Checkpoints) | Parse `video-checkpoints.json`, wire pause UI into ExoPlayer | Clean |
 | Task 4 (Mastery & Spaced Review) | Wire `MasteryEngine` + `MiloReviewQueueResolver` to Daily Quest | Clean |
 | Task 5 (Assessment Re-authoring) | Re-author 100 Filipino video assessments (500 items) with unique prompts | Clean |
+
+## Task Progress
+- Task 1: complete (commits 5a186dd2..1e110f57, catalog parity validated in CI)
