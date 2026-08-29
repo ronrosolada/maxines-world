@@ -6,15 +6,20 @@ import com.maxinesworld.coremodel.MasteryRecord
 import com.maxinesworld.coremodel.MasteryState
 import com.maxinesworld.coremodel.MiloReviewQueueResolver
 import com.maxinesworld.coremodel.VideoQuestPlanner
+import com.maxinesworld.coremodel.CaregiverPhraseCard
+import com.maxinesworld.coremodel.FilipinoProficiency
 import com.maxinesworld.coredatabase.DailyQuestCompletionDao
+import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetDao
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MasteryRecordDao
 import com.maxinesworld.coredatabase.MasteryRecordEntity
 import com.maxinesworld.coredatabase.RewardDao
+import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featureparent.CaregiverPhraseRepository
 import dagger.hilt.android.scopes.ViewModelScoped
 import java.time.LocalDate
 import javax.inject.Inject
@@ -22,6 +27,21 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 private const val MAX_ARENA_SLOTS = 2
+private const val HOME_PHRASE_PREFIX = "home-phrase:"
+
+internal fun includeHomePracticeMission(
+    proficiency: FilipinoProficiency,
+    phraseCardIds: List<String>,
+    regularQuestIds: List<String>,
+    dayKey: String,
+): List<String> {
+    if (proficiency != FilipinoProficiency.BEGINNER || phraseCardIds.isEmpty()) return regularQuestIds
+    val index = Math.floorMod(dayKey.hashCode(), phraseCardIds.size)
+    return (listOf("$HOME_PHRASE_PREFIX${phraseCardIds[index]}") + regularQuestIds).distinct()
+}
+
+internal fun homePhraseRewardId(childId: String, dayKey: String, questId: String): String =
+    "home-phrase-star:$childId:$dayKey:${questId.removePrefix(HOME_PHRASE_PREFIX)}"
 
 internal fun injectDueSpacedReviews(
     records: List<MasteryRecordEntity>,
@@ -75,6 +95,7 @@ data class DailyQuestProgress(
     val assignedMediaIds: List<String>,
     val completedMediaIds: List<String>,
     val arenaPacks: List<AssessmentPackMetadata> = emptyList(),
+    val homePhraseCards: List<CaregiverPhraseCard> = emptyList(),
 ) {
     /** Semantic alias for mixed video/Arena missions. */
     val assignedQuestIds: List<String> get() = assignedMediaIds
@@ -116,6 +137,8 @@ class DailyQuestManager @Inject constructor(
     private val masteryRecordDao: MasteryRecordDao,
     private val rewardDao: RewardDao,
     private val dailyQuestRewardWriter: DailyQuestRewardWriter,
+    private val caregiverPhraseRepository: CaregiverPhraseRepository,
+    private val childProfileDao: ChildProfileDao,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -126,19 +149,29 @@ class DailyQuestManager @Inject constructor(
         availableMediaOverride: List<String>? = null,
         passedArenaPackIdsOverride: Set<String>? = null,
     ): DailyQuestProgress {
+        val filipinoProficiency = runCatching {
+            FilipinoProficiency.valueOf(childProfileDao.getById(childId)?.filipinoProficiency.orEmpty())
+        }.getOrDefault(FilipinoProficiency.BEGINNER)
         val passedArenaPackIds = passedArenaPackIdsOverride ?: passedArenaPackIds(childId)
         val regularSelection = createSelection(childId, dayKey, passedMediaIds, passedArenaPackIds, availableMediaOverride)
         val selection = Selection(
-            injectDueSpacedReviews(
-                records = masteryRecordDao.getByChild(childId),
-                regularQuestIds = regularSelection.ids,
+            includeHomePracticeMission(
+                proficiency = filipinoProficiency,
+                phraseCardIds = caregiverPhraseRepository.loadCards().map { it.id },
+                regularQuestIds = injectDueSpacedReviews(
+                    records = masteryRecordDao.getByChild(childId),
+                    regularQuestIds = regularSelection.ids,
+                ),
+                dayKey = dayKey,
             )
         )
         var set = dailyQuestSetDao.getByChildAndDay(childId, dayKey)
             ?: createSet(childId, dayKey, selection.ids)
         val persistedIds = parseIds(set.assignedQuestIds)
         val upgradedLegacyAssignment = persistedIds.any(::isLegacyLessonId)
-        if (upgradedLegacyAssignment) {
+        val needsBeginnerHomeMission = filipinoProficiency == FilipinoProficiency.BEGINNER &&
+            persistedIds.none { it.startsWith(HOME_PHRASE_PREFIX) }
+        if (upgradedLegacyAssignment || needsBeginnerHomeMission) {
             dailyQuestSetDao.updateAssignedQuestIds(
                 childId = childId,
                 dayKey = dayKey,
@@ -161,13 +194,40 @@ class DailyQuestManager @Inject constructor(
         dailyQuestRewardWriter.reconcile(childId, dayKey)
         val completed = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
-            .filter { it in assigned && isPassedQuest(it, passedMediaIds, passedArenaPackIds) }
+            .filter { it in assigned && (it.startsWith(HOME_PHRASE_PREFIX) || isPassedQuest(it, passedMediaIds, passedArenaPackIds)) }
         return DailyQuestProgress(
             dayKey = dayKey,
             assignedMediaIds = assigned,
             completedMediaIds = completed,
             arenaPacks = arenaPacksForAssigned(assigned),
+            homePhraseCards = caregiverPhraseRepository.loadCards().filter { "$HOME_PHRASE_PREFIX${it.id}" in assigned },
         )
+    }
+
+    suspend fun markHomePhrasePracticed(childId: String, dayKey: String, questId: String) {
+        require(questId.startsWith(HOME_PHRASE_PREFIX))
+        val assigned = dailyQuestSetDao.getByChildAndDay(childId, dayKey)?.let { parseIds(it.assignedQuestIds) }.orEmpty()
+        require(questId in assigned) { "Home phrase is not assigned for this day" }
+        dailyQuestCompletionDao.insertIgnoring(
+            DailyQuestCompletionEntity(
+                id = "$childId:$dayKey:$questId",
+                childId = childId,
+                dayKey = dayKey,
+                questId = questId,
+                completionEventId = "home-practice:$childId:$dayKey:$questId",
+            )
+        )
+        rewardDao.insertIgnoring(
+            RewardEntity(
+                id = homePhraseRewardId(childId, dayKey, questId),
+                childId = childId,
+                type = "STAR",
+                subject = "filipino",
+                amount = 1,
+                metadata = "home_phrase_practiced:${questId.removePrefix(HOME_PHRASE_PREFIX)}",
+            )
+        )
+        dailyQuestRewardWriter.reconcile(childId, dayKey)
     }
 
     private suspend fun createSet(

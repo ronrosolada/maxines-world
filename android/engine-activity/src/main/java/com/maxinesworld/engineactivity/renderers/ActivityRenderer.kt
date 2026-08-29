@@ -35,6 +35,8 @@ fun ActivityRenderer(
             InteractiveSpecRenderer(step, onResult, onHint, modifier)
         "WRITING_PRODUCTION_V1" ->
             WritingProductionRenderer(step, onResult, onHint, modifier, language = step.language)
+        "VOICE_RECORD_V1" ->
+            AudioRecordPlaybackRenderer(step, onResult, onHint, modifier)
         else -> throw UnsupportedActivityError(step.type)
     }
 }

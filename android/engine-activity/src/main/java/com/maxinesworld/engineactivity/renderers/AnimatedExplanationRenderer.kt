@@ -45,14 +45,14 @@ fun AnimatedExplanationRenderer(
             text = narrationPhrase(step),
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.semantics {
-                contentDescription = "Instruction: ${step.narrationText.ifEmpty { step.question }}"
+                contentDescription = activityUiText(step.language, "Instruction", "Panuto") + ": ${step.narrationText.ifEmpty { step.question }}"
             }
         )
 
         TextButton(onClick = { onNarrationReplay(narrationPhrase(step)) }) {
             Icon(Icons.Default.Replay, contentDescription = null)
             Spacer(Modifier.width(8.dp))
-            Text("Replay Phrase")
+            Text(activityUiText(step.language, "Listen", "Makinig"))
         }
 
         ActivityHint(step = step, onHint = onHint)
@@ -72,12 +72,12 @@ fun AnimatedExplanationRenderer(
                     )
                 )
             },
-            text = "Continue",
+            text = activityUiText(step.language, "Continue", "Magpatuloy"),
             containerColor = VillageTeal,
             modifier = Modifier
                 .fillMaxWidth()
                 .sizeIn(minHeight = 56.dp)
-                .semantics { contentDescription = "Continue to next activity" }
+                .semantics { contentDescription = activityUiText(step.language, "Continue to next activity", "Magpatuloy sa susunod na gawain") }
         )
     }
 }

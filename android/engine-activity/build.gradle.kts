@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":core-design-system"))
     implementation(project(":core-content"))
     implementation(libs.core.ktx)
+    implementation(libs.activity.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)

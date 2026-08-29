@@ -23,6 +23,7 @@ dependencies {
     implementation(project(":core-database"))
     implementation(project(":core-network"))
     implementation(project(":feature-rewards"))
+    implementation(project(":feature-parent"))
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)

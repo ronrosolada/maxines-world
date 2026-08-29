@@ -93,4 +93,38 @@ class DailyQuestManagerFoundationsTest {
             ),
         )
     }
+
+    @Test
+    fun `beginner daily quest includes one deterministic home phrase mission`() {
+        assertEquals(
+            listOf("home-phrase:routine-thank-you", "science-video-01"),
+            includeHomePracticeMission(
+                proficiency = FilipinoProficiency.BEGINNER,
+                phraseCardIds = listOf("greeting-good-morning", "routine-thank-you"),
+                regularQuestIds = listOf("science-video-01"),
+                dayKey = "2026-08-30",
+            ),
+        )
+    }
+
+    @Test
+    fun `non beginner daily quest does not include home phrase mission`() {
+        assertEquals(
+            listOf("science-video-01"),
+            includeHomePracticeMission(
+                proficiency = FilipinoProficiency.INTERMEDIATE,
+                phraseCardIds = listOf("greeting-good-morning"),
+                regularQuestIds = listOf("science-video-01"),
+                dayKey = "2026-08-30",
+            ),
+        )
+    }
+
+    @Test
+    fun `home phrase reward key is stable for idempotent star grant`() {
+        assertEquals(
+            "home-phrase-star:child-1:2026-08-30:greeting-good-morning",
+            homePhraseRewardId("child-1", "2026-08-30", "home-phrase:greeting-good-morning"),
+        )
+    }
 }

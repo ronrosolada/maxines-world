@@ -195,14 +195,14 @@ fun MultipleChoiceRenderer(
                         hintVisible = true
                         onHint()
                     },
-                    text = "Hint",
+                    text = activityUiText(step.language, "Hint", "Pahiwatig"),
                     containerColor = SunshineGold,
                     contentColor = OnGold,
                     enabled = !submitted || feedbackState == false,
                     modifier = Modifier
                         .weight(1f)
                         .sizeIn(minHeight = 48.dp)
-                        .semantics { contentDescription = "Get a hint" }
+                        .semantics { contentDescription = activityUiText(step.language, "Get a hint", "Kumuha ng pahiwatig") }
                 )
             }
 
@@ -235,9 +235,9 @@ fun MultipleChoiceRenderer(
                     }
                 },
                 text = when {
-                    submitted && feedbackState == false && attempts >= 3 -> "Keep going →"
-                    submitted && feedbackState == false -> "Retry"
-                    else -> "Submit"
+                    submitted && feedbackState == false && attempts >= 3 -> activityUiText(step.language, "Keep going →", "Magpatuloy →")
+                    submitted && feedbackState == false -> activityUiText(step.language, "Try Again", "Subukan Muli")
+                    else -> activityUiText(step.language, "Submit", "Isumite")
                 },
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
                 contentColor = if (submitted && feedbackState == false) OnCoral else White,
@@ -246,7 +246,7 @@ fun MultipleChoiceRenderer(
                     .weight(1f)
                     .sizeIn(minHeight = 48.dp)
                     .semantics {
-                        contentDescription = if (submitted && feedbackState == false) "Retry" else "Submit answer"
+                        contentDescription = if (submitted && feedbackState == false) activityUiText(step.language, "Try Again", "Subukan Muli") else activityUiText(step.language, "Submit answer", "Isumite ang sagot")
                     }
             )
         }
