@@ -98,9 +98,22 @@ object MaxinesMigrations {
 
     val MIGRATION_11_12 = object : Migration(11, 12) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            db.execSQL(
-                "ALTER TABLE `child_profiles` ADD COLUMN `filipinoProficiency` TEXT NOT NULL DEFAULT 'BEGINNER'"
-            )
+            val cursor = db.query("PRAGMA table_info(`child_profiles`)")
+            var hasColumn = false
+            while (cursor.moveToNext()) {
+                val nameIndex = cursor.getColumnIndex("name")
+                if (nameIndex >= 0 && cursor.getString(nameIndex) == "filipinoProficiency") {
+                    hasColumn = true
+                    break
+                }
+            }
+            cursor.close()
+
+            if (!hasColumn) {
+                db.execSQL(
+                    "ALTER TABLE `child_profiles` ADD COLUMN `filipinoProficiency` TEXT NOT NULL DEFAULT 'BEGINNER'"
+                )
+            }
         }
     }
 
