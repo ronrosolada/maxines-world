@@ -269,11 +269,33 @@ class ContentPackIntegrityTest {
                             failures += "$id: needs at least 2 steps"
                         }
                     }
+
+                    "WRITING_PRODUCTION" -> {
+                        val obj = content as? JsonObject
+                        val tiles = obj?.get("tiles")?.jsonArray
+                        val checklist = obj?.get("checklist")?.jsonArray
+                        if (activity.capability != "WRITING_PRODUCTION_V1") {
+                            failures += "$id: capability must be WRITING_PRODUCTION_V1"
+                        }
+                        if (tiles == null || tiles.size < 3) failures += "$id: needs at least 3 sentence tiles"
+                        if (checklist == null || checklist.size < 2) failures += "$id: needs at least 2 self-mark checklist items"
+                    }
                 }
             }
         }
 
         assertTrue("Content payload problems:\n" + failures.joinToString("\n"), failures.isEmpty())
+    }
+
+    @Test
+    fun `English recount and Filipino salaysay objectives have production tasks`() {
+        val required = listOf("english-g3-q1-w01-d04.json", "filipino-g3-m01-d12.json")
+        required.forEach { name ->
+            val lesson = json.decodeFromString<Month1Lesson>(lessonsDir().resolve(name).readText())
+            val task = lesson.activities.singleOrNull { it.type == "WRITING_PRODUCTION" }
+            assertTrue("$name must actively assess its production objective", task != null)
+            assertEquals("WRITING_PRODUCTION_V1", task?.capability)
+        }
     }
 
     @Test

@@ -79,4 +79,11 @@ class WritingProductionRendererTest {
         assertFalse(writingChecklistComplete(listOf(true, false, true)))
         assertFalse(writingChecklistComplete(emptyList()))
     }
+
+    @Test
+    fun `production task contract has sentence tiles and checklist before rendering`() {
+        assertTrue(writingProductionContentIsRenderable(5, 3))
+        assertFalse(writingProductionContentIsRenderable(0, 3))
+        assertFalse(writingProductionContentIsRenderable(5, 0))
+    }
 }

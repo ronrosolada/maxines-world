@@ -14,11 +14,23 @@ import java.io.File
  */
 class VideoFirstRouteAuditTest {
 
-    private fun repoRoot(): File = listOf(
-        File("."),
-        File("android"),
-        File("/home/ron/projects/maxines-world"),
-    ).first { File(it, "android/app/src/main/java/com/maxinesworld/app/MaxinesNavGraph.kt").isFile }
+    private fun repoRoot(): File {
+        val start = File(System.getProperty("user.dir") ?: ".").canonicalFile
+        val candidates = generateSequence(start) { it.parentFile }
+            .flatMap { directory ->
+                sequenceOf(
+                    directory.takeIf { File(it, ".git").exists() },
+                    directory.parentFile.takeIf {
+                        File(directory, "settings.gradle.kts").isFile && directory.name == "android"
+                    },
+                ).filterNotNull()
+            }
+            .distinct()
+
+        return candidates.firstOrNull { candidate ->
+            File(candidate, "android/app/src/main/java/com/maxinesworld/app/MaxinesNavGraph.kt").isFile
+        } ?: error("Could not locate repository root from ${start.path}")
+    }
 
     private fun navGraph(): File = File(
         repoRoot(),

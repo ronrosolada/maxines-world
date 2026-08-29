@@ -456,4 +456,36 @@ class MigrationTest {
         retried.close()
         dbV9.close()
     }
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate11to12_addsFilipinoProficiencyAndPreservesChildProfile() = runTest {
+        helper.createDatabase(TEST_DB, 11).apply {
+            // The checked-in v11 schema was regenerated after the entity changed, so
+            // recreate the actual shipped v11 table shape that lacked this column.
+            execSQL("ALTER TABLE child_profiles DROP COLUMN filipinoProficiency")
+            execSQL(
+                "INSERT INTO child_profiles (id, parentId, name, avatarId, grade, curriculum, createdAt) " +
+                    "VALUES ('child_1', 'parent_1', 'Maxine', 'cat_orange_default', 3, 'ph-matatag', 1700000000000)"
+            )
+            close()
+        }
+
+        val dbV12 = helper.runMigrationsAndValidate(
+            TEST_DB,
+            12,
+            true,
+            MaxinesMigrations.MIGRATION_11_12,
+        )
+        val child = dbV12.query("SELECT * FROM child_profiles WHERE id = 'child_1'")
+        assertTrue("child profile preserved across v12 migration", child.moveToFirst())
+        assertEquals("Maxine", child.getString(child.getColumnIndexOrThrow("name")))
+        assertEquals(
+            "existing children default to beginner Filipino proficiency",
+            "BEGINNER",
+            child.getString(child.getColumnIndexOrThrow("filipinoProficiency")),
+        )
+        child.close()
+        dbV12.close()
+    }
 }

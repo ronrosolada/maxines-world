@@ -366,8 +366,30 @@ class ActivityStepConversionTest {
             "SEQUENCE_BUILDER" to "SEQUENCE_BUILDER_V1",
             "INTERACTIVE_SPEC" to "INTERACTIVE_SPEC_V1",
             "VIDEO" to "VIDEO_V1",
+            "VOICE_RECORD" to "VOICE_RECORD_V1",
+            "SCRIPTED_DIALOGUE" to "SCRIPTED_DIALOGUE_V1",
         )
         expected.forEach { (raw, versioned) -> assertEquals(versioned, rendererType(raw)) }
+    }
+
+    @Test
+    fun `voice recording payload carries model phrase`() {
+        val step = toActivityStep(activity("VOICE_RECORD", """{"targetPhrase":"Salamat po"}"""))
+        assertEquals("VOICE_RECORD_V1", step.type)
+        assertEquals("Salamat po", step.targetPhrase)
+        assertFalse(step.scored)
+    }
+
+    @Test
+    fun `scripted dialogue payload carries prompts and responses`() {
+        val step = toActivityStep(activity(
+            "SCRIPTED_DIALOGUE",
+            """{"prompts":["Kamusta ka?","Saan ka pupunta?"],"responses":["Mabuti po!","Sa paaralan po!"]}""",
+        ))
+        assertEquals("SCRIPTED_DIALOGUE_V1", step.type)
+        assertEquals(listOf("Kamusta ka?", "Saan ka pupunta?"), step.dialoguePrompts)
+        assertEquals(listOf("Mabuti po!", "Sa paaralan po!"), step.dialogueResponses)
+        assertFalse(step.scored)
     }
 
     @Test

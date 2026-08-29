@@ -329,6 +329,8 @@ internal fun rendererType(rawType: String): String? = when (rawType) {
     "SEQUENCE_BUILDER" -> "SEQUENCE_BUILDER_V1"
     "INTERACTIVE_SPEC" -> "INTERACTIVE_SPEC_V1"
     "WRITING_PRODUCTION" -> "WRITING_PRODUCTION_V1"
+    "VOICE_RECORD" -> "VOICE_RECORD_V1"
+    "SCRIPTED_DIALOGUE" -> "SCRIPTED_DIALOGUE_V1"
     "VIDEO" -> "VIDEO_V1"
     else -> null
 }
@@ -420,6 +422,9 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
     var hotspotExamples: List<String> = emptyList()
     var writingTiles: List<String> = emptyList()
     var writingChecklist: List<String> = emptyList()
+    var targetPhrase: String = ""
+    var dialoguePrompts: List<String> = emptyList()
+    var dialogueResponses: List<String> = emptyList()
     var narration = childFacingInstruction
     var mediaId = act.mediaId ?: obj?.get("mediaId")?.jsonPrimitive?.contentOrNull()
 
@@ -493,6 +498,15 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
                 writingChecklist = obj?.stringList("checklist") ?: emptyList()
             }
 
+            "VOICE_RECORD" -> {
+                targetPhrase = obj?.get("targetPhrase")?.jsonPrimitive?.contentOrNull().orEmpty()
+            }
+
+            "SCRIPTED_DIALOGUE" -> {
+                dialoguePrompts = obj?.stringList("prompts") ?: emptyList()
+                dialogueResponses = obj?.stringList("responses") ?: emptyList()
+            }
+
             "VIDEO" -> {
                 // A video is an optional, unscored learning step. Keep the
                 // authored instruction as the sole child-facing prompt.
@@ -554,6 +568,9 @@ internal fun toActivityStep(act: Month1Activity, language: String? = null): Acti
         hotspotExamples = hotspotExamples,
         writingTiles = writingTiles,
         writingChecklist = writingChecklist,
+        targetPhrase = targetPhrase,
+        dialoguePrompts = dialoguePrompts,
+        dialogueResponses = dialogueResponses,
         completionRule = act.completionRule?.type.orEmpty(),
         completionTargetCount = act.completionRule?.targetCount ?: 0,
         language = language ?: "english",

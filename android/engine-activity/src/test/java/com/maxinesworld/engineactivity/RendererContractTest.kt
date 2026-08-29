@@ -16,6 +16,8 @@ import com.maxinesworld.engineactivity.renderers.retainCorrectSortPlacements
 import com.maxinesworld.engineactivity.renderers.sequenceActionDescription
 import com.maxinesworld.engineactivity.renderers.sequenceActionEnabled
 import com.maxinesworld.engineactivity.renderers.sequenceActionLabel
+import com.maxinesworld.engineactivity.renderers.nextDialogueTurn
+import com.maxinesworld.engineactivity.renderers.voiceCompletionFeedback
 import org.junit.Assert.assertEquals
 import androidx.compose.ui.unit.dp
 import org.junit.Assert.assertFalse
@@ -27,6 +29,19 @@ import org.junit.Test
  * rely on. They do not instantiate Compose.
  */
 class RendererContractTest {
+
+    @Test
+    fun `voice completion is supportive and never rejects pronunciation`() {
+        assertEquals("Ang galing!", voiceCompletionFeedback("fil-PH"))
+        assertEquals("Great speaking!", voiceCompletionFeedback("english"))
+    }
+
+    @Test
+    fun `dialogue advances one turn and caps at completion`() {
+        assertEquals(1, nextDialogueTurn(0, 2))
+        assertEquals(2, nextDialogueTurn(1, 2))
+        assertEquals(2, nextDialogueTurn(2, 2))
+    }
 
     @Test
     fun `lesson visual uses the first authored asset and ignores blanks`() {

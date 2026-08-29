@@ -18,7 +18,9 @@ import json
 import os
 import sys
 
-ROOT = "/home/ron/workspace/maxines-world/android/app/src/main/assets/content-pack/month-01/lessons"
+ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "app", "src", "main", "assets", "content-pack", "month-01", "lessons")
+)
 
 # lesson_id -> (instruction, tiles, checklist, hint, accessibility)
 PILOT = {

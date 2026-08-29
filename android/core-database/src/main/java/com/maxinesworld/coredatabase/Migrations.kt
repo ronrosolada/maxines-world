@@ -96,6 +96,14 @@ object MaxinesMigrations {
         }
     }
 
+    val MIGRATION_11_12 = object : Migration(11, 12) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `child_profiles` ADD COLUMN `filipinoProficiency` TEXT NOT NULL DEFAULT 'BEGINNER'"
+            )
+        }
+    }
+
     val ALL_MIGRATIONS = arrayOf(
         MIGRATION_1_2,
         MIGRATION_2_3,
@@ -106,6 +114,7 @@ object MaxinesMigrations {
         MIGRATION_8_9,
         MIGRATION_9_10,
         MIGRATION_10_11,
+        MIGRATION_11_12,
     )
 
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {

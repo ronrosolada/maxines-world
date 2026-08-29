@@ -81,6 +81,12 @@ data class ActivityStep(
     val writingTiles: List<String> = emptyList(),
     /** WRITING_PRODUCTION_V1: self-mark checklist prompts shown in order. */
     val writingChecklist: List<String> = emptyList(),
+    /** VOICE_RECORD_V1: target phrase modeled for repetition. */
+    val targetPhrase: String = "",
+    /** SCRIPTED_DIALOGUE_V1: conversation prompt turns from Milo. */
+    val dialoguePrompts: List<String> = emptyList(),
+    /** SCRIPTED_DIALOGUE_V1: conversation response options/targets. */
+    val dialogueResponses: List<String> = emptyList(),
     /** Authored hint text. Empty means this activity has no hint affordance. */
     val hintText: String = "",
     /**
