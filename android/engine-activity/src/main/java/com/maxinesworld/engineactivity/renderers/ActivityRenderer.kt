@@ -16,12 +16,13 @@ fun ActivityRenderer(
     onHint: () -> Unit = {},
     modifier: Modifier = Modifier,
     onAdvance: () -> Unit = {},
+    onNarrationReplay: (String) -> Unit = {},
 ) {
     when (step.type) {
         "ANIMATED_EXPLANATION_V1" ->
-            AnimatedExplanationRenderer(step, onResult, onHint, modifier)
+            AnimatedExplanationRenderer(step, onResult, onHint, modifier, onNarrationReplay)
         "MULTIPLE_CHOICE_V1" ->
-            MultipleChoiceRenderer(step, onResult, onHint, modifier)
+            MultipleChoiceRenderer(step, onResult, onHint, modifier, onNarrationReplay)
         "SORT_AND_CLASSIFY_V1" ->
             SortAndClassifyRenderer(step, onResult, onHint, modifier, onAdvance)
         "HOTSPOT_IMAGE_V1" ->

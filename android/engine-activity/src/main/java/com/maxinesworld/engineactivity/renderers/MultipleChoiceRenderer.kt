@@ -5,6 +5,10 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
@@ -28,7 +32,8 @@ fun MultipleChoiceRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNarrationReplay: (String) -> Unit = {},
 ) {
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
@@ -72,6 +77,14 @@ fun MultipleChoiceRenderer(
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Question: ${step.question}" }
         )
+
+        if (hasReplayableNarration(step)) {
+            TextButton(onClick = { onNarrationReplay(narrationPhrase(step)) }) {
+                Icon(Icons.Default.Replay, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text("Replay Phrase")
+            }
+        }
 
         options.forEachIndexed { index, option ->
             val cardState = when {

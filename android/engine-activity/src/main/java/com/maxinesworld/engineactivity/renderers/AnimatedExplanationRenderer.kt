@@ -3,6 +3,10 @@ package com.maxinesworld.engineactivity.renderers
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,7 +27,8 @@ fun AnimatedExplanationRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNarrationReplay: (String) -> Unit = {},
 ) {
     val startTime = remember { System.currentTimeMillis() }
 
@@ -37,12 +42,18 @@ fun AnimatedExplanationRenderer(
         LessonVisual(step)
 
         Text(
-            text = step.narrationText.ifEmpty { step.question },
+            text = narrationPhrase(step),
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.semantics {
                 contentDescription = "Instruction: ${step.narrationText.ifEmpty { step.question }}"
             }
         )
+
+        TextButton(onClick = { onNarrationReplay(narrationPhrase(step)) }) {
+            Icon(Icons.Default.Replay, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text("Replay Phrase")
+        }
 
         ActivityHint(step = step, onHint = onHint)
 
@@ -70,3 +81,9 @@ fun AnimatedExplanationRenderer(
         )
     }
 }
+
+internal fun narrationPhrase(step: ActivityStep): String =
+    step.narrationText.ifBlank { step.question }
+
+internal fun hasReplayableNarration(step: ActivityStep): Boolean =
+    step.narrationText.isNotBlank()
