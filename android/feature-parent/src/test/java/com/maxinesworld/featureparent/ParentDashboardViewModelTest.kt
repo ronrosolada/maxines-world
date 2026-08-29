@@ -199,6 +199,54 @@ class ParentDashboardViewModelTest {
     }
 
     @Test
+    fun `load exposes Filipino proficiency and foundations progress reactively`() = runTest {
+        val childId = "child_maxine"
+        childFlow.value = ChildProfileEntity(
+            id = childId, parentId = "parent", name = "Maxine",
+            filipinoProficiency = "INTERMEDIATE",
+        )
+        progressFlow.value = listOf(
+            ProgressEventEntity("p1", childId, "skill", "filipino-foundations-01", "a1", "COMPLETED", 1.0),
+            ProgressEventEntity("p2", childId, "skill", "filipino-foundations-05", "a2", "COMPLETED", 1.0),
+            ProgressEventEntity("p3", childId, "skill", "filipino-foundations-12", "a3", "COMPLETED", 1.0),
+        )
+
+        loadAndWait(childId)
+
+        assertEquals("INTERMEDIATE", viewModel.state.value.filipinoProficiency)
+        assertEquals(24, viewModel.state.value.foundationsProgress.sumOf { it.total })
+        assertEquals(3, viewModel.state.value.foundationsProgress.sumOf { it.completed })
+
+        childFlow.value = childFlow.value!!.copy(filipinoProficiency = "ADVANCED")
+        testDispatcher.scheduler.advanceUntilIdle()
+        assertEquals("ADVANCED", viewModel.state.value.filipinoProficiency)
+    }
+
+    @Test
+    fun `onUpdateProficiency upserts copied child profile`() = runTest {
+        val childId = "child_maxine"
+        val child = ChildProfileEntity(id = childId, parentId = "parent", name = "Maxine")
+        childFlow.value = child
+        coEvery { childProfileDao.getById(childId) } returns child
+        loadAndWait(childId)
+
+        viewModel.onUpdateProficiency("INTERMEDIATE")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            childProfileDao.upsert(match { it.id == childId && it.filipinoProficiency == "INTERMEDIATE" })
+        }
+    }
+
+    @Test
+    fun `onUpdateProficiency ignores unsupported values`() = runTest {
+        loadAndWait("child_maxine")
+        viewModel.onUpdateProficiency("FLUENT")
+        testDispatcher.scheduler.advanceUntilIdle()
+        coVerify(exactly = 0) { childProfileDao.upsert(any()) }
+    }
+
+    @Test
     fun `prefetchMedia calls videoPrefetchManager and updates state message`() = runTest {
         coEvery { videoPrefetchManager.prefetchNextVideos(3) } returns 2
         every { videoPrefetchManager.getStorageUsedBytes() } returns 10485760L // 10 MB
