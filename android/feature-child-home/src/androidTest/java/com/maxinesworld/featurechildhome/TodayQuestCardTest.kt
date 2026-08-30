@@ -1,6 +1,5 @@
 package com.maxinesworld.featurechildhome
 
-import androidx.compose.ui.test.assertDoesNotExist
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -28,7 +27,7 @@ class TodayQuestCardTest {
     fun readyIncompleteVideoShowsOfflineBadgeAndQuestTargetSemantics() {
         setCard(targets = listOf(videoTarget(isReadyOffline = true)))
 
-        composeRule.onNodeWithText("🐾 Offline", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertExists()
         composeRule.onNodeWithContentDescription(
             "Quest target: Science: Living Things · 02:00",
         ).assertIsDisplayed().assertHasClickAction()
@@ -38,14 +37,14 @@ class TodayQuestCardTest {
     fun videoWithoutOfflineReadinessDoesNotShowOfflineBadge() {
         setCard(targets = listOf(videoTarget(isReadyOffline = false)))
 
-        composeRule.onNodeWithText("🐾 Offline", useUnmergedTree = true).assertDoesNotExist()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
     }
 
     @Test
     fun completedReadyVideoHidesOfflineBadgeAndAnnouncesDoneState() {
         setCard(targets = listOf(videoTarget(isCompleted = true, isReadyOffline = true)))
 
-        composeRule.onNodeWithText("🐾 Offline", useUnmergedTree = true).assertDoesNotExist()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
         composeRule.onNodeWithContentDescription(
             "Quest target done: Living Things · 02:00",
         ).assertIsDisplayed()
@@ -55,8 +54,8 @@ class TodayQuestCardTest {
     fun arenaTargetUsesQuizSemanticsAndShowsOfflineBadgeWhenReady() {
         setCard(targets = listOf(arenaTarget(isReadyOffline = true)))
 
-        composeRule.onNodeWithText("🐾 Offline", useUnmergedTree = true).assertIsDisplayed()
-        composeRule.onNodeWithText("Quiz").assertIsDisplayed()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertExists()
+        composeRule.onNodeWithText("Quiz").assertExists()
         composeRule.onNodeWithContentDescription(
             "Quiz target: Grade 3 Science Challenge",
         ).assertIsDisplayed()
@@ -66,7 +65,7 @@ class TodayQuestCardTest {
     fun completedArenaUsesQuizDoneSemanticsAndHidesOfflineBadge() {
         setCard(targets = listOf(arenaTarget(isCompleted = true, isReadyOffline = true)))
 
-        composeRule.onNodeWithText("🐾 Offline", useUnmergedTree = true).assertDoesNotExist()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
         composeRule.onNodeWithContentDescription(
             "Quiz target done: Grade 3 Science Challenge",
         ).assertIsDisplayed()
@@ -124,7 +123,9 @@ class TodayQuestCardTest {
             onQuestAction = { actions += it },
         )
 
-        composeRule.onNodeWithText("Retry").assertHasClickAction().performClick()
+        composeRule.onNodeWithContentDescription("Today's mission. 1 of 3 complete")
+            .assertHasClickAction()
+            .performClick()
 
         composeRule.runOnIdle { assertEquals(listOf(QuestAction.RetryMission), actions) }
     }

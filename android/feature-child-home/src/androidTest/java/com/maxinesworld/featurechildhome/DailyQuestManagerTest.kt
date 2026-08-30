@@ -6,6 +6,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.coremodel.VideoQuestPlanner
+import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.DailyQuestCompletionEntity
 import com.maxinesworld.coredatabase.DailyQuestSetEntity
 import com.maxinesworld.coredatabase.MaxinesDatabase
@@ -16,6 +17,7 @@ import com.maxinesworld.corenetwork.MediaDownloader
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.corenetwork.MediaStorage
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featureparent.CaregiverPhraseRepository
 import com.maxinesworld.coredatabase.RewardEntity
 import java.io.File
 import kotlinx.coroutines.runBlocking
@@ -43,6 +45,16 @@ class DailyQuestManagerTest {
             .allowMainThreadQueries()
             .build()
         storageRoot = File(context.cacheDir, "daily-quest-test-${System.nanoTime()}")
+        runBlocking {
+            database.childProfileDao().upsert(
+                ChildProfileEntity(
+                    id = "child-1",
+                    parentId = "parent-1",
+                    name = "Test Child",
+                    filipinoProficiency = "INTERMEDIATE",
+                ),
+            )
+        }
     }
 
     @After
@@ -393,6 +405,8 @@ class DailyQuestManagerTest {
                 playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
                 videoWatchLedgerDao = database.videoWatchLedgerDao(),
             ),
+            caregiverPhraseRepository = CaregiverPhraseRepository(),
+            childProfileDao = database.childProfileDao(),
         )
     }
 
