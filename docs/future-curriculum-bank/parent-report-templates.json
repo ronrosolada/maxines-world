@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "templates": [
+    {
+      "id": "parent-weekly-en",
+      "language": "English",
+      "fields": [
+        "learnerName",
+        "week",
+        "strengths",
+        "skillsPracticed",
+        "needsSupport",
+        "nextSteps"
+      ],
+      "template": "{learnerName} practiced {skillsPracticed}. Strengths: {strengths}. Support needed: {needsSupport}. Next steps: {nextSteps}."
+    },
+    {
+      "id": "parent-weekly-fil",
+      "language": "Filipino",
+      "fields": [
+        "pangalan",
+        "linggo",
+        "kalakasan",
+        "kasanayangSinanay",
+        "kailanganNgTulong",
+        "susunodNaHakbang"
+      ],
+      "template": "Nagsanay si {pangalan} sa {kasanayangSinanay}. Kalakasan: {kalakasan}. Kailangan ng tulong: {kailanganNgTulong}. Susunod na hakbang: {susunodNaHakbang}."
+    }
+  ],
+  "unitReportData": [
+    {
+      "unitId": "mathematics-g3-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Place Value to 10,000 did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Place Value to 10,000 needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g3-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in 2-Step Word Problems with Bar Models did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in 2-Step Word Problems with Bar Models needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g3-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Understanding Unit Fractions did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Understanding Unit Fractions needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g3-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Area as Tiling and Multiplication did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Area as Tiling and Multiplication needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g4-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Multi-Digit Multiplication Strategies did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Multi-Digit Multiplication Strategies needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g4-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Long Division with Remainders did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Long Division with Remainders needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g4-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Equivalent Fractions and Common Denominators did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Equivalent Fractions and Common Denominators needs additional practice?"
+    },
+    {
+      "unitId": "mathematics-g4-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Perimeter and Area of Composite Shapes did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Perimeter and Area of Composite Shapes needs additional practice?"
+    },
+    {
+      "unitId": "science-g3-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Characteristics and Basic Needs of Living Things did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Characteristics and Basic Needs of Living Things needs additional practice?"
+    },
+    {
+      "unitId": "science-g3-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in States of Matter: Solids, Liquids, and Gases did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in States of Matter: Solids, Liquids, and Gases needs additional practice?"
+    },
+    {
+      "unitId": "science-g3-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Light, Heat, and Sound in Everyday Life did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Light, Heat, and Sound in Everyday Life needs additional practice?"
+    },
+    {
+      "unitId": "science-g3-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Earth, Weather, and Storm Safety did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Earth, Weather, and Storm Safety needs additional practice?"
+    },
+    {
+      "unitId": "science-g4-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Internal and External Plant & Animal Structures did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Internal and External Plant & Animal Structures needs additional practice?"
+    },
+    {
+      "unitId": "science-g4-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Chemical and Physical Changes in Materials did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Chemical and Physical Changes in Materials needs additional practice?"
+    },
+    {
+      "unitId": "science-g4-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Energy Transfer: Motion, Collisions, and Circuits did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Energy Transfer: Motion, Collisions, and Circuits needs additional practice?"
+    },
+    {
+      "unitId": "science-g4-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Earth Processes: Weathering, Erosion, and Ecosystems did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Earth Processes: Weathering, Erosion, and Ecosystems needs additional practice?"
+    },
+    {
+      "unitId": "english-g3-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Identifying Main Idea and Supporting Details did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Identifying Main Idea and Supporting Details needs additional practice?"
+    },
+    {
+      "unitId": "english-g3-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Context Clues and Vocabulary Acquisition did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Context Clues and Vocabulary Acquisition needs additional practice?"
+    },
+    {
+      "unitId": "english-g3-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Story Elements and Plot Sequencing did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Story Elements and Plot Sequencing needs additional practice?"
+    },
+    {
+      "unitId": "english-g3-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Making Inferences from Textual Evidence did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Making Inferences from Textual Evidence needs additional practice?"
+    },
+    {
+      "unitId": "english-g4-future-01",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Citing Evidence in Informational Texts did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Citing Evidence in Informational Texts needs additional practice?"
+    },
+    {
+      "unitId": "english-g4-future-02",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Analyzing Text Structures: Cause, Effect, and Chronology did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Analyzing Text Structures: Cause, Effect, and Chronology needs additional practice?"
+    },
+    {
+      "unitId": "english-g4-future-03",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Evaluating Author's Purpose and Point of View did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Evaluating Author's Purpose and Point of View needs additional practice?"
+    },
+    {
+      "unitId": "english-g4-future-04",
+      "language": "English",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "What specific concept in Figurative Language: Similes, Metaphors, and Personification did the learner demonstrate mastery of?",
+      "supportPrompt": "Which foundational prerequisite or calculation step in Figurative Language: Similes, Metaphors, and Personification needs additional practice?"
+    },
+    {
+      "unitId": "filipino-g3-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pangunahing Diwa at mga Sumusuportang Detalye ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pangunahing Diwa at mga Sumusuportang Detalye ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g3-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Paggamit ng mga Bahagi ng Pananalita (Pangngalan at Panghalip) ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Paggamit ng mga Bahagi ng Pananalita (Pangngalan at Panghalip) ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g3-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Kayarian at Aspekto ng Pandiwa ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Kayarian at Aspekto ng Pandiwa ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g3-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagsunod-sunod ng mga Pangyayari sa Kuwento ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagsunod-sunod ng mga Pangyayari sa Kuwento ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g4-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagtukoy sa Sanhi at Bunga sa Binasang Teksto ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagtukoy sa Sanhi at Bunga sa Binasang Teksto ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g4-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagtukoy sa Opinyon at Katotohanan ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagtukoy sa Opinyon at Katotohanan ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g4-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Paggamit ng Pang-uri at Kaantasan Nito ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Paggamit ng Pang-uri at Kaantasan Nito ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "filipino-g4-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pang-abay na Pamaraan, Pamanahon, at Panlunan ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pang-abay na Pamaraan, Pamanahon, at Panlunan ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g3-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Mga Sagisag at Simbolo sa Mapa ng Pamayanan ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Mga Sagisag at Simbolo sa Mapa ng Pamayanan ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g3-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Kultura, Tradisyon, at Pagkakakilanlan ng Pamayanan ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Kultura, Tradisyon, at Pagkakakilanlan ng Pamayanan ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g3-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Kabuhayan at Likas na Yaman sa Rehiyon ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Kabuhayan at Likas na Yaman sa Rehiyon ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g3-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Mga Namumuno at Paglilingkod sa Pamayanan ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Mga Namumuno at Paglilingkod sa Pamayanan ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g4-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Heograpiya at Teritoryo ng Pilipinas ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Heograpiya at Teritoryo ng Pilipinas ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g4-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pambansang Pagkakakilanlan at Pamanang Kultural ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pambansang Pagkakakilanlan at Pamanang Kultural ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g4-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Likas na Yaman at Likas-Kayang Pag-unlad ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Likas na Yaman at Likas-Kayang Pag-unlad ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "makabansa-g4-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Mga Karapatan at Tungkulin ng Mamamayang Pilipino ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Mga Karapatan at Tungkulin ng Mamamayang Pilipino ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g3-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Paggalang sa Sarili, Pamilya, at Kapwa ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Paggalang sa Sarili, Pamilya, at Kapwa ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g3-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Katapatan sa Salita at sa Gawa ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Katapatan sa Salita at sa Gawa ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g3-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagkamasunurin at Disiplina sa Sarili ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagkamasunurin at Disiplina sa Sarili ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g3-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagmamalasakit at Pagtulong sa Kapwa (Empathy) ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagmamalasakit at Pagtulong sa Kapwa (Empathy) ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g4-future-01",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Mapanuring Pagpapasya at Pananagutan sa Bunga ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Mapanuring Pagpapasya at Pananagutan sa Bunga ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g4-future-02",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pangangalaga sa Kalikasan at Likas na Yaman ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pangangalaga sa Kalikasan at Likas na Yaman ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g4-future-03",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pagpapahalaga sa Karunungan at Pagiging Mapanuri ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pagpapahalaga sa Karunungan at Pagiging Mapanuri ang nangangailangan pa ng karagdagang pagsasanay?"
+    },
+    {
+      "unitId": "gmrc-g4-future-04",
+      "language": "Filipino",
+      "metrics": [
+        "itemsAttempted",
+        "itemsCorrect",
+        "hintUse",
+        "remediationLevel"
+      ],
+      "strengthPrompt": "Anong tiyak na konsepto sa Pambansang Pagkakaisa at Pagmamahal sa Bayan (Patriotism) ang naipamalas ng mag-aaral nang may kahusayan?",
+      "supportPrompt": "Aling batayang kasanayan o hakbang sa Pambansang Pagkakaisa at Pagmamahal sa Bayan (Patriotism) ang nangangailangan pa ng karagdagang pagsasanay?"
+    }
+  ]
+}
