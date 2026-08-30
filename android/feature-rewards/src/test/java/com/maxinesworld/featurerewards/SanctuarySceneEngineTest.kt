@@ -1,19 +1,19 @@
 package com.maxinesworld.featurerewards
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class SanctuarySceneEngineTest {
-    @Test fun catalogMapsFourSignatureSpeciesToRequiredHabitats() {
+    @Test fun catalogContainsExpandedIconicRosterWithBilingualFacts() {
+        assertTrue(SanctuarySpeciesCatalog.species.size >= 10)
         val expected = mapOf(
-            "badge_philippine_eagle" to "sanctuary-lookout",
-            "badge_philippine_tarsier" to "sanctuary-tree",
-            "badge_tamaraw" to "sanctuary-meadow",
-            "badge_sinarapan" to "sanctuary-pond",
+            "badge_peacock_pheasant" to "habitat-forest-floor", "badge_cebu_flowerpecker" to "habitat-canopy",
+            "badge_spotted_deer" to "sanctuary-meadow", "badge_pangolin" to "sanctuary-tree",
+            "badge_flying_fox" to "habitat-tall-trees", "badge_philippine_crocodile" to "sanctuary-pond",
         )
-        assertEquals(expected, SanctuarySpeciesCatalog.species.associate { it.badgeId to it.primaryHabitatId })
-        assertTrue(SanctuarySpeciesCatalog.species.all { it.factEnglish.isNotBlank() && it.factFilipino.isNotBlank() })
+        expected.forEach { (badge, habitat) -> assertEquals(habitat, SanctuarySpeciesCatalog.requireByBadgeId(badge).primaryHabitatId) }
+        assertTrue(SanctuarySpeciesCatalog.species.all { it.factEnglish.isNotBlank() && it.factFilipino.isNotBlank() && it.signatureBehavior.isNotBlank() })
+        assertEquals(SanctuarySpeciesCatalog.species.size, SanctuarySpeciesCatalog.species.map { it.animalAssetId }.distinct().size)
     }
 
     @Test fun residentRequiresBothBadgeAndCompatibleUnlockedHabitat() {
@@ -23,36 +23,40 @@ class SanctuarySceneEngineTest {
         assertEquals("badge_philippine_eagle", engine.build(setOf("sanctuary-lookout"), setOf("badge_philippine_eagle"), 7).residents.single().species.badgeId)
     }
 
-    @Test fun sameSeedProducesSameOrderingAndAnchors() {
+    @Test fun sameSeedProducesSameOrderingAndValidDistinctAnchors() {
         val habitats = SanctuarySpeciesCatalog.species.map { it.primaryHabitatId }.toSet()
         val badges = SanctuarySpeciesCatalog.species.map { it.badgeId }.toSet()
-        assertEquals(engine().build(habitats, badges, 20260830), engine().build(habitats, badges, 20260830))
+        val scene = SanctuarySceneEngine().build(habitats, badges, 20260830)
+        assertEquals(scene, SanctuarySceneEngine().build(habitats, badges, 20260830))
+        assertEquals(SanctuarySpeciesCatalog.species.size, scene.residents.size)
+        assertTrue(scene.residents.all { it.anchor.x in 0f..1f && it.anchor.y in 0f..1f && it.anchor.scale > 0f && it.anchor.layerDepth in 0f..1f })
+        assertEquals(scene.residents.size, scene.residents.map { it.anchor.x to it.anchor.y }.distinct().size)
     }
 
-    @Test fun anchorsAreNormalizedAndLayered() {
-        val scene = engine().build(
-            SanctuarySpeciesCatalog.species.map { it.primaryHabitatId }.toSet(),
-            SanctuarySpeciesCatalog.species.map { it.badgeId }.toSet(), 1,
-        )
-        assertTrue(scene.residents.all { it.anchor.x in 0f..1f && it.anchor.y in 0f..1f })
-        assertTrue(scene.residents.all { it.anchor.scale > 0f && it.anchor.zIndex >= 0f && it.anchor.layerDepth in 0f..1f })
+    @Test fun dayNightEligibilityWakesNocturnalAndRestsDiurnalSpecies() {
+        assertEquals(SanctuaryTimePeriod.MORNING_DAY, SanctuaryCareEngine.timePeriod(6))
+        assertEquals(SanctuaryTimePeriod.DUSK, SanctuaryCareEngine.timePeriod(17))
+        assertEquals(SanctuaryTimePeriod.NIGHT, SanctuaryCareEngine.timePeriod(19))
+        assertTrue(SanctuaryCareEngine.isAwake(WildlifeActivityPeriod.NOCTURNAL, SanctuaryTimePeriod.NIGHT))
+        assertFalse(SanctuaryCareEngine.isAwake(WildlifeActivityPeriod.DIURNAL, SanctuaryTimePeriod.NIGHT))
+        assertTrue(SanctuaryCareEngine.isAwake(WildlifeActivityPeriod.DIURNAL, SanctuaryTimePeriod.MORNING_DAY))
     }
 
-    private fun engine() = SanctuarySceneEngine()
+    @Test fun feedingAcceptsPreferredTreatAndReturnsBilingualObservation() {
+        val fox = SanctuarySpeciesCatalog.requireByBadgeId("badge_flying_fox")
+        assertEquals(SanctuaryTreat.SWEET_NECTAR, SanctuaryCareEngine.preferredTreat(fox))
+        val happy = SanctuaryCareEngine.feed(fox, SanctuaryTreat.SWEET_NECTAR)
+        assertTrue(happy.accepted); assertTrue(happy.messageEnglish.contains(fox.nameEnglish)); assertTrue(happy.messageFilipino.isNotBlank())
+        assertFalse(SanctuaryCareEngine.feed(fox, SanctuaryTreat.RIVER_MINNOW).accepted)
+    }
 }
 
 class WildlifeHabitatAffinityTest {
     @Test fun badgeAndAssetIdsResolveToSameSpecies() {
-        val eagle = SanctuarySpeciesCatalog.requireByBadgeId("badge_philippine_eagle")
-        assertEquals(eagle, SanctuarySpeciesCatalog.byAnimalAssetId("bird_philippine_eagle"))
+        SanctuarySpeciesCatalog.species.forEach { assertEquals(it, SanctuarySpeciesCatalog.byAnimalAssetId(it.animalAssetId)) }
     }
-
     @Test fun alternateHabitatAlsoMakesResidentEligible() {
-        val scene = SanctuarySceneEngine().build(
-            unlockedHabitats = setOf("habitat-tall-trees"),
-            earnedBadges = setOf("badge_philippine_eagle"),
-            dateSeed = 9,
-        )
+        val scene = SanctuarySceneEngine().build(setOf("habitat-tall-trees"), setOf("badge_philippine_eagle"), 9)
         assertEquals(1, scene.residents.size)
     }
 }
