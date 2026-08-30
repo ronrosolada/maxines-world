@@ -104,6 +104,12 @@ class AppUpdateManager @Inject constructor(
         }
         // Sidecars commonly carry "<hex>  <filename>"; compare on the leading hash token.
         val expectedToken = expectedSha256.split(whitespace).firstOrNull()?.lowercase().orEmpty()
+        if (!expectedToken.matches(SHA256_PATTERN)) {
+            apkFile.delete()
+            return@withContext AppUpdateResult.Rejected(
+                "Update rejected: checksum is not a 64-character SHA-256 value."
+            )
+        }
         if (expectedToken != actualSha256) {
             apkFile.delete()
             return@withContext AppUpdateResult.Rejected(
@@ -236,6 +242,7 @@ class AppUpdateManager @Inject constructor(
         private const val DOWNLOAD_BUFFER_BYTES = 8_192
 
         private val whitespace = Regex("\\s+")
+        private val SHA256_PATTERN = Regex("^[a-f0-9]{64}$")
 
         /** Lowercase hex SHA-256 of [file], streamed in 8 KiB chunks. */
         fun sha256Hex(file: File): String {
