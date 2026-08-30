@@ -143,7 +143,7 @@ fun QuickBitsScreen(
                         )
                     )
                 )
-                .padding(top = 12.dp, bottom = 28.dp, start = 16.dp, end = 16.dp)
+                .padding(top = 16.dp, bottom = 32.dp, start = 16.dp, end = 16.dp)
         ) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Row(
@@ -182,7 +182,7 @@ fun QuickBitsScreen(
                         Spacer(Modifier.width(8.dp))
                         Surface(
                             color = SunshineGold,
-                            shape = RoundedCornerShape(6.dp)
+                            shape = RoundedCornerShape(12.dp)
                         ) {
                             Text(
                                 "${state.items.size.coerceAtLeast(60)} Shorts",
@@ -253,10 +253,10 @@ fun QuickBitsScreen(
                         val isSelected = state.selectedCategory.equals(cat, ignoreCase = true)
                         val label = when (cat.lowercase()) {
                             "all" -> "All Shorts"
-                            "animals" -> "🐾 Animals"
-                            "space" -> "🚀 Space"
-                            "science" -> "🔬 Science"
-                            "math" -> "🔢 Math"
+                            "animals" -> "Animals"
+                            "space" -> "Space"
+                            "science" -> "Science"
+                            "math" -> "Math"
                             else -> cat.replaceFirstChar { it.uppercase() }
                         }
                         Surface(
@@ -577,7 +577,7 @@ private fun QuickBitTikTokPage(
                             else -> SunshineGold to itemUi.item.category
                         }
                         Surface(
-                            shape = RoundedCornerShape(6.dp),
+                            shape = RoundedCornerShape(12.dp),
                             color = catColor,
                             modifier = Modifier.padding(end = 8.dp)
                         ) {
@@ -592,7 +592,7 @@ private fun QuickBitTikTokPage(
 
                         if (itemUi.isDownloaded) {
                             Surface(
-                                shape = RoundedCornerShape(6.dp),
+                                shape = RoundedCornerShape(12.dp),
                                 color = SuccessGreen
                             ) {
                                 Row(

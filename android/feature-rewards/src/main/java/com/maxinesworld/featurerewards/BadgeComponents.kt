@@ -50,7 +50,7 @@ fun BadgeCard(
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (badge.isCollected) 4.dp else 0.dp)
     ) {
-        Column(Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             // Badge token
             Box(Modifier.size(72.dp), contentAlignment = Alignment.Center) {
                 if (badge.isCollected) {
@@ -109,7 +109,7 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
     val biome = BadgeBiome.fromId(badge.biome)
     val accentColor = Color(biome.colorHex)
 
-    Card(Modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(24.dp),
+    Card(Modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = White), elevation = CardDefaults.cardElevation(8.dp)) {
         Column(Modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
@@ -141,7 +141,7 @@ fun BadgeDetailSheet(badge: CollectibleBadge, onDismiss: () -> Unit) {
             }
             Spacer(Modifier.height(16.dp))
             if (badge.isCollected) {
-                Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 24.sp, color = accentColor, textAlign = TextAlign.Center)
+                Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = accentColor, textAlign = TextAlign.Center)
                 Text(badge.name, fontSize = 16.sp, color = Ink.copy(alpha = 0.6f))
             } else {
                 Text("Undiscovered Animal", fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.Black.copy(alpha = 0.3f))

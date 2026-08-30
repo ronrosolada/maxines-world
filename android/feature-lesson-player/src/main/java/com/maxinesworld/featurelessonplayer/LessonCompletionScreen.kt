@@ -99,9 +99,9 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(32.dp),
+                .padding(horizontal = 24.dp, vertical = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically),
         ) {
             val lang = state.lesson?.languageOfInstruction
             Text(
@@ -117,17 +117,17 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             Text(
                 "${(accuracy * 100).toInt()}%",
                 fontWeight = FontWeight.Bold,
-                fontSize = 48.sp,
+                fontSize = 44.sp,
                 color = if (accuracy >= 0.8f) SuccessGreenText else HeritageGold,
             )
 
             Card(
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
+                shape = androidx.compose.foundation.shape.RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(containerColor = SunshineGold.copy(alpha = 0.1f)),
             ) {
                 androidx.compose.foundation.layout.Row(
                     Modifier.padding(16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(32.dp),
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(Icons.Default.Star, lessonUiText(lang, "Stars", "Mga bituin"), tint = SunshineGold, modifier = Modifier.height(28.dp))
@@ -171,7 +171,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                 }
             }
 
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(32.dp))
             val rewardGateReduce = LocalAnimationsDisabled.current
             val rewardPop by androidx.compose.animation.core.animateFloatAsState(
                 targetValue = if (state.rewardBreakId != null) 1f else 0.92f,

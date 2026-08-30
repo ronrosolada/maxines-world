@@ -151,7 +151,7 @@ fun MiniGameWebScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(game.title) },
+                title = { Text(game.title, maxLines = 2) },
                 navigationIcon = {
                     IconButton(onClick = { showExitConfirmation = true }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Leave game")
@@ -159,13 +159,13 @@ fun MiniGameWebScreen(
                 },
                 actions = {
                     Row(
-                        modifier = Modifier.padding(end = 8.dp),
+                        modifier = Modifier.padding(end = 12.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Icon(Icons.Default.Timer, contentDescription = "Time remaining", tint = VillageTeal)
                         Text(
                             formatRemaining(remainingMillis),
-                            modifier = Modifier.padding(start = 4.dp),
+                            modifier = Modifier.padding(start = 8.dp),
                             style = MaterialTheme.typography.labelLarge,
                             color = VillageTeal,
                         )
@@ -296,7 +296,7 @@ private fun MiniGameUnavailable(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Text("🎮", style = MaterialTheme.typography.displaySmall)
+            Text("", style = MaterialTheme.typography.displaySmall)
             Text(message, color = Ink)
             TextButton(onClick = onBack) { Text("Back") }
         }

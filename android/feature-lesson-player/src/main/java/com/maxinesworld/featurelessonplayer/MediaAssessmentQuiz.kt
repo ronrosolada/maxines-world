@@ -2,6 +2,7 @@ package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coremodel.MediaAssessment
 
+/** Stable quiz state kept independent from the quieter assessment presentation layer. */
 data class MediaAssessmentQuizState(
     val mediaId: String,
     val questionIndex: Int = 0,

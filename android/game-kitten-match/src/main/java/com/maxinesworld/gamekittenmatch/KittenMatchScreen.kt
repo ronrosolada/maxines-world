@@ -86,14 +86,14 @@ fun KittenMatchScreen(
     }
 
     Box(modifier.fillMaxSize().background(Cream)) {
-        Column(Modifier.fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Header("Kitten Match", ui.remainingMillis, ui.durationMillis, viewModel::pause) { showExit = true }
             Text(ui.game.feedback, color = Ink, fontSize = 19.sp, fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
             Text("Pairs found: ${ui.game.matchedPairs}", color = Teal, fontWeight = FontWeight.Bold)
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(96.dp), modifier = Modifier.weight(1f).fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
+                columns = GridCells.Adaptive(104.dp), modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(ui.game.cards, key = { it.slot }) { card ->
                     CardTile(card) { viewModel.flip(card.slot); if (soundEnabled) sounds.tap() }
@@ -166,7 +166,7 @@ private fun Header(title: String, remaining: Long, duration: Long, onPause: () -
 private fun PauseOverlay(onResume: () -> Unit) {
     Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = .72f)).clickable(onClick = onResume),
         contentAlignment = Alignment.Center) {
-        Card(shape = RoundedCornerShape(28.dp)) {
+        Card(shape = RoundedCornerShape(20.dp)) {
             Column(Modifier.padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(Icons.Default.Pause, null, Modifier.size(56.dp), tint = Teal)
                 Text("Paused", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Ink)

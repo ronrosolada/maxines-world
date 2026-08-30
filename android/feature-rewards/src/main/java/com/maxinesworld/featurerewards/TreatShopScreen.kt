@@ -43,6 +43,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.SetMeal
@@ -126,7 +127,7 @@ fun TreatShopContent(
                 title = { Text("Milo's Sanctuary Workshop") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Text("‹", fontSize = 32.sp, color = TreatShopInk)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = TreatShopInk)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = TreatShopCream),
@@ -134,14 +135,14 @@ fun TreatShopContent(
         },
     ) { padding ->
         Column(
-            modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 16.dp),
+            modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 24.dp),
         ) {
             Text(
                 "Use tokens from your lessons to add a decoration to Milo's sanctuary.",
                 style = MaterialTheme.typography.bodyLarge,
                 color = TreatShopInk,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(16.dp))
             Text(
                 "${state.coins} sanctuary tokens",
                 fontWeight = FontWeight.ExtraBold,
@@ -164,7 +165,7 @@ fun TreatShopContent(
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(vertical = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 items(TreatShopCatalog.items, key = { it.id }) { item ->
                     val owned = item.id in state.ownedItemIds
@@ -190,6 +191,7 @@ private fun TreatShopItemCard(
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.White),
     ) {
         Row(

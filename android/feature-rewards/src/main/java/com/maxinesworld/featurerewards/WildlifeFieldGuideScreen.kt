@@ -133,7 +133,7 @@ fun WildlifeFieldGuideScreen(
                         val biomeBadges = allBadges.filter { it.biome == biome.name.lowercase() }
                         val biomeCollected = biomeBadges.count { it.isCollected }
                         val accent = Color(biome.colorHex)
-                        Card(Modifier.fillMaxWidth().padding(16.dp, 12.dp, 16.dp, 4.dp), shape = RoundedCornerShape(16.dp),
+                        Card(Modifier.fillMaxWidth().padding(16.dp, 16.dp, 16.dp, 8.dp), shape = RoundedCornerShape(20.dp),
                             colors = CardDefaults.cardColors(containerColor = accent.copy(alpha = 0.08f))) {
                             Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
                                 Icon(Icons.Default.Park, biome.displayName, tint = accent, modifier = Modifier.size(28.dp))
@@ -150,7 +150,7 @@ fun WildlifeFieldGuideScreen(
                     is FieldGuideItem.BadgeRow -> {
                         val accent = Color(item.biome.colorHex)
                         Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp),
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             item.badges.forEach { badge ->
                                 PokemonStyleBadgeSlot(badge, accent, Modifier.weight(1f).aspectRatio(1f)) {
                                     selectedBadge = badge
@@ -227,7 +227,7 @@ private fun PokemonStyleBadgeSlot(
     ) {
         Box(modifier, contentAlignment = Alignment.Center) {
             if (badge.isCollected) {
-                // ✨ Earned — full color, scalloped frame glow
+                //  Earned — full color, scalloped frame glow
                 Canvas(Modifier.fillMaxSize(0.75f)) {
                     drawCircle(accent.copy(alpha = 0.2f), radius = size.minDimension / 2)
                     drawCircle(accent.copy(alpha = 0.08f), radius = size.minDimension / 2.4f)
@@ -490,7 +490,7 @@ fun WildlifeExpeditionProgressRow(progress: ChallengeProgress) {
             color = VillageTeal,
         )
         Spacer(Modifier.height(8.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
             subjects.forEach { (name, done, icon) ->
                 Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(Modifier.size(40.dp).clip(CircleShape)

@@ -82,7 +82,7 @@ internal fun VideoStep(
         ?.let(::File)
         ?.takeIf { it.isFile && it.length() > 0L }
 
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(
             text = step.question,
             style = MaterialTheme.typography.headlineSmall,
@@ -149,11 +149,11 @@ private fun MediaStatusCard(
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Cream),
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(20.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             icon()
