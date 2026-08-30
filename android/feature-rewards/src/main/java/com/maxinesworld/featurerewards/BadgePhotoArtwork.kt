@@ -74,6 +74,18 @@ private val BADGE_PHOTO_RESOURCES = mapOf(
     "animal_photo_reptile_sailfin_lizard" to R.drawable.animal_photo_reptile_sailfin_lizard,
     "animal_photo_reptile_samar_cobra" to R.drawable.animal_photo_reptile_samar_cobra,
     "animal_photo_reptile_sierra_madre_monitor" to R.drawable.animal_photo_reptile_sierra_madre_monitor,
+    "animal_photo_mammal_palawan_stink_badger" to R.drawable.animal_photo_mammal_palawan_stink_badger,
+    "animal_photo_mammal_dinagat_gymnure" to R.drawable.animal_photo_mammal_dinagat_gymnure,
+    "animal_photo_mammal_negros_fruit_bat" to R.drawable.animal_photo_mammal_negros_fruit_bat,
+    "animal_photo_mammal_panay_cloudrunner" to R.drawable.animal_photo_mammal_panay_cloudrunner,
+    "animal_photo_mammal_tube_nosed_fruit_bat" to R.drawable.animal_photo_mammal_tube_nosed_fruit_bat,
+    "animal_photo_bird_sulu_hornbill" to R.drawable.animal_photo_bird_sulu_hornbill,
+    "animal_photo_bird_apo_myna" to R.drawable.animal_photo_bird_apo_myna,
+    "animal_photo_bird_luzon_water_redstart" to R.drawable.animal_photo_bird_luzon_water_redstart,
+    "animal_photo_bird_palawan_flycatcher" to R.drawable.animal_photo_bird_palawan_flycatcher,
+    "animal_photo_reptile_polillo_forest_dragon" to R.drawable.animal_photo_reptile_polillo_forest_dragon,
+    "animal_photo_reptile_cebu_small_worm_skink" to R.drawable.animal_photo_reptile_cebu_small_worm_skink,
+    "animal_photo_amphibian_palawan_horned_frog" to R.drawable.animal_photo_amphibian_palawan_horned_frog,
 )
 
 @Composable

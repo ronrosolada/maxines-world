@@ -5,7 +5,7 @@ import org.junit.Test
 
 class SanctuarySceneEngineTest {
     @Test fun catalogContainsExpandedIconicRosterWithBilingualFacts() {
-        assertEquals(51, SanctuarySpeciesCatalog.species.size)
+        assertEquals(63, SanctuarySpeciesCatalog.species.size)
         val expected = mapOf(
             "badge_mammal_tarsier" to "sanctuary-meadow", "badge_mammal_tamaraw" to "sanctuary-meadow",
             "badge_bird_eagle" to "sanctuary-lookout", "badge_bird_peacock_pheasant" to "sanctuary-lookout",
